@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "lib": ["ES5", "ES6", "ESNext", "DOM"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noEmit": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "target": "ESNext",
+    "inlineSourceMap": true
+  }
+}

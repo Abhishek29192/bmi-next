@@ -8,5 +8,8 @@
     "./applications/**",
     "./components/**",
     "./tools/**"
-  ]
+  ],
+  "devDependencies": {
+    "typescript": "^3.9.3"
+  }
 }
