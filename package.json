@@ -9,6 +9,10 @@
     "./components/**",
     "./tools/**"
   ],
+  "scripts": {
+    "workbench": "styleguidist server",
+    "workbench:build": "styleguidist build"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
@@ -24,12 +28,18 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.3",
+    "react-styleguidist": "^11.0.8",
+    "ts-loader": "^7.0.5",
+    "webpack": "^4.43.0"
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "react-dom": "^16.13.1"
   }
 }
