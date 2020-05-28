@@ -7,4 +7,4 @@ describe("Button component", () => {
     const { container } = render(<Button label={"Hello World"} />);
     expect(container.firstChild).toMatchSnapshot();
   });
-})
+});
