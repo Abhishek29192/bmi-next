@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: ["json", "lcov", "text", "text-summary"],
