@@ -11,26 +11,41 @@
   ],
   "scripts": {
     "workbench": "styleguidist server",
-    "workbench:build": "styleguidist build"
+    "workbench:build": "styleguidist build",
+    "build": "tsc"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^3.0.0",
-    "@typescript-eslint/parser": "^3.0.0",
-    "eslint": "^6.8.0",
+    "@testing-library/react": "^10.0.4",
+    "@types/jest": "^25.2.3",
+    "@types/react": "^16.9.35",
+    "@typescript-eslint/eslint-plugin": "^3.0.2",
+    "@typescript-eslint/parser": "^3.0.2",
+    "babel-jest": "^26.0.1",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.13.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint": "^7.1.0",
+    "html-tags": "^3.1.0",
     "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.0.1",
     "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
-    "typescript": "^3.9.3",
+    "react-dom": "^16.13.1",
     "react-styleguidist": "^11.0.8",
+    "react": "^16.13.1",
+    "ts-jest": "^26.0.0",
     "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3",
     "webpack": "^4.43.0"
   },
   "husky": {
@@ -38,8 +53,5 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
-  },
-  "dependencies": {
-    "react-dom": "^16.13.1"
   }
 }
