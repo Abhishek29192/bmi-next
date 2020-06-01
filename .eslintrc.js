@@ -9,7 +9,11 @@ module.exports = {
     es6: true,
     node: true
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
@@ -22,9 +26,9 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "script"
   },
-  plugins: ["react", "prettier"],
+  plugins: ["react"],
   rules: {
-    "prettier/prettier": ["error", { trailingComma: "none" }],
+    "prettier/prettier": "error",
     strict: "error",
     "padding-line-between-statements": [
       "error",
