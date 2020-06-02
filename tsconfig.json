@@ -12,8 +12,5 @@
     "target": "ESNext",
     "inlineSourceMap": true
   },
-  "exclude": [
-    "**/__tests__/**",
-    "**/dist/**"
-  ]
+  "exclude": ["**/__tests__/**", "**/dist/**"]
 }
