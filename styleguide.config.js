@@ -1,3 +1,5 @@
+"use strict";
+
 const path = require("path");
 const fs = require("fs");
 
@@ -20,7 +22,7 @@ module.exports = {
     return `import ${componentName} from ${importPath};`;
   },
   getExampleFilename: (componentPath) => {
-    const componentName = path.basename(componentPath).replace(/\.tsx/, "");
+    const componentName = path.basename(componentPath, ".tsx");
     const specificComponentExampleFile = path
       .join(componentPath, `../../${componentName}.md`)
       .replace();
@@ -43,9 +45,9 @@ module.exports = {
         {
           test: /\.tsx?$/,
           exclude: /node_modules/,
-          loader: "ts-loader",
-        },
-      ],
-    },
-  },
+          loader: "ts-loader"
+        }
+      ]
+    }
+  }
 };
