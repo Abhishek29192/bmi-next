@@ -14,7 +14,8 @@
     "coverage:jest": "jest --coverage",
     "coverage:ts": "typescript-coverage-report",
     "workbench": "styleguidist server",
-    "workbench:build": "styleguidist build"
+    "workbench:build": "styleguidist build",
+    "run-apollo": "yarn workspace @bmi/apollo-server run start"
   },
   "husky": {
     "hooks": {
