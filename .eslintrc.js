@@ -1,9 +1,5 @@
 "use strict";
 
-const htmlTags = require("html-tags");
-const webOnlyProps = ["className"];
-const webOnlyImports = ["react-dom", "*.css", "*.scss"];
-
 module.exports = {
   env: {
     es6: true,
@@ -45,42 +41,7 @@ module.exports = {
       },
       excludedFiles: ["*.test.tsx"],
       rules: {
-        "react/forbid-elements": [
-          "error",
-          {
-            forbid: htmlTags.map((tag) => ({
-              element: tag,
-              message: "consider a .web.ts(x) file"
-            }))
-          }
-        ],
-        "react/forbid-dom-props": ["error", { forbid: webOnlyProps }],
-        "react/forbid-component-props": ["error", { forbid: webOnlyProps }],
-        "no-restricted-imports": [
-          "error",
-          {
-            paths: [
-              ...webOnlyImports.map((name) => ({
-                name,
-                message: "consider a .web.ts(x) file"
-              }))
-            ]
-          }
-        ],
         "no-console": "error"
-      }
-    },
-    {
-      files: ["*.web.{ts,tsx}"],
-      env: {
-        browser: true,
-        node: false
-      },
-      rules: {
-        "react/forbid-elements": "off",
-        "react/forbid-dom-props": "off",
-        "react/forbid-component-props": "off",
-        "no-restricted-imports": ["error", { paths: [] }]
       }
     },
     {
