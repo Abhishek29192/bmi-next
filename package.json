@@ -5,9 +5,9 @@
   "license": "MIT",
   "main": "index.js",
   "workspaces": [
-    "./applications/**",
-    "./components/**",
-    "./tools/**"
+    "applications/**",
+    "components/**",
+    "tools/**"
   ],
   "scripts": {
     "build": "tsc",
