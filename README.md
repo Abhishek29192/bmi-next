@@ -57,13 +57,13 @@ Before running the website, make sure you copy the `.env.example` file to `.env.
 To run develop
 
 ```shell
-$ yarn workspace @bmi/head run gatsby develop
+$ yarn dev
 ```
 
 To build the production ready website
 
 ```shell
-$ yarn workspace @bmi/head run gatsby build
+$ yarn start
 ```
 
 ### Workbench
