@@ -1,0 +1,15 @@
+{
+  "name": "@bmi/schema-defs",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "graphql": "^15.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.5"
+  }
+}
