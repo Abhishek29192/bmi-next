@@ -4,13 +4,11 @@
   "license": "UNLICENSED",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "watch": "tsc -w"
   },
-  "dependencies": {
-    "graphql": "^15.1.0"
-  },
   "devDependencies": {
+    "apollo-server": "^2.14.3",
     "typescript": "^3.9.5"
   }
 }
