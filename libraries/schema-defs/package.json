@@ -1,6 +1,7 @@
 {
   "name": "@bmi/schema-defs",
   "version": "0.0.0",
+  "license": "UNLICENSED",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
