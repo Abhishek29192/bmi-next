@@ -1,4 +1,4 @@
 export type Product = {
   name: string;
-  description?: string;
+  description: string | null;
 };
