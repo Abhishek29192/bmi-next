@@ -1,0 +1,38 @@
+image: node:10
+
+stages:
+  - install
+  # - build
+  - check
+  # - deploy
+
+install:
+  stage: install
+  script:
+    - yarn install
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    untracked: true
+  artifacts:
+    untracked: true
+    expire_in: 30 mins
+
+coverage_jest:
+  stage: check
+  script:
+    - yarn run coverage:jest
+  dependencies:
+    - install
+  artifacts:
+    paths:
+      - coverage
+
+coverage_ts:
+  stage: check
+  script:
+    - yarn run coverage:ts
+  dependencies:
+    - install
+  artifacts:
+    paths:
+      - coverage-ts
