@@ -1,5 +1,12 @@
 "use strict";
 
+const getCredentialData = require("./src/utils/get-credentials-data");
+require("dotenv").config({
+  path: `./.env.${process.env.NODE_ENV}`
+});
+
+const contentfulCredentialData = getCredentialData(process.env);
+
 module.exports = {
   siteMetadata: {
     title: `BMI dxb`,
@@ -27,9 +34,30 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`
       }
-    }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    },
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        // jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true // defaults to false
+      }
+    },
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "BMI",
+        fieldName: "BMI",
+        url: process.env.API_GATEWAY_URL
+      }
+    },
+    ...contentfulCredentialData.map(({ spaceId, accessToken }) => ({
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId,
+        accessToken
+      }
+    })),
+    `gatsby-plugin-offline`
   ]
 };
