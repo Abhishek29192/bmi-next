@@ -46,7 +46,13 @@ $ yarn workspace @bmi/button add @bmi/icon@0.0.0
 
 ### Website
 
-We use [Gatsby](https://www.gatsbyjs.org/) to generate static website.
+We use [Gatsby](https://www.gatsbyjs.org/) to generate static website and it's data comes from the `gatsby-source-contentful` plugin and the `gatsby-source-graphql` plugin - connected to the apollo server. The latter requires a graphql endpoint, specified in the configuration file. During development [run the Apollo server locally] and link it in your `.env` file (see below).
+
+#### Configuration
+
+Before running the website, make sure you copy the `.env.example` file to `.env.development` (based on the `NODE_ENV`).
+
+#### Run Gatsby
 
 To run develop
 
@@ -54,7 +60,7 @@ To run develop
 $ yarn workspace @bmi/head run gatsby develop
 ```
 
-To run production
+To build the production ready website
 
 ```shell
 $ yarn workspace @bmi/head run gatsby build
@@ -69,6 +75,18 @@ To install React Styleguidist
 ```shell
 $ yarn workbench
 ```
+
+### Apollo Server
+
+To run the Apollo server, use the following command:
+
+```shell
+$ yarn run-apollo
+```
+
+It will be run an express app on port `4000`.
+
+_See more information in the [Apollo section](./applications/apollo-server/README.md)._
 
 ## Contributing
 
