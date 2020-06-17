@@ -1,10 +1,23 @@
-import { ApolloServer } from "apollo-server";
+import { ApolloServer, makeExecutableSchema } from "apollo-server";
 import resolvers from "./src/resolvers";
-import typeDefs from "@bmi/schema-defs";
+import typeDefs from "@bmi/schema-defs/src";
 
-const server: ApolloServer = new ApolloServer({ typeDefs, resolvers });
+const runServer = async () => {
+  const schema = makeExecutableSchema({ typeDefs, resolvers });
 
-server.listen().then(({ url }) => {
+  const server: ApolloServer = new ApolloServer({
+    schema
+  });
+
+  server.listen().then(({ url }) => {
+    // eslint-disable-next-line no-console
+    console.log(`🚀  Server ready at ${url}`);
+  });
+};
+
+try {
+  runServer();
+} catch (err) {
   // eslint-disable-next-line no-console
-  console.log(`🚀  Server ready at ${url}`);
-});
+  console.error("Error running Apollo server:", err);
+}
