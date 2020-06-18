@@ -57,13 +57,13 @@ Before running the website, make sure you copy the `.env.example` file to `.env.
 To run develop
 
 ```shell
-$ yarn workspace @bmi/head run gatsby develop
+$ yarn dev
 ```
 
 To build the production ready website
 
 ```shell
-$ yarn workspace @bmi/head run gatsby build
+$ yarn start
 ```
 
 ### Workbench
@@ -78,7 +78,9 @@ $ yarn workbench
 
 ### Apollo Server
 
-To run the Apollo server, use the following command:
+First follow the instructions on [Confluence](https://bmigroup.atlassian.net/wiki/spaces/BMIP/pages/839582011/3.3.2.3+Web+service+OCC+V2+API) to get an access token. Copy `applications/apollo-server/.env.example` to `applications/apollo-server/.env` and replace the access token.
+
+To start the Apollo server, run:
 
 ```shell
 $ yarn run-apollo

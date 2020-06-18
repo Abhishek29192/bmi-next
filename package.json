@@ -11,6 +11,8 @@
     "tools/**"
   ],
   "scripts": {
+    "dev": "yarn workspace @bmi/head run dev",
+    "start": "yarn workspace @bmi/head run start",
     "build": "tsc",
     "coverage:jest": "jest --coverage",
     "coverage:ts": "typescript-coverage-report",
