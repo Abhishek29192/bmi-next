@@ -1,13 +1,23 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
+import { Json, Site } from "./types";
 
-// TODO: Type this
-type Props = {
-  data: null | any;
+type Page<T> = {
+  data: null | T;
 };
 
-const ProductListingPage = ({ data }: Props) => {
+type Props = {
+  site: Site;
+  contentfulProductListing: ContentfulProductListingPage;
+};
+
+type ContentfulProductListingPage = {
+  title: string;
+  category: Json;
+};
+
+const ProductListingPage = ({ data }: Page<Props>) => {
   if (!data) {
     // TODO: Have this logic elsewhere
     return <p>Something went wrong</p>;

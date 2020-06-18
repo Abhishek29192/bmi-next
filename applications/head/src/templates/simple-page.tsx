@@ -2,13 +2,26 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Json, Site } from "./types";
 
-// TODO: Type this
-type Props = {
-  data: null | any;
+type Page<T> = {
+  data: null | T;
 };
 
-const SimplePage = ({ data }: Props) => {
+type Props = {
+  site: Site;
+  contentfulSimplePage: ContentfulSimplePage;
+};
+
+type ContentfulSimplePage = {
+  title: string;
+  content: Json;
+};
+
+const Page = ({ data }: Page<HomePageProps>) =>
+  data ? <HomePage {...data} /> : <p>Something went wrong</p>;
+
+const SimplePage = ({ data }: Page<Props>) => {
   if (!data) {
     // TODO: Have this logic elsewhere
     return <p>Something went wrong</p>;
