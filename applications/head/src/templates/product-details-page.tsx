@@ -2,11 +2,11 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 // TODO: Type this
-type Props = {
-  data: null | any;
+type Page<T> = {
+  data: null | T;
 };
 
-const ProductDetailsPage = ({ data }: Props) => {
+const ProductDetailsPage = ({ data }: Page<any>) => {
   return (
     <>
       <Helmet title={`Product Name`} />
