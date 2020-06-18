@@ -1,5 +1,7 @@
 "use strict";
 
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const findUp = require("find-up");
 const path = require("path");
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -73,5 +75,18 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     // PRODUCT DETAIL PAGES
+  });
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      // symlinks: true,
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: findUp.sync("tsconfig.json")
+        })
+      ]
+    }
   });
 };

@@ -10,7 +10,11 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "target": "ESNext",
-    "inlineSourceMap": true
+    "inlineSourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@bmi/*": ["./node_modules/@bmi/*/src"]
+    }
   },
   "exclude": ["**/__tests__/**", "**/dist/**"]
 }
