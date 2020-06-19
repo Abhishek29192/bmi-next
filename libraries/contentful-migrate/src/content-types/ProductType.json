@@ -1,0 +1,12 @@
+{
+  "name": {
+    "name": "Name",
+    "type": "Symbol",
+    "required": true
+  },
+  "code": {
+    "name": "Code",
+    "type": "Symbol",
+    "required": true
+  }
+}

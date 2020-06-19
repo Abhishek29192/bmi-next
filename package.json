@@ -18,7 +18,8 @@
     "coverage:ts": "typescript-coverage-report",
     "workbench": "styleguidist server",
     "workbench:build": "styleguidist build",
-    "run-apollo": "yarn workspace @bmi/apollo-server run start"
+    "run-apollo": "yarn workspace @bmi/apollo-server run start",
+    "migrate": "contentful-migrate"
   },
   "husky": {
     "hooks": {
@@ -30,6 +31,7 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-typescript": "^7.9.0",
+    "@bmi/contentful-migrate": "0.0.0",
     "@bmi/create-component-package": "0.0.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
