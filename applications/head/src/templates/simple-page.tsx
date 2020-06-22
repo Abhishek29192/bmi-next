@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Json, Site } from "./types";
+import Page from "../components/Page";
 
 type Page<T> = {
   data: null | T;
@@ -18,9 +19,6 @@ type ContentfulSimplePage = {
   content: Json;
 };
 
-const Page = ({ data }: Page<HomePageProps>) =>
-  data ? <HomePage {...data} /> : <p>Something went wrong</p>;
-
 const SimplePage = ({ data }: Page<Props>) => {
   if (!data) {
     // TODO: Have this logic elsewhere
@@ -31,11 +29,11 @@ const SimplePage = ({ data }: Page<Props>) => {
     contentfulSimplePage: { title, content }
   } = data;
   return (
-    <>
+    <Page>
       <Helmet title={`${title} | ${site.siteMetadata.title}`} />
       <h1>{title}</h1>
       <p>{documentToReactComponents(content.json)}</p>
-    </>
+    </Page>
   );
 };
 
