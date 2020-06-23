@@ -76,6 +76,14 @@ To install React Styleguidist
 $ yarn workbench
 ```
 
+### Creating a new component
+
+To create a new component package, use a lowercase hyphenated name and run:
+
+```shell
+$ yarn create-component [component-name]
+```
+
 ### Apollo Server
 
 First follow the instructions on [Confluence](https://bmigroup.atlassian.net/wiki/spaces/BMIP/pages/839582011/3.3.2.3+Web+service+OCC+V2+API) to get an access token. Copy `applications/apollo-server/.env.example` to `applications/apollo-server/.env` and replace the access token.
