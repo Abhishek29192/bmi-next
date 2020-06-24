@@ -18,7 +18,8 @@ module.exports = {
   roots: ["<rootDir>components"],
   testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
   moduleNameMapper: {
-    "\\.(css|less)$": "identity-obj-proxy"
+    "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
+    "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS")
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"
