@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField component renders a hybrid variant 1`] = `
+<div
+  class="MuiFormControl-root MuiTextField-root TextField"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+    data-shrink="false"
+  >
+    email
+  </label>
+  <div
+    class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+  >
+    <input
+      aria-invalid="false"
+      class="MuiInputBase-input MuiFilledInput-input"
+      placeholder="e.g. lorem@ipsum.com"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`TextField component renders correctly 1`] = `
+<div
+  class="MuiFormControl-root MuiTextField-root TextField"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+    data-shrink="false"
+  >
+    email
+  </label>
+  <div
+    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+  >
+    <input
+      aria-invalid="false"
+      class="MuiInputBase-input MuiOutlinedInput-input"
+      placeholder="e.g. lorem@ipsum.com"
+      type="text"
+      value=""
+    />
+    <fieldset
+      aria-hidden="true"
+      class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        class="PrivateNotchedOutline-legendLabelled-3"
+      >
+        <span>
+          email
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;
+
+exports[`TextField component renders with an extra class 1`] = `
+<div
+  class="MuiFormControl-root MuiTextField-root TextField test"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+    data-shrink="false"
+  >
+    email
+  </label>
+  <div
+    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+  >
+    <input
+      aria-invalid="false"
+      class="MuiInputBase-input MuiOutlinedInput-input"
+      placeholder="e.g. lorem@ipsum.com"
+      type="text"
+      value=""
+    />
+    <fieldset
+      aria-hidden="true"
+      class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        class="PrivateNotchedOutline-legendLabelled-7"
+      >
+        <span>
+          email
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;

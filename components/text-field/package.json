@@ -1,0 +1,17 @@
+{
+  "name": "@bmi/text-field",
+  "version": "0.0.0",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@material-ui/core": "^4.10.1",
+    "@material-ui/icons": "^4.9.1",
+    "classnames": "^2.2.6",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/material-ui": "^0.21.7"
+  }
+}
