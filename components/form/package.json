@@ -1,0 +1,14 @@
+{
+  "name": "@bmi/form",
+  "version": "0.0.0",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10"
+  }
+}
