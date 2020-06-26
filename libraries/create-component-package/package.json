@@ -1,0 +1,10 @@
+{
+  "name": "@bmi/create-component-package",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index",
+  "bin": {
+    "create-component": "./index.js"
+  },
+  "dependencies": {}
+}
