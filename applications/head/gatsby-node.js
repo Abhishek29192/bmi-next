@@ -81,7 +81,6 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      // symlinks: true,
       plugins: [
         new TsconfigPathsPlugin({
           configFile: findUp.sync("tsconfig.json")
