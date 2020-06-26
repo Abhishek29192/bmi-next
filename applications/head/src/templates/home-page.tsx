@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Json, Site } from "./types";
+import Page from "../components/Page";
 
 type Page<T> = {
   data: null | T;
@@ -27,12 +28,13 @@ const HomePage = ({ data }: Page<Props>) => {
     site,
     contentfulHomepage: { title, content }
   } = data;
+
   return (
-    <>
+    <Page>
       <Helmet title={site.siteMetadata.title} />
       <h1>{title}</h1>
-      <p>{documentToReactComponents(content.json)}</p>
-    </>
+      <div>{documentToReactComponents(content.json)}</div>
+    </Page>
   );
 };
 

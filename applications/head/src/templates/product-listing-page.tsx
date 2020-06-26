@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Json, Site } from "./types";
+import Page from "../components/Page";
 
 type Page<T> = {
   data: null | T;
@@ -27,11 +28,11 @@ const ProductListingPage = ({ data }: Page<Props>) => {
     contentfulProductListing: { title, category }
   } = data;
   return (
-    <>
+    <Page>
       <Helmet title={`${title} | ${site.siteMetadata.title}`} />
       <h1>{title}</h1>
       <p>Category: {category}</p>
-    </>
+    </Page>
   );
 };
 

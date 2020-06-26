@@ -11,6 +11,9 @@ module.exports = {
   defaultExample: true,
   skipComponentsWithoutExample: true,
   components: "./components/**/src/[A-Z]*.tsx",
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, "components/theme-provider/src")
+  },
   getComponentPathLine: (componentPath) => {
     const componentName = path.basename(componentPath, ".tsx");
     const parts = componentPath.replace("components/", "").split("/");
