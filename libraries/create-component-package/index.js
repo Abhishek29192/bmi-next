@@ -45,7 +45,8 @@ const packageContent = `{
   "devDependencies": {
     "@types/material-ui": "^0.21.7"
   }
-}`;
+}
+`;
 
 const componentContent = `import React from "react";
 
@@ -53,7 +54,8 @@ const ${componentName} = () => {
   return null;
 };
 
-export default ${componentName};`;
+export default ${componentName};
+`;
 
 const testContent = `import React from "react";
 import ${componentName} from "../";
@@ -98,7 +100,7 @@ Promise.all([
     handleError
   ),
   writeFile(
-    `${componentPath}/src/${componentName}.ts`,
+    `${componentPath}/src/${componentName}.tsx`,
     componentContent,
     handleError
   ),
