@@ -2,6 +2,41 @@
 
 const path = require("path");
 const fs = require("fs");
+const { withConfigs, styles } = require("./libraries/webpack");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+
+const webpackConfig = withConfigs(
+  {
+    module: {
+      rules: [
+        {
+          test: /\.ts(x?)$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: "ts-loader",
+              options: {
+                transpileOnly: true
+              }
+            }
+          ]
+        },
+        {
+          test: /\.svg$/,
+          use: ["@svgr/webpack"]
+        }
+      ]
+    },
+    resolve: {
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: "./tsconfig.json"
+        })
+      ]
+    }
+  },
+  [styles({ dev: true })]
+);
 
 module.exports = {
   title: "BMI DXB Workbench",
@@ -42,15 +77,5 @@ module.exports = {
 
     return null;
   },
-  webpackConfig: {
-    module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          exclude: /node_modules/,
-          loader: "ts-loader"
-        }
-      ]
-    }
-  }
+  webpackConfig
 };

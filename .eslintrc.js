@@ -33,6 +33,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: "jest/src/*.js",
+      parserOptions: {
+        sourceType: "module"
+      }
+    },
+    {
       files: "*.{ts,tsx}",
       settings: {
         react: {

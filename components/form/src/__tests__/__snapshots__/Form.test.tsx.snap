@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField component renders correctly 1`] = `
+<form
+  class="Form"
+>
+  <div
+    class="Row"
+  >
+    <p>
+      Lorem Ipsum
+    </p>
+  </div>
+</form>
+`;

@@ -1,0 +1,68 @@
+.TextField {
+  $color-cyan-400: #007bbd;
+  $color-slate: #70706f;
+  $color-storm: #cccccc;
+  $color-error: #d6001c;
+
+  :global {
+    .MuiFilledInput-root {
+      background-color: white;
+      border-radius: 4px;
+      border: 1px solid $color-storm;
+
+      &:hover {
+        border-color: $color-slate;
+      }
+
+      &.Mui-error {
+        border-color: $color-error;
+      }
+
+      &::before {
+        content: none;
+      }
+
+      &::after {
+        content: none;
+      }
+
+      &.Mui-focused {
+        border-color: $color-cyan-400;
+        box-shadow: 0 0 0 1px $color-cyan-400;
+
+        &.Mui-error {
+          box-shadow: 0 0 0 1px $color-error;
+        }
+      }
+    }
+
+    .MuiFilledInput-input {
+      padding: 26px 12px 9px;
+    }
+
+    .Mui-error,
+    .Mui-error .MuiOutlinedInput-notchedOutline {
+      border-color: $color-error;
+    }
+
+    .Mui-disabled {
+      opacity: 0.38;
+
+      &:hover {
+        border-color: inherit;
+      }
+    }
+
+    .MuiFormLabel-root {
+      font-size: 16px;
+
+      &:not(.Mui-error):not(.Mui-disabled) {
+        color: $color-slate;
+      }
+
+      &.Mui-focused:not(.Mui-error) {
+        color: $color-cyan-400;
+      }
+    }
+  }
+}
