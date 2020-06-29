@@ -48,6 +48,15 @@ const packageContent = `{
 }
 `;
 
+const tsconfigContent = `{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "dist"
+  }
+}
+`;
+
 const componentContent = `import React from "react";
 
 const ${componentName} = () => {
@@ -93,6 +102,7 @@ fs.mkdirSync(
 
 Promise.all([
   writeFile(`${componentPath}/package.json`, packageContent, handleError),
+  writeFile(`${componentPath}/tsconfig.json`, tsconfigContent, handleError),
   writeFile(`${componentPath}/src/index.ts`, indexContent, handleError),
   writeFile(
     `${componentPath}/src/__tests__/${componentName}.test.tsx`,
