@@ -14,10 +14,6 @@
         border-color: $color-slate;
       }
 
-      &.Mui-error {
-        border-color: $color-error;
-      }
-
       &::before {
         content: none;
       }
@@ -33,6 +29,10 @@
         &.Mui-error {
           box-shadow: 0 0 0 1px $color-error;
         }
+      }
+
+      &.Mui-error {
+        border-color: $color-error;
       }
     }
 
