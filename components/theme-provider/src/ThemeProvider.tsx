@@ -1,8 +1,25 @@
 import React from "react";
 import {
   ThemeProvider as MaterialThemeProvider,
-  createMuiTheme
+  createMuiTheme,
+  CssBaseline
 } from "@material-ui/core";
+import { FontFace } from "csstype";
+import EffraRegular from "./fonts/Effra_W_Regular.woff2";
+
+const effraRegular = {
+  fontFamily: "Effra Regular",
+  fontStyle: "normal",
+  fontDisplay: "swap",
+  fontWeight: 400,
+  src: `
+    local('Effra Regular'),
+    local('Effra-Regular'),
+    url(${EffraRegular}) format('woff2')
+  `,
+  unicodeRange:
+    "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF"
+} as FontFace;
 
 const theme = createMuiTheme({
   palette: {
@@ -27,7 +44,7 @@ const theme = createMuiTheme({
     tonalOffset: 0.2
   },
   typography: {
-    fontFamily: "Effra Heavy",
+    fontFamily: "Effra Regular",
     fontSize: 16, // change for desktop
     // lineHeight: 1.4,
     h1: {
@@ -54,6 +71,13 @@ const theme = createMuiTheme({
       fontSize: 20, //22.5
       lineHeight: 1.2
     }
+  },
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        "@font-face": [effraRegular]
+      }
+    }
   }
 });
 
@@ -62,7 +86,10 @@ type Props = {
 };
 
 const ThemeProvider = ({ children }: Props) => (
-  <MaterialThemeProvider theme={theme}>{children}</MaterialThemeProvider>
+  <MaterialThemeProvider theme={theme}>
+    <CssBaseline />
+    {children}
+  </MaterialThemeProvider>
 );
 
 export default ThemeProvider;
