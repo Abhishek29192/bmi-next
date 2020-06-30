@@ -45,7 +45,17 @@ const packageContent = `{
   "devDependencies": {
     "@types/material-ui": "^0.21.7"
   }
-}`;
+}
+`;
+
+const tsconfigContent = `{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "dist"
+  }
+}
+`;
 
 const componentContent = `import React from "react";
 
@@ -53,7 +63,8 @@ const ${componentName} = () => {
   return null;
 };
 
-export default ${componentName};`;
+export default ${componentName};
+`;
 
 const testContent = `import React from "react";
 import ${componentName} from "../";
@@ -91,6 +102,7 @@ fs.mkdirSync(
 
 Promise.all([
   writeFile(`${componentPath}/package.json`, packageContent, handleError),
+  writeFile(`${componentPath}/tsconfig.json`, tsconfigContent, handleError),
   writeFile(`${componentPath}/src/index.ts`, indexContent, handleError),
   writeFile(
     `${componentPath}/src/__tests__/${componentName}.test.tsx`,
@@ -98,7 +110,7 @@ Promise.all([
     handleError
   ),
   writeFile(
-    `${componentPath}/src/${componentName}.ts`,
+    `${componentPath}/src/${componentName}.tsx`,
     componentContent,
     handleError
   ),
