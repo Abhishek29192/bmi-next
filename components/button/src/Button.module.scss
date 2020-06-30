@@ -1,0 +1,51 @@
+.Button {
+  $color-cyan-500: #009fe3;
+  $color-white: #ffffff;
+  font-size: 18px;
+
+  border-radius: 3px;
+
+  &:global(.MuiButton-text):hover {
+    background-color: rgba(#000000, 0.05);
+  }
+
+  &--dark-background:global(.MuiButton-text) {
+    color: $color-white;
+
+    &:hover {
+      background: rgba($color-white, 0.1);
+    }
+
+    &:global(.Mui-disabled) {
+      color: rgba($color-white, 0.38);
+    }
+  }
+
+  &--dark-background:global(.MuiButton-outlined) {
+    color: $color-white;
+    border-color: rgba($color-white, 0.8);
+    background-color: rgba($color-white, 0.1);
+
+    &:hover {
+      border-color: $color-white;
+      background-color: transparent;
+    }
+
+    &:global(.Mui-disabled) {
+      color: rgba($color-white, 0.3);
+      background-color: rgba($color-white, 0.2);
+      border-color: rgba($color-white, 0.3);
+    }
+  }
+
+  &:global(.MuiButton-contained.Mui-disabled) {
+    background: rgba($color-cyan-500, 0.38);
+    color: $color-white;
+  }
+
+  :global {
+    .MuiButton-label {
+      text-transform: none;
+    }
+  }
+}
