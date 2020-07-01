@@ -1,0 +1,28 @@
+.Typography {
+  $color-bmi-cyan: #009fe3;
+
+  &--underline {
+    &::after {
+      background-color: $color-bmi-cyan;
+      content: "";
+      display: block;
+      height: 5px;
+      margin-top: 1rem;
+      width: 100px;
+    }
+  }
+}
+
+:global {
+  .MuiTypography-h3::after {
+    margin-top: 0.75rem;
+  }
+
+  .MuiTypography-h4::after {
+    margin-top: 0.5rem;
+  }
+
+  .MuiTypography-button {
+    text-transform: none;
+  }
+}
