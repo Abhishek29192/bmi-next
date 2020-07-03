@@ -78,12 +78,14 @@ describe("${componentName} component", () => {
 });
 `;
 
-const readmeContent = `This component wraps the Material-UI button component
+const readmeContent = `[description]
 
-## Default
+## Variants
+
+### [Title] 
 
 \`\`\`jsx
-<Button variant="contained">contained</Button>
+<${componentName} />
 \`\`\`
 `;
 
