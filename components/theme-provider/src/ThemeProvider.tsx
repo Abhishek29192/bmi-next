@@ -1,40 +1,10 @@
-import React from "react";
 import {
-  ThemeProvider as MaterialThemeProvider,
   createMuiTheme,
-  CssBaseline
+  CssBaseline,
+  ThemeProvider as MaterialThemeProvider
 } from "@material-ui/core";
-import { FontFace } from "csstype";
-import EffraRegular from "./fonts/Effra_W_Regular.woff2";
-import EffraHeavy from "./fonts/Effra_W_Heavy.woff2";
-
-const effraRegular = {
-  fontFamily: "Effra Regular",
-  fontStyle: "normal",
-  fontDisplay: "swap",
-  fontWeight: 400,
-  src: `
-    local('Effra Regular'),
-    local('Effra-Regular'),
-    url(${EffraRegular}) format('woff2')
-  `,
-  unicodeRange:
-    "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF"
-} as FontFace;
-
-const effraHeavy = {
-  fontFamily: "Effra Heavy",
-  fontStyle: "bolder",
-  fontDisplay: "swap",
-  fontWeight: 800,
-  src: `
-    local('Effra Heavy'),
-    local('Effra-Heavy'),
-    url(${EffraHeavy}) format('woff2')
-  `,
-  unicodeRange:
-    "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF"
-} as FontFace;
+import React from "react";
+import { effraHeavy, effraRegular } from "./fonts";
 
 const theme = createMuiTheme({
   palette: {
@@ -63,7 +33,6 @@ const theme = createMuiTheme({
   },
   typography: {
     fontFamily: "Effra Regular",
-    fontSize: 16,
     h1: {
       fontFamily: "Effra Heavy",
       fontSize: "3rem",
@@ -94,6 +63,7 @@ const theme = createMuiTheme({
       lineHeight: 1.2
     },
     body1: {
+      fontSize: "1rem",
       lineHeight: 1.4
     },
     body2: {
