@@ -32,7 +32,8 @@ if (fs.existsSync(componentPath)) {
 
 const indexContent = `import ${componentName} from "./${componentName}";
 
-export default ${componentName};`;
+export default ${componentName};
+`;
 
 const packageContent = `{
   "name": "@bmi/${wsName}",
