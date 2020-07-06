@@ -66,6 +66,7 @@
     "webpack": "^4.43.0"
   },
   "dependencies": {
+    "react-docgen-typescript": "^1.18.0",
     "tsconfig-paths-webpack-plugin": "^3.2.0"
   }
 }
