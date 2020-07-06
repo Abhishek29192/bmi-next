@@ -63,10 +63,8 @@ module.exports = {
   },
   getComponentPathLine: (componentPath) => {
     const componentName = path.basename(componentPath, ".tsx");
-    const parts = componentPath.replace("components/", "").split("/");
-    const importPath = `"@bmi/${parts[0].toLowerCase()}/${parts
-      .slice(1)
-      .join("/")}"`;
+    const packageName = componentPath.replace("components/", "").split("/")[0];
+    const importPath = `"@bmi/${packageName}"`;
 
     // NOTE: this is displayed under the component name
     return `import ${componentName} from ${importPath};`;
