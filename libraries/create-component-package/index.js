@@ -32,7 +32,8 @@ if (fs.existsSync(componentPath)) {
 
 const indexContent = `import ${componentName} from "./${componentName}";
 
-export default ${componentName};`;
+export default ${componentName};
+`;
 
 const packageContent = `{
   "name": "@bmi/${wsName}",
@@ -78,12 +79,14 @@ describe("${componentName} component", () => {
 });
 `;
 
-const readmeContent = `This component wraps the Material-UI button component
+const readmeContent = `[description]
 
-## Default
+## Variants
+
+### [Title] 
 
 \`\`\`jsx
-<Button variant="contained">contained</Button>
+<${componentName} />
 \`\`\`
 `;
 
