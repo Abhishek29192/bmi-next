@@ -1,8 +1,9 @@
-.Button {
-  $color-cyan-500: #009fe3;
-  $color-white: #ffffff;
-  font-size: 18px;
+$color-cyan-500: #007bbd;
+$color-cyan-600: #005b8c;
+$color-white: #ffffff;
 
+.Button {
+  font-size: 18px;
   border-radius: 3px;
 
   &:global(.MuiButton-text):hover {
@@ -47,5 +48,59 @@
     .MuiButton-label {
       text-transform: none;
     }
+  }
+}
+
+.IconButton {
+  border-radius: 3px;
+  background-color: $color-cyan-500;
+  &--extra-small {
+    max-width: 24px;
+    max-height: 24px;
+    margin: 12px;
+  }
+  &--small {
+    max-width: 32px;
+    max-height: 32px;
+    margin: 8px;
+  }
+  &--medium {
+    width: 48px;
+    height: 48px;
+  }
+  &--large {
+    width: 60px;
+    height: 60px;
+  }
+  &--extra-large {
+    width: 64px;
+    height: 64px;
+  }
+  &:global(.MuiIconButton-root) {
+    background-color: $color-cyan-500;
+    color: $color-white;
+  }
+  &--enabled:global(.MuiIconButton-root) {
+    background-color: $color-cyan-500;
+  }
+  &--enabled:global(.MuiIconButton-root):hover {
+    background-color: $color-cyan-600;
+  }
+  &--disabled:global(.MuiIconButton-root) {
+    background-color: rgba($color-cyan-500, 0.35);
+  }
+}
+
+.IconButtonWrapper {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  &--large {
+    width: 60px;
+    height: 60px;
+  }
+  &--extra-large {
+    width: 64px;
+    height: 64px;
   }
 }

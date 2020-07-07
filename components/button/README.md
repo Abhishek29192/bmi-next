@@ -143,3 +143,34 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
   </Button>
 </div>
 ```
+
+### Icon Button
+
+The `extra-small` and `small` buttons have a 48x48px clickable area around them.
+
+```jsx
+import UserIcon from "@material-ui/icons/Person";
+
+<div>
+  <p>Extra Small</p>
+  <Button isIconButton size="extra-small">
+    <UserIcon />
+  </Button>
+  <p>Small</p>
+  <Button isIconButton size="small">
+    <UserIcon />
+  </Button>
+  <p>Medium</p>
+  <Button isIconButton size="medium">
+    <UserIcon />
+  </Button>
+  <p>Large</p>
+  <Button isIconButton size="large">
+    <UserIcon />
+  </Button>
+  <p>Extra Large - disabled</p>
+  <Button isIconButton disabled size="extra-large">
+    <UserIcon />
+  </Button>
+</div>;
+```
