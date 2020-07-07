@@ -51,6 +51,14 @@ module.exports = {
         url: process.env.API_GATEWAY_URL
       }
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: "/images/"
+        }
+      }
+    },
     ...contentfulCredentialData.map(({ spaceId, accessToken }) => ({
       resolve: `gatsby-source-contentful`,
       options: {

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon component renders correctly 1`] = `
+<svg
+  aria-hidden="true"
+  class="MuiSvgIcon-root"
+  focusable="false"
+  viewBox="0 0 24 24"
+/>
+`;
