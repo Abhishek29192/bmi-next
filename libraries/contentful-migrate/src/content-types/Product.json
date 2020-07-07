@@ -29,6 +29,6 @@
     "name": "Type",
     "type": "Link",
     "linkType": "Entry",
-    "validations": [{ "linkContentType": ["ProductType"] }]
+    "validations": [{ "linkContentType": ["producttype"] }]
   }
 }

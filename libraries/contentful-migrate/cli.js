@@ -3,7 +3,9 @@
 "use strict";
 
 const { runMigration } = require("contentful-migration");
-require("dotenv").config({ path: `${__dirname}/.env.${process.env.NODE_ENV}` });
+require("dotenv").config({
+  path: `${__dirname}/.env.${process.env.NODE_ENV || "development"}`
+});
 
 const main = async (argv) => {
   const { SPACE_ID, ACCESS_TOKEN } = process.env;
