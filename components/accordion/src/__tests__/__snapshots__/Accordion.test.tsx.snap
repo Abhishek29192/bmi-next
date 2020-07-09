@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion component renders correctly 1`] = `
+<div
+  class="MuiPaper-root MuiExpansionPanel-root MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    aria-disabled="false"
+    aria-expanded="false"
+    class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="MuiExpansionPanelSummary-content"
+    >
+      Heading
+    </div>
+    <div
+      aria-disabled="false"
+      aria-hidden="true"
+      class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root ExpandIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root CollapseIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 13H5v-2h14v2z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+  <div
+    class="MuiCollapse-container MuiCollapse-hidden"
+    style="min-height: 0px;"
+  >
+    <div
+      class="MuiCollapse-wrapper"
+    >
+      <div
+        class="MuiCollapse-wrapperInner"
+      >
+        <div
+          role="region"
+        >
+          <div
+            class="MuiExpansionPanelDetails-root"
+          >
+            Content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
