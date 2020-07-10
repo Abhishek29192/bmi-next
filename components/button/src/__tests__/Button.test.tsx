@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "../";
-import { render } from "@testing-library/react";
-
+import { render, fireEvent, cleanup } from "@testing-library/react";
+import UserIcon from "@material-ui/icons/Person";
+afterEach(cleanup);
 describe("Button component", () => {
   it("renders correctly", () => {
     const { container } = render(<Button>Caption</Button>);
@@ -22,5 +23,62 @@ describe("Button component", () => {
       </Button>
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders an icon button", () => {
+    const { container } = render(
+      <Button isIconButton accessibilityLabel="User">
+        Caption
+      </Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders a small icon button", () => {
+    const { container } = render(
+      <Button isIconButton accessibilityLabel="UserIcon" size="small">
+        <UserIcon />
+      </Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders a disabled icon button", () => {
+    const { container } = render(
+      <Button isIconButton disabled accessibilityLabel="UserIcon">
+        <UserIcon />
+      </Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("calls onClick function when clicked", () => {
+    const onClick = jest.fn();
+    const { getByTestId } = render(
+      <Button
+        isIconButton
+        accessibilityLabel="User"
+        data-testid="button-click-test"
+        onClick={onClick}
+      >
+        <UserIcon />
+      </Button>
+    );
+    const button = getByTestId("button-click-test");
+    fireEvent.click(button);
+    expect(onClick.mock.calls).toMatchSnapshot();
+  });
+  it("calls onClick function when small button wrapper is clicked", () => {
+    const onClick = jest.fn();
+    const { getByTestId } = render(
+      <Button
+        isIconButton
+        accessibilityLabel="User"
+        data-testid="button-click-test"
+        onClick={onClick}
+        size="small"
+      >
+        <UserIcon />
+      </Button>
+    );
+    const wrapper = getByTestId("icon-button-wrapper");
+    fireEvent.click(wrapper);
+    expect(onClick.mock.calls).toMatchSnapshot();
   });
 });
