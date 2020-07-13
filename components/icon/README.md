@@ -68,6 +68,14 @@ import {
 </>;
 ```
 
+You can also pass the icon to the `component` prop.
+
+```jsx
+import Language from "@material-ui/icons/Language";
+
+<Icon component={Language} />;
+```
+
 ### Sizes
 
 `fontStyle` prop will accept `small` and `large` but custom sizes can be used.
