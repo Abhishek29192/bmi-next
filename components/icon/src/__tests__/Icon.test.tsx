@@ -1,10 +1,11 @@
+import { Person } from "@material-ui/icons";
+import { render } from "@testing-library/react";
 import React from "react";
 import Icon from "../";
-import { render } from "@testing-library/react";
 
 describe("Icon component", () => {
   it("renders correctly", () => {
-    const { container } = render(<Icon />);
+    const { container } = render(<Icon source={Person} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });
