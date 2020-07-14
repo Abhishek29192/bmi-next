@@ -1,0 +1,9 @@
+:global(.MuiIconButton-root) .CollapseIcon,
+:global(.MuiIconButton-root.Mui-expanded) .ExpandIcon {
+  display: none;
+}
+
+:global(.MuiIconButton-root.Mui-expanded) .CollapseIcon,
+:global(.MuiIconButton-root) .ExpandIcon {
+  display: initial;
+}
