@@ -17,6 +17,14 @@ describe("Typography component", () => {
     const { container } = render(<Typography variant="h1">Heading</Typography>);
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders h1 with underline", () => {
+    const { container } = render(
+      <Typography variant="h1" hasUnderline>
+        Heading
+      </Typography>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
   it("renders h2 correctly", () => {
     const { container } = render(<Typography variant="h2">Heading</Typography>);
     expect(container.firstChild).toMatchSnapshot();

@@ -13,7 +13,7 @@ This component wraps the Material-UI [Typography](https://material-ui.com/compon
 </Typography>
 ```
 
-### body2
+### body2 (lead)
 
 ```jsx
 <Typography variant="body2">
@@ -30,22 +30,36 @@ This component wraps the Material-UI [Typography](https://material-ui.com/compon
 <Typography variant="h1">Heading</Typography>
 ```
 
+`h1`, `h2`, `h3`, and `h4` all have optional partial underlines:
+
+```jsx
+<Typography variant="h1" hasUnderline>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit
+</Typography>
+```
+
 ### h2
 
 ```jsx
-<Typography variant="h2">Heading</Typography>
+<Typography variant="h2" hasUnderline>
+  Heading
+</Typography>
 ```
 
 ### h3
 
 ```jsx
-<Typography variant="h3">Heading</Typography>
+<Typography variant="h3" hasUnderline>
+  Heading
+</Typography>
 ```
 
 ### h4
 
 ```jsx
-<Typography variant="h4">Heading</Typography>
+<Typography variant="h4" hasUnderline>
+  Heading
+</Typography>
 ```
 
 ### h5

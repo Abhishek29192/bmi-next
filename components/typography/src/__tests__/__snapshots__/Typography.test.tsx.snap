@@ -2,7 +2,7 @@
 
 exports[`Typography component renders body2 correctly 1`] = `
 <p
-  class="MuiTypography-root MuiTypography-body2"
+  class="MuiTypography-root Typography MuiTypography-body2"
 >
   Hello World
 </p>
@@ -10,7 +10,7 @@ exports[`Typography component renders body2 correctly 1`] = `
 
 exports[`Typography component renders button correctly 1`] = `
 <span
-  class="MuiTypography-root MuiTypography-button"
+  class="MuiTypography-root Typography MuiTypography-button"
 >
   Button
 </span>
@@ -18,7 +18,7 @@ exports[`Typography component renders button correctly 1`] = `
 
 exports[`Typography component renders caption correctly 1`] = `
 <span
-  class="MuiTypography-root MuiTypography-caption"
+  class="MuiTypography-root Typography MuiTypography-caption"
 >
   Caption
 </span>
@@ -26,7 +26,7 @@ exports[`Typography component renders caption correctly 1`] = `
 
 exports[`Typography component renders correctly 1`] = `
 <p
-  class="MuiTypography-root MuiTypography-body1"
+  class="MuiTypography-root Typography MuiTypography-body1"
 >
   Hello World
 </p>
@@ -34,7 +34,15 @@ exports[`Typography component renders correctly 1`] = `
 
 exports[`Typography component renders h1 correctly 1`] = `
 <h1
-  class="MuiTypography-root MuiTypography-h1"
+  class="MuiTypography-root Typography MuiTypography-h1"
+>
+  Heading
+</h1>
+`;
+
+exports[`Typography component renders h1 with underline 1`] = `
+<h1
+  class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
 >
   Heading
 </h1>
@@ -42,7 +50,7 @@ exports[`Typography component renders h1 correctly 1`] = `
 
 exports[`Typography component renders h2 correctly 1`] = `
 <h2
-  class="MuiTypography-root MuiTypography-h2"
+  class="MuiTypography-root Typography MuiTypography-h2"
 >
   Heading
 </h2>
@@ -50,7 +58,7 @@ exports[`Typography component renders h2 correctly 1`] = `
 
 exports[`Typography component renders h3 correctly 1`] = `
 <h3
-  class="MuiTypography-root MuiTypography-h3"
+  class="MuiTypography-root Typography MuiTypography-h3"
 >
   Heading
 </h3>
@@ -58,7 +66,7 @@ exports[`Typography component renders h3 correctly 1`] = `
 
 exports[`Typography component renders h4 correctly 1`] = `
 <h4
-  class="MuiTypography-root MuiTypography-h4"
+  class="MuiTypography-root Typography MuiTypography-h4"
 >
   Heading
 </h4>
@@ -66,7 +74,7 @@ exports[`Typography component renders h4 correctly 1`] = `
 
 exports[`Typography component renders h5 correctly 1`] = `
 <h5
-  class="MuiTypography-root MuiTypography-h5"
+  class="MuiTypography-root Typography MuiTypography-h5"
 >
   Heading
 </h5>
@@ -74,7 +82,7 @@ exports[`Typography component renders h5 correctly 1`] = `
 
 exports[`Typography component renders h6 correctly 1`] = `
 <h6
-  class="MuiTypography-root MuiTypography-h6"
+  class="MuiTypography-root Typography MuiTypography-h6"
 >
   Heading
 </h6>
@@ -82,7 +90,7 @@ exports[`Typography component renders h6 correctly 1`] = `
 
 exports[`Typography component renders overline correctly 1`] = `
 <span
-  class="MuiTypography-root MuiTypography-overline"
+  class="MuiTypography-root Typography MuiTypography-overline"
 >
   Overline
 </span>
@@ -90,7 +98,7 @@ exports[`Typography component renders overline correctly 1`] = `
 
 exports[`Typography component renders subtitle1 correctly 1`] = `
 <h6
-  class="MuiTypography-root MuiTypography-subtitle1"
+  class="MuiTypography-root Typography MuiTypography-subtitle1"
 >
   Hello World
 </h6>
@@ -98,7 +106,7 @@ exports[`Typography component renders subtitle1 correctly 1`] = `
 
 exports[`Typography component renders subtitle2 correctly 1`] = `
 <h6
-  class="MuiTypography-root MuiTypography-subtitle2"
+  class="MuiTypography-root Typography MuiTypography-subtitle2"
 >
   Hello World
 </h6>
