@@ -51,18 +51,29 @@ $color-white: #ffffff;
   }
 }
 
+@mixin icon-button-buffer($margin) {
+  &::after {
+    content: "";
+    position: absolute;
+    top: -$margin;
+    left: -$margin;
+    bottom: -$margin;
+    right: -$margin;
+  }
+}
+
 .IconButton {
   border-radius: 3px;
   background-color: $color-cyan-500;
   &--extra-small {
     max-width: 24px;
     max-height: 24px;
-    margin: 12px;
+    @include icon-button-buffer(12px);
   }
   &--small {
     max-width: 32px;
     max-height: 32px;
-    margin: 8px;
+    @include icon-button-buffer(8px);
   }
   &--medium {
     width: 48px;

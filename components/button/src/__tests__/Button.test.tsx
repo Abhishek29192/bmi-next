@@ -64,21 +64,4 @@ describe("Button component", () => {
     fireEvent.click(button);
     expect(onClick.mock.calls).toMatchSnapshot();
   });
-  it("calls onClick function when small button wrapper is clicked", () => {
-    const onClick = jest.fn();
-    const { getByTestId } = render(
-      <Button
-        isIconButton
-        accessibilityLabel="User"
-        data-testid="button-click-test"
-        onClick={onClick}
-        size="small"
-      >
-        <UserIcon />
-      </Button>
-    );
-    const wrapper = getByTestId("icon-button-wrapper");
-    fireEvent.click(wrapper);
-    expect(onClick.mock.calls).toMatchSnapshot();
-  });
 });
