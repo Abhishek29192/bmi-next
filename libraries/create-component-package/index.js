@@ -39,6 +39,12 @@ const packageContent = `{
   "name": "@bmi/${wsName}",
   "private": true,
   "version": "0.0.0",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "@material-ui/core": "^4.10.1",
     "react": "^16.13.1"
