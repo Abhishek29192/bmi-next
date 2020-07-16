@@ -37,7 +37,11 @@
     }
 
     .MuiFilledInput-input {
-      padding: 26px 12px 9px;
+      padding: 26px 13px 9px 14px;
+    }
+
+    .MuiInputLabel-filled {
+      margin-left: 2px;
     }
 
     .Mui-error,
