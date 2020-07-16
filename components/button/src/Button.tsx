@@ -8,7 +8,7 @@ import MaterialIconButton, {
 import styles from "./Button.module.scss";
 import classnames from "classnames";
 
-type IconButtonProps = MuiIconButtonProps & {
+export type IconButtonProps = MuiIconButtonProps & {
   isIconButton: true;
   accessibilityLabel: string;
   hasDarkBackground?: boolean;
@@ -16,7 +16,7 @@ type IconButtonProps = MuiIconButtonProps & {
   size?: "extra-small" | "small" | "medium" | "large" | "extra-large";
 };
 
-type ButtonProps = MuiButtonProps & {
+export type ButtonProps = MuiButtonProps & {
   isIconButton?: false;
   accessibilityLabel?: string;
   hasDarkBackground?: boolean;
