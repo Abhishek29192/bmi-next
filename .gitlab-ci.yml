@@ -20,7 +20,7 @@ install:
 coverage_jest:
   stage: check
   script:
-    - yarn run coverage:jest
+    - yarn && yarn run coverage:jest
   dependencies:
     - install
   artifacts:
