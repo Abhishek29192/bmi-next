@@ -3,7 +3,7 @@ import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
 import styles from "./TextField.module.scss";
 import classnames from "classnames";
 
-type Props = Omit<TextFieldProps, "variant"> & {
+export type Props = Omit<TextFieldProps, "variant"> & {
   variant?: "outlined" | "hybrid";
 };
 
