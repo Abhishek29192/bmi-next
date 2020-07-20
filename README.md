@@ -170,3 +170,7 @@ To ensure that no broken or unformatted code gets committed or pushed, we use gi
 - `pre-commit` will run linting and formatting
 
 - `pre-push` will run automated tests
+
+## Assets
+
+SVGs have their `viewBox` set correctly and the `width`s set to `auto` in order to allow for [better scaling](https://css-tricks.com/scale-svg/#option-3-use-inline-svg-and-the-latest-blink-firefox-browsers).

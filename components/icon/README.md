@@ -18,62 +18,26 @@ import {
   Menu,
   Visibility,
   VisibilityOff,
-  Error,
+  Error as ErrorIcon,
   Cancel
 } from "@material-ui/icons";
 
 <>
-  <Icon>
-    <Facebook />
-  </Icon>
-  <Icon>
-    <YouTube />
-  </Icon>
-  <Icon>
-    <LinkedIn />
-  </Icon>
-  <Icon>
-    <Search />
-  </Icon>
-  <Icon>
-    <Language />
-  </Icon>
-  <Icon>
-    <ChevronLeft />
-  </Icon>
-  <Icon>
-    <ChevronRight />
-  </Icon>
-  <Icon>
-    <ArrowBack />
-  </Icon>
-  <Icon>
-    <ArrowForward />
-  </Icon>
-  <Icon>
-    <Menu />
-  </Icon>
-  <Icon>
-    <Visibility />
-  </Icon>
-  <Icon>
-    <VisibilityOff />
-  </Icon>
-  <Icon>
-    <Error />
-  </Icon>
-  <Icon>
-    <Cancel />
-  </Icon>
+  <Icon source={Facebook} />
+  <Icon source={YouTube} />
+  <Icon source={LinkedIn} />
+  <Icon source={Search} />
+  <Icon source={Language} />
+  <Icon source={ChevronLeft} />
+  <Icon source={ChevronRight} />
+  <Icon source={ArrowBack} />
+  <Icon source={ArrowForward} />
+  <Icon source={Menu} />
+  <Icon source={Visibility} />
+  <Icon source={VisibilityOff} />
+  <Icon source={ErrorIcon} />
+  <Icon source={Cancel} />
 </>;
-```
-
-You can also pass the icon to the `component` prop.
-
-```jsx
-import Language from "@material-ui/icons/Language";
-
-<Icon component={Language} />;
 ```
 
 ### Sizes
@@ -84,21 +48,11 @@ import Language from "@material-ui/icons/Language";
 import { Person } from "@material-ui/icons";
 
 <>
-  <Icon style={{ fontSize: 16 }}>
-    <Person />
-  </Icon>
-  <Icon style={{ fontSize: 18 }}>
-    <Person />
-  </Icon>
-  <Icon style={{ fontSize: 24 }}>
-    <Person />
-  </Icon>
-  <Icon style={{ fontSize: 32 }}>
-    <Person />
-  </Icon>
-  <Icon style={{ fontSize: 48 }}>
-    <Person />
-  </Icon>
+  <Icon source={Person} style={{ fontSize: 16 }} />
+  <Icon source={Person} style={{ fontSize: 18 }} />
+  <Icon source={Person} style={{ fontSize: 24 }} />
+  <Icon source={Person} style={{ fontSize: 32 }} />
+  <Icon source={Person} style={{ fontSize: 48 }} />
 </>;
 ```
 
@@ -112,33 +66,11 @@ prop.
 import { Chat } from "@material-ui/icons";
 
 <>
-  <Icon>
-    <Chat />
-  </Icon>
-  <Icon color="primary">
-    <Chat />
-  </Icon>
-  <Icon color="secondary">
-    <Chat />
-  </Icon>
-  <Icon color="action">
-    <Chat />
-  </Icon>
-  <Icon color="disabled">
-    <Chat />
-  </Icon>
-  <Icon style={{ color: "teal" }}>
-    <Chat />
-  </Icon>
+  <Icon source={Chat} />
+  <Icon source={Chat} color="primary" />
+  <Icon source={Chat} color="secondary" />
+  <Icon source={Chat} color="action" />
+  <Icon source={Chat} color="disabled" />
+  <Icon source={Chat} style={{ color: "teal" }} />
 </>;
-```
-
-### Custom icons
-
-You can also pass a custom SVG path as children to the component.
-
-```jsx
-<Icon>
-  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-</Icon>
 ```

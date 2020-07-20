@@ -1,3 +1,11 @@
-import SvgIcon from "@material-ui/core/SvgIcon";
+import React from "react";
 
-export default SvgIcon;
+type Props = React.SVGProps<SVGElement> & {
+  source: any; // TODO
+};
+
+const Icon = ({ source: MarkupComponent, ...props }: Props) => (
+  <MarkupComponent {...props} />
+);
+
+export default Icon;
