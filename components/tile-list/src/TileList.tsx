@@ -19,7 +19,7 @@ const Tile = ({ children, icon, onClick }: TileProps) => {
       })}
       onClick={onClick}
     >
-      <Icon className={styles["Tile__icon"]}>{icon}</Icon>
+      <Icon className={styles["Tile__icon"]} source={icon} />
       <div className={styles["Tile__description"]}>{children}</div>
     </Card>
   );
