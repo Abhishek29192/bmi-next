@@ -19,7 +19,8 @@ module.exports = {
   testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
   moduleNameMapper: {
     "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
-    "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS")
+    "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS"),
+    "^@bmi/(.*)$": "<rootDir>/node_modules/@bmi/$1/src/"
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"

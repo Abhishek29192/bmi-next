@@ -1,0 +1,30 @@
+.TileList {
+  &__button {
+    margin-top: 10px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.Tile {
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  &--clickable:hover {
+    cursor: pointer;
+  }
+  &__description {
+    text-align: center;
+  }
+  &__icon {
+    height: 59px;
+    width: 59px;
+  }
+}
