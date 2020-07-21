@@ -62,6 +62,6 @@ describe("Button component", () => {
     );
     const button = getByTestId("button-click-test");
     fireEvent.click(button);
-    expect(onClick.mock.calls).toMatchSnapshot();
+    expect(onClick.mock.calls.length).toBe(1);
   });
 });
