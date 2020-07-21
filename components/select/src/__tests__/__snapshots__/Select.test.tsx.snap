@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select component renders correctly 1`] = `
+<div
+  class="MuiFormControl-root MuiFormControl-fullWidth"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+    data-shrink="false"
+    id="outlined-country-simple"
+  >
+    Country
+  </label>
+  <div
+    class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
+  >
+    <div
+      aria-haspopup="listbox"
+      aria-labelledby="outlined-country-simple"
+      class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+      role="button"
+      tabindex="0"
+    >
+      <span>
+        ​
+      </span>
+    </div>
+    <input
+      aria-hidden="true"
+      class="MuiSelect-nativeInput"
+      tabindex="-1"
+      value=""
+    />
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M7 10l5 5 5-5z"
+      />
+    </svg>
+    <fieldset
+      aria-hidden="true"
+      class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        class="PrivateNotchedOutline-legendLabelled-3"
+      >
+        <span>
+          Country
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;
+
+exports[`Select component renders correctly as hybrid variant 1`] = `
+<div
+  class="MuiFormControl-root MuiFormControl-fullWidth"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+    data-shrink="false"
+    id="outlined-country-simple"
+  >
+    Country
+  </label>
+  <div
+    class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline Select MuiInputBase-formControl"
+  >
+    <div
+      aria-haspopup="listbox"
+      aria-labelledby="outlined-country-simple"
+      class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-filled MuiInputBase-input MuiFilledInput-input"
+      role="button"
+      tabindex="0"
+    >
+      <span>
+        ​
+      </span>
+    </div>
+    <input
+      aria-hidden="true"
+      class="MuiSelect-nativeInput"
+      tabindex="-1"
+      value=""
+    />
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconFilled"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M7 10l5 5 5-5z"
+      />
+    </svg>
+  </div>
+</div>
+`;
