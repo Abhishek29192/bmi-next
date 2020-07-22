@@ -1,8 +1,8 @@
 .TileList {
-  &__button {
+  .button {
     margin-top: 10px;
   }
-  &__wrapper {
+  .wrapper {
     display: flex;
     flex-wrap: wrap;
   }
@@ -20,10 +20,10 @@
   &--clickable:hover {
     cursor: pointer;
   }
-  &__description {
+  .description {
     text-align: center;
   }
-  &__icon {
+  .icon {
     height: 59px;
     width: 59px;
   }

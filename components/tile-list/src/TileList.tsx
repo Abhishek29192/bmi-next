@@ -19,8 +19,8 @@ const Tile = ({ children, icon, onClick }: TileProps) => {
       })}
       onClick={onClick}
     >
-      <Icon className={styles["Tile__icon"]} source={icon} />
-      <div className={styles["Tile__description"]}>{children}</div>
+      <Icon className={styles["icon"]} source={icon} />
+      <div className={styles["description"]}>{children}</div>
     </Card>
   );
 };
@@ -38,11 +38,11 @@ const TileList = ({ children, isPaginated, itemsPerPage = 8 }: Props) => {
   );
   return (
     <>
-      <div className={styles["TileList__wrapper"]}>
+      <div className={styles["wrapper"]}>
         {children.slice(0, numberOfVisibleTiles)}
       </div>
       {numberOfVisibleTiles >= numberOfTiles ? null : (
-        <div className={styles["TileList__button"]}>
+        <div className={styles["button"]}>
           <Button
             variant="outlined"
             fullWidth

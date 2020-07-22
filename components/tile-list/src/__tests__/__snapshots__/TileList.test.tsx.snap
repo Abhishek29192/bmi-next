@@ -2,14 +2,14 @@
 
 exports[`TileList component renders correctly 1`] = `
 <div
-  class="TileList__wrapper"
+  class="wrapper"
 >
   <div
     class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root Tile__icon"
+      class="MuiSvgIcon-root icon"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -18,7 +18,7 @@ exports[`TileList component renders correctly 1`] = `
       />
     </svg>
     <div
-      class="Tile__description"
+      class="description"
     >
       <p
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -32,7 +32,7 @@ exports[`TileList component renders correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root Tile__icon"
+      class="MuiSvgIcon-root icon"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -41,7 +41,7 @@ exports[`TileList component renders correctly 1`] = `
       />
     </svg>
     <div
-      class="Tile__description"
+      class="description"
     >
       <p
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -55,14 +55,14 @@ exports[`TileList component renders correctly 1`] = `
 
 exports[`TileList component renders correctly with pagination 1`] = `
 <div
-  class="TileList__wrapper"
+  class="wrapper"
 >
   <div
     class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root Tile__icon"
+      class="MuiSvgIcon-root icon"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -71,7 +71,7 @@ exports[`TileList component renders correctly with pagination 1`] = `
       />
     </svg>
     <div
-      class="Tile__description"
+      class="description"
     >
       <p
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -85,7 +85,7 @@ exports[`TileList component renders correctly with pagination 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root Tile__icon"
+      class="MuiSvgIcon-root icon"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -94,7 +94,7 @@ exports[`TileList component renders correctly with pagination 1`] = `
       />
     </svg>
     <div
-      class="Tile__description"
+      class="description"
     >
       <p
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -108,14 +108,14 @@ exports[`TileList component renders correctly with pagination 1`] = `
 
 exports[`TileList component shows more tiles on 'Show more' click 1`] = `
 <div
-  class="TileList__wrapper"
+  class="wrapper"
 >
   <div
     class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root Tile__icon"
+      class="MuiSvgIcon-root icon"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -124,7 +124,7 @@ exports[`TileList component shows more tiles on 'Show more' click 1`] = `
       />
     </svg>
     <div
-      class="Tile__description"
+      class="description"
     >
       <p
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -138,7 +138,7 @@ exports[`TileList component shows more tiles on 'Show more' click 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root Tile__icon"
+      class="MuiSvgIcon-root icon"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -147,7 +147,7 @@ exports[`TileList component shows more tiles on 'Show more' click 1`] = `
       />
     </svg>
     <div
-      class="Tile__description"
+      class="description"
     >
       <p
         class="MuiTypography-root Typography MuiTypography-body1"
@@ -161,7 +161,7 @@ exports[`TileList component shows more tiles on 'Show more' click 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root Tile__icon"
+      class="MuiSvgIcon-root icon"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -170,7 +170,7 @@ exports[`TileList component shows more tiles on 'Show more' click 1`] = `
       />
     </svg>
     <div
-      class="Tile__description"
+      class="description"
     >
       <p
         class="MuiTypography-root Typography MuiTypography-body1"
