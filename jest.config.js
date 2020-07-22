@@ -20,6 +20,7 @@ module.exports = {
   moduleNameMapper: {
     "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
     "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS"),
+    "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "^@bmi/(.*)$": "<rootDir>/node_modules/@bmi/$1/src"
   },
   transform: {
