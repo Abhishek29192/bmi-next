@@ -36,7 +36,7 @@ import Typography from "@bmi/typography";
 import { Tile } from "./src";
 
 const tiles = new Array(13).fill(
-  <TileList.Item icon={<UserIcon />}>
+  <TileList.Item icon={UserIcon}>
     <Typography variant="h6">JOHN INGE WOLD</Typography>
     <Typography>Sales Manager</Typography>
     <Typography>Norway</Typography>
