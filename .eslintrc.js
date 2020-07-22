@@ -104,7 +104,8 @@ module.exports = {
     {
       files: ["*.test.tsx"],
       globals: {
-        document: true
+        document: true,
+        window: true
       },
       env: {
         node: true,
