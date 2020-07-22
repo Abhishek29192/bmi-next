@@ -47,7 +47,7 @@ exports[`Button component renders a flat button on dark background 1`] = `
 exports[`Button component renders a small icon button 1`] = `
 <button
   aria-label="UserIcon"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--small IconButton--enabled"
+  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--small"
   tabindex="0"
   type="button"
 >
@@ -74,7 +74,7 @@ exports[`Button component renders a small icon button 1`] = `
 exports[`Button component renders an icon button 1`] = `
 <button
   aria-label="User"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--enabled"
+  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium"
   tabindex="0"
   type="button"
 >

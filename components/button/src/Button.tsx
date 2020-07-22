@@ -12,7 +12,7 @@ export type IconButtonProps = MuiIconButtonProps & {
   isIconButton: true;
   accessibilityLabel: string;
   hasDarkBackground?: boolean;
-  variant?: undefined;
+  variant?: "text" | "outlined" | "contained";
   size?: "extra-small" | "small" | "medium" | "large" | "extra-large";
 };
 
@@ -40,7 +40,11 @@ const Button = ({
       className={classnames(
         styles["IconButton"],
         styles[`IconButton--${size || "medium"}`],
-        styles[`IconButton--${disabled ? "disabled" : "enabled"}`],
+        {
+          [styles[`IconButton--${variant}`]]: variant,
+          [styles["IconButton--disabled"]]: disabled,
+          [styles["IconButton--dark-background"]]: hasDarkBackground
+        },
         className
       )}
       aria-label={accessibilityLabel}
@@ -53,6 +57,7 @@ const Button = ({
       className={classnames(styles["Button"], className, {
         [styles["Button--dark-background"]]: hasDarkBackground
       })}
+      // @ts-ignore For some reason TS doens't understand that it can't be undefined
       variant={variant || "contained"}
       color={color || "primary"}
       size={size}
