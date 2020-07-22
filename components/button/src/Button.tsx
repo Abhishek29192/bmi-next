@@ -14,6 +14,7 @@ type IconButtonProps = MuiIconButtonProps & {
   hasDarkBackground?: boolean;
   variant?: undefined;
   size?: "extra-small" | "small" | "medium" | "large" | "extra-large";
+  component?: undefined;
 };
 
 type ButtonProps = MuiButtonProps & {
@@ -21,6 +22,7 @@ type ButtonProps = MuiButtonProps & {
   accessibilityLabel?: string;
   hasDarkBackground?: boolean;
   variant?: string;
+  component?: React.ElementType<any>;
 };
 
 const Button = ({
@@ -33,6 +35,7 @@ const Button = ({
   accessibilityLabel,
   size,
   disabled,
+  component,
   ...rest
 }: ButtonProps | IconButtonProps) => {
   return isIconButton ? (
@@ -56,6 +59,7 @@ const Button = ({
       variant={variant || "contained"}
       color={color || "primary"}
       size={size}
+      component={component}
       {...rest}
     >
       {children}
