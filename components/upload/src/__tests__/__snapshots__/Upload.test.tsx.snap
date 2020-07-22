@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload component handles file change event 1`] = `
+<div
+  class="Upload"
+>
+  <div
+    class="wrapper"
+  >
+    <input
+      class="input"
+      id="onchange-handler-upload"
+      multiple=""
+      type="file"
+    />
+    <label
+      for="onchange-handler-upload"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Upload
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </label>
+    <p
+      class="MuiTypography-root instructions Typography MuiTypography-body1"
+    />
+  </div>
+  <div>
+    <p
+      class="fileList"
+    >
+      filename.png
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Upload component onChange handler is called 1`] = `
+Array [
+  Array [
+    SyntheticEvent {
+      "_dispatchInstances": null,
+      "_dispatchListeners": null,
+      "_targetInst": null,
+      "bubbles": null,
+      "cancelable": null,
+      "currentTarget": [Function],
+      "defaultPrevented": null,
+      "dispatchConfig": null,
+      "eventPhase": null,
+      "isDefaultPrevented": [Function],
+      "isPropagationStopped": [Function],
+      "isTrusted": null,
+      "nativeEvent": null,
+      "target": null,
+      "timeStamp": [Function],
+      "type": null,
+    },
+  ],
+]
+`;
+
+exports[`Upload component renders correctly 1`] = `
+<div
+  class="Upload"
+>
+  <div
+    class="wrapper"
+  >
+    <input
+      class="input"
+      id="default-upload"
+      multiple=""
+      type="file"
+    />
+    <label
+      for="default-upload"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Choose files
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </label>
+    <p
+      class="MuiTypography-root instructions Typography MuiTypography-body1"
+    />
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Upload component renders correctly with description 1`] = `
+<div
+  class="Upload"
+>
+  <div
+    class="wrapper"
+  >
+    <input
+      class="input"
+      id="upload-with-description"
+      multiple=""
+      type="file"
+    />
+    <label
+      for="upload-with-description"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Upload
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </label>
+    <p
+      class="MuiTypography-root instructions Typography MuiTypography-body1"
+    >
+      Please upload your images here
+    </p>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Upload component renders correctly with restricted file types 1`] = `
+<div
+  class="Upload"
+>
+  <div
+    class="wrapper"
+  >
+    <input
+      accept="image/*"
+      class="input"
+      id="restricted-upload"
+      multiple=""
+      type="file"
+    />
+    <label
+      for="restricted-upload"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Upload
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </label>
+    <p
+      class="MuiTypography-root instructions Typography MuiTypography-body1"
+    />
+  </div>
+  <div />
+</div>
+`;
