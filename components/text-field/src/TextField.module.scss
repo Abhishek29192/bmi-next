@@ -64,5 +64,9 @@
         color: $color-cyan-400;
       }
     }
+
+    .MuiFilledInput-inputMultiline {
+      padding: 0;
+    }
   }
 }

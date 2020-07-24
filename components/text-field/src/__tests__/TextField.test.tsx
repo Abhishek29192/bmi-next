@@ -29,4 +29,10 @@ describe("TextField component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders as textarea", () => {
+    const { container } = render(
+      <TextField label="email" placeholder="e.g. lorem@ipsum.com" isTextArea />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
