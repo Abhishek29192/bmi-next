@@ -61,6 +61,31 @@ import Form from "@bmi/form";
       }}
     />
   </Form.Row>
+  <Form.Row>
+    <TextField
+      isTextArea
+      label="nickname"
+      variant="outlined"
+      helperText="Textarea"
+    />
+  </Form.Row>
+  <Form.Row>
+    <TextField
+      isTextArea
+      label="nickname"
+      variant="outlined"
+      helperText="Textarea with max 3 rows"
+      rowsMax={3}
+    />
+  </Form.Row>
+  <Form.Row>
+    <TextField
+      fullWidth
+      label="nickname"
+      variant="outlined"
+      helperText="Full width field"
+    />
+  </Form.Row>
 </Form>;
 ```
 
@@ -124,6 +149,23 @@ import Form from "@bmi/form";
             </InputAdornment>
           )
         }}
+      />
+    </Form.Row>
+    <Form.Row>
+      <TextField
+        isTextArea
+        label="nickname"
+        variant="hybrid"
+        helperText="Textarea"
+        rows={7}
+      />
+    </Form.Row>
+    <Form.Row>
+      <TextField
+        fullWidth
+        label="nickname"
+        variant="hybrid"
+        helperText="Full width field"
       />
     </Form.Row>
   </Form>

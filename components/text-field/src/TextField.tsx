@@ -5,11 +5,13 @@ import classnames from "classnames";
 
 export type Props = Omit<TextFieldProps, "variant"> & {
   variant?: "outlined" | "hybrid";
+  isTextArea?: boolean;
 };
 
-const TextField = ({ className, variant, ...props }: Props) => (
+const TextField = ({ className, variant, isTextArea, ...props }: Props) => (
   <MaterialTextField
     {...props}
+    multiline={isTextArea}
     variant={variant === "hybrid" ? "filled" : "outlined"}
     className={classnames(styles["TextField"], className)}
   />

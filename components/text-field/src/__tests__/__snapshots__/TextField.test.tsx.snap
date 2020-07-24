@@ -24,6 +24,49 @@ exports[`TextField component renders a hybrid variant 1`] = `
 </div>
 `;
 
+exports[`TextField component renders as textarea 1`] = `
+<div
+  class="MuiFormControl-root MuiTextField-root TextField"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+    data-shrink="false"
+  >
+    email
+  </label>
+  <div
+    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+  >
+    <textarea
+      aria-invalid="false"
+      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+      placeholder="e.g. lorem@ipsum.com"
+      rows="1"
+      style="height: 0px; overflow: hidden;"
+    />
+    <textarea
+      aria-hidden="true"
+      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+      readonly=""
+      style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
+      tabindex="-1"
+    />
+    <fieldset
+      aria-hidden="true"
+      class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        class="PrivateNotchedOutline-legendLabelled-11"
+      >
+        <span>
+          email
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;
+
 exports[`TextField component renders correctly 1`] = `
 <div
   class="MuiFormControl-root MuiTextField-root TextField"
