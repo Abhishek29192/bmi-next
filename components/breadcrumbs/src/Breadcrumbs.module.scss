@@ -1,0 +1,51 @@
+.Breadcrumbs {
+  $color-storm: #ccc;
+
+  .link {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  &--dark-themed {
+    color: $color-storm;
+
+    .button {
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+    }
+
+    li:last-child:not(:first-child) {
+      .button {
+        color: $color-storm;
+        text-decoration: none;
+      }
+      .label {
+        max-width: none;
+      }
+    }
+  }
+
+  .button {
+    font-size: 16px;
+    padding-left: 6px;
+    padding-right: 6px;
+    min-width: auto;
+  }
+
+  .label {
+    max-width: 20ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .icon {
+    font-size: inherit;
+  }
+
+  :global {
+    .MuiBreadcrumbs-separator {
+      margin: 0 1px;
+    }
+  }
+}
