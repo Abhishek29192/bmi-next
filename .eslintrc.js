@@ -54,6 +54,7 @@ module.exports = {
       files: ["**/*.{ts,tsx}"],
       parser: "@typescript-eslint/parser",
       env: {
+        browser: true,
         node: false,
         "shared-node-browser": true
       },
