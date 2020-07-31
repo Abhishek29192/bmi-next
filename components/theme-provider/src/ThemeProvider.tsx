@@ -69,6 +69,9 @@ const theme = createMuiTheme({
     body2: {
       fontSize: "1.25rem",
       lineHeight: 1.4
+    },
+    button: {
+      textTransform: "none"
     }
   },
   overrides: {
