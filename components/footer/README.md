@@ -4,9 +4,9 @@ Footer is a component that can be split in three different sections: Newsletter,
 import InputBanner from "@bmi/input-banner";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/Mail";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import YouTubeIcon from "@material-ui/icons/YouTube";
+import FacebookIcon from "@bmi/icon/src/svgs/Facebook.svg";
+import LinkedInIcon from "@bmi/icon/src/svgs/LinkedIn.svg";
+import YouTubeIcon from "@bmi/icon/src/svgs/YouTube.svg";
 import BmiIcon from "./src/svgs/BMI.svg";
 
 const mainNavigation = [

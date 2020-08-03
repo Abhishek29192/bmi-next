@@ -74,3 +74,17 @@ import { Chat } from "@material-ui/icons";
   <Icon source={Chat} style={{ color: "teal" }} />
 </>;
 ```
+
+### BMI custom icons
+
+```jsx
+import Facebook from "./src/svgs/Facebook.svg";
+import YouTube from "./src/svgs/YouTube.svg";
+import LinkedIn from "./src/svgs/LinkedIn.svg";
+
+<>
+  <Icon source={Facebook} style={{ width: 32, marginRight: 5 }} />
+  <Icon source={YouTube} style={{ width: 32, marginRight: 5 }} />
+  <Icon source={LinkedIn} style={{ width: 32, marginRight: 5 }} />
+</>;
+```

@@ -4,7 +4,7 @@ import {
   ThemeProvider as MaterialThemeProvider
 } from "@material-ui/core";
 import React from "react";
-import { effraHeavy, effraMedium, effraRegular } from "./fonts";
+import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
 const theme = createMuiTheme({
   palette: {
@@ -44,21 +44,23 @@ const theme = createMuiTheme({
       lineHeight: 1.2
     },
     h3: {
+      fontFamily: "Effra Bold",
       fontSize: "2rem",
-      fontWeight: "bold",
       lineHeight: 1.2
     },
     h4: {
+      fontFamily: "Effra Bold",
       fontSize: "1.75rem",
-      fontWeight: "bold",
       lineHeight: 1.2
     },
     h5: {
+      fontFamily: "Effra Regular",
       fontSize: "1.5rem",
       textTransform: "uppercase",
       lineHeight: 1.2
     },
     h6: {
+      fontFamily: "Effra Regular",
       fontSize: "1.25rem",
       lineHeight: 1.2
     },
@@ -74,7 +76,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       "@global": {
-        "@font-face": [effraRegular, effraMedium, effraHeavy]
+        "@font-face": [effraRegular, effraMedium, effraBold, effraHeavy]
       }
     }
   }
