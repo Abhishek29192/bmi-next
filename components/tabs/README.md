@@ -26,7 +26,24 @@ import Typography from "@bmi/typography";
 </Tabs>;
 ```
 
+### Secondary theme
+
+```jsx
+import Typography from "@bmi/typography";
+
+<Tabs initialValue="one" theme="secondary">
+  <Tabs.TabPanel heading="Lorem" index="one">
+    <Typography>Lorem ipsum dolor.</Typography>
+  </Tabs.TabPanel>
+  <Tabs.TabPanel heading="Duis" index="two">
+    <Typography>Duis aute irure.</Typography>
+  </Tabs.TabPanel>
+</Tabs>;
+```
+
 ### Scroll overflow
+
+Narrow your window to see the overflow.
 
 ```jsx
 <Tabs>
@@ -37,5 +54,10 @@ import Typography from "@bmi/typography";
   <Tabs.TabPanel heading="Minim" index={4} />
   <Tabs.TabPanel heading="Culpa" index={5} />
   <Tabs.TabPanel heading="Aliquip" index={6} />
+  <Tabs.TabPanel heading="Deserunt" index={6} />
+  <Tabs.TabPanel heading="Irure" index={6} />
+  <Tabs.TabPanel heading="Exercitation" index={6} />
+  <Tabs.TabPanel heading="Proident" index={6} />
+  <Tabs.TabPanel heading="Incididunt" index={6} />
 </Tabs>
 ```

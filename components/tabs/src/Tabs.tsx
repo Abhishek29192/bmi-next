@@ -1,12 +1,13 @@
 import {
-  AppBar,
   AppBarProps,
   Box,
   Tab,
   Tabs as MaterialTabs,
   TabsProps as MaterialTabsProps
 } from "@material-ui/core";
+import classnames from "classnames";
 import React from "react";
+import styles from "./Tabs.module.scss";
 
 type TabPanelProps = {
   children?: React.ReactNode;
@@ -31,12 +32,13 @@ type TabsProps = MaterialTabsProps &
   Pick<AppBarProps, "color"> & {
     children: React.ReactElement[];
     initialValue?: any;
+    theme?: "primary" | "secondary";
   };
 
 const Tabs = ({
   children,
-  color = "transparent",
   initialValue = 0,
+  theme = "primary",
   ...other
 }: TabsProps) => {
   const [value, setValue] = React.useState(initialValue);
@@ -45,8 +47,8 @@ const Tabs = ({
     setValue(newValue);
 
   return (
-    <div>
-      <AppBar position="static" color={color}>
+    <div className={classnames(styles.Tabs, styles[`Tabs--${theme}`])}>
+      <div className={styles.TabsBar}>
         <MaterialTabs
           aria-label="tabs"
           indicatorColor="primary"
@@ -67,7 +69,7 @@ const Tabs = ({
             />
           ))}
         </MaterialTabs>
-      </AppBar>
+      </div>
       {children.map((child) => {
         const { index, ...other } = child.props;
         return React.cloneElement(child, {
