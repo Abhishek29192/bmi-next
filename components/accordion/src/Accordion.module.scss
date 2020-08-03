@@ -1,9 +1,37 @@
-:global(.MuiIconButton-root) .CollapseIcon,
-:global(.MuiIconButton-root.Mui-expanded) .ExpandIcon {
-  display: none;
-}
+$border-color: #ccc;
+$background-color: #f7f7f7;
 
-:global(.MuiIconButton-root.Mui-expanded) .CollapseIcon,
-:global(.MuiIconButton-root) .ExpandIcon {
-  display: initial;
+.Accordion {
+  border: 1px solid $border-color;
+
+  & + & {
+    border-top: none;
+  }
+
+  &:global(.MuiExpansionPanel-root.Mui-expanded) {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  :global {
+    .MuiCollapse-container {
+      border-top: 1px solid $border-color;
+    }
+
+    .MuiExpansionPanelSummary-root {
+      background-color: $background-color;
+
+      &.Mui-expanded {
+        min-height: initial;
+      }
+    }
+
+    .MuiExpansionPanelSummary-content.Mui-expanded {
+      margin: initial;
+    }
+
+    .MuiExpansionPanelDetails-root {
+      padding: 32px 24px;
+    }
+  }
 }
