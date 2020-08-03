@@ -16,4 +16,17 @@ describe("Tabs component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders alternate theme correctly", () => {
+    const { container } = render(
+      <Tabs theme="secondary">
+        <Tabs.TabPanel heading="Tab 1" index={0}>
+          Content One
+        </Tabs.TabPanel>
+        <Tabs.TabPanel heading="Tab 2" index={1}>
+          Content Two
+        </Tabs.TabPanel>
+      </Tabs>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
