@@ -20,7 +20,7 @@ const descriptions = [
 ];
 
 const tiles = descriptions.map((description, index) => (
-  <TileList.Item key={index} icon={<UserIcon />}>
+  <TileList.Item key={index} icon={UserIcon}>
     <Typography>{description}</Typography>
   </TileList.Item>
 ));
