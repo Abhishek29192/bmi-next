@@ -8,7 +8,7 @@ import Typography from "@bmi/typography";
 <>
   <Accordion>
     <Accordion.Summary aria-controls="panel1-content" id="panel1-header">
-      <Typography component="h1" variant="h5">
+      <Typography component="h1" variant="h6">
         Lorem ipsum
       </Typography>
     </Accordion.Summary>
@@ -21,7 +21,7 @@ import Typography from "@bmi/typography";
   </Accordion>
   <Accordion>
     <Accordion.Summary aria-controls="panel2-content" id="panel2-header">
-      <Typography component="h1" variant="h5">
+      <Typography component="h1" variant="h6">
         Ut enim
       </Typography>
     </Accordion.Summary>
@@ -34,7 +34,7 @@ import Typography from "@bmi/typography";
   </Accordion>
   <Accordion>
     <Accordion.Summary aria-controls="panel3-content" id="panel3-header">
-      <Typography component="h1" variant="h5">
+      <Typography component="h1" variant="h6">
         Duis aute
       </Typography>
     </Accordion.Summary>
