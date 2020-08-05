@@ -62,28 +62,31 @@ import Form from "@bmi/form";
     />
   </Form.Row>
   <Form.Row>
+    <p>TextArea</p>
     <TextField
       isTextArea
       label="nickname"
       variant="outlined"
-      helperText="Textarea"
+      helperText="Hint Text"
     />
   </Form.Row>
   <Form.Row>
+    <p>TextArea with max 3 rows</p>
     <TextField
       isTextArea
       label="nickname"
       variant="outlined"
-      helperText="Textarea with max 3 rows"
+      helperText="Hint Text"
       rowsMax={3}
     />
   </Form.Row>
   <Form.Row>
+    <p>Full width field</p>
     <TextField
       fullWidth
       label="nickname"
       variant="outlined"
-      helperText="Full width field"
+      helperText="Hint Text"
     />
   </Form.Row>
 </Form>;
@@ -127,7 +130,7 @@ import Form from "@bmi/form";
         variant="hybrid"
         placeholder="e.g. lorem@ipsum.com"
         error
-        helperText="Incorret email"
+        helperText="Incorrect email"
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
