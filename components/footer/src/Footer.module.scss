@@ -42,12 +42,24 @@
     }
 
     .list-item {
-      display: inline-block;
       margin-top: 0;
-      margin-right: 16px;
+      text-align: center;
+
+      @media (min-width: $breakpoint-sm) {
+        margin-right: 16px;
+        display: inline-block;
+      }
 
       &:last-child {
         margin-right: 0;
+      }
+    }
+
+    .link {
+      width: auto;
+
+      @media (min-width: $breakpoint-sm) {
+        width: 100%;
       }
     }
   }
