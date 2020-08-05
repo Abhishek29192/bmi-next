@@ -65,6 +65,7 @@ const Button = ({
       color={color || "primary"}
       size={size}
       component={component}
+      disabled={disabled}
       {...rest}
     >
       {children}
