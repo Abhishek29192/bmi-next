@@ -7,38 +7,44 @@ This component wraps the Material UI [Select](https://material-ui.com/api/select
 #### Default
 
 ```jsx
+import { MenuItem } from "./src";
+
 <Select label="Country" labelId="outlined-country-simple">
-  <Select.Item aria-label="None" value="">
+  <MenuItem aria-label="None" value="">
     None
-  </Select.Item>
-  <Select.Item value="uk">United Kingdom</Select.Item>
-  <Select.Item value="no">Norway</Select.Item>
-  <Select.Item value="fr">France</Select.Item>
-</Select>
+  </MenuItem>
+  <MenuItem value="uk">United Kingdom</MenuItem>
+  <MenuItem value="no">Norway</MenuItem>
+  <MenuItem value="fr">France</MenuItem>
+</Select>;
 ```
 
 #### Error
 
 ```jsx
+import { MenuItem } from "./src";
+
 <Select error label="Country" labelId="outlined-country-errored">
-  <Select.Item aria-label="None" value="">
+  <MenuItem aria-label="None" value="">
     None
-  </Select.Item>
-  <Select.Item value="uk">United Kingdom</Select.Item>
-  <Select.Item value="no">Norway</Select.Item>
-  <Select.Item value="fr">France</Select.Item>
-</Select>
+  </MenuItem>
+  <MenuItem value="uk">United Kingdom</MenuItem>
+  <MenuItem value="no">Norway</MenuItem>
+  <MenuItem value="fr">France</MenuItem>
+</Select>;
 ```
 
 #### Disabled
 
 ```jsx
+import { MenuItem } from "./src";
+
 <Select disabled label="Country" labelId="outlined-country-disabled">
-  <Select.Item aria-label="None" value="" />
-  <Select.Item value="uk">United Kingdom</Select.Item>
-  <Select.Item value="no">Norway</Select.Item>
-  <Select.Item value="fr">France</Select.Item>
-</Select>
+  <MenuItem aria-label="None" value="" />
+  <MenuItem value="uk">United Kingdom</MenuItem>
+  <MenuItem value="no">Norway</MenuItem>
+  <MenuItem value="fr">France</MenuItem>
+</Select>;
 ```
 
 ### Hybrid
@@ -46,37 +52,43 @@ This component wraps the Material UI [Select](https://material-ui.com/api/select
 #### Default
 
 ```jsx
+import { MenuItem } from "./src";
+
 <Select variant="hybrid" label="Country" labelId="hybrid-country-simple">
-  <Select.Item aria-label="None" value="" />
-  <Select.Item value="uk">United Kingdom</Select.Item>
-  <Select.Item value="no">Norway</Select.Item>
-  <Select.Item value="fr">France</Select.Item>
-</Select>
+  <MenuItem aria-label="None" value="" />
+  <MenuItem value="uk">United Kingdom</MenuItem>
+  <MenuItem value="no">Norway</MenuItem>
+  <MenuItem value="fr">France</MenuItem>
+</Select>;
 ```
 
 #### Error
 
 ```jsx
+import { MenuItem } from "./src";
+
 <Select error variant="hybrid" label="Country" labelId="hybrid-country-errored">
-  <Select.Item aria-label="None" value="" />
-  <Select.Item value="uk">United Kingdom</Select.Item>
-  <Select.Item value="no">Norway</Select.Item>
-  <Select.Item value="fr">France</Select.Item>
-</Select>
+  <MenuItem aria-label="None" value="" />
+  <MenuItem value="uk">United Kingdom</MenuItem>
+  <MenuItem value="no">Norway</MenuItem>
+  <MenuItem value="fr">France</MenuItem>
+</Select>;
 ```
 
 #### Disabled
 
 ```jsx
+import { MenuItem } from "./src";
+
 <Select
   disabled
   variant="hybrid"
   label="Country"
   labelId="hybrid-country-disabled"
 >
-  <Select.Item aria-label="None" value="" />
-  <Select.Item value="uk">United Kingdom</Select.Item>
-  <Select.Item value="no">Norway</Select.Item>
-  <Select.Item value="fr">France</Select.Item>
-</Select>
+  <MenuItem aria-label="None" value="" />
+  <MenuItem value="uk">United Kingdom</MenuItem>
+  <MenuItem value="no">Norway</MenuItem>
+  <MenuItem value="fr">France</MenuItem>
+</Select>;
 ```

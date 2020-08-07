@@ -5,9 +5,14 @@ import styles from "./Select.module.scss";
 import InputLabel from "@material-ui/core/InputLabel";
 import { FormControl } from "@material-ui/core";
 import classnames from "classnames";
+import { withFormControl } from "@bmi/form";
+import FormHelperText from "@material-ui/core/FormHelperText";
 
-type Props = Omit<SelectProps, "variant"> & {
+export type Props = Omit<SelectProps, "variant"> & {
   variant?: "outlined" | "hybrid";
+  onChange: (value: string) => void;
+  errorText?: string;
+  helperText?: string;
 };
 
 const Select = ({
@@ -15,10 +20,16 @@ const Select = ({
   label,
   labelId,
   error,
+  errorText,
   disabled,
   className,
+  onChange,
+  helperText,
   ...props
 }: Props) => {
+  const handleChange = (event) => {
+    onChange(event.target.value);
+  };
   return (
     <FormControl
       error={error}
@@ -31,12 +42,14 @@ const Select = ({
         labelId={labelId}
         label={label}
         className={classnames(styles["Select"], className)}
+        onChange={handleChange}
         {...props}
       />
+      <FormHelperText>{error ? errorText : helperText}</FormHelperText>
     </FormControl>
   );
 };
 
-Select.Item = MenuItem;
+export { MenuItem };
 
-export default Select;
+export default withFormControl(Select);

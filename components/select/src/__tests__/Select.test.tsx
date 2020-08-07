@@ -1,17 +1,17 @@
 import React from "react";
-import Select from "../";
-import { render } from "@testing-library/react";
+import Select, { MenuItem } from "../";
+import { render, fireEvent } from "@testing-library/react";
 
 describe("Select component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <Select label="Country" labelId="outlined-country-simple">
-        <Select.Item aria-label="None" value="">
+      <Select name="Country" label="Country" labelId="outlined-country-simple">
+        <MenuItem aria-label="None" value="">
           None
-        </Select.Item>
-        <Select.Item value="uk">United Kingdom</Select.Item>
-        <Select.Item value="no">Norway</Select.Item>
-        <Select.Item value="fr">France</Select.Item>
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
       </Select>
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -19,18 +19,42 @@ describe("Select component", () => {
   it("renders correctly as hybrid variant", () => {
     const { container } = render(
       <Select
+        name="Country"
         variant="hybrid"
         label="Country"
         labelId="outlined-country-simple"
       >
-        <Select.Item aria-label="None" value="">
+        <MenuItem aria-label="None" value="">
           None
-        </Select.Item>
-        <Select.Item value="uk">United Kingdom</Select.Item>
-        <Select.Item value="no">Norway</Select.Item>
-        <Select.Item value="fr">France</Select.Item>
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
       </Select>
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("calls onChange handler", () => {
+    const onChange = jest.fn();
+    const { getByDisplayValue } = render(
+      <Select
+        name="Country"
+        variant="hybrid"
+        label="Country"
+        labelId="outlined-country-simple"
+        onChange={onChange}
+        defaultValue="uk"
+      >
+        <MenuItem aria-label="None" value="">
+          None
+        </MenuItem>
+        <MenuItem value="uk">United Kingdom</MenuItem>
+        <MenuItem value="no">Norway</MenuItem>
+        <MenuItem value="fr">France</MenuItem>
+      </Select>
+    );
+    fireEvent.change(getByDisplayValue("uk"), { target: { value: "fr" } });
+    expect(onChange.mock.calls).toMatchSnapshot();
   });
 });

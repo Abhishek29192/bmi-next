@@ -19,6 +19,7 @@ import TextField from "@bmi/text-field";
 import Grid from "@bmi/grid";
 import Upload from "@bmi/upload";
 import Checkbox from "@bmi/checkbox";
+import Select, { MenuItem } from "@bmi/select";
 
 const onSubmit = (event, values) => {
   event.preventDefault();
@@ -90,12 +91,34 @@ const onSubmit = (event, values) => {
     </Grid>
     <Grid item xs={12} md={6}>
       <Form.Row>
-        <TextField
-          name="Type of query"
+        <Select
+          isRequired
           label="Type of query"
-          variant="outlined"
-          fullWidth
-        />
+          name="Type of query"
+          labelId="type-of-query"
+        >
+          <MenuItem aria-label="None" value="">
+            None
+          </MenuItem>
+          <MenuItem value="general-enquiries">General enquiry</MenuItem>
+          <MenuItem value="return">Product return/Damaged goods</MenuItem>
+          <MenuItem value="questions">Questions about a product</MenuItem>
+          <MenuItem value="technical-info">
+            Request for technical information
+          </MenuItem>
+          <MenuItem value="warranty">Warranty information</MenuItem>
+          <MenuItem value="complaint">Complaint</MenuItem>
+          <MenuItem value="order-placement">Order placement</MenuItem>
+          <MenuItem value="case-references">
+            Request for case references
+          </MenuItem>
+          <MenuItem value="large-tenders">Help with large tenders</MenuItem>
+          <MenuItem value="directions">
+            Directions to locations where customers can buy BMI products
+          </MenuItem>
+          <MenuItem value="brochure">Request a brochure </MenuItem>
+          <MenuItem value="report-damage">Report a damaged product </MenuItem>
+        </Select>
       </Form.Row>
     </Grid>
     <Grid item xs={12}>

@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Select component calls onChange handler 1`] = `
+Array [
+  Array [
+    "fr",
+  ],
+]
+`;
+
 exports[`Select component renders correctly 1`] = `
 <div
   class="MuiFormControl-root MuiFormControl-fullWidth"
@@ -54,6 +62,9 @@ exports[`Select component renders correctly 1`] = `
       </legend>
     </fieldset>
   </div>
+  <p
+    class="MuiFormHelperText-root MuiFormHelperText-contained"
+  />
 </div>
 `;
 
@@ -99,5 +110,8 @@ exports[`Select component renders correctly as hybrid variant 1`] = `
       />
     </svg>
   </div>
+  <p
+    class="MuiFormHelperText-root MuiFormHelperText-contained"
+  />
 </div>
 `;
