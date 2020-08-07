@@ -5,9 +5,7 @@ This component is wrapping the Material-UI [TextField component](https://materia
 ### Outlined
 
 ```tsx
-import InputAdornment from "@material-ui/core/InputAdornment";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import ErrorRounded from "@material-ui/icons/ErrorRounded";
 import Form from "@bmi/form";
 
 <Form>
@@ -38,52 +36,83 @@ import Form from "@bmi/form";
       placeholder="e.g. lorem@ipsum.com"
       error
       helperText="Incorrect email"
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <ErrorRounded style={{ color: "red" }} />
-          </InputAdornment>
-        )
-      }}
     />
   </Form.Row>
   <Form.Row>
+    <p>Left Adornment</p>
     <TextField
       label="nickname"
       variant="outlined"
       helperText="Icon hint text"
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            <AccountCircle />
-          </InputAdornment>
-        )
-      }}
+      leftAdornment={<AccountCircle />}
     />
   </Form.Row>
   <Form.Row>
+    <p>Left Adornment with error</p>
+    <TextField
+      error
+      label="nickname"
+      variant="outlined"
+      helperText="Icon hint text"
+      leftAdornment={<AccountCircle />}
+    />
+  </Form.Row>
+  <Form.Row>
+    <p>Left Adornment with error full width</p>
+    <TextField
+      fullWidth
+      error
+      label="nickname"
+      variant="outlined"
+      helperText="Icon hint text"
+      leftAdornment={<AccountCircle />}
+    />
+  </Form.Row>
+  <Form.Row>
+    <p>Right Adornment</p>
+    <TextField
+      label="nickname"
+      variant="outlined"
+      helperText="Icon hint text"
+      rightAdornment={<AccountCircle />}
+    />
+  </Form.Row>
+  <Form.Row>
+    <p>Right Adornment with error</p>
+    <TextField
+      error
+      label="nickname"
+      variant="outlined"
+      helperText="Icon hint text"
+      rightAdornment={<AccountCircle />}
+    />
+  </Form.Row>
+  <Form.Row>
+    <p>TextArea</p>
     <TextField
       isTextArea
       label="nickname"
       variant="outlined"
-      helperText="Textarea"
+      helperText="Hint Text"
     />
   </Form.Row>
   <Form.Row>
+    <p>TextArea with max 3 rows</p>
     <TextField
       isTextArea
       label="nickname"
       variant="outlined"
-      helperText="Textarea with max 3 rows"
+      helperText="Hint Text"
       rowsMax={3}
     />
   </Form.Row>
   <Form.Row>
+    <p>Full width field</p>
     <TextField
       fullWidth
       label="nickname"
       variant="outlined"
-      helperText="Full width field"
+      helperText="Hint Text"
     />
   </Form.Row>
 </Form>;
@@ -94,9 +123,7 @@ import Form from "@bmi/form";
 This is an addition to MaterialUI. The rational behind this is to use the same style of the Outlined TextField, with a non-white background.
 
 ```tsx
-import InputAdornment from "@material-ui/core/InputAdornment";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import ErrorRounded from "@material-ui/icons/ErrorRounded";
 import Form from "@bmi/form";
 
 <div style={{ background: "#eee", padding: "10px" }}>
@@ -127,14 +154,7 @@ import Form from "@bmi/form";
         variant="hybrid"
         placeholder="e.g. lorem@ipsum.com"
         error
-        helperText="Incorret email"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <ErrorRounded style={{ color: "red" }} />
-            </InputAdornment>
-          )
-        }}
+        helperText="Incorrect email"
       />
     </Form.Row>
     <Form.Row>
@@ -142,13 +162,7 @@ import Form from "@bmi/form";
         label="nickname"
         variant="hybrid"
         helperText="Icon hint text"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          )
-        }}
+        leftAdornment={<AccountCircle />}
       />
     </Form.Row>
     <Form.Row>
