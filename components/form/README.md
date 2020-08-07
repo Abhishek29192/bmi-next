@@ -30,7 +30,7 @@ const onSubmit = (event, values) => {
     <Grid item xs={12} md={6}>
       <Form.Row>
         <TextField
-          id="first-name"
+          name="First Name"
           isRequired
           variant="outlined"
           label="First Name"
@@ -41,7 +41,7 @@ const onSubmit = (event, values) => {
     <Grid item xs={12} md={6}>
       <Form.Row>
         <TextField
-          id="last-name"
+          name="Last Name"
           isRequired
           label="Last Name"
           variant="outlined"
@@ -52,7 +52,7 @@ const onSubmit = (event, values) => {
     <Grid item xs={12} md={6}>
       <Form.Row>
         <TextField
-          id="email"
+          name="Email"
           isRequired
           variant="outlined"
           label="Email"
@@ -70,18 +70,18 @@ const onSubmit = (event, values) => {
     <Grid item xs={12} md={6}>
       <Form.Row>
         <TextField
-          id="company-name"
+          name="Company name"
           label="Company name (if applicable)"
           variant="outlined"
           fullWidth
-          hintText="(Optional)"
+          helperText="(Optional)"
         />
       </Form.Row>
     </Grid>
     <Grid item xs={12} md={6}>
       <Form.Row>
         <TextField
-          id="telephone"
+          name="Telephone"
           variant="outlined"
           label="Telephone"
           fullWidth
@@ -91,7 +91,7 @@ const onSubmit = (event, values) => {
     <Grid item xs={12} md={6}>
       <Form.Row>
         <TextField
-          id="type-of-query"
+          name="Type of query"
           label="Type of query"
           variant="outlined"
           fullWidth
@@ -101,10 +101,11 @@ const onSubmit = (event, values) => {
     <Grid item xs={12}>
       <Form.Row>
         <Upload
+          id="file-upload"
+          name="Upload"
           buttonLabel="Choose files"
           accept="image/*"
           instructions="Supported formats include: PDF, JPG, JPEG and PNG"
-          id="upload-with-instructions"
         />
       </Form.Row>
     </Grid>
@@ -112,7 +113,7 @@ const onSubmit = (event, values) => {
       <Form.Row>
         <TextField
           isTextArea
-          id="your-message"
+          name="Your message"
           label="Your message"
           variant="outlined"
           fullWidth
@@ -122,22 +123,34 @@ const onSubmit = (event, values) => {
     </Grid>
     <Grid item xs={12}>
       <Form.Row>
-        <Checkbox label="Send a copy of this message to my email address" />
+        <Checkbox
+          name="Copy checkbox"
+          label="Send a copy of this message to my email address"
+        />
       </Form.Row>
     </Grid>
     <Grid item xs={12}>
       <Form.Row>
-        <Checkbox label="Sign up for the BMI newsletter" />
+        <Checkbox
+          name="Newsletter checkbox"
+          label="Sign up for the BMI newsletter"
+        />
       </Form.Row>
     </Grid>
     <Grid item xs={12}>
       <Form.Row>
-        <Checkbox label="I agree with BMI's Data Protection Policy" />
+        <Checkbox
+          name="Data protection checkbox"
+          label="I agree with BMI's Data Protection Policy"
+        />
       </Form.Row>
     </Grid>
     <Grid item xs={12}>
       <Form.Row>
-        <Checkbox label="I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time." />
+        <Checkbox
+          name="Information collection checkbox"
+          label="I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time."
+        />
       </Form.Row>
     </Grid>
   </Grid>

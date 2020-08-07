@@ -14,7 +14,9 @@ import Form from "@bmi/form";
   <Form.Row>
     <p>Enabled</p>
     <TextField
-      label="email"
+      id="email"
+      name="Email"
+      label="Email address"
       variant="outlined"
       placeholder="e.g. lorem@ipsum.com"
       helperText="Enabled hint text"
@@ -23,7 +25,9 @@ import Form from "@bmi/form";
   <Form.Row>
     <p>Disabled</p>
     <TextField
-      label="email"
+      id="email"
+      name="Email"
+      label="Email address"
       variant="outlined"
       placeholder="e.g. lorem@ipsum.com"
       disabled
@@ -33,7 +37,9 @@ import Form from "@bmi/form";
   <Form.Row>
     <p>Left Adornment</p>
     <TextField
-      label="nickname"
+      id="email"
+      name="Email"
+      label="Email address"
       variant="outlined"
       helperText="Icon hint text"
       leftAdornment={<AccountCircle />}
@@ -42,7 +48,9 @@ import Form from "@bmi/form";
   <Form.Row>
     <p>Right Adornment</p>
     <TextField
-      label="nickname"
+      id="email"
+      name="Email"
+      label="Email address"
       variant="outlined"
       helperText="Icon hint text"
       rightAdornment={<AccountCircle />}
@@ -52,6 +60,8 @@ import Form from "@bmi/form";
     <p>TextArea</p>
     <TextField
       isTextArea
+      id="nickname"
+      name="Nickname"
       label="nickname"
       variant="outlined"
       helperText="Hint Text"
@@ -61,6 +71,8 @@ import Form from "@bmi/form";
     <p>TextArea with max 3 rows</p>
     <TextField
       isTextArea
+      id="nickname"
+      name="Nickname"
       label="nickname"
       variant="outlined"
       helperText="Hint Text"
@@ -71,6 +83,8 @@ import Form from "@bmi/form";
     <p>Full width field</p>
     <TextField
       fullWidth
+      id="nickname"
+      name="Nickname"
       label="nickname"
       variant="outlined"
       helperText="Hint Text"
@@ -92,7 +106,9 @@ import Form from "@bmi/form";
     <Form.Row>
       <p>Enabled</p>
       <TextField
-        label="email"
+        id="email"
+        name="Email"
+        label="Email address"
         variant="hybrid"
         placeholder="e.g. lorem@ipsum.com"
         helperText="Enabled hint text"
@@ -101,7 +117,9 @@ import Form from "@bmi/form";
     <Form.Row>
       <p>Disabled</p>
       <TextField
-        label="email"
+        id="email"
+        name="Email"
+        label="Email address"
         variant="hybrid"
         placeholder="e.g. lorem@ipsum.com"
         disabled
@@ -110,6 +128,8 @@ import Form from "@bmi/form";
     </Form.Row>
     <Form.Row>
       <TextField
+        id="nickname"
+        name="Nickname"
         label="nickname"
         variant="hybrid"
         helperText="Icon hint text"
@@ -119,6 +139,8 @@ import Form from "@bmi/form";
     <Form.Row>
       <TextField
         isTextArea
+        id="nickname"
+        name="Nickname"
         label="nickname"
         variant="hybrid"
         helperText="Textarea"
@@ -128,6 +150,8 @@ import Form from "@bmi/form";
     <Form.Row>
       <TextField
         fullWidth
+        id="nickname"
+        name="Nickname"
         label="nickname"
         variant="hybrid"
         helperText="Full width field"
