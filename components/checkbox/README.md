@@ -5,32 +5,43 @@ This component contains the Material UI [Checkbox](https://material-ui.com/api/c
 ### Default
 
 ```tsx
-<Checkbox />
+<Checkbox name="Test checkbox" />
 ```
 
 ### With Label
 
 ```tsx
-<Checkbox label="Send a copy of this message to my email address" />
+<Checkbox
+  name="Test checkbox"
+  label="Send a copy of this message to my email address"
+/>
 ```
 
 ### Label containing a React component
 
 ```tsx
-<Checkbox label={<span>This is some text in a span</span>} />
+<Checkbox
+  name="Test checkbox"
+  label={<span>This is some text in a span</span>}
+/>
 ```
 
 ### Disabled
 
 ```tsx
-<Checkbox disabled label="Send a copy of this message to my email address" />
+<Checkbox
+  name="Test checkbox"
+  disabled
+  label="Send a copy of this message to my email address"
+/>
 ```
 
 ### With error
 
 ```tsx
 <Checkbox
-  error="You can display an error message here"
+  isRequired
+  name="Test checkbox"
   label="Send a copy of this message to my email address"
 />
 ```

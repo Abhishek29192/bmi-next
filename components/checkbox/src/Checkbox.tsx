@@ -3,22 +3,36 @@ import MuiCheckbox, { CheckboxProps } from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
+import { withFormControl } from "@bmi/form";
 
-type Props = CheckboxProps & {
+export type Props = CheckboxProps & {
   label?: React.ReactNode;
-  error?: string;
+  error?: boolean;
+  errorText?: string;
+  onChange: (value: boolean) => void;
 };
 
-const Checkbox = ({ label, error, disabled, ...props }: Props) => {
+const Checkbox = ({
+  label,
+  error,
+  disabled,
+  errorText,
+  onChange,
+  ...props
+}: Props) => {
+  const handleChange = (event) => {
+    onChange(event.target.checked);
+  };
   return (
     <FormControl error={!!error} disabled={disabled}>
       <FormControlLabel
         control={<MuiCheckbox color="primary" {...props} />}
         label={label}
+        onChange={handleChange}
       />
-      {error ? <FormHelperText>{error}</FormHelperText> : null}
+      {error ? <FormHelperText>{errorText}</FormHelperText> : null}
     </FormControl>
   );
 };
 
-export default Checkbox;
+export default withFormControl(Checkbox);
