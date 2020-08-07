@@ -1,3 +1,4 @@
-import Form from "./Form";
+import Form, { FormContext } from "./Form";
 
+export { FormContext };
 export default Form;
