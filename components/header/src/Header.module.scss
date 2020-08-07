@@ -1,0 +1,251 @@
+@import "@bmi/styles";
+
+// Header overrides
+$breakpoint-sm: 800px;
+$breakpoint-md: 1080px;
+
+.MenuIsOpen {
+  // This class is attached to the `body`
+  overflow: hidden;
+}
+
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  ul {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .Logo {
+    margin: 10px;
+    width: 50px;
+
+    @media (min-width: $breakpoint-sm) {
+      width: 60px;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      width: 80px;
+    }
+  }
+
+  .Navigation {
+    display: none;
+    margin-bottom: -1px;
+
+    @media (min-width: $breakpoint-sm) {
+      display: block;
+    }
+
+    .NavItem {
+      border: 1px solid transparent;
+      min-width: auto;
+      transition: color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 280ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 1.125rem;
+        padding-bottom: 30px;
+        padding-top: 30px;
+      }
+
+      &:hover {
+        background-color: $bmi-pearl;
+      }
+
+      &:global(.Mui-selected) {
+        border: 1px solid $bmi-storm;
+        border-bottom-color: $bmi-white;
+      }
+
+      :global {
+        .MuiTab-wrapper {
+          flex-direction: column-reverse;
+
+          @media (min-width: $breakpoint-md) {
+            flex-direction: row-reverse;
+          }
+        }
+
+        .MuiSvgIcon-root {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    :global {
+      .MuiTabs-indicator {
+        display: none;
+      }
+    }
+  }
+
+  .BurgerButton {
+    background-color: $bmi-white;
+    color: $bmi-cyan-500;
+    margin-left: 10px;
+
+    &:hover {
+      background-color: $bmi-pearl;
+    }
+
+    @media (min-width: $breakpoint-sm) {
+      display: none;
+    }
+  }
+
+  .CloseButton {
+    background-color: $bmi-white;
+    color: $bmi-slate;
+    float: right;
+    margin: 7px;
+    z-index: 1;
+
+    &:hover {
+      background-color: $bmi-pearl;
+      color: $bmi-charocal;
+    }
+  }
+
+  .Backdrop {
+    z-index: 13;
+
+    @media (min-width: $breakpoint-sm) {
+      z-index: 11;
+    }
+  }
+
+  .Drawer {
+    background-color: $bmi-white;
+    border: 1px solid $bmi-storm;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 315px;
+    z-index: 13;
+
+    @media (min-width: $breakpoint-sm) {
+      height: auto;
+      top: auto;
+      z-index: 11;
+    }
+  }
+
+  .NavDrawer {
+    overflow: hidden;
+
+    @media (min-width: $breakpoint-sm) {
+      left: 0;
+      height: 80vh;
+      width: 100%;
+      position: absolute;
+    }
+  }
+
+  .SearchDrawer {
+    padding: 30px;
+
+    @media (min-width: $breakpoint-sm) {
+      right: 20px;
+      width: 566px;
+    }
+
+    .CloseButton {
+      margin-right: -20px;
+      margin-top: -20px;
+    }
+
+    :global(.MuiTypography-root) {
+      margin-bottom: 32px;
+    }
+  }
+
+  .UtilitiesBar {
+    background-color: $bmi-pearl;
+    display: none;
+    padding: 7px 0;
+    position: relative;
+    text-align: right;
+    z-index: 12;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @media (min-width: $breakpoint-sm) {
+      display: block;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      padding: 9px 0;
+    }
+
+    .NavItem {
+      display: flex;
+      align-items: center;
+
+      &:hover :global(.MuiLink-underlineHover) {
+        text-decoration: none;
+      }
+
+      & + .NavItem::before {
+        content: "";
+        display: block;
+        background-color: $bmi-storm;
+        height: 24px;
+        margin: 0 7px;
+        width: 1px;
+      }
+    }
+
+    .UtilitiesButton {
+      font-size: 0.875rem;
+      color: $bmi-charocal;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .NavigationBar {
+    background-color: $bmi-white;
+    position: relative;
+    z-index: 12;
+
+    // &--small {} // Unused
+    // &--medium {}
+    // &--large {}
+
+    :global(.MuiContainer-root) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__Left {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    &__Right {
+      display: initial;
+    }
+  }
+
+  .Footer {
+    position: absolute;
+    top: 3rem;
+    right: 0;
+  }
+}

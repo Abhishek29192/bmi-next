@@ -108,6 +108,10 @@ $breakpoint-sm: 800px;
       width: 100%;
     }
 
+    svg {
+      height: 32px;
+    }
+
     :global {
       .MuiButton-label {
         justify-content: space-between;
