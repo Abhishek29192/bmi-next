@@ -8,7 +8,7 @@ type Errors = { [key: string]: any };
 
 type Props = React.HTMLProps<HTMLFormElement> & {
   children: React.ReactNode;
-  onSubmit: (event: FormEvent<HTMLFormElement>, values: Values) => void;
+  onSubmit?: (event: FormEvent<HTMLFormElement>, values: Values) => void;
   submitButtonLabel?: string;
   rightAlignButton?: boolean;
   buttonClassName?: string;
