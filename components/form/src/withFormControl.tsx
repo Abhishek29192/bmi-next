@@ -5,17 +5,22 @@ import { Props as CheckboxProps } from "@bmi/checkbox";
 import { Props as SelectProps } from "@bmi/select";
 
 export type Props = (
-  | Omit<TextFieldProps, "onChange" | "defaultValue">
-  | Omit<CheckboxProps, "onChange" | "defaultValue">
-  | Omit<SelectProps, "onChange" | "defaultValue">
+  | Omit<TextFieldProps, "onChange" | "defaultValue" | "label">
+  | Omit<CheckboxProps, "onChange" | "defaultValue" | "label">
+  | Omit<SelectProps, "onChange" | "defaultValue" | "label">
 ) & {
   isRequired?: boolean;
   // TODO: pass all values so that validation could depend on other fields
   getValidationError?: (val: string | boolean) => false | string;
   defaultValue?: string | boolean;
   onChange?: (value: string | boolean) => void;
-  name: string;
-};
+} & (
+    | {
+        name: string;
+        label?: string;
+      }
+    | { label: string; name?: string }
+  );
 
 const withFormControl = (WrappedComponent) => {
   const FormControl = ({
@@ -24,8 +29,12 @@ const withFormControl = (WrappedComponent) => {
     name,
     getValidationError,
     defaultValue = "",
+    label,
     ...props
   }: Props) => {
+    if (!name) {
+      name = label;
+    }
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
     const getError = (val: string | boolean) => {
@@ -62,6 +71,7 @@ const withFormControl = (WrappedComponent) => {
     return (
       <WrappedComponent
         {...props}
+        label={label}
         errorText={error}
         onBlur={() => setBlurred(true)}
         onChange={handleChange}
