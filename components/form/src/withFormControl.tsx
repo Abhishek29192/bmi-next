@@ -3,11 +3,13 @@ import { FormContext } from "./";
 import { Props as TextFieldProps } from "@bmi/text-field";
 import { Props as CheckboxProps } from "@bmi/checkbox";
 import { Props as SelectProps } from "@bmi/select";
+import { Props as UploadProps } from "@bmi/upload";
 
 export type Props = (
   | Omit<TextFieldProps, "onChange" | "defaultValue" | "label">
   | Omit<CheckboxProps, "onChange" | "defaultValue" | "label">
   | Omit<SelectProps, "onChange" | "defaultValue" | "label">
+  | Omit<UploadProps, "onChange" | "defaultValue" | "label" | "onBlur">
 ) & {
   isRequired?: boolean;
   // TODO: pass all values so that validation could depend on other fields
