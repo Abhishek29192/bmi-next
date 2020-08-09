@@ -11,7 +11,7 @@ import styles from "./InputBanner.module.scss";
 type Props = {
   title: React.ReactNode;
   description: React.ReactNode;
-  inputLabel: React.ReactNode;
+  inputLabel: string;
   inputCallToAction: React.ReactNode;
 };
 
