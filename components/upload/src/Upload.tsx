@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@bmi/button";
 import styles from "./Upload.module.scss";
 import Typography from "@bmi/typography";
 import { withFormControl } from "@bmi/form";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
+import File from "./File";
 
 export type Props = {
   buttonLabel?: string;
   instructions?: string;
   accept?: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (files: File[]) => void;
   id: string;
   onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
   error?: boolean;
@@ -27,18 +28,41 @@ const Upload = ({
   error,
   errorText
 }: Props) => {
-  const [files, setFiles] = useState({ length: 0 });
-  const fileIndices = Array.from(Array(files.length), (_, i) => i);
+  const [files, setFiles] = useState([]);
+
+  useEffect(() => {
+    // TODO: check this
+    return files.forEach((file) => {
+      if (file.image) {
+        URL.revokeObjectURL(file.image);
+      }
+    });
+  }, []);
 
   const handleUpload = (event) => {
-    // TODO: allow adding and removing files
-    const files = event.target.files;
-    setFiles(files);
-    onChange(event.target.files);
+    const files: File[] = Array.from(event.target.files);
+    onChange(files);
+
+    const newFiles = files.map((file) => {
+      return {
+        name: file.name,
+        image: file.type.includes("image") ? URL.createObjectURL(file) : null
+      };
+    });
+    setFiles((currentFiles) => currentFiles.concat(newFiles));
+  };
+
+  const deleteFile = (index) => {
+    setFiles((currentFiles) => {
+      let updatedFiles = [...currentFiles];
+      URL.revokeObjectURL(currentFiles[index].image);
+      updatedFiles.splice(index, 1);
+      return updatedFiles;
+    });
   };
 
   return (
-    <FormControl error={!!error} className={styles["Upload"]}>
+    <FormControl fullWidth error={!!error} className={styles["Upload"]}>
       <div className={styles["wrapper"]}>
         <input
           accept={accept}
@@ -64,10 +88,13 @@ const Upload = ({
       </div>
       <div>
         {error ? <FormHelperText>{errorText}</FormHelperText> : null}
-        {fileIndices.map((index) => (
-          <p className={styles["fileList"]} key={index}>
-            {files[index].name}
-          </p>
+        {files.map((file, index) => (
+          <File
+            key={index}
+            filename={file.name}
+            image={file.image}
+            deleteFile={(_) => deleteFile(index)}
+          />
         ))}
       </div>
     </FormControl>

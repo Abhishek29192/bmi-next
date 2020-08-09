@@ -5,6 +5,8 @@ import { Props as CheckboxProps } from "@bmi/checkbox";
 import { Props as SelectProps } from "@bmi/select";
 import { Props as UploadProps } from "@bmi/upload";
 
+type InputValue = string | boolean | File[];
+
 export type Props = (
   | Omit<TextFieldProps, "onChange" | "defaultValue" | "label">
   | Omit<CheckboxProps, "onChange" | "defaultValue" | "label">
@@ -13,9 +15,9 @@ export type Props = (
 ) & {
   isRequired?: boolean;
   // TODO: pass all values so that validation could depend on other fields
-  getValidationError?: (val: string | boolean) => false | string;
-  defaultValue?: string | boolean;
-  onChange?: (value: string | boolean) => void;
+  getValidationError?: (val: InputValue) => false | string;
+  defaultValue?: InputValue;
+  onChange?: (value: InputValue) => void;
 } & (
     | {
         name: string;
@@ -39,7 +41,7 @@ const withFormControl = (WrappedComponent) => {
     }
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
-    const getError = (val: string | boolean) => {
+    const getError = (val: InputValue) => {
       if (isRequired && !val) {
         return `${name} field is required`;
       }
@@ -59,7 +61,7 @@ const withFormControl = (WrappedComponent) => {
     const [error, setError] = useState<string | null>(getError(defaultValue));
     const [blurred, setBlurred] = useState<boolean>(false);
 
-    const handleChange = (val: string | boolean) => {
+    const handleChange = (val: InputValue) => {
       const errorMessage = getError(val);
       setError(errorMessage);
       updateFormState({ [name]: val }, { [name]: errorMessage });

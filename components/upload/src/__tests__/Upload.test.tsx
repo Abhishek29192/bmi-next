@@ -42,6 +42,7 @@ describe("Upload component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
   it("onChange handler is called", () => {
+    window.URL.createObjectURL = jest.fn();
     const onChange = jest.fn();
     const { getByLabelText } = render(
       <Upload
@@ -53,7 +54,9 @@ describe("Upload component", () => {
     );
     const input = getByLabelText("Upload here");
     fireEvent.change(input, {
-      target: { files: { 0: { name: "FileName.png" }, length: 1 } }
+      target: {
+        files: { 0: { name: "FileName.png", type: "image/png" }, length: 1 }
+      }
     });
     expect(onChange.mock.calls).toMatchSnapshot();
   });

@@ -3,8 +3,8 @@ import styles from "./Form.module.scss";
 import Button from "@bmi/button";
 import classnames from "classnames";
 
-type Values = { [key: string]: any };
-type Errors = { [key: string]: any };
+type Values = Record<string, string | boolean | File[]>;
+type Errors = Record<string, string>;
 
 type Props = React.HTMLProps<HTMLFormElement> & {
   children: React.ReactNode;

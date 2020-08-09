@@ -3,19 +3,19 @@
 exports[`Upload component onChange handler is called 1`] = `
 Array [
   Array [
-    Object {
-      "0": Object {
+    Array [
+      Object {
         "name": "FileName.png",
+        "type": "image/png",
       },
-      "length": 1,
-    },
+    ],
   ],
 ]
 `;
 
 exports[`Upload component renders correctly 1`] = `
 <div
-  class="MuiFormControl-root Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
@@ -55,7 +55,7 @@ exports[`Upload component renders correctly 1`] = `
 
 exports[`Upload component renders correctly with buttonLabel 1`] = `
 <div
-  class="MuiFormControl-root Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
@@ -95,7 +95,7 @@ exports[`Upload component renders correctly with buttonLabel 1`] = `
 
 exports[`Upload component renders correctly with description 1`] = `
 <div
-  class="MuiFormControl-root Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
@@ -137,7 +137,7 @@ exports[`Upload component renders correctly with description 1`] = `
 
 exports[`Upload component renders correctly with restricted file types 1`] = `
 <div
-  class="MuiFormControl-root Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
@@ -178,7 +178,7 @@ exports[`Upload component renders correctly with restricted file types 1`] = `
 
 exports[`Upload component renders with error 1`] = `
 <div
-  class="MuiFormControl-root Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
