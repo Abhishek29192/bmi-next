@@ -1,0 +1,57 @@
+.hero {
+  $colour-blue-800: #34384f;
+  $colour-white: white;
+
+  &--largeBreakpoint {
+    background: $colour-blue-800;
+    color: $colour-white;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+
+    .content {
+      width: 50%;
+      height: 100%;
+      padding: 24px 40px 0 40px;
+
+      .text {
+        min-height: 278px;
+        width: 100%;
+        max-width: 566px;
+      }
+    }
+    .image {
+      width: 50%;
+      height: 100%;
+      background: whitesmoke;
+    }
+  }
+
+  &--smallBreakpoint {
+    background: $colour-blue-800;
+    color: $colour-white;
+    width: 100%;
+    display: flex;
+    min-height: 540px;
+    flex-direction: column !important;
+    text-align: center;
+
+    .content {
+      width: 100%;
+      height: 380px !important;
+      padding: 24px 40px 0 40px;
+
+      .text {
+        height: 380px !important;
+        width: 100%;
+        max-width: 566px;
+      }
+    }
+    .image {
+      width: 100%;
+      height: 380px;
+      background: whitesmoke;
+    }
+  }
+}
