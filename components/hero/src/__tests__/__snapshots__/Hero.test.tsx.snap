@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero component renders correctly 1`] = `
+<div
+  class="hero--smallBreakpoint"
+>
+  <div
+    class="content"
+  >
+    <div
+      class="breadcrumbs"
+    />
+    <div
+      class="text"
+    />
+  </div>
+  <img
+    alt="roof"
+    class="image"
+  />
+</div>
+`;
