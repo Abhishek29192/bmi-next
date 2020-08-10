@@ -7,7 +7,7 @@ exports[`IconList component renders correctly with default icon 1`] = `
       class="ListItem"
     >
       <div
-        class="ListItem__icon"
+        class="icon"
       >
         <svg
           aria-hidden="true"
@@ -21,10 +21,10 @@ exports[`IconList component renders correctly with default icon 1`] = `
         </svg>
       </div>
       <div
-        class="ListItem__content"
+        class="content"
       >
         <h6
-          class="MuiTypography-root ListItem__title Typography MuiTypography-h6"
+          class="MuiTypography-root title Typography MuiTypography-h6"
         >
           Title
         </h6>
@@ -42,7 +42,7 @@ exports[`IconList component renders correctly with multiple children 1`] = `
       class="ListItem"
     >
       <div
-        class="ListItem__icon"
+        class="icon"
       >
         <svg
           aria-hidden="true"
@@ -56,10 +56,10 @@ exports[`IconList component renders correctly with multiple children 1`] = `
         </svg>
       </div>
       <div
-        class="ListItem__content"
+        class="content"
       >
         <h6
-          class="MuiTypography-root ListItem__title Typography MuiTypography-h6"
+          class="MuiTypography-root title Typography MuiTypography-h6"
         >
           BMI Group sells to dealers, as well as professional customers.
         </h6>
@@ -72,7 +72,7 @@ exports[`IconList component renders correctly with multiple children 1`] = `
       class="ListItem"
     >
       <div
-        class="ListItem__icon"
+        class="icon"
       >
         <svg
           aria-hidden="true"
@@ -86,10 +86,10 @@ exports[`IconList component renders correctly with multiple children 1`] = `
         </svg>
       </div>
       <div
-        class="ListItem__content"
+        class="content"
       >
         <h6
-          class="MuiTypography-root ListItem__title Typography MuiTypography-h6"
+          class="MuiTypography-root title Typography MuiTypography-h6"
         >
           BMI Group sells to dealers, as well as professional customers.
         </h6>
@@ -102,7 +102,7 @@ exports[`IconList component renders correctly with multiple children 1`] = `
       class="ListItem"
     >
       <div
-        class="ListItem__icon"
+        class="icon"
       >
         <svg
           aria-hidden="true"
@@ -116,10 +116,10 @@ exports[`IconList component renders correctly with multiple children 1`] = `
         </svg>
       </div>
       <div
-        class="ListItem__content"
+        class="content"
       >
         <h6
-          class="MuiTypography-root ListItem__title Typography MuiTypography-h6"
+          class="MuiTypography-root title Typography MuiTypography-h6"
         >
           BMI Group sells to dealers, as well as professional customers.
         </h6>
@@ -132,7 +132,7 @@ exports[`IconList component renders correctly with multiple children 1`] = `
       class="ListItem"
     >
       <div
-        class="ListItem__icon"
+        class="icon"
       >
         <svg
           aria-hidden="true"
@@ -146,10 +146,10 @@ exports[`IconList component renders correctly with multiple children 1`] = `
         </svg>
       </div>
       <div
-        class="ListItem__content"
+        class="content"
       >
         <h6
-          class="MuiTypography-root ListItem__title Typography MuiTypography-h6"
+          class="MuiTypography-root title Typography MuiTypography-h6"
         >
           BMI Group sells to dealers, as well as professional customers.
         </h6>
