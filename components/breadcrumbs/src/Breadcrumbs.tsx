@@ -59,7 +59,7 @@ const BreadcrumbsItem = ({
   );
 };
 
-type Props = {
+export type Props = {
   isDarkThemed?: boolean;
 } & Omit<
   BreadcrumbsProps,

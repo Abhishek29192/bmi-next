@@ -3,18 +3,19 @@ import styles from "./Hero.module.scss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import classnames from "classnames";
-// import {BreadcrumbsProps as Props} from "@bmi/breadcrumbs";
+import { Props as BreadcrumbsProps } from "@bmi/breadcrumbs";
 
 type Props = {
   theme?: "light" | "dark"; // defaults to "light" or something. Thing is that the background is part of this too. `isLightTheme` works too, but now I'm rethinking this lol
   imageSource?: string;
   breadcrumbs?: React.ComponentType<BreadcrumbsProps>;
-  title: React.ReactNode;
+  title?: React.ReactNode;
   children?: React.ReactNode;
   align?: "left" | "center" | "right";
 };
 
 const Hero = ({
+  // TODO: remove/use unused props
   theme,
   imageSource,
   breadcrumbs,

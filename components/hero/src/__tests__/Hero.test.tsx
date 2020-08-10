@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 
 describe("Hero component", () => {
   it("renders correctly", () => {
-    const { container } = render(<Hero />);
+    const { container } = render(<Hero title="Test Title" />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });
