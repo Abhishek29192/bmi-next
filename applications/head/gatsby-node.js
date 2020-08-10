@@ -66,7 +66,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
 
     // PAGES
-    site.pages.forEach((page) => {
+    (site.pages || []).forEach((page) => {
       createPage({
         path: `/${site.code}/${page.slug}`,
         component: typenameTemplateMap[page.__typename],
