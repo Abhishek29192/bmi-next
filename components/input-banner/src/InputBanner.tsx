@@ -41,7 +41,13 @@ const InputBanner = ({
             <Grid item xs={12} sm={6} lg={5}>
               <InputGroup
                 lockBreakpoint="md"
-                input={<TextField variant="hybrid" label={inputLabel} />}
+                input={
+                  <TextField
+                    name="input-banner-text-field"
+                    variant="hybrid"
+                    label={inputLabel}
+                  />
+                }
                 button={
                   // TODO: Use a submit button for Form control functionalities.
                   <Button endIcon={<ArrowForwardIcon />}>

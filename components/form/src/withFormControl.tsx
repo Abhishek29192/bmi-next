@@ -18,13 +18,9 @@ export type Props = (
   getValidationError?: (val: InputValue) => false | string;
   defaultValue?: InputValue;
   onChange?: (value: InputValue) => void;
-} & (
-    | {
-        name: string;
-        label?: string;
-      }
-    | { label: string; name?: string }
-  );
+  name: string;
+  label?: string;
+};
 
 const withFormControl = (WrappedComponent) => {
   const FormControl = ({
@@ -36,14 +32,11 @@ const withFormControl = (WrappedComponent) => {
     label,
     ...props
   }: Props) => {
-    if (!name) {
-      name = label;
-    }
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
     const getError = (val: InputValue) => {
       if (isRequired && !val) {
-        return `${name} field is required`;
+        return "This field is required";
       }
       if (getValidationError && getValidationError(val)) {
         return getValidationError(val) || null;

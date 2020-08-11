@@ -11,7 +11,7 @@ import Button from "@bmi/button";
 import TextField, { InputAdornment } from "@bmi/text-field";
 
 <InputGroup
-  input={<TextField label="First name" />}
+  input={<TextField name="first-name" label="First name" />}
   button={<Button>Submit</Button>}
 />;
 ```
@@ -24,7 +24,7 @@ import TextField, { InputAdornment } from "@bmi/text-field";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 <InputGroup
-  input={<TextField variant="hybrid" label="Email address" />}
+  input={<TextField variant="hybrid" name="email" label="Email address" />}
   button={<Button endIcon={<ArrowForwardIcon />}>Sign up</Button>}
 />;
 ```
@@ -37,7 +37,7 @@ import TextField, { InputAdornment } from "@bmi/text-field";
 import SearchIcon from "@material-ui/icons/Search";
 
 <InputGroup
-  input={<TextField label="Search" />}
+  input={<TextField name="search" label="Search" />}
   button={
     <Button accessibilityLabel="Search" isIconButton>
       <SearchIcon />

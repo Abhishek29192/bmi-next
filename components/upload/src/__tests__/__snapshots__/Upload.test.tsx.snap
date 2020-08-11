@@ -216,7 +216,7 @@ exports[`Upload component renders with error 1`] = `
     <p
       class="MuiFormHelperText-root Mui-error"
     >
-      upload-with-error field is required
+      This field is required
     </p>
   </div>
 </div>
