@@ -183,32 +183,6 @@ exports[`Breadcrumbs component renders on a large breakpoint 1`] = `
     <li
       class="MuiBreadcrumbs-li"
     >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <span
-          class="MuiButton-label"
-        >
-          <span
-            class="label"
-          >
-            Roof
-          </span>
-        </span>
-      </button>
-    </li>
-    <li
-      aria-hidden="true"
-      class="MuiBreadcrumbs-separator"
-    >
-      /
-    </li>
-    <li
-      class="MuiBreadcrumbs-li"
-    >
       <a
         class="link"
         href="/tiles"
@@ -330,32 +304,6 @@ exports[`Breadcrumbs component renders on a small breakpoint 1`] = `
           />
         </button>
       </a>
-    </li>
-    <li
-      aria-hidden="true"
-      class="MuiBreadcrumbs-separator"
-    >
-      /
-    </li>
-    <li
-      class="MuiBreadcrumbs-li"
-    >
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary Mui-disabled Mui-disabled"
-        disabled=""
-        tabindex="-1"
-        type="button"
-      >
-        <span
-          class="MuiButton-label"
-        >
-          <span
-            class="label"
-          >
-            Roof
-          </span>
-        </span>
-      </button>
     </li>
     <li
       aria-hidden="true"
