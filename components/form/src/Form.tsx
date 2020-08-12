@@ -1,7 +1,6 @@
 import React, { useState, FormEvent } from "react";
 import styles from "./Form.module.scss";
-import Button from "@bmi/button";
-import classnames from "classnames";
+import SubmitButton from "./SubmitButton";
 
 type Values = Record<string, string | boolean | File[]>;
 type Errors = Record<string, string>;
@@ -17,17 +16,18 @@ type Props = React.HTMLProps<HTMLFormElement> & {
 type ContextType = {
   updateFormState: (fieldValues: Values, fieldErrors: Errors) => void;
   hasBeenSubmitted: boolean;
+  submitButtonDisabled: boolean;
 };
 
 export const FormContext = React.createContext<ContextType>({
   updateFormState: (fieldValues, fieldErrors) => {},
-  hasBeenSubmitted: false
+  hasBeenSubmitted: false,
+  submitButtonDisabled: false
 });
 
 const Form = ({
   children,
   onSubmit,
-  submitButtonLabel = "Submit",
   rightAlignButton,
   buttonClassName,
   ...formProps
@@ -35,6 +35,7 @@ const Form = ({
   const [values, setValues] = useState<Values>({});
   const [errors, setErrors] = useState<Errors>({});
   const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+  const submitButtonDisabled = Object.values(errors).some(Boolean);
 
   const updateFormState = (fieldValues: Values, fieldErrors: Errors) => {
     setValues((prev) => ({ ...prev, ...fieldValues }));
@@ -49,22 +50,11 @@ const Form = ({
   };
 
   return (
-    <FormContext.Provider value={{ updateFormState, hasBeenSubmitted }}>
+    <FormContext.Provider
+      value={{ updateFormState, hasBeenSubmitted, submitButtonDisabled }}
+    >
       <form onSubmit={handleSubmit} className={styles["Form"]} {...formProps}>
         {children}
-        <div
-          className={classnames(styles["SubmitButtonWrapper"], {
-            [styles["SubmitButtonWrapper--right"]]: rightAlignButton
-          })}
-        >
-          <Button
-            className={buttonClassName}
-            type="submit"
-            disabled={Object.values(errors).some(Boolean)}
-          >
-            {submitButtonLabel}
-          </Button>
-        </div>
       </form>
     </FormContext.Provider>
   );
@@ -75,5 +65,6 @@ const FormRow = ({ children }: { children: React.ReactNode }) => {
 };
 
 Form.Row = FormRow;
+Form.SubmitButton = SubmitButton;
 
 export default Form;

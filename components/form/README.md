@@ -26,7 +26,7 @@ const onSubmit = (event, values) => {
   console.log("submit event", event, values);
 };
 
-<Form onSubmit={onSubmit} submitButtonLabel="Send Message" rightAlignButton>
+<Form onSubmit={onSubmit} rightAlignButton>
   <Grid container spacing={3}>
     <Grid item xs={12} md={6}>
       <Form.Row>
@@ -177,5 +177,14 @@ const onSubmit = (event, values) => {
       </Form.Row>
     </Grid>
   </Grid>
+  <div
+    style={{
+      padding: "20px 0",
+      display: "flex",
+      flexDirection: "row-reverse"
+    }}
+  >
+    <Form.SubmitButton>Send Message</Form.SubmitButton>
+  </div>
 </Form>;
 ```
