@@ -1,0 +1,18 @@
+@import "@bmi/styles";
+
+.ResponseMessage {
+  padding: 100px 0;
+
+  .icon {
+    width: auto;
+    height: 80px;
+    color: $bmi-cyan-500;
+    &--error {
+      color: $bmi-error;
+    }
+  }
+
+  .title {
+    padding: 10px 0;
+  }
+}
