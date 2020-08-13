@@ -2,8 +2,9 @@
   min-height: 70px;
   width: 100%;
   display: flex;
-  &__icon {
-    margin-top: 20px;
+
+  .icon {
+    margin-top: 18px;
     height: 100%;
     width: 40px;
     & :global {
@@ -12,13 +13,14 @@
       }
     }
   }
-  &__content {
+
+  .content {
     display: flex;
     flex-direction: column;
     margin: 20px;
   }
-  &__title {
+
+  .title {
     margin-bottom: 20px;
-    font-weight: 700;
   }
 }
