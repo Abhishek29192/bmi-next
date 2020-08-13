@@ -1,15 +1,11 @@
-.InputBanner {
-  // TODO: Move this variable
-  $breakpoint-sm: 600px;
-  $breakpoint-lg: 1280px;
+@import "@bmi/styles";
 
-  $color-blue-800: #34384f;
-  // TODO: Use actual variable from themes
-  background-color: $color-blue-800;
+.InputBanner {
+  background-color: $bmi-blue-800;
 
   .wrapper {
     padding: 55px 0;
-    color: #fff;
+    color: $bmi-white;
   }
 
   .title {

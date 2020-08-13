@@ -1,9 +1,9 @@
-.Typography {
-  $color-bmi-cyan: #009fe3;
+@import "@bmi/styles";
 
+.Typography {
   &--underline {
     &::after {
-      background-color: $color-bmi-cyan;
+      background-color: $bmi-cyan-400;
       content: "";
       display: block;
       height: 4px;
@@ -14,7 +14,7 @@
 }
 
 :global {
-  @media (min-width: 1700px) {
+  @media (min-width: $breakpoint-lg) {
     html {
       font-size: 1.125rem;
     }

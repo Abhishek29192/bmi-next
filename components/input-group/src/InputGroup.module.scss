@@ -1,10 +1,6 @@
-.InputGroup {
-  // TODO: These have to be moved to the theme folder (and checked with design)
-  $breakpoint-xs: 0px;
-  $breakpoint-sm: 600px;
-  $breakpoint-md: 960px;
-  $breakpoint-lg: 1280px;
+@import "@bmi/styles";
 
+.InputGroup {
   @mixin locked {
     flex-direction: row;
 

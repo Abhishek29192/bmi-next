@@ -1,13 +1,13 @@
-.Breadcrumbs {
-  $color-storm: #ccc;
+@import "@bmi/styles";
 
+.Breadcrumbs {
   .link {
     display: inline-block;
     text-decoration: none;
   }
 
   &--dark-themed {
-    color: $color-storm;
+    color: $bmi-storm;
 
     .button {
       text-decoration: underline;
@@ -16,7 +16,7 @@
 
     li:last-child:not(:first-child) {
       .button {
-        color: $color-storm;
+        color: $bmi-storm;
         text-decoration: none;
       }
       .label {
