@@ -3,6 +3,8 @@
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
 const path = require("path");
+const { withConfigs, styles } = require("@bmi/webpack");
+
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
 });
@@ -64,7 +66,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
 
     // PAGES
-    site.pages.forEach((page) => {
+    (site.pages || []).forEach((page) => {
       createPage({
         path: `/${site.code}/${page.slug}`,
         component: typenameTemplateMap[page.__typename],
@@ -79,13 +81,18 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      plugins: [
-        new TsconfigPathsPlugin({
-          configFile: findUp.sync("tsconfig.json")
-        })
-      ]
-    }
-  });
+  actions.setWebpackConfig(
+    withConfigs(
+      {
+        resolve: {
+          plugins: [
+            new TsconfigPathsPlugin({
+              configFile: findUp.sync("tsconfig.json")
+            })
+          ]
+        }
+      },
+      [styles({ dev: process.env.NODE_ENV === "development" })]
+    )
+  );
 };

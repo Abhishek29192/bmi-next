@@ -44,18 +44,10 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-source-graphql",
-      options: {
-        typeName: "BMI",
-        fieldName: "BMI",
-        url: process.env.API_GATEWAY_URL
-      }
-    },
-    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: "/images/"
+          include: /.svg$/
         }
       }
     },

@@ -46,7 +46,7 @@ $ yarn workspace @bmi/button add @bmi/icon@0.0.0
 
 ### Website
 
-We use [Gatsby](https://www.gatsbyjs.org/) to generate static website and it's data comes from the `gatsby-source-contentful` plugin and the `gatsby-source-graphql` plugin - connected to the apollo server. The latter requires a graphql endpoint, specified in the configuration file. During development [run the Apollo server locally] and link it in your `.env` file (see below).
+We use [Gatsby](https://www.gatsbyjs.org/) to generate static website and it's data comes from the `gatsby-source-contentful` plugin.
 
 #### Configuration
 
