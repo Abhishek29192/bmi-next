@@ -54,14 +54,13 @@ const theme = createMuiTheme({
       lineHeight: 1.2
     },
     h5: {
-      fontFamily: "Effra Regular",
-      fontSize: "1.5rem",
-      textTransform: "uppercase",
+      fontFamily: "Effra Medium",
+      fontSize: "1.25rem",
       lineHeight: 1.2
     },
     h6: {
-      fontFamily: "Effra Regular",
-      fontSize: "1.25rem",
+      fontFamily: "Effra Medium",
+      fontSize: "1.125rem",
       lineHeight: 1.2
     },
     body1: {
