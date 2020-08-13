@@ -1,4 +1,4 @@
-$background-color: #f7f7f7;
+@import "@bmi/styles";
 
 .Tabs {
   .TabsBar {
@@ -18,7 +18,7 @@ $background-color: #f7f7f7;
 
   &--secondary {
     .TabsBar {
-      background-color: $background-color;
+      background-color: $bmi-pearl;
     }
   }
 }

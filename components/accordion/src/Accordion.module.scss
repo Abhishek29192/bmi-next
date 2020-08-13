@@ -1,8 +1,7 @@
-$border-color: #ccc;
-$background-color: #f7f7f7;
+@import "@bmi/styles";
 
 .Accordion {
-  border: 1px solid $border-color;
+  border: 1px solid $bmi-storm;
 
   & + & {
     border-top: none;
@@ -15,11 +14,11 @@ $background-color: #f7f7f7;
 
   :global {
     .MuiCollapse-container {
-      border-top: 1px solid $border-color;
+      border-top: 1px solid $bmi-storm;
     }
 
     .MuiExpansionPanelSummary-root {
-      background-color: $background-color;
+      background-color: $bmi-pearl;
 
       &.Mui-expanded {
         min-height: initial;

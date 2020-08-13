@@ -1,10 +1,9 @@
-.hero {
-  $colour-blue-800: #34384f;
-  $colour-white: white;
+@import "@bmi/styles";
 
+.hero {
   &--largeBreakpoint {
-    background: $colour-blue-800;
-    color: $colour-white;
+    background: $bmi-blue-800;
+    color: $bmi-white;
     height: 450px;
     width: 100%;
     display: flex;
@@ -29,8 +28,8 @@
   }
 
   &--smallBreakpoint {
-    background: $colour-blue-800;
-    color: $colour-white;
+    background: $bmi-blue-800;
+    color: $bmi-white;
     width: 100%;
     display: flex;
     min-height: 540px;
@@ -51,7 +50,7 @@
     .image {
       width: 100%;
       height: 380px;
-      background: whitesmoke;
+      background: $bmi-pearl;
     }
   }
 }

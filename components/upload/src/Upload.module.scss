@@ -1,6 +1,6 @@
-.Upload {
-  $breakpoint-sm: 600px;
+@import "@bmi/styles";
 
+.Upload {
   .wrapper {
     display: flex;
     flex-direction: column;

@@ -1,15 +1,12 @@
-.Select {
-  $color-cyan-400: #007bbd;
-  $color-slate: #70706f;
-  $color-storm: #cccccc;
-  $color-error: #d6001c;
+@import "@bmi/styles";
 
+.Select {
   &:global(.MuiFilledInput-root) {
     background-color: white;
     border-radius: 4px;
-    border: 1px solid $color-storm;
+    border: 1px solid $bmi-storm;
     &:hover {
-      border-color: $color-slate;
+      border-color: $bmi-slate;
     }
 
     &::before {
@@ -21,30 +18,30 @@
     }
 
     &:global(.Mui-focused) {
-      border-color: $color-cyan-400;
-      box-shadow: 0 0 0 1px $color-cyan-400;
+      border-color: $bmi-cyan-500;
+      box-shadow: 0 0 0 1px $bmi-cyan-500;
 
       &:global(.Mui-error) {
-        box-shadow: 0 0 0 1px $color-error;
+        box-shadow: 0 0 0 1px $bmi-error;
       }
     }
 
     &:global(.Mui-error) {
-      border-color: $color-error;
+      border-color: $bmi-error;
     }
   }
 
   &:global(.Mui-disabled) {
-    border: 1px solid rgba($color-storm, 0.61);
-    color: rgba($color-slate, 0.61);
+    border: 1px solid rgba($bmi-storm, 0.61);
+    color: rgba($bmi-slate, 0.61);
 
     :global(.MuiOutlinedInput-notchedOutline) {
       border: 0;
     }
 
     &:global:hover {
-      border-color: rgba($color-storm, 0.61);
-      color: rgba($color-slate, 0.61);
+      border-color: rgba($bmi-storm, 0.61);
+      color: rgba($bmi-slate, 0.61);
     }
   }
 }
