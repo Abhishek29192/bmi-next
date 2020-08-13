@@ -6,8 +6,17 @@
     text-decoration: none;
   }
 
+  .ellipsis {
+    margin: 0 6px;
+    color: $bmi-cyan-500;
+  }
+
   &--dark-themed {
     color: $bmi-storm;
+
+    .ellipsis {
+      color: inherit;
+    }
 
     .button {
       text-decoration: underline;

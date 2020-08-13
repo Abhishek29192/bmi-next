@@ -1,4 +1,4 @@
-Wrapper around Material UI's breadcrumb component with some style changes.
+Wrapper around Material UI's breadcrumb component with some style changes. Automatically removes dead links.
 
 ## Variants
 
@@ -68,10 +68,32 @@ Wrapper around Material UI's breadcrumb component with some style changes.
     <Breadcrumbs.Item linkComponent="a" href="/">
       Home
     </Breadcrumbs.Item>
-    <Breadcrumbs.Item>Icopal</Breadcrumbs.Item>
+    <Breadcrumbs.Item linkComponent="a" href="/Roofing">
+      Roofing
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item linkComponent="a" href="/Exterior">
+      Exterior
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item linkComponent="a" href="/icopal">
+      Icopal
+    </Breadcrumbs.Item>
     <Breadcrumbs.Item linkComponent="a" href="/roofs">
       Roofs
     </Breadcrumbs.Item>
+    <Breadcrumbs.Item>Tiles</Breadcrumbs.Item>
+  </Breadcrumbs>
+</div>
+```
+
+### Deadlink removal
+
+```tsx
+<div style={{ padding: "10px", background: "#343850", color: "#fff" }}>
+  <Breadcrumbs isDarkThemed>
+    <Breadcrumbs.Item>Home</Breadcrumbs.Item>
+    <Breadcrumbs.Item>Roofing</Breadcrumbs.Item>
+    <Breadcrumbs.Item>Exterior</Breadcrumbs.Item>
+    <Breadcrumbs.Item>Icopal</Breadcrumbs.Item>
     <Breadcrumbs.Item>Tiles</Breadcrumbs.Item>
   </Breadcrumbs>
 </div>
