@@ -1,5 +1,7 @@
 This component is wrapping the Material-UI [TextField component](https://material-ui.com/components/text-fields), with an additional Hybrid variant.
 
+If a validation error occurs, it will be shown in red instead of the helper text. This is only displayed after the field is blurred or the form is submitted.
+
 ## Variants
 
 ### Outlined
@@ -12,7 +14,9 @@ import Form from "@bmi/form";
   <Form.Row>
     <p>Enabled</p>
     <TextField
-      label="email"
+      id="email"
+      name="Email"
+      label="Email address"
       variant="outlined"
       placeholder="e.g. lorem@ipsum.com"
       helperText="Enabled hint text"
@@ -21,7 +25,9 @@ import Form from "@bmi/form";
   <Form.Row>
     <p>Disabled</p>
     <TextField
-      label="email"
+      id="email"
+      name="Email"
+      label="Email address"
       variant="outlined"
       placeholder="e.g. lorem@ipsum.com"
       disabled
@@ -29,40 +35,11 @@ import Form from "@bmi/form";
     />
   </Form.Row>
   <Form.Row>
-    <p>Errored</p>
-    <TextField
-      label="email"
-      variant="outlined"
-      placeholder="e.g. lorem@ipsum.com"
-      error
-      helperText="Incorrect email"
-    />
-  </Form.Row>
-  <Form.Row>
     <p>Left Adornment</p>
     <TextField
-      label="nickname"
-      variant="outlined"
-      helperText="Icon hint text"
-      leftAdornment={<AccountCircle />}
-    />
-  </Form.Row>
-  <Form.Row>
-    <p>Left Adornment with error</p>
-    <TextField
-      error
-      label="nickname"
-      variant="outlined"
-      helperText="Icon hint text"
-      leftAdornment={<AccountCircle />}
-    />
-  </Form.Row>
-  <Form.Row>
-    <p>Left Adornment with error full width</p>
-    <TextField
-      fullWidth
-      error
-      label="nickname"
+      id="email"
+      name="Email"
+      label="Email address"
       variant="outlined"
       helperText="Icon hint text"
       leftAdornment={<AccountCircle />}
@@ -71,17 +48,9 @@ import Form from "@bmi/form";
   <Form.Row>
     <p>Right Adornment</p>
     <TextField
-      label="nickname"
-      variant="outlined"
-      helperText="Icon hint text"
-      rightAdornment={<AccountCircle />}
-    />
-  </Form.Row>
-  <Form.Row>
-    <p>Right Adornment with error</p>
-    <TextField
-      error
-      label="nickname"
+      id="email"
+      name="Email"
+      label="Email address"
       variant="outlined"
       helperText="Icon hint text"
       rightAdornment={<AccountCircle />}
@@ -91,6 +60,8 @@ import Form from "@bmi/form";
     <p>TextArea</p>
     <TextField
       isTextArea
+      id="nickname"
+      name="Nickname"
       label="nickname"
       variant="outlined"
       helperText="Hint Text"
@@ -100,6 +71,8 @@ import Form from "@bmi/form";
     <p>TextArea with max 3 rows</p>
     <TextField
       isTextArea
+      id="nickname"
+      name="Nickname"
       label="nickname"
       variant="outlined"
       helperText="Hint Text"
@@ -110,6 +83,8 @@ import Form from "@bmi/form";
     <p>Full width field</p>
     <TextField
       fullWidth
+      id="nickname"
+      name="Nickname"
       label="nickname"
       variant="outlined"
       helperText="Hint Text"
@@ -131,7 +106,9 @@ import Form from "@bmi/form";
     <Form.Row>
       <p>Enabled</p>
       <TextField
-        label="email"
+        id="email"
+        name="Email"
+        label="Email address"
         variant="hybrid"
         placeholder="e.g. lorem@ipsum.com"
         helperText="Enabled hint text"
@@ -140,7 +117,9 @@ import Form from "@bmi/form";
     <Form.Row>
       <p>Disabled</p>
       <TextField
-        label="email"
+        id="email"
+        name="Email"
+        label="Email address"
         variant="hybrid"
         placeholder="e.g. lorem@ipsum.com"
         disabled
@@ -148,17 +127,9 @@ import Form from "@bmi/form";
       />
     </Form.Row>
     <Form.Row>
-      <p>Errored</p>
       <TextField
-        label="email"
-        variant="hybrid"
-        placeholder="e.g. lorem@ipsum.com"
-        error
-        helperText="Incorrect email"
-      />
-    </Form.Row>
-    <Form.Row>
-      <TextField
+        id="nickname"
+        name="Nickname"
         label="nickname"
         variant="hybrid"
         helperText="Icon hint text"
@@ -168,6 +139,8 @@ import Form from "@bmi/form";
     <Form.Row>
       <TextField
         isTextArea
+        id="nickname"
+        name="Nickname"
         label="nickname"
         variant="hybrid"
         helperText="Textarea"
@@ -177,6 +150,8 @@ import Form from "@bmi/form";
     <Form.Row>
       <TextField
         fullWidth
+        id="nickname"
+        name="Nickname"
         label="nickname"
         variant="hybrid"
         helperText="Full width field"

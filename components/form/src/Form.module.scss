@@ -1,5 +1,9 @@
 .Form {
-  .Row {
-    padding: 10px 0;
+  .SubmitButtonWrapper {
+    display: flex;
+    padding: 15px;
+    &--right {
+      flex-direction: row-reverse;
+    }
   }
 }

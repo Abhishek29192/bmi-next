@@ -1,20 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Upload component handles file change event 1`] = `
+exports[`Upload component onChange handler is called 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "name": "FileName.png",
+        "type": "image/png",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`Upload component renders correctly 1`] = `
 <div
-  class="Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
   >
     <input
       class="input"
-      id="onchange-handler-upload"
+      id="default-upload"
       multiple=""
       type="file"
     />
     <label
-      for="onchange-handler-upload"
+      for="default-upload"
     >
       <span
         aria-disabled="false"
@@ -36,44 +49,13 @@ exports[`Upload component handles file change event 1`] = `
       class="MuiTypography-root instructions Typography MuiTypography-body1"
     />
   </div>
-  <div>
-    <p
-      class="fileList"
-    >
-      filename.png
-    </p>
-  </div>
+  <div />
 </div>
 `;
 
-exports[`Upload component onChange handler is called 1`] = `
-Array [
-  Array [
-    SyntheticEvent {
-      "_dispatchInstances": null,
-      "_dispatchListeners": null,
-      "_targetInst": null,
-      "bubbles": null,
-      "cancelable": null,
-      "currentTarget": [Function],
-      "defaultPrevented": null,
-      "dispatchConfig": null,
-      "eventPhase": null,
-      "isDefaultPrevented": [Function],
-      "isPropagationStopped": [Function],
-      "isTrusted": null,
-      "nativeEvent": null,
-      "target": null,
-      "timeStamp": [Function],
-      "type": null,
-    },
-  ],
-]
-`;
-
-exports[`Upload component renders correctly 1`] = `
+exports[`Upload component renders correctly with buttonLabel 1`] = `
 <div
-  class="Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
@@ -113,7 +95,7 @@ exports[`Upload component renders correctly 1`] = `
 
 exports[`Upload component renders correctly with description 1`] = `
 <div
-  class="Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
@@ -155,7 +137,7 @@ exports[`Upload component renders correctly with description 1`] = `
 
 exports[`Upload component renders correctly with restricted file types 1`] = `
 <div
-  class="Upload"
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
 >
   <div
     class="wrapper"
@@ -191,5 +173,51 @@ exports[`Upload component renders correctly with restricted file types 1`] = `
     />
   </div>
   <div />
+</div>
+`;
+
+exports[`Upload component renders with error 1`] = `
+<div
+  class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+>
+  <div
+    class="wrapper"
+  >
+    <input
+      class="input"
+      id="upload-with-error"
+      multiple=""
+      type="file"
+    />
+    <label
+      for="upload-with-error"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Upload here
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </label>
+    <p
+      class="MuiTypography-root instructions Typography MuiTypography-body1"
+    />
+  </div>
+  <div>
+    <p
+      class="MuiFormHelperText-root Mui-error"
+    >
+      This field is required
+    </p>
+  </div>
 </div>
 `;

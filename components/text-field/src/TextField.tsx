@@ -2,6 +2,8 @@ import React from "react";
 import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
 import styles from "./TextField.module.scss";
 import classnames from "classnames";
+import { withFormControl } from "@bmi/form";
+
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ErrorRounded from "@material-ui/icons/ErrorRounded";
 
@@ -18,15 +20,27 @@ type AdornmentProps =
 export type Props = Omit<TextFieldProps, "variant"> & {
   variant?: "outlined" | "hybrid";
   isTextArea?: boolean;
+  isRequired?: boolean;
+  helperText?: string;
+  errorText?: string;
+  error?: boolean;
+  name: string;
+  onChange: (value: string) => void;
 } & AdornmentProps;
 
 const TextField = ({
   className,
   variant,
   isTextArea,
-  error,
   leftAdornment,
   rightAdornment,
+  isRequired,
+  id,
+  error,
+  name,
+  helperText,
+  errorText,
+  onChange,
   ...props
 }: Props) => {
   const hasAdornment = error || leftAdornment || rightAdornment;
@@ -47,11 +61,15 @@ const TextField = ({
       }
     : null;
 
+  const handleChange = (event) => onChange(event.target.value);
   return (
     <MaterialTextField
       {...props}
+      helperText={error ? errorText : helperText}
+      id={id}
       error={error}
       multiline={isTextArea}
+      onChange={handleChange}
       variant={variant === "hybrid" ? "filled" : "outlined"}
       className={classnames(
         styles["TextField"],
@@ -66,4 +84,4 @@ const TextField = ({
   );
 };
 
-export default TextField;
+export default withFormControl<Props>(TextField);

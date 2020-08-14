@@ -6,15 +6,21 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 describe("TextField component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <TextField label="email" placeholder="e.g. lorem@ipsum.com" />
+      <TextField
+        id="email"
+        name="Email"
+        label="Email address"
+        placeholder="e.g. lorem@ipsum.com"
+      />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
   it("renders a hybrid variant", () => {
     const { container } = render(
       <TextField
-        label="email"
-        placeholder="e.g. lorem@ipsum.com"
+        id="email"
+        name="Email"
+        label="Email address"
         variant="hybrid"
       />
     );
@@ -23,8 +29,9 @@ describe("TextField component", () => {
   it("renders with an extra class", () => {
     const { container } = render(
       <TextField
-        label="email"
-        placeholder="e.g. lorem@ipsum.com"
+        id="email"
+        name="Email"
+        label="Email address"
         className="test"
       />
     );
@@ -32,13 +39,14 @@ describe("TextField component", () => {
   });
   it("renders as textarea", () => {
     const { container } = render(
-      <TextField label="email" placeholder="e.g. lorem@ipsum.com" isTextArea />
+      <TextField id="email" name="Email" label="Email address" isTextArea />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
   it("renders with left adornment", () => {
     const { container } = render(
       <TextField
+        name="Nickname"
         label="nickname"
         variant="outlined"
         helperText="Icon hint text"
@@ -50,6 +58,7 @@ describe("TextField component", () => {
   it("renders with right adornment", () => {
     const { container } = render(
       <TextField
+        name="Nickname"
         label="nickname"
         variant="outlined"
         helperText="Icon hint text"
@@ -61,6 +70,7 @@ describe("TextField component", () => {
   it("renders with error", () => {
     const { container } = render(
       <TextField
+        name="Nickname"
         label="nickname"
         variant="outlined"
         helperText="Icon hint text"

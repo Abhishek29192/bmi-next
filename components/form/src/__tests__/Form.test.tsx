@@ -9,6 +9,7 @@ describe("TextField component", () => {
         <Form.Row>
           <p>Lorem Ipsum</p>
         </Form.Row>
+        <Form.SubmitButton>Submit</Form.SubmitButton>
       </Form>
     );
     expect(container.firstChild).toMatchSnapshot();

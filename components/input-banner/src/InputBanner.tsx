@@ -11,7 +11,7 @@ import styles from "./InputBanner.module.scss";
 type Props = {
   title: React.ReactNode;
   description: React.ReactNode;
-  inputLabel: React.ReactNode;
+  inputLabel: string;
   inputCallToAction: React.ReactNode;
 };
 
@@ -41,7 +41,13 @@ const InputBanner = ({
             <Grid item xs={12} sm={6} lg={5}>
               <InputGroup
                 lockBreakpoint="md"
-                input={<TextField variant="hybrid" label={inputLabel} />}
+                input={
+                  <TextField
+                    name="input-banner-text-field"
+                    variant="hybrid"
+                    label={inputLabel}
+                  />
+                }
                 button={
                   // TODO: Use a submit button for Form control functionalities.
                   <Button endIcon={<ArrowForwardIcon />}>

@@ -9,7 +9,7 @@ describe("InputGroup component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <InputGroup
-        input={<TextField label="First name" />}
+        input={<TextField name="first-name" label="First name" />}
         button={<Button>Submit</Button>}
       />
     );
@@ -19,7 +19,7 @@ describe("InputGroup component", () => {
     const { container } = render(
       <InputGroup
         lockBreakpoint={false}
-        input={<TextField label="First name" />}
+        input={<TextField name="first-name" label="First name" />}
         button={<Button>Submit</Button>}
       />
     );
@@ -29,7 +29,7 @@ describe("InputGroup component", () => {
     const { container } = render(
       <InputGroup
         lockBreakpoint={false}
-        input={<TextField label="First name" />}
+        input={<TextField name="first-name" label="First name" />}
         button={
           <Button accessibilityLabel="Submit" isIconButton>
             <ArrowForwardIcon />
