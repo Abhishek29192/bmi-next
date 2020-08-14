@@ -52,4 +52,4 @@ const Select = ({
 
 export { MenuItem };
 
-export default withFormControl(Select);
+export default withFormControl<Props>(Select);

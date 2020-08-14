@@ -1,18 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
 import { FormContext } from "./";
-import { Props as TextFieldProps } from "@bmi/text-field";
-import { Props as CheckboxProps } from "@bmi/checkbox";
-import { Props as SelectProps } from "@bmi/select";
-import { Props as UploadProps } from "@bmi/upload";
 
 type InputValue = string | boolean | File[];
 
-export type Props = (
-  | Omit<TextFieldProps, "onChange" | "defaultValue" | "label">
-  | Omit<CheckboxProps, "onChange" | "defaultValue" | "label">
-  | Omit<SelectProps, "onChange" | "defaultValue" | "label">
-  | Omit<UploadProps, "onChange" | "defaultValue" | "label" | "onBlur">
-) & {
+export type Props = {
   isRequired?: boolean;
   // TODO: pass all values so that validation could depend on other fields
   getValidationError?: (val: InputValue) => false | string;
@@ -22,7 +13,7 @@ export type Props = (
   label?: string;
 };
 
-const withFormControl = (WrappedComponent) => {
+const withFormControl = <P extends {}>(WrappedComponent) => {
   const FormControl = ({
     isRequired,
     onChange,
@@ -31,7 +22,7 @@ const withFormControl = (WrappedComponent) => {
     defaultValue = "",
     label,
     ...props
-  }: Props) => {
+  }: Omit<P, "onChange" | "defaultValue" | "label" | "onBlur"> & Props) => {
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
     const getError = (val: InputValue) => {

@@ -35,4 +35,4 @@ const Checkbox = ({
   );
 };
 
-export default withFormControl(Checkbox);
+export default withFormControl<Props>(Checkbox);

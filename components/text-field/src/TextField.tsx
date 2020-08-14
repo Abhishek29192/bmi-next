@@ -84,4 +84,4 @@ const TextField = ({
   );
 };
 
-export default withFormControl(TextField);
+export default withFormControl<Props>(TextField);

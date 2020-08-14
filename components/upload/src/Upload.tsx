@@ -101,4 +101,4 @@ const Upload = ({
   );
 };
 
-export default withFormControl(Upload);
+export default withFormControl<Props>(Upload);
