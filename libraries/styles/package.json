@@ -1,12 +1,7 @@
 {
   "name": "@bmi/styles",
   "version": "0.0.0",
-  "src": "src/index.scss",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc"
-  },
+  "main": "./index.scss",
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.13.1"
