@@ -1,22 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Hero component renders correctly 1`] = `
+exports[`Hero component renders with children 1`] = `
 <div
-  class="hero--smallBreakpoint"
+  class="Hero"
 >
   <div
-    class="content"
+    class="MuiContainer-root MuiContainer-maxWidthLg"
   >
     <div
-      class="breadcrumbs"
-    />
-    <div
-      class="text"
-    />
+      class="content"
+    >
+      <div />
+      <h1
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+      >
+        Concrete Tiles
+      </h1>
+      <div
+        class="text"
+      >
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          Excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum
+        </p>
+      </div>
+    </div>
   </div>
-  <img
-    alt="roof"
+  <div
     class="image"
+    style="background-image: url(path-to-image);"
   />
 </div>
 `;

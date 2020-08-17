@@ -1,56 +1,56 @@
 @import "@bmi/styles";
 
-.hero {
-  &--largeBreakpoint {
-    background: $bmi-blue-800;
-    color: $bmi-white;
-    height: 450px;
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
+.Hero {
+  background: $bmi-blue-800;
+  color: $bmi-white;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  min-height: auto;
+  flex-direction: column;
 
-    .content {
-      width: 50%;
-      height: 100%;
-      padding: 24px 40px 0 40px;
-
-      .text {
-        min-height: 278px;
-        width: 100%;
-        max-width: 566px;
-      }
-    }
-    .image {
-      width: 50%;
-      height: 100%;
-      background: whitesmoke;
-    }
+  .title {
+    margin: 20px 0 28px;
   }
 
-  &--smallBreakpoint {
-    background: $bmi-blue-800;
-    color: $bmi-white;
+  .content {
     width: 100%;
-    display: flex;
-    min-height: 540px;
-    flex-direction: column !important;
-    text-align: center;
+    min-height: auto;
+    padding: 24px 0 80px 0;
 
+    .text {
+      min-height: auto;
+      width: 100%;
+      max-width: 566px;
+      font-size: 28px;
+    }
+  }
+  .image {
+    width: 100%;
+    height: 100vw;
+    max-height: 500px;
+  }
+
+  @media (min-width: $breakpoint-bmi-sm) {
+    height: 450px;
+    flex-direction: row;
+
+    .text {
+      min-height: 278px;
+      width: 100%;
+      max-width: 566px;
+    }
     .content {
       width: 100%;
-      height: 380px !important;
-      padding: 24px 40px 0 40px;
-
-      .text {
-        height: 380px !important;
-        width: 100%;
-        max-width: 566px;
-      }
+      height: 100%;
+      padding: 24px 40px 24px 0;
     }
     .image {
-      width: 100%;
-      height: 380px;
-      background: $bmi-pearl;
+      min-width: 50%;
+      height: 100%;
+      background: no-repeat center center;
+      background-size: cover;
+      overflow: hidden;
     }
   }
 }

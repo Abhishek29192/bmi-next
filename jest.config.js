@@ -18,6 +18,7 @@ module.exports = {
   roots: ["<rootDir>components"],
   testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
   moduleNameMapper: {
+    "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
     "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
     "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS"),
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
