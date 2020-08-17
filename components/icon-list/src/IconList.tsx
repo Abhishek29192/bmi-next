@@ -10,11 +10,9 @@ type ListItemProps = {
 };
 const ListItem = ({ icon, title, children }: ListItemProps) => (
   <div className={styles["ListItem"]}>
-    <div className={styles["ListItem__icon"]}>
-      {icon || <ChevronRightIcon />}
-    </div>
-    <div className={styles["ListItem__content"]}>
-      <Typography className={styles["ListItem__title"]} variant="h6">
+    <div className={styles["icon"]}>{icon || <ChevronRightIcon />}</div>
+    <div className={styles["content"]}>
+      <Typography className={styles["title"]} variant="h6">
         {title}
       </Typography>
       {children}
