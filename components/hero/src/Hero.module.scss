@@ -1,16 +1,26 @@
 @import "@bmi/styles";
 
 .Hero {
-  background: $bmi-blue-800;
-  color: $bmi-white;
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   min-height: auto;
   flex-direction: column;
+  background: $bmi-blue-800;
+  color: $bmi-white;
+
+  &--light {
+    background: $bmi-pearl;
+    color: $bmi-charocal;
+  }
 
   .title {
     margin: 20px 0 28px;
+  }
+
+  &--slim {
+    padding: 20px 0 32px 9%;
+    margin: 0;
   }
 
   .content {
@@ -25,6 +35,7 @@
       font-size: 28px;
     }
   }
+
   .image {
     width: 100%;
     height: 100vw;
@@ -32,25 +43,33 @@
   }
 
   @media (min-width: $breakpoint-bmi-sm) {
-    height: 450px;
     flex-direction: row;
 
-    .text {
-      min-height: 278px;
-      width: 100%;
-      max-width: 566px;
+    &--slim {
+      padding-left: 2%;
+    }
+
+    &--fat {
+      height: 450px;
+
+      .image {
+        min-width: 50%;
+        height: 100%;
+        background: no-repeat center center;
+        background-size: cover;
+        overflow: hidden;
+      }
+
+      .text {
+        min-height: 278px;
+        width: 100%;
+        max-width: 566px;
+      }
     }
     .content {
       width: 100%;
       height: 100%;
       padding: 24px 40px 24px 0;
-    }
-    .image {
-      min-width: 50%;
-      height: 100%;
-      background: no-repeat center center;
-      background-size: cover;
-      overflow: hidden;
     }
   }
 }
