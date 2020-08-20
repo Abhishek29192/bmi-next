@@ -1,13 +1,15 @@
 @import "@bmi/styles";
 
 .Hero {
-  width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
+  // NOTE: Overriding for the Hero module
+  $breakpoint-sm: 769px;
+
   min-height: auto;
   flex-direction: column;
-  background: $bmi-blue-800;
+  background-color: $bmi-blue-800;
   color: $bmi-white;
+  position: relative;
+  overflow: hidden;
 
   &--light {
     background: $bmi-pearl;
@@ -15,61 +17,89 @@
   }
 
   .title {
-    margin: 20px 0 28px;
+    margin: 10px 0 24px;
   }
 
-  &--slim {
-    padding: 20px 0 32px 9%;
-    margin: 0;
+  .container {
+    height: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    padding: 24px 0 40px 0;
+    flex-direction: column;
+  }
+
+  &--slim .wrapper {
+    padding-bottom: 8px;
   }
 
   .content {
-    width: 100%;
-    min-height: auto;
-    padding: 24px 0 80px 0;
-
-    .text {
-      min-height: auto;
-      width: 100%;
-      max-width: 566px;
-      font-size: 28px;
-    }
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .image {
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
-    height: 100vw;
     max-height: 500px;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
   }
 
-  @media (min-width: $breakpoint-bmi-sm) {
+  .text {
+    min-height: auto;
+    width: 100%;
+    max-width: 566px;
+    font-size: 18px;
+  }
+
+  @media (min-width: $breakpoint-sm) {
     flex-direction: row;
+    height: 450px;
 
     &--slim {
-      padding-left: 2%;
+      height: auto;
     }
 
-    &--fat {
-      height: 450px;
-
-      .image {
-        min-width: 50%;
-        height: 100%;
-        background: no-repeat center center;
-        background-size: cover;
-        overflow: hidden;
-      }
-
-      .text {
-        min-height: 278px;
-        width: 100%;
-        max-width: 566px;
-      }
-    }
-    .content {
-      width: 100%;
+    .wrapper {
+      width: 50%;
       height: 100%;
-      padding: 24px 40px 24px 0;
+      padding-right: 24px;
+    }
+
+    .content {
+      margin-top: auto;
+      margin-bottom: auto;
+      max-height: calc(450px - 84px);
+      overflow: hidden;
+      max-width: 566px;
+    }
+
+    .image {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50vw;
+      height: 100%;
+      max-height: none;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    .text {
+      width: 100%;
+      font-size: 22px;
     }
   }
 }

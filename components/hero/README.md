@@ -9,29 +9,22 @@ import imageSource from "./images/demo-tiles.jpg";
 
 const breadcrumbNode = (
   <Breadcrumbs isDarkThemed>
-    <Breadcrumbs.Item linkComponent="a" href="/products">
-      Products
+    <Breadcrumbs.Item linkComponent="a" href="/">
+      Home
     </Breadcrumbs.Item>
-    <Breadcrumbs.Item linkComponent="a" href="/tiles">
-      Roof
-    </Breadcrumbs.Item>
-    <Breadcrumbs.Item linkComponent="a" href="/tiles">
-      Tiles
-    </Breadcrumbs.Item>
-    <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
+    <Breadcrumbs.Item>Level 1 Page Name</Breadcrumbs.Item>
   </Breadcrumbs>
 );
 
 <Hero
   breadcrumbs={breadcrumbNode}
   imageSource={imageSource}
-  title="Concrete Tiles"
+  title="H1 Heading desktop dark BG"
+  level={1}
 >
-  <Typography>
-    Excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-    qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et
-    harum
-  </Typography>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt
+  quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor
+  nisl, nec vestibulum odio molestie tincidunt.
 </Hero>;
 ```
 
@@ -55,7 +48,7 @@ const breadcrumbNode = (
   </Breadcrumbs>
 );
 
-<Hero breadcrumbs={breadcrumbNode} title="Concrete Tiles" isSlim />;
+<Hero breadcrumbs={breadcrumbNode} title="Concrete Tiles" level={2} />;
 ```
 
 ### Hero Level Three
@@ -64,7 +57,7 @@ const breadcrumbNode = (
 import Breadcrumbs from "@bmi/breadcrumbs";
 
 const breadcrumbNode = (
-  <Breadcrumbs isLightThemed>
+  <Breadcrumbs>
     <Breadcrumbs.Item linkComponent="a" href="/products">
       Products
     </Breadcrumbs.Item>
@@ -78,10 +71,5 @@ const breadcrumbNode = (
   </Breadcrumbs>
 );
 
-<Hero
-  breadcrumbs={breadcrumbNode}
-  title="Concrete Tiles"
-  isLightThemed
-  isSlim
-/>;
+<Hero breadcrumbs={breadcrumbNode} title="Concrete Tiles" level={3} />;
 ```
