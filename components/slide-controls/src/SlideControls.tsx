@@ -97,6 +97,7 @@ const SlideControls = ({
     >
       <Button
         variant="text"
+        hasDarkBackground={isDarkThemed}
         isIconButton
         onClick={() => {
           if (newCurrent === current && onPrevClick) {
@@ -136,6 +137,7 @@ const SlideControls = ({
       </span>
       <Button
         variant="text"
+        hasDarkBackground={isDarkThemed}
         isIconButton
         onClick={() => {
           if (newCurrent === current && onNextClick) {

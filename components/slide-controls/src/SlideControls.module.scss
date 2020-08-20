@@ -58,6 +58,7 @@
   .total {
     margin-left: 2px;
     font-size: 20px;
+    color: $bmi-slate;
 
     &::before {
       content: "/";
@@ -70,6 +71,7 @@
     font-size: 20px;
     width: 28px;
     text-align: center;
+    color: $bmi-slate;
     animation: fade $animation-duration ease-in-out reverse both;
 
     &--active {
