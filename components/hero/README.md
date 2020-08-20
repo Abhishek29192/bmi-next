@@ -34,3 +34,54 @@ const breadcrumbNode = (
   </Typography>
 </Hero>;
 ```
+
+### Hero Level Two
+
+```jsx
+import Breadcrumbs from "@bmi/breadcrumbs";
+
+const breadcrumbNode = (
+  <Breadcrumbs isDarkThemed>
+    <Breadcrumbs.Item linkComponent="a" href="/products">
+      Products
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item linkComponent="a" href="/tiles">
+      Roof
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item linkComponent="a" href="/tiles">
+      Tiles
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
+  </Breadcrumbs>
+);
+
+<Hero breadcrumbs={breadcrumbNode} title="Concrete Tiles" isSlim />;
+```
+
+### Hero Level Three
+
+```jsx
+import Breadcrumbs from "@bmi/breadcrumbs";
+
+const breadcrumbNode = (
+  <Breadcrumbs isLightThemed>
+    <Breadcrumbs.Item linkComponent="a" href="/products">
+      Products
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item linkComponent="a" href="/tiles">
+      Roof
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item linkComponent="a" href="/tiles">
+      Tiles
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
+  </Breadcrumbs>
+);
+
+<Hero
+  breadcrumbs={breadcrumbNode}
+  title="Concrete Tiles"
+  isLightThemed
+  isSlim
+/>;
+```

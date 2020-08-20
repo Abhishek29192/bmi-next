@@ -21,4 +21,18 @@ describe("Hero component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders level 2 with no image", () => {
+    const { container } = render(
+      <Hero breadcrumbs={<div />} title="Concrete Tiles" />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders level 3 with no image & light themed", () => {
+    const { container } = render(
+      <Hero breadcrumbs={<div />} title="Concrete Tiles" isLightThemed />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
