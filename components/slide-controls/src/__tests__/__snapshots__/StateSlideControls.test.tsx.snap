@@ -1,0 +1,418 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SlideControls component moves backward from 5 to 4 1`] = `
+<div
+  class="SlideControls"
+>
+  <button
+    aria-label="previous"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <span
+    class="middle-container"
+  >
+    <span
+      class="sliding-slot"
+    >
+      <span
+        class="numbers numbers--down"
+      >
+        <span
+          class="number number--active"
+        >
+          04
+        </span>
+        <span
+          class="number"
+        >
+          05
+        </span>
+      </span>
+    </span>
+    <span
+      class="total"
+    >
+      05
+    </span>
+  </span>
+  <button
+    aria-label="next"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`SlideControls component moves forward from 1 to 2 1`] = `
+<div
+  class="SlideControls"
+>
+  <button
+    aria-label="previous"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <span
+    class="middle-container"
+  >
+    <span
+      class="sliding-slot"
+    >
+      <span
+        class="numbers numbers--up"
+      >
+        <span
+          class="number"
+        >
+          01
+        </span>
+        <span
+          class="number number--active"
+        >
+          02
+        </span>
+      </span>
+    </span>
+    <span
+      class="total"
+    >
+      05
+    </span>
+  </span>
+  <button
+    aria-label="next"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`SlideControls component moves from first to last number 1`] = `
+<div
+  class="SlideControls"
+>
+  <button
+    aria-label="previous"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <span
+    class="middle-container"
+  >
+    <span
+      class="sliding-slot"
+    >
+      <span
+        class="numbers numbers--down"
+      >
+        <span
+          class="number number--active"
+        >
+          05
+        </span>
+        <span
+          class="number"
+        >
+          01
+        </span>
+      </span>
+    </span>
+    <span
+      class="total"
+    >
+      05
+    </span>
+  </span>
+  <button
+    aria-label="next"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`SlideControls component moves from last to first number 1`] = `
+<div
+  class="SlideControls"
+>
+  <button
+    aria-label="previous"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <span
+    class="middle-container"
+  >
+    <span
+      class="sliding-slot"
+    >
+      <span
+        class="numbers numbers--up"
+      >
+        <span
+          class="number"
+        >
+          05
+        </span>
+        <span
+          class="number number--active"
+        >
+          01
+        </span>
+      </span>
+    </span>
+    <span
+      class="total"
+    >
+      05
+    </span>
+  </span>
+  <button
+    aria-label="next"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`SlideControls component renders correctly 1`] = `
+<div
+  class="SlideControls"
+>
+  <button
+    aria-label="previous"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <span
+    class="middle-container"
+  >
+    <span
+      class="sliding-slot"
+    >
+      <span
+        class="numbers"
+      >
+        <span
+          class="number number--active"
+        >
+          01
+        </span>
+      </span>
+    </span>
+    <span
+      class="total"
+    >
+      05
+    </span>
+  </span>
+  <button
+    aria-label="next"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`SlideControls component triggers a onNextClick event 1`] = `
+Array [
+  Array [],
+]
+`;
+
+exports[`SlideControls component triggers a onPrevClick event 1`] = `
+Array [
+  Array [],
+]
+`;
