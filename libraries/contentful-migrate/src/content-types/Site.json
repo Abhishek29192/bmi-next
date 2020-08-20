@@ -1,0 +1,111 @@
+{
+  "countryCode": {
+    "name": "Country Code",
+    "type": "Symbol",
+    "localized": false,
+    "required": true,
+    "validations": [
+      {
+        "unique": true
+      }
+    ],
+    "disabled": false,
+    "omitted": false
+  },
+  "menu": {
+    "name": "Menu",
+    "type": "Link",
+    "localized": false,
+    "required": true,
+    "validations": [
+      {
+        "linkContentType": ["navigation"]
+      }
+    ],
+    "disabled": false,
+    "omitted": false,
+    "linkType": "Entry"
+  },
+  "pages": {
+    "name": "Pages",
+    "type": "Array",
+    "localized": false,
+    "required": false,
+    "validations": [],
+    "disabled": false,
+    "omitted": false,
+    "items": {
+      "type": "Link",
+      "validations": [
+        {
+          "linkContentType": ["contactUsPage", "homePage", "page"]
+        }
+      ],
+      "linkType": "Entry"
+    }
+  },
+  "signUpTitle": {
+    "name": "Sign Up Title",
+    "type": "Symbol",
+    "localized": false,
+    "required": true,
+    "validations": [],
+    "disabled": false,
+    "omitted": false
+  },
+  "signUpDescription": {
+    "name": "Sign Up Description",
+    "type": "Text",
+    "localized": false,
+    "required": true,
+    "validations": [],
+    "disabled": false,
+    "omitted": false
+  },
+  "signUpInputLabel": {
+    "name": "Sign Up Input Label",
+    "type": "Symbol",
+    "localized": false,
+    "required": true,
+    "validations": [],
+    "disabled": false,
+    "omitted": false
+  },
+  "signUpCallToAction": {
+    "name": "Sign Up Call To Action",
+    "type": "Symbol",
+    "localized": false,
+    "required": true,
+    "validations": [],
+    "disabled": false,
+    "omitted": false
+  },
+  "footerMainNavigation": {
+    "name": "Footer Main Navigation",
+    "type": "Link",
+    "localized": false,
+    "required": false,
+    "validations": [
+      {
+        "linkContentType": ["navigation"]
+      }
+    ],
+    "disabled": false,
+    "omitted": false,
+    "linkType": "Entry"
+  },
+  "footerSecondaryNavigation": {
+    "name": "Footer Secondary Navigation",
+    "type": "Link",
+    "localized": false,
+    "required": false,
+    "validations": [
+      {
+        "linkContentType": ["navigation"]
+      }
+    ],
+    "disabled": false,
+    "omitted": false,
+    "linkType": "Entry"
+  }
+}
