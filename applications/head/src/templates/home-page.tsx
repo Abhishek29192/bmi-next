@@ -1,39 +1,19 @@
 import React from "react";
-import { graphql } from "gatsby";
-import { Helmet } from "react-helmet";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { Json, Site } from "./types";
 import Page from "../components/Page";
-
-type Page<T> = {
-  data: null | T;
-};
+import { graphql } from "gatsby";
+import { PageData, SiteData } from "./types";
 
 type Props = {
-  site: Site;
-  contentfulHomepage: ContentfulHomePage;
+  data: {
+    contentfulHomePage: PageData;
+    contentfulSite: SiteData;
+  };
 };
 
-type ContentfulHomePage = {
-  title: string;
-  content: Json;
-};
-
-const HomePage = ({ data }: Page<Props>) => {
-  if (!data) {
-    // TODO: Have this logic elsewhere
-    return <p>Something went wrong</p>;
-  }
-  const {
-    site,
-    contentfulHomepage: { title, content }
-  } = data;
-
+const HomePage = ({ data }: Props) => {
   return (
-    <Page>
-      <Helmet title={site.siteMetadata.title} />
-      <h1>{title}</h1>
-      <div>{documentToReactComponents(content.json)}</div>
+    <Page pageData={data.contentfulHomePage} siteData={data.contentfulSite}>
+      HOME PAGE CONTENT
     </Page>
   );
 };
@@ -41,18 +21,32 @@ const HomePage = ({ data }: Page<Props>) => {
 export default HomePage;
 
 export const pageQuery = graphql`
-  query HomepageById($id: String!) {
-    site {
-      siteMetadata {
+  query HomePageById($pageId: String!, $siteId: String!) {
+    contentfulHomePage(id: { eq: $pageId }) {
+      title
+      showSignUpBanner
+      hero {
         title
+        subtitle {
+          subtitle
+        }
+        image {
+          title
+          file {
+            fileName
+            url
+          }
+        }
       }
     }
-
-    contentfulHomepage(id: { eq: $id }) {
-      title
-      content {
-        json
+    contentfulSite(id: { eq: $siteId }) {
+      footerMainNavigation {
+        ...FooterMainNavigationFragment
       }
+      footerSecondaryNavigation {
+        ...FooterSecondaryNavigationFragment
+      }
+      ...SignUpFragment
     }
   }
 `;
