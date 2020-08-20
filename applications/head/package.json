@@ -21,6 +21,7 @@
   "dependencies": {
     "@bmi/button": "0.0.0",
     "@bmi/footer": "0.0.0",
+    "@bmi/hero": "0.0.0",
     "@bmi/theme-provider": "0.0.0",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
