@@ -15,7 +15,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build && gatsby serve"
   },
   "dependencies": {
