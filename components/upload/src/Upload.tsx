@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from "react";
-import Button from "@bmi/button";
 import styles from "./Upload.module.scss";
 import Typography from "@bmi/typography";
 import { withFormControl } from "@bmi/form";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
-import File from "./File";
+import File, { UploadFile } from "./_File";
+import Accordion from "@bmi/accordion";
+import Icon from "@bmi/icon";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import classnames from "classnames";
+import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Button from "@bmi/button";
+import AttachFileIcon from "@material-ui/icons/AttachFile";
 
 export type Props = {
   buttonLabel?: string;
   instructions?: string;
   accept?: string;
-  onChange: (files: File[]) => void;
   id: string;
   onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
   error?: boolean;
   errorText?: string;
+  onChange: any;
+  uri: string;
+  headers?: Record<string, string>;
+  mapBody?: (file: File) => Record<string, any>;
+  mapValue?: (file: File, response: any) => any;
 };
 
 const Upload = ({
@@ -23,80 +34,160 @@ const Upload = ({
   buttonLabel = "Upload",
   accept,
   id,
-  onChange,
   onBlur,
   error,
-  errorText
+  errorText,
+  uri,
+  headers,
+  mapBody,
+  mapValue,
+  onChange
 }: Props) => {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState<readonly UploadFile[]>([]);
+  const [dragCounter, setDragCounter] = useState(0);
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   useEffect(() => {
-    // TODO: check this
-    return files.forEach((file) => {
-      if (file.image) {
-        URL.revokeObjectURL(file.image);
-      }
-    });
-  }, []);
+    onChange(files.map((file) => file.value));
+  }, [files]);
 
-  const handleUpload = (event) => {
-    const files: File[] = Array.from(event.target.files);
-    onChange(files);
+  const onInputChange = (event) => {
+    onBlur(event);
 
-    const newFiles = files.map((file) => {
-      return {
-        name: file.name,
-        image: file.type.includes("image") ? URL.createObjectURL(file) : null
-      };
-    });
-    setFiles((currentFiles) => currentFiles.concat(newFiles));
+    const files: UploadFile[] = Array.from(event.target.files).map(
+      (file: File) => ({
+        file
+      })
+    );
+
+    event.target.value = "";
+    setFiles((currentFiles) => currentFiles.concat(files));
   };
 
-  const deleteFile = (index) => {
-    setFiles((currentFiles) => {
-      let updatedFiles = [...currentFiles];
-      URL.revokeObjectURL(currentFiles[index].image);
-      updatedFiles.splice(index, 1);
-      return updatedFiles;
-    });
+  const handleDrop = (event) => {
+    event.preventDefault();
+    setDragCounter((counter) => counter - 1);
+    const dataTransferItems: DataTransferItem[] = Array.from(
+      event.dataTransfer.items
+    );
+    const files: UploadFile[] = dataTransferItems
+      .filter((item) => item.kind === "file")
+      .map((item) => ({
+        file: item.getAsFile()
+      }));
+    setFiles((currentFiles) => currentFiles.concat(files));
   };
+
+  const onDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const filesList = (
+    <div>
+      {error ? <FormHelperText>{errorText}</FormHelperText> : null}
+      {files.map((file, index) => {
+        return (
+          <File
+            key={index}
+            file={file.file}
+            uri={uri}
+            headers={headers}
+            mapBody={mapBody}
+            onRequestSuccess={(data) => {
+              setFiles((files) =>
+                Object.assign([], files, {
+                  [index]: {
+                    ...file,
+                    value: mapValue(file.file, data)
+                  }
+                })
+              );
+            }}
+            onDeleteClick={() => {
+              setFiles((files) =>
+                files.filter((_file, fileIndex) => fileIndex !== index)
+              );
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+
+  const input = (
+    <input
+      accept={accept}
+      className={styles["input"]}
+      id={id}
+      data-testid={id}
+      multiple
+      type="file"
+      onChange={onInputChange}
+    />
+  );
 
   return (
     <FormControl fullWidth error={!!error} className={styles["Upload"]}>
-      <div className={styles["wrapper"]}>
-        <input
-          accept={accept}
-          className={styles["input"]}
-          id={id}
-          multiple
-          type="file"
-          onChange={handleUpload}
-        />
-        <label htmlFor={id}>
-          <Button
-            onBlur={onBlur}
-            variant="outlined"
-            color="primary"
-            component="span"
-          >
-            {buttonLabel}
-          </Button>
-        </label>
-        <Typography className={styles["instructions"]}>
-          {instructions}
-        </Typography>
-      </div>
-      <div>
-        {error ? <FormHelperText>{errorText}</FormHelperText> : null}
-        {files.map((file, index) => (
-          <File
-            key={index}
-            filename={file.name}
-            image={file.image}
-            deleteFile={(_) => deleteFile(index)}
-          />
-        ))}
-      </div>
+      {matches ? (
+        <Accordion>
+          <Accordion.Item className={styles["accordion"]}>
+            <Accordion.Summary aria-controls="upload-header" id="upload-header">
+              <Typography className={styles["accordion-summary"]}>
+                {buttonLabel}
+              </Typography>
+            </Accordion.Summary>
+            <Accordion.Details>
+              <div className={styles["wrapper"]}>
+                <div
+                  id="drop-zone"
+                  data-testid={`drop-zone-${id}`}
+                  onDrop={handleDrop}
+                  onDragOver={onDragOver}
+                  onDragLeave={() => setDragCounter((counter) => counter - 1)}
+                  onDragEnter={() => setDragCounter((counter) => counter + 1)}
+                  className={classnames(styles["drop-zone"], {
+                    [styles["drop-zone--drag"]]: dragCounter
+                  })}
+                >
+                  <Icon className={styles["icon"]} source={CloudUploadIcon} />
+                  <Typography className={styles["typography"]}>
+                    Drop files to upload or
+                  </Typography>
+                  {input}
+                  <label htmlFor={id} className={styles["label"]}>
+                    browse
+                  </label>
+                  <Typography className={styles["instructions"]}>
+                    {instructions}
+                  </Typography>
+                </div>
+
+                {filesList}
+              </div>
+            </Accordion.Details>
+          </Accordion.Item>
+        </Accordion>
+      ) : (
+        <>
+          <div>
+            <label htmlFor={id}>
+              <Button variant="outlined" fullWidth component="span">
+                <Icon source={AttachFileIcon} />
+                {buttonLabel}
+              </Button>
+            </label>
+            {input}
+            {instructions ? (
+              <Typography className={styles["mobile-instructions"]}>
+                {instructions}
+              </Typography>
+            ) : null}
+          </div>
+          {filesList}
+        </>
+      )}
     </FormControl>
   );
 };
