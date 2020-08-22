@@ -1,8 +1,14 @@
 @import "@bmi/styles";
 
+$hero-breakpoint-sm: 769px;
+
+:export {
+  breakpoint-sm: $hero-breakpoint-sm;
+}
+
 .Hero {
   // NOTE: Overriding for the Hero module
-  $breakpoint-sm: 769px;
+  $breakpoint-sm: $hero-breakpoint-sm;
 
   min-height: auto;
   flex-direction: column;
@@ -18,6 +24,11 @@
 
   .title {
     margin: 10px 0 24px;
+
+    &::after {
+      // NOTE: Fix the next slide being visible
+      margin-left: 1px;
+    }
   }
 
   .container {
@@ -41,6 +52,10 @@
     margin-bottom: auto;
   }
 
+  .image-carousel {
+    margin-top: 40px;
+  }
+
   .image {
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,12 +77,32 @@
     font-size: 18px;
   }
 
+  .cta {
+    margin-top: 24px;
+    display: block;
+    // NOTE: Fix the next slide being visible
+    margin-left: 1px;
+  }
+
+  .controls {
+    margin: 24px 0 32px;
+  }
+
   @media (min-width: $breakpoint-sm) {
     flex-direction: row;
     height: 450px;
 
     &--slim {
       height: auto;
+    }
+
+    &--carousel {
+      height: 650px;
+      padding-bottom: 60px;
+    }
+
+    &--space-bottom {
+      padding-bottom: 140px;
     }
 
     .wrapper {
@@ -79,9 +114,10 @@
     .content {
       margin-top: auto;
       margin-bottom: auto;
-      max-height: calc(450px - 84px);
-      overflow: hidden;
-      max-width: 566px;
+    }
+
+    &--carousel .content {
+      padding-bottom: 32px;
     }
 
     .image {
@@ -97,9 +133,78 @@
       }
     }
 
+    .image-carousel {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50vw;
+      height: 100%;
+      max-height: none;
+      margin-top: 0;
+
+      .image {
+        position: static;
+        width: auto;
+        height: 100%;
+        left: 0;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        z-index: 2;
+        top: 50%;
+        width: 100%;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba($bmi-blue-800, 0) 0%,
+          $bmi-blue-800 70%,
+          $bmi-blue-800 100%
+        );
+      }
+    }
+
     .text {
       width: 100%;
       font-size: 22px;
+    }
+
+    .controls {
+      position: absolute;
+      z-index: 3;
+      right: 24px;
+      bottom: 24px;
+      margin: none;
+    }
+
+    &--space-bottom .controls {
+      bottom: 124px;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &--carousel {
+      height: 650px;
+    }
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    &--carousel {
+      height: 720px;
+    }
+
+    .content {
+      padding-bottom: none;
+    }
+
+    .controls {
+      position: static;
+    }
+
+    .image-carousel::after {
+      content: none;
     }
   }
 }

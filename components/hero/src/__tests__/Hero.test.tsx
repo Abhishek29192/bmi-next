@@ -1,38 +1,27 @@
 import React from "react";
 import Hero from "../";
 import { render } from "@testing-library/react";
-import Typography from "@bmi/typography";
-import imageSource from "../components/hero/images/demo-tiles.jpg";
+import imageSource from "mock-image.jpg";
 
 describe("Hero component", () => {
-  it("renders with children", () => {
+  it("renders level 1", () => {
     const { container } = render(
-      <Hero
-        breadcrumbs={<div />}
-        imageSource={imageSource}
-        title="Concrete Tiles"
-      >
-        <Typography>
-          Excepturi sint occaecati cupiditate non provident, similique sunt in
-          culpa qui officia deserunt mollitia animi, id est laborum et dolorum
-          fuga. Et harum
-        </Typography>
+      <Hero imageSource={imageSource} title="H1 Heading" level={1}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
+        tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus
+        suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
       </Hero>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("renders level 2 with no image", () => {
-    const { container } = render(
-      <Hero breadcrumbs={<div />} title="Concrete Tiles" />
-    );
+  it("renders level 2", () => {
+    const { container } = render(<Hero title="H1 Heading" level={2} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("renders level 3 with no image & light themed", () => {
-    const { container } = render(
-      <Hero breadcrumbs={<div />} title="Concrete Tiles" isLightThemed />
-    );
+  it("renders level 3", () => {
+    const { container } = render(<Hero title="H1 Heading" level={3} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });
