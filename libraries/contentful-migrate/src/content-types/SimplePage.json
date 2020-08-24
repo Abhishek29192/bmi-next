@@ -1,0 +1,72 @@
+{
+  "title": {
+    "name": "Title",
+    "type": "Symbol",
+    "localized": false,
+    "required": true,
+    "validations": [
+      {
+        "unique": true
+      }
+    ],
+    "disabled": false,
+    "omitted": false
+  },
+  "slug": {
+    "name": "Slug",
+    "type": "Symbol",
+    "localized": false,
+    "required": false,
+    "validations": [
+      {
+        "unique": true
+      }
+    ],
+    "disabled": false,
+    "omitted": false
+  },
+  "hero": {
+    "name": "Hero",
+    "type": "Link",
+    "localized": false,
+    "required": false,
+    "validations": [
+      {
+        "linkContentType": ["hero"]
+      }
+    ],
+    "disabled": false,
+    "omitted": false,
+    "linkType": "Entry"
+  },
+  "pageContent": {
+    "name": "Page Content",
+    "type": "RichText",
+    "localized": false,
+    "required": false,
+    "validations": [
+      {
+        "enabledMarks": [],
+        "message": "Marks are not allowed"
+      },
+      {
+        "enabledNodeTypes": ["entry-hyperlink"],
+        "message": "Only link to entry nodes are allowed"
+      },
+      {
+        "nodes": {}
+      }
+    ],
+    "disabled": false,
+    "omitted": false
+  },
+  "showSignUpBanner": {
+    "name": "Show Sign Up Banner",
+    "type": "Boolean",
+    "localized": false,
+    "required": false,
+    "validations": [],
+    "disabled": false,
+    "omitted": false
+  }
+}

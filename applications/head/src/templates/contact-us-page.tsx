@@ -1,27 +1,31 @@
 import React from "react";
 import Page from "../components/Page";
 import { graphql } from "gatsby";
-import { SiteData, PageData } from "./types";
+import { PageData, SiteData } from "./types";
 
 type Props = {
   data: {
-    contentfulSimplePage: PageData;
+    contentfulContactUsPage: PageData;
     contentfulSite: SiteData;
   };
 };
-const SimplePage = ({ data }: Props) => {
+
+const ContactUsPage = ({ data }: Props) => {
   return (
-    <Page pageData={data.contentfulSimplePage} siteData={data.contentfulSite}>
-      SIMPLE PAGE CONTENT
+    <Page
+      pageData={data.contentfulContactUsPage}
+      siteData={data.contentfulSite}
+    >
+      CONTACT US PAGE CONTENT
     </Page>
   );
 };
 
-export default SimplePage;
+export default ContactUsPage;
 
 export const pageQuery = graphql`
-  query SimplePageById($pageId: String!, $siteId: String!) {
-    contentfulSimplePage(id: { eq: $pageId }) {
+  query ContactUsPageById($pageId: String!, $siteId: String!) {
+    contentfulContactUsPage(id: { eq: $pageId }) {
       title
       showSignUpBanner
       hero {

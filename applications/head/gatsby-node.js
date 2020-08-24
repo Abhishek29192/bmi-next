@@ -12,36 +12,32 @@ require("dotenv").config({
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const homePage = path.resolve("./src/templates/home-page.tsx");
-  const simplePage = path.resolve("./src/templates/simple-page.tsx");
-  const productListingPage = path.resolve(
-    "./src/templates/product-listing-page.tsx"
-  );
-
-  const typenameTemplateMap = {
-    ContentfulSimplePage: simplePage,
-    ContentfulProductListing: productListingPage
+  const componentMap = {
+    ContentfulSimplePage: path.resolve("./src/templates/simple-page.tsx"),
+    ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
+    ContentfulContactUsPage: path.resolve("./src/templates/contact-us-page.tsx")
   };
 
   const result = await graphql(`
     {
       allContentfulSite {
-        edges {
-          node {
-            code
-            homepage {
-              id
-            }
-            pages {
+        nodes {
+          id
+          countryCode
+          pages {
+            ... on ContentfulContactUsPage {
               __typename
-              ... on ContentfulSimplePage {
-                id
-                slug
-              }
-              ... on ContentfulProductListing {
-                id
-                slug
-              }
+              id
+              slug
+            }
+            ... on ContentfulSimplePage {
+              __typename
+              id
+              slug
+            }
+            ... on ContentfulHomePage {
+              __typename
+              id
             }
           }
         }
@@ -53,30 +49,25 @@ exports.createPages = async ({ graphql, actions }) => {
     throw new Error(result.errors);
   }
 
-  result.data.allContentfulSite.edges.forEach(({ node: site }) => {
-    // HOMEPAGE
-    if (site.homepage) {
-      createPage({
-        path: `/${site.code}/`,
-        component: homePage,
-        context: {
-          id: site.homepage.id
-        }
-      });
+  const {
+    data: {
+      allContentfulSite: { nodes: sites }
     }
+  } = result;
 
-    // PAGES
+  sites.forEach((site) => {
     (site.pages || []).forEach((page) => {
+      const component = componentMap[page.__typename];
+
       createPage({
-        path: `/${site.code}/${page.slug}`,
-        component: typenameTemplateMap[page.__typename],
+        path: `/${site.countryCode}/${page.slug || ""}`,
+        component: component,
         context: {
-          id: page.id
+          pageId: page.id,
+          siteId: site.id
         }
       });
     });
-
-    // PRODUCT DETAIL PAGES
   });
 };
 

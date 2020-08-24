@@ -1,0 +1,71 @@
+{
+  "label": {
+    "name": "Label",
+    "type": "Symbol",
+    "localized": false,
+    "required": true,
+    "validations": [],
+    "disabled": false,
+    "omitted": false
+  },
+  "linkedPage": {
+    "name": "Linked Page",
+    "type": "Link",
+    "localized": false,
+    "required": false,
+    "validations": [
+      {
+        "linkContentType": ["contactUsPage", "homePage", "page"]
+      }
+    ],
+    "disabled": false,
+    "omitted": false,
+    "linkType": "Entry"
+  },
+  "icon": {
+    "name": "Icon",
+    "type": "Symbol",
+    "localized": false,
+    "required": false,
+    "validations": [
+      {
+        "regexp": {
+          "pattern": "",
+          "flags": null
+        }
+      },
+      {
+        "in": [
+          "Facebook",
+          "Twitter",
+          "LinkedIn",
+          "User",
+          "BMI",
+          "Phone",
+          "Mail",
+          "YouTube"
+        ]
+      }
+    ],
+    "disabled": false,
+    "omitted": false
+  },
+  "isLabelHidden": {
+    "name": "Is Label Hidden",
+    "type": "Boolean",
+    "localized": false,
+    "required": false,
+    "validations": [],
+    "disabled": false,
+    "omitted": false
+  },
+  "url": {
+    "name": "URL",
+    "type": "Symbol",
+    "localized": false,
+    "required": false,
+    "validations": [],
+    "disabled": false,
+    "omitted": false
+  }
+}
