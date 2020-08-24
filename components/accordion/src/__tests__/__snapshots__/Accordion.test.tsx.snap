@@ -64,3 +64,372 @@ exports[`Accordion component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Accordion component renders correctly after expanded item clicked 1`] = `
+<div
+  class="MuiPaper-root MuiExpansionPanel-root Accordion MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    aria-disabled="false"
+    aria-expanded="false"
+    class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="MuiExpansionPanelSummary-content"
+    >
+      Heading One
+    </div>
+    <div
+      aria-disabled="false"
+      aria-hidden="true"
+      class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+  <div
+    class="MuiCollapse-container"
+    style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+  >
+    <div
+      class="MuiCollapse-wrapper"
+    >
+      <div
+        class="MuiCollapse-wrapperInner"
+      >
+        <div
+          role="region"
+        >
+          <div
+            class="MuiExpansionPanelDetails-root"
+          >
+            Content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion component renders correctly as radio 1`] = `
+<div
+  class="MuiPaper-root MuiExpansionPanel-root Accordion MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    aria-disabled="false"
+    aria-expanded="false"
+    class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="MuiExpansionPanelSummary-content"
+    >
+      Heading
+    </div>
+    <div
+      aria-disabled="false"
+      aria-hidden="true"
+      class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+  <div
+    class="MuiCollapse-container MuiCollapse-hidden"
+    style="min-height: 0px;"
+  >
+    <div
+      class="MuiCollapse-wrapper"
+    >
+      <div
+        class="MuiCollapse-wrapperInner"
+      >
+        <div
+          role="region"
+        >
+          <div
+            class="MuiExpansionPanelDetails-root"
+          >
+            Content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion component renders correctly as radio when item is collapsed 1`] = `
+<div
+  class="MuiPaper-root MuiExpansionPanel-root Accordion MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    aria-disabled="false"
+    aria-expanded="false"
+    class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="MuiExpansionPanelSummary-content"
+    >
+      Heading One
+    </div>
+    <div
+      aria-disabled="false"
+      aria-hidden="true"
+      class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+  <div
+    class="MuiCollapse-container"
+    style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+  >
+    <div
+      class="MuiCollapse-wrapper"
+    >
+      <div
+        class="MuiCollapse-wrapperInner"
+      >
+        <div
+          role="region"
+        >
+          <div
+            class="MuiExpansionPanelDetails-root"
+          >
+            Content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion component renders correctly as radio when item is expanded 1`] = `
+<div
+  class="MuiPaper-root MuiExpansionPanel-root Accordion Mui-expanded MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    aria-disabled="false"
+    aria-expanded="true"
+    class="MuiButtonBase-root MuiExpansionPanelSummary-root Mui-expanded"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="MuiExpansionPanelSummary-content Mui-expanded"
+    >
+      Heading One
+    </div>
+    <div
+      aria-disabled="false"
+      aria-hidden="true"
+      class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+  <div
+    class="MuiCollapse-container"
+    style="min-height: 0px; height: 0px; transition-duration: 0ms;"
+  >
+    <div
+      class="MuiCollapse-wrapper"
+    >
+      <div
+        class="MuiCollapse-wrapperInner"
+      >
+        <div
+          role="region"
+        >
+          <div
+            class="MuiExpansionPanelDetails-root"
+          >
+            Content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion component renders correctly with default expanded item 1`] = `
+<div
+  class="MuiPaper-root MuiExpansionPanel-root Accordion MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    aria-disabled="false"
+    aria-expanded="false"
+    class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="MuiExpansionPanelSummary-content"
+    >
+      Heading
+    </div>
+    <div
+      aria-disabled="false"
+      aria-hidden="true"
+      class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+  <div
+    class="MuiCollapse-container MuiCollapse-hidden"
+    style="min-height: 0px;"
+  >
+    <div
+      class="MuiCollapse-wrapper"
+    >
+      <div
+        class="MuiCollapse-wrapperInner"
+      >
+        <div
+          role="region"
+        >
+          <div
+            class="MuiExpansionPanelDetails-root"
+          >
+            Content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Accordion component renders correctly with onChange 1`] = `
+Array [
+  Array [
+    Class {
+      "_dispatchInstances": null,
+      "_dispatchListeners": null,
+      "_targetInst": null,
+      "altKey": null,
+      "bubbles": null,
+      "button": null,
+      "buttons": null,
+      "cancelable": null,
+      "clientX": null,
+      "clientY": null,
+      "ctrlKey": null,
+      "currentTarget": [Function],
+      "defaultPrevented": null,
+      "detail": null,
+      "dispatchConfig": null,
+      "eventPhase": null,
+      "getModifierState": [Function],
+      "isDefaultPrevented": [Function],
+      "isPropagationStopped": [Function],
+      "isTrusted": null,
+      "metaKey": null,
+      "movementX": [Function],
+      "movementY": [Function],
+      "nativeEvent": null,
+      "pageX": null,
+      "pageY": null,
+      "relatedTarget": [Function],
+      "screenX": null,
+      "screenY": null,
+      "shiftKey": null,
+      "target": null,
+      "timeStamp": [Function],
+      "type": null,
+      "view": null,
+    },
+    true,
+  ],
+]
+`;
