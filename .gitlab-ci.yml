@@ -2,9 +2,18 @@ image: node:10
 
 stages:
   - install
-  # - build
+  - build
   - check
   # - deploy
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - node_modules/
+    # Enables git-lab CI caching. Both .cache and public must be cached, otherwise builds will fail.
+    - .cache/
+    - public/
 
 install:
   stage: install
@@ -16,6 +25,15 @@ install:
   artifacts:
     untracked: true
     expire_in: 30 mins
+
+build:
+  stage: build
+  script:
+    - yarn run build-head
+  artifacts:
+    paths:
+      - public
+
 
 coverage_jest:
   stage: check
