@@ -112,12 +112,12 @@ describe("SlideControls component", () => {
     const { container, getByText } = render(
       <SlideControls current={1} total={5} />
     );
-    const containerBeforeAnimationEnd = container;
+    const containerBeforeAnimationEnd = container.firstChild.cloneNode(true);
 
     fireEvent.animationEnd(getByText("01"));
 
     expect(
-      snapshotDiff(containerBeforeAnimationEnd.firstChild, container.firstChild)
+      snapshotDiff(containerBeforeAnimationEnd, container.firstChild)
     ).toMatchSnapshot();
   });
   it("moves forward by one number", () => {

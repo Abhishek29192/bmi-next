@@ -1,0 +1,63 @@
+// TODO: Add this to class at hero level
+.wrapper {
+  height: 100%;
+}
+
+.Carousel {
+  // TODO: Add this to class at hero level
+  position: relative;
+  flex: 1;
+  height: 100%;
+
+  > div {
+    height: 100%;
+  }
+
+  :global {
+    .react-swipeable-view-container {
+      height: 100%;
+    }
+  }
+
+  .slide {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .page {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  &--swipable .page {
+    &:hover {
+      cursor: grab;
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  &--opacity {
+    > div {
+      overflow-x: visible !important;
+    }
+    :global(.Carousel__slide--global) {
+      transition: 0.3s ease-in-out opacity;
+    }
+
+    [aria-hidden="false"] {
+      opacity: 1;
+    }
+
+    [aria-hidden="true"] {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

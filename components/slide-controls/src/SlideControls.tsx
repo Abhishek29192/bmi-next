@@ -7,16 +7,18 @@ import ChevronBottomIcon from "@material-ui/icons/KeyboardArrowDown";
 import ChevronLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import styles from "./SlideControls.module.scss";
 
-type Props = {
+export type Props = {
   current?: number;
   total: number;
-  onNextClick?: () => void;
-  onPrevClick?: () => void;
+  onNextClick?: (current: number) => void;
+  onPrevClick?: (current: number) => void;
+  onChange?: (current: number) => void;
   isFullSize?: boolean;
   previousLabel?: string;
   nextLabel?: string;
   isVertical?: boolean;
   isDarkThemed?: boolean;
+  className?: string;
 };
 
 // NOTE: This won't work for 3 digit numbers.
@@ -31,6 +33,10 @@ const getDirection = (
 ): Direction => {
   if (current === newCurrent) {
     return "none";
+  }
+
+  if (total === 2) {
+    return "forward";
   }
 
   if (current === total && newCurrent === 1) {
@@ -65,11 +71,13 @@ const SlideControls = ({
   total,
   onNextClick,
   onPrevClick,
+  onChange,
   isFullSize,
   previousLabel = "previous",
   nextLabel = "next",
   isVertical,
-  isDarkThemed
+  isDarkThemed,
+  className
 }: Props) => {
   const newCurrent = Math.min(initialCurrent, total);
   const [current, setCurrent] = useState<number>(newCurrent);
@@ -89,24 +97,32 @@ const SlideControls = ({
 
   return (
     <div
-      className={classnames(styles["SlideControls"], {
-        [styles["SlideControls--full-size"]]: isFullSize && !isVertical,
-        [styles["SlideControls--vertical"]]: isVertical,
-        [styles["SlideControls--light"]]: isDarkThemed
-      })}
+      className={classnames(
+        styles["SlideControls"],
+        {
+          [styles["SlideControls--full-size"]]: isFullSize && !isVertical,
+          [styles["SlideControls--vertical"]]: isVertical,
+          [styles["SlideControls--light"]]: isDarkThemed
+        },
+        className
+      )}
     >
-      <Button
-        variant="text"
-        isIconButton
-        onClick={() => {
-          if (newCurrent === current && onPrevClick) {
-            onPrevClick();
-          }
-        }}
-        accessibilityLabel={previousLabel}
-      >
-        <PreviousArrow className={styles["chevron"]} />
-      </Button>
+      {total > 2 && (
+        <Button
+          variant="text"
+          hasDarkBackground={isDarkThemed}
+          isIconButton
+          onClick={() => {
+            if (numbers.length === 1) {
+              onPrevClick && onPrevClick(current);
+              onChange && onChange(current);
+            }
+          }}
+          accessibilityLabel={previousLabel}
+        >
+          <PreviousArrow className={styles["chevron"]} />
+        </Button>
+      )}
       <span className={styles["middle-container"]}>
         <span className={styles["sliding-slot"]}>
           <span
@@ -134,18 +150,22 @@ const SlideControls = ({
         </span>
         <span className={styles["total"]}>{addZero(total)}</span>
       </span>
-      <Button
-        variant="text"
-        isIconButton
-        onClick={() => {
-          if (newCurrent === current && onNextClick) {
-            onNextClick();
-          }
-        }}
-        accessibilityLabel={nextLabel}
-      >
-        <NextArrow className={styles["chevron"]} />
-      </Button>
+      {total > 1 && (
+        <Button
+          variant="text"
+          hasDarkBackground={isDarkThemed}
+          isIconButton
+          onClick={() => {
+            if (numbers.length === 1) {
+              onNextClick && onNextClick(current);
+              onChange && onChange(current);
+            }
+          }}
+          accessibilityLabel={nextLabel}
+        >
+          <NextArrow className={styles["chevron"]} />
+        </Button>
+      )}
     </div>
   );
 };
@@ -157,6 +177,7 @@ export const StateSlideControls = ({
   total,
   onPrevClick,
   onNextClick,
+  onChange,
   ...rest
 }: Props) => {
   const [current, setCurrent] = useState<number>(initialCurrent);
@@ -176,7 +197,11 @@ export const StateSlideControls = ({
         });
 
         if (onPrevClick) {
-          onPrevClick();
+          onPrevClick(current);
+        }
+
+        if (onChange) {
+          onChange(current);
         }
       }}
       onNextClick={() => {
@@ -188,7 +213,11 @@ export const StateSlideControls = ({
         });
 
         if (onNextClick) {
-          onNextClick();
+          onNextClick(current);
+        }
+
+        if (onChange) {
+          onChange(current);
         }
       }}
     />

@@ -398,7 +398,7 @@ exports[`SlideControls component renders a dark themed 1`] = `
 >
   <button
     aria-label="previous"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text IconButton--dark-background"
     tabindex="0"
     type="button"
   >
@@ -444,7 +444,7 @@ exports[`SlideControls component renders a dark themed 1`] = `
   </span>
   <button
     aria-label="next"
-    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text IconButton--dark-background"
     tabindex="0"
     type="button"
   >
@@ -779,12 +779,16 @@ exports[`SlideControls component renders vertically 1`] = `
 
 exports[`SlideControls component triggers a onNextClick event 1`] = `
 Array [
-  Array [],
+  Array [
+    1,
+  ],
 ]
 `;
 
 exports[`SlideControls component triggers a onPrevClick event 1`] = `
 Array [
-  Array [],
+  Array [
+    1,
+  ],
 ]
 `;

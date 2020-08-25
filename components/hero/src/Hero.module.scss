@@ -1,13 +1,21 @@
 @import "@bmi/styles";
 
+$hero-breakpoint-sm: 769px;
+
+:export {
+  breakpoint-sm: $hero-breakpoint-sm;
+}
+
 .Hero {
-  width: 100%;
-  display: flex;
-  flex-wrap: nowrap;
+  // NOTE: Overriding for the Hero module
+  $breakpoint-sm: $hero-breakpoint-sm;
+
   min-height: auto;
   flex-direction: column;
-  background: $bmi-blue-800;
+  background-color: $bmi-blue-800;
   color: $bmi-white;
+  position: relative;
+  overflow: hidden;
 
   &--light {
     background: $bmi-pearl;
@@ -15,61 +23,188 @@
   }
 
   .title {
-    margin: 20px 0 28px;
+    margin: 10px 0 24px;
+
+    &::after {
+      // NOTE: Fix the next slide being visible
+      margin-left: 1px;
+    }
   }
 
-  &--slim {
-    padding: 20px 0 32px 9%;
-    margin: 0;
+  .container {
+    height: 100%;
+  }
+
+  .wrapper {
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    padding: 24px 0 40px 0;
+    flex-direction: column;
+  }
+
+  &--slim .wrapper {
+    padding-bottom: 8px;
   }
 
   .content {
-    width: 100%;
-    min-height: auto;
-    padding: 24px 0 80px 0;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 
-    .text {
-      min-height: auto;
-      width: 100%;
-      max-width: 566px;
-      font-size: 28px;
-    }
+  .image-carousel {
+    margin-top: 40px;
   }
 
   .image {
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
-    height: 100vw;
     max-height: 500px;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
   }
 
-  @media (min-width: $breakpoint-bmi-sm) {
+  .text {
+    min-height: auto;
+    width: 100%;
+    max-width: 566px;
+    font-size: 18px;
+  }
+
+  .cta {
+    margin-top: 24px;
+    display: block;
+    // NOTE: Fix the next slide being visible
+    margin-left: 1px;
+  }
+
+  .controls {
+    margin: 24px 0 32px;
+  }
+
+  @media (min-width: $breakpoint-sm) {
     flex-direction: row;
+    height: 450px;
 
     &--slim {
-      padding-left: 2%;
+      height: auto;
     }
 
-    &--fat {
-      height: 450px;
+    &--carousel {
+      height: 650px;
+      padding-bottom: 60px;
+    }
+
+    &--space-bottom {
+      padding-bottom: 140px;
+    }
+
+    .wrapper {
+      width: 50%;
+      height: 100%;
+      padding-right: 24px;
+    }
+
+    .content {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    &--carousel .content {
+      padding-bottom: 32px;
+    }
+
+    .image {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50vw;
+      height: 100%;
+      max-height: none;
+
+      &::after {
+        content: none;
+      }
+    }
+
+    .image-carousel {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50vw;
+      height: 100%;
+      max-height: none;
+      margin-top: 0;
 
       .image {
-        min-width: 50%;
+        position: static;
+        width: auto;
         height: 100%;
-        background: no-repeat center center;
-        background-size: cover;
-        overflow: hidden;
+        left: 0;
       }
 
-      .text {
-        min-height: 278px;
+      &::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        z-index: 2;
+        top: 50%;
         width: 100%;
-        max-width: 566px;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba($bmi-blue-800, 0) 0%,
+          $bmi-blue-800 70%,
+          $bmi-blue-800 100%
+        );
       }
     }
-    .content {
+
+    .text {
       width: 100%;
-      height: 100%;
-      padding: 24px 40px 24px 0;
+      font-size: 22px;
+    }
+
+    .controls {
+      position: absolute;
+      z-index: 3;
+      right: 24px;
+      bottom: 24px;
+      margin: none;
+    }
+
+    &--space-bottom .controls {
+      bottom: 124px;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &--carousel {
+      height: 650px;
+    }
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    &--carousel {
+      height: 720px;
+    }
+
+    .content {
+      padding-bottom: none;
+    }
+
+    .controls {
+      position: static;
+    }
+
+    .image-carousel::after {
+      content: none;
     }
   }
 }
