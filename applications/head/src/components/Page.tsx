@@ -14,7 +14,7 @@ type Props = {
 };
 
 const Page = ({ children, pageData, siteData }: Props) => {
-  const { hero: heroData } = pageData;
+  const { hero: heroData, slug } = pageData;
   const {
     footerMainNavigation,
     footerSecondaryNavigation,
@@ -35,7 +35,7 @@ const Page = ({ children, pageData, siteData }: Props) => {
     <BmiThemeProvider>
       <Helmet title={pageData.title} />
       {/* <Menu /> add this when merged */}
-      <Hero data={heroData} />
+      <Hero data={heroData} level={slug === undefined ? 1 : 2} />
       {children}
       {pageData.showSignUpBanner ? (
         <NewsletterSignUp data={signUpData} />

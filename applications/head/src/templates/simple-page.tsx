@@ -23,6 +23,7 @@ export const pageQuery = graphql`
   query SimplePageById($pageId: String!, $siteId: String!) {
     contentfulSimplePage(id: { eq: $pageId }) {
       title
+      slug
       showSignUpBanner
       hero {
         title

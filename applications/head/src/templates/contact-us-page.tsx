@@ -30,6 +30,7 @@ export const pageQuery = graphql`
   query ContactUsPageById($pageId: String!, $siteId: String!) {
     contentfulContactUsPage(id: { eq: $pageId }) {
       title
+      slug
       showSignUpBanner
       hero {
         title
