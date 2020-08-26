@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               slug
             }
-            ... on ContentfulSimplePageNull {
+            ... on ContentfulSimplePage {
               __typename
               id
               slug
