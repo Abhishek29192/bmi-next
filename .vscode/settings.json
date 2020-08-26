@@ -8,5 +8,6 @@
     "typescript",
     "typescriptreact"
   ],
+  "files.insertFinalNewline": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }
