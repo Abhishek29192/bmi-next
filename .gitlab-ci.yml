@@ -6,16 +6,6 @@ stages:
   - check
   # - deploy
 
-# This folder is cached between builds
-# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
-#cache:
-#  paths:
-#    - node_modules/
-    # Enables gitlab CI caching. Both .cache and public must be cached, 
-    # otherwise builds will fail.
-#    - .cache/
-#    - public/
-
 install:
   stage: install
   script:
@@ -37,9 +27,6 @@ build:
       - applications/head/node_modules/
       - applications/head/.cache/
       - applications/head/public/
-#  artifacts:
-#    paths:
-#      - applications/head/public
 
 coverage_jest:
   stage: check
