@@ -2,6 +2,7 @@ import React from "react";
 import Page from "../components/Page";
 import { graphql } from "gatsby";
 import { PageData, SiteData } from "./types";
+import Container from "@bmi/container";
 
 type Props = {
   data: {
@@ -13,7 +14,9 @@ type Props = {
 const HomePage = ({ data }: Props) => {
   return (
     <Page pageData={data.contentfulHomePage} siteData={data.contentfulSite}>
-      HOME PAGE CONTENT
+      <Container maxWidth="lg" style={{ padding: "50px 25px" }}>
+        HOME PAGE CONTENT
+      </Container>
     </Page>
   );
 };
