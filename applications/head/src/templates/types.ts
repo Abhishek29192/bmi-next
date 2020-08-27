@@ -54,4 +54,5 @@ export type PageData = {
   title: string;
   showSignUpBanner?: boolean;
   hero?: HeroData;
+  slug?: string;
 };

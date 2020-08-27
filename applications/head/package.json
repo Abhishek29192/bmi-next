@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@bmi/button": "0.0.0",
+    "@bmi/container": "0.0.0",
     "@bmi/footer": "0.0.0",
     "@bmi/hero": "0.0.0",
     "@bmi/input-banner": "0.0.0",
