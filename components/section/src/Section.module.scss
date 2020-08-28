@@ -1,0 +1,14 @@
+@import "@bmi/styles";
+
+.Section {
+  padding: 60px 0;
+  background-color: transparent;
+
+  &--pearl {
+    background-color: $bmi-pearl;
+  }
+
+  &--white {
+    background-color: $bmi-white;
+  }
+}
