@@ -43,14 +43,17 @@ const styleRules = ({ dev, isServer } = {}) => ({
   rules: [
     {
       test: /\.css$/,
+      exclude: /node_modules/,
       use: createStyleLoaders(false, false, dev, isServer)
     },
     {
       test: /\.module.scss$/,
+      exclude: /node_modules/,
       use: createStyleLoaders(true, true, dev, isServer)
     },
     {
       test: /(?<!\.module)\.scss$/,
+      exclude: /node_modules/,
       use: createStyleLoaders(false, true, dev, isServer)
     }
   ]
