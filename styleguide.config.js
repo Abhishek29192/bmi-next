@@ -23,10 +23,12 @@ const webpackConfig = withConfigs(
         },
         {
           test: /\.svg$/,
+          exclude: /node_modules/,
           use: ["@svgr/webpack"]
         },
         {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+          exclude: /node_modules/,
           use: [
             {
               loader: "file-loader",
@@ -39,6 +41,7 @@ const webpackConfig = withConfigs(
         },
         {
           test: /\.(png|jpg|gif)$/i,
+          exclude: /node_modules/,
           use: [
             {
               loader: "url-loader",
