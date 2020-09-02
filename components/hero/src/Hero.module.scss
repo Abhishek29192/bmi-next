@@ -176,7 +176,7 @@ $hero-breakpoint-sm: 769px;
       z-index: 3;
       right: 24px;
       bottom: 24px;
-      margin: none;
+      margin: 0;
     }
 
     &--space-bottom .controls {
@@ -187,6 +187,10 @@ $hero-breakpoint-sm: 769px;
   @media (min-width: $breakpoint-lg) {
     &--carousel {
       height: 650px;
+    }
+
+    .controls {
+      margin: 24px 0 32px;
     }
   }
 
