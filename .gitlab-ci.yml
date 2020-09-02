@@ -2,7 +2,7 @@ image: node:10
 
 stages:
   - install
-  # - build
+  - build
   - check
   # - deploy
 
@@ -16,6 +16,17 @@ install:
   artifacts:
     untracked: true
     expire_in: 30 mins
+
+build:
+  stage: build
+  script:
+    - yarn run build:head
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - applications/head/node_modules/
+      - applications/head/.cache/
+      - applications/head/public/
 
 coverage_jest:
   stage: check

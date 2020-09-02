@@ -3,3 +3,4 @@
 coverage/
 coverage-ts/
 styleguide/
+.DS_Store
