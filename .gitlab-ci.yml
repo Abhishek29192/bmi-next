@@ -20,7 +20,7 @@ install:
 build:
   stage: build
   script:
-    - yarn run build-head
+    - yarn run build:head
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
