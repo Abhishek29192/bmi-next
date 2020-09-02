@@ -24,6 +24,7 @@
   .middle-container {
     display: flex;
     margin: 0 24px;
+    user-select: none;
   }
 
   &--vertical .middle-container {
