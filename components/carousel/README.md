@@ -117,7 +117,7 @@ const currentPage = getPageFromAbsoluteIndex(index, total);
 If you want the carousel to automatically slide to the next page, use the `hasAutoPlay`.
 If `hasAutoPlay=true` you can an optional propertie: `autoPlayInterval (default: 3000)`.
 
-When the user interacts with the carousel, the `autoPlay` pauses until the user exits the carousel area.
+If `pauseAutoPlayOnHover` is set to `true`, when the user interacts with the carousel, the `autoPlay` pauses until the user exits the carousel area.
 
 ```jsx
 const Slide = ({ children, color }) => (
