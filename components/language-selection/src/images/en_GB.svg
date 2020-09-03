@@ -1,0 +1,58 @@
+<svg id="United_Kingdom" data-name="United Kingdom" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" x1="10" y1="2" x2="10" y2="18" gradientTransform="matrix(1, 0, 0, -1, 0, 18)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e54414"/>
+      <stop offset="0.35" stop-color="#ff6737"/>
+      <stop offset="0.65" stop-color="#ff6737"/>
+      <stop offset="1" stop-color="#e54414"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="10" x2="20" y2="10" gradientTransform="matrix(1, 0, 0, -1, 0, 18)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e54414"/>
+      <stop offset="0.4" stop-color="#ff6737"/>
+      <stop offset="0.6" stop-color="#ff6737"/>
+      <stop offset="1" stop-color="#e54414"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="15" x2="8" y2="15" gradientTransform="matrix(1, 0, 0, -1, 0, 18)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e54414"/>
+      <stop offset="1" stop-color="#ff6737"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="-14" x2="-6" gradientTransform="translate(6 18) rotate(180)" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-5" y1="31" y2="31" gradientTransform="translate(0 -18)" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-6" x1="-14" y1="31" x2="-6" y2="31" gradientTransform="matrix(-1, 0, 0, 1, 6, -18)" xlink:href="#linear-gradient-3"/>
+    <linearGradient id="linear-gradient-7" x1="5.2005" y1="18" x2="5.2005" y2="13.521" gradientTransform="matrix(1, 0, 0, -1, 0, 18)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0071da"/>
+      <stop offset="1" stop-color="#048df4"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-8" x1="0" y1="14.0395" x2="5.098" y2="14.0395" xlink:href="#linear-gradient-7"/>
+    <linearGradient id="linear-gradient-9" x1="-8.7995" x2="-8.7995" y2="13.521" gradientTransform="translate(6 18) rotate(180)" xlink:href="#linear-gradient-7"/>
+    <linearGradient id="linear-gradient-10" x1="-14" y1="14.0395" x2="-8.902" y2="14.0395" gradientTransform="translate(6 18) rotate(180)" xlink:href="#linear-gradient-7"/>
+    <linearGradient id="linear-gradient-11" x1="5.2005" y1="34" x2="5.2005" y2="29.521" gradientTransform="translate(0 -18)" xlink:href="#linear-gradient-7"/>
+    <linearGradient id="linear-gradient-12" x1="0" y1="30.0395" x2="5.098" y2="30.0395" gradientTransform="translate(0 -18)" xlink:href="#linear-gradient-7"/>
+    <linearGradient id="linear-gradient-13" x1="-8.7995" y1="34" x2="-8.7995" y2="29.521" gradientTransform="matrix(-1, 0, 0, 1, 6, -18)" xlink:href="#linear-gradient-7"/>
+    <linearGradient id="linear-gradient-14" x1="-14" y1="30.0395" x2="-8.902" y2="30.0395" gradientTransform="matrix(-1, 0, 0, 1, 6, -18)" xlink:href="#linear-gradient-7"/>
+    <radialGradient id="radial-gradient" cx="10.93158" cy="5.46579" r="7.5707" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="20" height="16" fill="#fff"/>
+  <rect x="9" width="2" height="16" fill="url(#linear-gradient)"/>
+  <rect y="7" width="20" height="2" fill="url(#linear-gradient-2)"/>
+  <polygon points="8 6 8 5.759 0.801 0 0 0 0 0.641 6.699 6 8 6" fill="url(#linear-gradient-3)"/>
+  <polygon points="12 6 12 5.759 19.199 0 20 0 20 0.641 13.301 6 12 6" fill="url(#linear-gradient-4)"/>
+  <polygon points="8 10 8 10.241 0.801 16 0 16 0 15.359 6.699 10 8 10" fill="url(#linear-gradient-5)"/>
+  <polygon points="12 10 12 10.241 19.199 16 20 16 20 15.359 13.301 10 12 10" fill="url(#linear-gradient-6)"/>
+  <polygon points="8 4.479 8 0 2.401 0 8 4.479" fill="url(#linear-gradient-7)"/>
+  <polygon points="0 1.921 0 6 5.098 6 0 1.921" fill="url(#linear-gradient-8)"/>
+  <polygon points="12 4.479 12 0 17.599 0 12 4.479" fill="url(#linear-gradient-9)"/>
+  <polygon points="20 1.921 20 6 14.902 6 20 1.921" fill="url(#linear-gradient-10)"/>
+  <polygon points="8 11.521 8 16 2.401 16 8 11.521" fill="url(#linear-gradient-11)"/>
+  <polygon points="0 14.079 0 10 5.098 10 0 14.079" fill="url(#linear-gradient-12)"/>
+  <polygon points="12 11.521 12 16 17.599 16 12 11.521" fill="url(#linear-gradient-13)"/>
+  <polygon points="20 14.079 20 10 14.902 10 20 14.079" fill="url(#linear-gradient-14)"/>
+  <g id="extras">
+    <path id="glow" d="M18.5,5.5A10.435,10.435,0,0,0,16.932,0H0V12.2915A10.49464,10.49464,0,0,0,18.5,5.5Z" fill-rule="evenodd" fill="url(#radial-gradient)"/>
+    <path id="borderShadow" d="M19,1V15H1V1ZM0,0V16H20V0Z" opacity="0.15"/>
+  </g>
+</svg>

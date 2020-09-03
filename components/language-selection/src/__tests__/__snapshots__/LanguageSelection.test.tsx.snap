@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LanguageSelection component renders correctly 1`] = `
+<div
+  class="LanguageSelection"
+>
+  <h5
+    class="MuiTypography-root heading Typography MuiTypography-h5"
+  >
+    Choose your region
+  </h5>
+  <p
+    class="MuiTypography-root paragraph Typography MuiTypography-body1"
+  >
+    Selecting a region will take you to a different BMI website that has been tailored to give you the most useful content for your part of the world.
+  </p>
+  <p
+    class="MuiTypography-root paragraph Typography MuiTypography-body1"
+  >
+    <b>
+      The site you are currently viewing contains products that are available in Norway. Products from other markets may not meet the Norwegian Standards in building materials.
+    </b>
+  </p>
+  <div>
+    <h6
+      class="MuiTypography-root heading Typography MuiTypography-h6"
+    >
+      Europe
+    </h6>
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton link"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <span
+              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                class="LanguageIcon"
+              />
+            </span>
+            United Kingdom
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton link"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <span
+              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+            >
+              <svg
+                class="LanguageIcon"
+              />
+            </span>
+            Italia
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
