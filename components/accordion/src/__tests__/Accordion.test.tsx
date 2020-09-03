@@ -2,6 +2,16 @@ import React from "react";
 import Accordion from "../";
 import { render, fireEvent } from "@testing-library/react";
 
+const consoleError = console.error;
+
+beforeAll(() => {
+  console.error = jest.fn();
+});
+
+afterAll(() => {
+  console.error = consoleError;
+});
+
 describe("Accordion component", () => {
   it("renders correctly", () => {
     const { container } = render(
