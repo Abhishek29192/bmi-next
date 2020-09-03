@@ -31,7 +31,7 @@ Renders an `<a>` element with the given props. Does _not_ prevent the native
 
 #### `routerLink`
 
-Renders any `component` (mandatory) passed to the `Clickable`.
+Renders any `linkComponent` (mandatory) passed to the `Clickable`.
 
 ```jsx
 const RouterLink = () => null;
@@ -43,7 +43,7 @@ const RouterLink = () => null;
 
 ### Use custom component
 
-In case you want to wrap a component that already renders either `a` or `button` element, you can pass it as `component` property to `Clickable`.
+In case you want to wrap a component that already renders either `a` or `button` element, you can pass it as `markupComponent` property to `Clickable`.
 
 ```jsx
 const FancyButton = ({ children, href, ...rest }) => {
@@ -72,7 +72,7 @@ const action = {
   href: "#"
 };
 
-<Clickable component={FancyButton} {...action}>
+<Clickable markupComponent={FancyButton} {...action}>
   Click me
 </Clickable>;
 ```

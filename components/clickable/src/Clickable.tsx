@@ -14,7 +14,7 @@ type Props = {
   className?: string;
   onClick?: (event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
   children?: React.ReactNode;
-  component?: React.ElementType<any>;
+  markupComponent?: React.ElementType<any>;
 } & ClickableAction;
 
 type RefElements = HTMLAnchorElement | HTMLButtonElement;
@@ -40,7 +40,7 @@ const Clickable = ({
   className,
   onClick,
   children,
-  component: Component,
+  markupComponent: Component,
   ...rest
 }: Props & { forwardedRef: React.Ref<RefElements> }) => {
   let MarkupComponent: React.ElementType;
@@ -134,7 +134,7 @@ export const withClickable = <P extends Record<string, any> = {}>(
       }) => (
       <Clickable
         forwardedRef={forwardedRef}
-        component={Component}
+        markupComponent={Component}
         {...action}
         {...props}
       >

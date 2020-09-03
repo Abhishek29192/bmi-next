@@ -12,41 +12,37 @@ exports[`Breadcrumbs component renders correctly 1`] = `
       class="MuiBreadcrumbs-li"
     >
       <a
-        class="link"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link MuiButton-textPrimary"
         href="/tiles"
+        tabindex="0"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button MuiButton-textPrimary"
-          tabindex="0"
-          type="button"
+        <span
+          class="MuiButton-label"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-startIcon MuiButton-iconSizeMedium"
           >
-            <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="label"
-            >
-              Tiles
-            </span>
+              <path
+                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+              />
+            </svg>
           </span>
           <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            class="label"
+          >
+            Tiles
+          </span>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </a>
     </li>
   </ol>
@@ -65,41 +61,37 @@ exports[`Breadcrumbs component renders dark themed correctly 1`] = `
       class="MuiBreadcrumbs-li"
     >
       <a
-        class="link"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
         href="/tiles"
+        tabindex="0"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary"
-          tabindex="0"
-          type="button"
+        <span
+          class="MuiButton-label"
         >
           <span
-            class="MuiButton-label"
+            class="MuiButton-startIcon MuiButton-iconSizeMedium"
           >
-            <span
-              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                />
-              </svg>
-            </span>
-            <span
-              class="label"
-            >
-              Tiles
-            </span>
+              <path
+                d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+              />
+            </svg>
           </span>
           <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+            class="label"
+          >
+            Tiles
+          </span>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </a>
     </li>
   </ol>
@@ -118,27 +110,23 @@ exports[`Breadcrumbs component renders on a large breakpoint 1`] = `
       class="MuiBreadcrumbs-li"
     >
       <a
-        class="link"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
         href="/"
+        tabindex="0"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary"
-          tabindex="0"
-          type="button"
+        <span
+          class="MuiButton-label"
         >
           <span
-            class="MuiButton-label"
+            class="label"
           >
-            <span
-              class="label"
-            >
-              BMI Group
-            </span>
+            BMI Group
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </a>
     </li>
     <li
@@ -151,27 +139,23 @@ exports[`Breadcrumbs component renders on a large breakpoint 1`] = `
       class="MuiBreadcrumbs-li"
     >
       <a
-        class="link"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
         href="/products"
+        tabindex="0"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary"
-          tabindex="0"
-          type="button"
+        <span
+          class="MuiButton-label"
         >
           <span
-            class="MuiButton-label"
+            class="label"
           >
-            <span
-              class="label"
-            >
-              Products
-            </span>
+            Products
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </a>
     </li>
     <li
@@ -184,27 +168,23 @@ exports[`Breadcrumbs component renders on a large breakpoint 1`] = `
       class="MuiBreadcrumbs-li"
     >
       <a
-        class="link"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
         href="/tiles"
+        tabindex="0"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary"
-          tabindex="0"
-          type="button"
+        <span
+          class="MuiButton-label"
         >
           <span
-            class="MuiButton-label"
+            class="label"
           >
-            <span
-              class="label"
-            >
-              Tiles
-            </span>
+            Tiles
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </a>
     </li>
     <li
@@ -249,27 +229,23 @@ exports[`Breadcrumbs component renders on a small breakpoint 1`] = `
       class="MuiBreadcrumbs-li"
     >
       <a
-        class="link"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
         href="/"
+        tabindex="0"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary"
-          tabindex="0"
-          type="button"
+        <span
+          class="MuiButton-label"
         >
           <span
-            class="MuiButton-label"
+            class="label"
           >
-            <span
-              class="label"
-            >
-              BMI Group
-            </span>
+            BMI Group
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </a>
     </li>
     <li
@@ -282,27 +258,23 @@ exports[`Breadcrumbs component renders on a small breakpoint 1`] = `
       class="MuiBreadcrumbs-li"
     >
       <a
-        class="link"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
         href="/products"
+        tabindex="0"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary"
-          tabindex="0"
-          type="button"
+        <span
+          class="MuiButton-label"
         >
           <span
-            class="MuiButton-label"
+            class="label"
           >
-            <span
-              class="label"
-            >
-              Products
-            </span>
+            Products
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </a>
     </li>
     <li
@@ -315,27 +287,23 @@ exports[`Breadcrumbs component renders on a small breakpoint 1`] = `
       class="MuiBreadcrumbs-li"
     >
       <a
-        class="link"
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
         href="/tiles"
+        tabindex="0"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text Button button Button--dark-background MuiButton-textPrimary"
-          tabindex="0"
-          type="button"
+        <span
+          class="MuiButton-label"
         >
           <span
-            class="MuiButton-label"
+            class="label"
           >
-            <span
-              class="label"
-            >
-              Tiles
-            </span>
+            Tiles
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
       </a>
     </li>
     <li

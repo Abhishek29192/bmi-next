@@ -7,8 +7,9 @@ import MaterialIconButton, {
 } from "@material-ui/core/IconButton";
 import styles from "./Button.module.scss";
 import classnames from "classnames";
+import { withClickable } from "@bmi/clickable";
 
-export type IconButtonProps = MuiIconButtonProps & {
+export type IconButtonProps = Omit<MuiIconButtonProps, "action"> & {
   isIconButton: true;
   accessibilityLabel: string;
   hasDarkBackground?: boolean;
@@ -17,7 +18,7 @@ export type IconButtonProps = MuiIconButtonProps & {
   component?: undefined;
 };
 
-export type ButtonProps = MuiButtonProps & {
+export type ButtonProps = Omit<MuiButtonProps, "action"> & {
   isIconButton?: false;
   accessibilityLabel?: string;
   hasDarkBackground?: boolean;
@@ -73,4 +74,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default withClickable<ButtonProps | IconButtonProps>(Button);
