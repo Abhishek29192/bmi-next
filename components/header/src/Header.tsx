@@ -1,6 +1,11 @@
 import Button from "@bmi/button";
 import Icon from "@bmi/icon";
 import InputGroup from "@bmi/input-group";
+import LanguageSelection, {
+  defaultLanguage,
+  LanguageSelectionItem,
+  LanguageSelectionList
+} from "@bmi/language-selection";
 import BmiIcon from "@bmi/logo/svgs/BMI.svg";
 import Navigation, { LinkList, NavitationList } from "@bmi/navigation";
 import TextField from "@bmi/text-field";
@@ -21,15 +26,25 @@ import React from "react";
 import styles from "./Header.module.scss";
 
 type HeaderProps = {
-  utilities: readonly LinkList[];
+  language?: LanguageSelectionItem;
+  languages?: readonly LanguageSelectionList[];
   navigation: readonly NavitationList[];
+  utilities: readonly LinkList[];
 };
 
-const Header = ({ navigation, utilities }: HeaderProps) => {
+const Header = ({
+  language = defaultLanguage,
+  languages,
+  navigation,
+  utilities
+}: HeaderProps) => {
   const { breakpoints } = useTheme();
   breakpoints.values.md = 800; // Override
   const $body: HTMLElement = document.querySelector("body");
   const [size, setSize] = React.useState<"small" | "medium" | "large">("small");
+  const [showLanguageSelection, setShowLanguageSelection] = React.useState<
+    boolean
+  >(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<number | boolean>(false);
 
@@ -54,6 +69,9 @@ const Header = ({ navigation, utilities }: HeaderProps) => {
       setValue(!value);
     }
   };
+
+  const toggleLanguageSelection = () =>
+    setShowLanguageSelection(!showLanguageSelection);
 
   const toggleSearch = () => {
     if (!showSearch) setValue(false);
@@ -100,9 +118,62 @@ const Header = ({ navigation, utilities }: HeaderProps) => {
                 </Button>
               </li>
             ))}
+            {languages && (
+              <li className={styles.NavItem}>
+                <Button
+                  className={classnames(
+                    styles.UtilitiesButton,
+                    styles.LanguageSelectionButton,
+                    {
+                      [styles[
+                        "LanguageSelectionButton--active"
+                      ]]: showLanguageSelection
+                    }
+                  )}
+                  component={Link}
+                  onClick={toggleLanguageSelection}
+                  variant="text"
+                >
+                  {language.icon && (
+                    <Icon
+                      source={language.icon}
+                      className={styles.LanguageIcon}
+                    />
+                  )}
+                  {language.code}
+                  <span
+                    className={classnames(styles.downArrow, {
+                      [styles["downArrow--up"]]: showLanguageSelection
+                    })}
+                  >
+                    ▾
+                  </span>
+                </Button>
+              </li>
+            )}
           </ul>
         </Container>
       </nav>
+      {languages && (
+        <Slide
+          direction={size === "small" ? "left" : "down"}
+          in={showLanguageSelection}
+        >
+          <div className={classnames(styles.Drawer, styles.LanguageDrawer)}>
+            <Button
+              accessibilityLabel="Close"
+              className={styles.CloseButton}
+              isIconButton
+              onClick={toggleLanguageSelection}
+            >
+              <Icon source={Close} />
+            </Button>
+            <Container>
+              <LanguageSelection languages={languages} />
+            </Container>
+          </div>
+        </Slide>
+      )}
       <div className={styles.NavigationBar}>
         <Container>
           <div className={styles.NavigationBar__Left}>
@@ -166,6 +237,7 @@ const Header = ({ navigation, utilities }: HeaderProps) => {
             menu={navigation}
             initialDepth={typeof value === "number" ? 1 : 0}
             initialValue={value}
+            toggleLanguageSelection={toggleLanguageSelection}
             utilities={utilities}
           />
         </div>

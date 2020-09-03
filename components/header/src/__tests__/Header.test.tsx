@@ -1,3 +1,4 @@
+import { languages } from "@bmi/language-selection";
 import { render } from "@testing-library/react";
 import React from "react";
 import Header from "../";
@@ -35,7 +36,11 @@ const navigation = [
 describe("Header component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <Header utilities={utilities} navigation={navigation} />
+      <Header
+        utilities={utilities}
+        navigation={navigation}
+        languages={languages}
+      />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
