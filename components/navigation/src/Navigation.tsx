@@ -223,7 +223,7 @@ type NavigationListButtonProps = ButtonProps & {
   linkComponent?: React.ElementType;
 };
 
-const NavigationListButton = ({
+export const NavigationListButton = ({
   active = false,
   children,
   className,
