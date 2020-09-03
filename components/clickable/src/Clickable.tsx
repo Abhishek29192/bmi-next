@@ -19,12 +19,28 @@ type Props = {
 
 type RefElements = HTMLAnchorElement | HTMLButtonElement;
 
+const getObjectWithoutKeys = <O extends Record<string, any>>(
+  object: O,
+  keys: (keyof O)[]
+): Partial<O> => {
+  return Object.entries(object).reduce((carry, [key, value]) => {
+    if (keys.includes(key)) {
+      return carry;
+    }
+
+    return {
+      ...carry,
+      [key]: value
+    };
+  }, {});
+};
+
 const Clickable = ({
   forwardedRef,
   className,
   onClick,
   children,
-  component,
+  component: Component,
   ...rest
 }: Props & { forwardedRef: React.Ref<RefElements> }) => {
   let MarkupComponent: React.ElementType;
@@ -32,48 +48,46 @@ const Clickable = ({
 
   switch (rest.model) {
     case "submit":
-      MarkupComponent = component || "button";
+      MarkupComponent = Component || "button";
 
       extraProps = {
-        type: "submit"
+        type: "submit",
+        ...getObjectWithoutKeys<typeof rest>(rest, ["model"])
       };
       break;
 
     case "reset":
-      MarkupComponent = component || "button";
+      MarkupComponent = Component || "button";
       extraProps = {
-        type: "reset"
+        type: "reset",
+        ...getObjectWithoutKeys<typeof rest>(rest, ["model"])
       };
       break;
 
     case "htmlLink":
-      // eslint-disable-next-line no-case-declarations
-      const { href } = rest;
-
-      MarkupComponent = component || "a";
-      extraProps = {
-        href
-      };
+      MarkupComponent = Component || "a";
+      extraProps = getObjectWithoutKeys<typeof rest>(rest, ["model"]);
 
       break;
 
     case "routerLink":
-      // eslint-disable-next-line no-case-declarations
-      const { to, linkComponent } = rest,
-        Component = component;
-
       MarkupComponent = Component
         ? (props: Record<string, any>) => (
-            <Component to={to} component={linkComponent} {...props} />
+            <Component component={rest.linkComponent} {...props} />
           )
-        : linkComponent;
+        : rest.linkComponent;
+      extraProps = getObjectWithoutKeys<typeof rest>(rest, [
+        "model",
+        "linkComponent"
+      ]);
 
       break;
 
     default:
-      MarkupComponent = component || "button";
+      MarkupComponent = Component || "button";
       extraProps = {
-        type: "button"
+        type: "button",
+        ...getObjectWithoutKeys<typeof rest>(rest, ["model"])
       };
       break;
   }

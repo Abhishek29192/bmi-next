@@ -36,7 +36,7 @@ Renders any `component` (mandatory) passed to the `Clickable`.
 ```jsx
 const RouterLink = () => null;
 
-<Clickable model="routerLink" to="/" component={RouterLink}>
+<Clickable model="routerLink" to="/" linkComponent={RouterLink}>
   Click me
 </Clickable>;
 ```
@@ -159,18 +159,21 @@ const FancyButton = ({ children, action }) => {
 
 ### Example with Button
 
+The Button itself is wrapped in a Clickable component.
+
 ```jsx
 import Button from "@bmi/button";
-import { withClickable } from "@bmi/clickable";
 
 const Link = React.forwardRef(({ children, ...props }, ref) => (
   <span ref={ref} {...props}>
     {children}
   </span>
 ));
-const ClickableButton = withClickable(Button);
 
-<ClickableButton action={{ model: "routerLink", to: "/", linkComponent: Link }}>
+<Button
+  action={{ model: "routerLink", to: "/", linkComponent: Link }}
+  variant="text"
+>
   Click me!
-</ClickableButton>;
+</Button>;
 ```
