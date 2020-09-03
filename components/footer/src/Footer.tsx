@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@bmi/button";
+import Button, { ClickableAction } from "@bmi/button";
 import Container from "@bmi/container";
 import styles from "./Footer.module.scss";
 import Typography from "@bmi/typography";
@@ -11,10 +11,9 @@ import StandardLogo from "./svgs/Standard.svg";
 import StandardCenteredLogo from "./svgs/Standard_centered.svg";
 
 type MenuItem = {
-  icon?: SVGImport; // TODO: Change once SVGImport is in;
+  icon?: SVGImport;
   label: string;
-  // TODO: Check if this should be linked to a Gatsby router.
-  url?: string;
+  action?: ClickableAction;
   isLabelHidden?: boolean;
   menu?: MenuItem[];
 };
@@ -25,7 +24,7 @@ type Props = {
   logo?: SVGImport;
 };
 
-const NavigationItem = ({ label, icon, isLabelHidden, url }: MenuItem) => {
+const NavigationItem = ({ label, icon, isLabelHidden, action }: MenuItem) => {
   const IconComponent = icon;
 
   return (
@@ -35,25 +34,23 @@ const NavigationItem = ({ label, icon, isLabelHidden, url }: MenuItem) => {
       })}
     >
       {isLabelHidden ? (
-        // TODO: Check gatsby routing when implementing data.
-        <a href={url}>
-          <Button
-            className={styles["icon-link"]}
-            isIconButton
-            accessibilityLabel={label}
-            variant="text"
-            hasDarkBackground
-          >
-            <IconComponent />
-          </Button>
-        </a>
+        <Button
+          className={styles["icon-link"]}
+          isIconButton
+          accessibilityLabel={label}
+          variant="text"
+          hasDarkBackground
+          action={action}
+        >
+          <IconComponent />
+        </Button>
       ) : (
         <Button
           startIcon={icon ? <IconComponent /> : undefined}
           className={styles["link"]}
           hasDarkBackground
           variant="text"
-          href={url}
+          action={action}
         >
           {label}
         </Button>
