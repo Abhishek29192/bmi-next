@@ -1,4 +1,5 @@
 Main header for the site.
+Note that links are wrapped with `ClickableAction`.
 
 ## Example
 
@@ -13,24 +14,19 @@ import systemsImageSource from "./images/systems.jpg";
 
 const utilities = [
   {
-    label: "Find a stockist",
-    href: "#find-a-stockist"
+    label: "Find a stockist"
   },
   {
-    label: "Find a roofer",
-    href: ""
+    label: "Find a roofer"
   },
   {
-    label: "Partner portals",
-    href: ""
+    label: "Partner portals"
   },
   {
-    label: "News",
-    href: ""
+    label: "News"
   },
   {
-    label: "Contact us",
-    href: ""
+    label: "Contact us"
   }
 ];
 
@@ -47,7 +43,7 @@ const navigation = [
             label: "Tiles",
             menu: [
               { label: "Tiles", isHeading: true },
-              { label: "Tiles overview", href: "#tiles-overview" },
+              { label: "Tiles overview" },
               { label: "Metal tiles", icon: <AeroDek /> },
               { label: "Clay tiles", icon: <Monier /> },
               { label: "Concrete tiles", icon: <Zanda /> },
@@ -89,7 +85,7 @@ const navigation = [
           { label: "Tightening Products" }
         ]
       },
-      { label: "Wall", href: "#wall" },
+      { label: "Wall" },
       { label: "Floor" },
       { label: "Foundation" },
       { label: "Outdoor" },

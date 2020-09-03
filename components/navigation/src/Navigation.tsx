@@ -1,18 +1,18 @@
 import Typography from "@bmi/typography";
-import { Button, ButtonProps } from "@material-ui/core";
+import Button, { ClickableAction, ButtonProps } from "@bmi/button";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";
 import styles from "./Navigation.module.scss";
 
-export interface LinkList {
+export type LinkList = {
   label: string;
   hasSeparator?: boolean;
-  href?: string;
+  action?: ClickableAction;
   image?: string;
   isHeading?: boolean;
   isParagraph?: boolean;
-}
+};
 
 export type NavitationList = LinkList & {
   footer?: readonly LinkList[];
@@ -128,7 +128,7 @@ const NavigationList = ({
             {
               footer,
               hasSeparator,
-              href,
+              action,
               image = null,
               isHeading,
               isParagraph,
@@ -183,7 +183,7 @@ const NavigationList = ({
                     );
                   } else {
                     return (
-                      <NavigationListButton href={href}>
+                      <NavigationListButton action={action}>
                         {label}
                       </NavigationListButton>
                     );
@@ -206,9 +206,11 @@ const NavigationList = ({
         )}
         {utilities && (
           <ul className={styles.Utilities}>
-            {utilities.map(({ label, href }, key) => (
+            {utilities.map(({ label, action }, key) => (
               <li key={`mobile-utilities-link-${key}`}>
-                <NavigationListButton href={href}>{label}</NavigationListButton>
+                <NavigationListButton action={action}>
+                  {label}
+                </NavigationListButton>
               </li>
             ))}
           </ul>
@@ -220,24 +222,24 @@ const NavigationList = ({
 
 type NavigationListButtonProps = ButtonProps & {
   active?: boolean;
-  linkComponent?: React.ElementType;
+  action?: ClickableAction;
 };
 
 const NavigationListButton = ({
   active = false,
   children,
   className,
-  linkComponent: LinkComponent = Button,
-  ...other
+  ...rest
 }: NavigationListButtonProps) => (
-  <LinkComponent
+  <Button
     className={classnames(styles.NavigationListButton, className, {
       [styles["NavigationListButton--active"]]: active
     })}
-    {...other}
+    variant="text"
+    {...rest}
   >
     {children}
-  </LinkComponent>
+  </Button>
 );
 
 export default Navigation;

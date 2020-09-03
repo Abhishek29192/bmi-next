@@ -18,9 +18,8 @@ exports[`Header component renders correctly 1`] = `
         >
           <a
             aria-disabled="false"
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary MuiTypography-colorPrimary"
-            href=""
-            role="button"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
+            href="#"
             tabindex="0"
           >
             <span
@@ -38,9 +37,8 @@ exports[`Header component renders correctly 1`] = `
         >
           <a
             aria-disabled="false"
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary MuiTypography-colorPrimary"
-            href=""
-            role="button"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
+            href="#"
             tabindex="0"
           >
             <span
@@ -58,9 +56,8 @@ exports[`Header component renders correctly 1`] = `
         >
           <a
             aria-disabled="false"
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary MuiTypography-colorPrimary"
-            href=""
-            role="button"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
+            href="#"
             tabindex="0"
           >
             <span
@@ -244,7 +241,7 @@ exports[`Header component renders correctly 1`] = `
           </li>
           <li>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
@@ -279,7 +276,7 @@ exports[`Header component renders correctly 1`] = `
                   class="BackNavigation"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton BackButton"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
                     tabindex="0"
                     type="button"
                   >
@@ -319,7 +316,7 @@ exports[`Header component renders correctly 1`] = `
                 </li>
                 <li>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
                     type="button"
                   >
@@ -354,7 +351,7 @@ exports[`Header component renders correctly 1`] = `
                         class="BackNavigation"
                       >
                         <button
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton BackButton"
+                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
                           tabindex="0"
                           type="button"
                         >
@@ -394,7 +391,7 @@ exports[`Header component renders correctly 1`] = `
                       </li>
                       <li>
                         <button
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
+                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                           tabindex="0"
                           type="button"
                         >
@@ -429,7 +426,7 @@ exports[`Header component renders correctly 1`] = `
                               class="BackNavigation"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton BackButton"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
                                 tabindex="0"
                                 type="button"
                               >
@@ -468,11 +465,10 @@ exports[`Header component renders correctly 1`] = `
                               </h6>
                             </li>
                             <li>
-                              <a
-                                aria-disabled="false"
-                                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
-                                href="#tiles-overview"
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                                 tabindex="0"
+                                type="button"
                               >
                                 <span
                                   class="MuiButton-label"
@@ -482,14 +478,14 @@ exports[`Header component renders correctly 1`] = `
                                 <span
                                   class="MuiTouchRipple-root"
                                 />
-                              </a>
+                              </button>
                             </li>
                           </ul>
                         </div>
                       </li>
                       <li>
                         <button
-                          class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
+                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                           tabindex="0"
                           type="button"
                         >
@@ -508,7 +504,7 @@ exports[`Header component renders correctly 1`] = `
                 </li>
                 <li>
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
                     type="button"
                   >
@@ -529,11 +525,11 @@ exports[`Header component renders correctly 1`] = `
             class="Utilities"
           >
             <li>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
-                href=""
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                href="#"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiButton-label"
@@ -543,14 +539,14 @@ exports[`Header component renders correctly 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
-                href=""
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                href="#"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiButton-label"
@@ -560,14 +556,14 @@ exports[`Header component renders correctly 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
-                href=""
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                href="#"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiButton-label"
@@ -577,7 +573,7 @@ exports[`Header component renders correctly 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
             </li>
           </ul>
         </ul>

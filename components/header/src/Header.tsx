@@ -8,7 +8,6 @@ import Typography from "@bmi/typography";
 import {
   Backdrop,
   Container,
-  Link,
   Paper,
   Slide,
   Tab,
@@ -88,12 +87,11 @@ const Header = ({ navigation, utilities }: HeaderProps) => {
       >
         <Container>
           <ul>
-            {utilities.map(({ label, href }, key) => (
+            {utilities.map(({ label, action }, key) => (
               <li key={`utilities-link-${key}`} className={styles.NavItem}>
                 <Button
                   className={styles.UtilitiesButton}
-                  component={Link}
-                  href={href}
+                  action={action}
                   variant="text"
                 >
                   {label}
