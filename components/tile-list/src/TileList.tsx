@@ -7,7 +7,7 @@ import classnames from "classnames";
 
 type TileProps = {
   children: React.ReactNode;
-  icon: React.ReactNode;
+  icon: SVGImport;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 };
 
