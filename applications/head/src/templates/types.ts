@@ -26,6 +26,7 @@ export type NavigationData = {
 };
 
 export type SiteData = {
+  countryCode: string;
   footerMainNavigation: NavigationData;
   footerSecondaryNavigation: NavigationData;
   signUpTitle: string;

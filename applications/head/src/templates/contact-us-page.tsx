@@ -47,6 +47,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulSite(id: { eq: $siteId }) {
+      countryCode
       footerMainNavigation {
         ...FooterMainNavigationFragment
       }

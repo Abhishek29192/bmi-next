@@ -16,6 +16,7 @@ type Props = {
 const Page = ({ children, pageData, siteData }: Props) => {
   const { hero: heroData, slug } = pageData;
   const {
+    countryCode,
     footerMainNavigation,
     footerSecondaryNavigation,
     signUpTitle,
@@ -41,6 +42,7 @@ const Page = ({ children, pageData, siteData }: Props) => {
         <NewsletterSignUp data={signUpData} />
       ) : null}
       <Footer
+        countryCode={countryCode}
         mainNavigation={footerMainNavigation}
         secondaryNavigation={footerSecondaryNavigation}
       />
