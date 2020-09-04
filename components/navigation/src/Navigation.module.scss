@@ -1,9 +1,9 @@
 @import "@bmi/styles";
 
-// Breakpoint overrides
-$breakpoint-sm: 800px;
-
 .Navigation {
+  // Breakpoint overrides
+  $breakpoint-sm: 800px;
+
   height: 100%;
   position: relative;
 

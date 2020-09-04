@@ -1,15 +1,15 @@
 @import "@bmi/styles";
 
-// Header overrides
-$breakpoint-sm: 800px;
-$breakpoint-md: 1080px;
-
 .MenuIsOpen {
   // This class is attached to the `body`
   overflow: hidden;
 }
 
 .Header {
+  // Breakpoint overrides
+  $breakpoint-sm: 800px;
+  $breakpoint-md: 1080px;
+
   position: fixed;
   top: 0;
   left: 0;
