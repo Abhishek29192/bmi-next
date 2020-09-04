@@ -4,6 +4,10 @@
   padding: 60px 0;
   background-color: transparent;
 
+  &--alabaster {
+    background-color: $bmi-alabaster;
+  }
+
   &--pearl {
     background-color: $bmi-pearl;
   }
