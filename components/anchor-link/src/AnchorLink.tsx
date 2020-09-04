@@ -2,13 +2,12 @@ import React from "react";
 import classnames from "classnames";
 import styles from "./AnchorLink.module.scss";
 import Icon from "@bmi/icon";
+import { withClickable } from "@bmi/clickable";
 import arrowForwardIcon from "./icons/arrow-right.svg";
-import { Link } from "@material-ui/core";
+import Link, { LinkProps } from "@material-ui/core/Link";
 
-type AnchorLinkProps = {
+type AnchorLinkProps = LinkProps & {
   children: React.ReactNode;
-  href?: string;
-  to?: string;
   isDisabled?: boolean;
   iconStart?: boolean;
   iconEnd?: boolean;
@@ -19,8 +18,9 @@ const AnchorLink = ({
   isDisabled,
   iconStart,
   iconEnd,
-  ...linkProps
-}: Partial<AnchorLinkProps>) => {
+  className,
+  ...rest
+}: AnchorLinkProps) => {
   const arrowIcon = (
     <Icon
       source={arrowForwardIcon}
@@ -32,10 +32,10 @@ const AnchorLink = ({
 
   return (
     <Link
-      className={classnames(styles["Anchorlink"], {
+      className={classnames(className, styles["Anchorlink"], {
         [styles["Anchorlink--disabled"]]: isDisabled
       })}
-      {...linkProps}
+      {...rest}
     >
       {iconStart ? arrowIcon : null}
       <span>{children}</span>
@@ -44,4 +44,4 @@ const AnchorLink = ({
   );
 };
 
-export default AnchorLink;
+export default withClickable(AnchorLink);

@@ -4,7 +4,6 @@ exports[`AnchorLink component renders default correctly 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
   href="/"
-  to="/"
 >
   <span>
     BMI Group
@@ -16,7 +15,6 @@ exports[`AnchorLink component renders disabled correctly 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
   href="/"
-  to="/"
 >
   <span>
     BMI Group
@@ -28,7 +26,6 @@ exports[`AnchorLink component renders icon disabled correctly 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
   href="/"
-  to="/"
 >
   <span>
     BMI Group
@@ -45,7 +42,6 @@ exports[`AnchorLink component renders leading icon correctly 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
   href="/"
-  to="/"
 >
   <svg
     aria-hidden="true"
@@ -62,7 +58,6 @@ exports[`AnchorLink component renders multi-line with icon correctly 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
   href="/"
-  to="/"
 >
   <span>
     <p
@@ -83,7 +78,6 @@ exports[`AnchorLink component renders trailing icon correctly 1`] = `
 <a
   class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
   href="/"
-  to="/"
 >
   <span>
     BMI Group

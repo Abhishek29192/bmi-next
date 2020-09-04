@@ -5,7 +5,7 @@ import { render } from "@testing-library/react";
 describe("AnchorLink component", () => {
   it("renders default correctly", () => {
     const { container } = render(
-      <AnchorLink href="/" to="/">
+      <AnchorLink action={{ model: "htmlLink", href: "/" }}>
         BMI Group
       </AnchorLink>
     );
@@ -14,7 +14,7 @@ describe("AnchorLink component", () => {
 
   it("renders disabled correctly", () => {
     const { container } = render(
-      <AnchorLink href="/" to="/" isDisabled>
+      <AnchorLink action={{ model: "htmlLink", href: "/" }} isDisabled>
         BMI Group
       </AnchorLink>
     );
@@ -23,7 +23,7 @@ describe("AnchorLink component", () => {
 
   it("renders leading icon correctly", () => {
     const { container } = render(
-      <AnchorLink href="/" to="/" iconStart>
+      <AnchorLink action={{ model: "htmlLink", href: "/" }} iconStart>
         BMI Group
       </AnchorLink>
     );
@@ -32,7 +32,7 @@ describe("AnchorLink component", () => {
 
   it("renders trailing icon correctly", () => {
     const { container } = render(
-      <AnchorLink href="/" to="/" iconEnd>
+      <AnchorLink action={{ model: "htmlLink", href: "/" }} iconEnd>
         BMI Group
       </AnchorLink>
     );
@@ -41,7 +41,7 @@ describe("AnchorLink component", () => {
 
   it("renders icon disabled correctly", () => {
     const { container } = render(
-      <AnchorLink href="/" to="/" iconEnd isDisabled>
+      <AnchorLink action={{ model: "htmlLink", href: "/" }} iconEnd isDisabled>
         BMI Group
       </AnchorLink>
     );
@@ -50,7 +50,7 @@ describe("AnchorLink component", () => {
 
   it("renders multi-line with icon correctly", () => {
     const { container } = render(
-      <AnchorLink href="/" to="/" iconEnd>
+      <AnchorLink action={{ model: "htmlLink", href: "/" }} iconEnd>
         <p style={{ width: "300px", textAlign: "left" }}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
