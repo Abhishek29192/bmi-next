@@ -1,0 +1,27 @@
+@import "@bmi/styles";
+
+.Anchorlink {
+  color: $bmi-cyan-500;
+  text-decoration: underline;
+  text-decoration-color: $bmi-cyan-500;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: $bmi-cyan-600;
+    text-decoration-color: $bmi-cyan-600 !important;
+    transition: text-decoration-color 250ms ease-out, color 250ms ease-out;
+  }
+
+  &--disabled {
+    pointer-events: none;
+    color: rgba($bmi-cyan-500, 0.3);
+    text-decoration: underline;
+    text-decoration-color: rgba($bmi-cyan-500, 0.3);
+
+    .icon {
+      margin-bottom: -4px;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnchorLink component renders default correctly 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+  href="/"
+  to="/"
+>
+  <span>
+    BMI Group
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders disabled correctly 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+  href="/"
+  to="/"
+>
+  <span>
+    BMI Group
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders icon disabled correctly 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+  href="/"
+  to="/"
+>
+  <span>
+    BMI Group
+  </span>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+    />
+  </svg>
+</a>
+`;
+
+exports[`AnchorLink component renders leading icon correctly 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+  href="/"
+  to="/"
+>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+    />
+  </svg>
+  <span>
+    BMI Group
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders multi-line with icon correctly 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+  href="/"
+  to="/"
+>
+  <span>
+    <p
+      style="width: 300px; text-align: left;"
+    >
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    </p>
+  </span>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+    />
+  </svg>
+</a>
+`;
+
+exports[`AnchorLink component renders trailing icon correctly 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+  href="/"
+  to="/"
+>
+  <span>
+    BMI Group
+  </span>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+    />
+  </svg>
+</a>
+`;
