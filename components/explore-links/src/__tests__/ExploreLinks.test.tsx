@@ -7,7 +7,9 @@ describe("ExploreLinks component", () => {
     const { container } = render(
       <ExploreLinks
         heading="Explore:"
-        links={[{ label: "hello", href: "world" }]}
+        links={[
+          { label: "hello", action: { model: "htmlLink", href: "world" } }
+        ]}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -17,12 +19,18 @@ describe("ExploreLinks component", () => {
       <ExploreLinks
         heading="Explore:"
         links={[
-          { label: "Tools", href: "/tools" },
-          { label: "Engineering guides", href: "/engineering-guides" },
-          { label: "Training", href: "/training" },
+          { label: "Tools", action: { model: "htmlLink", href: "/tools" } },
+          {
+            label: "Engineering guides",
+            action: { model: "htmlLink", href: "/engineering-guides" }
+          },
+          {
+            label: "Training",
+            action: { model: "htmlLink", href: "/training" }
+          },
           {
             label: "Frequently asked questions",
-            href: "/frequently-asked-questions"
+            action: { model: "htmlLink", href: "/frequently-asked-questions" }
           }
         ]}
       />
@@ -33,7 +41,9 @@ describe("ExploreLinks component", () => {
     const { container } = render(
       <ExploreLinks
         heading="Hello world"
-        links={[{ label: "Hello", href: "/world" }]}
+        links={[
+          { label: "Hello", action: { model: "htmlLink", href: "/world" } }
+        ]}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -49,7 +59,12 @@ describe("ExploreLinks component", () => {
     const { container } = render(
       <ExploreLinks
         heading="Hello world"
-        links={[{ label: "Hello", to: "/world", component: Link }]}
+        links={[
+          {
+            label: "Hello",
+            action: { model: "routerLink", to: "/world", linkComponent: Link }
+          }
+        ]}
       />
     );
     expect(container.firstChild).toMatchSnapshot();

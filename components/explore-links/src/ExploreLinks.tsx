@@ -1,13 +1,11 @@
 import React from "react";
-import Button from "@bmi/button";
+import Button, { ClickableAction } from "@bmi/button";
 import Typography from "@bmi/typography";
 import styles from "./ExploreLinks.module.scss";
 
 type Link = {
   label: React.ReactNode;
-  component?: React.ElementType;
-  to?: string;
-  href?: string;
+  action?: ClickableAction;
 };
 
 type Props = {
@@ -27,13 +25,12 @@ const ExploreLinks = ({ heading, links }: Props) => {
       >
         {heading}
       </Typography>
-      {links.map(({ component = "a", label, ...linkProps }, key) => (
+      {links.map(({ label, action }, key) => (
         <Button
           key={`link-${key}`}
           className={styles["link"]}
           variant="outlined"
-          component={component}
-          {...linkProps}
+          action={action}
         >
           {label}
         </Button>
