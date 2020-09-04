@@ -15,9 +15,9 @@ type AnchorLinkProps = {
 
 const AnchorLink = ({
   children,
-  isDisabled = false,
-  iconStart = false,
-  iconEnd = false,
+  isDisabled,
+  iconStart,
+  iconEnd,
   ...linkProps
 }: Partial<AnchorLinkProps>) => {
   return (
