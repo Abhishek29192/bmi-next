@@ -35,14 +35,9 @@ exports[`AnchorLink component renders icon disabled correctly 1`] = `
   </span>
   <svg
     aria-hidden="true"
-    class="MuiSvgIcon-root icon"
+    class="icon"
     focusable="false"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-    />
-  </svg>
+  />
 </a>
 `;
 
@@ -54,14 +49,9 @@ exports[`AnchorLink component renders leading icon correctly 1`] = `
 >
   <svg
     aria-hidden="true"
-    class="MuiSvgIcon-root icon"
+    class="icon"
     focusable="false"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-    />
-  </svg>
+  />
   <span>
     BMI Group
   </span>
@@ -83,14 +73,9 @@ exports[`AnchorLink component renders multi-line with icon correctly 1`] = `
   </span>
   <svg
     aria-hidden="true"
-    class="MuiSvgIcon-root icon"
+    class="icon"
     focusable="false"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-    />
-  </svg>
+  />
 </a>
 `;
 
@@ -105,13 +90,8 @@ exports[`AnchorLink component renders trailing icon correctly 1`] = `
   </span>
   <svg
     aria-hidden="true"
-    class="MuiSvgIcon-root icon"
+    class="icon"
     focusable="false"
-    viewBox="0 0 24 24"
-  >
-    <path
-      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-    />
-  </svg>
+  />
 </a>
 `;

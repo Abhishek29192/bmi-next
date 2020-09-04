@@ -1,7 +1,8 @@
 import React from "react";
 import classnames from "classnames";
 import styles from "./AnchorLink.module.scss";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import Icon from "@bmi/icon";
+import arrowForwardIcon from "./icons/arrow-right.svg";
 import { Link } from "@material-ui/core";
 
 type AnchorLinkProps = {
@@ -20,6 +21,15 @@ const AnchorLink = ({
   iconEnd,
   ...linkProps
 }: Partial<AnchorLinkProps>) => {
+  const arrowIcon = (
+    <Icon
+      source={arrowForwardIcon}
+      aria-hidden="true"
+      focusable="false"
+      className={styles["icon"]}
+    />
+  );
+
   return (
     <Link
       className={classnames(styles["Anchorlink"], {
@@ -27,9 +37,9 @@ const AnchorLink = ({
       })}
       {...linkProps}
     >
-      {iconStart ? <ArrowForwardIcon className={styles["icon"]} /> : null}
+      {iconStart ? arrowIcon : null}
       <span>{children}</span>
-      {iconEnd ? <ArrowForwardIcon className={styles["icon"]} /> : null}
+      {iconEnd ? arrowIcon : null}
     </Link>
   );
 };

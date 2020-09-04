@@ -30,9 +30,19 @@
     color: rgba($bmi-cyan-500, 0.3);
     text-decoration: underline;
     text-decoration-color: rgba($bmi-cyan-500, 0.3);
+  }
 
-    .icon {
-      margin-bottom: -4px;
+  .icon {
+    width: 1.125em;
+    height: 1.125em;
+    fill: currentColor;
+
+    &:first-child {
+      margin-right: 12px;
+    }
+
+    &:last-child {
+      margin-left: 12px;
     }
   }
 }
