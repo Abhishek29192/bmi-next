@@ -161,6 +161,15 @@ We use [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) rep
 
 To add your own custom type follow these [steps](https://github.com/DefinitelyTyped/DefinitelyTyped#how-can-i-contribute) and make a pull request in DefinitelyTyped, adding a `@types` folder where needed.
 
+### Code Editor
+
+Our preference is VSCode and there are a couple of settings to support it.
+On top of that, this repo also sets some linting rule using `.editorconfig`.
+
+#### VSCode Recommended extensions
+
+We recommend some extensions that will help your coding experience. To view them, filter extensions by `@recommended`.
+
 ### git hooks
 
 To ensure that no broken or unformatted code gets committed or pushed, we use git hooks, via [husky](https://github.com/typicode/husky)
