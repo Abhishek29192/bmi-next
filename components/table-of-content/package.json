@@ -1,0 +1,22 @@
+{
+  "name": "@bmi/table-of-content",
+  "private": true,
+  "version": "0.0.0",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@bmi/section": "0.0.0",
+    "@bmi/styles": "0.0.0",
+    "@bmi/tabs": "0.0.0",
+    "@bmi/typography": "0.0.0",
+    "@material-ui/core": "^4.10.1",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/material-ui": "^0.21.7"
+  }
+}
