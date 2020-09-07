@@ -34,7 +34,7 @@ exports[`LanguageSelection component renders correctly 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton link"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -59,7 +59,7 @@ exports[`LanguageSelection component renders correctly 1`] = `
         class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton link"
+          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >

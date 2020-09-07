@@ -128,7 +128,6 @@ const Header = ({
                       ]]: showLanguageSelection
                     }
                   )}
-                  component={Link}
                   onClick={toggleLanguageSelection}
                   variant="text"
                 >
