@@ -135,8 +135,7 @@ const Slide = ({ children, color }) => (
   </div>
 );
 
-//hasAutoPlay
-<Carousel>
+<Carousel hasAutoPlay>
   <Carousel.Slide>
     <Slide color="#73c6b6">First slide</Slide>
   </Carousel.Slide>
