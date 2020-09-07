@@ -1,8 +1,9 @@
 import React, { useState, FormEvent } from "react";
 import styles from "./Form.module.scss";
 import SubmitButton from "./SubmitButton";
+import { InputValue } from "./withFormControl";
 
-type Values = Record<string, string | boolean | File[]>;
+type Values = Record<string, InputValue>;
 type Errors = Record<string, string>;
 
 type Props = React.HTMLProps<HTMLFormElement> & {
