@@ -11,6 +11,7 @@ import Monier from "@bmi/logo/svgs/Monier.svg";
 import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
 import Zanda from "@bmi/logo/svgs/Zanda.svg";
 import systemsImageSource from "./images/systems.jpg";
+import { languages } from "@bmi/language-selection";
 
 const utilities = [
   {
@@ -137,5 +138,5 @@ const navigation = [
   }
 ];
 
-<Header utilities={utilities} navigation={navigation} />;
+<Header utilities={utilities} navigation={navigation} languages={languages} />;
 ```

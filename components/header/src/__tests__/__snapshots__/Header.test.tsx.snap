@@ -70,9 +70,151 @@ exports[`Header component renders correctly 1`] = `
             />
           </a>
         </li>
+        <li
+          class="NavItem"
+        >
+          <a
+            aria-disabled="false"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton LanguageSelectionButton MuiButton-textPrimary MuiTypography-colorPrimary"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              <svg
+                class="LanguageIcon"
+              />
+              GB
+              <span
+                class="downArrow"
+              >
+                ▾
+              </span>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
+  <div
+    class="Drawer LanguageDrawer"
+    style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
+  >
+    <button
+      aria-label="Close"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium CloseButton"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg"
+    >
+      <div
+        class="LanguageSelection"
+      >
+        <h5
+          class="MuiTypography-root heading Typography MuiTypography-h5"
+        >
+          Choose your region
+        </h5>
+        <p
+          class="MuiTypography-root paragraph Typography MuiTypography-body1"
+        >
+          Selecting a region will take you to a different BMI website that has been tailored to give you the most useful content for your part of the world.
+        </p>
+        <p
+          class="MuiTypography-root paragraph Typography MuiTypography-body1"
+        >
+          <b>
+            The site you are currently viewing contains products that are available in Norway. Products from other markets may not meet the Norwegian Standards in building materials.
+          </b>
+        </p>
+        <div>
+          <h6
+            class="MuiTypography-root heading Typography MuiTypography-h6"
+          >
+            Europe
+          </h6>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton link"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      class="LanguageIcon"
+                    />
+                  </span>
+                  United Kingdom
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton link"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  <span
+                    class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                  >
+                    <svg
+                      class="LanguageIcon"
+                    />
+                  </span>
+                  Italia
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
     class="NavigationBar"
   >
@@ -576,6 +718,36 @@ exports[`Header component renders correctly 1`] = `
               </a>
             </li>
           </ul>
+          <li>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Language
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
