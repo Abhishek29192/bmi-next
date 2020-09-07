@@ -144,9 +144,13 @@
 
     @media (min-width: $breakpoint-sm) {
       left: 0;
-      height: 80vh;
+      height: calc(100vh - 132px); // Header height md
       width: 100%;
       position: absolute;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      height: calc(100vh - 160px); // Header height lg
     }
   }
 
@@ -173,9 +177,13 @@
 
     @media (min-width: $breakpoint-sm) {
       left: 0;
-      height: 95vh;
+      height: calc(100vh - 52px); // Nav height md
       width: 100%;
       position: absolute;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      height: calc(100vh - 56px); // Nav height lg
     }
   }
 
