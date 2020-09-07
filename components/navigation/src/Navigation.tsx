@@ -23,6 +23,7 @@ type NavigationProps = {
   menu: readonly NavitationList[];
   initialDepth?: number;
   initialValue?: number | boolean;
+  toggleLanguageSelection?: (boolean) => void;
   utilities: readonly LinkList[];
 };
 
@@ -30,6 +31,7 @@ const Navigation = ({
   menu,
   initialDepth = 0,
   initialValue,
+  toggleLanguageSelection,
   utilities
 }: NavigationProps) => {
   const [depth, setDepth] = React.useState<number>(0);
@@ -46,6 +48,7 @@ const Navigation = ({
         menu={menu}
         setDepth={setDepth}
         show={initialValue !== false}
+        toggleLanguageSelection={toggleLanguageSelection}
         utilities={utilities}
       />
     </nav>
@@ -63,6 +66,7 @@ type NavigationListProps = {
   isRoot?: boolean;
   parentHandleClick?: (number) => void;
   setDepth: (number) => void;
+  toggleLanguageSelection?: (boolean) => void;
   utilities?: readonly LinkList[];
 };
 
@@ -77,6 +81,7 @@ const NavigationList = ({
   isRoot = false,
   parentHandleClick,
   setDepth,
+  toggleLanguageSelection,
   utilities
 }: NavigationListProps) => {
   const [value, setValue] = React.useState<number | boolean>(initialValue);
@@ -212,6 +217,16 @@ const NavigationList = ({
               </li>
             ))}
           </ul>
+        )}
+        {isRoot && (
+          <li>
+            <NavigationListButton
+              endIcon={<ChevronRight />}
+              onClick={toggleLanguageSelection}
+            >
+              Language
+            </NavigationListButton>
+          </li>
         )}
       </ul>
     </div>
