@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from "react";
+import Typography, { Props as TypographyProps } from "@bmi/typography";
 import { Container } from "@material-ui/core";
 import styles from "./Section.module.scss";
 import classnames from "classnames";
@@ -43,5 +44,16 @@ const Section = ({
     </SectionContext.Provider>
   );
 };
+
+const SectionTitle = ({ className, ...rest }: TypographyProps) => (
+  <Typography
+    variant="h2"
+    hasUnderline
+    className={classnames(styles["title"], className)}
+    {...rest}
+  />
+);
+
+Section.Title = SectionTitle;
 
 export default Section;

@@ -21,4 +21,13 @@ describe("Section component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders with a title", () => {
+    const { container } = render(
+      <Section>
+        <Section.Title>H2 Heading</Section.Title>
+        Hello world.
+      </Section>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

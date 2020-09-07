@@ -35,3 +35,20 @@ exports[`Section component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Section component renders with a title 1`] = `
+<div
+  class="Section"
+>
+  <div
+    class="MuiContainer-root MuiContainer-maxWidthLg"
+  >
+    <h2
+      class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+    >
+      H2 Heading
+    </h2>
+    Hello world.
+  </div>
+</div>
+`;

@@ -60,3 +60,20 @@ import Typography from "@bmi/typography";
   </Typography>
 </Section>;
 ```
+
+### Section with title
+
+`Section.Title` is the same component as the `Typography` but with some overridable properties (`variant=h2`, `hasUnderline`) and a margin-bottom.
+
+```jsx
+import Typography from "@bmi/typography";
+
+<Section backgroundColor="pearl">
+  <Section.Title>H2 Heading</Section.Title>
+  <Typography>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim
+    sodales velit, quis volutpat velit feugiat vitae. Phasellus volutpat elit
+    scelerisque egestas rhoncus.
+  </Typography>
+</Section>;
+```
