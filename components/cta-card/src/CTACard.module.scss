@@ -5,7 +5,7 @@
   width: 100%;
 
   .link {
-    background-color: $bmi-pearl;
+    background-color: $color-pearl;
     text-decoration: none;
   }
 
@@ -48,7 +48,7 @@
   }
 
   .heading {
-    color: $bmi-cyan-500;
+    color: $color-cyan-500;
   }
 
   .icon {
@@ -57,7 +57,7 @@
   }
 
   &:hover {
-    background-color: $bmi-white;
+    background-color: $color-white;
     transition: 280ms cubic-bezier(0.4, 0, 0.2, 1) background-color;
 
     .image {
@@ -66,7 +66,7 @@
     }
 
     .heading {
-      color: $bmi-cyan-600;
+      color: $color-cyan-600;
       transition: 280ms cubic-bezier(0.4, 0, 0.2, 1) color;
     }
   }

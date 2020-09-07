@@ -2,7 +2,7 @@
 
 .Upload {
   .icon {
-    color: $bmi-storm;
+    color: $color-storm;
     height: 40px;
     width: 40px;
     margin-top: 50px;
@@ -13,9 +13,9 @@
   }
 
   .accordion {
-    background-color: $bmi-white;
+    background-color: $color-white;
     box-shadow: none;
-    border: 1px solid $bmi-storm;
+    border: 1px solid $color-storm;
     :global(.Mui-expanded) {
       margin-top: 0;
       margin-bottom: 0;
@@ -24,14 +24,14 @@
   }
 
   .accordion-summary {
-    color: $bmi-slate;
+    color: $color-slate;
     font-size: 18px;
   }
 
   .drop-zone {
     min-height: 200px;
     width: 100%;
-    border: 1px dashed $bmi-storm;
+    border: 1px dashed $color-storm;
     border-radius: 3px;
     display: flex;
     flex-direction: column;
@@ -40,8 +40,8 @@
     z-index: -1;
     transition: 0.5s ease all;
     &--drag {
-      border-color: $bmi-cyan-400;
-      background-color: rgba($bmi-blue-100, 0.4);
+      border-color: $color-cyan-400;
+      background-color: rgba($color-blue-100, 0.4);
       transition: 0.5s ease all;
     }
   }
@@ -49,12 +49,12 @@
   .typography {
     font-size: 18px;
     padding: 5px;
-    color: $bmi-slate;
+    color: $color-slate;
   }
 
   .label {
     font-size: 18px;
-    color: $bmi-cyan-500;
+    color: $color-cyan-500;
     text-decoration: underline;
     cursor: pointer;
     padding: 5px;
@@ -80,7 +80,7 @@
 
   .file {
     width: 100%;
-    border: 1px solid $bmi-alabaster;
+    border: 1px solid $color-alabaster;
     border-radius: 3px;
     display: flex;
     align-items: center;
@@ -92,12 +92,12 @@
   .filename {
     font-size: 14px;
     flex: 1;
-    color: $bmi-slate;
+    color: $color-slate;
   }
 
   .file-size {
     font-size: 14px;
-    color: $bmi-storm;
+    color: $color-storm;
   }
 
   .file-display {
@@ -108,13 +108,13 @@
   }
 
   .error {
-    color: $bmi-error;
+    color: $color-error;
     font-size: 14px;
   }
 
   .delete-icon {
     margin-right: 6px;
-    color: $bmi-slate;
+    color: $color-slate;
   }
 
   .file-info-wrapper {

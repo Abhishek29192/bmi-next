@@ -3,7 +3,7 @@
 .Typography {
   &--underline {
     &::after {
-      background-color: $bmi-cyan-400;
+      background-color: $color-cyan-400;
       content: "";
       display: block;
       height: 4px;

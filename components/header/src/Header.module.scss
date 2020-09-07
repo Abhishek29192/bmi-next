@@ -57,12 +57,12 @@
       }
 
       &:hover {
-        background-color: $bmi-pearl;
+        background-color: $color-pearl;
       }
 
       &:global(.Mui-selected) {
-        border: 1px solid $bmi-storm;
-        border-bottom-color: $bmi-white;
+        border: 1px solid $color-storm;
+        border-bottom-color: $color-white;
       }
 
       :global {
@@ -88,12 +88,12 @@
   }
 
   .BurgerButton {
-    background-color: $bmi-white;
-    color: $bmi-cyan-500;
+    background-color: $color-white;
+    color: $color-cyan-500;
     margin-left: 10px;
 
     &:hover {
-      background-color: $bmi-pearl;
+      background-color: $color-pearl;
     }
 
     @media (min-width: $breakpoint-sm) {
@@ -102,15 +102,15 @@
   }
 
   .CloseButton {
-    background-color: $bmi-white;
-    color: $bmi-slate;
+    background-color: $color-white;
+    color: $color-slate;
     float: right;
     margin: 7px;
     z-index: 1;
 
     &:hover {
-      background-color: $bmi-pearl;
-      color: $bmi-charocal;
+      background-color: $color-pearl;
+      color: $color-charocal;
     }
   }
 
@@ -123,8 +123,8 @@
   }
 
   .Drawer {
-    background-color: $bmi-white;
-    border: 1px solid $bmi-storm;
+    background-color: $color-white;
+    border: 1px solid $color-storm;
     height: 100vh;
     position: fixed;
     right: 0;
@@ -188,7 +188,7 @@
   }
 
   .UtilitiesBar {
-    background-color: $bmi-pearl;
+    background-color: $color-pearl;
     display: none;
     padding: 0.4375rem 0;
     position: relative;
@@ -215,7 +215,7 @@
       & + .NavItem::before {
         content: "";
         display: block;
-        background-color: $bmi-storm;
+        background-color: $color-storm;
         height: 24px;
         margin: 0 7px;
         width: 1px;
@@ -224,7 +224,7 @@
 
     .UtilitiesButton {
       font-size: 0.875rem;
-      color: $bmi-charocal;
+      color: $color-charocal;
 
       @media (min-width: $breakpoint-md) {
         font-size: 1rem;
@@ -238,8 +238,8 @@
     border: 1px solid transparent;
 
     &--active {
-      border: 1px solid $bmi-storm;
-      border-bottom-color: $bmi-white;
+      border: 1px solid $color-storm;
+      border-bottom-color: $color-white;
       border-radius: 4px 4px 0 0;
       margin-bottom: -0.5rem;
       padding-bottom: 0.875rem;
@@ -261,7 +261,7 @@
   }
 
   .NavigationBar {
-    background-color: $bmi-white;
+    background-color: $color-white;
     position: relative;
     z-index: 12;
 
