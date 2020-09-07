@@ -76,6 +76,10 @@ const breadcrumbNode = (
 
 ### Hero With Carousel
 
+This is the most complex variation of the Hero, and it handles slightly different props: it accepts a `heroes` property with an Array of all props handled by simple heroes. See the type & props at the beginning of this page for more clarity.
+
+When `autoPlayInterval` is specified, then the carousel will receive an `hasAutoPlay`
+
 ```jsx
 import InputGroup from "@bmi/input-group";
 import Button from "@bmi/button";
@@ -84,8 +88,10 @@ import SearchIcon from "@material-ui/icons/Search";
 import firstImageSource from "./images/demo-tiles.jpg";
 import secondImageSource from "./images/demo-tiles-black.png";
 import thirdImageSource from "./images/demo-house.png";
+
 <Hero
   level={0}
+  autoPlayInterval={10000}
   heroes={[
     {
       title: "H1 First heading dark background",

@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
+  min-height: 48px;
 
   &--full-size {
     width: 100%;
@@ -23,6 +24,7 @@
   .middle-container {
     display: flex;
     margin: 0 24px;
+    user-select: none;
   }
 
   &--vertical .middle-container {

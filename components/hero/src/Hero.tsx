@@ -44,6 +44,8 @@ const Hero = ({
   hasSpaceBottom?: boolean;
   /** Only required for level 0 */
   heroes: readonly HeroItem[];
+  /** Only required for level 0 */
+  autoPlayInterval?: number;
   children?: React.ReactNode;
 }>) => {
   if (levelProps.level !== 0) {
@@ -62,7 +64,7 @@ const Hero = ({
   const matches = useMediaQuery(
     `@media (max-width:${styles["breakpoint-sm"]})`
   );
-  const { heroes, children, hasSpaceBottom } = levelProps;
+  const { heroes, children, hasSpaceBottom, autoPlayInterval } = levelProps;
 
   return (
     <div
@@ -82,6 +84,8 @@ const Hero = ({
             initialPage={activePage}
             onPageChange={setActivePage}
             hasOpacityAnimation
+            hasAutoPlay={!!autoPlayInterval}
+            autoPlayInterval={autoPlayInterval}
           >
             {heroes.map(
               (
@@ -130,7 +134,12 @@ const Hero = ({
         </div>
       </Container>
       <div className={styles["image-carousel"]}>
-        <Carousel initialPage={activePage} onPageChange={setActivePage}>
+        <Carousel
+          initialPage={activePage}
+          onPageChange={setActivePage}
+          hasAutoPlay={!!autoPlayInterval}
+          autoPlayInterval={autoPlayInterval}
+        >
           {heroes.map(({ imageSource }, index) => (
             <Carousel.Slide key={`image-slide-${index}`}>
               <div

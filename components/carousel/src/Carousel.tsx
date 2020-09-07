@@ -38,6 +38,8 @@ type Props = {
       hasAutoPlay: true;
       /** Only available for hasAutoPlay=true */
       autoPlayInterval?: number;
+      /** Only available for hasAutoPlay=true */
+      pauseAutoPlayOnHover?: boolean;
     }
 );
 
@@ -213,12 +215,20 @@ const Carousel = ({
     >
       <div
         onMouseOver={() => {
-          if (autoPlayProps.hasAutoPlay && !hasUserInteracted) {
+          if (
+            autoPlayProps.hasAutoPlay &&
+            autoPlayProps.pauseAutoPlayOnHover &&
+            !hasUserInteracted
+          ) {
             setHasUserInteracted(true);
           }
         }}
         onMouseOut={() => {
-          if (autoPlayProps.hasAutoPlay && hasUserInteracted) {
+          if (
+            autoPlayProps.hasAutoPlay &&
+            autoPlayProps.pauseAutoPlayOnHover &&
+            hasUserInteracted
+          ) {
             setHasUserInteracted(false);
           }
         }}
@@ -254,7 +264,8 @@ const Carousel = ({
               handleSwiping(wrapper.current, index, type);
             }}
             // TODO: Check if this is right with George (swipe only on phones)
-            enableMouseEvents={process.env.NODE_ENV === "development"}
+            // enableMouseEvents={process.env.NODE_ENV === "development"}
+            enableMouseEvents
           />
         </div>
         {arrayChildren.slice(lastSlideIndex + 1)}
