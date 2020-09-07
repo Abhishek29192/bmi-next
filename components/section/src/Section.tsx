@@ -5,7 +5,7 @@ import classnames from "classnames";
 
 const SectionContext = createContext<boolean>(false);
 
-type Props = {
+export type Props = {
   backgroundColor?: "transparent" | "alabaster" | "white" | "pearl";
   children: React.ReactNode;
   size?: "lg" | "md" | "sm" | "xl" | "xs" | false;

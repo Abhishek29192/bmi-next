@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableOfContent component renders correctly 1`] = `
+<div
+  class="TOC"
+>
+  <div
+    class="Section"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg"
+    >
+      <div
+        class="menu"
+      >
+        <h4
+          class="MuiTypography-root menu-title Typography MuiTypography-h4"
+        >
+          Jump to section
+        </h4>
+        <div
+          class="link"
+        >
+          <a
+            href="this-is-the-first-heading"
+          >
+            This is the first heading
+          </a>
+        </div>
+        <div
+          class="link"
+        >
+          <a
+            href="this-is-the-second-heading"
+          >
+            This is the second heading
+          </a>
+        </div>
+        <div
+          class="link"
+        >
+          <a
+            href="this-is-the-third-heading"
+          >
+            This is the third heading
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Section Section--pearl"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg"
+    >
+      <h2
+        class="MuiTypography-root section-heading Typography Typography--underline MuiTypography-h2"
+        id="this-is-the-first-heading"
+      >
+        This is the first heading
+      </h2>
+      <div>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Section"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg"
+    >
+      <h2
+        class="MuiTypography-root section-heading Typography Typography--underline MuiTypography-h2"
+        id="this-is-the-second-heading"
+      >
+        This is the second heading
+      </h2>
+      <div>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Section Section--pearl"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg"
+    >
+      <h2
+        class="MuiTypography-root section-heading Typography Typography--underline MuiTypography-h2"
+        id="this-is-the-third-heading"
+      >
+        This is the third heading
+      </h2>
+      <div>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
