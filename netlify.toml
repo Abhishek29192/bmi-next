@@ -12,10 +12,13 @@
   publish = "applications/head/public/"
 
   # Default build command.
-  command = "yarn build:head"
+  command = "yarn build:head --log-pages"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true" }
 
 [[plugins]]
   # enable Gatsby.js incremental builds plugin.
