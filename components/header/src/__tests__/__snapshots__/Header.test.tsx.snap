@@ -73,11 +73,10 @@ exports[`Header component renders correctly 1`] = `
         <li
           class="NavItem"
         >
-          <a
-            aria-disabled="false"
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton LanguageSelectionButton MuiButton-textPrimary MuiTypography-colorPrimary"
-            role="button"
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton LanguageSelectionButton MuiButton-textPrimary"
             tabindex="0"
+            type="button"
           >
             <span
               class="MuiButton-label"
@@ -95,7 +94,7 @@ exports[`Header component renders correctly 1`] = `
             <span
               class="MuiTouchRipple-root"
             />
-          </a>
+          </button>
         </li>
       </ul>
     </div>
@@ -164,7 +163,7 @@ exports[`Header component renders correctly 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton link"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
@@ -189,7 +188,7 @@ exports[`Header component renders correctly 1`] = `
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton link"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
@@ -720,7 +719,7 @@ exports[`Header component renders correctly 1`] = `
           </ul>
           <li>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text NavigationListButton"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
