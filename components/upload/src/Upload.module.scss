@@ -1,22 +1,77 @@
 @import "@bmi/styles";
 
 .Upload {
+  .icon {
+    color: $bmi-storm;
+    height: 40px;
+    width: 40px;
+    margin-top: 50px;
+  }
+
   .wrapper {
-    display: flex;
-    flex-direction: column;
-    @media (min-width: $breakpoint-sm) {
-      flex-direction: row;
+    width: 100%;
+  }
+
+  .accordion {
+    background-color: $bmi-white;
+    box-shadow: none;
+    border: 1px solid $bmi-storm;
+    :global(.Mui-expanded) {
+      margin-top: 0;
+      margin-bottom: 0;
+      min-height: 0;
     }
   }
 
+  .accordion-summary {
+    color: $bmi-slate;
+    font-size: 18px;
+  }
+
+  .drop-zone {
+    min-height: 200px;
+    width: 100%;
+    border: 1px dashed $bmi-storm;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: -1;
+    transition: 0.5s ease all;
+    &--drag {
+      border-color: $bmi-cyan-400;
+      background-color: rgba($bmi-blue-100, 0.4);
+      transition: 0.5s ease all;
+    }
+  }
+
+  .typography {
+    font-size: 18px;
+    padding: 5px;
+    color: $bmi-slate;
+  }
+
+  .label {
+    font-size: 18px;
+    color: $bmi-cyan-500;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 5px;
+  }
+
   .instructions {
-    margin: 5px;
+    flex: 0;
+    margin-top: 40px;
+    margin-bottom: 10px;
     font-size: 14px;
     opacity: 0.4;
-    flex: 1;
-    @media (min-width: $breakpoint-sm) {
-      align-self: center;
-    }
+  }
+
+  .mobile-instructions {
+    margin: 10px 5px;
+    font-size: 14px;
+    opacity: 0.4;
   }
 
   .input {
@@ -25,25 +80,51 @@
 
   .file {
     width: 100%;
-    border: 1px solid $bmi-storm;
+    border: 1px solid $bmi-alabaster;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     margin: 10px 0;
+    min-height: 60px;
+    padding: 5px;
   }
 
   .filename {
     font-size: 14px;
     flex: 1;
+    color: $bmi-slate;
   }
 
-  .image {
-    max-height: 50px;
-    max-width: 50px;
-    padding: 10px;
+  .file-size {
+    font-size: 14px;
+    color: $bmi-storm;
+  }
+
+  .file-display {
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    object-fit: cover;
+  }
+
+  .error {
+    color: $bmi-error;
+    font-size: 14px;
   }
 
   .delete-icon {
-    padding-right: 10px;
-    padding-top: 5px;
+    margin-right: 6px;
+    color: $bmi-slate;
+  }
+
+  .file-info-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .progress {
+    margin-top: 10px;
+    margin-right: 5px;
   }
 }
