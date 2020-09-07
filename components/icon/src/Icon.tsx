@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = React.SVGProps<SVGElement> & {
-  source: any; // TODO
+  source: SVGImport;
 };
 
 const Icon = ({ source: MarkupComponent, ...props }: Props) => (
