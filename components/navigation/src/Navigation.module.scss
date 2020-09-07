@@ -41,10 +41,14 @@
       }
     }
 
-    ul {
-      // height: 80%;
+    > ul {
+      height: 100%;
       list-style: none;
       overflow-y: auto;
+
+      @media (min-width: $breakpoint-sm) {
+        height: calc(100% - 1rem); // ul `top`
+      }
     }
 
     .Separator {
