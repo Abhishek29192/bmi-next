@@ -5,7 +5,7 @@ import MaterialBreadcrumbs, {
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { ArrowBack } from "@material-ui/icons";
 import { useTheme } from "@material-ui/core/styles";
-import Button from "@bmi/button";
+import Button, { ClickableAction } from "@bmi/button";
 import Icon from "@bmi/icon";
 import Typography from "@bmi/typography";
 import styles from "./Breadcrumbs.module.scss";
@@ -13,50 +13,33 @@ import classnames from "classnames";
 
 type BreadcrumbsItemProps = {
   children: React.ReactNode;
-  isLightThemed?: boolean;
-  linkComponent?: React.ElementType<any>;
-  // TODO: The following types should depend on the ElementType
-  href?: string;
-  to?: string;
+  action?: ClickableAction;
 };
 
 const BreadcrumbsItem = ({
-  isLightThemed,
   children,
-  linkComponent: LinkComponent,
-  ...linkProps
+  action
 }: Partial<BreadcrumbsItemProps>) => {
   const isDarkThemed = useContext(ThemeContext);
 
-  const BreadcrumbButton = ({ isDisabled }: { isDisabled?: boolean }) => {
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up("sm"));
-
-    return (
-      <Button
-        hasDarkBackground={isDarkThemed}
-        className={styles["button"]}
-        variant="text"
-        disabled={isDisabled}
-        startIcon={
-          matches ? null : (
-            <Icon className={styles["icon"]} source={ArrowBack} />
-          )
-        }
-      >
-        <span className={styles["label"]}>{children}</span>
-      </Button>
-    );
-  };
-
-  if (!LinkComponent) {
-    return <BreadcrumbButton isDisabled />;
-  }
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
-    <LinkComponent {...linkProps} className={styles["link"]}>
-      <BreadcrumbButton />
-    </LinkComponent>
+    <Button
+      hasDarkBackground={isDarkThemed}
+      className={classnames(styles["button"], {
+        [styles["link"]]: action
+      })}
+      variant="text"
+      disabled={!action}
+      startIcon={
+        matches ? null : <Icon className={styles["icon"]} source={ArrowBack} />
+      }
+      action={action}
+    >
+      <span className={styles["label"]}>{children}</span>
+    </Button>
   );
 };
 
@@ -74,9 +57,7 @@ const removeDeadLinks = (children: React.ReactNode) => {
 
   return allItems.filter(
     (child, iterator) =>
-      (React.isValidElement(child) &&
-        child.props.linkComponent &&
-        child.props.href) ||
+      (React.isValidElement(child) && child.props.action) ||
       iterator === allItems.length - 1
   );
 };

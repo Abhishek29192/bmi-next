@@ -24,30 +24,45 @@ const mainNavigation = [
       {
         icon: PhoneIcon,
         label: "+44 (0) 1234567890",
-        url: "tel:+4401234567890"
+        action: {
+          model: "htmlLink" as "htmlLink",
+          href: "tel:+4401234567890"
+        }
       },
       {
         icon: MailIcon,
         label: "info@bmigroup.com",
-        url: "mailto:info@bmigroup.com"
+        action: {
+          model: "htmlLink" as "htmlLink",
+          href: "mailto:info@bmigroup.com"
+        }
       },
       {
         icon: FacebookIcon,
         label: "Facebook",
         isLabelHidden: true,
-        url: "https://facebook.com/bmigroup"
+        action: {
+          model: "htmlLink" as "htmlLink",
+          href: "https://facebook.com/bmigroup"
+        }
       },
       {
         icon: LinkedInIcon,
         label: "LinkedIn",
         isLabelHidden: true,
-        url: "https://linkedin.com/bmigroup"
+        action: {
+          model: "htmlLink" as "htmlLink",
+          href: "https://linkedin.com/bmigroup"
+        }
       },
       {
         icon: YouTubeIcon,
         label: "Youtube",
         isLabelHidden: true,
-        url: "https://youtube.com/bmigroup"
+        action: {
+          model: "htmlLink" as "htmlLink",
+          href: "https://youtube.com/bmigroup"
+        }
       }
     ]
   },

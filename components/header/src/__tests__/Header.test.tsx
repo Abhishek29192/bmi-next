@@ -3,9 +3,18 @@ import React from "react";
 import Header from "../";
 
 const utilities = [
-  { label: "Find a stockist", href: "" },
-  { label: "Find a roofer", href: "" },
-  { label: "Partner portals", href: "" }
+  {
+    label: "Find a stockist",
+    action: { model: "htmlLink" as "htmlLink", href: "#" }
+  },
+  {
+    label: "Find a roofer",
+    action: { model: "htmlLink" as "htmlLink", href: "#" }
+  },
+  {
+    label: "Partner portals",
+    action: { model: "htmlLink" as "htmlLink", href: "#" }
+  }
 ];
 
 const navigation = [

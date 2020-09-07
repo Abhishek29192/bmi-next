@@ -1,4 +1,6 @@
-This component wraps the [Material-UI Button component](https://material-ui.com/components/buttons/), with a few changes from the [BMI Styleguide](https://xd.adobe.com/view/e0abef5d-74f5-4a62-7afd-99db611cfdb9-969a/screen/e75f9708-4188-4b30-9d5d-ac8776e32729/Buttons-Components)
+This component wraps the [Material-UI Button component](https://material-ui.com/components/buttons/), with a few changes from the [BMI Styleguide](https://xd.adobe.com/view/e0abef5d-74f5-4a62-7afd-99db611cfdb9-969a/screen/e75f9708-4188-4b30-9d5d-ac8776e32729/Buttons-Components).
+
+The Button is wrapped in a `Clickable` component and it accepts a `action?: ClickableAction`. See the Clickable specs for more info.
 
 ## Variants
 

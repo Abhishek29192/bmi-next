@@ -1,13 +1,13 @@
 import React from "react";
 import classnames from "classnames";
 import styles from "./AnchorLink.module.scss";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { Link } from "@material-ui/core";
+import Icon from "@bmi/icon";
+import { withClickable } from "@bmi/clickable";
+import arrowForwardIcon from "./icons/arrow-right.svg";
+import Link, { LinkProps } from "@material-ui/core/Link";
 
-type AnchorLinkProps = {
+type AnchorLinkProps = LinkProps & {
   children: React.ReactNode;
-  href?: string;
-  to?: string;
   isDisabled?: boolean;
   iconStart?: boolean;
   iconEnd?: boolean;
@@ -15,23 +15,33 @@ type AnchorLinkProps = {
 
 const AnchorLink = ({
   children,
-  isDisabled = false,
-  iconStart = false,
-  iconEnd = false,
-  ...linkProps
-}: Partial<AnchorLinkProps>) => {
+  isDisabled,
+  iconStart,
+  iconEnd,
+  className,
+  ...rest
+}: AnchorLinkProps) => {
+  const arrowIcon = (
+    <Icon
+      source={arrowForwardIcon}
+      aria-hidden="true"
+      focusable="false"
+      className={styles["icon"]}
+    />
+  );
+
   return (
     <Link
-      className={classnames(styles["Anchorlink"], {
+      className={classnames(className, styles["Anchorlink"], {
         [styles["Anchorlink--disabled"]]: isDisabled
       })}
-      {...linkProps}
+      {...rest}
     >
-      {iconStart ? <ArrowForwardIcon className={styles["icon"]} /> : null}
+      {iconStart ? arrowIcon : null}
       <span>{children}</span>
-      {iconEnd ? <ArrowForwardIcon className={styles["icon"]} /> : null}
+      {iconEnd ? arrowIcon : null}
     </Link>
   );
 };
 
-export default AnchorLink;
+export default withClickable(AnchorLink);

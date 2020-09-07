@@ -31,19 +31,19 @@ Renders an `<a>` element with the given props. Does _not_ prevent the native
 
 #### `routerLink`
 
-Renders any `component` (mandatory) passed to the `Clickable`.
+Renders any `linkComponent` (mandatory) passed to the `Clickable`.
 
 ```jsx
 const RouterLink = () => null;
 
-<Clickable model="routerLink" to="/" component={RouterLink}>
+<Clickable model="routerLink" to="/" linkComponent={RouterLink}>
   Click me
 </Clickable>;
 ```
 
 ### Use custom component
 
-In case you want to wrap a component that already renders either `a` or `button` element, you can pass it as `component` property to `Clickable`.
+In case you want to wrap a component that already renders either `a` or `button` element, you can pass it as `markupComponent` property to `Clickable`.
 
 ```jsx
 const FancyButton = ({ children, href, ...rest }) => {
@@ -72,7 +72,7 @@ const action = {
   href: "#"
 };
 
-<Clickable component={FancyButton} {...action}>
+<Clickable markupComponent={FancyButton} {...action}>
   Click me
 </Clickable>;
 ```
@@ -159,18 +159,21 @@ const FancyButton = ({ children, action }) => {
 
 ### Example with Button
 
+The Button itself is wrapped in a Clickable component.
+
 ```jsx
 import Button from "@bmi/button";
-import { withClickable } from "@bmi/clickable";
 
 const Link = React.forwardRef(({ children, ...props }, ref) => (
   <span ref={ref} {...props}>
     {children}
   </span>
 ));
-const ClickableButton = withClickable(Button);
 
-<ClickableButton action={{ model: "routerLink", to: "/", linkComponent: Link }}>
+<Button
+  action={{ model: "routerLink", to: "/", linkComponent: Link }}
+  variant="text"
+>
   Click me!
-</ClickableButton>;
+</Button>;
 ```

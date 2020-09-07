@@ -5,12 +5,23 @@
   text-decoration: underline;
   text-decoration-color: $bmi-cyan-500;
   font-size: inherit;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 42px;
+    top: 50%;
+    margin-top: -21px;
+    left: 0;
+    right: 0;
+  }
 
   &:hover {
     color: $bmi-cyan-600;
-    text-decoration-color: $bmi-cyan-600 !important;
+    text-decoration-color: $bmi-cyan-600;
     transition: text-decoration-color 250ms ease-out, color 250ms ease-out;
   }
 
@@ -19,9 +30,19 @@
     color: rgba($bmi-cyan-500, 0.3);
     text-decoration: underline;
     text-decoration-color: rgba($bmi-cyan-500, 0.3);
+  }
 
-    .icon {
-      margin-bottom: -4px;
+  .icon {
+    width: 1.125em;
+    height: 1.125em;
+    fill: currentColor;
+
+    &:first-child {
+      margin-right: 12px;
+    }
+
+    &:last-child {
+      margin-left: 12px;
     }
   }
 }

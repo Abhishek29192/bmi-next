@@ -15,14 +15,14 @@ describe("Breadcrumbs component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <Breadcrumbs>
-        <Breadcrumbs.Item linkComponent="a" href="/">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
         </Breadcrumbs.Item>
-        <Breadcrumbs.Item linkComponent="a" href="/products">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/products" }}>
           Products
         </Breadcrumbs.Item>
         <Breadcrumbs.Item>Roof</Breadcrumbs.Item>
-        <Breadcrumbs.Item linkComponent="a" href="/tiles">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tiles" }}>
           Tiles
         </Breadcrumbs.Item>
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
@@ -34,14 +34,14 @@ describe("Breadcrumbs component", () => {
   it("renders dark themed correctly", () => {
     const { container } = render(
       <Breadcrumbs isDarkThemed>
-        <Breadcrumbs.Item linkComponent="a" href="/">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
         </Breadcrumbs.Item>
-        <Breadcrumbs.Item linkComponent="a" href="/products">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/products" }}>
           Products
         </Breadcrumbs.Item>
         <Breadcrumbs.Item>Roof</Breadcrumbs.Item>
-        <Breadcrumbs.Item linkComponent="a" href="/tiles">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tiles" }}>
           Tiles
         </Breadcrumbs.Item>
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
@@ -56,14 +56,14 @@ describe("Breadcrumbs component", () => {
 
     const { container } = render(
       <Breadcrumbs isDarkThemed>
-        <Breadcrumbs.Item linkComponent="a" href="/">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
         </Breadcrumbs.Item>
-        <Breadcrumbs.Item linkComponent="a" href="/products">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/products" }}>
           Products
         </Breadcrumbs.Item>
         <Breadcrumbs.Item>Roof</Breadcrumbs.Item>
-        <Breadcrumbs.Item linkComponent="a" href="/tiles">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tiles" }}>
           Tiles
         </Breadcrumbs.Item>
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
@@ -78,14 +78,14 @@ describe("Breadcrumbs component", () => {
 
     const { container } = render(
       <Breadcrumbs isDarkThemed>
-        <Breadcrumbs.Item linkComponent="a" href="/">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
         </Breadcrumbs.Item>
-        <Breadcrumbs.Item linkComponent="a" href="/products">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/products" }}>
           Products
         </Breadcrumbs.Item>
         <Breadcrumbs.Item>Roof</Breadcrumbs.Item>
-        <Breadcrumbs.Item linkComponent="a" href="/tiles">
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tiles" }}>
           Tiles
         </Breadcrumbs.Item>
         <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>

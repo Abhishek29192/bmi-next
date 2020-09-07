@@ -1,8 +1,5 @@
-import Button, {
-  ButtonProps as ButtonPropsType,
-  IconButtonProps as IconButtonPropsType
-} from "./Button";
+import Button from "./Button";
 
-export type ButtonProps = ButtonPropsType;
-export type IconButtonProps = IconButtonPropsType;
+export type { ClickableAction } from "@bmi/clickable";
+export type { ButtonProps, IconButtonProps } from "./Button";
 export default Button;

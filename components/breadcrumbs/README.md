@@ -6,14 +6,14 @@ Wrapper around Material UI's breadcrumb component with some style changes. Autom
 
 ```tsx
 <Breadcrumbs>
-  <Breadcrumbs.Item linkComponent="a" href="/">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
     BMI Group
   </Breadcrumbs.Item>
-  <Breadcrumbs.Item linkComponent="a" href="/products">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/products" }}>
     Products
   </Breadcrumbs.Item>
   <Breadcrumbs.Item>Roof</Breadcrumbs.Item>
-  <Breadcrumbs.Item linkComponent="a" href="/tiles">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/tiles" }}>
     Tiles
   </Breadcrumbs.Item>
   <Breadcrumbs.Item>Concrete Tiles</Breadcrumbs.Item>
@@ -24,22 +24,24 @@ Wrapper around Material UI's breadcrumb component with some style changes. Autom
 
 ```tsx
 <Breadcrumbs>
-  <Breadcrumbs.Item linkComponent="a" href="/BMI Group">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/BMI Group" }}>
     BMI Group
   </Breadcrumbs.Item>
-  <Breadcrumbs.Item linkComponent="a" href="/BMI Zanda">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/BMI Zanda" }}>
     BMI Zanda
   </Breadcrumbs.Item>
-  <Breadcrumbs.Item linkComponent="a" href="/Products">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/Products" }}>
     Products
   </Breadcrumbs.Item>
-  <Breadcrumbs.Item linkComponent="a" href="/Pitched Roof Products">
+  <Breadcrumbs.Item
+    action={{ model: "htmlLink", href: "/Pitched Roof Products" }}
+  >
     Pitched Roof Products
   </Breadcrumbs.Item>
-  <Breadcrumbs.Item linkComponent="a" href="/Tiles">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/Tiles" }}>
     Tiles
   </Breadcrumbs.Item>
-  <Breadcrumbs.Item linkComponent="a" href="/Concrete Tiles">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/Concrete Tiles" }}>
     Concrete Tiles
   </Breadcrumbs.Item>
   <Breadcrumbs.Item>Zanda Classic</Breadcrumbs.Item>
@@ -50,10 +52,10 @@ Wrapper around Material UI's breadcrumb component with some style changes. Autom
 
 ```tsx
 <Breadcrumbs>
-  <Breadcrumbs.Item linkComponent="a" href="/">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
     BMI Group
   </Breadcrumbs.Item>
-  <Breadcrumbs.Item linkComponent="a" href="/sedum-green">
+  <Breadcrumbs.Item action={{ model: "htmlLink", href: "/sedum-green" }}>
     Extensive Sedum Green Roof System
   </Breadcrumbs.Item>
   <Breadcrumbs.Item>Tiles</Breadcrumbs.Item>
@@ -65,19 +67,19 @@ Wrapper around Material UI's breadcrumb component with some style changes. Autom
 ```tsx
 <div style={{ padding: "10px", background: "#343850", color: "#fff" }}>
   <Breadcrumbs isDarkThemed>
-    <Breadcrumbs.Item linkComponent="a" href="/">
+    <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
       Home
     </Breadcrumbs.Item>
-    <Breadcrumbs.Item linkComponent="a" href="/Roofing">
+    <Breadcrumbs.Item action={{ model: "htmlLink", href: "/Roofing" }}>
       Roofing
     </Breadcrumbs.Item>
-    <Breadcrumbs.Item linkComponent="a" href="/Exterior">
+    <Breadcrumbs.Item action={{ model: "htmlLink", href: "/Exterior" }}>
       Exterior
     </Breadcrumbs.Item>
-    <Breadcrumbs.Item linkComponent="a" href="/icopal">
+    <Breadcrumbs.Item action={{ model: "htmlLink", href: "/icopal" }}>
       Icopal
     </Breadcrumbs.Item>
-    <Breadcrumbs.Item linkComponent="a" href="/roofs">
+    <Breadcrumbs.Item action={{ model: "htmlLink", href: "/roofs" }}>
       Roofs
     </Breadcrumbs.Item>
     <Breadcrumbs.Item>Tiles</Breadcrumbs.Item>
