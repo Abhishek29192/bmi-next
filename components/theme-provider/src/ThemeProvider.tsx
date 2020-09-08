@@ -5,12 +5,22 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
+import variables from "@bmi/styles";
 
 const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: parseFloat(variables["breakpoint-xs"]),
+      sm: parseFloat(variables["breakpoint-sm"]),
+      md: parseFloat(variables["breakpoint-md"]),
+      lg: parseFloat(variables["breakpoint-lg"]),
+      xl: parseFloat(variables["breakpoint-xl"])
+    }
+  },
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: "#007bbd"
+      main: variables["color-primary-main"]
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
@@ -28,7 +38,7 @@ const theme = createMuiTheme({
     // E.g., shift from Red 500 to Red 300 or Red 700.
     tonalOffset: 0.2,
     text: {
-      primary: "#3b3b3b"
+      primary: variables["color-text-primary"]
     }
   },
   typography: {
