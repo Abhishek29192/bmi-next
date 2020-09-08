@@ -2,6 +2,7 @@
   "name": "@bmi/styles",
   "version": "0.0.0",
   "main": "./index.scss",
+  "types": "./index.d.ts",
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.13.1"

@@ -39,3 +39,10 @@ $color-orange-400: #e63b11;
 $color-orange-500: #ad2c0c;
 $color-alert: #ffc72c;
 $color-success: #009a44;
+
+:export {
+  color-alert: $color-alert;
+  color-success: $color-success;
+  color-primary-main: $color-cyan-500;
+  color-text-primary: $color-charocal;
+}
