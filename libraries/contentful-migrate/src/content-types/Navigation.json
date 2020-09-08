@@ -33,7 +33,7 @@
       "type": "Link",
       "validations": [
         {
-          "linkContentType": ["link", "navigation"]
+          "linkContentType": ["link", "navigation", "navigationItem"]
         }
       ],
       "linkType": "Entry"

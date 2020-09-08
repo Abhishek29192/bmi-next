@@ -44,6 +44,12 @@ export const pageQuery = graphql`
     }
     contentfulSite(id: { eq: $siteId }) {
       countryCode
+      menuNavigation {
+        ...HeaderNavigationFragment
+      }
+      menuUtilities {
+        ...HeaderUtilitiesFragment
+      }
       footerMainNavigation {
         ...FooterMainNavigationFragment
       }

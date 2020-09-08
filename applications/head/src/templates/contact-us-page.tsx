@@ -54,6 +54,12 @@ export const pageQuery = graphql`
       footerSecondaryNavigation {
         ...FooterSecondaryNavigationFragment
       }
+      menuNavigation {
+        ...HeaderNavigationFragment
+      }
+      menuUtilities {
+        ...HeaderUtilitiesFragment
+      }
       ...SignUpFragment
     }
   }
