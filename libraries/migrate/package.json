@@ -1,10 +1,10 @@
 {
-  "name": "@bmi/contentful-migrate",
+  "name": "@bmi/migrate",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "main": "src/index.js",
   "bin": {
-    "contentful-migrate": "./cli.js"
+    "migrate": "./cli.js"
   },
   "scripts": {
     "start": "node cli.js"
