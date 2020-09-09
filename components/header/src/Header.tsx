@@ -88,6 +88,12 @@ const Header = ({
     setShowSearch(!showSearch);
   };
 
+  const hideAll = () => {
+    setValue(false);
+    setShowLanguageSelection(false);
+    setShowSearch(false);
+  };
+
   const handleResize = ({ target }) => {
     setSize(target.innerWidth < breakpoints.width("md") ? "small" : "large");
     // @todo: calculate from `es` somehow...
@@ -226,7 +232,8 @@ const Header = ({
       </div>
       <Backdrop
         className={styles.Backdrop}
-        open={value !== false || showSearch}
+        open={value !== false || showSearch || showLanguageSelection}
+        onClick={hideAll}
       />
       <Slide
         direction={size === "small" ? "left" : "down"}
