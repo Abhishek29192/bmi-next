@@ -1,0 +1,86 @@
+{
+  "name": "Link",
+  "description": "This links to a Page or URL",
+  "displayField": "label",
+  "fields": [
+    {
+      "id": "label",
+      "name": "Label",
+      "type": "Symbol",
+      "localized": false,
+      "required": true,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "linkedPage",
+      "name": "Linked Page",
+      "type": "Link",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "linkContentType": ["contactUsPage", "homePage", "page"]
+        }
+      ],
+      "disabled": false,
+      "omitted": false,
+      "linkType": "Entry"
+    },
+    {
+      "id": "icon",
+      "name": "Icon",
+      "type": "Symbol",
+      "localized": false,
+      "required": false,
+      "validations": [
+        {
+          "regexp": {
+            "pattern": "",
+            "flags": null
+          }
+        },
+        {
+          "in": [
+            "Facebook",
+            "Twitter",
+            "LinkedIn",
+            "User",
+            "BMI",
+            "Phone",
+            "Mail",
+            "YouTube",
+            "Icopal",
+            "Monier",
+            "Monarplan",
+            "Arrow",
+            "Zanda"
+          ]
+        }
+      ],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "isLabelHidden",
+      "name": "Is Label Hidden",
+      "type": "Boolean",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    },
+    {
+      "id": "url",
+      "name": "URL",
+      "type": "Symbol",
+      "localized": false,
+      "required": false,
+      "validations": [],
+      "disabled": false,
+      "omitted": false
+    }
+  ]
+}
