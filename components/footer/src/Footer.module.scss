@@ -1,8 +1,8 @@
 @import "@bmi/styles";
 
 .Footer {
-  background: $bmi-blue-900;
-  color: $bmi-white;
+  background: $color-blue-900;
+  color: $color-white;
   padding: 50px 0;
 
   .list {
@@ -58,14 +58,14 @@
   }
 
   .link {
-    color: $bmi-storm;
+    color: $color-storm;
     justify-content: flex-start;
     width: 100%;
     font-family: "Effra Medium";
   }
 
   .icon-link {
-    fill: $bmi-storm;
+    fill: $color-storm;
     font-size: 16px;
 
     &:first-child {
@@ -74,7 +74,7 @@
   }
 
   .secondary-navigation {
-    border-top: 1px solid rgba($bmi-white, 0.25);
+    border-top: 1px solid rgba($color-white, 0.25);
     margin-top: 30px;
     padding: 30px 0 0;
     display: flex;
@@ -102,7 +102,7 @@
   .standard-logo {
     text-align: right;
     flex: 1;
-    fill: $bmi-storm;
+    fill: $color-storm;
 
     > svg {
       width: 125px;

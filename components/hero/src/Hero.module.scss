@@ -12,14 +12,14 @@ $hero-breakpoint-sm: 769px;
 
   min-height: auto;
   flex-direction: column;
-  background-color: $bmi-blue-800;
-  color: $bmi-white;
+  background-color: $color-blue-800;
+  color: $color-white;
   position: relative;
   overflow: hidden;
 
   &--light {
-    background: $bmi-pearl;
-    color: $bmi-charocal;
+    background: $color-pearl;
+    color: $color-charocal;
   }
 
   .title {
@@ -159,9 +159,9 @@ $hero-breakpoint-sm: 769px;
         bottom: 0;
         background: linear-gradient(
           to bottom,
-          rgba($bmi-blue-800, 0) 0%,
-          $bmi-blue-800 70%,
-          $bmi-blue-800 100%
+          rgba($color-blue-800, 0) 0%,
+          $color-blue-800 70%,
+          $color-blue-800 100%
         );
       }
     }

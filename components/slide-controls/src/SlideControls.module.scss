@@ -36,11 +36,11 @@
   .chevron {
     width: 37px;
     height: 37px;
-    color: $bmi-slate;
+    color: $color-slate;
     transition: 0.2s color ease-in-out;
 
     &:hover {
-      color: $bmi-charocal;
+      color: $color-charocal;
     }
   }
 
@@ -60,7 +60,7 @@
   .total {
     margin-left: 2px;
     font-size: 20px;
-    color: $bmi-slate;
+    color: $color-slate;
 
     &::before {
       content: "/";
@@ -73,7 +73,7 @@
     font-size: 20px;
     width: 28px;
     text-align: center;
-    color: $bmi-slate;
+    color: $color-slate;
     animation: fade $animation-duration ease-in-out reverse both;
 
     &--active {
@@ -90,11 +90,11 @@
     .number,
     .total,
     .chevron {
-      color: rgba($bmi-white, 0.8);
+      color: rgba($color-white, 0.8);
     }
 
     .chevron:hover {
-      color: $bmi-white;
+      color: $color-white;
     }
   }
 

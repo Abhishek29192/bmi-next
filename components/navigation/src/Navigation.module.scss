@@ -19,7 +19,7 @@
     top: 0;
 
     @media (min-width: $breakpoint-sm) {
-      border-right: 1px solid $bmi-storm;
+      border-right: 1px solid $color-storm;
       width: 25vw;
     }
 
@@ -53,7 +53,7 @@
 
     .Separator {
       border: none;
-      border-top: 1px solid $bmi-storm;
+      border-top: 1px solid $color-storm;
       margin: 10px;
     }
 
@@ -84,14 +84,14 @@
   }
 
   .Utilities {
-    background-color: $bmi-pearl;
+    background-color: $color-pearl;
     margin: 10px 0;
     padding: 10px 0;
   }
 
   .MainMenuTitle {
     margin: 8px 0;
-    border-bottom: 1px solid $bmi-alabaster;
+    border-bottom: 1px solid $color-alabaster;
     font-weight: bold;
     margin: 15px 10px 10px;
     padding: 0 46px 19px 10px;
@@ -99,7 +99,7 @@
   }
 
   .NavigationListButton {
-    color: $bmi-slate;
+    color: $color-slate;
     font-size: 1.125rem;
     line-height: 1;
     margin: 0 10px;

@@ -5,41 +5,41 @@
   border-radius: 3px;
 
   &:global(.MuiButton-text):hover {
-    background-color: rgba($bmi-black, 0.05);
+    background-color: rgba($color-black, 0.05);
   }
 
   &--dark-background:global(.MuiButton-text) {
-    color: $bmi-white;
+    color: $color-white;
 
     &:hover {
-      background: rgba($bmi-white, 0.1);
+      background: rgba($color-white, 0.1);
     }
 
     &:global(.Mui-disabled) {
-      color: rgba($bmi-white, 0.38);
+      color: rgba($color-white, 0.38);
     }
   }
 
   &--dark-background:global(.MuiButton-outlined) {
-    color: $bmi-white;
-    border-color: rgba($bmi-white, 0.8);
-    background-color: rgba($bmi-white, 0.1);
+    color: $color-white;
+    border-color: rgba($color-white, 0.8);
+    background-color: rgba($color-white, 0.1);
 
     &:hover {
-      border-color: $bmi-white;
+      border-color: $color-white;
       background-color: transparent;
     }
 
     &:global(.Mui-disabled) {
-      color: rgba($bmi-white, 0.3);
-      background-color: rgba($bmi-white, 0.2);
-      border-color: rgba($bmi-white, 0.3);
+      color: rgba($color-white, 0.3);
+      background-color: rgba($color-white, 0.2);
+      border-color: rgba($color-white, 0.3);
     }
   }
 
   &:global(.MuiButton-contained.Mui-disabled) {
-    background: rgba($bmi-cyan-500, 0.38);
-    color: $bmi-white;
+    background: rgba($color-cyan-500, 0.38);
+    color: $color-white;
   }
 
   :global {
@@ -94,16 +94,16 @@
   }
 
   &:global(.MuiIconButton-root) {
-    background-color: $bmi-cyan-500;
-    color: $bmi-white;
+    background-color: $color-cyan-500;
+    color: $color-white;
   }
 
   &:global(.MuiIconButton-root):hover {
-    background-color: $bmi-cyan-600;
+    background-color: $color-cyan-600;
   }
 
   &--disabled:global(.MuiIconButton-root) {
-    background-color: rgba($bmi-cyan-500, 0.35);
+    background-color: rgba($color-cyan-500, 0.35);
   }
 
   &--text:global(.MuiIconButton-root) {
@@ -111,14 +111,14 @@
   }
 
   &--text:global(.MuiIconButton-root):hover {
-    background-color: rgba($bmi-black, 0.05);
+    background-color: rgba($color-black, 0.05);
   }
 
   &--dark-background#{&}--text:global(.MuiIconButton-root):hover {
-    color: $bmi-white;
+    color: $color-white;
 
     &:hover {
-      background: rgba($bmi-white, 0.1);
+      background: rgba($color-white, 0.1);
     }
   }
 }

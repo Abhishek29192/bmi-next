@@ -1,7 +1,13 @@
 $breakpoint-xs: 0px;
 $breakpoint-sm: 600px;
-$breakpoint-md: 960px;
-$breakpoint-lg: 1280px;
+$breakpoint-md: 720px;
+$breakpoint-lg: 840px;
 $breakpoint-xl: 1440px;
 
-$breakpoint-bmi-sm: 769px;
+:export {
+  breakpoint-xs: $breakpoint-xs;
+  breakpoint-sm: $breakpoint-sm;
+  breakpoint-md: $breakpoint-md;
+  breakpoint-lg: $breakpoint-lg;
+  breakpoint-xl: $breakpoint-xl;
+}
