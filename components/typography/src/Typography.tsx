@@ -7,6 +7,7 @@ import styles from "./Typography.module.scss";
 
 export type Props = TypographyProps & {
   hasUnderline?: boolean;
+  component?: React.ElementType;
 };
 
 const Typography = ({
