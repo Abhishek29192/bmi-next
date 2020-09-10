@@ -14,7 +14,6 @@ import Icopal from "@bmi/logo/svgs/Icopal.svg";
 import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
 import Monier from "@bmi/logo/svgs/Monier.svg";
 import Zanda from "@bmi/logo/svgs/Zanda.svg";
-import { languages } from "@bmi/language-selection";
 import { Fullscreen } from "@material-ui/icons";
 import systemsImage from "./images/systems.jpg";
 import Arrow from "./svgs/Arrow.svg";
@@ -51,10 +50,10 @@ const navigation = [
             menu: [
               { label: "Tiles", isHeading: true },
               { label: "Tiles overview" },
-              { label: "Metal tiles", icon: <AeroDek /> },
-              { label: "Clay tiles", icon: <Monier /> },
-              { label: "Concrete tiles", icon: <Zanda /> },
-              { label: "Singles", icon: <Icopal /> }
+              { label: "Metal tiles", icon: <Icon source={AeroDek} /> },
+              { label: "Clay tiles", icon: <Icon source={Monier} /> },
+              { label: "Concrete tiles", icon: <Icon source={Zanda} /> },
+              { label: "Singles", icon: <Icon source={Icopal} /> }
             ]
           },
           {
@@ -98,13 +97,34 @@ const navigation = [
       { label: "Outdoor" },
       { label: "Scaffolding" },
       { label: "Civil Engineering", hasSeparator: true },
-      { label: [<Arrow />, "View all our products"], hasSeparator: true },
+      {
+        label: [<Icon source={Arrow} />, "View all our products"],
+        hasSeparator: true
+      },
       { label: "Products by brand", isHeading: true },
-      { label: <Icopal />, menu: [] },
-      { label: <Zanda />, menu: [] },
-      { label: <Monier />, menu: [] },
-      { label: <Monarplan />, menu: [] },
-      { label: <AeroDek />, menu: [] }
+      {
+        label: <Icon source={Icopal} />,
+        menu: [
+          { label: <Icon source={Icopal} />, isHeading: true },
+          {
+            label: "Insulation",
+            menu: [
+              { label: "Insulation", isHeading: true },
+              {
+                label: "Thermazone",
+                menu: [
+                  { label: "Thermazone", isHeading: true },
+                  { label: "Thermazone touch-on" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      { label: <Icon source={Zanda} />, menu: [] },
+      { label: <Icon source={Monier} />, menu: [] },
+      { label: <Icon source={Monarplan} />, menu: [] },
+      { label: <Icon source={AeroDek} />, menu: [] }
     ],
     footer: [{ label: "For Homeowners", isHeading: true }]
   },
