@@ -71,7 +71,7 @@ type NavigationListProps = {
 };
 
 const NavigationList = ({
-  backLabel,
+  backLabel = "Back",
   className,
   depth,
   menu,
@@ -115,7 +115,7 @@ const NavigationList = ({
               onClick={() => parentHandleClick(false)}
               startIcon={<ChevronLeft />}
             >
-              {backLabel || "Back"}
+              {backLabel}
             </NavigationListButton>
             <hr className={styles.Separator} />
           </li>
@@ -152,7 +152,7 @@ const NavigationList = ({
                   {label}
                 </NavigationListButton>
                 <NavigationList
-                  backLabel={label}
+                  backLabel={menu[0].isHeading ? menu[0].label : "Main menu"}
                   depth={depth + 1}
                   menu={subMenu}
                   show={value === key}
