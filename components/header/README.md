@@ -137,7 +137,7 @@ const navigation = [
       { label: "Tightning Systems" }
     ],
     footer: [
-      { image: systemsImage },
+      { label: "Man working on desk", image: systemsImage },
       { label: "Design your own System", isHeading: true },
       {
         label:
