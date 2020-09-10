@@ -1,14 +1,17 @@
 @import "@bmi/styles";
 
 .Navigation {
+  $navigation-padding: 50px;
+  $navigation-top-spacing: 1rem;
   // Breakpoint overrides
   $breakpoint-sm: 800px;
 
   height: 100%;
+  padding: 0 $navigation-padding;
   position: relative;
 
   @media (min-width: $breakpoint-sm) {
-    top: 1rem;
+    top: $navigation-top-spacing;
   }
 
   .NavigationList {
@@ -25,7 +28,7 @@
 
     @media (min-width: $breakpoint-sm) {
       border-right: $border-right-width solid $color-storm;
-      width: 25vw;
+      width: calc(25vw - #{$navigation-padding / 2});
     }
 
     &--show {
@@ -46,6 +49,10 @@
           display: none;
         }
       }
+
+      .NavigationList .NavigationList .NavigationList {
+        border-right: none;
+      }
     }
 
     > ul {
@@ -54,7 +61,7 @@
       overflow-y: auto;
 
       @media (min-width: $breakpoint-sm) {
-        height: calc(100% - 1rem); // ul `top`
+        height: calc(100% - #{$navigation-top-spacing});
       }
     }
 
@@ -143,6 +150,7 @@
   }
 
   .NavigationListType {
+    display: inline-block;
     margin: 32px 20px 16px;
 
     svg {
