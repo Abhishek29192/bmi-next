@@ -99,19 +99,6 @@
   }
 
   .NavigationListButton {
-    color: $color-slate;
-    font-size: 1.125rem;
-    line-height: 1;
-    margin: 0 10px;
-    padding: 12px 10px;
-    transition: background-color 120ms cubic-bezier(0.4, 0, 0.2, 1);
-    width: calc(100% - 20px);
-
-    @media (min-width: $breakpoint-sm) {
-      margin: 0;
-      width: 100%;
-    }
-
     svg {
       height: 32px;
     }
@@ -139,19 +126,11 @@
       }
     }
 
-    &:hover {
-      color: #3b3b3b;
-    }
-
     &:hover :global(.MuiButton-startIcon),
     &--active :global(.MuiButton-startIcon),
     &:hover :global(.MuiButton-endIcon),
     &--active :global(.MuiButton-endIcon) {
       transform: translateX(0px);
-    }
-
-    &--active {
-      background-color: rgba(59, 59, 59, 0.04);
     }
   }
 
@@ -177,5 +156,31 @@
     :global(.MuiButton-label) {
       justify-content: start;
     }
+  }
+}
+
+.NavigationListButton {
+  // Breakpoint overrides
+  $breakpoint-sm: 800px;
+
+  color: $color-slate;
+  font-size: 1.125rem;
+  line-height: 1;
+  margin: 0 10px;
+  padding: 12px 10px;
+  transition: background-color 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: calc(100% - 20px);
+
+  @media (min-width: $breakpoint-sm) {
+    margin: 0;
+    width: 100%;
+  }
+
+  &:hover {
+    color: $color-charocal;
+  }
+
+  &--active {
+    background-color: rgba(59, 59, 59, 0.04);
   }
 }
