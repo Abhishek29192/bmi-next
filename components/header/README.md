@@ -98,7 +98,7 @@ const navigation = [
       { label: "Scaffolding" },
       { label: "Civil Engineering", hasSeparator: true },
       {
-        label: [<Icon source={Arrow} />, "View all our products"],
+        label: [<Icon source={Arrow} />, <b>View all our products</b>],
         hasSeparator: true
       },
       { label: "Products by brand", isHeading: true },
