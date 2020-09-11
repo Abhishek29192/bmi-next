@@ -197,7 +197,12 @@ const Header = ({
               className={styles.Navigation}
               role="navigation"
             >
-              <Tabs onChange={handleChange} value={value === true ? 0 : value}>
+              <Tabs
+                onChange={handleChange}
+                scrollButtons="off"
+                value={value === true ? 0 : value}
+                variant="scrollable"
+              >
                 {navigation.map(({ label }, key) => (
                   <Tab
                     aria-controls={`navigation-tabpanel-${key}`}
