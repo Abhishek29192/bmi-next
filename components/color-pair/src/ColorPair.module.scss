@@ -13,7 +13,7 @@ $light-theme: (
 
 $dark-theme: (
   "black": $color-black,
-  "charocal": $color-charocal,
+  "charcoal": $color-charcoal,
   "blue-800": $color-blue-800,
   "blue-900": $color-blue-900,
   "teal-400": $color-teal-400,
@@ -26,12 +26,12 @@ $dark-theme: (
 
 .ColorPair {
   background-color: $color-white;
-  color: $color-charocal;
+  color: $color-charcoal;
 
   @each $theme-name, $theme-color in $light-theme {
     &--#{$theme-name} {
       background-color: $theme-color;
-      color: $color-charocal;
+      color: $color-charcoal;
     }
   }
 

@@ -12,7 +12,7 @@ export type Colors =
   | "orange-100"
   | "alert"
   | "black"
-  | "charocal"
+  | "charcoal"
   | "blue-800"
   | "blue-900"
   | "teal-400"
