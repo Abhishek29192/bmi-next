@@ -34,14 +34,7 @@ const ContentSection = ({
 
   return (
     <Section backgroundColor={backgroundColor}>
-      <Typography
-        id={sectionId}
-        variant="h2"
-        hasUnderline
-        className={styles["section-heading"]}
-      >
-        {title}
-      </Typography>
+      <Section.Title id={sectionId}>{title}</Section.Title>
       <div>{children}</div>
     </Section>
   );

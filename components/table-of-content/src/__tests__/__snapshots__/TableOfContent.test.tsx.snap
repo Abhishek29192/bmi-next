@@ -55,7 +55,7 @@ exports[`TableOfContent component renders correctly 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg"
     >
       <h2
-        class="MuiTypography-root section-heading Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         id="this-is-the-first-heading"
       >
         This is the first heading
@@ -76,7 +76,7 @@ exports[`TableOfContent component renders correctly 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg"
     >
       <h2
-        class="MuiTypography-root section-heading Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         id="this-is-the-second-heading"
       >
         This is the second heading
@@ -97,7 +97,7 @@ exports[`TableOfContent component renders correctly 1`] = `
       class="MuiContainer-root MuiContainer-maxWidthLg"
     >
       <h2
-        class="MuiTypography-root section-heading Typography Typography--underline MuiTypography-h2"
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         id="this-is-the-third-heading"
       >
         This is the third heading

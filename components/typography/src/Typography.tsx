@@ -5,7 +5,7 @@ import classnames from "classnames";
 import React from "react";
 import styles from "./Typography.module.scss";
 
-type Props = TypographyProps & {
+export type Props = TypographyProps & {
   hasUnderline?: boolean;
 };
 
