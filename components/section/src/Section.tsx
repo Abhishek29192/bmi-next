@@ -4,7 +4,7 @@ import { Container } from "@material-ui/core";
 import styles from "./Section.module.scss";
 import classnames from "classnames";
 
-const SectionContext = createContext<boolean>(false);
+export const SectionContext = createContext<boolean>(false);
 
 export type Props = {
   backgroundColor?: "transparent" | "alabaster" | "white" | "pearl";
