@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorPair component renders correctly 1`] = `
+<div
+  class="ColorPair ColorPair--white"
+>
+  Lorem ipsum
+</div>
+`;
+
+exports[`ColorPair component renders with a custom component 1`] = `
+<span
+  class="ColorPair ColorPair--teal-500"
+>
+  Lorem ipsum
+</span>
+`;
+
+exports[`ColorPair component renders with a custom element 1`] = `
+<span
+  class="ColorPair ColorPair--teal-500"
+>
+  Lorem ipsum
+</span>
+`;
+
+exports[`ColorPair component renders with a theme 1`] = `
+<div
+  class="ColorPair ColorPair--teal-500"
+>
+  Lorem ipsum
+</div>
+`;
