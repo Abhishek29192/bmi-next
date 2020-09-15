@@ -1,5 +1,6 @@
 import React from "react";
 import Page from "../components/Page";
+import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import { graphql } from "gatsby";
 import { SiteData, PageData } from "./types";
 
@@ -9,10 +10,20 @@ type Props = {
     contentfulSite: SiteData;
   };
 };
+
+const SectionsMap = {
+  ContentfulTabsOrAccordionSection: TabsOrAccordionSection
+};
+
 const SimplePage = ({ data }: Props) => {
+  const { sections } = data.contentfulSimplePage;
   return (
     <Page pageData={data.contentfulSimplePage} siteData={data.contentfulSite}>
-      SIMPLE PAGE CONTENT
+      {sections &&
+        sections.map((section, index) => {
+          const Component = SectionsMap[section.__typename];
+          return <Component key={`section${index}`} {...section} />;
+        })}
     </Page>
   );
 };
@@ -37,6 +48,10 @@ export const pageQuery = graphql`
             url
           }
         }
+      }
+      sections {
+        __typename
+        ...TabsOrAccordionSectionFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {

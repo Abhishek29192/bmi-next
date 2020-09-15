@@ -52,8 +52,21 @@ export type HeroData = {
 };
 
 export type PageData = {
-  title: string;
-  showSignUpBanner?: boolean;
   hero?: HeroData;
+  sections?: [...TabsOrAccordionSectionData[]];
+  showSignUpBanner?: boolean;
   slug?: string;
+  title: string;
+};
+
+export type TabsOrAccordionSectionItemData = {
+  title: string;
+};
+
+export type TabsOrAccordionSectionData = {
+  __typename: string;
+  description: string;
+  items: [...TabsOrAccordionSectionItemData[]];
+  title: string;
+  type: "Accordion" | "Tabs";
 };
