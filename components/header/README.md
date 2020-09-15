@@ -10,7 +10,7 @@ import Icopal from "@bmi/logo/svgs/Icopal.svg";
 import Monier from "@bmi/logo/svgs/Monier.svg";
 import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
 import Zanda from "@bmi/logo/svgs/Zanda.svg";
-import systemsImageSource from "./images/Systems.jpg";
+import systemsImage from "./images/systems.jpg";
 import { languages } from "@bmi/language-selection";
 
 const utilities = [
@@ -111,7 +111,7 @@ const navigation = [
       { label: "Tightning Systems" }
     ],
     footer: [
-      { image: systemsImageSource },
+      { image: systemsImage },
       { label: "Design your own System", isHeading: true },
       {
         label:
