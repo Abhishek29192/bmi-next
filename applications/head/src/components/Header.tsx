@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
 import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
-import Arrow from "@bmi/header/svgs/Arrow.svg";
 import Icopal from "@bmi/logo/svgs/Icopal.svg";
 import Monier from "@bmi/logo/svgs/Monier.svg";
 import Monarplan from "@bmi/logo/svgs/Monarplan.svg";

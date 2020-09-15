@@ -16,7 +16,6 @@ import Monier from "@bmi/logo/svgs/Monier.svg";
 import Zanda from "@bmi/logo/svgs/Zanda.svg";
 import { Fullscreen } from "@material-ui/icons";
 import systemsImage from "./images/systems.jpg";
-import Arrow from "./svgs/Arrow.svg";
 
 const utilities = [
   {
@@ -98,7 +97,8 @@ const navigation = [
       { label: "Scaffolding" },
       { label: "Civil Engineering", hasSeparator: true },
       {
-        label: [<Icon source={Arrow} />, <b>View all our products</b>],
+        label: "View all our products",
+        isBigLink: true,
         hasSeparator: true
       },
       { label: "Products by brand", isHeading: true },

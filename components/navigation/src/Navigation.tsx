@@ -1,5 +1,7 @@
+import Button, { ButtonProps, ClickableAction } from "@bmi/button";
+import Icon from "@bmi/icon";
+import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
 import Typography from "@bmi/typography";
-import Button, { ClickableAction, ButtonProps } from "@bmi/button";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";
@@ -11,6 +13,7 @@ export type LinkList = {
   action?: ClickableAction;
   image?: string;
   isHeading?: boolean;
+  isBigLink?: boolean;
   isParagraph?: boolean;
 };
 
@@ -136,6 +139,7 @@ const NavigationList = ({
               action,
               image = null,
               isHeading,
+              isBigLink,
               isParagraph,
               label,
               menu: subMenu
@@ -189,7 +193,14 @@ const NavigationList = ({
                   } else {
                     return (
                       <NavigationListButton action={action}>
-                        {label}
+                        {isBigLink ? (
+                          <>
+                            <Icon source={Arrow} />
+                            <b>{label}</b>
+                          </>
+                        ) : (
+                          label
+                        )}
                       </NavigationListButton>
                     );
                   }
