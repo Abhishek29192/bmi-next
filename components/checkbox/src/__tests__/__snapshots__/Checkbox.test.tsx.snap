@@ -2,7 +2,7 @@
 
 exports[`Checkbox component renders correctly 1`] = `
 <div
-  class="MuiFormControl-root"
+  class="MuiFormControl-root Checkbox"
 >
   <label
     class="MuiFormControlLabel-root"
@@ -44,21 +44,21 @@ exports[`Checkbox component renders correctly 1`] = `
 
 exports[`Checkbox component renders error 1`] = `
 <div
-  class="MuiFormControl-root"
+  class="MuiFormControl-root Checkbox"
 >
   <label
     class="MuiFormControlLabel-root Mui-disabled"
   >
     <span
       aria-disabled="true"
-      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-disabled-23 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-25 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-disabled-27 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
       tabindex="-1"
     >
       <span
         class="MuiIconButton-label"
       >
         <input
-          class="PrivateSwitchBase-input-24"
+          class="PrivateSwitchBase-input-28"
           data-indeterminate="false"
           disabled=""
           type="checkbox"
@@ -92,7 +92,7 @@ exports[`Checkbox component renders error 1`] = `
 
 exports[`Checkbox component renders with disabled state 1`] = `
 <div
-  class="MuiFormControl-root"
+  class="MuiFormControl-root Checkbox"
 >
   <label
     class="MuiFormControlLabel-root Mui-disabled"
@@ -135,7 +135,7 @@ exports[`Checkbox component renders with disabled state 1`] = `
 
 exports[`Checkbox component renders with error message 1`] = `
 <div
-  class="MuiFormControl-root"
+  class="MuiFormControl-root Checkbox"
 >
   <label
     class="MuiFormControlLabel-root"
@@ -179,7 +179,7 @@ exports[`Checkbox component renders with error message 1`] = `
 
 exports[`Checkbox component renders with label 1`] = `
 <div
-  class="MuiFormControl-root"
+  class="MuiFormControl-root Checkbox"
 >
   <label
     class="MuiFormControlLabel-root"
