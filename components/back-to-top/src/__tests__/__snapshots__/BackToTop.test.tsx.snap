@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackToTop component handles button click 1`] = `
+<div
+  class="BackToTop"
+>
+  <button
+    aria-hidden="false"
+    aria-label="back-to-top"
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`BackToTop component handles scroll 1`] = `
+<div
+  class="BackToTop BackToTop--hidden"
+>
+  <button
+    aria-hidden="true"
+    aria-label="back-to-top"
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    tabindex="-1"
+    type="button"
+  >
+    <span
+      class="MuiButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`BackToTop component renders correctly 1`] = `
+<div
+  class="BackToTop BackToTop--hidden"
+>
+  <button
+    aria-hidden="true"
+    aria-label="back-to-top"
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    tabindex="-1"
+    type="button"
+  >
+    <span
+      class="MuiButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`BackToTop component renders correctly with className 1`] = `
+<div
+  class="classname BackToTop BackToTop--hidden"
+>
+  <button
+    aria-hidden="true"
+    aria-label="back-to-top"
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+    tabindex="-1"
+    type="button"
+  >
+    <span
+      class="MuiButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
