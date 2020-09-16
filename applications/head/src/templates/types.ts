@@ -35,6 +35,8 @@ export type SiteData = {
   };
   signUpInputLabel: string;
   signUpCallToAction: string;
+  menuNavigation: NavigationData;
+  menuUtilities: NavigationData;
 };
 
 export type HeroData = {

@@ -1,6 +1,6 @@
 import React from "react";
 import BmiThemeProvider from "@bmi/theme-provider/src";
-// import Menu from "../components/Menu";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import NewsletterSignUp from "../components/NewsLetterSignUp";
@@ -22,7 +22,9 @@ const Page = ({ children, pageData, siteData }: Props) => {
     signUpTitle,
     signUpDescription,
     signUpInputLabel,
-    signUpCallToAction
+    signUpCallToAction,
+    menuNavigation,
+    menuUtilities
   } = siteData;
 
   const signUpData = {
@@ -35,7 +37,7 @@ const Page = ({ children, pageData, siteData }: Props) => {
   return (
     <BmiThemeProvider>
       <Helmet title={pageData.title} />
-      {/* <Menu /> add this when merged */}
+      <Header navigationData={menuNavigation} utilitiesData={menuUtilities} />
       <Hero data={heroData} level={slug === undefined ? 1 : 2} />
       {children}
       {pageData.showSignUpBanner ? (

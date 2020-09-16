@@ -39,7 +39,11 @@ const Header = ({
 }: HeaderProps) => {
   const { breakpoints } = useTheme();
   breakpoints.values.md = 800; // Override
-  const $body: HTMLElement = document.querySelector("body");
+
+  const $body: HTMLElement =
+    typeof document !== "undefined"
+      ? document.querySelector("body")
+      : undefined;
   const [size, setSize] = React.useState<"small" | "medium" | "large">("small");
   const [showLanguageSelection, setShowLanguageSelection] = React.useState<
     boolean
@@ -47,12 +51,19 @@ const Header = ({
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<number | boolean>(false);
 
+  const amendClassList = (classValue: string, method: "add" | "remove") => {
+    if (!$body) {
+      return;
+    }
+    $body.classList[method](classValue);
+  };
+
   const handleChange = (_event: React.ChangeEvent, newValue: number) => {
     if (value === newValue) {
-      $body.classList.remove(styles.MenuIsOpen);
+      amendClassList(styles.MenuIsOpen, "remove");
       setValue(false);
     } else {
-      $body.classList.add(styles.MenuIsOpen);
+      amendClassList(styles.MenuIsOpen, "add");
       setShowSearch(false);
       setValue(newValue);
     }
@@ -60,10 +71,10 @@ const Header = ({
 
   const toggleMenu = () => {
     if (typeof value === "number" || value === true) {
-      $body.classList.remove(styles.MenuIsOpen);
+      amendClassList(styles.MenuIsOpen, "remove");
       setValue(false);
     } else {
-      $body.classList.add(styles.MenuIsOpen);
+      amendClassList(styles.MenuIsOpen, "add");
       setShowSearch(false);
       setValue(!value);
     }

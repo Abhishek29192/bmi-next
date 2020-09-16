@@ -12,8 +12,23 @@
     "disabled": false,
     "omitted": false
   },
-  "menu": {
-    "name": "Menu",
+  "menuUtilities": {
+    "id": "menuUtilities",
+    "name": "MenuUtilities",
+    "type": "Link",
+    "localized": false,
+    "required": false,
+    "validations": [
+      {
+        "linkContentType": ["navigation"]
+      }
+    ],
+    "disabled": false,
+    "omitted": false,
+    "linkType": "Entry"
+  },
+  "menuNavigation": {
+    "name": "MenuNavigation",
     "type": "Link",
     "localized": false,
     "required": true,
