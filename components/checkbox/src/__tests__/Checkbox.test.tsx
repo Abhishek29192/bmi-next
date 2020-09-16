@@ -35,15 +35,24 @@ describe("Checkbox component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders with onChange", async () => {
+  it("calls onChange handler", async () => {
+    const label = "test-label";
+    const onChange = jest.fn();
+    const { getByLabelText } = render(
+      <Checkbox onChange={onChange} name="Test checkbox" label={label} />
+    );
+    fireEvent.click(getByLabelText(label));
+    expect(onChange.mock.calls).toMatchSnapshot();
+  });
+  it("does not call onChange handler when disabled", async () => {
     const label = "test-label";
     const onChange = jest.fn();
     const { getByLabelText } = render(
       <Checkbox
         onChange={onChange}
         name="Test checkbox"
-        disabled
         label={label}
+        disabled
       />
     );
     fireEvent.click(getByLabelText(label));

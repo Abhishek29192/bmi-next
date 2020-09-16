@@ -22,7 +22,7 @@ const Checkbox = ({
   ...props
 }: Props) => {
   const handleChange = (event) => {
-    onChange(event.target.checked);
+    !disabled && onChange(event.target.checked);
   };
   return (
     <FormControl
