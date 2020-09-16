@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExploreLinks component renders correctly 1`] = `
+exports[`ExploreBar component renders correctly 1`] = `
 <nav
-  aria-labelledby="explore-links"
-  class="ExploreLinks"
+  aria-labelledby="explore-bar"
+  class="ExploreBar"
 >
   <h2
     class="MuiTypography-root heading Typography MuiTypography-h6"
-    id="explore-links"
+    id="explore-bar"
   >
     Explore:
   </h2>
@@ -29,14 +29,14 @@ exports[`ExploreLinks component renders correctly 1`] = `
 </nav>
 `;
 
-exports[`ExploreLinks component renders with a link using a component 1`] = `
+exports[`ExploreBar component renders with a link using a component 1`] = `
 <nav
-  aria-labelledby="explore-links"
-  class="ExploreLinks"
+  aria-labelledby="explore-bar"
+  class="ExploreBar"
 >
   <h2
     class="MuiTypography-root heading Typography MuiTypography-h6"
-    id="explore-links"
+    id="explore-bar"
   >
     Hello world
   </h2>
@@ -59,14 +59,14 @@ exports[`ExploreLinks component renders with a link using a component 1`] = `
 </nav>
 `;
 
-exports[`ExploreLinks component renders with different heading 1`] = `
+exports[`ExploreBar component renders with different heading 1`] = `
 <nav
-  aria-labelledby="explore-links"
-  class="ExploreLinks"
+  aria-labelledby="explore-bar"
+  class="ExploreBar"
 >
   <h2
     class="MuiTypography-root heading Typography MuiTypography-h6"
-    id="explore-links"
+    id="explore-bar"
   >
     Hello world
   </h2>
@@ -88,14 +88,14 @@ exports[`ExploreLinks component renders with different heading 1`] = `
 </nav>
 `;
 
-exports[`ExploreLinks component renders with multiple links 1`] = `
+exports[`ExploreBar component renders with multiple links 1`] = `
 <nav
-  aria-labelledby="explore-links"
-  class="ExploreLinks"
+  aria-labelledby="explore-bar"
+  class="ExploreBar"
 >
   <h2
     class="MuiTypography-root heading Typography MuiTypography-h6"
-    id="explore-links"
+    id="explore-bar"
   >
     Explore:
   </h2>

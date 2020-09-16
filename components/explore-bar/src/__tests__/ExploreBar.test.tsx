@@ -1,11 +1,11 @@
 import React from "react";
-import ExploreLinks from "../";
+import ExploreBar from "..";
 import { render } from "@testing-library/react";
 
-describe("ExploreLinks component", () => {
+describe("ExploreBar component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <ExploreLinks
+      <ExploreBar
         heading="Explore:"
         links={[
           { label: "hello", action: { model: "htmlLink", href: "world" } }
@@ -16,7 +16,7 @@ describe("ExploreLinks component", () => {
   });
   it("renders with multiple links", () => {
     const { container } = render(
-      <ExploreLinks
+      <ExploreBar
         heading="Explore:"
         links={[
           { label: "Tools", action: { model: "htmlLink", href: "/tools" } },
@@ -39,7 +39,7 @@ describe("ExploreLinks component", () => {
   });
   it("renders with different heading", () => {
     const { container } = render(
-      <ExploreLinks
+      <ExploreBar
         heading="Hello world"
         links={[
           { label: "Hello", action: { model: "htmlLink", href: "/world" } }
@@ -57,7 +57,7 @@ describe("ExploreLinks component", () => {
     Link.displayName = "Link";
 
     const { container } = render(
-      <ExploreLinks
+      <ExploreBar
         heading="Hello world"
         links={[
           {

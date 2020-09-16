@@ -1,4 +1,4 @@
-A navigation section to explore links. Compose with the `Section` component.
+A navigation section to explore bar of links. Compose with the `Section` component.
 
 ## Variants
 
@@ -8,7 +8,7 @@ A navigation section to explore links. Compose with the `Section` component.
 import Section from "@bmi/section";
 
 <Section backgroundColor="alabaster">
-  <ExploreLinks
+  <ExploreBar
     heading="Explore:"
     links={[
       { label: "Tools", href: "/tools" },
@@ -23,7 +23,7 @@ import Section from "@bmi/section";
 </Section>;
 ```
 
-### ExploreLinks with link components
+### ExploreBar with link components
 
 ```jsx
 import Section from "@bmi/section";
@@ -36,7 +36,7 @@ const Link = React.forwardRef(({ children, ...props }, ref) => (
 Link.displayName = "Link";
 
 <Section backgroundColor="alabaster">
-  <ExploreLinks
+  <ExploreBar
     heading="Explore links:"
     links={[
       { label: "Tools", href: "/tools" },

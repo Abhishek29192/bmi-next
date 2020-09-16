@@ -1,7 +1,7 @@
 import React from "react";
 import Button, { ClickableAction } from "@bmi/button";
 import Typography from "@bmi/typography";
-import styles from "./ExploreLinks.module.scss";
+import styles from "./ExploreBar.module.scss";
 
 type Link = {
   label: React.ReactNode;
@@ -13,11 +13,11 @@ type Props = {
   links: readonly [Link, ...Link[]];
 };
 
-const ExploreLinks = ({ heading, links }: Props) => {
+const ExploreBar = ({ heading, links }: Props) => {
   return (
-    <nav className={styles["ExploreLinks"]} aria-labelledby="explore-links">
+    <nav className={styles["ExploreBar"]} aria-labelledby="explore-bar">
       <Typography
-        id="explore-links"
+        id="explore-bar"
         variant="h6"
         // @ts-ignore Accepts component property although not reflected in TS
         component="h2"
@@ -39,4 +39,4 @@ const ExploreLinks = ({ heading, links }: Props) => {
   );
 };
 
-export default ExploreLinks;
+export default ExploreBar;
