@@ -70,3 +70,10 @@ export type TabsOrAccordionSectionData = {
   title: string;
   type: "Accordion" | "Tabs";
 };
+
+export type VillainSectionData = {
+  __typename: string;
+  title: string;
+  hero: HeroData;
+  isReversed: boolean;
+};

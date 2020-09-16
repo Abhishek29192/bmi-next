@@ -1,6 +1,7 @@
 import React from "react";
 import Page from "../components/Page";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
+import VillainSection from "../components/VillainSection";
 import { graphql } from "gatsby";
 import { SiteData, PageData } from "./types";
 
@@ -12,7 +13,8 @@ type Props = {
 };
 
 const SectionsMap = {
-  ContentfulTabsOrAccordionSection: TabsOrAccordionSection
+  ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
+  ContentfulVillainSection: VillainSection
 };
 
 const SimplePage = ({ data }: Props) => {
@@ -52,6 +54,7 @@ export const pageQuery = graphql`
       sections {
         __typename
         ...TabsOrAccordionSectionFragment
+        ...VillainSectionFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
