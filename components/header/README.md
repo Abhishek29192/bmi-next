@@ -1,17 +1,23 @@
-Main header for the site.
-Note that links are wrapped with `ClickableAction`.
+Main header for the site. Note that links are wrapped with `ClickableAction`.
+
+The header must be placed in the DOM at the top of the `body`. For the demo, click the button to seat the header at the correct place in the DOM.
 
 ## Example
 
 ```jsx
-import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
-import Arrow from "./svgs/Arrow.svg";
-import Icopal from "@bmi/logo/svgs/Icopal.svg";
-import Monier from "@bmi/logo/svgs/Monier.svg";
-import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
-import Zanda from "@bmi/logo/svgs/Zanda.svg";
-import systemsImage from "./images/systems.jpg";
+import { useRef } from "react";
+import Button from "@bmi/button";
+import Icon from "@bmi/icon";
 import { languages } from "@bmi/language-selection";
+import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
+import Icopal from "@bmi/logo/svgs/Icopal.svg";
+import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
+import Monier from "@bmi/logo/svgs/Monier.svg";
+import Zanda from "@bmi/logo/svgs/Zanda.svg";
+import { languages } from "@bmi/language-selection";
+import { Fullscreen } from "@material-ui/icons";
+import systemsImage from "./images/systems.jpg";
+import Arrow from "./svgs/Arrow.svg";
 
 const utilities = [
   {
@@ -138,5 +144,31 @@ const navigation = [
   }
 ];
 
-<Header utilities={utilities} navigation={navigation} languages={languages} />;
+const demoArea = useRef();
+
+const seatHeader = () => {
+  document.querySelector("body").prepend(demoArea.current.firstChild);
+};
+
+<>
+  <Button onClick={seatHeader} endIcon={<Fullscreen />}>
+    Seat header
+  </Button>
+  <div
+    ref={demoArea}
+    style={{
+      backgroundColor: "gainsboro",
+      border: "2px dashed grey",
+      marginTop: "1rem",
+      minHeight: "1rem",
+      overflow: "hidden"
+    }}
+  >
+    <Header
+      languages={languages}
+      navigation={navigation}
+      utilities={utilities}
+    />
+  </div>
+</>;
 ```
