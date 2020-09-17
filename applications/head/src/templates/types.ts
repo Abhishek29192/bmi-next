@@ -53,7 +53,7 @@ export type HeroData = {
 
 export type PageData = {
   hero?: HeroData;
-  sections?: [...TabsOrAccordionSectionData[]];
+  sections: (TabsOrAccordionSectionData | VillainSectionData)[] | null;
   showSignUpBanner?: boolean;
   slug?: string;
   title: string;
@@ -68,7 +68,7 @@ export type TabsOrAccordionSectionData = {
   __typename: string;
   backgroundColor: "pearl" | "white";
   description: string;
-  items: [...TabsOrAccordionSectionItemData[]];
+  items: TabsOrAccordionSectionItemData[];
   title: string;
   type: "Accordion" | "Tabs";
 };
