@@ -54,8 +54,31 @@ export type HeroData = {
 };
 
 export type PageData = {
-  title: string;
-  showSignUpBanner?: boolean;
   hero?: HeroData;
+  sections: (TabsOrAccordionSectionData | VillainSectionData)[] | null;
+  showSignUpBanner?: boolean;
   slug?: string;
+  title: string;
+};
+
+export type TabsOrAccordionSectionItemData = {
+  title: string;
+  content: { json: Document };
+};
+
+export type TabsOrAccordionSectionData = {
+  __typename: string;
+  backgroundColor: "pearl" | "white";
+  description: string;
+  items: TabsOrAccordionSectionItemData[];
+  title: string;
+  type: "Accordion" | "Tabs";
+};
+
+export type VillainSectionData = {
+  __typename: string;
+  backgroundColor: "pearl" | "white";
+  title: string;
+  hero: HeroData;
+  isReversed: boolean;
 };
