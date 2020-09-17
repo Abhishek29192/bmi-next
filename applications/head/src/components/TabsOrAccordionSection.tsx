@@ -58,6 +58,11 @@ const SectionTabs = ({
   );
 };
 
+const componentMap = {
+  Accordion: SectionAccordion,
+  Tabs: SectionTabs
+};
+
 const TabsOrAccordionSection = ({
   title,
   type,
@@ -65,12 +70,12 @@ const TabsOrAccordionSection = ({
   description,
   backgroundColor
 }: TabsOrAccordionSectionData) => {
+  const Component = componentMap[type];
   return (
     <Section backgroundColor={backgroundColor}>
       <Section.Title>{title}</Section.Title>
       {description && <Typography variant="body1">{description}</Typography>}
-      {type === "Accordion" && <SectionAccordion items={items} />}
-      {type === "Tabs" && <SectionTabs items={items} />}
+      <Component items={items} />
     </Section>
   );
 };

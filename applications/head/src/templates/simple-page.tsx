@@ -12,7 +12,7 @@ type Props = {
   };
 };
 
-const SectionsMap = {
+const sectionsMap = {
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
   ContentfulVillainSection: VillainSection
 };
@@ -23,7 +23,7 @@ const SimplePage = ({ data }: Props) => {
     <Page pageData={data.contentfulSimplePage} siteData={data.contentfulSite}>
       {sections &&
         sections.map((section, index) => {
-          const Component = SectionsMap[section.__typename];
+          const Component = sectionsMap[section.__typename];
           return (
             <Component
               key={`section${index}`}
