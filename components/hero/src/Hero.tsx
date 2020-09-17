@@ -77,7 +77,7 @@ const Hero = ({
         }
       )}
     >
-      <Container maxWidth="lg" className={styles["container"]}>
+      <Container className={styles["container"]}>
         <div className={styles["wrapper"]}>
           {breadcrumbs}
           <Carousel
@@ -164,7 +164,7 @@ const SingleHero = ({ breadcrumbs, title, ...levelProps }: Props) => {
         [styles["Hero--slim"]]: levelProps.level !== 1
       })}
     >
-      <Container maxWidth="lg" className={styles["container"]}>
+      <Container className={styles["container"]}>
         <div className={styles["wrapper"]}>
           {breadcrumbs}
           <div className={styles["content"]}>

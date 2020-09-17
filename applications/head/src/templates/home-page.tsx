@@ -14,9 +14,7 @@ type Props = {
 const HomePage = ({ data }: Props) => {
   return (
     <Page pageData={data.contentfulHomePage} siteData={data.contentfulSite}>
-      <Container maxWidth="lg" style={{ padding: "50px 25px" }}>
-        HOME PAGE CONTENT
-      </Container>
+      <Container style={{ padding: "50px 25px" }}>HOME PAGE CONTENT</Container>
     </Page>
   );
 };
