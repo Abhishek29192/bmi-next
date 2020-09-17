@@ -66,6 +66,7 @@ export type TabsOrAccordionSectionItemData = {
 
 export type TabsOrAccordionSectionData = {
   __typename: string;
+  backgroundColor: "pearl" | "white";
   description: string;
   items: [...TabsOrAccordionSectionItemData[]];
   title: string;
@@ -74,6 +75,7 @@ export type TabsOrAccordionSectionData = {
 
 export type VillainSectionData = {
   __typename: string;
+  backgroundColor: "pearl" | "white";
   title: string;
   hero: HeroData;
   isReversed: boolean;

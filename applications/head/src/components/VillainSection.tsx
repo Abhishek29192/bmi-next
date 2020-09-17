@@ -4,11 +4,16 @@ import Section from "@bmi/section";
 import Villain from "@bmi/villain";
 import { VillainSectionData } from "../templates/types";
 
-const VillainSection = ({ title, hero, isReversed }: VillainSectionData) => {
+const VillainSection = ({
+  title,
+  hero,
+  isReversed,
+  backgroundColor
+}: VillainSectionData) => {
   const { image, title: villainTitle, subtitle } = hero;
 
   return (
-    <Section>
+    <Section backgroundColor={backgroundColor}>
       <Section.Title>{title}</Section.Title>
       <Villain
         title={villainTitle}

@@ -58,10 +58,15 @@ const SectionTabs = ({
   );
 };
 
-const TabsOrAccordionSection = (data: TabsOrAccordionSectionData) => {
-  const { title, type, items, description } = data;
+const TabsOrAccordionSection = ({
+  title,
+  type,
+  items,
+  description,
+  backgroundColor
+}: TabsOrAccordionSectionData) => {
   return (
-    <Section>
+    <Section backgroundColor={backgroundColor}>
       <Section.Title>{title}</Section.Title>
       {description && <Typography variant="body1">{description}</Typography>}
       {type === "Accordion" && <SectionAccordion items={items} />}

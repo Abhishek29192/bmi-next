@@ -24,7 +24,14 @@ const SimplePage = ({ data }: Props) => {
       {sections &&
         sections.map((section, index) => {
           const Component = SectionsMap[section.__typename];
-          return <Component key={`section${index}`} {...section} />;
+          return (
+            <Component
+              key={`section${index}`}
+              {...section}
+              // TODO: Robust theme-based solution required.
+              backgroundColor={index % 2 === 0 ? "pearl" : "white"}
+            />
+          );
         })}
     </Page>
   );
