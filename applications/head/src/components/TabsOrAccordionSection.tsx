@@ -1,9 +1,10 @@
 import React from "react";
+import { graphql } from "gatsby";
 import Accordion from "@bmi/accordion";
 import Section from "@bmi/section";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-import { graphql } from "gatsby";
+import RichText from "../components/RichText";
 import {
   TabsOrAccordionSectionData,
   TabsOrAccordionSectionItemData
@@ -17,6 +18,8 @@ const SectionAccordion = ({
   return (
     <Accordion>
       {items.map(({ title, content }) => {
+        const { json } = content;
+
         return (
           <Accordion.Item key={title}>
             <Accordion.Summary>
@@ -25,7 +28,9 @@ const SectionAccordion = ({
                 {title}
               </Typography>
             </Accordion.Summary>
-            <Accordion.Details>{content}</Accordion.Details>
+            <Accordion.Details>
+              <RichText document={json} />
+            </Accordion.Details>
           </Accordion.Item>
         );
       })}
@@ -41,9 +46,11 @@ const SectionTabs = ({
   return (
     <Tabs initialValue={items[0].title}>
       {items.map(({ title, content }) => {
+        const { json } = content;
+
         return (
           <Tabs.TabPanel heading={title} index={title} key={title}>
-            {content}
+            <RichText document={json} />
           </Tabs.TabPanel>
         );
       })}
@@ -71,6 +78,9 @@ export const query = graphql`
     title
     items {
       title
+      content {
+        json
+      }
     }
   }
 `;

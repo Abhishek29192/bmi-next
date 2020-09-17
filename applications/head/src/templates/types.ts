@@ -61,6 +61,7 @@ export type PageData = {
 
 export type TabsOrAccordionSectionItemData = {
   title: string;
+  content: { json: Document };
 };
 
 export type TabsOrAccordionSectionData = {
