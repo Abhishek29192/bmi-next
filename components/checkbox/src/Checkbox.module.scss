@@ -1,0 +1,13 @@
+@import "@bmi/styles";
+
+.Checkbox {
+  :global {
+    .MuiCheckbox-colorPrimary {
+      color: $color-cyan-500;
+
+      &.Mui-disabled {
+        color: rgba($color-cyan-500, 0.25);
+      }
+    }
+  }
+}
