@@ -1,0 +1,81 @@
+@import "@bmi/styles";
+
+.LocationCard {
+  padding: 20px;
+  box-shadow: elevation(2);
+  font-style: normal;
+  font-size: 1rem;
+
+  .list {
+    margin: 36px 0 0;
+  }
+
+  .icon {
+    height: 24px;
+    width: 24px;
+    margin-right: 12px;
+    display: none;
+    color: $color-slate;
+  }
+
+  .term {
+    display: flex;
+  }
+
+  .description {
+    margin: 10px 0 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .label {
+    display: inline-block;
+    color: $color-slate;
+
+    &::after {
+      content: ":";
+      display: inline;
+    }
+  }
+
+  .foot-note {
+    margin-top: 36px;
+    color: $color-charocal;
+    font-size: 16px;
+  }
+
+  .link {
+    font-family: "Effra Medium";
+  }
+
+  @media (min-width: $breakpoint-md) {
+    padding: 30px;
+
+    .list {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 23px;
+    }
+
+    .icon {
+      display: inline-block;
+    }
+
+    .term {
+      grid-column: 1;
+    }
+
+    .description {
+      grid-column: 2;
+
+      margin: 0;
+    }
+
+    .label {
+      margin-bottom: 0;
+    }
+  }
+}
