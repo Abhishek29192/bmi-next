@@ -17,7 +17,7 @@ const ContactUsPage = ({ data }: Props) => {
       pageData={data.contentfulContactUsPage}
       siteData={data.contentfulSite}
     >
-      <Container maxWidth="lg" style={{ padding: "50px 25px" }}>
+      <Container style={{ padding: "50px 25px" }}>
         CONTACT US PAGE CONTENT
       </Container>
     </Page>

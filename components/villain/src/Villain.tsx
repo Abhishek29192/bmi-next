@@ -53,7 +53,7 @@ const FullSizeVillain = ({
         [styles["Villain--reversed"]]: isReversed
       })}
     >
-      <Container maxWidth="lg" className={styles["container"]}>
+      <Container className={styles["container"]}>
         <div className={styles["content"]}>
           <Typography variant="h2" hasUnderline className={styles["title"]}>
             {title}
