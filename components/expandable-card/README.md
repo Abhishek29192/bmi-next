@@ -62,11 +62,14 @@ import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 const Body = ({ isShort }) => {
   return (
     <>
-      <Typography variant="h6">Did you know?</Typography>
+      <Typography component="h4" variant="h6">
+        Did you know?
+      </Typography>
       <IconList>
         <IconList.Item
           icon={<EmojiObjectsOutlinedIcon style={{ color: "#009FE3" }} />}
           title="You can check relevant technical information whilst browsing our site"
+          component="h5"
         >
           {!isShort && (
             <Typography>
@@ -80,6 +83,7 @@ const Body = ({ isShort }) => {
           <IconList.Item
             icon={<EmojiObjectsOutlinedIcon style={{ color: "#009FE3" }} />}
             title="Our installation instructions show how a product is assembled"
+            component="h5"
           >
             <Typography>
               If you need help with mounting a product or accessory, our
