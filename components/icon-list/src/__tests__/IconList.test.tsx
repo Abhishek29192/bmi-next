@@ -53,4 +53,16 @@ describe("IconList component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders correctly with custom component", () => {
+    const { container } = render(
+      <IconList>
+        <IconList.Item title="Title" component="span">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui
+          quas rem. Animi doloremque veniam numquam at deleniti quas fuga,
+          similique minus magni cum nihil, in sed neque, tempore adipisci.
+        </IconList.Item>
+      </IconList>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

@@ -7,12 +7,18 @@ type ListItemProps = {
   icon?: React.ReactNode;
   title: string;
   children: React.ReactNode;
+  component?: React.ElementType;
 };
-const ListItem = ({ icon, title, children }: ListItemProps) => (
+const ListItem = ({ icon, title, children, component }: ListItemProps) => (
   <div className={styles["ListItem"]}>
     <div className={styles["icon"]}>{icon || <ChevronRightIcon />}</div>
     <div className={styles["content"]}>
-      <Typography className={styles["title"]} variant="h6">
+      <Typography
+        className={styles["title"]}
+        // @ts-ignore TS doesn't know that this is an option.
+        component={component}
+        variant="h6"
+      >
         {title}
       </Typography>
       {children}
