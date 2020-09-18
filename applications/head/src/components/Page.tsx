@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 import BmiThemeProvider from "@bmi/theme-provider/src";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -53,3 +54,21 @@ const Page = ({ children, pageData, siteData }: Props) => {
 };
 
 export default Page;
+
+export const query = graphql`
+  fragment LinkFragment on ContentfulLink {
+    id
+    label
+    icon
+    isLabelHidden
+    url
+    linkedPage {
+      ... on ContentfulSimplePage {
+        slug
+      }
+      ... on ContentfulContactUsPage {
+        slug
+      }
+    }
+  }
+`;

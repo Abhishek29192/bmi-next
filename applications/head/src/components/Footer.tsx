@@ -83,23 +83,13 @@ export const query = graphql`
     label
     links {
       ... on ContentfulLink {
-        id
-        label
-        icon
-        isLabelHidden
+        ...LinkFragment
       }
       ... on ContentfulNavigation {
         label
         links {
           ... on ContentfulLink {
-            id
-            label
-            icon
-            isLabelHidden
-            url
-            linkedPage {
-              slug
-            }
+            ...LinkFragment
           }
         }
       }
@@ -109,14 +99,7 @@ export const query = graphql`
     label
     links {
       ... on ContentfulLink {
-        id
-        label
-        icon
-        isLabelHidden
-        url
-        linkedPage {
-          slug
-        }
+        ...LinkFragment
       }
     }
   }
