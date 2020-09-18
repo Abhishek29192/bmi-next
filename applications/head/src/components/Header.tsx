@@ -60,11 +60,11 @@ const parseNavigation = (navigationItems) => {
       if (linkedPage) {
         action = {
           model: "routerLink",
-          to: linkedPage.slug,
+          // TODO: use countryCode from context instead of /no
+          to: `/no/${linkedPage.slug}`,
           linkComponent: Link
         };
-      }
-      if (url) {
+      } else if (url) {
         action = {
           model: "htmlLink",
           href: url
