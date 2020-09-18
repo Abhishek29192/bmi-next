@@ -1,3 +1,3 @@
-import Container from "@material-ui/core/Container";
+import Container from "./Container";
 
 export default Container;
