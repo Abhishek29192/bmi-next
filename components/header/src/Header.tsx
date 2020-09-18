@@ -9,15 +9,9 @@ import LanguageSelection, {
 import BmiIcon from "@bmi/logo/svgs/BMI.svg";
 import Navigation, { LinkList, NavitationList } from "@bmi/navigation";
 import TextField from "@bmi/text-field";
+import Container from "@bmi/container";
 import Typography from "@bmi/typography";
-import {
-  Backdrop,
-  Container,
-  Paper,
-  Slide,
-  Tab,
-  Tabs
-} from "@material-ui/core";
+import { Backdrop, Paper, Slide, Tab, Tabs } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { Close, KeyboardArrowDown, Menu, Search } from "@material-ui/icons";
 import classnames from "classnames";
