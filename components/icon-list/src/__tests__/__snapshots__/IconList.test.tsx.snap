@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`IconList component renders correctly with custom component 1`] = `
+<div>
+  <div>
+    <div
+      class="ListItem"
+    >
+      <div
+        class="icon"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+      </div>
+      <div
+        class="content"
+      >
+        <span
+          class="MuiTypography-root title Typography MuiTypography-h6"
+        >
+          Title
+        </span>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui quas rem. Animi doloremque veniam numquam at deleniti quas fuga, similique minus magni cum nihil, in sed neque, tempore adipisci.
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`IconList component renders correctly with default icon 1`] = `
 <div>
   <div>

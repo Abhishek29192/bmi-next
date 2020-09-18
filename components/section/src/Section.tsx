@@ -15,7 +15,7 @@ export type Props = {
 const Section = ({
   backgroundColor = "transparent",
   children,
-  size = "lg"
+  size = "xl"
 }: Props) => {
   const isNested = useContext(SectionContext);
 

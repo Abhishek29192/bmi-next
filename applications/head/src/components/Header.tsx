@@ -60,11 +60,11 @@ const parseNavigation = (navigationItems) => {
       if (linkedPage) {
         action = {
           model: "routerLink",
-          to: linkedPage.slug,
+          // TODO: use countryCode from context instead of /no
+          to: `/no/${linkedPage.slug}`,
           linkComponent: Link
         };
-      }
-      if (url) {
+      } else if (url) {
         action = {
           model: "htmlLink",
           href: url
@@ -102,21 +102,11 @@ const Header = ({
 export default Header;
 
 export const query = graphql`
-  fragment PartialLinkFragment on ContentfulLink {
-    id
-    label
-    icon
-    isLabelHidden
-    url
-    linkedPage {
-      slug
-    }
-  }
   fragment HeaderNavigationFragment on ContentfulNavigation {
     label
     links {
       ... on ContentfulLink {
-        ...PartialLinkFragment
+        ...LinkFragment
       }
       ... on ContentfulNavigation {
         label
@@ -126,7 +116,7 @@ export const query = graphql`
             value
           }
           ... on ContentfulLink {
-            ...PartialLinkFragment
+            ...LinkFragment
           }
           ... on ContentfulNavigation {
             label
@@ -136,19 +126,19 @@ export const query = graphql`
                 value
               }
               ... on ContentfulLink {
-                ...PartialLinkFragment
+                ...LinkFragment
               }
               ... on ContentfulNavigation {
                 label
                 links {
                   ... on ContentfulLink {
-                    ...PartialLinkFragment
+                    ...LinkFragment
                   }
                   ... on ContentfulNavigation {
                     label
                     links {
                       ... on ContentfulLink {
-                        ...PartialLinkFragment
+                        ...LinkFragment
                       }
                     }
                   }
@@ -164,13 +154,7 @@ export const query = graphql`
     label
     links {
       ... on ContentfulLink {
-        id
-        label
-        isLabelHidden
-        url
-        linkedPage {
-          slug
-        }
+        ...LinkFragment
       }
     }
   }

@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 import BmiThemeProvider from "@bmi/theme-provider/src";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -11,6 +12,37 @@ type Props = {
   children: React.ReactNode;
   pageData: PageData;
   siteData: SiteData;
+};
+
+export type HeroData = {
+  title: string;
+  subtitle?: {
+    subtitle: string;
+  };
+  image?: {
+    title: string;
+    file: {
+      fileName: string;
+      url: string;
+    };
+  };
+};
+
+const getHeroLevelFromData = (
+  heroData: HeroData,
+  slug?: string | null
+): 1 | 2 | 3 => {
+  if (!slug) {
+    // TODO: This means it's homepage, level 0 for carousel should be added.
+    return 1;
+  }
+
+  if (heroData.image) {
+    return 1;
+  }
+
+  // TODO: Understand when it's a third level hero
+  return 2;
 };
 
 const Page = ({ children, pageData, siteData }: Props) => {
@@ -38,7 +70,7 @@ const Page = ({ children, pageData, siteData }: Props) => {
     <BmiThemeProvider>
       <Helmet title={pageData.title} />
       <Header navigationData={menuNavigation} utilitiesData={menuUtilities} />
-      <Hero data={heroData} level={slug === undefined ? 1 : 2} />
+      <Hero data={heroData} level={getHeroLevelFromData(heroData, slug)} />
       {children}
       {pageData.showSignUpBanner ? (
         <NewsletterSignUp data={signUpData} />
@@ -53,3 +85,21 @@ const Page = ({ children, pageData, siteData }: Props) => {
 };
 
 export default Page;
+
+export const query = graphql`
+  fragment LinkFragment on ContentfulLink {
+    id
+    label
+    icon
+    isLabelHidden
+    url
+    linkedPage {
+      ... on ContentfulSimplePage {
+        slug
+      }
+      ... on ContentfulContactUsPage {
+        slug
+      }
+    }
+  }
+`;

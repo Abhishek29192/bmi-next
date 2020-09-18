@@ -61,16 +61,16 @@ export type PageData = {
   title: string;
 };
 
-export type TabsOrAccordionSectionItemData = {
+export type TitleWithContent = {
   title: string;
-  content: { json: Document };
+  content: Json;
 };
 
 export type TabsOrAccordionSectionData = {
   __typename: string;
   backgroundColor: "pearl" | "white";
-  description: string;
-  items: TabsOrAccordionSectionItemData[];
+  description: null | { description: string };
+  items: readonly TitleWithContent[];
   title: string;
   type: "Accordion" | "Tabs";
 };
@@ -81,4 +81,11 @@ export type VillainSectionData = {
   title: string;
   hero: HeroData;
   isReversed: boolean;
+};
+
+export type ContactUsPageData = PageData & {
+  queriesTitle: string;
+  queriesSubtitle: string;
+  otherAreasTitle: string;
+  otherAreas: readonly TitleWithContent[];
 };

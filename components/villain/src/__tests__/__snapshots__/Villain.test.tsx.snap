@@ -56,7 +56,7 @@ exports[`Villain component renders full size 1`] = `
   class="Villain Villain--full-size ColorPair ColorPair--blue-800"
 >
   <div
-    class="MuiContainer-root container MuiContainer-maxWidthLg"
+    class="MuiContainer-root container MuiContainer-maxWidthXl"
   >
     <div
       class="content"
@@ -99,7 +99,7 @@ exports[`Villain component renders full size and reversed 1`] = `
   class="Villain Villain--full-size Villain--reversed ColorPair ColorPair--blue-800"
 >
   <div
-    class="MuiContainer-root container MuiContainer-maxWidthLg"
+    class="MuiContainer-root container MuiContainer-maxWidthXl"
   >
     <div
       class="content"

@@ -1,51 +1,6 @@
-## Variants
-
-### Default
-
-```jsx
-import BuildIcon from "@material-ui/icons/Build";
-
-<ExpandableCard
-  icon={BuildIcon}
-  title="Technical Queries"
-  body="Did you know?"
-/>;
-```
-
-### Expanded
-
-Has to be in a relative positioned element, as it's going to take the width and the (minimum) height of its parent.
-
-```jsx
-import Typography from "@bmi/typography";
-import BuildIcon from "@material-ui/icons/Build";
-
-<div style={{ position: "relative", height: "300px" }}>
-  <ExpandableCard
-    icon={BuildIcon}
-    title="Technical Queries"
-    body={
-      <Typography>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </Typography>
-    }
-    isExpanded
-  />
-</div>;
-```
-
-### List
-
-When used inside a `ExpandableCard.List` component, or with other flex elements and controlled, the Cards expand and collapse using their flex parent.
-
-```tsx
+import React from "react";
 import Button from "@bmi/button";
+import ExpandableCard from "@bmi/expandable-card";
 import Typography from "@bmi/typography";
 import IconList from "@bmi/icon-list";
 import BuildIcon from "@material-ui/icons/Build";
@@ -59,9 +14,10 @@ import HelpIcon from "@material-ui/icons/Help";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 
-const Body = ({ isShort }) => {
+const Body = ({ isShort }: { isShort?: boolean }) => {
   return (
     <>
+      {/* @ts-ignore */}
       <Typography component="h4" variant="h6">
         Did you know?
       </Typography>
@@ -160,5 +116,8 @@ const items = [
   }
 ];
 
-<ExpandableCard.List items={items} />;
-```
+const IntegratedExpandableCard = () => {
+  return <ExpandableCard.List items={items} />;
+};
+
+export default IntegratedExpandableCard;
