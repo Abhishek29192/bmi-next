@@ -1,25 +1,45 @@
 import React from "react";
 import Page from "../components/Page";
+import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import { graphql } from "gatsby";
-import { PageData, SiteData } from "./types";
-import Container from "@bmi/container";
+import { ContactUsPageData, SiteData } from "./types";
+import ExpandableCard from "../components/ExpandableCards";
+import Typography from "@bmi/typography";
+import Section from "@bmi/section";
 
 type Props = {
   data: {
-    contentfulContactUsPage: PageData;
+    contentfulContactUsPage: ContactUsPageData;
     contentfulSite: SiteData;
   };
 };
 
 const ContactUsPage = ({ data }: Props) => {
+  const {
+    queriesTitle,
+    queriesSubtitle,
+    otherAreasTitle,
+    otherAreas,
+    ...pageData
+  } = data.contentfulContactUsPage;
   return (
-    <Page
-      pageData={data.contentfulContactUsPage}
-      siteData={data.contentfulSite}
-    >
-      <Container style={{ padding: "50px 25px" }}>
-        CONTACT US PAGE CONTENT
-      </Container>
+    <Page pageData={pageData} siteData={data.contentfulSite}>
+      <Section backgroundColor="pearl">
+        <Section.Title>{queriesTitle}</Section.Title>
+        {/* @ts-ignore TS doens't understand component */}
+        <Typography variant="h4" component="p">
+          {queriesSubtitle}
+        </Typography>
+        <div style={{ marginTop: "40px" }}>
+          <ExpandableCard />
+        </div>
+      </Section>
+      <TabsOrAccordionSection
+        title={otherAreasTitle}
+        type="Accordion"
+        items={otherAreas}
+        backgroundColor="white"
+      />
     </Page>
   );
 };
@@ -43,6 +63,15 @@ export const pageQuery = graphql`
             fileName
             url
           }
+        }
+      }
+      queriesTitle
+      queriesSubtitle
+      otherAreasTitle
+      otherAreas {
+        title
+        content {
+          json
         }
       }
     }
