@@ -1,22 +1,8 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
-import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
-import Icopal from "@bmi/logo/svgs/Icopal.svg";
-import Monier from "@bmi/logo/svgs/Monier.svg";
-import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
-import Zanda from "@bmi/logo/svgs/Zanda.svg";
 import { NavigationData } from "../templates/types";
 import HeaderComponent from "@bmi/header";
-
-const IconMap = {
-  AeroDek: <AeroDek />,
-  Monier: <Monier />,
-  Monarplan: <Monarplan />,
-  Arrow: <Arrow />,
-  Zanda: <Zanda />,
-  Icopal: <Icopal />
-};
+import Icon from "./Icon";
 
 const parseNavigation = (navigationItems) => {
   return navigationItems.reduce(
@@ -36,10 +22,10 @@ const parseNavigation = (navigationItems) => {
     ) => {
       let iconLabel;
       if (isLabelHidden && iconName) {
-        iconLabel = IconMap[iconName] || <Arrow />;
+        iconLabel = <Icon name={iconName} />;
       }
       if (!isLabelHidden && iconName) {
-        iconLabel = [IconMap[iconName] || <Arrow />, label];
+        iconLabel = [<Icon key={`icon-${iconName}`} name={iconName} />, label];
       }
 
       const isHeading =
