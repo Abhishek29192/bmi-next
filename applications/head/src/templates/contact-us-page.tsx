@@ -26,7 +26,6 @@ const ContactUsPage = ({ data }: Props) => {
     <Page pageData={pageData} siteData={data.contentfulSite}>
       <Section backgroundColor="pearl">
         <Section.Title>{queriesTitle}</Section.Title>
-        {/* @ts-ignore TS doens't understand component */}
         <Typography variant="h4" component="p">
           {queriesSubtitle}
         </Typography>

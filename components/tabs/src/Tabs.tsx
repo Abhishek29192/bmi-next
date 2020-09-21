@@ -33,6 +33,9 @@ type TabsProps = MaterialTabsProps &
     children: React.ReactElement[];
     initialValue?: any;
     theme?: "primary" | "secondary";
+    // NOTE: This is necessary until we upgrade to @material-ui/core@^5.0.0
+    // see: https://github.com/mui-org/material-ui/issues/22452#issuecomment-685756045
+    component?: React.ElementType;
   };
 
 const Tabs = ({

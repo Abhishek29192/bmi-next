@@ -15,7 +15,6 @@ const ListItem = ({ icon, title, children, component }: ListItemProps) => (
     <div className={styles["content"]}>
       <Typography
         className={styles["title"]}
-        // @ts-ignore TS doesn't know that this is an option.
         component={component}
         variant="h6"
       >

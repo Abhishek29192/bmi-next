@@ -105,7 +105,7 @@ exports[`Header component renders correctly 1`] = `
   >
     <button
       aria-label="Close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium CloseButton"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
       tabindex="0"
       type="button"
     >
@@ -288,7 +288,7 @@ exports[`Header component renders correctly 1`] = `
       >
         <button
           aria-label="Search"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium"
+          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained"
           tabindex="0"
           type="button"
         >
@@ -312,7 +312,7 @@ exports[`Header component renders correctly 1`] = `
         </button>
         <button
           aria-label="Open menu"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium BurgerButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained BurgerButton"
           tabindex="0"
           type="button"
         >
@@ -348,7 +348,7 @@ exports[`Header component renders correctly 1`] = `
   >
     <button
       aria-label="Close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium CloseButton"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
       tabindex="0"
       type="button"
     >
@@ -761,7 +761,7 @@ exports[`Header component renders correctly 1`] = `
   >
     <button
       aria-label="Close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium CloseButton"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
       tabindex="0"
       type="button"
     >
@@ -813,7 +813,7 @@ exports[`Header component renders correctly 1`] = `
       </div>
       <button
         aria-label="Search"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button"
         tabindex="0"
         type="button"
       >

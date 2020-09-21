@@ -3,7 +3,7 @@
 exports[`Button component renders a disabled icon button 1`] = `
 <button
   aria-label="UserIcon"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--disabled"
+  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained IconButton--disabled"
   tabindex="0"
   type="button"
 >
@@ -47,7 +47,7 @@ exports[`Button component renders a flat button on dark background 1`] = `
 exports[`Button component renders a small icon button 1`] = `
 <button
   aria-label="UserIcon"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--small"
+  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--small IconButton--contained"
   tabindex="0"
   type="button"
 >
@@ -74,7 +74,7 @@ exports[`Button component renders a small icon button 1`] = `
 exports[`Button component renders an icon button 1`] = `
 <button
   aria-label="User"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium"
+  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained"
   tabindex="0"
   type="button"
 >

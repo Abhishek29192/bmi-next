@@ -114,7 +114,6 @@ const ContainedVillain = ({
             <ColorPair theme={theme} className={styles["content"]}>
               <Typography
                 variant="h4"
-                // @ts-ignore Accepts component property although not reflected in TS
                 component="h3"
                 className={styles["title"]}
               >
