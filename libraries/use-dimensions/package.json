@@ -1,0 +1,14 @@
+{
+  "name": "@bmi/use-dimensions",
+  "version": "0.0.0",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "react": "^16.13.1",
+    "typescript": "^3.9.5"
+  }
+}
