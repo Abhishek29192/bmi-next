@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileCard component renders correctly 1`] = `
+<div
+  class="ProfileCard"
+>
+  <div
+    class="head"
+  >
+    <img
+      class="profile-picture"
+      src="path-to-image"
+    />
+  </div>
+  <div
+    class="body"
+  >
+    <strong
+      class="MuiTypography-root Typography MuiTypography-h5"
+    >
+      Richard Stallman
+    </strong>
+    <p
+      class="MuiTypography-root title Typography MuiTypography-body2"
+    >
+      Wizard
+    </p>
+  </div>
+  <div
+    class="footer"
+  >
+    <span
+      class="row"
+    >
+      <svg
+        class="row-icon"
+      />
+      <a
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        href="/"
+      >
+        <span>
+          Profile line with link
+        </span>
+      </a>
+    </span>
+    <span
+      class="row"
+    >
+      <svg
+        class="row-icon"
+      />
+      Profile line without linkn
+    </span>
+  </div>
+</div>
+`;
