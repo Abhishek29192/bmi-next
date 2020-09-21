@@ -51,10 +51,14 @@ export type HeroData = {
       url: string;
     };
   };
+  cta: {
+    label: string;
+  } | null;
 };
 
 export type PageData = {
   hero?: HeroData;
+  heroes?: readonly HeroData[];
   sections?: (TabsOrAccordionSectionData | VillainSectionData)[] | null;
   showSignUpBanner?: boolean;
   slug?: string;

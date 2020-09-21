@@ -3,18 +3,64 @@ import Page from "../components/Page";
 import { graphql } from "gatsby";
 import { PageData, SiteData } from "./types";
 import Container from "@bmi/container";
+import Grid from "@bmi/grid";
+import CTACard from "@bmi/cta-card";
+
+type OverlapCard = {
+  label: string;
+  URL: string | null;
+  page: {
+    slug: string;
+  } | null;
+  image: {
+    resize: {
+      src: string;
+    };
+  } | null;
+};
+
+type HomepageData = PageData & {
+  overlapCards: readonly OverlapCard[];
+};
 
 type Props = {
   data: {
-    contentfulHomePage: PageData;
+    contentfulHomePage: HomepageData;
     contentfulSite: SiteData;
   };
 };
 
-const HomePage = ({ data }: Props) => {
+const IntegratedOverlapCards = ({
+  data
+}: {
+  data?: readonly OverlapCard[];
+}) => {
   return (
-    <Page pageData={data.contentfulHomePage} siteData={data.contentfulSite}>
-      <Container style={{ padding: "50px 25px" }}>HOME PAGE CONTENT</Container>
+    <div
+      style={{
+        marginTop: "-112px"
+      }}
+    >
+      <Grid spacing={3} container justify="center">
+        {data.map(({ label, image }, key) => {
+          return (
+            <Grid item key={key} xs={12} sm={3}>
+              <CTACard title={label} imageSource={image.resize.src} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </div>
+  );
+};
+
+const HomePage = ({ data }: Props) => {
+  const { overlapCards, ...pageData } = data.contentfulHomePage;
+  return (
+    <Page pageData={pageData} siteData={data.contentfulSite}>
+      <Container>
+        <IntegratedOverlapCards data={overlapCards} />
+      </Container>
     </Page>
   );
 };
@@ -36,6 +82,20 @@ export const pageQuery = graphql`
           file {
             fileName
             url
+          }
+        }
+        cta {
+          label
+        }
+      }
+      overlapCards {
+        label
+        linkedPage {
+          slug
+        }
+        image {
+          resize(width: 350) {
+            src
           }
         }
       }
