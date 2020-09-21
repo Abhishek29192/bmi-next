@@ -5,10 +5,10 @@
   # the build. This is relative to the base directory if one has been set, or the
   # root directory if a base has not been set. This sample publishes the
   # directory located at the absolute path "root/project/build-output"
-  publish = "applications/head/public/"
+  publish = "public/"
 
   # Default build command.
-  command = "yarn build:head --log-pages"
+  command = "yarn workspace @bmi/frc-website run build"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
@@ -19,9 +19,3 @@
 [[plugins]]
   # enable Gatsby.js incremental builds plugin.
   package = "netlify-plugin-gatsby-cache"
-
-# Deploy Preview context: all deploys generated from a pull/merge request will
-# inherit these settings.
-[context.deploy-preview]
-  publish = "styleguide/"
-  command = "yarn workbench:build"
