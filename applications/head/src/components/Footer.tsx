@@ -1,22 +1,10 @@
 import React from "react";
 import Footer from "@bmi/footer";
 import { ClickableAction } from "@bmi/clickable";
-import PhoneIcon from "@material-ui/icons/Phone";
-import MailIcon from "@material-ui/icons/Mail";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import YouTubeIcon from "@material-ui/icons/YouTube";
 import { graphql, Link } from "gatsby";
 import BmiIcon from "@bmi/footer/src/svgs/BMI.svg";
 import { NavigationData } from "../templates/types";
-
-const IconMap = {
-  Facebook: FacebookIcon,
-  YouTube: YouTubeIcon,
-  Mail: MailIcon,
-  Phone: PhoneIcon,
-  LinkedIn: LinkedInIcon
-};
+import { IconMap } from "./Icon";
 
 const getClickableActionFromUrl = (
   page,

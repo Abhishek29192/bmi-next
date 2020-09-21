@@ -26,7 +26,7 @@ export const pageQuery = graphql`
     contentfulHomePage(id: { eq: $pageId }) {
       title
       showSignUpBanner
-      hero {
+      heroes {
         title
         subtitle {
           subtitle

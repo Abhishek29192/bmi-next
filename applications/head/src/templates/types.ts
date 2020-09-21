@@ -55,7 +55,7 @@ export type HeroData = {
 
 export type PageData = {
   hero?: HeroData;
-  sections: (TabsOrAccordionSectionData | VillainSectionData)[] | null;
+  sections?: (TabsOrAccordionSectionData | VillainSectionData)[] | null;
   showSignUpBanner?: boolean;
   slug?: string;
   title: string;
@@ -88,4 +88,25 @@ export type ContactUsPageData = PageData & {
   queriesSubtitle: string;
   otherAreasTitle: string;
   otherAreas: readonly TitleWithContent[];
+};
+
+export type TeamMemberData = {
+  name: string;
+  jobTitle: string;
+  profilePicture: {
+    file: {
+      url: string;
+    };
+  };
+  links: LinkData[];
+};
+
+export type TeamPageData = PageData & {
+  teamCategories: {
+    title: string;
+    description: {
+      json: Document;
+    };
+    team_member: TeamMemberData[];
+  }[];
 };

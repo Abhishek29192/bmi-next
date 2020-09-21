@@ -2,17 +2,25 @@ import React from "react";
 import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import styles from "./ProfileCard.module.scss";
+import classnames from "classnames";
 
 type Props = {
   name: React.ReactNode;
   title?: React.ReactNode;
   imageSource: string;
   children?: React.ReactNode;
+  className?: string;
 };
 
-const ProfileCard = ({ name, title, imageSource, children }: Props) => {
+const ProfileCard = ({
+  name,
+  title,
+  imageSource,
+  children,
+  className
+}: Props) => {
   return (
-    <div className={styles["ProfileCard"]}>
+    <div className={classnames(styles["ProfileCard"], className)}>
       <div className={styles["head"]}>
         <img className={styles["profile-picture"]} src={imageSource} />
       </div>
@@ -34,13 +42,13 @@ const ProfileCard = ({ name, title, imageSource, children }: Props) => {
 type RowProps = {
   children: React.ReactNode;
   action?: ClickableAction;
-  icon: SVGImport;
+  icon?: SVGImport;
 };
 
 const ProfileRow = ({ children, action, icon: Icon }: RowProps) => {
   return (
     <span className={styles["row"]}>
-      <Icon className={styles["row-icon"]} />
+      {Icon ? <Icon className={styles["row-icon"]} /> : null}
       {action ? <AnchorLink action={action}>{children}</AnchorLink> : children}
     </span>
   );

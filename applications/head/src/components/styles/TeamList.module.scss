@@ -1,0 +1,10 @@
+.TeamList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+
+  .card {
+    margin: 10px;
+    flex: 1;
+  }
+}

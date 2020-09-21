@@ -15,7 +15,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const componentMap = {
     ContentfulSimplePage: path.resolve("./src/templates/simple-page.tsx"),
     ContentfulHomePage: path.resolve("./src/templates/home-page.tsx"),
-    ContentfulContactUsPage: path.resolve("./src/templates/contact-us-page.tsx")
+    ContentfulContactUsPage: path.resolve(
+      "./src/templates/contact-us-page.tsx"
+    ),
+    ContentfulTeamPage: path.resolve("./src/templates/team-page.tsx")
   };
 
   const result = await graphql(`
@@ -35,9 +38,10 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               slug
             }
-            ... on ContentfulHomePage {
+            ... on ContentfulTeamPage {
               __typename
               id
+              slug
             }
           }
         }
