@@ -50,7 +50,12 @@ We use [Gatsby](https://www.gatsbyjs.org/) to generate static website and it's d
 
 #### Configuration
 
-Before running the website, make sure you copy the `.env.example` file to `.env.development` (based on the `NODE_ENV`).
+Before running the website (`applications/head`), make sure you copy the `.env.example` file to `.env.development` (based on the `NODE_ENV`).
+
+Comment out the first set of variables: `COUNTRY_CODE`, `SPACE_ID`, and `ACCESS_TOKEN`.
+
+You can find the `SPACE_ID_n` and `ACCESS_TOKEN_n` values in Contentful API keys section.
+`COUNTRY_CODE` is the locale code e.g. `en_US`.
 
 #### Run Gatsby
 

@@ -9,7 +9,7 @@ const getCredentialData = (env, data = [], index = 0) => {
   if (!spaceId || !accessToken) {
     if (index === 0) {
       throw new Error(
-        `You need to define COUNTRY_CODE, SPACE_ID, and ACCESS_TOKEN in your .env.${env.NODE_ENV} file`
+        `You need to define SPACE_ID and ACCESS_TOKEN in your .env.${env.NODE_ENV} file`
       );
     }
 
