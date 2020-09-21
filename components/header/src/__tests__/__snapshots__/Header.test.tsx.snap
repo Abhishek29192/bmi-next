@@ -235,8 +235,12 @@ exports[`Header component renders correctly 1`] = `
             class="MuiTabs-root"
           >
             <div
-              class="MuiTabs-scroller MuiTabs-fixed"
-              style="overflow: hidden;"
+              class="MuiTabs-scrollable"
+              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+            />
+            <div
+              class="MuiTabs-scroller MuiTabs-scrollable"
+              style="margin-bottom: 0px;"
             >
               <div
                 class="MuiTabs-flexContainer"
@@ -438,7 +442,7 @@ exports[`Header component renders correctly 1`] = `
                           />
                         </svg>
                       </span>
-                      Products
+                      Main menu
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -513,7 +517,7 @@ exports[`Header component renders correctly 1`] = `
                                 />
                               </svg>
                             </span>
-                            Roof
+                            Products by type
                           </span>
                           <span
                             class="MuiTouchRipple-root"
@@ -588,7 +592,7 @@ exports[`Header component renders correctly 1`] = `
                                       />
                                     </svg>
                                   </span>
-                                  Tiles
+                                  Roof
                                 </span>
                                 <span
                                   class="MuiTouchRipple-root"
