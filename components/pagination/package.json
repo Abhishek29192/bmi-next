@@ -15,8 +15,5 @@
     "@material-ui/lab": "^4.0.0-alpha.56",
     "classnames": "^2.2.6",
     "react": "^16.13.1"
-  },
-  "devDependencies": {
-    "@types/material-ui": "^0.21.7"
   }
 }

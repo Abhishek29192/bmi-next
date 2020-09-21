@@ -10,8 +10,5 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.10.1"
-  },
-  "devDependencies": {
-    "@types/material-ui": "^0.21.7"
   }
 }
