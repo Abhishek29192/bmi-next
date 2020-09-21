@@ -5,12 +5,21 @@ import Section from "@bmi/section";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import RichText from "../components/RichText";
-import { TitleWithContent as TabsOrAccordionSectionItemData } from "../templates/types";
+import { Data as TitleWithContentData } from "./TitleWithContent";
+
+export type Data = {
+  __typename: string;
+  backgroundColor: "pearl" | "white";
+  description: null | { description: string };
+  items: readonly TitleWithContentData[];
+  title: string;
+  type: "Accordion" | "Tabs";
+};
 
 const SectionAccordion = ({
   items
 }: {
-  items: readonly TabsOrAccordionSectionItemData[];
+  items: readonly TitleWithContentData[];
 }) => {
   return (
     <Accordion>
@@ -34,11 +43,7 @@ const SectionAccordion = ({
   );
 };
 
-const SectionTabs = ({
-  items
-}: {
-  items: readonly TabsOrAccordionSectionItemData[];
-}) => {
+const SectionTabs = ({ items }: { items: readonly TitleWithContentData[] }) => {
   return (
     <Tabs initialValue={items[0].title}>
       {items.map(({ title, content }) => {
@@ -62,7 +67,7 @@ const componentMap = {
 type TabsOrAccordion = {
   backgroundColor: "pearl" | "white";
   description?: { description: string };
-  items: readonly TabsOrAccordionSectionItemData[];
+  items: readonly TitleWithContentData[];
   title: React.ReactNode;
   type: "Accordion" | "Tabs";
 };
@@ -98,10 +103,7 @@ export const query = graphql`
       description
     }
     items {
-      title
-      content {
-        json
-      }
+      ...TitleWithContentFragment
     }
   }
 `;

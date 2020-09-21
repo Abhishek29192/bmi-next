@@ -1,23 +1,38 @@
 import React from "react";
-import Page from "../components/Page";
 import { graphql } from "gatsby";
-import { SiteData, TeamPageData } from "./types";
-import TeamList from "../components/TeamList";
+import { Document } from "@contentful/rich-text-types";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container/src";
+import { Data as SiteData } from "../components/Site";
+import Hero, { Data as HeroData } from "../components/Hero";
+import Page, { Data as PageData } from "../components/Page";
+import TeamList, { TeamMemberData } from "../components/TeamList";
 import RichText from "../components/RichText";
+
+type Data = PageData & {
+  hero: HeroData;
+  teamCategories: {
+    title: string;
+    description: {
+      json: Document;
+    };
+    // NOTE: This is snake_case because it's a relationship field.
+    team_member: TeamMemberData[];
+  }[];
+};
 
 type Props = {
   data: {
-    contentfulTeamPage: TeamPageData;
+    contentfulTeamPage: Data;
     contentfulSite: SiteData;
   };
 };
 
 const TeamPage = ({ data }: Props) => {
-  const { teamCategories, ...pageData } = data.contentfulTeamPage;
+  const { hero, teamCategories, ...pageData } = data.contentfulTeamPage;
   return (
     <Page pageData={pageData} siteData={data.contentfulSite}>
+      <Hero data={[hero]} />
       <Tabs theme="secondary" component={Container}>
         {teamCategories.map((category, index) => (
           <Tabs.TabPanel
@@ -47,17 +62,7 @@ export const pageQuery = graphql`
       slug
       showSignUpBanner
       hero {
-        title
-        subtitle {
-          subtitle
-        }
-        image {
-          title
-          file {
-            fileName
-            url
-          }
-        }
+        ...HeroFragment
       }
       teamCategories {
         title
@@ -70,20 +75,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulSite(id: { eq: $siteId }) {
-      countryCode
-      footerMainNavigation {
-        ...FooterMainNavigationFragment
-      }
-      footerSecondaryNavigation {
-        ...FooterSecondaryNavigationFragment
-      }
-      menuNavigation {
-        ...HeaderNavigationFragment
-      }
-      menuUtilities {
-        ...HeaderUtilitiesFragment
-      }
-      ...SignUpFragment
+      ...SiteFragment
     }
   }
 `;

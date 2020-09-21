@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { NavigationData } from "../templates/types";
+import { NavigationData } from "./Link";
 import HeaderComponent from "@bmi/header";
 import Icon from "./Icon";
 

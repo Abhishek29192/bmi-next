@@ -1,38 +1,29 @@
 import React from "react";
-import Page from "../components/Page";
-import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
-import VillainSection from "../components/VillainSection";
 import { graphql } from "gatsby";
-import { SiteData, PageData } from "./types";
+import Page, { Data as PageData } from "../components/Page";
+import Hero, { Data as HeroData } from "../components/Hero";
+import { Data as SiteData } from "../components/Site";
+import Sections, { Data as SectionsData } from "../components/Sections";
+
+type Data = PageData & {
+  hero: HeroData | null;
+  sections: SectionsData | null;
+};
 
 type Props = {
   data: {
-    contentfulSimplePage: PageData;
+    contentfulSimplePage: Data;
     contentfulSite: SiteData;
   };
 };
 
-const sectionsMap = {
-  ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
-  ContentfulVillainSection: VillainSection
-};
-
 const SimplePage = ({ data }: Props) => {
-  const { sections } = data.contentfulSimplePage;
+  const { hero, sections } = data.contentfulSimplePage;
+
   return (
     <Page pageData={data.contentfulSimplePage} siteData={data.contentfulSite}>
-      {sections &&
-        sections.map((section, index) => {
-          const Component = sectionsMap[section.__typename];
-          return (
-            <Component
-              key={`section${index}`}
-              {...section}
-              // TODO: Robust theme-based solution required.
-              backgroundColor={index % 2 === 0 ? "pearl" : "white"}
-            />
-          );
-        })}
+      <Hero data={[hero]} />
+      {sections && <Sections data={sections} />}
     </Page>
   );
 };
@@ -46,39 +37,14 @@ export const pageQuery = graphql`
       slug
       showSignUpBanner
       hero {
-        title
-        subtitle {
-          subtitle
-        }
-        image {
-          title
-          file {
-            fileName
-            url
-          }
-        }
+        ...HeroFragment
       }
       sections {
-        __typename
-        ...TabsOrAccordionSectionFragment
-        ...VillainSectionFragment
+        ...SectionsFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
-      countryCode
-      menuNavigation {
-        ...HeaderNavigationFragment
-      }
-      menuUtilities {
-        ...HeaderUtilitiesFragment
-      }
-      footerMainNavigation {
-        ...FooterMainNavigationFragment
-      }
-      footerSecondaryNavigation {
-        ...FooterSecondaryNavigationFragment
-      }
-      ...SignUpFragment
+      ...SiteFragment
     }
   }
 `;

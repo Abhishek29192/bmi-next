@@ -1,21 +1,32 @@
 import React from "react";
-import Page from "../components/Page";
-import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import { graphql } from "gatsby";
-import { ContactUsPageData, SiteData } from "./types";
-import ExpandableCard from "../components/ExpandableCards";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
+import { Data as SiteData } from "../components/Site";
+import Hero, { Data as HeroData } from "../components/Hero";
+import Page, { Data as PageData } from "../components/Page";
+import { Data as TitleWithContentData } from "../components/TitleWithContent";
+import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
+import ExpandableCard from "../components/ExpandableCards";
+
+type Data = PageData & {
+  hero: HeroData;
+  queriesTitle: string;
+  queriesSubtitle: string;
+  otherAreasTitle: string;
+  otherAreas: readonly TitleWithContentData[];
+};
 
 type Props = {
   data: {
-    contentfulContactUsPage: ContactUsPageData;
+    contentfulContactUsPage: Data;
     contentfulSite: SiteData;
   };
 };
 
 const ContactUsPage = ({ data }: Props) => {
   const {
+    hero,
     queriesTitle,
     queriesSubtitle,
     otherAreasTitle,
@@ -24,6 +35,7 @@ const ContactUsPage = ({ data }: Props) => {
   } = data.contentfulContactUsPage;
   return (
     <Page pageData={pageData} siteData={data.contentfulSite}>
+      <Hero data={[hero]} />
       <Section backgroundColor="pearl">
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">
@@ -52,43 +64,17 @@ export const pageQuery = graphql`
       slug
       showSignUpBanner
       hero {
-        title
-        subtitle {
-          subtitle
-        }
-        image {
-          title
-          file {
-            fileName
-            url
-          }
-        }
+        ...HeroFragment
       }
       queriesTitle
       queriesSubtitle
       otherAreasTitle
       otherAreas {
-        title
-        content {
-          json
-        }
+        ...TitleWithContentFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
-      countryCode
-      footerMainNavigation {
-        ...FooterMainNavigationFragment
-      }
-      footerSecondaryNavigation {
-        ...FooterSecondaryNavigationFragment
-      }
-      menuNavigation {
-        ...HeaderNavigationFragment
-      }
-      menuUtilities {
-        ...HeaderUtilitiesFragment
-      }
-      ...SignUpFragment
+      ...SiteFragment
     }
   }
 `;

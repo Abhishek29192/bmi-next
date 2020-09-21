@@ -1,21 +1,24 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider/src";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Hero from "../components/Hero";
 import NewsletterSignUp from "../components/NewsLetterSignUp";
-import { Helmet } from "react-helmet";
-import { PageData, SiteData } from "../templates/types";
+import { SiteContext, Data as SiteData } from "./Site";
+
+export type Data = {
+  title: string;
+  showSignUpBanner: boolean | null;
+  slug?: string | null;
+};
 
 type Props = {
   children: React.ReactNode;
-  pageData: PageData;
+  pageData: Data;
   siteData: SiteData;
 };
 
 const Page = ({ children, pageData, siteData }: Props) => {
-  const { hero, heroes, slug } = pageData;
   const {
     countryCode,
     footerMainNavigation,
@@ -38,40 +41,20 @@ const Page = ({ children, pageData, siteData }: Props) => {
   return (
     <BmiThemeProvider>
       <Helmet title={pageData.title} />
-      <Header navigationData={menuNavigation} utilitiesData={menuUtilities} />
-      <Hero
-        data={[].concat(hero, heroes).filter(Boolean)}
-        hasSpaceBottom={!slug}
-      />
-      {children}
-      {pageData.showSignUpBanner ? (
-        <NewsletterSignUp data={signUpData} />
-      ) : null}
-      <Footer
-        countryCode={countryCode}
-        mainNavigation={footerMainNavigation}
-        secondaryNavigation={footerSecondaryNavigation}
-      />
+      <SiteContext.Provider value={{ countryCode }}>
+        <Header navigationData={menuNavigation} utilitiesData={menuUtilities} />
+        {children}
+        {pageData.showSignUpBanner ? (
+          <NewsletterSignUp data={signUpData} />
+        ) : null}
+        <Footer
+          countryCode={countryCode}
+          mainNavigation={footerMainNavigation}
+          secondaryNavigation={footerSecondaryNavigation}
+        />
+      </SiteContext.Provider>
     </BmiThemeProvider>
   );
 };
 
 export default Page;
-
-export const query = graphql`
-  fragment LinkFragment on ContentfulLink {
-    id
-    label
-    icon
-    isLabelHidden
-    url
-    linkedPage {
-      ... on ContentfulSimplePage {
-        slug
-      }
-      ... on ContentfulContactUsPage {
-        slug
-      }
-    }
-  }
-`;
