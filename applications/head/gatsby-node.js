@@ -63,6 +63,13 @@ exports.createPages = async ({ graphql, actions }) => {
     (site.pages || []).forEach((page) => {
       const component = componentMap[page.__typename];
 
+      if (!component) {
+        console.warn(
+          "CreatePage: Could not map the page to any component. Make sure you handle the __typename with a template."
+        );
+        return;
+      }
+
       createPage({
         path: `/${site.countryCode}/${page.slug || ""}`,
         component: component,
