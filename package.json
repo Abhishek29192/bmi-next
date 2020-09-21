@@ -15,6 +15,7 @@
     "start": "yarn workspace @bmi/head run start",
     "build": "tsc",
     "build:head": "yarn workspace @bmi/head run build",
+    "build:frc-website": "yarn workspace @bmi/frc-website run build",
     "coverage:jest": "jest --coverage",
     "coverage:ts": "typescript-coverage-report",
     "workbench": "styleguidist server",

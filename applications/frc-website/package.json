@@ -1,0 +1,35 @@
+{
+  "name": "@bmi/frc-website",
+  "private": true,
+  "description": "BMI Flat Roof Calculator",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "scripts": {
+    "dev": "gatsby clean && gatsby develop",
+    "start": "gatsby build && gatsby serve",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "@bmi/container": "0.0.0",
+    "@bmi/footer": "0.0.0",
+    "@bmi/logo": "0.0.0",
+    "@bmi/theme-provider": "0.0.0",
+    "@bmi/webpack": "0.0.0",
+    "find-up": "^4.1.0",
+    "gatsby": "^2.21.37",
+    "gatsby-plugin-offline": "^3.2.3",
+    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-typescript": "^2.4.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0"
+  }
+}
