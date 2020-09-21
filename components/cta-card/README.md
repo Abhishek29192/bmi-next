@@ -7,9 +7,5 @@ A call to action card that houses title text, an image, and links to another pag
 ```jsx
 import demoHouseImage from "./images/demo-tiles.jpg";
 
-<CTACard
-  title="Call to Action Card"
-  imageSource={demoHouseImage}
-  action={{ model: "htmlLink", href: "#" }}
-/>;
+<CTACard title="Call to Action Card" imageSource={demoHouseImage} />;
 ```

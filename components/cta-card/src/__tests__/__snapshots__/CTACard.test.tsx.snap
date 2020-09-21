@@ -8,7 +8,7 @@ exports[`CtaCard component renders correctly 1`] = `
   tabindex="0"
 >
   <div
-    class="MuiPaper-root MuiCard-root card-body MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
   >
     <section
       class="top-box"
@@ -17,7 +17,6 @@ exports[`CtaCard component renders correctly 1`] = `
         class="MuiTypography-root heading Typography MuiTypography-h5"
       >
         Call to Action Card
-         
         <svg
           aria-hidden="true"
           class="MuiSvgIcon-root icon"

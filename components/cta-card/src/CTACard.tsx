@@ -14,10 +14,11 @@ type Props = ButtonBaseProps & {
 
 const CTACard = ({ imageSource, title, className, ...rest }: Props) => (
   <ButtonBase className={classnames(styles["Card"], className)} {...rest}>
-    <Card className={styles["card-body"]}>
+    <Card className={styles["body"]}>
       <section className={styles["top-box"]}>
         <Typography variant="h5" className={styles["heading"]}>
-          {title} <ArrowForwardIcon className={styles["icon"]} />
+          {title}
+          <ArrowForwardIcon className={styles["icon"]} />
         </Typography>
       </section>
       <div
