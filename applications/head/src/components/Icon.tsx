@@ -6,7 +6,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
-import Arrow from "@bmi/header/svgs/Arrow.svg";
+import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
 import Icopal from "@bmi/logo/svgs/Icopal.svg";
 import Monier from "@bmi/logo/svgs/Monier.svg";
 import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
