@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Hero.module.scss";
-import Button from "@bmi/button";
+import Button, { ClickableAction } from "@bmi/button";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
@@ -8,7 +8,7 @@ import SlideControls from "@bmi/slide-controls";
 import classnames from "classnames";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-type HeroItem = {
+export type HeroItem = {
   title: React.ReactNode;
   /** Only required for level 1 */
   imageSource: string;
@@ -16,9 +16,7 @@ type HeroItem = {
   children: React.ReactNode;
   CTA?: {
     label: React.ReactNode;
-    to?: string;
-    href?: string;
-    component: React.ElementType;
+    action?: ClickableAction;
   };
 };
 
@@ -130,7 +128,7 @@ const Hero = ({
             onNextClick={() => setActivePage((activePage) => activePage + 1)}
             onPrevClick={() => setActivePage((activePage) => activePage - 1)}
           />
-          {children}
+          <div className={styles["children"]}>{children}</div>
         </div>
       </Container>
       <div className={styles["image-carousel"]}>
