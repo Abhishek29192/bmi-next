@@ -27,6 +27,10 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           id
           countryCode
+          homePage {
+            __typename
+            id
+          }
           pages {
             ... on ContentfulContactUsPage {
               __typename
@@ -60,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
   } = result;
 
   sites.forEach((site) => {
-    (site.pages || []).forEach((page) => {
+    ([site.homePage, ...site.pages] || []).forEach((page) => {
       const component = componentMap[page.__typename];
 
       if (!component) {
@@ -72,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createPage({
         path: `/${site.countryCode}/${page.slug || ""}`,
-        component: component,
+        component,
         context: {
           pageId: page.id,
           siteId: site.id
