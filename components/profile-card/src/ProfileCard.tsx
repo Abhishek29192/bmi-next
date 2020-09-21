@@ -42,13 +42,13 @@ const ProfileCard = ({
 type RowProps = {
   children: React.ReactNode;
   action?: ClickableAction;
-  icon: SVGImport;
+  icon?: SVGImport;
 };
 
 const ProfileRow = ({ children, action, icon: Icon }: RowProps) => {
   return (
     <span className={styles["row"]}>
-      <Icon className={styles["row-icon"]} />
+      {Icon ? <Icon className={styles["row-icon"]} /> : null}
       {action ? <AnchorLink action={action}>{children}</AnchorLink> : children}
     </span>
   );
