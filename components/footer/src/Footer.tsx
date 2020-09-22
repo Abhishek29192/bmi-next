@@ -10,7 +10,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import StandardLogo from "./svgs/Standard.svg";
 import StandardCenteredLogo from "./svgs/Standard_centered.svg";
 
-type MenuItem = {
+export type MenuItem = {
   icon?: SVGImport;
   label: string;
   action?: ClickableAction;

@@ -2,14 +2,17 @@ import React from "react";
 import { graphql } from "gatsby";
 import Section from "@bmi/section";
 import Villain from "@bmi/villain";
-import { VillainSectionData } from "../templates/types";
+import { Data as HeroData } from "./Hero";
 
-const VillainSection = ({
-  title,
-  hero,
-  isReversed,
-  backgroundColor
-}: VillainSectionData) => {
+export type Data = {
+  __typename: string;
+  backgroundColor: "pearl" | "white";
+  title: string;
+  hero: HeroData;
+  isReversed: boolean;
+};
+
+const VillainSection = ({ title, hero, isReversed, backgroundColor }: Data) => {
   const { image, title: villainTitle, subtitle } = hero;
 
   return (

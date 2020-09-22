@@ -106,7 +106,7 @@ $hero-breakpoint-sm: 769px;
     }
 
     .wrapper {
-      width: 50%;
+      width: calc(50% + 12px);
       height: 100%;
       padding-right: 24px;
     }
@@ -123,8 +123,8 @@ $hero-breakpoint-sm: 769px;
     .image {
       position: absolute;
       top: 0;
-      left: 50%;
-      width: 50vw;
+      left: calc(50% + 12px);
+      width: calc(50vw - 12px);
       height: 100%;
       max-height: none;
 
@@ -136,8 +136,8 @@ $hero-breakpoint-sm: 769px;
     .image-carousel {
       position: absolute;
       top: 0;
-      left: 50%;
-      width: 50vw;
+      left: calc(50% + 12px);
+      width: calc(50vw - 12px);
       height: 100%;
       max-height: none;
       margin-top: 0;
@@ -153,7 +153,7 @@ $hero-breakpoint-sm: 769px;
         content: "";
         position: absolute;
         pointer-events: none;
-        z-index: 2;
+        z-index: 0;
         top: 50%;
         width: 100%;
         bottom: 0;
@@ -191,6 +191,10 @@ $hero-breakpoint-sm: 769px;
 
     .controls {
       margin: 24px 0 32px;
+    }
+
+    .children {
+      max-width: 566px;
     }
   }
 

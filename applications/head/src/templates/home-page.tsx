@@ -1,20 +1,33 @@
 import React from "react";
-import Page from "../components/Page";
 import { graphql } from "gatsby";
-import { PageData, SiteData } from "./types";
 import Container from "@bmi/container";
+import { Data as SiteData } from "../components/Site";
+import Page, { Data as PageData } from "../components/Page";
+import Hero, { Data as HeroData } from "../components/Hero";
+import OverlapCard, {
+  Data as OverlapCardData
+} from "../components/OverlapCard";
+
+type HomepageData = PageData & {
+  heroes: HeroData[];
+  overlapCards: OverlapCardData;
+};
 
 type Props = {
   data: {
-    contentfulHomePage: PageData;
+    contentfulHomePage: HomepageData;
     contentfulSite: SiteData;
   };
 };
 
 const HomePage = ({ data }: Props) => {
+  const { heroes, overlapCards, ...pageData } = data.contentfulHomePage;
   return (
-    <Page pageData={data.contentfulHomePage} siteData={data.contentfulSite}>
-      <Container style={{ padding: "50px 25px" }}>HOME PAGE CONTENT</Container>
+    <Page pageData={pageData} siteData={data.contentfulSite}>
+      <Hero data={heroes} hasSpaceBottom />
+      <Container>
+        <OverlapCard data={overlapCards} />
+      </Container>
     </Page>
   );
 };
@@ -27,34 +40,14 @@ export const pageQuery = graphql`
       title
       showSignUpBanner
       heroes {
-        title
-        subtitle {
-          subtitle
-        }
-        image {
-          title
-          file {
-            fileName
-            url
-          }
-        }
+        ...HeroFragment
+      }
+      overlapCards {
+        ...OverlapCardFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
-      countryCode
-      menuNavigation {
-        ...HeaderNavigationFragment
-      }
-      menuUtilities {
-        ...HeaderUtilitiesFragment
-      }
-      footerMainNavigation {
-        ...FooterMainNavigationFragment
-      }
-      footerSecondaryNavigation {
-        ...FooterSecondaryNavigationFragment
-      }
-      ...SignUpFragment
+      ...SiteFragment
     }
   }
 `;

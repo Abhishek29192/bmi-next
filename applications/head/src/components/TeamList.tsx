@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
-import { TeamMemberData } from "../templates/types";
 import ProfileCard from "components/profile-card/src";
 import { IconMap } from "./Icon";
 import styles from "./styles/TeamList.module.scss";
+import { SiteContext } from "./Site";
+import { getClickableActionFromUrl, LinkData } from "../components/Link";
+
+export type TeamMemberData = {
+  name: string;
+  jobTitle: string;
+  profilePicture: {
+    file: {
+      url: string;
+    };
+  };
+  links: LinkData[];
+};
 
 const TeamList = ({ data }: { data: TeamMemberData[] }) => {
+  const { countryCode } = useContext(SiteContext);
+
   return (
     <div className={styles["TeamList"]}>
       {data.map((teamMember, index) => {
@@ -23,7 +37,11 @@ const TeamList = ({ data }: { data: TeamMemberData[] }) => {
               {(links || []).map((link, index) => (
                 <ProfileCard.Row
                   key={`team-member-link-${index}`}
-                  action={{ model: "htmlLink", href: link.url }}
+                  action={getClickableActionFromUrl(
+                    link.linkedPage,
+                    link.url,
+                    countryCode
+                  )}
                   icon={IconMap[link.icon]}
                 >
                   {link.label}

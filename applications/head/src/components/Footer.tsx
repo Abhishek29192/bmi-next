@@ -1,44 +1,39 @@
 import React from "react";
-import Footer from "@bmi/footer";
-import { ClickableAction } from "@bmi/clickable";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
+import Footer, { MenuItem } from "@bmi/footer";
 import BmiIcon from "@bmi/footer/src/svgs/BMI.svg";
-import { NavigationData } from "../templates/types";
 import { IconMap } from "./Icon";
+import { getClickableActionFromUrl, NavigationData, LinkData } from "./Link";
 
-const getClickableActionFromUrl = (
-  page,
-  url,
-  countryCode
-): ClickableAction | void => {
-  if (page && page.slug) {
-    return {
-      model: "routerLink",
-      to: `/${countryCode}/${page.slug}`,
-      linkComponent: Link
-    };
-  }
-
-  if (url) {
-    return {
-      model: "htmlLink",
-      href: url
-    };
-  }
-};
-
-const parseNavigation = (navigationItems, countryCode) => {
-  return navigationItems.map(
-    ({ label, links, icon: iconName, isLabelHidden, linkedPage, url }) => {
+export const parseNavigation = (
+  navigationItems: NavigationData["links"],
+  countryCode: string
+): MenuItem[] => {
+  return navigationItems.map((navigationItem) => {
+    // @ts-ignore I have on idea why, but TS does not understand narrowing the Union here.
+    if (navigationItem.links) {
+      const { links, label } = navigationItem as NavigationData;
       return {
         label,
-        icon: iconName ? IconMap[iconName] : undefined,
-        isLabelHidden,
-        action: getClickableActionFromUrl(linkedPage, url, countryCode),
-        menu: links ? parseNavigation(links, countryCode) : undefined
+        menu: parseNavigation(links, countryCode)
       };
     }
-  );
+
+    const {
+      label,
+      icon: iconName,
+      isLabelHidden,
+      linkedPage,
+      url
+    } = navigationItem as LinkData;
+
+    return {
+      label,
+      icon: iconName ? IconMap[iconName] : undefined,
+      isLabelHidden,
+      action: getClickableActionFromUrl(linkedPage, url, countryCode)
+    };
+  });
 };
 
 type Props = {

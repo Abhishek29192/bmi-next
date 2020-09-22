@@ -1,6 +1,6 @@
 import React from "react";
-import InputBanner from "@bmi/input-banner";
 import { graphql } from "gatsby";
+import InputBanner from "@bmi/input-banner";
 
 type NewsletterSignUpData = {
   title: string;
