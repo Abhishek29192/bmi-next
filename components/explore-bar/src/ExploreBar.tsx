@@ -19,7 +19,6 @@ const ExploreBar = ({ heading, links }: Props) => {
       <Typography
         id="explore-bar"
         variant="h6"
-        // @ts-ignore Accepts component property although not reflected in TS
         component="h2"
         className={styles["heading"]}
       >

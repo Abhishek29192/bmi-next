@@ -17,7 +17,6 @@ import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 const Body = ({ isShort }: { isShort?: boolean }) => {
   return (
     <>
-      {/* @ts-ignore */}
       <Typography component="h4" variant="h6">
         Did you know?
       </Typography>

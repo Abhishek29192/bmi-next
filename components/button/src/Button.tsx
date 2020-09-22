@@ -9,11 +9,13 @@ import styles from "./Button.module.scss";
 import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
 
+type Variant = "text" | "outlined" | "contained";
+
 export type IconButtonProps = Omit<MuiIconButtonProps, "action"> & {
   isIconButton: true;
   accessibilityLabel: string;
   hasDarkBackground?: boolean;
-  variant?: "text" | "outlined" | "contained";
+  variant?: Variant;
   size?: "extra-small" | "small" | "medium" | "large" | "extra-large";
   component?: undefined;
 };
@@ -22,15 +24,15 @@ export type ButtonProps = Omit<MuiButtonProps, "action"> & {
   isIconButton?: false;
   accessibilityLabel?: string;
   hasDarkBackground?: boolean;
-  variant?: string;
+  variant?: Variant;
   component?: React.ElementType<any>;
 };
 
 const Button = ({
   children,
   className,
-  color,
-  variant,
+  color = "primary",
+  variant = "contained",
   hasDarkBackground,
   isIconButton,
   accessibilityLabel,
@@ -61,9 +63,8 @@ const Button = ({
       className={classnames(styles["Button"], className, {
         [styles["Button--dark-background"]]: hasDarkBackground
       })}
-      // @ts-ignore For some reason TS doens't understand that it can't be undefined
-      variant={variant || "contained"}
-      color={color || "primary"}
+      variant={variant}
+      color={color}
       size={size}
       component={component}
       disabled={disabled}

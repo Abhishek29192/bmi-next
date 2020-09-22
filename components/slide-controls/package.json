@@ -13,7 +13,6 @@
     "react": "^16.13.1"
   },
   "devDependencies": {
-    "@types/material-ui": "^0.21.7",
     "snapshot-diff": "^0.8.1"
   }
 }

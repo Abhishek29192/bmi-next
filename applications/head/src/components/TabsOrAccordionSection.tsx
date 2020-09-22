@@ -20,7 +20,6 @@ const SectionAccordion = ({
         return (
           <Accordion.Item key={title}>
             <Accordion.Summary>
-              {/* @ts-ignore Accepts component property although not reflected in TS */}
               <Typography component="h3" variant="h6">
                 {title}
               </Typography>

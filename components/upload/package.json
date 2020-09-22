@@ -20,8 +20,5 @@
     "axios": "^0.20.0",
     "classnames": "^2.2.6",
     "react": "^16.13.1"
-  },
-  "devDependencies": {
-    "@types/material-ui": "^0.21.7"
   }
 }

@@ -48,10 +48,8 @@ const packageContent = `{
   "dependencies": {
     "@material-ui/core": "^4.10.1",
     "react": "^16.13.1"
-  },
-  "devDependencies": {
-    "@types/material-ui": "^0.21.7"
   }
+  
 }
 `;
 
