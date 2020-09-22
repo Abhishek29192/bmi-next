@@ -50,15 +50,15 @@
     }
     :global(.Carousel__slide--global) {
       transition: 0.3s ease-in-out opacity;
-    }
 
-    [aria-hidden="false"] {
-      opacity: 1;
-    }
+      &[aria-hidden="false"] {
+        opacity: 1;
+      }
 
-    [aria-hidden="true"] {
-      opacity: 0;
-      pointer-events: none;
+      &[aria-hidden="true"] {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
   }
 }
