@@ -60,7 +60,7 @@
         "type": "Link",
         "validations": [
           {
-            "linkContentType": ["contactUsPage", "homePage", "page"]
+            "linkContentType": ["contactUsPage", "simplePage", "teamPage"]
           }
         ],
         "linkType": "Entry"
