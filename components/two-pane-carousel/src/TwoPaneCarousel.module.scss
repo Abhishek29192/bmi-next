@@ -1,0 +1,84 @@
+@import "@bmi/styles";
+
+.TwoPaneCarousel {
+  .brand-icon {
+    height: 40px;
+    margin-bottom: 40px;
+  }
+
+  .heading {
+    margin-bottom: 24px;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    min-height: 400px;
+    margin-bottom: 24px;
+
+    &::before {
+      content: "";
+      width: 100%;
+      display: block;
+      padding-top: 100%;
+    }
+  }
+
+  .left-pane-slide {
+    justify-content: flex-start;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+
+  .controls {
+    margin-top: 32px;
+  }
+
+  .cta {
+    margin-top: 32px;
+    min-height: 48px;
+  }
+
+  .wrapper {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    $pane-height: 504px;
+    $controls-height: 48px;
+    $controls-margin: 32px;
+
+    .left-pane {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: $pane-height;
+    }
+
+    .heading {
+      margin-bottom: 32px;
+    }
+
+    .image {
+      min-height: none;
+      height: $pane-height;
+      margin-bottom: 0;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    .wrapper {
+      text-align: left;
+    }
+  }
+}
+
+:export {
+  breakpoint-xl: 1280px;
+}

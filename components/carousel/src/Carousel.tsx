@@ -45,6 +45,7 @@ type Props = {
 
 type SlideProps = {
   children: React.ReactNode;
+  className?: string;
 };
 
 const CarouselContext = createContext<{
@@ -56,8 +57,10 @@ const CarouselContext = createContext<{
   total: 0
 });
 
-const CarouselSlide = ({ children }: SlideProps) => {
-  return <div className={styles["slide"]}>{children}</div>;
+const CarouselSlide = ({ children, className }: SlideProps) => {
+  return (
+    <div className={classnames(styles["slide"], className)}>{children}</div>
+  );
 };
 
 export const getPageFromAbsoluteIndex = (
