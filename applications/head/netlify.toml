@@ -13,6 +13,9 @@
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
 
+  # Ignore builds for changes outside base directory.
+  ignore = "../../scripts/ignore_build.sh ./"
+
   # Global environment variables.
   environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true" }
 
