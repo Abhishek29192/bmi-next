@@ -12,6 +12,5 @@ export type Slide = {
 };
 
 export type Props = {
-  /** At least two slides are required */
-  slides: [Slide, Slide, ...Slide[]];
+  slides: Slide[];
 };
