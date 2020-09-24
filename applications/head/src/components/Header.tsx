@@ -106,6 +106,9 @@ export const query = graphql`
         ...LinkFragment
       }
       ... on ContentfulNavigation {
+        link {
+          ...LinkFragment
+        }
         label
         links {
           ... on ContentfulNavigationItem {
@@ -116,6 +119,9 @@ export const query = graphql`
             ...LinkFragment
           }
           ... on ContentfulNavigation {
+            link {
+              ...LinkFragment
+            }
             label
             links {
               ... on ContentfulNavigationItem {
@@ -126,12 +132,18 @@ export const query = graphql`
                 ...LinkFragment
               }
               ... on ContentfulNavigation {
+                link {
+                  ...LinkFragment
+                }
                 label
                 links {
                   ... on ContentfulLink {
                     ...LinkFragment
                   }
                   ... on ContentfulNavigation {
+                    link {
+                      ...LinkFragment
+                    }
                     label
                     links {
                       ... on ContentfulLink {
