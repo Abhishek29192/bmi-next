@@ -5,13 +5,20 @@
   # the build. This is relative to the base directory if one has been set, or the
   # root directory if a base has not been set. This sample publishes the
   # directory located at the absolute path "root/project/build-output"
-  publish = "styleguide/"
+  publish = "public/"
 
   # Default build command.
-  command = "yarn styleguidist build"
+  command = "yarn workspace @bmi/frc-website run build"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
 
   # Ignore builds for changes outside base directory.
-  ignore = "scripts/ignore_build.sh components/"
+  ignore = "../../scripts/ignore_build.sh ./"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"

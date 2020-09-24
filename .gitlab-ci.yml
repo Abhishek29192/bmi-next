@@ -24,9 +24,25 @@ build:
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
+      - node_modules/
       - applications/head/node_modules/
       - applications/head/.cache/
       - applications/head/public/
+
+build_frc_website:
+  stage: build
+  script:
+    - yarn run build:frc-website
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - applications/frc-website/node_modules/
+      - applications/frc-website/.cache/
+      - applications/frc-website/public/
+  only:
+    changes:
+      - applications/frc-website/**/*
 
 coverage_jest:
   stage: check
