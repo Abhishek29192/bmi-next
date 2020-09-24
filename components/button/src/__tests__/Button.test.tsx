@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import UserIcon from "@material-ui/icons/Person";
+
 afterEach(cleanup);
 describe("Button component", () => {
   it("renders correctly", () => {

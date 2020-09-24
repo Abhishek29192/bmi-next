@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverlapCards component renders correctly 1`] = `
+<div
+  style="margin-top: -112px;"
+>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-3"
+    >
+      <button
+        class="MuiButtonBase-root Card"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <section
+            class="top-box"
+          >
+            <h5
+              class="MuiTypography-root heading Typography MuiTypography-h5"
+            >
+              Call to action
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
+            </h5>
+          </section>
+          <div
+            class="image"
+            style="background-image: url(link-to-page.png);"
+          />
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-3"
+    >
+      <button
+        class="MuiButtonBase-root Card"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <section
+            class="top-box"
+          >
+            <h5
+              class="MuiTypography-root heading Typography MuiTypography-h5"
+            >
+              Call to action
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                />
+              </svg>
+            </h5>
+          </section>
+          <div
+            class="image"
+            style="background-image: url(link-to-page.png);"
+          />
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

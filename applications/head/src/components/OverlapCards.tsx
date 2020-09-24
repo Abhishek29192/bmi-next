@@ -3,7 +3,7 @@ import Grid from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import { graphql } from "gatsby";
 
-export type Data = {
+type Card = {
   label: string;
   URL: string | null;
   page: {
@@ -14,7 +14,10 @@ export type Data = {
       src: string;
     };
   } | null;
-}[];
+};
+
+// NOTE: Minimum two cards required.
+export type Data = [Card, Card, ...Card[]];
 
 const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
   return (

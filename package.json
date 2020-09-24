@@ -56,6 +56,8 @@
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
+    "jest-css-modules-transform": "^4.0.1",
+    "jest-mock-console": "^1.0.1",
     "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
     "react": "^16.13.1",

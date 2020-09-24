@@ -2,19 +2,35 @@ import React from "react";
 import { graphql } from "gatsby";
 import InputBanner from "@bmi/input-banner";
 
-type NewsletterSignUpData = {
-  title: string;
-  description: string;
-  inputLabel: string;
-  inputCallToAction: string;
+export type Data = {
+  signUpTitle: string;
+  signUpDescription: {
+    signUpDescription: string;
+  };
+  signUpInputLabel: string;
+  signUpCallToAction: string;
 };
 
-const NewsletterSignUp = ({ data }: { data?: NewsletterSignUpData }) => {
+const NewsletterSignUp = ({ data }: { data?: Data }) => {
   if (!data) {
     return null;
   }
 
-  return <InputBanner {...data} />;
+  const {
+    signUpTitle,
+    signUpDescription,
+    signUpInputLabel,
+    signUpCallToAction
+  } = data;
+
+  return (
+    <InputBanner
+      title={signUpTitle}
+      description={signUpDescription.signUpDescription}
+      inputLabel={signUpInputLabel}
+      inputCallToAction={signUpCallToAction}
+    />
+  );
 };
 
 export default NewsletterSignUp;

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
-import ProfileCard from "components/profile-card/src";
-import { IconMap } from "./Icon";
+import ProfileCard from "@bmi/profile-card";
+import { iconMap } from "./Icon";
 import styles from "./styles/TeamList.module.scss";
 import { SiteContext } from "./Site";
-import { getClickableActionFromUrl, LinkData } from "../components/Link";
+import { getClickableActionFromUrl, LinkData } from "./Link";
 
-export type TeamMemberData = {
+export type Data = {
   name: string;
   jobTitle: string;
   profilePicture: {
@@ -15,9 +15,9 @@ export type TeamMemberData = {
     };
   };
   links: LinkData[];
-};
+}[];
 
-const TeamList = ({ data }: { data: TeamMemberData[] }) => {
+const TeamList = ({ data }: { data: Data }) => {
   const { countryCode } = useContext(SiteContext);
 
   return (
@@ -42,7 +42,7 @@ const TeamList = ({ data }: { data: TeamMemberData[] }) => {
                     link.url,
                     countryCode
                   )}
-                  icon={IconMap[link.icon]}
+                  icon={iconMap[link.icon]}
                 >
                   {link.label}
                 </ProfileCard.Row>

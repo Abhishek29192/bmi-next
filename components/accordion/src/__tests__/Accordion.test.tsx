@@ -1,15 +1,10 @@
 import React from "react";
 import Accordion from "../";
 import { render, fireEvent } from "@testing-library/react";
-
-const consoleError = console.error;
+import mockConsole from "jest-mock-console";
 
 beforeAll(() => {
-  console.error = jest.fn();
-});
-
-afterAll(() => {
-  console.error = consoleError;
+  mockConsole();
 });
 
 describe("Accordion component", () => {

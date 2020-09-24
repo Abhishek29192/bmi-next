@@ -2,13 +2,14 @@ import React from "react";
 import Carousel, { getPageFromAbsoluteIndex } from "../";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
+import mockConsole from "jest-mock-console";
+
+beforeAll(() => {
+  mockConsole();
+});
 
 afterEach(cleanup);
 describe("Carousel component", () => {
-  beforeAll(() => {
-    jest.spyOn(console, "warn").mockImplementation(jest.fn());
-  });
-
   it("renders correctly", () => {
     const { container } = render(
       <Carousel isSwipeDisabled>

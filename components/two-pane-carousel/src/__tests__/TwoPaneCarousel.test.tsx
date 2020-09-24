@@ -6,6 +6,11 @@ import { render, cleanup, fireEvent } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
 import imageSource from "test-image.jpg";
 import BrandIcon from "brand-logo.svg";
+import mockConsole from "jest-mock-console";
+
+beforeAll(() => {
+  mockConsole();
+});
 
 function createMatchMedia(width?: unknown) {
   return (query: string) => ({
@@ -44,9 +49,6 @@ const slides: Props["slides"] = [
 
 afterEach(cleanup);
 describe("TwoPaneCarousel component", () => {
-  beforeAll(() => {
-    jest.spyOn(console, "warn").mockImplementation(jest.fn());
-  });
   it("renders correctly", () => {
     const { container } = render(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>

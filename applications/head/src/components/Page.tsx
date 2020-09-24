@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import BmiThemeProvider from "@bmi/theme-provider/src";
+import BmiThemeProvider from "@bmi/theme-provider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import NewsletterSignUp from "../components/NewsLetterSignUp";
@@ -32,10 +32,10 @@ const Page = ({ children, pageData, siteData }: Props) => {
   } = siteData;
 
   const signUpData = {
-    title: signUpTitle,
-    description: signUpDescription.signUpDescription,
-    inputLabel: signUpInputLabel,
-    inputCallToAction: signUpCallToAction
+    signUpTitle,
+    signUpDescription,
+    signUpInputLabel,
+    signUpCallToAction
   };
 
   return (
@@ -48,7 +48,6 @@ const Page = ({ children, pageData, siteData }: Props) => {
           <NewsletterSignUp data={signUpData} />
         ) : null}
         <Footer
-          countryCode={countryCode}
           mainNavigation={footerMainNavigation}
           secondaryNavigation={footerSecondaryNavigation}
         />
