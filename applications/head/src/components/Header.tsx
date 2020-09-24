@@ -1,39 +1,33 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { NavigationData } from "./Link";
+import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
 import Icon from "./Icon";
 
-const parseNavigation = (navigationItems) => {
-  return navigationItems.reduce(
-    (
-      result,
-      {
+const parseNavigation = (
+  navigationItems: (NavigationData | NavigationItem | LinkData)[]
+) => {
+  return navigationItems.reduce((result, { __typename, ...item }) => {
+    if (__typename === "ContentfulNavigation") {
+      const { label, links } = item as NavigationData;
+      return result.concat({
         label,
-        links,
-        icon: iconName,
-        isLabelHidden,
-        linkedPage,
-        url,
-        type,
-        __typename,
-        value
-      }
-    ) => {
-      let iconLabel;
-      if (isLabelHidden && iconName) {
-        iconLabel = <Icon name={iconName} />;
-      }
-      if (!isLabelHidden && iconName) {
-        iconLabel = [<Icon key={`icon-${iconName}`} name={iconName} />, label];
+        menu: parseNavigation(links)
+      });
+    }
+
+    if (__typename === "ContentfulNavigationItem") {
+      const { value, type } = item as NavigationItem;
+
+      if (type === "Heading") {
+        return result.concat({
+          label: value,
+          isLabelHidden: false,
+          isHeading: true
+        });
       }
 
-      const isHeading =
-        __typename === "ContentfulNavigationItem" && type === "Heading";
-      const isSeparator =
-        __typename === "ContentfulNavigationItem" && type === "Separator";
-
-      if (isSeparator) {
+      if (type === "Separator") {
         if (result.length === 0) {
           return result;
         }
@@ -41,8 +35,27 @@ const parseNavigation = (navigationItems) => {
         result[result.length - 1] = { ...lastItem, hasSeparator: true };
         return result;
       }
+    }
 
+    if (__typename === "ContentfulLink") {
+      let iconLabel;
       let action;
+
+      const {
+        label,
+        isLabelHidden,
+        icon: iconName,
+        linkedPage,
+        url
+      } = item as LinkData;
+
+      if (isLabelHidden && iconName) {
+        iconLabel = <Icon name={iconName} />;
+      }
+      if (!isLabelHidden && iconName) {
+        iconLabel = [<Icon key={`icon-${iconName}`} name={iconName} />, label];
+      }
+
       if (linkedPage) {
         action = {
           model: "routerLink",
@@ -58,15 +71,12 @@ const parseNavigation = (navigationItems) => {
       }
 
       return result.concat({
-        label: iconLabel || label || value,
+        label: iconLabel || label,
         isLabelHidden,
-        action,
-        isHeading,
-        menu: links ? parseNavigation(links) : undefined
+        action
       });
-    },
-    []
-  );
+    }
+  }, []);
 };
 
 const Header = ({
@@ -89,12 +99,16 @@ export default Header;
 
 export const query = graphql`
   fragment HeaderNavigationFragment on ContentfulNavigation {
+    __typename
     label
     links {
       ... on ContentfulLink {
         ...LinkFragment
       }
       ... on ContentfulNavigation {
+        link {
+          ...LinkFragment
+        }
         label
         links {
           ... on ContentfulNavigationItem {
@@ -105,6 +119,9 @@ export const query = graphql`
             ...LinkFragment
           }
           ... on ContentfulNavigation {
+            link {
+              ...LinkFragment
+            }
             label
             links {
               ... on ContentfulNavigationItem {
@@ -115,12 +132,18 @@ export const query = graphql`
                 ...LinkFragment
               }
               ... on ContentfulNavigation {
+                link {
+                  ...LinkFragment
+                }
                 label
                 links {
                   ... on ContentfulLink {
                     ...LinkFragment
                   }
                   ... on ContentfulNavigation {
+                    link {
+                      ...LinkFragment
+                    }
                     label
                     links {
                       ... on ContentfulLink {

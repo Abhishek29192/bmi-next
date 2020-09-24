@@ -5,13 +5,22 @@ import { Data as NewsLetterSignUpData } from "./NewsLetterSignUp";
 
 type Context = {
   countryCode: string;
+  homePage: {
+    title: string;
+  };
 };
 
 export const SiteContext = createContext<Context>({
-  countryCode: ""
+  countryCode: "",
+  homePage: {
+    title: ""
+  }
 });
 
 export type Data = {
+  homePage: {
+    title: string;
+  };
   countryCode: string;
   footerMainNavigation: NavigationData;
   footerSecondaryNavigation: NavigationData;
@@ -21,6 +30,9 @@ export type Data = {
 
 export const query = graphql`
   fragment SiteFragment on ContentfulSite {
+    homePage {
+      title
+    }
     countryCode
     menuNavigation {
       ...HeaderNavigationFragment

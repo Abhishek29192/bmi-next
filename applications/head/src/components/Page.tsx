@@ -41,7 +41,9 @@ const Page = ({ children, pageData, siteData }: Props) => {
   return (
     <BmiThemeProvider>
       <Helmet title={pageData.title} />
-      <SiteContext.Provider value={{ countryCode }}>
+      <SiteContext.Provider
+        value={{ countryCode, homePage: siteData.homePage }}
+      >
         <Header navigationData={menuNavigation} utilitiesData={menuUtilities} />
         {children}
         {pageData.showSignUpBanner ? (
