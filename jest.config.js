@@ -6,25 +6,29 @@ module.exports = {
   collectCoverageFrom: [
     "**/*.{ts,tsx,js}",
     "!**/node_modules/**",
-    "!*.config.js",
+    "!**/*.config.js",
     "!.*.js",
     "!**/.*.js",
     "!coverage/**",
     "!jest/**",
-    "!tmp/**"
+    "!tmp/**",
+    "!**/.cache/**"
   ],
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  roots: ["<rootDir>components"],
+  roots: ["<rootDir>/components", "<rootDir>/applications/head/src/components"],
   testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
   moduleNameMapper: {
     "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
     "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
-    "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS"),
+    "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS.ts"),
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
-    "^@bmi/(.*)$": "<rootDir>/node_modules/@bmi/$1/src"
+    "\\.woff2$": require.resolve("./jest/src/FontImport.ts"),
+    "^@bmi/(?!styles)(.*)$": "<rootDir>/node_modules/@bmi/$1/src",
+    "^@bmi/styles$": require.resolve("./jest/src/CSSModuleImport.ts")
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"
-  }
+  },
+  setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"]
 };

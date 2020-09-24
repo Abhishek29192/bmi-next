@@ -103,7 +103,7 @@ module.exports = {
       }
     },
     {
-      files: ["*.test.tsx"],
+      files: ["*.test.{ts,tsx}"],
       globals: {
         document: true,
         window: true
@@ -121,20 +121,10 @@ module.exports = {
       }
     },
     {
-      files: ["**/test/**.{ts,tsx}"],
-      globals: {
-        document: true
-      },
+      files: ["**/__mocks__/**/*.js"],
       env: {
         node: true,
         jest: true
-      },
-      plugins: ["jest"],
-      rules: {
-        "jest/no-focused-tests": "error",
-        "jest/no-identical-title": "error",
-        "jest/valid-describe": "error",
-        "jest/valid-expect": "error"
       }
     }
   ]
