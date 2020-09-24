@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { graphql } from "gatsby";
 import { NavigationData } from "./Link";
+import { Data as NewsLetterSignUpData } from "./NewsLetterSignUp";
 
 type Context = {
   countryCode: string;
@@ -14,15 +15,9 @@ export type Data = {
   countryCode: string;
   footerMainNavigation: NavigationData;
   footerSecondaryNavigation: NavigationData;
-  signUpTitle: string;
-  signUpDescription: {
-    signUpDescription: string;
-  };
-  signUpInputLabel: string;
-  signUpCallToAction: string;
   menuNavigation: NavigationData;
   menuUtilities: NavigationData;
-};
+} & NewsLetterSignUpData;
 
 export const query = graphql`
   fragment SiteFragment on ContentfulSite {

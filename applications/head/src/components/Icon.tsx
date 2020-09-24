@@ -14,7 +14,7 @@ import Zanda from "@bmi/logo/svgs/Zanda.svg";
 import QuestionMark from "@material-ui/icons/Help";
 import User from "@material-ui/icons/Person";
 
-export const IconMap = {
+export const iconMap = {
   Facebook,
   YouTube,
   Mail,
@@ -29,8 +29,8 @@ export const IconMap = {
   User
 };
 
-const Icon = ({ name }: { name: string }) => {
-  const Source = IconMap[name] || QuestionMark;
+const Icon = ({ name }: { name: keyof typeof iconMap }) => {
+  const Source = iconMap[name] || QuestionMark;
   return <IconComponent source={Source} />;
 };
 

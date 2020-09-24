@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon component getClickableActionFromUrl function returns a Link router to page slug 1`] = `
+Object {
+  "linkComponent": [MockFunction],
+  "model": "routerLink",
+  "to": "/en/some-page",
+}
+`;
+
+exports[`Icon component getClickableActionFromUrl function returns a url 1`] = `
+Object {
+  "href": "some-page",
+  "model": "htmlLink",
+}
+`;

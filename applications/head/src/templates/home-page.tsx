@@ -4,9 +4,9 @@ import Container from "@bmi/container";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import Hero, { Data as HeroData } from "../components/Hero";
-import OverlapCard, {
+import OverlapCards, {
   Data as OverlapCardData
-} from "../components/OverlapCard";
+} from "../components/OverlapCards";
 
 type HomepageData = PageData & {
   heroes: HeroData[];
@@ -26,7 +26,7 @@ const HomePage = ({ data }: Props) => {
     <Page pageData={pageData} siteData={data.contentfulSite}>
       <Hero data={heroes} hasSpaceBottom />
       <Container>
-        <OverlapCard data={overlapCards} />
+        <OverlapCards data={overlapCards} />
       </Container>
     </Page>
   );

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TeamList component renders correctly 1`] = `
+<div
+  class="TeamList"
+>
+  <div>
+    <div
+      class="ProfileCard card"
+    >
+      <div
+        class="head"
+      >
+        <img
+          class="profile-picture"
+          src="link-to.jpg"
+        />
+      </div>
+      <div
+        class="body"
+      >
+        <strong
+          class="MuiTypography-root Typography MuiTypography-h5"
+        >
+          Name
+        </strong>
+        <p
+          class="MuiTypography-root title Typography MuiTypography-body2"
+        >
+          Job Title
+        </p>
+      </div>
+      <div
+        class="footer"
+      />
+    </div>
+  </div>
+</div>
+`;

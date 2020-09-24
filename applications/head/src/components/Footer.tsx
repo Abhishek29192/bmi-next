@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Footer, { MenuItem } from "@bmi/footer";
 import BmiIcon from "@bmi/footer/src/svgs/BMI.svg";
-import { IconMap } from "./Icon";
+import { iconMap } from "./Icon";
 import { getClickableActionFromUrl, NavigationData, LinkData } from "./Link";
+import { SiteContext } from "./Site";
 
-export const parseNavigation = (
+const parseNavigation = (
   navigationItems: NavigationData["links"],
   countryCode: string
 ): MenuItem[] => {
@@ -29,7 +30,7 @@ export const parseNavigation = (
 
     return {
       label,
-      icon: iconName ? IconMap[iconName] : undefined,
+      icon: iconName ? iconMap[iconName] : undefined,
       isLabelHidden,
       action: getClickableActionFromUrl(linkedPage, url, countryCode)
     };
@@ -39,14 +40,10 @@ export const parseNavigation = (
 type Props = {
   mainNavigation: NavigationData;
   secondaryNavigation: NavigationData;
-  countryCode: string;
 };
 
-const BmiFooter = ({
-  mainNavigation,
-  secondaryNavigation,
-  countryCode
-}: Props) => {
+const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
+  const { countryCode } = useContext(SiteContext);
   const main = parseNavigation(mainNavigation.links, countryCode);
   const secondary = parseNavigation(secondaryNavigation.links, countryCode);
 

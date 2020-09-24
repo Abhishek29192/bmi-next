@@ -6,7 +6,7 @@ import Container from "@bmi/container/src";
 import { Data as SiteData } from "../components/Site";
 import Hero, { Data as HeroData } from "../components/Hero";
 import Page, { Data as PageData } from "../components/Page";
-import TeamList, { TeamMemberData } from "../components/TeamList";
+import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText from "../components/RichText";
 
 type Data = PageData & {
@@ -17,7 +17,7 @@ type Data = PageData & {
       json: Document;
     };
     // NOTE: This is snake_case because it's a relationship field.
-    team_member: TeamMemberData[];
+    team_member: TeamMemberData;
   }[];
 };
 

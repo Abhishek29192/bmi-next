@@ -1,20 +1,25 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import Clickable, { withClickable } from "../";
-
-const consoleError = console.error;
+import mockConsole from "jest-mock-console";
 
 beforeAll(() => {
-  console.error = jest.fn();
-});
-
-afterAll(() => {
-  console.error = consoleError;
+  mockConsole();
 });
 
 afterEach(cleanup);
 
 describe("Clickable component", () => {
+  let restoreConsole;
+
+  beforeAll(() => {
+    restoreConsole = mockConsole();
+  });
+
+  afterAll(() => {
+    restoreConsole();
+  });
+
   it("renders correctly", () => {
     const { container } = render(<Clickable>Hit me</Clickable>);
     expect(container.firstChild).toMatchSnapshot();

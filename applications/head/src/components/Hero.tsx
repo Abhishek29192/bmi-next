@@ -10,14 +10,14 @@ export type Data = {
   title: string;
   subtitle?: {
     subtitle: string;
-  };
-  image?: {
+  } | null;
+  image: {
     title: string;
     file: {
       fileName: string;
       url: string;
     };
-  };
+  } | null;
   cta: {
     label: string;
   } | null;
