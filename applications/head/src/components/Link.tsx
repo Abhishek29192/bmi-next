@@ -6,7 +6,7 @@ export const getClickableActionFromUrl = (
   url: LinkData["url"],
   countryCode: string
 ): ClickableAction | undefined => {
-  if (linkedPage && linkedPage.slug) {
+  if (linkedPage && "slug" in linkedPage) {
     return {
       model: "routerLink",
       to: `/${countryCode}/${linkedPage.slug}`,
@@ -25,6 +25,7 @@ export const getClickableActionFromUrl = (
 };
 
 export type LinkData = {
+  __typename: "ContentfulLink";
   id: string;
   label: string;
   icon: string | null;
@@ -36,9 +37,17 @@ export type LinkData = {
   } | null;
 };
 
+export type NavigationItem = {
+  __typename: "ContentfulNavigationItem";
+  type: "Heading" | "Separator";
+  value: string;
+};
+
 export type NavigationData = {
-  label?: string;
-  links: (NavigationData | LinkData)[];
+  __typename: "ContentfulNavigation";
+  label: string | null;
+  link: LinkData | null;
+  links: (NavigationData | NavigationItem | LinkData)[];
 };
 
 export const query = graphql`
