@@ -5,14 +5,19 @@ import Villain from "@bmi/villain";
 import { Data as HeroData } from "./Hero";
 
 export type Data = {
-  __typename: string;
-  backgroundColor: "pearl" | "white";
+  __typename: "ContentfulVillainSection";
   title: string;
   hero: HeroData;
   isReversed: boolean;
 };
 
-const VillainSection = ({ title, hero, isReversed, backgroundColor }: Data) => {
+const VillainSection = ({
+  data: { title, hero, isReversed },
+  backgroundColor
+}: {
+  data: Data;
+  backgroundColor: "pearl" | "white";
+}) => {
   const { image, title: villainTitle, subtitle } = hero;
 
   return (
@@ -21,7 +26,7 @@ const VillainSection = ({ title, hero, isReversed, backgroundColor }: Data) => {
       <Villain
         title={villainTitle}
         imageSource={image && image.file.url}
-        isReversed
+        isReversed={isReversed}
       >
         {subtitle && subtitle.subtitle}
       </Villain>

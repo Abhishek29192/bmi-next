@@ -8,7 +8,8 @@ import SearchIcon from "@material-ui/icons/Search";
 
 export type Data = {
   title: string;
-  subtitle?: {
+  brandLogo: string;
+  subtitle: {
     subtitle: string;
   } | null;
   image: {
@@ -77,6 +78,7 @@ export default IntegratedHero;
 export const query = graphql`
   fragment HeroFragment on ContentfulHero {
     title
+    brandLogo
     subtitle {
       subtitle
     }
