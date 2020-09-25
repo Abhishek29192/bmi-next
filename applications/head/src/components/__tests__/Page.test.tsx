@@ -7,9 +7,12 @@ import { render } from "@testing-library/react";
 describe("Page component", () => {
   it("renders correctly", () => {
     const mockNavigation: NavigationData = {
+      __typename: "ContentfulNavigation",
       label: "Main navigation",
+      link: null,
       links: [
         {
+          __typename: "ContentfulLink",
           id: "string",
           label: "string",
           icon: null,
@@ -21,6 +24,9 @@ describe("Page component", () => {
     };
 
     const siteData: SiteData = {
+      homePage: {
+        title: "Home page title"
+      },
       signUpTitle: "Title",
       signUpDescription: {
         signUpDescription: "Description"

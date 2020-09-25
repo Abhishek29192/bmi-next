@@ -12,12 +12,17 @@ describe("Footer component", () => {
     const { container } = render(
       <Footer
         mainNavigation={{
+          __typename: "ContentfulNavigation",
           label: "Main",
+          link: null,
           links: [
             {
+              __typename: "ContentfulNavigation",
               label: "Get in touch",
+              link: null,
               links: [
                 {
+                  __typename: "ContentfulLink",
                   id: "",
                   label: "+44 (0) 1234567890",
                   url: "tel:+4401234567890",
@@ -28,9 +33,12 @@ describe("Footer component", () => {
               ]
             },
             {
+              __typename: "ContentfulNavigation",
               label: "About BMI",
+              link: null,
               links: [
                 {
+                  __typename: "ContentfulLink",
                   id: "",
                   label: "Our story",
                   url: null,
@@ -45,9 +53,12 @@ describe("Footer component", () => {
           ]
         }}
         secondaryNavigation={{
+          __typename: "ContentfulNavigation",
           label: "About BMI",
+          link: null,
           links: [
             {
+              __typename: "ContentfulLink",
               id: "",
               label: "Our story",
               url: null,

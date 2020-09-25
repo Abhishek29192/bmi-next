@@ -1,5 +1,6 @@
 import { graphql, Link } from "gatsby";
 import { ClickableAction } from "@bmi/clickable";
+import { IconName } from "./Icon";
 
 export const getClickableActionFromUrl = (
   linkedPage: LinkData["linkedPage"],
@@ -28,7 +29,7 @@ export type LinkData = {
   __typename: "ContentfulLink";
   id: string;
   label: string;
-  icon: string | null;
+  icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
   linkedPage: {

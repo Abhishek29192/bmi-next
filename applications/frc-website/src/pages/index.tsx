@@ -7,7 +7,7 @@ const Home = () => (
   <Page title="Flat Roof Calcualtor Landing Page">
     <Container maxWidth="lg" style={{ padding: "50px 25px" }}>
       <Typography variant="h1" hasUnderline>
-        Flat Roof Calcualtor Landing Page
+        Deployment test for Flat Roof Calcualtor
       </Typography>
     </Container>
   </Page>

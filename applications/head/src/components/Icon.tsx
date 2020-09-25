@@ -29,6 +29,8 @@ export const iconMap = {
   User
 };
 
+export type IconName = keyof typeof iconMap;
+
 const Icon = ({ name }: { name: keyof typeof iconMap }) => {
   const Source = iconMap[name] || QuestionMark;
   return <IconComponent source={Source} />;
