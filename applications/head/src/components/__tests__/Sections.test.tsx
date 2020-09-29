@@ -8,7 +8,6 @@ describe("Sections component", () => {
     const data: Data = [
       {
         __typename: "ContentfulTabsOrAccordionSection",
-        backgroundColor: "pearl",
         description: { description: "string" },
         items: [
           {
@@ -27,7 +26,6 @@ describe("Sections component", () => {
       },
       {
         __typename: "ContentfulTabsOrAccordionSection",
-        backgroundColor: "white",
         description: { description: "string" },
         items: [
           {
@@ -46,15 +44,15 @@ describe("Sections component", () => {
       },
       {
         __typename: "ContentfulVillainSection",
-        backgroundColor: "pearl",
         title: "Title",
         hero: {
           title: "Hero",
+          brandLogo: null,
+          subtitle: null,
           image: null,
           cta: null
         },
-        isReversed: null,
-        type: "Tabs"
+        isReversed: null
       }
     ];
 

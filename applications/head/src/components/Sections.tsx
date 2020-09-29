@@ -6,12 +6,20 @@ import TabsOrAccordionSection, {
 import VillainSection, {
   Data as VillainSectionData
 } from "../components/VillainSection";
+import TwoPaneCarouselSection, {
+  Data as TwoPaneCarouselSectionData
+} from "../components/TwoPaneCarouselSection";
 
-export type Data = (TabsOrAccordionSectionData | VillainSectionData)[] | null;
+export type Data = (
+  | TabsOrAccordionSectionData
+  | VillainSectionData
+  | TwoPaneCarouselSectionData
+)[];
 
 const sectionsMap = {
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
-  ContentfulVillainSection: VillainSection
+  ContentfulVillainSection: VillainSection,
+  ContentfulTwoPaneCarouselSection: TwoPaneCarouselSection
 };
 
 const Sections = ({ data }: { data: Data }) => {
@@ -22,7 +30,8 @@ const Sections = ({ data }: { data: Data }) => {
         return (
           <Component
             key={`section${index}`}
-            {...section}
+            // @ts-ignore
+            data={section}
             // TODO: Robust theme-based solution required.
             backgroundColor={index % 2 === 0 ? "pearl" : "white"}
           />
@@ -40,5 +49,6 @@ export const query = graphql`
     __typename
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
+    # ...TwoPaneCarouselSectionFragment
   }
 `;

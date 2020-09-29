@@ -15,6 +15,10 @@ describe("Hero component", () => {
         data={[
           {
             title: "Lorem ipsum",
+            subtitle: {
+              subtitle: "Lorem ipsum sit dolor amet"
+            },
+            brandLogo: "AeroDek",
             image: {
               title: "",
               file: {
@@ -35,11 +39,15 @@ describe("Hero component", () => {
         data={[
           {
             title: "Lorem ipsum",
+            subtitle: null,
+            brandLogo: null,
             image: null,
             cta: null
           },
           {
             title: "Lorem ipsum",
+            subtitle: null,
+            brandLogo: null,
             image: {
               title: "",
               file: {
@@ -60,18 +68,9 @@ describe("Hero component", () => {
         data={[
           {
             title: "Lorem ipsum",
+            subtitle: null,
+            brandLogo: null,
             image: null,
-            cta: null
-          },
-          {
-            title: "Lorem ipsum",
-            image: {
-              title: "",
-              file: {
-                fileName: "",
-                url: testImageSource
-              }
-            },
             cta: null
           }
         ]}

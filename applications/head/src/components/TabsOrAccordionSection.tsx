@@ -8,11 +8,10 @@ import RichText from "../components/RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 
 export type Data = {
-  __typename: string;
-  backgroundColor: "pearl" | "white";
+  __typename: "ContentfulTabsOrAccordionSection";
+  title: string;
   description: null | { description: string };
   items: readonly TitleWithContentData[];
-  title: string;
   type: "Accordion" | "Tabs";
 };
 
@@ -64,22 +63,20 @@ const componentMap = {
   Tabs: SectionTabs
 };
 
-type TabsOrAccordion = {
-  backgroundColor: "pearl" | "white";
-  description?: { description: string };
-  items: readonly TitleWithContentData[];
-  title: React.ReactNode;
-  type: "Accordion" | "Tabs";
-};
-
 const TabsOrAccordionSection = ({
-  title,
-  type,
-  items,
-  description,
+  data,
   backgroundColor
-}: TabsOrAccordion) => {
+}: {
+  data: Data;
+  backgroundColor: "pearl" | "white";
+}) => {
+  if (!data) {
+    return null;
+  }
+
+  const { title, type, items, description } = data;
   const Component = componentMap[type];
+
   return (
     <Section backgroundColor={backgroundColor}>
       <Section.Title>{title}</Section.Title>

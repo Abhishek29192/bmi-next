@@ -4,6 +4,7 @@ import Container from "@bmi/container";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import Hero, { Data as HeroData } from "../components/Hero";
+import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -11,6 +12,7 @@ import OverlapCards, {
 type HomepageData = PageData & {
   heroes: HeroData[];
   overlapCards: OverlapCardData;
+  sections: SectionsData | null;
 };
 
 type Props = {
@@ -21,13 +23,19 @@ type Props = {
 };
 
 const HomePage = ({ data }: Props) => {
-  const { heroes, overlapCards, ...pageData } = data.contentfulHomePage;
+  const {
+    heroes,
+    overlapCards,
+    sections,
+    ...pageData
+  } = data.contentfulHomePage;
   return (
     <Page pageData={pageData} siteData={data.contentfulSite}>
       <Hero data={heroes} hasSpaceBottom />
       <Container>
         <OverlapCards data={overlapCards} />
       </Container>
+      {sections && <Sections data={sections} />}
     </Page>
   );
 };
@@ -44,6 +52,10 @@ export const pageQuery = graphql`
       }
       overlapCards {
         ...OverlapCardFragment
+      }
+      sections {
+        # TODO: This should be SectionFragment, but there is no data for that atm
+        ...TwoPaneCarouselSectionFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
