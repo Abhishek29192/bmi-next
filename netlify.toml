@@ -12,6 +12,3 @@
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
-
-  # Ignore builds for changes outside base directory.
-  ignore = "scripts/ignore_build.sh components/"
