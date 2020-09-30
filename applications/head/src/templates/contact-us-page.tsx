@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
 import { Data as SiteData } from "../components/Site";
-import Hero, { Data as HeroData } from "../components/Hero";
+import Hero, { HeroItem } from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
@@ -18,12 +18,11 @@ type PageInfoData = {
       fileName: string;
       url: string;
     };
-  } | null;
+  };
 };
 
 type Data = PageInfoData &
   PageData & {
-    hero: HeroData;
     queriesTitle: string;
     queriesSubtitle: string;
     otherAreasTitle: string;
@@ -48,19 +47,15 @@ const ContactUsPage = ({ data }: Props) => {
     otherAreas,
     ...pageData
   } = data.contentfulContactUsPage;
-  const hero = {
+  const heroProps: HeroItem = {
     title,
-    subtitle: {
-      subtitle
-    },
-    image: featuredImage,
-    cta: null,
-    brandLogo: null
+    children: subtitle,
+    imageSource: featuredImage?.file.url
   };
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
-      <Hero data={[hero]} />
+      <Hero level={1} {...heroProps} />
       <Section backgroundColor="pearl">
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">
@@ -101,9 +96,6 @@ export const pageQuery = graphql`
         }
       }
       showSignUpBanner
-      hero {
-        ...HeroFragment
-      }
       queriesTitle
       queriesSubtitle
       otherAreasTitle

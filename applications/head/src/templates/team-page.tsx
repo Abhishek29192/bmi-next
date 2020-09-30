@@ -4,7 +4,7 @@ import { Document } from "@contentful/rich-text-types";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container/src";
 import { Data as SiteData } from "../components/Site";
-import Hero, { Data as HeroData } from "../components/Hero";
+import Hero from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText from "../components/RichText";
@@ -34,17 +34,10 @@ type Props = {
 
 const TeamPage = ({ data }: Props) => {
   const { title, teamCategories, ...pageData } = data.contentfulTeamPage;
-  const hero: HeroData = {
-    title,
-    subtitle: null,
-    image: null,
-    brandLogo: null,
-    cta: null
-  };
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
-      <Hero data={[hero]} />
+      <Hero level={2} title={title} />
       <Tabs theme="secondary" component={Container}>
         {teamCategories.map((category, index) => (
           <Tabs.TabPanel

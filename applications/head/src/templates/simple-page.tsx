@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Page, { Data as PageData } from "../components/Page";
-import Hero, { Data as HeroData } from "../components/Hero";
+// import Hero, { Data as HeroData } from "../components/Hero";
+import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 
@@ -19,7 +20,6 @@ type PageInfoData = {
 
 type Data = PageInfoData &
   PageData & {
-    hero: HeroData | null;
     sections: SectionsData | null;
   };
 
@@ -37,15 +37,10 @@ const SimplePage = ({ data }: Props) => {
     featuredImage,
     sections
   } = data.contentfulSimplePage;
-  const hero: HeroData = {
+  const heroProps: HeroItem = {
     title,
-    subtitle: {
-      subtitle
-    },
-    image: featuredImage,
-    cta: null,
-    // TODO: Remove the following?
-    brandLogo: null
+    children: subtitle,
+    imageSource: featuredImage?.file.url
   };
 
   return (
@@ -54,7 +49,8 @@ const SimplePage = ({ data }: Props) => {
       pageData={data.contentfulSimplePage}
       siteData={data.contentfulSite}
     >
-      <Hero data={[hero]} />
+      {/* TODO: Level depends on page rank, see and share breadcrumbs logic */}
+      <Hero level={1} {...heroProps} />
       {sections && <Sections data={sections} />}
     </Page>
   );
