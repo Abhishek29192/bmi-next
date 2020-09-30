@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
-import Hero, { Data as HeroData } from "../components/Hero";
+import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
   Data as OverlapCardData
@@ -13,9 +13,20 @@ type PageInfoData = {
   title: string;
 };
 
+type SlideData = {
+  title: string;
+  subtitle: string;
+  image: {
+    file: {
+      fileName: string;
+      url: string;
+    };
+  };
+};
+
 type HomepageData = PageInfoData &
   PageData & {
-    heroes: HeroData[];
+    slides: SlideData[];
     overlapCards: OverlapCardData;
     sections: SectionsData | null;
   };
@@ -30,14 +41,21 @@ type Props = {
 const HomePage = ({ data }: Props) => {
   const {
     title,
-    heroes,
+    slides,
     overlapCards,
     sections,
     ...pageData
   } = data.contentfulHomePage;
+
+  const heroItems: HeroItem[] = slides.map(({ title, subtitle, image }) => ({
+    title,
+    children: subtitle,
+    imageSource: image?.file.url
+  }));
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
-      <Hero data={heroes} hasSpaceBottom />
+      <Hero level={0} heroes={heroItems} hasSpaceBottom />
       <Container>
         <OverlapCards data={overlapCards} />
       </Container>
@@ -53,8 +71,8 @@ export const pageQuery = graphql`
     contentfulHomePage(id: { eq: $pageId }) {
       title
       showSignUpBanner
-      heroes {
-        ...HeroFragment
+      slides {
+        ...SlidesFragment
       }
       overlapCards {
         ...OverlapCardFragment
@@ -66,6 +84,43 @@ export const pageQuery = graphql`
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
+    }
+  }
+`;
+
+export const slidesQuery = graphql`
+  fragment SlidesFragment on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
+    ... on ContentfulSimplePage {
+      title
+      subtitle
+      image: featuredImage {
+        file {
+          fileName
+          url
+        }
+      }
+    }
+
+    ... on ContentfulContactUsPage {
+      title
+      subtitle
+      image: featuredImage {
+        file {
+          fileName
+          url
+        }
+      }
+    }
+
+    ... on ContentfulPromo {
+      title
+      subtitle
+      image {
+        file {
+          fileName
+          url
+        }
+      }
     }
   }
 `;
