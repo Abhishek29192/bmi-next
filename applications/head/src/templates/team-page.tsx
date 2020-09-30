@@ -9,17 +9,21 @@ import Page, { Data as PageData } from "../components/Page";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText from "../components/RichText";
 
-type Data = PageData & {
-  hero: HeroData;
-  teamCategories: {
-    title: string;
-    description: {
-      json: Document;
-    };
-    // NOTE: This is snake_case because it's a relationship field.
-    team_member: TeamMemberData;
-  }[];
+type PageInfoData = {
+  title: string;
 };
+
+type Data = PageInfoData &
+  PageData & {
+    teamCategories: {
+      title: string;
+      description: {
+        json: Document;
+      };
+      // NOTE: This is snake_case because it's a relationship field.
+      team_member: TeamMemberData;
+    }[];
+  };
 
 type Props = {
   data: {
@@ -29,9 +33,17 @@ type Props = {
 };
 
 const TeamPage = ({ data }: Props) => {
-  const { hero, teamCategories, ...pageData } = data.contentfulTeamPage;
+  const { title, teamCategories, ...pageData } = data.contentfulTeamPage;
+  const hero: HeroData = {
+    title,
+    subtitle: null,
+    image: null,
+    brandLogo: null,
+    cta: null
+  };
+
   return (
-    <Page pageData={pageData} siteData={data.contentfulSite}>
+    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <Hero data={[hero]} />
       <Tabs theme="secondary" component={Container}>
         {teamCategories.map((category, index) => (
@@ -60,10 +72,8 @@ export const pageQuery = graphql`
     contentfulTeamPage(id: { eq: $pageId }) {
       title
       slug
+      # Check length allowed and define right field type
       showSignUpBanner
-      hero {
-        ...HeroFragment
-      }
       teamCategories {
         title
         description {

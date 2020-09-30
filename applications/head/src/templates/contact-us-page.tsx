@@ -9,13 +9,26 @@ import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import ExpandableCard from "../components/ExpandableCards";
 
-type Data = PageData & {
-  hero: HeroData;
-  queriesTitle: string;
-  queriesSubtitle: string;
-  otherAreasTitle: string;
-  otherAreas: readonly TitleWithContentData[];
+type PageInfoData = {
+  title: string;
+  subtitle: string | null;
+  featuredImage: {
+    title: string;
+    file: {
+      fileName: string;
+      url: string;
+    };
+  } | null;
 };
+
+type Data = PageInfoData &
+  PageData & {
+    hero: HeroData;
+    queriesTitle: string;
+    queriesSubtitle: string;
+    otherAreasTitle: string;
+    otherAreas: readonly TitleWithContentData[];
+  };
 
 type Props = {
   data: {
@@ -26,15 +39,27 @@ type Props = {
 
 const ContactUsPage = ({ data }: Props) => {
   const {
-    hero,
+    title,
+    subtitle,
+    featuredImage,
     queriesTitle,
     queriesSubtitle,
     otherAreasTitle,
     otherAreas,
     ...pageData
   } = data.contentfulContactUsPage;
+  const hero = {
+    title,
+    subtitle: {
+      subtitle
+    },
+    image: featuredImage,
+    cta: null,
+    brandLogo: null
+  };
+
   return (
-    <Page pageData={pageData} siteData={data.contentfulSite}>
+    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <Hero data={[hero]} />
       <Section backgroundColor="pearl">
         <Section.Title>{queriesTitle}</Section.Title>
@@ -46,9 +71,13 @@ const ContactUsPage = ({ data }: Props) => {
         </div>
       </Section>
       <TabsOrAccordionSection
-        title={otherAreasTitle}
-        type="Accordion"
-        items={otherAreas}
+        data={{
+          __typename: "ContentfulTabsOrAccordionSection",
+          title: otherAreasTitle,
+          description: null,
+          items: otherAreas,
+          type: "Accordion"
+        }}
         backgroundColor="white"
       />
     </Page>
@@ -62,6 +91,15 @@ export const pageQuery = graphql`
     contentfulContactUsPage(id: { eq: $pageId }) {
       title
       slug
+      # Check length allowed and define right field type
+      # subtitle
+      featuredImage {
+        title
+        file {
+          fileName
+          url
+        }
+      }
       showSignUpBanner
       hero {
         ...HeroFragment

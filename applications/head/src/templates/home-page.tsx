@@ -9,11 +9,16 @@ import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 
-type HomepageData = PageData & {
-  heroes: HeroData[];
-  overlapCards: OverlapCardData;
-  sections: SectionsData | null;
+type PageInfoData = {
+  title: string;
 };
+
+type HomepageData = PageInfoData &
+  PageData & {
+    heroes: HeroData[];
+    overlapCards: OverlapCardData;
+    sections: SectionsData | null;
+  };
 
 type Props = {
   data: {
@@ -24,13 +29,14 @@ type Props = {
 
 const HomePage = ({ data }: Props) => {
   const {
+    title,
     heroes,
     overlapCards,
     sections,
     ...pageData
   } = data.contentfulHomePage;
   return (
-    <Page pageData={pageData} siteData={data.contentfulSite}>
+    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <Hero data={heroes} hasSpaceBottom />
       <Container>
         <OverlapCards data={overlapCards} />

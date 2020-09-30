@@ -7,18 +7,18 @@ import NewsletterSignUp from "../components/NewsLetterSignUp";
 import { SiteContext, Data as SiteData } from "./Site";
 
 export type Data = {
-  title: string;
   showSignUpBanner: boolean | null;
   slug?: string | null;
 };
 
 type Props = {
   children: React.ReactNode;
+  title: string;
   pageData: Data;
   siteData: SiteData;
 };
 
-const Page = ({ children, pageData, siteData }: Props) => {
+const Page = ({ title, children, pageData, siteData }: Props) => {
   const {
     countryCode,
     footerMainNavigation,
@@ -40,7 +40,7 @@ const Page = ({ children, pageData, siteData }: Props) => {
 
   return (
     <BmiThemeProvider>
-      <Helmet title={pageData.title} />
+      <Helmet title={title} />
       <SiteContext.Provider
         value={{ countryCode, homePage: siteData.homePage }}
       >
