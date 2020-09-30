@@ -65,6 +65,10 @@ const IntegratedHero = ({
     );
   }
 
+  if (!data[0]) {
+    return null;
+  }
+
   if (data[0].image) {
     return <Hero level={1} {...transformData(data[0])} />;
   }
