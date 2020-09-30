@@ -27,14 +27,17 @@ const Sections = ({ data }: { data: Data }) => {
     <>
       {data.map((section, index) => {
         const Component = sectionsMap[section.__typename];
+
         return (
-          <Component
-            key={`section${index}`}
-            // @ts-ignore
-            data={section}
-            // TODO: Robust theme-based solution required.
-            backgroundColor={index % 2 === 0 ? "pearl" : "white"}
-          />
+          Component && (
+            <Component
+              key={`section${index}`}
+              // @ts-ignore
+              data={section}
+              // TODO: Robust theme-based solution required.
+              backgroundColor={index % 2 === 0 ? "pearl" : "white"}
+            />
+          )
         );
       })}
     </>
@@ -45,7 +48,7 @@ export default Sections;
 
 export const query = graphql`
   # NOTE: This union type name is not ideal, but the best option so far.
-  fragment SectionsFragment on ContentfulTabsOrAccordionSectionContentfulVillainSectionUnion {
+  fragment SectionsFragment on ContentfulFormSectionContentfulTabsOrAccordionSectionContentfulVillainSectionUnion {
     __typename
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
