@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
+import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
@@ -11,17 +12,6 @@ import OverlapCards, {
 
 type PageInfoData = {
   title: string;
-};
-
-type SlideData = {
-  title: string;
-  subtitle: string;
-  image: {
-    file: {
-      fileName: string;
-      url: string;
-    };
-  };
 };
 
 type HomepageData = PageInfoData &
@@ -72,7 +62,7 @@ export const pageQuery = graphql`
       title
       showSignUpBanner
       slides {
-        ...SlidesFragment
+        ...PromoFragment
       }
       overlapCards {
         ...OverlapCardFragment
@@ -84,43 +74,6 @@ export const pageQuery = graphql`
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
-    }
-  }
-`;
-
-export const slidesQuery = graphql`
-  fragment SlidesFragment on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
-    ... on ContentfulSimplePage {
-      title
-      subtitle
-      image: featuredImage {
-        file {
-          fileName
-          url
-        }
-      }
-    }
-
-    ... on ContentfulContactUsPage {
-      title
-      subtitle
-      image: featuredImage {
-        file {
-          fileName
-          url
-        }
-      }
-    }
-
-    ... on ContentfulPromo {
-      title
-      subtitle
-      image {
-        file {
-          fileName
-          url
-        }
-      }
     }
   }
 `;
