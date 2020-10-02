@@ -18,6 +18,13 @@ type Props = {
   siteData: SiteData;
 };
 
+const parseResources = (resources: SiteData["resources"]): any => {
+  return Object.assign(
+    {},
+    ...resources.map(({ key, value }) => ({ [key]: value }))
+  );
+};
+
 const Page = ({ title, children, pageData, siteData }: Props) => {
   const {
     countryCode,
@@ -42,7 +49,11 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
     <BmiThemeProvider>
       <Helmet title={title} />
       <SiteContext.Provider
-        value={{ countryCode, homePage: siteData.homePage }}
+        value={{
+          countryCode,
+          homePage: siteData.homePage,
+          resources: parseResources(siteData.resources)
+        }}
       >
         <Header navigationData={menuNavigation} utilitiesData={menuUtilities} />
         {children}
