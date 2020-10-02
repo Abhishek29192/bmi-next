@@ -1,14 +1,17 @@
 import { graphql } from "gatsby";
+import { LinkData } from "./Link";
 
 export type Data = {
   title: string;
   subtitle: string;
+  slug: string | null;
   image: {
     file: {
       fileName: string;
       url: string;
     };
   };
+  cta: LinkData | null;
 };
 
 export const promoQuery = graphql`
@@ -16,6 +19,7 @@ export const promoQuery = graphql`
     ... on ContentfulSimplePage {
       title
       subtitle
+      slug
       image: featuredImage {
         file {
           fileName
@@ -27,6 +31,7 @@ export const promoQuery = graphql`
     ... on ContentfulContactUsPage {
       title
       subtitle
+      slug
       image: featuredImage {
         file {
           fileName
@@ -43,6 +48,9 @@ export const promoQuery = graphql`
           fileName
           url
         }
+      }
+      cta {
+        ...LinkFragment
       }
     }
   }
