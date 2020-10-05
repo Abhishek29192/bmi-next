@@ -19,6 +19,7 @@ const attributes = [
   },
   {
     name: "Colour",
+    type: "thumbnails",
     variants: [
       {
         label: "Black",
