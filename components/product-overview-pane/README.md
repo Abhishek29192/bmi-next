@@ -1,6 +1,8 @@
+The Product Overview Pane is similar to a large Card with no elevation. It contains an optional Brand logo, a H1 heading with the "smallest" class, a Drop Button and any number of Product Attribute Panels.
+
 ## Variants
 
-### [Title]
+### Default
 
 ```jsx
 import Zanda from "@bmi/logo/svgs/Zanda.svg";
