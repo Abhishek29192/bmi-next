@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverviewCard component renders correctly 1`] = `
+<div
+  class="OverviewCard"
+>
+  <div
+    class="header-picture"
+    style="background-image: url(path-to-image);"
+  />
+  <div
+    class="body"
+  >
+    <svg
+      class="brand-logo brand-logo--negative"
+    />
+    <h4
+      class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children"
+    >
+      <p>
+        We do the things
+      </p>
+    </div>
+    <div
+      class="footer"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`OverviewCard component renders correctly without optional props 1`] = `
+<div
+  class="OverviewCard"
+>
+  <div
+    class="body"
+  >
+    <h4
+      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children"
+    >
+      <p>
+        We do the things
+      </p>
+    </div>
+  </div>
+</div>
+`;
