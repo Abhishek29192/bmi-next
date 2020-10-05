@@ -9,6 +9,7 @@ type Props = {
   children: React.ReactNode;
   theme?: Colors;
   onClick?: () => void | undefined;
+  className?: string;
 } & (
   | {
       type?: "selectable";
@@ -16,7 +17,6 @@ type Props = {
     }
   | {
       type: "removable";
-      isSelected?: boolean;
     }
 );
 
@@ -24,12 +24,16 @@ const Chip = ({
   children,
   theme = "pearl",
   onClick = undefined,
+  className,
   ...rest
 }: Props) => {
   if (rest.type == "removable") {
+    const { type, ...chipProps } = rest;
+
     return (
       <MaterialChip
         className={classnames(
+          className,
           styles["Chip"],
           styles["Chip--removable"],
           styles["Chip--default"],
@@ -41,10 +45,12 @@ const Chip = ({
         onClick={onClick}
         onDelete={onClick}
         deleteIcon={<ClearIcon />}
-        {...rest}
+        {...chipProps}
       />
     );
   }
+
+  const { type, isSelected, ...chipProps } = rest;
 
   return (
     <MaterialChip
@@ -56,10 +62,8 @@ const Chip = ({
       })}
       label={children}
       onClick={onClick}
-      color={
-        rest.type == "selectable" && rest.isSelected ? "primary" : "default"
-      }
-      {...rest}
+      color={isSelected ? "primary" : "default"}
+      {...chipProps}
     />
   );
 };

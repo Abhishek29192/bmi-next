@@ -3,6 +3,7 @@
 .Chip {
   margin: 5px;
   border-radius: 21px;
+  cursor: pointer;
 
   &--default {
     color: $color-cyan-500;
