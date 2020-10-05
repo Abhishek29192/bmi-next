@@ -1,0 +1,71 @@
+@import "@bmi/styles";
+
+.ProductOverview {
+  padding: 42px 20px;
+  background: $color-white;
+  border: 1px solid $color-alabaster;
+  font-size: 1rem;
+
+  .brand-logo {
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    margin-bottom: 32px;
+  }
+
+  .attributes {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      margin-top: 18px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .variants {
+    display: block;
+    margin: -2px;
+    margin-top: 10px;
+
+    &--spaced {
+      margin: -10px;
+      margin-top: 2px;
+
+      .variant {
+        margin: 10px;
+      }
+    }
+  }
+
+  .variant {
+    display: inline-block;
+    margin: 2px;
+  }
+
+  .term {
+    display: inline-block;
+
+    &::after {
+      content: ":";
+      display: inline-block;
+      margin-right: 4px;
+    }
+  }
+
+  .definition {
+    font-family: "Effra Medium";
+  }
+
+  .print-button {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+  }
+}
