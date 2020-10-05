@@ -32,6 +32,14 @@ import CloseIcon from "@material-ui/icons/Close";
   >
     Light bites
   </Chip>
+  <Chip
+    type="removable"
+    onClick={() => {
+      console.log("delete");
+    }}
+  >
+    Fries
+  </Chip>
 </Section>;
 ```
 

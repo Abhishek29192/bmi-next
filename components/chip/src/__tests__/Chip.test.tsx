@@ -16,4 +16,13 @@ describe("Chip component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders correctly removable chip", () => {
+    const { container } = render(
+      <Chip type="removable" onClick={() => {}}>
+        removeble chip
+      </Chip>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
