@@ -1,5 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
+import FormSection, {
+  Data as FormSectionData
+} from "../components/FormSection";
 import TabsOrAccordionSection, {
   Data as TabsOrAccordionSectionData
 } from "../components/TabsOrAccordionSection";
@@ -11,12 +14,14 @@ import TwoPaneCarouselSection, {
 } from "../components/TwoPaneCarouselSection";
 
 export type Data = (
+  | FormSectionData
   | TabsOrAccordionSectionData
   | VillainSectionData
   | TwoPaneCarouselSectionData
 )[];
 
 const sectionsMap = {
+  ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
   ContentfulVillainSection: VillainSection,
   ContentfulTwoPaneCarouselSection: TwoPaneCarouselSection
@@ -27,14 +32,17 @@ const Sections = ({ data }: { data: Data }) => {
     <>
       {data.map((section, index) => {
         const Component = sectionsMap[section.__typename];
+
         return (
-          <Component
-            key={`section${index}`}
-            // @ts-ignore
-            data={section}
-            // TODO: Robust theme-based solution required.
-            backgroundColor={index % 2 === 0 ? "pearl" : "white"}
-          />
+          Component && (
+            <Component
+              key={`section${index}`}
+              // @ts-ignore
+              data={section}
+              // TODO: Robust theme-based solution required.
+              backgroundColor={index % 2 === 0 ? "pearl" : "white"}
+            />
+          )
         );
       })}
     </>
@@ -45,8 +53,9 @@ export default Sections;
 
 export const query = graphql`
   # NOTE: This union type name is not ideal, but the best option so far.
-  fragment SectionsFragment on ContentfulTabsOrAccordionSectionContentfulVillainSectionUnion {
+  fragment SectionsFragment on ContentfulFormSectionContentfulTabsOrAccordionSectionContentfulVillainSectionUnion {
     __typename
+    ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
     # ...TwoPaneCarouselSectionFragment
