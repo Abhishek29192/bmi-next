@@ -45,6 +45,7 @@ const OverviewCard = ({
       >
         {brandImageSource ? (
           <BrandLogo
+            preserveAspectRatio="xMinYMin"
             className={classnames(styles["brand-logo"], {
               [styles["brand-logo--negative"]]: !!imageSource
             })}
