@@ -2,8 +2,71 @@ In the BMI sites, Chips are used for filtering, toggling options or allowing a c
 
 ## Variants
 
-### Default
+### white background
 
 ```jsx
-<Chip>Chip text</Chip>
+import Section from "@bmi/section";
+import CloseIcon from "@material-ui/icons/Close";
+
+<Section>
+  <Chip>Fish dishes</Chip>
+  <Chip disabled>Italian food</Chip>
+  <Chip
+    onClick={() => {
+      console.log("chip");
+    }}
+    type="selectable"
+  >
+    Pizzas
+  </Chip>
+  <Chip type="selectable" isSelected={true}>
+    Pies and Pastries
+  </Chip>
+  <Chip
+    clickable
+    type="selectable"
+    isSelected={true}
+    onClick={() => {
+      console.log("chip");
+    }}
+  >
+    Light bites
+  </Chip>
+</Section>;
+```
+
+### on coloured background
+
+```jsx
+import Section from "@bmi/section";
+
+<Section backgroundColor="pearl">
+  <Chip theme="white">Fish dishes</Chip>
+  <Chip theme="white" disabled>
+    Italian food
+  </Chip>
+  <Chip
+    theme="white"
+    onClick={() => {
+      console.log("chip");
+    }}
+    type="selectable"
+  >
+    Pizzas
+  </Chip>
+  <Chip theme="white" type="selectable" isSelected={true}>
+    Pies and Pastries
+  </Chip>
+  <Chip
+    theme="white"
+    clickable
+    type="selectable"
+    isSelected={true}
+    onClick={() => {
+      console.log("chip");
+    }}
+  >
+    Light bites
+  </Chip>
+</Section>;
 ```

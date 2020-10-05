@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip component renders correctly default chip 1`] = `
+<div
+  class="MuiChip-root Chip Chip--default Chip--theme-pearl"
+>
+  <span
+    class="MuiChip-label"
+  >
+    test content
+  </span>
+</div>
+`;
+
+exports[`Chip component renders correctly selected chip 1`] = `
+<div
+  class="MuiChip-root Chip Chip--selectable Chip--theme-pearl MuiChip-colorPrimary"
+  type="selectable"
+>
+  <span
+    class="MuiChip-label"
+  >
+    selected chip
+  </span>
+</div>
+`;
