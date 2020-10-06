@@ -51,13 +51,16 @@ module.exports = {
         }
       }
     },
-    ...contentfulCredentialData.map(({ spaceId, accessToken }) => ({
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId,
-        accessToken
-      }
-    })),
+    ...contentfulCredentialData.map(
+      ({ spaceId, accessToken, environment }) => ({
+        resolve: `gatsby-source-contentful`,
+        options: {
+          spaceId,
+          accessToken,
+          environment
+        }
+      })
+    ),
     `gatsby-plugin-offline`
   ]
 };
