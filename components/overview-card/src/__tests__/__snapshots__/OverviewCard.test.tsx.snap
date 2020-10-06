@@ -13,6 +13,7 @@ exports[`OverviewCard component renders correctly 1`] = `
   >
     <svg
       class="brand-logo brand-logo--negative"
+      preserveAspectRatio="xMinYMin"
     />
     <h4
       class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
