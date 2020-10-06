@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import { Data as SiteData, SiteContext } from "../components/Site";
@@ -35,25 +35,16 @@ type Props = {
   };
 };
 
-const HomePage = ({ data }: Props) => {
-  // TODO: resources is an empty object here sine Homepage parent to Page. NEED fix.
-  const { countryCode, resources } = useContext(SiteContext);
-
-  const {
-    title,
-    slides,
-    overlapCards,
-    sections,
-    ...pageData
-  } = data.contentfulHomePage;
-
-  const heroItems: HeroItem[] = slides.map(
+const getHeroItemsWithContext = (
+  { resources, countryCode },
+  slides
+): HeroItem[] => {
+  return slides.map(
     ({ title, subtitle, featuredImage, __typename, ...rest }) => {
       let CTA;
       if (__typename === "ContentfulPromo") {
         const { cta: ctaData } = rest;
-
-        if (!ctaData) {
+        if (ctaData) {
           CTA = {
             label: ctaData?.label,
             action: getClickableActionFromUrl(
@@ -65,11 +56,8 @@ const HomePage = ({ data }: Props) => {
         }
       } else {
         const { slug } = rest;
-
         CTA = {
-          // TODO: remove hardcoded resource microcopy (see resources above).
-          label: "Go to page",
-          // TODO: is clickable action implmented in heroes component (producing e.g. http://support-category-page/)
+          label: resources["page.linkLabel"],
           action: getClickableActionFromUrl({ slug }, null, countryCode)
         };
       }
@@ -81,10 +69,26 @@ const HomePage = ({ data }: Props) => {
       };
     }
   );
+};
+
+const HomePage = ({ data }: Props) => {
+  const {
+    title,
+    slides,
+    overlapCards,
+    sections,
+    ...pageData
+  } = data.contentfulHomePage;
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
-      <Hero level={0} heroes={heroItems} hasSpaceBottom />
+      <SiteContext.Consumer>
+        {(context) => {
+          const heroItems = getHeroItemsWithContext(context, slides);
+          return <Hero level={0} heroes={heroItems} hasSpaceBottom />;
+        }}
+      </SiteContext.Consumer>
+
       <Container>
         <OverlapCards data={overlapCards} />
       </Container>
