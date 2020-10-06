@@ -10,12 +10,14 @@ export type Props = {
   backgroundColor?: "transparent" | "alabaster" | "white" | "pearl";
   children: React.ReactNode;
   size?: "lg" | "md" | "sm" | "xl" | "xs" | false;
+  spacing?: "default" | "none";
 };
 
 const Section = ({
   backgroundColor = "transparent",
   children,
-  size = "xl"
+  size = "xl",
+  spacing = "default"
 }: Props) => {
   const isNested = useContext(SectionContext);
 
@@ -36,7 +38,8 @@ const Section = ({
       <div
         className={classnames(styles["Section"], {
           [styles[`Section--${backgroundColor}`]]:
-            backgroundColor !== "transparent"
+            backgroundColor !== "transparent",
+          [styles["Section--no-spacing"]]: spacing === "none"
         })}
       >
         <Container maxWidth={size}>{children}</Container>
