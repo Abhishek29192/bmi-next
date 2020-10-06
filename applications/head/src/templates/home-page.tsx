@@ -19,11 +19,7 @@ type PageInfoData = {
 
 type HomepageData = PageInfoData &
   PageData & {
-    slides: ((SlideData | SimplePageSlideData | ContactUsSlideData) & {
-      __typename: string;
-      slug: string; // TODO: SimplePageInfoData | ContactUsInfoData only - how to conditionally apply?
-      cta: SlideData["cta"]; // TODO: SimplePageInfoData | ContactUsInfoData only - how to conditionally apply?
-    })[];
+    slides: (SlideData | SimplePageSlideData | ContactUsSlideData)[];
     overlapCards: OverlapCardData;
     sections: SectionsData | null;
   };
@@ -37,38 +33,37 @@ type Props = {
 
 const getHeroItemsWithContext = (
   { resources, countryCode },
-  slides
+  slides: HomepageData["slides"]
 ): HeroItem[] => {
-  return slides.map(
-    ({ title, subtitle, featuredImage, __typename, ...rest }) => {
-      let CTA;
-      if (__typename === "ContentfulPromo") {
-        const { cta: ctaData } = rest;
-        if (ctaData) {
-          CTA = {
-            label: ctaData?.label,
-            action: getClickableActionFromUrl(
-              ctaData?.linkedPage,
-              ctaData?.url,
-              countryCode
-            )
-          };
-        }
-      } else {
-        const { slug } = rest;
+  return slides.map(({ title, subtitle, featuredImage, ...rest }) => {
+    let CTA;
+
+    if (rest.__typename === "ContentfulPromo") {
+      const { cta: ctaData } = rest;
+      if (ctaData) {
         CTA = {
-          label: resources["page.linkLabel"],
-          action: getClickableActionFromUrl({ slug }, null, countryCode)
+          label: ctaData?.label,
+          action: getClickableActionFromUrl(
+            ctaData?.linkedPage,
+            ctaData?.url,
+            countryCode
+          )
         };
       }
-      return {
-        title,
-        children: subtitle,
-        imageSource: featuredImage?.file.url,
-        CTA
+    } else {
+      const { slug } = rest;
+      CTA = {
+        label: resources["page.linkLabel"],
+        action: getClickableActionFromUrl({ slug }, null, countryCode)
       };
     }
-  );
+    return {
+      title,
+      children: subtitle,
+      imageSource: featuredImage?.file.url,
+      CTA
+    };
+  });
 };
 
 const HomePage = ({ data }: Props) => {
@@ -107,7 +102,7 @@ export const pageQuery = graphql`
       slides {
         __typename
         ... on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
-          ...ContactUsInfoFragment
+          ...ContactUsPageInfoFragment
           ...SimplePageInfoFragment
           ...PromoFragment
         }

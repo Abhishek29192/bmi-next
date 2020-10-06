@@ -112,7 +112,7 @@ export const pageQuery = graphql`
 `;
 
 export const promoQuery = graphql`
-  fragment ContactUsInfoFragment on ContentfulContactUsPage {
+  fragment ContactUsPageInfoFragment on ContentfulContactUsPage {
     title
     subtitle
     slug

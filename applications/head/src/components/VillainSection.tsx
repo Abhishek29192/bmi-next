@@ -75,7 +75,7 @@ export const query = graphql`
     promo {
       __typename
       ... on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
-        ...ContactUsInfoFragment
+        ...ContactUsPageInfoFragment
         ...SimplePageInfoFragment
         ...PromoFragment
       }

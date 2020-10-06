@@ -6,7 +6,7 @@ import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 
 export type PageInfoData = {
-  __typename: "SimplePage";
+  __typename: "ContentfulSimplePage";
   title: string;
   subtitle: string | null;
   slug: string;
