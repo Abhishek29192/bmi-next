@@ -9,9 +9,10 @@ import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import ExpandableCard from "../components/ExpandableCards";
 
-type PageInfoData = {
+export type PageInfoData = {
   title: string;
   subtitle: string | null;
+  slug: string;
   featuredImage: {
     title: string;
     file: {
@@ -105,6 +106,20 @@ export const pageQuery = graphql`
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
+    }
+  }
+`;
+
+export const promoQuery = graphql`
+  fragment ContactUsInfoFragment on ContentfulContactUsPage {
+    title
+    subtitle
+    slug
+    featuredImage {
+      file {
+        fileName
+        url
+      }
     }
   }
 `;

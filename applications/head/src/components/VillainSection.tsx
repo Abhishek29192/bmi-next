@@ -5,11 +5,17 @@ import Villain, { Props as VillainProps } from "@bmi/villain";
 import { Data as PromoData } from "../components/Promo";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl } from "./Link";
+import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
+import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
 
 export type Data = {
   __typename: "ContentfulVillainSection";
   title: string;
-  promo: PromoData;
+  promo: (PromoData | SimplePageInfoData | ContactUsInfoData) & {
+    __typename: string;
+    slug: string; // TODO: SimplePageInfoData | ContactUsInfoData only - how to conditionally apply?
+    cta: PromoData["cta"]; // TODO: SimplePageInfoData | ContactUsInfoData only - how to conditionally apply?
+  };
   isReversed: boolean;
 };
 
@@ -21,22 +27,24 @@ const VillainSection = ({
   backgroundColor: "pearl" | "white";
 }) => {
   const { countryCode, resources } = useContext(SiteContext);
-  const { image, title: villainTitle, subtitle, cta: promoCta, slug } = promo;
+  const { featuredImage, title: villainTitle, subtitle, __typename } = promo;
 
   let cta;
 
-  if (!slug && promoCta) {
-    // NOTE: handles case for promo without cta
+  if (__typename === "ContentfulPromo") {
+    const { cta: ctaData } = promo;
+
     cta = {
-      label: promoCta?.label,
+      label: ctaData?.label,
       action: getClickableActionFromUrl(
-        promoCta?.linkedPage,
-        promoCta?.url,
+        ctaData?.linkedPage,
+        ctaData?.url,
         countryCode
       )
     };
-  } else if (slug) {
-    // NOTE: always cta without promo content type
+  } else {
+    const { slug } = promo;
+
     cta = {
       label: resources["page.linkLabel"],
       action: getClickableActionFromUrl({ slug }, null, countryCode)
@@ -46,7 +54,7 @@ const VillainSection = ({
   const VillainProps: VillainProps = {
     title: villainTitle,
     children: subtitle,
-    imageSource: image?.file.url,
+    imageSource: featuredImage?.file.url,
     cta
   };
 
@@ -64,7 +72,12 @@ export const query = graphql`
   fragment VillainSectionFragment on ContentfulVillainSection {
     title
     promo {
-      ...PromoFragment
+      __typename
+      ... on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
+        ...ContactUsInfoFragment
+        ...SimplePageInfoFragment
+        ...PromoFragment
+      }
     }
     isReversed
   }

@@ -1,14 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Page, { Data as PageData } from "../components/Page";
-// import Hero, { Data as HeroData } from "../components/Hero";
 import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 
-type PageInfoData = {
+export type PageInfoData = {
   title: string;
   subtitle: string | null;
+  slug: string;
   featuredImage: {
     title: string;
     file: {
@@ -79,6 +79,20 @@ export const pageQuery = graphql`
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
+    }
+  }
+`;
+
+export const promoQuery = graphql`
+  fragment SimplePageInfoFragment on ContentfulSimplePage {
+    title
+    subtitle
+    slug
+    featuredImage {
+      file {
+        fileName
+        url
+      }
     }
   }
 `;

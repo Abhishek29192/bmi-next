@@ -4,54 +4,27 @@ import { LinkData } from "./Link";
 export type Data = {
   title: string;
   subtitle: string;
-  slug: string | null;
-  image: {
+  featuredImage: {
     file: {
       fileName: string;
       url: string;
     };
   };
-  cta: LinkData | null;
+  cta?: LinkData | null;
 };
 
 export const promoQuery = graphql`
-  fragment PromoFragment on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
-    ... on ContentfulSimplePage {
-      title
-      subtitle
-      slug
-      image: featuredImage {
-        file {
-          fileName
-          url
-        }
+  fragment PromoFragment on ContentfulPromo {
+    title
+    subtitle
+    featuredImage: image {
+      file {
+        fileName
+        url
       }
     }
-
-    ... on ContentfulContactUsPage {
-      title
-      subtitle
-      slug
-      image: featuredImage {
-        file {
-          fileName
-          url
-        }
-      }
-    }
-
-    ... on ContentfulPromo {
-      title
-      subtitle
-      image {
-        file {
-          fileName
-          url
-        }
-      }
-      cta {
-        ...LinkFragment
-      }
+    cta {
+      ...LinkFragment
     }
   }
 `;
