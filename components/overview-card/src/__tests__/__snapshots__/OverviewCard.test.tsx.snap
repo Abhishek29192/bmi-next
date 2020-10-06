@@ -57,7 +57,7 @@ exports[`OverviewCard component renders correctly without optional props 1`] = `
     class="body"
   >
     <h4
-      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
     >
       Heading
     </h4>
