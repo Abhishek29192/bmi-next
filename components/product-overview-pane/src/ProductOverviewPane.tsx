@@ -14,8 +14,8 @@ const Chip = withClickable((props) => {
     MarkupComponent = "a";
   }
 
-  if (props.to && props.linkComponent) {
-    MarkupComponent = props.linkComponent;
+  if (props.to && props.component) {
+    MarkupComponent = props.component;
   }
 
   return <PureChip {...props} component={MarkupComponent} />;
