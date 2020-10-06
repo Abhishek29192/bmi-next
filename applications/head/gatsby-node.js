@@ -9,6 +9,112 @@ require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
+const createProductPages = async (
+  siteId,
+  countryCode,
+  { graphql, actions }
+) => {
+  const { createPage } = actions;
+
+  const componentMap = {
+    Products: path.resolve("./src/templates/product-details-page.tsx")
+  };
+
+  const result = await graphql(`
+    {
+      allProducts {
+        nodes {
+          __typename
+          approvalStatus
+          id
+          code
+          categories {
+            categoryType
+            code
+          }
+          variantOptions {
+            code
+          }
+        }
+      }
+    }
+  `);
+
+  // Dasherise product code
+  const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const {
+    data: {
+      allProducts: { nodes: products }
+    }
+  } = result;
+
+  products.forEach(async (product) => {
+    const component = componentMap[product.__typename];
+
+    if (!component) {
+      console.warn(
+        `CreatePage: Could not map the page to any component. Make sure you handle the __typename [${product.__typename}] with a template.`
+      );
+      return;
+    }
+
+    const brandCode = (
+      product.categories.find(({ categoryType }) => {
+        return categoryType === "Brand";
+      }) || {}
+    ).code;
+
+    let relatedProductCodes = [];
+    if (brandCode) {
+      const result = await graphql(`
+      {
+        categoryProducts: allProducts(
+          filter: {
+            categories: { elemMatch: { code: { eq: "${brandCode}" } } }
+          }
+          ) {
+            nodes {
+              code
+            }
+          }
+        }
+        `);
+
+      if (result.errors) {
+        throw new Error(result.errors);
+      }
+
+      // TODO: Probably a way of abstracting this into a function
+      const {
+        data: {
+          categoryProducts: { nodes: relatedProducts }
+        }
+      } = result;
+
+      relatedProductCodes = relatedProducts.map(({ code }) => code);
+    }
+
+    product.variantOptions.forEach((variantOption) => {
+      createPage({
+        path: `/${countryCode}/products/${getSlug(variantOption.code)}`,
+        component,
+        context: {
+          productId: product.id,
+          variantCode: variantOption.code,
+          siteId: siteId,
+          countryCode,
+          relatedProductCodes
+        }
+      });
+    });
+  });
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -83,6 +189,8 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       });
     });
+
+    createProductPages(site.id, site.countryCode, { graphql, actions });
   });
 };
 

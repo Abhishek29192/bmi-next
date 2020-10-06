@@ -11,7 +11,12 @@ import styles from "./styles/ProductLeadBlock.module.scss";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
 
-const ProductLeadBlock = () => {
+type Props = {
+  description?: string;
+  keyFeatures?: readonly string[];
+};
+
+const ProductLeadBlock = ({ description, keyFeatures }: Props) => {
   return (
     <div className={styles["ProductLeadBlock"]}>
       <Tabs initialValue="one">
@@ -19,14 +24,7 @@ const ProductLeadBlock = () => {
           <LeadBlock>
             <LeadBlock.Content>
               <LeadBlock.Content.Section>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                  justo duo dolores et ea rebum. Stet clita kasd gubergren.
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore.
-                </Typography>
+                <Typography>{description}</Typography>
               </LeadBlock.Content.Section>
               <LeadBlock.Content.Section>
                 <LeadBlock.Content.Heading>
@@ -42,37 +40,36 @@ const ProductLeadBlock = () => {
               </LeadBlock.Content.Section>
             </LeadBlock.Content>
             <LeadBlock.Card theme="blue-900">
-              <LeadBlock.Card.Section>
-                <LeadBlock.Card.Heading>Heading 1</LeadBlock.Card.Heading>
-                <LeadBlock.Card.Content>
-                  <IconList>
-                    <IconList.Item
-                      icon={BlueCheckIcon}
-                      title="Lorem ipsum dolor sit amet"
-                    >
-                      Lorem ipsum
-                    </IconList.Item>
-                    <IconList.Item
-                      icon={BlueCheckIcon}
-                      title="Lorem ipsum dolor sit amet"
-                    >
-                      Lorem ipsum
-                    </IconList.Item>
-                  </IconList>
-                </LeadBlock.Card.Content>
-              </LeadBlock.Card.Section>
+              {keyFeatures ? (
+                <LeadBlock.Card.Section>
+                  <LeadBlock.Card.Heading>Key features</LeadBlock.Card.Heading>
+                  <LeadBlock.Card.Content>
+                    <IconList>
+                      {keyFeatures.map((feature, index) => (
+                        <IconList.Item
+                          key={index}
+                          icon={BlueCheckIcon}
+                          title="Lorem ipsum dolor sit amet"
+                        >
+                          {feature}
+                        </IconList.Item>
+                      ))}
+                    </IconList>
+                  </LeadBlock.Card.Content>
+                </LeadBlock.Card.Section>
+              ) : null}
               <LeadBlock.Card.Section>
                 <LeadBlock.Card.Heading variant="h5">
-                  Heading 2
+                  Ordering
                 </LeadBlock.Card.Heading>
                 <LeadBlock.Card.Content>
                   <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Ready to buy? Have a question about this product?
                   </Typography>
                 </LeadBlock.Card.Content>
                 <LeadBlock.Card.Action>
                   <Button hasDarkBackground variant="outlined">
-                    Caption
+                    Find a stockist
                   </Button>
                 </LeadBlock.Card.Action>
               </LeadBlock.Card.Section>
