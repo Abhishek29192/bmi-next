@@ -19,6 +19,8 @@ const ProfileCard = ({
   children,
   className
 }: Props) => {
+  const hasFooter = Array.isArray(children) ? children.length > 0 : children;
+
   return (
     <div className={classnames(styles["ProfileCard"], className)}>
       <div className={styles["head"]}>
@@ -34,7 +36,7 @@ const ProfileCard = ({
           </Typography>
         )}
       </div>
-      {children && <div className={styles["footer"]}>{children}</div>}
+      {hasFooter && <div className={styles["footer"]}>{children}</div>}
     </div>
   );
 };

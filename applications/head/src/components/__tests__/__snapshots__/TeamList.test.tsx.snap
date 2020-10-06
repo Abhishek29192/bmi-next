@@ -30,9 +30,6 @@ exports[`TeamList component renders correctly 1`] = `
           Job Title
         </p>
       </div>
-      <div
-        class="footer"
-      />
     </div>
   </div>
 </div>
