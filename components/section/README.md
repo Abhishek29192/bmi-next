@@ -77,3 +77,18 @@ import Typography from "@bmi/typography";
   </Typography>
 </Section>;
 ```
+
+### Witouth vertical spacing
+
+```jsx
+import Typography from "@bmi/typography";
+
+<Section backgroundColor="pearl" spacing="none">
+  <Section.Title>H2 Heading</Section.Title>
+  <Typography>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim
+    sodales velit, quis volutpat velit feugiat vitae. Phasellus volutpat elit
+    scelerisque egestas rhoncus.
+  </Typography>
+</Section>;
+```
