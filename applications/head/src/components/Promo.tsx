@@ -2,8 +2,9 @@ import { graphql } from "gatsby";
 import { LinkData } from "./Link";
 
 export type Data = {
+  __typename: "ContentfulPromo";
   title: string;
-  subtitle: string;
+  subtitle: string | null;
   featuredImage: {
     file: {
       fileName: string;

@@ -10,6 +10,7 @@ import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import ExpandableCard from "../components/ExpandableCards";
 
 export type PageInfoData = {
+  __typename: "ContentfulContactUsPage";
   title: string;
   subtitle: string | null;
   slug: string;

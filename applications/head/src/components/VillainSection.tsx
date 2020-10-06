@@ -11,11 +11,7 @@ import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page"
 export type Data = {
   __typename: "ContentfulVillainSection";
   title: string;
-  promo: (PromoData | SimplePageInfoData | ContactUsInfoData) & {
-    __typename: string;
-    slug: string; // TODO: SimplePageInfoData | ContactUsInfoData only - how to conditionally apply?
-    cta: PromoData["cta"]; // TODO: SimplePageInfoData | ContactUsInfoData only - how to conditionally apply?
-  };
+  promo: PromoData | SimplePageInfoData | ContactUsInfoData;
   isReversed: boolean;
 };
 
@@ -27,12 +23,17 @@ const VillainSection = ({
   backgroundColor: "pearl" | "white";
 }) => {
   const { countryCode, resources } = useContext(SiteContext);
-  const { featuredImage, title: villainTitle, subtitle, __typename } = promo;
+  const {
+    featuredImage,
+    title: villainTitle,
+    subtitle,
+    ...typePromoData
+  } = promo;
 
   let cta;
 
-  if (__typename === "ContentfulPromo") {
-    const { cta: ctaData } = promo;
+  if (typePromoData.__typename === "ContentfulPromo") {
+    const { cta: ctaData } = typePromoData;
 
     cta = {
       label: ctaData?.label,
@@ -43,7 +44,7 @@ const VillainSection = ({
       )
     };
   } else {
-    const { slug } = promo;
+    const { slug } = typePromoData;
 
     cta = {
       label: resources["page.linkLabel"],

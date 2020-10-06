@@ -8,11 +8,9 @@ type Context = {
   homePage: {
     title: string;
   };
-  resources: {
-    // NOTE: need to think how to manage microcopy resources. There needs to a
-    // defined set. E.g ["page.linkLabel"]: string;
-    [key: string]: string;
-  };
+  // NOTE: need to think how to manage microcopy resources. There needs to a
+  // defined set. E.g ["page.linkLabel"]: string;
+  resources: Record<string, string>;
 };
 
 type Resource = {
