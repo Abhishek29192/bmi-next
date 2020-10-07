@@ -1,19 +1,28 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Container from "@bmi/container";
-import { Data as SiteData } from "../components/Site";
+import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
-import Hero, { Data as HeroData } from "../components/Hero";
+import { Data as SlideData } from "../components/Promo";
+import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
+import { getClickableActionFromUrl } from "../components/Link";
+import { PageInfoData as SimplePageSlideData } from "../templates/simple-page";
+import { PageInfoData as ContactUsSlideData } from "../templates/contact-us-page";
 
-type HomepageData = PageData & {
-  heroes: HeroData[];
-  overlapCards: OverlapCardData;
-  sections: SectionsData | null;
+type PageInfoData = {
+  title: string;
 };
+
+type HomepageData = PageInfoData &
+  PageData & {
+    slides: (SlideData | SimplePageSlideData | ContactUsSlideData)[];
+    overlapCards: OverlapCardData;
+    sections: SectionsData | null;
+  };
 
 type Props = {
   data: {
@@ -22,16 +31,59 @@ type Props = {
   };
 };
 
+const getHeroItemsWithContext = (
+  { resources, countryCode },
+  slides: HomepageData["slides"]
+): HeroItem[] => {
+  return slides.map(({ title, subtitle, featuredImage, ...rest }) => {
+    let CTA;
+
+    if (rest.__typename === "ContentfulPromo") {
+      const { cta: ctaData } = rest;
+      if (ctaData) {
+        CTA = {
+          label: ctaData?.label,
+          action: getClickableActionFromUrl(
+            ctaData?.linkedPage,
+            ctaData?.url,
+            countryCode
+          )
+        };
+      }
+    } else {
+      const { slug } = rest;
+      CTA = {
+        label: resources["page.linkLabel"],
+        action: getClickableActionFromUrl({ slug }, null, countryCode)
+      };
+    }
+    return {
+      title,
+      children: subtitle,
+      imageSource: featuredImage?.file.url,
+      CTA
+    };
+  });
+};
+
 const HomePage = ({ data }: Props) => {
   const {
-    heroes,
+    title,
+    slides,
     overlapCards,
     sections,
     ...pageData
   } = data.contentfulHomePage;
+
   return (
-    <Page pageData={pageData} siteData={data.contentfulSite}>
-      <Hero data={heroes} hasSpaceBottom />
+    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+      <SiteContext.Consumer>
+        {(context) => {
+          const heroItems = getHeroItemsWithContext(context, slides);
+          return <Hero level={0} heroes={heroItems} hasSpaceBottom />;
+        }}
+      </SiteContext.Consumer>
+
       <Container>
         <OverlapCards data={overlapCards} />
       </Container>
@@ -47,8 +99,13 @@ export const pageQuery = graphql`
     contentfulHomePage(id: { eq: $pageId }) {
       title
       showSignUpBanner
-      heroes {
-        ...HeroFragment
+      slides {
+        __typename
+        ... on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
+          ...ContactUsPageInfoFragment
+          ...SimplePageInfoFragment
+          ...PromoFragment
+        }
       }
       overlapCards {
         ...OverlapCardFragment

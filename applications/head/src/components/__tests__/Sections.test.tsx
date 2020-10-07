@@ -45,11 +45,11 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulVillainSection",
         title: "Title",
-        hero: {
-          title: "Hero",
-          brandLogo: null,
+        promo: {
+          __typename: "ContentfulPromo",
+          title: "Promo",
           subtitle: null,
-          image: null,
+          featuredImage: null,
           cta: null
         },
         isReversed: null

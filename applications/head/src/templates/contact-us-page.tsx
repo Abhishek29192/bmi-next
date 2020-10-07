@@ -3,19 +3,33 @@ import { graphql } from "gatsby";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
 import { Data as SiteData } from "../components/Site";
-import Hero, { Data as HeroData } from "../components/Hero";
+import Hero, { HeroItem } from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import ExpandableCard from "../components/ExpandableCards";
 
-type Data = PageData & {
-  hero: HeroData;
-  queriesTitle: string;
-  queriesSubtitle: string;
-  otherAreasTitle: string;
-  otherAreas: readonly TitleWithContentData[];
+export type PageInfoData = {
+  __typename: "ContentfulContactUsPage";
+  title: string;
+  subtitle: string | null;
+  slug: string;
+  featuredImage: {
+    title: string;
+    file: {
+      fileName: string;
+      url: string;
+    };
+  };
 };
+
+type Data = PageInfoData &
+  PageData & {
+    queriesTitle: string;
+    queriesSubtitle: string;
+    otherAreasTitle: string;
+    otherAreas: readonly TitleWithContentData[];
+  };
 
 type Props = {
   data: {
@@ -26,16 +40,24 @@ type Props = {
 
 const ContactUsPage = ({ data }: Props) => {
   const {
-    hero,
+    title,
+    subtitle,
+    featuredImage,
     queriesTitle,
     queriesSubtitle,
     otherAreasTitle,
     otherAreas,
     ...pageData
   } = data.contentfulContactUsPage;
+  const heroProps: HeroItem = {
+    title,
+    children: subtitle,
+    imageSource: featuredImage?.file.url
+  };
+
   return (
-    <Page pageData={pageData} siteData={data.contentfulSite}>
-      <Hero data={[hero]} />
+    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+      <Hero level={1} {...heroProps} />
       <Section backgroundColor="pearl">
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">
@@ -46,9 +68,13 @@ const ContactUsPage = ({ data }: Props) => {
         </div>
       </Section>
       <TabsOrAccordionSection
-        title={otherAreasTitle}
-        type="Accordion"
-        items={otherAreas}
+        data={{
+          __typename: "ContentfulTabsOrAccordionSection",
+          title: otherAreasTitle,
+          description: null,
+          items: otherAreas,
+          type: "Accordion"
+        }}
         backgroundColor="white"
       />
     </Page>
@@ -62,10 +88,16 @@ export const pageQuery = graphql`
     contentfulContactUsPage(id: { eq: $pageId }) {
       title
       slug
-      showSignUpBanner
-      hero {
-        ...HeroFragment
+      # Check length allowed and define right field type
+      # subtitle
+      featuredImage {
+        title
+        file {
+          fileName
+          url
+        }
       }
+      showSignUpBanner
       queriesTitle
       queriesSubtitle
       otherAreasTitle
@@ -75,6 +107,20 @@ export const pageQuery = graphql`
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
+    }
+  }
+`;
+
+export const promoQuery = graphql`
+  fragment ContactUsPageInfoFragment on ContentfulContactUsPage {
+    title
+    subtitle
+    slug
+    featuredImage {
+      file {
+        fileName
+        url
+      }
     }
   }
 `;

@@ -8,13 +8,22 @@ type Context = {
   homePage: {
     title: string;
   };
+  // NOTE: need to think how to manage microcopy resources. There needs to a
+  // defined set. E.g ["page.linkLabel"]: string;
+  resources: Record<string, string>;
+};
+
+type Resource = {
+  key: string;
+  value: string;
 };
 
 export const SiteContext = createContext<Context>({
   countryCode: "",
   homePage: {
     title: ""
-  }
+  },
+  resources: {}
 });
 
 export type Data = {
@@ -26,6 +35,7 @@ export type Data = {
   footerSecondaryNavigation: NavigationData;
   menuNavigation: NavigationData;
   menuUtilities: NavigationData;
+  resources: Resource[];
 } & NewsLetterSignUpData;
 
 export const query = graphql`
@@ -47,5 +57,9 @@ export const query = graphql`
       ...FooterSecondaryNavigationFragment
     }
     ...SignUpFragment
+    resources {
+      key
+      value
+    }
   }
 `;
