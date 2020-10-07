@@ -91,29 +91,43 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
         <span
           class="variant"
         >
-          <button
-            type="button"
+          <div
+            class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
           >
-            22cm x 42cm
-          </button>
+            <span
+              class="MuiChip-label"
+            >
+              22cm x 42cm
+            </span>
+          </div>
         </span>
         <span
           class="variant"
         >
           <a
+            class="MuiChip-root Chip Chip--default Chip--theme-pearl"
             href="#"
           >
-            12cm x 22cm
+            <span
+              class="MuiChip-label"
+            >
+              12cm x 22cm
+            </span>
           </a>
         </span>
         <span
           class="variant"
         >
-          <button
-            type="button"
+          <div
+            aria-disabled="true"
+            class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
           >
-            30cm x 62cm
-          </button>
+            <span
+              class="MuiChip-label"
+            >
+              30cm x 62cm
+            </span>
+          </div>
         </span>
       </div>
     </li>

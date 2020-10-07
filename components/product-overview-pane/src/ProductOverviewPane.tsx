@@ -1,11 +1,25 @@
 import React from "react";
 import classnames from "classnames";
-// import Chip, { ClickableAction } from "@bmi/chip";
-import Clickable, { ClickableAction } from "@bmi/clickable";
+import PureChip from "@bmi/chip";
+import { ClickableAction, withClickable } from "@bmi/clickable";
 import Thumbnail from "@bmi/thumbnail";
 import Button from "@bmi/button";
 import Typography from "@bmi/typography";
 import styles from "./ProductOverviewPane.module.scss";
+
+const Chip = withClickable((props) => {
+  let MarkupComponent: React.ElementType;
+
+  if (props.href) {
+    MarkupComponent = "a";
+  }
+
+  if (props.to && props.component) {
+    MarkupComponent = props.component;
+  }
+
+  return <PureChip {...props} component={MarkupComponent} />;
+});
 
 type Variant = {
   /** Not a ReactNode to support alt text */
@@ -35,15 +49,6 @@ export type Props = {
   attributes?: Attribute[];
   printButtonLabel?: React.ReactNode;
 };
-
-// TODO: This is a placeholder for Chip component
-const Chip = ({
-  children,
-  action
-}: {
-  children: React.ReactNode;
-  action?: ClickableAction;
-}) => <Clickable {...action}>{children}</Clickable>;
 
 const renderThumbnailAttribute = (
   name: string,
@@ -107,9 +112,16 @@ const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
       <div
         className={classnames(styles["variants"], styles["variants--spaced"])}
       >
-        {attribute.variants.map(({ label, action }, index) => (
+        {attribute.variants.map(({ label, action, isSelected }, index) => (
           <span className={styles["variant"]} key={`${key}-variant-${index}`}>
-            <Chip action={action}>{label}</Chip>
+            <Chip
+              type="selectable"
+              isSelected={isSelected}
+              action={action}
+              disabled={!isSelected && !action}
+            >
+              {label}
+            </Chip>
           </span>
         ))}
       </div>

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@bmi/button": "0.0.0",
+    "@bmi/chip": "0.0.0",
     "@bmi/clickable": "0.0.0",
     "@bmi/styles": "0.0.0",
     "@bmi/thumbnail": "0.0.0",

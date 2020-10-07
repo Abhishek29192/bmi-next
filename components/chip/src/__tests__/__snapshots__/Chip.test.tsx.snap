@@ -42,7 +42,6 @@ exports[`Chip component renders correctly removable chip 1`] = `
 exports[`Chip component renders correctly selected chip 1`] = `
 <div
   class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
-  type="selectable"
 >
   <span
     class="MuiChip-label"
