@@ -37,7 +37,8 @@ const styleRules = ({ dev, isServer } = {}) => ({
     : [
         new ExtractCssChunks({
           filename: "static/chunks/[name].[contenthash:8].css",
-          chunkFilename: "static/chunks/[name].[contenthash:8].chunk.css"
+          chunkFilename: "static/chunks/[name].[contenthash:8].chunk.css",
+          ignoreOrder: true // Enable to remove warnings about conflicting order
         })
       ],
   rules: [
