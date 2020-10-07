@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThumbScrollerButton component renders correctly 1`] = `
+<button
+  class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--right"
+  tabindex="-1"
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    class="MuiSvgIcon-root icon"
+    focusable="false"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+    />
+  </svg>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;

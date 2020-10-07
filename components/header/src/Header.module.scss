@@ -23,6 +23,10 @@
     padding-left: 0;
   }
 
+  .LogoLink {
+    display: inherit;
+  }
+
   .Logo {
     margin: 10px 10px 10px 0;
     width: 50px;
@@ -290,4 +294,8 @@
     top: 3rem;
     right: 0;
   }
+}
+
+:export {
+  breakpoint-sm: 800;
 }

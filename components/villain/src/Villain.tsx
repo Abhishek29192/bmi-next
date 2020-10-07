@@ -15,7 +15,7 @@ import Typography from "@bmi/typography";
 import classnames from "classnames";
 import styles from "./Villain.module.scss";
 
-type Props = {
+export type Props = {
   children: React.ReactNode;
   title: React.ReactNode;
   imageSource?: string;

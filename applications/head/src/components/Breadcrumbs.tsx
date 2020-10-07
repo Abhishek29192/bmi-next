@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Breadcrumbs from "@bmi/breadcrumbs";
+import Breadcrumbs, { Props as BreadcrumbsProps } from "@bmi/breadcrumbs";
 import { SiteContext } from "../components/Site";
 
 import { getClickableActionFromUrl, LinkData, NavigationData } from "./Link";
@@ -9,7 +9,10 @@ type Path = {
   link: LinkData | null;
 };
 
-function findPath(slug: string, menuNavigation: NavigationData): Path[] {
+export const findPath = (
+  slug: string,
+  menuNavigation: NavigationData
+): Path[] => {
   let found;
 
   const __helper = (
@@ -47,22 +50,23 @@ function findPath(slug: string, menuNavigation: NavigationData): Path[] {
 
   const result = __helper(menuNavigation);
   return found ? result : [];
-}
+};
 
 const IntegratedBreadcrumbs = ({
   title,
   slug,
-  menuNavigation
+  menuNavigation,
+  ...rest
 }: {
   title: string;
   slug: string;
   menuNavigation: NavigationData;
-}) => {
+} & BreadcrumbsProps) => {
   const path = findPath(slug, menuNavigation);
   const { countryCode, homePage } = useContext(SiteContext);
 
   return (
-    <Breadcrumbs>
+    <Breadcrumbs {...rest}>
       <Breadcrumbs.Item
         action={getClickableActionFromUrl({ slug: "" }, null, countryCode)}
       >

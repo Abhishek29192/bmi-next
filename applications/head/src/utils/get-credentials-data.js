@@ -5,6 +5,7 @@ const getCredentialData = (env, data = [], index = 0) => {
 
   const spaceId = env[`SPACE_ID${suffix}`];
   const accessToken = env[`ACCESS_TOKEN${suffix}`];
+  const environment = env[`ENVIRONMENT${suffix}`] || "master";
 
   if (!spaceId || !accessToken) {
     if (index === 0) {
@@ -18,7 +19,8 @@ const getCredentialData = (env, data = [], index = 0) => {
 
   const countryData = {
     spaceId,
-    accessToken
+    accessToken,
+    environment
   };
 
   return getCredentialData(env, data.concat(countryData), index + 1);

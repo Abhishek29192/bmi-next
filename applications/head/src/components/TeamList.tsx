@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
+import Grid from "@bmi/grid";
 import ProfileCard from "@bmi/profile-card";
 import { iconMap } from "./Icon";
-import styles from "./styles/TeamList.module.scss";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 
@@ -21,19 +21,14 @@ const TeamList = ({ data }: { data: Data }) => {
   const { countryCode } = useContext(SiteContext);
 
   return (
-    <div className={styles["TeamList"]}>
+    <Grid container justify="center" spacing={3}>
       {data.map((teamMember, index) => {
         const { name, jobTitle, profilePicture, links } = teamMember;
         const url = profilePicture.file.url;
 
         return (
-          <div key={`team-member-card-${index}`}>
-            <ProfileCard
-              name={name}
-              title={jobTitle}
-              imageSource={url}
-              className={styles["card"]}
-            >
+          <Grid item xs={12} md={data.length < 4 ? 4 : 3} key={index}>
+            <ProfileCard name={name} title={jobTitle} imageSource={url}>
               {(links || []).map((link, index) => (
                 <ProfileCard.Row
                   key={`team-member-link-${index}`}
@@ -48,10 +43,10 @@ const TeamList = ({ data }: { data: Data }) => {
                 </ProfileCard.Row>
               ))}
             </ProfileCard>
-          </div>
+          </Grid>
         );
       })}
-    </div>
+    </Grid>
   );
 };
 

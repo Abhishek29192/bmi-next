@@ -1,7 +1,6 @@
 @import "@bmi/styles";
 
 .Section {
-  overflow: hidden;
   padding: 60px 0;
   background-color: transparent;
 
@@ -15,6 +14,10 @@
 
   &--white {
     background-color: $color-white;
+  }
+
+  &--no-spacing {
+    padding: 0;
   }
 
   .title {

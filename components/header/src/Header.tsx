@@ -7,12 +7,12 @@ import LanguageSelection, {
   LanguageSelectionList
 } from "@bmi/language-selection";
 import BmiIcon from "@bmi/logo/svgs/BMI.svg";
+import Clickable, { ClickableAction } from "@bmi/clickable";
 import Navigation, { LinkList, NavitationList } from "@bmi/navigation";
 import TextField from "@bmi/text-field";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import { Backdrop, Paper, Slide, Tab, Tabs } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
 import { Close, KeyboardArrowDown, Menu, Search } from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";
@@ -23,17 +23,16 @@ type HeaderProps = {
   languages?: readonly LanguageSelectionList[];
   navigation: readonly NavitationList[];
   utilities: readonly LinkList[];
+  logoAction?: ClickableAction;
 };
 
 const Header = ({
   language = defaultLanguage,
   languages,
   navigation,
-  utilities
+  utilities,
+  logoAction
 }: HeaderProps) => {
-  const { breakpoints } = useTheme();
-  breakpoints.values.md = 800; // Override
-
   const $body: HTMLElement =
     typeof document !== "undefined"
       ? document.querySelector("body")
@@ -88,8 +87,12 @@ const Header = ({
     setShowSearch(false);
   };
 
-  const handleResize = ({ target }) => {
-    setSize(target.innerWidth < breakpoints.width("md") ? "small" : "large");
+  const handleResize = ({ currentTarget }) => {
+    setSize(
+      currentTarget.innerWidth < parseFloat(styles["breakpoint-sm"])
+        ? "small"
+        : "large"
+    );
     // @todo: calculate from `es` somehow...
     // const $NavigationBarLeft: HTMLElement = document.querySelector(
     //   `.${styles.NavigationBar__Left}`
@@ -102,7 +105,7 @@ const Header = ({
   };
 
   React.useEffect(() => {
-    handleResize({ target: window });
+    handleResize({ currentTarget: window });
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -185,7 +188,9 @@ const Header = ({
       <div className={styles.NavigationBar}>
         <Container>
           <div className={styles.NavigationBar__Left}>
-            <Icon className={styles.Logo} source={BmiIcon} />
+            <Clickable {...logoAction} className={styles.LogoLink}>
+              <Icon className={styles.Logo} source={BmiIcon} />
+            </Clickable>
             <nav
               aria-label="Navigation"
               className={styles.Navigation}

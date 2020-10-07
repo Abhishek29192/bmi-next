@@ -37,17 +37,17 @@ describe("Page component", () => {
       footerMainNavigation: mockNavigation,
       footerSecondaryNavigation: mockNavigation,
       menuNavigation: mockNavigation,
-      menuUtilities: mockNavigation
+      menuUtilities: mockNavigation,
+      resources: []
     };
 
     const pageData: Data = {
-      title: "Page title",
       showSignUpBanner: false,
       slug: "page-title"
     };
 
     const { container } = render(
-      <Page pageData={pageData} siteData={siteData}>
+      <Page title="Lorem ipsum" pageData={pageData} siteData={siteData}>
         Lorem ipsum
       </Page>
     );

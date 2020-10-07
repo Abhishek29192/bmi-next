@@ -1,5 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
+import FormSection, {
+  Data as FormSectionData
+} from "../components/FormSection";
 import TabsOrAccordionSection, {
   Data as TabsOrAccordionSectionData
 } from "../components/TabsOrAccordionSection";
@@ -11,12 +14,14 @@ import TwoPaneCarouselSection, {
 } from "../components/TwoPaneCarouselSection";
 
 export type Data = (
+  | FormSectionData
   | TabsOrAccordionSectionData
   | VillainSectionData
   | TwoPaneCarouselSectionData
 )[];
 
 const sectionsMap = {
+  ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
   ContentfulVillainSection: VillainSection,
   ContentfulTwoPaneCarouselSection: TwoPaneCarouselSection
@@ -50,6 +55,7 @@ export const query = graphql`
   # NOTE: This union type name is not ideal, but the best option so far.
   fragment SectionsFragment on ContentfulFormSectionContentfulTabsOrAccordionSectionContentfulVillainSectionUnion {
     __typename
+    ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
     # ...TwoPaneCarouselSectionFragment

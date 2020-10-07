@@ -3,23 +3,28 @@ import { graphql } from "gatsby";
 import { Document } from "@contentful/rich-text-types";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container/src";
+import Breadcrumbs from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
-import Hero, { Data as HeroData } from "../components/Hero";
+import Hero from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText from "../components/RichText";
 
-type Data = PageData & {
-  hero: HeroData;
-  teamCategories: {
-    title: string;
-    description: {
-      json: Document;
-    };
-    // NOTE: This is snake_case because it's a relationship field.
-    team_member: TeamMemberData;
-  }[];
+type PageInfoData = {
+  title: string;
 };
+
+type Data = PageInfoData &
+  PageData & {
+    teamCategories: {
+      title: string;
+      description: {
+        json: Document;
+      };
+      // NOTE: This is snake_case because it's a relationship field.
+      team_member: TeamMemberData;
+    }[];
+  };
 
 type Props = {
   data: {
@@ -29,10 +34,22 @@ type Props = {
 };
 
 const TeamPage = ({ data }: Props) => {
-  const { hero, teamCategories, ...pageData } = data.contentfulTeamPage;
+  const { title, teamCategories, ...pageData } = data.contentfulTeamPage;
+
   return (
-    <Page pageData={pageData} siteData={data.contentfulSite}>
-      <Hero data={[hero]} />
+    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+      <Hero
+        level={2}
+        title={title}
+        breadcrumbs={
+          <Breadcrumbs
+            title={title}
+            slug={pageData.slug}
+            menuNavigation={data.contentfulSite.menuNavigation}
+            isDarkThemed
+          />
+        }
+      />
       <Tabs theme="secondary" component={Container}>
         {teamCategories.map((category, index) => (
           <Tabs.TabPanel
@@ -60,10 +77,8 @@ export const pageQuery = graphql`
     contentfulTeamPage(id: { eq: $pageId }) {
       title
       slug
+      # Check length allowed and define right field type
       showSignUpBanner
-      hero {
-        ...HeroFragment
-      }
       teamCategories {
         title
         description {
