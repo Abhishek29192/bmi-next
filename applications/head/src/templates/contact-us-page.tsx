@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
+import Breadcrumbs from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Hero, { HeroItem } from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
@@ -57,7 +58,18 @@ const ContactUsPage = ({ data }: Props) => {
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
-      <Hero level={1} {...heroProps} />
+      <Hero
+        level={1}
+        {...heroProps}
+        breadcrumbs={
+          <Breadcrumbs
+            title={title}
+            slug={pageData.slug}
+            menuNavigation={data.contentfulSite.menuNavigation}
+            isDarkThemed
+          />
+        }
+      />
       <Section backgroundColor="pearl">
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">

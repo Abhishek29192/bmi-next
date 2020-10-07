@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { Document } from "@contentful/rich-text-types";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container/src";
+import Breadcrumbs from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Hero from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
@@ -37,7 +38,18 @@ const TeamPage = ({ data }: Props) => {
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
-      <Hero level={2} title={title} />
+      <Hero
+        level={2}
+        title={title}
+        breadcrumbs={
+          <Breadcrumbs
+            title={title}
+            slug={pageData.slug}
+            menuNavigation={data.contentfulSite.menuNavigation}
+            isDarkThemed
+          />
+        }
+      />
       <Tabs theme="secondary" component={Container}>
         {teamCategories.map((category, index) => (
           <Tabs.TabPanel

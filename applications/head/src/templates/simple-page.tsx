@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
@@ -51,7 +52,18 @@ const SimplePage = ({ data }: Props) => {
       siteData={data.contentfulSite}
     >
       {/* TODO: Level depends on page rank, see and share breadcrumbs logic */}
-      <Hero level={featuredImage ? 1 : 2} {...heroProps} />
+      <Hero
+        level={featuredImage ? 1 : 2}
+        {...heroProps}
+        breadcrumbs={
+          <Breadcrumbs
+            title={title}
+            slug={data.contentfulSimplePage.slug}
+            menuNavigation={data.contentfulSite.menuNavigation}
+            isDarkThemed
+          />
+        }
+      />
       {sections && <Sections data={sections} />}
     </Page>
   );
