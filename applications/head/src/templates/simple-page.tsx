@@ -51,7 +51,7 @@ const SimplePage = ({ data }: Props) => {
       siteData={data.contentfulSite}
     >
       {/* TODO: Level depends on page rank, see and share breadcrumbs logic */}
-      <Hero level={1} {...heroProps} />
+      <Hero level={featuredImage ? 1 : 2} {...heroProps} />
       {sections && <Sections data={sections} />}
     </Page>
   );
