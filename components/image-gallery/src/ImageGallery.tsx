@@ -14,7 +14,9 @@ const ImageGallery = ({ images }: Props) => {
   }
 
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
-  let isTouchDevice = document && "ontouchstart" in document.documentElement;
+  let isTouchDevice =
+    typeof document !== `undefined` &&
+    "ontouchstart" in document.documentElement;
 
   const Thumbnails = isTouchDevice ? MobileThumbnails : DesktopThumbnails;
 
