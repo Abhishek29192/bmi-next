@@ -81,10 +81,12 @@ const parseNavigation = (
 
 const Header = ({
   navigationData,
-  utilitiesData
+  utilitiesData,
+  countryCode
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
+  countryCode: string;
 }) => {
   if (!navigationData || !utilitiesData) {
     return null;
@@ -92,7 +94,17 @@ const Header = ({
   const utilities = parseNavigation(utilitiesData.links);
   const navigation = parseNavigation(navigationData.links);
 
-  return <HeaderComponent utilities={utilities} navigation={navigation} />;
+  return (
+    <HeaderComponent
+      utilities={utilities}
+      navigation={navigation}
+      logoAction={{
+        model: "routerLink",
+        linkComponent: Link,
+        to: `/${countryCode}/`
+      }}
+    />
+  );
 };
 
 export default Header;
