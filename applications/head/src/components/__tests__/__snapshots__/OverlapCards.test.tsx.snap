@@ -2,7 +2,7 @@
 
 exports[`OverlapCards component renders correctly 1`] = `
 <div
-  style="margin-top: -112px;"
+  class="OverlapCards"
 >
   <div
     class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"

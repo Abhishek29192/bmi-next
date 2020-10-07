@@ -7,6 +7,7 @@ import LanguageSelection, {
   LanguageSelectionList
 } from "@bmi/language-selection";
 import BmiIcon from "@bmi/logo/svgs/BMI.svg";
+import Clickable, { ClickableAction } from "@bmi/clickable";
 import Navigation, { LinkList, NavitationList } from "@bmi/navigation";
 import TextField from "@bmi/text-field";
 import Container from "@bmi/container";
@@ -22,13 +23,15 @@ type HeaderProps = {
   languages?: readonly LanguageSelectionList[];
   navigation: readonly NavitationList[];
   utilities: readonly LinkList[];
+  logoAction?: ClickableAction;
 };
 
 const Header = ({
   language = defaultLanguage,
   languages,
   navigation,
-  utilities
+  utilities,
+  logoAction
 }: HeaderProps) => {
   const $body: HTMLElement =
     typeof document !== "undefined"
@@ -185,7 +188,9 @@ const Header = ({
       <div className={styles.NavigationBar}>
         <Container>
           <div className={styles.NavigationBar__Left}>
-            <Icon className={styles.Logo} source={BmiIcon} />
+            <Clickable {...logoAction} className={styles.LogoLink}>
+              <Icon className={styles.Logo} source={BmiIcon} />
+            </Clickable>
             <nav
               aria-label="Navigation"
               className={styles.Navigation}

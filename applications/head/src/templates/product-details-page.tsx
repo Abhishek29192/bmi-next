@@ -114,9 +114,7 @@ type Props = {
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
 
-  // TODO: ??? Can I do this myself here???
   const pageData: PageData = {
-    title: `Product Detail Page - ${product.name}`,
     showSignUpBanner: false
   };
 
@@ -154,7 +152,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   };
 
   return (
-    <Page pageData={pageData} siteData={data.contentfulSite}>
+    <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
       <Container>
         <ProductOverview data={productData} />
       </Container>

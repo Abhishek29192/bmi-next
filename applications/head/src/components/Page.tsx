@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
 import Header from "../components/Header";
@@ -55,7 +56,11 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
           resources: parseResources(siteData.resources)
         }}
       >
-        <Header navigationData={menuNavigation} utilitiesData={menuUtilities} />
+        <Header
+          navigationData={menuNavigation}
+          utilitiesData={menuUtilities}
+          countryCode={countryCode}
+        />
         {children}
         {pageData.showSignUpBanner ? (
           <NewsletterSignUp data={signUpData} />

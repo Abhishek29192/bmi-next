@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
+import styles from "./styles/OverlapCards.module.scss";
 import { graphql } from "gatsby";
 
 type Card = {
@@ -21,11 +22,7 @@ export type Data = [Card, Card, ...Card[]];
 
 const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
   return (
-    <div
-      style={{
-        marginTop: "-112px"
-      }}
-    >
+    <div className={styles["OverlapCards"]}>
       <Grid spacing={3} container justify="center">
         {data.map(({ label, image }, key) => {
           return (
