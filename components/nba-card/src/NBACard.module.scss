@@ -1,0 +1,27 @@
+@import "@bmi/styles";
+
+.NBACard {
+  // NOTE: Overriding for the this module
+  $breakpoint-sm: 420px;
+
+  padding: 30px;
+
+  :global {
+    .MuiLink-root {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 20px;
+  }
+
+  .title {
+    margin-bottom: 24px;
+  }
+
+  .body {
+    margin-bottom: 16px;
+  }
+}

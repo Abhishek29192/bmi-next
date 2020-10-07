@@ -17,7 +17,7 @@ type Props = {
 const OverviewCard = ({
   title,
   titleVariant = "h4",
-  hasTitleUnderline = true,
+  hasTitleUnderline,
   children,
   imageSource,
   brandImageSource,
