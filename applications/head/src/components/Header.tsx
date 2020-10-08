@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
 import Icon from "./Icon";
+import { SiteContext } from "./Site";
 
 const parseNavigation = (
-  navigationItems: (NavigationData | NavigationItem | LinkData)[]
+  navigationItems: (NavigationData | NavigationItem | LinkData)[],
+  countryCode: string
 ) => {
   return navigationItems.reduce((result, { __typename, ...item }) => {
     if (__typename === "ContentfulNavigation") {
       const { label, links } = item as NavigationData;
       return result.concat({
         label,
-        menu: parseNavigation(links)
+        menu: parseNavigation(links, countryCode)
       });
     }
 
@@ -59,8 +61,7 @@ const parseNavigation = (
       if (linkedPage) {
         action = {
           model: "routerLink",
-          // TODO: use countryCode from context instead of /no
-          to: `/no/${linkedPage.slug}`,
+          to: `/${countryCode}/${linkedPage.slug}`,
           linkComponent: Link
         };
       } else if (url) {
@@ -89,8 +90,9 @@ const Header = ({
   if (!navigationData || !utilitiesData) {
     return null;
   }
-  const utilities = parseNavigation(utilitiesData.links);
-  const navigation = parseNavigation(navigationData.links);
+  const { countryCode } = useContext(SiteContext);
+  const utilities = parseNavigation(utilitiesData.links, countryCode);
+  const navigation = parseNavigation(navigationData.links, countryCode);
 
   return <HeaderComponent utilities={utilities} navigation={navigation} />;
 };
