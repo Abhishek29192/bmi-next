@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql, Link } from "gatsby";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
 import Icon from "./Icon";
-import { SiteContext } from "./Site";
 
 const parseNavigation = (
   navigationItems: (NavigationData | NavigationItem | LinkData)[],
@@ -92,7 +91,6 @@ const Header = ({
   if (!navigationData || !utilitiesData) {
     return null;
   }
-  const { countryCode } = useContext(SiteContext);
   const utilities = parseNavigation(utilitiesData.links, countryCode);
   const navigation = parseNavigation(navigationData.links, countryCode);
 
