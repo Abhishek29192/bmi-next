@@ -35,8 +35,12 @@ exports[`NbaCard component renders with footer 1`] = `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
     </div>
   </div>
-  <div>
-    footer
+  <div
+    class="footer"
+  >
+    <div>
+      footer
+    </div>
   </div>
 </div>
 `;

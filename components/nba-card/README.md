@@ -1,4 +1,4 @@
-[description]
+NBA (Next best action) cards have no elevation and are used in a collection at the bottom of a page. It has title, content and an option footer section. It accepts theme color from `ColorPair`.
 
 ## Variants
 
