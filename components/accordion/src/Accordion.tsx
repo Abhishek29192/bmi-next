@@ -8,6 +8,7 @@ import MaterialAccordionSummary, {
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React, { useState } from "react";
 import styles from "./Accordion.module.scss";
+import classnames from "classnames";
 
 type AccordionItemProps = ExpansionPanelProps & {
   isExpanded?: boolean;
@@ -22,9 +23,10 @@ type AccordionProps = {
     | React.ReactElement<AccordionItemProps>
     | React.ReactElement<AccordionItemProps>[];
   isRadio?: boolean;
+  noInnerPadding?: boolean;
 };
 
-const Accordion = ({ children, isRadio }: AccordionProps) => {
+const Accordion = ({ children, isRadio, noInnerPadding }: AccordionProps) => {
   const firstDefaultExpanded = React.Children.toArray(children).findIndex(
     (child) => React.isValidElement(child) && child.props.defaultExpanded
   );
@@ -32,7 +34,12 @@ const Accordion = ({ children, isRadio }: AccordionProps) => {
   const [expanded, setExpanded] = useState<number>(firstDefaultExpanded + 1);
 
   return (
-    <div className={styles["Accordion"]}>
+    <div
+      className={classnames(
+        styles["Accordion"],
+        noInnerPadding && styles["Accordion--no-inner-padding"]
+      )}
+    >
       {React.Children.map(children, (child, index) => {
         const itemKey = index + 1;
         const radioProps = isRadio

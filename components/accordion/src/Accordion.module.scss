@@ -35,4 +35,10 @@
       padding: 32px 24px;
     }
   }
+
+  &--no-inner-padding {
+    :global(.MuiExpansionPanelDetails-root) {
+      padding: 0;
+    }
+  }
 }
