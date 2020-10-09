@@ -1,13 +1,17 @@
 @import "@bmi/styles";
 
 .OverviewCard {
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   height: 100%;
   background: $color-white;
   box-shadow: elevation(2);
 
-  &--isflat {
+  &--flat {
     background: transparent;
+    box-shadow: none;
   }
 
   .brand-logo {
@@ -22,11 +26,13 @@
   }
 
   .header-picture {
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 180px;
   }
 
   .title {
-    margin-top: 24px;
+    margin: 24px 0;
 
     &--no-brand-logo {
       margin-top: 0;
@@ -34,6 +40,10 @@
   }
 
   .body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
     padding: 30px 24px;
 
     &--flat {
@@ -46,7 +56,7 @@
   }
 
   .children {
-    height: 100%;
+    margin-bottom: 24px;
   }
 
   .footer {
