@@ -18,7 +18,7 @@ exports[`Header component renders correctly 1`] = `
         >
           <a
             class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
-            href="/no/landing-page"
+            href="/gb/landing-page"
           >
             <span
               class="MuiButton-label"
@@ -405,7 +405,7 @@ exports[`Header component renders correctly 1`] = `
                 <li>
                   <a
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    href="/no/landing-page"
+                    href="/gb/landing-page"
                   >
                     <span
                       class="MuiButton-label"
@@ -426,7 +426,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                href="/no/landing-page"
+                href="/gb/landing-page"
               >
                 <span
                   class="MuiButton-label"

@@ -21,7 +21,7 @@ exports[`Chip component renders correctly removable chip 1`] = `
   <span
     class="MuiChip-label"
   >
-    removeble chip
+    removable chip
   </span>
   <svg
     aria-hidden="true"

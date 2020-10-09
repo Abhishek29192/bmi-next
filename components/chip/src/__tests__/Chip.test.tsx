@@ -20,7 +20,7 @@ describe("Chip component", () => {
   it("renders correctly removable chip", () => {
     const { container } = render(
       <Chip type="removable" onClick={() => {}}>
-        removeble chip
+        removable chip
       </Chip>
     );
     expect(container.firstChild).toMatchSnapshot();

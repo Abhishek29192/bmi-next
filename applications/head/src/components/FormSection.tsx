@@ -37,7 +37,7 @@ export type Data = {
   description?: { json: any };
   action?: string;
   method?: string;
-  inputs: InputType[];
+  inputs?: InputType[];
   submitText?: string;
 };
 
@@ -116,21 +116,23 @@ const FormSection = ({
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
       <RichText document={description.json} />
-      <Form
-        // @ts-ignore: Type for `onSubmit` are exacly the same as the form props
-        onSubmit={onSubmit}
-        className={styles["Form"]}
-        rightAlignButton
-      >
-        <Grid container spacing={3}>
-          {inputs.map(({ width, ...props }, $i) => (
-            <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
-              <Input {...props} />
-            </Grid>
-          ))}
-        </Grid>
-        <Form.SubmitButton>{submitText}</Form.SubmitButton>
-      </Form>
+      {inputs ? (
+        <Form
+          // @ts-ignore: Type for `onSubmit` are exacly the same as the form props
+          onSubmit={onSubmit}
+          className={styles["Form"]}
+          rightAlignButton
+        >
+          <Grid container spacing={3}>
+            {inputs.map(({ width, ...props }, $i) => (
+              <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
+                <Input {...props} />
+              </Grid>
+            ))}
+          </Grid>
+          <Form.SubmitButton>{submitText}</Form.SubmitButton>
+        </Form>
+      ) : null}
     </Section>
   );
 };

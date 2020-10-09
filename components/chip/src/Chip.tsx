@@ -4,11 +4,10 @@ import MaterialChip from "@material-ui/core/Chip";
 import ClearIcon from "@material-ui/icons/Clear";
 import { Colors } from "@bmi/color-pair";
 import styles from "./Chip.module.scss";
-
 type Props = {
   children: React.ReactNode;
   theme?: Colors;
-  onClick?: () => void | undefined;
+  onClick?: () => void;
   className?: string;
 } & (
   | {
@@ -19,7 +18,6 @@ type Props = {
       type: "removable";
     }
 );
-
 const Chip = ({
   children,
   theme = "pearl",
@@ -56,7 +54,7 @@ const Chip = ({
     <MaterialChip
       className={classnames(styles["Chip"], {
         [styles["Chip--default"]]: !(
-          rest.type == "selectable" && rest.isSelected
+          rest.type === "selectable" && rest.isSelected
         ),
         [styles[`Chip--theme-${theme}`]]: !!theme
       })}
@@ -67,5 +65,4 @@ const Chip = ({
     />
   );
 };
-
 export default Chip;

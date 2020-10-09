@@ -1,6 +1,8 @@
 import React from "react";
 import Checkbox from "@bmi/checkbox";
 import Typography from "@bmi/typography";
+import Accordion from "@bmi/accordion";
+import styles from "./Filters.module.scss";
 
 type FilterOption = {
   label: string;
@@ -26,30 +28,58 @@ const Filters = ({ filters, onChange }: Props) => {
   };
 
   return (
-    <>
-      {filters.map((filter) => (
-        <div key={filter.name}>
-          <Typography variant="h6">{filter.label}</Typography>
-          <div>
-            {filter.options.map((option) => (
-              <div key={option.value}>
-                <Checkbox
-                  key={option.value}
-                  name={option.value}
-                  label={option.label}
-                  checked={(filter.value || []).includes(option.value)}
-                  disabled={option.isDisabled}
-                  // TODO: withFormControl overrides onChange type, this should be boolean
-                  onChange={(value: boolean) => {
-                    handleCheckboxChange(filter.name, option.value, value);
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </>
+    <div className={styles["Filters"]}>
+      <Accordion noInnerPadding>
+        {filters.map((filter) => {
+          // NOTE: expand accordion item if any filters are checked
+          let anyChecked = false;
+          const filterOptions = filter.options.map(
+            ({ value, label, isDisabled }) => {
+              const isChecked = (filter.value || []).includes(value);
+              if (isChecked) {
+                anyChecked = true;
+              }
+              return {
+                value,
+                label,
+                checked: isChecked,
+                isDisabled
+              };
+            }
+          );
+          return (
+            <Accordion.Item key={filter.name} defaultExpanded={anyChecked}>
+              <Accordion.Summary>
+                <Typography variant="h6">{filter.label}</Typography>
+              </Accordion.Summary>
+              <Accordion.Details>
+                <div className={styles["list"]}>
+                  {filterOptions.map((option) => (
+                    <div key={option.value}>
+                      <Checkbox
+                        key={option.value}
+                        name={option.value}
+                        label={option.label}
+                        checked={option.checked}
+                        disabled={option.isDisabled}
+                        // TODO: withFormControl overrides onChange type, this should be boolean
+                        onChange={(value: boolean) => {
+                          handleCheckboxChange(
+                            filter.name,
+                            option.value,
+                            value
+                          );
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </Accordion.Details>
+            </Accordion.Item>
+          );
+        })}
+      </Accordion>
+    </div>
   );
 };
 
