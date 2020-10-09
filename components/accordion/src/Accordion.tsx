@@ -32,7 +32,7 @@ const Accordion = ({ children, isRadio }: AccordionProps) => {
   const [expanded, setExpanded] = useState<number>(firstDefaultExpanded + 1);
 
   return (
-    <>
+    <div className={styles["Accordion"]}>
       {React.Children.map(children, (child, index) => {
         const itemKey = index + 1;
         const radioProps = isRadio
@@ -48,7 +48,7 @@ const Accordion = ({ children, isRadio }: AccordionProps) => {
           ...radioProps
         });
       })}
-    </>
+    </div>
   );
 };
 
@@ -74,7 +74,7 @@ const AccordionItem = ({
     <ExpansionPanel
       expanded={isExpanded}
       onChange={handleChange}
-      className={styles.Accordion}
+      className={styles["item"]}
       {...props}
     >
       {children}
