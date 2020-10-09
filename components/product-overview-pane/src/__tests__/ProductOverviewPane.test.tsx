@@ -51,4 +51,20 @@ describe("ProductOverviewPane component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders correctly with empty variants", () => {
+    const { container } = render(
+      <ProductOverviewPane
+        name="Type S Roof Shingles"
+        brandLogo={MockLogo}
+        nnob="1394983720195"
+        attributes={[
+          {
+            name: "Size",
+            variants: []
+          }
+        ]}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
