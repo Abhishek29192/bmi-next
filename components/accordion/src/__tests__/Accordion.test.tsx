@@ -126,4 +126,22 @@ describe("Accordion component", () => {
 
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders correctly with no padding on accordion detail", () => {
+    const { getByText, container } = render(
+      <Accordion isRadio noInnerPadding>
+        <Accordion.Item defaultExpanded>
+          <Accordion.Summary>Heading One</Accordion.Summary>
+          <Accordion.Details>Content</Accordion.Details>
+        </Accordion.Item>
+        <Accordion.Item>
+          <Accordion.Summary>Heading Two</Accordion.Summary>
+          <Accordion.Details>Content</Accordion.Details>
+        </Accordion.Item>
+      </Accordion>
+    );
+    const firstPanel = getByText("Heading One");
+    fireEvent.click(firstPanel);
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

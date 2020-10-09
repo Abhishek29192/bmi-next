@@ -1,13 +1,15 @@
 @import "@bmi/styles";
 
 .Accordion {
-  border: 1px solid $color-storm;
+  .item {
+    border: 1px solid $color-storm;
 
-  & + & {
-    border-top: none;
+    & + & {
+      border-top: none;
+    }
   }
 
-  &:global(.MuiExpansionPanel-root.Mui-expanded) {
+  :global(.MuiExpansionPanel-root.Mui-expanded) {
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -31,6 +33,12 @@
 
     .MuiExpansionPanelDetails-root {
       padding: 32px 24px;
+    }
+  }
+
+  &--no-inner-padding {
+    :global(.MuiExpansionPanelDetails-root) {
+      padding: 0;
     }
   }
 }
