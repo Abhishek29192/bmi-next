@@ -77,7 +77,10 @@ const Header = ({
     setShowLanguageSelection(!showLanguageSelection);
 
   const toggleSearch = () => {
-    if (!showSearch) setValue(false);
+    if (!showSearch) {
+      setValue(false);
+      amendClassList(styles.MenuIsOpen, "remove");
+    }
     setShowSearch(!showSearch);
   };
 
@@ -85,6 +88,7 @@ const Header = ({
     setValue(false);
     setShowLanguageSelection(false);
     setShowSearch(false);
+    amendClassList(styles.MenuIsOpen, "remove");
   };
 
   const handleResize = ({ currentTarget }) => {
@@ -105,6 +109,7 @@ const Header = ({
   };
 
   React.useEffect(() => {
+    amendClassList(styles.MenuIsOpen, "remove");
     handleResize({ currentTarget: window });
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
