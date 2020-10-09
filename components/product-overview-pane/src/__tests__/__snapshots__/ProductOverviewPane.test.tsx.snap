@@ -148,3 +148,48 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
   </button>
 </div>
 `;
+
+exports[`ProductOverviewPane component renders correctly with empty variants 1`] = `
+<div
+  class="ProductOverview"
+>
+  <svg
+    class="brand-logo"
+  />
+  <h1
+    class="MuiTypography-root heading Typography MuiTypography-h3"
+  >
+    Type S Roof Shingles
+  </h1>
+  <ul
+    class="attributes"
+  >
+    <li>
+      <span
+        class="term"
+      >
+        NNOB
+      </span>
+      <span
+        class="definition"
+      >
+        1394983720195
+      </span>
+    </li>
+  </ul>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button print-button MuiButton-containedPrimary"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiButton-label"
+    >
+      Send/print this page
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;

@@ -91,6 +91,10 @@ const renderThumbnailAttribute = (
 const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
   const key = `attribute-${index}`;
 
+  if (!attribute.variants.length) {
+    return null;
+  }
+
   if (attribute.variants.length === 1) {
     return (
       <li key={key}>
