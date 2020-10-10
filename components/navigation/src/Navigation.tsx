@@ -17,13 +17,13 @@ export type LinkList = {
   isParagraph?: boolean;
 };
 
-export type NavitationList = LinkList & {
+export type NavigationList = LinkList & {
   footer?: readonly LinkList[];
-  menu?: readonly NavitationList[];
+  menu?: readonly NavigationList[];
 };
 
 type NavigationProps = {
-  menu: readonly NavitationList[];
+  menu: readonly NavigationList[];
   initialDepth?: number;
   initialValue?: number | boolean;
   toggleLanguageSelection?: (boolean) => void;
@@ -62,7 +62,7 @@ type NavigationListProps = {
   backLabel?: string;
   className?: string;
   depth: number;
-  menu: readonly NavitationList[];
+  menu: readonly NavigationList[];
   show?: boolean;
   initialValue?: number | boolean;
   isFooter?: boolean;
