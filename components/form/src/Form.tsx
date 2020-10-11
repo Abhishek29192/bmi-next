@@ -18,12 +18,14 @@ type ContextType = {
   updateFormState: (fieldValues: Values, fieldErrors: Errors) => void;
   hasBeenSubmitted: boolean;
   submitButtonDisabled: boolean;
+  values: object;
 };
 
 export const FormContext = React.createContext<ContextType>({
   updateFormState: (fieldValues, fieldErrors) => {},
   hasBeenSubmitted: false,
-  submitButtonDisabled: false
+  submitButtonDisabled: false,
+  values: {}
 });
 
 const Form = ({
@@ -52,7 +54,12 @@ const Form = ({
 
   return (
     <FormContext.Provider
-      value={{ updateFormState, hasBeenSubmitted, submitButtonDisabled }}
+      value={{
+        updateFormState,
+        hasBeenSubmitted,
+        submitButtonDisabled,
+        values
+      }}
     >
       <form onSubmit={handleSubmit} className={styles["Form"]} {...formProps}>
         {children}
