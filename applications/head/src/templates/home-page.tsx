@@ -112,7 +112,7 @@ export const pageQuery = graphql`
       }
       sections {
         # TODO: This should be SectionFragment, but there is no data for that atm
-        ...TwoPaneCarouselSectionFragment
+        ...CarouselSectionFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
