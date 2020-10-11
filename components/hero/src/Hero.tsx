@@ -22,6 +22,7 @@ export type HeroItem = {
 
 type Props<L = undefined> = {
   breadcrumbs?: React.ReactNode;
+  className?: string;
 } & (
   | L
   | ({
@@ -35,6 +36,7 @@ type Props<L = undefined> = {
 
 const Hero = ({
   breadcrumbs,
+  className,
   ...levelProps
 }: Props<{
   level: 0;
@@ -53,6 +55,7 @@ const Hero = ({
         level={level}
         title={title}
         breadcrumbs={breadcrumbs}
+        className={className}
         {...levelProps}
       />
     );
@@ -72,7 +75,8 @@ const Hero = ({
         styles["Hero--carousel"],
         {
           [styles["Hero--space-bottom"]]: hasSpaceBottom
-        }
+        },
+        className
       )}
     >
       <Container className={styles["container"]}>
@@ -154,13 +158,22 @@ const Hero = ({
   );
 };
 
-const SingleHero = ({ breadcrumbs, title, ...levelProps }: Props) => {
+const SingleHero = ({
+  breadcrumbs,
+  title,
+  className,
+  ...levelProps
+}: Props) => {
   return (
     <div
-      className={classnames(styles["Hero"], {
-        [styles["Hero--light"]]: levelProps.level === 3,
-        [styles["Hero--slim"]]: levelProps.level !== 1
-      })}
+      className={classnames(
+        styles["Hero"],
+        {
+          [styles["Hero--light"]]: levelProps.level === 3,
+          [styles["Hero--slim"]]: levelProps.level !== 1
+        },
+        className
+      )}
     >
       <Container className={styles["container"]}>
         <div className={styles["wrapper"]}>
