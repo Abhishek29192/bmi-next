@@ -6,7 +6,7 @@ import { InputValue } from "./withFormControl";
 type Values = Record<string, InputValue>;
 type Errors = Record<string, string>;
 
-type Props = React.HTMLProps<HTMLFormElement> & {
+export type Props = React.HTMLProps<HTMLFormElement> & {
   children: React.ReactNode;
   onSubmit?: (event: FormEvent<HTMLFormElement>, values: Values) => void;
   submitButtonLabel?: string;
