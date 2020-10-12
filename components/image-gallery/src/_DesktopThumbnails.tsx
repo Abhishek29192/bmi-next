@@ -20,7 +20,7 @@ const Thumbnails = ({ images, activeImageIndex, onThumbnailClick }: Props) => {
   const [visibleArrows, setVisibleArrows] = useState<{
     left: boolean;
     right: boolean;
-  }>({ left: true, right: false });
+  }>({ left: false, right: false });
   const [scrollerPosition, setScrollerPosition] = useState<number>(0);
   const thumbnailsWidth = images.length * THUMBNAIL_WIDTH;
 
