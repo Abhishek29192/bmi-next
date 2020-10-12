@@ -53,6 +53,7 @@ export type NavigationData = {
 
 export const query = graphql`
   fragment LinkFragment on ContentfulLink {
+    __typename
     id
     label
     icon
