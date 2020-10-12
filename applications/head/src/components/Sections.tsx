@@ -9,22 +9,22 @@ import TabsOrAccordionSection, {
 import VillainSection, {
   Data as VillainSectionData
 } from "../components/VillainSection";
-import TwoPaneCarouselSection, {
-  Data as TwoPaneCarouselSectionData
-} from "../components/TwoPaneCarouselSection";
+import CarouselSection, {
+  Data as CarouselSectionData
+} from "../components/CarouselSection";
 
 export type Data = (
   | FormSectionData
   | TabsOrAccordionSectionData
   | VillainSectionData
-  | TwoPaneCarouselSectionData
+  | CarouselSectionData
 )[];
 
 const sectionsMap = {
   ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
   ContentfulVillainSection: VillainSection,
-  ContentfulTwoPaneCarouselSection: TwoPaneCarouselSection
+  ContentfulCarouselSection: CarouselSection
 };
 
 const Sections = ({ data }: { data: Data }) => {
@@ -58,6 +58,6 @@ export const query = graphql`
     ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
-    # ...TwoPaneCarouselSectionFragment
+    # ...CarouselSectionFragment
   }
 `;
