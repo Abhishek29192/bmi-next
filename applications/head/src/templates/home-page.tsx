@@ -5,6 +5,10 @@ import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
+import InputGroup from "@bmi/input-group";
+import Button from "@bmi/button";
+import TextField from "@bmi/text-field";
+import SearchIcon from "@material-ui/icons/Search";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
   Data as OverlapCardData
@@ -80,7 +84,21 @@ const HomePage = ({ data }: Props) => {
       <SiteContext.Consumer>
         {(context) => {
           const heroItems = getHeroItemsWithContext(context, slides);
-          return <Hero level={0} heroes={heroItems} hasSpaceBottom />;
+          return (
+            <Hero level={0} heroes={heroItems} hasSpaceBottom>
+              <InputGroup
+                lockBreakpoint="xs"
+                input={
+                  <TextField name="search" label="Search" variant="hybrid" />
+                }
+                button={
+                  <Button accessibilityLabel="Search" isIconButton>
+                    <SearchIcon />
+                  </Button>
+                }
+              />
+            </Hero>
+          );
         }}
       </SiteContext.Consumer>
 
