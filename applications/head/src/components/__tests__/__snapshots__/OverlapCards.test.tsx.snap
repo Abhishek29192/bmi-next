@@ -10,10 +10,9 @@ exports[`OverlapCards component renders correctly 1`] = `
     <div
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-3"
     >
-      <button
+      <a
         class="MuiButtonBase-root Card"
-        tabindex="0"
-        type="button"
+        href="some-page"
       >
         <div
           class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
@@ -45,15 +44,14 @@ exports[`OverlapCards component renders correctly 1`] = `
         <span
           class="MuiTouchRipple-root"
         />
-      </button>
+      </a>
     </div>
     <div
       class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-3"
     >
-      <button
+      <a
         class="MuiButtonBase-root Card"
-        tabindex="0"
-        type="button"
+        href="some-page"
       >
         <div
           class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
@@ -85,7 +83,7 @@ exports[`OverlapCards component renders correctly 1`] = `
         <span
           class="MuiTouchRipple-root"
         />
-      </button>
+      </a>
     </div>
   </div>
 </div>
