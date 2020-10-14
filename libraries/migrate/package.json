@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "contentful-migrate": "^0.13.0",
-    "contentful-migration": "^1.1.9",
     "dotenv": "^8.2.0",
+    "eslint-config-standard": "^14.1.1",
     "eslint-plugin-node": "^11.1.0",
     "require-dir": "^1.2.0"
   }
