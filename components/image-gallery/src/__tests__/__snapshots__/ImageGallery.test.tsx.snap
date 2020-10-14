@@ -105,3 +105,22 @@ exports[`ImageGallery component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`ImageGallery component renders null when no images are passed 1`] = `null`;
+
+exports[`ImageGallery component renders without a thumbnail when one image is passed 1`] = `
+<div
+  class="ImageGallery"
+>
+  <div
+    class="main-image-wrapper"
+    style="background-image: url(path-to-image);"
+  >
+    <span
+      class="accessibility-label"
+    >
+      Single image
+    </span>
+  </div>
+</div>
+`;

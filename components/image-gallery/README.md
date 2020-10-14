@@ -68,3 +68,20 @@ const images = [
   ]}
 />;
 ```
+
+### Only one image
+
+When only one image gets passed, no thumbnail will be rendered.
+
+```jsx
+import firstImageSource from "./images/demo-tiles.jpg";
+
+<ImageGallery
+  images={[
+    {
+      mainSource: firstImageSource,
+      altText: "Demo Tiles"
+    }
+  ]}
+/>;
+```
