@@ -6,6 +6,7 @@ A card component displaying an overview of a product. The card is not clickable 
 
 ```jsx
 import Button from "@bmi/button";
+import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
@@ -16,9 +17,9 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
 >
-  <p>
+  <Typography>
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </p>
+  </Typography>
 </OverviewCard>;
 ```
 
@@ -26,6 +27,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 ```jsx
 import Button from "@bmi/button";
+import Typography from "@bmi/typography";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 <OverviewCard
@@ -34,9 +36,9 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
 >
-  <p>
+  <Typography>
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </p>
+  </Typography>
 </OverviewCard>;
 ```
 
@@ -44,6 +46,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 ```jsx
 import Button from "@bmi/button";
+import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 
 <OverviewCard
@@ -52,15 +55,16 @@ import demoHouseImage from "./images/demo-tiles.jpg";
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
 >
-  <p>
+  <Typography>
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </p>
+  </Typography>
 </OverviewCard>;
 ```
 
 ### No Footer
 
 ```jsx
+import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
@@ -71,9 +75,9 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   brandImageSource={brandLogo}
   hasTitleUnderline
 >
-  <p>
+  <Typography>
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </p>
+  </Typography>
 </OverviewCard>;
 ```
 
@@ -81,6 +85,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 ```jsx
 import Button from "@bmi/button";
+import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
@@ -91,9 +96,9 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   brandImageSource={brandLogo}
   footer={<Button variant="outlined">Go to this</Button>}
 >
-  <p>
+  <Typography>
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </p>
+  </Typography>
 </OverviewCard>;
 ```
 
@@ -101,6 +106,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 ```jsx
 import Button from "@bmi/button";
+import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
@@ -110,8 +116,8 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   footer={<Button variant="outlined">Go to this</Button>}
   isFlat
 >
-  <p>
+  <Typography>
     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </p>
+  </Typography>
 </OverviewCard>;
 ```

@@ -12,19 +12,29 @@ import VillainSection, {
 import CarouselSection, {
   Data as CarouselSectionData
 } from "../components/CarouselSection";
+import LeadBlockSection, {
+  Data as LeadBlockSectionData
+} from "../components/LeadBlockSection";
+import CardCollectionSection, {
+  Data as CardCollectionSectionData
+} from "../components/CardCollectionSection";
 
 export type Data = (
   | FormSectionData
   | TabsOrAccordionSectionData
   | VillainSectionData
   | CarouselSectionData
+  | LeadBlockSectionData
+  | CardCollectionSectionData
 )[];
 
 const sectionsMap = {
   ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
   ContentfulVillainSection: VillainSection,
-  ContentfulCarouselSection: CarouselSection
+  ContentfulCarouselSection: CarouselSection,
+  ContentfulLeadBlockSection: LeadBlockSection,
+  ContentfulCardCollectionSection: CardCollectionSection
 };
 
 const Sections = ({ data }: { data: Data }) => {
@@ -32,7 +42,6 @@ const Sections = ({ data }: { data: Data }) => {
     <>
       {data.map((section, index) => {
         const Component = sectionsMap[section.__typename];
-
         return (
           Component && (
             <Component
@@ -40,7 +49,7 @@ const Sections = ({ data }: { data: Data }) => {
               // @ts-ignore
               data={section}
               // TODO: Robust theme-based solution required.
-              backgroundColor={index % 2 === 0 ? "pearl" : "white"}
+              backgroundColor={index % 2 === 1 ? "pearl" : "white"}
             />
           )
         );
@@ -59,5 +68,7 @@ export const query = graphql`
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
     # ...CarouselSectionFragment
+    ...LeadBlockSectionFragment
+    ...CardCollectionSectionFragment
   }
 `;

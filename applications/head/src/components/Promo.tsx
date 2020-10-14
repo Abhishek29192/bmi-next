@@ -11,7 +11,7 @@ export type Data = {
       url: string;
     };
   };
-  cta?: LinkData | null;
+  cta: LinkData | null;
 };
 
 export const promoQuery = graphql`
