@@ -64,7 +64,7 @@ const createProductPages = async (
     }
 
     const brandCode = (
-      product.categories.find(({ categoryType }) => {
+      (product.categories || []).find(({ categoryType }) => {
         return categoryType === "Brand";
       }) || {}
     ).code;
@@ -99,7 +99,7 @@ const createProductPages = async (
       relatedProductCodes = relatedProducts.map(({ code }) => code);
     }
 
-    product.variantOptions.forEach((variantOption) => {
+    (product.variantOptions || []).forEach((variantOption) => {
       createPage({
         path: `/${countryCode}/products/${getSlug(variantOption.code)}`,
         component,
