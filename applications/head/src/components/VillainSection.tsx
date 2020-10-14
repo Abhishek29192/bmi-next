@@ -4,7 +4,7 @@ import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
 import { Data as PromoData } from "../components/Promo";
 import { SiteContext } from "./Site";
-import { getClickableActionFromUrl } from "./Link";
+import { getPromoOrPageCta } from "./Link";
 import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
 import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
 
@@ -12,11 +12,10 @@ export type Data = {
   __typename: "ContentfulVillainSection";
   title: string;
   promo: PromoData | SimplePageInfoData | ContactUsInfoData;
-  isReversed: boolean;
 };
 
 const VillainSection = ({
-  data: { title, promo, isReversed },
+  data: { title, promo },
   backgroundColor
 }: {
   data: Data;
@@ -30,39 +29,21 @@ const VillainSection = ({
     ...typePromoData
   } = promo;
 
-  let cta;
-
-  if (typePromoData.__typename === "ContentfulPromo") {
-    const { cta: ctaData } = typePromoData;
-
-    cta = {
-      label: ctaData?.label,
-      action: getClickableActionFromUrl(
-        ctaData?.linkedPage,
-        ctaData?.url,
-        countryCode
-      )
-    };
-  } else {
-    const { slug } = typePromoData;
-
-    cta = {
-      label: resources["page.linkLabel"],
-      action: getClickableActionFromUrl({ slug }, null, countryCode)
-    };
-  }
-
-  const VillainProps: VillainProps = {
+  const VillainProperties: VillainProps = {
     title: villainTitle,
     children: subtitle,
     imageSource: featuredImage?.file.url,
-    cta
+    cta: getPromoOrPageCta(
+      typePromoData,
+      countryCode,
+      resources["page.linkLabel"]
+    )
   };
 
   return (
     <Section backgroundColor={backgroundColor}>
       <Section.Title>{title}</Section.Title>
-      <Villain {...VillainProps} />
+      <Villain {...VillainProperties} />
     </Section>
   );
 };
@@ -80,6 +61,5 @@ export const query = graphql`
         ...PromoFragment
       }
     }
-    isReversed
   }
 `;

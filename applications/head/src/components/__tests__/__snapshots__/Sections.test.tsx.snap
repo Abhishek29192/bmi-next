@@ -208,18 +208,6 @@ HTMLCollection [
               <div
                 class="text"
               />
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiButton-label"
-                />
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
             </div>
           </div>
           <div

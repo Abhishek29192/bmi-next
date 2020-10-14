@@ -25,6 +25,45 @@ export const getClickableActionFromUrl = (
   return undefined;
 };
 
+export const getPromoOrPageCta = (
+  data:
+    | {
+        __typename: "ContentfulPromo";
+        cta?: LinkData;
+      }
+    | {
+        __typename: "ContentfulSimplePage";
+        slug: string;
+      }
+    | {
+        __typename: "ContentfulContactUsPage";
+        slug: string;
+      },
+  countryCode: string,
+  linkLabel: string
+) => {
+  if (data.__typename === "ContentfulPromo") {
+    if (!data.cta) {
+      return null;
+    }
+
+    const { label, linkedPage, url } = data.cta;
+
+    return {
+      action: getClickableActionFromUrl(linkedPage, url, countryCode),
+      label: label
+    };
+  }
+
+  const { slug } = data;
+
+  return {
+    action: getClickableActionFromUrl({ slug: slug }, null, countryCode),
+    // TODO: Use microcopy here
+    label: linkLabel
+  };
+};
+
 export type LinkData = {
   __typename: "ContentfulLink";
   id: string;

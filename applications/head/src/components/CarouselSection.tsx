@@ -11,7 +11,7 @@ import { Data as PromoData } from "../components/Promo";
 import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
 import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
 
-import { LinkData, getClickableActionFromUrl } from "./Link";
+import { LinkData, getPromoOrPageCta } from "./Link";
 import { SiteContext } from "./Site";
 
 type Slide = PromoData | SimplePageInfoData | ContactUsInfoData;
@@ -24,45 +24,6 @@ export type Data = {
   link: LinkData | null;
 };
 
-const getCta = (
-  ctaData:
-    | {
-        __typename: "ContentfulPromo";
-        cta?: LinkData;
-      }
-    | {
-        __typename: "ContentfulSimplePage";
-        slug: string;
-      }
-    | {
-        __typename: "ContentfulContactUsPage";
-        slug: string;
-      },
-  countryCode: string,
-  linkLabel: string
-) => {
-  if (ctaData.__typename === "ContentfulPromo") {
-    const { label, linkedPage, url } = ctaData.cta;
-
-    return (
-      ctaData.cta && {
-        action: getClickableActionFromUrl(linkedPage, url, countryCode),
-        label: label
-      }
-    );
-  } else {
-    const { slug } = ctaData;
-
-    return (
-      slug && {
-        action: getClickableActionFromUrl({ slug: slug }, null, countryCode),
-        // TODO: Use microcopy here
-        label: linkLabel
-      }
-    );
-  }
-};
-
 const parseTwoPaneCarouselSlides = (
   slides: Slide[],
   countryCode: string,
@@ -70,7 +31,7 @@ const parseTwoPaneCarouselSlides = (
 ): TwoPaneCarouselctaData[] => {
   return slides.map((slide) => {
     const { title, subtitle, featuredImage, ...rest } = slide;
-    let CTA = getCta(rest, countryCode, linkLabel);
+    const CTA = getPromoOrPageCta(rest, countryCode, linkLabel);
 
     return {
       title,
@@ -89,7 +50,7 @@ const parseVerticalRollerSlides = (
 ): VerticalRollerctaData[] => {
   return slides.map((slide) => {
     const { title, subtitle, featuredImage, ...rest } = slide;
-    let cta = getCta(rest, countryCode, linkLabel);
+    const cta = getPromoOrPageCta(rest, countryCode, linkLabel);
 
     return {
       title,

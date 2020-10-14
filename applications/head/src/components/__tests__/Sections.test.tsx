@@ -2,6 +2,11 @@ import React from "react";
 import Sections, { Data } from "../Sections";
 import { render } from "@testing-library/react";
 import { BLOCKS } from "@contentful/rich-text-types";
+import mockConsole from "jest-mock-console";
+
+beforeAll(() => {
+  mockConsole();
+});
 
 describe("Sections component", () => {
   it("renders correctly", () => {
@@ -51,8 +56,7 @@ describe("Sections component", () => {
           subtitle: null,
           featuredImage: null,
           cta: null
-        },
-        isReversed: null
+        }
       },
       {
         __typename: "ContentfulLeadBlockSection",
