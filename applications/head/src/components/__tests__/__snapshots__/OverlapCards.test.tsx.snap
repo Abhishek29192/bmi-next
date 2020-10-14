@@ -8,7 +8,7 @@ exports[`OverlapCards component renders correctly 1`] = `
     class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-3"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
     >
       <a
         class="MuiButtonBase-root Card"
@@ -47,7 +47,7 @@ exports[`OverlapCards component renders correctly 1`] = `
       </a>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-3"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
     >
       <a
         class="MuiButtonBase-root Card"

@@ -23,7 +23,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
       <Grid spacing={3} container justify="center">
         {data.map(({ title, image, slug }, key) => {
           return (
-            <Grid item key={key} xs={12} sm={6} md={3}>
+            <Grid item key={key} xs={12} sm={6} md={5} lg={3}>
               <CTACard
                 title={title}
                 imageSource={image?.resize?.src}
