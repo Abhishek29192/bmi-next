@@ -13,7 +13,7 @@ import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
-import { getClickableActionFromUrl } from "../components/Link";
+import { getPromoOrPageCta } from "../components/Link";
 import { PageInfoData as SimplePageSlideData } from "../templates/simple-page";
 import { PageInfoData as ContactUsSlideData } from "../templates/contact-us-page";
 
@@ -40,32 +40,11 @@ const getHeroItemsWithContext = (
   slides: HomepageData["slides"]
 ): HeroItem[] => {
   return slides.map(({ title, subtitle, featuredImage, ...rest }) => {
-    let CTA;
-
-    if (rest.__typename === "ContentfulPromo") {
-      const { cta: ctaData } = rest;
-      if (ctaData) {
-        CTA = {
-          label: ctaData?.label,
-          action: getClickableActionFromUrl(
-            ctaData?.linkedPage,
-            ctaData?.url,
-            countryCode
-          )
-        };
-      }
-    } else {
-      const { slug } = rest;
-      CTA = {
-        label: resources["page.linkLabel"],
-        action: getClickableActionFromUrl({ slug }, null, countryCode)
-      };
-    }
     return {
       title,
       children: subtitle,
       imageSource: featuredImage?.file.url,
-      CTA
+      CTA: getPromoOrPageCta(rest, countryCode, resources["page.linkLabel"])
     };
   });
 };
@@ -119,11 +98,9 @@ export const pageQuery = graphql`
       showSignUpBanner
       slides {
         __typename
-        ... on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
-          ...ContactUsPageInfoFragment
-          ...SimplePageInfoFragment
-          ...PromoFragment
-        }
+        ...ContactUsPageInfoFragment
+        ...SimplePageInfoFragment
+        ...PromoFragment
       }
       overlapCards {
         ...OverlapCardFragment
