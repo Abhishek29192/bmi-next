@@ -21,7 +21,7 @@
     "workbench": "styleguidist server",
     "workbench:build": "styleguidist build",
     "run-apollo": "yarn workspace @bmi/apollo-server run start",
-    "migrate": "migrate"
+    "migrate": "yarn workspace @bmi/migrate start"
   },
   "husky": {
     "hooks": {
