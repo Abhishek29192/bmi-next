@@ -11,7 +11,7 @@ import { Data as PromoData } from "../components/Promo";
 import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
 import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
 
-import { LinkData, getPromoOrPageCta } from "./Link";
+import { LinkData, getCTA } from "./Link";
 import { SiteContext } from "./Site";
 
 type Slide = PromoData | SimplePageInfoData | ContactUsInfoData;
@@ -31,7 +31,7 @@ const parseTwoPaneCarouselSlides = (
 ): TwoPaneCarouselctaData[] => {
   return slides.map((slide) => {
     const { title, subtitle, featuredImage, ...rest } = slide;
-    const CTA = getPromoOrPageCta(rest, countryCode, linkLabel);
+    const CTA = getCTA(rest, countryCode, linkLabel);
 
     return {
       title,
@@ -50,7 +50,7 @@ const parseVerticalRollerSlides = (
 ): VerticalRollerctaData[] => {
   return slides.map((slide) => {
     const { title, subtitle, featuredImage, ...rest } = slide;
-    const cta = getPromoOrPageCta(rest, countryCode, linkLabel);
+    const cta = getCTA(rest, countryCode, linkLabel);
 
     return {
       title,

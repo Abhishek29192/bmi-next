@@ -1,4 +1,4 @@
-import { getClickableActionFromUrl, getPromoOrPageCta } from "../Link";
+import { getClickableActionFromUrl, getCTA } from "../Link";
 
 describe("Icon component", () => {
   describe("getClickableActionFromUrl function", () => {
@@ -19,10 +19,10 @@ describe("Icon component", () => {
     });
   });
 
-  describe("getPromoOrPageCta function", () => {
+  describe("getCTA function", () => {
     it("returns a cta object with a Promo cta", () => {
       expect(
-        getPromoOrPageCta(
+        getCTA(
           {
             __typename: "ContentfulPromo",
             cta: {
@@ -42,7 +42,7 @@ describe("Icon component", () => {
     });
     it("returns a cta object with page", () => {
       expect(
-        getPromoOrPageCta(
+        getCTA(
           {
             __typename: "ContentfulContactUsPage",
             slug: "/contact-us"

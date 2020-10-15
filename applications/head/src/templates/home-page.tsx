@@ -13,7 +13,7 @@ import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
-import { getPromoOrPageCta } from "../components/Link";
+import { getCTA } from "../components/Link";
 import { PageInfoData as SimplePageSlideData } from "../templates/simple-page";
 import { PageInfoData as ContactUsSlideData } from "../templates/contact-us-page";
 
@@ -44,7 +44,7 @@ const getHeroItemsWithContext = (
       title,
       children: subtitle,
       imageSource: featuredImage?.file.url,
-      CTA: getPromoOrPageCta(rest, countryCode, resources["page.linkLabel"])
+      CTA: getCTA(rest, countryCode, resources["page.linkLabel"])
     };
   });
 };

@@ -25,7 +25,7 @@ export const getClickableActionFromUrl = (
   return undefined;
 };
 
-export const getPromoOrPageCta = (
+export const getCTA = (
   data:
     | {
         __typename: "ContentfulPromo";
