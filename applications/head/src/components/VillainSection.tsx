@@ -4,7 +4,7 @@ import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
 import { Data as PromoData } from "../components/Promo";
 import { SiteContext } from "./Site";
-import { getPromoOrPageCta } from "./Link";
+import { getCTA } from "./Link";
 import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
 import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
 
@@ -33,11 +33,7 @@ const VillainSection = ({
     title: villainTitle,
     children: subtitle,
     imageSource: featuredImage?.file.url,
-    cta: getPromoOrPageCta(
-      typePromoData,
-      countryCode,
-      resources["page.linkLabel"]
-    )
+    cta: getCTA(typePromoData, countryCode, resources["page.linkLabel"])
   };
 
   return (
