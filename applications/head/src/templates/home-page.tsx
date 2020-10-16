@@ -97,17 +97,17 @@ export const pageQuery = graphql`
       title
       showSignUpBanner
       slides {
-        __typename
-        ...ContactUsPageInfoFragment
-        ...SimplePageInfoFragment
-        ...PromoFragment
+        ... on ContentfulPromoOrPage {
+          ...PromoFragment
+          ...ContactUsPageInfoFragment
+          ...SimplePageInfoFragment
+        }
       }
       overlapCards {
         ...OverlapCardFragment
       }
       sections {
-        # TODO: This should be SectionFragment, but there is no data for that atm
-        ...CarouselSectionFragment
+        ...SectionsFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {

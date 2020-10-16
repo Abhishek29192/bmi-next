@@ -4,6 +4,8 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
 const path = require("path");
 const { withConfigs, styles } = require("@bmi/webpack");
+require("graphql-import-node");
+const typeDefs = require("./src/schema/schema.graphql");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -209,4 +211,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       [styles({ dev: process.env.NODE_ENV === "development" })]
     )
   );
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(typeDefs);
 };

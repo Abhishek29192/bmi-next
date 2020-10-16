@@ -99,10 +99,7 @@ export const query = graphql`
     isLabelHidden
     url
     linkedPage {
-      ... on ContentfulSimplePage {
-        slug
-      }
-      ... on ContentfulContactUsPage {
+      ... on ContentfulPage {
         slug
       }
     }

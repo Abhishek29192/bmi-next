@@ -61,13 +61,12 @@ const Sections = ({ data }: { data: Data }) => {
 export default Sections;
 
 export const query = graphql`
-  # NOTE: This union type name is not ideal, but the best option so far.
-  fragment SectionsFragment on ContentfulCardCollectionSectionContentfulFormSectionContentfulLeadBlockSectionContentfulTabsOrAccordionSectionContentfulVillainSectionUnion {
+  fragment SectionsFragment on ContentfulSection {
     __typename
     ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
-    # ...CarouselSectionFragment
+    ...CarouselSectionFragment
     ...LeadBlockSectionFragment
     ...CardCollectionSectionFragment
   }

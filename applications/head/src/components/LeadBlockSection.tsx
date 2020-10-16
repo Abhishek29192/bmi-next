@@ -70,9 +70,7 @@ export const query = graphql`
       json
     }
     link {
-      ... on ContentfulLink {
-        ...LinkFragment
-      }
+      ...LinkFragment
     }
     cardTheme
     cardSections {
