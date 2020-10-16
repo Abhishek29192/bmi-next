@@ -44,17 +44,9 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
 export default IntegratedOverlapCards;
 
 export const query = graphql`
-  fragment OverlapCardFragment on ContentfulContactUsPageContentfulSimplePageContentfulTeamPageUnion {
-    ... on ContentfulContactUsPage {
-      title
-      slug
-      image: featuredImage {
-        resize(width: 350) {
-          src
-        }
-      }
-    }
-    ... on ContentfulSimplePage {
+  fragment OverlapCardFragment on ContentfulPromoOrPage {
+    ...PromoFragment
+    ... on ContentfulPage {
       title
       slug
       image: featuredImage {

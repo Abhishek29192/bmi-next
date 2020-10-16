@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
 import Header from "../components/Header";
@@ -75,3 +74,5 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
 };
 
 export default Page;
+
+// TODO: This could export a common fragment of ContentfulPage.

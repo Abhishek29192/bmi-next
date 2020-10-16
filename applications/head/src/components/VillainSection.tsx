@@ -50,11 +50,10 @@ export const query = graphql`
   fragment VillainSectionFragment on ContentfulVillainSection {
     title
     promo {
-      __typename
-      ... on ContentfulContactUsPageContentfulPromoContentfulSimplePageUnion {
+      ... on ContentfulPromoOrPage {
+        ...PromoFragment
         ...ContactUsPageInfoFragment
         ...SimplePageInfoFragment
-        ...PromoFragment
       }
     }
   }

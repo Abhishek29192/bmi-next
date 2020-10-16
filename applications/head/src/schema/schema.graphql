@@ -1,0 +1,107 @@
+"""
+Represents common properties across pages.
+"""
+interface ContentfulPage {
+  "The name of this page, representative of the type."
+  title: String!
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "The short description for this page."
+  subtitle: String
+
+  "The main image of this page. Can be used when referencing this page."
+  featuredImage: ContentfulAsset
+
+  "The page should show the sign up banner."
+  showSignUpBanner: Boolean
+}
+
+"""
+Represents a simple page type, implementing ContentfulPage.
+"""
+type ContentfulSimplePage implements ContentfulPage & Node {
+  "The name of this page, representative of the type."
+  title: String!
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "The short description for this page."
+  subtitle: String
+
+  "The main image of this page. Can be used when referencing this page."
+  featuredImage: ContentfulAsset
+
+  "The page should show the sign up banner."
+  showSignUpBanner: Boolean
+}
+
+"""
+Represents a contact us page, implementing ContentfulPage.
+"""
+type ContentfulContactUsPage implements ContentfulPage & Node {
+  "The name of this page, representative of the type."
+  title: String!
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "The short description for this page."
+  subtitle: String
+
+  "The main image of this page. Can be used when referencing this page."
+  featuredImage: ContentfulAsset
+
+  "The page should show the sign up banner."
+  showSignUpBanner: Boolean
+}
+
+"""
+Represents a team page, implementing ContentfulPage.
+"""
+type ContentfulTeamPage implements ContentfulPage & Node {
+  "The name of this page, representative of the type."
+  title: String!
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "This field will always return null."
+  subtitle: String
+
+  "The main image of this page. Can be used when referencing this page."
+  featuredImage: ContentfulAsset
+
+  "The page should show the sign up banner."
+  showSignUpBanner: Boolean
+}
+
+"""
+Represents a combination of Title, Description, Image, and Link combination.
+"""
+type ContentfulPromo implements Node {
+  "The title should always be required."
+  title: String!
+}
+
+"""
+Represents a union for a combination of promo or pages.
+"""
+union ContentfulPromoOrPage =
+    ContentfulPromo
+  | ContentfulContactUsPage
+  | ContentfulSimplePage
+  | ContentfulTeamPage
+
+"""
+Represents a union for all the possible sections available in a page.
+"""
+union ContentfulSection =
+    ContentfulCardCollectionSection
+  | ContentfulCarouselSection
+  | ContentfulFormSection
+  | ContentfulLeadBlockSection
+  | ContentfulTabsOrAccordionSection
+  | ContentfulVillainSection

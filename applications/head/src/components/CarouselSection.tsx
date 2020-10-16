@@ -103,10 +103,11 @@ export const query = graphql`
     title
     variant
     slides {
-      __typename
-      ...PromoFragment
-      ...ContactUsPageInfoFragment
-      ...SimplePageInfoFragment
+      ... on ContentfulPromoOrPage {
+        ...PromoFragment
+        ...ContactUsPageInfoFragment
+        ...SimplePageInfoFragment
+      }
     }
   }
 `;

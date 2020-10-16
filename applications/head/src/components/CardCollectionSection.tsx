@@ -39,6 +39,7 @@ export type Data = {
   cards: Card[];
 };
 
+// TODO: Reuse the getCTA function here.
 const transformCard = (
   card: Card
 ): {

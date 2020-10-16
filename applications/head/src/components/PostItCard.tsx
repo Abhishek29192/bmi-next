@@ -87,6 +87,7 @@ const IntegratedPostItCard = ({
 export default IntegratedPostItCard;
 
 export const query = graphql`
+  # TODO: If this is a Section it should go under the Section type. Have to check because I don't fully understand.
   fragment PostItCardSectionFragment on ContentfulPostItCardSection {
     id
     hasUnderline
@@ -95,9 +96,7 @@ export const query = graphql`
       description
     }
     link {
-      ... on ContentfulLink {
-        ...LinkFragment
-      }
+      ...LinkFragment
     }
   }
 `;
