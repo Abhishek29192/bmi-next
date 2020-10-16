@@ -1,0 +1,82 @@
+@import "@bmi/styles";
+
+.LinkCard {
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: none;
+  background-color: $color-white;
+  color: $color-slate;
+  padding: 16px;
+  border-radius: 0%;
+  border-top: 1px solid $color-storm;
+  border-bottom: 1px solid $color-storm;
+  & + & {
+    border-top: none;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    border: 1px solid $color-storm;
+
+    &--selected {
+      background-color: $color-alabaster;
+      color: $color-charcoal;
+    }
+
+    &:hover {
+      color: $color-charcoal;
+      background-color: $color-pearl;
+      .icon {
+        color: rgba($color-black, 0.35);
+      }
+    }
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .item {
+    flex: 2 0;
+  }
+
+  .icon {
+    margin: 8px;
+    width: 48px;
+    margin: auto;
+    color: rgba($color-black, 0.2);
+    flex: 0 1;
+    svg {
+      transform: rotate(90deg);
+      transition: transform ease-in-out 0.5s, color ease-in-out 0.5s;
+      @media (min-width: $breakpoint-md) {
+        transform: none;
+      }
+    }
+  }
+
+  &--selected {
+    .icon {
+      svg {
+        color: $color-cyan-500;
+        transform: rotate(-90deg);
+        transition: transform ease-in-out 0.5s, color ease-in-out 0.5s;
+        @media (min-width: $breakpoint-md) {
+          color: rgba($color-black, 0.2);
+        }
+      }
+      @media (min-width: $breakpoint-md) {
+        svg {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  .details {
+    flex: 3 0 100%;
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+}
