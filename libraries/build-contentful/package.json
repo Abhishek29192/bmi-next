@@ -1,0 +1,14 @@
+{
+  "name": "@bmi/build-contentful",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "bin": {
+    "build-contentful": "./index.js"
+  },
+  "dependencies": {
+    "@bmi/migrate": "0.0.0",
+    "contentful-management": "^6.1.2",
+    "semver-parser": "^3.0.5"
+  }
+}
