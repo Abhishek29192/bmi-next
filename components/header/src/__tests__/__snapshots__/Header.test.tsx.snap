@@ -661,6 +661,31 @@ exports[`Header component renders correctly 1`] = `
                     <span
                       class="MuiButton-label"
                     >
+                      <b>
+                        <svg
+                          class="bold"
+                        />
+                         
+                        View all our products
+                      </b>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <hr
+                    class="Separator"
+                  />
+                </li>
+                <li>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
                       Wall
                     </span>
                     <span
