@@ -42,7 +42,7 @@ const Navigation = ({
   React.useEffect(() => setDepth(initialDepth), [initialDepth]);
 
   return (
-    <nav className={styles.Navigation}>
+    <nav className={styles["Navigation"]}>
       <NavigationList
         className={styles[`Offset${depth * 100}`]}
         depth={0}
@@ -103,7 +103,7 @@ const NavigationList = ({
 
   return (
     <div
-      className={classnames(styles.NavigationList, {
+      className={classnames(styles["NavigationList"], {
         [className]: isRoot,
         [styles["NavigationList--footer"]]: isFooter,
         [styles["NavigationList--show"]]: show
@@ -111,21 +111,21 @@ const NavigationList = ({
     >
       <ul>
         {parentHandleClick ? (
-          <li className={styles.BackNavigation} key={`menu-${depth}-back`}>
+          <li className={styles["BackNavigation"]} key={`menu-${depth}-back`}>
             <NavigationListButton
-              className={styles.BackButton}
+              className={styles["BackButton"]}
               endIcon={false}
               onClick={() => parentHandleClick(false)}
               startIcon={<ChevronLeft />}
             >
               {backLabel}
             </NavigationListButton>
-            <hr className={styles.Separator} />
+            <hr className={styles["Separator"]} />
           </li>
         ) : (
           !isFooter && (
             <li key={`menu-${depth}-heading`}>
-              <Typography className={styles.MainMenuTitle} variant="h6">
+              <Typography className={styles["MainMenuTitle"]} variant="h6">
                 BMI Group
               </Typography>
             </li>
@@ -163,7 +163,7 @@ const NavigationList = ({
                   parentHandleClick={handleClick}
                   setDepth={setDepth}
                 />
-                {hasSeparator && <hr className={styles.Separator} />}
+                {hasSeparator && <hr className={styles["Separator"]} />}
               </li>
             ) : (
               <li key={`menu-${depth}-item-${key}`}>
@@ -171,7 +171,7 @@ const NavigationList = ({
                   if (isHeading) {
                     return (
                       <Typography
-                        className={styles.NavigationListType}
+                        className={styles["NavigationListType"]}
                         variant="h6"
                       >
                         {label}
@@ -180,7 +180,7 @@ const NavigationList = ({
                   } else if (isParagraph) {
                     return (
                       <Typography
-                        className={styles.NavigationListType}
+                        className={styles["NavigationListType"]}
                         variant="body1"
                       >
                         {label}
@@ -188,7 +188,11 @@ const NavigationList = ({
                     );
                   } else if (image) {
                     return (
-                      <img alt={label} className={styles.Image} src={image} />
+                      <img
+                        alt={label}
+                        className={styles["Image"]}
+                        src={image}
+                      />
                     );
                   } else {
                     return (
@@ -205,7 +209,7 @@ const NavigationList = ({
                     );
                   }
                 })()}
-                {hasSeparator && <hr className={styles.Separator} />}
+                {hasSeparator && <hr className={styles["Separator"]} />}
               </li>
             ),
             footer && (
@@ -221,7 +225,7 @@ const NavigationList = ({
           ]
         )}
         {utilities && (
-          <ul className={styles.Utilities}>
+          <ul className={styles["Utilities"]}>
             {utilities.map(({ label, action }, key) => (
               <li key={`mobile-utilities-link-${key}`}>
                 <NavigationListButton action={action}>
@@ -258,7 +262,7 @@ export const NavigationListButton = ({
   ...rest
 }: NavigationListButtonProps) => (
   <Button
-    className={classnames(styles.NavigationListButton, className, {
+    className={classnames(styles["NavigationListButton"], className, {
       [styles["NavigationListButton--active"]]: active
     })}
     variant="text"
