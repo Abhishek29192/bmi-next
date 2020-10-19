@@ -1,6 +1,5 @@
 import Button, { ButtonProps, ClickableAction } from "@bmi/button";
 import Icon from "@bmi/icon";
-import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
 import Typography from "@bmi/typography";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import classnames from "classnames";
@@ -11,9 +10,9 @@ export type LinkList = {
   label: string;
   hasSeparator?: boolean;
   action?: ClickableAction;
+  icon?: SVGImport;
   image?: string;
   isHeading?: boolean;
-  isBigLink?: boolean;
   isParagraph?: boolean;
 };
 
@@ -137,9 +136,9 @@ const NavigationList = ({
               footer,
               hasSeparator,
               action,
+              icon,
               image = null,
               isHeading,
-              isBigLink,
               isParagraph,
               label,
               menu: subMenu
@@ -197,11 +196,11 @@ const NavigationList = ({
                   } else {
                     return (
                       <NavigationListButton action={action}>
-                        {isBigLink ? (
-                          <>
-                            <Icon source={Arrow} />
-                            <b>{label}</b>
-                          </>
+                        {icon ? (
+                          <b>
+                            <Icon source={icon} className={styles["bold"]} />{" "}
+                            {label}
+                          </b>
                         ) : (
                           label
                         )}
