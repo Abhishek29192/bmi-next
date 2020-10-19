@@ -14,6 +14,7 @@ export type PageInfoData = {
   __typename: "ContentfulContactUsPage";
   title: string;
   subtitle: string | null;
+  brandLogo: null;
   slug: string;
   featuredImage: {
     title: string;
@@ -127,6 +128,7 @@ export const promoQuery = graphql`
   fragment ContactUsPageInfoFragment on ContentfulContactUsPage {
     title
     subtitle
+    brandLogo
     slug
     featuredImage {
       file {

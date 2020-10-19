@@ -8,6 +8,9 @@ interface ContentfulPage {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The brand logo for this page."
+  brandLogo: String
+
   "The short description for this page."
   subtitle: String
 
@@ -28,6 +31,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The brand logo for this page."
+  brandLogo: String
+
   "The short description for this page."
   subtitle: String
 
@@ -47,6 +53,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "This field will always return null."
+  brandLogo: String
 
   "The short description for this page."
   subtitle: String
@@ -69,6 +78,9 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   slug: String!
 
   "This field will always return null."
+  brandLogo: String
+
+  "This field will always return null."
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page."
@@ -84,6 +96,9 @@ Represents a combination of Title, Description, Image, and Link combination.
 type ContentfulPromo implements Node {
   "The title should always be required."
   title: String!
+
+  "The Brand logo for this promotion."
+  brandLogo: String
 }
 
 """
