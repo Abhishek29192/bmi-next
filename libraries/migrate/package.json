@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "main": "cli.js",
-  "scripts": {
-    "start": "node cli.js"
+  "bin": {
+    "migrate": "./cli.js"
   },
   "resolutions": {
     "eslint": "6.8.0"

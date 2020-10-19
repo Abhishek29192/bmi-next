@@ -20,8 +20,7 @@
     "coverage:ts": "typescript-coverage-report",
     "workbench": "styleguidist server",
     "workbench:build": "styleguidist build",
-    "run-apollo": "yarn workspace @bmi/apollo-server run start",
-    "migrate": "yarn workspace @bmi/migrate start"
+    "run-apollo": "yarn workspace @bmi/apollo-server run start"
   },
   "husky": {
     "hooks": {
