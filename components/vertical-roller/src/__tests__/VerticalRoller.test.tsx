@@ -3,11 +3,13 @@ import VerticalRoller from "../";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import mockImage from "path-to-image.png";
+import mockSvg from "path-to-logo.svg";
 
 const slides = [
   {
     title: "Approved Installers",
     imageSource: mockImage,
+    brandIcon: mockSvg,
     description:
       "Accredited BMI installers are masters of their craft and available all over Norway.",
     cta: {

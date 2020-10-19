@@ -11,6 +11,7 @@ import Grid from "@bmi/grid";
 export type Slide = {
   title: React.ReactNode;
   imageSource: string;
+  brandIcon?: SVGImport;
   description?: React.ReactNode;
   cta?: {
     action?: ClickableAction;
@@ -64,34 +65,43 @@ const VerticalRoller = ({ title, slides }: Props) => {
         <Grid item xs={12} md={6}>
           <div className={styles["right-column"]}>
             <Carousel initialPage={activePage} onPageChange={setActivePage}>
-              {slides.map(({ imageSource, description, cta }, index) => {
-                return (
-                  <Carousel.Slide key={index} className={styles["slide"]}>
-                    <div
-                      className={styles["image"]}
-                      style={{ backgroundImage: `url(${imageSource})` }}
-                    />
-                    <Grid container spacing={0} justify="flex-end">
-                      <Grid item xs={9} md={12}>
-                        {description && (
-                          <Typography className={styles["description"]}>
-                            {description}
-                          </Typography>
+              {slides.map(
+                (
+                  { imageSource, brandIcon: BrandIcon, description, cta },
+                  index
+                ) => {
+                  return (
+                    <Carousel.Slide key={index} className={styles["slide"]}>
+                      <div
+                        className={styles["image"]}
+                        style={{ backgroundImage: `url(${imageSource})` }}
+                      >
+                        {BrandIcon && (
+                          <BrandIcon className={styles["brand-icon"]} />
                         )}
-                        {cta && (
-                          <Button
-                            className={styles["button"]}
-                            action={cta.action}
-                            endIcon={<ArrowIcon />}
-                          >
-                            {cta.label}
-                          </Button>
-                        )}
+                      </div>
+                      <Grid container spacing={0} justify="flex-end">
+                        <Grid item xs={9} md={12}>
+                          {description && (
+                            <Typography className={styles["description"]}>
+                              {description}
+                            </Typography>
+                          )}
+                          {cta && (
+                            <Button
+                              className={styles["button"]}
+                              action={cta.action}
+                              endIcon={<ArrowIcon />}
+                            >
+                              {cta.label}
+                            </Button>
+                          )}
+                        </Grid>
                       </Grid>
-                    </Grid>
-                  </Carousel.Slide>
-                );
-              })}
+                    </Carousel.Slide>
+                  );
+                }
+              )}
             </Carousel>
           </div>
         </Grid>
