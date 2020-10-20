@@ -9,6 +9,7 @@ import Section from "@bmi/section";
 import rooferGunImage from "./images/roofer-gun.png";
 import houseImage from "./images/house.png";
 import tilesBlack from "./images/demo-tiles-black.png";
+import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
 
 const slides = [
   {
@@ -22,6 +23,7 @@ const slides = [
   },
   {
     title: "Realiable Warranties",
+    brandIcon: AeroDek,
     imageSource: houseImage,
     cta: {
       label: "Go to Realiable Warranties"

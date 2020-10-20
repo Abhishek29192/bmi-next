@@ -1,62 +1,43 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import TwoPaneCarousel, {
-  Slide as TwoPaneCarouselctaData
+  Slide as TwoPaneCarouselSlide
 } from "@bmi/two-pane-carousel";
 import VerticalRoller, {
-  Slide as VerticalRollerctaData
+  Slide as VerticalRollerSlide
 } from "@bmi/vertical-roller";
 import Section, { Props } from "@bmi/section";
 import { Data as PromoData } from "../components/Promo";
 import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
 import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
-
+import { iconMap } from "./Icon";
 import { LinkData, getCTA } from "./Link";
 import { SiteContext } from "./Site";
 
 type Slide = PromoData | SimplePageInfoData | ContactUsInfoData;
 
 export type Data = {
+  __typename: "ContentfulCarouselSection";
   title?: string;
   variant: string;
-  __typename: "ContentfulCarouselSection";
   slides: Slide[];
   link: LinkData | null;
 };
 
-const parseTwoPaneCarouselSlides = (
+const parseSlides = (
   slides: Slide[],
   countryCode: string,
   linkLabel: string
-): TwoPaneCarouselctaData[] => {
+): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
   return slides.map((slide) => {
-    const { title, subtitle, featuredImage, ...rest } = slide;
-    const CTA = getCTA(rest, countryCode, linkLabel);
-
-    return {
-      title,
-      // brandIcon: iconMap[brandLogo], // TODO: This will come when a brand page is added to the Enum.
-      imageSource: featuredImage ? featuredImage.file.url : null,
-      children: subtitle || undefined,
-      CTA
-    };
-  });
-};
-
-const parseVerticalRollerSlides = (
-  slides: Slide[],
-  countryCode: string,
-  linkLabel: string
-): VerticalRollerctaData[] => {
-  return slides.map((slide) => {
-    const { title, subtitle, featuredImage, ...rest } = slide;
+    const { title, subtitle, brandLogo, featuredImage, ...rest } = slide;
     const cta = getCTA(rest, countryCode, linkLabel);
 
     return {
       title,
-      description: subtitle,
+      brandIcon: brandLogo && iconMap[brandLogo],
       imageSource: featuredImage ? featuredImage.file.url : null,
-      children: subtitle || undefined,
+      description: subtitle || undefined,
       cta
     };
   });
@@ -76,19 +57,11 @@ const CarouselSection = ({
       {variant === "vertical" ? (
         <VerticalRoller
           title={title}
-          slides={parseVerticalRollerSlides(
-            slides,
-            countryCode,
-            resources["page.linkLabel"]
-          )}
+          slides={parseSlides(slides, countryCode, resources["page.linkLabel"])}
         />
       ) : (
         <TwoPaneCarousel
-          slides={parseTwoPaneCarouselSlides(
-            slides,
-            countryCode,
-            resources["page.linkLabel"]
-          )}
+          slides={parseSlides(slides, countryCode, resources["page.linkLabel"])}
         />
       )}
     </Section>

@@ -10,7 +10,7 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
     <Carousel hasOpacityAnimation>
       {slides.map(
         (
-          { brandIcon: BrandIcon, title, children, CTA, imageSource },
+          { brandIcon: BrandIcon, title, description, cta, imageSource },
           index
         ) => {
           return (
@@ -35,17 +35,17 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
                 className={styles["image"]}
                 style={{ backgroundImage: `url(${imageSource})` }}
               />
-              {(children || CTA) && (
+              {(description || cta) && (
                 <div className={styles["text"]}>
-                  {children}
+                  {description}
                   <div>
-                    {CTA && (
+                    {cta && (
                       <AnchorLink
-                        action={CTA.action}
+                        action={cta.action}
                         iconEnd
                         className={styles["cta"]}
                       >
-                        {CTA.label}
+                        {cta.label}
                       </AnchorLink>
                     )}
                   </div>

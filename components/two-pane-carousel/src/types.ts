@@ -3,8 +3,8 @@ import { ClickableAction } from "@bmi/anchor-link";
 export type Slide = {
   brandIcon?: SVGImport;
   title: React.ReactNode;
-  children?: React.ReactNode;
-  CTA?: {
+  description?: React.ReactNode;
+  cta?: {
     label: React.ReactNode;
     action?: ClickableAction;
   };

@@ -53,6 +53,7 @@ describe("Sections component", () => {
         promo: {
           __typename: "ContentfulPromo",
           title: "Promo",
+          brandLogo: null,
           subtitle: null,
           featuredImage: null,
           cta: null
@@ -134,6 +135,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulPromo",
             title: "promo title",
+            brandLogo: "AeroDek",
             subtitle: "promo subtitle",
             featuredImage: null,
             cta: {
