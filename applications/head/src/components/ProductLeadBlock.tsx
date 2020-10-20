@@ -24,7 +24,10 @@ const ProductLeadBlock = ({ description, keyFeatures }: Props) => {
           <LeadBlock>
             <LeadBlock.Content>
               <LeadBlock.Content.Section>
-                <Typography>{description}</Typography>
+                <Typography
+                  component="div"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
               </LeadBlock.Content.Section>
               <LeadBlock.Content.Section>
                 <LeadBlock.Content.Heading>
