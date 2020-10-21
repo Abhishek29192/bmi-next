@@ -57,12 +57,16 @@ const renderThumbnailAttribute = (
 ) => {
   const activeColor = variants.find(({ isSelected }) => isSelected);
 
-  /* istanbul ignore next */
-  if (!activeColor && process.env.NODE_ENV === "development") {
-    // eslint-disable-next-line no-console
-    console.error(
-      "ProductOverview.renderThumbnailAttributes: At least one colour should be selected"
-    );
+  if (!activeColor) {
+    /* istanbul ignore next */
+    if (process.env.NODE_ENV === "development") {
+      // eslint-disable-next-line no-console
+      console.error(
+        "ProductOverview.renderThumbnailAttributes: At least one colour should be selected"
+      );
+    }
+
+    return null;
   }
 
   return (
