@@ -27,6 +27,7 @@ $dark-theme: (
 .ColorPair {
   background-color: $color-white;
   color: $color-charcoal;
+  -webkit-print-color-adjust: exact;
 
   @each $theme-name, $theme-color in $light-theme {
     &--#{$theme-name} {
