@@ -148,7 +148,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const uniqueClassifications = _.uniqBy(
     _.flatten(
       _.map(
-        [...selfProduct.classifications, ...product.classifications],
+        [
+          ...(selfProduct.classifications || []),
+          ...(product.classifications || [])
+        ],
         "features"
       )
     ),
