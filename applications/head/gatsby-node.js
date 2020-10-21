@@ -4,6 +4,8 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
 const path = require("path");
 const { withConfigs, styles } = require("@bmi/webpack");
+require("graphql-import-node");
+const typeDefs = require("./src/schema/schema.graphql");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -14,6 +16,16 @@ const createProductPages = async (
   countryCode,
   { graphql, actions }
 ) => {
+  const pimClassificationCatalogueNamespace =
+    process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
+
+  if (!pimClassificationCatalogueNamespace) {
+    console.warn(
+      "createProductPages: You have to provide a PIM_CLASSIFICATION_CATALOGUE_NAMESPACE in your env file"
+    );
+
+    return;
+  }
   const { createPage } = actions;
 
   const componentMap = {
@@ -64,7 +76,7 @@ const createProductPages = async (
     }
 
     const brandCode = (
-      product.categories.find(({ categoryType }) => {
+      (product.categories || []).find(({ categoryType }) => {
         return categoryType === "Brand";
       }) || {}
     ).code;
@@ -99,7 +111,7 @@ const createProductPages = async (
       relatedProductCodes = relatedProducts.map(({ code }) => code);
     }
 
-    product.variantOptions.forEach((variantOption) => {
+    (product.variantOptions || []).forEach((variantOption) => {
       createPage({
         path: `/${countryCode}/products/${getSlug(variantOption.code)}`,
         component,
@@ -108,7 +120,8 @@ const createProductPages = async (
           variantCode: variantOption.code,
           siteId: siteId,
           countryCode,
-          relatedProductCodes
+          relatedProductCodes,
+          pimClassificationCatalogueNamespace
         }
       });
     });
@@ -209,4 +222,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       [styles({ dev: process.env.NODE_ENV === "development" })]
     )
   );
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(typeDefs);
 };

@@ -57,7 +57,8 @@ module.exports = {
         options: {
           spaceId,
           accessToken,
-          environment
+          environment,
+          host: process.env.CONTENT_API_HOST || "cdn.contentful.com"
         }
       })
     ),

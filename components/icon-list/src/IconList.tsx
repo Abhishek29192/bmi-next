@@ -6,7 +6,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 type ListItemProps = {
   icon?: React.ReactNode;
   title: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   component?: React.ElementType;
 };
 const ListItem = ({ icon, title, children, component }: ListItemProps) => (
@@ -20,7 +20,7 @@ const ListItem = ({ icon, title, children, component }: ListItemProps) => (
       >
         {title}
       </Typography>
-      {children}
+      {children && <span className={styles["description"]}>{children}</span>}
     </div>
   </div>
 );

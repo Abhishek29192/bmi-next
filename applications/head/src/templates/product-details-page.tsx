@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import _ from "lodash";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Page, { Data as PageData } from "../components/Page";
@@ -11,7 +12,8 @@ import ProductLeadBlock from "../components/ProductLeadBlock";
 import {
   getProductAttributes,
   mapGalleryImages,
-  mapProductClassifications
+  mapProductClassifications,
+  getProductTechnicalSpecifications
 } from "../utils/product-details-transforms";
 
 type Data = PageData & {
@@ -101,6 +103,7 @@ type Props = {
     variantCode?: string;
     siteId: string;
     countryCode: string;
+    pimClassificationCatalogueNamespace: string;
   };
   data: {
     product: Product;
@@ -119,6 +122,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   };
 
   // Which variant (including base) are we looking at
+  // TODO: Merge data here!
   const selfProduct = pageContext.variantCode
     ? product.variantOptions.find(
         ({ code }) => code === pageContext.variantCode
@@ -136,19 +140,44 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     }) || {}
   ).code;
 
-  const productClassifications = mapProductClassifications(product);
-  const attributes = getProductAttributes(
-    productClassifications,
-    selfProduct,
-    pageContext
+  const productClassifications = mapProductClassifications(
+    product,
+    pageContext.pimClassificationCatalogueNamespace
+  );
+
+  const uniqueClassifications = _.uniqBy(
+    _.flatten(
+      _.map(
+        [
+          ...(selfProduct.classifications || []),
+          ...(product.classifications || [])
+        ],
+        "features"
+      )
+    ),
+    "code"
+  );
+
+  const technicalSpecifications = getProductTechnicalSpecifications(
+    pageContext.pimClassificationCatalogueNamespace,
+    uniqueClassifications
   );
 
   const productData = {
     name: product.name,
     brandName: brandCode || "",
     nnob: selfProduct.code,
-    images: mapGalleryImages(selfProduct.images || []),
-    attributes
+    images: mapGalleryImages([
+      ...(selfProduct.images || []),
+      ...(product.images || []).filter(
+        ({ assetType }) => assetType === "GALLERY"
+      )
+    ]),
+    attributes: getProductAttributes(
+      productClassifications,
+      selfProduct,
+      pageContext
+    )
   };
 
   return (
@@ -160,6 +189,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
         <ProductLeadBlock
           description={product.description}
           keyFeatures={product.productBenefits}
+          technicalSpecifications={technicalSpecifications}
         />
       </Section>
     </Page>
@@ -206,14 +236,19 @@ export const pageQuery = graphql`
             value
             code
           }
+          featureUnit {
+            symbol
+          }
         }
       }
+      productBenefits
       variantOptions {
         isSampleOrderAllowed
         code
         approvalStatus
         shortDescription
         longDescription
+        productBenefits
         images {
           realFileName
           assetType
@@ -234,6 +269,9 @@ export const pageQuery = graphql`
             featureValues {
               value
               code
+            }
+            featureUnit {
+              symbol
             }
           }
         }

@@ -32,11 +32,13 @@ const ImageGallery = ({ images }: Props) => {
           {images[activeImageIndex].altText}
         </span>
       </div>
-      <Thumbnails
-        images={images}
-        activeImageIndex={activeImageIndex}
-        onThumbnailClick={setActiveImageIndex}
-      />
+      {images.length > 1 && (
+        <Thumbnails
+          images={images}
+          activeImageIndex={activeImageIndex}
+          onThumbnailClick={setActiveImageIndex}
+        />
+      )}
     </div>
   );
 };

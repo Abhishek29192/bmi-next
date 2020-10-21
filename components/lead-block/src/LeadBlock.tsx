@@ -63,7 +63,7 @@ const LeadBlock = ({ className, children, ...rest }: Props & GridProps) => {
     <Grid
       className={classnames(className, styles["LeadBlock"])}
       container
-      spacing={1}
+      spacing={3}
       {...rest}
     >
       {children}

@@ -1,4 +1,4 @@
-import { getClickableActionFromUrl } from "../Link";
+import { getClickableActionFromUrl, getCTA } from "../Link";
 
 describe("Icon component", () => {
   describe("getClickableActionFromUrl function", () => {
@@ -16,6 +16,41 @@ describe("Icon component", () => {
       expect(
         getClickableActionFromUrl(undefined, undefined, "en")
       ).toBeUndefined();
+    });
+  });
+
+  describe("getCTA function", () => {
+    it("returns a cta object with a Promo cta", () => {
+      expect(
+        getCTA(
+          {
+            __typename: "ContentfulPromo",
+            cta: {
+              __typename: "ContentfulLink",
+              id: "string",
+              label: "string",
+              icon: null,
+              isLabelHidden: null,
+              url: "https://www.external.co.uk",
+              linkedPage: null
+            }
+          },
+          "no",
+          "Go to Page"
+        )
+      ).toMatchSnapshot();
+    });
+    it("returns a cta object with page", () => {
+      expect(
+        getCTA(
+          {
+            __typename: "ContentfulContactUsPage",
+            slug: "/contact-us"
+          },
+          "no",
+          "Go to Page"
+        )
+      ).toMatchSnapshot();
     });
   });
 });

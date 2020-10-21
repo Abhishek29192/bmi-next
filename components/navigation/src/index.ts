@@ -1,8 +1,8 @@
 import Navigation, {
   LinkList,
-  NavitationList,
+  NavigationList,
   NavigationListButton
 } from "./Navigation";
 
-export { LinkList, NavitationList, NavigationListButton };
+export { LinkList, NavigationList, NavigationListButton };
 export default Navigation;

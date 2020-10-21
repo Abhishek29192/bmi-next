@@ -102,11 +102,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     You can check relevant technical information whilst browsing our site
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -146,11 +150,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     Our installation instructions show how a product is assembled
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -440,11 +448,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     You can check relevant technical information whilst browsing our site
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -484,11 +496,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     Our installation instructions show how a product is assembled
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -778,11 +794,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     You can check relevant technical information whilst browsing our site
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -822,11 +842,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     Our installation instructions show how a product is assembled
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -971,11 +995,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     You can check relevant technical information whilst browsing our site
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -1015,11 +1043,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     Our installation instructions show how a product is assembled
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -1126,11 +1158,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     You can check relevant technical information whilst browsing our site
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      Technical product information such as performance guarantees, dimensions, colours etc. are documented in our technical documentation.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -1170,11 +1206,15 @@ exports[`ExpandableCards component renders correctly 1`] = `
                   >
                     Our installation instructions show how a product is assembled
                   </h5>
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
+                  <span
+                    class="description"
                   >
-                    If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
-                  </p>
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1"
+                    >
+                      If you need help with mounting a product or accessory, our mounting instructions show how a product is assembled and what accessories should be used, if any.
+                    </p>
+                  </span>
                 </div>
               </div>
             </div>

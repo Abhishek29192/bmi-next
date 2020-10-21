@@ -19,7 +19,7 @@ const Thumbnails = ({ images, activeImageIndex, onThumbnailClick }: Props) => {
   const [visibleGradients, setVisibleGradients] = useState<{
     left: boolean;
     right: boolean;
-  }>({ left: true, right: false });
+  }>({ left: false, right: false });
 
   const handleOnScroll = () => {
     clearTimeout(debouncer);

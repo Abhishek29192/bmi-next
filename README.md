@@ -185,6 +185,11 @@ To ensure that no broken or unformatted code gets committed or pushed, we use gi
 
 - `pre-push` will run automated tests
 
+### Release
+
+We use [Semantic Release](https://github.com/semantic-release/semantic-release) to automatically generate our release notes (that's why it's so important to follow the [commit guidelines!](#Commit messages)).
+The process runs automatically for the `production`, `pre-production` and `master` (alpha) branches, using GitLab's CI pipelines.
+
 ## Assets
 
 SVGs have their `viewBox` set correctly and the `width`s set to `auto` in order to allow for [better scaling](https://css-tricks.com/scale-svg/#option-3-use-inline-svg-and-the-latest-blink-firefox-browsers).

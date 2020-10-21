@@ -8,7 +8,7 @@ import LanguageSelection, {
 } from "@bmi/language-selection";
 import BmiIcon from "@bmi/logo/svgs/BMI.svg";
 import Clickable, { ClickableAction } from "@bmi/clickable";
-import Navigation, { LinkList, NavitationList } from "@bmi/navigation";
+import Navigation, { LinkList, NavigationList } from "@bmi/navigation";
 import TextField from "@bmi/text-field";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
@@ -21,7 +21,7 @@ import styles from "./Header.module.scss";
 type HeaderProps = {
   language?: LanguageSelectionItem;
   languages?: readonly LanguageSelectionList[];
-  navigation: readonly NavitationList[];
+  navigation: readonly NavigationList[];
   utilities: readonly LinkList[];
   logoAction?: ClickableAction;
 };

@@ -118,6 +118,11 @@
     svg {
       height: 2rem;
       margin: -7px 0;
+
+      &.bold {
+        margin-bottom: -10px;
+        margin-right: 10px;
+      }
     }
 
     :global {

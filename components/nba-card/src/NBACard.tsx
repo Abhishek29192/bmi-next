@@ -17,7 +17,7 @@ const NBACard = ({ theme, title, children, footer }: Props) => {
         {title}
       </Typography>
       <div className={styles["body"]}>{children}</div>
-      {footer}
+      {footer && <div className={styles["footer"]}>{footer}</div>}
     </ColorPair>
   );
 };

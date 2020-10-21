@@ -192,7 +192,11 @@ exports[`VerticalRoller component renders correctly 1`] = `
                       <div
                         class="image"
                         style="background-image: url(path-to-image);"
-                      />
+                      >
+                        <svg
+                          class="brand-icon"
+                        />
+                      </div>
                       <div
                         class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-flex-end"
                       >

@@ -8,7 +8,6 @@
     overflow: hidden;
     max-height: 360px;
     height: calc(100vw - (16px * 2));
-    margin-bottom: 8px;
     background-size: cover;
     background-position: center center;
 
@@ -29,6 +28,7 @@
   }
 
   .thumbnails {
+    margin-top: 8px;
     width: 100%;
     overflow-x: hidden;
     position: relative;

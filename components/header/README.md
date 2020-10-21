@@ -8,6 +8,7 @@ The header must be placed in the DOM at the top of the `body`. For the demo, cli
 import { useRef } from "react";
 import Button from "@bmi/button";
 import Icon from "@bmi/icon";
+import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
 import { languages } from "@bmi/language-selection";
 import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
 import Icopal from "@bmi/logo/svgs/Icopal.svg";
@@ -49,10 +50,10 @@ const navigation = [
             menu: [
               { label: "Tiles", isHeading: true },
               { label: "Tiles overview" },
-              { label: "Metal tiles", icon: <Icon source={AeroDek} /> },
-              { label: "Clay tiles", icon: <Icon source={Monier} /> },
-              { label: "Concrete tiles", icon: <Icon source={Zanda} /> },
-              { label: "Singles", icon: <Icon source={Icopal} /> }
+              { label: "Metal tiles" },
+              { label: "Clay tiles" },
+              { label: "Concrete tiles" },
+              { label: "Singles" }
             ]
           },
           {
@@ -98,7 +99,7 @@ const navigation = [
       { label: "Civil Engineering", hasSeparator: true },
       {
         label: "View all our products",
-        isBigLink: true,
+        icon: Arrow,
         hasSeparator: true
       },
       { label: "Products by brand", isHeading: true },

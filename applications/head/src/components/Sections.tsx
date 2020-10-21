@@ -9,22 +9,32 @@ import TabsOrAccordionSection, {
 import VillainSection, {
   Data as VillainSectionData
 } from "../components/VillainSection";
-import TwoPaneCarouselSection, {
-  Data as TwoPaneCarouselSectionData
-} from "../components/TwoPaneCarouselSection";
+import CarouselSection, {
+  Data as CarouselSectionData
+} from "../components/CarouselSection";
+import LeadBlockSection, {
+  Data as LeadBlockSectionData
+} from "../components/LeadBlockSection";
+import CardCollectionSection, {
+  Data as CardCollectionSectionData
+} from "../components/CardCollectionSection";
 
 export type Data = (
   | FormSectionData
   | TabsOrAccordionSectionData
   | VillainSectionData
-  | TwoPaneCarouselSectionData
+  | CarouselSectionData
+  | LeadBlockSectionData
+  | CardCollectionSectionData
 )[];
 
 const sectionsMap = {
   ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
   ContentfulVillainSection: VillainSection,
-  ContentfulTwoPaneCarouselSection: TwoPaneCarouselSection
+  ContentfulCarouselSection: CarouselSection,
+  ContentfulLeadBlockSection: LeadBlockSection,
+  ContentfulCardCollectionSection: CardCollectionSection
 };
 
 const Sections = ({ data }: { data: Data }) => {
@@ -32,7 +42,6 @@ const Sections = ({ data }: { data: Data }) => {
     <>
       {data.map((section, index) => {
         const Component = sectionsMap[section.__typename];
-
         return (
           Component && (
             <Component
@@ -40,7 +49,7 @@ const Sections = ({ data }: { data: Data }) => {
               // @ts-ignore
               data={section}
               // TODO: Robust theme-based solution required.
-              backgroundColor={index % 2 === 0 ? "pearl" : "white"}
+              backgroundColor={index % 2 === 1 ? "pearl" : "white"}
             />
           )
         );
@@ -52,12 +61,13 @@ const Sections = ({ data }: { data: Data }) => {
 export default Sections;
 
 export const query = graphql`
-  # NOTE: This union type name is not ideal, but the best option so far.
-  fragment SectionsFragment on ContentfulCardCollectionSectionContentfulFormSectionContentfulLeadBlockSectionContentfulTabsOrAccordionSectionContentfulVillainSectionUnion {
+  fragment SectionsFragment on ContentfulSection {
     __typename
     ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
-    # ...TwoPaneCarouselSectionFragment
+    ...CarouselSectionFragment
+    ...LeadBlockSectionFragment
+    ...CardCollectionSectionFragment
   }
 `;

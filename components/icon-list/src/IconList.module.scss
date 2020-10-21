@@ -7,6 +7,8 @@
     margin-top: 18px;
     height: 100%;
     width: 40px;
+    flex-shrink: 0;
+
     & :global {
       .MuiSvgIcon-root {
         font-size: 28px;
@@ -20,7 +22,7 @@
     margin: 20px;
   }
 
-  .title {
-    margin-bottom: 20px;
+  .description {
+    margin-top: 20px;
   }
 }

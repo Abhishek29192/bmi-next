@@ -14,9 +14,17 @@ const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
 type Props = {
   description?: string;
   keyFeatures?: readonly string[];
+  technicalSpecifications?: {
+    name: string;
+    value: string;
+  }[];
 };
 
-const ProductLeadBlock = ({ description, keyFeatures }: Props) => {
+const ProductLeadBlock = ({
+  description,
+  keyFeatures,
+  technicalSpecifications
+}: Props) => {
   return (
     <div className={styles["ProductLeadBlock"]}>
       <Tabs initialValue="one">
@@ -24,19 +32,22 @@ const ProductLeadBlock = ({ description, keyFeatures }: Props) => {
           <LeadBlock>
             <LeadBlock.Content>
               <LeadBlock.Content.Section>
-                <Typography>{description}</Typography>
+                <Typography
+                  component="div"
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
               </LeadBlock.Content.Section>
               <LeadBlock.Content.Section>
                 <LeadBlock.Content.Heading>
                   Guarantees and warranties
                 </LeadBlock.Content.Heading>
-                <Typography>Ipsum</Typography>
+                <Typography>-</Typography>
               </LeadBlock.Content.Section>
               <LeadBlock.Content.Section>
                 <LeadBlock.Content.Heading>
                   Awards and certificates
                 </LeadBlock.Content.Heading>
-                <Typography>Ipsum</Typography>
+                <Typography>-</Typography>
               </LeadBlock.Content.Section>
             </LeadBlock.Content>
             <LeadBlock.Card theme="blue-900">
@@ -49,10 +60,8 @@ const ProductLeadBlock = ({ description, keyFeatures }: Props) => {
                         <IconList.Item
                           key={index}
                           icon={BlueCheckIcon}
-                          title="Lorem ipsum dolor sit amet"
-                        >
-                          {feature}
-                        </IconList.Item>
+                          title={feature}
+                        />
                       ))}
                     </IconList>
                   </LeadBlock.Card.Content>
@@ -79,38 +88,20 @@ const ProductLeadBlock = ({ description, keyFeatures }: Props) => {
         <Tabs.TabPanel heading="Technical specifications" index="two">
           <LeadBlock>
             <LeadBlock.Content>
-              <Table hasNoBorder>
-                <Table.Body>
-                  <Table.Row>
-                    <Table.Cell>Lorem</Table.Cell>
-                    <Table.Cell>ipsum</Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Lorem</Table.Cell>
-                    <Table.Cell>ipsum</Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Lorem</Table.Cell>
-                    <Table.Cell>ipsum</Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Lorem</Table.Cell>
-                    <Table.Cell>ipsum</Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Lorem</Table.Cell>
-                    <Table.Cell>ipsum</Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Lorem</Table.Cell>
-                    <Table.Cell>ipsum</Table.Cell>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Cell>Lorem</Table.Cell>
-                    <Table.Cell>ipsum</Table.Cell>
-                  </Table.Row>
-                </Table.Body>
-              </Table>
+              {technicalSpecifications && technicalSpecifications.length ? (
+                <Table hasNoBorder>
+                  <Table.Body>
+                    {technicalSpecifications.map(({ name, value }, index) => (
+                      <Table.Row key={`technical-specification-${index}`}>
+                        <Table.Cell>{name}</Table.Cell>
+                        <Table.Cell>{value}</Table.Cell>
+                      </Table.Row>
+                    ))}
+                  </Table.Body>
+                </Table>
+              ) : (
+                "No technical specifications found for this product."
+              )}
             </LeadBlock.Content>
             <LeadBlock.Card theme="blue-900">
               <LeadBlock.Card.Section>

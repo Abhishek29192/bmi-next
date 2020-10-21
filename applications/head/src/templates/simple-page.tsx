@@ -10,6 +10,7 @@ export type PageInfoData = {
   __typename: "ContentfulSimplePage";
   title: string;
   subtitle: string | null;
+  brandLogo: string | null;
   slug: string;
   featuredImage: {
     title: string;
@@ -105,6 +106,7 @@ export const promoQuery = graphql`
   fragment SimplePageInfoFragment on ContentfulSimplePage {
     title
     subtitle
+    brandLogo
     slug
     featuredImage {
       file {

@@ -49,7 +49,7 @@
       position: absolute;
       z-index: 0;
       top: 1px;
-      right: -30px;
+      right: -8px;
       bottom: -8px;
       left: -8px;
       background: linear-gradient(
@@ -75,6 +75,7 @@
   }
 
   .image {
+    position: relative;
     display: block;
     width: 100%;
     max-height: 400px;
@@ -97,6 +98,16 @@
         content: none;
       }
     }
+  }
+
+  .brand-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: $color-white;
+    fill: $color-slate;
+    padding: 5px;
+    height: 50px;
   }
 
   .description {
