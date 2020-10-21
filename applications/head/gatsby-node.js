@@ -16,6 +16,16 @@ const createProductPages = async (
   countryCode,
   { graphql, actions }
 ) => {
+  const pimClassificationCatalogueNamespace =
+    process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
+
+  if (!pimClassificationCatalogueNamespace) {
+    console.warn(
+      "createProductPages: You have to provide a PIM_CLASSIFICATION_CATALOGUE_NAMESPACE in your env file"
+    );
+
+    return;
+  }
   const { createPage } = actions;
 
   const componentMap = {
@@ -110,7 +120,8 @@ const createProductPages = async (
           variantCode: variantOption.code,
           siteId: siteId,
           countryCode,
-          relatedProductCodes
+          relatedProductCodes,
+          pimClassificationCatalogueNamespace
         }
       });
     });

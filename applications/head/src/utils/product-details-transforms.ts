@@ -1,4 +1,5 @@
 import { Link } from "gatsby";
+import _ from "lodash";
 import { Product } from "../templates/product-details-page";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 
@@ -54,21 +55,36 @@ const getSizeLabel = (measurement) => {
     .join("x");
 };
 
-export const mapGalleryImages = (images) =>
-  images
-    .filter(({ format }) => format === "Product-Hero-Large-Desktop")
-    .map((image) => ({
-      mainSource: image.url,
-      thumbnail: image.url,
-      altText: image.name
-    }));
+export const mapGalleryImages = (images) => {
+  return Object.values(_.groupBy(images, "containerId")).map((images) => ({
+    mainSource: _.result<string>(
+      _.find(images, {
+        format: "Product-Hero-Small-Desktop-Tablet"
+      }),
+      "url"
+    ),
+    thumbnail: _.result<string>(
+      _.find(images, {
+        format: "Product-Color-Selector-Mobile"
+      }),
+      "url"
+    ),
+    altText: images[0].name
+  }));
+};
 
 export const getColourThumbnailUrl = (images): string =>
-  images.find(({ format }) => format === "Product-Color-Selector-Large-Desktop")
-    ?.url;
+  _.result(
+    _.find(images, { format: "Product-Color-Selector-Large-Desktop" }),
+    "url"
+  );
 
 // Find attributes like surface finish, color, etc, from classifications
-export const mapProductClassifications = (product: Product) => {
+// TODO: Try to consolidate with the "unique" approach.
+export const mapProductClassifications = (
+  product: Product,
+  classificationNamepace: string
+) => {
   const allProducts: {
     [productCode: string]: Product;
   } = {
@@ -87,15 +103,12 @@ export const mapProductClassifications = (product: Product) => {
   const MEASUREMENTS = "measurements";
 
   const FEATURES = {
-    SCORE_WEIGHT:
-      "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-    TEXTURE_FAMILY:
-      "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-    COLOUR_FAMILY:
-      "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-    LENGTH: "bmiClassificationCatalog/1.0/measurements.length",
-    WIDTH: "bmiClassificationCatalog/1.0/measurements.width",
-    HEIGHT: "bmiClassificationCatalog/1.0/measurements.height"
+    SCORE_WEIGHT: `${classificationNamepace}/scoringWeightAttributes.scoringweight`,
+    TEXTURE_FAMILY: `${classificationNamepace}/appearanceAttributes.texturefamily`,
+    COLOUR_FAMILY: `${classificationNamepace}/appearanceAttributes.colourfamily`,
+    LENGTH: `${classificationNamepace}/measurements.length`,
+    WIDTH: `${classificationNamepace}/measurements.width`,
+    HEIGHT: `${classificationNamepace}/measurements.height`
   };
 
   return Object.entries(allProducts).reduce((carry, [productCode, product]) => {
@@ -157,7 +170,7 @@ export const mapProductClassifications = (product: Product) => {
                   value: {
                     value: featureValues ? featureValues[0].value : 0,
                     // TODO: This isn't coming through
-                    unit: featureUnit
+                    unit: featureUnit.symbol
                   }
                 }
               }
@@ -214,7 +227,8 @@ export const getProductAttributes = (
     Boolean
   );
 
-  const propHierarchy = ["colourfamily", "texturefamily", "measurements"];
+  // The last attribute should be "quantity", but I can't find any products having it.
+  const propHierarchy = ["colourfamily", "measurements", "???"];
   const getMasterProperty = (keys, hirarchy) =>
     hirarchy.filter((code) => keys.includes(code))[0];
 
@@ -295,39 +309,7 @@ export const getProductAttributes = (
 
   return [
     {
-      name: "Surface treatment",
-      type: "chips",
-      variants: allSurfaceTreatments.map((surface) => {
-        // TODO: that bad deconstruct
-        const {
-          value: { code, value }
-        } = surface;
-        const variantCode = findProductCode(
-          {
-            texturefamily: code
-          },
-          "texturefamily"
-        );
-
-        return {
-          label: value,
-          isSelected:
-            selectedSurfaceTreatment &&
-            code === selectedSurfaceTreatment.value.code,
-          ...(variantCode
-            ? {
-                action: {
-                  model: "routerLink",
-                  linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
-                }
-              }
-            : {})
-        };
-      })
-    },
-    {
-      name: "Colour",
+      name: allColours[0]?.name,
       type: "thumbnails",
       variants: allColours.map((color) => {
         // TODO: that bad deconstruct
@@ -360,7 +342,40 @@ export const getProductAttributes = (
       })
     },
     {
-      name: "Size",
+      name: allSurfaceTreatments[0]?.name,
+      type: "chips",
+      variants: allSurfaceTreatments.map((surface) => {
+        // TODO: that bad deconstruct
+        const {
+          value: { code, value }
+        } = surface;
+        const variantCode = findProductCode(
+          {
+            texturefamily: code
+          },
+          "texturefamily"
+        );
+
+        return {
+          label: value,
+          isSelected:
+            selectedSurfaceTreatment &&
+            code === selectedSurfaceTreatment.value.code,
+          ...(variantCode
+            ? {
+                action: {
+                  model: "routerLink",
+                  linkComponent: Link,
+                  to: getProductUrl(pageContext.countryCode, variantCode)
+                }
+              }
+            : {})
+        };
+      })
+    },
+    {
+      // TODO: There isn't such a thing as "Size" in the data.
+      name: "Størrelse",
       type: "chips",
       variants: allSizes.map((size) => {
         const key = getSizeLabel(size);
@@ -387,4 +402,44 @@ export const getProductAttributes = (
       })
     }
   ];
+};
+
+export const getProductTechnicalSpecifications = (
+  classificationNamespace: string,
+  classifications
+) => {
+  // TODO: This is hardcoded for Norway.
+  const TECHNICAL_SPECIFICATION_ORDER = [
+    "measurements.length",
+    "measurements.width",
+    "measurements.height",
+    "weightAttributes.netweight",
+    "roofAttributes.minimumpitch",
+    "pitchRoofAttributes.piecespersqm",
+    "tilesAttributes.battendistance",
+    "tilesAttributes.averagedeckwidth",
+    "weightAttributes.weightpersqm"
+  ].map((value) => `${classificationNamespace}/${value}`);
+
+  return classifications
+    .map(({ code, name, featureValues, featureUnit }) => ({
+      name,
+      value: `${featureValues[0].value} ${featureUnit?.symbol || ""}`,
+      code
+    }))
+    .flat()
+    .sort(({ code: a }, { code: b }) => {
+      const aIndex = TECHNICAL_SPECIFICATION_ORDER.indexOf(a);
+      const bIndex = TECHNICAL_SPECIFICATION_ORDER.indexOf(b);
+
+      if (aIndex === -1) {
+        return 1;
+      }
+
+      if (bIndex === -1) {
+        return -1;
+      }
+
+      return aIndex - bIndex;
+    });
 };
