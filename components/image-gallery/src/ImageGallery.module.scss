@@ -10,6 +10,7 @@
     height: calc(100vw - (16px * 2));
     background-size: cover;
     background-position: center center;
+    -webkit-print-color-adjust: exact;
 
     @media (min-width: $breakpoint-sm) {
       height: 360px;
