@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Footer, { MenuItem } from "@bmi/footer";
+import HidePrint from "@bmi/hide-print";
 import BmiIcon from "@bmi/footer/src/svgs/BMI.svg";
 import { iconMap } from "./Icon";
 import { getClickableActionFromUrl, NavigationData, LinkData } from "./Link";
@@ -48,11 +49,13 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   const secondary = parseNavigation(secondaryNavigation.links, countryCode);
 
   return (
-    <Footer
-      mainNavigation={main}
-      secondaryNavigation={secondary}
-      logo={BmiIcon}
-    />
+    <HidePrint>
+      <Footer
+        mainNavigation={main}
+        secondaryNavigation={secondary}
+        logo={BmiIcon}
+      />
+    </HidePrint>
   );
 };
 

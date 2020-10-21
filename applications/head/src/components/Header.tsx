@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
+import HidePrint from "@bmi/hide-print";
 import Icon from "./Icon";
 
 const parseNavigation = (
@@ -98,15 +99,17 @@ const Header = ({
   const navigation = parseNavigation(navigationData.links, countryCode);
 
   return (
-    <HeaderComponent
-      utilities={utilities}
-      navigation={navigation}
-      logoAction={{
-        model: "routerLink",
-        linkComponent: Link,
-        to: `/${countryCode}/`
-      }}
-    />
+    <HidePrint>
+      <HeaderComponent
+        utilities={utilities}
+        navigation={navigation}
+        logoAction={{
+          model: "routerLink",
+          linkComponent: Link,
+          to: `/${countryCode}/`
+        }}
+      />
+    </HidePrint>
   );
 };
 
