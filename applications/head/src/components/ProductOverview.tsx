@@ -23,10 +23,10 @@ const ProductOverview = ({
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
-        <Grid item xs={1} sm={8}>
+        <Grid item xs={12} md={12} lg={8}>
           <ImageGallery images={images} />
         </Grid>
-        <Grid item xs={1} sm={4}>
+        <Grid item xs={12} md={12} lg={4}>
           <ProductOverviewPane
             brandLogo={iconMap[brandName]}
             name={name}
