@@ -168,8 +168,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     brandName: brandCode || "",
     nnob: selfProduct.code,
     images: mapGalleryImages([
-      ...selfProduct.images,
-      ...product.images.filter(({ assetType }) => assetType === "GALLERY")
+      ...(selfProduct.images || []),
+      ...(product.images || []).filter(
+        ({ assetType }) => assetType === "GALLERY"
+      )
     ]),
     attributes: getProductAttributes(
       productClassifications,
