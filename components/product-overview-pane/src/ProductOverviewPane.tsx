@@ -45,7 +45,7 @@ type Attribute = {
 export type Props = {
   name: React.ReactNode;
   brandLogo?: SVGImport;
-  nnob: React.ReactNode;
+  nobb: React.ReactNode;
   attributes?: Attribute[];
   printButtonLabel?: React.ReactNode;
 };
@@ -139,7 +139,7 @@ const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
 
 const ProductOverviewPane = ({
   name,
-  nnob,
+  nobb,
   brandLogo: BrandLogo,
   attributes,
   printButtonLabel = "Send/print this page"
@@ -153,10 +153,10 @@ const ProductOverviewPane = ({
       <ul className={styles["attributes"]}>
         {[
           {
-            name: "NNOB",
+            name: "NOBB no",
             variants: [
               {
-                label: nnob
+                label: nobb
               }
             ]
           },

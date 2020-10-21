@@ -10,13 +10,13 @@ import { iconMap } from "./Icon";
 export type Data = {
   name: string;
   brandName: string;
-  nnob: string;
+  nobb: string;
   images: Image[];
   attributes: ProductOverviewProps["attributes"] | null;
 };
 
 const ProductOverview = ({
-  data: { name, brandName, nnob, images, attributes }
+  data: { name, brandName, nobb, images, attributes }
 }: {
   data: Data;
 }) => {
@@ -30,7 +30,7 @@ const ProductOverview = ({
           <ProductOverviewPane
             brandLogo={iconMap[brandName]}
             name={name}
-            nnob={nnob}
+            nobb={nobb}
             attributes={attributes || undefined}
           />
         </Grid>
