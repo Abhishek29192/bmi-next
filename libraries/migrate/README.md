@@ -50,8 +50,8 @@ Run latest migrations that have not been updated
 yarn migrate up -a
 ```
 
-Run a specific file
+Run a specific content type
 
 ```bash
-yarn migrate up create-new-type -c newType
+yarn migrate up -c contentTypeName
 ```
