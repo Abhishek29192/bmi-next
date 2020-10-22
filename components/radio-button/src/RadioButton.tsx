@@ -33,7 +33,7 @@ const RadioButton = ({
         {...rest}
       />
       <label className={styles["label"]} htmlFor={id}>
-        {before ? before : null}
+        {before}
         <ButtonBase tabIndex={-1} component="div" className={styles["text"]}>
           {children}
         </ButtonBase>
