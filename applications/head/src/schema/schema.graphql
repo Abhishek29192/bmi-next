@@ -21,6 +21,9 @@ interface ContentfulPage {
 
   "The page should show the sign up banner."
   showSignUpBanner: Boolean
+
+  "Tag for the page"
+  tag: ContentfulTag @link
 }
 
 """
@@ -46,6 +49,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The page should show the sign up banner."
   showSignUpBanner: Boolean
+
+  "Tag for the page"
+  tag: ContentfulTag @link
 }
 
 """
@@ -71,6 +77,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The page should show the sign up banner."
   showSignUpBanner: Boolean
+
+  "Tag for the page"
+  tag: ContentfulTag @link
 }
 
 """
@@ -96,6 +105,9 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 
   "The page should show the sign up banner."
   showSignUpBanner: Boolean
+
+  "Tag for the page"
+  tag: ContentfulTag @link
 }
 
 """
@@ -143,6 +155,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The page should show the sign up banner."
   showSignUpBanner: Boolean
+
+  "Tag for the page"
+  tag: ContentfulTag @link
 }
 
 """
@@ -154,6 +169,19 @@ type ContentfulPromo implements Node {
 
   "The Brand logo for this promotion."
   brandLogo: String
+
+  "Tag for the promo"
+  tag: ContentfulTag @link
+}
+
+"""
+Represents a tag that group pages in a category
+"""
+type ContentfulTag implements Node {
+  id: ID!
+
+  "The title should always be required."
+  title: String!
 }
 
 """
