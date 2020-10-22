@@ -59,6 +59,7 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     return (
       <WrappedComponent
         {...props}
+        name={name}
         label={label}
         errorText={error}
         onBlur={() => setBlurred(true)}

@@ -1,0 +1,70 @@
+@import "@bmi/styles";
+
+.Footer {
+  background-color: $color-blue-900;
+
+  .container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: $breakpoint-md) {
+      flex-flow: row nowrap;
+    }
+  }
+
+  .logo {
+    margin: 35px 10px 35px 0;
+    height: 50px;
+  }
+
+  .list {
+    margin: 0 0 40px 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    @media (min-width: $breakpoint-md) {
+      margin: 40px 0;
+      text-align: left;
+    }
+  }
+
+  .list-item {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    &--icon {
+      display: inline-block;
+
+      :global(.MuiSvgIcon-root) {
+        font-size: 2em;
+      }
+    }
+
+    @media (min-width: $breakpoint-sm) {
+      margin-right: 16px;
+      display: inline-block;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .link {
+    color: $color-storm;
+    justify-content: flex-start;
+    font-family: "Effra Medium";
+    width: auto;
+
+    @media (min-width: $breakpoint-sm) {
+      width: 100%;
+    }
+  }
+}
