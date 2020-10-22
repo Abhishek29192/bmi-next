@@ -169,9 +169,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     nobb: selfProduct.code,
     images: mapGalleryImages([
       ...(selfProduct.images || []),
-      ...(product.images || []).filter(
-        ({ assetType }) => assetType === "GALLERY"
-      )
+      ...(product.images || [])
     ]),
     attributes: getProductAttributes(
       productClassifications,
