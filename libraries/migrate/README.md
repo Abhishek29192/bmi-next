@@ -41,3 +41,17 @@ yarn migrate list -a -e <contentful environment>
 ```bash
 yarn migrate create <migration file name> -c <content type>
 ```
+
+### Up
+
+Run latest migrations that have not been updated
+
+```bash
+yarn migrate up -a
+```
+
+Run a specific file
+
+```bash
+yarn migrate up create-new-type -c newType
+```
