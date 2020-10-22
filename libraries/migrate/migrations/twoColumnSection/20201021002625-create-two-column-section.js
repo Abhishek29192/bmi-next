@@ -3,7 +3,6 @@ module.exports.description = 'Create content model for Two Column Section'
 module.exports.up = (migration) => {
   const twoColumnSection = migration.createContentType('twoColumnSection')
     .name('Two Column Section')
-    .displayField(null)
     .description('')
 
   twoColumnSection.createField('leftColumn')
