@@ -1,9 +1,9 @@
 module.exports.description = "Add Product Lister Page reference to HomePage";
 
 module.exports.up = (migration) => {
-  const link = migration.editContentType("link");
+  const homePage = migration.editContentType("homePage");
 
-  link.editField("slides", {
+  homePage.editField("slides", {
     items: {
       type: "Link",
       validations: [
@@ -22,9 +22,9 @@ module.exports.up = (migration) => {
 };
 
 module.exports.down = (migration) => {
-  const link = migration.editContentType("link");
+  const homePage = migration.editContentType("homePage");
 
-  link.editField("slides", {
+  homePage.editField("slides", {
     items: {
       type: "Link",
       validations: [

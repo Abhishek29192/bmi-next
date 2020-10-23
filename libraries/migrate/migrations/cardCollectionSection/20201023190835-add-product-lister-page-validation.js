@@ -2,9 +2,11 @@ module.exports.description =
   "Add Product Lister Page reference to CardCollectionSection";
 
 module.exports.up = (migration) => {
-  const link = migration.editContentType("link");
+  const cardCollectionSection = migration.editContentType(
+    "cardCollectionSection"
+  );
 
-  link.editField("cards", {
+  cardCollectionSection.editField("cards", {
     items: {
       type: "Link",
       validations: [
@@ -18,9 +20,11 @@ module.exports.up = (migration) => {
 };
 
 module.exports.down = (migration) => {
-  const link = migration.editContentType("link");
+  const cardCollectionSection = migration.editContentType(
+    "cardCollectionSection"
+  );
 
-  link.editField("cards", {
+  cardCollectionSection.editField("cards", {
     items: {
       type: "Link",
       validations: [

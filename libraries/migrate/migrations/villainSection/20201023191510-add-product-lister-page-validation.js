@@ -1,9 +1,10 @@
-module.exports.description = "Add Product Lister Page reference to HomePage";
+module.exports.description =
+  "Add Product Lister Page reference to VillainSection";
 
 module.exports.up = (migration) => {
-  const link = migration.editContentType("link");
+  const villainSection = migration.editContentType("villainSection");
 
-  link.editField("promo", {
+  villainSection.editField("promo", {
     items: {
       type: "Link",
       validations: [
@@ -22,9 +23,9 @@ module.exports.up = (migration) => {
 };
 
 module.exports.down = (migration) => {
-  const link = migration.editContentType("link");
+  const villainSection = migration.editContentType("villainSection");
 
-  link.editField("promo", {
+  villainSection.editField("promo", {
     items: {
       type: "Link",
       validations: [
