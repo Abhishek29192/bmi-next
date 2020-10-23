@@ -72,7 +72,7 @@ const findMasterImageUrl = (images): string => {
   );
 };
 const getSlug = (countryCode, string) =>
-  `/${countryCode}/${string.toLowerCase().replace(/[-_\s]+/gi, "-")}`;
+  `/${countryCode}/products/${string.toLowerCase().replace(/[-_\s]+/gi, "-")}`;
 
 const IntegratedFilters = (props) => {
   const filters = [
