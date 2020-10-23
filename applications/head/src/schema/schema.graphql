@@ -123,7 +123,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   features: [String]
 
   "The link for extra information about this category's features."
-  featuresLink: ContentfulLink @link
+  featuresLink: ContentfulLink @link(from: "featuresLink___NODE")
 
   "This field will always return null."
   subtitle: String
