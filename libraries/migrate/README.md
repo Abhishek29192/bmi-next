@@ -18,10 +18,12 @@ The above command can also be ran with `yarn workspace @bmi/migrate start init`.
 
 ### Bootstrap
 
-This command creates your migration files for content models already in your space. It gives you the option to squash any previous migration state.
+~~This command creates your migration files for content models already in your space. It gives you the option to squash any previous migration state.~~
+
+We have bootstrapped the contentful already so please DO NOT run it again unless you test on your own contentful account. Running bootstrap again on production account will wipe out all the migration records!
 
 ```bash
-yarn migrate bootstrap -a
+yarn migrate bootstrap -a -e <contentful environment>
 ```
 
 _Note: It will delete any existing migration scripts and create a consolidated one for each specified content type._
@@ -31,11 +33,11 @@ _Note: It will delete any existing migration scripts and create a consolidated o
 ### List
 
 ```bash
-yarn migrate list -a
+yarn migrate list -a -e <contentful environment>
 ```
 
-### Create
+### Create migration script template
 
 ```bash
-yarn migrate create create-new-type -c newType
+yarn migrate create <migration file name> -c <content type>
 ```
