@@ -137,7 +137,10 @@ exports.createPages = async ({ graphql, actions }) => {
     ContentfulContactUsPage: path.resolve(
       "./src/templates/contact-us-page.tsx"
     ),
-    ContentfulTeamPage: path.resolve("./src/templates/team-page.tsx")
+    ContentfulTeamPage: path.resolve("./src/templates/team-page.tsx"),
+    ContentfulProductListerPage: path.resolve(
+      "./src/templates/product-lister-page.tsx"
+    )
   };
 
   const result = await graphql(`
@@ -151,20 +154,14 @@ exports.createPages = async ({ graphql, actions }) => {
             id
           }
           pages {
-            ... on ContentfulContactUsPage {
+            ... on ContentfulPage {
               __typename
               id
               slug
-            }
-            ... on ContentfulSimplePage {
-              __typename
-              id
-              slug
-            }
-            ... on ContentfulTeamPage {
-              __typename
-              id
-              slug
+
+              ... on ContentfulProductListerPage {
+                categoryCode
+              }
             }
           }
         }
@@ -198,7 +195,8 @@ exports.createPages = async ({ graphql, actions }) => {
         component,
         context: {
           pageId: page.id,
-          siteId: site.id
+          siteId: site.id,
+          categoryCode: page.categoryCode
         }
       });
     });
