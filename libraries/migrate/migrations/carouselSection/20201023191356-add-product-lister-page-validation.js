@@ -1,9 +1,10 @@
-module.exports.description = "Add Product Lister Page reference to HomePage";
+module.exports.description =
+  "Add Product Lister Page reference to CarouselSection";
 
 module.exports.up = (migration) => {
-  const link = migration.editContentType("link");
+  const carouselSection = migration.editContentType("carouselSection");
 
-  link.editField("slides", {
+  carouselSection.editField("slides", {
     items: {
       type: "Link",
       validations: [
@@ -22,9 +23,9 @@ module.exports.up = (migration) => {
 };
 
 module.exports.down = (migration) => {
-  const link = migration.editContentType("link");
+  const carouselSection = migration.editContentType("carouselSection");
 
-  link.editField("slides", {
+  carouselSection.editField("slides", {
     items: {
       type: "Link",
       validations: [
