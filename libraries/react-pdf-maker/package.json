@@ -1,0 +1,20 @@
+{
+  "name": "react-pdf-maker",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "pdfmake": "^0.1.68",
+    "react-is": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react-is": "^16.7.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
+}

@@ -1,0 +1,33 @@
+@import "@bmi/styles";
+
+.DescriptionCard {
+  margin-bottom: 24px;
+
+  .header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 24px;
+
+    @media (min-width: $breakpoint-md) {
+      margin-bottom: 0;
+    }
+  }
+
+  .icon {
+    width: 71px;
+    height: 71px;
+    margin-right: 16px;
+    color: $color-cyan-400;
+
+    @media (min-width: $breakpoint-md) {
+      margin-right: 46px;
+    }
+  }
+
+  .description {
+    @media (min-width: $breakpoint-md) {
+      margin-left: 117px;
+    }
+  }
+}

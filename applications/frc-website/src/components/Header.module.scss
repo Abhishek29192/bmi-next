@@ -1,0 +1,29 @@
+@import "@bmi/styles";
+
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
+  .container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    margin: 10px 10px 10px 0;
+    height: 70px;
+
+    @media (min-width: $breakpoint-md) {
+      height: 80px;
+    }
+  }
+
+  .text {
+    color: $color-cyan-500;
+  }
+}

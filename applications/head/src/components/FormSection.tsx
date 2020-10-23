@@ -48,6 +48,25 @@ const Input = ({
   type,
   required
 }: Omit<InputType, "width">) => {
+  const mapValue = (_, response) => response.sys.id;
+  const mapBody = (file) => ({
+    fields: {
+      title: {
+        "en-US": "Asset title"
+      },
+      description: {
+        "en-US": "Asset description"
+      },
+      file: {
+        "en-US": {
+          contentType: file.type,
+          fileName: file.name,
+          file
+        }
+      }
+    }
+  });
+
   switch (type) {
     case "upload":
       return (
@@ -56,7 +75,12 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
-          uri="" // @todo: This may go into the form editor
+          uri="https://run.mocky.io/v3/eb9e5061-31c2-4329-9e4a-3de6068ca6ac"
+          headers={{ "Content-Type": "application/octet-stream" }}
+          accept=".pdf,.jpg,.jpeg,.png"
+          instructions="Supported formats: PDF, JPG, JPEG and PNG"
+          mapBody={mapBody}
+          mapValue={mapValue}
         />
       );
     case "select":

@@ -24,8 +24,9 @@ exports[`Select component renders correctly 1`] = `
   >
     <div
       aria-haspopup="listbox"
-      aria-labelledby="outlined-country-simple"
+      aria-labelledby="outlined-country-simple mui-component-select-Country"
       class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+      id="mui-component-select-Country"
       role="button"
       tabindex="0"
     >
@@ -36,6 +37,7 @@ exports[`Select component renders correctly 1`] = `
     <input
       aria-hidden="true"
       class="MuiSelect-nativeInput"
+      name="Country"
       tabindex="-1"
       value=""
     />
@@ -84,8 +86,9 @@ exports[`Select component renders correctly as hybrid variant 1`] = `
   >
     <div
       aria-haspopup="listbox"
-      aria-labelledby="outlined-country-simple"
+      aria-labelledby="outlined-country-simple mui-component-select-Country"
       class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-filled MuiInputBase-input MuiFilledInput-input"
+      id="mui-component-select-Country"
       role="button"
       tabindex="0"
     >
@@ -96,6 +99,7 @@ exports[`Select component renders correctly as hybrid variant 1`] = `
     <input
       aria-hidden="true"
       class="MuiSelect-nativeInput"
+      name="Country"
       tabindex="-1"
       value=""
     />

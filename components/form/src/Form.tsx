@@ -6,7 +6,7 @@ import { InputValue } from "./withFormControl";
 type Values = Record<string, InputValue>;
 type Errors = Record<string, string>;
 
-type Props = React.HTMLProps<HTMLFormElement> & {
+export type Props = React.HTMLProps<HTMLFormElement> & {
   children: React.ReactNode;
   onSubmit?: (event: FormEvent<HTMLFormElement>, values: Values) => void;
   submitButtonLabel?: string;
@@ -18,12 +18,14 @@ type ContextType = {
   updateFormState: (fieldValues: Values, fieldErrors: Errors) => void;
   hasBeenSubmitted: boolean;
   submitButtonDisabled: boolean;
+  values: object;
 };
 
 export const FormContext = React.createContext<ContextType>({
   updateFormState: (fieldValues, fieldErrors) => {},
   hasBeenSubmitted: false,
-  submitButtonDisabled: false
+  submitButtonDisabled: false,
+  values: {}
 });
 
 const Form = ({
@@ -52,7 +54,12 @@ const Form = ({
 
   return (
     <FormContext.Provider
-      value={{ updateFormState, hasBeenSubmitted, submitButtonDisabled }}
+      value={{
+        updateFormState,
+        hasBeenSubmitted,
+        submitButtonDisabled,
+        values
+      }}
     >
       <form onSubmit={handleSubmit} className={styles["Form"]} {...formProps}>
         {children}

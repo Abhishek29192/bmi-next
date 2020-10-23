@@ -1,31 +1,28 @@
+#!/usr/bin/env node
 "use strict";
 
-const { spawn } = require("child_process");
+const { spawnSync } = require("child_process");
 require("dotenv").config({
   path: `${__dirname}/.env.${process.env.NODE_ENV || "development"}`
 });
 
 const main = async ([command = "--help", ...options]) => {
-  const {
-    CONTENTFUL_SPACE_ID,
-    CONTENTFUL_MANAGEMENT_ACCESS_TOKEN,
-    CONTENTFUL_ENV_ID
-  } = process.env;
+  const { SPACE_ID, MANAGEMENT_ACCESS_TOKEN } = process.env;
 
   try {
-    if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_MANAGEMENT_ACCESS_TOKEN)
-      throw Error(
-        "Missing env config `CONTENTFUL_SPACE_ID` or `CONTENTFUL_MANAGEMENT_ACCESS_TOKEN`"
-      );
+    if (!SPACE_ID || !MANAGEMENT_ACCESS_TOKEN)
+      throw Error("Missing env config `SPACE_ID` or `MANAGEMENT_ACCESS_TOKEN`");
 
-    spawn(
+    const sub = spawnSync(
       "ctf-migrate",
-      [command, "-s", CONTENTFUL_SPACE_ID, "-e", CONTENTFUL_ENV_ID, ...options],
+      [command, "-s", SPACE_ID, "-t", MANAGEMENT_ACCESS_TOKEN, ...options],
       {
         stdio: "inherit",
         cwd: __dirname
       }
     );
+
+    process.exit(sub.status);
   } catch (error) {
     console.error("Error:", error.message);
     process.exit(1);

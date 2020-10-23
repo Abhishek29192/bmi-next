@@ -106,6 +106,7 @@ exports[`Filters component renders disabled filters 1`] = `
                             <input
                               class="PrivateSwitchBase-input-12"
                               data-indeterminate="false"
+                              name="option-1"
                               type="checkbox"
                               value=""
                             />
@@ -152,6 +153,7 @@ exports[`Filters component renders disabled filters 1`] = `
                               class="PrivateSwitchBase-input-12"
                               data-indeterminate="false"
                               disabled=""
+                              name="option-2"
                               type="checkbox"
                               value=""
                             />
@@ -272,6 +274,7 @@ exports[`Filters component renders multiple filters 1`] = `
                             <input
                               class="PrivateSwitchBase-input-4"
                               data-indeterminate="false"
+                              name="option-1"
                               type="checkbox"
                               value=""
                             />
@@ -315,6 +318,7 @@ exports[`Filters component renders multiple filters 1`] = `
                             <input
                               class="PrivateSwitchBase-input-4"
                               data-indeterminate="false"
+                              name="option-2"
                               type="checkbox"
                               value=""
                             />
@@ -427,6 +431,7 @@ exports[`Filters component renders multiple filters 1`] = `
                             <input
                               class="PrivateSwitchBase-input-4"
                               data-indeterminate="false"
+                              name="option-1"
                               type="checkbox"
                               value=""
                             />
@@ -470,6 +475,7 @@ exports[`Filters component renders multiple filters 1`] = `
                             <input
                               class="PrivateSwitchBase-input-4"
                               data-indeterminate="false"
+                              name="option-2"
                               type="checkbox"
                               value=""
                             />
@@ -593,6 +599,7 @@ exports[`Filters component renders selected filters 1`] = `
                             <input
                               class="PrivateSwitchBase-input-8"
                               data-indeterminate="false"
+                              name="option-1"
                               type="checkbox"
                               value=""
                             />
@@ -637,6 +644,7 @@ exports[`Filters component renders selected filters 1`] = `
                               checked=""
                               class="PrivateSwitchBase-input-8"
                               data-indeterminate="false"
+                              name="option-2"
                               type="checkbox"
                               value=""
                             />

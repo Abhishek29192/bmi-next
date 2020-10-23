@@ -11,7 +11,7 @@ type Props = {
 };
 
 const BackToTop = ({ accessibilityLabel, className }: Props) => {
-  if (!window) {
+  if (typeof window === "undefined") {
     return null;
   }
 

@@ -14,13 +14,13 @@ yarn
 yarn workspace @bmi/frc-website dev
 ```
 
-## Build
+## Production build
 
 ```sh
-yarn workspace @bmi/frc-website build
+yarn workspace @bmi/frc-website build --prefix-paths
 ```
 
-## Production
+## Local Production (no prefix)
 
 ```sh
 yarn workspace @bmi/frc-website start

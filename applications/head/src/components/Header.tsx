@@ -54,7 +54,10 @@ const parseNavigation = (
         iconLabel = <Icon name={iconName} />;
       }
       if (!isLabelHidden && iconName) {
-        iconLabel = [<Icon key={`icon-${iconName}`} name={iconName} />, label];
+        iconLabel = [
+          <Icon key={`icon-${iconName}`} name={iconName} />,
+          <b key={`label-${iconName}`}>{label}</b>
+        ];
       }
 
       if (linkedPage) {

@@ -2,6 +2,8 @@
 Represents common properties across pages.
 """
 interface ContentfulPage {
+  id: ID!
+
   "The name of this page, representative of the type."
   title: String!
 
@@ -25,6 +27,8 @@ interface ContentfulPage {
 Represents a simple page type, implementing ContentfulPage.
 """
 type ContentfulSimplePage implements ContentfulPage & Node {
+  id: ID!
+
   "The name of this page, representative of the type."
   title: String!
 
@@ -48,6 +52,8 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 Represents a contact us page, implementing ContentfulPage.
 """
 type ContentfulContactUsPage implements ContentfulPage & Node {
+  id: ID!
+
   "The name of this page, representative of the type."
   title: String!
 
@@ -71,6 +77,8 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 Represents a team page, implementing ContentfulPage.
 """
 type ContentfulTeamPage implements ContentfulPage & Node {
+  id: ID!
+
   "The name of this page, representative of the type."
   title: String!
 
@@ -79,6 +87,43 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 
   "This field will always return null."
   brandLogo: String
+
+  "This field will always return null."
+  subtitle: String
+
+  "The main image of this page. Can be used when referencing this page."
+  featuredImage: ContentfulAsset
+
+  "The page should show the sign up banner."
+  showSignUpBanner: Boolean
+}
+
+"""
+Represents a product lister page, implementing ContentfulPage.
+"""
+type ContentfulProductListerPage implements ContentfulPage & Node {
+  id: ID!
+
+  "The name of this page, representative of the type."
+  title: String!
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "This field will always return null."
+  brandLogo: String
+
+  "The PIM category this page is attached to."
+  categoryCode: String!
+
+  "The description for this category."
+  content: contentfulProductListerPageContentRichTextNode!
+
+  "The features for this category."
+  features: [String]
+
+  "The link for extra information about this category's features."
+  featuresLink: ContentfulLink @link(from: "featuresLink___NODE")
 
   "This field will always return null."
   subtitle: String
@@ -109,6 +154,7 @@ union ContentfulPromoOrPage =
   | ContentfulContactUsPage
   | ContentfulSimplePage
   | ContentfulTeamPage
+  | ContentfulProductListerPage
 
 """
 Represents a union for all the possible sections available in a page.

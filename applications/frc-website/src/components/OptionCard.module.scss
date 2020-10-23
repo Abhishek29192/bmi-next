@@ -1,0 +1,12 @@
+@import "@bmi/styles";
+
+.OptionCard {
+  background-color: $color-pearl;
+  padding: 48px;
+
+  margin-bottom: 24px;
+
+  .title {
+    margin-bottom: 24px;
+  }
+}

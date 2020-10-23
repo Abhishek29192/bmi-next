@@ -1,0 +1,34 @@
+@import "@bmi/styles";
+
+.RadioButton {
+  display: inline-block;
+
+  .input {
+    position: absolute;
+    clip: rect(0 0 0 0);
+  }
+
+  .label {
+    display: flex;
+    flex-flow: row nowrap;
+    cursor: pointer;
+    border: 1px solid $color-storm;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .input:focus + .label {
+    border: 1px solid $color-cyan-500;
+  }
+
+  .input:checked + .label {
+    border: 2px solid $color-cyan-500;
+  }
+
+  .text {
+    padding: 12px 48px;
+    color: $color-cyan-500;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

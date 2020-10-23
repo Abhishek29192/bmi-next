@@ -126,6 +126,12 @@ module.exports = {
         node: true,
         jest: true
       }
+    },
+    {
+      files: ["**/migrate/migrations/**/*.js"],
+      rules: {
+        strict: "off"
+      }
     }
   ]
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
+import BackToTop from "@bmi/back-to-top";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import NewsletterSignUp from "../components/NewsLetterSignUp";
@@ -69,6 +70,7 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
           secondaryNavigation={footerSecondaryNavigation}
         />
       </SiteContext.Provider>
+      <BackToTop accessibilityLabel="Back to the top" />
     </BmiThemeProvider>
   );
 };
