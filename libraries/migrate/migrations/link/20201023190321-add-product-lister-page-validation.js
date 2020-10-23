@@ -4,20 +4,18 @@ module.exports.up = (migration) => {
   const link = migration.editContentType("link");
 
   link.editField("linkedPage", {
-    items: {
-      type: "Link",
-      validations: [
-        {
-          linkContentType: [
-            "contactUsPage",
-            "page",
-            "teamPage",
-            "productListerPage"
-          ]
-        }
-      ],
-      linkType: "Entry"
-    }
+    type: "Link",
+    validations: [
+      {
+        linkContentType: [
+          "contactUsPage",
+          "page",
+          "teamPage",
+          "productListerPage"
+        ]
+      }
+    ],
+    linkType: "Entry"
   });
 };
 
@@ -25,14 +23,12 @@ module.exports.down = (migration) => {
   const link = migration.editContentType("link");
 
   link.editField("linkedPage", {
-    items: {
-      type: "Link",
-      validations: [
-        {
-          linkContentType: ["contactUsPage", "page", "teamPage"]
-        }
-      ],
-      linkType: "Entry"
-    }
+    type: "Link",
+    validations: [
+      {
+        linkContentType: ["contactUsPage", "page", "teamPage"]
+      }
+    ],
+    linkType: "Entry"
   });
 };

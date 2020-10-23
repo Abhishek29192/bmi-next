@@ -5,20 +5,13 @@ module.exports.up = (migration) => {
   const villainSection = migration.editContentType("villainSection");
 
   villainSection.editField("promo", {
-    items: {
-      type: "Link",
-      validations: [
-        {
-          linkContentType: [
-            "contactUsPage",
-            "promo",
-            "page",
-            "productListerPage"
-          ]
-        }
-      ],
-      linkType: "Entry"
-    }
+    type: "Link",
+    validations: [
+      {
+        linkContentType: ["contactUsPage", "promo", "page", "productListerPage"]
+      }
+    ],
+    linkType: "Entry"
   });
 };
 
@@ -26,14 +19,12 @@ module.exports.down = (migration) => {
   const villainSection = migration.editContentType("villainSection");
 
   villainSection.editField("promo", {
-    items: {
-      type: "Link",
-      validations: [
-        {
-          linkContentType: ["contactUsPage", "promo", "page"]
-        }
-      ],
-      linkType: "Entry"
-    }
+    type: "Link",
+    validations: [
+      {
+        linkContentType: ["contactUsPage", "promo", "page"]
+      }
+    ],
+    linkType: "Entry"
   });
 };
