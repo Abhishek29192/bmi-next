@@ -117,7 +117,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   categoryCode: String!
 
   "The description for this category."
-  content: contentfulTitleWithContentContentRichTextNode!
+  content: contentfulProductListerPageContentRichTextNode!
 
   "The features for this category."
   features: [String]
