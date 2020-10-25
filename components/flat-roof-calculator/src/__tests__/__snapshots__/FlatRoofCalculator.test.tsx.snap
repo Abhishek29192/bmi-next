@@ -557,7 +557,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           <h5
             class="MuiTypography-root Typography MuiTypography-h5"
           >
-            Upstand
+            Upstand (optional)
           </h5>
           <button
             class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--extra-small IconButton--text iconButton"
@@ -701,7 +701,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           <h5
             class="MuiTypography-root Typography MuiTypography-h5"
           >
-            Kerb / verge / drip detail
+            Kerb / verge / drip detail (optional)
           </h5>
         </div>
         <div

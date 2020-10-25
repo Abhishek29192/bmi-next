@@ -235,18 +235,22 @@ const InputsTable = ({
         </Col>
       </Row>
     </ResultsTable.Row>
-    <ResultsTable.Row>
-      <ResultsTable.Cell header>{fieldLabels.upstand}:</ResultsTable.Cell>
-      <ResultsTable.Cell>
-        {submittedValues.upstandHeight}mm x {submittedValues.upstandLength}m
-      </ResultsTable.Cell>
-    </ResultsTable.Row>
-    <ResultsTable.Row>
-      <ResultsTable.Cell header>{fieldLabels.kerb}:</ResultsTable.Cell>
-      <ResultsTable.Cell>
-        {submittedValues.kerbHeight}mm x {submittedValues.kerbLength}m
-      </ResultsTable.Cell>
-    </ResultsTable.Row>
+    {submittedValues.upstandHeight && submittedValues.upstandLength ? (
+      <ResultsTable.Row>
+        <ResultsTable.Cell header>{fieldLabels.upstand}:</ResultsTable.Cell>
+        <ResultsTable.Cell>
+          {submittedValues.upstandHeight}mm x {submittedValues.upstandLength}m
+        </ResultsTable.Cell>
+      </ResultsTable.Row>
+    ) : null}
+    {submittedValues.kerbHeight && submittedValues.kerbLength ? (
+      <ResultsTable.Row>
+        <ResultsTable.Cell header>{fieldLabels.kerb}:</ResultsTable.Cell>
+        <ResultsTable.Cell>
+          {submittedValues.kerbHeight}mm x {submittedValues.kerbLength}m
+        </ResultsTable.Cell>
+      </ResultsTable.Row>
+    ) : null}
     {submittedValues.detailHeight1 && submittedValues.detailLength1 ? (
       <ResultsTable.Row>
         <ResultsTable.Cell header>{fieldLabels.detail}:</ResultsTable.Cell>
@@ -338,7 +342,7 @@ const Header = () => (
     <g>
     <path class="b" d="M55.954 31.339l-3.9 16.072h-.076L48.07 31.339H36.095V49.59a6.583 6.583 0 00-4.717-6.043 5.629 5.629 0 003.368-5.358c0-2.794-1.53-6.85-8.724-6.85H11.063v27.322h15.5c4.609 0 9.145-2.59 9.536-7.6v7.6h7.96V41.136h.076l4.743 17.525h6.276l4.743-17.525h.076v17.525h7.96V31.339zm-36.476 6.506h4.44c1.722 0 2.869.5 2.869 1.876 0 1.76-1.109 2.257-2.869 2.257h-4.44zm4.937 14.31h-4.937v-5.089h5.282c1.989 0 2.945.88 2.945 2.486 0 2.105-1.53 2.6-3.29 2.6M70.518 31.341h8.419v27.32h-8.419z"/>
     </g>
-    </svg>  
+    </svg>
     `}</SVG>
       </Col>
       <Col>

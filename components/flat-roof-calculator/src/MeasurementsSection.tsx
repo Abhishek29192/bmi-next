@@ -99,14 +99,13 @@ const MeasurementsSection = ({
         </Grid>
       </Grid>
     </Field>
-    <Field label={"Upstand"} helpContent={help.upstand}>
+    <Field label={"Upstand (optional)"} helpContent={help.upstand}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <Form.Row>
             <TextField
               name="upstandHeight"
               defaultValue={convertDefault(defaultValues["upstandHeight"])}
-              isRequired
               variant="outlined"
               label="Upstand Height"
               helperText="Minimum upstand height is 150mm"
@@ -126,7 +125,6 @@ const MeasurementsSection = ({
             <TextField
               name="upstandLength"
               defaultValue={convertDefault(defaultValues["upstandLength"])}
-              isRequired
               variant="outlined"
               label="Upstand Length"
               helperText="Minimum upstand length is 1m"
@@ -143,14 +141,16 @@ const MeasurementsSection = ({
         </Grid>
       </Grid>
     </Field>
-    <Field label={"Kerb / verge / drip detail"} helpContent={help.kerb}>
+    <Field
+      label={"Kerb / verge / drip detail (optional)"}
+      helpContent={help.kerb}
+    >
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <Form.Row>
             <TextField
               name="kerbHeight"
               defaultValue={convertDefault(defaultValues["kerbHeight"])}
-              isRequired
               variant="outlined"
               label="Kerb Height"
               helperText="Minimum kerb / verge detail size is 100mm"
@@ -170,7 +170,6 @@ const MeasurementsSection = ({
             <TextField
               name="kerbLength"
               defaultValue={convertDefault(defaultValues["kerbLength"])}
-              isRequired
               variant="outlined"
               label="Kerb Length"
               helperText="Minimum kerb / verge / drip length is 1m"

@@ -45,22 +45,31 @@ const InputTable = ({
             {submittedValues.fieldArea}m<sup>2</sup>
           </TableCell>
         </TableRow>
-        <TableRow className={styles.row}>
-          <TableCell className={classnames(styles.cell, styles["cell--bold"])}>
-            {fieldLabels.upstand}:
-          </TableCell>
-          <TableCell className={styles.cell}>
-            {submittedValues.upstandHeight}mm x {submittedValues.upstandLength}m
-          </TableCell>
-        </TableRow>
-        <TableRow className={styles.row}>
-          <TableCell className={classnames(styles.cell, styles["cell--bold"])}>
-            {fieldLabels.kerb}:
-          </TableCell>
-          <TableCell className={styles.cell}>
-            {submittedValues.kerbHeight}mm x {submittedValues.kerbLength}m
-          </TableCell>
-        </TableRow>
+        {submittedValues.upstandHeight && submittedValues.upstandLength ? (
+          <TableRow className={styles.row}>
+            <TableCell
+              className={classnames(styles.cell, styles["cell--bold"])}
+            >
+              {fieldLabels.upstand}:
+            </TableCell>
+            <TableCell className={styles.cell}>
+              {submittedValues.upstandHeight}mm x{" "}
+              {submittedValues.upstandLength}m
+            </TableCell>
+          </TableRow>
+        ) : null}
+        {submittedValues.kerbHeight && submittedValues.kerbLength ? (
+          <TableRow className={styles.row}>
+            <TableCell
+              className={classnames(styles.cell, styles["cell--bold"])}
+            >
+              {fieldLabels.kerb}:
+            </TableCell>
+            <TableCell className={styles.cell}>
+              {submittedValues.kerbHeight}mm x {submittedValues.kerbLength}m
+            </TableCell>
+          </TableRow>
+        ) : null}
         {submittedValues.detailHeight1 && submittedValues.detailLength1 ? (
           <TableRow className={styles.row}>
             <TableCell
