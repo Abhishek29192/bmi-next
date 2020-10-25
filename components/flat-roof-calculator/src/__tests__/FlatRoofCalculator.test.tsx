@@ -95,18 +95,6 @@ describe("FlatRoofCalculator component", () => {
                     }}
                   />
                 )
-              },
-              Brown: {
-                label: "Brown",
-                before: (
-                  <div
-                    style={{
-                      minHeight: "100%",
-                      minWidth: 72,
-                      backgroundColor: "#964B00"
-                    }}
-                  />
-                )
               }
             }
           }

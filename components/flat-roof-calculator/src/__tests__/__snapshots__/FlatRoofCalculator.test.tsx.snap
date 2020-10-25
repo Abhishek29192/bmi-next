@@ -390,36 +390,6 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
               >
                 <input
                   class="input"
-                  id="radio-color-Brown"
-                  name="color"
-                  type="radio"
-                  value="Brown"
-                />
-                <label
-                  class="label"
-                  for="radio-color-Brown"
-                >
-                  <div
-                    style="min-height: 100%; min-width: 72px; background-color: rgb(150, 75, 0);"
-                  />
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root text"
-                    role="button"
-                    tabindex="-1"
-                  >
-                    Brown
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
-                </label>
-              </div>
-              <div
-                class="RadioButton item"
-              >
-                <input
-                  class="input"
                   id="radio-color-Charcoal"
                   name="color"
                   type="radio"
