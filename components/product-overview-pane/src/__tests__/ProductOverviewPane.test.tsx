@@ -45,7 +45,7 @@ describe("ProductOverviewPane component", () => {
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
-        nnob="1394983720195"
+        nobb="1394983720195"
         attributes={attributes}
       />
     );
@@ -56,7 +56,7 @@ describe("ProductOverviewPane component", () => {
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
-        nnob="1394983720195"
+        nobb="1394983720195"
         attributes={[
           {
             name: "Size",

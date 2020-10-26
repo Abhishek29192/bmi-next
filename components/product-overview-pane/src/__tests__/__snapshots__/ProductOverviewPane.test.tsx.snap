@@ -19,7 +19,7 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
       <span
         class="term"
       >
-        NNOB
+        NOBB no
       </span>
       <span
         class="definition"
@@ -168,7 +168,7 @@ exports[`ProductOverviewPane component renders correctly with empty variants 1`]
       <span
         class="term"
       >
-        NNOB
+        NOBB no
       </span>
       <span
         class="definition"

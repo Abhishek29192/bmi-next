@@ -166,12 +166,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const productData = {
     name: product.name,
     brandName: brandCode || "",
-    nnob: selfProduct.code,
+    nobb: selfProduct.code,
     images: mapGalleryImages([
       ...(selfProduct.images || []),
-      ...(product.images || []).filter(
-        ({ assetType }) => assetType === "GALLERY"
-      )
+      ...(product.images || [])
     ]),
     attributes: getProductAttributes(
       productClassifications,

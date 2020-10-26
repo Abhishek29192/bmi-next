@@ -10,27 +10,27 @@ import { iconMap } from "./Icon";
 export type Data = {
   name: string;
   brandName: string;
-  nnob: string;
+  nobb: string;
   images: Image[];
   attributes: ProductOverviewProps["attributes"] | null;
 };
 
 const ProductOverview = ({
-  data: { name, brandName, nnob, images, attributes }
+  data: { name, brandName, nobb, images, attributes }
 }: {
   data: Data;
 }) => {
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
-        <Grid item xs={1} sm={8}>
+        <Grid item xs={12} md={12} lg={8}>
           <ImageGallery images={images} />
         </Grid>
-        <Grid item xs={1} sm={4}>
+        <Grid item xs={12} md={12} lg={4}>
           <ProductOverviewPane
             brandLogo={iconMap[brandName]}
             name={name}
-            nnob={nnob}
+            nobb={nobb}
             attributes={attributes || undefined}
           />
         </Grid>

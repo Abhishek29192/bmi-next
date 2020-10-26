@@ -56,7 +56,18 @@ const getSizeLabel = (measurement) => {
 };
 
 export const mapGalleryImages = (images) => {
-  return Object.values(_.groupBy(images, "containerId")).map((images) => ({
+  const imageSets = Object.values(_.groupBy(images, "containerId")).filter(
+    // NOTE: Only use one MASTER_IMAGE between the main product and the variant.
+    (_images, index, self) => {
+      return (
+        self.findIndex((images) =>
+          images.some(({ assetType }) => assetType === "MASTER_IMAGE")
+        ) === index
+      );
+    }
+  );
+
+  return imageSets.map((images) => ({
     mainSource: _.result<string>(
       _.find(images, {
         format: "Product-Hero-Small-Desktop-Tablet"
