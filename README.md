@@ -57,6 +57,27 @@ Comment out the first set of variables: `COUNTRY_CODE`, `SPACE_ID`, and `ACCESS_
 You can find the `SPACE_ID_n` and `ACCESS_TOKEN_n` values in Contentful API keys section.
 `COUNTRY_CODE` is the locale code e.g. `en_US`.
 
+### Setup your own Contentful account and space for local development
+
+Create a free Contentful account and create a space and a blank environment. This will act as your local development v environment so that you don't need to make changes or run your migration directly on DXB Contentful account.
+
+Run the following command to clone content types and content from DXB `development` environment to your own account.
+
+`yarn global add contentful-cli`
+
+`contentful space export --space-id <DXB SPACE ID> --environment-id development --mt <DXB MANAGEMENT TOKEN> --include-drafts --skip-roles --skip-webhooks --content-file dump.json`
+
+`contentful space import --space-id <YOUR OWN ACC SPACE ID> --environment-id <YOUR ACC ENVIRONMENT> --mt <YOUR OWN ACC MANAGEMENT TOKEN> --content-file dump.json`
+
+Depending on how clean the content in dxb `development` environment, you might get some warning and error messages for unresolved resources but they wouldn't stop the whole cloning process and you will still get the rest of the data in your account.
+
+Now you will have a clone of both content types and content from DXB development environment in your own account.
+When you run your newly written migration script, now you can run them in this environment for testing.
+
+Note that in .env.\* in `libraries/migrate` you should always put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` instead of the DXB one otherwise you are running migration directly on DXB contentful account!
+
+You should also put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` in .env.\* in `applications/head` to use content and content type from your own account.
+
 #### Run Gatsby
 
 To run develop
