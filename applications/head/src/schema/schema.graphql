@@ -99,6 +99,16 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 }
 
 """
+Represents a product lister page content type.
+"""
+type contentfulProductListerPageContentRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
 Represents a product lister page, implementing ContentfulPage.
 """
 type ContentfulProductListerPage implements ContentfulPage & Node {
