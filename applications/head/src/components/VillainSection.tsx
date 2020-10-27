@@ -7,11 +7,16 @@ import { SiteContext } from "./Site";
 import { getCTA } from "./Link";
 import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
 import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
+import { PageInfoData as ProductListerPageInfoData } from "../templates/product-lister-page";
 
 export type Data = {
   __typename: "ContentfulVillainSection";
   title: string;
-  promo: PromoData | SimplePageInfoData | ContactUsInfoData;
+  promo:
+    | PromoData
+    | SimplePageInfoData
+    | ContactUsInfoData
+    | ProductListerPageInfoData;
 };
 
 const VillainSection = ({
@@ -54,6 +59,7 @@ export const query = graphql`
         ...PromoFragment
         ...ContactUsPageInfoFragment
         ...SimplePageInfoFragment
+        ...ProductListerPageInfoFragment
       }
     }
   }
