@@ -23,11 +23,6 @@ export default {
                                   "SBS 20 Year Torch-Safe Cold Roof System"
                               },
                               {
-                                option: "Brown",
-                                target:
-                                  "SBS 20 Year Torch-Safe Cold Roof System"
-                              },
-                              {
                                 option: "Charcoal",
                                 target:
                                   "SBS 20 Year Torch-Safe Cold Roof System"
@@ -47,11 +42,6 @@ export default {
                             paths: [
                               {
                                 option: "Blue/Grey",
-                                target:
-                                  "SBS 20 Year Torch-Safe Warm Roof System"
-                              },
-                              {
-                                option: "Brown",
                                 target:
                                   "SBS 20 Year Torch-Safe Warm Roof System"
                               },
@@ -86,10 +76,6 @@ export default {
                                 target: "SBS 20 Year Torch-On Cold Roof System"
                               },
                               {
-                                option: "Brown",
-                                target: "SBS 20 Year Torch-On Cold Roof System"
-                              },
-                              {
                                 option: "Charcoal",
                                 target: "SBS 20 Year Torch-On Cold Roof System"
                               },
@@ -107,10 +93,6 @@ export default {
                             paths: [
                               {
                                 option: "Blue/Grey",
-                                target: "SBS 20 Year Torch-On Warm Roof System"
-                              },
-                              {
-                                option: "Brown",
                                 target: "SBS 20 Year Torch-On Warm Roof System"
                               },
                               {
@@ -151,11 +133,6 @@ export default {
                                   "SBS 15 Year Torch-Safe Cold Roof System"
                               },
                               {
-                                option: "Brown",
-                                target:
-                                  "SBS 15 Year Torch-Safe Cold Roof System"
-                              },
-                              {
                                 option: "Charcoal",
                                 target:
                                   "SBS 15 Year Torch-Safe Cold Roof System"
@@ -175,11 +152,6 @@ export default {
                             paths: [
                               {
                                 option: "Blue/Grey",
-                                target:
-                                  "SBS 15 Year Torch-Safe Warm Roof System"
-                              },
-                              {
-                                option: "Brown",
                                 target:
                                   "SBS 15 Year Torch-Safe Warm Roof System"
                               },
@@ -214,10 +186,6 @@ export default {
                                 target: "SBS 15 Year Torch-On Cold Roof System"
                               },
                               {
-                                option: "Brown",
-                                target: "SBS 15 Year Torch-On Cold Roof System"
-                              },
-                              {
                                 option: "Charcoal",
                                 target: "SBS 15 Year Torch-On Cold Roof System"
                               },
@@ -235,10 +203,6 @@ export default {
                             paths: [
                               {
                                 option: "Blue/Grey",
-                                target: "SBS 15 Year Torch-On Warm Roof System"
-                              },
-                              {
-                                option: "Brown",
                                 target: "SBS 15 Year Torch-On Warm Roof System"
                               },
                               {
@@ -344,12 +308,6 @@ export default {
       coverage: 6.95
     },
     {
-      code: "2004149",
-      description: "X-Gard Flexitorch Premium SBS T-O Capsheet Brown 8m",
-      size: "1m x 8m x 3.8mm",
-      coverage: 6.95
-    },
-    {
       code: "2004306",
       description: "X-Gard Flexitorch Premium SBS T-O Capsheet Charcoal 8m",
       size: "1m x 8m x 3.8mm",
@@ -388,12 +346,6 @@ export default {
     {
       code: "2004152",
       description: "X-Gard Flexitorch Standard SBS T/O Capsheet Blue/Grey 8m",
-      size: "1m x 8m x 3.5mm",
-      coverage: 6.95
-    },
-    {
-      code: "2004153",
-      description: "X-Gard Flexitorch Standard SBS T-O Capsheet Brown 8m",
       size: "1m x 8m x 3.5mm",
       coverage: 6.95
     },
@@ -455,15 +407,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004149"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004306"
           }
@@ -496,15 +439,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004148"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004149"
           }
         },
         {
@@ -551,15 +485,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004149"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004306"
           }
@@ -592,15 +517,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004148"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004149"
           }
         },
         {
@@ -654,15 +570,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004149"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004306"
           }
@@ -700,15 +607,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004148"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004149"
           }
         },
         {
@@ -755,15 +653,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004149"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004306"
           }
@@ -796,15 +685,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004148"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004149"
           }
         },
         {
@@ -853,15 +733,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004149"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004306"
           }
@@ -894,15 +765,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004148"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004149"
           }
         },
         {
@@ -949,15 +811,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004149"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004306"
           }
@@ -990,15 +843,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004148"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004149"
           }
         },
         {
@@ -1052,15 +896,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004149"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004306"
           }
@@ -1098,15 +933,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004148"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004149"
           }
         },
         {
@@ -1153,15 +979,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004149"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004306"
           }
@@ -1194,15 +1011,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004148"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004149"
           }
         },
         {
@@ -1251,15 +1059,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004153"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004307"
           }
@@ -1292,15 +1091,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004152"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004153"
           }
         },
         {
@@ -1347,15 +1137,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004153"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004307"
           }
@@ -1388,15 +1169,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004152"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004153"
           }
         },
         {
@@ -1450,15 +1222,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004153"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004307"
           }
@@ -1496,15 +1259,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004152"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004153"
           }
         },
         {
@@ -1551,15 +1305,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004153"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004307"
           }
@@ -1592,15 +1337,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004152"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004153"
           }
         },
         {
@@ -1649,15 +1385,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004153"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004307"
           }
@@ -1690,15 +1417,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004152"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004153"
           }
         },
         {
@@ -1745,15 +1463,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004153"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004307"
           }
@@ -1786,15 +1495,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004152"
-          }
-        },
-        {
-          buildUp: "C",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004153"
           }
         },
         {
@@ -1848,15 +1548,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004153"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004307"
           }
@@ -1894,15 +1585,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004152"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004153"
           }
         },
         {
@@ -1949,15 +1631,6 @@ export default {
           category: "Cap sheet",
           selector: {
             if: "color",
-            is: "Brown",
-            use: "2004153"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
             is: "Charcoal",
             use: "2004307"
           }
@@ -1990,15 +1663,6 @@ export default {
             if: "color",
             is: "Blue/Grey",
             use: "2004152"
-          }
-        },
-        {
-          buildUp: "D",
-          category: "Cap sheet",
-          selector: {
-            if: "color",
-            is: "Brown",
-            use: "2004153"
           }
         },
         {
