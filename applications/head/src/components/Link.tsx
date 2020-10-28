@@ -38,6 +38,10 @@ export const getCTA = (
     | {
         __typename: "ContentfulContactUsPage";
         slug: string;
+      }
+    | {
+        __typename: "ContentfulProductListerPage";
+        slug: string;
       },
   countryCode: string,
   linkLabel: string

@@ -16,6 +16,7 @@ import OverlapCards, {
 import { getCTA } from "../components/Link";
 import { PageInfoData as SimplePageSlideData } from "../templates/simple-page";
 import { PageInfoData as ContactUsSlideData } from "../templates/contact-us-page";
+import { PageInfoData as ProductListerPageSlideData } from "../templates/product-lister-page";
 
 type PageInfoData = {
   title: string;
@@ -23,7 +24,12 @@ type PageInfoData = {
 
 type HomepageData = PageInfoData &
   PageData & {
-    slides: (SlideData | SimplePageSlideData | ContactUsSlideData)[];
+    slides: (
+      | SlideData
+      | SimplePageSlideData
+      | ContactUsSlideData
+      | ProductListerPageSlideData
+    )[];
     overlapCards: OverlapCardData;
     sections: SectionsData | null;
   };
@@ -101,6 +107,7 @@ export const pageQuery = graphql`
           ...PromoFragment
           ...ContactUsPageInfoFragment
           ...SimplePageInfoFragment
+          ...ProductListerPageInfoFragment
         }
       }
       overlapCards {

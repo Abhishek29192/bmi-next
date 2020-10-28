@@ -10,11 +10,16 @@ import Section, { Props } from "@bmi/section";
 import { Data as PromoData } from "../components/Promo";
 import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
 import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
+import { PageInfoData as ProductListerPageInfoData } from "../templates/product-lister-page";
 import { iconMap } from "./Icon";
 import { LinkData, getCTA } from "./Link";
 import { SiteContext } from "./Site";
 
-type Slide = PromoData | SimplePageInfoData | ContactUsInfoData;
+type Slide =
+  | PromoData
+  | SimplePageInfoData
+  | ContactUsInfoData
+  | ProductListerPageInfoData;
 
 export type Data = {
   __typename: "ContentfulCarouselSection";
@@ -80,6 +85,7 @@ export const query = graphql`
         ...PromoFragment
         ...ContactUsPageInfoFragment
         ...SimplePageInfoFragment
+        ...ProductListerPageInfoFragment
       }
     }
   }
