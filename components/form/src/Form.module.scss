@@ -1,9 +1,10 @@
 .Form {
   .SubmitButtonWrapper {
     display: flex;
-    padding: 15px;
-    &--right {
-      flex-direction: row-reverse;
-    }
+    padding: 15px 0;
+  }
+
+  &--rightAlignButton .SubmitButtonWrapper {
+    flex-direction: row-reverse;
   }
 }
