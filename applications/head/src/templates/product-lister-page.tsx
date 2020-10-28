@@ -13,12 +13,16 @@ import AnchorLink from "@bmi/anchor-link";
 import { LinkData, getClickableActionFromUrl } from "../components/Link";
 import { Document } from "@contentful/rich-text-types";
 import RichText from "../components/RichText";
-import Button from "@bmi/button";
 import Filters from "@bmi/filters";
 import Typography from "@bmi/typography";
 import OverviewCard from "@bmi/overview-card";
 import { iconMap } from "../components/Icon";
 import Grid from "@bmi/grid";
+import {
+  getProductUrl,
+  findMasterImageUrl,
+  findProductBrandLogoCode
+} from "../utils/product-details-transforms";
 
 export type PageInfoData = {
   __typename: "ContentfulProductListerPage";
@@ -60,19 +64,6 @@ type Props = {
 };
 
 const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
-
-// TODO: Move this in the product-details-transform
-const findMasterImageUrl = (images): string => {
-  return _.result<string>(
-    _.find(images, {
-      assetType: "MASTER_IMAGE",
-      format: "Product-Listing-Card-Large-Desktop"
-    }),
-    "url"
-  );
-};
-const getSlug = (countryCode, string) =>
-  `/${countryCode}/products/${string.toLowerCase().replace(/[-_\s]+/gi, "-")}`;
 
 const IntegratedFilters = (props) => {
   const filters = [
@@ -232,12 +223,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   products
                     .filter(({ variantOptions }) => variantOptions)
                     .map((product, index) => {
-                      const brandLogoCode = _.result<string>(
-                        _.find(product.categories, {
-                          parentCategoryCode: "BMI_Brands"
-                        }),
-                        "code"
-                      );
+                      const brandLogoCode = findProductBrandLogoCode(product);
                       const brandLogo = iconMap[brandLogoCode];
 
                       return product.variantOptions.map((variant) => {
@@ -265,7 +251,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                   action={{
                                     model: "routerLink",
                                     linkComponent: Link,
-                                    to: getSlug(countryCode, variant.code)
+                                    to: getProductUrl(countryCode, variant.code)
                                   }}
                                 >
                                   View details

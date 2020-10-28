@@ -4,7 +4,7 @@ import { Product } from "../templates/product-details-page";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 
 const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
-const getProductUrl = (countryCode, productCode) =>
+export const getProductUrl = (countryCode, productCode) =>
   `/${countryCode}/products/${getSlug(productCode)}`;
 
 const getProductProp = (classifications, productCode, propName) =>
@@ -53,6 +53,25 @@ const getSizeLabel = (measurement) => {
     .filter(Boolean)
     .map(({ value }) => value.value) // LOL
     .join("x");
+};
+
+export const findMasterImageUrl = (images): string => {
+  return _.result<string>(
+    _.find(images, {
+      assetType: "MASTER_IMAGE",
+      format: "Product-Listing-Card-Large-Desktop"
+    }),
+    "url"
+  );
+};
+
+export const findProductBrandLogoCode = (product) => {
+  return _.result<string>(
+    _.find(product.categories, {
+      parentCategoryCode: "BMI_Brands"
+    }),
+    "code"
+  );
 };
 
 export const mapGalleryImages = (images) => {
