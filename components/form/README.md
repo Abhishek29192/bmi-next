@@ -12,7 +12,7 @@ The form submit button will be disabled if there are any validation errors. Ther
 </Form>
 ```
 
-## Contact Us Example
+## Contact Us Example
 
 ```tsx
 import TextField from "@bmi/text-field";
@@ -177,14 +177,6 @@ const onSubmit = (event, values) => {
       </Form.Row>
     </Grid>
   </Grid>
-  <div
-    style={{
-      padding: "20px 0",
-      display: "flex",
-      flexDirection: "row-reverse"
-    }}
-  >
-    <Form.SubmitButton>Send Message</Form.SubmitButton>
-  </div>
+  <Form.SubmitButton>Send Message</Form.SubmitButton>
 </Form>;
 ```

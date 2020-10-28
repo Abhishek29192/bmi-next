@@ -1,4 +1,5 @@
-import React, { useState, FormEvent } from "react";
+import classnames from "classnames";
+import React, { FormEvent, useState } from "react";
 import styles from "./Form.module.scss";
 import SubmitButton from "./SubmitButton";
 import { InputValue } from "./withFormControl";
@@ -61,7 +62,13 @@ const Form = ({
         values
       }}
     >
-      <form onSubmit={handleSubmit} className={styles["Form"]} {...formProps}>
+      <form
+        onSubmit={handleSubmit}
+        className={classnames(styles["Form"], {
+          [styles["Form--rightAlignButton"]]: rightAlignButton
+        })}
+        {...formProps}
+      >
         {children}
       </form>
     </FormContext.Provider>

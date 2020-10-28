@@ -1,6 +1,7 @@
+import Button, { ButtonProps } from "@bmi/button";
 import React, { useContext } from "react";
 import { FormContext } from "./Form";
-import Button, { ButtonProps } from "@bmi/button";
+import styles from "./Form.module.scss";
 
 type Props = ButtonProps & {
   children: React.ReactNode;
@@ -10,9 +11,11 @@ const SubmitButton = ({ children, ...props }: Props) => {
   const { submitButtonDisabled } = useContext(FormContext);
 
   return (
-    <Button type="submit" disabled={submitButtonDisabled} {...props}>
-      {children}
-    </Button>
+    <div className={styles["SubmitButtonWrapper"]}>
+      <Button type="submit" disabled={submitButtonDisabled} {...props}>
+        {children}
+      </Button>
+    </div>
   );
 };
 
