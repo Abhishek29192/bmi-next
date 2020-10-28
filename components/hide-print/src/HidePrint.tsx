@@ -3,7 +3,7 @@ import classnames from "classnames";
 import styles from "./HidePrint.module.scss";
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   component?: React.ElementType;
 };
