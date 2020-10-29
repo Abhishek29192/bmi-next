@@ -256,9 +256,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           >
                             <OverviewCard
                               title={product.name}
+                              titleVariant="h5"
                               imageSource={mainImage}
                               brandImageSource={brandLogo}
-                              hasTitleUnderline
                               footer={
                                 <AnchorLink
                                   iconEnd
@@ -272,9 +272,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 </AnchorLink>
                               }
                             >
-                              <Typography>
-                                {variant.shortDescription}
-                              </Typography>
+                              {variant.shortDescription}
                             </OverviewCard>
                           </Grid>
                         );
