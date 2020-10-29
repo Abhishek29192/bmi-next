@@ -168,7 +168,7 @@ HTMLCollection [
             role="tabpanel"
           >
             <div
-              class="MuiBox-root MuiBox-root-5"
+              class="MuiBox-root MuiBox-root-5 TabPanelBox"
             >
               <div />
             </div>

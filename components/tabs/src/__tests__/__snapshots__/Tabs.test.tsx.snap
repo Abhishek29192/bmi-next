@@ -74,7 +74,7 @@ exports[`Tabs component renders alternate theme correctly 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-10"
+      class="MuiBox-root MuiBox-root-10 TabPanelBox"
     >
       Content One
     </div>
@@ -163,7 +163,7 @@ exports[`Tabs component renders correctly 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-5"
+      class="MuiBox-root MuiBox-root-5 TabPanelBox"
     >
       Content One
     </div>
