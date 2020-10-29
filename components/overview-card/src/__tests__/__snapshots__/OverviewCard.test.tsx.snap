@@ -23,9 +23,7 @@ exports[`OverviewCard component renders correctly 1`] = `
     <div
       class="children"
     >
-      <p>
-        We do the things
-      </p>
+      We do the things
     </div>
     <div
       class="footer"
@@ -49,6 +47,32 @@ exports[`OverviewCard component renders correctly 1`] = `
 </div>
 `;
 
+exports[`OverviewCard component renders correctly with a subtitle 1`] = `
+<div
+  class="OverviewCard"
+>
+  <div
+    class="body"
+  >
+    <h4
+      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <h5
+      class="MuiTypography-root title Typography MuiTypography-h5"
+    >
+      Subtitle
+    </h5>
+    <div
+      class="children"
+    >
+      We do the things
+    </div>
+  </div>
+</div>
+`;
+
 exports[`OverviewCard component renders correctly without optional props 1`] = `
 <div
   class="OverviewCard"
@@ -64,9 +88,7 @@ exports[`OverviewCard component renders correctly without optional props 1`] = `
     <div
       class="children"
     >
-      <p>
-        We do the things
-      </p>
+      We do the things
     </div>
   </div>
 </div>

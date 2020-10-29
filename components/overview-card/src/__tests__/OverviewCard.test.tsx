@@ -16,16 +16,21 @@ describe("OverviewCard component", () => {
         hasTitleUnderline
         footer={<Button variant="outlined">Go to this</Button>}
       >
-        <p>We do the things</p>
+        We do the things
       </OverviewCard>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-
   it("renders correctly without optional props", () => {
     const { container } = render(
-      <OverviewCard title="Heading">
-        <p>We do the things</p>
+      <OverviewCard title="Heading">We do the things</OverviewCard>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders correctly with a subtitle", () => {
+    const { container } = render(
+      <OverviewCard title="Heading" subtitle="Subtitle" subtitleVariant="h5">
+        We do the things
       </OverviewCard>
     );
     expect(container.firstChild).toMatchSnapshot();

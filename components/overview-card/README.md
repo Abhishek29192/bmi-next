@@ -6,7 +6,6 @@ A card component displaying an overview of a product. The card is not clickable 
 
 ```jsx
 import Button from "@bmi/button";
-import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
@@ -17,9 +16,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
 >
-  <Typography>
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </Typography>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 </OverviewCard>;
 ```
 
@@ -27,7 +24,6 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 ```jsx
 import Button from "@bmi/button";
-import Typography from "@bmi/typography";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 <OverviewCard
@@ -36,9 +32,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
 >
-  <Typography>
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </Typography>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 </OverviewCard>;
 ```
 
@@ -46,7 +40,6 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 ```jsx
 import Button from "@bmi/button";
-import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 
 <OverviewCard
@@ -55,16 +48,13 @@ import demoHouseImage from "./images/demo-tiles.jpg";
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
 >
-  <Typography>
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </Typography>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 </OverviewCard>;
 ```
 
 ### No Footer
 
 ```jsx
-import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
@@ -75,9 +65,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   brandImageSource={brandLogo}
   hasTitleUnderline
 >
-  <Typography>
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </Typography>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 </OverviewCard>;
 ```
 
@@ -85,7 +73,6 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 ```jsx
 import Button from "@bmi/button";
-import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
@@ -96,17 +83,34 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   brandImageSource={brandLogo}
   footer={<Button variant="outlined">Go to this</Button>}
 >
-  <Typography>
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </Typography>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 </OverviewCard>;
 ```
 
-### Flattened (news summary card)
+### Medium Title (h5) and subtitle (Related Product Card)
+
+```jsx
+import AnchorLink from "@bmi/anchor-link";
+import demoHouseImage from "./images/demo-tiles.jpg";
+import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+
+<OverviewCard
+  title="Unde Mmnis Iste"
+  titleVariant="h5"
+  subtitle="Lorem ipsum sit dolor amet"
+  subtitleVariant="h6"
+  imageSource={demoHouseImage}
+  brandImageSource={brandLogo}
+  footer={<AnchorLink iconEnd>Go to this</AnchorLink>}
+>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+</OverviewCard>;
+```
+
+### Flattened (News Summary Card)
 
 ```jsx
 import Button from "@bmi/button";
-import Typography from "@bmi/typography";
 import demoHouseImage from "./images/demo-tiles.jpg";
 import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
@@ -116,8 +120,6 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
   footer={<Button variant="outlined">Go to this</Button>}
   isFlat
 >
-  <Typography>
-    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-  </Typography>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 </OverviewCard>;
 ```

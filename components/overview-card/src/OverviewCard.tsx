@@ -5,7 +5,9 @@ import Typography from "@bmi/typography";
 
 type Props = {
   title: React.ReactNode;
-  titleVariant?: "h4" | "h6";
+  titleVariant?: "h4" | "h5" | "h6";
+  subtitle?: React.ReactNode;
+  subtitleVariant?: "h5" | "h6"; // TODO: Add h6 (from DS) smallest when needed.
   hasTitleUnderline?: boolean;
   children: React.ReactNode;
   imageSource?: string;
@@ -17,6 +19,8 @@ type Props = {
 const OverviewCard = ({
   title,
   titleVariant = "h4",
+  subtitle,
+  subtitleVariant = "h5",
   hasTitleUnderline,
   children,
   imageSource,
@@ -38,11 +42,7 @@ const OverviewCard = ({
           style={{ backgroundImage: `url(${imageSource})` }}
         />
       ) : null}
-      <div
-        className={classnames(styles["body"], {
-          [styles["body--flat"]]: isFlat
-        })}
-      >
+      <div className={styles["body"]}>
         {brandImageSource ? (
           <BrandLogo
             preserveAspectRatio="xMinYMin"
@@ -60,6 +60,11 @@ const OverviewCard = ({
         >
           {title}
         </Typography>
+        {subtitle && (
+          <Typography variant={subtitleVariant} className={styles["title"]}>
+            {subtitle}
+          </Typography>
+        )}
         <div className={styles["children"]}>{children}</div>
         {footer && <div className={styles["footer"]}>{footer}</div>}
       </div>
