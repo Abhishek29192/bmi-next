@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build && gatsby serve",
-    "build": "gatsby build"
+    "build": "gatsby build --prefix-paths"
   },
   "dependencies": {
     "@bmi/button": "0.0.0",
