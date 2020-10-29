@@ -11,10 +11,10 @@ const parseNavigation = (
 ) => {
   return navigationItems.reduce((result, { __typename, ...item }) => {
     if (__typename === "ContentfulNavigation") {
-      const { label, links } = item as NavigationData;
+      const { label, links, link } = item as NavigationData;
       return result.concat({
         label,
-        menu: parseNavigation(links, countryCode)
+        menu: parseNavigation(link ? [link, ...links] : links, countryCode)
       });
     }
 
