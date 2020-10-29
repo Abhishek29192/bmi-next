@@ -37,10 +37,14 @@ export const findPath = (
       if (item.__typename === "ContentfulNavigation") {
         result = __helper(item, [
           ...path,
-          {
-            label: item.label,
-            link: item.link
-          }
+          ...(item.link
+            ? [
+                {
+                  label: item.label,
+                  link: item.link
+                }
+              ]
+            : [])
         ]);
       }
     });
