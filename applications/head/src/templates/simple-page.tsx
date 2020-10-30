@@ -47,7 +47,7 @@ const SimplePage = ({ data }: Props) => {
   };
   const heroLevel = (Math.min(
     findPath(data.contentfulSimplePage.slug, data.contentfulSite.menuNavigation)
-      .length,
+      .length + 1,
     3
   ) || 1) as 1 | 2 | 3;
 

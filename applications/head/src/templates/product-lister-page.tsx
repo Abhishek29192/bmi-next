@@ -155,7 +155,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     findPath(
       data.contentfulProductListerPage.slug,
       data.contentfulSite.menuNavigation
-    ).length,
+    ).length + 1,
     3
   ) || 1) as 1 | 2 | 3;
   const { nodes: products } = data.allProducts;
