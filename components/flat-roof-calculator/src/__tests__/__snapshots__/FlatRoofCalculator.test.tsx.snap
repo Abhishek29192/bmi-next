@@ -1205,36 +1205,32 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           class="MuiTouchRipple-root"
         />
       </button>
-      <div
-        class="SubmitButtonWrapper"
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button item MuiButton-containedPrimary Mui-disabled Mui-disabled"
+        disabled=""
+        tabindex="-1"
+        type="submit"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button item MuiButton-containedPrimary Mui-disabled Mui-disabled"
-          disabled=""
-          tabindex="-1"
-          type="submit"
+        <span
+          class="MuiButton-label"
         >
+          Calculate quantities
           <span
-            class="MuiButton-label"
+            class="MuiButton-endIcon MuiButton-iconSizeMedium"
           >
-            Calculate quantities
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+              />
+            </svg>
           </span>
-        </button>
-      </div>
+        </span>
+      </button>
     </div>
   </form>
 </div>
