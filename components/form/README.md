@@ -177,6 +177,35 @@ const onSubmit = (event, values) => {
       </Form.Row>
     </Grid>
   </Grid>
-  <Form.SubmitButton>Send Message</Form.SubmitButton>
+  <Form.ButtonWrapper>
+    <Form.SubmitButton>Send Message</Form.SubmitButton>
+  </Form.ButtonWrapper>
+</Form>;
+```
+
+## Multiple buttons
+
+```tsx
+import TextField from "@bmi/text-field";
+
+const onSubmit = (event, values) => {
+  event.preventDefault();
+  console.log("submit event", event, values);
+};
+
+<Form onSubmit={onSubmit}>
+  <Form.Row>
+    <TextField
+      name="First Name"
+      isRequired
+      variant="outlined"
+      label="First Name"
+      fullWidth
+    />
+  </Form.Row>
+  <Form.ButtonWrapper>
+    <Form.Button variant="outlined">Cancel</Form.Button>
+    <Form.SubmitButton>Send Message</Form.SubmitButton>
+  </Form.ButtonWrapper>
 </Form>;
 ```

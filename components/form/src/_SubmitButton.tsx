@@ -11,11 +11,14 @@ const SubmitButton = ({ children, ...props }: Props) => {
   const { submitButtonDisabled } = useContext(FormContext);
 
   return (
-    <div className={styles["SubmitButtonWrapper"]}>
-      <Button type="submit" disabled={submitButtonDisabled} {...props}>
-        {children}
-      </Button>
-    </div>
+    <Button
+      className={styles["Button"]}
+      type="submit"
+      disabled={submitButtonDisabled}
+      {...props}
+    >
+      {children}
+    </Button>
   );
 };
 
