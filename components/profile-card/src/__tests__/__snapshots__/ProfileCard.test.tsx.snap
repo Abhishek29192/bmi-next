@@ -15,16 +15,18 @@ exports[`ProfileCard component renders correctly 1`] = `
   <div
     class="body"
   >
-    <strong
-      class="MuiTypography-root Typography MuiTypography-h5"
-    >
-      Richard Stallman
-    </strong>
-    <p
-      class="MuiTypography-root title Typography MuiTypography-body2"
-    >
-      Wizard
-    </p>
+    <div>
+      <strong
+        class="MuiTypography-root Typography MuiTypography-h5"
+      >
+        Richard Stallman
+      </strong>
+      <p
+        class="MuiTypography-root title Typography MuiTypography-body2"
+      >
+        Code Wizard
+      </p>
+    </div>
   </div>
   <div
     class="footer"

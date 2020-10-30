@@ -26,6 +26,7 @@
     "@bmi/clickable": "0.0.0",
     "@bmi/color-pair": "0.0.0",
     "@bmi/container": "0.0.0",
+    "@bmi/equal-heights": "0.0.0",
     "@bmi/footer": "0.0.0",
     "@bmi/form": "0.0.0",
     "@bmi/grid": "0.0.0",

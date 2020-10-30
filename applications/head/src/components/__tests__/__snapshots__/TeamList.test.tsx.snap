@@ -2,35 +2,46 @@
 
 exports[`TeamList component renders correctly 1`] = `
 <div
-  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+  class="EqualHeights"
 >
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
   >
     <div
-      class="ProfileCard"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
     >
       <div
-        class="head"
+        class="ProfileCard"
       >
-        <img
-          class="profile-picture"
-          src="link-to.jpg"
-        />
-      </div>
-      <div
-        class="body"
-      >
-        <strong
-          class="MuiTypography-root Typography MuiTypography-h5"
+        <div
+          class="head"
         >
-          Name
-        </strong>
-        <p
-          class="MuiTypography-root title Typography MuiTypography-body2"
+          <img
+            class="profile-picture"
+            src="link-to.jpg"
+          />
+        </div>
+        <div
+          class="content-box"
         >
-          Job Title
-        </p>
+          <div
+            class="body"
+            style="height: auto;"
+          >
+            <div>
+              <strong
+                class="MuiTypography-root Typography MuiTypography-h5"
+              >
+                Name
+              </strong>
+              <p
+                class="MuiTypography-root title Typography MuiTypography-body2"
+              >
+                Job Title
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
