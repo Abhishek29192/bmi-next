@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+const FRC_GA_COOKIE_PREFIX = process.env.FRC_GA_COOKIE_PREFIX || "FRC";
 const FRC_GA_CODE = process.env.FRC_GA_CODE;
 const FRC_CIVIC_KEY = process.env.FRC_CIVIC_KEY;
 
@@ -23,7 +24,9 @@ export default function HTML(props) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
-          gtag('config', '${FRC_GA_CODE}');
+          gtag('config', '${FRC_GA_CODE}', {
+            cookie_prefix: '${FRC_GA_COOKIE_PREFIX}'
+          });
         `
           }}
         ></script>
@@ -43,7 +46,7 @@ export default function HTML(props) {
                           name: 'analytics',
                           label: 'Analytical Cookies',
                           description: 'Analytical Cookies helps us improve our products and services by collecting and reporting information on its usage',
-                          cookies: ['_ga', '_gid', '_gat','AMP_TOKEN', '_gat_gtag_${FRC_GA_CODE}'],
+                          cookies: ['_ga', '${FRC_GA_COOKIE_PREFIX}_ga', '_gid', '${FRC_GA_COOKIE_PREFIX}_gid', '${FRC_GA_COOKIE_PREFIX}_gat', 'AMP_TOKEN', '_gat_gtag_${FRC_GA_CODE}'],
                           vendors: [
                             {
                               name: "Google",
