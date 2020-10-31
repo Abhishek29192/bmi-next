@@ -99,17 +99,19 @@ const Header = ({
   const navigation = parseNavigation(navigationData.links, countryCode);
 
   return (
-    <HidePrint>
-      <HeaderComponent
-        utilities={utilities}
-        navigation={navigation}
-        logoAction={{
-          model: "routerLink",
-          linkComponent: Link,
-          to: `/${countryCode}/`
-        }}
-      />
-    </HidePrint>
+    <HidePrint
+      component={() => (
+        <HeaderComponent
+          utilities={utilities}
+          navigation={navigation}
+          logoAction={{
+            model: "routerLink",
+            linkComponent: Link,
+            to: `/${countryCode}/`
+          }}
+        />
+      )}
+    />
   );
 };
 
