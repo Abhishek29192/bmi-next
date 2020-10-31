@@ -8,18 +8,12 @@ import VerticalRoller, {
 } from "@bmi/vertical-roller";
 import Section, { Props } from "@bmi/section";
 import { Data as PromoData } from "../components/Promo";
-import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
-import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
-import { PageInfoData as ProductListerPageInfoData } from "../templates/product-lister-page";
+import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { LinkData, getCTA } from "./Link";
 import { SiteContext } from "./Site";
 
-type Slide =
-  | PromoData
-  | SimplePageInfoData
-  | ContactUsInfoData
-  | ProductListerPageInfoData;
+type Slide = PromoData | PageInfoData;
 
 export type Data = {
   __typename: "ContentfulCarouselSection";
@@ -83,9 +77,7 @@ export const query = graphql`
     slides {
       ... on ContentfulPromoOrPage {
         ...PromoFragment
-        ...ContactUsPageInfoFragment
-        ...SimplePageInfoFragment
-        ...ProductListerPageInfoFragment
+        ...PageInfoFragment
       }
     }
   }

@@ -5,24 +5,11 @@ import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
-
-export type PageInfoData = {
-  __typename: "ContentfulSimplePage";
-  title: string;
-  subtitle: string | null;
-  brandLogo: string | null;
-  slug: string;
-  featuredImage: {
-    title: string;
-    file: {
-      fileName: string;
-      url: string;
-    };
-  } | null;
-};
+import { Data as PageInfoData } from "../components/PageInfo";
 
 type Data = PageInfoData &
   PageData & {
+    __typename: "ContentfulSimplePage";
     sections: SectionsData | null;
   };
 
@@ -57,7 +44,6 @@ const SimplePage = ({ data }: Props) => {
       pageData={data.contentfulSimplePage}
       siteData={data.contentfulSite}
     >
-      {/* TODO: Level depends on page rank, see and share breadcrumbs logic */}
       <Hero
         level={heroLevel}
         {...heroProps}
@@ -80,17 +66,7 @@ export default SimplePage;
 export const pageQuery = graphql`
   query SimplePageById($pageId: String!, $siteId: String!) {
     contentfulSimplePage(id: { eq: $pageId }) {
-      title
-      slug
-      # Check length allowed and define right field type
-      subtitle
-      featuredImage {
-        title
-        file {
-          fileName
-          url
-        }
-      }
+      ...PageInfoFragment
       sections {
         ...SectionsFragment
       }
@@ -98,21 +74,6 @@ export const pageQuery = graphql`
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
-    }
-  }
-`;
-
-export const promoQuery = graphql`
-  fragment SimplePageInfoFragment on ContentfulSimplePage {
-    title
-    subtitle
-    brandLogo
-    slug
-    featuredImage {
-      file {
-        fileName
-        url
-      }
     }
   }
 `;

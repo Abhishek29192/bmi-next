@@ -164,6 +164,7 @@ describe("Sections component", () => {
             id: "00000000-0000-0000-0000-000000000000",
             slug: "slug",
             title: "page title",
+            brandLogo: null,
             subtitle: "page subtitle",
             featuredImage: {
               resize: {

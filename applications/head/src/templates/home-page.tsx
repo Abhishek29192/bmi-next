@@ -14,25 +14,14 @@ import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import { getCTA } from "../components/Link";
-import { PageInfoData as SimplePageSlideData } from "../templates/simple-page";
-import { PageInfoData as ContactUsSlideData } from "../templates/contact-us-page";
-import { PageInfoData as ProductListerPageSlideData } from "../templates/product-lister-page";
+import { Data as PageInfoData } from "../components/PageInfo";
 
-type PageInfoData = {
+type HomepageData = PageData & {
   title: string;
+  slides: (SlideData | PageInfoData)[];
+  overlapCards: OverlapCardData;
+  sections: SectionsData | null;
 };
-
-type HomepageData = PageInfoData &
-  PageData & {
-    slides: (
-      | SlideData
-      | SimplePageSlideData
-      | ContactUsSlideData
-      | ProductListerPageSlideData
-    )[];
-    overlapCards: OverlapCardData;
-    sections: SectionsData | null;
-  };
 
 type Props = {
   data: {
@@ -105,9 +94,7 @@ export const pageQuery = graphql`
       slides {
         ... on ContentfulPromoOrPage {
           ...PromoFragment
-          ...ContactUsPageInfoFragment
-          ...SimplePageInfoFragment
-          ...ProductListerPageInfoFragment
+          ...PageInfoFragment
         }
       }
       overlapCards {

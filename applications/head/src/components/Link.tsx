@@ -1,6 +1,7 @@
 import { graphql, Link } from "gatsby";
 import { ClickableAction } from "@bmi/clickable";
 import { IconName } from "./Icon";
+import { Data as PageInfoData } from "./PageInfo";
 
 export const getClickableActionFromUrl = (
   linkedPage: LinkData["linkedPage"],
@@ -31,18 +32,7 @@ export const getCTA = (
         __typename: "ContentfulPromo";
         cta?: LinkData;
       }
-    | {
-        __typename: "ContentfulSimplePage";
-        slug: string;
-      }
-    | {
-        __typename: "ContentfulContactUsPage";
-        slug: string;
-      }
-    | {
-        __typename: "ContentfulProductListerPage";
-        slug: string;
-      },
+    | Pick<PageInfoData, "__typename" | "slug">,
   countryCode: string,
   linkLabel: string
 ) => {

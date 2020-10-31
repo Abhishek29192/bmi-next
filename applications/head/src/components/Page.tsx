@@ -76,5 +76,3 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
 };
 
 export default Page;
-
-// TODO: This could export a common fragment of ContentfulPage.
