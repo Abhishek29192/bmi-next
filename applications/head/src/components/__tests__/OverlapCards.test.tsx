@@ -13,7 +13,7 @@ describe("OverlapCards component", () => {
       {
         title: "Call to action",
         slug: "some-page",
-        image: {
+        featuredImage: {
           resize: {
             src: "link-to-page.png"
           }
@@ -22,7 +22,7 @@ describe("OverlapCards component", () => {
       {
         title: "Call to action",
         slug: "some-page",
-        image: {
+        featuredImage: {
           resize: {
             src: "link-to-page.png"
           }
