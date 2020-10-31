@@ -177,7 +177,7 @@ export const query = graphql`
       ...PromoFragment
       ... on ContentfulPromo {
         id
-        featuredImage: image {
+        featuredImage {
           resize(width: 350) {
             src
           }
