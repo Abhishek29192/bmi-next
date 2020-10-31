@@ -108,7 +108,7 @@ const CardCollectionSection = ({
               : cardLabel;
 
             return (
-              <Grid key={id} item xs={12} sm={6} md={3}>
+              <Grid key={`${id}-${i}`} item xs={12} sm={6} md={3}>
                 {cardType === "Product Overview Card" && (
                   <OverviewCard
                     hasTitleUnderline
