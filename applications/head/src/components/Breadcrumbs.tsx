@@ -21,6 +21,10 @@ export const findPath = (
   ): Path[] => {
     let result = path;
     menuNavigation.links.some((item) => {
+      if (found) {
+        return true;
+      }
+
       if (item.__typename === "ContentfulNavigationItem") {
         return;
       }
@@ -35,6 +39,12 @@ export const findPath = (
       }
 
       if (item.__typename === "ContentfulNavigation") {
+        if (item.link?.linkedPage.slug === slug) {
+          found = true;
+          result = path;
+          return true;
+        }
+
         result = __helper(item, [
           ...path,
           ...(item.link
