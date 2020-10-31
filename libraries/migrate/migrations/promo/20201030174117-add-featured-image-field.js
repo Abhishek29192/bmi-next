@@ -15,7 +15,9 @@ module.exports.up = (migration) => {
     from: ["image"],
     to: ["featuredImage"],
     transformEntryForLocale: function (fromFields, currentLocale) {
-      const featuredImage = fromFields.image[currentLocale];
+      const featuredImage = fromFields.image
+        ? fromFields.image[currentLocale]
+        : undefined;
 
       return { featuredImage };
     }
@@ -30,7 +32,9 @@ module.exports.down = (migration) => {
     from: ["featuredImage"],
     to: ["image"],
     transformEntryForLocale: function (fromFields, currentLocale) {
-      const image = fromFields.featuredImage[currentLocale];
+      const image = fromFields.featuredImage
+        ? fromFields.featuredImage[currentLocale]
+        : undefined;
 
       return { image };
     }
