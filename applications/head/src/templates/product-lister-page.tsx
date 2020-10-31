@@ -258,6 +258,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                               title={product.name}
                               titleVariant="h5"
                               imageSource={mainImage}
+                              imageSize="contain"
                               brandImageSource={brandLogo}
                               footer={
                                 <AnchorLink
