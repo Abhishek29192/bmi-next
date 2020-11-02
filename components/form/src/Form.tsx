@@ -1,7 +1,8 @@
 import classnames from "classnames";
 import React, { FormEvent, useState } from "react";
+import Button from "./_Button";
 import styles from "./Form.module.scss";
-import SubmitButton from "./SubmitButton";
+import SubmitButton from "./_SubmitButton";
 import { InputValue } from "./withFormControl";
 
 type Values = Record<string, InputValue>;
@@ -79,7 +80,13 @@ const FormRow = ({ children }: { children: React.ReactNode }) => {
   return <div className={styles["Row"]}>{children}</div>;
 };
 
+const ButtonWrapper = ({ children }: { children: React.ReactNode }) => {
+  return <div className={styles["ButtonWrapper"]}>{children}</div>;
+};
+
 Form.Row = FormRow;
+Form.ButtonWrapper = ButtonWrapper;
+Form.Button = Button;
 Form.SubmitButton = SubmitButton;
 
 export default Form;

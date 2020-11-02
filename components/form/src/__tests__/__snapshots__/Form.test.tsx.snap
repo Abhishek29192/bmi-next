@@ -1,6 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextField component renders correctly 1`] = `
+exports[`Form component renders correctly 1`] = `
+<form
+  class="Form"
+>
+  <div
+    class="Row"
+  >
+    <p>
+      Lorem Ipsum
+    </p>
+  </div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary"
+    tabindex="0"
+    type="submit"
+  >
+    <span
+      class="MuiButton-label"
+    >
+      Submit
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</form>
+`;
+
+exports[`Form component renders with a multiple buttons 1`] = `
 <form
   class="Form"
 >
@@ -12,10 +40,56 @@ exports[`TextField component renders correctly 1`] = `
     </p>
   </div>
   <div
-    class="SubmitButtonWrapper"
+    class="ButtonWrapper"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        Cancel
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary"
+      tabindex="0"
+      type="submit"
+    >
+      <span
+        class="MuiButton-label"
+      >
+        Submit
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</form>
+`;
+
+exports[`Form component renders with a right aligned button 1`] = `
+<form
+  class="Form Form--rightAlignButton"
+>
+  <div
+    class="Row"
+  >
+    <p>
+      Lorem Ipsum
+    </p>
+  </div>
+  <div
+    class="ButtonWrapper"
+  >
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained Button Button MuiButton-containedPrimary"
       tabindex="0"
       type="submit"
     >
