@@ -54,6 +54,7 @@ describe("Sections component", () => {
           __typename: "ContentfulPromo",
           title: "Promo",
           brandLogo: null,
+          tag: null,
           subtitle: null,
           featuredImage: null,
           cta: null
@@ -129,14 +130,28 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulCardCollectionSection",
         title: "card collection section title",
+        description: null,
+        groupCards: false,
         cardLabel: "Card Label",
-        cardType: "Next Best Action Card",
+        cardType: "Story Card",
+        link: {
+          __typename: "ContentfulLink",
+          id: "00000000-0000-0000-0000-000000000000",
+          label: "Contact us",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          linkedPage: {
+            slug: "contact-us"
+          }
+        },
         cards: [
           {
             __typename: "ContentfulPromo",
             title: "promo title",
             brandLogo: "AeroDek",
             subtitle: "promo subtitle",
+            tag: null,
             featuredImage: null,
             cta: {
               __typename: "ContentfulLink",
@@ -156,13 +171,17 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulCardCollectionSection",
         title: "card section title 2",
+        description: null,
+        groupCards: false,
         cardLabel: "Go to {{title}}",
-        cardType: "Product Overview Card",
+        cardType: "Highlight Card",
+        link: null,
         cards: [
           {
             __typename: "ContentfulSimplePage",
             id: "00000000-0000-0000-0000-000000000000",
             slug: "slug",
+            tag: null,
             title: "page title",
             brandLogo: null,
             subtitle: "page subtitle",
