@@ -73,6 +73,31 @@ exports[`OverviewCard component renders correctly with a subtitle 1`] = `
 </div>
 `;
 
+exports[`OverviewCard component renders correctly with contain image 1`] = `
+<div
+  class="OverviewCard"
+>
+  <div
+    class="header-picture header-picture--contain"
+    style="background-image: url(path-to-image);"
+  />
+  <div
+    class="body"
+  >
+    <h4
+      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children"
+    >
+      We do the things
+    </div>
+  </div>
+</div>
+`;
+
 exports[`OverviewCard component renders correctly without optional props 1`] = `
 <div
   class="OverviewCard"

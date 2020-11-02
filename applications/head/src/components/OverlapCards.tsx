@@ -7,7 +7,7 @@ import styles from "./styles/OverlapCards.module.scss";
 type Card = {
   title: string;
   slug: string | null;
-  image: {
+  featuredImage: {
     resize: {
       src: string;
     };
@@ -21,12 +21,12 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
   return (
     <div className={styles["OverlapCards"]}>
       <Grid spacing={3} container justify="center">
-        {data.map(({ title, image, slug }, key) => {
+        {data.map(({ title, featuredImage, slug }, key) => {
           return (
             <Grid item key={key} xs={12} sm={6} md={5} lg={3}>
               <CTACard
                 title={title}
-                imageSource={image?.resize?.src}
+                imageSource={featuredImage?.resize?.src}
                 action={{
                   model: "routerLink",
                   to: slug,
@@ -49,7 +49,7 @@ export const query = graphql`
     ... on ContentfulPage {
       title
       slug
-      image: featuredImage {
+      featuredImage {
         resize(width: 350) {
           src
         }

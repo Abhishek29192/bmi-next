@@ -13,6 +13,7 @@ import { getClickableActionFromUrl, LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
 import Typography from "@bmi/typography";
 import styles from "./styles/CardCollectionSection.module.scss";
+import { Data as PageInfoData } from "./PageInfo";
 
 type FeaturedImage = {
   resize: {
@@ -20,16 +21,12 @@ type FeaturedImage = {
   };
 };
 
-type PageContent = {
-  __typename: "ContentfulSimplePage";
-  id: string;
-  slug: string;
-  title: string;
-  subtitle: string;
-  featuredImage: FeaturedImage | null;
+type Card = (
+  | Omit<PageInfoData, "featuredImage">
+  | Omit<PromoData, "featuredImage">
+) & { id: string } & {
+  featuredImage: FeaturedImage;
 };
-
-type Card = PageContent | (PromoData & { id: string });
 
 export type Data = {
   __typename: "ContentfulCardCollectionSection";
@@ -53,7 +50,10 @@ const transformCard = (
   let link = null;
   let featuredImage = null;
 
-  if (card.__typename === "ContentfulSimplePage") {
+  if (
+    card.__typename === "ContentfulSimplePage" ||
+    card.__typename === "ContentfulProductListerPage"
+  ) {
     link = {
       linkedPage: {
         slug: card.slug
@@ -108,7 +108,7 @@ const CardCollectionSection = ({
               : cardLabel;
 
             return (
-              <Grid key={id} item xs={12} sm={6} md={3}>
+              <Grid key={`${id}-${i}`} item xs={12} sm={6} md={3}>
                 {cardType === "Product Overview Card" && (
                   <OverviewCard
                     hasTitleUnderline
@@ -175,19 +175,17 @@ export const query = graphql`
     cards {
       __typename
       ...PromoFragment
+      ...PageInfoFragment
       ... on ContentfulPromo {
         id
-        featuredImage: image {
+        featuredImage {
           resize(width: 350) {
             src
           }
         }
       }
-      ... on ContentfulSimplePage {
+      ... on ContentfulPage {
         id
-        slug
-        title
-        subtitle
         featuredImage {
           resize(width: 350) {
             src

@@ -10,23 +10,13 @@ module.exports.up = (migration) => {
     .validations([{ linkMimetypeGroup: ["image"] }])
     .linkType("Asset");
 
-  migration.transformEntries({
-    contentType: "promo",
-    from: ["image"],
-    to: ["featuredImage"],
-    transformEntryForLocale: function (fromFields, currentLocale) {
-      const featuredImage = fromFields.image
-        ? fromFields.image[currentLocale]
-        : undefined;
-
-      return { featuredImage };
-    }
-  });
-
+  promo.changeFieldControl("featuredImage", "builtin", "assetLinkEditor");
   promo.moveField("featuredImage").afterField("image");
 };
 
 module.exports.down = (migration) => {
+  const promo = migration.editContentType("promo");
+
   migration.transformEntries({
     contentType: "promo",
     from: ["featuredImage"],
@@ -40,6 +30,5 @@ module.exports.down = (migration) => {
     }
   });
 
-  const promo = migration.editContentType("promo");
   promo.deleteField("featuredImage");
 };

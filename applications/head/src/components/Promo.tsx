@@ -20,7 +20,7 @@ export const promoQuery = graphql`
     title
     subtitle
     brandLogo
-    featuredImage: image {
+    featuredImage {
       file {
         fileName
         url

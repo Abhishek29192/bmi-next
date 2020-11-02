@@ -1,10 +1,10 @@
 import ExpansionPanel, {
-  ExpansionPanelProps
-} from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+  AccordionProps as ExpansionPanelProps
+} from "@material-ui/core/Accordion";
+import ExpansionPanelDetails from "@material-ui/core/AccordionDetails";
 import MaterialAccordionSummary, {
-  ExpansionPanelSummaryProps
-} from "@material-ui/core/ExpansionPanelSummary";
+  AccordionSummaryProps as ExpansionPanelSummaryProps
+} from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React, { useState } from "react";
 import styles from "./Accordion.module.scss";

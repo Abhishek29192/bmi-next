@@ -11,10 +11,10 @@ import CheckIcon from "@material-ui/icons/Check";
 import IconList from "@bmi/icon-list";
 import AnchorLink from "@bmi/anchor-link";
 import { LinkData, getClickableActionFromUrl } from "../components/Link";
+import { Data as PageInfoData } from "../components/PageInfo";
 import { Document } from "@contentful/rich-text-types";
 import RichText from "../components/RichText";
 import Filters from "@bmi/filters";
-import Typography from "@bmi/typography";
 import OverviewCard from "@bmi/overview-card";
 import { iconMap } from "../components/Icon";
 import Grid from "@bmi/grid";
@@ -24,23 +24,9 @@ import {
   findProductBrandLogoCode
 } from "../utils/product-details-transforms";
 
-export type PageInfoData = {
-  __typename: "ContentfulProductListerPage";
-  title: string;
-  subtitle: string | null;
-  brandLogo: string | null;
-  slug: string;
-  featuredImage: {
-    title: string;
-    file: {
-      fileName: string;
-      url: string;
-    };
-  } | null;
-};
-
 type Data = PageInfoData &
   PageData & {
+    __typename: "ContentfulProductListerPage";
     content: {
       json: Document;
     };
@@ -244,6 +230,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                               title={product.name}
                               titleVariant="h5"
                               imageSource={mainImage}
+                              imageSize="contain"
                               brandImageSource={brandLogo}
                               footer={
                                 <AnchorLink
@@ -283,7 +270,7 @@ export const pageQuery = graphql`
     $categoryCode: String!
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
-      ...ProductListerPageInfoFragment
+      ...PageInfoFragment
       content {
         json
       }

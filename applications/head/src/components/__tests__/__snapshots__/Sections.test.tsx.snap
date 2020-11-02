@@ -25,17 +25,17 @@ HTMLCollection [
           class="Accordion"
         >
           <div
-            class="MuiPaper-root MuiExpansionPanel-root item MuiExpansionPanel-rounded MuiPaper-elevation1 MuiPaper-rounded"
+            class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
           >
             <div
               aria-disabled="false"
               aria-expanded="false"
-              class="MuiButtonBase-root MuiExpansionPanelSummary-root"
+              class="MuiButtonBase-root MuiAccordionSummary-root"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiExpansionPanelSummary-content"
+                class="MuiAccordionSummary-content"
               >
                 <h3
                   class="MuiTypography-root Typography MuiTypography-h6"
@@ -46,7 +46,7 @@ HTMLCollection [
               <div
                 aria-disabled="false"
                 aria-hidden="true"
-                class="MuiButtonBase-root MuiIconButton-root MuiExpansionPanelSummary-expandIcon MuiIconButton-edgeEnd"
+                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
               >
                 <span
                   class="MuiIconButton-label"
@@ -81,7 +81,7 @@ HTMLCollection [
                     role="region"
                   >
                     <div
-                      class="MuiExpansionPanelDetails-root"
+                      class="MuiAccordionDetails-root"
                     >
                       <div />
                     </div>

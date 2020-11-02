@@ -7,15 +7,13 @@ import Breadcrumbs from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Hero from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
+import { Data as PageInfoData } from "../components/PageInfo";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText from "../components/RichText";
 
-type PageInfoData = {
-  title: string;
-};
-
 type Data = PageInfoData &
   PageData & {
+    __typename: "ContentfulTeamPage";
     teamCategories: {
       title: string;
       description: {

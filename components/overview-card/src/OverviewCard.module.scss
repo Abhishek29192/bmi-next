@@ -28,10 +28,14 @@
 
   .header-picture {
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center center;
     background-color: $color-white;
     height: 180px;
+
+    &--contain {
+      background-size: contain;
+    }
   }
 
   .title {

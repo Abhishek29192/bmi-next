@@ -35,4 +35,12 @@ describe("OverviewCard component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders correctly with contain image", () => {
+    const { container } = render(
+      <OverviewCard title="Heading" imageSource={mockImage} imageSize="contain">
+        We do the things
+      </OverviewCard>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

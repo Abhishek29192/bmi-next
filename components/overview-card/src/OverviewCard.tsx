@@ -11,6 +11,7 @@ type Props = {
   hasTitleUnderline?: boolean;
   children: React.ReactNode;
   imageSource?: string;
+  imageSize?: "cover" | "contain";
   brandImageSource?: SVGImport;
   footer?: React.ReactNode;
   isFlat?: boolean;
@@ -24,6 +25,7 @@ const OverviewCard = ({
   hasTitleUnderline,
   children,
   imageSource,
+  imageSize = "cover",
   brandImageSource,
   footer,
   isFlat = false
@@ -38,7 +40,9 @@ const OverviewCard = ({
     >
       {imageSource ? (
         <div
-          className={styles["header-picture"]}
+          className={classnames(styles["header-picture"], {
+            [styles[`header-picture--${imageSize}`]]: imageSize !== "cover"
+          })}
           style={{ backgroundImage: `url(${imageSource})` }}
         />
       ) : null}

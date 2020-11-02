@@ -5,18 +5,12 @@ import Villain, { Props as VillainProps } from "@bmi/villain";
 import { Data as PromoData } from "../components/Promo";
 import { SiteContext } from "./Site";
 import { getCTA } from "./Link";
-import { PageInfoData as SimplePageInfoData } from "../templates/simple-page";
-import { PageInfoData as ContactUsInfoData } from "../templates/contact-us-page";
-import { PageInfoData as ProductListerPageInfoData } from "../templates/product-lister-page";
+import { Data as PageInfoData } from "./PageInfo";
 
 export type Data = {
   __typename: "ContentfulVillainSection";
   title: string;
-  promo:
-    | PromoData
-    | SimplePageInfoData
-    | ContactUsInfoData
-    | ProductListerPageInfoData;
+  promo: PromoData | PageInfoData;
 };
 
 const VillainSection = ({
@@ -57,9 +51,7 @@ export const query = graphql`
     promo {
       ... on ContentfulPromoOrPage {
         ...PromoFragment
-        ...ContactUsPageInfoFragment
-        ...SimplePageInfoFragment
-        ...ProductListerPageInfoFragment
+        ...PageInfoFragment
       }
     }
   }

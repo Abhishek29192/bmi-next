@@ -9,24 +9,11 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import ExpandableCard from "../components/ExpandableCards";
-
-export type PageInfoData = {
-  __typename: "ContentfulContactUsPage";
-  title: string;
-  subtitle: string | null;
-  brandLogo: null;
-  slug: string;
-  featuredImage: {
-    title: string;
-    file: {
-      fileName: string;
-      url: string;
-    };
-  };
-};
+import { Data as PageInfoData } from "../components/PageInfo";
 
 type Data = PageInfoData &
   PageData & {
+    __typename: "ContentfulContactUsPage";
     queriesTitle: string;
     queriesSubtitle: string;
     otherAreasTitle: string;
@@ -99,17 +86,7 @@ export default ContactUsPage;
 export const pageQuery = graphql`
   query ContactUsPageById($pageId: String!, $siteId: String!) {
     contentfulContactUsPage(id: { eq: $pageId }) {
-      title
-      slug
-      # Check length allowed and define right field type
-      # subtitle
-      featuredImage {
-        title
-        file {
-          fileName
-          url
-        }
-      }
+      ...PageInfoFragment
       showSignUpBanner
       queriesTitle
       queriesSubtitle
