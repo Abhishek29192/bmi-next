@@ -18,11 +18,11 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
                     aria-hidden=\\"false\\"
                     class=\\"Carousel__slide--global\\"
                     data-swipeable=\\"true\\"
-@@ -33,38 +33,20 @@
-                      class=\\"page\\"
+@@ -34,38 +34,20 @@
                     >
                       <div
                         class=\\"slide left-pane-slide\\"
+                        style=\\"width: 100%;\\"
                       >
 -                       <svg
 -                         class=\\"brand-icon\\"
@@ -60,7 +60,7 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
                     </div>
                   </div>
                 </div>
-@@ -103,16 +85,21 @@
+@@ -104,16 +86,21 @@
             >
               <span
                 class=\\"sliding-slot\\"
@@ -84,7 +84,7 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
               </span>
               <span
                 class=\\"total\\"
-@@ -159,11 +146,11 @@
+@@ -160,11 +147,11 @@
             <div
               style=\\"overflow-x: hidden;\\"
             >
@@ -117,11 +117,11 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                     aria-hidden=\\"false\\"
                     class=\\"Carousel__slide--global\\"
                     data-swipeable=\\"true\\"
-@@ -33,23 +33,19 @@
-                      class=\\"page\\"
+@@ -34,23 +34,19 @@
                     >
                       <div
                         class=\\"slide left-pane-slide\\"
+                        style=\\"width: 100%;\\"
                       >
 -                       <svg
 -                         class=\\"brand-icon\\"
@@ -143,7 +143,7 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                               class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
                               type=\\"button\\"
                             >
-@@ -103,15 +99,20 @@
+@@ -104,15 +100,20 @@
             >
               <span
                 class=\\"sliding-slot\\"
@@ -165,7 +165,7 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                 </span>
               </span>
               <span
-@@ -159,11 +160,11 @@
+@@ -160,11 +161,11 @@
             <div
               style=\\"overflow-x: hidden;\\"
             >
@@ -217,6 +217,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
                   >
                     <div
                       class="slide left-pane-slide"
+                      style="width: 100%;"
                     >
                       <svg
                         class="brand-icon"
@@ -357,6 +358,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
                 >
                   <div
                     class="slide"
+                    style="width: 100%;"
                   >
                     <div
                       class="image"
@@ -407,6 +409,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
             >
               <div
                 class="slide left-pane-slide"
+                style="width: 100%;"
               >
                 <svg
                   class="brand-icon"

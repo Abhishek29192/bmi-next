@@ -112,6 +112,41 @@ describe("Carousel component", () => {
 
     expect(onPageChange.mock.calls).toMatchSnapshot();
   });
+  it("renders correctly with arrow controls", () => {
+    const { container } = render(
+      <Carousel
+        slidesPerPage={{
+          xs: 1,
+          sm: 2,
+          lg: 4
+        }}
+      >
+        <Carousel.Slide>First slide</Carousel.Slide>
+        <Carousel.Slide>Second slide</Carousel.Slide>
+        <Carousel.Slide>Third slide</Carousel.Slide>
+        <Carousel.Controls type="arrows" />
+      </Carousel>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("doesn't render controls when scroll is finite and pages per slides = total slides", () => {
+    const { container } = render(
+      <Carousel
+        scroll="finite"
+        slidesPerPage={{
+          xs: 1,
+          sm: 2,
+          lg: 4
+        }}
+      >
+        <Carousel.Slide>First slide</Carousel.Slide>
+        <Carousel.Slide>Second slide</Carousel.Slide>
+        <Carousel.Slide>Third slide</Carousel.Slide>
+        <Carousel.Controls type="arrows" />
+      </Carousel>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 
   describe("getPageFromAbsoluteIndex function", () => {
     it("returns page number from index >= 0 and <= total", () => {
