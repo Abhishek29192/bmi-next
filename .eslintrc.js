@@ -11,6 +11,7 @@ module.exports = {
     "plugin:prettier/recommended"
   ],
   globals: {
+    __dirname: "readonly",
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
     process: false

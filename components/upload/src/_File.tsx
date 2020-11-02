@@ -48,18 +48,22 @@ const File = ({
 
   const handleFileUpload = async () => {
     const source = axios.CancelToken.source();
-    const res = await axios.post(uri, mapBody(file), {
-      cancelToken: source.token,
-      headers
-    });
+    try {
+      const res = await axios.post(uri, mapBody(file), {
+        cancelToken: source.token,
+        headers
+      });
+      const body = res.data;
 
-    const body = res.data;
+      if (body.sys.type === "Error") {
+        setHasError(true);
+      }
 
-    if (body.sys.type === "Error") {
+      onRequestSuccess(body);
+    } catch (error) {
       setHasError(true);
     }
 
-    onRequestSuccess(body);
     setLoading(false);
     return source;
   };

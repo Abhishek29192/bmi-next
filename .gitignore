@@ -18,3 +18,7 @@ coverage-ts/
 
 # OS
 .DS_Store
+
+# Dotenv files
+.env*
+!.env.example
