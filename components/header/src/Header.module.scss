@@ -53,15 +53,24 @@
       min-width: auto;
       transition: color $transition-timing, background-color $transition-timing,
         box-shadow $transition-timing, border $transition-timing;
+      color: $color-slate;
+      font-size: 16px;
+      opacity: 1;
 
       @media (min-width: $breakpoint-md) {
-        font-size: 1.125rem;
+        padding-bottom: 30px;
+        padding-top: 30px;
+      }
+
+      @media (min-width: $breakpoint-lg) {
+        font-size: 18px;
         padding-bottom: 30px;
         padding-top: 30px;
       }
 
       &:hover {
         background-color: $color-pearl;
+        color: $color-charcoal;
       }
 
       &:global(.Mui-selected) {
@@ -80,6 +89,13 @@
 
         .MuiSvgIcon-root {
           margin-bottom: 0;
+          height: 16px;
+          width: 16px;
+          @media (min-width: $breakpoint-lg) {
+            margin-left: 3px;
+            height: 24px;
+            width: 24px;
+          }
         }
       }
     }
