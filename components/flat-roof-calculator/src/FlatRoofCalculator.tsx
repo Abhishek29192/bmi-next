@@ -7,8 +7,8 @@ import {
 import styles from "./FlatRoofCalculator.module.scss";
 import { getSystem } from "./calculations/getSystem";
 import { calculateQuantities } from "./calculations/calculateQuantities";
-import ResultsView from "./ResultsView";
-import InputView from "./InputView";
+import ResultsView from "./_ResultsView";
+import InputView from "./_InputView";
 import { FormValues } from "./types/FormValues";
 import { FieldLabels } from "./types/FieldLabels";
 
@@ -145,8 +145,8 @@ function getInitialResult(typeTree: any) {
 
 type Props = {
   treeFieldsDisplay: FieldsDisplay;
-  [key: string]: any;
-};
+  // TODO: This should be properly annotated.
+} & Record<string, any>;
 
 const FlatRoofCalculator = ({
   type,
