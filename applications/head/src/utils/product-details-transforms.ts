@@ -4,7 +4,7 @@ import { Product } from "../templates/product-details-page";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 
 const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
-const getProductUrl = (countryCode, productCode) =>
+export const getProductUrl = (countryCode, productCode) =>
   `/${countryCode}/products/${getSlug(productCode)}`;
 
 const getProductProp = (classifications, productCode, propName) =>
@@ -42,17 +42,50 @@ const getAllValues = (classifications, propName) => {
   );
 };
 
-const getSizeLabel = (measurement) => {
-  if (!measurement) {
-    return "No Size";
+// String represenatation of a measurement without unit to be used as a key
+const getMeasurementKey = (measurement) => {
+  return getSizeLabel(measurement, false);
+};
+
+// String representation of a measurement for UI
+export const getSizeLabel = (measurement, withUnit = true) => {
+  const { length, width, height } = measurement || {};
+  const components = [length, width, height].filter(Boolean);
+  let unit = "";
+
+  if (!components.length) {
+    return;
   }
 
-  const { length, width, height } = measurement;
+  // NOTE: Check if it's the same unit. For now not handling inconsistent units
+  if (withUnit && components.every((val, i, arr) => val.unit === arr[0].unit)) {
+    unit = components[0].value.unit;
+  }
 
-  return [length, width, height]
-    .filter(Boolean)
-    .map(({ value }) => value.value) // LOL
-    .join("x");
+  return (
+    components
+      .map(({ value }) => value.value) // LOL
+      .join("x") + unit
+  );
+};
+
+export const findMasterImageUrl = (images): string => {
+  return _.result<string>(
+    _.find(images, {
+      assetType: "MASTER_IMAGE",
+      format: "Product-Listing-Card-Large-Desktop"
+    }),
+    "url"
+  );
+};
+
+export const findProductBrandLogoCode = (product) => {
+  return _.result<string>(
+    _.find(product.categories, {
+      parentCategoryCode: "BMI_Brands"
+    }),
+    "code"
+  );
 };
 
 export const mapGalleryImages = (images) => {
@@ -100,9 +133,9 @@ export const mapProductClassifications = (
     [productCode: string]: Product;
   } = {
     [product.code]: product,
-    ...product.variantOptions.reduce((allClassifications, variant) => {
+    ...(product.variantOptions || []).reduce((variantProducts, variant) => {
       return {
-        ...allClassifications,
+        ...variantProducts,
         [variant.code]: variant
       };
     }, {})
@@ -180,7 +213,6 @@ export const mapProductClassifications = (
                   name,
                   value: {
                     value: featureValues ? featureValues[0].value : 0,
-                    // TODO: This isn't coming through
                     unit: featureUnit.symbol
                   }
                 }
@@ -193,14 +225,6 @@ export const mapProductClassifications = (
 
     return carry;
   }, {});
-};
-
-const getMeasurementKey = (measurements) => {
-  const { length, width, height } = measurements;
-  return [length, width, height]
-    .filter(Boolean)
-    .map((prop) => prop.value.value)
-    .join("x");
 };
 
 export const getProductAttributes = (
@@ -249,7 +273,7 @@ export const getProductAttributes = (
     const propValueMap = {
       texturefamily: (prop) => prop.value.code,
       colourfamily: (prop) => prop.value.code,
-      measurements: (prop) => getSizeLabel(prop)
+      measurements: (prop) => getMeasurementKey(prop)
     };
 
     return prop ? propValueMap[propName](prop) : undefined;
@@ -262,7 +286,7 @@ export const getProductAttributes = (
     filter = {
       colourfamily: selectedColour ? selectedColour.value.code : undefined,
       texturefamily: selectedColour ? selectedColour.value.code : undefined,
-      measurements: selectedSize ? getSizeLabel(selectedSize) : undefined,
+      measurements: selectedSize ? getMeasurementKey(selectedSize) : undefined,
       ...filter
     };
 
@@ -389,7 +413,7 @@ export const getProductAttributes = (
       name: "Størrelse",
       type: "chips",
       variants: allSizes.map((size) => {
-        const key = getSizeLabel(size);
+        const key = getMeasurementKey(size);
         const variantCode = findProductCode(
           {
             measurements: key
@@ -398,8 +422,8 @@ export const getProductAttributes = (
         );
 
         return {
-          label: key,
-          isSelected: key === getSizeLabel(selectedSize),
+          label: getSizeLabel(size),
+          isSelected: key === getMeasurementKey(selectedSize),
           ...(variantCode
             ? {
                 action: {
@@ -453,4 +477,77 @@ export const getProductTechnicalSpecifications = (
 
       return aIndex - bIndex;
     });
+};
+
+const getGroupCategory = (branch) => branch[Math.max(0, branch.length - 2)];
+
+// NOTE: This starts from the root category, so technically is a depth first
+const getFullCategoriesPaths = (categories) => {
+  categories = categories.filter(
+    ({ categoryType }) => categoryType === "Category"
+  );
+
+  const roots = categories.filter(
+    ({ parentCategoryCode }) => parentCategoryCode === ""
+  );
+
+  return roots.map((rootCategory) => {
+    let path = [rootCategory.name];
+    let currentNode = rootCategory;
+
+    while (currentNode) {
+      currentNode = categories.find(
+        ({ parentCategoryCode }) => parentCategoryCode === currentNode.code
+      );
+
+      if (currentNode) {
+        path = [...path, currentNode.name];
+      }
+    }
+
+    return path;
+  });
+};
+
+export const groupProductsByCategory = (
+  products: ReadonlyArray<Product>
+): Record<string, ReadonlyArray<Product>> => {
+  const tabs = {};
+
+  products.map((product) => {
+    const categoryBranches = getFullCategoriesPaths(product.categories || []);
+
+    categoryBranches.forEach((branch) => {
+      const tabCategory = getGroupCategory(branch);
+      tabs[tabCategory] = [...(tabs[tabCategory] || []), product];
+    });
+  });
+
+  return tabs;
+};
+
+export const findUniqueClassificationsOnVariant = (
+  baseClassifications,
+  variantClassifications
+) => {
+  return _.pickBy(variantClassifications, (value, key) => {
+    return !(key in baseClassifications);
+  });
+};
+
+// TODO: Is there not a function to get a render value of a classification?
+export const mapClassificationValues = (classificationsMap) => {
+  return Object.entries(classificationsMap)
+    .map(([key, value]) => {
+      if (["colourfamily", "texturefamily"].includes(key)) {
+        // TODO: Hmmmmmmm
+        return value.value.value;
+      }
+
+      if (key === "measurements") {
+        return getSizeLabel(value);
+      }
+    })
+    .filter(Boolean)
+    .join(", ");
 };

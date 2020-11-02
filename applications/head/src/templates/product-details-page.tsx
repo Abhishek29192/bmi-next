@@ -15,6 +15,7 @@ import {
   mapProductClassifications,
   getProductTechnicalSpecifications
 } from "../utils/product-details-transforms";
+import RelatedProducts from "../components/RelatedProducts";
 
 type Data = PageData & {
   productData: ProductOverviewData;
@@ -56,7 +57,7 @@ type Classification = {
   features: ClassificationFeature[];
 };
 
-type VariantOption = {
+export type VariantOption = {
   isSampleOrderAllowed: boolean;
   images: ReadonlyArray<Image>;
   code: string;
@@ -99,16 +100,17 @@ export type Product = {
 
 type Props = {
   pageContext: {
-    // productId: string;
+    productId: string;
     variantCode?: string;
     siteId: string;
     countryCode: string;
+    relatedProductCodes: ReadonlyArray<string>;
     pimClassificationCatalogueNamespace: string;
   };
   data: {
     product: Product;
     relatedProducts: {
-      nodes: ReadonlyArray<any>; // TODO
+      nodes: ReadonlyArray<Product>; // TODO: match type correctly
     };
     contentfulSite: SiteData;
   };
@@ -188,6 +190,15 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           description={product.description}
           keyFeatures={product.productBenefits}
           technicalSpecifications={technicalSpecifications}
+        />
+      </Section>
+      <Section backgroundColor="alabaster">
+        <RelatedProducts
+          countryCode={pageContext.countryCode}
+          classificationNamespace={
+            pageContext.pimClassificationCatalogueNamespace
+          }
+          products={relatedProducts.nodes}
         />
       </Section>
     </Page>
@@ -279,8 +290,7 @@ export const pageQuery = graphql`
       filter: { code: { in: $relatedProductCodes } }
     ) {
       nodes {
-        code
-        name
+        ...RelatedProductsFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {

@@ -75,19 +75,19 @@ const createProductPages = async (
       return;
     }
 
-    const brandCode = (
+    const productFamilyCode = (
       (product.categories || []).find(({ categoryType }) => {
-        return categoryType === "Brand";
+        return categoryType === "ProductFamily";
       }) || {}
     ).code;
 
     let relatedProductCodes = [];
-    if (brandCode) {
+    if (productFamilyCode) {
       const result = await graphql(`
       {
         categoryProducts: allProducts(
           filter: {
-            categories: { elemMatch: { code: { eq: "${brandCode}" } } }
+            categories: { elemMatch: { code: { eq: "${productFamilyCode}" } } }
           }
           ) {
             nodes {
