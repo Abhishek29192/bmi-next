@@ -98,6 +98,10 @@
           }
         }
       }
+
+      &--selected {
+        border-bottom: 5px solid $color-cyan-500 !important;
+      }
     }
 
     :global {
