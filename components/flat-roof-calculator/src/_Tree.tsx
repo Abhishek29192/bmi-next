@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from "react";
 import RadioGroup from "@bmi/radio-group";
 import { FormContext } from "@bmi/form";
-import Field from "./Field";
+import Field from "./_Field";
 import { FieldsDisplay } from "./types/FieldsDisplay";
 
 const getEventHandler = (fieldName, mappedOptions) => (value) => {

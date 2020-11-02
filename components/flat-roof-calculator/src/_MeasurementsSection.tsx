@@ -2,8 +2,8 @@ import React from "react";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
 import TextField from "@bmi/text-field";
-import Field from "./Field";
-import FormSection from "./FormSection";
+import Field from "./_Field";
+import FormSection from "./_FormSection";
 import styles from "./FlatRoofCalculator.module.scss";
 import { FormValues } from "./types/FormValues";
 

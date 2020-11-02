@@ -1,19 +1,19 @@
 import React from "react";
 import Typography from "@bmi/typography";
 import Form, { FormProps } from "@bmi/form";
-import MeasurementsSection from "./MeasurementsSection";
-import Section from "./Section";
+import MeasurementsSection from "./_MeasurementsSection";
+import Section from "./_Section";
 import Divider from "@material-ui/core/Divider";
 import Button from "@bmi/button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import styles from "./FlatRoofCalculator.module.scss";
-import { ProjectInformationSection } from "./ProjectInformationSection";
+import { ProjectInformationSection } from "./_ProjectInformationSection";
 import { FormValues } from "./types/FormValues";
 import { TreeType } from "./types/TreeType";
 import { FieldsDisplay } from "./types/FieldsDisplay";
-import FormSection from "./FormSection";
-import Tree from "./Tree";
+import FormSection from "./_FormSection";
+import Tree from "./_Tree";
 
 const DecisionTreeSection = ({
   header,

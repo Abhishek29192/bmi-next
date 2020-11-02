@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@bmi/typography";
 import classnames from "classnames";
 import styles from "./FlatRoofCalculator.module.scss";
-import Section, { SectionProps } from "./Section";
+import Section, { SectionProps } from "./_Section";
 
 type Props = SectionProps & {
   header: string;

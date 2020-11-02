@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
-import FormSection from "./FormSection";
+import FormSection from "./_FormSection";
 import TextField from "@bmi/text-field";
 import styles from "./FlatRoofCalculator.module.scss";
 import { maxLengthValidator } from "./utils/maxLengthValidator";
