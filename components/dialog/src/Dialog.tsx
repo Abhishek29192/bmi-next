@@ -18,6 +18,7 @@ type Props = {
   areaLabelledby?: string;
   areaDescribedby?: string;
   children: React.ReactNode;
+  className?: string;
 };
 
 const Dialog = ({
@@ -29,7 +30,8 @@ const Dialog = ({
   backdropProps,
   areaLabelledby,
   areaDescribedby,
-  children
+  children,
+  className
 }: Props) => {
   const childrenArray = React.Children.toArray(children);
   const rawTitle = childrenArray.find(
@@ -57,6 +59,7 @@ const Dialog = ({
       <Fade in={open}>
         <div
           className={classnames(
+            className,
             styles["Dialog"],
             styles[`Dialog--bg-${color}`],
             styles[`Dialog--width-${maxWidth}`]
