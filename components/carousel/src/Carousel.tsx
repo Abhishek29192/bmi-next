@@ -61,19 +61,21 @@ const CarouselContext = createContext<{
   setActivePage?: Dispatch<SetStateAction<number>>;
   scroll?: Props["scroll"];
   slidesPerPage?: number;
+  totalSlides: number;
 }>({
   activePage: 0,
-  total: 0
+  total: 0,
+  totalSlides: 0
 });
 
 const CarouselSlide = ({ children, className }: SlideProps) => {
-  const { slidesPerPage } = useContext(CarouselContext);
+  const { slidesPerPage, totalSlides } = useContext(CarouselContext);
 
   return (
     <div
       className={classnames(styles["slide"], className)}
       style={{
-        width: `${100 / (slidesPerPage || 1)}%`
+        width: `${100 / (Math.max(slidesPerPage, totalSlides) || 1)}%`
       }}
     >
       {children}
@@ -347,7 +349,8 @@ const Carousel = ({
         setActivePage,
         total: totalPages,
         scroll,
-        slidesPerPage: finalSlidesPerPage
+        slidesPerPage: finalSlidesPerPage,
+        totalSlides: slides.length
       }}
     >
       <div
@@ -370,7 +373,7 @@ const Carousel = ({
           }
         }}
         className={classnames(styles["wrapper"], {
-          [styles["wrapper--shrinked"]]: isArrowCarousel
+          [styles["wrapper--shrinked"]]: isArrowCarousel && totalPages > 1
         })}
       >
         {arrayChildren.slice(0, firstSlideIndex)}
@@ -379,7 +382,8 @@ const Carousel = ({
             [styles["Carousel--opacity"]]: hasOpacityAnimation,
             [styles["Carousel--swipable"]]:
               !isSwipeDisabled && !isArrowCarousel,
-            [styles["Carousel--show-off-screen"]]: isArrowCarousel
+            [styles["Carousel--show-off-screen"]]:
+              isArrowCarousel && totalPages > 1
           })}
           ref={wrapper}
         >
