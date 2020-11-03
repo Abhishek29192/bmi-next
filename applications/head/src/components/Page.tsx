@@ -60,6 +60,7 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
           navigationData={menuNavigation}
           utilitiesData={menuUtilities}
           countryCode={countryCode}
+          slug={pageData.slug}
         />
         {children}
         {pageData.showSignUpBanner ? (

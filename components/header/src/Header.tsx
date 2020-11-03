@@ -24,6 +24,7 @@ type HeaderProps = {
   navigation: readonly NavigationList[];
   utilities: readonly LinkList[];
   logoAction?: ClickableAction;
+  activeNavLabel?: string;
 };
 
 const Header = ({
@@ -31,7 +32,8 @@ const Header = ({
   languages,
   navigation,
   utilities,
-  logoAction
+  logoAction,
+  activeNavLabel
 }: HeaderProps) => {
   const $body: HTMLElement =
     typeof document !== "undefined"
@@ -210,7 +212,10 @@ const Header = ({
                 {navigation.map(({ label }, key) => (
                   <Tab
                     aria-controls={`navigation-tabpanel-${key}`}
-                    className={styles.NavItem}
+                    className={classnames(
+                      styles["NavItem"],
+                      activeNavLabel === label && styles["NavItem--selected"]
+                    )}
                     icon={<KeyboardArrowDown />}
                     id={`navigation-tab-${key}`}
                     key={`navigation-tab-${key}`}
