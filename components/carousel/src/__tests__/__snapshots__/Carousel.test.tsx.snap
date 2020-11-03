@@ -2,10 +2,10 @@
 
 exports[`Carousel component doesn't render controls when scroll is finite and pages per slides = total slides 1`] = `
 <div
-  class="wrapper wrapper--shrinked"
+  class="wrapper"
 >
   <div
-    class="Carousel Carousel--opacity Carousel--show-off-screen"
+    class="Carousel Carousel--opacity Carousel--with-gutter"
   >
     <div
       style="overflow-x: hidden;"
@@ -25,19 +25,19 @@ exports[`Carousel component doesn't render controls when scroll is finite and pa
           >
             <div
               class="slide"
-              style="width: 25%;"
+              style="width: 33.333333333333336%;"
             >
               First slide
             </div>
             <div
               class="slide"
-              style="width: 25%;"
+              style="width: 33.333333333333336%;"
             >
               Second slide
             </div>
             <div
               class="slide"
-              style="width: 25%;"
+              style="width: 33.333333333333336%;"
             >
               Third slide
             </div>
@@ -273,10 +273,10 @@ exports[`Carousel component renders correctly 1`] = `
 
 exports[`Carousel component renders correctly with arrow controls 1`] = `
 <div
-  class="wrapper wrapper--shrinked"
+  class="wrapper"
 >
   <div
-    class="Carousel Carousel--opacity Carousel--show-off-screen"
+    class="Carousel Carousel--opacity"
   >
     <div
       style="overflow-x: hidden;"
@@ -296,19 +296,19 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
           >
             <div
               class="slide"
-              style="width: 25%;"
+              style="width: 33.333333333333336%;"
             >
               First slide
             </div>
             <div
               class="slide"
-              style="width: 25%;"
+              style="width: 33.333333333333336%;"
             >
               Second slide
             </div>
             <div
               class="slide"
-              style="width: 25%;"
+              style="width: 33.333333333333336%;"
             >
               Third slide
             </div>

@@ -48,8 +48,6 @@ const Sections = ({ data }: { data: Data }) => {
               key={`section${index}`}
               // @ts-ignore
               data={section}
-              // TODO: Robust theme-based solution required.
-              backgroundColor={index % 2 === 1 ? "pearl" : "white"}
             />
           )
         );

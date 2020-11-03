@@ -6,6 +6,9 @@ export type Data = {
   title: string;
   subtitle: string | null;
   brandLogo: string | null;
+  tag: {
+    title: string;
+  } | null;
   featuredImage: {
     file: {
       fileName: string;
@@ -20,6 +23,9 @@ export const promoQuery = graphql`
     title
     subtitle
     brandLogo
+    tag {
+      title
+    }
     featuredImage {
       file {
         fileName

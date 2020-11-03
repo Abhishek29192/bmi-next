@@ -229,6 +229,7 @@ const Slide = ({ children, color }) => (
       lg: 4
     }}
     scroll="finite"
+    hasGutter
   >
     <Carousel.Slide>
       <Slide color="#73c6b6">First slide</Slide>

@@ -36,61 +36,51 @@ type Props = {
   onPageChange?: (activePage: number) => void;
   hasOpacityAnimation?: boolean;
   scroll?: "infinite" | "finite";
-} & (
-  | {
-      hasAutoPlay?: false;
-    }
-  | {
-      hasAutoPlay: true;
-      /** Only available for hasAutoPlay=true */
-      autoPlayInterval?: number;
-      /** Only available for hasAutoPlay=true */
-      pauseAutoPlayOnHover?: boolean;
-    }
-) &
-  WithWidth;
+  hasGutter?: boolean;
+} & WithWidth &
+  (
+    | {
+        hasAutoPlay?: false;
+      }
+    | {
+        hasAutoPlay: true;
+        /** Only available for hasAutoPlay=true */
+        autoPlayInterval?: number;
+        /** Only available for hasAutoPlay=true */
+        pauseAutoPlayOnHover?: boolean;
+      }
+  );
 
 type SlideProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-const CarouselContext = createContext<{
+type Context = {
   activePage: number;
   total: number;
   setActivePage?: Dispatch<SetStateAction<number>>;
   scroll?: Props["scroll"];
   slidesPerPage?: number;
-}>({
+  totalSlides: number;
+  currentBreakpoint: Breakpoint;
+};
+
+type DotAnnotationComponents = {
+  Slide: typeof CarouselSlide;
+  Controls: typeof CarouselControls;
+};
+
+type ArrayChildren = Array<
+  Exclude<React.ReactNode, boolean | null | undefined>
+>;
+
+const CarouselContext = createContext<Context>({
   activePage: 0,
-  total: 0
+  total: 0,
+  totalSlides: 0,
+  currentBreakpoint: "lg"
 });
-
-const CarouselSlide = ({ children, className }: SlideProps) => {
-  const { slidesPerPage } = useContext(CarouselContext);
-
-  return (
-    <div
-      className={classnames(styles["slide"], className)}
-      style={{
-        width: `${100 / (slidesPerPage || 1)}%`
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
-export const getPageFromAbsoluteIndex = (
-  index: number,
-  total: number
-): number => {
-  if (index < 0) {
-    return ((-(total - 1) * index) % total) + 1;
-  }
-
-  return (index % total) + 1;
-};
 
 const mapRange = (
   input: number,
@@ -141,7 +131,6 @@ const handleSwiping = (
   }
 
   const toFixed = (number: number) => Math.round(Math.abs(number) * 1e2) / 1e2;
-
   const currentSwipe = toFixed(index - 3);
 
   activeSlide.style.opacity = "" + toFixed(1 - currentSwipe);
@@ -175,6 +164,47 @@ const calculateSlidesPerPage = (
 
       return 0;
     }, 0) || 1
+  );
+};
+
+export const getPageFromAbsoluteIndex = (
+  index: number,
+  total: number
+): number => {
+  if (index < 0) {
+    return ((-(total - 1) * index) % total) + 1;
+  }
+
+  return (index % total) + 1;
+};
+
+const CarouselSlide = ({ children, className }: SlideProps) => {
+  const { slidesPerPage, totalSlides, currentBreakpoint } = useContext(
+    CarouselContext
+  );
+
+  const breakpointToSlidesMap = {
+    xl: 3,
+    lg: 3,
+    md: 2,
+    sm: 1,
+    xs: 1
+  };
+
+  return (
+    <div
+      className={classnames(styles["slide"], className)}
+      style={{
+        width: `${
+          100 /
+          (totalSlides < slidesPerPage
+            ? breakpointToSlidesMap[currentBreakpoint]
+            : slidesPerPage)
+        }%`
+      }}
+    >
+      {children}
+    </div>
   );
 };
 
@@ -229,10 +259,22 @@ const CarouselControls = ({
   );
 };
 
-type DotAnnotationComponents = {
-  Slide: typeof CarouselSlide;
-  Controls: typeof CarouselControls;
-};
+const checkArrowControls = (arrayChildren: ArrayChildren) =>
+  !!arrayChildren.find(
+    (child) =>
+      isValidElement(child) &&
+      child?.type === CarouselControls &&
+      child.props.type === "arrows"
+  );
+
+const mapPagesToSlides = (pageSlides: ArrayChildren) =>
+  pageSlides.map((pageSlide, key) => {
+    return (
+      <div className={styles["page"]} key={key}>
+        {pageSlide}
+      </div>
+    );
+  });
 
 const Carousel = ({
   children,
@@ -243,25 +285,24 @@ const Carousel = ({
   hasOpacityAnimation,
   width: currentBreakpoint,
   scroll = "infinite",
+  hasGutter,
   ...autoPlayProps
 }: Props) => {
   const [hasUserInteracted, setHasUserInteracted] = useState<boolean>(false);
   const [activePage, setActivePage] = useState<number>(initialPage);
+
   const wrapper = useRef<HTMLDivElement>(null);
   const arrayChildren = React.Children.toArray(children);
-  const isArrowCarousel = useMemo(
-    () =>
-      !!arrayChildren.find(
-        (child) =>
-          isValidElement(child) &&
-          child?.type === CarouselControls &&
-          child.props.type === "arrows"
-      ),
-    [arrayChildren]
-  );
-  hasOpacityAnimation = hasOpacityAnimation || isArrowCarousel;
+  const isArrowCarousel = checkArrowControls(arrayChildren);
+
+  const CarouselComponent =
+    scroll === "finite"
+      ? AutoPlaySwipeableViews
+      : InfiniteSwipeableViewsComponent;
+
   let firstSlideIndex: number;
   let lastSlideIndex: number = 0;
+
   const slides = useMemo(
     () =>
       arrayChildren.filter((child, index) => {
@@ -281,30 +322,18 @@ const Carousel = ({
     () => calculateSlidesPerPage(currentBreakpoint, slidesPerPage),
     [currentBreakpoint, slidesPerPage]
   );
+
   const totalPages = Math.ceil(slides.length / finalSlidesPerPage);
-  const pageSlides = useMemo(
-    () =>
-      Array.from(new Array(totalPages)).map((_, pageNumber) => {
-        return slides.slice(
-          pageNumber * finalSlidesPerPage,
-          pageNumber * finalSlidesPerPage + finalSlidesPerPage
-        );
-      }),
-    [totalPages]
-  );
   const previousTotalPages = usePrevious(totalPages);
 
-  useEffect(() => {
-    handleStepChange(
-      Math.floor(mapRange(activePage, 0, previousTotalPages, 0, totalPages))
+  const pageSlides = Array.from(new Array(totalPages)).map((_, pageNumber) => {
+    return slides.slice(
+      pageNumber * finalSlidesPerPage,
+      pageNumber * finalSlidesPerPage + finalSlidesPerPage
     );
-  }, [finalSlidesPerPage]);
+  });
 
-  useEffect(() => {
-    if (initialPage !== activePage) {
-      setActivePage(initialPage);
-    }
-  }, [initialPage]);
+  hasOpacityAnimation = hasOpacityAnimation || isArrowCarousel;
 
   const handleStepChange = (page: number) => {
     setActivePage(page);
@@ -325,20 +354,24 @@ const Carousel = ({
   const extraProps =
     scroll === "finite"
       ? {
-          children: pageSlides.map((pageSlide, key) => {
-            return (
-              <div className={styles["page"]} key={key}>
-                {pageSlide}
-              </div>
-            );
-          })
+          children: mapPagesToSlides(pageSlides)
         }
       : { slideRenderer };
 
-  const CarouselComponent =
-    scroll === "finite"
-      ? AutoPlaySwipeableViews
-      : InfiniteSwipeableViewsComponent;
+  useEffect(() => {
+    if (previousTotalPages !== totalPages) {
+      // NOTE: Navigates to the active page when the slides per page settings change.
+      handleStepChange(
+        Math.floor(mapRange(activePage, 0, previousTotalPages, 0, totalPages))
+      );
+    }
+  }, [finalSlidesPerPage, pageSlides]);
+
+  useEffect(() => {
+    if (initialPage !== activePage) {
+      setActivePage(initialPage);
+    }
+  }, [initialPage]);
 
   return (
     <CarouselContext.Provider
@@ -347,7 +380,9 @@ const Carousel = ({
         setActivePage,
         total: totalPages,
         scroll,
-        slidesPerPage: finalSlidesPerPage
+        slidesPerPage: finalSlidesPerPage,
+        totalSlides: slides.length,
+        currentBreakpoint
       }}
     >
       <div
@@ -370,7 +405,8 @@ const Carousel = ({
           }
         }}
         className={classnames(styles["wrapper"], {
-          [styles["wrapper--shrinked"]]: isArrowCarousel
+          [styles["wrapper--show-off-screen"]]:
+            isArrowCarousel && totalPages > 1
         })}
       >
         {arrayChildren.slice(0, firstSlideIndex)}
@@ -379,7 +415,7 @@ const Carousel = ({
             [styles["Carousel--opacity"]]: hasOpacityAnimation,
             [styles["Carousel--swipable"]]:
               !isSwipeDisabled && !isArrowCarousel,
-            [styles["Carousel--show-off-screen"]]: isArrowCarousel
+            [styles["Carousel--with-gutter"]]: hasGutter
           })}
           ref={wrapper}
         >

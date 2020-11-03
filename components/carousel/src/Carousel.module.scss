@@ -4,26 +4,6 @@ body {
   overflow-x: hidden;
 }
 
-// TODO: Add this to class at hero level
-.wrapper {
-  height: 100%;
-  position: relative;
-
-  &--shrinked {
-    // NOTE: 16px is the grid gutter
-    margin: 0 calc(16px / 2 + 30px);
-
-    @media (min-width: $breakpoint-sm) {
-      // NOTE: 16px is the grid gutter
-      margin: 0 calc(24px / 2 + 50px);
-    }
-
-    @media (min-width: $breakpoint-xl) {
-      margin: 0;
-    }
-  }
-}
-
 .Carousel {
   position: relative;
   flex: 1;
@@ -43,13 +23,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
 
-    .wrapper--shrinked & {
-      padding: 0 8px;
+  &--with-gutter .slide {
+    padding: 0 8px;
 
-      @media (min-width: $breakpoint-md) {
-        padding: 0 12px;
-      }
+    @media (min-width: $breakpoint-md) {
+      padding: 0 12px;
     }
   }
 
@@ -57,7 +37,11 @@ body {
     display: flex;
     width: 100%;
     height: 100%;
-    justify-content: flex-start;
+    justify-content: center;
+
+    .wrapper--show-off-screen & {
+      justify-content: flex-start;
+    }
   }
 
   &--swipable .page {
@@ -76,6 +60,8 @@ body {
       overflow-x: visible !important;
     }
     :global(.Carousel__slide--global) {
+      overflow: revert !important;
+
       transition: 0.3s ease-in-out opacity;
 
       &[aria-hidden="false"] {
@@ -88,8 +74,35 @@ body {
       }
     }
   }
+}
 
-  &--show-off-screen :global(.Carousel__slide--global)[aria-hidden="true"] {
-    opacity: 0.35;
+// TODO: Add this to class at hero level
+.wrapper {
+  height: 100%;
+  position: relative;
+  margin: 0 -8px;
+
+  @media (min-width: $breakpoint-sm) {
+    margin: 0 -24px;
+  }
+
+  &--show-off-screen {
+    :global(.Carousel__slide--global) {
+      &[aria-hidden="true"] {
+        opacity: 0.35;
+      }
+    }
+
+    // NOTE: 16px is the grid gutter
+    margin: 0 calc(16px / 2 + 30px);
+
+    @media (min-width: $breakpoint-sm) {
+      // NOTE: 16px is the grid gutter
+      margin: 0 calc(24px / 2 + 50px);
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      margin: 0 -24px;
+    }
   }
 }
