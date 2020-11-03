@@ -233,6 +233,43 @@ type ContentfulCardCollectionSection implements Node {
 }
 
 """
+Represents a widget for social sharing.
+"""
+type ContentfulShareWidgetSection implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  title: String
+
+  "Message shown when url is saved to the clipboard"
+  clipboardSuccessMessage: String
+
+  "Message shown in the even of an error when copying to the cliboard"
+  clipboardErrorMessage: String
+
+  "The widget is aligned to the left"
+  isLeftAligned: Boolean
+
+  "The copy functionality is shown"
+  copy: Boolean
+
+  "The email functionality is shown"
+  email: Boolean
+
+  "The Facebook share functionality is shown"
+  facebook: Boolean
+
+  "The LinkedIn share functionality is shown"
+  linkedin: Boolean
+
+  "The Pinterest share functionality is shown"
+  pinterest: Boolean
+
+  "The Twitter share functionality is shown"
+  twitter: Boolean
+}
+
+"""
 Represents a union for all the possible sections available in a page.
 """
 union ContentfulSection =
@@ -243,6 +280,7 @@ union ContentfulSection =
   | ContentfulTabsOrAccordionSection
   | ContentfulVillainSection
   | ContentfulTitleWithContent
+  | ContentfulShareWidgetSection
 
 """
 Represents a key value pair for UI strings.
