@@ -7,10 +7,9 @@ import {
   getProductUrl,
   findMasterImageUrl,
   findProductBrandLogoCode,
-  mapProductClassifications,
-  findUniqueClassificationsOnVariant,
   mapClassificationValues,
-  groupProductsByCategory
+  groupProductsByCategory,
+  findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
 import { Add as AddIcon } from "@material-ui/icons";
 import { iconMap } from "../components/Icon";
@@ -58,65 +57,55 @@ const ProductListing = ({
   return (
     <div>
       <Grid container spacing={3}>
-        {allVariants
-          .slice(0, numberShown)
-          .map(({ _product: product, ...variant }) => {
-            const brandLogoCode = findProductBrandLogoCode(product);
-            const brandLogo = iconMap[brandLogoCode];
+        {allVariants.slice(0, numberShown).map((variant) => {
+          const { _product: product } = variant;
+          const brandLogoCode = findProductBrandLogoCode(product);
+          const brandLogo = iconMap[brandLogoCode];
 
-            const mainImage = findMasterImageUrl([
-              ...(variant.images || []),
-              ...(product.images || [])
-            ]);
+          const mainImage = findMasterImageUrl([
+            ...(variant.images || []),
+            ...(product.images || [])
+          ]);
 
-            // Find variant classifications that don't exist in the base product.
-            const classifications = mapProductClassifications(
-              product,
-              classificationNamespace
-            );
+          // Find variant classifications that don't exist in the base product
+          // TODO: May not be performant
+          const uniqueClassifications = mapClassificationValues(
+            findUniqueVariantClassifications(variant, classificationNamespace)
+          );
 
-            // Base product may not have any classifications
-            // Variant may not have classifications therefore it will not appear here
-            // In which case, we can either check against an empty base resulting in all variant classifications
-            // or with an empty variant, resulting in no classifications
-            const uniqueClassifications = findUniqueClassificationsOnVariant(
-              classifications[product.code] || {},
-              classifications[variant.code] || {}
-            );
-
-            return (
-              <Grid
-                item
-                key={`${product.code}-${variant.code}`}
-                xs={12}
-                md={6}
-                lg={3}
+          return (
+            <Grid
+              item
+              key={`${product.code}-${variant.code}`}
+              xs={12}
+              md={6}
+              lg={3}
+            >
+              <OverviewCard
+                title={product.name}
+                titleVariant="h5"
+                subtitle={uniqueClassifications}
+                subtitleVariant="h6"
+                imageSource={mainImage}
+                brandImageSource={brandLogo}
+                footer={
+                  <AnchorLink
+                    iconEnd
+                    action={{
+                      model: "routerLink",
+                      linkComponent: Link,
+                      to: getProductUrl(countryCode, variant.code)
+                    }}
+                  >
+                    View details
+                  </AnchorLink>
+                }
               >
-                <OverviewCard
-                  title={product.name}
-                  titleVariant="h5"
-                  subtitle={mapClassificationValues(uniqueClassifications)}
-                  subtitleVariant="h6"
-                  imageSource={mainImage}
-                  brandImageSource={brandLogo}
-                  footer={
-                    <AnchorLink
-                      iconEnd
-                      action={{
-                        model: "routerLink",
-                        linkComponent: Link,
-                        to: getProductUrl(countryCode, variant.code)
-                      }}
-                    >
-                      View details
-                    </AnchorLink>
-                  }
-                >
-                  NOBB number: <b>{variant.code}</b>
-                </OverviewCard>
-              </Grid>
-            );
-          })}
+                NOBB number: <b>{variant.code}</b>
+              </OverviewCard>
+            </Grid>
+          );
+        })}
       </Grid>
       {numberShown < allVariants.length ? (
         <div className={styles["load-more-wrapper"]}>
