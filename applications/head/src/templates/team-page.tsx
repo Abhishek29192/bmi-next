@@ -18,7 +18,7 @@ type Data = PageInfoData &
       title: string;
       description: {
         json: Document;
-      };
+      } | null;
       // NOTE: This is snake_case because it's a relationship field.
       team_member: TeamMemberData;
     }[];
@@ -56,9 +56,11 @@ const TeamPage = ({ data }: Props) => {
             index={index}
           >
             <Container>
-              <div style={{ margin: "60px 0" }}>
-                <RichText document={category.description.json} />
-              </div>
+              {category.description ? (
+                <div style={{ margin: "60px 0" }}>
+                  <RichText document={category.description.json} />
+                </div>
+              ) : null}
               <TeamList data={category.team_member} />
             </Container>
           </Tabs.TabPanel>
