@@ -104,19 +104,17 @@ const Hero = ({
                       >
                         {title}
                       </Typography>
-                      <div className={styles["text"]}>
-                        {children}
-                        {label && (
-                          <Button
-                            className={styles["cta"]}
-                            variant="outlined"
-                            hasDarkBackground
-                            {...linkProps}
-                          >
-                            {label}
-                          </Button>
-                        )}
-                      </div>
+                      <div className={styles["text"]}>{children}</div>
+                      {label && (
+                        <Button
+                          className={styles["cta"]}
+                          variant="outlined"
+                          hasDarkBackground
+                          {...linkProps}
+                        >
+                          {label}
+                        </Button>
+                      )}
                     </div>
                   </Carousel.Slide>
                 );
