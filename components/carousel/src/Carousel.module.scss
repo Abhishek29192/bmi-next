@@ -1,3 +1,5 @@
+@import "@bmi/styles";
+
 body {
   overflow-x: hidden;
 }
@@ -5,10 +7,24 @@ body {
 // TODO: Add this to class at hero level
 .wrapper {
   height: 100%;
+  position: relative;
+
+  &--shrinked {
+    // NOTE: 16px is the grid gutter
+    margin: 0 calc(16px / 2 + 30px);
+
+    @media (min-width: $breakpoint-sm) {
+      // NOTE: 16px is the grid gutter
+      margin: 0 calc(24px / 2 + 50px);
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      margin: 0;
+    }
+  }
 }
 
 .Carousel {
-  // TODO: Add this to class at hero level
   position: relative;
   flex: 1;
   height: 100%;
@@ -24,17 +40,24 @@ body {
   }
 
   .slide {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    .wrapper--shrinked & {
+      padding: 0 8px;
+
+      @media (min-width: $breakpoint-md) {
+        padding: 0 12px;
+      }
+    }
   }
 
   .page {
     display: flex;
     width: 100%;
     height: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   &--swipable .page {
@@ -64,5 +87,9 @@ body {
         pointer-events: none;
       }
     }
+  }
+
+  &--show-off-screen :global(.Carousel__slide--global)[aria-hidden="true"] {
+    opacity: 0.35;
   }
 }

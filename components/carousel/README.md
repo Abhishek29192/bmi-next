@@ -10,6 +10,7 @@ Wrap as many slides as you want using the `Carousel.Slide` as direct children of
 Then place the `Carousel.Controls` before or after the slides, wrapped in any element.
 
 The `slidesPerPage` property will set how many slides will be visible in every page.
+It can be a number or a Breakpoint object. Check the Arrow Controls example for more information.
 
 ```jsx
 const Slide = ({ children, color }) => (
@@ -188,6 +189,73 @@ const Slide = ({ children, color }) => (
     </Carousel.Slide>
 
     <Carousel.Controls isFullSize />
+  </Carousel>
+</div>;
+```
+
+### Arrow controls
+
+You can use arrow controls instead of the slide controls by adding the `type="arrows"`.
+Since the arrow controls display at the edge of the carousel, the carousel itself will become narrower.
+
+The intended behaviour is to use partial opacity on the non-active slides, and with `scroll="finite"`.
+
+When Arrow controls are in use, the swiping will be disabled for non-touch devices.
+
+```jsx
+const Slide = ({ children, color }) => (
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: color,
+      color: "#fff",
+      height: "300px"
+    }}
+  >
+    {children}
+  </div>
+);
+<div
+  style={{
+    overflow: "hidden"
+  }}
+>
+  <Carousel
+    slidesPerPage={{
+      xs: 1,
+      md: 2,
+      lg: 4
+    }}
+    scroll="finite"
+  >
+    <Carousel.Slide>
+      <Slide color="#73c6b6">First slide</Slide>
+    </Carousel.Slide>
+    <Carousel.Slide>
+      <Slide color="#7389c6">Second slide</Slide>
+    </Carousel.Slide>
+    <Carousel.Slide>
+      <Slide color="#652ca3">Third slide</Slide>
+    </Carousel.Slide>
+    <Carousel.Slide>
+      <Slide color="#652fba">Fourth slide</Slide>
+    </Carousel.Slide>
+    <Carousel.Slide>
+      <Slide color="#659e0a">Fifth slide</Slide>
+    </Carousel.Slide>
+    <Carousel.Slide>
+      <Slide color="#5f93ff">Sixth slide</Slide>
+    </Carousel.Slide>
+    <Carousel.Slide>
+      <Slide color="#5e4eff">Seventh slide</Slide>
+    </Carousel.Slide>
+    <Carousel.Slide>
+      <Slide color="#409fff">Eighth slide</Slide>
+    </Carousel.Slide>
+
+    <Carousel.Controls type="arrows" />
   </Carousel>
 </div>;
 ```
