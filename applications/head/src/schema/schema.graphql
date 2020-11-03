@@ -204,3 +204,4 @@ union ContentfulSection =
   | ContentfulLeadBlockSection
   | ContentfulTabsOrAccordionSection
   | ContentfulVillainSection
+  | ContentfulTitleWithContent

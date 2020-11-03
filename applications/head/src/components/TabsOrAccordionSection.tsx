@@ -94,6 +94,7 @@ export default TabsOrAccordionSection;
 
 export const query = graphql`
   fragment TabsOrAccordionSectionFragment on ContentfulTabsOrAccordionSection {
+    __typename
     type
     title
     description {
