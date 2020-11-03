@@ -82,8 +82,8 @@ body {
   position: relative;
   margin: 0 -8px;
 
-  @media (min-width: $breakpoint-sm) {
-    margin: 0 -24px;
+  @media (min-width: $breakpoint-md) {
+    margin: 0 -12px;
   }
 
   &--show-off-screen {
@@ -96,13 +96,13 @@ body {
     // NOTE: 16px is the grid gutter
     margin: 0 calc(16px / 2 + 30px);
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-md) {
       // NOTE: 16px is the grid gutter
       margin: 0 calc(24px / 2 + 50px);
     }
 
     @media (min-width: $breakpoint-xl) {
-      margin: 0 -24px;
+      margin: 0 -12px;
     }
   }
 }
