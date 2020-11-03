@@ -16,6 +16,7 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
+            __typename: "ContentfulTitleWithContent",
             title: "hello",
             content: {
               json: {
@@ -34,6 +35,7 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
+            __typename: "ContentfulTitleWithContent",
             title: "hello",
             content: {
               json: {

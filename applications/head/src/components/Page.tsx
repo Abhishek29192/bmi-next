@@ -28,6 +28,7 @@ const parseResources = (resources: SiteData["resources"]): any => {
 
 const Page = ({ title, children, pageData, siteData }: Props) => {
   const {
+    node_locale,
     countryCode,
     footerMainNavigation,
     footerSecondaryNavigation,
@@ -51,6 +52,7 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
       <Helmet title={title} />
       <SiteContext.Provider
         value={{
+          node_locale,
           countryCode,
           homePage: siteData.homePage,
           resources: parseResources(siteData.resources)
