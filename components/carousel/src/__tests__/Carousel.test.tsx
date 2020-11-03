@@ -138,6 +138,7 @@ describe("Carousel component", () => {
           sm: 2,
           lg: 4
         }}
+        hasGutter
       >
         <Carousel.Slide>First slide</Carousel.Slide>
         <Carousel.Slide>Second slide</Carousel.Slide>
