@@ -11,14 +11,14 @@ require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
+const pimClassificationCatalogueNamespace =
+  process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
+
 const createProductPages = async (
   siteId,
   countryCode,
   { graphql, actions }
 ) => {
-  const pimClassificationCatalogueNamespace =
-    process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
-
   if (!pimClassificationCatalogueNamespace) {
     console.warn(
       "createProductPages: You have to provide a PIM_CLASSIFICATION_CATALOGUE_NAMESPACE in your env file"
@@ -196,7 +196,8 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           pageId: page.id,
           siteId: site.id,
-          categoryCode: page.categoryCode
+          categoryCode: page.categoryCode,
+          pimClassificationCatalogueNamespace
         }
       });
     });
