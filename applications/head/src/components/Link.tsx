@@ -34,7 +34,7 @@ export const getCTA = (
       }
     | Pick<PageInfoData, "__typename" | "slug">,
   countryCode: string,
-  linkLabel: string
+  linkLabel?: string
 ) => {
   if (data.__typename === "ContentfulPromo") {
     if (!data.cta) {
