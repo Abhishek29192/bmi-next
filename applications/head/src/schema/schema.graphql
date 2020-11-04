@@ -23,7 +23,7 @@ interface ContentfulPage {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -51,7 +51,7 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag #
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -79,7 +79,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -107,7 +107,7 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -157,7 +157,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -171,7 +171,7 @@ type ContentfulPromo implements Node {
   brandLogo: String
 
   "Tag for the promo"
-  tag: ContentfulTag
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -226,7 +226,10 @@ type ContentfulCardCollectionSection implements Node {
   groupCards: Boolean
 
   "The link for this section."
-  link: ContentfulLink # @link(from: "link__NODE")
+  link: ContentfulLink @link(from: "link___NODE")
+
+  "The cards for this section."
+  cards: [ContentfulPromoOrPage] @link(from: "cards___NODE")
 }
 
 """
@@ -266,7 +269,7 @@ type ContentfulResources implements Node {
   pdpCardsTitle: String
 
   "The cards for the product content details for these resources."
-  pdpCards: [ContentfulPromoOrPage]
+  pdpCards: [ContentfulPromoOrPage] @link(from: "pdpCards___NODE")
 }
 
 """
