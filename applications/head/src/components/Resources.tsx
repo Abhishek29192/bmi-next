@@ -21,7 +21,7 @@ export type Data = {
         | Omit<PromoData, "featuredImage">
         | Omit<PageInfoData, "featuredImage">
       ) &
-        FeaturedImage)
+        FeaturedImage)[]
     | null;
 };
 
