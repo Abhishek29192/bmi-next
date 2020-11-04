@@ -3,6 +3,11 @@
 .MenuIsOpen {
   // This class is attached to the `body`
   overflow: hidden;
+
+  .NavigationBar,
+  .UtilitiesBar {
+    padding-right: 15px;
+  }
 }
 
 .Header {
@@ -216,7 +221,8 @@
   .UtilitiesBar {
     background-color: $color-pearl;
     display: none;
-    padding: 0.4375rem 0;
+    padding-top: 0.4375rem;
+    padding-bottom: 0.4375rem;
     position: relative;
     text-align: right;
     z-index: 15;
