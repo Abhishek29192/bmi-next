@@ -78,7 +78,7 @@ exports[`Footer component renders correctly 1`] = `
               >
                 <a
                   class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
-                  href="//landing-page"
+                  href="/uk/landing-page"
                 >
                   <span
                     class="MuiButton-label"
@@ -110,7 +110,7 @@ exports[`Footer component renders correctly 1`] = `
           >
             <a
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
-              href="//landing-page"
+              href="/uk/landing-page"
             >
               <span
                 class="MuiButton-label"
