@@ -15,6 +15,7 @@ import { groupBy, flatten } from "lodash";
 import Chip from "@bmi/chip";
 import Carousel from "@bmi/carousel";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { iconMap } from "./Icon";
 
 type FeaturedImage = {
   resize: {
@@ -43,41 +44,32 @@ export type Data = {
 };
 
 // TODO: Reuse the getCTA function here.
-const transformCard = (
-  card: Card
-): {
-  title: string;
-  subtitle: string;
+const transformCard = ({
+  title,
+  subtitle,
+  featuredImage,
+  brandLogo,
+  ...rest
+}: Card): {
+  title: Card["title"];
+  subtitle: Card["subtitle"];
   link: LinkData | null;
-  featuredImage: FeaturedImage | null;
+  featuredImage: Card["featuredImage"];
+  brandLogo: Card["brandLogo"];
 } => {
-  let title;
-  let subtitle;
   let link = null;
-  let featuredImage = null;
 
-  if (
-    card.__typename === "ContentfulSimplePage" ||
-    card.__typename === "ContentfulProductListerPage"
-  ) {
+  if (rest.__typename === "ContentfulPromo") {
+    link = rest.cta;
+  } else {
     link = {
       linkedPage: {
-        slug: card.slug
+        slug: rest.slug
       }
     };
-    title = card.title;
-    subtitle = card.subtitle;
-    featuredImage = card.featuredImage;
   }
 
-  if (card.__typename === "ContentfulPromo") {
-    link = card.cta;
-    title = card.title;
-    subtitle = card.subtitle;
-    featuredImage = card.featuredImage;
-  }
-
-  return { title, subtitle, link, featuredImage };
+  return { title, subtitle, link, featuredImage, brandLogo };
 };
 
 const CardCollectionSection = ({
@@ -147,13 +139,17 @@ const CardCollectionSection = ({
             : cards
           ).map((card, i) => {
             const { id } = card;
-            const { title, subtitle, link, featuredImage } = transformCard(
-              card
-            );
+            const {
+              title,
+              subtitle,
+              link,
+              featuredImage,
+              brandLogo
+            } = transformCard(card);
 
             const transformedCardLabel = cardLabel
               ? cardLabel.replace(/{{title}}/g, title)
-              : cardLabel;
+              : link?.label || `Go to ${title}`;
 
             return (
               <Carousel.Slide key={`${id}-${i}`}>
@@ -162,6 +158,7 @@ const CardCollectionSection = ({
                   title={title}
                   imageSource={featuredImage?.resize.src}
                   isFlat={cardType === "Story Card"}
+                  brandImageSource={iconMap[brandLogo]}
                   footer={
                     link ? (
                       <Button

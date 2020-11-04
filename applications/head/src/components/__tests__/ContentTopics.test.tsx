@@ -34,10 +34,12 @@ describe("ContentTopics component", () => {
             bodyTitle: "Did you know?2",
             bodyList: [
               {
+                __typename: "ContentfulTitleWithContent",
                 title: "Frequently Asked Questions",
                 content: { json: contentMock as Document }
               },
               {
+                __typename: "ContentfulTitleWithContent",
                 title: "CloseDach",
                 content: { json: contentMock as Document }
               }
@@ -45,6 +47,7 @@ describe("ContentTopics component", () => {
             footerTitle: "footer title",
             footerList: [
               {
+                __typename: "ContentfulTitleWithContent",
                 title: "teste",
                 content: { json: contentMock as Document }
               }

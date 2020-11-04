@@ -359,8 +359,12 @@ HTMLCollection [
                         <div
                           class="body"
                         >
+                          <svg
+                            class="brand-logo"
+                            preserveAspectRatio="xMinYMin"
+                          />
                           <h4
-                            class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                            class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
                           >
                             promo title
                           </h4>
