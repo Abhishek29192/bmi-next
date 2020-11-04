@@ -39,7 +39,7 @@ export const findPath = (
       }
 
       if (item.__typename === "ContentfulNavigation") {
-        if (item.link?.linkedPage.slug === slug) {
+        if (item.link?.linkedPage?.slug === slug) {
           found = true;
           result = path;
           return true;
