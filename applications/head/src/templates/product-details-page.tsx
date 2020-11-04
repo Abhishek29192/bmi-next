@@ -19,6 +19,7 @@ import RelatedProducts from "../components/RelatedProducts";
 import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
+import ExploreBar from "../components/ExploreBar";
 
 type Data = PageData & {
   productData: ProductOverviewData;
@@ -231,6 +232,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
               }
             )}
           </Grid>
+        </Section>
+      )}
+      {resources?.pdpExploreBar && (
+        <Section backgroundColor="alabaster">
+          <ExploreBar data={resources.pdpExploreBar} />
         </Section>
       )}
     </Page>
