@@ -268,8 +268,11 @@ type ContentfulResources implements Node {
   "The title for the product details page cards for these resources."
   pdpCardsTitle: String
 
-  "The cards for the product content details for these resources."
+  "The cards for the product details page for these resources."
   pdpCards: [ContentfulPromoOrPage] @link(from: "pdpCards___NODE")
+
+  "The explore bar for the product details page for these resources."
+  pdpExploreBar: ContentfulNavigation @link(from: "pdpExploreBar___NODE")
 }
 
 """
@@ -277,5 +280,5 @@ Represents a site settings and its pages.
 """
 type ContentfulSite implements Node {
   "The global settings for this site."
-  resources: ContentfulResources
+  resources: ContentfulResources @link(from: "resources___NODE")
 }

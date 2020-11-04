@@ -3,6 +3,7 @@ import { Data as MicroCopyData } from "./MicroCopy";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 import { Data as PromoData } from "./Promo";
 import { Data as PageInfoData } from "./PageInfo";
+import { Data as ExploreBarData } from "./ExploreBar";
 
 type FeaturedImage = {
   featuredImage: {
@@ -23,6 +24,7 @@ export type Data = {
       ) &
         FeaturedImage)[]
     | null;
+  pdpExploreBar: ExploreBarData | null;
 };
 
 export const query = graphql`
@@ -55,6 +57,9 @@ export const query = graphql`
           }
         }
       }
+    }
+    pdpExploreBar {
+      ...ExploreBarFragment
     }
   }
 `;
