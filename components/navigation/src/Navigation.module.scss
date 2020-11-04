@@ -178,7 +178,12 @@
   .BackButton {
     font-weight: bold;
     margin-top: 10px;
+    padding: 12px 10px 12px 2px;
     width: 250px;
+
+    svg {
+      width: 24px;
+    }
 
     :global(.MuiButton-label) {
       justify-content: start;
