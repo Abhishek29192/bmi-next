@@ -1,10 +1,14 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import { BLOCKS, MARKS, Document } from "@contentful/rich-text-types";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS, MARKS, Document, Block } from "@contentful/rich-text-types";
+import {
+  documentToReactComponents,
+  Options
+} from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
+import EmbeddedBlock from "./EmbeddedBlock";
 
-const options = {
+const options: Options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => (
       <Typography gutterBottom>{children}</Typography>
@@ -23,6 +27,9 @@ const options = {
     ),
     [BLOCKS.HEADING_6]: (node, children) => (
       <Typography variant="h6">{children}</Typography>
+    ),
+    [BLOCKS.EMBEDDED_ENTRY]: (node: Block, children) => (
+      <EmbeddedBlock node={node} />
     )
   },
   renderMark: {

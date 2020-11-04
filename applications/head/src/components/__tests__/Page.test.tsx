@@ -24,6 +24,7 @@ describe("Page component", () => {
     };
 
     const siteData: SiteData = {
+      node_locale: "en-US",
       homePage: {
         title: "Home page title"
       },

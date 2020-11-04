@@ -4,6 +4,7 @@ import { NavigationData } from "./Link";
 import { Data as NewsLetterSignUpData } from "./NewsLetterSignUp";
 
 type Context = {
+  node_locale: string;
   countryCode: string;
   homePage: {
     title: string;
@@ -19,6 +20,7 @@ type Resource = {
 };
 
 export const SiteContext = createContext<Context>({
+  node_locale: "",
   countryCode: "",
   homePage: {
     title: ""
@@ -27,6 +29,7 @@ export const SiteContext = createContext<Context>({
 });
 
 export type Data = {
+  node_locale: string;
   homePage: {
     title: string;
   };
@@ -40,6 +43,7 @@ export type Data = {
 
 export const query = graphql`
   fragment SiteFragment on ContentfulSite {
+    node_locale
     homePage {
       title
     }

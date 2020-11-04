@@ -18,6 +18,9 @@ import LeadBlockSection, {
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "../components/CardCollectionSection";
+import TitleWithContentSection, {
+  Data as TitleWithContentData
+} from "../components/TitleWithContentSection";
 
 export type Data = (
   | FormSectionData
@@ -26,6 +29,7 @@ export type Data = (
   | CarouselSectionData
   | LeadBlockSectionData
   | CardCollectionSectionData
+  | TitleWithContentData
 )[];
 
 const sectionsMap = {
@@ -34,7 +38,8 @@ const sectionsMap = {
   ContentfulVillainSection: VillainSection,
   ContentfulCarouselSection: CarouselSection,
   ContentfulLeadBlockSection: LeadBlockSection,
-  ContentfulCardCollectionSection: CardCollectionSection
+  ContentfulCardCollectionSection: CardCollectionSection,
+  ContentfulTitleWithContent: TitleWithContentSection
 };
 
 const Sections = ({ data }: { data: Data }) => {
@@ -67,5 +72,6 @@ export const query = graphql`
     ...CarouselSectionFragment
     ...LeadBlockSectionFragment
     ...CardCollectionSectionFragment
+    ...TitleWithContentSectionFragment
   }
 `;
