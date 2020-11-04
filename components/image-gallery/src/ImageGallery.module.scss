@@ -8,8 +8,11 @@
     overflow: hidden;
     max-height: 360px;
     height: calc(100vw - (16px * 2));
-    background-size: cover;
+    // TODO: Add variation for cover
+    background-size: contain;
     background-position: center center;
+    background-repeat: no-repeat;
+    background-color: $color-white;
     -webkit-print-color-adjust: exact;
 
     @media (min-width: $breakpoint-sm) {
