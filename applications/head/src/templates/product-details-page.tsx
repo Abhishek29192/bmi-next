@@ -16,6 +16,10 @@ import {
   getProductTechnicalSpecifications
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
+import Grid, { GridSize } from "@bmi/grid";
+import CTACard from "@bmi/cta-card";
+import { getCTA } from "../components/Link";
+import ExploreBar from "../components/ExploreBar";
 
 type Data = PageData & {
   productData: ProductOverviewData;
@@ -180,6 +184,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     )
   };
 
+  const { resources, countryCode } = contentfulSite;
+
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
       <Container>
@@ -190,17 +196,49 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           description={product.description}
           keyFeatures={product.productBenefits}
           technicalSpecifications={technicalSpecifications}
+          sidebarItems={resources?.pdpSidebarItems}
         />
       </Section>
-      <Section backgroundColor="alabaster">
-        <RelatedProducts
-          countryCode={pageContext.countryCode}
-          classificationNamespace={
-            pageContext.pimClassificationCatalogueNamespace
-          }
-          products={relatedProducts.nodes}
-        />
-      </Section>
+      <RelatedProducts
+        countryCode={pageContext.countryCode}
+        classificationNamespace={
+          pageContext.pimClassificationCatalogueNamespace
+        }
+        products={relatedProducts.nodes}
+      />
+      {resources?.pdpCardsTitle && resources.pdpCards && (
+        <Section backgroundColor="alabaster">
+          <Section.Title>{resources.pdpCardsTitle}</Section.Title>
+          <Grid container spacing={3}>
+            {resources.pdpCards.map(
+              ({ title, featuredImage, ...data }, index, cards) => {
+                const { action } = getCTA(data, countryCode);
+                return (
+                  <Grid
+                    item
+                    key={`card-${index}`}
+                    xs={12}
+                    sm={6}
+                    md={4}
+                    lg={(12 / Math.max(cards.length, 3)) as GridSize}
+                  >
+                    <CTACard
+                      title={title}
+                      imageSource={featuredImage?.resize?.src}
+                      action={action}
+                    />
+                  </Grid>
+                );
+              }
+            )}
+          </Grid>
+        </Section>
+      )}
+      {resources?.pdpExploreBar && (
+        <Section backgroundColor="alabaster">
+          <ExploreBar data={resources.pdpExploreBar} />
+        </Section>
+      )}
     </Page>
   );
 };

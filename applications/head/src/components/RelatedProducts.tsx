@@ -15,9 +15,10 @@ import { Add as AddIcon } from "@material-ui/icons";
 import { iconMap } from "../components/Icon";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
-import AnchorLink from "@bmi/anchor-link/src";
+import AnchorLink from "@bmi/anchor-link";
 import Typography from "@bmi/typography";
-import Button from "@bmi/button/src";
+import Button from "@bmi/button";
+import Section from "@bmi/section";
 import styles from "./styles/RelatedProducts.module.scss";
 
 const ProductListing = ({
@@ -54,8 +55,12 @@ const ProductListing = ({
     [products]
   );
 
+  if (!allVariants.length) {
+    return null;
+  }
+
   return (
-    <div>
+    <Section backgroundColor="alabaster">
       <Grid container spacing={3}>
         {allVariants.slice(0, numberShown).map((variant) => {
           const { _product: product } = variant;
@@ -86,6 +91,7 @@ const ProductListing = ({
                 titleVariant="h5"
                 subtitle={uniqueClassifications}
                 subtitleVariant="h6"
+                imageSize="contain"
                 imageSource={mainImage}
                 brandImageSource={brandLogo}
                 footer={
@@ -114,7 +120,7 @@ const ProductListing = ({
           </Button>
         </div>
       ) : null}
-    </div>
+    </Section>
   );
 };
 
@@ -136,25 +142,29 @@ const RelatedProducts = ({
 
   const productGroups = groupProductsByCategory(products);
 
+  if (!Object.keys(productGroups).length) {
+    return null;
+  }
+
   return (
-    <div className={styles["RelatedProducts"]}>
-      <Typography hasUnderline variant="h2" className={styles["title"]}>
-        You might also need...
-      </Typography>
-      <Tabs theme="secondary" initialValue={Object.keys(productGroups)[0]}>
-        {Object.entries(productGroups).map(([category, products]) => {
-          return (
-            <Tabs.TabPanel heading={category} index={category} key={category}>
-              <ProductListing
-                classificationNamespace={classificationNamespace}
-                countryCode={countryCode}
-                products={products}
-              />
-            </Tabs.TabPanel>
-          );
-        })}
-      </Tabs>
-    </div>
+    <Section backgroundColor="alabaster">
+      <Section.Title>You might also need...</Section.Title>
+      <div className={styles["RelatedProducts"]}>
+        <Tabs theme="secondary" initialValue={Object.keys(productGroups)[0]}>
+          {Object.entries(productGroups).map(([category, products]) => {
+            return (
+              <Tabs.TabPanel heading={category} index={category} key={category}>
+                <ProductListing
+                  classificationNamespace={classificationNamespace}
+                  countryCode={countryCode}
+                  products={products}
+                />
+              </Tabs.TabPanel>
+            );
+          })}
+        </Tabs>
+      </div>
+    </Section>
   );
 };
 

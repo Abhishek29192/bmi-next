@@ -3,6 +3,22 @@ import Sections, { Data } from "../Sections";
 import { render } from "@testing-library/react";
 import { BLOCKS } from "@contentful/rich-text-types";
 import mockConsole from "jest-mock-console";
+import { SiteContext } from "../Site";
+
+const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <SiteContext.Provider
+      value={{
+        node_locale: "en-UK",
+        homePage: { title: "Home Page" },
+        getMicroCopy: (path) => path,
+        countryCode: "uk"
+      }}
+    >
+      {children}
+    </SiteContext.Provider>
+  );
+};
 
 beforeAll(() => {
   mockConsole();
@@ -197,7 +213,11 @@ describe("Sections component", () => {
       }
     ];
 
-    const { container } = render(<Sections data={data} />);
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
     expect(container.children).toMatchSnapshot();
   });
 });

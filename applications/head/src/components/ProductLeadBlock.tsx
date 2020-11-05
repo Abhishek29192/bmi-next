@@ -7,6 +7,8 @@ import Tabs from "@bmi/tabs";
 import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
+import RichText from "./RichText";
+import { Document } from "@contentful/rich-text-types";
 import styles from "./styles/ProductLeadBlock.module.scss";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
@@ -18,12 +20,19 @@ type Props = {
     name: string;
     value: string;
   }[];
+  sidebarItems?: {
+    title: React.ReactNode;
+    content: {
+      json: Document;
+    };
+  }[];
 };
 
 const ProductLeadBlock = ({
   description,
   keyFeatures,
-  technicalSpecifications
+  technicalSpecifications,
+  sidebarItems
 }: Props) => {
   return (
     <div className={styles["ProductLeadBlock"]}>
@@ -67,21 +76,20 @@ const ProductLeadBlock = ({
                   </LeadBlock.Card.Content>
                 </LeadBlock.Card.Section>
               ) : null}
-              <LeadBlock.Card.Section>
-                <LeadBlock.Card.Heading variant="h5">
-                  Ordering
-                </LeadBlock.Card.Heading>
-                <LeadBlock.Card.Content>
-                  <Typography>
-                    Ready to buy? Have a question about this product?
-                  </Typography>
-                </LeadBlock.Card.Content>
-                <LeadBlock.Card.Action>
-                  <Button hasDarkBackground variant="outlined">
-                    Find a stockist
-                  </Button>
-                </LeadBlock.Card.Action>
-              </LeadBlock.Card.Section>
+              {sidebarItems?.length && (
+                <LeadBlock.Card.Section>
+                  <LeadBlock.Card.Heading variant="h5">
+                    {sidebarItems[0].title}
+                  </LeadBlock.Card.Heading>
+                  <LeadBlock.Card.Content>
+                    <RichText
+                      document={sidebarItems[0].content.json}
+                      theme="secondary"
+                      backgroundTheme="dark"
+                    />
+                  </LeadBlock.Card.Content>
+                </LeadBlock.Card.Section>
+              )}
             </LeadBlock.Card>
           </LeadBlock>
         </Tabs.TabPanel>
@@ -103,44 +111,24 @@ const ProductLeadBlock = ({
                 "No technical specifications found for this product."
               )}
             </LeadBlock.Content>
-            <LeadBlock.Card theme="blue-900">
-              <LeadBlock.Card.Section>
-                <LeadBlock.Card.Heading hasUnderline>
-                  Heading 1
-                </LeadBlock.Card.Heading>
-                <LeadBlock.Card.Content>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus ut egestas risus. Fusce elementum nisi elementum
-                    dui vehicula, vitae fermentum velit egestas.
-                  </Typography>
-                </LeadBlock.Card.Content>
-                <LeadBlock.Card.Action>
-                  <Button hasDarkBackground variant="outlined">
-                    Caption
-                  </Button>
-                </LeadBlock.Card.Action>
-              </LeadBlock.Card.Section>
-              <LeadBlock.Card.Section>
-                <LeadBlock.Card.Heading hasUnderline>
-                  Heading 2
-                </LeadBlock.Card.Heading>
-                <LeadBlock.Card.Content>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus ut egestas risus. Fusce elementum nisi elementum
-                    dui vehicula, vitae fermentum velit egestas.
-                  </Typography>
-                </LeadBlock.Card.Content>
-                <LeadBlock.Card.Action>
-                  <Typography>
-                    <Button hasDarkBackground variant="outlined">
-                      Caption
-                    </Button>
-                  </Typography>
-                </LeadBlock.Card.Action>
-              </LeadBlock.Card.Section>
-            </LeadBlock.Card>
+            {sidebarItems && sidebarItems.length > 1 && (
+              <LeadBlock.Card theme="blue-900">
+                {sidebarItems.slice(1).map(({ title, content }, index) => {
+                  return (
+                    <LeadBlock.Card.Section key={`sidebar-item-${index}`}>
+                      <LeadBlock.Card.Heading>{title}</LeadBlock.Card.Heading>
+                      <LeadBlock.Card.Content>
+                        <RichText
+                          document={content.json}
+                          theme="secondary"
+                          backgroundTheme="dark"
+                        />
+                      </LeadBlock.Card.Content>
+                    </LeadBlock.Card.Section>
+                  );
+                })}
+              </LeadBlock.Card>
+            )}
           </LeadBlock>
         </Tabs.TabPanel>
       </Tabs>

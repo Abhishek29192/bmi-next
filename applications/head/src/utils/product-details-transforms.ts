@@ -444,6 +444,9 @@ export const getProductTechnicalSpecifications = (
   classifications
 ) => {
   // TODO: This is hardcoded for Norway.
+  const IGNORED_CLASSIFICATIONS = ["scoringWeightAttributes.scoringweight"].map(
+    (value) => `${classificationNamespace}/${value}`
+  );
   const TECHNICAL_SPECIFICATION_ORDER = [
     "measurements.length",
     "measurements.width",
@@ -457,6 +460,7 @@ export const getProductTechnicalSpecifications = (
   ].map((value) => `${classificationNamespace}/${value}`);
 
   return classifications
+    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code))
     .map(({ code, name, featureValues, featureUnit }) => ({
       name,
       value: `${featureValues[0].value} ${featureUnit?.symbol || ""}`,
