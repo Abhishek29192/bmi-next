@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
 import Typography, { Props as TypographyProps } from "@bmi/typography";
-import { Container } from "@material-ui/core";
+import Container from "@bmi/container";
 import styles from "./Section.module.scss";
 import classnames from "classnames";
 
