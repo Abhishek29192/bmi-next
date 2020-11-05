@@ -36,6 +36,23 @@ exports[`Section component renders correctly 1`] = `
 </div>
 `;
 
+exports[`Section component renders with a custom className 1`] = `
+<div
+  class="test Section"
+>
+  <div
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+  >
+    <h2
+      class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+    >
+      H2 Heading
+    </h2>
+    Hello world.
+  </div>
+</div>
+`;
+
 exports[`Section component renders with a title 1`] = `
 <div
   class="Section"

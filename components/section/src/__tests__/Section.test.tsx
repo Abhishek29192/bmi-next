@@ -30,4 +30,13 @@ describe("Section component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders with a custom className", () => {
+    const { container } = render(
+      <Section className="test">
+        <Section.Title>H2 Heading</Section.Title>
+        Hello world.
+      </Section>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
