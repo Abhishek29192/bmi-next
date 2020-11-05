@@ -8,7 +8,7 @@ exports[`Footer component renders correctly 1`] = `
     class="Footer"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"

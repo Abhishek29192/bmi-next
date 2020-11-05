@@ -8,7 +8,7 @@ exports[`TableOfContent component renders correctly 1`] = `
     class="Section"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <div
         class="menu"
@@ -52,7 +52,7 @@ exports[`TableOfContent component renders correctly 1`] = `
     class="Section Section--pearl"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <h2
         class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
@@ -73,7 +73,7 @@ exports[`TableOfContent component renders correctly 1`] = `
     class="Section"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <h2
         class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
@@ -94,7 +94,7 @@ exports[`TableOfContent component renders correctly 1`] = `
     class="Section Section--pearl"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <h2
         class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"

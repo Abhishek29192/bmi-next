@@ -5,7 +5,7 @@ exports[`InputBanner component renders correctly 1`] = `
   class="InputBanner"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
   >
     <div
       class="wrapper"

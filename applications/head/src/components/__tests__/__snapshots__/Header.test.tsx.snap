@@ -10,7 +10,7 @@ exports[`Header component renders correctly 1`] = `
     role="navigation"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <ul>
         <li
@@ -37,7 +37,7 @@ exports[`Header component renders correctly 1`] = `
     class="NavigationBar"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <div
         class="NavigationBar__Left"
