@@ -107,18 +107,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-export const promoQuery = graphql`
-  fragment ContactUsPageInfoFragment on ContentfulContactUsPage {
-    title
-    subtitle
-    brandLogo
-    slug
-    featuredImage {
-      file {
-        fileName
-        url
-      }
-    }
-  }
-`;
