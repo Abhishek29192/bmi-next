@@ -80,6 +80,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "Tag for the page"
   tag: ContentfulTag @link(from: "tag___NODE")
+
+  "The topics for this page."
+  contentTopics: [ContentfulContentTopic] @link(from: "contentTopics___NODE")
 }
 
 """
@@ -311,6 +314,31 @@ type ContentfulResources implements Node {
 
   "The explore bar for the product details page for these resources."
   pdpExploreBar: ContentfulNavigation @link(from: "pdpExploreBar___NODE")
+}
+
+"""
+Represents a content topic.
+"""
+type ContentfulContentTopic implements Node {
+  id: ID!
+
+  "The icon symbol for this topic."
+  icon: String
+
+  "The title for this topic."
+  title: String
+
+  "The title of the body for this topic."
+  bodyTitle: String
+
+  "The list of helpful tips for this topic."
+  bodyList: [ContentfulTitleWithContent] @link(from: "bodyList___NODE")
+
+  "The title for the footer of this topic."
+  footerTitle: String
+
+  "The list of actions for this topic."
+  footerList: [ContentfulTitleWithContent] @link(from: "footerList___NODE")
 }
 
 """
