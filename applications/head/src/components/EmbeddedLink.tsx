@@ -19,8 +19,11 @@ type Props = {
 
 const getDataFromLocale = <T extends {}>(
   localeCode: string,
-  fields: LocalisedFields<T>
+  fields?: LocalisedFields<T>
 ) => {
+  if (!fields) {
+    return;
+  }
   // TODO: Ideally the return type should also be using the generic.
   // However, it's a complicated structure. Thanks Contentfuk. (Actual typo)
   return _.mapValues(fields, (value) => value[localeCode]);
@@ -44,7 +47,7 @@ const EmbeddedLink = ({
         getDataFromLocale<LinkData["linkedPage"]>(
           node_locale,
           // @ts-ignore See getDataFromLocale comment
-          localeFields.linkedPage.fields
+          localeFields.linkedPage?.fields
         ),
         // @ts-ignore See getDataFromLocale comment
         localeFields.url,
