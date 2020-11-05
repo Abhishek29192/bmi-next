@@ -6,12 +6,15 @@ import TwoPaneCarousel, {
 import VerticalRoller, {
   Slide as VerticalRollerSlide
 } from "@bmi/vertical-roller";
-import Section, { Props } from "@bmi/section";
+import Section from "@bmi/section";
+import Button from "@bmi/button";
 import { Data as PromoData } from "../components/Promo";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
-import { LinkData, getCTA } from "./Link";
+import { LinkData, getCTA, getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import styles from "./styles/CarouselSection.module.scss";
 
 type Slide = PromoData | PageInfoData;
 
@@ -43,16 +46,17 @@ const parseSlides = (
 };
 
 const CarouselSection = ({
-  data: { slides, title, variant },
-  backgroundColor
+  data: { slides, title, variant, link }
 }: {
   data: Data;
-  backgroundColor: Props["backgroundColor"];
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section
+      backgroundColor={variant === "vertical" ? "pearl" : "white"}
+      className={styles["CarouselSection"]}
+    >
       {variant === "vertical" ? (
         <VerticalRoller
           title={title}
@@ -71,6 +75,19 @@ const CarouselSection = ({
           )}
         />
       )}
+      {link && (
+        <Button
+          action={getClickableActionFromUrl(
+            link?.linkedPage,
+            link?.url,
+            countryCode
+          )}
+          className={styles["link"]}
+          endIcon={<ArrowForwardIcon />}
+        >
+          {link.label}
+        </Button>
+      )}
     </Section>
   );
 };
@@ -87,6 +104,9 @@ export const query = graphql`
         ...PromoFragment
         ...PageInfoFragment
       }
+    }
+    link {
+      ...LinkFragment
     }
   }
 `;
