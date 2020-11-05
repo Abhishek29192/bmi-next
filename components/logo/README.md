@@ -20,67 +20,119 @@ import BmiIcon from "./svgs/BMI.svg";
 <Icon source={BmiIcon} style={{ width: 100 }} />;
 ```
 
-## Variants
+## Brands
 
 ```jsx
 import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
+import AeroDek from "./svgs/AeroDek.svg";
+import Braas from "./svgs/Braas.svg";
+import Icopal from "./svgs/Icopal.svg";
+import Monarplan from "./svgs/Monarplan.svg";
+import Monier from "./svgs/Monier.svg";
+import Redland from "./svgs/Redland.svg";
+import Zanda from "./svgs/Zanda.svg";
 
-import AeroDekIcon from "./svgs/AeroDek.svg";
-import BraasIcon from "./svgs/Braas.svg";
-import IcopalIcon from "./svgs/Icopal.svg";
-import MonarplanIcon from "./svgs/Monarplan.svg";
-import MonierIcon from "./svgs/Monier.svg";
-import RedlandIcon from "./svgs/Redland.svg";
-import ZandaIcon from "./svgs/Zanda.svg";
+<Grid container spacing={2}>
+  <Grid item xs={4}>
+    <Logo source={AeroDek} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={Braas} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={Icopal} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={Monarplan} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={Monier} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={Redland} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={Zanda} />
+  </Grid>
+</Grid>;
+```
 
+## RoofPro Levels
+
+```jsx
+import Grid from "@bmi/grid";
 import RoofProElite from "./svgs/RoofProElite.svg";
 import RoofProExpert from "./svgs/RoofProExpert.svg";
 import RoofProPartner from "./svgs/RoofProPartner.svg";
+
+<Grid container spacing={2}>
+  <Grid item xs={4}>
+    <Logo source={RoofProElite} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={RoofProExpert} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={RoofProPartner} />
+  </Grid>
+</Grid>;
+```
+
+## Small Partner variant
+
+To be used when height of the logo would be <= 30px
+
+```jsx
+import Grid from "@bmi/grid";
 import RoofProPartnerSmall from "./svgs/RoofProPartnerSmall.svg";
 
-const style = { marginRight: "1rem", width: "40%" };
-const headingStyle = { marginTop: 20, marginBottom: 20 };
+<Grid container spacing={2}>
+  <Grid item xs={4}>
+    <Logo source={RoofProPartnerSmall} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={RoofProPartnerSmall} style={{ height: 30 }} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={RoofProPartnerSmall} style={{ height: 15 }} />
+  </Grid>
+</Grid>;
+```
 
-<>
-  <Typography variant="h4" style={headingStyle}>
-    Brands
-  </Typography>
-  <Logo source={AeroDekIcon} style={style} />
-  <Logo source={BraasIcon} style={style} />
-  <Logo source={IcopalIcon} style={style} />
-  <Logo source={MonarplanIcon} style={style} />
-  <Logo source={MonierIcon} style={style} />
-  <Logo source={RedlandIcon} style={style} />
-  <Logo source={ZandaIcon} style={style} />
+## Guarantees
 
-  <hr />
-  
-  <div>
-    <Typography variant="h4" style={headingStyle}>
-      RoofPro levels
-    </Typography>
-    <Grid container spacing={2}>
-      <Grid item xs={4}>
-        <Logo source={RoofProElite}/>
-      </Grid>
-      <Grid item xs={4}>
-        <Logo source={RoofProExpert}/>
-      </Grid>
-      <Grid item xs={4}>
-        <Logo source={RoofProPartner} />
-      </Grid>
-    </Grid>
-  </div>
-  <div>
-    <Typography variant="h5" style={headingStyle}>
-      {"Small Variant to be used when height of the logo would be <= 30px"}
-    </Typography>
-     <Grid container spacing={2}>
-      <Grid item xs={4}>
-        <Logo source={RoofProPartnerSmall} />
-      </Grid>
-    </Grid>
-  </div>
-</>;
+```jsx
+import Grid from "@bmi/grid";
+import GuaranteeProduct from "./svgs/GuaranteeProduct.svg";
+import GuaranteeSystem from "./svgs/GuaranteeSystem.svg";
+import GuaranteeSolution from "./svgs/GuaranteeSolution.svg";
+
+<Grid container spacing={2}>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeProduct} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeSystem} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeSolution} />
+  </Grid>
+</Grid>;
+```
+
+## Standard
+
+```jsx
+import Grid from "@bmi/grid";
+import Standard from "./svgs/Standard.svg";
+import StandardCentred from "./svgs/StandardCentred.svg";
+
+<Grid container spacing={2}>
+  <Grid item xs={6}>
+    <Logo source={Standard} />
+  </Grid>
+  <Grid item xs={6}>
+    <Logo source={StandardCentred} />
+  </Grid>
+</Grid>;
 ```

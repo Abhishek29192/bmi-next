@@ -223,14 +223,14 @@ exports[`Header component renders correctly 1`] = `
       <div
         class="NavigationBar__Left"
       >
-        <button
+        <a
           class="LogoLink"
-          type="button"
+          href="/"
         >
           <svg
             class="Logo"
           />
-        </button>
+        </a>
         <nav
           aria-label="Navigation"
           class="Navigation"

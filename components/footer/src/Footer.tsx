@@ -42,7 +42,7 @@ const NavigationItem = ({ label, icon, isLabelHidden, action }: MenuItem) => {
           hasDarkBackground
           action={action}
         >
-          <IconComponent />
+          <IconComponent className={styles["icon"]} />
         </Button>
       ) : (
         <Button

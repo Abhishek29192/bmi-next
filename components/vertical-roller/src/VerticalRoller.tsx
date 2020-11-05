@@ -80,24 +80,20 @@ const VerticalRoller = ({ title, slides }: Props) => {
                           <BrandIcon className={styles["brand-icon"]} />
                         )}
                       </div>
-                      <Grid container spacing={0} justify="flex-end">
-                        <Grid item xs={9} md={12}>
-                          {description && (
-                            <Typography className={styles["description"]}>
-                              {description}
-                            </Typography>
-                          )}
-                          {cta && (
-                            <Button
-                              className={styles["button"]}
-                              action={cta.action}
-                              endIcon={<ArrowIcon />}
-                            >
-                              {cta.label}
-                            </Button>
-                          )}
-                        </Grid>
-                      </Grid>
+                      {description && (
+                        <Typography className={styles["description"]}>
+                          {description}
+                        </Typography>
+                      )}
+                      {cta && (
+                        <Button
+                          className={styles["button"]}
+                          action={cta.action}
+                          endIcon={<ArrowIcon />}
+                        >
+                          {cta.label}
+                        </Button>
+                      )}
                     </Carousel.Slide>
                   );
                 }
