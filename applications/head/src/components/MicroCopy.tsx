@@ -14,7 +14,9 @@ export const generateGetMicroCopy = (microCopy?: Data[]) => {
     return fallbackGetMicroCopy;
   }
 
-  const getMicroCopy: GetMicroCopy = (path) => microCopy[path] || `MC: ${path}`;
+  const getMicroCopy: GetMicroCopy = (path) => {
+    return microCopy.find(({ key }) => key === path)?.value || `MC: ${path}`;
+  };
 
   return getMicroCopy;
 };
