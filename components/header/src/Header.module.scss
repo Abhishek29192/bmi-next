@@ -50,6 +50,7 @@
 
     .NavItem {
       border: 1px solid transparent;
+      border-radius: 3px 3px 0 0;
       min-width: auto;
       transition: color $transition-timing, background-color $transition-timing,
         box-shadow $transition-timing, border $transition-timing;
@@ -58,14 +59,14 @@
       opacity: 1;
 
       @media (min-width: $breakpoint-md) {
-        padding-bottom: 30px;
-        padding-top: 30px;
+        font-size: 16px;
+        padding-bottom: 32px;
+        padding-top: 31px;
       }
 
-      @media (min-width: $breakpoint-lg) {
+      @media (min-width: 1200px) {
         font-size: 18px;
-        padding-bottom: 30px;
-        padding-top: 30px;
+        padding: 30px 8px 30px 14px;
       }
 
       &:hover {
@@ -91,7 +92,8 @@
           margin-bottom: 0;
           height: 16px;
           width: 16px;
-          @media (min-width: $breakpoint-lg) {
+
+          @media (min-width: 1200px) {
             margin-left: 3px;
             height: 24px;
             width: 24px;

@@ -30,14 +30,16 @@
   }
 
   .controls {
-    margin-top: auto;
-    width: 70px;
-    position: absolute;
-    bottom: 60px;
-    z-index: 2;
-    overflow: unset;
+    display: none;
 
     @media (min-width: $breakpoint-md) {
+      display: flex;
+      margin-top: auto;
+      width: 70px;
+      position: absolute;
+      bottom: 60px;
+      z-index: 2;
+      overflow: unset;
       position: relative;
       bottom: auto;
     }
