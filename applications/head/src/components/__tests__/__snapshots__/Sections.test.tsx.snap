@@ -328,7 +328,7 @@ HTMLCollection [
           card collection section title
         </h2>
         <div
-          class="wrapper"
+          class="wrapper wrapper--with-gutter"
         >
           <div
             class="Carousel Carousel--opacity Carousel--with-gutter"
@@ -458,7 +458,7 @@ HTMLCollection [
           card section title 2
         </h2>
         <div
-          class="wrapper"
+          class="wrapper wrapper--with-gutter"
         >
           <div
             class="Carousel Carousel--opacity Carousel--with-gutter"

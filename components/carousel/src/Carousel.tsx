@@ -406,7 +406,8 @@ const Carousel = ({
         }}
         className={classnames(styles["wrapper"], {
           [styles["wrapper--show-off-screen"]]:
-            isArrowCarousel && totalPages > 1
+            isArrowCarousel && totalPages > 1,
+          [styles["wrapper--with-gutter"]]: hasGutter
         })}
       >
         {arrayChildren.slice(0, firstSlideIndex)}

@@ -80,10 +80,13 @@ body {
 .wrapper {
   height: 100%;
   position: relative;
-  margin: 0 -8px;
 
-  @media (min-width: $breakpoint-md) {
-    margin: 0 -12px;
+  &--with-gutter {
+    margin: 0 -8px;
+
+    @media (min-width: $breakpoint-md) {
+      margin: 0 -12px;
+    }
   }
 
   &--show-off-screen {
@@ -99,10 +102,6 @@ body {
     @media (min-width: $breakpoint-md) {
       // NOTE: 16px is the grid gutter
       margin: 0 calc(24px / 2 + 50px);
-    }
-
-    @media (min-width: $breakpoint-xl) {
-      margin: 0 -12px;
     }
   }
 }
