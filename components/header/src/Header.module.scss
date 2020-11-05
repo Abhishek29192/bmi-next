@@ -135,8 +135,10 @@
   .CloseButton {
     background-color: $color-white;
     color: $color-slate;
-    float: right;
     margin: 7px;
+    position: absolute;
+    right: 0;
+    top: 0;
     z-index: 2;
 
     &:hover {
@@ -191,11 +193,6 @@
     @media (min-width: $breakpoint-sm) {
       right: 20px;
       width: 566px;
-    }
-
-    .CloseButton {
-      margin-right: -20px;
-      margin-top: -20px;
     }
 
     :global(.MuiTypography-root) {
