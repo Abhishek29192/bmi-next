@@ -236,6 +236,28 @@ type ContentfulCardCollectionSection implements Node {
 }
 
 """
+Represents a carousel section.
+"""
+type ContentfulCarouselSection implements Node {
+  id: ID!
+
+  "The title for this section."
+  title: String
+
+  "The description for this section."
+  description: RichText
+
+  "The variant of carousel to be used."
+  variant: String!
+
+  "The slides for this carousel."
+  slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
+
+  "The link for this section."
+  link: ContentfulLink @link(from: "link___NODE")
+}
+
+"""
 Represents a widget for social sharing.
 """
 type ContentfulShareWidgetSection implements Node {
