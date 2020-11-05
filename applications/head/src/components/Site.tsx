@@ -2,6 +2,8 @@ import { createContext } from "react";
 import { graphql } from "gatsby";
 import { NavigationData } from "./Link";
 import { Data as NewsLetterSignUpData } from "./NewsLetterSignUp";
+import { Data as ResourcesData } from "./Resources";
+import { GetMicroCopy, fallbackGetMicroCopy } from "./MicroCopy";
 
 type Context = {
   node_locale: string;
@@ -9,14 +11,7 @@ type Context = {
   homePage: {
     title: string;
   };
-  // NOTE: need to think how to manage microcopy resources. There needs to a
-  // defined set. E.g ["page.linkLabel"]: string;
-  resources: Record<string, string>;
-};
-
-type Resource = {
-  key: string;
-  value: string;
+  getMicroCopy: GetMicroCopy;
 };
 
 export const SiteContext = createContext<Context>({
@@ -25,7 +20,7 @@ export const SiteContext = createContext<Context>({
   homePage: {
     title: ""
   },
-  resources: {}
+  getMicroCopy: fallbackGetMicroCopy
 });
 
 export type Data = {
@@ -38,7 +33,7 @@ export type Data = {
   footerSecondaryNavigation: NavigationData;
   menuNavigation: NavigationData;
   menuUtilities: NavigationData;
-  resources: Resource[];
+  resources: ResourcesData;
 } & NewsLetterSignUpData;
 
 export const query = graphql`
@@ -62,8 +57,7 @@ export const query = graphql`
     }
     ...SignUpFragment
     resources {
-      key
-      value
+      ...ResourcesFragment
     }
   }
 `;

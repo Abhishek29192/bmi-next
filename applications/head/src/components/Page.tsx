@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import NewsletterSignUp from "../components/NewsLetterSignUp";
 import { SiteContext, Data as SiteData } from "./Site";
+import { generateGetMicroCopy } from "./MicroCopy";
 
 export type Data = {
   showSignUpBanner: boolean | null;
@@ -19,13 +20,6 @@ type Props = {
   siteData: SiteData;
 };
 
-const parseResources = (resources: SiteData["resources"]): any => {
-  return Object.assign(
-    {},
-    ...resources.map(({ key, value }) => ({ [key]: value }))
-  );
-};
-
 const Page = ({ title, children, pageData, siteData }: Props) => {
   const {
     node_locale,
@@ -37,7 +31,8 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
     signUpInputLabel,
     signUpCallToAction,
     menuNavigation,
-    menuUtilities
+    menuUtilities,
+    resources
   } = siteData;
 
   const signUpData = {
@@ -47,6 +42,8 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
     signUpCallToAction
   };
 
+  const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
+
   return (
     <BmiThemeProvider>
       <Helmet title={title} />
@@ -55,7 +52,7 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
           node_locale,
           countryCode,
           homePage: siteData.homePage,
-          resources: parseResources(siteData.resources)
+          getMicroCopy
         }}
       >
         <Header

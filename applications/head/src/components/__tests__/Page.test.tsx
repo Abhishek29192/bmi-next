@@ -39,7 +39,7 @@ describe("Page component", () => {
       footerSecondaryNavigation: mockNavigation,
       menuNavigation: mockNavigation,
       menuUtilities: mockNavigation,
-      resources: []
+      resources: null
     };
 
     const pageData: Data = {

@@ -4,10 +4,14 @@ import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
 
 export const getClickableActionFromUrl = (
-  linkedPage: LinkData["linkedPage"],
-  url: LinkData["url"],
-  countryCode: string
+  linkedPage?: LinkData["linkedPage"],
+  url?: LinkData["url"],
+  countryCode?: string
 ): ClickableAction | undefined => {
+  if (!countryCode) {
+    return;
+  }
+
   if (linkedPage && "slug" in linkedPage) {
     return {
       model: "routerLink",
@@ -22,8 +26,6 @@ export const getClickableActionFromUrl = (
       href: url
     };
   }
-
-  return undefined;
 };
 
 export const getCTA = (
@@ -34,7 +36,7 @@ export const getCTA = (
       }
     | Pick<PageInfoData, "__typename" | "slug">,
   countryCode: string,
-  linkLabel: string
+  linkLabel?: string
 ) => {
   if (data.__typename === "ContentfulPromo") {
     if (!data.cta) {
@@ -52,7 +54,7 @@ export const getCTA = (
   const { slug } = data;
 
   return {
-    action: getClickableActionFromUrl({ slug: slug }, null, countryCode),
+    action: getClickableActionFromUrl({ slug }, null, countryCode),
     // TODO: Use microcopy here
     label: linkLabel
   };

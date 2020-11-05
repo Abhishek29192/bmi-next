@@ -49,18 +49,26 @@ const CarouselSection = ({
   data: Data;
   backgroundColor: Props["backgroundColor"];
 }) => {
-  const { countryCode, resources } = useContext(SiteContext);
+  const { countryCode, getMicroCopy } = useContext(SiteContext);
 
   return (
     <Section backgroundColor={backgroundColor}>
       {variant === "vertical" ? (
         <VerticalRoller
           title={title}
-          slides={parseSlides(slides, countryCode, resources["page.linkLabel"])}
+          slides={parseSlides(
+            slides,
+            countryCode,
+            getMicroCopy("page.linkLabel")
+          )}
         />
       ) : (
         <TwoPaneCarousel
-          slides={parseSlides(slides, countryCode, resources["page.linkLabel"])}
+          slides={parseSlides(
+            slides,
+            countryCode,
+            getMicroCopy("page.linkLabel")
+          )}
         />
       )}
     </Section>

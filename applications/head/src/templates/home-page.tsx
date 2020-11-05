@@ -31,7 +31,7 @@ type Props = {
 };
 
 const getHeroItemsWithContext = (
-  { resources, countryCode },
+  { getMicroCopy, countryCode },
   slides: HomepageData["slides"]
 ): HeroItem[] => {
   return slides.map(({ title, subtitle, featuredImage, ...rest }) => {
@@ -39,7 +39,7 @@ const getHeroItemsWithContext = (
       title,
       children: subtitle,
       imageSource: featuredImage?.file.url,
-      CTA: getCTA(rest, countryCode, resources["page.linkLabel"])
+      CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
     };
   });
 };

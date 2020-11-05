@@ -241,6 +241,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                               title={product.name}
                               titleVariant="h5"
                               subtitle={uniqueClassifications}
+                              subtitleVariant="h6"
                               imageSource={mainImage}
                               imageSize="contain"
                               brandImageSource={brandLogo}
