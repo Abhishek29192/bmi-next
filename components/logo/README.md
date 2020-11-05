@@ -98,3 +98,41 @@ import RoofProPartnerSmall from "./svgs/RoofProPartnerSmall.svg";
   </Grid>
 </Grid>;
 ```
+
+## Guarantees
+
+```jsx
+import Grid from "@bmi/grid";
+import GuaranteeProduct from "./svgs/GuaranteeProduct.svg";
+import GuaranteeSystem from "./svgs/GuaranteeSystem.svg";
+import GuaranteeSolution from "./svgs/GuaranteeSolution.svg";
+
+<Grid container spacing={2}>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeProduct} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeSystem} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeSolution} />
+  </Grid>
+</Grid>;
+```
+
+## Standard
+
+```jsx
+import Grid from "@bmi/grid";
+import Standard from "./svgs/Standard.svg";
+import StandardCentred from "./svgs/StandardCentred.svg";
+
+<Grid container spacing={2}>
+  <Grid item xs={6}>
+    <Logo source={Standard} />
+  </Grid>
+  <Grid item xs={6}>
+    <Logo source={StandardCentred} />
+  </Grid>
+</Grid>;
+```
