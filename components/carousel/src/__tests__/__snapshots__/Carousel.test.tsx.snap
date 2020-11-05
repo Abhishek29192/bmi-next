@@ -1,5 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Carousel component doesn't render controls when scroll is finite and pages per slides = total slides 1`] = `
+<div
+  class="wrapper"
+>
+  <div
+    class="Carousel Carousel--opacity Carousel--with-gutter"
+  >
+    <div
+      style="overflow-x: hidden;"
+    >
+      <div
+        class="react-swipeable-view-container"
+        style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+      >
+        <div
+          aria-hidden="false"
+          class="Carousel__slide--global"
+          data-swipeable="true"
+          style="width: 100%; flex-shrink: 0; overflow: auto;"
+        >
+          <div
+            class="page"
+          >
+            <div
+              class="slide"
+              style="width: 33.333333333333336%;"
+            >
+              First slide
+            </div>
+            <div
+              class="slide"
+              style="width: 33.333333333333336%;"
+            >
+              Second slide
+            </div>
+            <div
+              class="slide"
+              style="width: 33.333333333333336%;"
+            >
+              Third slide
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Carousel component navigates to next page 1`] = `
 "Snapshot Diff:
 - First value
@@ -18,11 +67,11 @@ exports[`Carousel component navigates to next page 1`] = `
               aria-hidden=\\"false\\"
               class=\\"Carousel__slide--global\\"
               data-swipeable=\\"true\\"
-@@ -22,11 +22,11 @@
-                class=\\"page\\"
+@@ -23,11 +23,11 @@
               >
                 <div
                   class=\\"slide\\"
+                  style=\\"width: 100%;\\"
                 >
 -                 First slide
 +                 Second slide
@@ -31,7 +80,7 @@ exports[`Carousel component navigates to next page 1`] = `
             </div>
           </div>
         </div>
-@@ -63,16 +63,21 @@
+@@ -64,16 +64,21 @@
         >
           <span
             class=\\"sliding-slot\\"
@@ -75,11 +124,11 @@ exports[`Carousel component navigates to previous page 1`] = `
               aria-hidden=\\"false\\"
               class=\\"Carousel__slide--global\\"
               data-swipeable=\\"true\\"
-@@ -22,11 +22,11 @@
-                class=\\"page\\"
+@@ -23,11 +23,11 @@
               >
                 <div
                   class=\\"slide\\"
+                  style=\\"width: 100%;\\"
                 >
 -                 First slide
 +                 Third slide
@@ -88,7 +137,7 @@ exports[`Carousel component navigates to previous page 1`] = `
             </div>
           </div>
         </div>
-@@ -63,14 +63,19 @@
+@@ -64,14 +64,19 @@
         >
           <span
             class=\\"sliding-slot\\"
@@ -136,6 +185,7 @@ exports[`Carousel component renders correctly 1`] = `
           >
             <div
               class="slide"
+              style="width: 100%;"
             >
               First slide
             </div>
@@ -221,6 +271,103 @@ exports[`Carousel component renders correctly 1`] = `
 </div>
 `;
 
+exports[`Carousel component renders correctly with arrow controls 1`] = `
+<div
+  class="wrapper"
+>
+  <div
+    class="Carousel Carousel--opacity"
+  >
+    <div
+      style="overflow-x: hidden;"
+    >
+      <div
+        class="react-swipeable-view-container"
+        style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+      >
+        <div
+          aria-hidden="false"
+          class="Carousel__slide--global"
+          data-swipeable="true"
+          style="width: 100%; flex-shrink: 0; overflow: auto;"
+        >
+          <div
+            class="page"
+          >
+            <div
+              class="slide"
+              style="width: 33.333333333333336%;"
+            >
+              First slide
+            </div>
+            <div
+              class="slide"
+              style="width: 33.333333333333336%;"
+            >
+              Second slide
+            </div>
+            <div
+              class="slide"
+              style="width: 33.333333333333336%;"
+            >
+              Third slide
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    aria-label="Move left"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained ArrowControl ArrowControl--left"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <button
+    aria-label="Move right"
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained ArrowControl ArrowControl--right"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root chevron"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
 exports[`Carousel component triggers an onPageChange event 1`] = `Array []`;
 
 exports[`Carousel component works when controlled 1`] = `
@@ -241,11 +388,11 @@ exports[`Carousel component works when controlled 1`] = `
             aria-hidden=\\"false\\"
             class=\\"Carousel__slide--global\\"
             data-swipeable=\\"true\\"
-@@ -21,11 +21,11 @@
-              class=\\"page\\"
+@@ -22,11 +22,11 @@
             >
               <div
                 class=\\"slide\\"
+                style=\\"width: 100%;\\"
               >
 -               First slide
 +               Second slide
@@ -254,7 +401,7 @@ exports[`Carousel component works when controlled 1`] = `
           </div>
         </div>
       </div>
-@@ -62,16 +62,21 @@
+@@ -63,16 +63,21 @@
       >
         <span
           class=\\"sliding-slot\\"

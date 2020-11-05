@@ -23,7 +23,7 @@ interface ContentfulPage {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag @link
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -51,7 +51,7 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag @link
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -79,7 +79,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag @link
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -107,7 +107,7 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag @link
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -157,7 +157,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   showSignUpBanner: Boolean
 
   "Tag for the page"
-  tag: ContentfulTag @link
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -171,7 +171,7 @@ type ContentfulPromo implements Node {
   brandLogo: String
 
   "Tag for the promo"
-  tag: ContentfulTag @link
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
 
 """
@@ -195,6 +195,81 @@ union ContentfulPromoOrPage =
   | ContentfulProductListerPage
 
 """
+Represents the rich text content for the ContentfulCardCollectionSection.
+"""
+type RichText implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a collection of pages or promos.
+"""
+type ContentfulCardCollectionSection implements Node {
+  id: ID!
+
+  "The title for this section."
+  title: String
+
+  "The description for this section."
+  description: RichText
+
+  "The type of card for this section."
+  cardType: String!
+
+  "The text that should be used as card link label."
+  cardLabel: String
+
+  "The section should be grouped in categories."
+  groupCards: Boolean
+
+  "The link for this section."
+  link: ContentfulLink @link(from: "link___NODE")
+
+  "The cards for this section."
+  cards: [ContentfulPromoOrPage] @link(from: "cards___NODE")
+}
+
+"""
+Represents a widget for social sharing.
+"""
+type ContentfulShareWidgetSection implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  title: String
+
+  "Message shown when url is saved to the clipboard"
+  clipboardSuccessMessage: String
+
+  "Message shown in the even of an error when copying to the cliboard"
+  clipboardErrorMessage: String
+
+  "The widget is aligned to the left"
+  isLeftAligned: Boolean
+
+  "The copy functionality is shown"
+  copy: Boolean
+
+  "The email functionality is shown"
+  email: Boolean
+
+  "The Facebook share functionality is shown"
+  facebook: Boolean
+
+  "The LinkedIn share functionality is shown"
+  linkedin: Boolean
+
+  "The Pinterest share functionality is shown"
+  pinterest: Boolean
+
+  "The Twitter share functionality is shown"
+  twitter: Boolean
+}
+
+"""
 Represents a union for all the possible sections available in a page.
 """
 union ContentfulSection =
@@ -204,3 +279,44 @@ union ContentfulSection =
   | ContentfulLeadBlockSection
   | ContentfulTabsOrAccordionSection
   | ContentfulVillainSection
+  | ContentfulTitleWithContent
+  | ContentfulShareWidgetSection
+
+"""
+Represents a key value pair for UI strings.
+"""
+type ContentfulMicroCopy implements Node {
+  "The key for this pair."
+  key: String!
+
+  "The value for this pair."
+  value: String!
+}
+
+"""
+Represents a list of resources for global settings.
+"""
+type ContentfulResources implements Node {
+  "The micro copy pairs for these resources."
+  microCopy: [ContentfulMicroCopy]
+
+  "The elements for the product details page sidebar for these resources."
+  pdpSidebarItems: [ContentfulTitleWithContent]
+
+  "The title for the product details page cards for these resources."
+  pdpCardsTitle: String
+
+  "The cards for the product details page for these resources."
+  pdpCards: [ContentfulPromoOrPage] @link(from: "pdpCards___NODE")
+
+  "The explore bar for the product details page for these resources."
+  pdpExploreBar: ContentfulNavigation @link(from: "pdpExploreBar___NODE")
+}
+
+"""
+Represents a site settings and its pages.
+"""
+type ContentfulSite implements Node {
+  "The global settings for this site."
+  resources: ContentfulResources @link(from: "resources___NODE")
+}

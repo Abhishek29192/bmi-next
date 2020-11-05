@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Container from "@bmi/container";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
@@ -31,7 +30,7 @@ type Props = {
 };
 
 const getHeroItemsWithContext = (
-  { resources, countryCode },
+  { getMicroCopy, countryCode },
   slides: HomepageData["slides"]
 ): HeroItem[] => {
   return slides.map(({ title, subtitle, featuredImage, ...rest }) => {
@@ -39,7 +38,7 @@ const getHeroItemsWithContext = (
       title,
       children: subtitle,
       imageSource: featuredImage?.file.url,
-      CTA: getCTA(rest, countryCode, resources["page.linkLabel"])
+      CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
     };
   });
 };
@@ -76,9 +75,7 @@ const HomePage = ({ data }: Props) => {
         }}
       </SiteContext.Consumer>
 
-      <Container>
-        <OverlapCards data={overlapCards} />
-      </Container>
+      <OverlapCards data={overlapCards} />
       {sections && <Sections data={sections} />}
     </Page>
   );

@@ -10,7 +10,7 @@ type Link = {
 
 type Props = {
   heading: React.ReactNode;
-  links: readonly [Link, ...Link[]];
+  links: readonly Link[];
 };
 
 const ExploreBar = ({ heading, links }: Props) => {

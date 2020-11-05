@@ -20,7 +20,7 @@ const VillainSection = ({
   data: Data;
   backgroundColor: "pearl" | "white";
 }) => {
-  const { countryCode, resources } = useContext(SiteContext);
+  const { countryCode, getMicroCopy } = useContext(SiteContext);
   const {
     featuredImage,
     title: villainTitle,
@@ -32,7 +32,7 @@ const VillainSection = ({
     title: villainTitle,
     children: subtitle,
     imageSource: featuredImage?.file.url,
-    cta: getCTA(typePromoData, countryCode, resources["page.linkLabel"])
+    cta: getCTA(typePromoData, countryCode, getMicroCopy("page.linkLabel"))
   };
 
   return (

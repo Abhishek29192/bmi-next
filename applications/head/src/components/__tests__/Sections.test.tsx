@@ -3,6 +3,22 @@ import Sections, { Data } from "../Sections";
 import { render } from "@testing-library/react";
 import { BLOCKS } from "@contentful/rich-text-types";
 import mockConsole from "jest-mock-console";
+import { SiteContext } from "../Site";
+
+const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <SiteContext.Provider
+      value={{
+        node_locale: "en-UK",
+        homePage: { title: "Home Page" },
+        getMicroCopy: (path) => path,
+        countryCode: "uk"
+      }}
+    >
+      {children}
+    </SiteContext.Provider>
+  );
+};
 
 beforeAll(() => {
   mockConsole();
@@ -16,6 +32,7 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
+            __typename: "ContentfulTitleWithContent",
             title: "hello",
             content: {
               json: {
@@ -34,6 +51,7 @@ describe("Sections component", () => {
         description: { description: "string" },
         items: [
           {
+            __typename: "ContentfulTitleWithContent",
             title: "hello",
             content: {
               json: {
@@ -54,6 +72,7 @@ describe("Sections component", () => {
           __typename: "ContentfulPromo",
           title: "Promo",
           brandLogo: null,
+          tag: null,
           subtitle: null,
           featuredImage: null,
           cta: null
@@ -129,14 +148,28 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulCardCollectionSection",
         title: "card collection section title",
+        description: null,
+        groupCards: false,
         cardLabel: "Card Label",
-        cardType: "Next Best Action Card",
+        cardType: "Story Card",
+        link: {
+          __typename: "ContentfulLink",
+          id: "00000000-0000-0000-0000-000000000000",
+          label: "Contact us",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          linkedPage: {
+            slug: "contact-us"
+          }
+        },
         cards: [
           {
             __typename: "ContentfulPromo",
             title: "promo title",
             brandLogo: "AeroDek",
             subtitle: "promo subtitle",
+            tag: null,
             featuredImage: null,
             cta: {
               __typename: "ContentfulLink",
@@ -156,13 +189,17 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulCardCollectionSection",
         title: "card section title 2",
+        description: null,
+        groupCards: false,
         cardLabel: "Go to {{title}}",
-        cardType: "Product Overview Card",
+        cardType: "Highlight Card",
+        link: null,
         cards: [
           {
             __typename: "ContentfulSimplePage",
             id: "00000000-0000-0000-0000-000000000000",
             slug: "slug",
+            tag: null,
             title: "page title",
             brandLogo: null,
             subtitle: "page subtitle",
@@ -176,7 +213,11 @@ describe("Sections component", () => {
       }
     ];
 
-    const { container } = render(<Sections data={data} />);
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
     expect(container.children).toMatchSnapshot();
   });
 });

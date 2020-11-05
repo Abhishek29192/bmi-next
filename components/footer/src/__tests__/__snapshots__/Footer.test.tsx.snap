@@ -5,7 +5,7 @@ exports[`Footer component renders correctly 1`] = `
   class="Footer"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
@@ -103,7 +103,7 @@ exports[`Footer component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root icon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -132,7 +132,7 @@ exports[`Footer component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root icon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -161,7 +161,7 @@ exports[`Footer component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root icon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -557,7 +557,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
   class="Footer"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
@@ -655,7 +655,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root icon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -684,7 +684,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root icon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -713,7 +713,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root icon"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >

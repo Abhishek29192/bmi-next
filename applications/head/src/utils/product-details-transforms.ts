@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import _ from "lodash";
-import { Product } from "../templates/product-details-page";
+import { Product, VariantOption } from "../templates/product-details-page";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 
 const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
@@ -444,6 +444,9 @@ export const getProductTechnicalSpecifications = (
   classifications
 ) => {
   // TODO: This is hardcoded for Norway.
+  const IGNORED_CLASSIFICATIONS = ["scoringWeightAttributes.scoringweight"].map(
+    (value) => `${classificationNamespace}/${value}`
+  );
   const TECHNICAL_SPECIFICATION_ORDER = [
     "measurements.length",
     "measurements.width",
@@ -457,6 +460,7 @@ export const getProductTechnicalSpecifications = (
   ].map((value) => `${classificationNamespace}/${value}`);
 
   return classifications
+    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code))
     .map(({ code, name, featureValues, featureUnit }) => ({
       name,
       value: `${featureValues[0].value} ${featureUnit?.symbol || ""}`,
@@ -550,4 +554,25 @@ export const mapClassificationValues = (classificationsMap) => {
     })
     .filter(Boolean)
     .join(", ");
+};
+
+type VariantOptionWithProduct = VariantOption & { _product: Product };
+
+export const findUniqueVariantClassifications = (
+  variant: VariantOptionWithProduct,
+  classificationNamespace: string
+) => {
+  const classifications = mapProductClassifications(
+    variant._product,
+    classificationNamespace
+  );
+
+  // Base product may not have any classifications
+  // Variant may not have classifications therefore it will not appear here
+  // In which case, we can either check against an empty base resulting in all variant classifications
+  // or with an empty variant, resulting in no classifications
+  return findUniqueClassificationsOnVariant(
+    classifications[variant._product.code] || {},
+    classifications[variant.code] || {}
+  );
 };

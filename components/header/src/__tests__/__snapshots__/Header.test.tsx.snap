@@ -10,7 +10,7 @@ exports[`Header component renders correctly 1`] = `
     role="navigation"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <ul>
         <li
@@ -128,7 +128,7 @@ exports[`Header component renders correctly 1`] = `
       />
     </button>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <div
         class="LanguageSelection"
@@ -218,19 +218,19 @@ exports[`Header component renders correctly 1`] = `
     class="NavigationBar"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <div
         class="NavigationBar__Left"
       >
-        <button
+        <a
           class="LogoLink"
-          type="button"
+          href="/"
         >
           <svg
             class="Logo"
           />
-        </button>
+        </a>
         <nav
           aria-label="Navigation"
           class="Navigation"

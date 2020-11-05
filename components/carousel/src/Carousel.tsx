@@ -16,68 +16,100 @@ import classnames from "classnames";
 import SlideControls, {
   Props as SlideControlsProps
 } from "@bmi/slide-controls";
+import ArrowControl from "@bmi/arrow-control";
 import styles from "./Carousel.module.scss";
+import { withWidth, WithWidth } from "@material-ui/core";
 
-const SwipeableViewsComponent = virtualize(autoPlay(SwipeableViews));
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+const InfiniteSwipeableViewsComponent = virtualize(autoPlay(SwipeableViews));
+
+type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl";
+const BREAKPOINTS: Breakpoint[] = ["xs", "sm", "md", "lg", "xl"];
 
 type Props = {
-  // TODO: This is API design for future Carousel implementations.
-  // theme?: "default";
-  // controls?: "arrows" | "slide";
   children: React.ReactNode;
-  slidesPerPage?: number;
+  slidesPerPage?:
+    | number
+    | (Partial<Record<Breakpoint, number>> & Record<"xs", number>);
   initialPage?: number;
   isSwipeDisabled?: boolean;
   onPageChange?: (activePage: number) => void;
   hasOpacityAnimation?: boolean;
-} & (
-  | {
-      hasAutoPlay?: false;
-    }
-  | {
-      hasAutoPlay: true;
-      /** Only available for hasAutoPlay=true */
-      autoPlayInterval?: number;
-      /** Only available for hasAutoPlay=true */
-      pauseAutoPlayOnHover?: boolean;
-    }
-);
+  scroll?: "infinite" | "finite";
+  hasGutter?: boolean;
+} & WithWidth &
+  (
+    | {
+        hasAutoPlay?: false;
+      }
+    | {
+        hasAutoPlay: true;
+        /** Only available for hasAutoPlay=true */
+        autoPlayInterval?: number;
+        /** Only available for hasAutoPlay=true */
+        pauseAutoPlayOnHover?: boolean;
+      }
+  );
 
 type SlideProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-const CarouselContext = createContext<{
+type Context = {
   activePage: number;
   total: number;
   setActivePage?: Dispatch<SetStateAction<number>>;
-}>({
+  scroll?: Props["scroll"];
+  slidesPerPage?: number;
+  totalSlides: number;
+  currentBreakpoint: Breakpoint;
+};
+
+type DotAnnotationComponents = {
+  Slide: typeof CarouselSlide;
+  Controls: typeof CarouselControls;
+};
+
+type ArrayChildren = Array<
+  Exclude<React.ReactNode, boolean | null | undefined>
+>;
+
+const CarouselContext = createContext<Context>({
   activePage: 0,
-  total: 0
+  total: 0,
+  totalSlides: 0,
+  currentBreakpoint: "lg"
 });
 
-const CarouselSlide = ({ children, className }: SlideProps) => {
+const mapRange = (
+  input: number,
+  inputStart: number,
+  inputEnd: number,
+  outputStart: number,
+  outputEnd: number
+): number => {
   return (
-    <div className={classnames(styles["slide"], className)}>{children}</div>
+    outputStart +
+    ((outputEnd - outputStart) / (inputEnd - inputStart)) * (input - inputStart)
   );
 };
 
-export const getPageFromAbsoluteIndex = (
-  index: number,
-  total: number
-): number => {
-  if (index < 0) {
-    return ((-(total - 1) * index) % total) + 1;
-  }
+const usePrevious = (value) => {
+  const ref = useRef(value);
 
-  return (index % total) + 1;
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
 };
 
 const handleSwiping = (
   wrapperElement: HTMLElement,
   index: number,
-  type: "move" | "end"
+  type: "move" | "end",
+  minimumOpacity: number = 0
 ) => {
   const activeSlide: HTMLElement = wrapperElement.querySelector(
     ".Carousel__slide--global[aria-hidden='false']"
@@ -99,7 +131,6 @@ const handleSwiping = (
   }
 
   const toFixed = (number: number) => Math.round(Math.abs(number) * 1e2) / 1e2;
-
   const currentSwipe = toFixed(index - 3);
 
   activeSlide.style.opacity = "" + toFixed(1 - currentSwipe);
@@ -107,10 +138,74 @@ const handleSwiping = (
 
   if (nextSlide) {
     // @ts-ignore It's a HTMLElement
-    nextSlide.style.opacity = "" + currentSwipe;
+    nextSlide.style.opacity = "" + Math.max(minimumOpacity, currentSwipe);
     // @ts-ignore It's a HTMLElement
     nextSlide.style.transitionDuration = "0s";
   }
+};
+
+const calculateSlidesPerPage = (
+  currentBreakpoint: Breakpoint,
+  slidesPerPage: Props["slidesPerPage"]
+): number => {
+  if (typeof slidesPerPage === "number") {
+    return slidesPerPage;
+  }
+
+  return (
+    BREAKPOINTS.reduceRight((found, breakpoint, index) => {
+      if (found) {
+        return found;
+      }
+
+      if (index <= BREAKPOINTS.findIndex((brk) => brk === currentBreakpoint)) {
+        return slidesPerPage[breakpoint] || 0;
+      }
+
+      return 0;
+    }, 0) || 1
+  );
+};
+
+export const getPageFromAbsoluteIndex = (
+  index: number,
+  total: number
+): number => {
+  if (index < 0) {
+    return ((-(total - 1) * index) % total) + 1;
+  }
+
+  return (index % total) + 1;
+};
+
+const CarouselSlide = ({ children, className }: SlideProps) => {
+  const { slidesPerPage, totalSlides, currentBreakpoint } = useContext(
+    CarouselContext
+  );
+
+  const breakpointToSlidesMap = {
+    xl: 3,
+    lg: 3,
+    md: 2,
+    sm: 1,
+    xs: 1
+  };
+
+  return (
+    <div
+      className={classnames(styles["slide"], className)}
+      style={{
+        width: `${
+          100 /
+          (totalSlides < slidesPerPage
+            ? breakpointToSlidesMap[currentBreakpoint]
+            : slidesPerPage)
+        }%`
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 const CarouselControls = ({
@@ -122,25 +217,64 @@ const CarouselControls = ({
   SlideControlsProps,
   "current" | "total" | "onNextClick" | "onPrevClick"
 >) => {
-  const { activePage, setActivePage, total } = useContext(CarouselContext);
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV === "development" && type === "arrows") {
-    // eslint-disable-next-line no-console
-    console.warn(
-      "Carousel.Controls: Sorry, the only controls type available at the moment is slide."
+  const { activePage, setActivePage, total, scroll = "infinite" } = useContext(
+    CarouselContext
+  );
+
+  if (type === "slide") {
+    // TODO: Handle finite scroll.
+    return (
+      <SlideControls
+        current={getPageFromAbsoluteIndex(activePage, total)}
+        total={total}
+        onNextClick={() => setActivePage(activePage + 1)}
+        onPrevClick={() => setActivePage(activePage - 1)}
+        {...rest}
+      />
     );
   }
 
+  if (
+    typeof document !== "undefined" &&
+    "ontouchstart" in document.documentElement
+  ) {
+    return null;
+  }
+
   return (
-    <SlideControls
-      current={getPageFromAbsoluteIndex(activePage, total)}
-      total={total}
-      onNextClick={() => setActivePage(activePage + 1)}
-      onPrevClick={() => setActivePage(activePage - 1)}
-      {...rest}
-    />
+    <>
+      {(activePage > 0 || scroll === "infinite") && (
+        <ArrowControl
+          direction="left"
+          onClick={() => setActivePage(activePage - 1)}
+        />
+      )}
+      {(activePage < total - 1 || scroll === "infinite") && (
+        <ArrowControl
+          direction="right"
+          onClick={() => setActivePage(activePage + 1)}
+        />
+      )}
+    </>
   );
 };
+
+const checkArrowControls = (arrayChildren: ArrayChildren) =>
+  !!arrayChildren.find(
+    (child) =>
+      isValidElement(child) &&
+      child?.type === CarouselControls &&
+      child.props.type === "arrows"
+  );
+
+const mapPagesToSlides = (pageSlides: ArrayChildren) =>
+  pageSlides.map((pageSlide, key) => {
+    return (
+      <div className={styles["page"]} key={key}>
+        {pageSlide}
+      </div>
+    );
+  });
 
 const Carousel = ({
   children,
@@ -149,20 +283,30 @@ const Carousel = ({
   isSwipeDisabled,
   onPageChange,
   hasOpacityAnimation,
+  width: currentBreakpoint,
+  scroll = "infinite",
+  hasGutter,
   ...autoPlayProps
 }: Props) => {
   const [hasUserInteracted, setHasUserInteracted] = useState<boolean>(false);
   const [activePage, setActivePage] = useState<number>(initialPage);
-  const wrapper = useRef<HTMLDivElement>(null);
 
+  const wrapper = useRef<HTMLDivElement>(null);
   const arrayChildren = React.Children.toArray(children);
+  const isArrowCarousel = checkArrowControls(arrayChildren);
+
+  const CarouselComponent =
+    scroll === "finite"
+      ? AutoPlaySwipeableViews
+      : InfiniteSwipeableViewsComponent;
+
   let firstSlideIndex: number;
   let lastSlideIndex: number = 0;
+
   const slides = useMemo(
     () =>
       arrayChildren.filter((child, index) => {
-        const isSlide =
-          isValidElement(child) && child.type && child.type === CarouselSlide;
+        const isSlide = isValidElement(child) && child?.type === CarouselSlide;
 
         if (isSlide) {
           firstSlideIndex =
@@ -174,23 +318,22 @@ const Carousel = ({
       }),
     [arrayChildren]
   );
-  const totalPages = Math.ceil(slides.length / slidesPerPage);
-  const pageSlides = useMemo(
-    () =>
-      Array.from(new Array(totalPages)).map((_, pageNumber) => {
-        return slides.slice(
-          pageNumber * slidesPerPage,
-          pageNumber * slidesPerPage + slidesPerPage
-        );
-      }),
-    [totalPages]
+  const finalSlidesPerPage = useMemo(
+    () => calculateSlidesPerPage(currentBreakpoint, slidesPerPage),
+    [currentBreakpoint, slidesPerPage]
   );
 
-  useEffect(() => {
-    if (initialPage !== activePage) {
-      setActivePage(initialPage);
-    }
-  }, [initialPage]);
+  const totalPages = Math.ceil(slides.length / finalSlidesPerPage);
+  const previousTotalPages = usePrevious(totalPages);
+
+  const pageSlides = Array.from(new Array(totalPages)).map((_, pageNumber) => {
+    return slides.slice(
+      pageNumber * finalSlidesPerPage,
+      pageNumber * finalSlidesPerPage + finalSlidesPerPage
+    );
+  });
+
+  hasOpacityAnimation = hasOpacityAnimation || isArrowCarousel;
 
   const handleStepChange = (page: number) => {
     setActivePage(page);
@@ -208,12 +351,38 @@ const Carousel = ({
     );
   };
 
+  const extraProps =
+    scroll === "finite"
+      ? {
+          children: mapPagesToSlides(pageSlides)
+        }
+      : { slideRenderer };
+
+  useEffect(() => {
+    if (previousTotalPages !== totalPages) {
+      // NOTE: Navigates to the active page when the slides per page settings change.
+      handleStepChange(
+        Math.floor(mapRange(activePage, 0, previousTotalPages, 0, totalPages))
+      );
+    }
+  }, [finalSlidesPerPage, pageSlides]);
+
+  useEffect(() => {
+    if (initialPage !== activePage) {
+      setActivePage(initialPage);
+    }
+  }, [initialPage]);
+
   return (
     <CarouselContext.Provider
       value={{
         activePage,
         setActivePage,
-        total: totalPages
+        total: totalPages,
+        scroll,
+        slidesPerPage: finalSlidesPerPage,
+        totalSlides: slides.length,
+        currentBreakpoint
       }}
     >
       <div
@@ -235,17 +404,22 @@ const Carousel = ({
             setHasUserInteracted(false);
           }
         }}
-        className={styles["wrapper"]}
+        className={classnames(styles["wrapper"], {
+          [styles["wrapper--show-off-screen"]]:
+            isArrowCarousel && totalPages > 1
+        })}
       >
         {arrayChildren.slice(0, firstSlideIndex)}
         <div
           className={classnames(styles["Carousel"], {
             [styles["Carousel--opacity"]]: hasOpacityAnimation,
-            [styles["Carousel--swipable"]]: !isSwipeDisabled
+            [styles["Carousel--swipable"]]:
+              !isSwipeDisabled && !isArrowCarousel,
+            [styles["Carousel--with-gutter"]]: hasGutter
           })}
           ref={wrapper}
         >
-          <SwipeableViewsComponent
+          <CarouselComponent
             hysteresis={0.25}
             autoplay={Boolean(autoPlayProps.hasAutoPlay) && !hasUserInteracted}
             interval={
@@ -253,7 +427,6 @@ const Carousel = ({
                 ? autoPlayProps.autoPlayInterval
                 : undefined
             }
-            slideRenderer={slideRenderer}
             index={activePage}
             disabled={isSwipeDisabled}
             onChangeIndex={handleStepChange}
@@ -264,11 +437,15 @@ const Carousel = ({
                 return;
               }
 
-              handleSwiping(wrapper.current, index, type);
+              handleSwiping(
+                wrapper.current,
+                index,
+                type,
+                isArrowCarousel ? 0.35 : 0
+              );
             }}
-            // TODO: Check if this is right with George (swipe only on phones)
-            // enableMouseEvents={process.env.NODE_ENV === "development"}
-            enableMouseEvents
+            enableMouseEvents={!isArrowCarousel}
+            {...extraProps}
           />
         </div>
         {arrayChildren.slice(lastSlideIndex + 1)}
@@ -280,4 +457,9 @@ const Carousel = ({
 Carousel.Slide = CarouselSlide;
 Carousel.Controls = CarouselControls;
 
-export default Carousel;
+// NOTE: Unfortunately this is necessary as the higher order component won't
+// understand the dot annotation Components of the Carousel.
+export default withWidth({
+  // NOTE: Need this for testing in the domjs enviornment.
+  initialWidth: "lg"
+})(Carousel) as React.ComponentType<Partial<Props>> & DotAnnotationComponents;

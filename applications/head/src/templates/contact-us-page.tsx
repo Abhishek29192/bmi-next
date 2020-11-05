@@ -8,8 +8,10 @@ import Hero, { HeroItem } from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
-import ExpandableCard from "../components/ExpandableCards";
 import { Data as PageInfoData } from "../components/PageInfo";
+import ContentTopics, {
+  Data as ContentTopicsData
+} from "../components/ContentTopics";
 
 type Data = PageInfoData &
   PageData & {
@@ -18,6 +20,7 @@ type Data = PageInfoData &
     queriesSubtitle: string;
     otherAreasTitle: string;
     otherAreas: readonly TitleWithContentData[];
+    contentTopics: ContentTopicsData[];
   };
 
 type Props = {
@@ -36,6 +39,7 @@ const ContactUsPage = ({ data }: Props) => {
     queriesSubtitle,
     otherAreasTitle,
     otherAreas,
+    contentTopics,
     ...pageData
   } = data.contentfulContactUsPage;
   const heroProps: HeroItem = {
@@ -64,7 +68,7 @@ const ContactUsPage = ({ data }: Props) => {
           {queriesSubtitle}
         </Typography>
         <div style={{ marginTop: "40px" }}>
-          <ExpandableCard />
+          <ContentTopics topics={contentTopics} />
         </div>
       </Section>
       <TabsOrAccordionSection
@@ -90,6 +94,9 @@ export const pageQuery = graphql`
       showSignUpBanner
       queriesTitle
       queriesSubtitle
+      contentTopics {
+        ...ContentTopicsFragment
+      }
       otherAreasTitle
       otherAreas {
         ...TitleWithContentFragment
@@ -97,21 +104,6 @@ export const pageQuery = graphql`
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
-    }
-  }
-`;
-
-export const promoQuery = graphql`
-  fragment ContactUsPageInfoFragment on ContentfulContactUsPage {
-    title
-    subtitle
-    brandLogo
-    slug
-    featuredImage {
-      file {
-        fileName
-        url
-      }
     }
   }
 `;

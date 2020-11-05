@@ -32,7 +32,7 @@ const Header = ({
   languages,
   navigation,
   utilities,
-  logoAction,
+  logoAction = { model: "htmlLink", href: "/" },
   activeNavLabel
 }: HeaderProps) => {
   const $body: HTMLElement =

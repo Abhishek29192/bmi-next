@@ -18,6 +18,12 @@ import LeadBlockSection, {
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "../components/CardCollectionSection";
+import TitleWithContentSection, {
+  Data as TitleWithContentData
+} from "../components/TitleWithContentSection";
+import ShareWidgetSection, {
+  Data as ShareWidgetSectionData
+} from "../components/ShareWidgetSection";
 
 export type Data = (
   | FormSectionData
@@ -26,6 +32,8 @@ export type Data = (
   | CarouselSectionData
   | LeadBlockSectionData
   | CardCollectionSectionData
+  | TitleWithContentData
+  | ShareWidgetSectionData
 )[];
 
 const sectionsMap = {
@@ -34,7 +42,9 @@ const sectionsMap = {
   ContentfulVillainSection: VillainSection,
   ContentfulCarouselSection: CarouselSection,
   ContentfulLeadBlockSection: LeadBlockSection,
-  ContentfulCardCollectionSection: CardCollectionSection
+  ContentfulCardCollectionSection: CardCollectionSection,
+  ContentfulTitleWithContent: TitleWithContentSection,
+  ContentfulShareWidgetSection: ShareWidgetSection
 };
 
 const Sections = ({ data }: { data: Data }) => {
@@ -48,8 +58,6 @@ const Sections = ({ data }: { data: Data }) => {
               key={`section${index}`}
               // @ts-ignore
               data={section}
-              // TODO: Robust theme-based solution required.
-              backgroundColor={index % 2 === 1 ? "pearl" : "white"}
             />
           )
         );
@@ -69,5 +77,7 @@ export const query = graphql`
     ...CarouselSectionFragment
     ...LeadBlockSectionFragment
     ...CardCollectionSectionFragment
+    ...TitleWithContentSectionFragment
+    ...ShareWidgetSectionFragment
   }
 `;

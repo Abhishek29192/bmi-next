@@ -8,7 +8,9 @@ module.exports.up = (migration) => {
     from: ["image"],
     to: ["featuredImage"],
     transformEntryForLocale: function (fromFields, currentLocale) {
-      const featuredImage = fromFields.image[currentLocale];
+      const featuredImage = fromFields.image
+        ? fromFields.image[currentLocale]
+        : undefined;
 
       return { featuredImage };
     }

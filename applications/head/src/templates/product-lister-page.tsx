@@ -18,10 +18,13 @@ import Filters from "@bmi/filters";
 import OverviewCard from "@bmi/overview-card";
 import { iconMap } from "../components/Icon";
 import Grid from "@bmi/grid";
+import { Product } from "./product-details-page";
 import {
   getProductUrl,
   findMasterImageUrl,
-  findProductBrandLogoCode
+  findProductBrandLogoCode,
+  mapClassificationValues,
+  findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
 
 type Data = PageInfoData &
@@ -41,11 +44,14 @@ type Props = {
     siteId: string;
     countryCode: string;
     categoryCode: string;
+    pimClassificationCatalogueNamespace: string;
   };
   data: {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
-    allProducts: any;
+    allProducts: {
+      nodes: ReadonlyArray<Product>;
+    };
   };
 };
 
@@ -140,8 +146,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     ({ code }) => code === pageContext.categoryCode
   )?.name;
 
-  // console.log("categoryName", products[0]?.categories);
-
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <Hero
@@ -218,6 +222,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           ...(product.images || [])
                         ]);
 
+                        const uniqueClassifications = mapClassificationValues(
+                          findUniqueVariantClassifications(
+                            { ...variant, _product: product },
+                            pageContext.pimClassificationCatalogueNamespace
+                          )
+                        );
+
                         return (
                           <Grid
                             item
@@ -229,6 +240,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                             <OverviewCard
                               title={product.name}
                               titleVariant="h5"
+                              subtitle={uniqueClassifications}
+                              subtitleVariant="h6"
                               imageSource={mainImage}
                               imageSize="contain"
                               brandImageSource={brandLogo}
@@ -299,6 +312,21 @@ export const pageQuery = graphql`
           url
           format
         }
+        classifications {
+          name
+          code
+          features {
+            name
+            code
+            featureValues {
+              value
+              code
+            }
+            featureUnit {
+              symbol
+            }
+          }
+        }
         variantOptions {
           code
           shortDescription
@@ -307,6 +335,21 @@ export const pageQuery = graphql`
             containerId
             url
             format
+          }
+          classifications {
+            name
+            code
+            features {
+              name
+              code
+              featureValues {
+                value
+                code
+              }
+              featureUnit {
+                symbol
+              }
+            }
           }
         }
       }

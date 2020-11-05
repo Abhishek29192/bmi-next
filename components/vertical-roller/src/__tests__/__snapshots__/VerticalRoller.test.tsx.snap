@@ -188,6 +188,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
                   >
                     <div
                       class="slide slide"
+                      style="width: 100%;"
                     >
                       <div
                         class="image"
@@ -197,47 +198,39 @@ exports[`VerticalRoller component renders correctly 1`] = `
                           class="brand-icon"
                         />
                       </div>
-                      <div
-                        class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-flex-end"
+                      <p
+                        class="MuiTypography-root description Typography MuiTypography-body1"
                       >
-                        <div
-                          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9 MuiGrid-grid-md-12"
+                        Accredited BMI installers are masters of their craft and available all over Norway.
+                      </p>
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
                         >
-                          <p
-                            class="MuiTypography-root description Typography MuiTypography-body1"
+                          Go to Approved Installers
+                          <span
+                            class="MuiButton-endIcon MuiButton-iconSizeMedium"
                           >
-                            Accredited BMI installers are masters of their craft and available all over Norway.
-                          </p>
-                          <button
-                            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
-                            tabindex="0"
-                            type="button"
-                          >
-                            <span
-                              class="MuiButton-label"
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
                             >
-                              Go to Approved Installers
-                              <span
-                                class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                            <span
-                              class="MuiTouchRipple-root"
-                            />
-                          </button>
-                        </div>
-                      </div>
+                              <path
+                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
                     </div>
                   </div>
                 </div>

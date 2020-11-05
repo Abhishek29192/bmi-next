@@ -61,12 +61,20 @@
     color: $color-storm;
     justify-content: flex-start;
     width: 100%;
-    font-family: "Effra Medium";
+    font-family: "Effra Regular";
+
+    @media (min-width: 1024px) {
+      font-family: "Effra Medium";
+    }
   }
 
   .icon-link {
     fill: $color-storm;
     font-size: 16px;
+
+    .icon {
+      width: 1.5em;
+    }
 
     &:first-child {
       margin-left: -4px;

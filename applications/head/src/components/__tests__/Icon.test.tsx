@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 
 describe("Icon component", () => {
   it("renders correctly", () => {
-    const { container } = render(<Icon name="Facebook" />);
+    const { container } = render(<Icon name="Mail" />);
     expect(container.firstChild).toMatchSnapshot();
   });
 });
