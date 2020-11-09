@@ -17,6 +17,16 @@ module.exports.up = (migration) => {
       "Choose Hierarchy if the hero type should be chosen automatically according to the page's menu position."
   });
   page.moveField("heroType").afterField("subtitle");
+
+  migration.transformEntries({
+    contentType: "page",
+    from: ["heroType"],
+    to: ["heroType"],
+    transformEntryForLocale: function (fromFields, currentLocale) {
+      const currentHeroType = (fromFields.heroType || {})[currentLocale];
+      return { heroType: currentHeroType || "Hierarchy" };
+    }
+  });
 };
 
 module.exports.down = (migration) => {
