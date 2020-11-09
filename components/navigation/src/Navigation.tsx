@@ -13,6 +13,7 @@ export type LinkList = {
   icon?: SVGImport;
   image?: string;
   isHeading?: boolean;
+  isLabelHidden?: boolean;
   isParagraph?: boolean;
 };
 
@@ -139,6 +140,7 @@ const NavigationList = ({
               icon,
               image = null,
               isHeading,
+              isLabelHidden,
               isParagraph,
               label,
               menu: subMenu
@@ -154,7 +156,7 @@ const NavigationList = ({
                   endIcon={<ChevronRight className={styles["chevronRight"]} />}
                   onClick={() => handleClick(key)}
                 >
-                  {label}
+                  {isLabelHidden ? null : label}
                 </NavigationListButton>
                 <NavigationList
                   backLabel={menu[0].isHeading ? menu[0].label : "Main menu"}
@@ -200,9 +202,14 @@ const NavigationList = ({
                       <NavigationListButton
                         action={action}
                         accessibilityLabel={label}
-                        startIcon={icon && <Icon source={icon} />}
+                        startIcon={
+                          icon && isLabelHidden && <Icon source={icon} />
+                        }
+                        endIcon={
+                          icon && !isLabelHidden && <Icon source={icon} />
+                        }
                       >
-                        {label}
+                        {isLabelHidden ? null : label}
                       </NavigationListButton>
                     );
                   }
