@@ -113,9 +113,9 @@ const NavigationList = ({
           <li className={styles["BackNavigation"]} key={`menu-${depth}-back`}>
             <NavigationListButton
               className={styles["BackButton"]}
+              startIcon={<ChevronLeft className={styles["chevronLeft"]} />}
               endIcon={false}
               onClick={() => parentHandleClick(false)}
-              startIcon={<ChevronLeft />}
             >
               {backLabel}
             </NavigationListButton>
@@ -149,7 +149,9 @@ const NavigationList = ({
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
                   active={value === key}
-                  endIcon={<ChevronRight />}
+                  accessibilityLabel={label}
+                  startIcon={icon && <Icon source={icon} />}
+                  endIcon={<ChevronRight className={styles["chevronRight"]} />}
                   onClick={() => handleClick(key)}
                 >
                   {label}
@@ -195,15 +197,12 @@ const NavigationList = ({
                     );
                   } else {
                     return (
-                      <NavigationListButton action={action}>
-                        {icon ? (
-                          <b>
-                            <Icon source={icon} className={styles["bold"]} />{" "}
-                            {label}
-                          </b>
-                        ) : (
-                          label
-                        )}
+                      <NavigationListButton
+                        action={action}
+                        accessibilityLabel={label}
+                        startIcon={icon && <Icon source={icon} />}
+                      >
+                        {label}
                       </NavigationListButton>
                     );
                   }
@@ -237,7 +236,7 @@ const NavigationList = ({
         {isRoot && (
           <li>
             <NavigationListButton
-              endIcon={<ChevronRight />}
+              endIcon={<ChevronRight className={styles["chevronRight"]} />}
               onClick={toggleLanguageSelection}
             >
               Language
