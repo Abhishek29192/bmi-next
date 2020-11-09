@@ -13,6 +13,7 @@ export type Colors =
   | "alert"
   | "black"
   | "charcoal"
+  | "slate"
   | "blue-800"
   | "blue-900"
   | "teal-400"
