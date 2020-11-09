@@ -3,7 +3,7 @@
 exports[`Sections component renders correctly 1`] = `
 HTMLCollection [
   <div
-    class="Section"
+    class="Section Section--white"
   >
     <div
       class="MuiContainer-root Container MuiContainer-maxWidthXl"
@@ -95,7 +95,7 @@ HTMLCollection [
     </div>
   </div>,
   <div
-    class="Section"
+    class="Section Section--pearl"
   >
     <div
       class="MuiContainer-root Container MuiContainer-maxWidthXl"
