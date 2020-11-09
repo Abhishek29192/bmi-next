@@ -6,11 +6,13 @@ import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as PageInfoData } from "../components/PageInfo";
+import { Data as NextBestActionsData } from "../components/NextBestActions";
 
 type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
     sections: SectionsData | null;
+    nextBestActions: NextBestActionsData | null;
   };
 
 type Props = {
@@ -25,7 +27,8 @@ const SimplePage = ({ data }: Props) => {
     title,
     subtitle,
     featuredImage,
-    sections
+    sections,
+    nextBestActions
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
     title,
@@ -57,6 +60,7 @@ const SimplePage = ({ data }: Props) => {
         }
       />
       {sections && <Sections data={sections} />}
+      {nextBestActions && <p>HELLO!!</p>}
     </Page>
   );
 };
@@ -69,6 +73,9 @@ export const pageQuery = graphql`
       ...PageInfoFragment
       sections {
         ...SectionsFragment
+      }
+      nextBestActions {
+        ...NextBestActionsFragment
       }
       showSignUpBanner
     }
