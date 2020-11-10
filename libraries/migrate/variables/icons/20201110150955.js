@@ -1,0 +1,19 @@
+"use strict";
+
+const social = [
+  "Facebook",
+  "Twitter",
+  "LinkedIn",
+  "User",
+  "BMI",
+  "Phone",
+  "Mail",
+  "YouTube"
+];
+
+const brands = ["Icopal", "Monier", "Monarplan", "Arrow", "Zanda", "AeroDek"];
+
+module.exports = [...social, ...brands];
+
+module.exports.brands = brands;
+module.exports.social = social;
