@@ -13,6 +13,7 @@ export type LinkList = {
   icon?: SVGImport;
   image?: string;
   isHeading?: boolean;
+  isLabelHidden?: boolean;
   isParagraph?: boolean;
 };
 
@@ -113,9 +114,9 @@ const NavigationList = ({
           <li className={styles["BackNavigation"]} key={`menu-${depth}-back`}>
             <NavigationListButton
               className={styles["BackButton"]}
+              startIcon={<ChevronLeft className={styles["chevronLeft"]} />}
               endIcon={false}
               onClick={() => parentHandleClick(false)}
-              startIcon={<ChevronLeft />}
             >
               {backLabel}
             </NavigationListButton>
@@ -139,6 +140,7 @@ const NavigationList = ({
               icon,
               image = null,
               isHeading,
+              isLabelHidden,
               isParagraph,
               label,
               menu: subMenu
@@ -149,10 +151,12 @@ const NavigationList = ({
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
                   active={value === key}
-                  endIcon={<ChevronRight />}
+                  accessibilityLabel={label}
+                  startIcon={icon && <Icon source={icon} />}
+                  endIcon={<ChevronRight className={styles["chevronRight"]} />}
                   onClick={() => handleClick(key)}
                 >
-                  {label}
+                  {isLabelHidden ? null : label}
                 </NavigationListButton>
                 <NavigationList
                   backLabel={menu[0].isHeading ? menu[0].label : "Main menu"}
@@ -195,15 +199,17 @@ const NavigationList = ({
                     );
                   } else {
                     return (
-                      <NavigationListButton action={action}>
-                        {icon ? (
-                          <b>
-                            <Icon source={icon} className={styles["bold"]} />{" "}
-                            {label}
-                          </b>
-                        ) : (
-                          label
-                        )}
+                      <NavigationListButton
+                        action={action}
+                        accessibilityLabel={label}
+                        startIcon={
+                          icon && isLabelHidden && <Icon source={icon} />
+                        }
+                        endIcon={
+                          icon && !isLabelHidden && <Icon source={icon} />
+                        }
+                      >
+                        {isLabelHidden ? null : label}
                       </NavigationListButton>
                     );
                   }
@@ -237,7 +243,7 @@ const NavigationList = ({
         {isRoot && (
           <li>
             <NavigationListButton
-              endIcon={<ChevronRight />}
+              endIcon={<ChevronRight className={styles["chevronRight"]} />}
               onClick={toggleLanguageSelection}
             >
               Language
