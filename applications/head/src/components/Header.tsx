@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
-import Icon from "./Icon";
+import { iconMap } from "./Icon";
 import _ from "lodash";
 import { NavigationList } from "components/navigation/src";
 
@@ -42,7 +42,6 @@ const parseNavigation = (
     }
 
     if (__typename === "ContentfulLink") {
-      let iconLabel;
       let action;
 
       const {
@@ -52,16 +51,6 @@ const parseNavigation = (
         linkedPage,
         url
       } = item as LinkData;
-
-      if (isLabelHidden && iconName) {
-        iconLabel = <Icon name={iconName} />;
-      }
-      if (!isLabelHidden && iconName) {
-        iconLabel = [
-          <Icon key={`icon-${iconName}`} name={iconName} />,
-          <b key={`label-${iconName}`}>{label}</b>
-        ];
-      }
 
       if (linkedPage) {
         action = {
@@ -77,7 +66,8 @@ const parseNavigation = (
       }
 
       return result.concat({
-        label: iconLabel || label,
+        label,
+        icon: iconMap[iconName],
         isLabelHidden,
         action
       });
