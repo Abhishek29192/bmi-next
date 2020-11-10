@@ -6,7 +6,9 @@ import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as PageInfoData } from "../components/PageInfo";
-import { Data as NextBestActionsData } from "../components/NextBestActions";
+import NextBestActions, {
+  Data as NextBestActionsData
+} from "../components/NextBestActions";
 
 type Data = PageInfoData &
   PageData & {
@@ -60,7 +62,7 @@ const SimplePage = ({ data }: Props) => {
         }
       />
       {sections && <Sections data={sections} />}
-      {nextBestActions && <p>HELLO!!</p>}
+      {nextBestActions && <NextBestActions data={nextBestActions} />}
     </Page>
   );
 };
