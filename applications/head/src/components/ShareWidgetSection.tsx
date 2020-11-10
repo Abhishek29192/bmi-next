@@ -59,7 +59,7 @@ const ShareWidgetSection = ({
   ];
 
   return (
-    <Section backgroundColor="white">
+    <Section backgroundColor="white" spacing="none">
       <ShareWidget
         channels={availableChannels.filter(
           (channel) => channels[channel.type] && channel
