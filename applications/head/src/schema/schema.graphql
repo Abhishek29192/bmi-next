@@ -5,7 +5,7 @@ interface ContentfulPage {
   id: ID!
 
   "The name of this page, representative of the type."
-  title: String!
+  title: String
 
   "The url for this page, devoid of any prefix."
   slug: String!
@@ -33,7 +33,7 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   id: ID!
 
   "The name of this page, representative of the type."
-  title: String!
+  title: String
 
   "The url for this page, devoid of any prefix."
   slug: String!
@@ -67,7 +67,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   id: ID!
 
   "The name of this page, representative of the type."
-  title: String!
+  title: String
 
   "The url for this page, devoid of any prefix."
   slug: String!
@@ -98,7 +98,7 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   id: ID!
 
   "The name of this page, representative of the type."
-  title: String!
+  title: String
 
   "The url for this page, devoid of any prefix."
   slug: String!
@@ -136,7 +136,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   id: ID!
 
   "The name of this page, representative of the type."
-  title: String!
+  title: String
 
   "The url for this page, devoid of any prefix."
   slug: String!
@@ -173,8 +173,8 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 Represents a combination of Title, Description, Image, and Link combination.
 """
 type ContentfulPromo implements Node {
-  "The title should always be required."
-  title: String!
+  "The title of this promo."
+  title: String
 
   "The Brand logo for this promotion."
   brandLogo: String
@@ -312,6 +312,7 @@ union ContentfulSection =
   | ContentfulVillainSection
   | ContentfulTitleWithContent
   | ContentfulShareWidgetSection
+  | ContentfulPromo
 
 """
 Represents a key value pair for UI strings.
