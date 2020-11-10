@@ -141,7 +141,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   // TODO: NO BMI BRAND LOGO??
   const brandCode = (
-    product.categories.find(({ categoryType }) => {
+    (product.categories || []).find(({ categoryType }) => {
       return categoryType === "Brand";
     }) || {}
   ).code;
