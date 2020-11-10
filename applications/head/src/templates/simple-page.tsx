@@ -9,12 +9,15 @@ import { Data as PageInfoData } from "../components/PageInfo";
 import NextBestActions, {
   Data as NextBestActionsData
 } from "../components/NextBestActions";
+import ExploreBar, { Data as ExploreBarData } from "../components/ExploreBar";
+import Section from "@bmi/section";
 
 type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
     sections: SectionsData | null;
     nextBestActions: NextBestActionsData | null;
+    exploreBar: ExploreBarData | null;
   };
 
 type Props = {
@@ -30,7 +33,8 @@ const SimplePage = ({ data }: Props) => {
     subtitle,
     featuredImage,
     sections,
-    nextBestActions
+    nextBestActions,
+    exploreBar
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
     title,
@@ -63,6 +67,11 @@ const SimplePage = ({ data }: Props) => {
       />
       {sections && <Sections data={sections} />}
       {nextBestActions && <NextBestActions data={nextBestActions} />}
+      {exploreBar && (
+        <Section backgroundColor="alabaster">
+          <ExploreBar data={exploreBar} />
+        </Section>
+      )}
     </Page>
   );
 };
@@ -78,6 +87,9 @@ export const pageQuery = graphql`
       }
       nextBestActions {
         ...NextBestActionsFragment
+      }
+      exploreBar {
+        ...ExploreBarFragment
       }
       showSignUpBanner
     }

@@ -55,6 +55,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The next best actions for this page."
   nextBestActions: [ContentfulPromoOrPage] @link(from: "nextBestActions___NODE")
+
+  "The explore bar for this page."
+  exploreBar: ContentfulNavigation @link(from: "exploreBar___NODE")
 }
 
 """
