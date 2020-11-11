@@ -214,3 +214,15 @@ The process runs automatically for the `production`, `pre-production` and `maste
 ## Assets
 
 SVGs have their `viewBox` set correctly and the `width`s set to `auto` in order to allow for [better scaling](https://css-tricks.com/scale-svg/#option-3-use-inline-svg-and-the-latest-blink-firefox-browsers).
+
+## Migrations
+
+To run all the latest migrations.
+
+```shell
+yarn migrate up -a
+```
+
+Pass `-d` to execute a dry run.
+
+For more commands see the full documentation under [migrate](libraries/migrate/README.md)
