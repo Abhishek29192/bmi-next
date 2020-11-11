@@ -61,6 +61,10 @@ const ShareWidgetSection = ({
   return (
     <Section backgroundColor="white" spacing="none">
       <ShareWidget
+        title={title}
+        clipboardSuccessMessage={clipboardSuccessMessage}
+        clipboardErrorMessage={clipboardErrorMessage}
+        isLeftAligned={isLeftAligned}
         channels={availableChannels.filter(
           (channel) => channels[channel.type] && channel
         )}
