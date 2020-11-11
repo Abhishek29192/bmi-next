@@ -2,19 +2,15 @@ Footer is a component that can be split in three different sections: Newsletter,
 
 ```jsx
 import InputBanner from "@bmi/input-banner";
-import PhoneIcon from "@material-ui/icons/Phone";
-import MailIcon from "@material-ui/icons/Mail";
-import FacebookIcon from "@bmi/icon/src/svgs/Facebook.svg";
-import LinkedInIcon from "@bmi/icon/src/svgs/LinkedIn.svg";
-import YouTubeIcon from "@bmi/icon/src/svgs/YouTube.svg";
-import BmiIcon from "./src/svgs/BMI.svg";
+import { Facebook, LinkedIn, YouTube, Phone, Mail } from "@bmi/icon";
+import { BMI as BmiIcon } from "@bmi/logo";
 
 const mainNavigation = [
   {
     label: "Get in touch",
     menu: [
       {
-        icon: PhoneIcon,
+        icon: Phone,
         label: "+44 (0) 1234567890",
         action: {
           model: "htmlLink",
@@ -22,7 +18,7 @@ const mainNavigation = [
         }
       },
       {
-        icon: MailIcon,
+        icon: Mail,
         label: "info@bmigroup.com",
         action: {
           model: "htmlLink",
@@ -30,7 +26,7 @@ const mainNavigation = [
         }
       },
       {
-        icon: FacebookIcon,
+        icon: Facebook,
         label: "Facebook",
         isLabelHidden: true,
         action: {
@@ -39,7 +35,7 @@ const mainNavigation = [
         }
       },
       {
-        icon: LinkedInIcon,
+        icon: LinkedIn,
         label: "LinkedIn",
         isLabelHidden: true,
         action: {
@@ -48,7 +44,7 @@ const mainNavigation = [
         }
       },
       {
-        icon: YouTubeIcon,
+        icon: YouTube,
         label: "Youtube",
         isLabelHidden: true,
         action: {
