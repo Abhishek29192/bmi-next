@@ -39,8 +39,8 @@ type Props = {
   clipboardSuccessMessage?: string;
   clipboardErrorMessage?: string;
   isLeftAligned?: boolean;
-  label?: React.ReactNode;
-  // message?: string; // @todo: Not all have APIs for this
+  title?: React.ReactNode;
+  message?: string; // @todo: Not all have APIs for this
 };
 
 const ShareWidget = ({
@@ -48,7 +48,8 @@ const ShareWidget = ({
   clipboardSuccessMessage = "Copied to clipboard",
   clipboardErrorMessage = "There was an error copying to clipboard",
   isLeftAligned = false,
-  label = "Share this"
+  title = "Share this",
+  message
 }: Props) => {
   const [tooltipTitle, setTooltipTitle] = useState<string>("");
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
@@ -67,6 +68,8 @@ const ShareWidget = ({
     _: MouseEvent<HTMLButtonElement>,
     channel: Channel
   ) => {
+    const REPLACE_REGEX = /{{(href|message)}}/g;
+
     switch (channel.type) {
       case "copy":
         try {
@@ -78,14 +81,23 @@ const ShareWidget = ({
         setTooltipOpen(true);
         break;
       case "email": // @todo: Use service in future.
-        location.href = `${channel.apiUrl}${location.href}`;
+        location.href = channel.apiUrl.replace(REPLACE_REGEX, replaceApiString);
         break;
       default:
         open(
-          `${channel.apiUrl}${location.href}`,
+          channel.apiUrl.replace(REPLACE_REGEX, replaceApiString),
           "Share",
           "height=400,width=555"
         );
+    }
+  };
+
+  const replaceApiString = (replacement: string) => {
+    switch (replacement) {
+      case "{{href}}":
+        return location.href;
+      case "{{message}}":
+        return message || "";
     }
   };
 
@@ -95,8 +107,8 @@ const ShareWidget = ({
         [styles["ShareWidget--left-aligned"]]: isLeftAligned
       })}
     >
-      <Typography className={styles["label"]} variant="h6">
-        {label}:
+      <Typography className={styles["title"]} variant="h6">
+        {title}:
       </Typography>
       <ul className={styles["icon-list"]}>
         {channels.map((channel, key) => (

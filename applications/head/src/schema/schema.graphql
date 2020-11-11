@@ -269,8 +269,11 @@ Represents a widget for social sharing.
 type ContentfulShareWidgetSection implements Node {
   id: ID!
 
-  "The JSON for this content."
+  "The title of the share."
   title: String
+
+  "The message for the share."
+  message: String
 
   "Message shown when url is saved to the clipboard"
   clipboardSuccessMessage: String

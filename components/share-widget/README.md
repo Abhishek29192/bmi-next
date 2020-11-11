@@ -8,32 +8,42 @@ Widget for social sharing.
 <ShareWidget
   channels={[
     { type: "copy", label: "Copy to clipboard" },
-    { type: "email", label: "Share by email", apiUrl: "mailto:?body=" },
+    {
+      type: "email",
+      label: "Share by email",
+      // https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#E-mail_links
+      apiUrl: "mailto:?body={{href}}&subject={{message}}"
+    },
     {
       type: "linkedin",
       label: "Share on LinkedIn",
-      apiUrl: "https://www.linkedin.com/shareArticle?mini=true&url="
+      // https://docs.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/plugins/share-plugin
+      apiUrl: "https://www.linkedin.com/sharing/share-offsite/?url={{href}}"
     },
     {
       type: "twitter",
       label: "Share on Twitter",
-      apiUrl: "https://twitter.com/intent/tweet?url="
+      // https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
+      apiUrl: "https://twitter.com/intent/tweet?text={{message}}&url={{href}}"
     },
     {
       type: "facebook",
       label: "Share on Facebook",
-      apiUrl: "https://www.facebook.com/sharer/sharer.php?u="
+      // https://developers.facebook.com/docs/sharing/reference/share-dialog
+      apiUrl:
+        "https://www.facebook.com/sharer/sharer.php?u={{href}}&display=popup"
     },
     {
       type: "pinterest",
       label: "Share on Pinterest",
-      apiUrl: "https://www.pinterest.com/pin/create/button/?url="
+      // https://developers.pinterest.com/tools/widget-builder/?
+      apiUrl: "https://www.pinterest.com/pin/create/button/?url={{href}}"
     }
   ]}
 />
 ```
 
-### Left aligned
+### Left aligned with message
 
 ```jsx
 <ShareWidget
@@ -42,5 +52,6 @@ Widget for social sharing.
     { type: "copy", label: "Copy to clipboard" },
     { type: "email", , label: "Share by email", apiUrl: "mailto:?body=" }
   ]}
+  message="Check out this roof"
 />
 ```
