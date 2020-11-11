@@ -7,6 +7,7 @@ import GuaranteeSolution from "./svgs/GuaranteeSolution.svg";
 import GuaranteeSystem from "./svgs/GuaranteeSystem.svg";
 import Icopal from "./svgs/Icopal.svg";
 import Monarplan from "./svgs/Monarplan.svg";
+import Monarflex from "./svgs/Monarflex.svg";
 import Monier from "./svgs/Monier.svg";
 import Redland from "./svgs/Redland.svg";
 import RoofProElite from "./svgs/RoofProElite.svg";
@@ -27,6 +28,7 @@ export {
   Icopal,
   Monier,
   Monarplan,
+  Monarflex,
   Redland,
   RoofProElite,
   RoofProExpert,
@@ -47,6 +49,7 @@ export const iconMap = {
   Icopal,
   Monier,
   Monarplan,
+  Monarflex,
   Redland,
   RoofProElite,
   RoofProExpert,
