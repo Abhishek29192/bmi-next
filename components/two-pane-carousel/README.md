@@ -10,7 +10,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import demoHouseImage from "./images/demo-house.png";
 import demoTilesBlack from "./images/demo-tiles-black.png";
 import demoTiles from "./images/demo-tiles.jpg";
-import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek } from "@bmi/logo";
 
 const slides = [
   {

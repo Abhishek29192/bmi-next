@@ -6,7 +6,7 @@ import LanguageSelection, {
   LanguageSelectionItem,
   LanguageSelectionList
 } from "@bmi/language-selection";
-import BmiIcon from "@bmi/logo/svgs/BMI.svg";
+import { BMI as BmiIcon } from "@bmi/logo";
 import Clickable, { ClickableAction } from "@bmi/clickable";
 import Navigation, { LinkList, NavigationList } from "@bmi/navigation";
 import TextField from "@bmi/text-field";

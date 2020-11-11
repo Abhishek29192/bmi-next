@@ -5,7 +5,7 @@ Brand Intro cards do not have a block background or elevation shadow and are not
 ### Default
 
 ```jsx
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 
 <BrandIntroCard
   logoIcon={brandLogo}
@@ -17,7 +17,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 ### With background
 
 ```jsx
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 import Section from "@bmi/section";
 
 const card = (

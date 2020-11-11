@@ -6,7 +6,7 @@ A simple card component to display details of a product. Only the action prop is
 
 ```jsx
 import demoProduct from "./images/demo-product.png";
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 
 <ProductDetailsCard
   imageSource={demoProduct}

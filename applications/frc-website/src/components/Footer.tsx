@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import IcopalLogoSVG from "@bmi/logo/svgs/Icopal.svg";
+import { Icopal as IcopalLogoSVG } from "@bmi/logo";
 import Container from "@bmi/container";
 import Button from "@bmi/button";
 import styles from "./Footer.module.scss";

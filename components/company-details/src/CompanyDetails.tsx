@@ -3,10 +3,7 @@ import Button from "@bmi/button";
 import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import Icon from "@bmi/icon";
-import Logo from "@bmi/logo";
-import RoofProExpertLogo from "@bmi/logo/svgs/RoofProExpert.svg";
-import RoofProPartnerLogo from "@bmi/logo/svgs/RoofProPartnerSmall.svg";
-import RoofProEliteLogo from "@bmi/logo/svgs/RoofProElite.svg";
+import Logo, { RoofProExpert, RoofProPartner, RoofProElite } from "@bmi/logo";
 import styles from "./CompanyDetails.module.scss";
 
 import {
@@ -90,9 +87,9 @@ const DetailsItem = (props: DetailProps) => {
   if (props.type === "roofProLevel") {
     const { label, level } = props;
     const iconSourceMap: Record<RoofProLevel, SVGImport> = {
-      expert: RoofProExpertLogo,
-      partner: RoofProPartnerLogo,
-      elite: RoofProEliteLogo
+      expert: RoofProExpert,
+      partner: RoofProPartner,
+      elite: RoofProElite
     };
 
     return (

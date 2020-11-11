@@ -6,54 +6,32 @@ the SVG or is found as a property on the SVG itself.
 ## Usage
 
 ```jsx
-import BmiIcon from "./svgs/BMI.svg";
+import { BMI } from "@bmi/logo";
 
-<Logo source={BmiIcon} />;
+<Logo source={BMI} />;
 ```
 
 The `@bmi/icon` component can also be used directly in the same way.
 
 ```jsx
 import Icon from "@bmi/icon";
-import BmiIcon from "./svgs/BMI.svg";
+import { BMI } from "@bmi/logo";
 
-<Icon source={BmiIcon} style={{ width: 100 }} />;
+<Icon source={BMI} style={{ width: 100 }} />;
 ```
 
-## Brands
+## All logos
 
 ```jsx
 import Grid from "@bmi/grid";
-import AeroDek from "./svgs/AeroDek.svg";
-import Braas from "./svgs/Braas.svg";
-import Icopal from "./svgs/Icopal.svg";
-import Monarplan from "./svgs/Monarplan.svg";
-import Monier from "./svgs/Monier.svg";
-import Redland from "./svgs/Redland.svg";
-import Zanda from "./svgs/Zanda.svg";
+import { iconMap } from "@bmi/logo";
 
 <Grid container spacing={2}>
-  <Grid item xs={4}>
-    <Logo source={AeroDek} />
-  </Grid>
-  <Grid item xs={4}>
-    <Logo source={Braas} />
-  </Grid>
-  <Grid item xs={4}>
-    <Logo source={Icopal} />
-  </Grid>
-  <Grid item xs={4}>
-    <Logo source={Monarplan} />
-  </Grid>
-  <Grid item xs={4}>
-    <Logo source={Monier} />
-  </Grid>
-  <Grid item xs={4}>
-    <Logo source={Redland} />
-  </Grid>
-  <Grid item xs={4}>
-    <Logo source={Zanda} />
-  </Grid>
+  {Object.values(iconMap).map((icon) => (
+    <Grid item xs={4}>
+      <Logo source={icon} />
+    </Grid>
+  ))}
 </Grid>;
 ```
 
@@ -61,9 +39,7 @@ import Zanda from "./svgs/Zanda.svg";
 
 ```jsx
 import Grid from "@bmi/grid";
-import RoofProElite from "./svgs/RoofProElite.svg";
-import RoofProExpert from "./svgs/RoofProExpert.svg";
-import RoofProPartner from "./svgs/RoofProPartner.svg";
+import { RoofProElite, RoofProExpert, RoofProPartner } from "@bmi/logo";
 
 <Grid container spacing={2}>
   <Grid item xs={4}>
@@ -84,7 +60,7 @@ To be used when height of the logo would be <= 30px
 
 ```jsx
 import Grid from "@bmi/grid";
-import RoofProPartnerSmall from "./svgs/RoofProPartnerSmall.svg";
+import { RoofProPartnerSmall } from "@bmi/logo";
 
 <Grid container spacing={2}>
   <Grid item xs={4}>
@@ -103,9 +79,11 @@ import RoofProPartnerSmall from "./svgs/RoofProPartnerSmall.svg";
 
 ```jsx
 import Grid from "@bmi/grid";
-import GuaranteeProduct from "./svgs/GuaranteeProduct.svg";
-import GuaranteeSystem from "./svgs/GuaranteeSystem.svg";
-import GuaranteeSolution from "./svgs/GuaranteeSolution.svg";
+import {
+  GuaranteeProduct,
+  GuaranteeSystem,
+  GuaranteeSolution
+} from "@bmi/logo";
 
 <Grid container spacing={2}>
   <Grid item xs={4}>
@@ -124,8 +102,7 @@ import GuaranteeSolution from "./svgs/GuaranteeSolution.svg";
 
 ```jsx
 import Grid from "@bmi/grid";
-import Standard from "./svgs/Standard.svg";
-import StandardCentred from "./svgs/StandardCentred.svg";
+import { Standard, StandardCentred } from "@bmi/logo";
 
 <Grid container spacing={2}>
   <Grid item xs={6}>

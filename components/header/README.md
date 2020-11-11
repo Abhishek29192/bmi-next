@@ -10,11 +10,7 @@ import Button from "@bmi/button";
 import Icon from "@bmi/icon";
 import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
 import { languages } from "@bmi/language-selection";
-import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
-import Icopal from "@bmi/logo/svgs/Icopal.svg";
-import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
-import Monier from "@bmi/logo/svgs/Monier.svg";
-import Zanda from "@bmi/logo/svgs/Zanda.svg";
+import { AeroDek, Icopal, Monarplan, Monier, Zanda } from "@bmi/logo";
 import { Fullscreen } from "@material-ui/icons";
 import systemsImage from "./images/systems.jpg";
 
