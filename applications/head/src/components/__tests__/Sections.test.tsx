@@ -210,6 +210,15 @@ describe("Sections component", () => {
             }
           }
         ]
+      },
+      {
+        __typename: "ContentfulPromo",
+        title: "card section title 2",
+        subtitle: null,
+        brandLogo: null,
+        tag: null,
+        featuredImage: null,
+        cta: null
       }
     ];
 

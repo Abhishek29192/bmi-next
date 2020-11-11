@@ -24,6 +24,9 @@ import TitleWithContentSection, {
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
+import PromoSection, {
+  Data as PromoSectionData
+} from "../components/PromoSection";
 
 export type Data = (
   | FormSectionData
@@ -34,6 +37,7 @@ export type Data = (
   | CardCollectionSectionData
   | TitleWithContentData
   | ShareWidgetSectionData
+  | PromoSectionData
 )[];
 
 const sectionsMap = {
@@ -44,7 +48,8 @@ const sectionsMap = {
   ContentfulLeadBlockSection: LeadBlockSection,
   ContentfulCardCollectionSection: CardCollectionSection,
   ContentfulTitleWithContent: TitleWithContentSection,
-  ContentfulShareWidgetSection: ShareWidgetSection
+  ContentfulShareWidgetSection: ShareWidgetSection,
+  ContentfulPromo: PromoSection
 };
 
 const Sections = ({ data }: { data: Data }) => {
@@ -79,5 +84,6 @@ export const query = graphql`
     ...CardCollectionSectionFragment
     ...TitleWithContentSectionFragment
     ...ShareWidgetSectionFragment
+    ...PromoSectionFragment
   }
 `;
