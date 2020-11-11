@@ -6,6 +6,7 @@ import React from "react";
 export type Data = {
   __typename: "ShareWidgetSection";
   title: string;
+  message: string | null;
   clipboardSuccessMessage: string | null;
   clipboardErrorMessage: string | null;
   isLeftAligned: boolean | null;
@@ -21,6 +22,7 @@ const ShareWidgetSection = ({
   data: {
     __typename,
     title,
+    message,
     clipboardSuccessMessage,
     clipboardErrorMessage,
     isLeftAligned,
@@ -34,27 +36,28 @@ const ShareWidgetSection = ({
     {
       type: "email" as "email",
       label: "Share by email", // @todo: Microcopy
-      apiUrl: "mailto:?body="
+      apiUrl: "mailto:?body={{href}}&subject={{message}}"
     },
     {
       type: "linkedin" as "linkedin",
       label: "Share on LinkedIn",
-      apiUrl: "https://www.linkedin.com/shareArticle?mini=true&url="
+      apiUrl: "https://www.linkedin.com/sharing/share-offsite/?url={{href}}"
     },
     {
       type: "twitter" as "twitter",
       label: "Share on Twitter",
-      apiUrl: "https://twitter.com/intent/tweet?url="
+      apiUrl: "https://twitter.com/intent/tweet?text={{message}}&url={{href}}"
     },
     {
       type: "facebook" as "facebook",
       label: "Share on Facebook",
-      apiUrl: "https://www.facebook.com/sharer/sharer.php?u="
+      apiUrl:
+        "https://www.facebook.com/sharer/sharer.php?u={{href}}&display=popup"
     },
     {
       type: "pinterest" as "pinterest",
       label: "Share on Pinterest",
-      apiUrl: "https://www.pinterest.com/pin/create/button/?url="
+      apiUrl: "https://www.pinterest.com/pin/create/button/?url={{href}}"
     }
   ];
 
@@ -62,6 +65,7 @@ const ShareWidgetSection = ({
     <Section backgroundColor="white" spacing="none">
       <ShareWidget
         title={title}
+        message={message}
         clipboardSuccessMessage={clipboardSuccessMessage}
         clipboardErrorMessage={clipboardErrorMessage}
         isLeftAligned={isLeftAligned}
@@ -78,6 +82,7 @@ export default ShareWidgetSection;
 export const query = graphql`
   fragment ShareWidgetSectionFragment on ContentfulShareWidgetSection {
     title
+    message
     clipboardSuccessMessage
     clipboardErrorMessage
     isLeftAligned
