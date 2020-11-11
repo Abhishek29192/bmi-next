@@ -39,7 +39,7 @@ type Props = {
   clipboardSuccessMessage?: string;
   clipboardErrorMessage?: string;
   isLeftAligned?: boolean;
-  label?: React.ReactNode;
+  title?: React.ReactNode;
   message?: string; // @todo: Not all have APIs for this
 };
 
@@ -48,7 +48,7 @@ const ShareWidget = ({
   clipboardSuccessMessage = "Copied to clipboard",
   clipboardErrorMessage = "There was an error copying to clipboard",
   isLeftAligned = false,
-  label = "Share this",
+  title = "Share this",
   message
 }: Props) => {
   const [tooltipTitle, setTooltipTitle] = useState<string>("");
@@ -107,8 +107,8 @@ const ShareWidget = ({
         [styles["ShareWidget--left-aligned"]]: isLeftAligned
       })}
     >
-      <Typography className={styles["label"]} variant="h6">
-        {label}:
+      <Typography className={styles["title"]} variant="h6">
+        {title}:
       </Typography>
       <ul className={styles["icon-list"]}>
         {channels.map((channel, key) => (
