@@ -7,8 +7,7 @@ The header must be placed in the DOM at the top of the `body`. For the demo, cli
 ```jsx
 import { useRef } from "react";
 import Button from "@bmi/button";
-import Icon from "@bmi/icon";
-import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
+import Icon, { Arrow } from "@bmi/icon";
 import { languages } from "@bmi/language-selection";
 import { AeroDek, Icopal, Monarplan, Monier, Zanda } from "@bmi/logo";
 import { Fullscreen } from "@material-ui/icons";
