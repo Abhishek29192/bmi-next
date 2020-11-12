@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import styles from "./ImageGallery.module.scss";
+import classnames from "classnames";
 import DesktopThumbnails from "./_DesktopThumbnails";
 import MobileThumbnails from "./_MobileThumbnails";
 import { Image } from "./types";
+import styles from "./ImageGallery.module.scss";
 
 type Props = {
   images: Image[];
+  imageSize?: "cover" | "contain";
 };
 
-const ImageGallery = ({ images }: Props) => {
+const ImageGallery = ({ images, imageSize = "contain" }: Props) => {
   if (!images.length) {
     return null;
   }
@@ -23,7 +25,9 @@ const ImageGallery = ({ images }: Props) => {
   return (
     <div className={styles["ImageGallery"]}>
       <div
-        className={styles["main-image-wrapper"]}
+        className={classnames(styles["main-image-wrapper"], {
+          [styles[`main-image-wrapper--${imageSize}`]]: imageSize !== "contain"
+        })}
         style={{
           backgroundImage: `url(${images[activeImageIndex].mainSource})`
         }}
