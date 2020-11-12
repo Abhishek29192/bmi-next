@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import ImageGallery, { Image } from "@bmi/image-gallery";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
-import Grid from "@bmi/Grid";
+import Grid from "@bmi/grid";
 import styles from "./styles/ImageGallerySection.module.scss";
 
 type GallerySectionImage = {
@@ -49,7 +49,10 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <ImageGallery images={transformImagesSrc(images)}></ImageGallery>
+          <ImageGallery
+            images={transformImagesSrc(images)}
+            imageSize="cover"
+          ></ImageGallery>
         </Grid>
       </Grid>
     </Section>
