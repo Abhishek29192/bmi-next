@@ -270,6 +270,44 @@ type ContentfulCarouselSection implements Node {
 }
 
 """
+Represents the rich text content for the ContentfulFormSection description.
+"""
+type contentfulFormSectionDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a form.
+"""
+type ContentfulFormSection implements Node {
+  id: ID!
+
+  "The title for this form."
+  title: String
+
+  "The title is visible."
+  showTitle: Boolean
+
+  "The title for this form."
+  description: contentfulFormSectionDescriptionRichTextNode
+
+  "The recipients of this form."
+  recipients: String
+
+  "JSON representation of the form inputs."
+  inputs: [contentfulFormSectionInputsJsonNode]
+
+  "The submit button text."
+  submitText: String
+
+  "The redirect page on submission success."
+  successRedirect: ContentfulLink @link(from: "successRedirect___NODE")
+}
+
+"""
 Represents a widget for social sharing.
 """
 type ContentfulShareWidgetSection implements Node {
