@@ -3,6 +3,8 @@ import { graphql } from "gatsby";
 import ImageGallery, { Image } from "@bmi/image-gallery";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
+import Grid from "@bmi/Grid";
+import styles from "./styles/ImageGallerySection.module.scss";
 
 type GallerySectionImage = {
   title: string;
@@ -33,12 +35,23 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
   const { title, description, images } = data;
 
   return (
-    <Section backgroundColor="alabaster">
-      <Typography variant="h1" hasUnderline>
-        {title}
-      </Typography>
-      <Typography>{description.description}</Typography>
-      <ImageGallery images={transformImagesSrc(images)}></ImageGallery>
+    <Section
+      backgroundColor="alabaster"
+      className={styles["ImageGallerySection"]}
+    >
+      <Grid container>
+        <Grid item xs={12} lg={8}>
+          <Typography variant="h1" hasUnderline>
+            {title}
+          </Typography>
+          <Typography className={styles["description"]}>
+            {description.description}
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <ImageGallery images={transformImagesSrc(images)}></ImageGallery>
+        </Grid>
+      </Grid>
     </Section>
   );
 };
