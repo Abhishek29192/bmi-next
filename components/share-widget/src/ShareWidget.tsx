@@ -45,10 +45,10 @@ type Props = {
 
 const ShareWidget = ({
   channels,
-  clipboardSuccessMessage = "Copied to clipboard",
-  clipboardErrorMessage = "There was an error copying to clipboard",
+  clipboardSuccessMessage,
+  clipboardErrorMessage,
   isLeftAligned = false,
-  title = "Share this",
+  title,
   message
 }: Props) => {
   const [tooltipTitle, setTooltipTitle] = useState<string>("");
@@ -74,9 +74,11 @@ const ShareWidget = ({
       case "copy":
         try {
           await navigator.clipboard.writeText(location.href);
-          setTooltipTitle(clipboardSuccessMessage);
+          setTooltipTitle(clipboardSuccessMessage || "Copied to clipboard");
         } catch (error) {
-          setTooltipTitle(clipboardErrorMessage);
+          setTooltipTitle(
+            clipboardErrorMessage || "There was an error copying to clipboard"
+          );
         }
         setTooltipOpen(true);
         break;
@@ -108,7 +110,7 @@ const ShareWidget = ({
       })}
     >
       <Typography className={styles["title"]} variant="h6">
-        {title}:
+        {title || "Share this"}:
       </Typography>
       <ul className={styles["icon-list"]}>
         {channels.map((channel, key) => (
