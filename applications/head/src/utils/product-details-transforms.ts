@@ -16,7 +16,7 @@ const getAllValues = (classifications, propName) => {
 
   const getPropIdentifier = {
     texturefamily: (prop) => prop.value.code,
-    colourfamily: (prop) => prop.value.code,
+    colour: (prop) => prop.value.value, // UGH! Colour doesn't have a code!
     measurements: (prop) => getMeasurementKey(prop)
   };
 
@@ -149,7 +149,7 @@ export const mapProductClassifications = (
   const FEATURES = {
     SCORE_WEIGHT: `${classificationNamepace}/scoringWeightAttributes.scoringweight`,
     TEXTURE_FAMILY: `${classificationNamepace}/appearanceAttributes.texturefamily`,
-    COLOUR_FAMILY: `${classificationNamepace}/appearanceAttributes.colourfamily`,
+    COLOUR: `${classificationNamepace}/appearanceAttributes.colour`,
     LENGTH: `${classificationNamepace}/measurements.length`,
     WIDTH: `${classificationNamepace}/measurements.width`,
     HEIGHT: `${classificationNamepace}/measurements.height`
@@ -190,8 +190,8 @@ export const mapProductClassifications = (
             });
           }
 
-          if (code === FEATURES.COLOUR_FAMILY) {
-            carryProp("colourfamily", {
+          if (code === FEATURES.COLOUR) {
+            carryProp("colour", {
               name,
               value: featureValues ? featureValues[0] : "n/a",
               thumbnailUrl: getColourThumbnailUrl(product.images || [])
@@ -245,12 +245,11 @@ export const getProductAttributes = (
   const selectedColour = getProductProp(
     productClassifications,
     selfProduct.code,
-    "colourfamily"
+    "colour"
   );
-  const allColours = getAllValues(
-    productClassifications,
-    "colourfamily"
-  ).filter(Boolean);
+  const allColours = getAllValues(productClassifications, "colour").filter(
+    Boolean
+  );
 
   const selectedSize = getProductProp(
     productClassifications,
@@ -263,7 +262,7 @@ export const getProductAttributes = (
   );
 
   // The last attribute should be "quantity", but I can't find any products having it.
-  const propHierarchy = ["colourfamily", "measurements", "???"];
+  const propHierarchy = ["colour", "measurements", "???"];
   const getMasterProperty = (keys, hirarchy) =>
     hirarchy.filter((code) => keys.includes(code))[0];
 
@@ -272,7 +271,7 @@ export const getProductAttributes = (
 
     const propValueMap = {
       texturefamily: (prop) => prop.value.code,
-      colourfamily: (prop) => prop.value.code,
+      colour: (prop) => prop.value.code,
       measurements: (prop) => getMeasurementKey(prop)
     };
 
@@ -280,11 +279,11 @@ export const getProductAttributes = (
   };
 
   const findProductCode = (
-    filter /*: { "texturefamily": string, "colourfamily": string, "measurements": string } */,
+    filter /*: { "texturefamily": string, "colour": string, "measurements": string } */,
     property
   ) => {
     filter = {
-      colourfamily: selectedColour ? selectedColour.value.code : undefined,
+      colour: selectedColour ? selectedColour.value.code : undefined,
       texturefamily: selectedColour ? selectedColour.value.code : undefined,
       measurements: selectedSize ? getMeasurementKey(selectedSize) : undefined,
       ...filter
@@ -355,9 +354,9 @@ export const getProductAttributes = (
 
         const variantCode = findProductCode(
           {
-            colourfamily: code
+            colour: code
           },
-          "colourfamily"
+          "colour"
         );
 
         return {
@@ -564,7 +563,7 @@ export const findUniqueClassificationsOnVariant = (
 export const mapClassificationValues = (classificationsMap) => {
   return Object.entries(classificationsMap)
     .map(([key, value]) => {
-      if (["colourfamily", "texturefamily"].includes(key)) {
+      if (["colour", "texturefamily"].includes(key)) {
         // TODO: Hmmmmmmm
         return value.value.value;
       }
