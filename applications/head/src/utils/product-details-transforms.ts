@@ -483,10 +483,27 @@ export const getProductTechnicalSpecifications = (
     });
 };
 
-const getGroupCategory = (branch) => branch[Math.max(0, branch.length - 2)];
+export type Category = {
+  parentCategoryCode: string;
+  name: string;
+  categoryType: string;
+  code: string;
+};
+
+type CategoryPath = readonly Category[];
+
+export type ProductCategoryTree = {
+  [category: string]: Category[];
+};
+
+export const getGroupCategory = (branch: CategoryPath) =>
+  branch[Math.max(0, branch.length - 2)];
 
 // NOTE: This starts from the root category, so technically is a depth first
-const getFullCategoriesPaths = (categories) => {
+// TODO: This may not be 100% accurate, when it comes to multiple overlapping categories
+export const getFullCategoriesPaths = (
+  categories: readonly Category[]
+): CategoryPath[] => {
   categories = categories.filter(
     ({ categoryType }) => categoryType === "Category"
   );
@@ -496,7 +513,7 @@ const getFullCategoriesPaths = (categories) => {
   );
 
   return roots.map((rootCategory) => {
-    let path = [rootCategory.name];
+    let path = [rootCategory];
     let currentNode = rootCategory;
 
     while (currentNode) {
@@ -505,7 +522,7 @@ const getFullCategoriesPaths = (categories) => {
       );
 
       if (currentNode) {
-        path = [...path, currentNode.name];
+        path = [...path, currentNode];
       }
     }
 
@@ -513,6 +530,10 @@ const getFullCategoriesPaths = (categories) => {
   });
 };
 
+
+/**
+ * Groups resolved product category paths by the 2nd last category in the path
+ */
 export const groupProductsByCategory = (
   products: ReadonlyArray<Product>
 ): Record<string, ReadonlyArray<Product>> => {
@@ -523,7 +544,7 @@ export const groupProductsByCategory = (
 
     categoryBranches.forEach((branch) => {
       const tabCategory = getGroupCategory(branch);
-      tabs[tabCategory] = [...(tabs[tabCategory] || []), product];
+      tabs[tabCategory.name] = [...(tabs[tabCategory.name] || []), product];
     });
   });
 
