@@ -498,6 +498,9 @@ export type ProductCategoryTree = {
 export const getGroupCategory = (branch: CategoryPath) =>
   branch[Math.max(0, branch.length - 2)];
 
+export const getLeafCategory = (branch: CategoryPath) =>
+  branch[branch.length - 1];
+
 // NOTE: This starts from the root category, so technically is a depth first
 // TODO: This may not be 100% accurate, when it comes to multiple overlapping categories
 export const getFullCategoriesPaths = (
@@ -529,6 +532,32 @@ export const getFullCategoriesPaths = (
   });
 };
 
+export const findAllCategories = (
+  products: readonly Product[]
+): ProductCategoryTree => {
+  const categoryPaths = products
+    .map(({ categories }) => getFullCategoriesPaths(categories))
+    .reduce((allPaths, productPaths) => [...allPaths, ...productPaths], []);
+
+  return categoryPaths.reduce((tree, path) => {
+    const group = getGroupCategory(path);
+    const leaf = getLeafCategory(path);
+
+    const groupCollection = tree[group.code] || [];
+    const existingValue = groupCollection.find(
+      ({ code }) => code === leaf.code
+    );
+
+    if (existingValue) {
+      return tree;
+    } else {
+      return {
+        ...tree,
+        [group.code]: [...(tree[group.code] || []), leaf]
+      };
+    }
+  }, {});
+};
 
 /**
  * Groups resolved product category paths by the 2nd last category in the path
