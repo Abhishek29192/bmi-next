@@ -386,6 +386,26 @@ type ContentfulLeadBlockSection implements Node {
 }
 
 """
+Represents a syndicate section (many villains).
+Renamed from ContentfulVillainSection.
+"""
+type ContentfulSyndicateSection implements Node {
+  id: ID!
+
+  "The title for this section."
+  title: String
+
+  "The title for this section."
+  description: String
+
+  "The villains for this section."
+  villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
+
+  "Starting villain content ordering"
+  isReversed: Boolean
+}
+
+"""
 Represents a union for all the possible sections available in a page.
 """
 union ContentfulSection =
@@ -393,7 +413,7 @@ union ContentfulSection =
   | ContentfulCarouselSection
   | ContentfulFormSection
   | ContentfulTabsOrAccordionSection
-  | ContentfulVillainSection
+  | ContentfulSyndicateSection
   | ContentfulTitleWithContent
   | ContentfulShareWidgetSection
   | ContentfulPromo

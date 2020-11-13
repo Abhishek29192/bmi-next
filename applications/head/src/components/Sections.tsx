@@ -6,9 +6,9 @@ import FormSection, {
 import TabsOrAccordionSection, {
   Data as TabsOrAccordionSectionData
 } from "../components/TabsOrAccordionSection";
-import VillainSection, {
-  Data as VillainSectionData
-} from "../components/VillainSection";
+import SyndicateSection, {
+  Data as SyndicateSectionData
+} from "./SyndicateSection";
 import CarouselSection, {
   Data as CarouselSectionData
 } from "../components/CarouselSection";
@@ -32,7 +32,7 @@ import TableOfContent from "@bmi/table-of-content";
 export type Data = (
   | FormSectionData
   | TabsOrAccordionSectionData
-  | VillainSectionData
+  | SyndicateSectionData
   | CarouselSectionData
   | CardCollectionSectionData
   | TitleWithContentData
@@ -44,7 +44,7 @@ export type Data = (
 const sectionsMap = {
   ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
-  ContentfulVillainSection: VillainSection,
+  ContentfulSyndicateSection: SyndicateSection,
   ContentfulCarouselSection: CarouselSection,
   ContentfulCardCollectionSection: CardCollectionSection,
   ContentfulTitleWithContent: TitleWithContentSection,
@@ -83,7 +83,7 @@ export const query = graphql`
     __typename
     ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
-    ...VillainSectionFragment
+    ...SyndicateSectionFragment
     ...CarouselSectionFragment
     ...CardCollectionSectionFragment
     ...TitleWithContentSectionFragment
