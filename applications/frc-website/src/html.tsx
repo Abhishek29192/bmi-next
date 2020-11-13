@@ -37,6 +37,7 @@ export default function HTML(props) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
+          // Cookie banner
           var config = {
               apiKey: '${FRC_CIVIC_KEY}',
               product: 'COMMUNITY',
