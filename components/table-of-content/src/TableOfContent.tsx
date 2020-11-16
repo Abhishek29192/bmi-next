@@ -1,17 +1,16 @@
-import React, { isValidElement } from "react";
-import Section, { Props as SectionProps } from "@bmi/section";
-import Typography from "@bmi/typography";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./TableOfContent.module.scss";
-import classnames from "classnames";
 
 type ContextType = {
-  titles: string[];
+  titles: Record<string, string>;
   renderLink: (sectionId: string, title: string) => React.ReactNode;
+  getTitleId: (title: string) => string;
 };
 
 const Context = React.createContext<ContextType>({
-  titles: [],
-  renderLink: (sectionId, title) => null
+  titles: {},
+  renderLink: (sectionId, title) => null,
+  getTitleId: (title) => title
 });
 
 const getId = (title: string) =>
@@ -21,41 +20,38 @@ const getId = (title: string) =>
     .join("-")
     .replace(/[^\w-]+/g, "");
 
-type ContentSectionProps = SectionProps & {
-  title: string;
-};
-
-const ContentSection = ({
+const TableOfContentAnchor = ({
   title,
   children,
-  backgroundColor
-}: ContentSectionProps) => {
-  const sectionId = getId(title);
+  offset = 150
+}: {
+  title: string;
+  children?: React.ReactNode;
+  offset?: number;
+}) => {
+  const { getTitleId } = useContext(Context);
+  const [titleId, setTitleId] = useState<string>();
+
+  useEffect(() => {
+    setTitleId(getTitleId(title));
+  }, []);
 
   return (
-    <Section backgroundColor={backgroundColor}>
-      <Section.Title id={sectionId}>{title}</Section.Title>
-      <div>{children}</div>
-    </Section>
+    <div
+      style={{ marginTop: `-${offset}px`, paddingTop: `${offset}px` }}
+      id={titleId}
+    >
+      {children}
+    </div>
   );
 };
 
-const Menu = ({
-  header,
-  className
-}: {
-  header: React.ReactNode;
-  className?: string;
-}) => {
+const TableOfContentMenu = ({ className }: { className?: string }) => {
   return (
     <Context.Consumer>
       {({ titles, renderLink }) => (
-        <div className={classnames(styles["menu"], className)}>
-          <Typography variant="h4" className={styles["menu-title"]}>
-            {header}
-          </Typography>
-          {titles.map((title, index) => {
-            const sectionId = getId(title);
+        <div className={className}>
+          {Object.entries(titles).map(([title, sectionId], index) => {
             return (
               <div className={styles["link"]} key={index}>
                 {renderLink(sectionId, title)}
@@ -74,21 +70,24 @@ type Props = {
 };
 
 const TableOfContent = ({ children, renderLink }: Props) => {
-  const titles = React.Children.map(children, (child) => {
-    if (isValidElement(child) && child.type && child.type === ContentSection) {
-      return child.props.title;
+  const [titles, setTitles] = useState<Record<string, string>>({});
+
+  const getTitleId = (title: string): string => {
+    if (!titles[title]) {
+      setTitles((prevTitles) => ({ ...prevTitles, [title]: getId(title) }));
     }
-    return null;
-  }).filter(Boolean);
+
+    return getId(title);
+  };
 
   return (
-    <Context.Provider value={{ titles, renderLink }}>
+    <Context.Provider value={{ titles, renderLink, getTitleId }}>
       <div className={styles["TOC"]}>{children}</div>
     </Context.Provider>
   );
 };
 
-TableOfContent.Section = ContentSection;
-TableOfContent.Menu = Menu;
+TableOfContent.Anchor = TableOfContentAnchor;
+TableOfContent.Menu = TableOfContentMenu;
 
 export default TableOfContent;

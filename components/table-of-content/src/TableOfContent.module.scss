@@ -1,21 +1,13 @@
 @import "@bmi/styles";
 
 .TOC {
-  overflow-y: scroll;
   .link {
-    color: $color-cyan-500;
-    text-decoration: underline;
-    font-size: 18px;
+    font-size: 1rem;
     margin-bottom: 20px;
-    cursor: pointer;
-  }
-  .menu {
-    width: 100%;
-    background-color: $color-pearl;
-    padding: 30px;
-  }
-  .menu-title {
-    margin-bottom: 18px;
+
+    &:first-child {
+      margin-top: 37px;
+    }
   }
 }
 
