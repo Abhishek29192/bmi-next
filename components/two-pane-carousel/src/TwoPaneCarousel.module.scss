@@ -15,7 +15,8 @@
     width: 100%;
     height: auto;
     background-size: cover;
-    min-height: 400px;
+    background-position: center center;
+    max-height: 400px;
     margin-bottom: 24px;
 
     &::before {
@@ -65,7 +66,7 @@
     }
 
     .image {
-      min-height: none;
+      max-height: none;
       height: $pane-height;
       margin-bottom: 0;
 

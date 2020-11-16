@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import AnchorLink from "@bmi/anchor-link";
-import Carousel from "@bmi/carousel";
+import SlideControls from "@bmi/slide-controls";
+import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
 import Typography from "@bmi/typography";
 import styles from "./TwoPaneCarousel.module.scss";
 import { Props } from "./types";
 
 const MobileTwoPaneCarousel = ({ slides }: Props) => {
+  const [activePage, setActivePage] = useState<number>(0);
+
   return (
-    <Carousel hasOpacityAnimation>
-      {slides.map(
-        (
-          { brandIcon: BrandIcon, title, description, cta, imageSource },
-          index
-        ) => {
+    <div>
+      <Carousel
+        initialPage={activePage}
+        onPageChange={setActivePage}
+        hasOpacityAnimation
+      >
+        {slides.map(({ brandIcon: BrandIcon, title }, index) => {
           return (
             <Carousel.Slide
               key={`left-pane-${index}`}
@@ -31,6 +35,21 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
               >
                 {title}
               </Typography>
+            </Carousel.Slide>
+          );
+        })}
+      </Carousel>
+      <Carousel
+        initialPage={activePage}
+        onPageChange={setActivePage}
+        hasOpacityAnimation
+      >
+        {slides.map(({ description, cta, imageSource }, index) => {
+          return (
+            <Carousel.Slide
+              key={`left-pane-${index}`}
+              className={styles["left-pane-slide"]}
+            >
               <div
                 className={styles["image"]}
                 style={{ backgroundImage: `url(${imageSource})` }}
@@ -53,10 +72,17 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
               )}
             </Carousel.Slide>
           );
-        }
-      )}
-      <Carousel.Controls isFullSize className={styles["controls"]} />
-    </Carousel>
+        })}
+      </Carousel>
+      <SlideControls
+        isFullSize
+        className={styles["controls"]}
+        current={getPageFromAbsoluteIndex(activePage, slides.length)}
+        total={slides.length}
+        onNextClick={() => setActivePage((activePage) => activePage + 1)}
+        onPrevClick={() => setActivePage((activePage) => activePage - 1)}
+      />
+    </div>
   );
 };
 
