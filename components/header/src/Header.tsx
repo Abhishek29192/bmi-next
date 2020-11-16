@@ -25,6 +25,10 @@ type HeaderProps = {
   utilities: readonly LinkList[];
   logoAction?: ClickableAction;
   activeNavLabel?: string;
+  closeLabel?: string;
+  searchLabel?: string;
+  searchPlaceholder?: string;
+  openLabel?: string;
 };
 
 const Header = ({
@@ -33,7 +37,11 @@ const Header = ({
   navigation,
   utilities,
   logoAction = { model: "htmlLink", href: "/" },
-  activeNavLabel
+  activeNavLabel,
+  closeLabel = "Close",
+  searchLabel = "Search",
+  searchPlaceholder = "Search BMI...",
+  openLabel = "Open menu"
 }: HeaderProps) => {
   const $body: HTMLElement =
     typeof document !== "undefined"
@@ -179,7 +187,7 @@ const Header = ({
         >
           <div className={classnames(styles.Drawer, styles.LanguageDrawer)}>
             <Button
-              accessibilityLabel="Close"
+              accessibilityLabel={closeLabel}
               className={styles.CloseButton}
               isIconButton
               onClick={toggleLanguageSelection}
@@ -227,14 +235,14 @@ const Header = ({
           </div>
           <div className={styles.NavigationBar__Right}>
             <Button
-              accessibilityLabel="Search"
+              accessibilityLabel={searchLabel}
               isIconButton
               onClick={toggleSearch}
             >
               <Icon source={Search} />
             </Button>
             <Button
-              accessibilityLabel="Open menu"
+              accessibilityLabel={openLabel}
               className={styles.BurgerButton}
               isIconButton
               onClick={toggleMenu}
@@ -255,7 +263,7 @@ const Header = ({
       >
         <div className={classnames(styles.Drawer, styles.NavDrawer)}>
           <Button
-            accessibilityLabel="Close"
+            accessibilityLabel={closeLabel}
             className={styles.CloseButton}
             isIconButton
             onClick={toggleMenu}
@@ -274,7 +282,7 @@ const Header = ({
       <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
         <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
           <Button
-            accessibilityLabel="Close"
+            accessibilityLabel={closeLabel}
             className={styles.CloseButton}
             isIconButton
             onClick={toggleSearch}
@@ -287,12 +295,12 @@ const Header = ({
               <TextField
                 name="input-banner-text-field"
                 variant="hybrid"
-                label="Search BMI..."
+                label={searchPlaceholder}
               />
             }
             button={
               // TODO: Use a submit button for Form control functionalities.
-              <Button accessibilityLabel="Search" isIconButton>
+              <Button accessibilityLabel={searchLabel} isIconButton>
                 <Icon source={Search} />
               </Button>
             }

@@ -113,7 +113,7 @@ exports[`Page component renders correctly 1`] = `
         class="NavigationBar__Right"
       >
         <button
-          aria-label="Search"
+          aria-label="MC: search.label"
           class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained"
           tabindex="0"
           type="button"
@@ -137,7 +137,7 @@ exports[`Page component renders correctly 1`] = `
           />
         </button>
         <button
-          aria-label="Open menu"
+          aria-label="MC: menu.open"
           class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained BurgerButton"
           tabindex="0"
           type="button"
@@ -173,7 +173,7 @@ exports[`Page component renders correctly 1`] = `
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <button
-      aria-label="Close"
+      aria-label="MC: global.close"
       class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
       tabindex="0"
       type="button"
@@ -287,7 +287,7 @@ exports[`Page component renders correctly 1`] = `
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <button
-      aria-label="Close"
+      aria-label="MC: global.close"
       class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
       tabindex="0"
       type="button"
@@ -325,7 +325,7 @@ exports[`Page component renders correctly 1`] = `
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
           data-shrink="false"
         >
-          Search BMI...
+          MC: search.placeholder
         </label>
         <div
           class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
@@ -339,7 +339,7 @@ exports[`Page component renders correctly 1`] = `
         </div>
       </div>
       <button
-        aria-label="Search"
+        aria-label="MC: search.label"
         class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button"
         tabindex="0"
         type="button"

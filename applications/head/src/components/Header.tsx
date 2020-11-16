@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
@@ -6,6 +6,7 @@ import HidePrint from "@bmi/hide-print";
 import { iconMap } from "./Icon";
 import _ from "lodash";
 import { NavigationList } from "components/navigation/src";
+import { SiteContext } from "./Site";
 
 const parseNavigation = (
   navigationItems: (NavigationData | NavigationItem | LinkData)[],
@@ -121,6 +122,7 @@ const Header = ({
     return null;
   }
 
+  const { getMicroCopy } = useContext(SiteContext);
   const utilities = parseNavigation(utilitiesData.links, countryCode);
   const navigation = parseNavigation(navigationData.links, countryCode);
 
@@ -139,6 +141,10 @@ const Header = ({
             to: `/${countryCode}/`
           }}
           activeNavLabel={parentLabel}
+          closeLabel={getMicroCopy("global.close")}
+          searchLabel={getMicroCopy("search.label")}
+          searchPlaceholder={getMicroCopy("search.placeholder")}
+          openLabel={getMicroCopy("menu.open")}
         />
       )}
     />
