@@ -1,4 +1,5 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import sgMail from "@sendgrid/mail";
 import { createClient } from "contentful-management";
 import { config } from "dotenv";
 
@@ -10,7 +11,9 @@ export const submit: HttpFunction = async (request, response) => {
   const {
     CONTENTFUL_ENVIRONMENT,
     CONTENTFUL_SPACE_ID,
-    CONTENTFUL_MANAGEMENT_ACCESS_TOKEN: accessToken
+    CONTENTFUL_MANAGEMENT_ACCESS_TOKEN: accessToken,
+    SENDGRID_API_KEY,
+    SENDGRID_FROM_EMAIL
   } = process.env;
 
   response.set("Access-Control-Allow-Origin", "*");
@@ -30,6 +33,7 @@ export const submit: HttpFunction = async (request, response) => {
         body: {
           locale,
           title,
+          recipients,
           values: { files, ...fields } // @todo "files" probably shouldn't come from CMS
         }
       } = request;
@@ -71,7 +75,16 @@ export const submit: HttpFunction = async (request, response) => {
             })
           : null;
 
-      return response.send({ entry, assets });
+      sgMail.setApiKey(SENDGRID_API_KEY);
+
+      const email = await sgMail.send({
+        to: recipients,
+        from: SENDGRID_FROM_EMAIL,
+        subject: "Website form submission",
+        text: JSON.stringify(fields) // @todo: We probably want a nice email?
+      });
+
+      return response.send({ entry, assets, email });
     } catch (error) {
       return response.status(500).send(error);
     }
