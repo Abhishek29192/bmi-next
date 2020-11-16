@@ -11,7 +11,7 @@ const SpotlightHero = ({
   backgroundColor = "blue",
   breadcrumbs
 }: {
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
   imageSource: string;
   backgroundColor?: "cyan" | "teal" | "blue" | "charcoal";

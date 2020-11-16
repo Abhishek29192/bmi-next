@@ -11,6 +11,7 @@ import NextBestActions, {
 } from "../components/NextBestActions";
 import ExploreBar, { Data as ExploreBarData } from "../components/ExploreBar";
 import Section from "@bmi/section";
+import SpotlightHero from "@bmi/spotlight-hero";
 
 type Data = PageInfoData &
   PageData & {
@@ -18,6 +19,7 @@ type Data = PageInfoData &
     sections: SectionsData | null;
     nextBestActions: NextBestActionsData | null;
     exploreBar: ExploreBarData | null;
+    heroType: "Hierarchy" | "Spotlight" | null;
   };
 
 type Props = {
@@ -34,7 +36,8 @@ const SimplePage = ({ data }: Props) => {
     featuredImage,
     sections,
     nextBestActions,
-    exploreBar
+    exploreBar,
+    heroType
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
     title,
@@ -46,25 +49,25 @@ const SimplePage = ({ data }: Props) => {
       .length + 1,
     3
   ) || 1) as 1 | 2 | 3;
-
+  const breadcrumbs = (
+    <Breadcrumbs
+      title={title}
+      slug={data.contentfulSimplePage.slug}
+      menuNavigation={data.contentfulSite.menuNavigation}
+      isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
+    />
+  );
   return (
     <Page
       title={title}
       pageData={data.contentfulSimplePage}
       siteData={data.contentfulSite}
     >
-      <Hero
-        level={heroLevel}
-        {...heroProps}
-        breadcrumbs={
-          <Breadcrumbs
-            title={title}
-            slug={data.contentfulSimplePage.slug}
-            menuNavigation={data.contentfulSite.menuNavigation}
-            isDarkThemed={heroLevel !== 3}
-          />
-        }
-      />
+      {heroType === "Spotlight" ? (
+        <SpotlightHero {...heroProps} breadcrumbs={breadcrumbs} />
+      ) : (
+        <Hero level={heroLevel} {...heroProps} breadcrumbs={breadcrumbs} />
+      )}
       {sections && <Sections data={sections} />}
       {nextBestActions && <NextBestActions data={nextBestActions} />}
       {exploreBar && (
@@ -82,6 +85,7 @@ export const pageQuery = graphql`
   query SimplePageById($pageId: String!, $siteId: String!) {
     contentfulSimplePage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      heroType
       sections {
         ...SectionsFragment
       }
