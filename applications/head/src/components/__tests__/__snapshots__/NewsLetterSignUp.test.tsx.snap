@@ -54,8 +54,9 @@ exports[`NewsLetterSignUp component renders correctly 1`] = `
               </div>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
-              tabindex="0"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+              disabled=""
+              tabindex="-1"
               type="button"
             >
               <span
@@ -77,9 +78,6 @@ exports[`NewsLetterSignUp component renders correctly 1`] = `
                   </svg>
                 </span>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>

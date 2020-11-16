@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@bmi/button";
 import Container from "@bmi/container";
 import Grid from "@bmi/grid";
@@ -8,19 +8,25 @@ import Typography from "@bmi/typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import styles from "./InputBanner.module.scss";
 
+const validateEmail = (email: string): boolean => {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+};
+
 type Props = {
   title: React.ReactNode;
   description: React.ReactNode;
   inputLabel: string;
   inputCallToAction: React.ReactNode;
 };
-
 const InputBanner = ({
   title,
   description,
   inputLabel,
   inputCallToAction
 }: Props) => {
+  const [emailInput, setEmailInput] = useState<string>("");
+
   return (
     <div className={styles["InputBanner"]}>
       <Container>
@@ -46,11 +52,16 @@ const InputBanner = ({
                     name="input-banner-text-field"
                     variant="hybrid"
                     label={inputLabel}
+                    onChange={(value: string) => {
+                      setEmailInput(value);
+                    }}
                   />
                 }
                 button={
-                  // TODO: Use a submit button for Form control functionalities.
-                  <Button endIcon={<ArrowForwardIcon />}>
+                  <Button
+                    disabled={!validateEmail(emailInput)}
+                    endIcon={<ArrowForwardIcon />}
+                  >
                     {inputCallToAction}
                   </Button>
                 }
