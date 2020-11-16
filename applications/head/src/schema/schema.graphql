@@ -44,6 +44,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The short description for this page."
   subtitle: String
 
+  "The type of hero to use."
+  heroType: String
+
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset
 
