@@ -61,6 +61,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The explore bar for this page."
   exploreBar: ContentfulNavigation @link(from: "exploreBar___NODE")
+
+  "The introudction block for this page."
+  leadBlock: ContentfulLeadBlockSection @link(from: "leadBlock___NODE")
 }
 
 """
@@ -307,13 +310,50 @@ type ContentfulShareWidgetSection implements Node {
 }
 
 """
+Represents a lead block section text type.
+"""
+type contentfulLeadBlockSectionTextRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a lead block section post it card type.
+"""
+type contentfulLeadBlockSectionPostItCardRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents an introduction to a page.
+"""
+type ContentfulLeadBlockSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The description for this section."
+  text: contentfulLeadBlockSectionTextRichTextNode @link(from: "text___NODE")
+
+  "The link for this section, if present."
+  link: ContentfulLink @link(from: "link___NODE")
+
+  "The post it card content for this section, if present."
+  postItCard: contentfulLeadBlockSectionPostItCardRichTextNode
+    @link(from: "text___NODE")
+}
+
+"""
 Represents a union for all the possible sections available in a page.
 """
 union ContentfulSection =
     ContentfulCardCollectionSection
   | ContentfulCarouselSection
   | ContentfulFormSection
-  | ContentfulLeadBlockSection
   | ContentfulTabsOrAccordionSection
   | ContentfulVillainSection
   | ContentfulTitleWithContent

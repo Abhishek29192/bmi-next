@@ -12,10 +12,16 @@ import NextBestActions, {
 import ExploreBar, { Data as ExploreBarData } from "../components/ExploreBar";
 import Section from "@bmi/section";
 import SpotlightHero from "@bmi/spotlight-hero";
+import LeadBlockSection, {
+  Data as LeadBlockSectionData
+} from "../components/LeadBlockSection";
+import TableOfContent from "@bmi/table-of-content";
+import AnchorLink from "@bmi/anchor-link";
 
 type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
+    leadBlock: LeadBlockSectionData | null;
     sections: SectionsData | null;
     nextBestActions: NextBestActionsData | null;
     exploreBar: ExploreBarData | null;
@@ -34,6 +40,7 @@ const SimplePage = ({ data }: Props) => {
     title,
     subtitle,
     featuredImage,
+    leadBlock,
     sections,
     nextBestActions,
     exploreBar,
@@ -68,13 +75,27 @@ const SimplePage = ({ data }: Props) => {
       ) : (
         <Hero level={heroLevel} {...heroProps} breadcrumbs={breadcrumbs} />
       )}
-      {sections && <Sections data={sections} />}
-      {nextBestActions && <NextBestActions data={nextBestActions} />}
-      {exploreBar && (
-        <Section backgroundColor="alabaster">
-          <ExploreBar data={exploreBar} />
-        </Section>
-      )}
+      <TableOfContent
+        renderLink={(sectionId, title) => (
+          <AnchorLink
+            action={{
+              model: "htmlLink",
+              href: `#${sectionId}`
+            }}
+          >
+            {title}
+          </AnchorLink>
+        )}
+      >
+        {leadBlock && <LeadBlockSection data={leadBlock} />}
+        {sections && <Sections data={sections} />}
+        {nextBestActions && <NextBestActions data={nextBestActions} />}
+        {exploreBar && (
+          <Section backgroundColor="alabaster">
+            <ExploreBar data={exploreBar} />
+          </Section>
+        )}
+      </TableOfContent>
     </Page>
   );
 };
@@ -86,6 +107,9 @@ export const pageQuery = graphql`
     contentfulSimplePage(id: { eq: $pageId }) {
       ...PageInfoFragment
       heroType
+      leadBlock {
+        ...LeadBlockSectionFragment
+      }
       sections {
         ...SectionsFragment
       }

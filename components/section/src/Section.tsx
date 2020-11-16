@@ -12,6 +12,7 @@ export type Props = {
   size?: "lg" | "md" | "sm" | "xl" | "xs" | false;
   spacing?: "default" | "none";
   className?: string;
+  id?: string;
 };
 
 const Section = ({
@@ -19,7 +20,8 @@ const Section = ({
   children,
   size = "xl",
   spacing = "default",
-  className
+  className,
+  id
 }: Props) => {
   const isNested = useContext(SectionContext);
 
@@ -38,6 +40,7 @@ const Section = ({
   return (
     <SectionContext.Provider value={true}>
       <div
+        id={id}
         className={classnames(className, styles["Section"], {
           [styles[`Section--${backgroundColor}`]]:
             backgroundColor !== "transparent",
