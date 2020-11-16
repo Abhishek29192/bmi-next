@@ -17,10 +17,12 @@
 
   &:hover {
     background: rgba($color-black, 0.05);
+    color: $color-cyan-600;
   }
 
   &--selected {
     font-family: "Effra Medium";
+    font-weight: bold;
   }
 
   .icon {
