@@ -9,6 +9,7 @@ import ProductOverview, {
   Data as ProductOverviewData
 } from "../components/ProductOverview";
 import ProductLeadBlock from "../components/ProductLeadBlock";
+import ShareWidgetSection from "../components/ShareWidgetSection";
 import {
   getProductAttributes,
   mapGalleryImages,
@@ -189,7 +190,14 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
       <Container>
-        <ProductOverview data={productData} />
+        <ProductOverview data={productData}>
+          {resources?.pdpShareWidget && (
+            <ShareWidgetSection
+              data={resources?.pdpShareWidget}
+              hasNoPadding={true}
+            />
+          )}
+        </ProductOverview>
       </Container>
       <Section>
         <ProductLeadBlock

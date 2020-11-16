@@ -448,6 +448,10 @@ type ContentfulResources implements Node {
 
   "The explore bar for the product details page for these resources."
   pdpExploreBar: ContentfulNavigation @link(from: "pdpExploreBar___NODE")
+
+  "The share widget for the product details page for these resources."
+  pdpShareWidget: ContentfulShareWidgetSection
+    @link(from: "pdpShareWidget___NODE")
 }
 
 """
