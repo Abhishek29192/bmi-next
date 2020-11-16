@@ -27,9 +27,11 @@ const ShareWidgetSection = ({
     clipboardErrorMessage,
     isLeftAligned,
     ...channels
-  }
+  },
+  hasNoPadding
 }: {
   data: Data;
+  hasNoPadding?: boolean;
 }) => {
   const availableChannels = [
     { type: "copy" as "copy", label: "Copy to clipboard" },
@@ -62,7 +64,7 @@ const ShareWidgetSection = ({
   ];
 
   return (
-    <Section backgroundColor="white" spacing="none">
+    <Section backgroundColor="white" spacing="none" hasNoPadding={hasNoPadding}>
       <ShareWidget
         title={title}
         message={message}
