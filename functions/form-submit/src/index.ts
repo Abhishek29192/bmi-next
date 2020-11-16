@@ -38,33 +38,38 @@ export const submit: HttpFunction = async (request, response) => {
         throw Error("Fields are empty");
       }
 
-      const assets = await Promise.all(
-        files.map(
-          async (file) =>
-            await environment
-              .createAsset({
-                fields: {
-                  title: {
-                    [locale]: `User upload ${+new Date()}`
-                  },
-                  file: {
-                    [locale]: file
-                  }
-                }
-              })
-              .then((asset) => asset.processForAllLocales())
-        )
-      );
+      const assets = files.length
+        ? await Promise.all(
+            files.map(
+              async (file) =>
+                await environment
+                  .createAsset({
+                    fields: {
+                      title: {
+                        [locale]: `User upload ${+new Date()}`
+                      },
+                      file: {
+                        [locale]: file
+                      }
+                    }
+                  })
+                  .then((asset) => asset.processForAllLocales())
+            )
+          )
+        : null;
 
-      const entry = await environment.createEntry("formResponse", {
-        fields: {
-          title: {
-            [locale]: `Form: "${title}"`
-          },
-          assets,
-          fields
-        }
-      });
+      const entry =
+        assets !== null
+          ? await environment.createEntry("formResponse", {
+              fields: {
+                title: {
+                  [locale]: `Form: "${title}"`
+                },
+                assets,
+                fields
+              }
+            })
+          : null;
 
       return response.send({ entry, assets });
     } catch (error) {
