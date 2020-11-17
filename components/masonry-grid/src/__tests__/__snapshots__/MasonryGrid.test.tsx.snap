@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MasonryGrid component renders correctly 1`] = `
+<div
+  class="MasonryGrid"
+>
+  <div
+    class="column"
+    style="width: 33.333333333333336%;"
+  >
+    <div>
+      ONE
+    </div>
+    <div>
+      FOUR
+    </div>
+  </div>
+  <div
+    class="column"
+    style="width: 33.333333333333336%;"
+  >
+    <div>
+      TWO
+    </div>
+  </div>
+  <div
+    class="column"
+    style="width: 33.333333333333336%;"
+  >
+    <div>
+      THREE
+    </div>
+  </div>
+</div>
+`;
