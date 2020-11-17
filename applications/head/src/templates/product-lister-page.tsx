@@ -20,6 +20,7 @@ import { iconMap } from "../components/Icon";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import Grid from "@bmi/grid";
+import Pagination from "@bmi/pagination";
 import { Product } from "./product-details-page";
 import {
   getProductUrl,
@@ -120,10 +121,15 @@ const queryES = async (query = {}) => {
   }
 };
 
-const compileElasticSearchQuery = (state, categoryCode, pageSize): object => {
+const compileElasticSearchQuery = (
+  filters,
+  categoryCode,
+  page,
+  pageSize
+): object => {
   const categoryFilters = [];
 
-  state.forEach((filter) => {
+  filters.forEach((filter) => {
     // If no values chosen, ignore it
     if (!filter.value.length) {
       return;
@@ -187,6 +193,7 @@ const compileElasticSearchQuery = (state, categoryCode, pageSize): object => {
   // NOTE: ES Doesn't like an empty query object
   return {
     size: pageSize,
+    from: page * pageSize,
     // TODO: Join in a bool if multiple categories with multiple values
     // TODO: Still not sure how to handle this exactly
     query: {
@@ -202,64 +209,6 @@ const compileElasticSearchQuery = (state, categoryCode, pageSize): object => {
       }
     }
   };
-};
-
-const IntegratedFilters = ({
-  categoryCode,
-  productCategories,
-  onStartFetching,
-  onFinishFetching
-}: {
-  categoryCode: string;
-  productCategories: ProductCategoryTree;
-  onStartFetching?: () => void;
-  onFinishFetching?: (hits: readonly Product[], totalHits: number) => void;
-}) => {
-  const filters = getFilters(productCategories);
-
-  const [state, setState] = React.useState(filters);
-
-  const handleCheckboxChange = async (filterName, filterValue, checked) => {
-    const addToArray = (array, value) => [...array, value];
-    const removeFromArray = (array, value) => array.filter((v) => v !== value);
-    const getNewValue = (filter, checked, value) => {
-      return checked
-        ? addToArray(filter.value || [], filterValue)
-        : removeFromArray(filter.value || [], filterValue);
-    };
-
-    const newState = state.map((filter) => {
-      return {
-        ...filter,
-        value:
-          filter.name === filterName
-            ? getNewValue(filter, checked, filterValue)
-            : filter.value
-      };
-    });
-
-    setState(newState);
-
-    onStartFetching && onStartFetching();
-
-    const query = compileElasticSearchQuery(newState, categoryCode, PAGE_SIZE);
-    console.log({ query: JSON.stringify(query) });
-
-    // TODO: If no query returned, empty query, show default results?
-    const results = await queryES(query);
-
-    const { hits } = results;
-
-    // TODO: Don't quite understand details around the hits.total value
-    console.log({ totalHits: hits.total.value, hits: hits.hits });
-    onFinishFetching &&
-      onFinishFetching(
-        hits.hits.map((hit) => hit._source),
-        hits.total.value
-      );
-  };
-
-  return <Filters filters={state} onChange={handleCheckboxChange} />;
 };
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
@@ -289,7 +238,79 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
+  // Initially set to value from server render, later set from ES
   const [totalProducts, setTotalProducts] = useState(products.length);
+  const allCategories = findAllCategories(products);
+  const [filters, setFilters] = useState(getFilters(allCategories));
+  const [page, setPage] = useState(0);
+  const [pageCount, setPageCount] = useState(
+    Math.ceil(products.length / PAGE_SIZE)
+  );
+
+  const handleFiltersChange = async (filterName, filterValue, checked) => {
+    const addToArray = (array, value) => [...array, value];
+    const removeFromArray = (array, value) => array.filter((v) => v !== value);
+    const getNewValue = (filter, checked, value) => {
+      return checked
+        ? addToArray(filter.value || [], filterValue)
+        : removeFromArray(filter.value || [], filterValue);
+    };
+
+    const newFilters = filters.map((filter) => {
+      return {
+        ...filter,
+        value:
+          filter.name === filterName
+            ? getNewValue(filter, checked, filterValue)
+            : filter.value
+      };
+    });
+
+    setFilters(newFilters);
+  };
+
+  const fetchProducts = async (filters, categoryCode, page, pageSize) => {
+    if (isLoading) {
+      console.log("Already loading...");
+      return;
+    }
+
+    console.log("STARTED FETCHING...");
+    setIsLoading(true);
+
+    const query = compileElasticSearchQuery(
+      filters,
+      categoryCode,
+      page,
+      pageSize
+    );
+    console.log({ query: query });
+
+    // TODO: If no query returned, empty query, show default results?
+    // TODO: Handle if no response
+    const results = await queryES(query);
+
+    const { hits } = results;
+    const newPageCount = Math.ceil(hits.total.value / PAGE_SIZE);
+
+    setTotalProducts(hits.total.value);
+    setPageCount(newPageCount);
+    setProducts(hits.hits.map((hit) => hit._source));
+    setIsLoading(false);
+
+    // TODO: Don't quite understand details around the hits.total value
+    console.log({ totalHits: hits.total.value, hits: hits.hits });
+    console.log("FINISHED FETCHING!");
+  };
+
+  useEffect(() => {
+    fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
+  }, [page]);
+
+  // NOTE: If filters change, we reset pagination to first page
+  useEffect(() => {
+    fetchProducts(filters, pageContext.categoryCode, 0, PAGE_SIZE);
+  }, [filters]);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect, maybe pointless for this value to rely on it as more will break.
   // const categoryName = "AeroDek Robust Plus";
@@ -299,9 +320,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   // TODO: What if data.allProducts prop changes. I think practically it would not, but can we ensure that in code?
   // Refactor to a wrapper component that takes initialProps and they're then in state or ref? (ProductListing?)
-
-  const allCategories = findAllCategories(products);
-  console.log({ products, allCategories });
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
@@ -428,6 +446,19 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                     })
                 )}
               </Grid>
+            </Grid>
+          </Grid>
+          {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
+          <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
+            <Grid item xs={12} md={6} lg={9}></Grid>
+            <Grid item xs={12} md={6} lg={3}>
+              <Pagination
+                page={page + 1}
+                onChange={(_, page) => {
+                  setPage(page - 1);
+                }}
+                count={pageCount}
+              />
             </Grid>
           </Grid>
         </Section>
