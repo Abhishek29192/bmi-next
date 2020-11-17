@@ -96,5 +96,14 @@ export const query = graphql`
         slug
       }
     }
+    asset {
+      ... on ContentfulAsset {
+        file {
+          ... on ContentfulAssetFile {
+            url
+          }
+        }
+      }
+    }
   }
 `;
