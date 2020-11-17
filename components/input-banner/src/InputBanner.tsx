@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Button from "@bmi/button";
 import Container from "@bmi/container";
 import Grid from "@bmi/grid";
@@ -18,14 +18,24 @@ type Props = {
   description: React.ReactNode;
   inputLabel: string;
   inputCallToAction: React.ReactNode;
+  onSubmit?: (email: string) => void;
 };
 const InputBanner = ({
   title,
   description,
   inputLabel,
-  inputCallToAction
+  inputCallToAction,
+  onSubmit
 }: Props) => {
   const [emailInput, setEmailInput] = useState<string>("");
+  const handleSubmit = useCallback(() => {
+    if (!onSubmit || !validateEmail(emailInput)) {
+      return;
+    }
+
+    onSubmit(emailInput);
+    setEmailInput("");
+  }, [emailInput]);
 
   return (
     <div className={styles["InputBanner"]}>
@@ -52,8 +62,14 @@ const InputBanner = ({
                     name="input-banner-text-field"
                     variant="hybrid"
                     label={inputLabel}
+                    value={emailInput}
                     onChange={(value: string) => {
                       setEmailInput(value);
+                    }}
+                    onKeyDown={({ key }) => {
+                      if (key === "Enter") {
+                        handleSubmit();
+                      }
                     }}
                   />
                 }
@@ -61,6 +77,9 @@ const InputBanner = ({
                   <Button
                     disabled={!validateEmail(emailInput)}
                     endIcon={<ArrowForwardIcon />}
+                    onClick={() => {
+                      handleSubmit();
+                    }}
                   >
                     {inputCallToAction}
                   </Button>
