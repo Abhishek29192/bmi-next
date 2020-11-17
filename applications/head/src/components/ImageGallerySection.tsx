@@ -44,9 +44,11 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
           <Typography variant="h1" hasUnderline>
             {title}
           </Typography>
-          <Typography className={styles["description"]}>
-            {description.description}
-          </Typography>
+          {description && (
+            <Typography className={styles["description"]}>
+              {description.description}
+            </Typography>
+          )}
         </Grid>
         <Grid item xs={12}>
           <ImageGallery
