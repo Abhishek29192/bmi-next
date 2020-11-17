@@ -17,6 +17,8 @@ import RichText from "../components/RichText";
 import Filters from "@bmi/filters";
 import OverviewCard from "@bmi/overview-card";
 import { iconMap } from "../components/Icon";
+import ProgressIndicator from "../components/ProgressIndicator";
+import Scrim from "../components/Scrim";
 import Grid from "@bmi/grid";
 import { Product } from "./product-details-page";
 import {
@@ -284,6 +286,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     3
   ) || 1) as 1 | 2 | 3;
   const { nodes: initialProducts } = data.allProducts;
+
+  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
   const [totalProducts, setTotalProducts] = useState(products.length);
 
@@ -301,6 +305,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+      {isLoading ? (
+        <Scrim theme="light">
+          <ProgressIndicator theme="light" />
+        </Scrim>
+      ) : null}
       <Hero
         level={heroLevel}
         {...heroProps}
