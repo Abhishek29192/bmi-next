@@ -62,9 +62,10 @@ type Classification = {
 };
 
 export type VariantOption = {
+  code: string;
+  externalProductCode: string | null;
   isSampleOrderAllowed: boolean;
   images: ReadonlyArray<Image>;
-  code: string;
   classifications?: ReadonlyArray<Classification>;
   approvalStatus: string;
   shortDescription: string;
@@ -93,6 +94,7 @@ type ProductImage = {
 // TODO: perhaps should be stored somewhere else to export
 export type Product = {
   code: string;
+  externalProductCode: string | null;
   name: string;
   description: string;
   images?: ReadonlyArray<ProductImage>;
@@ -172,7 +174,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const productData = {
     name: product.name,
     brandName: brandCode || "",
-    nobb: selfProduct.code,
+    nobb: selfProduct.externalProductCode || "n/a",
     images: mapGalleryImages([
       ...(selfProduct.images || []),
       ...(product.images || [])
@@ -253,6 +255,7 @@ export const pageQuery = graphql`
   ) {
     product: products(id: { eq: $productId }) {
       code
+      externalProductCode
       name
       approvalStatus
       description
@@ -292,6 +295,7 @@ export const pageQuery = graphql`
       variantOptions {
         isSampleOrderAllowed
         code
+        externalProductCode
         approvalStatus
         shortDescription
         longDescription

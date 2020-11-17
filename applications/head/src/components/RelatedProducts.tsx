@@ -107,7 +107,7 @@ const ProductListing = ({
                   </AnchorLink>
                 }
               >
-                NOBB number: <b>{variant.code}</b>
+                NOBB number: <b>{variant.externalProductCode || "n/a"}</b>
               </OverviewCard>
             </Grid>
           );
@@ -173,6 +173,7 @@ export default RelatedProducts;
 export const query = graphql`
   fragment RelatedProductsFragment on Products {
     code
+    externalProductCode
     name
     images {
       allowedToDownload
@@ -208,6 +209,7 @@ export const query = graphql`
     }
     variantOptions {
       code
+      externalProductCode
       shortDescription
       classifications {
         name
