@@ -8,6 +8,7 @@ export type Props = {
   // TODO: pass all values so that validation could depend on other fields
   getValidationError?: (val: InputValue) => false | string;
   defaultValue?: InputValue;
+  value?: InputValue;
   onChange?: (value: InputValue) => void;
   name: string;
 };
@@ -18,7 +19,8 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     onChange,
     name,
     getValidationError,
-    defaultValue = "",
+    value,
+    defaultValue = typeof value === "undefined" ? "" : undefined,
     ...props
   }: Omit<P, "onChange" | "defaultValue" | "onBlur"> & Props) => {
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
@@ -35,12 +37,14 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
 
     useEffect(() => {
       updateFormState(
-        { [name]: defaultValue },
-        { [name]: getError(defaultValue) }
+        { [name]: value || defaultValue },
+        { [name]: getError(value || defaultValue) }
       );
     }, []);
 
-    const [error, setError] = useState<string | null>(getError(defaultValue));
+    const [error, setError] = useState<string | null>(
+      getError(value || defaultValue)
+    );
     const [blurred, setBlurred] = useState<boolean>(false);
 
     const handleChange = (val: InputValue) => {
@@ -54,6 +58,9 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
 
     const showError = (hasBeenSubmitted || blurred) && !!error;
 
+    const valueProps =
+      typeof value !== "undefined" ? { value } : { defaultValue };
+
     return (
       <WrappedComponent
         {...props}
@@ -62,7 +69,7 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
         onBlur={() => setBlurred(true)}
         onChange={handleChange}
         error={showError}
-        defaultValue={defaultValue}
+        {...valueProps}
       />
     );
   };

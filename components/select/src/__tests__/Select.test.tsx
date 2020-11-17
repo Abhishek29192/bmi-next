@@ -6,7 +6,7 @@ describe("Select component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <Select name="Country" label="Country" labelId="outlined-country-simple">
-        <MenuItem aria-label="None" value="">
+        <MenuItem aria-label="None" defaultValue="">
           None
         </MenuItem>
         <MenuItem value="uk">United Kingdom</MenuItem>
@@ -24,7 +24,7 @@ describe("Select component", () => {
         label="Country"
         labelId="outlined-country-simple"
       >
-        <MenuItem aria-label="None" value="">
+        <MenuItem aria-label="None" defaultValue="">
           None
         </MenuItem>
         <MenuItem value="uk">United Kingdom</MenuItem>
@@ -46,7 +46,7 @@ describe("Select component", () => {
         onChange={onChange}
         defaultValue="uk"
       >
-        <MenuItem aria-label="None" value="">
+        <MenuItem aria-label="None" defaultValue="">
           None
         </MenuItem>
         <MenuItem value="uk">United Kingdom</MenuItem>
