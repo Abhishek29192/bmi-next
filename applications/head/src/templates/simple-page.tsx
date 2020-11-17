@@ -28,7 +28,7 @@ type Data = PageInfoData &
     sections: SectionsData | null;
     nextBestActions: NextBestActionsData | null;
     exploreBar: ExploreBarData | null;
-    linkColumns: LinkColumnsData | null;
+    linkColumns: LinkColumnsSectionData | null;
     heroType: "Hierarchy" | "Spotlight" | null;
   };
 
@@ -69,12 +69,13 @@ const SimplePage = ({ data }: Props) => {
       isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
     />
   );
+  const pageData: PageData = {
+    slug: data.contentfulSimplePage.slug,
+    inputBanner: data.contentfulSimplePage.inputBanner
+  };
+
   return (
-    <Page
-      title={title}
-      pageData={data.contentfulSimplePage}
-      siteData={data.contentfulSite}
-    >
+    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       {heroType === "Spotlight" ? (
         <SpotlightHero {...heroProps} breadcrumbs={breadcrumbs} />
       ) : (
@@ -125,10 +126,10 @@ export const pageQuery = graphql`
       exploreBar {
         ...ExploreBarFragment
       }
-      showSignUpBanner
       linkColumns {
         ...LinkColumnsSectionFragment
       }
+      ...PageFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

@@ -49,6 +49,31 @@ type contentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node 
 }
 
 """
+Represents a input banner inputs consent type, implements ContentfulFormInputs.
+"""
+type contentfulInputBannerAdditionalInputsJsonNode implements ContentfulFormInputs & Node {
+  id: ID!
+
+  "The name for this input."
+  name: String
+
+  "The type for this input."
+  type: String
+
+  "The label for this input."
+  label: String
+
+  "The width for this input."
+  width: String
+
+  "Should this input be required."
+  required: Boolean
+
+  "The options for this input."
+  options: String
+}
+
+"""
 Represents common properties across pages.
 """
 interface ContentfulPage {
@@ -69,8 +94,8 @@ interface ContentfulPage {
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset
 
-  "The page should show the sign up banner."
-  showSignUpBanner: Boolean
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
   "Tag for the page"
   tag: ContentfulTag @link(from: "tag___NODE")
@@ -100,8 +125,8 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset
 
-  "The page should show the sign up banner."
-  showSignUpBanner: Boolean
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
   "Tag for the page"
   tag: ContentfulTag @link(from: "tag___NODE")
@@ -143,8 +168,8 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset
 
-  "The page should show the sign up banner."
-  showSignUpBanner: Boolean
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
   "Tag for the page"
   tag: ContentfulTag @link(from: "tag___NODE")
@@ -186,14 +211,33 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset
 
-  "The page should show the sign up banner."
-  showSignUpBanner: Boolean
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
   "Tag for the page"
   tag: ContentfulTag @link(from: "tag___NODE")
 
   "The team categories for this page."
   teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
+}
+
+type ContentfulHomePage implements Node {
+  id: ID!
+
+  "The title for this home page."
+  title: String
+
+  "The slides for this home page."
+  slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
+
+  "The main links for this home page."
+  overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
+
+  "The sections for this home page."
+  sections: [ContentfulSection] @link(from: "sections___NODE")
+
+  "The input banner for this home page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 }
 
 """
@@ -239,8 +283,8 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset
 
-  "The page should show the sign up banner."
-  showSignUpBanner: Boolean
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
   "Tag for the page"
   tag: ContentfulTag @link(from: "tag___NODE")
@@ -579,6 +623,15 @@ type ContentfulNavigationItem implements Node {
   value: String
 }
 
+# TODO: This is temp as it won't be necessary after Syndicate is in
+type ContentfulVillainSection implements Node {
+  id: ID!
+  title: String
+  description: String
+  promo: ContentfulPromo @link(from: "promo___NODE")
+}
+#############
+
 """
 Represents a lead block section post it card type.
 """
@@ -723,6 +776,43 @@ type ContentfulContentTopic implements Node {
 
   "The list of actions for this topic."
   footerList: [ContentfulTitleWithContent] @link(from: "footerList___NODE")
+}
+
+"""
+Represents the input banner description field.
+"""
+type contentfulInputBannerDescriptionTextNode implements Node {
+  description: String
+}
+
+"""
+Represents input data with context.
+"""
+type ContentfulInputBanner implements Node {
+  id: ID!
+
+  "The title for this input banner."
+  title: String
+
+  "The description for this input banner."
+  description: contentfulInputBannerDescriptionTextNode
+    @link(from: "description___NODE")
+
+  "The label for this input banner."
+  inputLabel: String
+
+  "The submit button label for this input banner."
+  submitButtonLabel: String
+
+  "The additional inputs for the banner, if needed."
+  additionalInputs: [ContentfulFormInputs]
+    @link(from: "additionalInputs___NODE")
+
+  "The thank you message for the confirmation for this input banner."
+  thankYouMessage: String
+
+  "The label for the confirmation button for this banner."
+  confirmationButtonLabel: String
 }
 
 """

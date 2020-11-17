@@ -1,7 +1,6 @@
 import { createContext } from "react";
 import { graphql } from "gatsby";
 import { NavigationData } from "./Link";
-import { Data as NewsLetterSignUpData } from "./NewsLetterSignUp";
 import { Data as ResourcesData } from "./Resources";
 import { GetMicroCopy, fallbackGetMicroCopy } from "./MicroCopy";
 
@@ -34,7 +33,7 @@ export type Data = {
   menuNavigation: NavigationData;
   menuUtilities: NavigationData;
   resources: ResourcesData;
-} & NewsLetterSignUpData;
+};
 
 export const query = graphql`
   fragment SiteFragment on ContentfulSite {
@@ -55,7 +54,6 @@ export const query = graphql`
     footerSecondaryNavigation {
       ...FooterSecondaryNavigationFragment
     }
-    ...SignUpFragment
     resources {
       ...ResourcesFragment
     }
