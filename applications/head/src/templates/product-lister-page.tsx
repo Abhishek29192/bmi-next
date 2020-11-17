@@ -70,15 +70,14 @@ const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
 
 const getFilters = (productCategories: ProductCategoryTree) => {
   return Object.entries(productCategories).reduce(
-    (filters, [category, values]) => {
+    (filters, [categoryKey, category]) => {
       return [
         ...filters,
         {
-          // TODO: Get actual label
-          label: category,
-          name: category,
+          label: category.name,
+          name: categoryKey,
           value: [],
-          options: values.map((category) => ({
+          options: category.values.map((category) => ({
             label: category.name,
             value: category.code
           }))

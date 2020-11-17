@@ -492,7 +492,10 @@ export type Category = {
 type CategoryPath = readonly Category[];
 
 export type ProductCategoryTree = {
-  [category: string]: Category[];
+  [category: string]: {
+    name: string;
+    values: Category[];
+  };
 };
 
 export const getGroupCategory = (branch: CategoryPath) =>
@@ -532,28 +535,34 @@ export const getFullCategoriesPaths = (
   });
 };
 
-export const findAllCategories = (
-  products: readonly Product[]
-): ProductCategoryTree => {
-  const categoryPaths = products
+export const findAllCategories = (products: readonly Product[]) => {
+  const allCategoryPaths = products
     .map(({ categories }) => getFullCategoriesPaths(categories))
     .reduce((allPaths, productPaths) => [...allPaths, ...productPaths], []);
 
-  return categoryPaths.reduce((tree, path) => {
-    const group = getGroupCategory(path);
-    const leaf = getLeafCategory(path);
+  return allCategoryPaths.reduce<ProductCategoryTree>((tree, path) => {
+    const groupCategory = getGroupCategory(path);
+    const leafCategory = getLeafCategory(path);
 
-    const groupCollection = tree[group.code] || [];
-    const existingValue = groupCollection.find(
-      ({ code }) => code === leaf.code
+    // If not found set to initial value
+    const group = tree[groupCategory.code] || {
+      name: groupCategory.name,
+      values: []
+    };
+    const existingValue = group.values.find(
+      ({ code }) => code === leafCategory.code
     );
 
+    // Skip if already has value
     if (existingValue) {
       return tree;
     } else {
       return {
         ...tree,
-        [group.code]: [...(tree[group.code] || []), leaf]
+        [groupCategory.code]: {
+          ...group,
+          values: [...group.values, leafCategory]
+        }
       };
     }
   }, {});
