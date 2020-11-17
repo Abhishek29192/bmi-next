@@ -12,9 +12,6 @@ import VillainSection, {
 import CarouselSection, {
   Data as CarouselSectionData
 } from "../components/CarouselSection";
-import LeadBlockSection, {
-  Data as LeadBlockSectionData
-} from "../components/LeadBlockSection";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "../components/CardCollectionSection";
@@ -27,13 +24,13 @@ import ShareWidgetSection, {
 import PromoSection, {
   Data as PromoSectionData
 } from "../components/PromoSection";
+import TableOfContent from "@bmi/table-of-content";
 
 export type Data = (
   | FormSectionData
   | TabsOrAccordionSectionData
   | VillainSectionData
   | CarouselSectionData
-  | LeadBlockSectionData
   | CardCollectionSectionData
   | TitleWithContentData
   | ShareWidgetSectionData
@@ -45,7 +42,6 @@ const sectionsMap = {
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
   ContentfulVillainSection: VillainSection,
   ContentfulCarouselSection: CarouselSection,
-  ContentfulLeadBlockSection: LeadBlockSection,
   ContentfulCardCollectionSection: CardCollectionSection,
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulShareWidgetSection: ShareWidgetSection,
@@ -57,13 +53,17 @@ const Sections = ({ data }: { data: Data }) => {
     <>
       {data.map((section, index) => {
         const Component = sectionsMap[section.__typename];
+        const { title } = section;
+
         return (
           Component && (
-            <Component
-              key={`section${index}`}
-              // @ts-ignore
-              data={section}
-            />
+            <TableOfContent.Anchor title={title}>
+              <Component
+                key={`section${index}`}
+                // @ts-ignore
+                data={section}
+              />
+            </TableOfContent.Anchor>
           )
         );
       })}
@@ -80,7 +80,6 @@ export const query = graphql`
     ...TabsOrAccordionSectionFragment
     ...VillainSectionFragment
     ...CarouselSectionFragment
-    ...LeadBlockSectionFragment
     ...CardCollectionSectionFragment
     ...TitleWithContentSectionFragment
     ...ShareWidgetSectionFragment

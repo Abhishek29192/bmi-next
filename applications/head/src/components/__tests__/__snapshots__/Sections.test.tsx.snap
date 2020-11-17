@@ -3,318 +3,8 @@
 exports[`Sections component renders correctly 1`] = `
 HTMLCollection [
   <div
-    class="Section Section--white"
-  >
-    <div
-      class="MuiContainer-root Container MuiContainer-maxWidthXl"
-    >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        string
-      </h2>
-      <p
-        class="MuiTypography-root Typography MuiTypography-body1"
-      >
-        string
-      </p>
-      <div
-        style="margin-top: 40px;"
-      >
-        <div
-          class="Accordion"
-        >
-          <div
-            class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-          >
-            <div
-              aria-disabled="false"
-              aria-expanded="false"
-              class="MuiButtonBase-root MuiAccordionSummary-root"
-              role="button"
-              tabindex="0"
-            >
-              <div
-                class="MuiAccordionSummary-content"
-              >
-                <h3
-                  class="MuiTypography-root Typography MuiTypography-h6"
-                >
-                  hello
-                </h3>
-              </div>
-              <div
-                aria-disabled="false"
-                aria-hidden="true"
-                class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
-              >
-                <span
-                  class="MuiIconButton-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-            </div>
-            <div
-              class="MuiCollapse-container MuiCollapse-hidden"
-              style="min-height: 0px;"
-            >
-              <div
-                class="MuiCollapse-wrapper"
-              >
-                <div
-                  class="MuiCollapse-wrapperInner"
-                >
-                  <div
-                    role="region"
-                  >
-                    <div
-                      class="MuiAccordionDetails-root"
-                    >
-                      <div />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    class="Section Section--pearl"
-  >
-    <div
-      class="MuiContainer-root Container MuiContainer-maxWidthXl"
-    >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        string
-      </h2>
-      <p
-        class="MuiTypography-root Typography MuiTypography-body1"
-      >
-        string
-      </p>
-      <div
-        style="margin-top: 40px;"
-      >
-        <div
-          class="Tabs Tabs--primary"
-        >
-          <div
-            class="TabsBar"
-          >
-            <div
-              class="MuiTabs-root"
-            >
-              <div
-                class="MuiTabs-scrollable"
-                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-              />
-              <div
-                class="MuiTabs-scroller MuiTabs-scrollable"
-                style="margin-bottom: 0px;"
-              >
-                <div
-                  aria-label="tabs"
-                  class="MuiTabs-flexContainer"
-                  role="tablist"
-                >
-                  <button
-                    aria-controls="tabpanel-hello"
-                    aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                    id="tab-hello"
-                    role="tab"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiTab-wrapper"
-                    >
-                      hello
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                </div>
-                <span
-                  class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
-                  style="left: 0px; width: 0px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            aria-labelledby="tab-hello"
-            heading="hello"
-            id="tabpanel-hello"
-            role="tabpanel"
-          >
-            <div
-              class="MuiBox-root MuiBox-root-5 TabPanelBox"
-            >
-              <div />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    class="Section"
-  >
-    <div
-      class="MuiContainer-root Container MuiContainer-maxWidthXl"
-    >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        Title
-      </h2>
-      <div
-        class="Villain Villain--contained"
-      >
-        <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
-        >
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
-          >
-            <div
-              class="content ColorPair ColorPair--blue-800"
-            >
-              <h3
-                class="MuiTypography-root title Typography MuiTypography-h4"
-              >
-                Promo
-              </h3>
-              <div
-                class="text"
-              />
-            </div>
-          </div>
-          <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
-          >
-            <div
-              class="image"
-              style="background-image: url(undefined);"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    class="Section Section--white"
-  >
-    <div
-      class="MuiContainer-root Container MuiContainer-maxWidthXl"
-    >
-      <div
-        class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
-      >
-        <div
-          class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
-        >
-          <div
-            class="LeadBlockContentSection"
-          >
-            <div>
-              <h2
-                class="MuiTypography-root Typography MuiTypography-h2"
-              >
-                lead block heading
-              </h2>
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-              >
-                lead block content
-              </p>
-            </div>
-          </div>
-          <div
-            class="LeadBlockContentSection"
-          >
-            <a
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
-              href="/uk/contact-us"
-            >
-              <span
-                class="MuiButton-label"
-              >
-                lead block cta label
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
-        >
-          <div
-            class="ColorPair ColorPair--pearl"
-          >
-            <div
-              class="PostItCard"
-            >
-              <div
-                class="section"
-              >
-                <h4
-                  class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-                >
-                  card section 1 title
-                </h4>
-                <div
-                  class="content"
-                >
-                  <p
-                    class="MuiTypography-root Typography MuiTypography-body1"
-                  >
-                    card section 1 description
-                  </p>
-                </div>
-                <div
-                  class="action"
-                >
-                  <a
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                    href="/"
-                  >
-                    <span>
-                      card section 1 link label
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    class="CardCollectionSection"
+    id="string"
+    style="margin-top: -150px; padding-top: 150px;"
   >
     <div
       class="Section Section--white"
@@ -325,86 +15,79 @@ HTMLCollection [
         <h2
           class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
-          card collection section title
+          string
         </h2>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          string
+        </p>
         <div
-          class="wrapper wrapper--with-gutter"
+          style="margin-top: 40px;"
         >
           <div
-            class="Carousel Carousel--opacity Carousel--with-gutter"
+            class="Accordion"
           >
             <div
-              style="overflow-x: hidden;"
+              class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
             >
               <div
-                class="react-swipeable-view-container"
-                style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                aria-disabled="false"
+                aria-expanded="false"
+                class="MuiButtonBase-root MuiAccordionSummary-root"
+                role="button"
+                tabindex="0"
               >
                 <div
-                  aria-hidden="false"
-                  class="Carousel__slide--global"
-                  data-swipeable="true"
-                  style="width: 100%; flex-shrink: 0; overflow: auto;"
+                  class="MuiAccordionSummary-content"
+                >
+                  <h3
+                    class="MuiTypography-root Typography MuiTypography-h6"
+                  >
+                    hello
+                  </h3>
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-hidden="true"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiCollapse-container MuiCollapse-hidden"
+                style="min-height: 0px;"
+              >
+                <div
+                  class="MuiCollapse-wrapper"
                 >
                   <div
-                    class="page"
+                    class="MuiCollapse-wrapperInner"
                   >
                     <div
-                      class="slide"
-                      style="width: 33.333333333333336%;"
+                      role="region"
                     >
                       <div
-                        class="OverviewCard OverviewCard--flat"
+                        class="MuiAccordionDetails-root"
                       >
-                        <div
-                          class="body"
-                        >
-                          <svg
-                            class="brand-logo"
-                            preserveAspectRatio="xMinYMin"
-                          />
-                          <h4
-                            class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
-                          >
-                            promo title
-                          </h4>
-                          <div
-                            class="children"
-                          >
-                            promo subtitle
-                          </div>
-                          <div
-                            class="footer"
-                          >
-                            <a
-                              class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                              href="/uk/contact-us"
-                            >
-                              <span
-                                class="MuiButton-label"
-                              >
-                                <span
-                                  class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                                    />
-                                  </svg>
-                                </span>
-                                Card Label
-                              </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
-                            </a>
-                          </div>
-                        </div>
+                        <div />
                       </div>
                     </div>
                   </div>
@@ -413,38 +96,12 @@ HTMLCollection [
             </div>
           </div>
         </div>
-        <a
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button link MuiButton-containedPrimary"
-          href="/uk/contact-us"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            Contact us
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </a>
       </div>
     </div>
   </div>,
   <div
-    class="CardCollectionSection"
+    id="string"
+    style="margin-top: -150px; padding-top: 150px;"
   >
     <div
       class="Section Section--pearl"
@@ -455,84 +112,361 @@ HTMLCollection [
         <h2
           class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
-          card section title 2
+          string
         </h2>
+        <p
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          string
+        </p>
         <div
-          class="wrapper wrapper--with-gutter"
+          style="margin-top: 40px;"
         >
           <div
-            class="Carousel Carousel--opacity Carousel--with-gutter"
+            class="Tabs Tabs--primary"
           >
             <div
-              style="overflow-x: hidden;"
+              class="TabsBar"
             >
               <div
-                class="react-swipeable-view-container"
-                style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                class="MuiTabs-root"
               >
                 <div
-                  aria-hidden="false"
-                  class="Carousel__slide--global"
-                  data-swipeable="true"
-                  style="width: 100%; flex-shrink: 0; overflow: auto;"
+                  class="MuiTabs-scrollable"
+                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                />
+                <div
+                  class="MuiTabs-scroller MuiTabs-scrollable"
+                  style="margin-bottom: 0px;"
                 >
                   <div
-                    class="page"
+                    aria-label="tabs"
+                    class="MuiTabs-flexContainer"
+                    role="tablist"
+                  >
+                    <button
+                      aria-controls="tabpanel-hello"
+                      aria-selected="true"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                      id="tab-hello"
+                      role="tab"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiTab-wrapper"
+                      >
+                        hello
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                  <span
+                    class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+                    style="left: 0px; width: 0px;"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="tab-hello"
+              heading="hello"
+              id="tabpanel-hello"
+              role="tabpanel"
+            >
+              <div
+                class="MuiBox-root MuiBox-root-5 TabPanelBox"
+              >
+                <div />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="Title"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section"
+    >
+      <div
+        class="MuiContainer-root Container MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          Title
+        </h2>
+        <div
+          class="Villain Villain--contained"
+        >
+          <div
+            class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+            >
+              <div
+                class="content ColorPair ColorPair--blue-800"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h4"
+                >
+                  Promo
+                </h3>
+                <div
+                  class="text"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+            >
+              <div
+                class="image"
+                style="background-image: url(undefined);"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="card collection section title"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="CardCollectionSection"
+    >
+      <div
+        class="Section Section--white"
+      >
+        <div
+          class="MuiContainer-root Container MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            card collection section title
+          </h2>
+          <div
+            class="wrapper wrapper--with-gutter"
+          >
+            <div
+              class="Carousel Carousel--opacity Carousel--with-gutter"
+            >
+              <div
+                style="overflow-x: hidden;"
+              >
+                <div
+                  class="react-swipeable-view-container"
+                  style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                >
+                  <div
+                    aria-hidden="false"
+                    class="Carousel__slide--global"
+                    data-swipeable="true"
+                    style="width: 100%; flex-shrink: 0; overflow: auto;"
                   >
                     <div
-                      class="slide"
-                      style="width: 33.333333333333336%;"
+                      class="page"
                     >
                       <div
-                        class="OverviewCard"
+                        class="slide"
+                        style="width: 33.333333333333336%;"
                       >
                         <div
-                          class="header-picture"
-                          style="background-image: url(//image-url);"
-                        />
-                        <div
-                          class="body"
+                          class="OverviewCard OverviewCard--flat"
                         >
-                          <h4
-                            class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
-                          >
-                            page title
-                          </h4>
                           <div
-                            class="children"
+                            class="body"
                           >
-                            page subtitle
-                          </div>
-                          <div
-                            class="footer"
-                          >
-                            <a
-                              class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                              href="/uk/slug"
+                            <svg
+                              class="brand-logo"
+                              preserveAspectRatio="xMinYMin"
+                            />
+                            <h4
+                              class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
                             >
-                              <span
-                                class="MuiButton-label"
+                              promo title
+                            </h4>
+                            <div
+                              class="children"
+                            >
+                              promo subtitle
+                            </div>
+                            <div
+                              class="footer"
+                            >
+                              <a
+                                class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+                                href="/uk/contact-us"
                               >
                                 <span
-                                  class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                                  class="MuiButton-label"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
+                                  <span
+                                    class="MuiButton-startIcon MuiButton-iconSizeMedium"
                                   >
-                                    <path
-                                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                                    />
-                                  </svg>
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  Card Label
                                 </span>
-                                Go to page title
-                              </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
-                            </a>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained Button link MuiButton-containedPrimary"
+            href="/uk/contact-us"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Contact us
+              <span
+                class="MuiButton-endIcon MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="card section title 2"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="CardCollectionSection"
+    >
+      <div
+        class="Section Section--pearl"
+      >
+        <div
+          class="MuiContainer-root Container MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            card section title 2
+          </h2>
+          <div
+            class="wrapper wrapper--with-gutter"
+          >
+            <div
+              class="Carousel Carousel--opacity Carousel--with-gutter"
+            >
+              <div
+                style="overflow-x: hidden;"
+              >
+                <div
+                  class="react-swipeable-view-container"
+                  style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                >
+                  <div
+                    aria-hidden="false"
+                    class="Carousel__slide--global"
+                    data-swipeable="true"
+                    style="width: 100%; flex-shrink: 0; overflow: auto;"
+                  >
+                    <div
+                      class="page"
+                    >
+                      <div
+                        class="slide"
+                        style="width: 33.333333333333336%;"
+                      >
+                        <div
+                          class="OverviewCard"
+                        >
+                          <div
+                            class="header-picture"
+                            style="background-image: url(//image-url);"
+                          />
+                          <div
+                            class="body"
+                          >
+                            <h4
+                              class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                            >
+                              page title
+                            </h4>
+                            <div
+                              class="children"
+                            >
+                              page subtitle
+                            </div>
+                            <div
+                              class="footer"
+                            >
+                              <a
+                                class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+                                href="/uk/slug"
+                              >
+                                <span
+                                  class="MuiButton-label"
+                                >
+                                  <span
+                                    class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  Go to page title
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -547,39 +481,44 @@ HTMLCollection [
     </div>
   </div>,
   <div
-    class="PromoSection PromoSection Section"
+    id="card section title 2"
+    style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="MuiContainer-root Container MuiContainer-maxWidthXl"
+      class="PromoSection PromoSection Section"
     >
       <div
-        class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiContainer-root Container MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="content"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
-            <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            <div
+              class="content"
             >
-              card section title 2
-            </h2>
-            <h3
-              class="MuiTypography-root subtitle Typography MuiTypography-h3"
-            >
-              card section title 2
-            </h3>
+              <h2
+                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              >
+                card section title 2
+              </h2>
+              <h3
+                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+              >
+                card section title 2
+              </h3>
+            </div>
           </div>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-        >
           <div
-            class="image"
-            style="background-image: url(undefined);"
-          />
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          >
+            <div
+              class="image"
+              style="background-image: url(undefined);"
+            />
+          </div>
         </div>
       </div>
     </div>
