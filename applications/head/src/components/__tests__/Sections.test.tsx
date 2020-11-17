@@ -152,6 +152,25 @@ describe("Sections component", () => {
         tag: null,
         featuredImage: null,
         cta: null
+      },
+      {
+        __typename: "ContentfulImageGallerySection",
+        title: "Gallery title",
+        description: {
+          description: "card section 1 description"
+        },
+        images: [
+          {
+            title: "my test title",
+            mainSource: { src: "url" },
+            thumbnail: { src: "url" }
+          },
+          {
+            title: "my test title2",
+            mainSource: { src: "url2" },
+            thumbnail: { src: "url2" }
+          }
+        ]
       }
     ];
 

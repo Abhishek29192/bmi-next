@@ -24,6 +24,9 @@ import ShareWidgetSection, {
 import PromoSection, {
   Data as PromoSectionData
 } from "../components/PromoSection";
+import ImageGallerySection, {
+  Data as ImageGallerySectionData
+} from "../components/ImageGallerySection";
 import TableOfContent from "@bmi/table-of-content";
 
 export type Data = (
@@ -35,6 +38,7 @@ export type Data = (
   | TitleWithContentData
   | ShareWidgetSectionData
   | PromoSectionData
+  | ImageGallerySectionData
 )[];
 
 const sectionsMap = {
@@ -45,7 +49,8 @@ const sectionsMap = {
   ContentfulCardCollectionSection: CardCollectionSection,
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulShareWidgetSection: ShareWidgetSection,
-  ContentfulPromo: PromoSection
+  ContentfulPromo: PromoSection,
+  ContentfulImageGallerySection: ImageGallerySection
 };
 
 const Sections = ({ data }: { data: Data }) => {
@@ -84,5 +89,6 @@ export const query = graphql`
     ...TitleWithContentSectionFragment
     ...ShareWidgetSectionFragment
     ...PromoSectionFragment
+    ...ImageGallerySectionFragment
   }
 `;

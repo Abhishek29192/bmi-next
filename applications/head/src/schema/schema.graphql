@@ -359,6 +359,7 @@ union ContentfulSection =
   | ContentfulTitleWithContent
   | ContentfulShareWidgetSection
   | ContentfulPromo
+  | ContentfulImageGallerySection
 
 """
 Represents a key value pair for UI strings.
