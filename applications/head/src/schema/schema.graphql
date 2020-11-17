@@ -385,7 +385,7 @@ type ContentfulLeadBlockSection implements Node {
 
   "The post it card content for this section, if present."
   postItCard: contentfulLeadBlockSectionPostItCardRichTextNode
-    @link(from: "text___NODE")
+    @link(from: "postItCard___NODE")
 }
 
 """

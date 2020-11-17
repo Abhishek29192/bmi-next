@@ -53,9 +53,11 @@ const LeadBlockSection = ({
         <LeadBlock.Card theme="pearl">
           <LeadBlock.Card.Section>
             {postItCard ? (
-              <LeadBlock.Card.Content>
-                <RichText document={postItCard.json} backgroundTheme="dark" />
-              </LeadBlock.Card.Content>
+              <RichText
+                document={postItCard.json}
+                backgroundTheme="dark"
+                underlineHeadings={["h2", "h3", "h4"]}
+              />
             ) : (
               <>
                 <LeadBlock.Card.Heading hasUnderline>
