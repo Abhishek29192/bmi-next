@@ -697,8 +697,9 @@ type ContentfulTeamCategory implements Node {
   description: contentfulTeamCategoryDescriptionRichTextNode
     @link(from: "description___NODE")
 
-  "The team memebers for this category."
-  team_member: [ContentfulTeamMember] @link(from: "team_member___NODE")
+  # TODO: See what's wrong here.
+  # "The team memebers for this category."
+  # team_member: [ContentfulTeamMember] @link(from: "team_member___NODE")
 }
 
 """
