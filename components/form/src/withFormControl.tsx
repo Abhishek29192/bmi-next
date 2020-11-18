@@ -10,7 +10,6 @@ export type Props = {
   defaultValue?: InputValue;
   onChange?: (value: InputValue) => void;
   name: string;
-  label?: string;
 };
 
 const withFormControl = <P extends {}>(WrappedComponent) => {
@@ -20,9 +19,8 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     name,
     getValidationError,
     defaultValue = "",
-    label,
     ...props
-  }: Omit<P, "onChange" | "defaultValue" | "label" | "onBlur"> & Props) => {
+  }: Omit<P, "onChange" | "defaultValue" | "onBlur"> & Props) => {
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
     const getError = (val: InputValue) => {
@@ -60,7 +58,6 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
       <WrappedComponent
         {...props}
         name={name}
-        label={label}
         errorText={error}
         onBlur={() => setBlurred(true)}
         onChange={handleChange}
