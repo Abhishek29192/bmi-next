@@ -2,7 +2,7 @@
 
 exports[`PromoSection component renders a two-thirds row 1`] = `
 <div
-  class="PromoSection Section"
+  class="PromoSection Section Section--white"
 >
   <div
     class="MuiContainer-root Container MuiContainer-maxWidthXl"
@@ -44,7 +44,7 @@ exports[`PromoSection component renders a two-thirds row 1`] = `
 
 exports[`PromoSection component renders correctly 1`] = `
 <div
-  class="PromoSection Section"
+  class="PromoSection Section Section--white"
 >
   <div
     class="MuiContainer-root Container MuiContainer-maxWidthXl"
@@ -86,7 +86,7 @@ exports[`PromoSection component renders correctly 1`] = `
 
 exports[`PromoSection component renders reversed 1`] = `
 <div
-  class="PromoSection PromoSection--reversed Section"
+  class="PromoSection PromoSection--reversed Section Section--white"
 >
   <div
     class="MuiContainer-root Container MuiContainer-maxWidthXl"
@@ -128,7 +128,7 @@ exports[`PromoSection component renders reversed 1`] = `
 
 exports[`PromoSection component renders without a title 1`] = `
 <div
-  class="PromoSection Section"
+  class="PromoSection Section Section--white"
 >
   <div
     class="MuiContainer-root Container MuiContainer-maxWidthXl"

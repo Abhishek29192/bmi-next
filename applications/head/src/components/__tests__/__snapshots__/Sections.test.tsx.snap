@@ -517,7 +517,7 @@ HTMLCollection [
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection Section"
+      class="PromoSection PromoSection Section Section--white"
     >
       <div
         class="MuiContainer-root Container MuiContainer-maxWidthXl"
