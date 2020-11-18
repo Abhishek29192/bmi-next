@@ -386,12 +386,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   };
 
   useEffect(() => {
-    fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
+    // fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
   }, [page]);
 
   // NOTE: If filters change, we reset pagination to first page
   useEffect(() => {
-    fetchProducts(filters, pageContext.categoryCode, 0, PAGE_SIZE);
+    // fetchProducts(filters, pageContext.categoryCode, 0, PAGE_SIZE);
   }, [filters]);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect, maybe pointless for this value to rely on it as more will break.
