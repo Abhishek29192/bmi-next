@@ -22,6 +22,7 @@ import Scrim from "../components/Scrim";
 import Grid from "@bmi/grid";
 import Pagination from "@bmi/pagination";
 import { Product } from "./product-details-page";
+import ColorSwatch from "../components/ColorSwatch";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -33,7 +34,8 @@ import {
   getFullCategoriesPaths,
   Category,
   findAllCategories,
-  ProductCategoryTree
+  ProductCategoryTree,
+  mapProductClassifications
 } from "../utils/product-details-transforms";
 
 const PAGE_SIZE = 24;
@@ -86,6 +88,47 @@ const getFilters = (productCategories: ProductCategoryTree) => {
     },
     []
   );
+};
+
+// Gets the values of colourfamily classification
+const getColorFilter = (
+  classificationNamespace: string,
+  products: readonly Product[]
+) => {
+  const colorFilters = products
+    .reduce((allColors, product) => {
+      const productClassifications = mapProductClassifications(
+        product,
+        classificationNamespace
+      );
+
+      return [
+        ...allColors,
+        ...Object.values(productClassifications).map((classifications: any) => {
+          return classifications.colourfamily;
+        })
+      ];
+    }, [])
+    .filter(Boolean);
+
+  // Assuming all colours have the same label
+  const label = colorFilters[0]?.name;
+  const values = _.uniqBy(_.map(colorFilters, "value"), "code");
+
+  return {
+    label,
+    name: "colour",
+    value: [],
+    options: values.map(({ code, value }) => ({
+      label: (
+        <>
+          <ColorSwatch colorCode={code} />
+          {value}
+        </>
+      ),
+      value: code
+    }))
+  };
 };
 
 const queryES = async (query = {}) => {
@@ -152,6 +195,26 @@ const compileElasticSearchQuery = (
       "VENTILATIONS_PITCHEDROOF"
     ];
 
+    if (filter.name === "colour") {
+      // TODO: Not sure if this is solid enough since other classifications other than "colourfamily"
+      // have featureValues.code
+      const matchColour = (value) => ({
+        match: {
+          "variantOptions.classifications.features.featureValues.code": value
+        }
+      });
+      const matchColours =
+        filter.value.length === 1
+          ? matchColour(filter.value[0])
+          : {
+              bool: {
+                should: filter.value.map(matchColour)
+              }
+            };
+
+      categoryFilters.push(matchColours);
+    }
+
     // TODO: Have code instead of name?
     if (PRODUCT_FILTERS_CODES.includes(filter.name)) {
       // TODO: This category is an insurance to make sure it's a child cat of specific cat
@@ -162,6 +225,7 @@ const compileElasticSearchQuery = (
         }
       };
 
+      // TODO: Can be refactored
       const matchChildrenCategories =
         filter.value.length === 1
           ? {
@@ -240,7 +304,14 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   // Initially set to value from server render, later set from ES
   const [totalProducts, setTotalProducts] = useState(products.length);
   const allCategories = findAllCategories(products);
-  const [filters, setFilters] = useState(getFilters(allCategories));
+  const colorFilter = getColorFilter(
+    pageContext.pimClassificationCatalogueNamespace,
+    products
+  );
+  const [filters, setFilters] = useState([
+    ...getFilters(allCategories),
+    colorFilter
+  ]);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)

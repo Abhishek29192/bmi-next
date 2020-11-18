@@ -150,6 +150,7 @@ export const mapProductClassifications = (
     SCORE_WEIGHT: `${classificationNamepace}/scoringWeightAttributes.scoringweight`,
     TEXTURE_FAMILY: `${classificationNamepace}/appearanceAttributes.texturefamily`,
     COLOUR: `${classificationNamepace}/appearanceAttributes.colour`,
+    COLOUR_FAMILY: `${classificationNamepace}/appearanceAttributes.colourfamily`,
     LENGTH: `${classificationNamepace}/measurements.length`,
     WIDTH: `${classificationNamepace}/measurements.width`,
     HEIGHT: `${classificationNamepace}/measurements.height`
@@ -192,6 +193,14 @@ export const mapProductClassifications = (
 
           if (code === FEATURES.COLOUR) {
             carryProp("colour", {
+              name,
+              value: featureValues ? featureValues[0] : "n/a",
+              thumbnailUrl: getColourThumbnailUrl(product.images || [])
+            });
+          }
+
+          if (code === FEATURES.COLOUR_FAMILY) {
+            carryProp("colourfamily", {
               name,
               value: featureValues ? featureValues[0] : "n/a",
               thumbnailUrl: getColourThumbnailUrl(product.images || [])
