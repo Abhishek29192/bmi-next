@@ -60,7 +60,7 @@ const ProductListing = ({
   }
 
   return (
-    <Section backgroundColor="alabaster">
+    <>
       <Grid container spacing={3}>
         {allVariants.slice(0, numberShown).map((variant) => {
           const { _product: product } = variant;
@@ -120,7 +120,7 @@ const ProductListing = ({
           </Button>
         </div>
       ) : null}
-    </Section>
+    </>
   );
 };
 
