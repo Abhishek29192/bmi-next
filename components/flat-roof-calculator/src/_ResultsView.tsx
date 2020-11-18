@@ -39,6 +39,7 @@ type Props = {
   editButtonLabel: string;
   downloadPdfButtonLoadingLabel: string;
   downloadPdfButtonLabel: string;
+  urlPrefix: string;
 };
 
 const ResultsView = ({
@@ -53,7 +54,8 @@ const ResultsView = ({
   edit,
   editButtonLabel,
   downloadPdfButtonLoadingLabel,
-  downloadPdfButtonLabel
+  downloadPdfButtonLabel,
+  urlPrefix
 }: Props) => {
   const [pdfLoading, setPdfLoading] = useState(false);
   return (
@@ -78,7 +80,7 @@ const ResultsView = ({
         <Grid container>
           <Grid item md={8}>
             <img
-              src={`${process.env.FRC_URL_PREFIX || "/"}3d/${encodeURIComponent(
+              src={`${urlPrefix}${encodeURIComponent(
                 systemName
               )} ${encodeURIComponent(
                 ((submittedValues || {}).color || "").replace(/\//g, ":")
@@ -324,7 +326,8 @@ const ResultsView = ({
                 submittedValues,
                 treeFieldsDisplay,
                 fieldLabels,
-                resultsContent
+                resultsContent,
+                urlPrefix
               });
             } catch (error) {
               if (process.env.NODE_ENV === "development") {
