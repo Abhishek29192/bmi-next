@@ -15,9 +15,11 @@ export type Data = {
 };
 
 const SyndicateSection = ({
-  data: { title, villains, isReversed }
+  data: { title, villains, isReversed },
+  position
 }: {
   data: Data;
+  position: number;
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
 
@@ -34,6 +36,15 @@ const SyndicateSection = ({
 
   if (villainsData.length === 1) {
     const villainProperties = villainsData[0];
+
+    if (position === 0) {
+      return (
+        <Section backgroundColor="white">
+          <Section.Title>{title}</Section.Title>
+          <Villain {...villainProperties} isReversed={isReversed} />
+        </Section>
+      );
+    }
 
     return <Villain {...villainProperties} isFullWidth={true} />;
   }

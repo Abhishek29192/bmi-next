@@ -53,7 +53,13 @@ const sectionsMap = {
   ContentfulImageGallerySection: ImageGallerySection
 };
 
-const Sections = ({ data }: { data: Data }) => {
+const Sections = ({
+  data,
+  startIndex = 0
+}: {
+  data: Data;
+  startIndex?: number;
+}) => {
   return (
     <>
       {data.map((section, index) => {
@@ -67,6 +73,7 @@ const Sections = ({ data }: { data: Data }) => {
                 key={`section${index}`}
                 // @ts-ignore
                 data={section}
+                position={startIndex + index}
               />
             </TableOfContent.Anchor>
           )
