@@ -23,6 +23,7 @@ import Grid from "@bmi/grid";
 import Pagination from "@bmi/pagination";
 import { Product } from "./product-details-page";
 import ColorSwatch from "../components/ColorSwatch";
+import Typography from "@bmi/typography";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -37,6 +38,7 @@ import {
   ProductCategoryTree,
   mapProductClassifications
 } from "../utils/product-details-transforms";
+import Button from "@bmi/button";
 
 const PAGE_SIZE = 24;
 
@@ -339,6 +341,16 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     setFilters(newFilters);
   };
 
+  // Resets all selected filter values to nothing
+  const clearFilters = () => {
+    setFilters((filters) => {
+      return filters.map((filter) => ({
+        ...filter,
+        value: []
+      }));
+    });
+  };
+
   const fetchProducts = async (filters, categoryCode, page, pageSize) => {
     if (isLoading) {
       console.log("Already loading...");
@@ -455,10 +467,23 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         <Grid container spacing={3}>
           <Grid item xs={12} md={12} lg={3}>
             <div style={{ position: "sticky", top: "180px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  marginBottom: 4
+                }}
+              >
+                <Typography variant="h5">Filters</Typography>
+                <Button variant="text" onClick={clearFilters}>
+                  Clear All
+                </Button>
+              </div>
               <Filters filters={filters} onChange={handleFiltersChange} />
             </div>
           </Grid>
-          <Grid item xs={12} md={12} lg={9}>
+          <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
             <Grid container spacing={3}>
               {products.length === 0 && (
                 <Typography>No results found</Typography>
