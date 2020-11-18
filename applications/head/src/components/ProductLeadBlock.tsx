@@ -14,6 +14,11 @@ import { SiteContext } from "./Site";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
 
+type GuaranteesAndAwardsAsset = {
+  url: string;
+  name: string;
+};
+
 type Props = {
   description?: string;
   keyFeatures?: readonly string[];
@@ -27,13 +32,17 @@ type Props = {
       json: Document;
     };
   }[];
+  guaranteesAndWarranties?: GuaranteesAndAwardsAsset[];
+  awardsAndCertificates?: GuaranteesAndAwardsAsset[];
 };
 
 const ProductLeadBlock = ({
   description,
   keyFeatures,
   technicalSpecifications,
-  sidebarItems
+  sidebarItems,
+  guaranteesAndWarranties,
+  awardsAndCertificates
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
 
@@ -52,18 +61,41 @@ const ProductLeadBlock = ({
                   dangerouslySetInnerHTML={{ __html: description }}
                 />
               </LeadBlock.Content.Section>
-              <LeadBlock.Content.Section>
-                <LeadBlock.Content.Heading>
-                  Guarantees and warranties
-                </LeadBlock.Content.Heading>
-                <Typography>-</Typography>
-              </LeadBlock.Content.Section>
-              <LeadBlock.Content.Section>
-                <LeadBlock.Content.Heading>
-                  Awards and certificates
-                </LeadBlock.Content.Heading>
-                <Typography>-</Typography>
-              </LeadBlock.Content.Section>
+
+              {guaranteesAndWarranties?.length > 0 && (
+                <LeadBlock.Content.Section
+                  className={styles["GuaranteesAndAwardsAsset"]}
+                >
+                  <LeadBlock.Content.Heading>
+                    Guarantees and warranties
+                  </LeadBlock.Content.Heading>
+                  {guaranteesAndWarranties.map((item, i) => (
+                    <img
+                      key={i}
+                      src={item.url}
+                      alt={item.name}
+                      className={styles["image"]}
+                    />
+                  ))}
+                </LeadBlock.Content.Section>
+              )}
+              {awardsAndCertificates?.length > 0 && (
+                <LeadBlock.Content.Section
+                  className={styles["GuaranteesAndAwardsAsset"]}
+                >
+                  <LeadBlock.Content.Heading>
+                    Awards and certificates
+                  </LeadBlock.Content.Heading>
+                  {awardsAndCertificates.map((item, i) => (
+                    <img
+                      key={i}
+                      src={item.url}
+                      alt={item.name}
+                      className={styles["image"]}
+                    />
+                  ))}
+                </LeadBlock.Content.Section>
+              )}
             </LeadBlock.Content>
             <LeadBlock.Card theme="blue-900">
               {keyFeatures ? (

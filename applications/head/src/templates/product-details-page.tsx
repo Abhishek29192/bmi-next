@@ -35,6 +35,13 @@ type Image = {
   containerId: string;
   fileSize: number;
   name: string;
+};
+
+type Asset = {
+  realFileName: string;
+  assetType: string;
+  url: string;
+  name: string;
   format: string;
 };
 
@@ -99,6 +106,7 @@ export type Product = {
   name: string;
   description: string;
   images?: ReadonlyArray<ProductImage>;
+  assets?: ReadonlyArray<Asset>;
   productBenefits?: ReadonlyArray<string>;
   categories?: ReadonlyArray<Category>;
   classifications?: ReadonlyArray<Classification>;
@@ -211,6 +219,15 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           keyFeatures={product.productBenefits}
           technicalSpecifications={technicalSpecifications}
           sidebarItems={resources?.pdpSidebarItems}
+          guaranteesAndWarranties={product.assets?.filter(
+            (asset) =>
+              asset.assetType === "GUARANTIES" ||
+              asset.assetType === "WARRANTIES"
+          )}
+          awardsAndCertificates={product.assets?.filter(
+            (asset) =>
+              asset.assetType === "AWARDS" || asset.assetType === "CERTIFICATES"
+          )}
         />
       </Section>
       <RelatedProducts
@@ -281,6 +298,12 @@ export const pageQuery = graphql`
         mime
         realFileName
         format
+      }
+      assets {
+        name
+        url
+        assetType
+        realFileName
       }
       categories {
         name
