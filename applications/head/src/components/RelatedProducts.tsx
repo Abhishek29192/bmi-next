@@ -42,16 +42,28 @@ const ProductListing = ({
 
   const allVariants = useMemo(
     () =>
-      products.reduce<ReadonlyArray<{ _product: Product } & VariantOption>>(
-        (variants, product) => [
-          ...variants,
-          ...(product.variantOptions || []).map((variantOption) => ({
-            _product: product,
-            ...variantOption
-          }))
-        ],
-        []
-      ),
+      [...products]
+        .sort((a, b) => {
+          const getWeightValue = (product) =>
+            (product.classifications || []).find(
+              ({ code }) => code === "scoringWeightAttributes"
+            )?.features[0]?.featureValues[0]?.value || 0;
+
+          const weightA = getWeightValue(a);
+          const weightB = getWeightValue(b);
+
+          return weightB - weightA;
+        })
+        .reduce<ReadonlyArray<{ _product: Product } & VariantOption>>(
+          (variants, product) => [
+            ...variants,
+            ...(product.variantOptions || []).map((variantOption) => ({
+              _product: product,
+              ...variantOption
+            }))
+          ],
+          []
+        ),
     [products]
   );
 
