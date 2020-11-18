@@ -33,7 +33,7 @@ const NavigationItem = ({ label, icon, isLabelHidden, action }: MenuItem) => {
         [styles["list-item--icon"]]: isLabelHidden
       })}
     >
-      {isLabelHidden ? (
+      {isLabelHidden && IconComponent ? (
         <Button
           className={styles["icon-link"]}
           isIconButton
