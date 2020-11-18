@@ -6,9 +6,13 @@ import Section from "@bmi/section";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload from "@bmi/upload";
-import { graphql } from "gatsby";
-import React, { FormEvent } from "react";
+import { Document } from "@contentful/rich-text-types";
+import axios from "axios";
+import { graphql, navigate } from "gatsby";
+import React, { FormEvent, useContext } from "react";
+import { LinkData } from "./Link";
 import RichText from "./RichText";
+import { SiteContext } from "./Site";
 import styles from "./styles/FormSection.module.scss";
 
 const InputTypes = [
@@ -33,12 +37,12 @@ type InputType = {
 export type Data = {
   __typename: "ContentfulFormSection";
   title: string;
-  showTitle?: boolean;
-  description?: { json: any };
-  action?: string;
-  method?: string;
-  inputs?: InputType[];
-  submitText?: string;
+  showTitle: boolean | null;
+  description?: { json: Document } | null;
+  recipients: string;
+  inputs: InputType[] | null;
+  submitText: string | null;
+  successRedirect: LinkData | null;
 };
 
 const Input = ({
@@ -48,21 +52,14 @@ const Input = ({
   type,
   required
 }: Omit<InputType, "width">) => {
-  const mapValue = (_, response) => response.sys.id;
-  const mapBody = (file) => ({
-    fields: {
-      title: {
-        "en-US": "Asset title"
-      },
-      description: {
-        "en-US": "Asset description"
-      },
-      file: {
-        "en-US": {
-          contentType: file.type,
-          fileName: file.name,
-          file
-        }
+  const mapValue = ({ name, type }, upload) => ({
+    fileName: name,
+    contentType: type,
+    uploadFrom: {
+      sys: {
+        type: "Link",
+        linkType: "Upload",
+        id: upload.sys.id
       }
     }
   });
@@ -75,11 +72,11 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
-          uri="https://run.mocky.io/v3/eb9e5061-31c2-4329-9e4a-3de6068ca6ac"
+          uri={process.env.FORM_UPLOAD_FUNCTION_URL}
           headers={{ "Content-Type": "application/octet-stream" }}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions="Supported formats: PDF, JPG, JPEG and PNG"
-          mapBody={mapBody}
+          mapBody={(file) => ({ file })}
           mapValue={mapValue}
         />
       );
@@ -118,28 +115,57 @@ const FormSection = ({
     title,
     showTitle = true,
     description,
-    action,
-    method = "post",
+    recipients,
     inputs,
-    submitText = "Submit"
+    submitText,
+    successRedirect
   },
   backgroundColor
 }: {
   data: Data;
   backgroundColor: "pearl" | "white";
 }) => {
-  const onSubmit = (
+  const { countryCode, getMicroCopy } = useContext(SiteContext);
+
+  const onSubmit = async (
     event: FormEvent<HTMLFormElement>,
     values: Record<string, InputValue>
   ) => {
     event.preventDefault();
-    // console.log("Submit event", event, values); // @todo: Form submission
+
+    try {
+      const source = axios.CancelToken.source();
+      await axios.post(
+        process.env.FORM_SUBMIT_FUNCTION_URL,
+        {
+          locale: "en-US",
+          title,
+          recipients: recipients.split(/, |,/),
+          values
+        },
+        {
+          cancelToken: source.token
+        }
+      );
+
+      if (successRedirect) {
+        navigate(
+          successRedirect.url ||
+            `/${countryCode}/${successRedirect.linkedPage.slug}`
+        );
+      } else {
+        navigate("/");
+      }
+    } catch (error) {
+      // @todo Handle error
+      console.error("Error", { error }); // eslint-disable-line
+    }
   };
 
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
-      <RichText document={description.json} />
+      {description && <RichText document={description.json} />}
       {inputs ? (
         <Form onSubmit={onSubmit} className={styles["Form"]} rightAlignButton>
           <Grid container spacing={3}>
@@ -149,9 +175,13 @@ const FormSection = ({
               </Grid>
             ))}
           </Grid>
-          <Form.SubmitButton>{submitText}</Form.SubmitButton>
+          <Form.SubmitButton>
+            {submitText || getMicroCopy("form.submit")}
+          </Form.SubmitButton>
         </Form>
-      ) : null}
+      ) : (
+        "Form contains no fields"
+      )}
     </Section>
   );
 };
@@ -165,8 +195,7 @@ export const query = graphql`
     description {
       json
     }
-    action
-    method
+    recipients
     inputs {
       label
       name
@@ -176,5 +205,8 @@ export const query = graphql`
       width
     }
     submitText
+    successRedirect {
+      ...LinkFragment
+    }
   }
 `;
