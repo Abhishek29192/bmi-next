@@ -40,13 +40,13 @@ type Props = {
   clipboardErrorMessage?: string;
   isLeftAligned?: boolean;
   title?: React.ReactNode;
-  message?: string; // @todo: Not all have APIs for this
+  message?: string;
 };
 
 const ShareWidget = ({
   channels,
-  clipboardSuccessMessage,
-  clipboardErrorMessage,
+  clipboardSuccessMessage = "Copied to clipboard",
+  clipboardErrorMessage = "There was an error copying to clipboard",
   isLeftAligned = false,
   title,
   message
@@ -74,11 +74,9 @@ const ShareWidget = ({
       case "copy":
         try {
           await navigator.clipboard.writeText(location.href);
-          setTooltipTitle(clipboardSuccessMessage || "Copied to clipboard");
+          setTooltipTitle(clipboardSuccessMessage);
         } catch (error) {
-          setTooltipTitle(
-            clipboardErrorMessage || "There was an error copying to clipboard"
-          );
+          setTooltipTitle(clipboardErrorMessage);
         }
         setTooltipOpen(true);
         break;

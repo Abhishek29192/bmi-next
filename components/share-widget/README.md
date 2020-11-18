@@ -50,7 +50,7 @@ Widget for social sharing.
   isLeftAligned
   channels={[
     { type: "copy", label: "Copy to clipboard" },
-    { type: "email", , label: "Share by email", apiUrl: "mailto:?body=" }
+    { type: "email", label: "Share by email", apiUrl: "mailto:?body=" }
   ]}
   message="Check out this roof"
 />

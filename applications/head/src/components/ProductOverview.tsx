@@ -16,9 +16,11 @@ export type Data = {
 };
 
 const ProductOverview = ({
-  data: { name, brandName, nobb, images, attributes }
+  data: { name, brandName, nobb, images, attributes },
+  children
 }: {
   data: Data;
+  children?: React.ReactNode;
 }) => {
   return (
     <div className={styles["ProductOverview"]}>
@@ -32,7 +34,9 @@ const ProductOverview = ({
             name={name}
             nobb={nobb}
             attributes={attributes || undefined}
-          />
+          >
+            {children}
+          </ProductOverviewPane>
         </Grid>
       </Grid>
     </div>
