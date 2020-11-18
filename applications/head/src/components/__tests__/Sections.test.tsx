@@ -66,17 +66,29 @@ describe("Sections component", () => {
         type: "Tabs"
       },
       {
-        __typename: "ContentfulVillainSection",
+        __typename: "ContentfulSyndicateSection",
         title: "Title",
-        promo: {
-          __typename: "ContentfulPromo",
-          title: "Promo",
-          brandLogo: null,
-          tag: null,
-          subtitle: null,
-          featuredImage: null,
-          cta: null
-        }
+        villains: [
+          {
+            __typename: "ContentfulPromo",
+            title: "Villain 1",
+            brandLogo: null,
+            tag: null,
+            subtitle: null,
+            featuredImage: null,
+            cta: null
+          },
+          {
+            __typename: "ContentfulPromo",
+            title: "Villain 2",
+            brandLogo: null,
+            tag: null,
+            subtitle: null,
+            featuredImage: null,
+            cta: null
+          }
+        ],
+        isReversed: false
       },
       {
         __typename: "ContentfulCardCollectionSection",

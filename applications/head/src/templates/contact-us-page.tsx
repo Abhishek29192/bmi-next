@@ -68,7 +68,7 @@ const ContactUsPage = ({ data }: Props) => {
           {queriesSubtitle}
         </Typography>
         <div style={{ marginTop: "40px" }}>
-          <ContentTopics topics={contentTopics} />
+          {contentTopics && <ContentTopics topics={contentTopics} />}
         </div>
       </Section>
       <TabsOrAccordionSection

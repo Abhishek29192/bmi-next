@@ -88,7 +88,7 @@ const SimplePage = ({ data }: Props) => {
         )}
       >
         {leadBlock && <LeadBlockSection data={leadBlock} />}
-        {sections && <Sections data={sections} />}
+        {sections && <Sections data={sections} startIndex={+!!leadBlock} />}
         {nextBestActions && <NextBestActions data={nextBestActions} />}
         {exploreBar && (
           <Section backgroundColor="alabaster">
