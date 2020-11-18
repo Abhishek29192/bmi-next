@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import Tabs from "@bmi/tabs";
 import _ from "lodash";
 import { Link, graphql } from "gatsby";
@@ -20,6 +20,7 @@ import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import styles from "./styles/RelatedProducts.module.scss";
+import { SiteContext } from "./Site";
 
 const ProductListing = ({
   countryCode,
@@ -35,6 +36,7 @@ const ProductListing = ({
   pageSize?: number;
 }) => {
   const [numberShown, setNumberShown] = useState(initialNumberShown);
+  const { getMicroCopy } = useContext(SiteContext);
 
   const onLoadMore = () => {
     setNumberShown((numberShown) => numberShown + pageSize);
@@ -128,7 +130,7 @@ const ProductListing = ({
       {numberShown < allVariants.length ? (
         <div className={styles["load-more-wrapper"]}>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
-            Show more
+            {getMicroCopy("pdp.relatedProducts.showMore")}
           </Button>
         </div>
       ) : null}
@@ -148,6 +150,8 @@ const RelatedProducts = ({
   classificationNamespace,
   products
 }: Props) => {
+  const { getMicroCopy } = useContext(SiteContext);
+
   if (Object.entries(products).length === 0) {
     return null;
   }
@@ -160,7 +164,7 @@ const RelatedProducts = ({
 
   return (
     <Section backgroundColor="alabaster">
-      <Section.Title>You might also need...</Section.Title>
+      <Section.Title>{getMicroCopy("pdp.relatedProducts.title")}</Section.Title>
       <div className={styles["RelatedProducts"]}>
         <Tabs theme="secondary" initialValue={Object.keys(productGroups)[0]}>
           {Object.entries(productGroups).map(([category, products]) => {
