@@ -843,7 +843,7 @@ type ContentfulLink implements Node {
   url: String
 
   "The internal linked page."
-  linkedPage: ContentfulPage
+  linkedPage: ContentfulPage @link(from: "linkedPage___NODE")
 
   "The linked asset."
   asset: ContentfulAsset
