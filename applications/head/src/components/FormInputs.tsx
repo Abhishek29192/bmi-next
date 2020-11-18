@@ -1,0 +1,156 @@
+import React, { useContext } from "react";
+import { graphql } from "gatsby";
+import Checkbox from "@bmi/checkbox";
+import Grid from "@bmi/grid";
+import Select, { MenuItem } from "@bmi/select";
+import TextField from "@bmi/text-field";
+import Upload from "@bmi/upload";
+import { SiteContext } from "./Site";
+import AnchorLink from "@bmi/anchor-link";
+
+const InputTypes = [
+  "text",
+  "email",
+  "phone",
+  "textarea",
+  "checkbox",
+  "select",
+  "upload"
+];
+
+type InputType = {
+  label: string;
+  name: string;
+  options?: string;
+  required?: boolean;
+  type: typeof InputTypes[number];
+  width?: "full" | "half";
+};
+
+const convertMarkdownLinksToAnchorLinks = (
+  source?: string
+): React.ReactNode => {
+  if (!source) {
+    return;
+  }
+
+  const matches = [...source.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)];
+
+  if (!matches || !matches.length) {
+    return source;
+  }
+
+  // TODO: Only allowing the first one to be a link for now.
+  // Should loop matches through instead
+  const [match, label, link] = matches[0];
+  const { index: offset, input } = matches[0];
+
+  return (
+    <>
+      {input.substring(0, offset)}
+      <AnchorLink action={{ model: "htmlLink", href: link }}>
+        {label}
+      </AnchorLink>
+      {input.substring(offset + match.length)}
+    </>
+  );
+};
+
+export type Data = InputType[];
+
+const Input = ({
+  label,
+  name,
+  options,
+  type,
+  required
+}: Omit<InputType, "width">) => {
+  const { getMicroCopy } = useContext(SiteContext);
+  const mapValue = ({ name, type }, upload) => ({
+    fileName: name,
+    contentType: type,
+    uploadFrom: {
+      sys: {
+        type: "Link",
+        linkType: "Upload",
+        id: upload.sys.id
+      }
+    }
+  });
+
+  switch (type) {
+    case "upload":
+      return (
+        <Upload
+          id={name}
+          name={name}
+          buttonLabel={label}
+          isRequired={required}
+          uri={process.env.FORM_UPLOAD_FUNCTION_URL}
+          headers={{ "Content-Type": "application/octet-stream" }}
+          accept=".pdf,.jpg,.jpeg,.png"
+          instructions={getMicroCopy("upload.instructions")}
+          mapBody={(file) => ({ file })}
+          mapValue={mapValue}
+        />
+      );
+    case "select":
+      return (
+        <Select isRequired={required} label={label} name={name}>
+          <MenuItem value="none">None</MenuItem>
+          {options.split(/, |,/).map((option, $i) => (
+            <MenuItem key={$i} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </Select>
+      );
+    case "checkbox":
+      return (
+        <Checkbox
+          name={name}
+          label={convertMarkdownLinksToAnchorLinks(label)}
+          isRequired={required}
+        />
+      );
+    case "textarea":
+    case "text":
+    default:
+      return (
+        <TextField
+          name={name}
+          isRequired={required}
+          isTextArea={type === "textarea"}
+          variant="outlined"
+          label={label}
+          fullWidth
+          {...(type === "textarea" && { rows: 6 })}
+        />
+      );
+  }
+};
+
+const FormInputs = ({ data }: { data: Data }) => {
+  return (
+    <>
+      {data.map(({ width, ...props }, $i) => (
+        <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
+          <Input {...props} />
+        </Grid>
+      ))}
+    </>
+  );
+};
+
+export default FormInputs;
+
+export const query = graphql`
+  fragment FormInputsFragment on ContentfulFormInputs {
+    label
+    name
+    options
+    type
+    required
+    width
+  }
+`;
