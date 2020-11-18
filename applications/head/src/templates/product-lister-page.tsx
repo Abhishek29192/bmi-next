@@ -384,7 +384,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect, maybe pointless for this value to rely on it as more will break.
   // const categoryName = "AeroDek Robust Plus";
-  const categoryName = products[0]?.categories.find(
+  const categoryName = initialProducts[0]?.categories.find(
     ({ code }) => code === pageContext.categoryCode
   )?.name;
 
@@ -448,91 +448,94 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
           </LeadBlock.Card>
         </LeadBlock>
       </Section>
-      {categoryName && (
-        <Section backgroundColor="pearl">
+      <Section backgroundColor="pearl">
+        {categoryName && (
           <Section.Title hasUnderline>{categoryName}</Section.Title>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={12} lg={3}>
-              <div style={{ position: "sticky", top: "180px" }}>
-                <Filters filters={filters} onChange={handleFiltersChange} />
-              </div>
-            </Grid>
-            <Grid item xs={12} md={12} lg={9}>
-              <Grid container spacing={3}>
-                {_.flatten(
-                  products
-                    .filter(({ variantOptions }) => variantOptions)
-                    .map((product, index) => {
-                      const brandLogoCode = findProductBrandLogoCode(product);
-                      const brandLogo = iconMap[brandLogoCode];
+        )}
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={12} lg={3}>
+            <div style={{ position: "sticky", top: "180px" }}>
+              <Filters filters={filters} onChange={handleFiltersChange} />
+            </div>
+          </Grid>
+          <Grid item xs={12} md={12} lg={9}>
+            <Grid container spacing={3}>
+              {products.length === 0 && (
+                <Typography>No results found</Typography>
+              )}
+              {_.flatten(
+                products
+                  .filter(({ variantOptions }) => variantOptions)
+                  .map((product, index) => {
+                    const brandLogoCode = findProductBrandLogoCode(product);
+                    const brandLogo = iconMap[brandLogoCode];
 
-                      return product.variantOptions.map((variant) => {
-                        const mainImage = findMasterImageUrl([
-                          ...(variant.images || []),
-                          ...(product.images || [])
-                        ]);
+                    return product.variantOptions.map((variant) => {
+                      const mainImage = findMasterImageUrl([
+                        ...(variant.images || []),
+                        ...(product.images || [])
+                      ]);
 
-                        const uniqueClassifications = mapClassificationValues(
-                          findUniqueVariantClassifications(
-                            { ...variant, _product: product },
-                            pageContext.pimClassificationCatalogueNamespace
-                          )
-                        );
+                      const uniqueClassifications = mapClassificationValues(
+                        findUniqueVariantClassifications(
+                          { ...variant, _product: product },
+                          pageContext.pimClassificationCatalogueNamespace
+                        )
+                      );
 
-                        return (
-                          <Grid
-                            item
-                            key={`${product.code}-${variant.code}`}
-                            xs={12}
-                            md={6}
-                            lg={4}
+                      return (
+                        <Grid
+                          item
+                          key={`${product.code}-${variant.code}`}
+                          xs={12}
+                          md={6}
+                          lg={4}
+                        >
+                          <OverviewCard
+                            title={product.name}
+                            titleVariant="h5"
+                            subtitle={uniqueClassifications}
+                            subtitleVariant="h6"
+                            imageSource={mainImage}
+                            imageSize="contain"
+                            brandImageSource={brandLogo}
+                            footer={
+                              <AnchorLink
+                                iconEnd
+                                action={{
+                                  model: "routerLink",
+                                  linkComponent: Link,
+                                  to: getProductUrl(countryCode, variant.code)
+                                }}
+                              >
+                                View details
+                              </AnchorLink>
+                            }
                           >
-                            <OverviewCard
-                              title={product.name}
-                              titleVariant="h5"
-                              subtitle={uniqueClassifications}
-                              subtitleVariant="h6"
-                              imageSource={mainImage}
-                              imageSize="contain"
-                              brandImageSource={brandLogo}
-                              footer={
-                                <AnchorLink
-                                  iconEnd
-                                  action={{
-                                    model: "routerLink",
-                                    linkComponent: Link,
-                                    to: getProductUrl(countryCode, variant.code)
-                                  }}
-                                >
-                                  View details
-                                </AnchorLink>
-                              }
-                            >
-                              {variant.shortDescription}
-                            </OverviewCard>
-                          </Grid>
-                        );
-                      });
-                    })
-                )}
-              </Grid>
+                            {variant.shortDescription}
+                          </OverviewCard>
+                        </Grid>
+                      );
+                    });
+                  })
+              )}
             </Grid>
           </Grid>
-          {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
-          <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
-            <Grid item xs={12} md={6} lg={9}></Grid>
-            <Grid item xs={12} md={6} lg={3}>
-              <Pagination
-                page={page + 1}
-                onChange={(_, page) => {
-                  setPage(page - 1);
-                }}
-                count={pageCount}
-              />
-            </Grid>
+        </Grid>
+        {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
+        <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
+          <Grid item xs={12} md={6} lg={9}></Grid>
+          <Grid item xs={12} md={6} lg={3}>
+            <Pagination
+              page={page + 1}
+              onChange={(_, page) => {
+                setPage(page - 1);
+              }}
+              count={pageCount}
+            />
           </Grid>
-        </Section>
-      )}
+        </Grid>
+      </Section>
     </Page>
   );
 };
