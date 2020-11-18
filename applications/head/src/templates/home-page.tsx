@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
+import { Data as InputBannerData } from "../components/InputBanner";
 import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
 import InputGroup from "@bmi/input-group";
@@ -15,11 +16,12 @@ import OverlapCards, {
 import { getCTA } from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
 
-type HomepageData = PageData & {
+type HomepageData = {
   title: string;
   slides: (SlideData | PageInfoData)[];
   overlapCards: OverlapCardData;
   sections: SectionsData | null;
+  inputBanner: InputBannerData | null;
 };
 
 type Props = {
@@ -49,8 +51,12 @@ const HomePage = ({ data }: Props) => {
     slides,
     overlapCards,
     sections,
-    ...pageData
+    inputBanner
   } = data.contentfulHomePage;
+  const pageData: PageData = {
+    slug: null,
+    inputBanner
+  };
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
@@ -87,7 +93,6 @@ export const pageQuery = graphql`
   query HomePageById($pageId: String!, $siteId: String!) {
     contentfulHomePage(id: { eq: $pageId }) {
       title
-      showSignUpBanner
       slides {
         ... on ContentfulPromoOrPage {
           ...PromoFragment
@@ -99,6 +104,9 @@ export const pageQuery = graphql`
       }
       sections {
         ...SectionsFragment
+      }
+      inputBanner {
+        ...InputBannerFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {

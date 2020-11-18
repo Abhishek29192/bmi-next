@@ -31,6 +31,7 @@ const PromoSection = ({
 
   return (
     <Section
+      backgroundColor="white"
       className={classnames(className, styles["PromoSection"], {
         [styles["PromoSection--reversed"]]: isReversed
       })}

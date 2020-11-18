@@ -4,13 +4,16 @@ import BmiThemeProvider from "@bmi/theme-provider";
 import BackToTop from "@bmi/back-to-top";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import NewsletterSignUp from "../components/NewsLetterSignUp";
+import InputBanner, {
+  Data as InputBannerData
+} from "../components/InputBanner";
 import { SiteContext, Data as SiteData } from "./Site";
 import { generateGetMicroCopy } from "./MicroCopy";
+import { graphql } from "gatsby";
 
 export type Data = {
-  showSignUpBanner: boolean | null;
-  slug?: string | null;
+  slug: string | null;
+  inputBanner: InputBannerData | null;
 };
 
 type Props = {
@@ -26,21 +29,12 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
     countryCode,
     footerMainNavigation,
     footerSecondaryNavigation,
-    signUpTitle,
-    signUpDescription,
-    signUpInputLabel,
-    signUpCallToAction,
     menuNavigation,
     menuUtilities,
     resources
   } = siteData;
 
-  const signUpData = {
-    signUpTitle,
-    signUpDescription,
-    signUpInputLabel,
-    signUpCallToAction
-  };
+  const { inputBanner } = pageData;
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
@@ -59,12 +53,10 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
           navigationData={menuNavigation}
           utilitiesData={menuUtilities}
           countryCode={countryCode}
-          slug={pageData.slug}
+          slug={pageData.slug || undefined}
         />
         {children}
-        {pageData.showSignUpBanner ? (
-          <NewsletterSignUp data={signUpData} />
-        ) : null}
+        {inputBanner ? <InputBanner data={inputBanner} /> : null}
         <Footer
           mainNavigation={footerMainNavigation}
           secondaryNavigation={footerSecondaryNavigation}
@@ -76,3 +68,12 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
 };
 
 export default Page;
+
+export const query = graphql`
+  fragment PageFragment on ContentfulPage {
+    slug
+    inputBanner {
+      ...InputBannerFragment
+    }
+  }
+`;

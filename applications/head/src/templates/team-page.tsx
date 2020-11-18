@@ -32,7 +32,11 @@ type Props = {
 };
 
 const TeamPage = ({ data }: Props) => {
-  const { title, teamCategories, ...pageData } = data.contentfulTeamPage;
+  const { title, teamCategories, slug, inputBanner } = data.contentfulTeamPage;
+  const pageData: PageData = {
+    slug,
+    inputBanner
+  };
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
@@ -42,7 +46,7 @@ const TeamPage = ({ data }: Props) => {
         breadcrumbs={
           <Breadcrumbs
             title={title}
-            slug={pageData.slug}
+            slug={slug}
             menuNavigation={data.contentfulSite.menuNavigation}
             isDarkThemed
           />
@@ -76,9 +80,7 @@ export const pageQuery = graphql`
   query TeamPageById($pageId: String!, $siteId: String!) {
     contentfulTeamPage(id: { eq: $pageId }) {
       title
-      slug
       # Check length allowed and define right field type
-      showSignUpBanner
       teamCategories {
         title
         description {
@@ -88,6 +90,7 @@ export const pageQuery = graphql`
           ...TeamMemberFragment
         }
       }
+      ...PageFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

@@ -22,7 +22,7 @@ import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
 
-type Data = PageData & {
+export type Data = PageData & {
   productData: ProductOverviewData;
 };
 
@@ -135,10 +135,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
   const { product, relatedProducts, contentfulSite } = data;
 
-  const pageData: PageData = {
-    showSignUpBanner: false
-  };
-
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
   const selfProduct = pageContext.variantCode
@@ -200,6 +196,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   };
 
   const { resources, countryCode } = contentfulSite;
+  const pageData: PageData = {
+    slug: null,
+    inputBanner: resources.pdpInputBanner
+  };
 
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
