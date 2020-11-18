@@ -42,16 +42,28 @@ const ProductListing = ({
 
   const allVariants = useMemo(
     () =>
-      products.reduce<ReadonlyArray<{ _product: Product } & VariantOption>>(
-        (variants, product) => [
-          ...variants,
-          ...(product.variantOptions || []).map((variantOption) => ({
-            _product: product,
-            ...variantOption
-          }))
-        ],
-        []
-      ),
+      [...products]
+        .sort((a, b) => {
+          const getWeightValue = (product) =>
+            (product.classifications || []).find(
+              ({ code }) => code === "scoringWeightAttributes"
+            )?.features[0]?.featureValues[0]?.value || 0;
+
+          const weightA = getWeightValue(a);
+          const weightB = getWeightValue(b);
+
+          return weightB - weightA;
+        })
+        .reduce<ReadonlyArray<{ _product: Product } & VariantOption>>(
+          (variants, product) => [
+            ...variants,
+            ...(product.variantOptions || []).map((variantOption) => ({
+              _product: product,
+              ...variantOption
+            }))
+          ],
+          []
+        ),
     [products]
   );
 
@@ -60,7 +72,7 @@ const ProductListing = ({
   }
 
   return (
-    <Section backgroundColor="alabaster">
+    <>
       <Grid container spacing={3}>
         {allVariants.slice(0, numberShown).map((variant) => {
           const { _product: product } = variant;
@@ -107,7 +119,7 @@ const ProductListing = ({
                   </AnchorLink>
                 }
               >
-                NOBB number: <b>{variant.code}</b>
+                NOBB number: <b>{variant.externalProductCode || "n/a"}</b>
               </OverviewCard>
             </Grid>
           );
@@ -120,7 +132,7 @@ const ProductListing = ({
           </Button>
         </div>
       ) : null}
-    </Section>
+    </>
   );
 };
 
@@ -173,6 +185,7 @@ export default RelatedProducts;
 export const query = graphql`
   fragment RelatedProductsFragment on Products {
     code
+    externalProductCode
     name
     images {
       allowedToDownload
@@ -208,6 +221,7 @@ export const query = graphql`
     }
     variantOptions {
       code
+      externalProductCode
       shortDescription
       classifications {
         name

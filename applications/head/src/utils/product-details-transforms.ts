@@ -16,7 +16,7 @@ const getAllValues = (classifications, propName) => {
 
   const getPropIdentifier = {
     texturefamily: (prop) => prop.value.code,
-    colourfamily: (prop) => prop.value.code,
+    colour: (prop) => prop.value.value, // UGH! Colour doesn't have a code!
     measurements: (prop) => getMeasurementKey(prop)
   };
 
@@ -149,6 +149,7 @@ export const mapProductClassifications = (
   const FEATURES = {
     SCORE_WEIGHT: `${classificationNamepace}/scoringWeightAttributes.scoringweight`,
     TEXTURE_FAMILY: `${classificationNamepace}/appearanceAttributes.texturefamily`,
+    COLOUR: `${classificationNamepace}/appearanceAttributes.colour`,
     COLOUR_FAMILY: `${classificationNamepace}/appearanceAttributes.colourfamily`,
     LENGTH: `${classificationNamepace}/measurements.length`,
     WIDTH: `${classificationNamepace}/measurements.width`,
@@ -187,6 +188,14 @@ export const mapProductClassifications = (
             carryProp("texturefamily", {
               name,
               value: featureValues ? featureValues[0] : "n/a"
+            });
+          }
+
+          if (code === FEATURES.COLOUR) {
+            carryProp("colour", {
+              name,
+              value: featureValues ? featureValues[0] : "n/a",
+              thumbnailUrl: getColourThumbnailUrl(product.images || [])
             });
           }
 
@@ -245,12 +254,11 @@ export const getProductAttributes = (
   const selectedColour = getProductProp(
     productClassifications,
     selfProduct.code,
-    "colourfamily"
+    "colour"
   );
-  const allColours = getAllValues(
-    productClassifications,
-    "colourfamily"
-  ).filter(Boolean);
+  const allColours = getAllValues(productClassifications, "colour").filter(
+    Boolean
+  );
 
   const selectedSize = getProductProp(
     productClassifications,
@@ -263,7 +271,7 @@ export const getProductAttributes = (
   );
 
   // The last attribute should be "quantity", but I can't find any products having it.
-  const propHierarchy = ["colourfamily", "measurements", "???"];
+  const propHierarchy = ["colour", "measurements", "???"];
   const getMasterProperty = (keys, hirarchy) =>
     hirarchy.filter((code) => keys.includes(code))[0];
 
@@ -272,7 +280,7 @@ export const getProductAttributes = (
 
     const propValueMap = {
       texturefamily: (prop) => prop.value.code,
-      colourfamily: (prop) => prop.value.code,
+      colour: (prop) => prop.value.code,
       measurements: (prop) => getMeasurementKey(prop)
     };
 
@@ -280,11 +288,11 @@ export const getProductAttributes = (
   };
 
   const findProductCode = (
-    filter /*: { "texturefamily": string, "colourfamily": string, "measurements": string } */,
+    filter /*: { "texturefamily": string, "colour": string, "measurements": string } */,
     property
   ) => {
     filter = {
-      colourfamily: selectedColour ? selectedColour.value.code : undefined,
+      colour: selectedColour ? selectedColour.value.code : undefined,
       texturefamily: selectedColour ? selectedColour.value.code : undefined,
       measurements: selectedSize ? getMeasurementKey(selectedSize) : undefined,
       ...filter
@@ -355,9 +363,9 @@ export const getProductAttributes = (
 
         const variantCode = findProductCode(
           {
-            colourfamily: code
+            colour: code
           },
-          "colourfamily"
+          "colour"
         );
 
         return {
@@ -483,10 +491,33 @@ export const getProductTechnicalSpecifications = (
     });
 };
 
-const getGroupCategory = (branch) => branch[Math.max(0, branch.length - 2)];
+export type Category = {
+  parentCategoryCode: string;
+  name: string;
+  categoryType: string;
+  code: string;
+};
+
+type CategoryPath = readonly Category[];
+
+export type ProductCategoryTree = {
+  [category: string]: {
+    name: string;
+    values: Category[];
+  };
+};
+
+export const getGroupCategory = (branch: CategoryPath) =>
+  branch[Math.max(0, branch.length - 2)];
+
+export const getLeafCategory = (branch: CategoryPath) =>
+  branch[branch.length - 1];
 
 // NOTE: This starts from the root category, so technically is a depth first
-const getFullCategoriesPaths = (categories) => {
+// TODO: This may not be 100% accurate, when it comes to multiple overlapping categories
+export const getFullCategoriesPaths = (
+  categories: readonly Category[]
+): CategoryPath[] => {
   categories = categories.filter(
     ({ categoryType }) => categoryType === "Category"
   );
@@ -496,7 +527,7 @@ const getFullCategoriesPaths = (categories) => {
   );
 
   return roots.map((rootCategory) => {
-    let path = [rootCategory.name];
+    let path = [rootCategory];
     let currentNode = rootCategory;
 
     while (currentNode) {
@@ -505,7 +536,7 @@ const getFullCategoriesPaths = (categories) => {
       );
 
       if (currentNode) {
-        path = [...path, currentNode.name];
+        path = [...path, currentNode];
       }
     }
 
@@ -513,6 +544,42 @@ const getFullCategoriesPaths = (categories) => {
   });
 };
 
+export const findAllCategories = (products: readonly Product[]) => {
+  const allCategoryPaths = products
+    .map(({ categories }) => getFullCategoriesPaths(categories))
+    .reduce((allPaths, productPaths) => [...allPaths, ...productPaths], []);
+
+  return allCategoryPaths.reduce<ProductCategoryTree>((tree, path) => {
+    const groupCategory = getGroupCategory(path);
+    const leafCategory = getLeafCategory(path);
+
+    // If not found set to initial value
+    const group = tree[groupCategory.code] || {
+      name: groupCategory.name,
+      values: []
+    };
+    const existingValue = group.values.find(
+      ({ code }) => code === leafCategory.code
+    );
+
+    // Skip if already has value
+    if (existingValue) {
+      return tree;
+    } else {
+      return {
+        ...tree,
+        [groupCategory.code]: {
+          ...group,
+          values: [...group.values, leafCategory]
+        }
+      };
+    }
+  }, {});
+};
+
+/**
+ * Groups resolved product category paths by the 2nd last category in the path
+ */
 export const groupProductsByCategory = (
   products: ReadonlyArray<Product>
 ): Record<string, ReadonlyArray<Product>> => {
@@ -523,7 +590,7 @@ export const groupProductsByCategory = (
 
     categoryBranches.forEach((branch) => {
       const tabCategory = getGroupCategory(branch);
-      tabs[tabCategory] = [...(tabs[tabCategory] || []), product];
+      tabs[tabCategory.name] = [...(tabs[tabCategory.name] || []), product];
     });
   });
 
@@ -543,7 +610,7 @@ export const findUniqueClassificationsOnVariant = (
 export const mapClassificationValues = (classificationsMap) => {
   return Object.entries(classificationsMap)
     .map(([key, value]) => {
-      if (["colourfamily", "texturefamily"].includes(key)) {
+      if (["colour", "texturefamily"].includes(key)) {
         // TODO: Hmmmmmmm
         return value.value.value;
       }

@@ -5,13 +5,13 @@ import Accordion from "@bmi/accordion";
 import styles from "./Filters.module.scss";
 
 type FilterOption = {
-  label: string;
+  label: React.ReactNode;
   value: string;
   isDisabled?: boolean;
 };
 
 type Filter = {
-  label: string;
+  label: React.ReactNode;
   name: string;
   value?: ReadonlyArray<string>;
   options: ReadonlyArray<FilterOption>;
