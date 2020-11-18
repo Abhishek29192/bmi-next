@@ -16,7 +16,7 @@ const slides = [
   {
     title: "H1 Heading running onto 2 lines",
     brandIcon: AeroDek,
-    children:
+    description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.",
     CTA: {
       label: "Read the full story"
@@ -25,13 +25,13 @@ const slides = [
   },
   {
     title: "H1 Heading",
-    children:
+    description:
       "Aliquip velit exercitation sunt eiusmod. Ipsum est quis dolore cupidatat nisi reprehenderit aliquip exercitation. Magna mollit Lorem est aliqua consequat officia cillum dolor.",
     imageSource: demoTilesBlack
   },
   {
     title: "H1 Heading",
-    children: "Aliquip velit exercitation sunt eiusmod.",
+    description: "Aliquip velit exercitation sunt eiusmod.",
     CTA: {
       label: "Read the full story"
     },

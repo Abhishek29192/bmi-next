@@ -385,63 +385,98 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
 <div
   class="TwoPaneCarousel"
 >
-  <div
-    class="wrapper"
-  >
+  <div>
     <div
-      class="Carousel Carousel--opacity Carousel--swipable"
+      class="wrapper"
     >
       <div
-        style="overflow-x: hidden;"
+        class="Carousel Carousel--opacity Carousel--swipable"
       >
         <div
-          class="react-swipeable-view-container"
-          style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+          style="overflow-x: hidden;"
         >
           <div
-            aria-hidden="false"
-            class="Carousel__slide--global"
-            data-swipeable="true"
-            style="width: 100%; flex-shrink: 0; overflow: auto;"
+            class="react-swipeable-view-container"
+            style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
           >
             <div
-              class="page"
+              aria-hidden="false"
+              class="Carousel__slide--global"
+              data-swipeable="true"
+              style="width: 100%; flex-shrink: 0; overflow: auto;"
             >
               <div
-                class="slide left-pane-slide"
-                style="width: 100%;"
+                class="page"
               >
-                <svg
-                  class="brand-icon"
-                  preserveAspectRatio="xMinYMin"
-                />
-                <h2
-                  class="MuiTypography-root heading Typography Typography--underline MuiTypography-h2"
-                >
-                  H1 Heading running onto 2 lines
-                </h2>
                 <div
-                  class="image"
-                  style="background-image: url(path-to-image);"
-                />
-                <div
-                  class="text"
+                  class="slide left-pane-slide"
+                  style="width: 100%;"
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
-                  <div>
-                    <a
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary"
-                      type="button"
-                    >
-                      <span>
-                        Read the full story
-                      </span>
-                      <svg
-                        aria-hidden="true"
-                        class="icon"
-                        focusable="false"
-                      />
-                    </a>
+                  <svg
+                    class="brand-icon"
+                    preserveAspectRatio="xMinYMin"
+                  />
+                  <h2
+                    class="MuiTypography-root heading Typography Typography--underline MuiTypography-h2"
+                  >
+                    H1 Heading running onto 2 lines
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="wrapper"
+    >
+      <div
+        class="Carousel Carousel--opacity Carousel--swipable"
+      >
+        <div
+          style="overflow-x: hidden;"
+        >
+          <div
+            class="react-swipeable-view-container"
+            style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+          >
+            <div
+              aria-hidden="false"
+              class="Carousel__slide--global"
+              data-swipeable="true"
+              style="width: 100%; flex-shrink: 0; overflow: auto;"
+            >
+              <div
+                class="page"
+              >
+                <div
+                  class="slide left-pane-slide"
+                  style="width: 100%;"
+                >
+                  <div
+                    class="image"
+                    style="background-image: url(path-to-image);"
+                  />
+                  <div
+                    class="text"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
+                    <div>
+                      <a
+                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary"
+                        type="button"
+                      >
+                        <span>
+                          Read the full story
+                        </span>
+                        <svg
+                          aria-hidden="true"
+                          class="icon"
+                          focusable="false"
+                        />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
