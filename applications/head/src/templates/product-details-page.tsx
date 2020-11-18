@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import _ from "lodash";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as SiteData } from "../components/Site";
+import { Data as SiteData, SiteContext } from "../components/Site";
 import ProductOverview, {
   Data as ProductOverviewData
 } from "../components/ProductOverview";
@@ -122,6 +122,7 @@ type Props = {
 };
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
+  const { getMicroCopy } = useContext(SiteContext);
   const { product, relatedProducts, contentfulSite } = data;
 
   const pageData: PageData = {
@@ -181,7 +182,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     attributes: getProductAttributes(
       productClassifications,
       selfProduct,
-      pageContext
+      pageContext,
+      {
+        size: getMicroCopy("pdp.overview.size")
+      }
     )
   };
 

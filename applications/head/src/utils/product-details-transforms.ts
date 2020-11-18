@@ -230,7 +230,8 @@ export const mapProductClassifications = (
 export const getProductAttributes = (
   productClassifications,
   selfProduct,
-  pageContext
+  pageContext,
+  options
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedSurfaceTreatment = getProductProp(
     productClassifications,
@@ -409,8 +410,7 @@ export const getProductAttributes = (
       })
     },
     {
-      // TODO: There isn't such a thing as "Size" in the data.
-      name: "Størrelse",
+      name: options.size || "Size",
       type: "chips",
       variants: allSizes.map((size) => {
         const key = getMeasurementKey(size);

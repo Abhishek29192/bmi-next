@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "@bmi/button";
 import LeadBlock from "@bmi/lead-block";
 import Icon from "@bmi/icon";
@@ -10,6 +10,7 @@ import CheckIcon from "@material-ui/icons/Check";
 import RichText from "./RichText";
 import { Document } from "@contentful/rich-text-types";
 import styles from "./styles/ProductLeadBlock.module.scss";
+import { SiteContext } from "./Site";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
 
@@ -34,10 +35,15 @@ const ProductLeadBlock = ({
   technicalSpecifications,
   sidebarItems
 }: Props) => {
+  const { getMicroCopy } = useContext(SiteContext);
+
   return (
     <div className={styles["ProductLeadBlock"]}>
       <Tabs initialValue="one">
-        <Tabs.TabPanel heading="About" index="one">
+        <Tabs.TabPanel
+          heading={getMicroCopy("pdp.leadBlock.about")}
+          index="one"
+        >
           <LeadBlock>
             <LeadBlock.Content>
               <LeadBlock.Content.Section>
@@ -93,7 +99,10 @@ const ProductLeadBlock = ({
             </LeadBlock.Card>
           </LeadBlock>
         </Tabs.TabPanel>
-        <Tabs.TabPanel heading="Technical specifications" index="two">
+        <Tabs.TabPanel
+          heading={getMicroCopy("pdp.leadBlock.technicalSpecifications")}
+          index="two"
+        >
           <LeadBlock>
             <LeadBlock.Content>
               {technicalSpecifications && technicalSpecifications.length ? (
