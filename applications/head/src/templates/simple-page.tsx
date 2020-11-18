@@ -15,6 +15,9 @@ import SpotlightHero from "@bmi/spotlight-hero";
 import LeadBlockSection, {
   Data as LeadBlockSectionData
 } from "../components/LeadBlockSection";
+import LinkColumnsSection, {
+  Data as LinkColumnsSectionData
+} from "../components/LinkColumnsSection";
 import TableOfContent from "@bmi/table-of-content";
 import AnchorLink from "@bmi/anchor-link";
 
@@ -25,6 +28,7 @@ type Data = PageInfoData &
     sections: SectionsData | null;
     nextBestActions: NextBestActionsData | null;
     exploreBar: ExploreBarData | null;
+    linkColumns: LinkColumnsData | null;
     heroType: "Hierarchy" | "Spotlight" | null;
   };
 
@@ -44,6 +48,7 @@ const SimplePage = ({ data }: Props) => {
     sections,
     nextBestActions,
     exploreBar,
+    linkColumns,
     heroType
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
@@ -89,6 +94,7 @@ const SimplePage = ({ data }: Props) => {
       >
         {leadBlock && <LeadBlockSection data={leadBlock} />}
         {sections && <Sections data={sections} startIndex={+!!leadBlock} />}
+        {linkColumns && <LinkColumnsSection data={linkColumns} />}
         {nextBestActions && <NextBestActions data={nextBestActions} />}
         {exploreBar && (
           <Section backgroundColor="alabaster">
@@ -120,6 +126,9 @@ export const pageQuery = graphql`
         ...ExploreBarFragment
       }
       showSignUpBanner
+      linkColumns {
+        ...LinkColumnsSectionFragment
+      }
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

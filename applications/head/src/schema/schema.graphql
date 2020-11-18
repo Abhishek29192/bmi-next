@@ -62,6 +62,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The explore bar for this page."
   exploreBar: ContentfulNavigation @link(from: "exploreBar___NODE")
 
+  "The link column section for this page."
+  linkColumns: ContentfulLinkColumnsSection @link(from: "linkColumns___NODE")
+
   "The introudction block for this page."
   leadBlock: ContentfulLeadBlockSection @link(from: "leadBlock___NODE")
 }
@@ -510,4 +513,15 @@ type ContentfulLink implements Node {
 
   "The linked asset."
   asset: ContentfulAsset
+}
+
+"""
+Represents a collection of columns with links.
+"""
+type ContentfulLinkColumnsSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The columns for this page."
+  columns: [ContentfulNavigation] @link(from: "columns___NODE")
 }
