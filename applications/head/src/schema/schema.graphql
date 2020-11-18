@@ -424,3 +424,28 @@ type ContentfulSite implements Node {
   "The global settings for this site."
   resources: ContentfulResources @link(from: "resources___NODE")
 }
+
+"""
+Represents a link.
+"""
+type ContentfulLink implements Node {
+  id: ID!
+
+  "The label for the link."
+  label: String
+
+  "The link icon."
+  icon: String
+
+  "The label is hidden for this link."
+  isLabelHidden: Boolean
+
+  "The external URL."
+  url: String
+
+  "The internal linked page."
+  linkedPage: ContentfulPage
+
+  "The linked asset."
+  asset: ContentfulAsset
+}
