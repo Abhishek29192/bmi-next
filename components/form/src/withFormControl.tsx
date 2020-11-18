@@ -22,7 +22,7 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     value,
     defaultValue = typeof value === "undefined" ? "" : undefined,
     ...props
-  }: Omit<P, "onChange" | "defaultValue" | "onBlur"> & Props) => {
+  }: Omit<P, "onChange" | "defaultValue" | "value" | "onBlur"> & Props) => {
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
     const getError = (val: InputValue) => {
