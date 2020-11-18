@@ -372,6 +372,7 @@ type PdfDocumentProps = {
   treeFieldsDisplay: FieldsDisplay;
   fieldLabels: FieldLabels;
   resultsContent: ResultsContent;
+  urlPrefix: string;
 };
 
 const PdfDocument = ({
@@ -381,7 +382,8 @@ const PdfDocument = ({
   submittedValues,
   treeFieldsDisplay,
   fieldLabels,
-  resultsContent
+  resultsContent,
+  urlPrefix
 }: PdfDocumentProps) => (
   <Document
     pageSize={"A4"} // Full list is in the type
@@ -396,9 +398,7 @@ const PdfDocument = ({
     footer={<Footer />}
     pageBreakBefore={shouldAddPageBreak}
     images={{
-      "3d": `${window.location.origin}${
-        process.env.FRC_URL_PREFIX || "/"
-      }3d/${encodeURIComponent(
+      "3d": `${window.location.origin}${urlPrefix}${encodeURIComponent(
         `${systemName} ${((submittedValues || {})["color"] || "").replace(
           /\//g,
           ":"
