@@ -5,7 +5,7 @@ exports[`ShareWidget component renders correctly 1`] = `
   class="ShareWidget"
 >
   <h6
-    class="MuiTypography-root label Typography MuiTypography-h6"
+    class="MuiTypography-root title Typography MuiTypography-h6"
   >
     Share this
     :
@@ -182,7 +182,7 @@ exports[`ShareWidget component renders left aligned 1`] = `
   class="ShareWidget ShareWidget--left-aligned"
 >
   <h6
-    class="MuiTypography-root label Typography MuiTypography-h6"
+    class="MuiTypography-root title Typography MuiTypography-h6"
   >
     Share this
     :
@@ -359,7 +359,7 @@ exports[`ShareWidget component shares on Facebook 1`] = `
   class="ShareWidget ShareWidget--left-aligned"
 >
   <h6
-    class="MuiTypography-root label Typography MuiTypography-h6"
+    class="MuiTypography-root title Typography MuiTypography-h6"
   >
     Share this
     :

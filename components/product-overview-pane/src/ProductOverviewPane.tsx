@@ -3,7 +3,6 @@ import classnames from "classnames";
 import PureChip from "@bmi/chip";
 import { ClickableAction, withClickable } from "@bmi/clickable";
 import Thumbnail from "@bmi/thumbnail";
-import Button from "@bmi/button";
 import Typography from "@bmi/typography";
 import styles from "./ProductOverviewPane.module.scss";
 
@@ -47,7 +46,7 @@ export type Props = {
   brandLogo?: SVGImport;
   nobb: React.ReactNode;
   attributes?: Attribute[];
-  printButtonLabel?: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const renderThumbnailAttribute = (
@@ -142,7 +141,7 @@ const ProductOverviewPane = ({
   nobb,
   brandLogo: BrandLogo,
   attributes,
-  printButtonLabel = "Send/print this page"
+  children
 }: Props) => {
   return (
     <div className={styles["ProductOverview"]}>
@@ -163,7 +162,7 @@ const ProductOverviewPane = ({
           ...attributes
         ].map(renderAttribute)}
       </ul>
-      <Button className={styles["print-button"]}>{printButtonLabel}</Button>
+      {children}
     </div>
   );
 };

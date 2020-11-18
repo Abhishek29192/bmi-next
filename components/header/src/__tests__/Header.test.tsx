@@ -1,4 +1,4 @@
-import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
+import { Arrow } from "@bmi/icon";
 import { languages } from "@bmi/language-selection";
 import { render } from "@testing-library/react";
 import React from "react";

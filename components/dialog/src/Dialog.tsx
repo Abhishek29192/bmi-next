@@ -121,6 +121,7 @@ type ActionsProps = {
   ) => void;
   cancelLabel?: React.ReactNode;
   onCancelClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  isConfirmButtonDisabled?: boolean;
 } & React.HTMLProps<HTMLDivElement>;
 
 // TODO: Consider allowing extra button props
@@ -130,6 +131,7 @@ const Actions = ({
   onCancelClick,
   confirmLabel,
   onConfirmClick,
+  isConfirmButtonDisabled,
   ...rest
 }: ActionsProps) => (
   <div className={classnames(styles["actions"], className)} {...rest}>
@@ -143,7 +145,11 @@ const Actions = ({
       </Button>
     ) : null}
     {confirmLabel ? (
-      <Button onClick={onConfirmClick} className={styles["actionButton"]}>
+      <Button
+        onClick={onConfirmClick}
+        className={styles["actionButton"]}
+        disabled={isConfirmButtonDisabled}
+      >
         {confirmLabel}
       </Button>
     ) : null}

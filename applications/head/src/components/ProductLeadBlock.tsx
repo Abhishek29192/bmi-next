@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "@bmi/button";
 import LeadBlock from "@bmi/lead-block";
 import Icon from "@bmi/icon";
@@ -10,8 +10,14 @@ import CheckIcon from "@material-ui/icons/Check";
 import RichText from "./RichText";
 import { Document } from "@contentful/rich-text-types";
 import styles from "./styles/ProductLeadBlock.module.scss";
+import { SiteContext } from "./Site";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
+
+type GuaranteesAndAwardsAsset = {
+  url: string;
+  name: string;
+};
 
 type Props = {
   description?: string;
@@ -26,18 +32,27 @@ type Props = {
       json: Document;
     };
   }[];
+  guaranteesAndWarranties?: GuaranteesAndAwardsAsset[];
+  awardsAndCertificates?: GuaranteesAndAwardsAsset[];
 };
 
 const ProductLeadBlock = ({
   description,
   keyFeatures,
   technicalSpecifications,
-  sidebarItems
+  sidebarItems,
+  guaranteesAndWarranties,
+  awardsAndCertificates
 }: Props) => {
+  const { getMicroCopy } = useContext(SiteContext);
+
   return (
     <div className={styles["ProductLeadBlock"]}>
       <Tabs initialValue="one">
-        <Tabs.TabPanel heading="About" index="one">
+        <Tabs.TabPanel
+          heading={getMicroCopy("pdp.leadBlock.about")}
+          index="one"
+        >
           <LeadBlock>
             <LeadBlock.Content>
               <LeadBlock.Content.Section>
@@ -46,18 +61,41 @@ const ProductLeadBlock = ({
                   dangerouslySetInnerHTML={{ __html: description }}
                 />
               </LeadBlock.Content.Section>
-              <LeadBlock.Content.Section>
-                <LeadBlock.Content.Heading>
-                  Guarantees and warranties
-                </LeadBlock.Content.Heading>
-                <Typography>-</Typography>
-              </LeadBlock.Content.Section>
-              <LeadBlock.Content.Section>
-                <LeadBlock.Content.Heading>
-                  Awards and certificates
-                </LeadBlock.Content.Heading>
-                <Typography>-</Typography>
-              </LeadBlock.Content.Section>
+
+              {guaranteesAndWarranties?.length > 0 && (
+                <LeadBlock.Content.Section
+                  className={styles["GuaranteesAndAwardsAsset"]}
+                >
+                  <LeadBlock.Content.Heading>
+                    Guarantees and warranties
+                  </LeadBlock.Content.Heading>
+                  {guaranteesAndWarranties.map((item, i) => (
+                    <img
+                      key={i}
+                      src={item.url}
+                      alt={item.name}
+                      className={styles["image"]}
+                    />
+                  ))}
+                </LeadBlock.Content.Section>
+              )}
+              {awardsAndCertificates?.length > 0 && (
+                <LeadBlock.Content.Section
+                  className={styles["GuaranteesAndAwardsAsset"]}
+                >
+                  <LeadBlock.Content.Heading>
+                    Awards and certificates
+                  </LeadBlock.Content.Heading>
+                  {awardsAndCertificates.map((item, i) => (
+                    <img
+                      key={i}
+                      src={item.url}
+                      alt={item.name}
+                      className={styles["image"]}
+                    />
+                  ))}
+                </LeadBlock.Content.Section>
+              )}
             </LeadBlock.Content>
             <LeadBlock.Card theme="blue-900">
               {keyFeatures ? (
@@ -93,7 +131,10 @@ const ProductLeadBlock = ({
             </LeadBlock.Card>
           </LeadBlock>
         </Tabs.TabPanel>
-        <Tabs.TabPanel heading="Technical specifications" index="two">
+        <Tabs.TabPanel
+          heading={getMicroCopy("pdp.leadBlock.technicalSpecifications")}
+          index="two"
+        >
           <LeadBlock>
             <LeadBlock.Content>
               {technicalSpecifications && technicalSpecifications.length ? (

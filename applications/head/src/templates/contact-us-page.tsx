@@ -40,12 +40,17 @@ const ContactUsPage = ({ data }: Props) => {
     otherAreasTitle,
     otherAreas,
     contentTopics,
-    ...pageData
+    slug,
+    inputBanner
   } = data.contentfulContactUsPage;
   const heroProps: HeroItem = {
     title,
     children: subtitle,
     imageSource: featuredImage?.file.url
+  };
+  const pageData: PageData = {
+    slug,
+    inputBanner
   };
 
   return (
@@ -56,7 +61,7 @@ const ContactUsPage = ({ data }: Props) => {
         breadcrumbs={
           <Breadcrumbs
             title={title}
-            slug={pageData.slug}
+            slug={slug}
             menuNavigation={data.contentfulSite.menuNavigation}
             isDarkThemed
           />
@@ -68,7 +73,7 @@ const ContactUsPage = ({ data }: Props) => {
           {queriesSubtitle}
         </Typography>
         <div style={{ marginTop: "40px" }}>
-          <ContentTopics topics={contentTopics} />
+          {contentTopics && <ContentTopics topics={contentTopics} />}
         </div>
       </Section>
       <TabsOrAccordionSection
@@ -79,7 +84,6 @@ const ContactUsPage = ({ data }: Props) => {
           items: otherAreas,
           type: "Accordion"
         }}
-        backgroundColor="white"
       />
     </Page>
   );
@@ -91,7 +95,6 @@ export const pageQuery = graphql`
   query ContactUsPageById($pageId: String!, $siteId: String!) {
     contentfulContactUsPage(id: { eq: $pageId }) {
       ...PageInfoFragment
-      showSignUpBanner
       queriesTitle
       queriesSubtitle
       contentTopics {
@@ -101,6 +104,7 @@ export const pageQuery = graphql`
       otherAreas {
         ...TitleWithContentFragment
       }
+      ...PageFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

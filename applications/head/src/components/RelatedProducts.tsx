@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import Tabs from "@bmi/tabs";
 import _ from "lodash";
 import { Link, graphql } from "gatsby";
@@ -20,6 +20,7 @@ import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import styles from "./styles/RelatedProducts.module.scss";
+import { SiteContext } from "./Site";
 
 const ProductListing = ({
   countryCode,
@@ -35,6 +36,7 @@ const ProductListing = ({
   pageSize?: number;
 }) => {
   const [numberShown, setNumberShown] = useState(initialNumberShown);
+  const { getMicroCopy } = useContext(SiteContext);
 
   const onLoadMore = () => {
     setNumberShown((numberShown) => numberShown + pageSize);
@@ -42,16 +44,28 @@ const ProductListing = ({
 
   const allVariants = useMemo(
     () =>
-      products.reduce<ReadonlyArray<{ _product: Product } & VariantOption>>(
-        (variants, product) => [
-          ...variants,
-          ...(product.variantOptions || []).map((variantOption) => ({
-            _product: product,
-            ...variantOption
-          }))
-        ],
-        []
-      ),
+      [...products]
+        .sort((a, b) => {
+          const getWeightValue = (product) =>
+            (product.classifications || []).find(
+              ({ code }) => code === "scoringWeightAttributes"
+            )?.features[0]?.featureValues[0]?.value || 0;
+
+          const weightA = getWeightValue(a);
+          const weightB = getWeightValue(b);
+
+          return weightB - weightA;
+        })
+        .reduce<ReadonlyArray<{ _product: Product } & VariantOption>>(
+          (variants, product) => [
+            ...variants,
+            ...(product.variantOptions || []).map((variantOption) => ({
+              _product: product,
+              ...variantOption
+            }))
+          ],
+          []
+        ),
     [products]
   );
 
@@ -60,7 +74,7 @@ const ProductListing = ({
   }
 
   return (
-    <Section backgroundColor="alabaster">
+    <>
       <Grid container spacing={3}>
         {allVariants.slice(0, numberShown).map((variant) => {
           const { _product: product } = variant;
@@ -107,7 +121,7 @@ const ProductListing = ({
                   </AnchorLink>
                 }
               >
-                NOBB number: <b>{variant.code}</b>
+                NOBB number: <b>{variant.externalProductCode || "n/a"}</b>
               </OverviewCard>
             </Grid>
           );
@@ -116,11 +130,11 @@ const ProductListing = ({
       {numberShown < allVariants.length ? (
         <div className={styles["load-more-wrapper"]}>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
-            Show more
+            {getMicroCopy("pdp.relatedProducts.showMore")}
           </Button>
         </div>
       ) : null}
-    </Section>
+    </>
   );
 };
 
@@ -136,6 +150,8 @@ const RelatedProducts = ({
   classificationNamespace,
   products
 }: Props) => {
+  const { getMicroCopy } = useContext(SiteContext);
+
   if (Object.entries(products).length === 0) {
     return null;
   }
@@ -148,7 +164,7 @@ const RelatedProducts = ({
 
   return (
     <Section backgroundColor="alabaster">
-      <Section.Title>You might also need...</Section.Title>
+      <Section.Title>{getMicroCopy("pdp.relatedProducts.title")}</Section.Title>
       <div className={styles["RelatedProducts"]}>
         <Tabs theme="secondary" initialValue={Object.keys(productGroups)[0]}>
           {Object.entries(productGroups).map(([category, products]) => {
@@ -173,6 +189,7 @@ export default RelatedProducts;
 export const query = graphql`
   fragment RelatedProductsFragment on Products {
     code
+    externalProductCode
     name
     images {
       allowedToDownload
@@ -208,6 +225,7 @@ export const query = graphql`
     }
     variantOptions {
       code
+      externalProductCode
       shortDescription
       classifications {
         name

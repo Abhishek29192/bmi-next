@@ -145,6 +145,7 @@ function getInitialResult(typeTree: any) {
 
 type Props = {
   treeFieldsDisplay: FieldsDisplay;
+  urlPrefix?: string;
   // TODO: This should be properly annotated.
 } & Record<string, any>;
 
@@ -164,7 +165,8 @@ const FlatRoofCalculator = ({
   editButtonLabel,
   downloadPdfButtonLabel,
   downloadPdfButtonLoadingLabel,
-  navigate
+  navigate,
+  urlPrefix = "/3d/"
 }: Props) => {
   const typeTree = tree.paths.find(({ option }) => option === type).target;
 
@@ -256,7 +258,8 @@ const FlatRoofCalculator = ({
         edit: () => setResult({ systemName: null, submittedValues }),
         editButtonLabel,
         downloadPdfButtonLoadingLabel,
-        downloadPdfButtonLabel
+        downloadPdfButtonLabel,
+        urlPrefix
       }}
     />
   );

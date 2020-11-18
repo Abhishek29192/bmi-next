@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import _ from "lodash";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as SiteData } from "../components/Site";
+import { Data as SiteData, SiteContext } from "../components/Site";
 import ProductOverview, {
   Data as ProductOverviewData
 } from "../components/ProductOverview";
 import ProductLeadBlock from "../components/ProductLeadBlock";
+import ShareWidgetSection from "../components/ShareWidgetSection";
 import {
   getProductAttributes,
   mapGalleryImages,
@@ -21,7 +22,7 @@ import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
 
-type Data = PageData & {
+export type Data = PageData & {
   productData: ProductOverviewData;
 };
 
@@ -33,6 +34,13 @@ type Image = {
   allowedToDownload: boolean;
   containerId: string;
   fileSize: number;
+  name: string;
+};
+
+type Asset = {
+  realFileName: string;
+  assetType: string;
+  url: string;
   name: string;
   format: string;
 };
@@ -62,9 +70,10 @@ type Classification = {
 };
 
 export type VariantOption = {
+  code: string;
+  externalProductCode: string | null;
   isSampleOrderAllowed: boolean;
   images: ReadonlyArray<Image>;
-  code: string;
   classifications?: ReadonlyArray<Classification>;
   approvalStatus: string;
   shortDescription: string;
@@ -93,9 +102,11 @@ type ProductImage = {
 // TODO: perhaps should be stored somewhere else to export
 export type Product = {
   code: string;
+  externalProductCode: string | null;
   name: string;
   description: string;
   images?: ReadonlyArray<ProductImage>;
+  assets?: ReadonlyArray<Asset>;
   productBenefits?: ReadonlyArray<string>;
   categories?: ReadonlyArray<Category>;
   classifications?: ReadonlyArray<Classification>;
@@ -121,11 +132,8 @@ type Props = {
 };
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
+  const { getMicroCopy } = useContext(SiteContext);
   const { product, relatedProducts, contentfulSite } = data;
-
-  const pageData: PageData = {
-    showSignUpBanner: false
-  };
 
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
@@ -141,7 +149,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   // TODO: NO BMI BRAND LOGO??
   const brandCode = (
-    product.categories.find(({ categoryType }) => {
+    (product.categories || []).find(({ categoryType }) => {
       return categoryType === "Brand";
     }) || {}
   ).code;
@@ -172,7 +180,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const productData = {
     name: product.name,
     brandName: brandCode || "",
-    nobb: selfProduct.code,
+    nobb: selfProduct.externalProductCode || "n/a",
     images: mapGalleryImages([
       ...(selfProduct.images || []),
       ...(product.images || [])
@@ -180,16 +188,30 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     attributes: getProductAttributes(
       productClassifications,
       selfProduct,
-      pageContext
+      pageContext,
+      {
+        size: getMicroCopy("pdp.overview.size")
+      }
     )
   };
 
   const { resources, countryCode } = contentfulSite;
+  const pageData: PageData = {
+    slug: null,
+    inputBanner: resources.pdpInputBanner
+  };
 
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
       <Container>
-        <ProductOverview data={productData} />
+        <ProductOverview data={productData}>
+          {resources?.pdpShareWidget && (
+            <ShareWidgetSection
+              data={resources?.pdpShareWidget}
+              hasNoPadding={true}
+            />
+          )}
+        </ProductOverview>
       </Container>
       <Section>
         <ProductLeadBlock
@@ -197,6 +219,15 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           keyFeatures={product.productBenefits}
           technicalSpecifications={technicalSpecifications}
           sidebarItems={resources?.pdpSidebarItems}
+          guaranteesAndWarranties={product.assets?.filter(
+            (asset) =>
+              asset.assetType === "GUARANTIES" ||
+              asset.assetType === "WARRANTIES"
+          )}
+          awardsAndCertificates={product.assets?.filter(
+            (asset) =>
+              asset.assetType === "AWARDS" || asset.assetType === "CERTIFICATES"
+          )}
         />
       </Section>
       <RelatedProducts
@@ -253,6 +284,7 @@ export const pageQuery = graphql`
   ) {
     product: products(id: { eq: $productId }) {
       code
+      externalProductCode
       name
       approvalStatus
       description
@@ -266,6 +298,12 @@ export const pageQuery = graphql`
         mime
         realFileName
         format
+      }
+      assets {
+        name
+        url
+        assetType
+        realFileName
       }
       categories {
         name
@@ -292,6 +330,7 @@ export const pageQuery = graphql`
       variantOptions {
         isSampleOrderAllowed
         code
+        externalProductCode
         approvalStatus
         shortDescription
         longDescription

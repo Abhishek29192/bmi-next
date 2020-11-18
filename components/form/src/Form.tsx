@@ -35,6 +35,7 @@ const Form = ({
   onSubmit,
   rightAlignButton,
   buttonClassName,
+  className,
   ...formProps
 }: Props) => {
   const [values, setValues] = useState<Values>({});
@@ -65,7 +66,7 @@ const Form = ({
     >
       <form
         onSubmit={handleSubmit}
-        className={classnames(styles["Form"], {
+        className={classnames(styles["Form"], className, {
           [styles["Form--rightAlignButton"]]: rightAlignButton
         })}
         {...formProps}

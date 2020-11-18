@@ -404,7 +404,7 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root chevronRight"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -438,7 +438,7 @@ exports[`Header component renders correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root chevronLeft"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -479,7 +479,7 @@ exports[`Header component renders correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root chevronRight"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -513,7 +513,7 @@ exports[`Header component renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root"
+                                class="MuiSvgIcon-root chevronLeft"
                                 focusable="false"
                                 viewBox="0 0 24 24"
                               >
@@ -554,7 +554,7 @@ exports[`Header component renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root"
+                                class="MuiSvgIcon-root chevronRight"
                                 focusable="false"
                                 viewBox="0 0 24 24"
                               >
@@ -588,7 +588,7 @@ exports[`Header component renders correctly 1`] = `
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class="MuiSvgIcon-root"
+                                      class="MuiSvgIcon-root chevronLeft"
                                       focusable="false"
                                       viewBox="0 0 24 24"
                                     >
@@ -661,13 +661,12 @@ exports[`Header component renders correctly 1`] = `
                     <span
                       class="MuiButton-label"
                     >
-                      <b>
-                        <svg
-                          class="bold"
-                        />
-                         
-                        View all our products
-                      </b>
+                      View all our products
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <svg />
+                      </span>
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -766,7 +765,7 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root chevronRight"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >

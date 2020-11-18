@@ -1,11 +1,13 @@
 import Section from "@bmi/section";
 import ShareWidget from "@bmi/share-widget";
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
+import { SiteContext } from "./Site";
 
 export type Data = {
   __typename: "ShareWidgetSection";
   title: string;
+  message: string | null;
   clipboardSuccessMessage: string | null;
   clipboardErrorMessage: string | null;
   isLeftAligned: boolean | null;
@@ -21,46 +23,60 @@ const ShareWidgetSection = ({
   data: {
     __typename,
     title,
+    message,
     clipboardSuccessMessage,
     clipboardErrorMessage,
     isLeftAligned,
     ...channels
-  }
+  },
+  hasNoPadding
 }: {
   data: Data;
+  hasNoPadding?: boolean;
 }) => {
+  const { getMicroCopy } = useContext(SiteContext);
   const availableChannels = [
-    { type: "copy" as "copy", label: "Copy to clipboard" },
+    { type: "copy" as "copy", label: getMicroCopy("share.copy") },
     {
       type: "email" as "email",
-      label: "Share by email", // @todo: Microcopy
-      apiUrl: "mailto:?body="
+      label: getMicroCopy("share.email"),
+      apiUrl: "mailto:?body={{href}}&subject={{message}}"
     },
     {
       type: "linkedin" as "linkedin",
-      label: "Share on LinkedIn",
-      apiUrl: "https://www.linkedin.com/shareArticle?mini=true&url="
+      label: getMicroCopy("share.linkedIn"),
+      apiUrl: "https://www.linkedin.com/sharing/share-offsite/?url={{href}}"
     },
     {
       type: "twitter" as "twitter",
-      label: "Share on Twitter",
-      apiUrl: "https://twitter.com/intent/tweet?url="
+      label: getMicroCopy("share.twitter"),
+      apiUrl: "https://twitter.com/intent/tweet?text={{message}}&url={{href}}"
     },
     {
       type: "facebook" as "facebook",
-      label: "Share on Facebook",
-      apiUrl: "https://www.facebook.com/sharer/sharer.php?u="
+      label: getMicroCopy("share.facebook"),
+      apiUrl:
+        "https://www.facebook.com/sharer/sharer.php?u={{href}}&display=popup"
     },
     {
       type: "pinterest" as "pinterest",
-      label: "Share on Pinterest",
-      apiUrl: "https://www.pinterest.com/pin/create/button/?url="
+      label: getMicroCopy("share.pinterest"),
+      apiUrl: "https://www.pinterest.com/pin/create/button/?url={{href}}"
     }
   ];
 
   return (
-    <Section backgroundColor="white">
+    <Section backgroundColor="white" spacing="none" hasNoPadding={hasNoPadding}>
       <ShareWidget
+        title={title}
+        message={message}
+        clipboardSuccessMessage={
+          clipboardSuccessMessage || getMicroCopy("share.clipboardSuccess")
+        }
+        clipboardErrorMessage={
+          clipboardErrorMessage || getMicroCopy("share.clipboardFailure")
+        }
+        isLeftAligned={isLeftAligned}
         channels={availableChannels.filter(
           (channel) => channels[channel.type] && channel
         )}
@@ -74,6 +90,7 @@ export default ShareWidgetSection;
 export const query = graphql`
   fragment ShareWidgetSectionFragment on ContentfulShareWidgetSection {
     title
+    message
     clipboardSuccessMessage
     clipboardErrorMessage
     isLeftAligned

@@ -28,12 +28,6 @@ describe("Page component", () => {
       homePage: {
         title: "Home page title"
       },
-      signUpTitle: "Title",
-      signUpDescription: {
-        signUpDescription: "Description"
-      },
-      signUpInputLabel: "Label",
-      signUpCallToAction: "Call to action",
       countryCode: "uk",
       footerMainNavigation: mockNavigation,
       footerSecondaryNavigation: mockNavigation,
@@ -43,8 +37,8 @@ describe("Page component", () => {
     };
 
     const pageData: Data = {
-      showSignUpBanner: false,
-      slug: "page-title"
+      slug: "page-title",
+      inputBanner: null
     };
 
     const { container } = render(

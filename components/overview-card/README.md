@@ -7,7 +7,7 @@ A card component displaying an overview of a product. The card is not clickable 
 ```jsx
 import Button from "@bmi/button";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -24,7 +24,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 
 ```jsx
 import Button from "@bmi/button";
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -56,7 +56,7 @@ import demoHouseImage from "./images/demo-tiles.jpg";
 
 ```jsx
 import demoHouseImage from "./images/demo-tiles.jpg";
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -74,7 +74,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 ```jsx
 import Button from "@bmi/button";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -92,7 +92,7 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 ```jsx
 import AnchorLink from "@bmi/anchor-link";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 
 <OverviewCard
   title="Unde Mmnis Iste"
@@ -112,11 +112,12 @@ import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
 ```jsx
 import Button from "@bmi/button";
 import demoHouseImage from "./images/demo-tiles.jpg";
-import brandLogo from "@bmi/logo/svgs/AeroDek.svg";
+import { AeroDek as brandLogo } from "@bmi/logo";
 
 <OverviewCard
   title="Unde Mmnis Iste"
   imageSource={demoHouseImage}
+  brandImageSource={brandLogo}
   footer={<Button variant="outlined">Go to this</Button>}
   isFlat
 >

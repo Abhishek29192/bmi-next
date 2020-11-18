@@ -9,5 +9,21 @@
         color: rgba($color-cyan-500, 0.25);
       }
     }
+
+    .MuiFormControlLabel-root {
+      align-items: flex-start;
+    }
+
+    .MuiFormControlLabel-label {
+      margin-top: 1px;
+    }
+
+    .MuiFormHelperText-root {
+      margin: 0 0 14px 33px;
+    }
+
+    .MuiCheckbox-root {
+      padding-top: 0;
+    }
   }
 }

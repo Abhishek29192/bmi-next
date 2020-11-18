@@ -6,11 +6,30 @@ import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as PageInfoData } from "../components/PageInfo";
+import NextBestActions, {
+  Data as NextBestActionsData
+} from "../components/NextBestActions";
+import ExploreBar, { Data as ExploreBarData } from "../components/ExploreBar";
+import Section from "@bmi/section";
+import SpotlightHero from "@bmi/spotlight-hero";
+import LeadBlockSection, {
+  Data as LeadBlockSectionData
+} from "../components/LeadBlockSection";
+import LinkColumnsSection, {
+  Data as LinkColumnsSectionData
+} from "../components/LinkColumnsSection";
+import TableOfContent from "@bmi/table-of-content";
+import AnchorLink from "@bmi/anchor-link";
 
 type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
+    leadBlock: LeadBlockSectionData | null;
     sections: SectionsData | null;
+    nextBestActions: NextBestActionsData | null;
+    exploreBar: ExploreBarData | null;
+    linkColumns: LinkColumnsSectionData | null;
+    heroType: "Hierarchy" | "Spotlight" | null;
   };
 
 type Props = {
@@ -25,7 +44,12 @@ const SimplePage = ({ data }: Props) => {
     title,
     subtitle,
     featuredImage,
-    sections
+    leadBlock,
+    sections,
+    nextBestActions,
+    exploreBar,
+    linkColumns,
+    heroType
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
     title,
@@ -37,26 +61,48 @@ const SimplePage = ({ data }: Props) => {
       .length + 1,
     3
   ) || 1) as 1 | 2 | 3;
+  const breadcrumbs = (
+    <Breadcrumbs
+      title={title}
+      slug={data.contentfulSimplePage.slug}
+      menuNavigation={data.contentfulSite.menuNavigation}
+      isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
+    />
+  );
+  const pageData: PageData = {
+    slug: data.contentfulSimplePage.slug,
+    inputBanner: data.contentfulSimplePage.inputBanner
+  };
 
   return (
-    <Page
-      title={title}
-      pageData={data.contentfulSimplePage}
-      siteData={data.contentfulSite}
-    >
-      <Hero
-        level={heroLevel}
-        {...heroProps}
-        breadcrumbs={
-          <Breadcrumbs
-            title={title}
-            slug={data.contentfulSimplePage.slug}
-            menuNavigation={data.contentfulSite.menuNavigation}
-            isDarkThemed={heroLevel !== 3}
-          />
-        }
-      />
-      {sections && <Sections data={sections} />}
+    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+      {heroType === "Spotlight" ? (
+        <SpotlightHero {...heroProps} breadcrumbs={breadcrumbs} />
+      ) : (
+        <Hero level={heroLevel} {...heroProps} breadcrumbs={breadcrumbs} />
+      )}
+      <TableOfContent
+        renderLink={(sectionId, title) => (
+          <AnchorLink
+            action={{
+              model: "htmlLink",
+              href: `#${sectionId}`
+            }}
+          >
+            {title}
+          </AnchorLink>
+        )}
+      >
+        {leadBlock && <LeadBlockSection data={leadBlock} />}
+        {sections && <Sections data={sections} startIndex={+!!leadBlock} />}
+        {linkColumns && <LinkColumnsSection data={linkColumns} />}
+        {nextBestActions && <NextBestActions data={nextBestActions} />}
+        {exploreBar && (
+          <Section backgroundColor="alabaster">
+            <ExploreBar data={exploreBar} />
+          </Section>
+        )}
+      </TableOfContent>
     </Page>
   );
 };
@@ -67,10 +113,23 @@ export const pageQuery = graphql`
   query SimplePageById($pageId: String!, $siteId: String!) {
     contentfulSimplePage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      heroType
+      leadBlock {
+        ...LeadBlockSectionFragment
+      }
       sections {
         ...SectionsFragment
       }
-      showSignUpBanner
+      nextBestActions {
+        ...NextBestActionsFragment
+      }
+      exploreBar {
+        ...ExploreBarFragment
+      }
+      linkColumns {
+        ...LinkColumnsSectionFragment
+      }
+      ...PageFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

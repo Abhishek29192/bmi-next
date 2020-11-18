@@ -215,15 +215,16 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
   await preProdAlias.update();
 
   if (branch === PRE_PRODUCTION_BRANCH) {
-    for (const env of envs.items) {
-      // NOTE: delete any old pre release environments for pre-production release
-      if (env.sys.id !== tag && parseSemVer(env.sys.id).pre) {
-        console.log(
-          `Deleting old pre-release contentful environment ${env.sys.id}`
-        );
-        await env.delete();
-      }
-    }
+    // NOTE: Do not delete old environments automatically
+    // for (const env of envs.items) {
+    //   // NOTE: delete any old pre release environments for pre-production release
+    //   if (env.sys.id !== tag && parseSemVer(env.sys.id).pre) {
+    //     console.log(
+    //       `Deleting old pre-release contentful environment ${env.sys.id}`
+    //     );
+    //     await env.delete();
+    //   }
+    // }
     return;
   }
 
@@ -237,27 +238,28 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
     prodAlias.environment.sys.id = newEnv.sys.id;
     await prodAlias.update();
 
-    for (const env of envs.items) {
-      // NOTE: delete any pre release environments for production release
-      if (parseSemVer(env.sys.id).pre) {
-        console.log(
-          `Deleting pre-release contentful environment ${env.sys.id}`
-        );
-        await env.delete();
-      }
-    }
+    // NOTE: Do not delete old environments automatically
+    // for (const env of envs.items) {
+    //   // NOTE: delete any pre release environments for production release
+    //   if (parseSemVer(env.sys.id).pre) {
+    //     console.log(
+    //       `Deleting pre-release contentful environment ${env.sys.id}`
+    //     );
+    //     await env.delete();
+    //   }
+    // }
 
-    const sortedEnvVersions = envs.items
-      .filter(
-        (env) => isValidSemVer(env.sys.id) && !parseSemVer(env.sys.id).pre
-      )
-      .sort((b, a) => compareSemVer(a.sys.id, b.sys.id));
+    // const sortedEnvVersions = envs.items
+    //   .filter(
+    //     (env) => isValidSemVer(env.sys.id) && !parseSemVer(env.sys.id).pre
+    //   )
+    //   .sort((b, a) => compareSemVer(a.sys.id, b.sys.id));
 
     // NOTE: only keep latest 2 environments, current and last contentful environment
-    for (const env of sortedEnvVersions.slice(2)) {
-      console.log(`Deleting old contentful environment ${env.sys.id}`);
-      await env.delete();
-    }
+    // for (const env of sortedEnvVersions.slice(2)) {
+    //   console.log(`Deleting old contentful environment ${env.sys.id}`);
+    //   await env.delete();
+    // }
   }
 }
 

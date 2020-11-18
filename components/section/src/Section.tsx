@@ -12,6 +12,8 @@ export type Props = {
   size?: "lg" | "md" | "sm" | "xl" | "xs" | false;
   spacing?: "default" | "none";
   className?: string;
+  id?: string;
+  hasNoPadding?: boolean;
 };
 
 const Section = ({
@@ -19,7 +21,9 @@ const Section = ({
   children,
   size = "xl",
   spacing = "default",
-  className
+  className,
+  id,
+  hasNoPadding = false
 }: Props) => {
   const isNested = useContext(SectionContext);
 
@@ -38,13 +42,16 @@ const Section = ({
   return (
     <SectionContext.Provider value={true}>
       <div
+        id={id}
         className={classnames(className, styles["Section"], {
           [styles[`Section--${backgroundColor}`]]:
             backgroundColor !== "transparent",
           [styles["Section--no-spacing"]]: spacing === "none"
         })}
       >
-        <Container maxWidth={size}>{children}</Container>
+        <Container maxWidth={size} disableGutters={hasNoPadding}>
+          {children}
+        </Container>
       </div>
     </SectionContext.Provider>
   );

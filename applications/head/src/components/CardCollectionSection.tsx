@@ -82,7 +82,7 @@ const CardCollectionSection = ({
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>(
     groupKeys.length ? { [groupKeys[0]]: true } : {}
   );
-  const { countryCode } = useContext(SiteContext);
+  const { getMicroCopy, countryCode } = useContext(SiteContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
   const activeCards = flatten(
     Object.entries(activeGroups).map(([title, isSelected]) =>
@@ -100,7 +100,7 @@ const CardCollectionSection = ({
         {shouldDisplayGroups && (
           <>
             <Typography variant="h4" component="h3">
-              Show more:
+              {getMicroCopy("cardCollection.groupTitle")}
             </Typography>
             <div className={styles["group-chips"]}>
               {groupKeys.map((tagTitle, index) => {
@@ -117,7 +117,9 @@ const CardCollectionSection = ({
                       }));
                     }}
                   >
-                    {tagTitle === "undefined" ? "Rest" : tagTitle}
+                    {tagTitle === "undefined"
+                      ? getMicroCopy("cardCollection.restLabel")
+                      : tagTitle}
                   </Chip>
                 );
               })}

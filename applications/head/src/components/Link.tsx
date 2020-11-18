@@ -2,6 +2,7 @@ import { graphql, Link } from "gatsby";
 import { ClickableAction } from "@bmi/clickable";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
+import { Data as PromoData } from "./Promo";
 
 export const getClickableActionFromUrl = (
   linkedPage?: LinkData["linkedPage"],
@@ -30,10 +31,7 @@ export const getClickableActionFromUrl = (
 
 export const getCTA = (
   data:
-    | {
-        __typename: "ContentfulPromo";
-        cta?: LinkData;
-      }
+    | Pick<PromoData, "__typename" | "cta">
     | Pick<PageInfoData, "__typename" | "slug">,
   countryCode: string,
   linkLabel?: string
@@ -55,7 +53,6 @@ export const getCTA = (
 
   return {
     action: getClickableActionFromUrl({ slug }, null, countryCode),
-    // TODO: Use microcopy here
     label: linkLabel
   };
 };
@@ -97,6 +94,15 @@ export const query = graphql`
     linkedPage {
       ... on ContentfulPage {
         slug
+      }
+    }
+    asset {
+      ... on ContentfulAsset {
+        file {
+          ... on ContentfulAssetFile {
+            url
+          }
+        }
       }
     }
   }

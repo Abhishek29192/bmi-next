@@ -80,6 +80,7 @@ const SBS = () => (
         editButtonLabel={"Go back to make edits"}
         downloadPdfButtonLabel={"Download as PDF"}
         downloadPdfButtonLoadingLabel={"Loading PDF..."}
+        urlPrefix={(process.env.FRC_URL_PREFIX || "/") + "3d/"}
       />
     </Container>
   </Page>

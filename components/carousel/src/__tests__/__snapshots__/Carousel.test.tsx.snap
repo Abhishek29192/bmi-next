@@ -2,7 +2,7 @@
 
 exports[`Carousel component doesn't render controls when scroll is finite and pages per slides = total slides 1`] = `
 <div
-  class="wrapper"
+  class="wrapper wrapper--with-gutter"
 >
   <div
     class="Carousel Carousel--opacity Carousel--with-gutter"

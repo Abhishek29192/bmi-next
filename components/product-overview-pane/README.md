@@ -5,7 +5,7 @@ The Product Overview Pane is similar to a large Card with no elevation. It conta
 ### Default
 
 ```jsx
-import Zanda from "@bmi/logo/svgs/Zanda.svg";
+import { Zanda } from "@bmi/logo";
 import blackImage from "./images/tile-black.jpg";
 import brownImage from "./images/tile-brown.jpg";
 

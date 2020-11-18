@@ -6,15 +6,12 @@ import FormSection, {
 import TabsOrAccordionSection, {
   Data as TabsOrAccordionSectionData
 } from "../components/TabsOrAccordionSection";
-import VillainSection, {
-  Data as VillainSectionData
-} from "../components/VillainSection";
+import SyndicateSection, {
+  Data as SyndicateSectionData
+} from "./SyndicateSection";
 import CarouselSection, {
   Data as CarouselSectionData
 } from "../components/CarouselSection";
-import LeadBlockSection, {
-  Data as LeadBlockSectionData
-} from "../components/LeadBlockSection";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
 } from "../components/CardCollectionSection";
@@ -24,41 +21,61 @@ import TitleWithContentSection, {
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
+import PromoSection, {
+  Data as PromoSectionData
+} from "../components/PromoSection";
+import ImageGallerySection, {
+  Data as ImageGallerySectionData
+} from "../components/ImageGallerySection";
+import TableOfContent from "@bmi/table-of-content";
 
 export type Data = (
   | FormSectionData
   | TabsOrAccordionSectionData
-  | VillainSectionData
+  | SyndicateSectionData
   | CarouselSectionData
-  | LeadBlockSectionData
   | CardCollectionSectionData
   | TitleWithContentData
   | ShareWidgetSectionData
+  | PromoSectionData
+  | ImageGallerySectionData
 )[];
 
 const sectionsMap = {
   ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
-  ContentfulVillainSection: VillainSection,
+  ContentfulSyndicateSection: SyndicateSection,
   ContentfulCarouselSection: CarouselSection,
-  ContentfulLeadBlockSection: LeadBlockSection,
   ContentfulCardCollectionSection: CardCollectionSection,
   ContentfulTitleWithContent: TitleWithContentSection,
-  ContentfulShareWidgetSection: ShareWidgetSection
+  ContentfulShareWidgetSection: ShareWidgetSection,
+  ContentfulPromo: PromoSection,
+  ContentfulImageGallerySection: ImageGallerySection
 };
 
-const Sections = ({ data }: { data: Data }) => {
+const Sections = ({
+  data,
+  startIndex = 0
+}: {
+  data: Data;
+  startIndex?: number;
+}) => {
   return (
     <>
       {data.map((section, index) => {
         const Component = sectionsMap[section.__typename];
+        const { title } = section;
+
         return (
           Component && (
-            <Component
-              key={`section${index}`}
-              // @ts-ignore
-              data={section}
-            />
+            <TableOfContent.Anchor title={title}>
+              <Component
+                key={`section${index}`}
+                // @ts-ignore
+                data={section}
+                position={startIndex + index}
+              />
+            </TableOfContent.Anchor>
           )
         );
       })}
@@ -73,11 +90,12 @@ export const query = graphql`
     __typename
     ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
-    ...VillainSectionFragment
+    ...SyndicateSectionFragment
     ...CarouselSectionFragment
-    ...LeadBlockSectionFragment
     ...CardCollectionSectionFragment
     ...TitleWithContentSectionFragment
     ...ShareWidgetSectionFragment
+    ...PromoSectionFragment
+    ...ImageGallerySectionFragment
   }
 `;

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
-import Icon from "./Icon";
+import { iconMap } from "./Icon";
 import _ from "lodash";
 import { NavigationList } from "components/navigation/src";
+import { SiteContext } from "./Site";
 
 const parseNavigation = (
   navigationItems: (NavigationData | NavigationItem | LinkData)[],
@@ -42,7 +43,6 @@ const parseNavigation = (
     }
 
     if (__typename === "ContentfulLink") {
-      let iconLabel;
       let action;
 
       const {
@@ -52,16 +52,6 @@ const parseNavigation = (
         linkedPage,
         url
       } = item as LinkData;
-
-      if (isLabelHidden && iconName) {
-        iconLabel = <Icon name={iconName} />;
-      }
-      if (!isLabelHidden && iconName) {
-        iconLabel = [
-          <Icon key={`icon-${iconName}`} name={iconName} />,
-          <b key={`label-${iconName}`}>{label}</b>
-        ];
-      }
 
       if (linkedPage) {
         action = {
@@ -77,7 +67,8 @@ const parseNavigation = (
       }
 
       return result.concat({
-        label: iconLabel || label,
+        label,
+        icon: iconMap[iconName],
         isLabelHidden,
         action
       });
@@ -131,6 +122,7 @@ const Header = ({
     return null;
   }
 
+  const { getMicroCopy } = useContext(SiteContext);
   const utilities = parseNavigation(utilitiesData.links, countryCode);
   const navigation = parseNavigation(navigationData.links, countryCode);
 
@@ -149,6 +141,10 @@ const Header = ({
             to: `/${countryCode}/`
           }}
           activeNavLabel={parentLabel}
+          closeLabel={getMicroCopy("global.close")}
+          searchLabel={getMicroCopy("search.label")}
+          searchPlaceholder={getMicroCopy("search.placeholder")}
+          openLabel={getMicroCopy("menu.open")}
         />
       )}
     />

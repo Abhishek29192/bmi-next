@@ -66,84 +66,29 @@ describe("Sections component", () => {
         type: "Tabs"
       },
       {
-        __typename: "ContentfulVillainSection",
+        __typename: "ContentfulSyndicateSection",
         title: "Title",
-        promo: {
-          __typename: "ContentfulPromo",
-          title: "Promo",
-          brandLogo: null,
-          tag: null,
-          subtitle: null,
-          featuredImage: null,
-          cta: null
-        }
-      },
-      {
-        __typename: "ContentfulLeadBlockSection",
-        text: {
-          json: {
-            data: {},
-            content: [
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value: "lead block heading",
-                    nodeType: "text"
-                  }
-                ],
-                nodeType: BLOCKS.HEADING_2
-              },
-              {
-                data: {},
-                content: [
-                  {
-                    data: {},
-                    marks: [],
-                    value: "lead block content",
-                    nodeType: "text"
-                  }
-                ],
-                nodeType: BLOCKS.PARAGRAPH
-              }
-            ],
-            nodeType: BLOCKS.DOCUMENT
-          }
-        },
-        link: {
-          __typename: "ContentfulLink",
-          id: "00000000-0000-0000-0000-000000000000",
-          label: "lead block cta label",
-          icon: null,
-          isLabelHidden: null,
-          url: null,
-          linkedPage: {
-            slug: "contact-us"
-          }
-        },
-        cardTheme: "pearl",
-        cardSections: [
+        villains: [
           {
-            id: "00000000-0000-0000-0000-000000000000",
-            hasUnderline: true,
-            title: "card section 1 title",
-            description: {
-              description: "card section 1 description"
-            },
-            link: {
-              __typename: "ContentfulLink",
-              id: "00000000-0000-0000-0000-000000000000",
-              label: "card section 1 link label",
-              icon: null,
-              isLabelHidden: null,
-              url: "/",
-              linkedPage: null
-            },
-            linkType: null
+            __typename: "ContentfulPromo",
+            title: "Villain 1",
+            brandLogo: null,
+            tag: null,
+            subtitle: null,
+            featuredImage: null,
+            cta: null
+          },
+          {
+            __typename: "ContentfulPromo",
+            title: "Villain 2",
+            brandLogo: null,
+            tag: null,
+            subtitle: null,
+            featuredImage: null,
+            cta: null
           }
-        ]
+        ],
+        isReversed: false
       },
       {
         __typename: "ContentfulCardCollectionSection",
@@ -208,6 +153,34 @@ describe("Sections component", () => {
                 src: "//image-url"
               }
             }
+          }
+        ]
+      },
+      {
+        __typename: "ContentfulPromo",
+        title: "card section title 2",
+        subtitle: null,
+        brandLogo: null,
+        tag: null,
+        featuredImage: null,
+        cta: null
+      },
+      {
+        __typename: "ContentfulImageGallerySection",
+        title: "Gallery title",
+        description: {
+          description: "card section 1 description"
+        },
+        images: [
+          {
+            title: "my test title",
+            mainSource: { src: "url" },
+            thumbnail: { src: "url" }
+          },
+          {
+            title: "my test title2",
+            mainSource: { src: "url2" },
+            thumbnail: { src: "url2" }
           }
         ]
       }

@@ -1,5 +1,5 @@
 import React from "react";
-import IcopalLogoSVG from "@bmi/logo/svgs/Icopal.svg";
+import { Icopal as IcopalLogoSVG } from "@bmi/logo";
 import Paper from "@material-ui/core/Paper";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";

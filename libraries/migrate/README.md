@@ -39,15 +39,17 @@ yarn migrate list -a -e <contentful environment>
 ### Create migration script template
 
 ```bash
-yarn migrate create <migration file name> -c <content type>
+yarn migrate create <migration-file-name> -c <contentType>
 ```
 
-### Up
+### Migrate
+
+#### Up
 
 Run latest migrations that have not been updated
 
 ```bash
-yarn migrate up -a
+yarn migrate up <options>
 ```
 
 Run a specific content type
@@ -55,3 +57,20 @@ Run a specific content type
 ```bash
 yarn migrate up -c contentTypeName
 ```
+
+#### Down
+
+Roll back a migration
+
+```bash
+yarn migrate down <filename> <options>
+```
+
+#### Options
+
+|     |                                              |                                                                            |
+| --- | -------------------------------------------- | -------------------------------------------------------------------------- |
+| -e  | --environment-id <contentful environment id> | id of the environment within the space (defaults to 'master')              |
+| -c  | --content-type <content-type>                | one or more content type names to process                                  |
+| -a  | --all                                        | processes migrations for all content types                                 |
+| -d  | --dry-run                                    | only shows the plan, don't write anything to contentful. defaults to false |

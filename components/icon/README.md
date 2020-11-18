@@ -6,9 +6,6 @@ Displaying an icon from MaterialUI. See the complete [list of icons](https://mat
 
 ```jsx
 import {
-  Facebook,
-  YouTube,
-  LinkedIn,
   Search,
   Language,
   ChevronLeft,
@@ -23,9 +20,6 @@ import {
 } from "@material-ui/icons";
 
 <>
-  <Icon source={Facebook} />
-  <Icon source={YouTube} />
-  <Icon source={LinkedIn} />
   <Icon source={Search} />
   <Icon source={Language} />
   <Icon source={ChevronLeft} />
@@ -78,13 +72,11 @@ import { Chat } from "@material-ui/icons";
 ### BMI custom icons
 
 ```jsx
-import Facebook from "./src/svgs/Facebook.svg";
-import YouTube from "./src/svgs/YouTube.svg";
-import LinkedIn from "./src/svgs/LinkedIn.svg";
+import { iconMap } from "./src";
 
 <>
-  <Icon source={Facebook} style={{ width: 32, marginRight: 5 }} />
-  <Icon source={YouTube} style={{ width: 32, marginRight: 5 }} />
-  <Icon source={LinkedIn} style={{ width: 32, marginRight: 5 }} />
+  {Object.values(iconMap).map((icon) => (
+    <Icon source={icon} style={{ width: 32, marginRight: 5 }} />
+  ))}
 </>;
 ```

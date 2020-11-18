@@ -7,14 +7,9 @@ The header must be placed in the DOM at the top of the `body`. For the demo, cli
 ```jsx
 import { useRef } from "react";
 import Button from "@bmi/button";
-import Icon from "@bmi/icon";
-import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
+import Icon, { Arrow } from "@bmi/icon";
 import { languages } from "@bmi/language-selection";
-import AeroDek from "@bmi/logo/svgs/AeroDek.svg";
-import Icopal from "@bmi/logo/svgs/Icopal.svg";
-import Monarplan from "@bmi/logo/svgs/Monarplan.svg";
-import Monier from "@bmi/logo/svgs/Monier.svg";
-import Zanda from "@bmi/logo/svgs/Zanda.svg";
+import { AeroDek, Icopal, Monarplan, Monier, Zanda } from "@bmi/logo";
 import { Fullscreen } from "@material-ui/icons";
 import systemsImage from "./images/systems.jpg";
 
@@ -50,10 +45,10 @@ const navigation = [
             menu: [
               { label: "Tiles", isHeading: true },
               { label: "Tiles overview" },
-              { label: "Metal tiles" },
-              { label: "Clay tiles" },
-              { label: "Concrete tiles" },
-              { label: "Singles" }
+              { label: "Metal tiles", icon: AeroDek },
+              { label: "Clay tiles", icon: Monier },
+              { label: "Concrete tiles", icon: Zanda },
+              { label: "Singles", icon: Icopal }
             ]
           },
           {
@@ -104,7 +99,9 @@ const navigation = [
       },
       { label: "Products by brand", isHeading: true },
       {
-        label: <Icon source={Icopal} />,
+        label: "Icopal",
+        icon: Icopal,
+        isLabelHidden: true,
         menu: [
           { label: <Icon source={Icopal} />, isHeading: true },
           {
@@ -122,10 +119,10 @@ const navigation = [
           }
         ]
       },
-      { label: <Icon source={Zanda} />, menu: [] },
-      { label: <Icon source={Monier} />, menu: [] },
-      { label: <Icon source={Monarplan} />, menu: [] },
-      { label: <Icon source={AeroDek} />, menu: [] }
+      { label: "Zanda", icon: Zanda, isLabelHidden: true, menu: [] },
+      { label: "Monier", icon: Monier, isLabelHidden: true, menu: [] },
+      { label: "Monarplan", icon: Monarplan, isLabelHidden: true, menu: [] },
+      { label: "AeroDek", icon: AeroDek, isLabelHidden: true, menu: [] }
     ],
     footer: [{ label: "For Homeowners", isHeading: true }]
   },
