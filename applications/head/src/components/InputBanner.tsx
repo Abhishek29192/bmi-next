@@ -54,32 +54,34 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
 
   return (
     <>
-      <Dialog open={dialogOpen} onCloseClick={() => setDialogOpen(false)}>
-        <Form>
+      {additionalInputs && (
+        <Dialog open={dialogOpen} onCloseClick={() => setDialogOpen(false)}>
           <Dialog.Title hasUnderline>{title}</Dialog.Title>
-          <Dialog.Content>
-            <FormInputs data={additionalInputs} />
-          </Dialog.Content>
+          <Form>
+            <Dialog.Content>
+              <FormInputs data={additionalInputs} />
+            </Dialog.Content>
 
-          <FormContext.Consumer>
-            {({ values, submitButtonDisabled }) => {
-              return (
-                <Dialog.Actions
-                  cancelLabel={getMicroCopy("dialog.cancel")}
-                  onCancelClick={() => setDialogOpen(false)}
-                  confirmLabel={
-                    confirmationButtonLabel || getMicroCopy("dialog.confirm")
-                  }
-                  isConfirmButtonDisabled={submitButtonDisabled}
-                  onConfirmClick={() => {
-                    handleSubmit(values);
-                  }}
-                />
-              );
-            }}
-          </FormContext.Consumer>
-        </Form>
-      </Dialog>
+            <FormContext.Consumer>
+              {({ values, submitButtonDisabled }) => {
+                return (
+                  <Dialog.Actions
+                    cancelLabel={getMicroCopy("dialog.cancel")}
+                    onCancelClick={() => setDialogOpen(false)}
+                    confirmLabel={
+                      confirmationButtonLabel || getMicroCopy("dialog.confirm")
+                    }
+                    isConfirmButtonDisabled={submitButtonDisabled}
+                    onConfirmClick={() => {
+                      handleSubmit(values);
+                    }}
+                  />
+                );
+              }}
+            </FormContext.Consumer>
+          </Form>
+        </Dialog>
+      )}
       <Dialog
         open={secondDialogOpen}
         onCloseClick={() => setSecondDialogOpen(false)}
@@ -104,7 +106,14 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         inputCallToAction={submitButtonLabel}
         onSubmit={(email) => {
           setEmail(email);
-          setDialogOpen(true);
+
+          if (additionalInputs) {
+            setDialogOpen(true);
+
+            return;
+          }
+
+          setSecondDialogOpen(true);
         }}
       />
     </>
