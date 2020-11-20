@@ -290,6 +290,7 @@ const ResultsView = ({
             startIcon={<ArrowBackIcon />}
             variant="outlined"
             onClick={() => navigate("/" + window.location.search)}
+            className={styles["item"]}
           >
             {calculateNewRoofButtonLabel}
           </Button>
