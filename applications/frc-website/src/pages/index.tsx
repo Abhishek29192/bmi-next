@@ -94,7 +94,7 @@ const Home = () => (
           absorb the movement of underlying materials and insulation as it can
           stretch to accommodate them. It also means SBS can flex under wind and
           weather stresses including the expansion and contraction British homes
-          tend to experience during seasonal weather change
+          tend to experience during seasonal weather change.
           <br />
           <br />
           <b>APP bitumen</b>
