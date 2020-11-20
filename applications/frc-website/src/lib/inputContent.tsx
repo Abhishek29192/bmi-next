@@ -11,7 +11,7 @@ export const inputContent = (type) => ({
       Alternatively, please call +44 (0) 330 1234 585 to speak to a BMI
       Technical Advisor.
       <br />
-      Icopalestimating @bmigroup.com
+      icopalestimating@bmigroup.com
     </>
   )
 });
