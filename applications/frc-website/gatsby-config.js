@@ -15,7 +15,7 @@ module.exports = {
     description: ``,
     author: `bmi`
   },
-  pathPrefix: process.env.FRC_URL_PREFIX,
+  pathPrefix: process.env.GATSBY_FRC_URL_PREFIX,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {

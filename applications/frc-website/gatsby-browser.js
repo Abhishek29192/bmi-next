@@ -4,23 +4,23 @@
 require("cookieconsent");
 require("cookieconsent/build/cookieconsent.min.css");
 
-const FRC_GA_CODE = process.env.FRC_GA_CODE;
+const GATSBY_FRC_GA_CODE = process.env.GATSBY_FRC_GA_CODE;
 
 const acceptCookies = () => {
   if (!window.hasAppendedGtagElement) {
     var gtagElement = document.createElement("script");
     gtagElement.async = true;
-    gtagElement.src = `https://www.googletagmanager.com/gtag/js?id=${FRC_GA_CODE}`;
+    gtagElement.src = `https://www.googletagmanager.com/gtag/js?id=${GATSBY_FRC_GA_CODE}`;
     document.head.appendChild(gtagElement);
 
     window.hasAppendedGtagElement = true;
   }
 
-  window[`ga-disable-${FRC_GA_CODE}`] = false;
+  window[`ga-disable-${GATSBY_FRC_GA_CODE}`] = false;
 };
 
 const revokeCookies = () => {
-  window[`ga-disable-${FRC_GA_CODE}`] = true;
+  window[`ga-disable-${GATSBY_FRC_GA_CODE}`] = true;
 };
 
 exports.onInitialClientRender = () => {
@@ -63,7 +63,7 @@ exports.onInitialClientRender = () => {
 
 exports.onRouteUpdate = ({ location }) => {
   if (window.gtag) {
-    window.gtag("config", process.env.FRC_GA_CODE, {
+    window.gtag("config", process.env.GATSBY_FRC_GA_CODE, {
       page_path: location.pathname
     });
   }
