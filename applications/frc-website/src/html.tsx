@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const FRC_GA_COOKIE_PREFIX = process.env.FRC_GA_COOKIE_PREFIX || "FRC";
-const FRC_GA_CODE = process.env.FRC_GA_CODE;
+const GATSBY_FRC_GA_COOKIE_PREFIX =
+  process.env.GATSBY_FRC_GA_COOKIE_PREFIX || "FRC";
+const GATSBY_FRC_GA_CODE = process.env.GATSBY_FRC_GA_CODE;
 
 export default function HTML(props) {
   return (
@@ -23,8 +24,8 @@ export default function HTML(props) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
         
-          gtag('config', '${FRC_GA_CODE}', {
-            cookie_prefix: '${FRC_GA_COOKIE_PREFIX}'
+          gtag('config', '${GATSBY_FRC_GA_CODE}', {
+            cookie_prefix: '${GATSBY_FRC_GA_COOKIE_PREFIX}'
           });
         `
           }}
