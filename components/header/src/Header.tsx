@@ -1,4 +1,5 @@
 import Button from "@bmi/button";
+import { InputValue } from "@bmi/form";
 import Icon from "@bmi/icon";
 import Search from "@bmi/search";
 import LanguageSelection, {
@@ -56,6 +57,7 @@ const Header = ({
     boolean
   >(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
+  const [searchValue, setSearchValue] = React.useState<InputValue>("");
   const [value, setValue] = React.useState<number | boolean>(false);
 
   const amendClassList = (classValue: string, method: "add" | "remove") => {
@@ -93,9 +95,14 @@ const Header = ({
   const toggleSearch = () => {
     if (!showSearch) {
       setValue(false);
+      setSearchValue("");
       amendClassList(styles.MenuIsOpen, "remove");
     }
     setShowSearch(!showSearch);
+  };
+
+  const handleSearchChange = (value: InputValue): void => {
+    setSearchValue(value);
   };
 
   const hideAll = () => {
@@ -294,7 +301,12 @@ const Header = ({
             <Icon source={Close} />
           </Button>
           <Typography variant="h4">How can we help you today?</Typography>
-          <Search label={searchLabel} placeholder={searchPlaceholder} />
+          <Search
+            label={searchLabel}
+            onChange={handleSearchChange}
+            placeholder={searchPlaceholder}
+            value={searchValue}
+          />
         </div>
       </Slide>
     </Paper>
