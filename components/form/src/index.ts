@@ -1,7 +1,7 @@
 import Form, { FormContext } from "./Form";
-import withFormControl from "./withFormControl";
+import withFormControl, { InputValue } from "./withFormControl";
 
 export { Props as FormProps } from "./Form";
 
-export { FormContext, withFormControl };
+export { FormContext, withFormControl, InputValue };
 export default Form;
