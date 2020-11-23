@@ -81,10 +81,7 @@ This is the most complex variation of the Hero, and it handles slightly differen
 When `autoPlayInterval` is specified, then the carousel will receive an `hasAutoPlay`
 
 ```jsx
-import InputGroup from "@bmi/input-group";
-import Button from "@bmi/button";
-import TextField from "@bmi/text-field";
-import SearchIcon from "@material-ui/icons/Search";
+import Search from "@bmi/search";
 import firstImageSource from "./images/demo-tiles.jpg";
 import secondImageSource from "./images/demo-tiles-black.png";
 import thirdImageSource from "./images/demo-house.png";
@@ -122,14 +119,6 @@ import thirdImageSource from "./images/demo-house.png";
     }
   ]}
 >
-  <InputGroup
-    lockBreakpoint="xs"
-    input={<TextField name="search" label="Search" variant="hybrid" />}
-    button={
-      <Button accessibilityLabel="Search" isIconButton>
-        <SearchIcon />
-      </Button>
-    }
-  />
+  <Search />
 </Hero>;
 ```
