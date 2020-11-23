@@ -1,6 +1,6 @@
 import Button from "@bmi/button";
 import Icon from "@bmi/icon";
-import InputGroup from "@bmi/input-group";
+import Search from "@bmi/search";
 import LanguageSelection, {
   defaultLanguage,
   LanguageSelectionItem,
@@ -9,11 +9,15 @@ import LanguageSelection, {
 import { BMI as BmiIcon } from "@bmi/logo";
 import Clickable, { ClickableAction } from "@bmi/clickable";
 import Navigation, { LinkList, NavigationList } from "@bmi/navigation";
-import TextField from "@bmi/text-field";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import { Backdrop, Paper, Slide, Tab, Tabs } from "@material-ui/core";
-import { Close, KeyboardArrowDown, Menu, Search } from "@material-ui/icons";
+import {
+  Close,
+  KeyboardArrowDown,
+  Menu,
+  Search as SearchIcon
+} from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";
 import styles from "./Header.module.scss";
@@ -239,7 +243,7 @@ const Header = ({
               isIconButton
               onClick={toggleSearch}
             >
-              <Icon source={Search} />
+              <Icon source={SearchIcon} />
             </Button>
             <Button
               accessibilityLabel={openLabel}
@@ -290,21 +294,7 @@ const Header = ({
             <Icon source={Close} />
           </Button>
           <Typography variant="h4">How can we help you today?</Typography>
-          <InputGroup
-            input={
-              <TextField
-                name="input-banner-text-field"
-                variant="hybrid"
-                label={searchPlaceholder}
-              />
-            }
-            button={
-              // TODO: Use a submit button for Form control functionalities.
-              <Button accessibilityLabel={searchLabel} isIconButton>
-                <Icon source={Search} />
-              </Button>
-            }
-          />
+          <Search label={searchLabel} placeholder={searchPlaceholder} />
         </div>
       </Slide>
     </Paper>
