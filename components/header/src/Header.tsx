@@ -1,6 +1,7 @@
 import Button from "@bmi/button";
+import { InputValue } from "@bmi/form";
 import Icon from "@bmi/icon";
-import InputGroup from "@bmi/input-group";
+import Search from "@bmi/search";
 import LanguageSelection, {
   defaultLanguage,
   LanguageSelectionItem,
@@ -9,11 +10,15 @@ import LanguageSelection, {
 import { BMI as BmiIcon } from "@bmi/logo";
 import Clickable, { ClickableAction } from "@bmi/clickable";
 import Navigation, { LinkList, NavigationList } from "@bmi/navigation";
-import TextField from "@bmi/text-field";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import { Backdrop, Paper, Slide, Tab, Tabs } from "@material-ui/core";
-import { Close, KeyboardArrowDown, Menu, Search } from "@material-ui/icons";
+import {
+  Close,
+  KeyboardArrowDown,
+  Menu,
+  Search as SearchIcon
+} from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";
 import styles from "./Header.module.scss";
@@ -26,6 +31,7 @@ type HeaderProps = {
   logoAction?: ClickableAction;
   activeNavLabel?: string;
   closeLabel?: string;
+  searchIsHidden?: boolean;
   searchLabel?: string;
   searchPlaceholder?: string;
   openLabel?: string;
@@ -39,6 +45,7 @@ const Header = ({
   logoAction = { model: "htmlLink", href: "/" },
   activeNavLabel,
   closeLabel = "Close",
+  searchIsHidden,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
   openLabel = "Open menu"
@@ -52,6 +59,7 @@ const Header = ({
     boolean
   >(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
+  const [searchValue, setSearchValue] = React.useState<InputValue>("");
   const [value, setValue] = React.useState<number | boolean>(false);
 
   const amendClassList = (classValue: string, method: "add" | "remove") => {
@@ -89,9 +97,14 @@ const Header = ({
   const toggleSearch = () => {
     if (!showSearch) {
       setValue(false);
+      setSearchValue("");
       amendClassList(styles.MenuIsOpen, "remove");
     }
     setShowSearch(!showSearch);
+  };
+
+  const handleSearchChange = (value: InputValue): void => {
+    setSearchValue(value);
   };
 
   const hideAll = () => {
@@ -234,13 +247,15 @@ const Header = ({
             </nav>
           </div>
           <div className={styles.NavigationBar__Right}>
-            <Button
-              accessibilityLabel={searchLabel}
-              isIconButton
-              onClick={toggleSearch}
-            >
-              <Icon source={Search} />
-            </Button>
+            {!searchIsHidden && (
+              <Button
+                accessibilityLabel={searchLabel}
+                isIconButton
+                onClick={toggleSearch}
+              >
+                <Icon source={SearchIcon} />
+              </Button>
+            )}
             <Button
               accessibilityLabel={openLabel}
               className={styles.BurgerButton}
@@ -279,34 +294,27 @@ const Header = ({
           />
         </div>
       </Slide>
-      <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
-        <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
-          <Button
-            accessibilityLabel={closeLabel}
-            className={styles.CloseButton}
-            isIconButton
-            onClick={toggleSearch}
-          >
-            <Icon source={Close} />
-          </Button>
-          <Typography variant="h4">How can we help you today?</Typography>
-          <InputGroup
-            input={
-              <TextField
-                name="input-banner-text-field"
-                variant="hybrid"
-                label={searchPlaceholder}
-              />
-            }
-            button={
-              // TODO: Use a submit button for Form control functionalities.
-              <Button accessibilityLabel={searchLabel} isIconButton>
-                <Icon source={Search} />
-              </Button>
-            }
-          />
-        </div>
-      </Slide>
+      {!searchIsHidden && (
+        <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
+          <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
+            <Button
+              accessibilityLabel={closeLabel}
+              className={styles.CloseButton}
+              isIconButton
+              onClick={toggleSearch}
+            >
+              <Icon source={Close} />
+            </Button>
+            <Typography variant="h4">How can we help you today?</Typography>
+            <Search
+              label={searchLabel}
+              onChange={handleSearchChange}
+              placeholder={searchPlaceholder}
+              value={searchValue}
+            />
+          </div>
+        </Slide>
+      )}
     </Paper>
   );
 };
