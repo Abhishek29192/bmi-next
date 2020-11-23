@@ -31,6 +31,7 @@ type HeaderProps = {
   logoAction?: ClickableAction;
   activeNavLabel?: string;
   closeLabel?: string;
+  searchIsHidden?: boolean;
   searchLabel?: string;
   searchPlaceholder?: string;
   openLabel?: string;
@@ -44,6 +45,7 @@ const Header = ({
   logoAction = { model: "htmlLink", href: "/" },
   activeNavLabel,
   closeLabel = "Close",
+  searchIsHidden,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
   openLabel = "Open menu"
@@ -245,13 +247,15 @@ const Header = ({
             </nav>
           </div>
           <div className={styles.NavigationBar__Right}>
-            <Button
-              accessibilityLabel={searchLabel}
-              isIconButton
-              onClick={toggleSearch}
-            >
-              <Icon source={SearchIcon} />
-            </Button>
+            {!searchIsHidden && (
+              <Button
+                accessibilityLabel={searchLabel}
+                isIconButton
+                onClick={toggleSearch}
+              >
+                <Icon source={SearchIcon} />
+              </Button>
+            )}
             <Button
               accessibilityLabel={openLabel}
               className={styles.BurgerButton}
@@ -290,25 +294,27 @@ const Header = ({
           />
         </div>
       </Slide>
-      <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
-        <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
-          <Button
-            accessibilityLabel={closeLabel}
-            className={styles.CloseButton}
-            isIconButton
-            onClick={toggleSearch}
-          >
-            <Icon source={Close} />
-          </Button>
-          <Typography variant="h4">How can we help you today?</Typography>
-          <Search
-            label={searchLabel}
-            onChange={handleSearchChange}
-            placeholder={searchPlaceholder}
-            value={searchValue}
-          />
-        </div>
-      </Slide>
+      {!searchIsHidden && (
+        <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
+          <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
+            <Button
+              accessibilityLabel={closeLabel}
+              className={styles.CloseButton}
+              isIconButton
+              onClick={toggleSearch}
+            >
+              <Icon source={Close} />
+            </Button>
+            <Typography variant="h4">How can we help you today?</Typography>
+            <Search
+              label={searchLabel}
+              onChange={handleSearchChange}
+              placeholder={searchPlaceholder}
+              value={searchValue}
+            />
+          </div>
+        </Slide>
+      )}
     </Paper>
   );
 };
