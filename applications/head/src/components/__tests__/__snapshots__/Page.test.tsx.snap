@@ -316,7 +316,7 @@ exports[`Page component renders correctly 1`] = `
       How can we help you today?
     </h4>
     <div
-      class="InputGroup InputGroup--locked-sm"
+      class="InputGroup InputGroup--locked-xs"
     >
       <div
         class="MuiFormControl-root MuiTextField-root TextField input"
