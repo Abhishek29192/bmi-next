@@ -59,10 +59,14 @@ const HomePage = ({ data }: Props) => {
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
         {(context) => {
+          const { getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
           return (
             <Hero level={0} heroes={heroItems} hasSpaceBottom>
-              <Search />
+              <Search
+                label={getMicroCopy("search.label")}
+                placeholder={getMicroCopy("search.placeholder")}
+              />
             </Hero>
           );
         }}
