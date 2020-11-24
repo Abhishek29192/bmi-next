@@ -9,37 +9,51 @@ exports[`ExpandableLinksTextCard component renders correctly 1`] = `
   >
     Heading One
   </h3>
-  <div
-    class="shown-links-wrapper"
-  >
-    <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-      href="/"
+  <nav>
+    <div
+      class="shown-links-container"
     >
-      <span>
-        Link One
-      </span>
-    </a>
-    <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-      href="/"
-    >
-      <span>
-        Link Two
-      </span>
-    </a>
-    <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-      href="/"
-    >
-      <span>
-        Link Three
-      </span>
-    </a>
-  </div>
-  <div
-    class="hidden-links-wrapper"
-  />
+      <div
+        class="link-wrapper"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Link One
+          </span>
+        </a>
+      </div>
+      <div
+        class="link-wrapper"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Link Two
+          </span>
+        </a>
+      </div>
+      <div
+        class="link-wrapper"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Link Three
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      class="hidden-links-container"
+    />
+  </nav>
 </div>
 `;
 
@@ -52,54 +66,68 @@ exports[`ExpandableLinksTextCard component renders correctly with more than 3 li
   >
     Heading One
   </h3>
-  <div
-    class="shown-links-wrapper"
-  >
-    <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-      href="/"
+  <nav>
+    <div
+      class="shown-links-container"
     >
-      <span>
-        Link One
-      </span>
-    </a>
-    <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-      href="/"
-    >
-      <span>
-        Link Two
-      </span>
-    </a>
-    <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-      href="/"
-    >
-      <span>
-        Link Three
-      </span>
-    </a>
-  </div>
-  <div
-    class="hidden-links-wrapper"
-  >
-    <div>
-      <div />
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
-        tabindex="0"
-        type="button"
+      <div
+        class="link-wrapper"
       >
-        <span
-          class="MuiButton-label"
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="/"
         >
-          Open
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+          <span>
+            Link One
+          </span>
+        </a>
+      </div>
+      <div
+        class="link-wrapper"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Link Two
+          </span>
+        </a>
+      </div>
+      <div
+        class="link-wrapper"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          href="/"
+        >
+          <span>
+            Link Three
+          </span>
+        </a>
+      </div>
     </div>
-  </div>
+    <div
+      class="hidden-links-container"
+    >
+      <div>
+        <div />
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button MuiButton-containedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Open
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </nav>
 </div>
 `;
