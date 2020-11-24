@@ -39,6 +39,7 @@ import {
   mapProductClassifications
 } from "../utils/product-details-transforms";
 import Button from "@bmi/button";
+import PerfectScrollbar from "@bmi/perfect-scrollbar";
 
 const PAGE_SIZE = 24;
 
@@ -466,7 +467,14 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         )}
         <Grid container spacing={3}>
           <Grid item xs={12} md={12} lg={3}>
-            <div style={{ position: "sticky", top: "180px" }}>
+            <PerfectScrollbar
+              style={{
+                position: "sticky",
+                top: "180px",
+                maxHeight: "calc(100vh - 200px)",
+                overflow: "hidden"
+              }}
+            >
               <div
                 style={{
                   display: "flex",
@@ -481,7 +489,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 </Button>
               </div>
               <Filters filters={filters} onChange={handleFiltersChange} />
-            </div>
+            </PerfectScrollbar>
           </Grid>
           <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
             <Grid container spacing={3}>
