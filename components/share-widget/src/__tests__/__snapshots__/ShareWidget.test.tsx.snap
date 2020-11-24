@@ -16,7 +16,7 @@ exports[`ShareWidget component renders correctly 1`] = `
     <li>
       <button
         aria-label="Copy to clipboard"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -46,7 +46,7 @@ exports[`ShareWidget component renders correctly 1`] = `
     <li>
       <button
         aria-label="Share by email"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -72,7 +72,7 @@ exports[`ShareWidget component renders correctly 1`] = `
     <li>
       <button
         aria-label="Share on LinkedIn"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -98,7 +98,7 @@ exports[`ShareWidget component renders correctly 1`] = `
     <li>
       <button
         aria-label="Share on Twitter"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -124,7 +124,7 @@ exports[`ShareWidget component renders correctly 1`] = `
     <li>
       <button
         aria-label="Share on Facebook"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -150,7 +150,7 @@ exports[`ShareWidget component renders correctly 1`] = `
     <li>
       <button
         aria-label="Share on Pinterest"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -193,7 +193,7 @@ exports[`ShareWidget component renders left aligned 1`] = `
     <li>
       <button
         aria-label="Copy to clipboard"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -223,7 +223,7 @@ exports[`ShareWidget component renders left aligned 1`] = `
     <li>
       <button
         aria-label="Share by email"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -249,7 +249,7 @@ exports[`ShareWidget component renders left aligned 1`] = `
     <li>
       <button
         aria-label="Share on LinkedIn"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -275,7 +275,7 @@ exports[`ShareWidget component renders left aligned 1`] = `
     <li>
       <button
         aria-label="Share on Twitter"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -301,7 +301,7 @@ exports[`ShareWidget component renders left aligned 1`] = `
     <li>
       <button
         aria-label="Share on Facebook"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -327,7 +327,7 @@ exports[`ShareWidget component renders left aligned 1`] = `
     <li>
       <button
         aria-label="Share on Pinterest"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -370,7 +370,7 @@ exports[`ShareWidget component shares on Facebook 1`] = `
     <li>
       <button
         aria-label="Copy to clipboard"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -400,7 +400,7 @@ exports[`ShareWidget component shares on Facebook 1`] = `
     <li>
       <button
         aria-label="Share by email"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -426,7 +426,7 @@ exports[`ShareWidget component shares on Facebook 1`] = `
     <li>
       <button
         aria-label="Share on LinkedIn"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -452,7 +452,7 @@ exports[`ShareWidget component shares on Facebook 1`] = `
     <li>
       <button
         aria-label="Share on Twitter"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -478,7 +478,7 @@ exports[`ShareWidget component shares on Facebook 1`] = `
     <li>
       <button
         aria-label="Share on Facebook"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
@@ -504,7 +504,7 @@ exports[`ShareWidget component shares on Facebook 1`] = `
     <li>
       <button
         aria-label="Share on Pinterest"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text icon-button"
         tabindex="0"
         type="button"
       >
