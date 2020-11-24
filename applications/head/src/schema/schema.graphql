@@ -889,3 +889,39 @@ type ContentfulAssetType implements Node {
   "The PIM code for this asset type."
   pimCode: String
 }
+
+"""
+Represents the rich text description for the ContentfulDocument.
+"""
+type contentfulDocumentDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a type of downloadable document.
+"""
+type ContentfulDocument implements Node {
+  id: ID!
+
+  "The document title."
+  title: String
+
+  "The document's corresponding asset."
+  asset: ContentfulAsset
+
+  "The description of this document."
+  description: contentfulDocumentDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The asset type of this document."
+  assetType: ContentfulAssetType @link(from: "assetType___NODE")
+
+  "The document brand."
+  brand: String
+
+  "The image for this document."
+  image: ContentfulAsset
+}
