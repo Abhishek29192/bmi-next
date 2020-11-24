@@ -116,6 +116,7 @@ const ShareWidget = ({
             <Button
               isIconButton
               variant="text"
+              className={styles["icon-button"]}
               accessibilityLabel={channel.label}
               onClick={(event: MouseEvent<HTMLButtonElement>) =>
                 handleClick(event, channel)

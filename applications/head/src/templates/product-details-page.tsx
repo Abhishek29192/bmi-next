@@ -207,7 +207,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
         <ProductOverview data={productData}>
           {resources?.pdpShareWidget && (
             <ShareWidgetSection
-              data={resources?.pdpShareWidget}
+              data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
               hasNoPadding={true}
             />
           )}
