@@ -50,14 +50,19 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
               .map((link: LinkData): {
                 action: ClickableAction | undefined;
                 label: string;
-              } => ({
-                action: getClickableActionFromUrl(
+              } => {
+                const action = getClickableActionFromUrl(
                   link.linkedPage,
                   link.url,
-                  countryCode
-                ),
-                label: link.label
-              }));
+                  countryCode,
+                  `https:${link.asset?.file?.url}`
+                );
+
+                return {
+                  action,
+                  label: link.label
+                };
+              });
 
             return (
               <ExpandableLinksTextCard
