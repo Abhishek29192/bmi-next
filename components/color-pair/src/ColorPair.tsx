@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, CSSProperties } from "react";
 import styles from "./ColorPair.module.scss";
 import classnames from "classnames";
 
@@ -44,6 +44,7 @@ type Props = {
   className?: string;
   children: React.ReactNode;
   markupComponent?: React.ElementType;
+  style?: CSSProperties;
 };
 
 export const ColorPairContext = createContext<Context>({});
