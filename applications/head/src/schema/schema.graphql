@@ -511,6 +511,13 @@ type ContentfulLeadBlockSection implements Node {
 }
 
 """
+Represents the tabs or accordion section description field.
+"""
+type contentfulSyndicateSectionDescriptionTextNode implements Node {
+  description: String
+}
+
+"""
 Represents a syndicate section (many villains).
 Renamed from ContentfulVillainSection.
 """
@@ -520,8 +527,9 @@ type ContentfulSyndicateSection implements Node {
   "The title for this section."
   title: String
 
-  "The title for this section."
-  description: String
+  "The description for this section."
+  description: contentfulSyndicateSectionDescriptionTextNode
+    @link(from: "text___NODE")
 
   "The villains for this section."
   villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
