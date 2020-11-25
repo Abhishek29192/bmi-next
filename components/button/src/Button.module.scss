@@ -109,6 +109,7 @@
 
   &--text:global(.MuiIconButton-root) {
     background: none;
+    color: inherit;
   }
 
   &--text:global(.MuiIconButton-root):hover {
