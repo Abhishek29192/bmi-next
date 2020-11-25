@@ -925,3 +925,54 @@ type ContentfulDocument implements Node {
   "The image for this document."
   image: ContentfulAsset
 }
+
+"""
+Represents the rich text description for the ContentfulDocumentLibraryPage.
+"""
+type contentfulDocumentLibraryPageDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a document library page, implementing ContentfulPage.
+"""
+type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
+  id: ID!
+
+  "The name of this page."
+  title: String
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "The brand logo for this page (unused)."
+  brandLogo: String
+
+  "The short description for this page."
+  subtitle: String
+
+  "The main image of this page. Can be used when referencing this page (unused)."
+  featuredImage: ContentfulAsset
+
+  "The description for this page."
+  description: contentfulDocumentLibraryPageDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The data source for this page."
+  source: String
+
+  "The asset types belonging to this page."
+  assetTypes: [ContentfulAssetType] @link(from: "assetTypes___NODE")
+
+  "The type of display required for content on this page."
+  resultsType: String
+
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+
+  "Tag for the page"
+  tag: ContentfulTag @link(from: "tag___NODE")
+}
