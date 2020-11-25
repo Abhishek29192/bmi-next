@@ -89,3 +89,47 @@ exports[`AnchorLink component renders trailing icon correctly 1`] = `
   />
 </a>
 `;
+
+exports[`AnchorLink component renders with a specified color 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+  type="button"
+>
+  <span>
+    BMI Group
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders within a dark color pair context 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+  type="button"
+>
+  <span>
+    BMI Group
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders within a light color pair context 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+  type="button"
+>
+  <span>
+    BMI Group
+  </span>
+</a>
+`;
+
+exports[`AnchorLink component renders within a white themed color pair context 1`] = `
+<a
+  class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+  type="button"
+>
+  <span>
+    BMI Group
+  </span>
+</a>
+`;
