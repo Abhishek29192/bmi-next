@@ -859,3 +859,33 @@ type ContentfulLinkColumnsSection implements Node {
   "The columns for this page."
   columns: [ContentfulNavigation] @link(from: "columns___NODE")
 }
+
+"""
+Represents the rich text description for the ContentfulAssetType.
+"""
+type contentfulAssetTypeDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a type of downloadable asset.
+"""
+type ContentfulAssetType implements Node {
+  id: ID!
+
+  "The asset type name."
+  name: String
+
+  "The asset type code."
+  code: String
+
+  "The description of this asset type."
+  description: contentfulAssetTypeDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The PIM code for this asset type."
+  pimCode: String
+}
