@@ -8,7 +8,8 @@ $light-theme: (
   "magenta-100": $color-magenta-100,
   "aqua-100": $color-aqua-100,
   "orange-100": $color-orange-100,
-  "alert": $color-alert
+  "alert": $color-alert,
+  "alabaster": $color-alabaster
 );
 
 $dark-theme: (
@@ -22,7 +23,8 @@ $dark-theme: (
   "magenta-400": $color-magenta-400,
   "magenta-500": $color-magenta-500,
   "purple-400": $color-purple-400,
-  "orange-500": $color-orange-500
+  "orange-500": $color-orange-500,
+  "error": $color-error
 );
 
 .ColorPair {
