@@ -42,7 +42,7 @@ type Asset = {
   assetType: string;
   url: string;
   name: string;
-  format: string;
+  format?: string;
 };
 
 export type ClassificationFeatureValue = {
@@ -96,7 +96,7 @@ type ProductImage = {
   containerId: string;
   mime: string;
   realFileName: string;
-  format: string;
+  format?: string;
 };
 
 // TODO: perhaps should be stored somewhere else to export
