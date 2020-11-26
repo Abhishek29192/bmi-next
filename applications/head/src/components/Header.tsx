@@ -12,6 +12,10 @@ const parseNavigation = (
   navigationItems: (NavigationData | NavigationItem | LinkData)[],
   countryCode: string
 ) => {
+  if (!navigationItems || navigationItems.length === 0) {
+    return [];
+  }
+
   return navigationItems.reduce((result, { __typename, ...item }) => {
     if (__typename === "ContentfulNavigation") {
       const { label, links, link } = item as NavigationData;
