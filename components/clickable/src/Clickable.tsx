@@ -8,7 +8,8 @@ export type ClickableAction =
   | { model: "submit" }
   | { model: "reset" }
   | ({ model: "htmlLink" } & HtmlLink)
-  | ({ model: "routerLink" } & RouterLink);
+  | ({ model: "routerLink" } & RouterLink)
+  | ({ model: "download" } & HtmlLink);
 
 type Props = {
   className?: string;
@@ -80,6 +81,16 @@ const Clickable = ({
         "model",
         "linkComponent"
       ]);
+
+      break;
+
+    case "download":
+      MarkupComponent = Component || "a";
+      extraProps = {
+        target: "_blank",
+        rel: "noopener noreferrer",
+        ...getObjectWithoutKeys<typeof rest>(rest, ["model"])
+      };
 
       break;
 
