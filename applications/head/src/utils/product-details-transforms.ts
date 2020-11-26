@@ -1,6 +1,10 @@
 import { Link } from "gatsby";
 import _ from "lodash";
-import { Product, VariantOption } from "../templates/product-details-page";
+import {
+  ClassificationFeatureValue,
+  Product,
+  VariantOption
+} from "../templates/product-details-page";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 
 const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
@@ -48,7 +52,10 @@ const getMeasurementKey = (measurement) => {
 };
 
 // String representation of a measurement for UI
-export const getSizeLabel = (measurement, withUnit = true) => {
+export const getSizeLabel = (
+  measurement: TransformedMeasurementValue,
+  withUnit = true
+) => {
   const { length, width, height } = measurement || {};
   const components = [length, width, height].filter(Boolean);
   let unit = "";
@@ -58,7 +65,10 @@ export const getSizeLabel = (measurement, withUnit = true) => {
   }
 
   // NOTE: Check if it's the same unit. For now not handling inconsistent units
-  if (withUnit && components.every((val, i, arr) => val.unit === arr[0].unit)) {
+  if (
+    withUnit &&
+    components.every((value, i, arr) => value.value.unit === arr[0].value.unit)
+  ) {
     unit = components[0].value.unit;
   }
 
@@ -79,7 +89,7 @@ export const findMasterImageUrl = (images): string => {
   );
 };
 
-export const findProductBrandLogoCode = (product) => {
+export const findProductBrandLogoCode = (product: Product) => {
   return _.result<string>(
     _.find(product.categories, {
       parentCategoryCode: "BMI_Brands"
@@ -123,12 +133,35 @@ export const getColourThumbnailUrl = (images): string =>
     "url"
   );
 
+type TransformedClassificationValue = {
+  name: string;
+  value: ClassificationFeatureValue | "n/a";
+  thumbnailUrl?: string;
+};
+type TransformedMeasurementValue = {
+  [dimensionName: string]: {
+    name: string;
+    value: {
+      value: string;
+      unit: string;
+    };
+  };
+};
+type TransformedClassifications = {
+  [classificationName: string]:
+    | TransformedClassificationValue
+    | TransformedMeasurementValue;
+};
+type ClassificationsPerProductMap = {
+  [productCode: string]: TransformedClassifications;
+};
+
 // Find attributes like surface finish, color, etc, from classifications
 // TODO: Try to consolidate with the "unique" approach.
 export const mapProductClassifications = (
   product: Product,
   classificationNamepace: string
-) => {
+): ClassificationsPerProductMap => {
   const allProducts: {
     [productCode: string]: Product;
   } = {
@@ -161,7 +194,10 @@ export const mapProductClassifications = (
     (product.classifications || []).forEach((classification) => {
       const { code, features } = classification;
 
-      const carryProp = (propName, value) => {
+      const carryProp = (
+        propName: string,
+        value: TransformedClassificationValue | TransformedMeasurementValue
+      ) => {
         carry[productCode] = {
           ...(carry[productCode] || {}),
           [propName]: value
@@ -179,7 +215,7 @@ export const mapProductClassifications = (
 
         carryProp("scoringweight", {
           name: classification.name,
-          value: valueFeature ? valueFeature.featureValues[0].value : "n/a"
+          value: valueFeature ? valueFeature.featureValues[0] : "n/a"
         });
       }
 
@@ -221,14 +257,19 @@ export const mapProductClassifications = (
           if (
             [FEATURES.LENGTH, FEATURES.WIDTH, FEATURES.HEIGHT].includes(code)
           ) {
+            const productObject = carry[productCode];
+            const measurements = productObject
+              ? (productObject.measurements as TransformedMeasurementValue)
+              : {};
+
             carry[productCode] = {
-              ...carry[productCode],
+              ...productObject,
               measurements: {
-                ...(carry[productCode] ? carry[productCode].measurements : {}),
+                ...measurements,
                 [code.split(".").pop()]: {
                   name,
                   value: {
-                    value: featureValues ? featureValues[0].value : 0,
+                    value: featureValues ? featureValues[0] : "n/a",
                     unit: featureUnit.symbol
                   }
                 }
@@ -517,6 +558,7 @@ export type ProductCategoryTree = {
   };
 };
 
+// Second from last leaf category, which denotes top most parent category of a path
 export const getGroupCategory = (branch: CategoryPath) =>
   branch[Math.max(0, branch.length - 2)];
 
@@ -608,25 +650,28 @@ export const groupProductsByCategory = (
 };
 
 export const findUniqueClassificationsOnVariant = (
-  baseClassifications,
-  variantClassifications
-) => {
+  baseClassifications: TransformedClassifications,
+  variantClassifications: TransformedClassifications
+): TransformedClassifications => {
   return _.pickBy(variantClassifications, (value, key) => {
     return !(key in baseClassifications);
   });
 };
 
 // TODO: Is there not a function to get a render value of a classification?
-export const mapClassificationValues = (classificationsMap) => {
+export const mapClassificationValues = (
+  classificationsMap: TransformedClassifications
+) => {
   return Object.entries(classificationsMap)
-    .map(([key, value]) => {
+    .map(([key, classification]) => {
       if (["colour", "texturefamily"].includes(key)) {
         // TODO: Hmmmmmmm
-        return value.value.value;
+        const value = classification.value;
+        return typeof value === "object" ? value.value : value;
       }
 
       if (key === "measurements") {
-        return getSizeLabel(value);
+        return getSizeLabel(classification as TransformedMeasurementValue);
       }
     })
     .filter(Boolean)

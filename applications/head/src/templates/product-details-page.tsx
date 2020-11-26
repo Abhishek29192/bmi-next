@@ -45,7 +45,7 @@ type Asset = {
   format: string;
 };
 
-type ClassificationFeatureValue = {
+export type ClassificationFeatureValue = {
   value: string;
   code?: string; // This doesn't exist on some Features... perhaps we can be more specific with the types
 };
@@ -60,7 +60,7 @@ type ClassificationFeature = {
   name: string;
   code: string;
   featureValues: ClassificationFeatureValue[];
-  featureUnit: ClassificationFeatureUnit;
+  featureUnit?: ClassificationFeatureUnit;
 };
 
 type Classification = {
