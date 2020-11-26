@@ -19,6 +19,10 @@ export const findPath = (
     menuNavigation: NavigationData,
     path: Path[] = []
   ): Path[] => {
+    if (!path || path.length === 0) {
+      return [];
+    }
+
     let result = path;
     menuNavigation.links.some((item) => {
       if (found) {
