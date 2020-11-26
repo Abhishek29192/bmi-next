@@ -76,7 +76,7 @@ type contentfulInputBannerAdditionalInputsJsonNode implements ContentfulFormInpu
 """
 Represents common properties across pages.
 """
-interface ContentfulPage {
+interface ContentfulPage @nodeInterface {
   id: ID!
 
   "The name of this page, representative of the type."
@@ -699,7 +699,7 @@ type ContentfulTeamCategory implements Node {
 
   # TODO: See what's wrong here.
   # "The team memebers for this category."
-  # team_member: [ContentfulTeamMember] @link(from: "team_member___NODE")
+  # team_member: [ContentfulTeamMember] @link(from: "category___NODE")
 }
 
 """
@@ -937,6 +937,30 @@ type contentfulDocumentLibraryPageDescriptionRichTextNode implements Node {
 }
 
 """
+Represents a document for a PIM product.
+"""
+type PIMDocument implements Node {
+  id: ID!
+
+  "The URL for this document."
+  url: String
+
+  "The type for this document."
+  assetType: ContentfulAssetType @link(from: "assetType___NODE")
+
+  "The size for this document."
+  fileSize: Int
+
+  "The product this document belongs to."
+  product: Products @link(from: "product___NODE")
+
+  "The format for this document."
+  format: String
+}
+
+union Document = ContentfulDocument | PIMDocument
+
+"""
 Represents a document library page, implementing ContentfulPage.
 """
 type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
@@ -975,4 +999,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
   "Tag for the page"
   tag: ContentfulTag @link(from: "tag___NODE")
+
+  "The documents for this page."
+  documents: [Document]! @link(from: "documents___NODE")
 }

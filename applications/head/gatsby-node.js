@@ -6,6 +6,7 @@ const path = require("path");
 const { withConfigs, styles } = require("@bmi/webpack");
 require("graphql-import-node");
 const typeDefs = require("./src/schema/schema.graphql");
+const resolvers = require("./src/schema/resolvers");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -226,4 +227,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(typeDefs);
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers(resolvers);
 };
