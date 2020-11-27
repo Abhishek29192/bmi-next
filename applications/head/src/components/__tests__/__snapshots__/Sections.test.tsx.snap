@@ -678,5 +678,24 @@ HTMLCollection [
       </div>
     </div>
   </div>,
+  <div
+    id="Document Downloads"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="MuiContainer-root Container MuiContainer-maxWidthXl"
+      >
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+        >
+          Document Downloads
+        </h2>
+        <div />
+      </div>
+    </div>
+  </div>,
 ]
 `;

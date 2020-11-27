@@ -511,6 +511,13 @@ type ContentfulLeadBlockSection implements Node {
 }
 
 """
+Represents the tabs or accordion section description field.
+"""
+type contentfulSyndicateSectionDescriptionTextNode implements Node {
+  description: String
+}
+
+"""
 Represents a syndicate section (many villains).
 Renamed from ContentfulVillainSection.
 """
@@ -520,8 +527,9 @@ type ContentfulSyndicateSection implements Node {
   "The title for this section."
   title: String
 
-  "The title for this section."
-  description: String
+  "The description for this section."
+  description: contentfulSyndicateSectionDescriptionTextNode
+    @link(from: "text___NODE")
 
   "The villains for this section."
   villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
@@ -578,6 +586,31 @@ type ContentfulImageGallerySection implements Node {
   "The images for this section."
   # TODO: Check if the @link is needed.
   images: [ContentfulAsset] @link(from: "images___NODE")
+}
+
+"""
+Represents the document download section description field.
+"""
+type contentfulDocumentDownloadSectionDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a section of downloadable document assets.
+"""
+type ContentfulDocumentDownloadSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The description for this section."
+  description: contentfulDocumentDownloadSectionDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The documents for this section."
+  documents: [ContentfulDocument] @link(from: "documents___NODE")
 }
 
 """
@@ -715,6 +748,7 @@ union ContentfulSection =
   | ContentfulShareWidgetSection
   | ContentfulPromo
   | ContentfulImageGallerySection
+  | ContentfulDocumentDownloadSection
 
 """
 Represents a key value pair for UI strings.

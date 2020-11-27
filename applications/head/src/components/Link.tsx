@@ -10,7 +10,7 @@ export const getClickableActionFromUrl = (
   countryCode?: string,
   assetUrl?: string
 ): ClickableAction | undefined => {
-  if (!countryCode) {
+  if (!countryCode && !assetUrl) {
     return;
   }
 

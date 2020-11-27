@@ -183,6 +183,18 @@ describe("Sections component", () => {
             thumbnail: { src: "url2" }
           }
         ]
+      },
+      {
+        __typename: "ContentfulDocumentDownloadSection",
+        title: "Document Downloads",
+        description: {
+          json: {
+            data: {},
+            nodeType: BLOCKS.DOCUMENT,
+            content: []
+          }
+        },
+        documents: []
       }
     ];
 
