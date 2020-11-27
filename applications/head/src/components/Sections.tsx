@@ -28,6 +28,9 @@ import ImageGallerySection, {
   Data as ImageGallerySectionData
 } from "../components/ImageGallerySection";
 import TableOfContent from "@bmi/table-of-content";
+import DocumentDownloadSection, {
+  Data as DocumentDownloadSectionData
+} from "../components/DocumentDownloadSection";
 
 export type Data = (
   | FormSectionData
@@ -39,6 +42,7 @@ export type Data = (
   | ShareWidgetSectionData
   | PromoSectionData
   | ImageGallerySectionData
+  | DocumentDownloadSectionData
 )[];
 
 const sectionsMap = {
@@ -50,7 +54,8 @@ const sectionsMap = {
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulShareWidgetSection: ShareWidgetSection,
   ContentfulPromo: PromoSection,
-  ContentfulImageGallerySection: ImageGallerySection
+  ContentfulImageGallerySection: ImageGallerySection,
+  ContentfulDocumentDownloadSection: DocumentDownloadSection
 };
 
 const Sections = ({
@@ -97,5 +102,6 @@ export const query = graphql`
     ...ShareWidgetSectionFragment
     ...PromoSectionFragment
     ...ImageGallerySectionFragment
+    ...DocumentDownloadSectionFragment
   }
 `;

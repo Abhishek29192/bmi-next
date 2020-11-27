@@ -589,6 +589,31 @@ type ContentfulImageGallerySection implements Node {
 }
 
 """
+Represents the document download section description field.
+"""
+type contentfulDocumentDownloadSectionDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a section of downloadable document assets.
+"""
+type ContentfulDocumentDownloadSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The description for this section."
+  description: contentfulDocumentDownloadSectionDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The documents for this section."
+  documents: [ContentfulDocument] @link(from: "documents___NODE")
+}
+
+"""
 Represents the union of possible navigation entities.
 """
 union ContentfulNavigationEntity =
@@ -723,6 +748,7 @@ union ContentfulSection =
   | ContentfulShareWidgetSection
   | ContentfulPromo
   | ContentfulImageGallerySection
+  | ContentfulDocumentDownloadSection
 
 """
 Represents a key value pair for UI strings.
