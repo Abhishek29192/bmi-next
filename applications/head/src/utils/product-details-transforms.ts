@@ -281,7 +281,7 @@ export const getProductAttributes = (
 
     const propValueMap = {
       texturefamily: (prop) => prop.value.code,
-      colour: (prop) => prop.value.code,
+      colour: (prop) => prop.value.value,
       measurements: (prop) => getMeasurementKey(prop)
     };
 
@@ -293,8 +293,10 @@ export const getProductAttributes = (
     property
   ) => {
     filter = {
-      colour: selectedColour ? selectedColour.value.code : undefined,
-      texturefamily: selectedColour ? selectedColour.value.code : undefined,
+      colour: selectedColour ? selectedColour.value.value : undefined,
+      texturefamily: selectedSurfaceTreatment
+        ? selectedSurfaceTreatment.value.code
+        : undefined,
       measurements: selectedSize ? getMeasurementKey(selectedSize) : undefined,
       ...filter
     };
@@ -358,9 +360,10 @@ export const getProductAttributes = (
       variants: allColours.map((color) => {
         // TODO: that bad deconstruct
         const {
-          value: { code, value },
+          value: { value },
           thumbnailUrl
         } = color;
+        const code = value;
 
         const variantCode = findProductCode(
           {
@@ -371,7 +374,7 @@ export const getProductAttributes = (
 
         return {
           label: value,
-          isSelected: selectedColour && code === selectedColour.value.code,
+          isSelected: selectedColour && code === selectedColour.value.value,
           thumbnail: thumbnailUrl,
           ...(variantCode
             ? {
