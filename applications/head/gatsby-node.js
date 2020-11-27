@@ -141,6 +141,9 @@ exports.createPages = async ({ graphql, actions }) => {
     ContentfulTeamPage: path.resolve("./src/templates/team-page.tsx"),
     ContentfulProductListerPage: path.resolve(
       "./src/templates/product-lister-page.tsx"
+    ),
+    ContentfulDocumentLibraryPage: path.resolve(
+      "./src/templates/document-library-page.tsx"
     )
   };
 
