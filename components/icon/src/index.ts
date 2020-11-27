@@ -10,6 +10,10 @@ import Download from "./svgs/Download.svg";
 import Facebook from "./svgs/Facebook.svg";
 import LinkedIn from "./svgs/LinkedIn.svg";
 import YouTube from "./svgs/YouTube.svg";
+import FileJPEG from "./svgs/FileJPEG.svg";
+import FileJPG from "./svgs/FileJPG.svg";
+import FilePDF from "./svgs/FilePDF.svg";
+import FilePNG from "./svgs/FilePNG.svg";
 
 export {
   Arrow,
@@ -20,7 +24,11 @@ export {
   Phone,
   QuestionMark,
   User,
-  YouTube
+  YouTube,
+  FileJPEG,
+  FileJPG,
+  FilePDF,
+  FilePNG
 };
 
 export const iconMap = {
@@ -32,7 +40,11 @@ export const iconMap = {
   Phone,
   QuestionMark,
   User,
-  YouTube
+  YouTube,
+  FileJPEG,
+  FileJPG,
+  FilePDF,
+  FilePNG
 };
 
 export default Icon;
