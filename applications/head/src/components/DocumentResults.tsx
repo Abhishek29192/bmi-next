@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Data as DocumentData } from "./Document";
 import { Data as PIMDocumentData } from "./PIMDocument";
+import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 
 export type Data = (PIMDocumentData | DocumentData)[];
 
@@ -10,9 +11,14 @@ type Props = {
   format: "simpleTable" | "technicalTable" | "cards";
 };
 
+const documentResultsMap = {
+  simpleTable: DocumentSimpleTableResults
+};
+
 const DocumentResults = ({ data, format }: Props) => {
-  // TODO: Logic here will show different types of results based on the format.
-  return <p>Silence is golden</p>;
+  const ResultsComponent = documentResultsMap[format];
+
+  return <ResultsComponent documents={data} />;
 };
 
 export default DocumentResults;
