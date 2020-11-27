@@ -29,3 +29,4 @@
 
   [headers.values]
     X-Frame-Options = "DENY"
+    X-Robots-Tag = "noindex"
