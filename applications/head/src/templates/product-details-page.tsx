@@ -177,24 +177,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     uniqueClassifications
   );
 
-  const productData = {
-    name: product.name,
-    brandName: brandCode || "",
-    nobb: selfProduct.externalProductCode || "n/a",
-    images: mapGalleryImages([
-      ...(selfProduct.images || []),
-      ...(product.images || [])
-    ]),
-    attributes: getProductAttributes(
-      productClassifications,
-      selfProduct,
-      pageContext,
-      {
-        size: getMicroCopy("pdp.overview.size")
-      }
-    )
-  };
-
   const { resources, countryCode } = contentfulSite;
   const pageData: PageData = {
     slug: null,
@@ -204,14 +186,38 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
       <Container>
-        <ProductOverview data={productData}>
-          {resources?.pdpShareWidget && (
-            <ShareWidgetSection
-              data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
-              hasNoPadding={true}
-            />
-          )}
-        </ProductOverview>
+        <SiteContext.Consumer>
+          {({ getMicroCopy }) => {
+            return (
+              <ProductOverview
+                data={{
+                  name: product.name,
+                  brandName: brandCode || "",
+                  nobb: selfProduct.externalProductCode || "n/a",
+                  images: mapGalleryImages([
+                    ...(selfProduct.images || []),
+                    ...(product.images || [])
+                  ]),
+                  attributes: getProductAttributes(
+                    productClassifications,
+                    selfProduct,
+                    pageContext,
+                    {
+                      size: getMicroCopy("pdp.overview.size")
+                    }
+                  )
+                }}
+              >
+                {resources?.pdpShareWidget && (
+                  <ShareWidgetSection
+                    data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
+                    hasNoPadding={true}
+                  />
+                )}
+              </ProductOverview>
+            );
+          }}
+        </SiteContext.Consumer>
       </Container>
       <Section>
         <ProductLeadBlock
