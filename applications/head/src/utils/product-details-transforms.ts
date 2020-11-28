@@ -140,6 +140,7 @@ export const mapProductClassifications = (
       };
     }, {})
   };
+  const mainProduct = product;
 
   // Classifications
   const SCORE_WEIGHT = "scoringWeightAttributes";
@@ -195,7 +196,10 @@ export const mapProductClassifications = (
             carryProp("colour", {
               name,
               value: featureValues ? featureValues[0] : "n/a",
-              thumbnailUrl: getColourThumbnailUrl(product.images || [])
+              thumbnailUrl: getColourThumbnailUrl([
+                ...(product.images || []),
+                ...(mainProduct.images || [])
+              ])
             });
           }
 
@@ -203,7 +207,10 @@ export const mapProductClassifications = (
             carryProp("colourfamily", {
               name,
               value: featureValues ? featureValues[0] : "n/a",
-              thumbnailUrl: getColourThumbnailUrl(product.images || [])
+              thumbnailUrl: getColourThumbnailUrl([
+                ...(product.images || []),
+                ...(mainProduct.images || [])
+              ])
             });
           }
         });
