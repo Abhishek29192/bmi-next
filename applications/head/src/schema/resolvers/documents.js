@@ -88,7 +88,7 @@ module.exports = {
   type: ["Document"],
   async resolve(source, args, context) {
     const assetTypes = await Promise.all(
-      source.assetTypes___NODE.map((id) => {
+      (source.assetTypes___NODE || []).map((id) => {
         return context.nodeModel.getNodeById({
           id,
           type: "ContentfulAssetType"
