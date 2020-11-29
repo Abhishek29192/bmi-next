@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import filesize from "filesize";
 import classnames from "classnames";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
-import Checkbox from "@bmi/checkbox";
 import Icon, { iconMap } from "@bmi/icon";
 import { Data as PIMDocumentData } from "./PIMDocument";
 import { Data as DocumentData } from "./Document";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl } from "./Link";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
 type Props = {
@@ -69,18 +69,8 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
 );
 
 const DocumentSimpleTableResults = ({ documents }: Props) => {
-  const [checkedDocuments, setCheckedDocuments] = useState([]);
   const { getMicroCopy } = useContext(SiteContext);
-
-  const handleChange = (document, checked) => {
-    setCheckedDocuments((checkedDocuments) => [
-      ...(checked
-        ? [...checkedDocuments, document]
-        : checkedDocuments.filter(
-            (checkedDocument) => checkedDocument.rowIndex !== document.rowIndex
-          ))
-    ]);
-  };
+  const { list } = useContext(DownloadListContext);
 
   return (
     <div className={styles["DocumentSimpleTableResults"]}>
@@ -107,29 +97,22 @@ const DocumentSimpleTableResults = ({ documents }: Props) => {
               <Table.Row
                 key={`${title}-${index}`}
                 className={classnames(styles["row"], {
-                  [styles["row--checked"]]:
-                    checkedDocuments.filter(
-                      (checkedDocument) => checkedDocument.rowIndex === index
-                    ).length > 0
+                  [styles["row--checked"]]: !!list[id]
                 })}
               >
                 <Table.Cell className={styles["table-cell"]}>
                   {title}
                 </Table.Cell>
-                <Table.Cell className={styles["table-cell"]} align="center">
+                <Table.Cell className={styles["table-cell"]} align="left">
                   <FileDownloadButton {...assetData} />
                 </Table.Cell>
                 <Table.Cell className={styles["table-cell"]} align="center">
-                  <Checkbox
+                  <DownloadList.Checkbox
                     name={id}
-                    inputProps={{
-                      "aria-label": `${getMicroCopy(
-                        "documentLibrary.download"
-                      )} ${title}`
-                    }}
-                    onChange={(checked: boolean) =>
-                      handleChange({ rowIndex: index, document }, checked)
-                    }
+                    ariaLabel={`${getMicroCopy(
+                      "documentLibrary.download"
+                    )} ${title}`}
+                    value={document}
                   />
                 </Table.Cell>
               </Table.Row>

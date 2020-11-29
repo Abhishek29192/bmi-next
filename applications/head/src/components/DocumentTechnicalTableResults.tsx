@@ -13,6 +13,8 @@ import { SiteContext } from "./Site";
 import { Data as PIMDocument } from "./PIMDocument";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import Clickable from "@bmi/clickable";
+import classnames from "classnames";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
 
 const AssetHeader = ({
   assetType
@@ -103,6 +105,8 @@ const DocumentTechnicalTableResults = ({ documents }: Props) => {
     documents.map(({ assetType }) => assetType),
     "id"
   );
+  const { getMicroCopy } = useContext(SiteContext);
+  const { list } = useContext(DownloadListContext);
 
   return (
     <div className={styles["DocumentTechnicalTableResults"]}>
@@ -135,8 +139,14 @@ const DocumentTechnicalTableResults = ({ documents }: Props) => {
         <Table.Body>
           {Object.entries(documentsByProduct).map(
             ([productName, assets], index) => {
+              const key = `product-${index}`;
               return (
-                <Table.Row key={index}>
+                <Table.Row
+                  key={key}
+                  className={classnames(styles["row"], {
+                    [styles["row--checked"]]: !!list[key]
+                  })}
+                >
                   <Table.Cell>{productName}</Table.Cell>
                   {assetTypes.map((assetType, index) => {
                     const asset = assets.find(
@@ -175,7 +185,13 @@ const DocumentTechnicalTableResults = ({ documents }: Props) => {
                     );
                   })}
                   <Table.Cell className={styles["align-center"]}>
-                    [ ]
+                    <DownloadList.Checkbox
+                      name={key}
+                      ariaLabel={`${getMicroCopy(
+                        "documentLibrary.download"
+                      )} ${productName}`}
+                      value={document}
+                    />
                   </Table.Cell>
                 </Table.Row>
               );

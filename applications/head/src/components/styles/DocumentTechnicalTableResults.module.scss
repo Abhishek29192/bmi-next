@@ -10,6 +10,22 @@
     vertical-align: middle;
   }
 
+  :global {
+    .MuiTableBody-root {
+      .MuiTableRow-root {
+        border-top: 1px solid $color-storm;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &:nth-of-type(even) {
+          background-color: initial;
+        }
+      }
+    }
+  }
+
   .asset-type-cell {
     text-align: center;
     padding-left: 6px;
