@@ -6,7 +6,7 @@ export type Data = {
   id: string;
   name: string;
   code: string;
-  description: Document | null;
+  description: { json: Document } | null;
   pimCode: string | null;
 };
 
