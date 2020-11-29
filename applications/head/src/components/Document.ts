@@ -1,5 +1,6 @@
 import { graphql } from "gatsby";
 import { Data as AssetTypeData } from "./AssetType";
+import { Document } from "@contentful/rich-text-types";
 
 export type Data = {
   __typename: "ContentfulDocument";
@@ -21,6 +22,11 @@ export type Data = {
       };
     };
   };
+  description: {
+    // TODO: add validations for this Rich Text field in CMS
+    json: Document;
+  };
+  brand: string;
 };
 
 export const query = graphql`
@@ -46,5 +52,9 @@ export const query = graphql`
         }
       }
     }
+    description {
+      json
+    }
+    brand
   }
 `;

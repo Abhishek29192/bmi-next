@@ -5,6 +5,7 @@ import { Data as PIMDocumentData } from "./PIMDocument";
 import DocumentResultsFooter from "../components/DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
+import DocumentCardsResults from "./DocumentCardsResults";
 
 export type Data = (PIMDocumentData | DocumentData)[];
 
@@ -18,7 +19,7 @@ type Props = {
 const documentResultsMap: Record<Format, React.ElementType> = {
   simpleTable: DocumentSimpleTableResults,
   technicalTable: DocumentTechnicalTableResults,
-  cards: null
+  cards: DocumentCardsResults
 };
 
 const DOCUMENTS_PER_PAGE = 20;
@@ -42,7 +43,7 @@ const DocumentResults = ({ data, format }: Props) => {
       <DocumentResultsFooter
         page={page}
         count={count}
-        onDownloadClick={() => {}}
+        onDownloadClick={format !== "cards" ? () => {} : undefined}
         onPageChange={(_, page) => setPage(page)}
       />
     </>
