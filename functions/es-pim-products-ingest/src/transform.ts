@@ -50,6 +50,13 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ({ categoryType }) => categoryType !== "Category"
     );
 
+    const classifications = combineVariantClassifications(product, variant);
+    const scoringWeightClassification = classifications.find(
+      ({ code }) => code === "scoringWeightAttributes"
+    );
+    const scoringWeight =
+      scoringWeightClassification?.features?.[0].featureValues?.[0].value;
+
     const baseAttributes = _.pick(
       { ...product, ...variant },
       "approvalStatus",
@@ -73,7 +80,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       images: [...(variant.images || []), ...(product.images || [])],
       categories: productCategories,
       otherCategories,
-      classifications: combineVariantClassifications(product, variant)
+      classifications,
+      // Special because we want to use it for sorting, atm this seems easier
+      scoringWeight
     };
   });
 };
