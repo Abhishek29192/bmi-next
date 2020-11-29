@@ -18,6 +18,10 @@ const documentResultsMap = {
 const DocumentResults = ({ data, format }: Props) => {
   const ResultsComponent = documentResultsMap[format];
 
+  if (!ResultsComponent) {
+    return null;
+  }
+
   return <ResultsComponent documents={data} />;
 };
 
