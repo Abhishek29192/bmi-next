@@ -14,6 +14,7 @@ import FileJPEG from "./svgs/FileJPEG.svg";
 import FileJPG from "./svgs/FileJPG.svg";
 import FilePDF from "./svgs/FilePDF.svg";
 import FilePNG from "./svgs/FilePNG.svg";
+import Cross from "./svgs/Cross.svg";
 
 export {
   Arrow,
@@ -28,7 +29,8 @@ export {
   FileJPEG,
   FileJPG,
   FilePDF,
-  FilePNG
+  FilePNG,
+  Cross
 };
 
 export const iconMap = {
@@ -44,7 +46,8 @@ export const iconMap = {
   FileJPEG,
   FileJPG,
   FilePDF,
-  FilePNG
+  FilePNG,
+  Cross
 };
 
 export default Icon;
