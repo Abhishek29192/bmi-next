@@ -596,8 +596,11 @@ export const getFullCategoriesPaths = (
   });
 };
 
+// Collects all "categories" from products but only if they have variantOptions
+// As only variants are shown
 export const findAllCategories = (products: readonly Product[]) => {
   const allCategoryPaths = products
+    .filter(({ variantOptions }) => variantOptions)
     .map(({ categories }) => getFullCategoriesPaths(categories))
     .reduce((allPaths, productPaths) => [...allPaths, ...productPaths], []);
 
