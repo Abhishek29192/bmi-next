@@ -976,6 +976,9 @@ Represents a document for a PIM product.
 type PIMDocument implements Node {
   id: ID!
 
+  "The title for this document."
+  title: String
+
   "The URL for this document."
   url: String
 
