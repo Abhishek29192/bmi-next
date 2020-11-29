@@ -2,12 +2,14 @@ import React from "react";
 import { graphql } from "gatsby";
 import Hero from "@bmi/hero";
 import Grid from "@bmi/grid";
+import Section from "@bmi/section";
 import { Data as SiteData } from "../components/Site";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Page, { Data as PageData } from "../components/Page";
 import Breadcrumbs from "../components/Breadcrumbs";
 import DocumentResults, {
-  Data as DocumentResultsData
+  Data as DocumentResultsData,
+  Format
 } from "../components/DocumentResults";
 import { Document } from "@contentful/rich-text-types";
 
@@ -15,6 +17,7 @@ type Data = PageInfoData &
   PageData & {
     description: Document | null;
     source: "PIM" | "CMS" | "ALL";
+    resultsType: "Simple" | "Technical" | "Card Collection";
     documents: DocumentResultsData;
   };
 
@@ -25,8 +28,14 @@ type Props = {
   };
 };
 
+const resultTypeFormatMap: Record<Data["resultsType"], Format> = {
+  Simple: "simpleTable",
+  Technical: "technicalTable",
+  "Card Collection": "cards"
+};
+
 const DocumentLibraryPage = ({ data }: Props) => {
-  const { title, documents } = data.contentfulDocumentLibraryPage;
+  const { title, documents, resultsType } = data.contentfulDocumentLibraryPage;
 
   const pageData: PageData = {
     slug: data.contentfulDocumentLibraryPage.slug,
@@ -45,14 +54,19 @@ const DocumentLibraryPage = ({ data }: Props) => {
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <Hero level={2} title={title} breadcrumbs={breadcrumbs} />
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6} lg={3}>
-          Filters will go here.
+      <Section backgroundColor="white">
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6} lg={3}>
+            Filters will go here.
+          </Grid>
+          <Grid item xs={12} md={6} lg={8}>
+            <DocumentResults
+              data={documents}
+              format={resultTypeFormatMap[resultsType]}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6} lg={8}>
-          <DocumentResults data={documents} format="simpleTable" />
-        </Grid>
-      </Grid>
+      </Section>
     </Page>
   );
 };
@@ -68,6 +82,7 @@ export const pageQuery = graphql`
         json
       }
       source
+      resultsType
       documents {
         ...DocumentResultsFragment
       }
