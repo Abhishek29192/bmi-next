@@ -16,7 +16,8 @@ export type IconButtonProps = Omit<MuiIconButtonProps, "action"> & {
   accessibilityLabel: string;
   hasDarkBackground?: boolean;
   variant?: Variant;
-  size?: "extra-small" | "small" | "medium" | "large" | "extra-large";
+  // TODO: Use numbers for all the options.
+  size?: "extra-small" | "small" | 42 | "medium" | "large" | "extra-large";
   component?: undefined;
 };
 
