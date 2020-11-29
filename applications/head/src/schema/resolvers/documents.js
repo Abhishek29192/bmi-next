@@ -5,15 +5,20 @@ const _ = require("lodash");
 const MurmurHash3 = require("imurmurhash");
 const path = require("path");
 
+const mapExtensionToFormat = {
+  pdf: "application/pdf",
+  jpg: "image/jpg",
+  jpeg: "image/jpeg",
+  png: "image/png"
+};
+
 const resolveDocumentsFromProducts = async (
   assetTypes,
   { source, context }
 ) => {
   const pimAssetTypes = assetTypes.map(({ pimCode }) => pimCode);
-
-  const products = await context.nodeModel.runQuery({
-    query: {
-      filter: {
+  const filter = assetTypes.length
+    ? {
         assets: {
           elemMatch: {
             assetType: {
@@ -22,9 +27,18 @@ const resolveDocumentsFromProducts = async (
           }
         }
       }
+    : {};
+
+  const products = await context.nodeModel.runQuery({
+    query: {
+      filter
     },
     type: "Products"
   });
+
+  if (!products) {
+    return [];
+  }
 
   const documents = _.flatMap(products, (product) =>
     (product.assets || [])
@@ -43,8 +57,7 @@ const resolveDocumentsFromProducts = async (
           fileSize: asset.fileSize,
           product___NODE: product.id,
           format:
-            asset.format ||
-            path.extname(asset.realFileName).substr(1).toUpperCase()
+            mapExtensionToFormat[path.extname(asset.realFileName).substr(1)]
         };
 
         return {
@@ -68,15 +81,19 @@ const resolveDocumentsFromProducts = async (
 };
 
 const resolveDocumentsFromContentful = async (assetTypes, { context }) => {
-  const documents = await context.nodeModel.runQuery({
-    query: {
-      filter: {
+  const filter = assetTypes.length
+    ? {
         assetType: {
           id: {
             in: assetTypes.map(({ id }) => id)
           }
         }
       }
+    : {};
+
+  const documents = await context.nodeModel.runQuery({
+    query: {
+      filter
     },
     type: "ContentfulDocument"
   });
@@ -108,13 +125,15 @@ module.exports = {
     }
 
     if (source.source === "ALL") {
-      return [
-        ...resolveDocumentsFromContentful(assetTypes, { context }),
-        ...resolveDocumentsFromProducts(assetTypes, {
-          source,
-          context
-        })
-      ];
+      const cmsDocuments = await resolveDocumentsFromContentful(assetTypes, {
+        context
+      });
+      const pimDocuments = await resolveDocumentsFromProducts(assetTypes, {
+        source,
+        context
+      });
+
+      return [...cmsDocuments, ...pimDocuments];
     }
 
     return [];
