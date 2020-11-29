@@ -4,6 +4,7 @@ import { Data as AssetTypeData } from "./AssetType";
 export type Data = {
   __typename: "PIMDocument";
   id: string;
+  title: string;
   product: {
     code: string;
     name: string;
@@ -18,6 +19,7 @@ export const query = graphql`
   fragment PIMDocumentFragment on PIMDocument {
     __typename
     id
+    title
     product {
       code
       name
