@@ -1,11 +1,13 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 type Props = React.SVGProps<SVGElement> & {
   source: SVGImport;
 };
 
-const Icon = ({ source: MarkupComponent, ...props }: Props) => (
-  <MarkupComponent {...props} />
+const Icon = ({ source: MarkupComponent, ...props }: Props, ref) => (
+  <MarkupComponent {...props} ref={ref} />
 );
 
-export default Icon;
+const IconWithRef = forwardRef(Icon);
+
+export default IconWithRef;

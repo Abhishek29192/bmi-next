@@ -3,6 +3,7 @@ import { Data as AssetTypeData } from "./AssetType";
 
 export type Data = {
   __typename: "ContentfulDocument";
+  id: string;
   title: string;
   assetType: AssetTypeData;
   image: {
@@ -25,6 +26,7 @@ export type Data = {
 export const query = graphql`
   fragment DocumentFragment on ContentfulDocument {
     __typename
+    id
     title
     assetType {
       ...AssetTypeFragment

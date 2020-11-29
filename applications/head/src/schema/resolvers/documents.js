@@ -38,6 +38,7 @@ const resolveDocumentsFromProducts = async (
         const assetType = _.find(assetTypes, { pimCode: asset.assetType });
 
         const fieldData = {
+          title: `${product.name} ${assetType.name}`,
           url: asset.url,
           assetType___NODE: assetType && assetType.id,
           fileSize: asset.fileSize,
