@@ -180,7 +180,7 @@ const compileElasticSearchQuery = (
   const searchTerms = {
     colour: "classifications.features.featureValues.code.keyword",
     category: "categories.code.keyword",
-    allCategories: "allCategories.code.keyword"
+    otherCategories: "otherCategories.code.keyword"
   };
 
   filters.forEach((filter) => {
@@ -243,10 +243,16 @@ const compileElasticSearchQuery = (
           field: "categories.code.keyword"
         }
       },
-      colors: {
+      texturefamily: {
         terms: {
           size: "100",
-          field: "classifications.features.featureValues.code.keyword"
+          field: "texturefamilyCode.keyword"
+        }
+      },
+      colourfamily: {
+        terms: {
+          size: "100",
+          field: "colourfamilyCode.keyword"
         }
       }
     },
@@ -257,7 +263,7 @@ const compileElasticSearchQuery = (
         must: [
           {
             term: {
-              [searchTerms.allCategories]: categoryCode
+              [searchTerms.otherCategories]: categoryCode
             }
           },
           ...categoryFilters
@@ -312,6 +318,28 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     Math.ceil(products.length / PAGE_SIZE)
   );
 
+  const disableFiltersFromAggregations = (filters, aggregations) => {
+    return filters.map((filter) => {
+      return {
+        ...filter,
+        options: filter.options.map((option) => {
+          // TODO: Rename filter to colourfamily
+          const buckets =
+            filter.name === "colour"
+              ? aggregations.colourfamily.buckets
+              : aggregations.categories.buckets;
+
+          const aggregate = buckets.find(({ key }) => key === option.value);
+
+          return {
+            ...option,
+            isDisabled: !(aggregate && aggregate.doc_count > 0)
+          };
+        })
+      };
+    });
+  };
+
   const handleFiltersChange = async (filterName, filterValue, checked) => {
     const addToArray = (array, value) => [...array, value];
     const removeFromArray = (array, value) => array.filter((v) => v !== value);
@@ -321,7 +349,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         : removeFromArray(filter.value || [], filterValue);
     };
 
-    const newFilters = filters.map((filter) => {
+    let newFilters = filters.map((filter) => {
       return {
         ...filter,
         value:
@@ -331,17 +359,48 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       };
     });
 
+    // NOTE: If filters change, we reset pagination to first page
+    const result = await fetchProducts(
+      newFilters,
+      pageContext.categoryCode,
+      0,
+      PAGE_SIZE
+    );
+
+    if (result && result.aggregations) {
+      newFilters = disableFiltersFromAggregations(
+        newFilters,
+        result.aggregations
+      );
+    }
+
     setFilters(newFilters);
   };
 
   // Resets all selected filter values to nothing
-  const clearFilters = () => {
-    setFilters((filters) => {
-      return filters.map((filter) => ({
-        ...filter,
-        value: []
-      }));
-    });
+  // TODO: This has duplication but didn't want to refactor too much at once
+  const clearFilters = async () => {
+    let newFilters = filters.map((filter) => ({
+      ...filter,
+      value: []
+    }));
+
+    // NOTE: If filters change, we reset pagination to first page
+    const result = await fetchProducts(
+      newFilters,
+      pageContext.categoryCode,
+      0,
+      PAGE_SIZE
+    );
+
+    if (result && result.aggregations) {
+      newFilters = disableFiltersFromAggregations(
+        newFilters,
+        result.aggregations
+      );
+    }
+
+    setFilters(newFilters);
   };
 
   const fetchProducts = async (filters, categoryCode, page, pageSize) => {
@@ -373,16 +432,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     }
 
     setIsLoading(false);
+
+    return results;
   };
 
   useEffect(() => {
     fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
   }, [page]);
-
-  // NOTE: If filters change, we reset pagination to first page
-  useEffect(() => {
-    fetchProducts(filters, pageContext.categoryCode, 0, PAGE_SIZE);
-  }, [filters]);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect, maybe pointless for this value to rely on it as more will break.
   // const categoryName = "AeroDek Robust Plus";
