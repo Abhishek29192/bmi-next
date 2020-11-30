@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 import Button, { ButtonProps } from "@bmi/button";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 type Context = {
   list: Record<string, any>;
@@ -61,10 +62,24 @@ const DownloadListButton = ({
   ...rest
 }: DownloadListButtonProps) => {
   const { list, count } = useContext(DownloadListContext);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = async () => {
+    setIsLoading(true);
+    await onClick(list);
+    setIsLoading(false);
+  };
 
   return (
-    <Button onClick={() => onClick(list)} {...rest}>
+    <Button onClick={handleClick} disabled={isLoading} {...rest}>
       {label.replace("{{count}}", `${count}`)}
+      {isLoading && (
+        <CircularProgress
+          size={24}
+          color="inherit"
+          style={{ marginLeft: "0.5rem" }}
+        />
+      )}
     </Button>
   );
 };
