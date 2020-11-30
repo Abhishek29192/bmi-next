@@ -92,7 +92,12 @@ const DocumentSimpleTableResults = ({
         <Table.Head>
           <Table.Row>
             {headers.map((header) => (
-              <Table.Cell key={`header-${header}`}>
+              <Table.Cell
+                key={`header-${header}`}
+                className={classnames({
+                  [styles["table-header"]]: ["download", "add"].includes(header)
+                })}
+              >
                 {getMicroCopy(`documentLibrary.headers.${header}`)}
               </Table.Cell>
             ))}
@@ -145,6 +150,7 @@ const DocumentSimpleTableResults = ({
                       <Table.Cell
                         className={styles["table-cell"]}
                         align="center"
+                        key={key}
                       >
                         <DownloadList.Checkbox
                           name={id}
