@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as InputBannerData } from "../components/InputBanner";
 import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
@@ -12,27 +11,26 @@ import OverlapCards, {
 } from "../components/OverlapCards";
 import { getCTA } from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
-import Brands, { Data as BrandData } from "../components/Brands";
+import { iconMap } from "@bmi/logo";
+import Breadcrumbs from "../components/Breadcrumbs";
 
-type HomepageData = {
-  title: string;
-  slides: (SlideData | PageInfoData)[];
-  overlapCards: OverlapCardData;
-  brands: BrandData[];
-  sections: SectionsData | null;
-  inputBanner: InputBannerData | null;
-};
+type BrandLandingPageData = PageInfoData &
+  PageData & {
+    slides: (SlideData | PageInfoData)[];
+    overlapCards: OverlapCardData | null;
+    sections: SectionsData;
+  };
 
 type Props = {
   data: {
-    contentfulHomePage: HomepageData;
+    contentfulBrandLandingPage: BrandLandingPageData;
     contentfulSite: SiteData;
   };
 };
 
 const getHeroItemsWithContext = (
   { getMicroCopy, countryCode },
-  slides: HomepageData["slides"]
+  slides: BrandLandingPageData["slides"]
 ): HeroItem[] => {
   return slides.map(({ title, subtitle, featuredImage, ...rest }) => {
     return {
@@ -44,19 +42,24 @@ const getHeroItemsWithContext = (
   });
 };
 
-const HomePage = ({ data }: Props) => {
+const BrandLandingPage = ({ data }: Props) => {
   const {
     title,
+    subtitle,
+    slug,
+    brandLogo,
+    featuredImage,
     slides,
     overlapCards,
-    brands,
     sections,
     inputBanner
-  } = data.contentfulHomePage;
+  } = data.contentfulBrandLandingPage;
   const pageData: PageData = {
     slug: null,
     inputBanner
   };
+  const BrandLogo = iconMap[brandLogo];
+  const breadcrumbs = <Breadcrumbs title={title} slug={slug} isDarkThemed />;
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
@@ -64,8 +67,20 @@ const HomePage = ({ data }: Props) => {
         {(context) => {
           const { getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
+          const firstSlide: HeroItem = {
+            title: <BrandLogo style={{ height: "90px" }} />,
+            children: subtitle,
+            imageSource: featuredImage?.file.url,
+            hasUnderline: false
+          };
+
           return (
-            <Hero level={0} heroes={heroItems} hasSpaceBottom>
+            <Hero
+              level={0}
+              breadcrumbs={breadcrumbs}
+              heroes={[firstSlide, ...heroItems]}
+              hasSpaceBottom
+            >
               <Search
                 label={getMicroCopy("search.label")}
                 placeholder={getMicroCopy("search.placeholder")}
@@ -74,19 +89,18 @@ const HomePage = ({ data }: Props) => {
           );
         }}
       </SiteContext.Consumer>
+
       {overlapCards && <OverlapCards data={overlapCards} />}
-      {brands?.length ? <Brands data={brands} /> : null}
       {sections && <Sections data={sections} />}
     </Page>
   );
 };
 
-export default HomePage;
+export default BrandLandingPage;
 
 export const pageQuery = graphql`
-  query HomePageById($pageId: String!, $siteId: String!) {
-    contentfulHomePage(id: { eq: $pageId }) {
-      title
+  query BrandLandingPageById($pageId: String!, $siteId: String!) {
+    contentfulBrandLandingPage(id: { eq: $pageId }) {
       slides {
         ... on ContentfulPromoOrPage {
           ...PromoFragment
@@ -96,15 +110,13 @@ export const pageQuery = graphql`
       overlapCards {
         ...OverlapCardFragment
       }
-      brands {
-        ...BrandFragment
-      }
       sections {
         ...SectionsFragment
       }
       inputBanner {
         ...InputBannerFragment
       }
+      ...PageInfoFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

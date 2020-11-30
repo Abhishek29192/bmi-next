@@ -2,6 +2,7 @@
 
 const documents = require("./documents");
 const pimDocuments = require("./pim-documents");
+const brands = require("./brands");
 
 module.exports = {
   ContentfulDocumentLibraryPage: {
@@ -9,5 +10,8 @@ module.exports = {
   },
   Products: {
     documents: pimDocuments
+  },
+  ContentfulHomePage: {
+    brands
   }
 };
