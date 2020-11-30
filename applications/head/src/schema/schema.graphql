@@ -1040,3 +1040,8 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The documents for this page."
   documents: [Document]! @link(from: "documents___NODE")
 }
+
+type Products implements Node {
+  "The documents for this product."
+  documents: [PIMDocument]! @link(from: "documents___NODE")
+}
