@@ -24,6 +24,10 @@
         }
       }
     }
+
+    .MuiFormControlLabel-root {
+      margin-right: 0;
+    }
   }
 
   .asset-type-cell {
@@ -52,6 +56,11 @@
     height: 16px;
     color: $color-charcoal;
     opacity: 0.24;
+  }
+
+  .all-files-header {
+    width: 92px;
+    white-space: nowrap;
   }
 
   .all-files-header-wrapper {

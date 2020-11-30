@@ -1,8 +1,14 @@
 @import "@bmi/styles";
 
 .DocumentSimpleTableResults {
+  .table-header {
+    width: 92px;
+    white-space: nowrap;
+  }
+
   .table-cell {
     vertical-align: middle;
+    white-space: nowrap;
   }
 
   :global {
@@ -18,6 +24,10 @@
           background-color: initial;
         }
       }
+    }
+
+    .MuiFormControlLabel-root {
+      margin-right: 0;
     }
   }
 

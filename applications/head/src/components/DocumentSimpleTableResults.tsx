@@ -13,6 +13,8 @@ import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
 type Props = {
   documents: (DocumentData | PIMDocumentData)[];
+  page: number;
+  documentsPerPage: number;
 };
 
 type Format = "application/pdf" | "image/jpg" | "image/jpeg" | "image/png";
@@ -68,9 +70,17 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
   </Button>
 );
 
-const DocumentSimpleTableResults = ({ documents }: Props) => {
+const DocumentSimpleTableResults = ({
+  documents,
+  page,
+  documentsPerPage
+}: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
   const { list } = useContext(DownloadListContext);
+  const paginatedDocuments = documents.slice(
+    (page - 1) * documentsPerPage,
+    page * documentsPerPage
+  );
 
   return (
     <div className={styles["DocumentSimpleTableResults"]}>
@@ -80,16 +90,16 @@ const DocumentSimpleTableResults = ({ documents }: Props) => {
             <Table.Cell>
               {getMicroCopy("documentLibrary.headers.title")}
             </Table.Cell>
-            <Table.Cell>
+            <Table.Cell className={styles["table-header"]}>
               {getMicroCopy("documentLibrary.headers.download")}
             </Table.Cell>
-            <Table.Cell>
+            <Table.Cell className={styles["table-header"]}>
               {getMicroCopy("documentLibrary.headers.add")}
             </Table.Cell>
           </Table.Row>
         </Table.Head>
         <Table.Body>
-          {documents.map((document, index) => {
+          {paginatedDocuments.map((document, index) => {
             const { id, title } = document;
             const assetData = mapAssetToFileDownload(document);
 

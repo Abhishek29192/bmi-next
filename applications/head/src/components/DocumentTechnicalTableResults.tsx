@@ -1,20 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useMemo } from "react";
 import { groupBy, uniqBy } from "lodash";
+import classnames from "classnames";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import InfoIcon from "@material-ui/icons/Info";
 import Table from "@bmi/table";
 import Icon, { iconMap } from "@bmi/icon";
 import Tooltip from "@bmi/tooltip";
 import AnchorLink from "@bmi/anchor-link";
 import Dialog from "@bmi/dialog";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Button from "@bmi/button";
-import InfoIcon from "@material-ui/icons/Info";
 import RichText from "./RichText";
+import Clickable from "@bmi/clickable";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import { SiteContext } from "./Site";
 import { Data as PIMDocument } from "./PIMDocument";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
-import Clickable from "@bmi/clickable";
-import classnames from "classnames";
-import DownloadList, { DownloadListContext } from "@bmi/download-list";
 
 const AssetHeader = ({
   assetType
@@ -91,19 +91,34 @@ const AssetHeader = ({
 };
 type Props = {
   documents: PIMDocument[];
-};
-const fileIconsMap = {
-  PDF: iconMap.FilePDF,
-  JPG: iconMap.FileJPG,
-  JPEG: iconMap.FileJPEG,
-  PNG: iconMap.FilePNG
+  page: number;
+  documentsPerPage: number;
 };
 
-const DocumentTechnicalTableResults = ({ documents }: Props) => {
-  const documentsByProduct = groupBy(documents, "product.name");
-  const assetTypes = uniqBy(
-    documents.map(({ assetType }) => assetType),
-    "id"
+type Format = "application/pdf" | "image/jpg" | "image/jpeg" | "image/png";
+
+const fileIconsMap: Record<Format, React.ComponentType> = {
+  "application/pdf": iconMap.FilePDF,
+  "image/jpg": iconMap.FileJPG,
+  "image/jpeg": iconMap.FileJPEG,
+  "image/png": iconMap.FilePNG
+};
+
+const DocumentTechnicalTableResults = ({
+  documents,
+  page,
+  documentsPerPage
+}: Props) => {
+  const documentsByProduct = Object.entries(
+    groupBy(documents, "product.name")
+  ).slice((page - 1) * documentsPerPage, page * documentsPerPage);
+  const assetTypes = useMemo(
+    () =>
+      uniqBy(
+        documents.map(({ assetType }) => assetType),
+        "id"
+      ),
+    [documents]
   );
   const { getMicroCopy } = useContext(SiteContext);
   const { list } = useContext(DownloadListContext);
@@ -125,7 +140,7 @@ const DocumentTechnicalTableResults = ({ documents }: Props) => {
                 </Table.Cell>
               );
             })}
-            <Table.Cell>
+            <Table.Cell className={styles["all-files-header"]}>
               <span className={styles["all-files-header-wrapper"]}>
                 <Icon
                   source={iconMap.Download}
@@ -137,66 +152,66 @@ const DocumentTechnicalTableResults = ({ documents }: Props) => {
           </Table.Row>
         </Table.Head>
         <Table.Body>
-          {Object.entries(documentsByProduct).map(
-            ([productName, assets], index) => {
-              const key = `product-${index}`;
-              return (
-                <Table.Row
-                  key={key}
-                  className={classnames(styles["row"], {
-                    [styles["row--checked"]]: !!list[key]
-                  })}
-                >
-                  <Table.Cell>{productName}</Table.Cell>
-                  {assetTypes.map((assetType, index) => {
-                    const asset = assets.find(
-                      ({ assetType: { id } }) => id === assetType.id
-                    );
+          {documentsByProduct.map(([productName, assets], index) => {
+            const key = `${
+              assets.find(({ product }) => product.code)?.product.code
+            }-${index}`;
+            return (
+              <Table.Row
+                key={key}
+                className={classnames(styles["row"], {
+                  [styles["row--checked"]]: !!list[key]
+                })}
+              >
+                <Table.Cell>{productName}</Table.Cell>
+                {assetTypes.map((assetType, index) => {
+                  const asset = assets.find(
+                    ({ assetType: { id } }) => id === assetType.id
+                  );
 
-                    if (!asset) {
-                      return (
-                        <Table.Cell
-                          key={`${productName}-missing-asset-${index}`}
-                          className={styles["align-center"]}
-                        >
-                          <Icon
-                            source={iconMap.Cross}
-                            className={styles["no-document-icon"]}
-                          />
-                        </Table.Cell>
-                      );
-                    }
-
-                    const FileIcon = fileIconsMap[asset.format];
-
+                  if (!asset) {
                     return (
                       <Table.Cell
-                        key={`${productName}-asset-${asset.id}`}
+                        key={`${productName}-missing-asset-${index}`}
                         className={styles["align-center"]}
                       >
-                        <Clickable
-                          model="download"
-                          href={asset.url}
-                          // download={asset.title}
-                        >
-                          <FileIcon className={styles["format-icon"]} />
-                        </Clickable>
+                        <Icon
+                          source={iconMap.Cross}
+                          className={styles["no-document-icon"]}
+                        />
                       </Table.Cell>
                     );
-                  })}
-                  <Table.Cell className={styles["align-center"]}>
-                    <DownloadList.Checkbox
-                      name={key}
-                      ariaLabel={`${getMicroCopy(
-                        "documentLibrary.download"
-                      )} ${productName}`}
-                      value={document}
-                    />
-                  </Table.Cell>
-                </Table.Row>
-              );
-            }
-          )}
+                  }
+
+                  const FileIcon = fileIconsMap[asset.format];
+
+                  return (
+                    <Table.Cell
+                      key={`${productName}-asset-${asset.id}`}
+                      className={styles["align-center"]}
+                    >
+                      <Clickable
+                        model="download"
+                        href={asset.url}
+                        // download={asset.title}
+                      >
+                        <FileIcon className={styles["format-icon"]} />
+                      </Clickable>
+                    </Table.Cell>
+                  );
+                })}
+                <Table.Cell className={styles["align-center"]}>
+                  <DownloadList.Checkbox
+                    name={key}
+                    ariaLabel={`${getMicroCopy(
+                      "documentLibrary.download"
+                    )} ${productName}`}
+                    value={document}
+                  />
+                </Table.Cell>
+              </Table.Row>
+            );
+          })}
         </Table.Body>
       </Table>
     </div>

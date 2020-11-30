@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Hero from "@bmi/hero";
 import Grid from "@bmi/grid";
@@ -15,9 +15,7 @@ import { Document } from "@contentful/rich-text-types";
 import { SiteContext } from "../components/Site";
 import AlertBanner from "@bmi/alert-banner";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
-import Pagination from "@bmi/pagination";
 import RichText from "../components/RichText";
-import styles from "./styles/document-library-page.module.scss";
 
 type Data = PageInfoData &
   PageData & {
@@ -40,10 +38,7 @@ const resultTypeFormatMap: Record<Data["resultsType"], Format> = {
   "Card Collection": "cards"
 };
 
-const DOCUMENTS_PER_PAGE = 20;
-
 const DocumentLibraryPage = ({ data }: Props) => {
-  const [page, setPage] = useState<number>(1);
   const {
     title,
     description,
@@ -69,7 +64,7 @@ const DocumentLibraryPage = ({ data }: Props) => {
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <Hero level={2} title={title} breadcrumbs={breadcrumbs} />
       {description && (
-        <Section>
+        <Section backgroundColor="white">
           <RichText document={description.json} />
         </Section>
       )}
@@ -93,44 +88,16 @@ const DocumentLibraryPage = ({ data }: Props) => {
                   );
                 }}
               </DownloadListContext.Consumer>
-              <Section
-                backgroundColor="white"
-                className={styles["document-library-page"]}
-              >
+              <Section backgroundColor="white">
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={6} lg={3}>
                     Filters will go here.
                   </Grid>
                   <Grid item xs={12} md={6} lg={8}>
                     <DocumentResults
-                      data={documents.slice(
-                        (page - 1) * DOCUMENTS_PER_PAGE,
-                        (page - 1) * DOCUMENTS_PER_PAGE + DOCUMENTS_PER_PAGE
-                      )}
+                      data={documents}
                       format={resultTypeFormatMap[resultsType]}
                     />
-                    <div className={styles["footer"]}>
-                      <Pagination
-                        page={page}
-                        onChange={(_, page) => {
-                          setPage(page);
-                        }}
-                        count={Math.ceil(documents.length / DOCUMENTS_PER_PAGE)}
-                        className={styles["pagination"]}
-                      />
-                      <DownloadList.Clear
-                        label={getMicroCopy("downloadList.clear")}
-                        className={styles["clear-downloads"]}
-                      />
-                      <DownloadList.Button
-                        label={`${getMicroCopy(
-                          "downloadList.download"
-                        )} ({{count}})`}
-                        // TODO: Add actual download function here
-                        // eslint-disable-next-line no-console
-                        onClick={console.log}
-                      />
-                    </div>
                   </Grid>
                 </Grid>
               </Section>
