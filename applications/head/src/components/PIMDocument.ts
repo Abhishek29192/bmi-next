@@ -13,6 +13,7 @@ export type Data = {
   assetType: AssetTypeData;
   fileSize: number;
   format: string;
+  extension: string;
 };
 
 export const query = graphql`
@@ -30,5 +31,6 @@ export const query = graphql`
     }
     fileSize
     format
+    extension
   }
 `;

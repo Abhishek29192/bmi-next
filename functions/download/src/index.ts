@@ -28,7 +28,7 @@ export const download: HttpFunction = async (request, response) => {
       await Promise.all(
         request.body.map(async ({ name, href }) => {
           const { body } = await fetch(href);
-          zip.file(`${name}.${href.split(".").pop()}`, body);
+          zip.file(name, body);
         })
       );
 

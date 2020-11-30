@@ -993,6 +993,9 @@ type PIMDocument implements Node {
 
   "The format for this document."
   format: String
+
+  "The file extension for this document."
+  extension: String
 }
 
 union Document = ContentfulDocument | PIMDocument
