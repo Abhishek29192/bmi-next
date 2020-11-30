@@ -180,6 +180,12 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The subtitle for the query section for this page."
   queriesSubtitle: String
 
+  "The title for the locations section."
+  locationsTitle: String
+
+  "The contact details for the locations section."
+  locations: [ContentfulContactDetails] @link(from: "locations___NODE")
+
   "The topics for this page."
   contentTopics: [ContentfulContentTopic] @link(from: "contentTopics___NODE")
 
@@ -1050,4 +1056,35 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 type Products implements Node {
   "The documents for this product."
   documents: [PIMDocument]! @link(from: "documents___NODE")
+}
+
+"""
+Represents a rich text node in the content details content type.
+"""
+type contentfulContactDetailsOtherInformationRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a set of contact details.
+"""
+type ContentfulContactDetails implements Node {
+  "The title for this contact."
+  title: String!
+
+  "The address for this contact."
+  address: String
+
+  "The phone number for this contact."
+  phoneNumber: String
+
+  "The email for this contact."
+  email: String
+
+  "Supplementary information for this contact."
+  otherInformation: contentfulContactDetailsOtherInformationRichTextNode
+    @link(from: "otherInformation___NODE")
 }

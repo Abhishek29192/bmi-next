@@ -1,6 +1,7 @@
 import React, { forwardRef, MouseEvent } from "react";
 
-type HtmlLink = { href: string };
+type DownloadLink = { href: string; download?: string | boolean };
+type HtmlLink = { href: string; target?: string; rel?: string };
 type RouterLink = { to: string; linkComponent: React.ElementType };
 
 export type ClickableAction =
@@ -9,7 +10,7 @@ export type ClickableAction =
   | { model: "reset" }
   | ({ model: "htmlLink" } & HtmlLink)
   | ({ model: "routerLink" } & RouterLink)
-  | ({ model: "download" } & HtmlLink);
+  | ({ model: "download" } & DownloadLink);
 
 type Props = {
   className?: string;
@@ -86,6 +87,7 @@ const Clickable = ({
 
     case "download":
       MarkupComponent = Component || "a";
+      // TODO: This is temporary.
       extraProps = {
         target: "_blank",
         rel: "noopener noreferrer",
