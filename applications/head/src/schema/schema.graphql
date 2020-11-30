@@ -1042,6 +1042,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
   "The documents for this page."
   documents: [Document]! @link(from: "documents___NODE")
+
+  "The product codes specified for this page."
+  pimCodes: [String]
 }
 
 type Products implements Node {
