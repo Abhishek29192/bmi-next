@@ -32,10 +32,25 @@ type Props = {
   };
 };
 
-const resultTypeFormatMap: Record<Data["resultsType"], Format> = {
-  Simple: "simpleTable",
-  Technical: "technicalTable",
-  "Card Collection": "cards"
+const resultTypeFormatMap: Record<
+  Data["source"],
+  Record<Data["resultsType"], Format>
+> = {
+  PIM: {
+    Simple: "simpleTable",
+    Technical: "technicalTable",
+    "Card Collection": "simpleTable"
+  },
+  CMS: {
+    Simple: "simpleTable",
+    Technical: "simpleTable",
+    "Card Collection": "cards"
+  },
+  ALL: {
+    Simple: "simpleTable",
+    Technical: "simpleTable",
+    "Card Collection": "simpleTable"
+  }
 };
 
 const DocumentLibraryPage = ({ data }: Props) => {
@@ -43,6 +58,7 @@ const DocumentLibraryPage = ({ data }: Props) => {
     title,
     description,
     documents,
+    source,
     resultsType
   } = data.contentfulDocumentLibraryPage;
 
@@ -96,7 +112,7 @@ const DocumentLibraryPage = ({ data }: Props) => {
                   <Grid item xs={12} md={6} lg={8}>
                     <DocumentResults
                       data={documents}
-                      format={resultTypeFormatMap[resultsType]}
+                      format={resultTypeFormatMap[source][resultsType]}
                     />
                   </Grid>
                 </Grid>

@@ -8,7 +8,7 @@ type Props = {
   page: number;
   count: number;
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
-  onDownloadClick: (list: Record<string, any>) => void;
+  onDownloadClick?: (list: Record<string, any>) => void;
 };
 
 const DocumentResultsFooter = ({
@@ -27,14 +27,18 @@ const DocumentResultsFooter = ({
         count={count}
         className={styles["pagination"]}
       />
-      <DownloadList.Clear
-        label={getMicroCopy("downloadList.clear")}
-        className={styles["clear-downloads"]}
-      />
-      <DownloadList.Button
-        label={`${getMicroCopy("downloadList.download")} ({{count}})`}
-        onClick={onDownloadClick}
-      />
+      {onDownloadClick && (
+        <>
+          <DownloadList.Clear
+            label={getMicroCopy("downloadList.clear")}
+            className={styles["clear-downloads"]}
+          />
+          <DownloadList.Button
+            label={`${getMicroCopy("downloadList.download")} ({{count}})`}
+            onClick={onDownloadClick}
+          />
+        </>
+      )}
     </div>
   );
 };
