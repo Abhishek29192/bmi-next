@@ -48,7 +48,8 @@ const resolveDocumentsFromProducts = async (
           assetType___NODE: assetType && assetType.id,
           fileSize: asset.fileSize,
           product___NODE: product.id,
-          format: getFormatFromFileName(asset.realFileName)
+          format: getFormatFromFileName(asset.realFileName),
+          extension: asset.realFileName.split(".").pop()
         };
 
         return {
