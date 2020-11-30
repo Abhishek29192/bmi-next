@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import { Data as DocumentData } from "./Document";
 import { Data as PIMDocumentData } from "./PIMDocument";
+import DocumentResultsFooter from "../components/DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
 
@@ -20,14 +21,32 @@ const documentResultsMap: Record<Format, React.ElementType> = {
   cards: null
 };
 
+const DOCUMENTS_PER_PAGE = 20;
+
 const DocumentResults = ({ data, format }: Props) => {
+  const [page, setPage] = useState(1);
+  const count = Math.ceil(data.length / DOCUMENTS_PER_PAGE);
   const ResultsComponent = documentResultsMap[format];
 
   if (!ResultsComponent) {
     return null;
   }
 
-  return <ResultsComponent documents={data} />;
+  return (
+    <>
+      <ResultsComponent
+        documents={data}
+        page={page}
+        documentsPerPage={DOCUMENTS_PER_PAGE}
+      />
+      <DocumentResultsFooter
+        page={page}
+        count={count}
+        onDownloadClick={() => {}}
+        onPageChange={(_, page) => setPage(page)}
+      />
+    </>
+  );
 };
 
 export default DocumentResults;

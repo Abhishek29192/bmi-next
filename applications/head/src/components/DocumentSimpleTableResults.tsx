@@ -1,18 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import filesize from "filesize";
 import classnames from "classnames";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
-import Checkbox from "@bmi/checkbox";
 import Icon, { iconMap } from "@bmi/icon";
 import { Data as PIMDocumentData } from "./PIMDocument";
 import { Data as DocumentData } from "./Document";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl } from "./Link";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
 type Props = {
   documents: (DocumentData | PIMDocumentData)[];
+  page: number;
+  documentsPerPage: number;
 };
 
 type Format = "application/pdf" | "image/jpg" | "image/jpeg" | "image/png";
@@ -68,19 +70,17 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
   </Button>
 );
 
-const DocumentSimpleTableResults = ({ documents }: Props) => {
-  const [checkedDocuments, setCheckedDocuments] = useState([]);
+const DocumentSimpleTableResults = ({
+  documents,
+  page,
+  documentsPerPage
+}: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
-
-  const handleChange = (document, checked) => {
-    setCheckedDocuments((checkedDocuments) => [
-      ...(checked
-        ? [...checkedDocuments, document]
-        : checkedDocuments.filter(
-            (checkedDocument) => checkedDocument.rowIndex !== document.rowIndex
-          ))
-    ]);
-  };
+  const { list } = useContext(DownloadListContext);
+  const paginatedDocuments = documents.slice(
+    (page - 1) * documentsPerPage,
+    page * documentsPerPage
+  );
 
   return (
     <div className={styles["DocumentSimpleTableResults"]}>
@@ -90,16 +90,16 @@ const DocumentSimpleTableResults = ({ documents }: Props) => {
             <Table.Cell>
               {getMicroCopy("documentLibrary.headers.title")}
             </Table.Cell>
-            <Table.Cell>
+            <Table.Cell className={styles["table-header"]}>
               {getMicroCopy("documentLibrary.headers.download")}
             </Table.Cell>
-            <Table.Cell>
+            <Table.Cell className={styles["table-header"]}>
               {getMicroCopy("documentLibrary.headers.add")}
             </Table.Cell>
           </Table.Row>
         </Table.Head>
         <Table.Body>
-          {documents.map((document, index) => {
+          {paginatedDocuments.map((document, index) => {
             const { id, title } = document;
             const assetData = mapAssetToFileDownload(document);
 
@@ -107,29 +107,22 @@ const DocumentSimpleTableResults = ({ documents }: Props) => {
               <Table.Row
                 key={`${title}-${index}`}
                 className={classnames(styles["row"], {
-                  [styles["row--checked"]]:
-                    checkedDocuments.filter(
-                      (checkedDocument) => checkedDocument.rowIndex === index
-                    ).length > 0
+                  [styles["row--checked"]]: !!list[id]
                 })}
               >
                 <Table.Cell className={styles["table-cell"]}>
                   {title}
                 </Table.Cell>
-                <Table.Cell className={styles["table-cell"]} align="center">
+                <Table.Cell className={styles["table-cell"]} align="left">
                   <FileDownloadButton {...assetData} />
                 </Table.Cell>
                 <Table.Cell className={styles["table-cell"]} align="center">
-                  <Checkbox
+                  <DownloadList.Checkbox
                     name={id}
-                    inputProps={{
-                      "aria-label": `${getMicroCopy(
-                        "documentLibrary.download"
-                      )} ${title}`
-                    }}
-                    onChange={(checked: boolean) =>
-                      handleChange({ rowIndex: index, document }, checked)
-                    }
+                    ariaLabel={`${getMicroCopy(
+                      "documentLibrary.download"
+                    )} ${title}`}
+                    value={document}
                   />
                 </Table.Cell>
               </Table.Row>

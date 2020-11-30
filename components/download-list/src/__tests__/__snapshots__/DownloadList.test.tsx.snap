@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DownloadList component renders correctly 1`] = `
+<div
+  class="MuiFormControl-root Checkbox"
+>
+  <label
+    class="MuiFormControlLabel-root"
+  >
+    <span
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <input
+          aria-label="first checkbox"
+          class="PrivateSwitchBase-input-4"
+          data-indeterminate="false"
+          name="id-1"
+          type="checkbox"
+          value=""
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </span>
+    <span
+      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+    />
+  </label>
+</div>
+`;
+
+exports[`DownloadList component triggers an onChange event 1`] = `
+Array [
+  Array [
+    Object {},
+  ],
+]
+`;
+
+exports[`DownloadList component triggers an onClick event 1`] = `
+Array [
+  Array [
+    Object {},
+  ],
+]
+`;
+
+exports[`DownloadList component triggers an onClick event when clearing 1`] = `Array []`;

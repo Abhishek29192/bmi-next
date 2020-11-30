@@ -10,6 +10,26 @@
     vertical-align: middle;
   }
 
+  :global {
+    .MuiTableBody-root {
+      .MuiTableRow-root {
+        border-top: 1px solid $color-storm;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        &:nth-of-type(even) {
+          background-color: initial;
+        }
+      }
+    }
+
+    .MuiFormControlLabel-root {
+      margin-right: 0;
+    }
+  }
+
   .asset-type-cell {
     text-align: center;
     padding-left: 6px;
@@ -36,6 +56,11 @@
     height: 16px;
     color: $color-charcoal;
     opacity: 0.24;
+  }
+
+  .all-files-header {
+    width: 92px;
+    white-space: nowrap;
   }
 
   .all-files-header-wrapper {

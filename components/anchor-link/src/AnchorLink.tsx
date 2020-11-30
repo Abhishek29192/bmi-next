@@ -7,7 +7,7 @@ import arrowForwardIcon from "./icons/arrow-right.svg";
 import Link, { LinkProps } from "@material-ui/core/Link";
 import { ColorPairContext } from "@bmi/color-pair";
 
-type Props = Omit<LinkProps, "color"> & {
+export type Props = Omit<LinkProps, "color"> & {
   children: React.ReactNode;
   isDisabled?: boolean;
   iconStart?: boolean;
