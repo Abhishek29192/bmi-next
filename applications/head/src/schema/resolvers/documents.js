@@ -20,7 +20,14 @@ const resolveDocumentsFromProducts = async (
               in: pimAssetTypes
             }
           }
-        }
+        },
+        ...(source.pimCodes && source.pimCodes.length
+          ? {
+              code: {
+                in: source.pimCodes
+              }
+            }
+          : {})
       }
     : {};
 
