@@ -67,7 +67,7 @@ const getShareableLink = (values: object): string => {
   const currentQueryParams = queryString(window.location.search);
   const encoded = stringifyQueryString({
     ...currentQueryParams,
-    [VALUES_PARAM]: JSON.stringify(values)
+    [VALUES_PARAM]: encodeURIComponent(JSON.stringify(values)) // encode `"` to avoid Azure 403 error.
   });
 
   const hrefWithoutHash = window.location.href.replace(
@@ -95,7 +95,7 @@ function getDefaultValues(treeFieldsDisplay: FieldsDisplay) {
 
     if (params[VALUES_PARAM]) {
       try {
-        urlDefaults = JSON.parse(params[VALUES_PARAM] + "");
+        urlDefaults = JSON.parse(decodeURIComponent(params[VALUES_PARAM] + ""));
       } catch (error) {
         if (process.env.NODE_ENV === "development") {
           throw error;
@@ -122,7 +122,9 @@ function getInitialResult(typeTree: any) {
 
     if (params[VALUES_PARAM]) {
       try {
-        const values = JSON.parse(params[VALUES_PARAM] + "");
+        const values = JSON.parse(
+          decodeURIComponent(params[VALUES_PARAM] + "")
+        );
 
         ({ name: systemName, values: submittedValues } = getSystem(
           values,

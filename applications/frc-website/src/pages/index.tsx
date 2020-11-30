@@ -24,7 +24,7 @@ const getLink = (page, values: object): string => {
     typeof window === "undefined" ? {} : queryString(window.location.search);
   const encoded = stringifyQueryString({
     ...currentQueryParams,
-    [VALUES_PARAM]: JSON.stringify(values)
+    [VALUES_PARAM]: encodeURIComponent(JSON.stringify(values)) // encode `"` to avoid Azure 403 error.
   });
 
   return page + "?" + encoded;
