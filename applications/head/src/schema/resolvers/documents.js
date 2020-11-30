@@ -105,14 +105,20 @@ const resolveDocumentsFromContentful = async (assetTypes, { context }) => {
 module.exports = {
   type: ["Document"],
   async resolve(source, args, context) {
-    const assetTypes = await Promise.all(
-      (source.assetTypes___NODE || []).map((id) => {
-        return context.nodeModel.getNodeById({
-          id,
-          type: "ContentfulAssetType"
-        });
-      })
-    );
+    const assetTypes =
+      source.assetTypes___NODE && source.assetTypes___NODE.length
+        ? await Promise.all(
+            source.assetTypes___NODE.map((id) => {
+              return context.nodeModel.getNodeById({
+                id,
+                type: "ContentfulAssetType"
+              });
+            })
+          )
+        : context.nodeModel.getAllNodes(
+            { type: "ContentfulAssetType" },
+            { connectionType: "ContentfulAssetType" }
+          );
 
     if (source.source === "PIM") {
       return resolveDocumentsFromProducts(assetTypes, {
