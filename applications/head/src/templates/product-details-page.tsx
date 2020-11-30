@@ -43,10 +43,10 @@ type Asset = {
   assetType: string;
   url: string;
   name: string;
-  format: string;
+  format?: string;
 };
 
-type ClassificationFeatureValue = {
+export type ClassificationFeatureValue = {
   value: string;
   code?: string; // This doesn't exist on some Features... perhaps we can be more specific with the types
 };
@@ -61,7 +61,7 @@ type ClassificationFeature = {
   name: string;
   code: string;
   featureValues: ClassificationFeatureValue[];
-  featureUnit: ClassificationFeatureUnit;
+  featureUnit?: ClassificationFeatureUnit;
 };
 
 type Classification = {
@@ -97,7 +97,7 @@ type ProductImage = {
   containerId: string;
   mime: string;
   realFileName: string;
-  format: string;
+  format?: string;
 };
 
 // TODO: perhaps should be stored somewhere else to export
