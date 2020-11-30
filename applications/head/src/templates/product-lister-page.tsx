@@ -137,6 +137,42 @@ const getColorFilter = (
   };
 };
 
+// Gets the values of materialfamily classification for the Filters pane
+const getTextureFilter = (
+  classificationNamespace: string,
+  products: readonly Product[]
+) => {
+  const textures = products
+    .reduce((allTextures, product) => {
+      const productClassifications = mapProductClassifications(
+        product,
+        classificationNamespace
+      );
+
+      return [
+        ...allTextures,
+        ...Object.values(productClassifications).map((classifications: any) => {
+          return classifications.texturefamily;
+        })
+      ];
+    }, [])
+    .filter(Boolean);
+
+  // Assuming all texturefamily classifications have the same label
+  const label = textures[0]?.name;
+  const values = _.uniqBy(_.map(textures, "value"), "code");
+
+  return {
+    label,
+    name: "texturefamily",
+    value: [],
+    options: values.map(({ code, value }) => ({
+      label: value,
+      value: code
+    }))
+  };
+};
+
 const queryES = async (query = {}) => {
   const indexName = "nodetest_v3_products";
   const url = `${process.env.ES_ENDPOINT}/${indexName}/_search`;
@@ -179,6 +215,7 @@ const compileElasticSearchQuery = (
 
   const searchTerms = {
     colour: "colourfamilyCode.keyword",
+    texturefamily: "texturefamilyCode.keyword",
     category: "categories.code.keyword",
     otherCategories: "otherCategories.code.keyword"
   };
@@ -190,8 +227,6 @@ const compileElasticSearchQuery = (
     }
 
     if (filter.name === "colour") {
-      // TODO: Not sure if this is solid enough since other classifications other than "colourfamily"
-      // have featureValues.code
       const colourTermQuery = (value) => ({
         term: {
           [searchTerms.colour]: value
@@ -207,6 +242,22 @@ const compileElasticSearchQuery = (
             };
 
       categoryFilters.push(coloursQuery);
+    } else if (filter.name === "texturefamily") {
+      const textureTermQuery = (value) => ({
+        term: {
+          [searchTerms.texturefamily]: value
+        }
+      });
+      const texturesQuery =
+        filter.value.length === 1
+          ? textureTermQuery(filter.value[0])
+          : {
+              bool: {
+                should: filter.value.map(textureTermQuery)
+              }
+            };
+
+      categoryFilters.push(texturesQuery);
     } else {
       const categoriesQuery =
         filter.value.length === 1
@@ -309,9 +360,14 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     pageContext.pimClassificationCatalogueNamespace,
     data.allProducts.nodes
   );
+  const textureFilter = getTextureFilter(
+    pageContext.pimClassificationCatalogueNamespace,
+    data.allProducts.nodes
+  );
   const [filters, setFilters] = useState([
     ...getFilters(allCategories),
-    colorFilter
+    colorFilter,
+    textureFilter
   ]);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
@@ -319,17 +375,23 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   );
 
   const disableFiltersFromAggregations = (filters, aggregations) => {
+    const aggregationNames = {
+      // TODO: Rename filter.name to colourfamily
+      colour: "colourfamily",
+      texturefamily: "texturefamily"
+    };
+
     return filters.map((filter) => {
       return {
         ...filter,
         options: filter.options.map((option) => {
-          // TODO: Rename filter to colourfamily
-          const buckets =
-            filter.name === "colour"
-              ? aggregations.colourfamily.buckets
-              : aggregations.categories.buckets;
+          // NOTE: all other filters are assumed to be categories
+          const aggregationName = aggregationNames[filter.name] || "categories";
+          const buckets = aggregations[aggregationName]?.buckets;
 
-          const aggregate = buckets.find(({ key }) => key === option.value);
+          const aggregate = (buckets || []).find(
+            ({ key }) => key === option.value
+          );
 
           return {
             ...option,
