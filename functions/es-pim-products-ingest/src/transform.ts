@@ -55,7 +55,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ({ code }) => code === "scoringWeightAttributes"
     );
     const scoringWeight =
-      scoringWeightClassification?.features?.[0].featureValues?.[0].value;
+      scoringWeightClassification?.features?.[0]?.featureValues?.[0]?.value;
 
     const baseAttributes = _.pick(
       { ...product, ...variant },
@@ -71,6 +71,25 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       "productBenefits"
     );
 
+    const appearanceClassifications = classifications.find(
+      ({ code }) => code === "appearanceAttributes"
+    );
+
+    let colourfamilyCode, texturefamilyCode;
+
+    if (appearanceClassifications) {
+      colourfamilyCode = (appearanceClassifications.features || []).find(
+        ({ code }) =>
+          code ===
+          `bmiNorwayClassificationCatalog/1.0/appearanceAttributes.colourfamily`
+      )?.featureValues?.[0]?.code;
+      texturefamilyCode = (appearanceClassifications.features || []).find(
+        ({ code }) =>
+          code ===
+          `bmiNorwayClassificationCatalog/1.0/appearanceAttributes.texturefamily`
+      )?.featureValues?.[0]?.code;
+    }
+
     return {
       ...baseAttributes,
       code: variant.code,
@@ -82,7 +101,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       otherCategories,
       classifications,
       // Special because we want to use it for sorting, atm this seems easier
-      scoringWeight
+      scoringWeight,
+      colourfamilyCode,
+      texturefamilyCode
     };
   });
 };

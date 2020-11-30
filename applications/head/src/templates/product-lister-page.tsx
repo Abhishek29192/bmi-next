@@ -137,6 +137,42 @@ const getColorFilter = (
   };
 };
 
+// Gets the values of materialfamily classification for the Filters pane
+const getTextureFilter = (
+  classificationNamespace: string,
+  products: readonly Product[]
+) => {
+  const textures = products
+    .reduce((allTextures, product) => {
+      const productClassifications = mapProductClassifications(
+        product,
+        classificationNamespace
+      );
+
+      return [
+        ...allTextures,
+        ...Object.values(productClassifications).map((classifications: any) => {
+          return classifications.texturefamily;
+        })
+      ];
+    }, [])
+    .filter(Boolean);
+
+  // Assuming all texturefamily classifications have the same label
+  const label = textures[0]?.name;
+  const values = _.uniqBy(_.map(textures, "value"), "code");
+
+  return {
+    label,
+    name: "texturefamily",
+    value: [],
+    options: values.map(({ code, value }) => ({
+      label: value,
+      value: code
+    }))
+  };
+};
+
 const queryES = async (query = {}) => {
   const indexName = "nodetest_v3_products";
   const url = `${process.env.ES_ENDPOINT}/${indexName}/_search`;
@@ -178,9 +214,10 @@ const compileElasticSearchQuery = (
   const categoryFilters = [];
 
   const searchTerms = {
-    colour: "classifications.features.featureValues.code.keyword",
+    colour: "colourfamilyCode.keyword",
+    texturefamily: "texturefamilyCode.keyword",
     category: "categories.code.keyword",
-    allCategories: "allCategories.code.keyword"
+    otherCategories: "otherCategories.code.keyword"
   };
 
   filters.forEach((filter) => {
@@ -190,8 +227,6 @@ const compileElasticSearchQuery = (
     }
 
     if (filter.name === "colour") {
-      // TODO: Not sure if this is solid enough since other classifications other than "colourfamily"
-      // have featureValues.code
       const colourTermQuery = (value) => ({
         term: {
           [searchTerms.colour]: value
@@ -207,6 +242,22 @@ const compileElasticSearchQuery = (
             };
 
       categoryFilters.push(coloursQuery);
+    } else if (filter.name === "texturefamily") {
+      const textureTermQuery = (value) => ({
+        term: {
+          [searchTerms.texturefamily]: value
+        }
+      });
+      const texturesQuery =
+        filter.value.length === 1
+          ? textureTermQuery(filter.value[0])
+          : {
+              bool: {
+                should: filter.value.map(textureTermQuery)
+              }
+            };
+
+      categoryFilters.push(texturesQuery);
     } else {
       const categoriesQuery =
         filter.value.length === 1
@@ -243,10 +294,16 @@ const compileElasticSearchQuery = (
           field: "categories.code.keyword"
         }
       },
-      colors: {
+      texturefamily: {
         terms: {
           size: "100",
-          field: "classifications.features.featureValues.code.keyword"
+          field: "texturefamilyCode.keyword"
+        }
+      },
+      colourfamily: {
+        terms: {
+          size: "100",
+          field: "colourfamilyCode.keyword"
         }
       }
     },
@@ -257,7 +314,7 @@ const compileElasticSearchQuery = (
         must: [
           {
             term: {
-              [searchTerms.allCategories]: categoryCode
+              [searchTerms.otherCategories]: categoryCode
             }
           },
           ...categoryFilters
@@ -303,14 +360,51 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     pageContext.pimClassificationCatalogueNamespace,
     data.allProducts.nodes
   );
+  const textureFilter = getTextureFilter(
+    pageContext.pimClassificationCatalogueNamespace,
+    data.allProducts.nodes
+  );
   const [filters, setFilters] = useState([
     ...getFilters(allCategories),
-    colorFilter
+    colorFilter,
+    textureFilter
   ]);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
   );
+
+  const disableFiltersFromAggregations = (filters, aggregations) => {
+    const aggregationNames = {
+      // TODO: Rename filter.name to colourfamily
+      colour: "colourfamily",
+      texturefamily: "texturefamily"
+    };
+
+    return filters.map((filter) => {
+      return {
+        ...filter,
+        options: filter.options.map((option) => {
+          // NOTE: all other filters are assumed to be categories
+          const aggregationName = aggregationNames[filter.name] || "categories";
+          const buckets = aggregations[aggregationName]?.buckets;
+
+          const aggregate = (buckets || []).find(
+            ({ key }) => key === option.value
+          );
+
+          return {
+            ...option,
+            isDisabled: !(aggregate && aggregate.doc_count > 0)
+          };
+        })
+      };
+    });
+  };
+
+  const handlePageChange = (page) => {
+    fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
+  };
 
   const handleFiltersChange = async (filterName, filterValue, checked) => {
     const addToArray = (array, value) => [...array, value];
@@ -321,7 +415,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         : removeFromArray(filter.value || [], filterValue);
     };
 
-    const newFilters = filters.map((filter) => {
+    let newFilters = filters.map((filter) => {
       return {
         ...filter,
         value:
@@ -331,17 +425,48 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       };
     });
 
+    // NOTE: If filters change, we reset pagination to first page
+    const result = await fetchProducts(
+      newFilters,
+      pageContext.categoryCode,
+      0,
+      PAGE_SIZE
+    );
+
+    if (result && result.aggregations) {
+      newFilters = disableFiltersFromAggregations(
+        newFilters,
+        result.aggregations
+      );
+    }
+
     setFilters(newFilters);
   };
 
   // Resets all selected filter values to nothing
-  const clearFilters = () => {
-    setFilters((filters) => {
-      return filters.map((filter) => ({
-        ...filter,
-        value: []
-      }));
-    });
+  // TODO: This has duplication but didn't want to refactor too much at once
+  const clearFilters = async () => {
+    let newFilters = filters.map((filter) => ({
+      ...filter,
+      value: []
+    }));
+
+    // NOTE: If filters change, we reset pagination to first page
+    const result = await fetchProducts(
+      newFilters,
+      pageContext.categoryCode,
+      0,
+      PAGE_SIZE
+    );
+
+    if (result && result.aggregations) {
+      newFilters = disableFiltersFromAggregations(
+        newFilters,
+        result.aggregations
+      );
+    }
+
+    setFilters(newFilters);
   };
 
   const fetchProducts = async (filters, categoryCode, page, pageSize) => {
@@ -369,20 +494,19 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
       setTotalProducts(hits.total.value);
       setPageCount(newPageCount);
+      setPage(newPageCount < page ? 0 : page);
       setProducts(hits.hits.map((hit) => hit._source));
     }
 
     setIsLoading(false);
+
+    return results;
   };
 
-  useEffect(() => {
-    fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
-  }, [page]);
-
-  // NOTE: If filters change, we reset pagination to first page
+  // Fetch ES on mount
   useEffect(() => {
     fetchProducts(filters, pageContext.categoryCode, 0, PAGE_SIZE);
-  }, [filters]);
+  }, []);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect, maybe pointless for this value to rely on it as more will break.
   // const categoryName = "AeroDek Robust Plus";
@@ -544,7 +668,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             <Pagination
               page={page + 1}
               onChange={(_, page) => {
-                setPage(page - 1);
+                handlePageChange(page - 1);
               }}
               count={pageCount}
             />

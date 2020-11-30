@@ -14,11 +14,12 @@
 .git
 .gitignore
 
-# node_modules
+node_modules
 
 yarn-error.log
 .env*
 tsconfig.json
 env.yaml
+README.md
 
 # TODO: invert this to ignore everything but !dist and !package.json ?
