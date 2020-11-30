@@ -12,7 +12,9 @@ import styles from "./styles/ProductLeadBlock.module.scss";
 import { SiteContext } from "./Site";
 import { Data as PIMDocumentData } from "./PIMDocument";
 import DownloadList from "@bmi/download-list";
-import DocumentResultsFooter from "./DocumentResultsFooter";
+import DocumentResultsFooter, {
+  handleDownloadClick
+} from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
@@ -196,7 +198,7 @@ const ProductLeadBlock = ({
               <DocumentResultsFooter
                 page={page}
                 count={count}
-                onDownloadClick={() => {}}
+                onDownloadClick={handleDownloadClick}
                 onPageChange={(_, page) => setPage(page)}
               />
             </DownloadList>
