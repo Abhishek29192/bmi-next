@@ -1,16 +1,11 @@
 "use strict";
 
-const crypto = require("crypto");
 const _ = require("lodash");
-const MurmurHash3 = require("imurmurhash");
-const path = require("path");
-
-const mapExtensionToFormat = {
-  pdf: "application/pdf",
-  jpg: "image/jpg",
-  jpeg: "image/jpeg",
-  png: "image/png"
-};
+const { getFormatFromFileName } = require("./utils/documents");
+const {
+  generateIdFromString,
+  generateDigestFromData
+} = require("./utils/encryption");
 
 const resolveDocumentsFromProducts = async (
   assetTypes,
@@ -44,11 +39,7 @@ const resolveDocumentsFromProducts = async (
     (product.assets || [])
       .filter((asset) => _.includes(pimAssetTypes, asset.assetType))
       .map((asset) => {
-        const id = MurmurHash3(
-          product.name + asset.name + new Date().getTime().toString
-        )
-          .result()
-          .toString();
+        const id = generateIdFromString(product.name + asset.name);
         const assetType = _.find(assetTypes, { pimCode: asset.assetType });
 
         const fieldData = {
@@ -57,8 +48,7 @@ const resolveDocumentsFromProducts = async (
           assetType___NODE: assetType && assetType.id,
           fileSize: asset.fileSize,
           product___NODE: product.id,
-          format:
-            mapExtensionToFormat[path.extname(asset.realFileName).substr(1)]
+          format: getFormatFromFileName(asset.realFileName)
         };
 
         return {
@@ -69,10 +59,7 @@ const resolveDocumentsFromProducts = async (
           internal: {
             type: "PIMDocument",
             owner: "@bmi/resolvers",
-            contentDigest: crypto
-              .createHash("md5")
-              .update(JSON.stringify(fieldData))
-              .digest("hex")
+            contentDigest: generateDigestFromData(fieldData)
           }
         };
       })
@@ -105,14 +92,20 @@ const resolveDocumentsFromContentful = async (assetTypes, { context }) => {
 module.exports = {
   type: ["Document"],
   async resolve(source, args, context) {
-    const assetTypes = await Promise.all(
-      (source.assetTypes___NODE || []).map((id) => {
-        return context.nodeModel.getNodeById({
-          id,
-          type: "ContentfulAssetType"
-        });
-      })
-    );
+    const assetTypes =
+      source.assetTypes___NODE && source.assetTypes___NODE.length
+        ? await Promise.all(
+            source.assetTypes___NODE.map((id) => {
+              return context.nodeModel.getNodeById({
+                id,
+                type: "ContentfulAssetType"
+              });
+            })
+          )
+        : await context.nodeModel.getAllNodes(
+            { type: "ContentfulAssetType" },
+            { connectionType: "ContentfulAssetType" }
+          );
 
     if (source.source === "PIM") {
       return resolveDocumentsFromProducts(assetTypes, {

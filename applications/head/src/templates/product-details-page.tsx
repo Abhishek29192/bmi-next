@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import _ from "lodash";
 import Container from "@bmi/container";
@@ -21,6 +21,7 @@ import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
+import { Data as PIMDocumentData } from "../PIMDocument";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -111,6 +112,7 @@ export type Product = {
   categories?: ReadonlyArray<Category>;
   classifications?: ReadonlyArray<Classification>;
   variantOptions?: ReadonlyArray<VariantOption>;
+  documents: PIMDocumentData[];
 };
 
 type Props = {
@@ -132,7 +134,6 @@ type Props = {
 };
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
   const { product, relatedProducts, contentfulSite } = data;
 
   // Which variant (including base) are we looking at
@@ -219,7 +220,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           }}
         </SiteContext.Consumer>
       </Container>
-      <Section>
+      <Section backgroundColor="white">
         <ProductLeadBlock
           description={product.description}
           keyFeatures={product.productBenefits}
@@ -234,6 +235,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
             (asset) =>
               asset.assetType === "AWARDS" || asset.assetType === "CERTIFICATES"
           )}
+          documents={product.documents}
         />
       </Section>
       <RelatedProducts
@@ -367,6 +369,9 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+      documents {
+        ...PIMDocumentFragment
       }
     }
     relatedProducts: allProducts(

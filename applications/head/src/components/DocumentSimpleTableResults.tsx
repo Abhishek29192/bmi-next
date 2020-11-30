@@ -11,10 +11,13 @@ import { getClickableActionFromUrl } from "./Link";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
+type AvailableHeader = "type" | "title" | "download" | "add";
+
 type Props = {
   documents: (DocumentData | PIMDocumentData)[];
   page: number;
   documentsPerPage: number;
+  headers?: AvailableHeader[];
 };
 
 type Format = "application/pdf" | "image/jpg" | "image/jpeg" | "image/png";
@@ -73,7 +76,8 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
 const DocumentSimpleTableResults = ({
   documents,
   page,
-  documentsPerPage
+  documentsPerPage,
+  headers = ["type", "title", "download", "add"]
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
   const { list } = useContext(DownloadListContext);
@@ -87,15 +91,16 @@ const DocumentSimpleTableResults = ({
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Cell>
-              {getMicroCopy("documentLibrary.headers.title")}
-            </Table.Cell>
-            <Table.Cell className={styles["table-header"]}>
-              {getMicroCopy("documentLibrary.headers.download")}
-            </Table.Cell>
-            <Table.Cell className={styles["table-header"]}>
-              {getMicroCopy("documentLibrary.headers.add")}
-            </Table.Cell>
+            {headers.map((header) => (
+              <Table.Cell
+                key={`header-${header}`}
+                className={classnames({
+                  [styles["table-header"]]: ["download", "add"].includes(header)
+                })}
+              >
+                {getMicroCopy(`documentLibrary.headers.${header}`)}
+              </Table.Cell>
+            ))}
           </Table.Row>
         </Table.Head>
         <Table.Body>
@@ -110,21 +115,60 @@ const DocumentSimpleTableResults = ({
                   [styles["row--checked"]]: !!list[id]
                 })}
               >
-                <Table.Cell className={styles["table-cell"]}>
-                  {title}
-                </Table.Cell>
-                <Table.Cell className={styles["table-cell"]} align="left">
-                  <FileDownloadButton {...assetData} />
-                </Table.Cell>
-                <Table.Cell className={styles["table-cell"]} align="center">
-                  <DownloadList.Checkbox
-                    name={id}
-                    ariaLabel={`${getMicroCopy(
-                      "documentLibrary.download"
-                    )} ${title}`}
-                    value={document}
-                  />
-                </Table.Cell>
+                {headers.map((header) => {
+                  const key = `${title}-body-${header}`;
+
+                  if (header === "type") {
+                    return (
+                      <Table.Cell className={styles["table-cell"]} key={key}>
+                        {document.assetType.name}
+                      </Table.Cell>
+                    );
+                  }
+
+                  if (header === "title") {
+                    return (
+                      <Table.Cell className={styles["table-cell"]} key={key}>
+                        {title}
+                      </Table.Cell>
+                    );
+                  }
+
+                  if (header === "download") {
+                    return (
+                      <Table.Cell
+                        className={styles["table-cell"]}
+                        align="left"
+                        key={key}
+                      >
+                        <FileDownloadButton {...assetData} />
+                      </Table.Cell>
+                    );
+                  }
+                  if (header === "add") {
+                    return (
+                      <Table.Cell
+                        className={styles["table-cell"]}
+                        align="center"
+                        key={key}
+                      >
+                        <DownloadList.Checkbox
+                          name={id}
+                          ariaLabel={`${getMicroCopy(
+                            "documentLibrary.download"
+                          )} ${title}`}
+                          value={document}
+                        />
+                      </Table.Cell>
+                    );
+                  }
+
+                  return (
+                    <Table.Cell className={styles["table-cell"]} key={key}>
+                      n/d
+                    </Table.Cell>
+                  );
+                })}
               </Table.Row>
             );
           })}
