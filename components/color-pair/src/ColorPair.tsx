@@ -4,6 +4,7 @@ import classnames from "classnames";
 
 export type Colors =
   | "white"
+  | "alabaster"
   | "pearl"
   | "storm"
   | "blue-100"
@@ -11,7 +12,6 @@ export type Colors =
   | "aqua-100"
   | "orange-100"
   | "alert"
-  | "alabaster"
   | "black"
   | "charcoal"
   | "slate"
@@ -25,14 +25,33 @@ export type Colors =
   | "orange-500"
   | "error";
 
-const getThemesFromSassVariable = (theme: string): string[] => {
-  return theme.replace(/"/g, "").split(", ");
-};
+const lightThemes: Colors[] = [
+  "white",
+  "alabaster",
+  "pearl",
+  "storm",
+  "blue-100",
+  "magenta-100",
+  "aqua-100",
+  "orange-100",
+  "alert"
+];
 
-const lightThemes = getThemesFromSassVariable(styles["light-theme"]);
-const darkThemes = getThemesFromSassVariable(styles["dark-theme"]);
-
-export const availableThemes = [...lightThemes, ...darkThemes] as Colors[];
+const darkThemes: Colors[] = [
+  "black",
+  "charcoal",
+  "slate",
+  "blue-800",
+  "blue-900",
+  "teal-400",
+  "teal-500",
+  "magenta-400",
+  "magenta-500",
+  "purple-400",
+  "orange-500",
+  "error"
+];
+export const availableThemes = [...lightThemes, ...darkThemes];
 
 type Context = {
   type?: "dark" | "light";
