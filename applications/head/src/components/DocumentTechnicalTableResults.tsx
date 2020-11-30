@@ -120,6 +120,11 @@ const DocumentTechnicalTableResults = ({
       ),
     [documents]
   );
+
+  if (assetTypes.length === 0) {
+    return <p>A technical table cannot being shown with no asset types.</p>;
+  }
+
   const { getMicroCopy } = useContext(SiteContext);
   const { list } = useContext(DownloadListContext);
 
