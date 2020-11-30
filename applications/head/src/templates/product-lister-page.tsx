@@ -27,19 +27,22 @@ import Typography from "@bmi/typography";
 import {
   getProductUrl,
   findMasterImageUrl,
-  findProductBrandLogoCode,
   mapClassificationValues,
   findUniqueVariantClassifications,
-  getGroupCategory,
-  getLeafCategory,
-  getFullCategoriesPaths,
-  Category,
   findAllCategories,
   ProductCategoryTree,
   mapProductClassifications
 } from "../utils/product-details-transforms";
 import Button from "@bmi/button";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
+
+const devLog = (...args) => {
+  /* istanbul ignore next */
+  if (process.env.NODE_ENV === "development") {
+    // eslint-disable-next-line no-console
+    console.log(...args);
+  }
+};
 
 const PAGE_SIZE = 24;
 
@@ -155,16 +158,14 @@ const queryES = async (query = {}) => {
       const content = await response.json();
 
       if (!response.ok) {
-        console.log(`ERROR: ${response.status}, ${response.statusText}`);
+        devLog(`ERROR: ${response.status}, ${response.statusText}`);
       }
-
-      console.log({ content });
       return content;
     } catch (error) {
-      console.log("Error fetching ES", error);
+      devLog("Error fetching ES", error);
     }
   } else {
-    console.log("NO fetch");
+    devLog("NO fetch");
   }
 };
 
@@ -182,15 +183,11 @@ const compileElasticSearchQuery = (
     allCategories: "allCategories.code.keyword"
   };
 
-  console.log({ filters });
-
   filters.forEach((filter) => {
     // If no values chosen, ignore it
     if (!filter.value.length) {
       return;
     }
-
-    console.log("Filter:", filter.name);
 
     if (filter.name === "colour") {
       // TODO: Not sure if this is solid enough since other classifications other than "colourfamily"
@@ -349,11 +346,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const fetchProducts = async (filters, categoryCode, page, pageSize) => {
     if (isLoading) {
-      console.log("Already loading...");
+      devLog("Already loading...");
       return;
     }
 
-    console.log("STARTED FETCHING...");
     setIsLoading(true);
 
     const query = compileElasticSearchQuery(
@@ -362,7 +358,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       page,
       pageSize
     );
-    console.log({ query: query });
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
@@ -375,13 +370,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       setTotalProducts(hits.total.value);
       setPageCount(newPageCount);
       setProducts(hits.hits.map((hit) => hit._source));
-
-      // TODO: Don't quite understand details around the hits.total value
-      console.log({ totalHits: hits.total.value, hits: hits.hits });
     }
 
     setIsLoading(false);
-    console.log("FINISHED FETCHING!");
   };
 
   useEffect(() => {
