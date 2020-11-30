@@ -57,25 +57,22 @@ export const getSizeLabel = (
   withUnit = true
 ) => {
   const { length, width, height } = measurement || {};
-  const components = [length, width, height].filter(Boolean);
-  let unit = "";
+  const components = [width, length, height].filter(Boolean);
 
   if (!components.length) {
     return;
   }
 
-  // NOTE: Check if it's the same unit. For now not handling inconsistent units
-  if (
-    withUnit &&
-    components.every((value, i, arr) => value.value.unit === arr[0].value.unit)
-  ) {
-    unit = components[0].value.unit;
-  }
+  const sameUnit = components.every(
+    (value, i, arr) => value.value.unit === arr[0].value.unit
+  );
+  const unit = withUnit && sameUnit ? components[0].value.unit : "";
 
   return (
     components
-      .map(({ value }) => value.value) // LOL
-      .join("x") + unit
+      .map(({ value }) => value.value.value + (!sameUnit ? value.unit : ""))
+      // Add extra space if units don't match
+      .join(sameUnit ? "x" : " x ") + unit
   );
 };
 
@@ -142,7 +139,9 @@ type TransformedMeasurementValue = {
   [dimensionName: string]: {
     name: string;
     value: {
-      value: string;
+      value: {
+        value: string;
+      };
       unit: string;
     };
   };
@@ -270,7 +269,7 @@ export const mapProductClassifications = (
                   name,
                   value: {
                     value: featureValues ? featureValues[0] : "n/a",
-                    unit: featureUnit.symbol
+                    unit: featureUnit?.symbol
                   }
                 }
               }
