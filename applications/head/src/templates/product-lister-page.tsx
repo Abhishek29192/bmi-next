@@ -178,7 +178,7 @@ const compileElasticSearchQuery = (
   const categoryFilters = [];
 
   const searchTerms = {
-    colour: "classifications.features.featureValues.code.keyword",
+    colour: "colourfamilyCode.keyword",
     category: "categories.code.keyword",
     otherCategories: "otherCategories.code.keyword"
   };
