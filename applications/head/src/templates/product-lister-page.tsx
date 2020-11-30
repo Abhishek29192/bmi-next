@@ -340,6 +340,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     });
   };
 
+  const handlePageChange = (page) => {
+    fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
+  };
+
   const handleFiltersChange = async (filterName, filterValue, checked) => {
     const addToArray = (array, value) => [...array, value];
     const removeFromArray = (array, value) => array.filter((v) => v !== value);
@@ -428,6 +432,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
       setTotalProducts(hits.total.value);
       setPageCount(newPageCount);
+      setPage(newPageCount < page ? 0 : page);
       setProducts(hits.hits.map((hit) => hit._source));
     }
 
@@ -436,9 +441,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     return results;
   };
 
+  // Fetch ES on mount
   useEffect(() => {
-    fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
-  }, [page]);
+    fetchProducts(filters, pageContext.categoryCode, 0, PAGE_SIZE);
+  }, []);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect, maybe pointless for this value to rely on it as more will break.
   // const categoryName = "AeroDek Robust Plus";
@@ -600,7 +606,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
             <Pagination
               page={page + 1}
               onChange={(_, page) => {
-                setPage(page - 1);
+                handlePageChange(page - 1);
               }}
               count={pageCount}
             />
