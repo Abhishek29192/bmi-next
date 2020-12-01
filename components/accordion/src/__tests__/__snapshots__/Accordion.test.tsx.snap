@@ -57,7 +57,7 @@ exports[`Accordion component renders correctly 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -119,7 +119,7 @@ exports[`Accordion component renders correctly 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -188,7 +188,7 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -250,7 +250,7 @@ exports[`Accordion component renders correctly after expanded item clicked 1`] =
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -319,7 +319,7 @@ exports[`Accordion component renders correctly as radio 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -381,7 +381,7 @@ exports[`Accordion component renders correctly as radio 1`] = `
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -450,7 +450,7 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -512,7 +512,7 @@ exports[`Accordion component renders correctly as radio when item is collapsed 1
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -581,7 +581,7 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -643,7 +643,7 @@ exports[`Accordion component renders correctly as radio when item is expanded 1`
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -712,7 +712,7 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -774,7 +774,7 @@ exports[`Accordion component renders correctly with default expanded item 1`] = 
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -843,7 +843,7 @@ exports[`Accordion component renders correctly with no padding on accordion deta
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
@@ -905,7 +905,7 @@ exports[`Accordion component renders correctly with no padding on accordion deta
             role="region"
           >
             <div
-              class="MuiAccordionDetails-root"
+              class="MuiAccordionDetails-root details"
             >
               Content
             </div>
