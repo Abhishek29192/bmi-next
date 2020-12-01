@@ -28,14 +28,20 @@ module.exports = {
           return;
         }
 
+        const { fileSize, realFileName } = asset;
+
+        if (!fileSize || !realFileName) {
+          return;
+        }
+
         const fieldData = {
           title: `${source.name} ${assetType.name}`,
           url: asset.url,
           assetType___NODE: assetType && assetType.id,
-          fileSize: asset.fileSize,
+          fileSize,
           product___NODE: source.id,
-          format: getFormatFromFileName(asset.realFileName),
-          extension: asset.realFileName.split(".").pop()
+          format: getFormatFromFileName(realFileName),
+          extension: realFileName.split(".").pop()
         };
 
         return {
