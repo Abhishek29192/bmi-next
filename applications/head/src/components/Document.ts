@@ -25,7 +25,7 @@ export type Data = {
   description: {
     // TODO: add validations for this Rich Text field in CMS
     json: Document;
-  };
+  } | null;
   brand: string;
 };
 
