@@ -31,14 +31,9 @@ const Filters = ({ filters, onChange }: Props) => {
     <div className={styles["Filters"]}>
       <Accordion noInnerPadding>
         {filters.map((filter) => {
-          // NOTE: expand accordion item if any filters are checked
-          let anyChecked = false;
           const filterOptions = filter.options.map(
             ({ value, label, isDisabled }) => {
               const isChecked = (filter.value || []).includes(value);
-              if (isChecked) {
-                anyChecked = true;
-              }
               return {
                 value,
                 label,
@@ -47,8 +42,9 @@ const Filters = ({ filters, onChange }: Props) => {
               };
             }
           );
+
           return (
-            <Accordion.Item key={filter.name} defaultExpanded={anyChecked}>
+            <Accordion.Item key={filter.name}>
               <Accordion.Summary>
                 <Typography variant="h6">{filter.label}</Typography>
               </Accordion.Summary>
