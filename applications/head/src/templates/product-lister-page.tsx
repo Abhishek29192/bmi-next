@@ -175,7 +175,7 @@ const getTextureFilter = (
 
 const queryES = async (query = {}) => {
   const indexName = "nodetest_v3_products";
-  const url = `${process.env.ES_ENDPOINT}/${indexName}/_search`;
+  const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 
   if (window.fetch) {
     try {
@@ -184,7 +184,7 @@ const queryES = async (query = {}) => {
         mode: "cors",
         headers: {
           authorization: `Basic ${btoa(
-            `${process.env.ES_USERNAME}:${process.env.ES_PASSWORD}`
+            `${process.env.GATSBY_ES_USERNAME}:${process.env.GATSBY_ES_PASSWORD}`
           )}`,
           "content-type": "application/json"
         },
