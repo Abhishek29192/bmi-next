@@ -99,8 +99,8 @@ const getProductFamilyFilter = (products: readonly Product[]) => {
   );
 
   return {
-    label: "Product Family",
-    name: "Produktfamilie",
+    label: "Produktfamilie",
+    name: "productFamily",
     value: [],
     options: allFamilyCategories
       .sort(sortAlphabeticallyBy("name"))
