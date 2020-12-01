@@ -178,17 +178,25 @@ const RelatedProducts = ({
       <Section.Title>{getMicroCopy("pdp.relatedProducts.title")}</Section.Title>
       <div className={styles["RelatedProducts"]}>
         <Tabs theme="secondary" initialValue={Object.keys(productGroups)[0]}>
-          {Object.entries(productGroups).map(([category, products]) => {
-            return (
-              <Tabs.TabPanel heading={category} index={category} key={category}>
-                <ProductListing
-                  classificationNamespace={classificationNamespace}
-                  countryCode={countryCode}
-                  products={products}
-                />
-              </Tabs.TabPanel>
-            );
-          })}
+          {Object.entries(productGroups)
+            .filter(([_, products]) =>
+              products.some((product) => product.variantOptions)
+            )
+            .map(([category, products]) => {
+              return (
+                <Tabs.TabPanel
+                  heading={category}
+                  index={category}
+                  key={category}
+                >
+                  <ProductListing
+                    classificationNamespace={classificationNamespace}
+                    countryCode={countryCode}
+                    products={products}
+                  />
+                </Tabs.TabPanel>
+              );
+            })}
         </Tabs>
       </div>
     </Section>
