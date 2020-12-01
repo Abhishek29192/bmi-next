@@ -77,6 +77,7 @@ const resolveDocumentsFromProducts = async (
           }
         };
       })
+      .filter(Boolean)
   );
 
   return documents || [];
