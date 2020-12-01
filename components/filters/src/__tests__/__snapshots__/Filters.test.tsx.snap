@@ -28,17 +28,17 @@ exports[`Filters component renders disabled filters 1`] = `
     class="Accordion Accordion--no-inner-padding"
   >
     <div
-      class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         aria-disabled="false"
-        aria-expanded="true"
-        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root"
         role="button"
         tabindex="0"
       >
         <div
-          class="MuiAccordionSummary-content Mui-expanded"
+          class="MuiAccordionSummary-content"
         >
           <h6
             class="MuiTypography-root Typography MuiTypography-h6"
@@ -49,7 +49,7 @@ exports[`Filters component renders disabled filters 1`] = `
         <div
           aria-disabled="false"
           aria-hidden="true"
-          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
         >
           <span
             class="MuiIconButton-label"
@@ -71,7 +71,7 @@ exports[`Filters component renders disabled filters 1`] = `
         </div>
       </div>
       <div
-        class="MuiCollapse-container MuiCollapse-entered"
+        class="MuiCollapse-container MuiCollapse-hidden"
         style="min-height: 0px;"
       >
         <div
@@ -521,17 +521,17 @@ exports[`Filters component renders selected filters 1`] = `
     class="Accordion Accordion--no-inner-padding"
   >
     <div
-      class="MuiPaper-root MuiAccordion-root item Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
         aria-disabled="false"
-        aria-expanded="true"
-        class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+        aria-expanded="false"
+        class="MuiButtonBase-root MuiAccordionSummary-root"
         role="button"
         tabindex="0"
       >
         <div
-          class="MuiAccordionSummary-content Mui-expanded"
+          class="MuiAccordionSummary-content"
         >
           <h6
             class="MuiTypography-root Typography MuiTypography-h6"
@@ -542,7 +542,7 @@ exports[`Filters component renders selected filters 1`] = `
         <div
           aria-disabled="false"
           aria-hidden="true"
-          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+          class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
         >
           <span
             class="MuiIconButton-label"
@@ -564,7 +564,7 @@ exports[`Filters component renders selected filters 1`] = `
         </div>
       </div>
       <div
-        class="MuiCollapse-container MuiCollapse-entered"
+        class="MuiCollapse-container MuiCollapse-hidden"
         style="min-height: 0px;"
       >
         <div
