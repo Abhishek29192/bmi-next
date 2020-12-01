@@ -44,6 +44,16 @@ const devLog = (...args) => {
   }
 };
 
+const sortAlphabeticallyBy = (propName) => (a, b) => {
+  if (a[propName] < b[propName]) {
+    return -1;
+  }
+  if (a[propName] > b[propName]) {
+    return 1;
+  }
+  return 0;
+};
+
 const PAGE_SIZE = 24;
 
 type Data = PageInfoData &
@@ -90,18 +100,10 @@ const getProductFamilyFilter = (products: readonly Product[]) => {
 
   return {
     label: "Product Family",
-    name: "productFamily",
+    name: "Produktfamilie",
     value: [],
     options: allFamilyCategories
-      .sort((a, b) => {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
-      })
+      .sort(sortAlphabeticallyBy("name"))
       .map((category) => ({
         label: category.name,
         value: category.code
@@ -110,23 +112,32 @@ const getProductFamilyFilter = (products: readonly Product[]) => {
 };
 
 const getCategoryFilters = (productCategories: ProductCategoryTree) => {
-  return Object.entries(productCategories).reduce(
-    (filters, [categoryKey, category]) => {
+  return Object.entries(productCategories)
+    .sort((a, b) => {
+      if (a[1]["name"] < b[1]["name"]) {
+        return -1;
+      }
+      if (a[1]["name"] > b[1]["name"]) {
+        return 1;
+      }
+      return 0;
+    })
+    .reduce((filters, [categoryKey, category]) => {
       return [
         ...filters,
         {
           label: category.name,
           name: categoryKey,
           value: [],
-          options: category.values.map((category) => ({
-            label: category.name,
-            value: category.code
-          }))
+          options: category.values
+            .sort(sortAlphabeticallyBy("name"))
+            .map((category) => ({
+              label: category.name,
+              value: category.code
+            }))
         }
       ];
-    },
-    []
-  );
+    }, []);
 };
 
 // Gets the values of colourfamily classification for the Filters pane
@@ -158,15 +169,17 @@ const getColorFilter = (
     label,
     name: "colour",
     value: [],
-    options: values.map(({ code, value }) => ({
-      label: (
-        <>
-          <ColorSwatch colorCode={code} />
-          {value}
-        </>
-      ),
-      value: code
-    }))
+    options: values
+      .sort(sortAlphabeticallyBy("value"))
+      .map(({ code, value }) => ({
+        label: (
+          <>
+            <ColorSwatch colorCode={code} />
+            {value}
+          </>
+        ),
+        value: code
+      }))
   };
 };
 
@@ -199,10 +212,12 @@ const getTextureFilter = (
     label,
     name: "texturefamily",
     value: [],
-    options: values.map(({ code, value }) => ({
-      label: value,
-      value: code
-    }))
+    options: values
+      .sort(sortAlphabeticallyBy("value"))
+      .map(({ code, value }) => ({
+        label: value,
+        value: code
+      }))
   };
 };
 
