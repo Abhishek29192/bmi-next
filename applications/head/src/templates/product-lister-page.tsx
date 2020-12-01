@@ -76,7 +76,40 @@ type Props = {
 
 const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
 
-const getFilters = (productCategories: ProductCategoryTree) => {
+const getProductFamilyFilter = (products: readonly Product[]) => {
+  const allFamilyCategories = _.uniqBy(
+    products.reduce((allCategories, product) => {
+      const productFamilyCategories = (product.categories || []).filter(
+        ({ categoryType }) => categoryType === "ProductFamily"
+      );
+
+      return [...allCategories, ...productFamilyCategories];
+    }, []),
+    "code"
+  );
+
+  return {
+    label: "Product Family",
+    name: "productFamily",
+    value: [],
+    options: allFamilyCategories
+      .sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      })
+      .map((category) => ({
+        label: category.name,
+        value: category.code
+      }))
+  };
+};
+
+const getCategoryFilters = (productCategories: ProductCategoryTree) => {
   return Object.entries(productCategories).reduce(
     (filters, [categoryKey, category]) => {
       return [
@@ -217,6 +250,8 @@ const compileElasticSearchQuery = (
     colour: "colourfamilyCode.keyword",
     texturefamily: "texturefamilyCode.keyword",
     category: "categories.code.keyword",
+    // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
+    productFamily: "otherCategories.code.keyword",
     otherCategories: "otherCategories.code.keyword"
   };
 
@@ -258,6 +293,23 @@ const compileElasticSearchQuery = (
             };
 
       categoryFilters.push(texturesQuery);
+      // TODO: This is at this point generic
+    } else if (filter.name === "productFamily") {
+      const queryTerm = (value) => ({
+        term: {
+          [searchTerms.productFamily]: value
+        }
+      });
+      const query =
+        filter.value.length === 1
+          ? queryTerm(filter.value[0])
+          : {
+              bool: {
+                should: filter.value.map(queryTerm)
+              }
+            };
+
+      categoryFilters.push(query);
     } else {
       const categoriesQuery =
         filter.value.length === 1
@@ -292,6 +344,14 @@ const compileElasticSearchQuery = (
           // Could request these separately, and figure out a way of retrying and getting more buckets if needed
           size: "100",
           field: "categories.code.keyword"
+        }
+      },
+      otherCategories: {
+        terms: {
+          // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
+          // Could request these separately, and figure out a way of retrying and getting more buckets if needed
+          size: "100",
+          field: "otherCategories.code.keyword"
         }
       },
       texturefamily: {
@@ -364,10 +424,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     pageContext.pimClassificationCatalogueNamespace,
     data.allProducts.nodes
   );
+  const productFamilyFilter = getProductFamilyFilter(data.allProducts.nodes);
   const [filters, setFilters] = useState([
-    ...getFilters(allCategories),
+    productFamilyFilter,
     colorFilter,
-    textureFilter
+    textureFilter,
+    ...getCategoryFilters(allCategories)
   ]);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
@@ -378,7 +440,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     const aggregationNames = {
       // TODO: Rename filter.name to colourfamily
       colour: "colourfamily",
-      texturefamily: "texturefamily"
+      texturefamily: "texturefamily",
+      productFamily: "otherCategories"
     };
 
     return filters.map((filter) => {
