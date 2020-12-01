@@ -19,7 +19,7 @@ export const findPath = (
     menuNavigation: NavigationData,
     path: Path[] = []
   ): Path[] => {
-    if (!path || path.length === 0) {
+    if (!menuNavigation.links?.length) {
       return [];
     }
 
@@ -78,9 +78,9 @@ const IntegratedBreadcrumbs = ({
 }: {
   title: string;
   slug: string;
-  menuNavigation: NavigationData;
+  menuNavigation?: NavigationData;
 } & BreadcrumbsProps) => {
-  const path = findPath(slug, menuNavigation);
+  const path = menuNavigation ? findPath(slug, menuNavigation) : [];
   const { countryCode, homePage } = useContext(SiteContext);
 
   return (

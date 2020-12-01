@@ -233,6 +233,9 @@ type ContentfulHomePage implements Node {
   "The title for this home page."
   title: String
 
+  "Brands for Homepage"
+  brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
+
   "The slides for this home page."
   slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
 
@@ -1087,4 +1090,41 @@ type ContentfulContactDetails implements Node {
   "Supplementary information for this contact."
   otherInformation: contentfulContactDetailsOtherInformationRichTextNode
     @link(from: "otherInformation___NODE")
+}
+
+"""
+Represents a Brand Landing Page type, implementing ContentfulPage.
+"""
+type ContentfulBrandLandingPage implements ContentfulPage & Node {
+  id: ID!
+
+  "The name of this page, representative of the type."
+  title: String
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "The short description for this page."
+  subtitle: String
+
+  "The brand logo for this page."
+  brandLogo: String
+
+  "The slides for this brand page."
+  slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
+
+  "The main links for this brand page."
+  overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
+
+  "The sections for this brand page."
+  sections: [ContentfulSection] @link(from: "sections___NODE")
+
+  "The main image of brand page. Can be used when referencing this page."
+  featuredImage: ContentfulAsset
+
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+
+  "Tag for the page."
+  tag: ContentfulTag @link(from: "tag___NODE")
 }
