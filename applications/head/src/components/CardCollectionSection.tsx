@@ -36,7 +36,7 @@ export type Data = {
   description: {
     json: Document;
   };
-  cardType: "Highlight Card" | "Story Card";
+  cardType: "Highlight Card" | "Story Card" | "Text Card";
   cardLabel: string | null;
   groupCards: boolean;
   cards: Card[];
@@ -158,9 +158,15 @@ const CardCollectionSection = ({
                 <OverviewCard
                   hasTitleUnderline
                   title={title}
-                  imageSource={featuredImage?.resize.src}
+                  imageSource={
+                    cardType !== "Text Card"
+                      ? featuredImage?.resize.src
+                      : undefined
+                  }
                   isFlat={cardType === "Story Card"}
-                  brandImageSource={iconMap[brandLogo]}
+                  brandImageSource={
+                    cardType !== "Text Card" ? iconMap[brandLogo] : undefined
+                  }
                   footer={
                     link ? (
                       <Button

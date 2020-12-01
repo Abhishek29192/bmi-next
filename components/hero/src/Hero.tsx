@@ -18,6 +18,7 @@ export type HeroItem = {
     label: React.ReactNode;
     action?: ClickableAction;
   };
+  hasUnderline?: boolean;
 };
 
 type Props<L = undefined> = {
@@ -91,7 +92,12 @@ const Hero = ({
           >
             {heroes.map(
               (
-                { title, children, CTA: { label, ...linkProps } = {} },
+                {
+                  title,
+                  children,
+                  CTA: { label, ...linkProps } = {},
+                  hasUnderline = true
+                },
                 index
               ) => {
                 return (
@@ -99,7 +105,7 @@ const Hero = ({
                     <div className={styles["content"]}>
                       <Typography
                         variant="h1"
-                        hasUnderline
+                        hasUnderline={hasUnderline}
                         className={styles["title"]}
                       >
                         {title}

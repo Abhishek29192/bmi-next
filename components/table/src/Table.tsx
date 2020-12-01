@@ -25,7 +25,7 @@ const TableContext = createContext<{
 type TableProps = {
   theme?: Colors;
   hasNoBorder?: boolean;
-  rowBgColorPattern?: "even" | "odd";
+  rowBgColorPattern?: "even" | "odd" | "none";
 } & MuiTableProps;
 
 function parseTable(
@@ -120,13 +120,12 @@ const Table = ({
         {tableSize === "normal" && (
           <MuiTable
             ref={normalTableRef}
-            className={classnames(
-              styles["Table"],
-              styles[`Table--row-${_rowBgColorPattern}-color`],
-              {
-                [styles["Table--no-border"]]: hasNoBorder
-              }
-            )}
+            className={classnames(styles["Table"], {
+              [styles[`Table--row-${_rowBgColorPattern}-color`]]:
+                _rowBgColorPattern !== "none",
+              [styles["Table--row-no-color"]]: _rowBgColorPattern === "none",
+              [styles["Table--no-border"]]: hasNoBorder
+            })}
             {...rest}
           />
         )}

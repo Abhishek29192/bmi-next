@@ -12,6 +12,7 @@ import { Data as PageInfoData } from "../components/PageInfo";
 import ContentTopics, {
   Data as ContentTopicsData
 } from "../components/ContentTopics";
+import Locations, { Data as LocationsData } from "../components/Locations";
 
 type Data = PageInfoData &
   PageData & {
@@ -21,6 +22,8 @@ type Data = PageInfoData &
     otherAreasTitle: string;
     otherAreas: readonly TitleWithContentData[];
     contentTopics: ContentTopicsData[];
+    locationsTitle: string | null;
+    locations: LocationsData | null;
   };
 
 type Props = {
@@ -41,7 +44,9 @@ const ContactUsPage = ({ data }: Props) => {
     otherAreas,
     contentTopics,
     slug,
-    inputBanner
+    inputBanner,
+    locationsTitle,
+    locations
   } = data.contentfulContactUsPage;
   const heroProps: HeroItem = {
     title,
@@ -76,6 +81,14 @@ const ContactUsPage = ({ data }: Props) => {
           {contentTopics && <ContentTopics topics={contentTopics} />}
         </div>
       </Section>
+      {locations && (
+        <Section>
+          <Section.Title>{locationsTitle}</Section.Title>
+          <div>
+            <Locations data={locations} />
+          </div>
+        </Section>
+      )}
       <TabsOrAccordionSection
         data={{
           __typename: "ContentfulTabsOrAccordionSection",
@@ -105,6 +118,10 @@ export const pageQuery = graphql`
         ...TitleWithContentFragment
       }
       ...PageFragment
+      locationsTitle
+      locations {
+        ...LocationsFragment
+      }
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

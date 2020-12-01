@@ -6,6 +6,7 @@ const path = require("path");
 const { withConfigs, styles } = require("@bmi/webpack");
 require("graphql-import-node");
 const typeDefs = require("./src/schema/schema.graphql");
+const resolvers = require("./src/schema/resolvers");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -140,6 +141,12 @@ exports.createPages = async ({ graphql, actions }) => {
     ContentfulTeamPage: path.resolve("./src/templates/team-page.tsx"),
     ContentfulProductListerPage: path.resolve(
       "./src/templates/product-lister-page.tsx"
+    ),
+    ContentfulDocumentLibraryPage: path.resolve(
+      "./src/templates/document-library-page.tsx"
+    ),
+    ContentfulBrandLandingPage: path.resolve(
+      "./src/templates/brand-landing-page.tsx"
     )
   };
 
@@ -226,4 +233,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(typeDefs);
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers(resolvers);
 };

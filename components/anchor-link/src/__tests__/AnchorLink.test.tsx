@@ -1,6 +1,13 @@
-import React from "react";
+import React, { createContext } from "react";
 import AnchorLink from "..";
 import { render } from "@testing-library/react";
+
+const MockColorPairContext = createContext<{
+  type: "dark" | "light";
+  theme?: "white";
+}>({
+  type: "dark"
+});
 
 describe("AnchorLink component", () => {
   it("renders default correctly", () => {
@@ -58,6 +65,40 @@ describe("AnchorLink component", () => {
           sunt explicabo.
         </p>
       </AnchorLink>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders with a specified color", () => {
+    const { container } = render(
+      <AnchorLink color="white">BMI Group</AnchorLink>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders within a dark color pair context", () => {
+    const { container } = render(
+      <MockColorPairContext.Provider value={{ type: "dark" }}>
+        <AnchorLink color="white">BMI Group</AnchorLink>
+      </MockColorPairContext.Provider>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders within a light color pair context", () => {
+    const { container } = render(
+      <MockColorPairContext.Provider value={{ type: "light" }}>
+        <AnchorLink color="white">BMI Group</AnchorLink>
+      </MockColorPairContext.Provider>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders within a white themed color pair context", () => {
+    const { container } = render(
+      <MockColorPairContext.Provider value={{ type: "light", theme: "white" }}>
+        <AnchorLink color="white">BMI Group</AnchorLink>
+      </MockColorPairContext.Provider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });

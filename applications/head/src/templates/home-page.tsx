@@ -5,21 +5,20 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as InputBannerData } from "../components/InputBanner";
 import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
-import InputGroup from "@bmi/input-group";
-import Button from "@bmi/button";
-import TextField from "@bmi/text-field";
-import SearchIcon from "@material-ui/icons/Search";
 import Sections, { Data as SectionsData } from "../components/Sections";
+import Search from "@bmi/search";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import { getCTA } from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
+import Brands, { Data as BrandData } from "../components/Brands";
 
 type HomepageData = {
   title: string;
   slides: (SlideData | PageInfoData)[];
   overlapCards: OverlapCardData;
+  brands: BrandData[];
   sections: SectionsData | null;
   inputBanner: InputBannerData | null;
 };
@@ -50,6 +49,7 @@ const HomePage = ({ data }: Props) => {
     title,
     slides,
     overlapCards,
+    brands,
     sections,
     inputBanner
   } = data.contentfulHomePage;
@@ -62,26 +62,20 @@ const HomePage = ({ data }: Props) => {
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
         {(context) => {
+          const { getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
           return (
             <Hero level={0} heroes={heroItems} hasSpaceBottom>
-              <InputGroup
-                lockBreakpoint="xs"
-                input={
-                  <TextField name="search" label="Search" variant="hybrid" />
-                }
-                button={
-                  <Button accessibilityLabel="Search" isIconButton>
-                    <SearchIcon />
-                  </Button>
-                }
+              <Search
+                label={getMicroCopy("search.label")}
+                placeholder={getMicroCopy("search.placeholder")}
               />
             </Hero>
           );
         }}
       </SiteContext.Consumer>
-
-      <OverlapCards data={overlapCards} />
+      {overlapCards && <OverlapCards data={overlapCards} />}
+      {brands?.length ? <Brands data={brands} /> : null}
       {sections && <Sections data={sections} />}
     </Page>
   );
@@ -101,6 +95,9 @@ export const pageQuery = graphql`
       }
       overlapCards {
         ...OverlapCardFragment
+      }
+      brands {
+        ...BrandFragment
       }
       sections {
         ...SectionsFragment

@@ -3,7 +3,7 @@
 .Anchorlink {
   color: $color-cyan-500;
   text-decoration: underline;
-  text-decoration-color: $color-cyan-500;
+  text-decoration-color: currentColor;
   font-size: inherit;
   display: inline-flex;
   align-items: center;
@@ -22,15 +22,28 @@
 
   &:hover {
     color: $color-cyan-600;
-    text-decoration-color: $color-cyan-600;
     transition: text-decoration-color 250ms ease-out, color 250ms ease-out;
   }
 
   &--disabled {
+    opacity: 0.3;
     pointer-events: none;
-    color: rgba($color-cyan-500, 0.3);
-    text-decoration: underline;
-    text-decoration-color: rgba($color-cyan-500, 0.3);
+  }
+
+  &--white {
+    color: rgba($color-white, 0.8);
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  &--black {
+    color: rgba($color-black, 0.8);
+
+    &:hover {
+      color: $color-black;
+    }
   }
 
   .icon {

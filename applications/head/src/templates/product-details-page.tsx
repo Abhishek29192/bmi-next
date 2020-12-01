@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import _ from "lodash";
 import Container from "@bmi/container";
@@ -21,6 +21,7 @@ import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
+import { Data as PIMDocumentData } from "../PIMDocument";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -42,10 +43,10 @@ type Asset = {
   assetType: string;
   url: string;
   name: string;
-  format: string;
+  format?: string;
 };
 
-type ClassificationFeatureValue = {
+export type ClassificationFeatureValue = {
   value: string;
   code?: string; // This doesn't exist on some Features... perhaps we can be more specific with the types
 };
@@ -60,7 +61,7 @@ type ClassificationFeature = {
   name: string;
   code: string;
   featureValues: ClassificationFeatureValue[];
-  featureUnit: ClassificationFeatureUnit;
+  featureUnit?: ClassificationFeatureUnit;
 };
 
 type Classification = {
@@ -96,7 +97,7 @@ type ProductImage = {
   containerId: string;
   mime: string;
   realFileName: string;
-  format: string;
+  format?: string;
 };
 
 // TODO: perhaps should be stored somewhere else to export
@@ -111,6 +112,7 @@ export type Product = {
   categories?: ReadonlyArray<Category>;
   classifications?: ReadonlyArray<Classification>;
   variantOptions?: ReadonlyArray<VariantOption>;
+  documents: PIMDocumentData[];
 };
 
 type Props = {
@@ -132,7 +134,6 @@ type Props = {
 };
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
   const { product, relatedProducts, contentfulSite } = data;
 
   // Which variant (including base) are we looking at
@@ -177,24 +178,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     uniqueClassifications
   );
 
-  const productData = {
-    name: product.name,
-    brandName: brandCode || "",
-    nobb: selfProduct.externalProductCode || "n/a",
-    images: mapGalleryImages([
-      ...(selfProduct.images || []),
-      ...(product.images || [])
-    ]),
-    attributes: getProductAttributes(
-      productClassifications,
-      selfProduct,
-      pageContext,
-      {
-        size: getMicroCopy("pdp.overview.size")
-      }
-    )
-  };
-
   const { resources, countryCode } = contentfulSite;
   const pageData: PageData = {
     slug: null,
@@ -204,16 +187,40 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
       <Container>
-        <ProductOverview data={productData}>
-          {resources?.pdpShareWidget && (
-            <ShareWidgetSection
-              data={resources?.pdpShareWidget}
-              hasNoPadding={true}
-            />
-          )}
-        </ProductOverview>
+        <SiteContext.Consumer>
+          {({ getMicroCopy }) => {
+            return (
+              <ProductOverview
+                data={{
+                  name: product.name,
+                  brandName: brandCode || "",
+                  nobb: selfProduct.externalProductCode || "n/a",
+                  images: mapGalleryImages([
+                    ...(selfProduct.images || []),
+                    ...(product.images || [])
+                  ]),
+                  attributes: getProductAttributes(
+                    productClassifications,
+                    selfProduct,
+                    pageContext,
+                    {
+                      size: getMicroCopy("pdp.overview.size")
+                    }
+                  )
+                }}
+              >
+                {resources?.pdpShareWidget && (
+                  <ShareWidgetSection
+                    data={{ ...resources?.pdpShareWidget, isLeftAligned: true }}
+                    hasNoPadding={true}
+                  />
+                )}
+              </ProductOverview>
+            );
+          }}
+        </SiteContext.Consumer>
       </Container>
-      <Section>
+      <Section backgroundColor="white">
         <ProductLeadBlock
           description={product.description}
           keyFeatures={product.productBenefits}
@@ -228,6 +235,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
             (asset) =>
               asset.assetType === "AWARDS" || asset.assetType === "CERTIFICATES"
           )}
+          documents={product.documents}
         />
       </Section>
       <RelatedProducts
@@ -361,6 +369,9 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+      documents {
+        ...PIMDocumentFragment
       }
     }
     relatedProducts: allProducts(

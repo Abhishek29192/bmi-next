@@ -9,10 +9,12 @@
   }
 
   &--dark-background:global(.MuiButton-text) {
-    color: $color-white;
+    color: rgba($color-white, 0.8);
 
     &:hover {
+      color: rgba($color-white, 1);
       background: rgba($color-white, 0.1);
+      transition: color 0.35s ease-in-out;
     }
 
     &:global(.Mui-disabled) {
@@ -80,6 +82,11 @@
     @include icon-button-buffer(8px);
   }
 
+  &--42 {
+    width: 42px;
+    height: 42px;
+  }
+
   &--medium {
     width: 48px;
     height: 48px;
@@ -109,6 +116,7 @@
 
   &--text:global(.MuiIconButton-root) {
     background: none;
+    color: inherit;
   }
 
   &--text:global(.MuiIconButton-root):hover {

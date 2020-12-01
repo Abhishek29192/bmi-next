@@ -7,9 +7,10 @@ import { Data as PromoData } from "./Promo";
 export const getClickableActionFromUrl = (
   linkedPage?: LinkData["linkedPage"],
   url?: LinkData["url"],
-  countryCode?: string
+  countryCode?: string,
+  assetUrl?: string
 ): ClickableAction | undefined => {
-  if (!countryCode) {
+  if (!countryCode && !assetUrl) {
     return;
   }
 
@@ -25,6 +26,13 @@ export const getClickableActionFromUrl = (
     return {
       model: "htmlLink",
       href: url
+    };
+  }
+
+  if (assetUrl) {
+    return {
+      model: "download",
+      href: assetUrl
     };
   }
 };
@@ -67,6 +75,11 @@ export type LinkData = {
   linkedPage: {
     // NOTE: null is for Homepage type
     slug: string | null;
+  } | null;
+  asset?: {
+    file: {
+      url: string | null;
+    };
   } | null;
 };
 

@@ -48,7 +48,12 @@ const convertMarkdownLinksToAnchorLinks = (
   return (
     <>
       {input.substring(0, offset)}
-      <AnchorLink action={{ model: "htmlLink", href: link }}>
+      {/* TODO: The link should be only rel="noopener" when linking to an external site. */}
+      <AnchorLink
+        action={{ model: "htmlLink", href: link }}
+        target="_blank"
+        rel="noopener"
+      >
         {label}
       </AnchorLink>
       {input.substring(offset + match.length)}
@@ -86,7 +91,7 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
-          uri={process.env.FORM_UPLOAD_FUNCTION_URL}
+          uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{ "Content-Type": "application/octet-stream" }}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions={getMicroCopy("upload.instructions")}

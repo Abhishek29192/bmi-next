@@ -8,6 +8,8 @@ The component is fully controlled, meaning it does not hold internal state. See 
 
 This component also leaves up to interpretation the integration concern of identifying which filter options should be enabled depending on the results of a query, for example to not enable a user to chose a combination that would lead to 0 results.
 
+> NOTE: The default functionality of accordions being open when they have selected values has been temporarily disabled, until that functionality can be integrated.
+
 ```jsx
 const filters = [
   {

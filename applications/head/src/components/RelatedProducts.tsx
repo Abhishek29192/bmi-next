@@ -54,6 +54,17 @@ const ProductListing = ({
           const weightA = getWeightValue(a);
           const weightB = getWeightValue(b);
 
+          // If product scoringWeight is equal, compare names
+          if (weightB === weightA) {
+            if (a.name < b.name) {
+              return -1;
+            }
+            if (a.name > b.name) {
+              return 1;
+            }
+            return 0;
+          }
+
           return weightB - weightA;
         })
         .reduce<ReadonlyArray<{ _product: Product } & VariantOption>>(
@@ -167,17 +178,25 @@ const RelatedProducts = ({
       <Section.Title>{getMicroCopy("pdp.relatedProducts.title")}</Section.Title>
       <div className={styles["RelatedProducts"]}>
         <Tabs theme="secondary" initialValue={Object.keys(productGroups)[0]}>
-          {Object.entries(productGroups).map(([category, products]) => {
-            return (
-              <Tabs.TabPanel heading={category} index={category} key={category}>
-                <ProductListing
-                  classificationNamespace={classificationNamespace}
-                  countryCode={countryCode}
-                  products={products}
-                />
-              </Tabs.TabPanel>
-            );
-          })}
+          {Object.entries(productGroups)
+            .filter(([_, products]) =>
+              products.some((product) => product.variantOptions)
+            )
+            .map(([category, products]) => {
+              return (
+                <Tabs.TabPanel
+                  heading={category}
+                  index={category}
+                  key={category}
+                >
+                  <ProductListing
+                    classificationNamespace={classificationNamespace}
+                    countryCode={countryCode}
+                    products={products}
+                  />
+                </Tabs.TabPanel>
+              );
+            })}
         </Tabs>
       </div>
     </Section>

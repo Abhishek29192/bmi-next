@@ -20,7 +20,7 @@ const Page = ({ title, children }: Props) => {
         <Footer
           menu={[
             {
-              label: "Third party Privacy notice",
+              label: "Third party privacy notice",
               action: {
                 model: "htmlLink",
                 href:
@@ -28,7 +28,7 @@ const Page = ({ title, children }: Props) => {
               }
             },
             {
-              label: "Cookie Policy",
+              label: "Cookie policy",
               action: {
                 model: "htmlLink",
                 href: "https://www.bmigroup.com/legal/cookie-policy"

@@ -76,7 +76,7 @@ type contentfulInputBannerAdditionalInputsJsonNode implements ContentfulFormInpu
 """
 Represents common properties across pages.
 """
-interface ContentfulPage {
+interface ContentfulPage @nodeInterface {
   id: ID!
 
   "The name of this page, representative of the type."
@@ -180,6 +180,12 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The subtitle for the query section for this page."
   queriesSubtitle: String
 
+  "The title for the locations section."
+  locationsTitle: String
+
+  "The contact details for the locations section."
+  locations: [ContentfulContactDetails] @link(from: "locations___NODE")
+
   "The topics for this page."
   contentTopics: [ContentfulContentTopic] @link(from: "contentTopics___NODE")
 
@@ -226,6 +232,9 @@ type ContentfulHomePage implements Node {
 
   "The title for this home page."
   title: String
+
+  "Brands for Homepage"
+  brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
 
   "The slides for this home page."
   slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
@@ -332,6 +341,7 @@ union ContentfulPromoOrPage =
   | ContentfulSimplePage
   | ContentfulTeamPage
   | ContentfulProductListerPage
+  | ContentfulDocumentLibraryPage
 
 """
 Represents the rich text content for the ContentfulCardCollectionSection.
@@ -511,6 +521,13 @@ type ContentfulLeadBlockSection implements Node {
 }
 
 """
+Represents the tabs or accordion section description field.
+"""
+type contentfulSyndicateSectionDescriptionTextNode implements Node {
+  description: String
+}
+
+"""
 Represents a syndicate section (many villains).
 Renamed from ContentfulVillainSection.
 """
@@ -520,8 +537,9 @@ type ContentfulSyndicateSection implements Node {
   "The title for this section."
   title: String
 
-  "The title for this section."
-  description: String
+  "The description for this section."
+  description: contentfulSyndicateSectionDescriptionTextNode
+    @link(from: "text___NODE")
 
   "The villains for this section."
   villains: [ContentfulPromoOrPage] @link(from: "villains___NODE")
@@ -578,6 +596,31 @@ type ContentfulImageGallerySection implements Node {
   "The images for this section."
   # TODO: Check if the @link is needed.
   images: [ContentfulAsset] @link(from: "images___NODE")
+}
+
+"""
+Represents the document download section description field.
+"""
+type contentfulDocumentDownloadSectionDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a section of downloadable document assets.
+"""
+type ContentfulDocumentDownloadSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The description for this section."
+  description: contentfulDocumentDownloadSectionDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The documents for this section."
+  documents: [ContentfulDocument] @link(from: "documents___NODE")
 }
 
 """
@@ -699,7 +742,7 @@ type ContentfulTeamCategory implements Node {
 
   # TODO: See what's wrong here.
   # "The team memebers for this category."
-  # team_member: [ContentfulTeamMember] @link(from: "team_member___NODE")
+  # team_member: [ContentfulTeamMember] @link(from: "category___NODE")
 }
 
 """
@@ -715,6 +758,7 @@ union ContentfulSection =
   | ContentfulShareWidgetSection
   | ContentfulPromo
   | ContentfulImageGallerySection
+  | ContentfulDocumentDownloadSection
 
 """
 Represents a key value pair for UI strings.
@@ -858,4 +902,230 @@ type ContentfulLinkColumnsSection implements Node {
 
   "The columns for this page."
   columns: [ContentfulNavigation] @link(from: "columns___NODE")
+}
+
+"""
+Represents the rich text description for the ContentfulAssetType.
+"""
+type contentfulAssetTypeDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a type of downloadable asset.
+"""
+type ContentfulAssetType implements Node {
+  id: ID!
+
+  "The asset type name."
+  name: String
+
+  "The asset type code."
+  code: String
+
+  "The description of this asset type."
+  description: contentfulAssetTypeDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The PIM code for this asset type."
+  pimCode: String
+}
+
+"""
+Represents the rich text description for the ContentfulDocument.
+"""
+type contentfulDocumentDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a type of downloadable document.
+"""
+type ContentfulDocument implements Node {
+  id: ID!
+
+  "The document title."
+  title: String
+
+  "The document's corresponding asset."
+  asset: ContentfulAsset
+
+  "The description of this document."
+  description: contentfulDocumentDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The asset type of this document."
+  assetType: ContentfulAssetType @link(from: "assetType___NODE")
+
+  "The document brand."
+  brand: String
+
+  "The image for this document."
+  image: ContentfulAsset
+}
+
+"""
+Represents the rich text description for the ContentfulDocumentLibraryPage.
+"""
+type contentfulDocumentLibraryPageDescriptionRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a document for a PIM product.
+"""
+type PIMDocument implements Node {
+  id: ID!
+
+  "The title for this document."
+  title: String
+
+  "The URL for this document."
+  url: String
+
+  "The type for this document."
+  assetType: ContentfulAssetType @link(from: "assetType___NODE")
+
+  "The size for this document."
+  fileSize: Int
+
+  "The product this document belongs to."
+  product: Products @link(from: "product___NODE")
+
+  "The format for this document."
+  format: String
+
+  "The file extension for this document."
+  extension: String
+}
+
+union Document = ContentfulDocument | PIMDocument
+
+"""
+Represents a document library page, implementing ContentfulPage.
+"""
+type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
+  id: ID!
+
+  "The name of this page."
+  title: String
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "The brand logo for this page (unused)."
+  brandLogo: String
+
+  "The short description for this page."
+  subtitle: String
+
+  "The main image of this page. Can be used when referencing this page (unused)."
+  featuredImage: ContentfulAsset
+
+  "The description for this page."
+  description: contentfulDocumentLibraryPageDescriptionRichTextNode
+    @link(from: "description___NODE")
+
+  "The data source for this page."
+  source: String
+
+  "The asset types belonging to this page."
+  assetTypes: [ContentfulAssetType] @link(from: "assetTypes___NODE")
+
+  "The type of display required for content on this page."
+  resultsType: String
+
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+
+  "Tag for the page"
+  tag: ContentfulTag @link(from: "tag___NODE")
+
+  "The documents for this page."
+  documents: [Document]! @link(from: "documents___NODE")
+
+  "The product codes specified for this page."
+  pimCodes: [String]
+}
+
+type Products implements Node {
+  "The documents for this product."
+  documents: [PIMDocument]! @link(from: "documents___NODE")
+}
+
+"""
+Represents a rich text node in the content details content type.
+"""
+type contentfulContactDetailsOtherInformationRichTextNode implements Node {
+  id: ID!
+
+  "The JSON for this content."
+  json: JSON
+}
+
+"""
+Represents a set of contact details.
+"""
+type ContentfulContactDetails implements Node {
+  "The title for this contact."
+  title: String!
+
+  "The address for this contact."
+  address: String
+
+  "The phone number for this contact."
+  phoneNumber: String
+
+  "The email for this contact."
+  email: String
+
+  "Supplementary information for this contact."
+  otherInformation: contentfulContactDetailsOtherInformationRichTextNode
+    @link(from: "otherInformation___NODE")
+}
+
+"""
+Represents a Brand Landing Page type, implementing ContentfulPage.
+"""
+type ContentfulBrandLandingPage implements ContentfulPage & Node {
+  id: ID!
+
+  "The name of this page, representative of the type."
+  title: String
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
+
+  "The short description for this page."
+  subtitle: String
+
+  "The brand logo for this page."
+  brandLogo: String
+
+  "The slides for this brand page."
+  slides: [ContentfulPromoOrPage] @link(from: "slides___NODE")
+
+  "The main links for this brand page."
+  overlapCards: [ContentfulPromoOrPage] @link(from: "overlapCards___NODE")
+
+  "The sections for this brand page."
+  sections: [ContentfulSection] @link(from: "sections___NODE")
+
+  "The main image of brand page. Can be used when referencing this page."
+  featuredImage: ContentfulAsset
+
+  "The input banner for this page."
+  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+
+  "Tag for the page."
+  tag: ContentfulTag @link(from: "tag___NODE")
 }

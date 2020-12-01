@@ -1,0 +1,62 @@
+@import "@bmi/styles";
+
+.DocumentTechnicalTableResults {
+  .header-row {
+    vertical-align: top;
+    color: $color-slate;
+  }
+
+  .body-row {
+    vertical-align: middle;
+  }
+
+  :global {
+    .MuiFormControlLabel-root {
+      margin-right: 0;
+    }
+  }
+
+  .asset-type-cell {
+    text-align: center;
+    padding-left: 6px;
+    padding-right: 6px;
+    width: 72px;
+  }
+
+  .tooltip-icon {
+    color: $color-cyan-500;
+  }
+
+  .format-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .align-center {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .no-document-icon {
+    width: 16px;
+    height: 16px;
+    color: $color-charcoal;
+    opacity: 0.24;
+  }
+
+  .all-files-header {
+    width: 92px;
+    white-space: nowrap;
+  }
+
+  .all-files-header-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .all-files-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 2px;
+  }
+}

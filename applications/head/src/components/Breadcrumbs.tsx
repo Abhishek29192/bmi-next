@@ -19,6 +19,10 @@ export const findPath = (
     menuNavigation: NavigationData,
     path: Path[] = []
   ): Path[] => {
+    if (!menuNavigation.links?.length) {
+      return [];
+    }
+
     let result = path;
     menuNavigation.links.some((item) => {
       if (found) {
@@ -74,9 +78,9 @@ const IntegratedBreadcrumbs = ({
 }: {
   title: string;
   slug: string;
-  menuNavigation: NavigationData;
+  menuNavigation?: NavigationData;
 } & BreadcrumbsProps) => {
-  const path = findPath(slug, menuNavigation);
+  const path = menuNavigation ? findPath(slug, menuNavigation) : [];
   const { countryCode, homePage } = useContext(SiteContext);
 
   return (

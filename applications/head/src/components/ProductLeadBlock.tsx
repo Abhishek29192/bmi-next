@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import Button from "@bmi/button";
+import React, { useContext, useState } from "react";
 import LeadBlock from "@bmi/lead-block";
 import Icon from "@bmi/icon";
 import IconList from "@bmi/icon-list";
@@ -11,6 +10,12 @@ import RichText from "./RichText";
 import { Document } from "@contentful/rich-text-types";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { SiteContext } from "./Site";
+import { Data as PIMDocumentData } from "./PIMDocument";
+import DownloadList from "@bmi/download-list";
+import DocumentResultsFooter, {
+  handleDownloadClick
+} from "./DocumentResultsFooter";
+import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
 
@@ -34,7 +39,10 @@ type Props = {
   }[];
   guaranteesAndWarranties?: GuaranteesAndAwardsAsset[];
   awardsAndCertificates?: GuaranteesAndAwardsAsset[];
+  documents: PIMDocumentData[];
 };
+
+const DOCUMENTS_PER_PAGE = 24;
 
 const ProductLeadBlock = ({
   description,
@@ -42,9 +50,12 @@ const ProductLeadBlock = ({
   technicalSpecifications,
   sidebarItems,
   guaranteesAndWarranties,
-  awardsAndCertificates
+  awardsAndCertificates,
+  documents
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
+  const [page, setPage] = useState(1);
+  const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
 
   return (
     <div className={styles["ProductLeadBlock"]}>
@@ -67,7 +78,7 @@ const ProductLeadBlock = ({
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
-                    Guarantees and warranties
+                    {getMicroCopy("pdp.leadBlock.guaranteesWarranties")}
                   </LeadBlock.Content.Heading>
                   {guaranteesAndWarranties.map((item, i) => (
                     <img
@@ -84,7 +95,7 @@ const ProductLeadBlock = ({
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
                   <LeadBlock.Content.Heading>
-                    Awards and certificates
+                    {getMicroCopy("pdp.leadBlock.awardsCertificates")}
                   </LeadBlock.Content.Heading>
                   {awardsAndCertificates.map((item, i) => (
                     <img
@@ -171,6 +182,27 @@ const ProductLeadBlock = ({
               </LeadBlock.Card>
             )}
           </LeadBlock>
+        </Tabs.TabPanel>
+        <Tabs.TabPanel
+          heading={getMicroCopy("pdp.leadBlock.documents")}
+          index="three"
+        >
+          <div className={styles["document-library"]}>
+            <DownloadList>
+              <DocumentSimpleTableResults
+                documents={documents}
+                page={page}
+                documentsPerPage={DOCUMENTS_PER_PAGE}
+                headers={["type", "download", "add"]}
+              />
+              <DocumentResultsFooter
+                page={page}
+                count={count}
+                onDownloadClick={handleDownloadClick}
+                onPageChange={(_, page) => setPage(page)}
+              />
+            </DownloadList>
+          </div>
         </Tabs.TabPanel>
       </Tabs>
     </div>

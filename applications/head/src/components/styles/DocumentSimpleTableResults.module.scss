@@ -1,0 +1,34 @@
+@import "@bmi/styles";
+
+.DocumentSimpleTableResults {
+  .table-header {
+    width: 92px;
+    white-space: nowrap;
+  }
+
+  .table-cell {
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  :global {
+    .MuiFormControlLabel-root {
+      margin-right: 0;
+    }
+  }
+
+  .row {
+    &--checked {
+      // Hack for position relative for tr
+      // See https://github.com/w3c/csswg-drafts/issues/1899
+      transform: scale(1);
+      background-color: rgba($color-cyan-400, 0.1) !important;
+      box-shadow: inset 0px 0px 0px 1px $color-cyan-400;
+    }
+  }
+
+  .download-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
