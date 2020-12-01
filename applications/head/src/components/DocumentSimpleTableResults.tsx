@@ -7,7 +7,6 @@ import Icon, { iconMap } from "@bmi/icon";
 import { Data as PIMDocumentData } from "./PIMDocument";
 import { Data as DocumentData } from "./Document";
 import { SiteContext } from "./Site";
-import { getClickableActionFromUrl } from "./Link";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
@@ -63,7 +62,10 @@ type FileDownloadButtonProps = {
 
 const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
   <Button
-    action={getClickableActionFromUrl(null, null, null, `https:${url}`)}
+    action={{
+      model: "download",
+      href: `https:${url.replace("https:", "")}`
+    }}
     variant="text"
     startIcon={
       <Icon source={fileIconsMap[format]} className={styles["download-icon"]} />
