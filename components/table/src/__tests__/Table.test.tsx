@@ -115,4 +115,27 @@ describe("Table component", () => {
     const { container } = render(<ExampleTable />);
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders without striped rows", () => {
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 401,
+      mediumTableWidth: 400
+    });
+    const { container } = render(
+      <Table rowBgColorPattern="none">
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Row 1 - Cell 1</Table.Cell>
+            <Table.Cell>Row 1 - Cell 2</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Row 2 - Cell 1</Table.Cell>
+            <Table.Cell>Row 2 - Cell 2</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
