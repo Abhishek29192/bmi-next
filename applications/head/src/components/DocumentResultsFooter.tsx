@@ -23,8 +23,10 @@ export const handleDownloadClick = async (list: Record<string, any>) => {
   }
 
   try {
-    if (!process.env.DOWNLOAD_ZIP_FUNCTION_URL) {
-      throw Error("`DOWNLOAD_ZIP_FUNCTION_URL` missing in environment config");
+    if (!process.env.GATSBY_GCP_DOWNLOAD_ZIP_ENDPOINT) {
+      throw Error(
+        "`GATSBY_GCP_DOWNLOAD_ZIP_ENDPOINT` missing in environment config"
+      );
     }
 
     const requestBody = _.flatten(listValues).map(
@@ -39,7 +41,7 @@ export const handleDownloadClick = async (list: Record<string, any>) => {
     );
 
     const response = await axios.post(
-      process.env.DOWNLOAD_ZIP_FUNCTION_URL,
+      process.env.GATSBY_GCP_DOWNLOAD_ZIP_ENDPOINT,
       requestBody,
       { responseType: "blob" }
     );

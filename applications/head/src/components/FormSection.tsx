@@ -72,7 +72,7 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
-          uri={process.env.FORM_UPLOAD_FUNCTION_URL}
+          uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{ "Content-Type": "application/octet-stream" }}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions="Supported formats: PDF, JPG, JPEG and PNG"
@@ -136,7 +136,7 @@ const FormSection = ({
     try {
       const source = axios.CancelToken.source();
       await axios.post(
-        process.env.FORM_SUBMIT_FUNCTION_URL,
+        process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
         {
           locale: "en-US",
           title,
