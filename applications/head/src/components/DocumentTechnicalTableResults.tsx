@@ -211,7 +211,7 @@ const DocumentTechnicalTableResults = ({
                     ariaLabel={`${getMicroCopy(
                       "documentLibrary.download"
                     )} ${productName}`}
-                    value={document}
+                    value={assets}
                   />
                 </Table.Cell>
               </Table.Row>

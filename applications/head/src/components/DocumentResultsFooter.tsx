@@ -4,6 +4,7 @@ import Pagination from "@bmi/pagination";
 import DownloadList from "@bmi/download-list";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
+import _ from "lodash";
 import { downloadAs } from "../utils/client-download";
 
 type Props = {
@@ -26,7 +27,7 @@ export const handleDownloadClick = async (list: Record<string, any>) => {
       throw Error("`DOWNLOAD_ZIP_FUNCTION_URL` missing in environment config");
     }
 
-    const requestBody = listValues.map(
+    const requestBody = _.flatten(listValues).map(
       ({ __typename, asset, extension, title, url }) => ({
         href:
           __typename === "ContentfulDocument" ? `https:${asset.file.url}` : url,
