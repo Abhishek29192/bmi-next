@@ -88,7 +88,7 @@ const DocumentSimpleTableResults = ({
 
   return (
     <div className={styles["DocumentSimpleTableResults"]}>
-      <Table>
+      <Table rowBgColorPattern="none">
         <Table.Head>
           <Table.Row>
             {headers.map((header) => (

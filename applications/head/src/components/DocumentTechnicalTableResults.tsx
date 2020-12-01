@@ -130,7 +130,7 @@ const DocumentTechnicalTableResults = ({
 
   return (
     <div className={styles["DocumentTechnicalTableResults"]}>
-      <Table>
+      <Table rowBgColorPattern="none">
         <Table.Head>
           <Table.Row className={styles["header-row"]}>
             <Table.Cell>Product</Table.Cell>
