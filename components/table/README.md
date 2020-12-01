@@ -275,3 +275,41 @@ Without enough space to render a multi-column table and also a fixed two-columns
   </Table>
 </div>
 ```
+
+### Not striped
+
+```jsx
+<Table rowBgColorPattern="none">
+  <Table.Head>
+    <Table.Row>
+      <Table.Cell>Train station</Table.Cell>
+      <Table.Cell>Year opened</Table.Cell>
+      <Table.Cell>Served by</Table.Cell>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>Llandudno</Table.Cell>
+      <Table.Cell>1858</Table.Cell>
+      <Table.Cell>Transport for Wales</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>Llandybie</Table.Cell>
+      <Table.Cell>1857</Table.Cell>
+      <Table.Cell>Transport for Wales</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>Llandudno Junction</Table.Cell>
+      <Table.Cell>1858</Table.Cell>
+      <Table.Cell>Transport for Wales</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch
+      </Table.Cell>
+      <Table.Cell>1869</Table.Cell>
+      <Table.Cell>Transport for Wales</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+```
