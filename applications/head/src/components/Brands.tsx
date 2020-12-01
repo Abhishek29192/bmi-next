@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
-
-import Typography from "@bmi/typography";
 import Section from "@bmi/section";
 import BrandIntroCard from "@bmi/brand-intro-card";
 import Grid from "@bmi/grid";
