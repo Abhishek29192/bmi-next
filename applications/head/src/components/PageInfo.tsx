@@ -5,7 +5,8 @@ export type Data = {
     | "ContentfulSimplePage"
     | "ContentfulContactUsPage"
     | "ContentfulTeamPage"
-    | "ContentfulProductListerPage";
+    | "ContentfulProductListerPage"
+    | "ContentfulDocumentLibraryPage";
   title: string;
   subtitle: string | null;
   brandLogo: string | null;
