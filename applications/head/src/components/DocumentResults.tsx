@@ -24,7 +24,7 @@ const documentResultsMap: Record<Format, React.ElementType> = {
   cards: DocumentCardsResults
 };
 
-const DOCUMENTS_PER_PAGE = 20;
+const DOCUMENTS_PER_PAGE = 24;
 
 const DocumentResults = ({ data, format }: Props) => {
   const [page, setPage] = useState(1);

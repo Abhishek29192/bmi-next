@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import Pagination from "@bmi/pagination";
-import DownloadList from "@bmi/download-list";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
 import _ from "lodash";
@@ -14,7 +14,10 @@ type Props = {
   onDownloadClick?: (list: Record<string, any>) => void;
 };
 
-export const handleDownloadClick = async (list: Record<string, any>) => {
+export const handleDownloadClick = async (
+  list: Record<string, any>,
+  callback?: () => void
+) => {
   const listValues = Object.values(list).filter(Boolean);
   const currentTime = new Date().getTime();
 
@@ -46,7 +49,11 @@ export const handleDownloadClick = async (list: Record<string, any>) => {
       { responseType: "blob" }
     );
 
-    return downloadAs(response.data, `BMI_${currentTime}.zip`);
+    await downloadAs(response.data, `BMI_${currentTime}.zip`);
+
+    if (callback) {
+      callback();
+    }
   } catch (error) {
     console.error("DocumentResults", error); // eslint-disable-line
   }
@@ -59,6 +66,7 @@ const DocumentResultsFooter = ({
   onDownloadClick
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
+  const { resetList } = useContext(DownloadListContext);
 
   return (
     <div className={styles["DocumentResultsFooter"]}>
@@ -76,7 +84,7 @@ const DocumentResultsFooter = ({
           />
           <DownloadList.Button
             label={`${getMicroCopy("downloadList.download")} ({{count}})`}
-            onClick={onDownloadClick}
+            onClick={(list) => onDownloadClick(list, resetList)}
           />
         </>
       )}
