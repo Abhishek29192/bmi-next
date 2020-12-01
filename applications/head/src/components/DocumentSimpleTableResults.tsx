@@ -10,7 +10,7 @@ import { SiteContext } from "./Site";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
-type AvailableHeader = "type" | "title" | "download" | "add";
+type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
 type Props = {
   documents: (DocumentData | PIMDocumentData)[];
@@ -79,7 +79,7 @@ const DocumentSimpleTableResults = ({
   documents,
   page,
   documentsPerPage,
-  headers = ["type", "title", "download", "add"]
+  headers = ["typeCode", "title", "download", "add"]
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
   const { list } = useContext(DownloadListContext);
@@ -119,6 +119,14 @@ const DocumentSimpleTableResults = ({
               >
                 {headers.map((header) => {
                   const key = `${title}-body-${header}`;
+
+                  if (header === "typeCode") {
+                    return (
+                      <Table.Cell className={styles["table-cell"]} key={key}>
+                        {document.assetType.code}
+                      </Table.Cell>
+                    );
+                  }
 
                   if (header === "type") {
                     return (
