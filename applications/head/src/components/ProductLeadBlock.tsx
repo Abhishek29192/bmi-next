@@ -42,7 +42,7 @@ type Props = {
   documents: PIMDocumentData[];
 };
 
-const DOCUMENTS_PER_PAGE = 20;
+const DOCUMENTS_PER_PAGE = 24;
 
 const ProductLeadBlock = ({
   description,
