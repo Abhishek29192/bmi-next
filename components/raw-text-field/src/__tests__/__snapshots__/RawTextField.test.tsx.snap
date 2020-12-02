@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RawTextField component renders correctly 1`] = `
+<div
+  class="MuiFormControl-root MuiTextField-root RawTextField"
+>
+  <label
+    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+    data-shrink="false"
+    for="email"
+    id="email-label"
+  >
+    Email address
+  </label>
+  <div
+    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+  >
+    <input
+      aria-invalid="false"
+      class="MuiInputBase-input MuiOutlinedInput-input"
+      id="email"
+      placeholder="e.g. lorem@ipsum.com"
+      type="text"
+      value=""
+    />
+    <fieldset
+      aria-hidden="true"
+      class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+    >
+      <legend
+        class="PrivateNotchedOutline-legendLabelled-3"
+      >
+        <span>
+          Email address
+        </span>
+      </legend>
+    </fieldset>
+  </div>
+</div>
+`;
