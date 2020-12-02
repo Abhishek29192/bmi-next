@@ -85,7 +85,7 @@ HTMLCollection [
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root"
+                        class="MuiAccordionDetails-root details"
                       >
                         <div />
                       </div>
