@@ -31,11 +31,12 @@ exports.onInitialClientRender = () => {
       popup: { background: "#f7f7f7" },
       button: { background: "#007bbd" }
     },
-    revokeBtn: `<div class="cc-revoke {{classes}}" style="transform: translateY(0px);">{{policy}}</div>`, // Keep revoke button visible
+    revokeBtn: `<div class="cc-revoke {{classes}}" style="transform: translateY(0px); font-size: 11px;left: initial; right: 3em;">{{policy}}</div>`, // Keep revoke button visible
     content: {
       message:
         "This estimator uses a cookie to help Google Analytics collect anonymous data on how the tool is being used, which helps us build a better tool, and other cookies that are required for the tool to function.",
       link: "Cookie policy.",
+      policy: "Cookie preferences",
       href: "https://www.bmigroup.com/legal/cookie-policy"
     },
     revokable: true,
