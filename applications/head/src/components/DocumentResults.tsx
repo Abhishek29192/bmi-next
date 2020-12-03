@@ -5,9 +5,15 @@ import { Data as PIMDocumentData } from "./PIMDocument";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../components/DocumentResultsFooter";
-import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
-import DocumentCardsResults from "./DocumentCardsResults";
+import DocumentSimpleTableResults, {
+  getCount as getSimpleTableCount
+} from "./DocumentSimpleTableResults";
+import DocumentTechnicalTableResults, {
+  getCount as getTechnicalTableCount
+} from "./DocumentTechnicalTableResults";
+import DocumentCardsResults, {
+  getCount as getCardsCount
+} from "./DocumentCardsResults";
 
 export type Data = (PIMDocumentData | DocumentData)[];
 
@@ -18,18 +24,21 @@ type Props = {
   format: Format;
 };
 
-const documentResultsMap: Record<Format, React.ElementType> = {
-  simpleTable: DocumentSimpleTableResults,
-  technicalTable: DocumentTechnicalTableResults,
-  cards: DocumentCardsResults
+const documentResultsMap: Record<
+  Format,
+  [(documents: Data) => void, React.ElementType]
+> = {
+  simpleTable: [getSimpleTableCount, DocumentSimpleTableResults],
+  technicalTable: [getTechnicalTableCount, DocumentTechnicalTableResults],
+  cards: [getCardsCount, DocumentCardsResults]
 };
 
 const DOCUMENTS_PER_PAGE = 24;
 
 const DocumentResults = ({ data, format }: Props) => {
   const [page, setPage] = useState(1);
-  const count = Math.ceil(data.length / DOCUMENTS_PER_PAGE);
-  const ResultsComponent = documentResultsMap[format];
+  const [getCount, ResultsComponent] = documentResultsMap[format];
+  const count = Math.ceil(getCount(data) / DOCUMENTS_PER_PAGE);
 
   if (!ResultsComponent) {
     return null;

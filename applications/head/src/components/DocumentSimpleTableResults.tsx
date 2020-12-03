@@ -75,6 +75,10 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
   </Button>
 );
 
+export const getCount = (documents: Props["documents"]) => {
+  return documents.length;
+};
+
 const DocumentSimpleTableResults = ({
   documents,
   page,

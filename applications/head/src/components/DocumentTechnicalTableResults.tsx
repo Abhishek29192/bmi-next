@@ -104,6 +104,10 @@ const fileIconsMap: Record<Format, React.ComponentType> = {
   "image/png": iconMap.FilePNG
 };
 
+export const getCount = (documents: Props["documents"]) => {
+  return Object.entries(groupBy(documents, "product.name")).length;
+};
+
 const DocumentTechnicalTableResults = ({
   documents,
   page,
