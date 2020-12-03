@@ -40,3 +40,28 @@ import UserIcon from "@material-ui/icons/Person";
   </IconList.Item>
 </IconList>;
 ```
+
+### Compact list items
+
+```jsx
+import CheckIcon from "@material-ui/icons/Check";
+const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
+
+<IconList>
+  <IconList.Item
+    isCompact
+    icon={BlueCheckIcon}
+    title="Lorem, ipsum dolor sit amet consectetur adipisicing elit"
+  />
+  <IconList.Item
+    isCompact
+    icon={BlueCheckIcon}
+    title="Minoritetsladningsbærerdiffusjonskoeffisientmålingsapparatur"
+  />
+  <IconList.Item
+    isCompact
+    icon={BlueCheckIcon}
+    title="Excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia"
+  />
+</IconList>;
+```

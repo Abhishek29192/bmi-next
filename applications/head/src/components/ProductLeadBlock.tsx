@@ -119,6 +119,7 @@ const ProductLeadBlock = ({
                           key={index}
                           icon={BlueCheckIcon}
                           title={feature}
+                          isCompact
                         />
                       ))}
                     </IconList>

@@ -65,4 +65,14 @@ describe("IconList component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders compact list correctly", () => {
+    const { container } = render(
+      <IconList>
+        <IconList.Item title="Title 1" isCompact />
+        <IconList.Item title="Title 2" isCompact />
+        <IconList.Item title="Title 3" isCompact />
+      </IconList>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

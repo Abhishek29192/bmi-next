@@ -632,6 +632,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                         key={index}
                         icon={BlueCheckIcon}
                         title={feature}
+                        isCompact
                       />
                     ))}
                   </IconList>
