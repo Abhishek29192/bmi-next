@@ -106,7 +106,9 @@ exports[`ContentTopics component renders correctly 1`] = `
                 <span
                   class="description"
                 >
-                  <div>
+                  <div
+                    class="RichText"
+                  >
                     <p
                       class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
                     >
@@ -154,7 +156,9 @@ exports[`ContentTopics component renders correctly 1`] = `
                 <span
                   class="description"
                 >
-                  <div>
+                  <div
+                    class="RichText"
+                  >
                     <p
                       class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
                     >
@@ -181,7 +185,9 @@ exports[`ContentTopics component renders correctly 1`] = `
             >
               teste
             </p>
-            <div>
+            <div
+              class="RichText"
+            >
               <p
                 class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
               >
