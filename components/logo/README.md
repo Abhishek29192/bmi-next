@@ -6,40 +6,110 @@ the SVG or is found as a property on the SVG itself.
 ## Usage
 
 ```jsx
-import BmiIcon from "./svgs/BMI.svg";
+import { BMI } from "@bmi/logo";
 
-<Logo source={BmiIcon} />;
+<Logo source={BMI} />;
 ```
 
 The `@bmi/icon` component can also be used directly in the same way.
 
 ```jsx
 import Icon from "@bmi/icon";
-import BmiIcon from "./svgs/BMI.svg";
+import { BMI } from "@bmi/logo";
 
-<Icon source={BmiIcon} style={{ width: 100 }} />;
+<Icon source={BMI} style={{ width: 100 }} />;
 ```
 
-## Variants
+## All logos
 
 ```jsx
-import AeroDekIcon from "./svgs/AeroDek.svg";
-import BraasIcon from "./svgs/Braas.svg";
-import IcopalIcon from "./svgs/Icopal.svg";
-import MonarplanIcon from "./svgs/Monarplan.svg";
-import MonierIcon from "./svgs/Monier.svg";
-import RedlandIcon from "./svgs/Redland.svg";
-import ZandaIcon from "./svgs/Zanda.svg";
+import Grid from "@bmi/grid";
+import { iconMap } from "@bmi/logo";
 
-const style = { marginRight: "1rem", width: "40%" };
+<Grid container spacing={2}>
+  {Object.values(iconMap).map((icon) => (
+    <Grid item xs={4}>
+      <Logo source={icon} />
+    </Grid>
+  ))}
+</Grid>;
+```
 
-<>
-  <Logo source={AeroDekIcon} style={style} />
-  <Logo source={BraasIcon} style={style} />
-  <Logo source={IcopalIcon} style={style} />
-  <Logo source={MonarplanIcon} style={style} />
-  <Logo source={MonierIcon} style={style} />
-  <Logo source={RedlandIcon} style={style} />
-  <Logo source={ZandaIcon} style={style} />
-</>;
+## RoofPro Levels
+
+```jsx
+import Grid from "@bmi/grid";
+import { RoofProElite, RoofProExpert, RoofProPartner } from "@bmi/logo";
+
+<Grid container spacing={2}>
+  <Grid item xs={4}>
+    <Logo source={RoofProElite} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={RoofProExpert} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={RoofProPartner} />
+  </Grid>
+</Grid>;
+```
+
+## Small Partner variant
+
+To be used when height of the logo would be <= 30px
+
+```jsx
+import Grid from "@bmi/grid";
+import { RoofProPartnerSmall } from "@bmi/logo";
+
+<Grid container spacing={2}>
+  <Grid item xs={4}>
+    <Logo source={RoofProPartnerSmall} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={RoofProPartnerSmall} style={{ height: 30 }} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={RoofProPartnerSmall} style={{ height: 15 }} />
+  </Grid>
+</Grid>;
+```
+
+## Guarantees
+
+```jsx
+import Grid from "@bmi/grid";
+import {
+  GuaranteeProduct,
+  GuaranteeSystem,
+  GuaranteeSolution
+} from "@bmi/logo";
+
+<Grid container spacing={2}>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeProduct} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeSystem} />
+  </Grid>
+  <Grid item xs={4}>
+    <Logo source={GuaranteeSolution} />
+  </Grid>
+</Grid>;
+```
+
+## Standard
+
+```jsx
+import Grid from "@bmi/grid";
+import { Standard, StandardCentred } from "@bmi/logo";
+
+<Grid container spacing={2}>
+  <Grid item xs={6}>
+    <Logo source={Standard} />
+  </Grid>
+  <Grid item xs={6}>
+    <Logo source={StandardCentred} />
+  </Grid>
+</Grid>;
 ```

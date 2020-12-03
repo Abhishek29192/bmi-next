@@ -1,19 +1,24 @@
 import Button from "@bmi/button";
+import { InputValue } from "@bmi/form";
 import Icon from "@bmi/icon";
-import InputGroup from "@bmi/input-group";
+import Search from "@bmi/search";
 import LanguageSelection, {
   defaultLanguage,
   LanguageSelectionItem,
   LanguageSelectionList
 } from "@bmi/language-selection";
-import BmiIcon from "@bmi/logo/svgs/BMI.svg";
-import Navigation, { LinkList, NavitationList } from "@bmi/navigation";
-import TextField from "@bmi/text-field";
+import { BMI as BmiIcon } from "@bmi/logo";
+import Clickable, { ClickableAction } from "@bmi/clickable";
+import Navigation, { LinkList, NavigationList } from "@bmi/navigation";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import { Backdrop, Paper, Slide, Tab, Tabs } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-import { Close, KeyboardArrowDown, Menu, Search } from "@material-ui/icons";
+import {
+  Close,
+  KeyboardArrowDown,
+  Menu,
+  Search as SearchIcon
+} from "@material-ui/icons";
 import classnames from "classnames";
 import React from "react";
 import styles from "./Header.module.scss";
@@ -21,19 +26,30 @@ import styles from "./Header.module.scss";
 type HeaderProps = {
   language?: LanguageSelectionItem;
   languages?: readonly LanguageSelectionList[];
-  navigation: readonly NavitationList[];
+  navigation: readonly NavigationList[];
   utilities: readonly LinkList[];
+  logoAction?: ClickableAction;
+  activeNavLabel?: string;
+  closeLabel?: string;
+  searchIsHidden?: boolean;
+  searchLabel?: string;
+  searchPlaceholder?: string;
+  openLabel?: string;
 };
 
 const Header = ({
   language = defaultLanguage,
   languages,
   navigation,
-  utilities
+  utilities,
+  logoAction = { model: "htmlLink", href: "/" },
+  activeNavLabel,
+  closeLabel = "Close",
+  searchIsHidden,
+  searchLabel = "Search",
+  searchPlaceholder = "Search BMI...",
+  openLabel = "Open menu"
 }: HeaderProps) => {
-  const { breakpoints } = useTheme();
-  breakpoints.values.md = 800; // Override
-
   const $body: HTMLElement =
     typeof document !== "undefined"
       ? document.querySelector("body")
@@ -43,6 +59,7 @@ const Header = ({
     boolean
   >(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
+  const [searchValue, setSearchValue] = React.useState<InputValue>("");
   const [value, setValue] = React.useState<number | boolean>(false);
 
   const amendClassList = (classValue: string, method: "add" | "remove") => {
@@ -78,18 +95,31 @@ const Header = ({
     setShowLanguageSelection(!showLanguageSelection);
 
   const toggleSearch = () => {
-    if (!showSearch) setValue(false);
+    if (!showSearch) {
+      setValue(false);
+      setSearchValue("");
+      amendClassList(styles.MenuIsOpen, "remove");
+    }
     setShowSearch(!showSearch);
+  };
+
+  const handleSearchChange = (value: InputValue): void => {
+    setSearchValue(value);
   };
 
   const hideAll = () => {
     setValue(false);
     setShowLanguageSelection(false);
     setShowSearch(false);
+    amendClassList(styles.MenuIsOpen, "remove");
   };
 
-  const handleResize = ({ target }) => {
-    setSize(target.innerWidth < breakpoints.width("md") ? "small" : "large");
+  const handleResize = ({ currentTarget }) => {
+    setSize(
+      currentTarget.innerWidth < parseFloat(styles["breakpoint-sm"])
+        ? "small"
+        : "large"
+    );
     // @todo: calculate from `es` somehow...
     // const $NavigationBarLeft: HTMLElement = document.querySelector(
     //   `.${styles.NavigationBar__Left}`
@@ -102,7 +132,8 @@ const Header = ({
   };
 
   React.useEffect(() => {
-    handleResize({ target: window });
+    amendClassList(styles.MenuIsOpen, "remove");
+    handleResize({ currentTarget: window });
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -169,7 +200,7 @@ const Header = ({
         >
           <div className={classnames(styles.Drawer, styles.LanguageDrawer)}>
             <Button
-              accessibilityLabel="Close"
+              accessibilityLabel={closeLabel}
               className={styles.CloseButton}
               isIconButton
               onClick={toggleLanguageSelection}
@@ -185,7 +216,9 @@ const Header = ({
       <div className={styles.NavigationBar}>
         <Container>
           <div className={styles.NavigationBar__Left}>
-            <Icon className={styles.Logo} source={BmiIcon} />
+            <Clickable {...logoAction} className={styles.LogoLink}>
+              <Icon className={styles.Logo} source={BmiIcon} />
+            </Clickable>
             <nav
               aria-label="Navigation"
               className={styles.Navigation}
@@ -200,7 +233,10 @@ const Header = ({
                 {navigation.map(({ label }, key) => (
                   <Tab
                     aria-controls={`navigation-tabpanel-${key}`}
-                    className={styles.NavItem}
+                    className={classnames(
+                      styles["NavItem"],
+                      activeNavLabel === label && styles["NavItem--selected"]
+                    )}
                     icon={<KeyboardArrowDown />}
                     id={`navigation-tab-${key}`}
                     key={`navigation-tab-${key}`}
@@ -211,15 +247,17 @@ const Header = ({
             </nav>
           </div>
           <div className={styles.NavigationBar__Right}>
+            {!searchIsHidden && (
+              <Button
+                accessibilityLabel={searchLabel}
+                isIconButton
+                onClick={toggleSearch}
+              >
+                <Icon source={SearchIcon} />
+              </Button>
+            )}
             <Button
-              accessibilityLabel="Search"
-              isIconButton
-              onClick={toggleSearch}
-            >
-              <Icon source={Search} />
-            </Button>
-            <Button
-              accessibilityLabel="Open menu"
+              accessibilityLabel={openLabel}
               className={styles.BurgerButton}
               isIconButton
               onClick={toggleMenu}
@@ -240,7 +278,7 @@ const Header = ({
       >
         <div className={classnames(styles.Drawer, styles.NavDrawer)}>
           <Button
-            accessibilityLabel="Close"
+            accessibilityLabel={closeLabel}
             className={styles.CloseButton}
             isIconButton
             onClick={toggleMenu}
@@ -256,34 +294,27 @@ const Header = ({
           />
         </div>
       </Slide>
-      <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
-        <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
-          <Button
-            accessibilityLabel="Close"
-            className={styles.CloseButton}
-            isIconButton
-            onClick={toggleSearch}
-          >
-            <Icon source={Close} />
-          </Button>
-          <Typography variant="h4">How can we help you today?</Typography>
-          <InputGroup
-            input={
-              <TextField
-                name="input-banner-text-field"
-                variant="hybrid"
-                label="Search BMI..."
-              />
-            }
-            button={
-              // TODO: Use a submit button for Form control functionalities.
-              <Button accessibilityLabel="Search" isIconButton>
-                <Icon source={Search} />
-              </Button>
-            }
-          />
-        </div>
-      </Slide>
+      {!searchIsHidden && (
+        <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
+          <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
+            <Button
+              accessibilityLabel={closeLabel}
+              className={styles.CloseButton}
+              isIconButton
+              onClick={toggleSearch}
+            >
+              <Icon source={Close} />
+            </Button>
+            <Typography variant="h4">How can we help you today?</Typography>
+            <Search
+              label={searchLabel}
+              onChange={handleSearchChange}
+              placeholder={searchPlaceholder}
+              value={searchValue}
+            />
+          </div>
+        </Slide>
+      )}
     </Paper>
   );
 };

@@ -1,37 +1,101 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import { BLOCKS, MARKS, Document } from "@contentful/rich-text-types";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS, MARKS, Document, Block } from "@contentful/rich-text-types";
+import {
+  documentToReactComponents,
+  Options
+} from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
+import EmbeddedBlock from "./EmbeddedBlock";
+import styles from "./styles/RichText.module.scss";
 
-const options = {
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <Typography gutterBottom>{children}</Typography>
-    ),
-    [BLOCKS.HEADING_2]: (node, children) => (
-      <Typography variant="h2">{children}</Typography>
-    ),
-    [BLOCKS.HEADING_3]: (node, children) => (
-      <Typography variant="h3">{children}</Typography>
-    ),
-    [BLOCKS.HEADING_4]: (node, children) => (
-      <Typography variant="h4">{children}</Typography>
-    ),
-    [BLOCKS.HEADING_5]: (node, children) => (
-      <Typography variant="h5">{children}</Typography>
-    ),
-    [BLOCKS.HEADING_6]: (node, children) => (
-      <Typography variant="h6">{children}</Typography>
-    )
-  },
-  renderMark: {
-    [MARKS.BOLD]: (text) => <strong>{text}</strong>
-  }
+type Settings = {
+  theme?: "primary" | "secondary";
+  backgroundTheme?: "light" | "dark";
+  underlineHeadings?: ("h2" | "h3" | "h4" | "h5" | "h6")[];
 };
 
-const RichText = ({ document }: { document: Document }) => {
-  return <div>{documentToReactComponents(document, options)}</div>;
+const getOptions = (settings: Settings): Options => {
+  const { underlineHeadings = [] } = settings;
+
+  return {
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (_node, children) => {
+        if (!children) {
+          return null;
+        }
+
+        if (
+          Array.isArray(children) &&
+          (!children.length || (children.length === 1 && !children[0]))
+        ) {
+          return null;
+        }
+
+        return <Typography gutterBottom>{children}</Typography>;
+      },
+      [BLOCKS.HEADING_2]: (_node, children) => (
+        <Typography
+          className={styles["title"]}
+          variant="h2"
+          hasUnderline={underlineHeadings.includes("h2")}
+        >
+          {children}
+        </Typography>
+      ),
+      [BLOCKS.HEADING_3]: (_node, children) => (
+        <Typography
+          className={styles["title"]}
+          variant="h3"
+          hasUnderline={underlineHeadings.includes("h3")}
+        >
+          {children}
+        </Typography>
+      ),
+      [BLOCKS.HEADING_4]: (_node, children) => (
+        <Typography
+          className={styles["title"]}
+          variant="h4"
+          hasUnderline={underlineHeadings.includes("h4")}
+        >
+          {children}
+        </Typography>
+      ),
+      [BLOCKS.HEADING_5]: (_node, children) => (
+        <Typography
+          className={styles["title"]}
+          variant="h5"
+          hasUnderline={underlineHeadings.includes("h5")}
+        >
+          {children}
+        </Typography>
+      ),
+      [BLOCKS.HEADING_6]: (_node, children) => (
+        <Typography
+          className={styles["title"]}
+          variant="h6"
+          hasUnderline={underlineHeadings.includes("h6")}
+        >
+          {children}
+        </Typography>
+      ),
+      [BLOCKS.EMBEDDED_ENTRY]: (node: Block) => (
+        <EmbeddedBlock node={node} {...settings} />
+      )
+    },
+    renderMark: {
+      [MARKS.BOLD]: (text) => <strong>{text}</strong>
+    }
+  };
+};
+
+const RichText = ({
+  document,
+  ...rest
+}: {
+  document: Document;
+} & Settings) => {
+  return <div>{documentToReactComponents(document, getOptions(rest))}</div>;
 };
 
 export default RichText;

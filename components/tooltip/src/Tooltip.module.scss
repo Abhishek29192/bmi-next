@@ -1,0 +1,9 @@
+.Tooltip {
+  & + :global(.MuiTooltip-popper) {
+    z-index: 9;
+
+    :global(.MuiTooltip-tooltipPlacementBottom) {
+      margin: 0;
+    }
+  }
+}

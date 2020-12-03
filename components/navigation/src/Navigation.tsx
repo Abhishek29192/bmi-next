@@ -1,6 +1,5 @@
 import Button, { ButtonProps, ClickableAction } from "@bmi/button";
 import Icon from "@bmi/icon";
-import Arrow from "@bmi/icon/src/svgs/Arrow.svg";
 import Typography from "@bmi/typography";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import classnames from "classnames";
@@ -11,19 +10,20 @@ export type LinkList = {
   label: string;
   hasSeparator?: boolean;
   action?: ClickableAction;
+  icon?: SVGImport;
   image?: string;
   isHeading?: boolean;
-  isBigLink?: boolean;
+  isLabelHidden?: boolean;
   isParagraph?: boolean;
 };
 
-export type NavitationList = LinkList & {
+export type NavigationList = LinkList & {
   footer?: readonly LinkList[];
-  menu?: readonly NavitationList[];
+  menu?: readonly NavigationList[];
 };
 
 type NavigationProps = {
-  menu: readonly NavitationList[];
+  menu: readonly NavigationList[];
   initialDepth?: number;
   initialValue?: number | boolean;
   toggleLanguageSelection?: (boolean) => void;
@@ -42,7 +42,7 @@ const Navigation = ({
   React.useEffect(() => setDepth(initialDepth), [initialDepth]);
 
   return (
-    <nav className={styles.Navigation}>
+    <nav className={styles["Navigation"]}>
       <NavigationList
         className={styles[`Offset${depth * 100}`]}
         depth={0}
@@ -62,7 +62,7 @@ type NavigationListProps = {
   backLabel?: string;
   className?: string;
   depth: number;
-  menu: readonly NavitationList[];
+  menu: readonly NavigationList[];
   show?: boolean;
   initialValue?: number | boolean;
   isFooter?: boolean;
@@ -103,7 +103,7 @@ const NavigationList = ({
 
   return (
     <div
-      className={classnames(styles.NavigationList, {
+      className={classnames(styles["NavigationList"], {
         [className]: isRoot,
         [styles["NavigationList--footer"]]: isFooter,
         [styles["NavigationList--show"]]: show
@@ -111,21 +111,21 @@ const NavigationList = ({
     >
       <ul>
         {parentHandleClick ? (
-          <li className={styles.BackNavigation} key={`menu-${depth}-back`}>
+          <li className={styles["BackNavigation"]} key={`menu-${depth}-back`}>
             <NavigationListButton
-              className={styles.BackButton}
+              className={styles["BackButton"]}
+              startIcon={<ChevronLeft className={styles["chevronLeft"]} />}
               endIcon={false}
               onClick={() => parentHandleClick(false)}
-              startIcon={<ChevronLeft />}
             >
               {backLabel}
             </NavigationListButton>
-            <hr className={styles.Separator} />
+            <hr className={styles["Separator"]} />
           </li>
         ) : (
           !isFooter && (
             <li key={`menu-${depth}-heading`}>
-              <Typography className={styles.MainMenuTitle} variant="h6">
+              <Typography className={styles["MainMenuTitle"]} variant="h6">
                 BMI Group
               </Typography>
             </li>
@@ -137,9 +137,10 @@ const NavigationList = ({
               footer,
               hasSeparator,
               action,
+              icon,
               image = null,
               isHeading,
-              isBigLink,
+              isLabelHidden,
               isParagraph,
               label,
               menu: subMenu
@@ -150,10 +151,12 @@ const NavigationList = ({
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
                   active={value === key}
-                  endIcon={<ChevronRight />}
+                  accessibilityLabel={label}
+                  startIcon={icon && <Icon source={icon} />}
+                  endIcon={<ChevronRight className={styles["chevronRight"]} />}
                   onClick={() => handleClick(key)}
                 >
-                  {label}
+                  {isLabelHidden ? null : label}
                 </NavigationListButton>
                 <NavigationList
                   backLabel={menu[0].isHeading ? menu[0].label : "Main menu"}
@@ -163,7 +166,7 @@ const NavigationList = ({
                   parentHandleClick={handleClick}
                   setDepth={setDepth}
                 />
-                {hasSeparator && <hr className={styles.Separator} />}
+                {hasSeparator && <hr className={styles["Separator"]} />}
               </li>
             ) : (
               <li key={`menu-${depth}-item-${key}`}>
@@ -171,7 +174,7 @@ const NavigationList = ({
                   if (isHeading) {
                     return (
                       <Typography
-                        className={styles.NavigationListType}
+                        className={styles["NavigationListType"]}
                         variant="h6"
                       >
                         {label}
@@ -180,7 +183,7 @@ const NavigationList = ({
                   } else if (isParagraph) {
                     return (
                       <Typography
-                        className={styles.NavigationListType}
+                        className={styles["NavigationListType"]}
                         variant="body1"
                       >
                         {label}
@@ -188,24 +191,30 @@ const NavigationList = ({
                     );
                   } else if (image) {
                     return (
-                      <img alt={label} className={styles.Image} src={image} />
+                      <img
+                        alt={label}
+                        className={styles["Image"]}
+                        src={image}
+                      />
                     );
                   } else {
                     return (
-                      <NavigationListButton action={action}>
-                        {isBigLink ? (
-                          <>
-                            <Icon source={Arrow} />
-                            <b>{label}</b>
-                          </>
-                        ) : (
-                          label
-                        )}
+                      <NavigationListButton
+                        action={action}
+                        accessibilityLabel={label}
+                        startIcon={
+                          icon && isLabelHidden && <Icon source={icon} />
+                        }
+                        endIcon={
+                          icon && !isLabelHidden && <Icon source={icon} />
+                        }
+                      >
+                        {isLabelHidden ? null : label}
                       </NavigationListButton>
                     );
                   }
                 })()}
-                {hasSeparator && <hr className={styles.Separator} />}
+                {hasSeparator && <hr className={styles["Separator"]} />}
               </li>
             ),
             footer && (
@@ -221,7 +230,7 @@ const NavigationList = ({
           ]
         )}
         {utilities && (
-          <ul className={styles.Utilities}>
+          <ul className={styles["Utilities"]}>
             {utilities.map(({ label, action }, key) => (
               <li key={`mobile-utilities-link-${key}`}>
                 <NavigationListButton action={action}>
@@ -234,7 +243,7 @@ const NavigationList = ({
         {isRoot && (
           <li>
             <NavigationListButton
-              endIcon={<ChevronRight />}
+              endIcon={<ChevronRight className={styles["chevronRight"]} />}
               onClick={toggleLanguageSelection}
             >
               Language
@@ -258,7 +267,7 @@ export const NavigationListButton = ({
   ...rest
 }: NavigationListButtonProps) => (
   <Button
-    className={classnames(styles.NavigationListButton, className, {
+    className={classnames(styles["NavigationListButton"], className, {
       [styles["NavigationListButton--active"]]: active
     })}
     variant="text"

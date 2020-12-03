@@ -5,7 +5,7 @@ exports[`InputBanner component renders correctly 1`] = `
   class="InputBanner"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
   >
     <div
       class="wrapper"
@@ -54,8 +54,9 @@ exports[`InputBanner component renders correctly 1`] = `
               </div>
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary"
-              tabindex="0"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained Button button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+              disabled=""
+              tabindex="-1"
               type="button"
             >
               <span
@@ -77,9 +78,6 @@ exports[`InputBanner component renders correctly 1`] = `
                   </svg>
                 </span>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>

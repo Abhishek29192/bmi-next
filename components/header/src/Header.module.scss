@@ -3,6 +3,11 @@
 .MenuIsOpen {
   // This class is attached to the `body`
   overflow: hidden;
+
+  .NavigationBar,
+  .UtilitiesBar {
+    padding-right: 15px;
+  }
 }
 
 .Header {
@@ -23,6 +28,10 @@
     padding-left: 0;
   }
 
+  .LogoLink {
+    display: inherit;
+  }
+
   .Logo {
     margin: 10px 10px 10px 0;
     width: 50px;
@@ -38,7 +47,6 @@
 
   .Navigation {
     display: none;
-    margin-bottom: -1px;
 
     @media (min-width: $breakpoint-sm) {
       display: block;
@@ -46,18 +54,28 @@
 
     .NavItem {
       border: 1px solid transparent;
+      border-radius: 3px 3px 0 0;
       min-width: auto;
       transition: color $transition-timing, background-color $transition-timing,
         box-shadow $transition-timing, border $transition-timing;
+      color: $color-slate;
+      font-size: 16px;
+      opacity: 1;
 
       @media (min-width: $breakpoint-md) {
-        font-size: 1.125rem;
-        padding-bottom: 30px;
-        padding-top: 30px;
+        font-size: 16px;
+        padding-bottom: 32px;
+        padding-top: 31px;
+      }
+
+      @media (min-width: 1200px) {
+        font-size: 18px;
+        padding: 30px 8px 30px 14px;
       }
 
       &:hover {
         background-color: $color-pearl;
+        color: $color-charcoal;
       }
 
       &:global(.Mui-selected) {
@@ -76,7 +94,19 @@
 
         .MuiSvgIcon-root {
           margin-bottom: 0;
+          height: 16px;
+          width: 16px;
+
+          @media (min-width: 1200px) {
+            margin-left: 3px;
+            height: 24px;
+            width: 24px;
+          }
         }
+      }
+
+      &--selected {
+        border-bottom: 5px solid $color-cyan-500 !important;
       }
     }
 
@@ -104,8 +134,10 @@
   .CloseButton {
     background-color: $color-white;
     color: $color-slate;
-    float: right;
     margin: 7px;
+    position: absolute;
+    right: 0;
+    top: 0;
     z-index: 2;
 
     &:hover {
@@ -162,11 +194,6 @@
       width: 566px;
     }
 
-    .CloseButton {
-      margin-right: -20px;
-      margin-top: -20px;
-    }
-
     :global(.MuiTypography-root) {
       margin-bottom: 32px;
     }
@@ -190,7 +217,8 @@
   .UtilitiesBar {
     background-color: $color-pearl;
     display: none;
-    padding: 0.4375rem 0;
+    padding-top: 0.4375rem;
+    padding-bottom: 0.4375rem;
     position: relative;
     text-align: right;
     z-index: 15;
@@ -290,4 +318,8 @@
     top: 3rem;
     right: 0;
   }
+}
+
+:export {
+  breakpoint-sm: 800;
 }

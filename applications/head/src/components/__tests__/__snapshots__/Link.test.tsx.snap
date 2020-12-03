@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Icon component getCTA function returns a cta object with a Promo cta 1`] = `
+Object {
+  "action": Object {
+    "href": "https://www.external.co.uk",
+    "model": "htmlLink",
+  },
+  "label": "string",
+}
+`;
+
+exports[`Icon component getCTA function returns a cta object with page 1`] = `
+Object {
+  "action": Object {
+    "linkComponent": [MockFunction],
+    "model": "routerLink",
+    "to": "/no//contact-us",
+  },
+  "label": "Go to Page",
+}
+`;
+
 exports[`Icon component getClickableActionFromUrl function returns a Link router to page slug 1`] = `
 Object {
   "linkComponent": [MockFunction],

@@ -18,10 +18,12 @@ export type HeroItem = {
     label: React.ReactNode;
     action?: ClickableAction;
   };
+  hasUnderline?: boolean;
 };
 
 type Props<L = undefined> = {
   breadcrumbs?: React.ReactNode;
+  className?: string;
 } & (
   | L
   | ({
@@ -35,6 +37,7 @@ type Props<L = undefined> = {
 
 const Hero = ({
   breadcrumbs,
+  className,
   ...levelProps
 }: Props<{
   level: 0;
@@ -53,6 +56,7 @@ const Hero = ({
         level={level}
         title={title}
         breadcrumbs={breadcrumbs}
+        className={className}
         {...levelProps}
       />
     );
@@ -72,7 +76,8 @@ const Hero = ({
         styles["Hero--carousel"],
         {
           [styles["Hero--space-bottom"]]: hasSpaceBottom
-        }
+        },
+        className
       )}
     >
       <Container className={styles["container"]}>
@@ -87,7 +92,12 @@ const Hero = ({
           >
             {heroes.map(
               (
-                { title, children, CTA: { label, ...linkProps } = {} },
+                {
+                  title,
+                  children,
+                  CTA: { label, ...linkProps } = {},
+                  hasUnderline = true
+                },
                 index
               ) => {
                 return (
@@ -95,24 +105,22 @@ const Hero = ({
                     <div className={styles["content"]}>
                       <Typography
                         variant="h1"
-                        hasUnderline
+                        hasUnderline={hasUnderline}
                         className={styles["title"]}
                       >
                         {title}
                       </Typography>
-                      <div className={styles["text"]}>
-                        {children}
-                        {label && (
-                          <Button
-                            className={styles["cta"]}
-                            variant="outlined"
-                            hasDarkBackground
-                            {...linkProps}
-                          >
-                            {label}
-                          </Button>
-                        )}
-                      </div>
+                      <div className={styles["text"]}>{children}</div>
+                      {label && (
+                        <Button
+                          className={styles["cta"]}
+                          variant="outlined"
+                          hasDarkBackground
+                          {...linkProps}
+                        >
+                          {label}
+                        </Button>
+                      )}
                     </div>
                   </Carousel.Slide>
                 );
@@ -154,13 +162,22 @@ const Hero = ({
   );
 };
 
-const SingleHero = ({ breadcrumbs, title, ...levelProps }: Props) => {
+const SingleHero = ({
+  breadcrumbs,
+  title,
+  className,
+  ...levelProps
+}: Props) => {
   return (
     <div
-      className={classnames(styles["Hero"], {
-        [styles["Hero--light"]]: levelProps.level === 3,
-        [styles["Hero--slim"]]: levelProps.level !== 1
-      })}
+      className={classnames(
+        styles["Hero"],
+        {
+          [styles["Hero--light"]]: levelProps.level === 3,
+          [styles["Hero--slim"]]: levelProps.level !== 1
+        },
+        className
+      )}
     >
       <Container className={styles["container"]}>
         <div className={styles["wrapper"]}>

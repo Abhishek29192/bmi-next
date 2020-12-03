@@ -1,0 +1,18 @@
+.ProductLeadBlock {
+  :global {
+    .MuiBox-root {
+      padding: 0px;
+    }
+  }
+
+  .GuaranteesAndAwardsAsset {
+    .image {
+      height: 60px;
+      padding-right: 10px;
+    }
+  }
+
+  .document-library {
+    padding-top: 32px;
+  }
+}

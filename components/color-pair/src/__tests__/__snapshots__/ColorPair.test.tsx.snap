@@ -1,5 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ColorPair component creates the right context value - dark theme 1`] = `
+<div
+  class="ColorPair ColorPair--black"
+>
+  <span>
+    type: 
+    dark
+    , theme: 
+    black
+  </span>
+</div>
+`;
+
+exports[`ColorPair component creates the right context value - light theme 1`] = `
+<div
+  class="ColorPair ColorPair--white"
+>
+  <span>
+    type: 
+    light
+    , theme: 
+    white
+  </span>
+</div>
+`;
+
+exports[`ColorPair component exports the correct available themes 1`] = `
+Array [
+  "white",
+  "alabaster",
+  "pearl",
+  "storm",
+  "blue-100",
+  "magenta-100",
+  "aqua-100",
+  "orange-100",
+  "alert",
+  "black",
+  "charcoal",
+  "slate",
+  "blue-800",
+  "blue-900",
+  "teal-400",
+  "teal-500",
+  "magenta-400",
+  "magenta-500",
+  "purple-400",
+  "orange-500",
+  "error",
+]
+`;
+
 exports[`ColorPair component renders correctly 1`] = `
 <div
   class="ColorPair ColorPair--white"

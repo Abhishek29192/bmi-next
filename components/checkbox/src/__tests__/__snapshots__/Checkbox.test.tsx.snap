@@ -27,6 +27,7 @@ exports[`Checkbox component renders correctly 1`] = `
         <input
           class="PrivateSwitchBase-input-4"
           data-indeterminate="false"
+          name="Test checkbox"
           type="checkbox"
           value=""
         />
@@ -71,6 +72,7 @@ exports[`Checkbox component renders error 1`] = `
           class="PrivateSwitchBase-input-28"
           data-indeterminate="false"
           disabled=""
+          name="Test checkbox"
           type="checkbox"
           value=""
         />
@@ -119,6 +121,7 @@ exports[`Checkbox component renders with disabled state 1`] = `
           class="PrivateSwitchBase-input-16"
           data-indeterminate="false"
           disabled=""
+          name="Test checkbox"
           type="checkbox"
           value=""
         />
@@ -160,6 +163,7 @@ exports[`Checkbox component renders with error message 1`] = `
         <input
           class="PrivateSwitchBase-input-12"
           data-indeterminate="false"
+          name="Test checkbox"
           type="checkbox"
           value=""
         />
@@ -204,6 +208,7 @@ exports[`Checkbox component renders with label 1`] = `
         <input
           class="PrivateSwitchBase-input-8"
           data-indeterminate="false"
+          name="Test checkbox"
           type="checkbox"
           value=""
         />

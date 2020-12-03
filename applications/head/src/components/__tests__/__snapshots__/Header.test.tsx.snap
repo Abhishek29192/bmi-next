@@ -10,7 +10,7 @@ exports[`Header component renders correctly 1`] = `
     role="navigation"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <ul>
         <li
@@ -18,7 +18,7 @@ exports[`Header component renders correctly 1`] = `
         >
           <a
             class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
-            href="/no/landing-page"
+            href="/gb/landing-page"
           >
             <span
               class="MuiButton-label"
@@ -37,14 +37,19 @@ exports[`Header component renders correctly 1`] = `
     class="NavigationBar"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <div
         class="NavigationBar__Left"
       >
-        <svg
-          class="Logo"
-        />
+        <a
+          class="LogoLink"
+          href="/gb/"
+        >
+          <svg
+            class="Logo"
+          />
+        </a>
         <nav
           aria-label="Navigation"
           class="Navigation"
@@ -134,7 +139,7 @@ exports[`Header component renders correctly 1`] = `
         class="NavigationBar__Right"
       >
         <button
-          aria-label="Search"
+          aria-label="MC: search.label"
           class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained"
           tabindex="0"
           type="button"
@@ -158,7 +163,7 @@ exports[`Header component renders correctly 1`] = `
           />
         </button>
         <button
-          aria-label="Open menu"
+          aria-label="MC: menu.open"
           class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained BurgerButton"
           tabindex="0"
           type="button"
@@ -194,7 +199,7 @@ exports[`Header component renders correctly 1`] = `
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <button
-      aria-label="Close"
+      aria-label="MC: global.close"
       class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
       tabindex="0"
       type="button"
@@ -246,7 +251,7 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root chevronRight"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -280,7 +285,7 @@ exports[`Header component renders correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root chevronLeft"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -309,17 +314,21 @@ exports[`Header component renders correctly 1`] = `
                     <span
                       class="MuiButton-label"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                        />
-                      </svg>
                       +44 (0) 1234567890
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                          />
+                        </svg>
+                      </span>
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -344,7 +353,7 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root chevronRight"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -378,7 +387,7 @@ exports[`Header component renders correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root chevronLeft"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -400,7 +409,7 @@ exports[`Header component renders correctly 1`] = `
                 <li>
                   <a
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    href="/no/landing-page"
+                    href="/gb/landing-page"
                   >
                     <span
                       class="MuiButton-label"
@@ -421,7 +430,7 @@ exports[`Header component renders correctly 1`] = `
             <li>
               <a
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                href="/no/landing-page"
+                href="/gb/landing-page"
               >
                 <span
                   class="MuiButton-label"
@@ -449,7 +458,7 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root chevronRight"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -473,7 +482,7 @@ exports[`Header component renders correctly 1`] = `
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <button
-      aria-label="Close"
+      aria-label="MC: global.close"
       class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
       tabindex="0"
       type="button"
@@ -502,7 +511,7 @@ exports[`Header component renders correctly 1`] = `
       How can we help you today?
     </h4>
     <div
-      class="InputGroup InputGroup--locked-sm"
+      class="InputGroup InputGroup--locked-xs"
     >
       <div
         class="MuiFormControl-root MuiTextField-root TextField input"
@@ -511,7 +520,7 @@ exports[`Header component renders correctly 1`] = `
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
           data-shrink="false"
         >
-          Search BMI...
+          MC: search.placeholder
         </label>
         <div
           class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
@@ -525,7 +534,7 @@ exports[`Header component renders correctly 1`] = `
         </div>
       </div>
       <button
-        aria-label="Search"
+        aria-label="MC: search.label"
         class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained button"
         tabindex="0"
         type="button"

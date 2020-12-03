@@ -11,6 +11,7 @@ module.exports = {
     "plugin:prettier/recommended"
   ],
   globals: {
+    __dirname: "readonly",
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
     process: false
@@ -125,6 +126,12 @@ module.exports = {
       env: {
         node: true,
         jest: true
+      }
+    },
+    {
+      files: ["**/migrate/migrations/**/*.js"],
+      rules: {
+        strict: "off"
       }
     }
   ]

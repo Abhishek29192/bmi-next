@@ -1,0 +1,15 @@
+@import "@bmi/styles";
+
+.Page {
+  padding-top: 100px;
+  background-color: $color-white;
+
+  .link {
+    text-decoration: none;
+  }
+
+  .Hero {
+    background: $color-white;
+    color: $color-charcoal;
+  }
+}

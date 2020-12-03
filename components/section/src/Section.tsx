@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
 import Typography, { Props as TypographyProps } from "@bmi/typography";
-import { Container } from "@material-ui/core";
+import Container from "@bmi/container";
 import styles from "./Section.module.scss";
 import classnames from "classnames";
 
@@ -10,12 +10,20 @@ export type Props = {
   backgroundColor?: "transparent" | "alabaster" | "white" | "pearl";
   children: React.ReactNode;
   size?: "lg" | "md" | "sm" | "xl" | "xs" | false;
+  spacing?: "default" | "none";
+  className?: string;
+  id?: string;
+  hasNoPadding?: boolean;
 };
 
 const Section = ({
   backgroundColor = "transparent",
   children,
-  size = "xl"
+  size = "xl",
+  spacing = "default",
+  className,
+  id,
+  hasNoPadding = false
 }: Props) => {
   const isNested = useContext(SectionContext);
 
@@ -34,12 +42,16 @@ const Section = ({
   return (
     <SectionContext.Provider value={true}>
       <div
-        className={classnames(styles["Section"], {
+        id={id}
+        className={classnames(className, styles["Section"], {
           [styles[`Section--${backgroundColor}`]]:
-            backgroundColor !== "transparent"
+            backgroundColor !== "transparent",
+          [styles["Section--no-spacing"]]: spacing === "none"
         })}
       >
-        <Container maxWidth={size}>{children}</Container>
+        <Container maxWidth={size} disableGutters={hasNoPadding}>
+          {children}
+        </Container>
       </div>
     </SectionContext.Provider>
   );

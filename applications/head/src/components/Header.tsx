@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
-import Icon from "./Icon";
+import HidePrint from "@bmi/hide-print";
+import { iconMap } from "./Icon";
+import _ from "lodash";
+import { NavigationList } from "components/navigation/src";
+import { SiteContext } from "./Site";
 
 const parseNavigation = (
-  navigationItems: (NavigationData | NavigationItem | LinkData)[]
+  navigationItems: (NavigationData | NavigationItem | LinkData)[],
+  countryCode: string
 ) => {
+  if (!navigationItems || navigationItems.length === 0) {
+    return [];
+  }
+
   return navigationItems.reduce((result, { __typename, ...item }) => {
     if (__typename === "ContentfulNavigation") {
-      const { label, links } = item as NavigationData;
+      const { label, links, link } = item as NavigationData;
       return result.concat({
         label,
-        menu: parseNavigation(links)
+        menu: parseNavigation(link ? [link, ...links] : links, countryCode)
       });
     }
 
@@ -38,7 +47,6 @@ const parseNavigation = (
     }
 
     if (__typename === "ContentfulLink") {
-      let iconLabel;
       let action;
 
       const {
@@ -49,18 +57,10 @@ const parseNavigation = (
         url
       } = item as LinkData;
 
-      if (isLabelHidden && iconName) {
-        iconLabel = <Icon name={iconName} />;
-      }
-      if (!isLabelHidden && iconName) {
-        iconLabel = [<Icon key={`icon-${iconName}`} name={iconName} />, label];
-      }
-
       if (linkedPage) {
         action = {
           model: "routerLink",
-          // TODO: use countryCode from context instead of /no
-          to: `/no/${linkedPage.slug}`,
+          to: `/${countryCode}/${linkedPage.slug}`,
           linkComponent: Link
         };
       } else if (url) {
@@ -71,7 +71,8 @@ const parseNavigation = (
       }
 
       return result.concat({
-        label: iconLabel || label,
+        label,
+        icon: iconMap[iconName],
         isLabelHidden,
         action
       });
@@ -79,20 +80,79 @@ const parseNavigation = (
   }, []);
 };
 
+const findMatchingSlug = (
+  navigationArray: ReadonlyArray<any>,
+  path: string,
+  maxDepth: number = 10
+): boolean => {
+  if (maxDepth == 0) {
+    return false;
+  }
+  return navigationArray.some((item) => {
+    if (_.isArray(item)) {
+      return findMatchingSlug(item, path, maxDepth - 1);
+    }
+    if (_.isPlainObject(item)) {
+      if (item.action && item.action.to === path) {
+        return true;
+      } else {
+        return findMatchingSlug(Object.values(item), path, maxDepth - 1);
+      }
+    }
+  });
+};
+
+const findParentLabel = (
+  navigation: NavigationList[],
+  path: string
+): string | undefined => {
+  return navigation.find((navItem) => {
+    return findMatchingSlug(Object.values(navItem), path);
+  })?.label;
+};
+
 const Header = ({
   navigationData,
-  utilitiesData
+  utilitiesData,
+  countryCode,
+  slug
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
+  countryCode: string;
+  slug?: string;
 }) => {
   if (!navigationData || !utilitiesData) {
     return null;
   }
-  const utilities = parseNavigation(utilitiesData.links);
-  const navigation = parseNavigation(navigationData.links);
 
-  return <HeaderComponent utilities={utilities} navigation={navigation} />;
+  const { getMicroCopy } = useContext(SiteContext);
+  const utilities = parseNavigation(utilitiesData.links, countryCode);
+  const navigation = parseNavigation(navigationData.links, countryCode);
+
+  const parentLabel =
+    slug && findParentLabel(navigation, `/${countryCode}/${slug}`);
+
+  return (
+    <HidePrint
+      component={() => (
+        <HeaderComponent
+          utilities={utilities}
+          navigation={navigation}
+          logoAction={{
+            model: "routerLink",
+            linkComponent: Link,
+            to: `/${countryCode}/`
+          }}
+          activeNavLabel={parentLabel}
+          closeLabel={getMicroCopy("global.close")}
+          searchLabel={getMicroCopy("search.label")}
+          searchPlaceholder={getMicroCopy("search.placeholder")}
+          openLabel={getMicroCopy("menu.open")}
+        />
+      )}
+    />
+  );
 };
 
 export default Header;

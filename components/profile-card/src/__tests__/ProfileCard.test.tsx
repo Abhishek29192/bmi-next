@@ -8,9 +8,8 @@ describe("ProfileCard component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <ProfileCard
-        name="Richard Stallman"
-        title="Wizard"
         imageSource={imageSource}
+        body={<ProfileCard.Body name="Richard Stallman" title="Code Wizard" />}
       >
         <ProfileCard.Row
           action={{ model: "htmlLink", href: "/" }}

@@ -71,3 +71,53 @@ import Typography from "@bmi/typography";
   </p>
 </AnchorLink>
 ```
+
+### Different colours
+
+The component has a `color` property to define a different colour from its default.
+
+```tsx
+<>
+  <div style={{ backgroundColor: "#333" }}>
+    <AnchorLink color="white">BMI Group</AnchorLink>
+  </div>
+  <AnchorLink color="black">BMI Group</AnchorLink>
+</>
+```
+
+### Within a ColorPair component
+
+The `AnchorLink` component uses the `ColorPair` context to understand the colour it should use (unless specified, see the example above).
+
+```tsx
+import ColorPair from "@bmi/color-pair";
+import Typography from "@bmi/typography";
+
+const colorBoxStyle = {
+  width: "33%",
+  height: "200px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "20px"
+};
+
+<div style={{ display: "flex" }}>
+  <ColorPair style={colorBoxStyle} theme="teal-500">
+    <Typography>
+      This example shows a <AnchorLink>link on a</AnchorLink> teal 500 theme
+    </Typography>
+  </ColorPair>
+  <ColorPair style={colorBoxStyle} theme="alert">
+    <Typography>
+      This example shows a <AnchorLink>link on a</AnchorLink> alert theme
+    </Typography>
+  </ColorPair>
+  <ColorPair style={colorBoxStyle} theme="white">
+    <Typography>
+      This example shows a <AnchorLink>link on a</AnchorLink> white theme
+    </Typography>
+  </ColorPair>
+</div>;
+```

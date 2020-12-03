@@ -1,9 +1,10 @@
-import React from "react";
+import React, { createContext, CSSProperties } from "react";
 import styles from "./ColorPair.module.scss";
 import classnames from "classnames";
 
 export type Colors =
   | "white"
+  | "alabaster"
   | "pearl"
   | "storm"
   | "blue-100"
@@ -13,6 +14,7 @@ export type Colors =
   | "alert"
   | "black"
   | "charcoal"
+  | "slate"
   | "blue-800"
   | "blue-900"
   | "teal-400"
@@ -20,23 +22,51 @@ export type Colors =
   | "magenta-400"
   | "magenta-500"
   | "purple-400"
-  | "orange-500";
+  | "orange-500"
+  | "error";
 
-const getThemesFromSassVariable = (theme: string): string[] => {
-  return theme.replace(/"/g, "").split(", ");
+const lightThemes: Colors[] = [
+  "white",
+  "alabaster",
+  "pearl",
+  "storm",
+  "blue-100",
+  "magenta-100",
+  "aqua-100",
+  "orange-100",
+  "alert"
+];
+
+const darkThemes: Colors[] = [
+  "black",
+  "charcoal",
+  "slate",
+  "blue-800",
+  "blue-900",
+  "teal-400",
+  "teal-500",
+  "magenta-400",
+  "magenta-500",
+  "purple-400",
+  "orange-500",
+  "error"
+];
+export const availableThemes = [...lightThemes, ...darkThemes];
+
+type Context = {
+  type?: "dark" | "light";
+  theme?: Colors;
 };
-
-export const availableThemes = [
-  ...getThemesFromSassVariable(styles["light-theme"]),
-  ...getThemesFromSassVariable(styles["dark-theme"])
-] as Colors[];
 
 type Props = {
   theme?: Colors;
   className?: string;
   children: React.ReactNode;
   markupComponent?: React.ElementType;
+  style?: CSSProperties;
 };
+
+export const ColorPairContext = createContext<Context>({});
 
 const ColorPair = ({
   theme = "white",
@@ -67,7 +97,11 @@ const ColorPair = ({
       )}
       {...rest}
     >
-      {children}
+      <ColorPairContext.Provider
+        value={{ type: darkThemes.includes(theme) ? "dark" : "light", theme }}
+      >
+        {children}
+      </ColorPairContext.Provider>
     </MarkupComponent>
   );
 };

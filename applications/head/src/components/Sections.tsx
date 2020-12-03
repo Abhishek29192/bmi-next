@@ -1,42 +1,85 @@
 import React from "react";
 import { graphql } from "gatsby";
+import FormSection, {
+  Data as FormSectionData
+} from "../components/FormSection";
 import TabsOrAccordionSection, {
   Data as TabsOrAccordionSectionData
 } from "../components/TabsOrAccordionSection";
-import VillainSection, {
-  Data as VillainSectionData
-} from "../components/VillainSection";
-import TwoPaneCarouselSection, {
-  Data as TwoPaneCarouselSectionData
-} from "../components/TwoPaneCarouselSection";
+import SyndicateSection, {
+  Data as SyndicateSectionData
+} from "./SyndicateSection";
+import CarouselSection, {
+  Data as CarouselSectionData
+} from "../components/CarouselSection";
+import CardCollectionSection, {
+  Data as CardCollectionSectionData
+} from "../components/CardCollectionSection";
+import TitleWithContentSection, {
+  Data as TitleWithContentData
+} from "../components/TitleWithContentSection";
+import ShareWidgetSection, {
+  Data as ShareWidgetSectionData
+} from "../components/ShareWidgetSection";
+import PromoSection, {
+  Data as PromoSectionData
+} from "../components/PromoSection";
+import ImageGallerySection, {
+  Data as ImageGallerySectionData
+} from "../components/ImageGallerySection";
+import TableOfContent from "@bmi/table-of-content";
+import DocumentDownloadSection, {
+  Data as DocumentDownloadSectionData
+} from "../components/DocumentDownloadSection";
 
 export type Data = (
+  | FormSectionData
   | TabsOrAccordionSectionData
-  | VillainSectionData
-  | TwoPaneCarouselSectionData
+  | SyndicateSectionData
+  | CarouselSectionData
+  | CardCollectionSectionData
+  | TitleWithContentData
+  | ShareWidgetSectionData
+  | PromoSectionData
+  | ImageGallerySectionData
+  | DocumentDownloadSectionData
 )[];
 
 const sectionsMap = {
+  ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
-  ContentfulVillainSection: VillainSection,
-  ContentfulTwoPaneCarouselSection: TwoPaneCarouselSection
+  ContentfulSyndicateSection: SyndicateSection,
+  ContentfulCarouselSection: CarouselSection,
+  ContentfulCardCollectionSection: CardCollectionSection,
+  ContentfulTitleWithContent: TitleWithContentSection,
+  ContentfulShareWidgetSection: ShareWidgetSection,
+  ContentfulPromo: PromoSection,
+  ContentfulImageGallerySection: ImageGallerySection,
+  ContentfulDocumentDownloadSection: DocumentDownloadSection
 };
 
-const Sections = ({ data }: { data: Data }) => {
+const Sections = ({
+  data,
+  startIndex = 0
+}: {
+  data: Data;
+  startIndex?: number;
+}) => {
   return (
     <>
       {data.map((section, index) => {
         const Component = sectionsMap[section.__typename];
+        const { title } = section;
 
         return (
           Component && (
-            <Component
-              key={`section${index}`}
-              // @ts-ignore
-              data={section}
-              // TODO: Robust theme-based solution required.
-              backgroundColor={index % 2 === 0 ? "pearl" : "white"}
-            />
+            <TableOfContent.Anchor title={title} key={`section-${index}`}>
+              <Component
+                // @ts-ignore
+                data={section}
+                position={startIndex + index}
+              />
+            </TableOfContent.Anchor>
           )
         );
       })}
@@ -47,11 +90,17 @@ const Sections = ({ data }: { data: Data }) => {
 export default Sections;
 
 export const query = graphql`
-  # NOTE: This union type name is not ideal, but the best option so far.
-  fragment SectionsFragment on ContentfulFormSectionContentfulTabsOrAccordionSectionContentfulVillainSectionUnion {
+  fragment SectionsFragment on ContentfulSection {
     __typename
+    ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
-    ...VillainSectionFragment
-    # ...TwoPaneCarouselSectionFragment
+    ...SyndicateSectionFragment
+    ...CarouselSectionFragment
+    ...CardCollectionSectionFragment
+    ...TitleWithContentSectionFragment
+    ...ShareWidgetSectionFragment
+    ...PromoSectionFragment
+    ...ImageGallerySectionFragment
+    ...DocumentDownloadSectionFragment
   }
 `;

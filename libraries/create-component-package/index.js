@@ -49,7 +49,6 @@ const packageContent = `{
     "@material-ui/core": "^4.10.1",
     "react": "^16.13.1"
   }
-  
 }
 `;
 

@@ -4,10 +4,130 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
 const path = require("path");
 const { withConfigs, styles } = require("@bmi/webpack");
+require("graphql-import-node");
+const typeDefs = require("./src/schema/schema.graphql");
+const resolvers = require("./src/schema/resolvers");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
 });
+
+const pimClassificationCatalogueNamespace =
+  process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
+
+const createProductPages = async (
+  siteId,
+  countryCode,
+  { graphql, actions }
+) => {
+  if (!pimClassificationCatalogueNamespace) {
+    console.warn(
+      "createProductPages: You have to provide a PIM_CLASSIFICATION_CATALOGUE_NAMESPACE in your env file"
+    );
+
+    return;
+  }
+  const { createPage } = actions;
+
+  const componentMap = {
+    Products: path.resolve("./src/templates/product-details-page.tsx")
+  };
+
+  const result = await graphql(`
+    {
+      allProducts {
+        nodes {
+          __typename
+          approvalStatus
+          id
+          code
+          categories {
+            categoryType
+            code
+          }
+          variantOptions {
+            code
+          }
+        }
+      }
+    }
+  `);
+
+  // Dasherise product code
+  const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
+
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  const {
+    data: {
+      allProducts: { nodes: products }
+    }
+  } = result;
+
+  products.forEach(async (product) => {
+    const component = componentMap[product.__typename];
+
+    if (!component) {
+      console.warn(
+        `CreatePage: Could not map the page to any component. Make sure you handle the __typename [${product.__typename}] with a template.`
+      );
+      return;
+    }
+
+    const productFamilyCode = (
+      (product.categories || []).find(({ categoryType }) => {
+        return categoryType === "ProductFamily";
+      }) || {}
+    ).code;
+
+    let relatedProductCodes = [];
+    if (productFamilyCode) {
+      const result = await graphql(`
+      {
+        categoryProducts: allProducts(
+          filter: {
+            categories: { elemMatch: { code: { eq: "${productFamilyCode}" } } }
+          }
+          ) {
+            nodes {
+              code
+            }
+          }
+        }
+        `);
+
+      if (result.errors) {
+        throw new Error(result.errors);
+      }
+
+      // TODO: Probably a way of abstracting this into a function
+      const {
+        data: {
+          categoryProducts: { nodes: relatedProducts }
+        }
+      } = result;
+
+      relatedProductCodes = relatedProducts.map(({ code }) => code);
+    }
+
+    (product.variantOptions || []).forEach((variantOption) => {
+      createPage({
+        path: `/${countryCode}/products/${getSlug(variantOption.code)}`,
+        component,
+        context: {
+          productId: product.id,
+          variantCode: variantOption.code,
+          siteId: siteId,
+          countryCode,
+          relatedProductCodes,
+          pimClassificationCatalogueNamespace
+        }
+      });
+    });
+  });
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -18,7 +138,16 @@ exports.createPages = async ({ graphql, actions }) => {
     ContentfulContactUsPage: path.resolve(
       "./src/templates/contact-us-page.tsx"
     ),
-    ContentfulTeamPage: path.resolve("./src/templates/team-page.tsx")
+    ContentfulTeamPage: path.resolve("./src/templates/team-page.tsx"),
+    ContentfulProductListerPage: path.resolve(
+      "./src/templates/product-lister-page.tsx"
+    ),
+    ContentfulDocumentLibraryPage: path.resolve(
+      "./src/templates/document-library-page.tsx"
+    ),
+    ContentfulBrandLandingPage: path.resolve(
+      "./src/templates/brand-landing-page.tsx"
+    )
   };
 
   const result = await graphql(`
@@ -32,20 +161,14 @@ exports.createPages = async ({ graphql, actions }) => {
             id
           }
           pages {
-            ... on ContentfulContactUsPage {
+            ... on ContentfulPage {
               __typename
               id
               slug
-            }
-            ... on ContentfulSimplePage {
-              __typename
-              id
-              slug
-            }
-            ... on ContentfulTeamPage {
-              __typename
-              id
-              slug
+
+              ... on ContentfulProductListerPage {
+                categoryCode
+              }
             }
           }
         }
@@ -79,10 +202,14 @@ exports.createPages = async ({ graphql, actions }) => {
         component,
         context: {
           pageId: page.id,
-          siteId: site.id
+          siteId: site.id,
+          categoryCode: page.categoryCode,
+          pimClassificationCatalogueNamespace
         }
       });
     });
+
+    createProductPages(site.id, site.countryCode, { graphql, actions });
   });
 };
 
@@ -101,4 +228,13 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       [styles({ dev: process.env.NODE_ENV === "development" })]
     )
   );
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(typeDefs);
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers(resolvers);
 };

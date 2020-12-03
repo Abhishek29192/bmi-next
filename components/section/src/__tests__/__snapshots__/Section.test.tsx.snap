@@ -5,7 +5,7 @@ exports[`Section component does not render nested section components 1`] = `
   class="Section"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
   >
     Hello world.
   </div>
@@ -17,7 +17,7 @@ exports[`Section component renders a white section 1`] = `
   class="Section Section--white"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
   >
     Hello world.
   </div>
@@ -29,8 +29,25 @@ exports[`Section component renders correctly 1`] = `
   class="Section"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
   >
+    Hello world.
+  </div>
+</div>
+`;
+
+exports[`Section component renders with a custom className 1`] = `
+<div
+  class="test Section"
+>
+  <div
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+  >
+    <h2
+      class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+    >
+      H2 Heading
+    </h2>
     Hello world.
   </div>
 </div>
@@ -41,7 +58,7 @@ exports[`Section component renders with a title 1`] = `
   class="Section"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
   >
     <h2
       class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"

@@ -10,7 +10,7 @@ This component wraps the Material UI [Select](https://material-ui.com/api/select
 import { MenuItem } from "./src";
 
 <Select name="country" label="Country" labelId="outlined-country-simple">
-  <MenuItem aria-label="None" value="">
+  <MenuItem aria-label="None" defaultValue="">
     None
   </MenuItem>
   <MenuItem value="uk">United Kingdom</MenuItem>
@@ -25,7 +25,7 @@ import { MenuItem } from "./src";
 import { MenuItem } from "./src";
 
 <Select name="country" error label="Country" labelId="outlined-country-errored">
-  <MenuItem aria-label="None" value="">
+  <MenuItem aria-label="None" defaultValue="">
     None
   </MenuItem>
   <MenuItem value="uk">United Kingdom</MenuItem>
@@ -45,7 +45,7 @@ import { MenuItem } from "./src";
   label="Country"
   labelId="outlined-country-disabled"
 >
-  <MenuItem aria-label="None" value="" />
+  <MenuItem aria-label="None" defaultValue="" />
   <MenuItem value="uk">United Kingdom</MenuItem>
   <MenuItem value="no">Norway</MenuItem>
   <MenuItem value="fr">France</MenuItem>
@@ -65,7 +65,7 @@ import { MenuItem } from "./src";
   label="Country"
   labelId="hybrid-country-simple"
 >
-  <MenuItem aria-label="None" value="" />
+  <MenuItem aria-label="None" defaultValue="" />
   <MenuItem value="uk">United Kingdom</MenuItem>
   <MenuItem value="no">Norway</MenuItem>
   <MenuItem value="fr">France</MenuItem>
@@ -84,7 +84,7 @@ import { MenuItem } from "./src";
   label="Country"
   labelId="hybrid-country-errored"
 >
-  <MenuItem aria-label="None" value="" />
+  <MenuItem aria-label="None" defaultValue="" />
   <MenuItem value="uk">United Kingdom</MenuItem>
   <MenuItem value="no">Norway</MenuItem>
   <MenuItem value="fr">France</MenuItem>
@@ -103,7 +103,7 @@ import { MenuItem } from "./src";
   label="Country"
   labelId="hybrid-country-disabled"
 >
-  <MenuItem aria-label="None" value="" />
+  <MenuItem aria-label="None" defaultValue="" />
   <MenuItem value="uk">United Kingdom</MenuItem>
   <MenuItem value="no">Norway</MenuItem>
   <MenuItem value="fr">France</MenuItem>

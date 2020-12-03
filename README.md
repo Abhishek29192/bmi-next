@@ -57,6 +57,27 @@ Comment out the first set of variables: `COUNTRY_CODE`, `SPACE_ID`, and `ACCESS_
 You can find the `SPACE_ID_n` and `ACCESS_TOKEN_n` values in Contentful API keys section.
 `COUNTRY_CODE` is the locale code e.g. `en_US`.
 
+### Setup your own Contentful account and space for local development
+
+Create a free Contentful account and create a space and a blank environment. This will act as your local development v environment so that you don't need to make changes or run your migration directly on DXB Contentful account.
+
+Run the following command to clone content types and content from DXB `development` environment to your own account.
+
+`yarn global add contentful-cli`
+
+`contentful space export --space-id <DXB SPACE ID> --environment-id development --mt <DXB MANAGEMENT TOKEN> --include-drafts --skip-roles --skip-webhooks --content-file dump.json`
+
+`contentful space import --space-id <YOUR OWN ACC SPACE ID> --environment-id <YOUR ACC ENVIRONMENT> --mt <YOUR OWN ACC MANAGEMENT TOKEN> --content-file dump.json`
+
+Depending on how clean the content in dxb `development` environment, you might get some warning and error messages for unresolved resources but they wouldn't stop the whole cloning process and you will still get the rest of the data in your account.
+
+Now you will have a clone of both content types and content from DXB development environment in your own account.
+When you run your newly written migration script, now you can run them in this environment for testing.
+
+Note that in .env.\* in `libraries/migrate` you should always put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` instead of the DXB one otherwise you are running migration directly on DXB contentful account!
+
+You should also put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` in .env.\* in `applications/head` to use content and content type from your own account.
+
 #### Run Gatsby
 
 To run develop
@@ -185,6 +206,42 @@ To ensure that no broken or unformatted code gets committed or pushed, we use gi
 
 - `pre-push` will run automated tests
 
+### Release
+
+We use [Semantic Release](https://github.com/semantic-release/semantic-release) to automatically generate our release notes (that's why it's so important to follow the [commit guidelines!](#Commit messages)).
+The process runs automatically for the `production`, `pre-production` and `master` (alpha) branches, using GitLab's CI pipelines.
+
 ## Assets
 
 SVGs have their `viewBox` set correctly and the `width`s set to `auto` in order to allow for [better scaling](https://css-tricks.com/scale-svg/#option-3-use-inline-svg-and-the-latest-blink-firefox-browsers).
+
+## Migrations
+
+To run all the latest migrations.
+
+```shell
+yarn migrate up -a
+```
+
+Pass `-d` to execute a dry run.
+
+For more commands see the full documentation under [migrate](libraries/migrate/README.md)
+
+### Functions
+
+`/functions` folder contains packages which are individual Google Cloud Platform functions.
+Each function should have a `dev` script which can be used to serve it on localhost using `functions-framework`.
+This addmitedly makes sense for HTTP triggered functions, but it will host event triggered functions just the same, however locally the message (which should be the body of the request) is available in `context.message` rather than `event`.
+
+Each function should also have a `deploy` script, which can be used to, you guessed it, deploy the function into Google Cloud Platform.
+This requires gcloud to be configured on your machine.
+
+https://cloud.google.com/sdk/docs/install
+
+After installing you will need to setup using:
+
+```shell
+$ gcloud init
+```
+
+For which you will likely need the project name from GCP.

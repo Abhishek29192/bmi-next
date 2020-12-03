@@ -1,0 +1,6 @@
+{
+  "name": "@bmi/netlify-plugin-filter-tag-event",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index"
+}

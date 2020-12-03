@@ -1,5 +1,9 @@
 import React from "react";
-import ColorPair, { withColorPair } from "../";
+import ColorPair, {
+  availableThemes,
+  withColorPair,
+  ColorPairContext
+} from "../";
 import { render } from "@testing-library/react";
 
 describe("ColorPair component", () => {
@@ -29,5 +33,38 @@ describe("ColorPair component", () => {
       <CustomComponent theme="teal-500">Lorem ipsum</CustomComponent>
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+  it("creates the right context value - light theme", () => {
+    const { container } = render(
+      <ColorPair theme="white">
+        <ColorPairContext.Consumer>
+          {({ type, theme }) => (
+            <span>
+              type: {type}, theme: {theme}
+            </span>
+          )}
+        </ColorPairContext.Consumer>
+      </ColorPair>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("creates the right context value - dark theme", () => {
+    const { container } = render(
+      <ColorPair theme="black">
+        <ColorPairContext.Consumer>
+          {({ type, theme }) => (
+            <span>
+              type: {type}, theme: {theme}
+            </span>
+          )}
+        </ColorPairContext.Consumer>
+      </ColorPair>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("exports the correct available themes", () => {
+    expect(availableThemes).toMatchSnapshot();
   });
 });

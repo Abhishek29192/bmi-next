@@ -7,7 +7,7 @@ import { LocationOn, Phone, Mail } from "@material-ui/icons";
 
 type DetailType = "address" | "phone" | "email";
 
-type DetailProps = {
+export type DetailProps = {
   text: React.ReactNode;
   action?: ClickableAction;
   label: React.ReactNode;

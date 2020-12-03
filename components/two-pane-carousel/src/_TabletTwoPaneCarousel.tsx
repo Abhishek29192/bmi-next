@@ -36,7 +36,7 @@ const TwoPaneCarousel = ({ slides }: Props) => {
               hasOpacityAnimation
             >
               {slides.map(
-                ({ brandIcon: BrandIcon, title, children, CTA }, index) => {
+                ({ brandIcon: BrandIcon, title, description, cta }, index) => {
                   return (
                     <Carousel.Slide
                       key={`left-pane-${index}`}
@@ -56,17 +56,17 @@ const TwoPaneCarousel = ({ slides }: Props) => {
                       >
                         {title}
                       </Typography>
-                      {(children || CTA) && (
+                      {(description || cta) && (
                         <div className={styles["text"]}>
-                          {children}
+                          {description}
                           <div>
-                            {CTA && (
+                            {cta && (
                               <AnchorLink
-                                action={CTA.action}
+                                action={cta.action}
                                 iconEnd
                                 className={styles["cta"]}
                               >
-                                {CTA.label}
+                                {cta.label}
                               </AnchorLink>
                             )}
                           </div>

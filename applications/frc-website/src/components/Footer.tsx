@@ -1,24 +1,61 @@
 import React from "react";
-import Footer from "@bmi/footer";
-import IcopalLogoSVG from "@bmi/logo/svgs/Icopal.svg";
+import classnames from "classnames";
+import { Icopal as IcopalLogoSVG } from "@bmi/logo";
+import Container from "@bmi/container";
+import Button from "@bmi/button";
+import styles from "./Footer.module.scss";
 
-const BmiFooter = () => {
+const NavigationItem = ({ label, icon, isLabelHidden, action }: any) => {
+  const IconComponent = icon;
+
   return (
-    <Footer
-      mainNavigation={[]}
-      secondaryNavigation={[
-        {
-          label: "Warranty"
-        },
-        {
-          label: "Cookie Policy"
-        },
-        {
-          label: "Terms and conditions"
-        }
-      ]}
-      logo={IcopalLogoSVG}
-    />
+    <li
+      className={classnames(styles["list-item"], {
+        [styles["list-item--icon"]]: isLabelHidden
+      })}
+    >
+      {isLabelHidden ? (
+        <Button
+          className={styles["icon-link"]}
+          isIconButton
+          accessibilityLabel={label}
+          variant="text"
+          hasDarkBackground
+          action={action}
+        >
+          <IconComponent />
+        </Button>
+      ) : (
+        <Button
+          startIcon={icon ? <IconComponent /> : undefined}
+          className={styles["link"]}
+          hasDarkBackground
+          variant="text"
+          action={action}
+        >
+          {label}
+        </Button>
+      )}
+    </li>
+  );
+};
+
+const BmiFooter = ({ menu }: any) => {
+  return (
+    <div className={styles.Footer}>
+      <Container className={styles.container}>
+        <a href="http://www.icopal.co.uk/">
+          <IcopalLogoSVG className={styles.logo} />
+        </a>
+        {menu && menu.length && (
+          <ul className={classnames(styles["list"], styles["list--inline"])}>
+            {menu.map((menuItem, index) => (
+              <NavigationItem key={index} {...menuItem} />
+            ))}
+          </ul>
+        )}
+      </Container>
+    </div>
   );
 };
 

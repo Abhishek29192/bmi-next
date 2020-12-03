@@ -24,30 +24,25 @@ describe("Page component", () => {
     };
 
     const siteData: SiteData = {
+      node_locale: "en-US",
       homePage: {
         title: "Home page title"
       },
-      signUpTitle: "Title",
-      signUpDescription: {
-        signUpDescription: "Description"
-      },
-      signUpInputLabel: "Label",
-      signUpCallToAction: "Call to action",
       countryCode: "uk",
       footerMainNavigation: mockNavigation,
       footerSecondaryNavigation: mockNavigation,
       menuNavigation: mockNavigation,
-      menuUtilities: mockNavigation
+      menuUtilities: mockNavigation,
+      resources: null
     };
 
     const pageData: Data = {
-      title: "Page title",
-      showSignUpBanner: false,
-      slug: "page-title"
+      slug: "page-title",
+      inputBanner: null
     };
 
     const { container } = render(
-      <Page pageData={pageData} siteData={siteData}>
+      <Page title="Lorem ipsum" pageData={pageData} siteData={siteData}>
         Lorem ipsum
       </Page>
     );

@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductOverviewPane component renders correctly 1`] = `
+<div
+  class="ProductOverview"
+>
+  <svg
+    class="brand-logo"
+  />
+  <h1
+    class="MuiTypography-root heading Typography MuiTypography-h3"
+  >
+    Type S Roof Shingles
+  </h1>
+  <ul
+    class="attributes"
+  >
+    <li>
+      <span
+        class="term"
+      >
+        NOBB no
+      </span>
+      <span
+        class="definition"
+      >
+        1394983720195
+      </span>
+    </li>
+    <li>
+      <span
+        class="term"
+      >
+        Colour
+      </span>
+      <span
+        class="definition"
+      >
+        Black
+      </span>
+      <div
+        class="variants"
+      >
+        <span
+          class="variant"
+        >
+          <button
+            class="MuiButtonBase-root Thumbnail Thumbnail--selected"
+            style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="accessibility-text"
+            >
+              Black
+            </span>
+          </button>
+        </span>
+        <span
+          class="variant"
+        >
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root Thumbnail"
+            href="#"
+            style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
+            tabindex="0"
+          >
+            <span
+              class="accessibility-text"
+            >
+              Brown
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </a>
+        </span>
+      </div>
+    </li>
+    <li>
+      <span
+        class="term"
+      >
+        Size
+      </span>
+      <div
+        class="variants variants--spaced"
+      >
+        <span
+          class="variant"
+        >
+          <div
+            class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+          >
+            <span
+              class="MuiChip-label"
+            >
+              22cm x 42cm
+            </span>
+          </div>
+        </span>
+        <span
+          class="variant"
+        >
+          <a
+            class="MuiChip-root Chip Chip--default Chip--theme-pearl"
+            href="#"
+          >
+            <span
+              class="MuiChip-label"
+            >
+              12cm x 22cm
+            </span>
+          </a>
+        </span>
+        <span
+          class="variant"
+        >
+          <div
+            aria-disabled="true"
+            class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+          >
+            <span
+              class="MuiChip-label"
+            >
+              30cm x 62cm
+            </span>
+          </div>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`ProductOverviewPane component renders correctly with empty variants 1`] = `
+<div
+  class="ProductOverview"
+>
+  <svg
+    class="brand-logo"
+  />
+  <h1
+    class="MuiTypography-root heading Typography MuiTypography-h3"
+  >
+    Type S Roof Shingles
+  </h1>
+  <ul
+    class="attributes"
+  >
+    <li>
+      <span
+        class="term"
+      >
+        NOBB no
+      </span>
+      <span
+        class="definition"
+      >
+        1394983720195
+      </span>
+    </li>
+  </ul>
+</div>
+`;

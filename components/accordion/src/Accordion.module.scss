@@ -1,13 +1,15 @@
 @import "@bmi/styles";
 
 .Accordion {
-  border: 1px solid $color-storm;
+  .item {
+    border: 1px solid $color-storm;
 
-  & + & {
-    border-top: none;
+    & + & {
+      border-top: none;
+    }
   }
 
-  &:global(.MuiExpansionPanel-root.Mui-expanded) {
+  :global(.MuiAccordion-root.Mui-expanded) {
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -17,7 +19,7 @@
       border-top: 1px solid $color-storm;
     }
 
-    .MuiExpansionPanelSummary-root {
+    .MuiAccordionSummary-root {
       background-color: $color-pearl;
 
       &.Mui-expanded {
@@ -25,12 +27,18 @@
       }
     }
 
-    .MuiExpansionPanelSummary-content.Mui-expanded {
+    .MuiAccordionSummary-content.Mui-expanded {
       margin: initial;
     }
 
-    .MuiExpansionPanelDetails-root {
+    .MuiAccordionDetails-root {
       padding: 32px 24px;
+    }
+  }
+
+  &--no-inner-padding {
+    :global(.MuiAccordionDetails-root) {
+      padding: 0;
     }
   }
 }

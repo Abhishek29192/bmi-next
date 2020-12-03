@@ -8,12 +8,14 @@ $light-theme: (
   "magenta-100": $color-magenta-100,
   "aqua-100": $color-aqua-100,
   "orange-100": $color-orange-100,
-  "alert": $color-alert
+  "alert": $color-alert,
+  "alabaster": $color-alabaster
 );
 
 $dark-theme: (
   "black": $color-black,
   "charcoal": $color-charcoal,
+  "slate": $color-slate,
   "blue-800": $color-blue-800,
   "blue-900": $color-blue-900,
   "teal-400": $color-teal-400,
@@ -21,12 +23,14 @@ $dark-theme: (
   "magenta-400": $color-magenta-400,
   "magenta-500": $color-magenta-500,
   "purple-400": $color-purple-400,
-  "orange-500": $color-orange-500
+  "orange-500": $color-orange-500,
+  "error": $color-error
 );
 
 .ColorPair {
   background-color: $color-white;
   color: $color-charcoal;
+  -webkit-print-color-adjust: exact;
 
   @each $theme-name, $theme-color in $light-theme {
     &--#{$theme-name} {

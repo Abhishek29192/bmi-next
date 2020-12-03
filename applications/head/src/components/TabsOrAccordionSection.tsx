@@ -44,7 +44,7 @@ const SectionAccordion = ({
 
 const SectionTabs = ({ items }: { items: readonly TitleWithContentData[] }) => {
   return (
-    <Tabs initialValue={items[0].title}>
+    <Tabs theme="primary" initialValue={items[0].title}>
       {items.map(({ title, content }) => {
         const { json } = content;
 
@@ -63,18 +63,13 @@ const componentMap = {
   Tabs: SectionTabs
 };
 
-const TabsOrAccordionSection = ({
-  data,
-  backgroundColor
-}: {
-  data: Data;
-  backgroundColor: "pearl" | "white";
-}) => {
+const TabsOrAccordionSection = ({ data }: { data: Data }) => {
   if (!data) {
     return null;
   }
 
   const { title, type, items, description } = data;
+  const backgroundColor = type === "Tabs" ? "pearl" : "white";
   const Component = componentMap[type];
 
   return (
@@ -94,6 +89,7 @@ export default TabsOrAccordionSection;
 
 export const query = graphql`
   fragment TabsOrAccordionSectionFragment on ContentfulTabsOrAccordionSection {
+    __typename
     type
     title
     description {

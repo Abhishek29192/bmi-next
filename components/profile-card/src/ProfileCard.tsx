@@ -1,30 +1,29 @@
-import React from "react";
+import React, { RefObject } from "react";
 import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import styles from "./ProfileCard.module.scss";
 import classnames from "classnames";
 
 type Props = {
-  name: React.ReactNode;
-  title?: React.ReactNode;
   imageSource: string;
   children?: React.ReactNode;
   className?: string;
+  body?: React.ReactNode;
 };
 
-const ProfileCard = ({
-  name,
-  title,
-  imageSource,
-  children,
-  className
-}: Props) => {
+type BodyProps = {
+  name: React.ReactNode;
+  title?: React.ReactNode;
+  style?: any;
+};
+
+const Body = (
+  { name, title, style }: BodyProps,
+  ref: RefObject<HTMLDivElement>
+) => {
   return (
-    <div className={classnames(styles["ProfileCard"], className)}>
-      <div className={styles["head"]}>
-        <img className={styles["profile-picture"]} src={imageSource} />
-      </div>
-      <div className={styles["body"]}>
+    <div className={styles["body"]} style={style}>
+      <div ref={ref}>
         <Typography variant="h5" component="strong">
           {name}
         </Typography>
@@ -34,7 +33,20 @@ const ProfileCard = ({
           </Typography>
         )}
       </div>
-      {children && <div className={styles["footer"]}>{children}</div>}
+    </div>
+  );
+};
+
+const ProfileCard = ({ imageSource, children, className, body }: Props) => {
+  const hasFooter = Array.isArray(children) ? children.length > 0 : children;
+
+  return (
+    <div className={classnames(styles["ProfileCard"], className)}>
+      <div className={styles["head"]}>
+        <img className={styles["profile-picture"]} src={imageSource} />
+      </div>
+      {body}
+      {hasFooter && <div className={styles["footer"]}>{children}</div>}
     </div>
   );
 };
@@ -55,5 +67,6 @@ const ProfileRow = ({ children, action, icon: Icon }: RowProps) => {
 };
 
 ProfileCard.Row = ProfileRow;
+ProfileCard.Body = React.forwardRef(Body);
 
 export default ProfileCard;

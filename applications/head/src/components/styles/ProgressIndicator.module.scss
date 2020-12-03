@@ -1,0 +1,13 @@
+.ProgressIndicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  &--light {
+    color: #009fe3;
+  }
+
+  &--dark {
+    color: #fff;
+  }
+}

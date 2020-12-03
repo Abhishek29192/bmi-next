@@ -10,7 +10,7 @@ exports[`Header component renders correctly 1`] = `
     role="navigation"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <ul>
         <li
@@ -128,7 +128,7 @@ exports[`Header component renders correctly 1`] = `
       />
     </button>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <div
         class="LanguageSelection"
@@ -218,14 +218,19 @@ exports[`Header component renders correctly 1`] = `
     class="NavigationBar"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="MuiContainer-root Container MuiContainer-maxWidthXl"
     >
       <div
         class="NavigationBar__Left"
       >
-        <svg
-          class="Logo"
-        />
+        <a
+          class="LogoLink"
+          href="/"
+        >
+          <svg
+            class="Logo"
+          />
+        </a>
         <nav
           aria-label="Navigation"
           class="Navigation"
@@ -399,7 +404,7 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root chevronRight"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -433,7 +438,7 @@ exports[`Header component renders correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root chevronLeft"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -474,7 +479,7 @@ exports[`Header component renders correctly 1`] = `
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root chevronRight"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -508,7 +513,7 @@ exports[`Header component renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root"
+                                class="MuiSvgIcon-root chevronLeft"
                                 focusable="false"
                                 viewBox="0 0 24 24"
                               >
@@ -549,7 +554,7 @@ exports[`Header component renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="MuiSvgIcon-root"
+                                class="MuiSvgIcon-root chevronRight"
                                 focusable="false"
                                 viewBox="0 0 24 24"
                               >
@@ -583,7 +588,7 @@ exports[`Header component renders correctly 1`] = `
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      class="MuiSvgIcon-root"
+                                      class="MuiSvgIcon-root chevronLeft"
                                       focusable="false"
                                       viewBox="0 0 24 24"
                                     >
@@ -646,6 +651,30 @@ exports[`Header component renders correctly 1`] = `
                       </li>
                     </ul>
                   </div>
+                </li>
+                <li>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      View all our products
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <svg />
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <hr
+                    class="Separator"
+                  />
                 </li>
                 <li>
                   <button
@@ -736,7 +765,7 @@ exports[`Header component renders correctly 1`] = `
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root"
+                    class="MuiSvgIcon-root chevronRight"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -789,7 +818,7 @@ exports[`Header component renders correctly 1`] = `
       How can we help you today?
     </h4>
     <div
-      class="InputGroup InputGroup--locked-sm"
+      class="InputGroup InputGroup--locked-xs"
     >
       <div
         class="MuiFormControl-root MuiTextField-root TextField input"

@@ -1,12 +1,14 @@
-import React, { useState, FormEvent } from "react";
+import classnames from "classnames";
+import React, { FormEvent, useState } from "react";
+import Button from "./_Button";
 import styles from "./Form.module.scss";
-import SubmitButton from "./SubmitButton";
+import SubmitButton from "./_SubmitButton";
 import { InputValue } from "./withFormControl";
 
 type Values = Record<string, InputValue>;
 type Errors = Record<string, string>;
 
-type Props = React.HTMLProps<HTMLFormElement> & {
+export type Props = Omit<React.HTMLProps<HTMLFormElement>, "onSubmit"> & {
   children: React.ReactNode;
   onSubmit?: (event: FormEvent<HTMLFormElement>, values: Values) => void;
   submitButtonLabel?: string;
@@ -18,12 +20,14 @@ type ContextType = {
   updateFormState: (fieldValues: Values, fieldErrors: Errors) => void;
   hasBeenSubmitted: boolean;
   submitButtonDisabled: boolean;
+  values: object;
 };
 
 export const FormContext = React.createContext<ContextType>({
   updateFormState: (fieldValues, fieldErrors) => {},
   hasBeenSubmitted: false,
-  submitButtonDisabled: false
+  submitButtonDisabled: false,
+  values: {}
 });
 
 const Form = ({
@@ -31,6 +35,7 @@ const Form = ({
   onSubmit,
   rightAlignButton,
   buttonClassName,
+  className,
   ...formProps
 }: Props) => {
   const [values, setValues] = useState<Values>({});
@@ -52,9 +57,20 @@ const Form = ({
 
   return (
     <FormContext.Provider
-      value={{ updateFormState, hasBeenSubmitted, submitButtonDisabled }}
+      value={{
+        updateFormState,
+        hasBeenSubmitted,
+        submitButtonDisabled,
+        values
+      }}
     >
-      <form onSubmit={handleSubmit} className={styles["Form"]} {...formProps}>
+      <form
+        onSubmit={handleSubmit}
+        className={classnames(styles["Form"], className, {
+          [styles["Form--rightAlignButton"]]: rightAlignButton
+        })}
+        {...formProps}
+      >
         {children}
       </form>
     </FormContext.Provider>
@@ -65,7 +81,13 @@ const FormRow = ({ children }: { children: React.ReactNode }) => {
   return <div className={styles["Row"]}>{children}</div>;
 };
 
+const ButtonWrapper = ({ children }: { children: React.ReactNode }) => {
+  return <div className={styles["ButtonWrapper"]}>{children}</div>;
+};
+
 Form.Row = FormRow;
+Form.ButtonWrapper = ButtonWrapper;
+Form.Button = Button;
 Form.SubmitButton = SubmitButton;
 
 export default Form;

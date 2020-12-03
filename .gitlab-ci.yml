@@ -4,6 +4,7 @@ stages:
   - install
   - build
   - check
+  - release
   # - deploy
 
 install:
@@ -26,8 +27,6 @@ build:
     paths:
       - node_modules/
       - applications/head/node_modules/
-      - applications/head/.cache/
-      - applications/head/public/
 
 build_frc_website:
   stage: build
@@ -63,3 +62,19 @@ coverage_ts:
   artifacts:
     paths:
       - coverage-ts
+
+release:
+  image: node:13
+  stage: release
+  dependencies:
+    - install
+    - build
+    - build_frc_website
+    - coverage_jest
+    - coverage_ts
+  only:
+    refs:
+      - production
+      - pre-production
+  script:
+    - npx semantic-release

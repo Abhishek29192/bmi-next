@@ -1,27 +1,28 @@
 import React from "react";
 import OverlapCards, { Data } from "../OverlapCards";
 import { render } from "@testing-library/react";
+import mockConsole from "jest-mock-console";
+
+beforeAll(() => {
+  mockConsole();
+});
 
 describe("OverlapCards component", () => {
   it("renders correctly", () => {
     const data: Data = [
       {
-        label: "Call to action",
-        URL: null,
-        page: {
-          slug: "some-page"
-        },
-        image: {
+        title: "Call to action",
+        slug: "some-page",
+        featuredImage: {
           resize: {
             src: "link-to-page.png"
           }
         }
       },
       {
-        label: "Call to action",
-        URL: "some-page",
-        page: null,
-        image: {
+        title: "Call to action",
+        slug: "some-page",
+        featuredImage: {
           resize: {
             src: "link-to-page.png"
           }
