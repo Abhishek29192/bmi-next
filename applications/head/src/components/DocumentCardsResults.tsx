@@ -12,6 +12,10 @@ type Props = {
   documents: DocumentData[];
 };
 
+export const getCount = (documents: Props["documents"]) => {
+  return documents.length;
+};
+
 const DocumentCardsResults = ({ documents }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
 
