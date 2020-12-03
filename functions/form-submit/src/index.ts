@@ -77,11 +77,16 @@ export const submit: HttpFunction = async (request, response) => {
 
       sgMail.setApiKey(SENDGRID_API_KEY);
 
+      const html = `<ul>${Object.entries(fields)
+        .map(([key, value]) => `<li><b>${key}</b>: ${value}</li>`)
+        .join("")}</ul>`;
+
       const email = await sgMail.send({
         to: recipients,
         from: SENDGRID_FROM_EMAIL,
         subject: "Website form submission",
-        text: JSON.stringify(fields) // @todo: We probably want a nice email?
+        text: JSON.stringify(fields),
+        html
       });
 
       return response.send({ entry, assets, email });
