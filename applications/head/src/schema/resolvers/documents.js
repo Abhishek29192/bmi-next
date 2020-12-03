@@ -47,9 +47,10 @@ const resolveDocumentsFromProducts = async (
       .filter((asset) => _.includes(pimAssetTypes, asset.assetType))
       .map((asset) => {
         const id = generateIdFromString(product.name + asset.name);
-        const { fileSize, realFileName } = asset;
+        const { url, fileSize, realFileName } = asset;
 
-        if (!fileSize || !realFileName || !asset.assetType) {
+        // TODO: Handle allowedToDownload = false with some type.
+        if (!url || !fileSize || !realFileName || !asset.assetType) {
           return;
         }
 
@@ -57,7 +58,7 @@ const resolveDocumentsFromProducts = async (
 
         const fieldData = {
           title: `${product.name} ${assetType.name}`,
-          url: asset.url,
+          url,
           assetType___NODE: assetType && assetType.id,
           fileSize,
           product___NODE: product.id,

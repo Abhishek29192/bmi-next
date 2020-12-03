@@ -28,15 +28,16 @@ module.exports = {
           return;
         }
 
-        const { fileSize, realFileName } = asset;
+        const { url, allowedToDownload, fileSize, realFileName } = asset;
 
-        if (!fileSize || !realFileName) {
+        // TODO: Handle allowedToDownload = false with some type.
+        if (!url || !fileSize || !realFileName || !allowedToDownload) {
           return;
         }
 
         const fieldData = {
           title: `${source.name} ${assetType.name}`,
-          url: asset.url,
+          url,
           assetType___NODE: assetType && assetType.id,
           fileSize,
           product___NODE: source.id,
