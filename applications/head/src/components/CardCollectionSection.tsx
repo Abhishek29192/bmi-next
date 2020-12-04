@@ -72,13 +72,17 @@ const transformCard = ({
   return { title, subtitle, link, featuredImage, brandLogo };
 };
 
+const moveRestKeyLast = (arr) => {
+  return [...arr.sort((a, b) => (a === "undefined" ? 1 : -1))];
+};
+
 const CardCollectionSection = ({
   data: { title, description, cardType, cardLabel, groupCards, cards, link }
 }: {
   data: Data;
 }) => {
   const cardsByTag = useMemo(() => groupBy(cards, "tag.title"), [cards]);
-  const groupKeys = Object.keys(cardsByTag);
+  const groupKeys = moveRestKeyLast(Object.keys(cardsByTag));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>(
     groupKeys.length ? { [groupKeys[0]]: true } : {}
   );
