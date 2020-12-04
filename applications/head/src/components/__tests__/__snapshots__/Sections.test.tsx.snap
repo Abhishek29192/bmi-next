@@ -87,7 +87,9 @@ HTMLCollection [
                       <div
                         class="MuiAccordionDetails-root details"
                       >
-                        <div />
+                        <div
+                          class="RichText"
+                        />
                       </div>
                     </div>
                   </div>
@@ -179,7 +181,9 @@ HTMLCollection [
               <div
                 class="MuiBox-root MuiBox-root-5 TabPanelBox"
               >
-                <div />
+                <div
+                  class="RichText"
+                />
               </div>
             </div>
           </div>
@@ -693,7 +697,9 @@ HTMLCollection [
         >
           Document Downloads
         </h2>
-        <div />
+        <div
+          class="RichText"
+        />
       </div>
     </div>
   </div>,
