@@ -24,6 +24,18 @@ exports[`Section component renders a white section 1`] = `
 </div>
 `;
 
+exports[`Section component renders as slim 1`] = `
+<div
+  class="Section Section--slim"
+>
+  <div
+    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+  >
+    Hello world.
+  </div>
+</div>
+`;
+
 exports[`Section component renders correctly 1`] = `
 <div
   class="Section"

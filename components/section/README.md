@@ -92,3 +92,18 @@ import Typography from "@bmi/typography";
   </Typography>
 </Section>;
 ```
+
+### Slim
+
+```jsx
+import Typography from "@bmi/typography";
+
+<Section backgroundColor="pearl" isSlim>
+  <Section.Title>H2 Heading</Section.Title>
+  <Typography>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim
+    sodales velit, quis volutpat velit feugiat vitae. Phasellus volutpat elit
+    scelerisque egestas rhoncus.
+  </Typography>
+</Section>;
+```

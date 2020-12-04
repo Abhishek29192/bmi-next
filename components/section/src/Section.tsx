@@ -14,6 +14,7 @@ export type Props = {
   className?: string;
   id?: string;
   hasNoPadding?: boolean;
+  isSlim?: boolean;
 };
 
 const Section = ({
@@ -23,7 +24,8 @@ const Section = ({
   spacing = "default",
   className,
   id,
-  hasNoPadding = false
+  hasNoPadding = false,
+  isSlim = false
 }: Props) => {
   const isNested = useContext(SectionContext);
 
@@ -46,7 +48,8 @@ const Section = ({
         className={classnames(className, styles["Section"], {
           [styles[`Section--${backgroundColor}`]]:
             backgroundColor !== "transparent",
-          [styles["Section--no-spacing"]]: spacing === "none"
+          [styles["Section--no-spacing"]]: spacing === "none",
+          [styles["Section--slim"]]: isSlim
         })}
       >
         <Container maxWidth={size} disableGutters={hasNoPadding}>
