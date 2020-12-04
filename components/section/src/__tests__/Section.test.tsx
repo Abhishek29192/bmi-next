@@ -39,4 +39,8 @@ describe("Section component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders as slim", () => {
+    const { container } = render(<Section isSlim>Hello world.</Section>);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });
