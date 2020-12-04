@@ -136,6 +136,9 @@ const FormSection = ({
   ) => {
     event.preventDefault();
 
+    // @todo: This needs to be less reliant on string patterns
+    const conditionalRecipients = (values.recipients as string) || recipients;
+
     try {
       const source = axios.CancelToken.source();
       await axios.post(
@@ -143,7 +146,7 @@ const FormSection = ({
         {
           locale: "en-US",
           title,
-          recipients: recipients.split(/, |,/),
+          recipients: conditionalRecipients.split(/, |,/),
           values
         },
         {
