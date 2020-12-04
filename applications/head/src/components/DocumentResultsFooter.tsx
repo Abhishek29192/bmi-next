@@ -19,7 +19,7 @@ export const handleDownloadClick = async (
   callback?: () => void
 ) => {
   const listValues = Object.values(list).filter(Boolean);
-  const currentTime = new Date().getTime();
+  const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");
 
   if (listValues.length === 0) {
     return () => {};
