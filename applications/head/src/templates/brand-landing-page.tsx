@@ -16,6 +16,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
+    description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;
     sections: SectionsData;
@@ -45,7 +46,7 @@ const getHeroItemsWithContext = (
 const BrandLandingPage = ({ data }: Props) => {
   const {
     title,
-    subtitle,
+    description,
     slug,
     brandLogo,
     featuredImage,
@@ -69,7 +70,7 @@ const BrandLandingPage = ({ data }: Props) => {
           const heroItems = getHeroItemsWithContext(context, slides);
           const firstSlide: HeroItem = {
             title: <BrandLogo style={{ height: "90px" }} />,
-            children: subtitle,
+            children: description?.description,
             imageSource: featuredImage?.file.url,
             hasUnderline: false
           };
@@ -101,6 +102,9 @@ export default BrandLandingPage;
 export const pageQuery = graphql`
   query BrandLandingPageById($pageId: String!, $siteId: String!) {
     contentfulBrandLandingPage(id: { eq: $pageId }) {
+      description {
+        description
+      }
       slides {
         ... on ContentfulPromoOrPage {
           ...PromoFragment
