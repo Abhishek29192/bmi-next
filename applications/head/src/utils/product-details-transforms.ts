@@ -18,12 +18,6 @@ const getProductProp = (classifications, productCode, propName) =>
 const getAllValues = (classifications, propName) => {
   const alreadyFoundProps = new Set();
 
-  const getPropIdentifier = {
-    texturefamily: (prop) => prop.value.code,
-    colour: (prop) => prop.value.value, // UGH! Colour doesn't have a code!
-    measurements: (prop) => getMeasurementKey(prop)
-  };
-
   return Object.entries(classifications).reduce(
     (allValues, [productCode, props]) => {
       const propValue = props[propName];
@@ -146,13 +140,16 @@ type TransformedMeasurementValue = {
     };
   };
 };
-type TransformedClassifications = {
+type TransformedClassificationsMap = {
   [classificationName: string]:
     | TransformedClassificationValue
     | TransformedMeasurementValue;
 };
 type ClassificationsPerProductMap = {
-  [productCode: string]: TransformedClassifications;
+  [productCode: string]: TransformedClassificationsMap;
+};
+type AllClassificationsValues = {
+  [productCode: string]: TransformedClassificationsMap[];
 };
 
 // Find attributes like surface finish, color, etc, from classifications
@@ -283,6 +280,19 @@ export const mapProductClassifications = (
   }, {});
 };
 
+const getPropIdentifier = {
+  texturefamily: (prop) => prop.value.code,
+  colour: (prop) => prop.value.value, // UGH! Colour doesn't have a code!
+  colourfamily: (prop) => prop.value.code,
+  measurements: (prop) => getMeasurementKey(prop)
+};
+
+const getPropValue = (classification, propName) => {
+  const prop = classification[propName];
+
+  return prop ? getPropIdentifier[propName](prop) : undefined;
+};
+
 export const getProductAttributes = (
   productClassifications,
   selfProduct,
@@ -322,18 +332,6 @@ export const getProductAttributes = (
   const propHierarchy = ["colour", "measurements", "???"];
   const getMasterProperty = (keys, hirarchy) =>
     hirarchy.filter((code) => keys.includes(code))[0];
-
-  const getPropValue = (classification, propName) => {
-    const prop = classification[propName];
-
-    const propValueMap = {
-      texturefamily: (prop) => prop.value.code,
-      colour: (prop) => prop.value.value,
-      measurements: (prop) => getMeasurementKey(prop)
-    };
-
-    return prop ? propValueMap[propName](prop) : undefined;
-  };
 
   const findProductCode = (
     filter /*: { "texturefamily": string, "colour": string, "measurements": string } */,
@@ -651,18 +649,29 @@ export const groupProductsByCategory = (
   return tabs;
 };
 
-export const findUniqueClassificationsOnVariant = (
-  baseClassifications: TransformedClassifications,
-  variantClassifications: TransformedClassifications
-): TransformedClassifications => {
-  return _.pickBy(variantClassifications, (value, key) => {
-    return !(key in baseClassifications);
+// returns classifications in variantClassifications whose value is not the same across all baseClassifications
+// baseClassifications is a groupping of all the collections values by collection types
+const findUniqueClassificationsOnVariant = (
+  baseClassifications: AllClassificationsValues,
+  variantClassifications: TransformedClassificationsMap,
+  numberOfVariants = 1
+): TransformedClassificationsMap => {
+  return _.pickBy(variantClassifications, (value, code) => {
+    const getter = getPropIdentifier[code];
+    const baseValues = baseClassifications[code] || [];
+    // If all the values are the same, we'll get a single value
+    const allSameValue =
+      _.uniqBy(baseValues, (value) => getter(value)).length === 1;
+
+    // AND if number of base values is equal to number of variants, all variants have the same value
+    // Therefore it's common
+    return !(baseValues.length === numberOfVariants && allSameValue);
   });
 };
 
 // TODO: Is there not a function to get a render value of a classification?
 export const mapClassificationValues = (
-  classificationsMap: TransformedClassifications
+  classificationsMap: TransformedClassificationsMap
 ) => {
   return Object.entries(classificationsMap)
     .map(([key, classification]) => {
@@ -691,12 +700,31 @@ export const findUniqueVariantClassifications = (
     classificationNamespace
   );
 
-  // Base product may not have any classifications
-  // Variant may not have classifications therefore it will not appear here
-  // In which case, we can either check against an empty base resulting in all variant classifications
-  // or with an empty variant, resulting in no classifications
+  const mergeClassificationsValues = (
+    base: AllClassificationsValues,
+    others: TransformedClassificationsMap
+  ): AllClassificationsValues => {
+    return {
+      ...base,
+      ...Object.entries(others).reduce((agg, [code, value]) => {
+        return {
+          ...agg,
+          [code]: [...(base[code] || []), value]
+        };
+      }, {})
+    };
+  };
+
+  // Gather all classifications into a single classifications map
+  const allClassificationValues = Object.values(classifications).reduce<
+    AllClassificationsValues
+  >((allClassifications, classifications) => {
+    return mergeClassificationsValues(allClassifications, classifications);
+  }, {});
+
   return findUniqueClassificationsOnVariant(
-    classifications[variant._product.code] || {},
-    classifications[variant.code] || {}
+    allClassificationValues,
+    classifications[variant.code] || {},
+    variant._product.variantOptions.length
   );
 };
