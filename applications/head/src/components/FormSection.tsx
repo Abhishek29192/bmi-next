@@ -127,7 +127,7 @@ const FormSection = ({
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
 
-  const onSubmit = async (
+  const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
     values: Record<string, InputValue>
   ) => {
@@ -167,7 +167,11 @@ const FormSection = ({
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && <RichText document={description.json} />}
       {inputs ? (
-        <Form onSubmit={onSubmit} className={styles["Form"]} rightAlignButton>
+        <Form
+          onSubmit={handleSubmit}
+          className={styles["Form"]}
+          rightAlignButton
+        >
           <Grid container spacing={3}>
             {inputs.map(({ width, ...props }, $i) => (
               <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
