@@ -1094,6 +1094,13 @@ type ContentfulContactDetails implements Node {
 }
 
 """
+Represents the Brand Landing Page description text.
+"""
+type contentfulBrandLandingPageDescriptionTextNode implements Node {
+  description: String
+}
+
+"""
 Represents a Brand Landing Page type, implementing ContentfulPage.
 """
 type ContentfulBrandLandingPage implements ContentfulPage & Node {
@@ -1107,6 +1114,10 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "The short description for this page."
   subtitle: String
+
+  "The description for this page."
+  description: contentfulBrandLandingPageDescriptionTextNode
+    @link(from: "description___NODE")
 
   "The brand logo for this page."
   brandLogo: String
