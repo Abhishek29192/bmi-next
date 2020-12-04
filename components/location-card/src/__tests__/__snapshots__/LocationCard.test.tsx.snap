@@ -99,10 +99,10 @@ exports[`LocationCard component renders correctly with props 1`] = `
       </a>
     </dd>
   </dl>
-  <p
-    class="MuiTypography-root foot-note Typography MuiTypography-body1"
+  <div
+    class="foot-note"
   >
     Monday - Friday, 9:00 - 17:00
-  </p>
+  </div>
 </address>
 `;
