@@ -21,7 +21,7 @@ import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
-import { Data as PIMDocumentData } from "../PIMDocument";
+import { Data as PIMDocumentData } from "../components/PIMDocument";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
