@@ -84,11 +84,14 @@ const Input = ({
       return (
         <Select isRequired={required} label={label} name={name}>
           <MenuItem value="none">None</MenuItem>
-          {options.split(/, |,/).map((option, $i) => (
-            <MenuItem key={$i} value={option}>
-              {option}
-            </MenuItem>
-          ))}
+          {options.split(/, |,/).map((option, $i) => {
+            const [string, value] = option.split(/= |=/);
+            return (
+              <MenuItem key={$i} value={value || string}>
+                {string}
+              </MenuItem>
+            );
+          })}
         </Select>
       );
     case "checkbox":
