@@ -796,6 +796,9 @@ type ContentfulResources implements Node {
 
   "The input banner for the product details page for these resources."
   pdpInputBanner: ContentfulInputBanner @link(from: "pdpInputBanner___NODE")
+
+  "The 404 error for these resources."
+  errorFourOFour: ContentfulPromo @link(from: "errorFourOFour___NODE")
 }
 
 """
