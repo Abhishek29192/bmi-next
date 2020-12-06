@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
-import { ErrorBoundary } from "react-error-boundary";
+import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import BackToTop from "@bmi/back-to-top";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -78,7 +78,16 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
   );
 };
 
-export default Page;
+const FallbackComponent = () => (
+  <div role="alert">
+    It&#39;s not you, it&#39;s us - something went wrong on our web server.
+  </div>
+);
+
+export default withErrorBoundary(Page, {
+  FallbackComponent: FallbackComponent
+  // Possible to log errors with onError method
+});
 
 export const query = graphql`
   fragment PageFragment on ContentfulPage {
