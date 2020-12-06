@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
+import { ErrorBoundary } from "react-error-boundary";
 import BackToTop from "@bmi/back-to-top";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,6 +11,7 @@ import InputBanner, {
 import { SiteContext, Data as SiteData } from "./Site";
 import { generateGetMicroCopy } from "./MicroCopy";
 import { graphql } from "gatsby";
+import ErrorFallback from "./ErrorFallback";
 
 export type Data = {
   slug: string | null;
@@ -55,8 +57,17 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
           countryCode={countryCode}
           slug={pageData.slug || undefined}
         />
-        {children}
-        {inputBanner ? <InputBanner data={inputBanner} /> : null}
+        <ErrorBoundary
+          fallbackRender={() => (
+            <ErrorFallback
+              countryCode={countryCode}
+              promo={resources.errorGeneral}
+            />
+          )}
+        >
+          {children}
+          {inputBanner ? <InputBanner data={inputBanner} /> : null}
+        </ErrorBoundary>
         <Footer
           mainNavigation={footerMainNavigation}
           secondaryNavigation={footerSecondaryNavigation}

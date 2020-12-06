@@ -30,6 +30,7 @@ export type Data = {
   pdpShareWidget: ShareWidgetSectionData | null;
   pdpInputBanner: InputBannerData | null;
   errorFourOFour: PromoData | null;
+  errorGeneral: PromoData | null;
 };
 
 export const query = graphql`
@@ -73,6 +74,9 @@ export const query = graphql`
       ...InputBannerFragment
     }
     errorFourOFour {
+      ...PromoFragment
+    }
+    errorGeneral {
       ...PromoFragment
     }
   }

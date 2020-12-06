@@ -799,6 +799,9 @@ type ContentfulResources implements Node {
 
   "The 404 error for these resources."
   errorFourOFour: ContentfulPromo @link(from: "errorFourOFour___NODE")
+
+  "The general error for these resources."
+  errorGeneral: ContentfulPromo @link(from: "errorGeneral___NODE")
 }
 
 """
