@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import ColorSwatch from "../components/ColorSwatch";
-import { Product } from "../templates/product-details-page";
+import { Product, Category } from "../templates/product-details-page";
 import {
   findAllCategories,
   mapProductClassifications,
@@ -155,16 +155,20 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
 };
 
 export const getFilters = (
+  pageCategory: Category,
   pimClassificationNamespace: string,
   products: readonly Product[]
 ) => {
   const allCategories = findAllCategories(products);
 
   return [
-    getProductFamilyFilter(products),
+    pageCategory.categoryType !== "ProductFamily"
+      ? getProductFamilyFilter(products)
+      : undefined,
     getColorFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),
-
-    getCategoryFilters(allCategories)
-  ];
+    ...(pageCategory.categoryType !== "Category"
+      ? getCategoryFilters(allCategories)
+      : [])
+  ].filter(Boolean);
 };

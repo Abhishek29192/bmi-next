@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link, graphql } from "gatsby";
 import _ from "lodash";
 import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
@@ -101,8 +101,22 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
 
+  const pageCategory = useMemo(() => {
+    for (let i = 0; i < data.allProducts.nodes.length; i++) {
+      const { categories } = data.allProducts.nodes[i];
+
+      const category = categories.find(
+        ({ code }) => code === pageContext.categoryCode
+      );
+
+      if (category) {
+        return category;
+      }
+    }
+  }, [data.allProducts.nodes]);
   const [filters, setFilters] = useState(
     getFilters(
+      pageCategory,
       pageContext.pimClassificationCatalogueNamespace,
       data.allProducts.nodes
     )
