@@ -53,7 +53,7 @@
     }
   }
 
-  &:nth-child(even),
+  &:nth-of-type(even),
   &--reversed {
     .grid {
       flex-direction: row-reverse;
