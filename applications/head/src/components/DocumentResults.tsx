@@ -26,7 +26,7 @@ type Props = {
 
 const documentResultsMap: Record<
   Format,
-  [(documents: Data) => void, React.ElementType]
+  [(documents: Data) => number, React.ElementType]
 > = {
   simpleTable: [getSimpleTableCount, DocumentSimpleTableResults],
   technicalTable: [getTechnicalTableCount, DocumentTechnicalTableResults],
