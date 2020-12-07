@@ -18,10 +18,14 @@ export type Data = {
   };
 }[];
 
+type Details = readonly [DetailProps, ...DetailProps[]];
+
+const LOCATIONS_PER_PAGE = 6;
+
 const Locations = ({ data }: { data: Data }) => {
   const { getMicroCopy } = useContext(SiteContext);
   const showMoreText = getMicroCopy("global.showMore");
-  const [numberVisible, setNumberVisible] = useState(4);
+  const [numberVisible, setNumberVisible] = useState(LOCATIONS_PER_PAGE);
 
   const locationCards = (
     <Grid container spacing={3}>
@@ -29,30 +33,55 @@ const Locations = ({ data }: { data: Data }) => {
         .slice(0, numberVisible)
         .map(
           ({ title, address, phoneNumber, email, otherInformation }, index) => {
-            const details: readonly [DetailProps, ...DetailProps[]] = [
-              {
-                type: "address",
-                text: address,
-                action: {
-                  model: "htmlLink",
-                  href: `https://maps.google.com/maps?q=${address}`,
-                  target: "_blank",
-                  ref: "noopener noreferrer"
-                },
-                label: "Address"
-              },
-              {
-                type: "phone",
-                text: phoneNumber,
-                action: { model: "htmlLink", href: `tel:${phoneNumber}` },
-                label: "Telephone"
-              },
-              {
-                type: "email",
-                text: email,
-                action: { model: "htmlLink", href: `mailto:${email}` },
-                label: "Email"
-              }
+            const addressLine: DetailProps[] = address
+              ? [
+                  {
+                    type: "address",
+                    text: address,
+                    action: {
+                      model: "htmlLink",
+                      href: `https://maps.google.com/maps?q=${address}`,
+                      target: "_blank",
+                      rel: "noopener noreferrer"
+                    },
+                    label: "Address"
+                  }
+                ]
+              : [];
+            const phoneNumberLine: DetailProps[] = phoneNumber
+              ? [
+                  {
+                    type: "phone",
+                    text: phoneNumber,
+                    action: { model: "htmlLink", href: `tel:${phoneNumber}` },
+                    label: "Telephone"
+                  }
+                ]
+              : [];
+            const emailLine: DetailProps[] = email
+              ? [
+                  {
+                    type: "email",
+                    text: email,
+                    action: { model: "htmlLink", href: `mailto:${email}` },
+                    label: "Email"
+                  }
+                ]
+              : [];
+
+            if (
+              !addressLine.length &&
+              !phoneNumberLine.length &&
+              !emailLine.length
+            ) {
+              return null;
+            }
+
+            // @ts-ignore It doens't realise that there will be at least one.
+            const details: Details = [
+              ...addressLine,
+              ...phoneNumberLine,
+              ...emailLine
             ];
 
             return (
@@ -80,7 +109,9 @@ const Locations = ({ data }: { data: Data }) => {
         <Button
           className={styles["button"]}
           variant="outlined"
-          onClick={() => setNumberVisible((prevNum) => prevNum + 6)}
+          onClick={() =>
+            setNumberVisible((prevNum) => prevNum + LOCATIONS_PER_PAGE)
+          }
         >
           {showMoreText}
         </Button>

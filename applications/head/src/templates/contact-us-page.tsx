@@ -82,7 +82,7 @@ const ContactUsPage = ({ data }: Props) => {
         </div>
       </Section>
       {locations && (
-        <Section>
+        <Section backgroundColor="white">
           <Section.Title>{locationsTitle}</Section.Title>
           <div>
             <Locations data={locations} />

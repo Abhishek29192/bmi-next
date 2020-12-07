@@ -55,7 +55,7 @@ const LocationCard = ({ title, details, footNote }: Props) => {
           <LocationItem key={index} {...detail} />
         ))}
       </dl>
-      <Typography className={styles["foot-note"]}>{footNote}</Typography>
+      <div className={styles["foot-note"]}>{footNote}</div>
     </address>
   );
 };
