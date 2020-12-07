@@ -1,5 +1,8 @@
 "use strict";
 
+const { deleteElasticSearchIndex } = require("./reset/elasticSearch");
+const { deleteFirestoreCollection } = require("./reset/firestore");
+
 require("dotenv").config();
 
 // TODO: NOPE HACK!
@@ -118,6 +121,11 @@ const handleRequest = async (req, res) => {
   if (req.body) {
     // TODO: Delete entire firestore database, if flag passed in request
 
+    console.log("Clearing out data...");
+
+    await deleteElasticSearchIndex();
+    await deleteFirestoreCollection();
+
     console.log(`Getting the whole catalogue.`);
 
     const messagePages = getProducts();
@@ -133,6 +141,18 @@ const handleRequest = async (req, res) => {
         }
       }
     }
+
+    // NOTE: Not awaiting this trigger
+    fetch(
+      "https://europe-west3-dxb-development.cloudfunctions.net/pimtodxb-buildtrigger-dev-euwest3",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ foo: "bar" })
+      }
+    );
 
     res.status(200).send("ok");
   } else {
