@@ -22,37 +22,22 @@ import Scrim from "../components/Scrim";
 import Grid from "@bmi/grid";
 import Pagination from "@bmi/pagination";
 import { Product } from "./product-details-page";
-import ColorSwatch from "../components/ColorSwatch";
 import Typography from "@bmi/typography";
 import {
   getProductUrl,
   findMasterImageUrl,
   mapClassificationValues,
-  findUniqueVariantClassifications,
-  findAllCategories,
-  ProductCategoryTree,
-  mapProductClassifications
+  findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
+import { getFilters } from "../utils/filters";
 import Button from "@bmi/button";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
-
-const devLog = (...args) => {
-  /* istanbul ignore next */
-  if (process.env.NODE_ENV === "development") {
-    // eslint-disable-next-line no-console
-    console.log(...args);
-  }
-};
-
-const sortAlphabeticallyBy = (propName) => (a, b) => {
-  if (a[propName] < b[propName]) {
-    return -1;
-  }
-  if (a[propName] > b[propName]) {
-    return 1;
-  }
-  return 0;
-};
+import {
+  queryElasticSearch,
+  compileElasticSearchQuery,
+  disableFiltersFromAggregations
+} from "../utils/elasticSearch";
+import { devLog } from "../utils/devLog";
 
 const PAGE_SIZE = 24;
 
@@ -86,319 +71,6 @@ type Props = {
 
 const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
 
-const getProductFamilyFilter = (products: readonly Product[]) => {
-  const allFamilyCategories = _.uniqBy(
-    products.reduce((allCategories, product) => {
-      const productFamilyCategories = (product.categories || []).filter(
-        ({ categoryType }) => categoryType === "ProductFamily"
-      );
-
-      return [...allCategories, ...productFamilyCategories];
-    }, []),
-    "code"
-  );
-
-  return {
-    label: "Produktfamilie",
-    name: "productFamily",
-    value: [],
-    options: allFamilyCategories
-      .sort(sortAlphabeticallyBy("name"))
-      .map((category) => ({
-        label: category.name,
-        value: category.code
-      }))
-  };
-};
-
-const getCategoryFilters = (productCategories: ProductCategoryTree) => {
-  return Object.entries(productCategories)
-    .sort((a, b) => {
-      if (a[1]["name"] < b[1]["name"]) {
-        return -1;
-      }
-      if (a[1]["name"] > b[1]["name"]) {
-        return 1;
-      }
-      return 0;
-    })
-    .reduce((filters, [categoryKey, category]) => {
-      return [
-        ...filters,
-        {
-          label: category.name,
-          name: categoryKey,
-          value: [],
-          options: category.values
-            .sort(sortAlphabeticallyBy("name"))
-            .map((category) => ({
-              label: category.name,
-              value: category.code
-            }))
-        }
-      ];
-    }, []);
-};
-
-// Gets the values of colourfamily classification for the Filters pane
-const getColorFilter = (
-  classificationNamespace: string,
-  products: readonly Product[]
-) => {
-  const colorFilters = products
-    .reduce((allColors, product) => {
-      const productClassifications = mapProductClassifications(
-        product,
-        classificationNamespace
-      );
-
-      return [
-        ...allColors,
-        ...Object.values(productClassifications).map((classifications: any) => {
-          return classifications.colourfamily;
-        })
-      ];
-    }, [])
-    .filter(Boolean);
-
-  // Assuming all colours have the same label
-  const label = colorFilters[0]?.name;
-  const values = _.uniqBy(_.map(colorFilters, "value"), "code");
-
-  return {
-    label,
-    name: "colour",
-    value: [],
-    options: values
-      .sort(sortAlphabeticallyBy("value"))
-      .map(({ code, value }) => ({
-        label: (
-          <>
-            <ColorSwatch colorCode={code} />
-            {value}
-          </>
-        ),
-        value: code
-      }))
-  };
-};
-
-// Gets the values of materialfamily classification for the Filters pane
-const getTextureFilter = (
-  classificationNamespace: string,
-  products: readonly Product[]
-) => {
-  const textures = products
-    .reduce((allTextures, product) => {
-      const productClassifications = mapProductClassifications(
-        product,
-        classificationNamespace
-      );
-
-      return [
-        ...allTextures,
-        ...Object.values(productClassifications).map((classifications: any) => {
-          return classifications.texturefamily;
-        })
-      ];
-    }, [])
-    .filter(Boolean);
-
-  // Assuming all texturefamily classifications have the same label
-  const label = textures[0]?.name;
-  const values = _.uniqBy(_.map(textures, "value"), "code");
-
-  return {
-    label,
-    name: "texturefamily",
-    value: [],
-    options: values
-      .sort(sortAlphabeticallyBy("value"))
-      .map(({ code, value }) => ({
-        label: value,
-        value: code
-      }))
-  };
-};
-
-const queryES = async (query = {}) => {
-  const indexName = "nodetest_v3_products";
-  const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
-
-  if (window.fetch) {
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          authorization: `Basic ${btoa(
-            `${process.env.GATSBY_ES_USERNAME}:${process.env.GATSBY_ES_PASSWORD}`
-          )}`,
-          "content-type": "application/json"
-        },
-        body: JSON.stringify(query)
-      });
-
-      const content = await response.json();
-
-      if (!response.ok) {
-        devLog(`ERROR: ${response.status}, ${response.statusText}`);
-      }
-      return content;
-    } catch (error) {
-      devLog("Error fetching ES", error);
-    }
-  } else {
-    devLog("NO fetch");
-  }
-};
-
-const compileElasticSearchQuery = (
-  filters,
-  categoryCode,
-  page,
-  pageSize
-): object => {
-  const categoryFilters = [];
-
-  const searchTerms = {
-    colour: "colourfamilyCode.keyword",
-    texturefamily: "texturefamilyCode.keyword",
-    category: "categories.code.keyword",
-    // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
-    productFamily: "otherCategories.code.keyword",
-    otherCategories: "otherCategories.code.keyword"
-  };
-
-  filters.forEach((filter) => {
-    // If no values chosen, ignore it
-    if (!filter.value.length) {
-      return;
-    }
-
-    if (filter.name === "colour") {
-      const colourTermQuery = (value) => ({
-        term: {
-          [searchTerms.colour]: value
-        }
-      });
-      const coloursQuery =
-        filter.value.length === 1
-          ? colourTermQuery(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(colourTermQuery)
-              }
-            };
-
-      categoryFilters.push(coloursQuery);
-    } else if (filter.name === "texturefamily") {
-      const textureTermQuery = (value) => ({
-        term: {
-          [searchTerms.texturefamily]: value
-        }
-      });
-      const texturesQuery =
-        filter.value.length === 1
-          ? textureTermQuery(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(textureTermQuery)
-              }
-            };
-
-      categoryFilters.push(texturesQuery);
-      // TODO: This is at this point generic
-    } else if (filter.name === "productFamily") {
-      const queryTerm = (value) => ({
-        term: {
-          [searchTerms.productFamily]: value
-        }
-      });
-      const query =
-        filter.value.length === 1
-          ? queryTerm(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(queryTerm)
-              }
-            };
-
-      categoryFilters.push(query);
-    } else {
-      const categoriesQuery =
-        filter.value.length === 1
-          ? {
-              term: {
-                [searchTerms.category]: filter.value[0]
-              }
-            }
-          : {
-              bool: {
-                should: filter.value.map((value) => ({
-                  term: {
-                    [searchTerms.category]: value
-                  }
-                }))
-              }
-            };
-
-      categoryFilters.push(categoriesQuery);
-    }
-  });
-
-  // NOTE: ES Doesn't like an empty query object
-  return {
-    size: pageSize,
-    from: page * pageSize,
-    sort: [{ "scoringWeight.keyword": "desc" }, { "name.keyword": "asc" }],
-    aggs: {
-      categories: {
-        terms: {
-          // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
-          // Could request these separately, and figure out a way of retrying and getting more buckets if needed
-          size: "100",
-          field: "categories.code.keyword"
-        }
-      },
-      otherCategories: {
-        terms: {
-          // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
-          // Could request these separately, and figure out a way of retrying and getting more buckets if needed
-          size: "100",
-          field: "otherCategories.code.keyword"
-        }
-      },
-      texturefamily: {
-        terms: {
-          size: "100",
-          field: "texturefamilyCode.keyword"
-        }
-      },
-      colourfamily: {
-        terms: {
-          size: "100",
-          field: "colourfamilyCode.keyword"
-        }
-      }
-    },
-    // TODO: Join in a bool if multiple categories with multiple values
-    // TODO: Still not sure how to handle this exactly
-    query: {
-      bool: {
-        must: [
-          {
-            term: {
-              [searchTerms.otherCategories]: categoryCode
-            }
-          },
-          ...categoryFilters
-        ]
-      }
-    }
-  };
-};
-
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
     title,
@@ -428,57 +100,17 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
-  // Initially set to value from server render, later set from ES
-  const [totalProducts, setTotalProducts] = useState(products.length);
-  const allCategories = findAllCategories(data.allProducts.nodes);
-  const colorFilter = getColorFilter(
-    pageContext.pimClassificationCatalogueNamespace,
-    data.allProducts.nodes
+
+  const [filters, setFilters] = useState(
+    getFilters(
+      pageContext.pimClassificationCatalogueNamespace,
+      data.allProducts.nodes
+    )
   );
-  const textureFilter = getTextureFilter(
-    pageContext.pimClassificationCatalogueNamespace,
-    data.allProducts.nodes
-  );
-  const productFamilyFilter = getProductFamilyFilter(data.allProducts.nodes);
-  const [filters, setFilters] = useState([
-    productFamilyFilter,
-    colorFilter,
-    textureFilter,
-    ...getCategoryFilters(allCategories)
-  ]);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
   );
-
-  const disableFiltersFromAggregations = (filters, aggregations) => {
-    const aggregationNames = {
-      // TODO: Rename filter.name to colourfamily
-      colour: "colourfamily",
-      texturefamily: "texturefamily",
-      productFamily: "otherCategories"
-    };
-
-    return filters.map((filter) => {
-      return {
-        ...filter,
-        options: filter.options.map((option) => {
-          // NOTE: all other filters are assumed to be categories
-          const aggregationName = aggregationNames[filter.name] || "categories";
-          const buckets = aggregations[aggregationName]?.buckets;
-
-          const aggregate = (buckets || []).find(
-            ({ key }) => key === option.value
-          );
-
-          return {
-            ...option,
-            isDisabled: !(aggregate && aggregate.doc_count > 0)
-          };
-        })
-      };
-    });
-  };
 
   const handlePageChange = (page) => {
     fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
@@ -564,13 +196,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
-    const results = await queryES(query);
+    const results = await queryElasticSearch(query);
 
     if (results && results.hits) {
       const { hits } = results;
       const newPageCount = Math.ceil(hits.total.value / PAGE_SIZE);
 
-      setTotalProducts(hits.total.value);
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
       setProducts(hits.hits.map((hit) => hit._source));
@@ -586,14 +217,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     fetchProducts(filters, pageContext.categoryCode, 0, PAGE_SIZE);
   }, []);
 
-  // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect, maybe pointless for this value to rely on it as more will break.
-  // const categoryName = "AeroDek Robust Plus";
+  // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect,
+  // maybe pointless for this value to rely on it as more will break.
   const categoryName = initialProducts[0]?.categories.find(
     ({ code }) => code === pageContext.categoryCode
   )?.name;
-
-  // TODO: What if data.allProducts prop changes. I think practically it would not, but can we ensure that in code?
-  // Refactor to a wrapper component that takes initialProps and they're then in state or ref? (ProductListing?)
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
