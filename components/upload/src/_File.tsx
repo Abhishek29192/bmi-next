@@ -21,6 +21,7 @@ type Props = {
   mapBody?: (file: File) => Record<string, any>;
   onDeleteClick: () => void;
   onRequestSuccess?: (responseBody) => void;
+  errorMessage?: string;
 };
 
 const getFileSizeString = (size: number): string => {
@@ -38,10 +39,11 @@ const File = ({
   headers = {},
   mapBody,
   onDeleteClick,
-  onRequestSuccess
+  onRequestSuccess,
+  errorMessage
 }: Props) => {
   const [loading, setLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState("");
   const previewImage = file.type.includes("image")
     ? URL.createObjectURL(file)
     : null;
@@ -56,12 +58,12 @@ const File = ({
       const body = res.data;
 
       if (body.sys.type === "Error") {
-        setHasError(true);
+        setError(errorMessage);
       }
 
       onRequestSuccess(body);
     } catch (error) {
-      setHasError(true);
+      setError(errorMessage);
     }
 
     setLoading(false);
@@ -93,8 +95,8 @@ const File = ({
         </div>
       );
     }
-    if (hasError) {
-      return <Typography className={styles["error"]}>Upload failed</Typography>;
+    if (error) {
+      return <Typography className={styles["error"]}>{error}</Typography>;
     }
     return (
       <Typography className={styles["file-size"]}>
