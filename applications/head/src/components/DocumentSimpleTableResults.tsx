@@ -127,7 +127,9 @@ const DocumentSimpleTableResults = ({
                   if (header === "typeCode") {
                     return (
                       <Table.Cell className={styles["table-cell"]} key={key}>
-                        {document.assetType.code}
+                        <abbr title={document.assetType.name}>
+                          {document.assetType.code}
+                        </abbr>
                       </Table.Cell>
                     );
                   }
