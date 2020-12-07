@@ -82,7 +82,7 @@ export type VariantOption = {
   longDescription: string;
 };
 
-type Category = {
+export type Category = {
   name: string;
   categoryType: string; // ENUM?
   code: string;
