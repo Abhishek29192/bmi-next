@@ -109,7 +109,7 @@ const DocumentLibraryPage = ({ data }: Props) => {
                   <Grid item xs={12} md={6} lg={3}>
                     Filters will go here.
                   </Grid>
-                  <Grid item xs={12} md={6} lg={8}>
+                  <Grid item xs={12} md={6} lg={9}>
                     <DocumentResults
                       data={documents}
                       format={resultTypeFormatMap[source][resultsType]}
