@@ -81,3 +81,15 @@ exports[`Section component renders with a title 1`] = `
   </div>
 </div>
 `;
+
+exports[`Section component renders with container properties 1`] = `
+<div
+  class="Section Section--slim"
+>
+  <div
+    class="MuiContainer-root Container Container--no-overflow MuiContainer-maxWidthXl"
+  >
+    Hello world.
+  </div>
+</div>
+`;
