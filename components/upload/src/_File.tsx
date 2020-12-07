@@ -24,7 +24,7 @@ type Props = {
   errorMessage?: string;
 };
 
-const getFileSizeString = (size: number): string => {
+export const getFileSizeString = (size: number): string => {
   const kb = Math.round(size / 1000);
   if (kb > 1000) {
     const mb = Math.round(kb / 100) / 10;
