@@ -1,0 +1,72 @@
+import React from "react";
+import { graphql } from "gatsby";
+import { Data as SiteData } from "../components/Site";
+import Page from "../components/Page";
+import Button from "@bmi/button";
+import Typography from "@bmi/typography";
+import PromoSection from "@bmi/promo-section";
+import { getClickableActionFromUrl } from "../components/Link";
+
+type Data = {
+  allContentfulSite: {
+    nodes: SiteData[];
+  };
+};
+
+const FourOFour = ({ data }: { data: Data }) => {
+  const siteData = data.allContentfulSite.nodes[0];
+  const { errorFourOFour } = siteData.resources;
+
+  const {
+    title = "Error:404.title",
+    subtitle = "Error:404.subtitle",
+    cta = {
+      label: "Error:404.cta.label",
+      linkedPage: undefined,
+      url: undefined
+    },
+    featuredImage = null
+  } = errorFourOFour || {};
+
+  return (
+    <Page
+      title={title || "Error:404.title"}
+      pageData={{ slug: null, inputBanner: null }}
+      siteData={siteData}
+    >
+      <PromoSection title={title} imageSource={featuredImage?.file.url}>
+        <Typography variant="body2" gutterBottom>
+          {subtitle}
+        </Typography>
+        {cta && (
+          <Button
+            action={getClickableActionFromUrl(
+              cta?.linkedPage,
+              cta?.url,
+              // TODO: As per below TODO
+              // Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
+              "no"
+            )}
+          >
+            {cta.label}
+          </Button>
+        )}
+      </PromoSection>
+    </Page>
+  );
+};
+
+export default FourOFour;
+
+export const pageQuery = graphql`
+  {
+    # TODO: The country code should come from somewhere else, however unable to
+    # pass the context to this page.
+    # Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
+    allContentfulSite(filter: { countryCode: { eq: "no" } }) {
+      nodes {
+        ...SiteFragment
+      }
+    }
+  }
+`;
