@@ -7,6 +7,7 @@ import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload from "@bmi/upload";
 import { Document } from "@contentful/rich-text-types";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext } from "react";
@@ -185,9 +186,11 @@ const FormSection = ({
               </Grid>
             ))}
           </Grid>
-          <Form.SubmitButton>
-            {submitText || getMicroCopy("form.submit")}
-          </Form.SubmitButton>
+          <Form.ButtonWrapper>
+            <Form.SubmitButton endIcon={<ArrowForwardIcon />}>
+              {submitText || getMicroCopy("form.submit")}
+            </Form.SubmitButton>
+          </Form.ButtonWrapper>
         </Form>
       ) : (
         "Form contains no fields"
