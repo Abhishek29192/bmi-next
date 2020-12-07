@@ -30,3 +30,11 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-Robots-Tag = "noindex"
+
+# Redirect root to /no. This is temporary. This solution will not work with 
+# multiple market websites.
+[[redirects]]
+  from = "/"
+  to = "/no"
+  status = 302
+  force = true
