@@ -21,6 +21,12 @@ interface ContentfulFormInputs {
 
   "The options for this input."
   options: String
+
+  "The permitted file types for upload."
+  accept: String
+
+  "The maximum file size for upload."
+  maxSize: Int
 }
 
 """
@@ -46,6 +52,12 @@ type contentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node 
 
   "The options for this input."
   options: String
+
+  "The permitted file types for upload."
+  accept: String
+
+  "The maximum file size for upload."
+  maxSize: Int
 }
 
 """
@@ -71,6 +83,12 @@ type contentfulInputBannerAdditionalInputsJsonNode implements ContentfulFormInpu
 
   "The options for this input."
   options: String
+
+  "The permitted file types for upload."
+  accept: String
+
+  "The maximum file size for upload."
+  maxSize: Int
 }
 
 """
