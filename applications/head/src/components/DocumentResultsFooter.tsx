@@ -11,7 +11,7 @@ type Props = {
   page: number;
   count: number;
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
-  onDownloadClick?: (list: Record<string, any>, resetList: () => void) => void;
+  onDownloadClick?: (list: Record<string, any>, callback?: () => void) => void;
 };
 
 export const handleDownloadClick = async (
