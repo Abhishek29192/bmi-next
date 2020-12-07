@@ -72,7 +72,7 @@ const ContactUsPage = ({ data }: Props) => {
           />
         }
       />
-      <Section backgroundColor="pearl">
+      <Section backgroundColor="pearl" hasRevertOverflow>
         <Section.Title>{queriesTitle}</Section.Title>
         <Typography variant="h4" component="p">
           {queriesSubtitle}
