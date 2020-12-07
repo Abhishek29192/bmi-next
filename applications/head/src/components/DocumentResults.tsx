@@ -54,7 +54,7 @@ const DocumentResults = ({ data, format }: Props) => {
       <DocumentResultsFooter
         page={page}
         count={count}
-        onDownloadClick={format === "cards" ? () => {} : handleDownloadClick}
+        onDownloadClick={format === "cards" ? undefined : handleDownloadClick}
         onPageChange={(_, page) => setPage(page)}
       />
     </>
