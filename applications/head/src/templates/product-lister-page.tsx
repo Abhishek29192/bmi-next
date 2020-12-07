@@ -4,7 +4,7 @@ import _ from "lodash";
 import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
 import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
-import { Data as SiteData } from "../components/Site";
+import { Data as SiteData, SiteContext } from "../components/Site";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import CheckIcon from "@material-ui/icons/Check";
@@ -239,163 +239,177 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
-      {isLoading ? (
-        <Scrim theme="light">
-          <ProgressIndicator theme="light" />
-        </Scrim>
-      ) : null}
-      <Hero
-        level={heroLevel}
-        {...heroProps}
-        breadcrumbs={
-          <Breadcrumbs
-            title={title}
-            slug={data.contentfulProductListerPage.slug}
-            menuNavigation={data.contentfulSite.menuNavigation}
-            isDarkThemed={heroLevel !== 3}
-          />
-        }
-      />
-      <Section backgroundColor="white">
-        <LeadBlock>
-          <LeadBlock.Content>
-            <RichText document={content.json} />
-          </LeadBlock.Content>
-          <LeadBlock.Card theme="pearl">
-            {features ? (
-              <LeadBlock.Card.Section>
-                <LeadBlock.Card.Heading hasUnderline>
-                  Key features
-                </LeadBlock.Card.Heading>
-                <LeadBlock.Card.Content>
-                  <IconList>
-                    {features.map((feature, index) => (
-                      <IconList.Item
-                        key={index}
-                        icon={BlueCheckIcon}
-                        title={feature}
-                        isCompact
-                      />
-                    ))}
-                  </IconList>
-                  {featuresLink && (
-                    <AnchorLink
-                      action={getClickableActionFromUrl(
-                        featuresLink.linkedPage,
-                        featuresLink.url,
-                        countryCode
-                      )}
+      <SiteContext.Consumer>
+        {({ getMicroCopy }) => {
+          return (
+            <>
+              {isLoading ? (
+                <Scrim theme="light">
+                  <ProgressIndicator theme="light" />
+                </Scrim>
+              ) : null}
+              <Hero
+                level={heroLevel}
+                {...heroProps}
+                breadcrumbs={
+                  <Breadcrumbs
+                    title={title}
+                    slug={data.contentfulProductListerPage.slug}
+                    menuNavigation={data.contentfulSite.menuNavigation}
+                    isDarkThemed={heroLevel !== 3}
+                  />
+                }
+              />
+              <Section backgroundColor="white">
+                <LeadBlock>
+                  <LeadBlock.Content>
+                    <RichText document={content.json} />
+                  </LeadBlock.Content>
+                  <LeadBlock.Card theme="pearl">
+                    {features ? (
+                      <LeadBlock.Card.Section>
+                        <LeadBlock.Card.Heading hasUnderline>
+                          {getMicroCopy("plp.keyFeatures.title")}
+                        </LeadBlock.Card.Heading>
+                        <LeadBlock.Card.Content>
+                          <IconList>
+                            {features.map((feature, index) => (
+                              <IconList.Item
+                                key={index}
+                                icon={BlueCheckIcon}
+                                title={feature}
+                                isCompact
+                              />
+                            ))}
+                          </IconList>
+                          {featuresLink && (
+                            <AnchorLink
+                              action={getClickableActionFromUrl(
+                                featuresLink.linkedPage,
+                                featuresLink.url,
+                                countryCode
+                              )}
+                            >
+                              {featuresLink.label}
+                            </AnchorLink>
+                          )}
+                        </LeadBlock.Card.Content>
+                      </LeadBlock.Card.Section>
+                    ) : null}
+                  </LeadBlock.Card>
+                </LeadBlock>
+              </Section>
+              <Section backgroundColor="pearl">
+                {categoryName && (
+                  <Section.Title hasUnderline>{categoryName}</Section.Title>
+                )}
+                <Grid container spacing={3}>
+                  <Grid item xs={12} md={12} lg={3}>
+                    <PerfectScrollbar
+                      style={{
+                        position: "sticky",
+                        top: "180px",
+                        maxHeight: "calc(100vh - 200px)",
+                        overflow: "hidden"
+                      }}
                     >
-                      {featuresLink.label}
-                    </AnchorLink>
-                  )}
-                </LeadBlock.Card.Content>
-              </LeadBlock.Card.Section>
-            ) : null}
-          </LeadBlock.Card>
-        </LeadBlock>
-      </Section>
-      <Section backgroundColor="pearl">
-        {categoryName && (
-          <Section.Title hasUnderline>{categoryName}</Section.Title>
-        )}
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={12} lg={3}>
-            <PerfectScrollbar
-              style={{
-                position: "sticky",
-                top: "180px",
-                maxHeight: "calc(100vh - 200px)",
-                overflow: "hidden"
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  marginBottom: 4
-                }}
-              >
-                <Typography variant="h5">Filters</Typography>
-                <Button variant="text" onClick={clearFilters}>
-                  Clear All
-                </Button>
-              </div>
-              <Filters filters={filters} onChange={handleFiltersChange} />
-            </PerfectScrollbar>
-          </Grid>
-          <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
-            <Grid container spacing={3}>
-              {products.length === 0 && (
-                <Typography>No results found</Typography>
-              )}
-              {_.flatten(
-                products.map((variant) => {
-                  const brandLogoCode = variant.brandCode;
-                  const brandLogo = iconMap[brandLogoCode];
-                  const mainImage = findMasterImageUrl(variant.images);
-                  const product: Product = variant.baseProduct;
-
-                  const uniqueClassifications = mapClassificationValues(
-                    findUniqueVariantClassifications(
-                      { ...variant, _product: product },
-                      pageContext.pimClassificationCatalogueNamespace
-                    )
-                  );
-
-                  return (
-                    <Grid
-                      item
-                      key={`${product.code}-${variant.code}`}
-                      xs={12}
-                      md={6}
-                      lg={4}
-                    >
-                      <OverviewCard
-                        title={product.name}
-                        titleVariant="h5"
-                        subtitle={uniqueClassifications}
-                        subtitleVariant="h6"
-                        imageSource={mainImage}
-                        imageSize="contain"
-                        brandImageSource={brandLogo}
-                        footer={
-                          <AnchorLink
-                            iconEnd
-                            action={{
-                              model: "routerLink",
-                              linkComponent: Link,
-                              to: getProductUrl(countryCode, variant.code)
-                            }}
-                          >
-                            View details
-                          </AnchorLink>
-                        }
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          marginBottom: 4
+                        }}
                       >
-                        {variant.shortDescription}
-                      </OverviewCard>
+                        <Typography variant="h5">Filters</Typography>
+                        <Button variant="text" onClick={clearFilters}>
+                          Clear All
+                        </Button>
+                      </div>
+                      <Filters
+                        filters={filters}
+                        onChange={handleFiltersChange}
+                      />
+                    </PerfectScrollbar>
+                  </Grid>
+                  <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
+                    <Grid container spacing={3}>
+                      {products.length === 0 && (
+                        <Typography>No results found</Typography>
+                      )}
+                      {_.flatten(
+                        products.map((variant) => {
+                          const brandLogoCode = variant.brandCode;
+                          const brandLogo = iconMap[brandLogoCode];
+                          const mainImage = findMasterImageUrl(variant.images);
+                          const product: Product = variant.baseProduct;
+
+                          const uniqueClassifications = mapClassificationValues(
+                            findUniqueVariantClassifications(
+                              { ...variant, _product: product },
+                              pageContext.pimClassificationCatalogueNamespace
+                            )
+                          );
+
+                          return (
+                            <Grid
+                              item
+                              key={`${product.code}-${variant.code}`}
+                              xs={12}
+                              md={6}
+                              lg={4}
+                            >
+                              <OverviewCard
+                                title={product.name}
+                                titleVariant="h5"
+                                subtitle={uniqueClassifications}
+                                subtitleVariant="h6"
+                                imageSource={mainImage}
+                                imageSize="contain"
+                                brandImageSource={brandLogo}
+                                footer={
+                                  <AnchorLink
+                                    iconEnd
+                                    action={{
+                                      model: "routerLink",
+                                      linkComponent: Link,
+                                      to: getProductUrl(
+                                        countryCode,
+                                        variant.code
+                                      )
+                                    }}
+                                  >
+                                    View details
+                                  </AnchorLink>
+                                }
+                              >
+                                {variant.shortDescription}
+                              </OverviewCard>
+                            </Grid>
+                          );
+                        })
+                      )}
                     </Grid>
-                  );
-                })
-              )}
-            </Grid>
-          </Grid>
-        </Grid>
-        {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
-        <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
-          <Grid item xs={12} md={6} lg={9}></Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <Pagination
-              page={page + 1}
-              onChange={(_, page) => {
-                handlePageChange(page - 1);
-              }}
-              count={pageCount}
-            />
-          </Grid>
-        </Grid>
-      </Section>
+                  </Grid>
+                </Grid>
+                {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
+                <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
+                  <Grid item xs={12} md={6} lg={9}></Grid>
+                  <Grid item xs={12} md={6} lg={3}>
+                    <Pagination
+                      page={page + 1}
+                      onChange={(_, page) => {
+                        handlePageChange(page - 1);
+                      }}
+                      count={pageCount}
+                    />
+                  </Grid>
+                </Grid>
+              </Section>
+            </>
+          );
+        }}
+      </SiteContext.Consumer>
     </Page>
   );
 };
