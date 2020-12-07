@@ -28,6 +28,7 @@ export type Props = {
   headers?: Record<string, string>;
   mapBody?: (file: File) => Record<string, any>;
   mapValue?: (file: File, response: any) => any;
+  fileValidation?: (file: File) => string;
 };
 
 const Upload = ({
@@ -43,6 +44,7 @@ const Upload = ({
   headers,
   mapBody,
   mapValue,
+  fileValidation,
   onChange
 }: Props) => {
   const [files, setFiles] = useState<readonly UploadFile[]>([]);
@@ -98,6 +100,7 @@ const Upload = ({
             headers={headers}
             mapBody={mapBody}
             errorMessage={uploadErrorMessage}
+            validation={fileValidation}
             onRequestSuccess={(data) => {
               setFiles((files) =>
                 Object.assign([], files, {

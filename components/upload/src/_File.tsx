@@ -22,6 +22,7 @@ type Props = {
   onDeleteClick: () => void;
   onRequestSuccess?: (responseBody) => void;
   errorMessage?: string;
+  validation?: (file: File) => string;
 };
 
 export const getFileSizeString = (size: number): string => {
@@ -40,7 +41,8 @@ const File = ({
   mapBody,
   onDeleteClick,
   onRequestSuccess,
-  errorMessage
+  errorMessage,
+  validation
 }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -49,6 +51,14 @@ const File = ({
     : null;
 
   const handleFileUpload = async () => {
+    const fileValidationError = validation && validation(file);
+
+    if (fileValidationError) {
+      setError(fileValidationError);
+      setLoading(false);
+      return;
+    }
+
     const source = axios.CancelToken.source();
     try {
       const res = await axios.post(uri, mapBody(file), {
