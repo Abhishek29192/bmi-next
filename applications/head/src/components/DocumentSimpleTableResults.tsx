@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import filesize from "filesize";
 import classnames from "classnames";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
+import { groupBy } from "lodash";
 import Icon, { iconMap } from "@bmi/icon";
 import { Data as PIMDocumentData } from "./PIMDocument";
 import { Data as DocumentData } from "./Document";
@@ -91,13 +92,24 @@ const DocumentSimpleTableResults = ({
     (page - 1) * documentsPerPage,
     page * documentsPerPage
   );
+  const assetTypesCount = useMemo(
+    () => Object.keys(groupBy(documents, "assetType.code")).length,
+    [documents]
+  );
+  const tableHeaders = headers.filter((header) => {
+    if (assetTypesCount < 2 && header.includes("type")) {
+      return false;
+    }
+
+    return true;
+  });
 
   return (
     <div className={styles["DocumentSimpleTableResults"]}>
       <Table rowBgColorPattern="none">
         <Table.Head>
           <Table.Row>
-            {headers.map((header) => (
+            {tableHeaders.map((header) => (
               <Table.Cell
                 key={`header-${header}`}
                 className={classnames({
@@ -121,13 +133,15 @@ const DocumentSimpleTableResults = ({
                   [styles["row--checked"]]: !!list[id]
                 })}
               >
-                {headers.map((header) => {
+                {tableHeaders.map((header) => {
                   const key = `${title}-body-${header}`;
 
                   if (header === "typeCode") {
                     return (
                       <Table.Cell className={styles["table-cell"]} key={key}>
-                        {document.assetType.code}
+                        <abbr title={document.assetType.name}>
+                          {document.assetType.code}
+                        </abbr>
                       </Table.Cell>
                     );
                   }
