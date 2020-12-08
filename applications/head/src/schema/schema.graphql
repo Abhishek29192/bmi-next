@@ -890,6 +890,29 @@ Represents a site settings and its pages.
 type ContentfulSite implements Node {
   "The global settings for this site."
   resources: ContentfulResources @link(from: "resources___NODE")
+
+  "head script tags for this Site."
+  headScripts: contentfulSiteHeadScriptsTextNode
+    @link(from: "headScripts___NODE")
+
+  "Google Analitycs integration ID"
+  scriptGA: String
+
+  "OneTrust integration ID"
+  scriptOnetrust: String
+
+  "Google Tag Manager integration ID"
+  scriptGTM: String
+
+  "HotJar integration ID"
+  scriptHotJar: String
+}
+
+"""
+Represents head script tags.
+"""
+type contentfulSiteHeadScriptsTextNode implements Node {
+  headScripts: String
 }
 
 """
