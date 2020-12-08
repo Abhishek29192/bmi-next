@@ -3820,6 +3820,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.27.tgz#989cb01c7a6419abd2f2f956cae4828f825589f6"
   integrity sha512-IeZlpkPnUqO45iBxJocIQzwV+K6phdSVaCxRwlvHHQ0YL+Gb1fvuv9GmIMYllZcjyzqoRKDNJeNo6p8dNWSPSQ==
 
+"@types/node@^14.14.10":
+  version "14.14.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.10.tgz#5958a82e41863cfc71f2307b3748e3491ba03785"
+  integrity sha512-J32dgx2hw8vXrSbu4ZlVhn1Nm3GbeCFNw2FWL8S5QKucHGY0cyNwjdQdO+KMBZ4wpmC7KhLCiNsdk1RFRIYUQQ==
+
 "@types/node@^8.0.53", "@types/node@^8.5.7":
   version "8.10.65"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.65.tgz#d2b5d0eb97e28cc1e28008d2872e4da8638a8ea3"

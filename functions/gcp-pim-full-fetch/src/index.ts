@@ -1,12 +1,17 @@
-"use strict";
+import { URLSearchParams } from "url";
+import { deleteElasticSearchIndex } from "./reset/elasticSearch";
+import { deleteFirestoreCollection } from "./reset/firestore";
+import fetch from "node-fetch";
+import { PubSub } from "@google-cloud/pubsub";
+import dotenv from "dotenv";
 
-require("dotenv").config();
+// Hack to please TS
+type RequestRedirect = "error" | "follow" | "manual";
+
+dotenv.config();
 
 // TODO: NOPE HACK!
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
-
-const fetch = require("node-fetch");
-const { PubSub } = require("@google-cloud/pubsub");
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const pubSubClient = new PubSub({
   projectId: process.env.GCP_PROJECT_ID
@@ -30,13 +35,15 @@ const getAuthToken = async () => {
   urlencoded.append("client_secret", process.env.PIM_CLIENT_SECRET);
   urlencoded.append("grant_type", "client_credentials");
 
+  const redirect: RequestRedirect = "follow";
+
   var requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"
     },
     body: urlencoded,
-    redirect: "follow"
+    redirect
   };
 
   const response = await fetch(
@@ -57,13 +64,15 @@ const getAuthToken = async () => {
 const fetchData = async (path = "/") => {
   const { access_token } = await getAuthToken();
 
+  const redirect: RequestRedirect = "follow";
+
   var options = {
     method: "GET",
     headers: {
       Authorization: `Bearer ${access_token}`,
       "Content-Type": "application/json"
     },
-    redirect: "follow"
+    redirect
   };
 
   const fullPath = `${process.env.PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`;
@@ -118,6 +127,11 @@ const handleRequest = async (req, res) => {
   if (req.body) {
     // TODO: Delete entire firestore database, if flag passed in request
 
+    console.log("Clearing out data...");
+
+    await deleteElasticSearchIndex();
+    await deleteFirestoreCollection();
+
     console.log(`Getting the whole catalogue.`);
 
     const messagePages = getProducts();
@@ -134,6 +148,18 @@ const handleRequest = async (req, res) => {
       }
     }
 
+    // NOTE: Not awaiting this trigger
+    fetch(
+      "https://europe-west3-dxb-development.cloudfunctions.net/pimtodxb-buildtrigger-dev-euwest3",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ foo: "bar" })
+      }
+    );
+
     res.status(200).send("ok");
   } else {
     console.log("no data received.");
@@ -142,4 +168,4 @@ const handleRequest = async (req, res) => {
 };
 
 // NOTE: GCP likes the export this way 🤷‍♂️
-exports.handleRequest = handleRequest;
+export { handleRequest };
