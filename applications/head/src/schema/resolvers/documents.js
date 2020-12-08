@@ -1,7 +1,10 @@
 "use strict";
 
 const _ = require("lodash");
-const { getFormatFromFileName } = require("./utils/documents");
+const {
+  getFormatFromFileName,
+  isPimLinkDocument
+} = require("./utils/documents");
 const {
   generateIdFromString,
   generateDigestFromData
@@ -48,18 +51,41 @@ const resolveDocumentsFromProducts = async (
       .map((asset) => {
         const id = generateIdFromString(product.name + asset.name);
         const { url, fileSize, realFileName } = asset;
+        const assetType = _.find(assetTypes, { pimCode: asset.assetType });
 
-        // TODO: Handle allowedToDownload = false with some type.
-        if (!url || !fileSize || !realFileName || !asset.assetType) {
+        if (!assetType || !url) {
           return;
         }
 
-        const assetType = _.find(assetTypes, { pimCode: asset.assetType });
+        if (isPimLinkDocument(asset)) {
+          const fieldData = {
+            title: `${product.name} ${assetType.name}`,
+            url,
+            assetType___NODE: assetType.id,
+            product___NODE: product.id
+          };
+
+          return {
+            id,
+            ...fieldData,
+            parent: source.id,
+            children: [],
+            internal: {
+              type: "PIMLinkDocument",
+              owner: "@bmi/resolvers",
+              contentDigest: generateDigestFromData(fieldData)
+            }
+          };
+        }
+
+        if (!fileSize || !realFileName) {
+          return;
+        }
 
         const fieldData = {
           title: `${product.name} ${assetType.name}`,
           url,
-          assetType___NODE: assetType && assetType.id,
+          assetType___NODE: assetType.id,
           fileSize,
           product___NODE: product.id,
           format: getFormatFromFileName(realFileName),

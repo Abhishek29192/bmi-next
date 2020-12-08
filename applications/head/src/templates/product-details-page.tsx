@@ -22,6 +22,7 @@ import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
 import { Data as PIMDocumentData } from "../components/PIMDocument";
+import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
 import Breadcrumbs from "../components/Breadcrumbs";
 
 export type Data = PageData & {
@@ -113,7 +114,7 @@ export type Product = {
   categories?: ReadonlyArray<Category>;
   classifications?: ReadonlyArray<Classification>;
   variantOptions?: ReadonlyArray<VariantOption>;
-  documents: PIMDocumentData[];
+  documents: (PIMDocumentData | PIMLinkDocumentData)[];
 };
 
 type Props = {
@@ -381,6 +382,7 @@ export const pageQuery = graphql`
       }
       documents {
         ...PIMDocumentFragment
+        ...PIMLinkDocumentFragment
       }
     }
     relatedProducts: allProducts(

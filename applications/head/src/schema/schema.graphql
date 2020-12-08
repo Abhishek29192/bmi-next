@@ -1055,7 +1055,26 @@ type PIMDocument implements Node {
   extension: String
 }
 
-union Document = ContentfulDocument | PIMDocument
+"""
+Represents a link document for a PIM product.
+"""
+type PIMLinkDocument implements Node {
+  id: ID!
+
+  "The title for this document."
+  title: String
+
+  "The URL for this document."
+  url: String
+
+  "The type for this document."
+  assetType: ContentfulAssetType @link(from: "assetType___NODE")
+
+  "The product this document belongs to."
+  product: Products @link(from: "product___NODE")
+}
+
+union Document = ContentfulDocument | PIMDocument | PIMLinkDocument
 
 """
 Represents a document library page, implementing ContentfulPage.
@@ -1104,9 +1123,11 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   pimCodes: [String]
 }
 
+union ProductDocument = PIMDocument | PIMLinkDocument
+
 type Products implements Node {
   "The documents for this product."
-  documents: [PIMDocument]! @link(from: "documents___NODE")
+  documents: [ProductDocument]! @link(from: "documents___NODE")
 }
 
 """

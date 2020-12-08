@@ -35,4 +35,17 @@
     width: 32px;
     height: 32px;
   }
+
+  .external-link-icon {
+    fill: $color-cyan-500;
+    width: 24px;
+    height: 24px;
+  }
+
+  .no-document-icon {
+    width: 16px;
+    height: 16px;
+    color: $color-charcoal;
+    opacity: 0.24;
+  }
 }

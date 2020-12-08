@@ -13,13 +13,14 @@ import RichText from "./RichText";
 import Clickable from "@bmi/clickable";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import { SiteContext } from "./Site";
-import { Data as PIMDocument } from "./PIMDocument";
+import { Data as PIMDocumentData } from "./PIMDocument";
+import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 
 const AssetHeader = ({
   assetType
 }: {
-  assetType: PIMDocument["assetType"];
+  assetType: PIMDocumentData["assetType"] | PIMLinkDocumentData["assetType"];
 }) => {
   const { name, code, description } = assetType;
   const [isTooltipActive, setIsTooltipActive] = useState<boolean>(false);
@@ -90,7 +91,7 @@ const AssetHeader = ({
   );
 };
 type Props = {
-  documents: PIMDocument[];
+  documents: (PIMDocumentData | PIMLinkDocumentData)[];
   page: number;
   documentsPerPage: number;
 };
@@ -104,7 +105,7 @@ const fileIconsMap: Record<Format, React.ComponentType> = {
   "image/png": iconMap.FilePNG
 };
 
-export const getCount = (documents: Props["documents"]) => {
+export const getCount = (documents: Props["documents"]): number => {
   return Object.entries(groupBy(documents, "product.name")).length;
 };
 
@@ -192,20 +193,39 @@ const DocumentTechnicalTableResults = ({
                     );
                   }
 
-                  const FileIcon = fileIconsMap[asset.format];
-
                   return (
                     <Table.Cell
                       key={`${productName}-asset-${asset.id}`}
                       className={styles["align-center"]}
                     >
-                      <Clickable
-                        model="download"
-                        href={asset.url}
-                        // download={asset.title}
-                      >
-                        <FileIcon className={styles["format-icon"]} />
-                      </Clickable>
+                      {asset.__typename !== "PIMLinkDocument" ? (
+                        <Clickable
+                          model="download"
+                          href={asset.url}
+                          download={asset.title}
+                        >
+                          <Icon
+                            source={fileIconsMap[asset.format]}
+                            className={styles["format-icon"]}
+                          />
+                        </Clickable>
+                      ) : (
+                        <Button
+                          isIconButton
+                          variant="text"
+                          action={{
+                            model: "htmlLink",
+                            href: asset.url,
+                            target: "_blank",
+                            rel: "noopener noreferrer"
+                          }}
+                        >
+                          <Icon
+                            source={iconMap.External}
+                            className={styles["external-link-icon"]}
+                          />
+                        </Button>
+                      )}
                     </Table.Cell>
                   );
                 })}
@@ -215,7 +235,9 @@ const DocumentTechnicalTableResults = ({
                     ariaLabel={`${getMicroCopy(
                       "documentLibrary.download"
                     )} ${productName}`}
-                    value={assets}
+                    value={assets.filter(
+                      ({ __typename }) => __typename !== "PIMLinkDocument"
+                    )}
                   />
                 </Table.Cell>
               </Table.Row>
