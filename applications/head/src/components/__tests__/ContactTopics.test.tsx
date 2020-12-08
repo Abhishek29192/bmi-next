@@ -1,5 +1,5 @@
 import React from "react";
-import ContentTopics from "../ContentTopics";
+import ContactTopics from "../ContactTopics";
 import { render } from "@testing-library/react";
 import { Document } from "@contentful/rich-text-types";
 
@@ -23,10 +23,10 @@ const contentMock = {
   ]
 };
 
-describe("ContentTopics component", () => {
+describe("ContactTopics component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <ContentTopics
+      <ContactTopics
         topics={[
           {
             icon: "build",

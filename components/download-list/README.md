@@ -5,7 +5,7 @@ This component uses context to be able to create a list of checkboxes and a dowl
 ### Default
 
 ```jsx
-import { DownloadListContext } from "@bmi/download-list";
+import { DownloadListContext } from "./src/index";
 
 <DownloadList onChange={console.log}>
   <div>

@@ -9,9 +9,9 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import { Data as PageInfoData } from "../components/PageInfo";
-import ContentTopics, {
-  Data as ContentTopicsData
-} from "../components/ContentTopics";
+import ContactTopics, {
+  Data as ContactTopicsData
+} from "../components/ContactTopics";
 import Locations, { Data as LocationsData } from "../components/Locations";
 
 type Data = PageInfoData &
@@ -21,7 +21,7 @@ type Data = PageInfoData &
     queriesSubtitle: string;
     otherAreasTitle: string;
     otherAreas: readonly TitleWithContentData[];
-    contentTopics: ContentTopicsData[];
+    contentTopics: ContactTopicsData[];
     locationsTitle: string | null;
     locations: LocationsData | null;
   };
@@ -78,7 +78,7 @@ const ContactUsPage = ({ data }: Props) => {
           {queriesSubtitle}
         </Typography>
         <div style={{ marginTop: "40px" }}>
-          {contentTopics && <ContentTopics topics={contentTopics} />}
+          {contentTopics && <ContactTopics topics={contentTopics} />}
         </div>
       </Section>
       {locations && (
@@ -111,7 +111,7 @@ export const pageQuery = graphql`
       queriesTitle
       queriesSubtitle
       contentTopics {
-        ...ContentTopicsFragment
+        ...ContactTopicsFragment
       }
       otherAreasTitle
       otherAreas {

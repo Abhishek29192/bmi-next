@@ -10,6 +10,8 @@ import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import styles from "./styles/RichText.module.scss";
 
+export { Document } from "@contentful/rich-text-types";
+
 type Settings = {
   theme?: "primary" | "secondary";
   backgroundTheme?: "light" | "dark";

@@ -205,7 +205,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   locations: [ContentfulContactDetails] @link(from: "locations___NODE")
 
   "The topics for this page."
-  contentTopics: [ContentfulContentTopic] @link(from: "contentTopics___NODE")
+  contentTopics: [ContentfulContactTopic] @link(from: "contentTopics___NODE")
 
   "The other areas title for this page."
   otherAreasTitle: String
@@ -823,9 +823,16 @@ type ContentfulResources implements Node {
 }
 
 """
+Represents a union for a combination of contact details and title with content.
+"""
+union ContentfulContactDetailsOrTitleWithContent =
+    ContentfulContactDetails
+  | ContentfulTitleWithContent
+
+"""
 Represents a content topic.
 """
-type ContentfulContentTopic implements Node {
+type ContentfulContactTopic implements Node {
   id: ID!
 
   "The icon symbol for this topic."
@@ -844,7 +851,8 @@ type ContentfulContentTopic implements Node {
   footerTitle: String
 
   "The list of actions for this topic."
-  footerList: [ContentfulTitleWithContent] @link(from: "footerList___NODE")
+  footerList: [ContentfulContactDetailsOrTitleWithContent]
+    @link(from: "footerList___NODE")
 }
 
 """
@@ -1145,7 +1153,7 @@ Represents a set of contact details.
 """
 type ContentfulContactDetails implements Node {
   "The title for this contact."
-  title: String!
+  title: String
 
   "The address for this contact."
   address: String

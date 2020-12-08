@@ -8,6 +8,21 @@
   height: 100%;
   background-color: $color-white;
 
+  &--flat {
+    box-shadow: none;
+    padding: 0;
+    background-color: transparent;
+
+    .label {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  }
+
   .list {
     margin: 36px 0 0;
   }
@@ -18,6 +33,10 @@
     margin-right: 12px;
     display: none;
     color: $color-slate;
+  }
+
+  &--flat .icon {
+    margin-right: 0;
   }
 
   .term {
@@ -54,6 +73,10 @@
 
   @media (min-width: $breakpoint-md) {
     padding: 30px;
+
+    &--flat {
+      padding: 0;
+    }
 
     .list {
       margin-top: 32px;

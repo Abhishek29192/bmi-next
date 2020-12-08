@@ -9,12 +9,13 @@ import FindReplaceIcon from "@material-ui/icons/FindReplace";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import HelpIcon from "@material-ui/icons/Help";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
-
 import ExpandableCard from "@bmi/expandable-card";
 import Typography from "@bmi/typography";
+import Grid, { GridProps } from "@bmi/grid";
 import IconList from "@bmi/icon-list";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 import RichText from "./RichText";
+import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 
 export const iconMap = {
   build: BuildIcon,
@@ -36,7 +37,7 @@ type BodyProps = {
 
 type FooterProps = {
   footerTitle?: string;
-  footerList?: readonly TitleWithContentData[];
+  footerList?: readonly (TitleWithContentData | ContactDetailsData)[];
 };
 
 export type Data = {
@@ -68,25 +69,48 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
     </>
   );
 };
+
 const Footer = ({ footerTitle, footerList }: FooterProps) => {
   return (
     <>
-      <Typography variant="h6" style={{ marginBottom: "16px" }}>
+      <Typography variant="h6" style={{ marginBottom: "42px" }}>
         {footerTitle}
       </Typography>
 
-      {footerList &&
-        footerList.map(({ title, content }: TitleWithContentData, index) => (
-          <div key={index}>
-            <Typography>{title}</Typography>
-            <RichText document={content.json} />
-          </div>
-        ))}
+      {footerList && (
+        <Grid container spacing={3}>
+          {footerList.map((item, index) => {
+            const key = `footer-item-${index}`;
+            const gridItemProps: GridProps = {
+              xs: 12,
+              sm: 6,
+              lg: 4,
+              item: true
+            };
+
+            if (item.__typename === "ContentfulTitleWithContent") {
+              const { title, content } = item;
+              return (
+                <Grid key={key} {...gridItemProps}>
+                  <Typography>{title}</Typography>
+                  <RichText document={content.json} />
+                </Grid>
+              );
+            }
+
+            return (
+              <Grid key={key} {...gridItemProps}>
+                <ContactDetails data={item} isFlat />
+              </Grid>
+            );
+          })}
+        </Grid>
+      )}
     </>
   );
 };
 
-const ContentTopics = ({ topics }: { topics: Data[] }) => {
+const ContactTopics = ({ topics }: { topics: Data[] }) => {
   const items = topics.map((item) => {
     return {
       icon: iconMap[item.icon],
@@ -101,10 +125,10 @@ const ContentTopics = ({ topics }: { topics: Data[] }) => {
   return <ExpandableCard.List items={items} />;
 };
 
-export default ContentTopics;
+export default ContactTopics;
 
 export const query = graphql`
-  fragment ContentTopicsFragment on ContentfulContentTopic {
+  fragment ContactTopicsFragment on ContentfulContactTopic {
     icon
     title
     bodyTitle
@@ -114,9 +138,12 @@ export const query = graphql`
     footerTitle
     footerList {
       __typename
-      ... on ContentfulTitleWithContent {
-        ...TitleWithContentFragment
-      }
+      # ... on ContentfulTitleWithContent {
+      ...TitleWithContentFragment
+      # }
+      # ... on ContentfulContactDetails {
+      ...ContactDetailsFragment
+      # }
     }
   }
 `;
