@@ -30,6 +30,10 @@ const getProductFamilyFilter = (products: readonly Product[]) => {
     "code"
   );
 
+  if (allFamilyCategories.length === 0) {
+    return;
+  }
+
   return {
     // TODO: Microcopy for label
     label: "Produktfamilie",
@@ -64,6 +68,10 @@ const getColorFilter = (
       ];
     }, [])
     .filter(Boolean);
+
+  if (colorFilters.length === 0) {
+    return;
+  }
 
   // Assuming all colours have the same label
   const label = colorFilters[0]?.name;
@@ -108,6 +116,10 @@ const getTextureFilter = (
     }, [])
     .filter(Boolean);
 
+  if (textures.length === 0) {
+    return;
+  }
+
   // Assuming all texturefamily classifications have the same label
   const label = textures[0]?.name;
   const values = _.uniqBy(_.map(textures, "value"), "code");
@@ -136,22 +148,19 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
       }
       return 0;
     })
-    .reduce((filters, [categoryKey, category]) => {
-      return [
-        ...filters,
-        {
-          label: category.name,
-          name: categoryKey,
-          value: [],
-          options: category.values
-            .sort(sortAlphabeticallyBy("name"))
-            .map((category) => ({
-              label: category.name,
-              value: category.code
-            }))
-        }
-      ];
-    }, []);
+    .map(([categoryKey, category]) => {
+      return {
+        label: category.name,
+        name: categoryKey,
+        value: [],
+        options: category.values
+          .sort(sortAlphabeticallyBy("name"))
+          .map((category) => ({
+            label: category.name,
+            value: category.code
+          }))
+      };
+    });
 };
 
 export const getFilters = (
