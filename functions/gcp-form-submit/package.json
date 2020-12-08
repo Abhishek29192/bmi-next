@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/upload-function",
+  "name": "@bmi/gcp-form-submit",
   "private": true,
   "version": "0.0.0",
   "src": "src/index.ts",
@@ -7,11 +7,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && functions-framework --source=dist --target=upload --port=7040"
+    "dev": "tsc && functions-framework --source=dist --target=submit --port=5817"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
-    "buffer": "^5.6.0",
+    "@sendgrid/mail": "^7.4.0",
     "contentful-management": "^6.1.2",
     "dotenv": "^8.2.0"
   }

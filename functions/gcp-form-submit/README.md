@@ -3,7 +3,7 @@
 ## Build
 
 ```bash
-yarn run @bmi/form-submit-function build
+yarn run @bmi/gcp-form-submit build
 ```
 
 Functions are build into the `dist` directory.
@@ -13,5 +13,5 @@ Functions are build into the `dist` directory.
 To run a function in dev mode:
 
 ```bash
-yarn workspace @bmi/form-submit-function dev
+yarn workspace @bmi/gcp-form-submit dev
 ```
