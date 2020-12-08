@@ -410,6 +410,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
           );
         }}
       </SiteContext.Consumer>
+      <Section backgroundColor="alabaster" isSlim>
+        <Breadcrumbs
+          title={title}
+          slug={data.contentfulProductListerPage.slug}
+        />
+      </Section>
     </Page>
   );
 };

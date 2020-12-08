@@ -121,6 +121,12 @@ const DocumentLibraryPage = ({ data }: Props) => {
           );
         }}
       </SiteContext.Consumer>
+      <Section backgroundColor="alabaster" isSlim>
+        <Breadcrumbs
+          title={title}
+          slug={data.contentfulDocumentLibraryPage.slug}
+        />
+      </Section>
     </Page>
   );
 };

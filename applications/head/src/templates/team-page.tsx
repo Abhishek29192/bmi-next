@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { Document } from "@contentful/rich-text-types";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container";
+import Section from "@bmi/section";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Hero from "@bmi/hero";
@@ -70,6 +71,9 @@ const TeamPage = ({ data }: Props) => {
           </Tabs.TabPanel>
         ))}
       </Tabs>
+      <Section backgroundColor="alabaster" isSlim>
+        <Breadcrumbs title={title} slug={slug} />
+      </Section>
     </Page>
   );
 };

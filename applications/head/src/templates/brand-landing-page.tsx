@@ -6,6 +6,7 @@ import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
 // import Search from "@bmi/search";
+import Section from "@bmi/section";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -94,6 +95,9 @@ const BrandLandingPage = ({ data }: Props) => {
 
       {overlapCards && <OverlapCards data={overlapCards} />}
       {sections && <Sections data={sections} />}
+      <Section backgroundColor="alabaster" isSlim>
+        <Breadcrumbs title={title} slug={slug} />
+      </Section>
     </Page>
   );
 };
