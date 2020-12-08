@@ -21,9 +21,11 @@ type Props = {
   mapBody?: (file: File) => Record<string, any>;
   onDeleteClick: () => void;
   onRequestSuccess?: (responseBody) => void;
+  errorMessage?: string;
+  validation?: (file: File) => string;
 };
 
-const getFileSizeString = (size: number): string => {
+export const getFileSizeString = (size: number): string => {
   const kb = Math.round(size / 1000);
   if (kb > 1000) {
     const mb = Math.round(kb / 100) / 10;
@@ -38,15 +40,25 @@ const File = ({
   headers = {},
   mapBody,
   onDeleteClick,
-  onRequestSuccess
+  onRequestSuccess,
+  errorMessage,
+  validation
 }: Props) => {
   const [loading, setLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState("");
   const previewImage = file.type.includes("image")
     ? URL.createObjectURL(file)
     : null;
 
   const handleFileUpload = async () => {
+    const fileValidationError = validation && validation(file);
+
+    if (fileValidationError) {
+      setError(fileValidationError);
+      setLoading(false);
+      return;
+    }
+
     const source = axios.CancelToken.source();
     try {
       const res = await axios.post(uri, mapBody(file), {
@@ -56,12 +68,12 @@ const File = ({
       const body = res.data;
 
       if (body.sys.type === "Error") {
-        setHasError(true);
+        setError(errorMessage);
       }
 
       onRequestSuccess(body);
     } catch (error) {
-      setHasError(true);
+      setError(errorMessage);
     }
 
     setLoading(false);
@@ -93,8 +105,8 @@ const File = ({
         </div>
       );
     }
-    if (hasError) {
-      return <Typography className={styles["error"]}>Upload failed</Typography>;
+    if (error) {
+      return <Typography className={styles["error"]}>{error}</Typography>;
     }
     return (
       <Typography className={styles["file-size"]}>

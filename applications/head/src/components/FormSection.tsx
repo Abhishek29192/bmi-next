@@ -5,8 +5,9 @@ import Grid from "@bmi/grid";
 import Section from "@bmi/section";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
-import Upload from "@bmi/upload";
+import Upload, { getFileSizeString } from "@bmi/upload";
 import { Document } from "@contentful/rich-text-types";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext } from "react";
@@ -32,6 +33,8 @@ type InputType = {
   required?: boolean;
   type: typeof InputTypes[number];
   width?: "full" | "half";
+  accept?: string;
+  maxSize?: number;
 };
 
 export type Data = {
@@ -50,8 +53,11 @@ const Input = ({
   name,
   options,
   type,
-  required
+  required,
+  accept = ".pdf, .jpg, .jpeg, .png",
+  maxSize
 }: Omit<InputType, "width">) => {
+  const { getMicroCopy } = useContext(SiteContext);
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -64,6 +70,15 @@ const Input = ({
     }
   });
 
+  const handleFileValidation = (file: File) => {
+    if (maxSize && file.size > maxSize) {
+      return getMicroCopy("errors.maxSize").replace(
+        "{{size}}",
+        getFileSizeString(maxSize * 1000000)
+      );
+    }
+  };
+
   switch (type) {
     case "upload":
       return (
@@ -74,8 +89,16 @@ const Input = ({
           isRequired={required}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{ "Content-Type": "application/octet-stream" }}
-          accept=".pdf,.jpg,.jpeg,.png"
-          instructions="Supported formats: PDF, JPG, JPEG and PNG"
+          accept={accept}
+          fileValidation={handleFileValidation}
+          instructions={
+            `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
+            (maxSize
+              ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
+                  maxSize * 1000000
+                )}`
+              : "")
+          }
           mapBody={(file) => ({ file })}
           mapValue={mapValue}
         />
@@ -185,9 +208,11 @@ const FormSection = ({
               </Grid>
             ))}
           </Grid>
-          <Form.SubmitButton>
-            {submitText || getMicroCopy("form.submit")}
-          </Form.SubmitButton>
+          <Form.ButtonWrapper>
+            <Form.SubmitButton endIcon={<ArrowForwardIcon />}>
+              {submitText || getMicroCopy("form.submit")}
+            </Form.SubmitButton>
+          </Form.ButtonWrapper>
         </Form>
       ) : (
         "Form contains no fields"
@@ -213,6 +238,8 @@ export const query = graphql`
       type
       required
       width
+      accept
+      maxSize
     }
     submitText
     successRedirect {
