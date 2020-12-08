@@ -6,6 +6,7 @@ import Button from "@bmi/button";
 import { groupBy } from "lodash";
 import Icon, { iconMap } from "@bmi/icon";
 import { Data as PIMDocumentData } from "./PIMDocument";
+import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import { Data as DocumentData } from "./Document";
 import { SiteContext } from "./Site";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
@@ -14,7 +15,7 @@ import styles from "./styles/DocumentSimpleTableResults.module.scss";
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
 type Props = {
-  documents: (DocumentData | PIMDocumentData)[];
+  documents: (DocumentData | PIMDocumentData | PIMLinkDocumentData)[];
   page: number;
   documentsPerPage: number;
   headers?: AvailableHeader[];
@@ -124,7 +125,6 @@ const DocumentSimpleTableResults = ({
         <Table.Body>
           {paginatedDocuments.map((document, index) => {
             const { id, title } = document;
-            const assetData = mapAssetToFileDownload(document);
 
             return (
               <Table.Row
@@ -169,7 +169,27 @@ const DocumentSimpleTableResults = ({
                         align="left"
                         key={key}
                       >
-                        <FileDownloadButton {...assetData} />
+                        {document.__typename !== "PIMLinkDocument" ? (
+                          <FileDownloadButton
+                            {...mapAssetToFileDownload(document)}
+                          />
+                        ) : (
+                          <Button
+                            isIconButton
+                            variant="text"
+                            action={{
+                              model: "htmlLink",
+                              href: document.url,
+                              target: "_blank",
+                              rel: "noopener noreferrer"
+                            }}
+                          >
+                            <Icon
+                              source={iconMap.External}
+                              className={styles["external-link-icon"]}
+                            />
+                          </Button>
+                        )}
                       </Table.Cell>
                     );
                   }
@@ -180,13 +200,17 @@ const DocumentSimpleTableResults = ({
                         align="center"
                         key={key}
                       >
-                        <DownloadList.Checkbox
-                          name={id}
-                          ariaLabel={`${getMicroCopy(
-                            "documentLibrary.download"
-                          )} ${title}`}
-                          value={document}
-                        />
+                        {document.__typename !== "PIMLinkDocument" ? (
+                          <DownloadList.Checkbox
+                            name={id}
+                            ariaLabel={`${getMicroCopy(
+                              "documentLibrary.download"
+                            )} ${title}`}
+                            value={document}
+                          />
+                        ) : (
+                          <span className={styles["no-document-icon"]}>-</span>
+                        )}
                       </Table.Cell>
                     );
                   }
