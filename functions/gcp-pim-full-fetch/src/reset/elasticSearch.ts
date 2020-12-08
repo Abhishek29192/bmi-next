@@ -1,6 +1,4 @@
-"use strict";
-
-const { Client } = require("@elastic/elasticsearch");
+import { Client } from "@elastic/elasticsearch";
 
 const ES_INDEX_NAME = "nodetest_v3_products";
 
@@ -29,6 +27,4 @@ const deleteElasticSearchIndex = () => {
   );
 };
 
-module.exports = {
-  deleteElasticSearchIndex
-};
+export { deleteElasticSearchIndex };
