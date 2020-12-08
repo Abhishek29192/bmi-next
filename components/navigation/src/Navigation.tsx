@@ -26,7 +26,7 @@ type NavigationProps = {
   menu: readonly NavigationList[];
   initialDepth?: number;
   initialValue?: number | boolean;
-  toggleLanguageSelection?: (boolean) => void;
+  toggleLanguageSelection?: () => void;
   utilities: readonly LinkList[];
 };
 
@@ -62,14 +62,14 @@ type NavigationListProps = {
   backLabel?: string;
   className?: string;
   depth: number;
-  menu: readonly NavigationList[];
-  show?: boolean;
   initialValue?: number | boolean;
   isFooter?: boolean;
   isRoot?: boolean;
-  parentHandleClick?: (number) => void;
-  setDepth: (number) => void;
-  toggleLanguageSelection?: (boolean) => void;
+  menu: readonly NavigationList[];
+  parentHandleClick?: (newValue: number | boolean) => void;
+  setDepth: (depth: number) => void;
+  show?: boolean;
+  toggleLanguageSelection?: () => void;
   utilities?: readonly LinkList[];
 };
 
@@ -77,13 +77,13 @@ const NavigationList = ({
   backLabel = "Back",
   className,
   depth,
-  menu,
-  show,
   initialValue = false,
   isFooter = false,
   isRoot = false,
+  menu,
   parentHandleClick,
   setDepth,
+  show,
   toggleLanguageSelection,
   utilities
 }: NavigationListProps) => {
