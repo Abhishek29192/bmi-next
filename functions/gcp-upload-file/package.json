@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/upload-function",
+  "name": "@bmi/gcp-upload-file",
   "private": true,
   "version": "0.0.0",
   "src": "src/index.ts",
