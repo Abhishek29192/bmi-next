@@ -557,7 +557,7 @@ export type ProductCategoryTree = {
 
 // Second from last leaf category, which denotes top most parent category of a path
 export const getGroupCategory = (branch: CategoryPath) =>
-  branch[Math.max(0, branch.length - 2)];
+  branch[branch.length - 2];
 
 export const getLeafCategory = (branch: CategoryPath) =>
   branch[branch.length - 1];
@@ -604,6 +604,11 @@ export const findAllCategories = (products: readonly Product[]) => {
   return allCategoryPaths.reduce<ProductCategoryTree>((tree, path) => {
     const groupCategory = getGroupCategory(path);
     const leafCategory = getLeafCategory(path);
+
+    // NOTE: Path shorter than 2 is invalid, it will not find groupCategory
+    if (!(groupCategory && leafCategory)) {
+      return tree;
+    }
 
     // If not found set to initial value
     const group = tree[groupCategory.code] || {
