@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Document } from "@contentful/rich-text-types";
 import Tabs from "@bmi/tabs";
-import Container from "@bmi/container/src";
+import Container from "@bmi/container";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Hero from "@bmi/hero";
