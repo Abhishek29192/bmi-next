@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/form-submit-function",
+  "name": "@bmi/gcp-form-submit",
   "private": true,
   "version": "0.0.0",
   "src": "src/index.ts",
