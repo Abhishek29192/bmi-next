@@ -291,6 +291,7 @@ const Header = ({
             initialValue={value}
             toggleLanguageSelection={toggleLanguageSelection}
             utilities={utilities}
+            setRootValue={setValue}
           />
         </div>
       </Slide>
