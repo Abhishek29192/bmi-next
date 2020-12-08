@@ -5,7 +5,7 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
-import Search from "@bmi/search";
+// import Search from "@bmi/search";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -66,7 +66,7 @@ const BrandLandingPage = ({ data }: Props) => {
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
         {(context) => {
-          const { getMicroCopy } = context;
+          // const { getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
           const firstSlide: HeroItem = {
             title: <BrandLogo style={{ height: "90px" }} />,
@@ -82,10 +82,11 @@ const BrandLandingPage = ({ data }: Props) => {
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
             >
-              <Search
+              {/* NOTE: This is disabled until search gets implemented. */}
+              {/* <Search
                 label={getMicroCopy("search.label")}
                 placeholder={getMicroCopy("search.placeholder")}
-              />
+              /> */}
             </Hero>
           );
         }}

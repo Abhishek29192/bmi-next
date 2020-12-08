@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 import React, { useState, useCallback, useContext } from "react";
 import { graphql } from "gatsby";
 import InputBanner from "@bmi/input-banner";
@@ -19,6 +20,9 @@ export type Data = {
 };
 
 const IntegratedInputBanner = ({ data }: { data?: Data }) => {
+  // NOTE: This is hidden until the newsletter is going to be integrated.
+  return null;
+
   if (!data) {
     return null;
   }
