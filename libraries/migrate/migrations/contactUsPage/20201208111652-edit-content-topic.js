@@ -1,40 +1,15 @@
-module.exports.description =
-  "Change field name from contentTopic to contactTopic.";
+module.exports.description = "Move contentTopic up.";
 
 module.exports.up = (migration) => {
   const contactUsPage = migration.editContentType("contactUsPage");
 
-  contactUsPage.deleteField("contentTopics");
-
-  contactUsPage
-    .createField("contactTopics")
-    .name("Contact topics")
-    .type("Array")
-    .required(true)
-    .items({
-      type: "Link",
-      validations: [{ linkContentType: ["contactTopic"] }],
-      linkType: "Entry"
-    });
-
-  contactUsPage.moveField("contactTopics").afterField("queriesSubtitle");
+  contactUsPage.moveField("contentTopics").afterField("queriesSubtitle");
+  contactUsPage.editField("contentTopics").name("Contact Topics");
 };
 
 module.exports.down = (migration) => {
   const contactUsPage = migration.editContentType("contactUsPage");
 
-  contactUsPage.deleteField("contactTopics");
-
-  contactUsPage
-    .createField("contentTopics")
-    .name("Content topics")
-    .type("Array")
-    .required(true)
-    .items({
-      type: "Link",
-      validations: [{ linkContentType: ["contentTopic"] }],
-      linkType: "Entry"
-    });
-
-  contactUsPage.moveField("contentTopics").afterField("queriesSubtitle");
+  contactUsPage.moveField("contentTopics").afterField("locations");
+  contactUsPage.editField("contentTopics").name("Content topics");
 };
