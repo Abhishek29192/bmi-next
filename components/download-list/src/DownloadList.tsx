@@ -3,6 +3,7 @@ import Button, { ButtonProps } from "@bmi/button";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Tooltip from "@material-ui/core/Tooltip";
 
 type Context = {
   list: Record<string, any>;
@@ -28,6 +29,7 @@ type DownloadListCheckboxProps = Omit<
   value?: any;
   fileSize?: number;
   ariaLabel: string;
+  maxLimitReachedLabel?: string;
 };
 
 const DownloadListCheckbox = ({
@@ -35,23 +37,32 @@ const DownloadListCheckbox = ({
   value,
   fileSize,
   ariaLabel,
+  maxLimitReachedLabel = "Max download limit reached",
   ...rest
 }: DownloadListCheckboxProps) => {
   const { list, updateList, remainingSize } = useContext(DownloadListContext);
+  const maxLimitIsReached: boolean = fileSize > remainingSize;
 
   return (
-    <Checkbox
-      name={name}
-      inputProps={{
-        "aria-label": ariaLabel
-      }}
-      onChange={(checked: boolean) => {
-        updateList(name, checked && value, fileSize);
-      }}
-      disabled={list[name] ? false : fileSize > remainingSize}
-      checked={!!list[name]}
-      {...rest}
-    />
+    <Tooltip
+      title={maxLimitReachedLabel}
+      disableHoverListener={!maxLimitIsReached}
+    >
+      <span>
+        <Checkbox
+          name={name}
+          inputProps={{
+            "aria-label": ariaLabel
+          }}
+          onChange={(checked: boolean) => {
+            updateList(name, checked && value, fileSize);
+          }}
+          disabled={list[name] ? false : maxLimitIsReached}
+          checked={!!list[name]}
+          {...rest}
+        />
+      </span>
+    </Tooltip>
   );
 };
 
