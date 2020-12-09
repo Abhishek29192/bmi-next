@@ -7,6 +7,28 @@ import {
   mapProductClassifications,
   ProductCategoryTree
 } from "./product-details-transforms";
+import { Data as DocumentResultsData } from "../components/DocumentResults";
+import { Data as PIMDocumentData } from "../components/PIMDocument";
+import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
+
+export const isPIMDocument = (
+  item: DocumentResultsData[0]
+): item is PIMDocumentData | PIMLinkDocumentData => {
+  return ["PIMDocument", "PIMLinkDocument"].includes(item.__typename);
+};
+
+const getProductsFromDocuments = (documents: DocumentResultsData) => {
+  return _.uniqBy(
+    documents
+      .map((document) => {
+        if (isPIMDocument(document)) {
+          return document.product;
+        }
+      })
+      .filter(Boolean),
+    "code"
+  );
+};
 
 const sortAlphabeticallyBy = (propName) => (a, b) => {
   if (a[propName] < b[propName]) {
@@ -18,7 +40,90 @@ const sortAlphabeticallyBy = (propName) => (a, b) => {
   return 0;
 };
 
-const getProductFamilyFilter = (products: readonly Product[]) => {
+export const findPIMDocumentBrandCategory = (
+  document: PIMDocumentData | PIMLinkDocumentData
+): Category => {
+  return (document.product.categories || []).find(
+    ({ categoryType }) => categoryType === "Brand"
+  );
+};
+
+// Returns a Category like object
+const getBrandCategoryFromDocuments = (documents: DocumentResultsData) => {
+  return _.uniqBy(
+    documents
+      .map((document) => {
+        if (isPIMDocument(document)) {
+          return findPIMDocumentBrandCategory(document);
+        }
+
+        // Using single value available in Contentful Document
+        return {
+          name: document.brand,
+          code: document.brand
+        };
+      })
+      .filter(Boolean),
+    "code"
+    // We might get a result of an empty filter if documents don't have brand
+  ).filter(({ name }) => name);
+};
+
+export const getAssetTypeFilterFromDocuments = (
+  documents: DocumentResultsData
+) => {
+  // Find Unique assetTypes, they're the same as far as TS is concerned
+  const allValues = _.uniqBy(
+    documents.map(({ assetType }) => assetType).filter(Boolean),
+    "code"
+  );
+
+  if (allValues.length === 0) {
+    return;
+  }
+
+  return {
+    // TODO: Microcopy for label
+    label: "Aktivatype",
+    name: "contentfulAssetType",
+    value: [],
+    options: allValues.sort(sortAlphabeticallyBy("name")).map((assetType) => ({
+      label: assetType.name,
+      value: assetType.code
+    }))
+  };
+};
+
+export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
+  const allValues = getBrandCategoryFromDocuments(documents);
+
+  if (allValues.length === 0) {
+    return;
+  }
+
+  return {
+    // TODO: Microcopy for label
+    label: "Marke",
+    name: "brand",
+    value: [],
+    options: allValues
+      .sort(sortAlphabeticallyBy("name"))
+      .map((brandCategory) => ({
+        label: brandCategory.name,
+        value: brandCategory.code
+      }))
+  };
+};
+
+export const getProductFamilyFilterFromDocuments = (
+  documents: DocumentResultsData
+) => {
+  return getProductFamilyFilter(getProductsFromDocuments(documents));
+};
+
+const getProductFamilyFilter = (
+  products: readonly Pick<Product, "categories">[]
+) => {
   const allFamilyCategories = _.uniqBy(
     products.reduce((allCategories, product) => {
       const productFamilyCategories = (product.categories || []).filter(
@@ -95,10 +200,19 @@ const getColorFilter = (
   };
 };
 
+export const getTextureFilterFromDocuments = (
+  classificationNamespace: string,
+  documents: DocumentResultsData
+) => {
+  const products = getProductsFromDocuments(documents);
+
+  return getTextureFilter(classificationNamespace, products);
+};
+
 // Gets the values of materialfamily classification for the Filters pane
 const getTextureFilter = (
   classificationNamespace: string,
-  products: readonly Product[]
+  products: readonly Pick<Product, "code" | "classifications">[]
 ) => {
   const textures = products
     .reduce((allTextures, product) => {

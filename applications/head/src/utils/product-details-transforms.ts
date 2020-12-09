@@ -155,7 +155,10 @@ type AllClassificationsValues = {
 // Find attributes like surface finish, color, etc, from classifications
 // TODO: Try to consolidate with the "unique" approach.
 export const mapProductClassifications = (
-  product: Product,
+  product: Pick<
+    Product,
+    "code" | "images" | "classifications" | "variantOptions"
+  >,
   classificationNamepace: string
 ): ClassificationsPerProductMap => {
   const allProducts: {
