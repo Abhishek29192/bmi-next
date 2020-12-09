@@ -98,6 +98,9 @@ const ContactUsPage = ({ data }: Props) => {
           type: "Accordion"
         }}
       />
+      <Section backgroundColor="alabaster" isSlim>
+        <Breadcrumbs title={title} slug={slug} />
+      </Section>
     </Page>
   );
 };
