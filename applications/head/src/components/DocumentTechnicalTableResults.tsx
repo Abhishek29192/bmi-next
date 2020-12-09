@@ -232,6 +232,9 @@ const DocumentTechnicalTableResults = ({
                 <Table.Cell className={styles["align-center"]}>
                   <DownloadList.Checkbox
                     name={key}
+                    maxLimitReachedLabel={getMicroCopy(
+                      "documents.download.maxReached"
+                    )}
                     ariaLabel={`${getMicroCopy(
                       "documentLibrary.download"
                     )} ${productName}`}

@@ -200,6 +200,9 @@ const DocumentSimpleTableResults = ({
                         {document.__typename !== "PIMLinkDocument" ? (
                           <DownloadList.Checkbox
                             name={id}
+                            maxLimitReachedLabel={getMicroCopy(
+                              "documents.download.maxReached"
+                            )}
                             ariaLabel={`${getMicroCopy(
                               "documentLibrary.download"
                             )} ${title}`}
