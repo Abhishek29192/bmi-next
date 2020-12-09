@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContentTopics component renders correctly 1`] = `
+exports[`ContactTopics component renders correctly 1`] = `
 <div
   class="ExpandableCardList"
 >
@@ -175,24 +175,30 @@ exports[`ContentTopics component renders correctly 1`] = `
         >
           <h6
             class="MuiTypography-root Typography MuiTypography-h6"
-            style="margin-bottom: 16px;"
+            style="margin-bottom: 42px;"
           >
             footer title
           </h6>
-          <div>
-            <p
-              class="MuiTypography-root Typography MuiTypography-body1"
-            >
-              teste
-            </p>
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          >
             <div
-              class="RichText"
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                class="MuiTypography-root Typography MuiTypography-body1"
               >
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                teste
               </p>
+              <div
+                class="RichText"
+              >
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                >
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                </p>
+              </div>
             </div>
           </div>
         </div>
