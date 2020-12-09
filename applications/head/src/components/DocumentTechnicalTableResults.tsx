@@ -238,6 +238,12 @@ const DocumentTechnicalTableResults = ({
                     value={assets.filter(
                       ({ __typename }) => __typename !== "PIMLinkDocument"
                     )}
+                    fileSize={assets.reduce((acc, curr) => {
+                      if (curr.__typename === "PIMLinkDocument") {
+                        return 0;
+                      }
+                      return acc + (curr.fileSize || 0);
+                    }, 0)}
                   />
                 </Table.Cell>
               </Table.Row>

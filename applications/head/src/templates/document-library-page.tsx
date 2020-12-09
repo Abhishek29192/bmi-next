@@ -53,6 +53,8 @@ const resultTypeFormatMap: Record<
   }
 };
 
+const MAX_DOWNLOAD_LIMIT = 10 * 1048576;
+
 const DocumentLibraryPage = ({ data }: Props) => {
   const {
     title,
@@ -87,7 +89,7 @@ const DocumentLibraryPage = ({ data }: Props) => {
       <SiteContext.Consumer>
         {({ getMicroCopy }) => {
           return (
-            <DownloadList>
+            <DownloadList maxSize={MAX_DOWNLOAD_LIMIT}>
               <DownloadListContext.Consumer>
                 {({ count }) => {
                   if (count === 0) {
