@@ -12,6 +12,8 @@ module.exports = {
   onPreBuild: ({ utils }) => {
     const { BRANCH, INCOMING_HOOK_BODY, INCOMING_HOOK_TITLE } = process.env;
 
+    console.log(`Build triggered with the hook: ${INCOMING_HOOK_TITLE}`);
+
     if (recognisedHooks.includes(INCOMING_HOOK_TITLE)) {
       return;
     }
