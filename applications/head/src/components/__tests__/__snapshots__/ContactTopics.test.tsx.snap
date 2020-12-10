@@ -185,11 +185,14 @@ exports[`ContactTopics component renders correctly 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4"
             >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+              <div
+                class="BorderedItem"
+              />
+              <h5
+                class="MuiTypography-root Typography MuiTypography-h5"
               >
                 teste
-              </p>
+              </h5>
               <div
                 class="RichText"
               >

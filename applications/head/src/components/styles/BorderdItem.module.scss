@@ -1,0 +1,11 @@
+@import "@bmi/styles";
+
+.BorderedItem {
+  border-top: 1px solid $color-slate;
+  padding-bottom: 32px;
+
+  @media (max-width: $breakpoint-sm) {
+    border-top: none;
+    padding-bottom: 0;
+  }
+}
