@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import { graphql } from "gatsby";
 import { sortBy } from "lodash";
 import Hero from "@bmi/hero";
@@ -110,7 +110,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     title,
     description,
-    documents: initialDocuments,
+    documents: unsortedDocuments,
     source,
     resultsType
   } = data.contentfulDocumentLibraryPage;
@@ -186,11 +186,14 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const initialDocuments = useMemo(
+    () => sourceToSortMap[source](unsortedDocuments),
+    [unsortedDocuments]
+  );
   const [pageCount, setPageCount] = useState(
     Math.ceil(initialDocuments.length / PAGE_SIZE)
   );
-  const sortedInitialDocuments = sourceToSortMap[source](initialDocuments);
-  const [results, setResults] = useState(sortedInitialDocuments);
+  const [results, setResults] = useState(initialDocuments);
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const [filters, setFilters] = useState(
