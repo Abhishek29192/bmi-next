@@ -72,7 +72,11 @@ const TeamPage = ({ data }: Props) => {
         ))}
       </Tabs>
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs title={title} slug={slug} />
+        <Breadcrumbs
+          title={title}
+          slug={slug}
+          menuNavigation={data.contentfulSite.menuNavigation}
+        />
       </Section>
     </Page>
   );

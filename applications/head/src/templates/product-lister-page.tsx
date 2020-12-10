@@ -414,6 +414,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         <Breadcrumbs
           title={title}
           slug={data.contentfulProductListerPage.slug}
+          menuNavigation={data.contentfulSite.menuNavigation}
         />
       </Section>
     </Page>
