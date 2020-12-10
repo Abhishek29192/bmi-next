@@ -127,6 +127,7 @@ const DocumentLibraryPage = ({ data }: Props) => {
         <Breadcrumbs
           title={title}
           slug={data.contentfulDocumentLibraryPage.slug}
+          menuNavigation={data.contentfulSite.menuNavigation}
         />
       </Section>
     </Page>
