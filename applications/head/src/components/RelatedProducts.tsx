@@ -46,6 +46,7 @@ const ProductListing = ({
     () =>
       [...products]
         .sort((a, b) => {
+          // NOTE: Sort only by base product scoring weight
           const getWeightValue = (product) =>
             (product.classifications || []).find(
               ({ code }) => code === "scoringWeightAttributes"
