@@ -10,11 +10,20 @@ const semVerRegex = /^(?<prefix>v?)(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(
 
 module.exports = {
   onPreBuild: ({ utils }) => {
-    const { BRANCH, INCOMING_HOOK_BODY, INCOMING_HOOK_TITLE } = process.env;
+    const {
+      BRANCH,
+      INCOMING_HOOK_BODY,
+      INCOMING_HOOK_TITLE,
+      DXB_FORCE_NETLIFY_BUILD
+    } = process.env;
 
     console.log(`Build triggered with the hook: ${INCOMING_HOOK_TITLE}`);
 
     if (recognisedHooks.includes(INCOMING_HOOK_TITLE)) {
+      return;
+    }
+
+    if (DXB_FORCE_NETLIFY_BUILD && DXB_FORCE_NETLIFY_BUILD === "true") {
       return;
     }
 
