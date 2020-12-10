@@ -9,7 +9,7 @@ const mapExtensionToFormat = {
   png: "image/png"
 };
 
-const MAX_SIZE_ALLOWED = 10240;
+const MAX_SIZE_ALLOWED = 10485760;
 
 exports.mapExtensionToFormat = mapExtensionToFormat;
 
