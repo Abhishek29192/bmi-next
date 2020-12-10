@@ -121,6 +121,10 @@ $hero-breakpoint-sm: 769px;
       padding-right: 24px;
     }
 
+    &--slim .wrapper {
+      width: auto;
+    }
+
     .content {
       margin-top: auto;
       margin-bottom: auto;
