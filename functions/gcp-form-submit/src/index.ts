@@ -44,20 +44,19 @@ export const submit: HttpFunction = async (request, response) => {
 
       const assets = files.length
         ? await Promise.all(
-            files.map(
-              async (file) =>
-                await environment
-                  .createAsset({
-                    fields: {
-                      title: {
-                        [locale]: `User upload ${+new Date()}`
-                      },
-                      file: {
-                        [locale]: file
-                      }
+            files.map((file) =>
+              environment
+                .createAsset({
+                  fields: {
+                    title: {
+                      [locale]: `User upload ${+new Date()}`
+                    },
+                    file: {
+                      [locale]: file
                     }
-                  })
-                  .then((asset) => asset.processForAllLocales())
+                  }
+                })
+                .then((asset) => asset.processForAllLocales())
             )
           )
         : null;
