@@ -17,7 +17,11 @@ const combineVariantClassifications = (
   variant: PIMVariant
 ) => {
   const baseClassifications = product.classifications || [];
-  const variantClassifications = variant.classifications || [];
+  // scoringWeightAttributes is special in that we ignore it in variants
+  // it may or may not appear in base, but variant's is ignored
+  const variantClassifications = (variant.classifications || []).filter(
+    ({ code }) => code !== "scoringWeightAttributes"
+  );
 
   const allClassificationsMap = new Map(
     [
