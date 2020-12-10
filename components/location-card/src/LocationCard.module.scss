@@ -14,12 +14,12 @@
     background-color: transparent;
 
     .label {
-      position: absolute;
-      left: -10000px;
+      position: static;
+      left: auto;
       top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+      width: auto;
+      height: auto;
+      overflow: auto;
     }
   }
 
@@ -101,6 +101,15 @@
 
     .label {
       margin-bottom: 0;
+    }
+
+    &--flat .label {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
     }
   }
 }

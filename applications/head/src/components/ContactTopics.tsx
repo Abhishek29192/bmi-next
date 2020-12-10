@@ -70,6 +70,13 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
   );
 };
 
+// TODO: Component for HR?
+const BorderedItem = () => {
+  return (
+    <div style={{ borderTop: "1px solid #CCCCCC", paddingBottom: "32px" }} />
+  );
+};
+
 const Footer = ({ footerTitle, footerList }: FooterProps) => {
   return (
     <>
@@ -92,7 +99,8 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
               const { title, content } = item;
               return (
                 <Grid key={key} {...gridItemProps}>
-                  <Typography>{title}</Typography>
+                  <BorderedItem />
+                  <Typography variant="h5">{title}</Typography>
                   <RichText document={content.json} />
                 </Grid>
               );
@@ -100,6 +108,7 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
 
             return (
               <Grid key={key} {...gridItemProps}>
+                <BorderedItem />
                 <ContactDetails data={item} isFlat />
               </Grid>
             );
