@@ -250,7 +250,11 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   };
 
   // Largely similar to product-lister-page.tsx
-  const handleFiltersChange = async (filterName, filterValue, checked) => {
+  const handleFiltersChange = (resetDownloadList) => async (
+    filterName,
+    filterValue,
+    checked
+  ) => {
     const addToArray = (array, value) => [...array, value];
     const removeFromArray = (array, value) => array.filter((v) => v !== value);
     const getNewValue = (filter, checked, value) => {
@@ -272,6 +276,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     // NOTE: If filters change, we reset pagination to first page
     await fakeSearch(initialDocuments, newFilters, 1);
 
+    resetDownloadList();
     setFilters(newFilters);
   };
 
@@ -344,10 +349,14 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                           Clear All
                         </Button>
                       </div>
-                      <Filters
-                        filters={filters}
-                        onChange={handleFiltersChange}
-                      />
+                      <DownloadListContext.Consumer>
+                        {({ resetList }) => (
+                          <Filters
+                            filters={filters}
+                            onChange={handleFiltersChange(resetList)}
+                          />
+                        )}
+                      </DownloadListContext.Consumer>
                     </PerfectScrollbar>
                   </Grid>
                   <Grid item xs={12} md={12} lg={9}>
