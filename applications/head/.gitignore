@@ -68,3 +68,6 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Temporary data folder (e.g. get microcopy)
+.temp
