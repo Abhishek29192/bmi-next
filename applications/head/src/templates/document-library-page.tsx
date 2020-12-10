@@ -360,19 +360,25 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                     </PerfectScrollbar>
                   </Grid>
                   <Grid item xs={12} md={12} lg={9}>
-                    <DocumentResults
-                      data={results}
-                      format={format}
-                      page={page}
-                    />
-                    <DocumentResultsFooter
-                      page={page}
-                      count={pageCount}
-                      onDownloadClick={
-                        format === "cards" ? undefined : handleDownloadClick
-                      }
-                      onPageChange={handlePageChange}
-                    />
+                    {results.length ? (
+                      <>
+                        <DocumentResults
+                          data={results}
+                          format={format}
+                          page={page}
+                        />
+                        <DocumentResultsFooter
+                          page={page}
+                          count={pageCount}
+                          onDownloadClick={
+                            format === "cards" ? undefined : handleDownloadClick
+                          }
+                          onPageChange={handlePageChange}
+                        />
+                      </>
+                    ) : (
+                      getMicroCopy("documentLibrary.noResults")
+                    )}
                   </Grid>
                 </Grid>
               </Section>
