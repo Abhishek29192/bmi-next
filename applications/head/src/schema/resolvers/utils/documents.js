@@ -9,6 +9,8 @@ const mapExtensionToFormat = {
   png: "image/png"
 };
 
+const MAX_SIZE_ALLOWED = 10240;
+
 exports.mapExtensionToFormat = mapExtensionToFormat;
 
 exports.getFormatFromFileName = (filename) =>
@@ -20,6 +22,10 @@ exports.isPimLinkDocument = (asset) => {
   const { allowedToDownload, url, fileSize, realFileName } = asset;
 
   if (!allowedToDownload) {
+    return true;
+  }
+
+  if (fileSize > MAX_SIZE_ALLOWED) {
     return true;
   }
 
