@@ -7,10 +7,11 @@ import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload, { getFileSizeString } from "@bmi/upload";
 import { Document } from "@contentful/rich-text-types";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
-import React, { FormEvent, useContext } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import { LinkData } from "./Link";
 import RichText from "./RichText";
 import { SiteContext } from "./Site";
@@ -152,12 +153,14 @@ const FormSection = ({
   backgroundColor: "pearl" | "white";
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
     values: Record<string, InputValue>
   ) => {
     event.preventDefault();
+    setIsSubmitting(true);
 
     // @todo: This needs to be less reliant on string patterns
     const recipientsFromValues = values.recipients as string;
@@ -180,6 +183,7 @@ const FormSection = ({
         }
       );
 
+      setIsSubmitting(false);
       if (successRedirect) {
         navigate(
           successRedirect.url ||
@@ -189,6 +193,7 @@ const FormSection = ({
         navigate("/");
       }
     } catch (error) {
+      setIsSubmitting(false);
       // @todo Handle error
       console.error("Error", { error }); // eslint-disable-line
     }
@@ -212,7 +217,20 @@ const FormSection = ({
             ))}
           </Grid>
           <Form.ButtonWrapper>
-            <Form.SubmitButton endIcon={<ArrowForwardIcon />}>
+            <Form.SubmitButton
+              endIcon={
+                isSubmitting ? (
+                  <CircularProgress
+                    size={24}
+                    color="inherit"
+                    style={{ marginLeft: "0.5rem" }}
+                  />
+                ) : (
+                  <ArrowForwardIcon />
+                )
+              }
+              disabled={isSubmitting}
+            >
               {submitText || getMicroCopy("form.submit")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
