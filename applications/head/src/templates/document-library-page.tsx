@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { graphql } from "gatsby";
+import { sortBy } from "lodash";
 import Hero from "@bmi/hero";
 import Grid from "@bmi/grid";
 import Section from "@bmi/section";
@@ -49,10 +50,12 @@ const documentCountMap: Record<
   cards: getCardsCount
 };
 
+type Source = "PIM" | "CMS" | "ALL";
+
 type Data = PageInfoData &
   PageData & {
     description: { json: Document } | null;
-    source: "PIM" | "CMS" | "ALL";
+    source: Source;
     resultsType: "Simple" | "Technical" | "Card Collection";
     documents: DocumentResultsData;
   };
@@ -92,6 +95,15 @@ const resultTypeFormatMap: Record<
 };
 
 const MAX_DOWNLOAD_LIMIT = 10 * 1048576;
+
+const sourceToSortMap: Record<
+  Source,
+  (documents: DocumentResultsData) => DocumentResultsData
+> = {
+  ALL: (documents) => sortBy(documents, ["assetType.name", "title"]),
+  PIM: (documents) => sortBy(documents, ["title"]),
+  CMS: (documents) => sortBy(documents, ["brand", "title"])
+};
 
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
@@ -176,7 +188,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const [pageCount, setPageCount] = useState(
     Math.ceil(initialDocuments.length / PAGE_SIZE)
   );
-  const [results, setResults] = useState(initialDocuments);
+  const sortedInitialDocuments = sourceToSortMap[source](initialDocuments);
+  const [results, setResults] = useState(sortedInitialDocuments);
+  const resultsElement = useRef<HTMLDivElement>(null);
 
   const [filters, setFilters] = useState(
     getFilters(
@@ -241,11 +255,13 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     setResults(newResults);
 
     setIsLoading(false);
-    window.scrollTo(0, 0);
   };
 
   const handlePageChange = (_, page) => {
-    window.scrollTo(0, 0);
+    const scrollY = resultsElement.current
+      ? resultsElement.current.offsetTop - 200
+      : 0;
+    window.scrollTo(0, scrollY);
     setPage(page);
   };
 
@@ -326,7 +342,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                 }}
               </DownloadListContext.Consumer>
               <Section backgroundColor="white">
-                <Grid container spacing={3}>
+                <Grid container spacing={3} ref={resultsElement}>
                   <Grid item xs={12} md={12} lg={3}>
                     <PerfectScrollbar
                       style={{
