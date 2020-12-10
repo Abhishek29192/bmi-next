@@ -139,6 +139,7 @@ const DownloadList = ({ children, onChange, maxSize }: Props) => {
 
   const handleResetList = () => {
     setList({});
+    setSize(0);
   };
 
   return (
