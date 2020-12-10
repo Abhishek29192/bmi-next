@@ -3,19 +3,22 @@ import Button, { ButtonProps } from "@bmi/button";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Tooltip from "@material-ui/core/Tooltip";
 
 type Context = {
   list: Record<string, any>;
-  updateList: (name: string, value: any) => void;
+  updateList: (name: string, value: any, fileSize?: number) => void;
   resetList: () => void;
   count: number;
+  remainingSize: number;
 };
 
 export const DownloadListContext = createContext<Context>({
   list: {},
   updateList: () => {},
   resetList: () => {},
-  count: 0
+  count: 0,
+  remainingSize: Infinity
 });
 
 type DownloadListCheckboxProps = Omit<
@@ -24,29 +27,42 @@ type DownloadListCheckboxProps = Omit<
 > & {
   name: string;
   value?: any;
+  fileSize?: number;
   ariaLabel: string;
+  maxLimitReachedLabel?: string;
 };
 
 const DownloadListCheckbox = ({
   name,
   value,
+  fileSize,
   ariaLabel,
+  maxLimitReachedLabel = "Max download limit reached",
   ...rest
 }: DownloadListCheckboxProps) => {
-  const { list, updateList } = useContext(DownloadListContext);
+  const { list, updateList, remainingSize } = useContext(DownloadListContext);
+  const maxLimitIsReached: boolean = fileSize > remainingSize;
 
   return (
-    <Checkbox
-      name={name}
-      inputProps={{
-        "aria-label": ariaLabel
-      }}
-      onChange={(checked: boolean) => {
-        updateList(name, checked && value);
-      }}
-      checked={!!list[name]}
-      {...rest}
-    />
+    <Tooltip
+      title={maxLimitReachedLabel}
+      disableHoverListener={!maxLimitIsReached}
+    >
+      <span>
+        <Checkbox
+          name={name}
+          inputProps={{
+            "aria-label": ariaLabel
+          }}
+          onChange={(checked: boolean) => {
+            updateList(name, checked && value, fileSize);
+          }}
+          disabled={list[name] ? false : maxLimitIsReached}
+          checked={!!list[name]}
+          {...rest}
+        />
+      </span>
+    </Tooltip>
   );
 };
 
@@ -100,18 +116,21 @@ const DownloadListClear = ({ label, ...rest }: DownloadListClearProps) => {
 
 type Props = {
   children: React.ReactNode;
+  maxSize?: number;
   onChange?: (list: Context["list"]) => void;
 };
 
-const DownloadList = ({ children, onChange }: Props) => {
+const DownloadList = ({ children, onChange, maxSize }: Props) => {
   const [list, setList] = useState<Context["list"]>({});
+  const [size, setSize] = useState<number>(0);
   const count = Object.values(list).filter(Boolean).length;
-
-  const handleUpdateList: Context["updateList"] = (name, value) => {
+  const handleUpdateList: Context["updateList"] = (name, value, fileSize) => {
     setList((prevList) => ({
       ...prevList,
       [name]: value
     }));
+
+    setSize((prevSize) => (value ? prevSize + fileSize : prevSize - fileSize));
 
     if (onChange) {
       onChange(list);
@@ -128,7 +147,8 @@ const DownloadList = ({ children, onChange }: Props) => {
         list,
         updateList: handleUpdateList,
         resetList: handleResetList,
-        count
+        count,
+        remainingSize: maxSize - size
       }}
     >
       {children}

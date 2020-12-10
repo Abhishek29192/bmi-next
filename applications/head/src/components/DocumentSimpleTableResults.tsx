@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import filesize from "filesize";
 import classnames from "classnames";
+import _ from "lodash";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
 import Icon, { iconMap } from "@bmi/icon";
@@ -13,8 +14,10 @@ import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
+type Document = DocumentData | PIMDocumentData | PIMLinkDocumentData;
+
 type Props = {
-  documents: (DocumentData | PIMDocumentData | PIMLinkDocumentData)[];
+  documents: Document[];
   page: number;
   documentsPerPage: number;
   headers?: AvailableHeader[];
@@ -76,8 +79,14 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
   </Button>
 );
 
-export const getCount = (documents: Props["documents"]) => {
+export const getCount = (documents: Document[]) => {
   return documents.length;
+};
+
+const typenameToSizeMap: Record<Document["__typename"], string | number> = {
+  ContentfulDocument: "asset.file.details.size",
+  PIMDocument: "fileSize",
+  PIMLinkDocument: 0
 };
 
 const DocumentSimpleTableResults = ({
@@ -191,10 +200,17 @@ const DocumentSimpleTableResults = ({
                         {document.__typename !== "PIMLinkDocument" ? (
                           <DownloadList.Checkbox
                             name={id}
+                            maxLimitReachedLabel={getMicroCopy(
+                              "documents.download.maxReached"
+                            )}
                             ariaLabel={`${getMicroCopy(
                               "documentLibrary.download"
                             )} ${title}`}
                             value={document}
+                            fileSize={_.get(
+                              document,
+                              typenameToSizeMap[document.__typename]
+                            )}
                           />
                         ) : (
                           <span className={styles["no-document-icon"]}>-</span>

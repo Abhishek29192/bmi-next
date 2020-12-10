@@ -232,12 +232,21 @@ const DocumentTechnicalTableResults = ({
                 <Table.Cell className={styles["align-center"]}>
                   <DownloadList.Checkbox
                     name={key}
+                    maxLimitReachedLabel={getMicroCopy(
+                      "documents.download.maxReached"
+                    )}
                     ariaLabel={`${getMicroCopy(
                       "documentLibrary.download"
                     )} ${productName}`}
                     value={assets.filter(
                       ({ __typename }) => __typename !== "PIMLinkDocument"
                     )}
+                    fileSize={assets.reduce((acc, curr) => {
+                      if (curr.__typename === "PIMLinkDocument") {
+                        return 0;
+                      }
+                      return acc + (curr.fileSize || 0);
+                    }, 0)}
                   />
                 </Table.Cell>
               </Table.Row>
