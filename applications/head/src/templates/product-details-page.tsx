@@ -66,7 +66,7 @@ type ClassificationFeature = {
   featureUnit?: ClassificationFeatureUnit;
 };
 
-type Classification = {
+export type Classification = {
   name: string;
   code: string;
   features: ClassificationFeature[];
