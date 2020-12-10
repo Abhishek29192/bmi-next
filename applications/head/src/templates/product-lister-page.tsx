@@ -105,7 +105,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     for (let i = 0; i < data.allProducts.nodes.length; i++) {
       const { categories } = data.allProducts.nodes[i];
 
-      const category = categories.find(
+      const category = (categories || []).find(
         ({ code }) => code === pageContext.categoryCode
       );
 
@@ -115,11 +115,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     }
   }, [data.allProducts.nodes]);
   const [filters, setFilters] = useState(
-    getFilters(
-      pageCategory,
-      pageContext.pimClassificationCatalogueNamespace,
-      data.allProducts.nodes
-    )
+    pageCategory
+      ? getFilters(
+          pageCategory,
+          pageContext.pimClassificationCatalogueNamespace,
+          data.allProducts.nodes
+        )
+      : []
   );
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
