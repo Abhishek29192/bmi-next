@@ -2,27 +2,40 @@ import React from "react";
 import styles from "./IconList.module.scss";
 import Typography from "@bmi/typography";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import classnames from "classnames";
 
 type ListItemProps = {
   icon?: React.ReactNode;
   title: string;
   children?: React.ReactNode;
   component?: React.ElementType;
+  isCompact?: boolean;
 };
-const ListItem = ({ icon, title, children, component }: ListItemProps) => (
-  <div className={styles["ListItem"]}>
+
+const ListItem = ({
+  icon,
+  title,
+  children,
+  component,
+  isCompact
+}: ListItemProps) => (
+  <li
+    className={classnames(styles["ListItem"], {
+      [styles["ListItem--isCompact"]]: isCompact
+    })}
+  >
     <div className={styles["icon"]}>{icon || <ChevronRightIcon />}</div>
     <div className={styles["content"]}>
       <Typography
         className={styles["title"]}
         component={component}
-        variant="h6"
+        variant={isCompact ? "body1" : "h6"}
       >
         {title}
       </Typography>
       {children && <span className={styles["description"]}>{children}</span>}
     </div>
-  </div>
+  </li>
 );
 
 type Props = {
@@ -33,13 +46,7 @@ type Props = {
 
 const IconList = ({ children }: Props) => {
   const items: React.ReactElement<any>[] = [].concat(children);
-  return (
-    <div>
-      {items.map((item, index) => (
-        <div key={index}>{item}</div>
-      ))}
-    </div>
-  );
+  return <ul className={styles["IconList"]}>{items}</ul>;
 };
 
 IconList.Item = ListItem;

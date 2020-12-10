@@ -104,8 +104,14 @@ const AccordionSummary = ({
   </MaterialAccordionSummary>
 );
 
+const AccordionDetails = ({ children, ...other }: AccordionSummaryProps) => (
+  <ExpansionPanelDetails className={styles["details"]} {...other}>
+    {children}
+  </ExpansionPanelDetails>
+);
+
 Accordion.Summary = AccordionSummary;
-Accordion.Details = ExpansionPanelDetails;
+Accordion.Details = AccordionDetails;
 Accordion.Item = AccordionItem;
 
 export default Accordion;

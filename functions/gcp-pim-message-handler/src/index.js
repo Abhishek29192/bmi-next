@@ -14,7 +14,8 @@ const pubSubClient = new PubSub({
 const topicPublisher = pubSubClient.topic(process.env.TRANSITIONAL_TOPIC_NAME);
 
 const ENDPOINTS = {
-  CATEGORIES: "/export/categories",
+  // NOTE: Not handling categories for now because DXB doesn't need this
+  // CATEGORIES: "/export/categories",
   PRODUCTS: "/export/products"
 };
 

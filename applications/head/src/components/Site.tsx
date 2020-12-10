@@ -33,6 +33,13 @@ export type Data = {
   menuNavigation: NavigationData;
   menuUtilities: NavigationData;
   resources: ResourcesData;
+  headScripts?: {
+    headScripts: string;
+  } | null;
+  scriptGA?: string | null;
+  scriptOnetrust?: string | null;
+  scriptGTM?: string | null;
+  scriptHotJar?: string | null;
 };
 
 export const query = graphql`
@@ -57,5 +64,12 @@ export const query = graphql`
     resources {
       ...ResourcesFragment
     }
+    headScripts {
+      headScripts
+    }
+    scriptGA
+    scriptOnetrust
+    scriptGTM
+    scriptHotJar
   }
 `;

@@ -3,7 +3,7 @@
 ## Build
 
 ```bash
-yarn run @bmi/download-function build
+yarn run @bmi/gcp-download-zip build
 ```
 
 Functions are build into the `dist` directory.
@@ -13,5 +13,5 @@ Functions are build into the `dist` directory.
 To run a function in dev mode:
 
 ```bash
-yarn workspace @bmi/download-function dev
+yarn workspace @bmi/gcp-download-zip dev
 ```

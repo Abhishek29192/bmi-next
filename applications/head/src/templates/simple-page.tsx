@@ -102,6 +102,13 @@ const SimplePage = ({ data }: Props) => {
             <ExploreBar data={exploreBar} />
           </Section>
         )}
+        <Section backgroundColor="alabaster" isSlim>
+          <Breadcrumbs
+            title={title}
+            slug={data.contentfulSimplePage.slug}
+            menuNavigation={data.contentfulSite.menuNavigation}
+          />
+        </Section>
       </TableOfContent>
     </Page>
   );

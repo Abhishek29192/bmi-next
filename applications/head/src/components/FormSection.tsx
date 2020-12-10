@@ -5,8 +5,9 @@ import Grid from "@bmi/grid";
 import Section from "@bmi/section";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
-import Upload from "@bmi/upload";
+import Upload, { getFileSizeString } from "@bmi/upload";
 import { Document } from "@contentful/rich-text-types";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext } from "react";
@@ -32,6 +33,8 @@ type InputType = {
   required?: boolean;
   type: typeof InputTypes[number];
   width?: "full" | "half";
+  accept?: string;
+  maxSize?: number;
 };
 
 export type Data = {
@@ -50,8 +53,11 @@ const Input = ({
   name,
   options,
   type,
-  required
+  required,
+  accept = ".pdf, .jpg, .jpeg, .png",
+  maxSize
 }: Omit<InputType, "width">) => {
+  const { getMicroCopy } = useContext(SiteContext);
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -64,31 +70,51 @@ const Input = ({
     }
   });
 
-  switch (type) {
-    case "upload":
-      return (
-        <Upload
-          id={name}
-          name={name}
-          buttonLabel={label}
-          isRequired={required}
-          uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
-          headers={{ "Content-Type": "application/octet-stream" }}
-          accept=".pdf,.jpg,.jpeg,.png"
-          instructions="Supported formats: PDF, JPG, JPEG and PNG"
-          mapBody={(file) => ({ file })}
-          mapValue={mapValue}
-        />
+  const handleFileValidation = (file: File) => {
+    if (maxSize && file.size > maxSize * 1048576) {
+      return getMicroCopy("errors.maxSize").replace(
+        "{{size}}",
+        getFileSizeString(maxSize * 1048576)
       );
+    }
+  };
+
+  switch (type) {
+    // case "upload":
+    //   return (
+    //     <Upload
+    //       id={name}
+    //       name={name}
+    //       buttonLabel={label}
+    //       isRequired={required}
+    //       uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
+    //       headers={{ "Content-Type": "application/octet-stream" }}
+    //       accept={accept}
+    //       fileValidation={handleFileValidation}
+    //       instructions={
+    //         `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
+    //         (maxSize
+    //           ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
+    //               maxSize * 1048576
+    //             )}`
+    //           : "")
+    //       }
+    //       mapBody={(file) => ({ file })}
+    //       mapValue={mapValue}
+    //     />
+    //   );
     case "select":
       return (
         <Select isRequired={required} label={label} name={name}>
           <MenuItem value="none">None</MenuItem>
-          {options.split(/, |,/).map((option, $i) => (
-            <MenuItem key={$i} value={option}>
-              {option}
-            </MenuItem>
-          ))}
+          {options.split(/, |,/).map((option, $i) => {
+            const [string, value] = option.split(/= |=/);
+            return (
+              <MenuItem key={$i} value={value || string}>
+                {string}
+              </MenuItem>
+            );
+          })}
         </Select>
       );
     case "checkbox":
@@ -127,11 +153,17 @@ const FormSection = ({
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
 
-  const onSubmit = async (
+  const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
     values: Record<string, InputValue>
   ) => {
     event.preventDefault();
+
+    // @todo: This needs to be less reliant on string patterns
+    const recipientsFromValues = values.recipients as string;
+    const conditionalRecipients = recipientsFromValues.includes("@")
+      ? recipientsFromValues
+      : recipients;
 
     try {
       const source = axios.CancelToken.source();
@@ -140,7 +172,7 @@ const FormSection = ({
         {
           locale: "en-US",
           title,
-          recipients: recipients.split(/, |,/),
+          recipients: conditionalRecipients.split(/, |,/),
           values
         },
         {
@@ -167,7 +199,11 @@ const FormSection = ({
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && <RichText document={description.json} />}
       {inputs ? (
-        <Form onSubmit={onSubmit} className={styles["Form"]} rightAlignButton>
+        <Form
+          onSubmit={handleSubmit}
+          className={styles["Form"]}
+          rightAlignButton
+        >
           <Grid container spacing={3}>
             {inputs.map(({ width, ...props }, $i) => (
               <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
@@ -175,9 +211,11 @@ const FormSection = ({
               </Grid>
             ))}
           </Grid>
-          <Form.SubmitButton>
-            {submitText || getMicroCopy("form.submit")}
-          </Form.SubmitButton>
+          <Form.ButtonWrapper>
+            <Form.SubmitButton endIcon={<ArrowForwardIcon />}>
+              {submitText || getMicroCopy("form.submit")}
+            </Form.SubmitButton>
+          </Form.ButtonWrapper>
         </Form>
       ) : (
         "Form contains no fields"
@@ -203,6 +241,8 @@ export const query = graphql`
       type
       required
       width
+      accept
+      maxSize
     }
     submitText
     successRedirect {

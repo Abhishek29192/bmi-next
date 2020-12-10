@@ -5,7 +5,8 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
-import Search from "@bmi/search";
+// import Search from "@bmi/search";
+import Section from "@bmi/section";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -16,6 +17,7 @@ import Breadcrumbs from "../components/Breadcrumbs";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
+    description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;
     sections: SectionsData;
@@ -45,7 +47,7 @@ const getHeroItemsWithContext = (
 const BrandLandingPage = ({ data }: Props) => {
   const {
     title,
-    subtitle,
+    description,
     slug,
     brandLogo,
     featuredImage,
@@ -65,11 +67,11 @@ const BrandLandingPage = ({ data }: Props) => {
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
         {(context) => {
-          const { getMicroCopy } = context;
+          // const { getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
           const firstSlide: HeroItem = {
             title: <BrandLogo style={{ height: "90px" }} />,
-            children: subtitle,
+            children: description?.description,
             imageSource: featuredImage?.file.url,
             hasUnderline: false
           };
@@ -81,10 +83,11 @@ const BrandLandingPage = ({ data }: Props) => {
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
             >
-              <Search
+              {/* NOTE: This is disabled until search gets implemented. */}
+              {/* <Search
                 label={getMicroCopy("search.label")}
                 placeholder={getMicroCopy("search.placeholder")}
-              />
+              /> */}
             </Hero>
           );
         }}
@@ -92,6 +95,13 @@ const BrandLandingPage = ({ data }: Props) => {
 
       {overlapCards && <OverlapCards data={overlapCards} />}
       {sections && <Sections data={sections} />}
+      <Section backgroundColor="alabaster" isSlim>
+        <Breadcrumbs
+          title={title}
+          slug={slug}
+          menuNavigation={data.contentfulSite.menuNavigation}
+        />
+      </Section>
     </Page>
   );
 };
@@ -101,6 +111,9 @@ export default BrandLandingPage;
 export const pageQuery = graphql`
   query BrandLandingPageById($pageId: String!, $siteId: String!) {
     contentfulBrandLandingPage(id: { eq: $pageId }) {
+      description {
+        description
+      }
       slides {
         ... on ContentfulPromoOrPage {
           ...PromoFragment

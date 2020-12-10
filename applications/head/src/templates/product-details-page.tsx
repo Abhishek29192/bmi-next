@@ -21,7 +21,9 @@ import Grid, { GridSize } from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
-import { Data as PIMDocumentData } from "../PIMDocument";
+import { Data as PIMDocumentData } from "../components/PIMDocument";
+import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -64,7 +66,7 @@ type ClassificationFeature = {
   featureUnit?: ClassificationFeatureUnit;
 };
 
-type Classification = {
+export type Classification = {
   name: string;
   code: string;
   features: ClassificationFeature[];
@@ -81,7 +83,7 @@ export type VariantOption = {
   longDescription: string;
 };
 
-type Category = {
+export type Category = {
   name: string;
   categoryType: string; // ENUM?
   code: string;
@@ -112,7 +114,7 @@ export type Product = {
   categories?: ReadonlyArray<Category>;
   classifications?: ReadonlyArray<Classification>;
   variantOptions?: ReadonlyArray<VariantOption>;
-  documents: PIMDocumentData[];
+  documents: (PIMDocumentData | PIMLinkDocumentData)[];
 };
 
 type Props = {
@@ -184,8 +186,13 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     inputBanner: resources.pdpInputBanner
   };
 
+  const breadcrumbs = <Breadcrumbs title={product.name} slug={pageData.slug} />;
+
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
+      <Section backgroundColor="pearl" isSlim>
+        {breadcrumbs}
+      </Section>
       <Container>
         <SiteContext.Consumer>
           {({ getMicroCopy }) => {
@@ -278,6 +285,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           <ExploreBar data={resources.pdpExploreBar} />
         </Section>
       )}
+      <Section backgroundColor="alabaster" isSlim>
+        {breadcrumbs}
+      </Section>
     </Page>
   );
 };
@@ -372,6 +382,7 @@ export const pageQuery = graphql`
       }
       documents {
         ...PIMDocumentFragment
+        ...PIMLinkDocumentFragment
       }
     }
     relatedProducts: allProducts(

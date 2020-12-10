@@ -20,7 +20,7 @@ const Brands = ({ data }: { data: Data[] }) => {
   return (
     <Section backgroundColor={"pearl"}>
       <Section.Title> {getMicroCopy("homepage.brands")}</Section.Title>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} justify="center">
         {data.map((brand, index) => (
           <Grid item xs={12} md={6} xl={4} key={`${brand.slug}-${index}`}>
             <BrandIntroCard

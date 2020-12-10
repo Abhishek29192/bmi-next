@@ -3,6 +3,10 @@
 .Container {
   overflow: hidden;
 
+  &--no-overflow {
+    overflow: revert;
+  }
+
   @media (min-width: $breakpoint-xl) {
     overflow: revert;
   }

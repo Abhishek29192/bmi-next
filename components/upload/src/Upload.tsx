@@ -22,11 +22,13 @@ export type Props = {
   onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
   error?: boolean;
   errorText?: string;
+  uploadErrorMessage?: string;
   onChange: any;
   uri: string;
   headers?: Record<string, string>;
   mapBody?: (file: File) => Record<string, any>;
   mapValue?: (file: File, response: any) => any;
+  fileValidation?: (file: File) => string;
 };
 
 const Upload = ({
@@ -37,10 +39,12 @@ const Upload = ({
   onBlur,
   error,
   errorText,
+  uploadErrorMessage = "Upload failed",
   uri,
   headers,
   mapBody,
   mapValue,
+  fileValidation,
   onChange
 }: Props) => {
   const [files, setFiles] = useState<readonly UploadFile[]>([]);
@@ -95,6 +99,8 @@ const Upload = ({
             uri={uri}
             headers={headers}
             mapBody={mapBody}
+            errorMessage={uploadErrorMessage}
+            validation={fileValidation}
             onRequestSuccess={(data) => {
               setFiles((files) =>
                 Object.assign([], files, {

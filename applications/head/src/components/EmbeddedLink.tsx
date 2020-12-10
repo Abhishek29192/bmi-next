@@ -4,29 +4,15 @@ import Button from "@bmi/button";
 import { SiteContext } from "../components/Site";
 import { LinkData, getClickableActionFromUrl } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
-
-type LocalisedFields<T> = {
-  [key in keyof T]: {
-    [locale: string]: T[key];
-  };
-};
+import {
+  getDataFromLocale,
+  LocalisedFields
+} from "../utils/get-data-from-locale";
 
 type Props = {
   fields: LocalisedFields<LinkData>;
   theme?: "primary" | "secondary";
   backgroundTheme?: "light" | "dark";
-};
-
-const getDataFromLocale = <T extends {}>(
-  localeCode: string,
-  fields?: LocalisedFields<T>
-) => {
-  if (!fields) {
-    return;
-  }
-  // TODO: Ideally the return type should also be using the generic.
-  // However, it's a complicated structure. Thanks Contentfuk. (Actual typo)
-  return _.mapValues(fields, (value) => value[localeCode]);
 };
 
 const EmbeddedLink = ({

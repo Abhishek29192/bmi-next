@@ -43,6 +43,7 @@ type Props = {
 };
 
 const DOCUMENTS_PER_PAGE = 24;
+const MAX_DOWNLOAD_LIMIT = 10 * 1048576;
 
 const ProductLeadBlock = ({
   description,
@@ -119,6 +120,7 @@ const ProductLeadBlock = ({
                           key={index}
                           icon={BlueCheckIcon}
                           title={feature}
+                          isCompact
                         />
                       ))}
                     </IconList>
@@ -188,7 +190,7 @@ const ProductLeadBlock = ({
           index="three"
         >
           <div className={styles["document-library"]}>
-            <DownloadList>
+            <DownloadList maxSize={MAX_DOWNLOAD_LIMIT}>
               <DocumentSimpleTableResults
                 documents={documents}
                 page={page}

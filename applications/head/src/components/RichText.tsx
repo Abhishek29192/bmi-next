@@ -7,7 +7,10 @@ import {
 } from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
 import EmbeddedBlock from "./EmbeddedBlock";
+import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import styles from "./styles/RichText.module.scss";
+
+export { Document } from "@contentful/rich-text-types";
 
 type Settings = {
   theme?: "primary" | "secondary";
@@ -81,6 +84,9 @@ const getOptions = (settings: Settings): Options => {
       ),
       [BLOCKS.EMBEDDED_ENTRY]: (node: Block) => (
         <EmbeddedBlock node={node} {...settings} />
+      ),
+      [BLOCKS.EMBEDDED_ASSET]: (node: Block) => (
+        <EmbeddedAssetBlock node={node} className={styles["embedded-asset"]} />
       )
     },
     renderMark: {
@@ -95,7 +101,11 @@ const RichText = ({
 }: {
   document: Document;
 } & Settings) => {
-  return <div>{documentToReactComponents(document, getOptions(rest))}</div>;
+  return (
+    <div className={styles["RichText"]}>
+      {documentToReactComponents(document, getOptions(rest))}
+    </div>
+  );
 };
 
 export default RichText;
