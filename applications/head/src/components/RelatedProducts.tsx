@@ -16,7 +16,6 @@ import { iconMap } from "../components/Icon";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
 import AnchorLink from "@bmi/anchor-link";
-import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import styles from "./styles/RelatedProducts.module.scss";
@@ -247,6 +246,17 @@ export const query = graphql`
       code
       externalProductCode
       shortDescription
+      images {
+        allowedToDownload
+        assetType
+        fileSize
+        name
+        url
+        containerId
+        mime
+        realFileName
+        format
+      }
       classifications {
         name
         code
