@@ -38,6 +38,7 @@ import Typography from "@bmi/typography/src";
 import Button from "@bmi/button/src";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
+import filterStyles from "../components/styles/Filters.module.scss";
 
 const PAGE_SIZE = 24;
 
@@ -342,61 +343,53 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                 }}
               </DownloadListContext.Consumer>
               <Section backgroundColor="white">
-                <Grid container spacing={3} ref={resultsElement}>
-                  <Grid item xs={12} md={12} lg={3}>
-                    <PerfectScrollbar
-                      style={{
-                        position: "sticky",
-                        top: "180px",
-                        maxHeight: "calc(100vh - 200px)",
-                        overflow: "hidden"
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          marginBottom: 4
-                        }}
-                      >
-                        <Typography variant="h5">Filters</Typography>
-                        <Button variant="text" onClick={clearFilters}>
-                          Clear All
-                        </Button>
-                      </div>
-                      <DownloadListContext.Consumer>
-                        {({ resetList }) => (
-                          <Filters
-                            filters={filters}
-                            onChange={handleFiltersChange(resetList)}
+                <div className={filterStyles["Filters"]}>
+                  <Grid container spacing={3} ref={resultsElement}>
+                    <Grid item xs={12} md={12} lg={3}>
+                      <PerfectScrollbar className={filterStyles["scroll-bar"]}>
+                        <div className={filterStyles["box"]}>
+                          <Typography variant="h5">Filters</Typography>
+                          <Button variant="text" onClick={clearFilters}>
+                            Clear All
+                          </Button>
+                        </div>
+                        <DownloadListContext.Consumer>
+                          {({ resetList }) => (
+                            <Filters
+                              filters={filters}
+                              onChange={handleFiltersChange(resetList)}
+                            />
+                          )}
+                        </DownloadListContext.Consumer>
+                      </PerfectScrollbar>
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={9}>
+                      {results.length ? (
+                        <>
+                          <DocumentResults
+                            data={results}
+                            format={format}
+                            page={page}
                           />
-                        )}
-                      </DownloadListContext.Consumer>
-                    </PerfectScrollbar>
+                          <div className={filterStyles["results"]}>
+                            <DocumentResultsFooter
+                              page={page}
+                              count={pageCount}
+                              onDownloadClick={
+                                format === "cards"
+                                  ? undefined
+                                  : handleDownloadClick
+                              }
+                              onPageChange={handlePageChange}
+                            />
+                          </div>
+                        </>
+                      ) : (
+                        getMicroCopy("documentLibrary.noResults")
+                      )}
+                    </Grid>
                   </Grid>
-                  <Grid item xs={12} md={12} lg={9}>
-                    {results.length ? (
-                      <>
-                        <DocumentResults
-                          data={results}
-                          format={format}
-                          page={page}
-                        />
-                        <DocumentResultsFooter
-                          page={page}
-                          count={pageCount}
-                          onDownloadClick={
-                            format === "cards" ? undefined : handleDownloadClick
-                          }
-                          onPageChange={handlePageChange}
-                        />
-                      </>
-                    ) : (
-                      getMicroCopy("documentLibrary.noResults")
-                    )}
-                  </Grid>
-                </Grid>
+                </div>
               </Section>
             </DownloadList>
           );

@@ -1,0 +1,23 @@
+@import "@bmi/styles";
+
+.Filters {
+  .scroll-bar {
+    @media (min-width: $breakpoint-xl) {
+      position: sticky;
+      top: 180px;
+      max-height: calc(100vh - 200px);
+      overflow: hidden;
+    }
+  }
+
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  .results {
+    margin-top: 47px;
+  }
+}
