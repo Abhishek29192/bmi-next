@@ -52,14 +52,14 @@ const File = ({
 
   const handleFileUpload = async () => {
     const fileValidationError = validation && validation(file);
+    const source = axios.CancelToken.source();
 
     if (fileValidationError) {
       setError(fileValidationError);
       setLoading(false);
-      return;
+      return source;
     }
 
-    const source = axios.CancelToken.source();
     try {
       const res = await axios.post(uri, mapBody(file), {
         cancelToken: source.token,

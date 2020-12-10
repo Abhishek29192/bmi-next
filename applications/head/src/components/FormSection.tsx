@@ -71,10 +71,10 @@ const Input = ({
   });
 
   const handleFileValidation = (file: File) => {
-    if (maxSize && file.size > maxSize) {
+    if (maxSize && file.size > maxSize * 1048576) {
       return getMicroCopy("errors.maxSize").replace(
         "{{size}}",
-        getFileSizeString(maxSize * 1000000)
+        getFileSizeString(maxSize * 1048576)
       );
     }
   };
@@ -95,7 +95,7 @@ const Input = ({
             `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
             (maxSize
               ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
-                  maxSize * 1000000
+                  maxSize * 1048576
                 )}`
               : "")
           }
