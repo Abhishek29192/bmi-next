@@ -11,6 +11,12 @@ import DocumentResults, {
   Data as DocumentResultsData,
   Format
 } from "../components/DocumentResults";
+import DocumentResultsFooter, {
+  handleDownloadClick
+} from "../components/DocumentResultsFooter";
+import { getCount as getSimpleTableCount } from "../components/DocumentSimpleTableResults";
+import { getCount as getTechnicalTableCount } from "../components/DocumentTechnicalTableResults";
+import { getCount as getCardsCount } from "../components/DocumentCardsResults";
 import { Document } from "@contentful/rich-text-types";
 import { SiteContext } from "../components/Site";
 import AlertBanner from "@bmi/alert-banner";
@@ -33,6 +39,15 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 
 const PAGE_SIZE = 24;
+
+const documentCountMap: Record<
+  Format,
+  (documents: DocumentResultsData) => number
+> = {
+  simpleTable: getSimpleTableCount,
+  technicalTable: getTechnicalTableCount,
+  cards: getCardsCount
+};
 
 type Data = PageInfoData &
   PageData & {
@@ -157,7 +172,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
 
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(
     Math.ceil(initialDocuments.length / PAGE_SIZE)
   );
@@ -171,6 +186,8 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       pageContext.pimClassificationCatalogueNamespace
     ).filter(Boolean)
   );
+
+  const format = resultTypeFormatMap[source][resultsType];
 
   const filterDocuments = (
     documents: DocumentResultsData,
@@ -216,13 +233,20 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     setIsLoading(true);
 
     const newResults = filterDocuments(documents, filters);
-    const newPageCount = Math.ceil(newResults.length / PAGE_SIZE);
 
+    const getCount = documentCountMap[format];
+    const newPageCount = Math.ceil(getCount(newResults) / PAGE_SIZE);
     setPageCount(newPageCount);
     setPage(newPageCount < page ? 0 : page);
     setResults(newResults);
 
     setIsLoading(false);
+    window.scrollTo(0, 0);
+  };
+
+  const handlePageChange = (_, page) => {
+    window.scrollTo(0, 0);
+    setPage(page);
   };
 
   // Largely similar to product-lister-page.tsx
@@ -246,8 +270,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     });
 
     // NOTE: If filters change, we reset pagination to first page
-    // TODO: pagination is inside of results doc, how to reset?
-    await fakeSearch(initialDocuments, newFilters, 0);
+    await fakeSearch(initialDocuments, newFilters, 1);
 
     setFilters(newFilters);
   };
@@ -259,8 +282,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       value: []
     }));
 
-    // TODO: pagination is inside of results doc, how to reset?
-    fakeSearch(initialDocuments, newFilters, 0);
+    fakeSearch(initialDocuments, newFilters, 1);
 
     setFilters(newFilters);
   };
@@ -331,7 +353,16 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                   <Grid item xs={12} md={12} lg={9}>
                     <DocumentResults
                       data={results}
-                      format={resultTypeFormatMap[source][resultsType]}
+                      format={format}
+                      page={page}
+                    />
+                    <DocumentResultsFooter
+                      page={page}
+                      count={pageCount}
+                      onDownloadClick={
+                        format === "cards" ? undefined : handleDownloadClick
+                      }
+                      onPageChange={handlePageChange}
                     />
                   </Grid>
                 </Grid>
