@@ -55,7 +55,7 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
                   link.linkedPage,
                   link.url,
                   countryCode,
-                  `https:${link.asset?.file?.url}`
+                  link.asset ? `https:${link.asset?.file?.url}` : undefined
                 );
 
                 return {
