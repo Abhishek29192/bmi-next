@@ -16,6 +16,7 @@ import IconList from "@bmi/icon-list";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 import RichText from "./RichText";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
+import borderedItemStyles from "./styles/BorderedItem.module.scss";
 
 export const iconMap = {
   build: BuildIcon,
@@ -72,9 +73,7 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
 
 // TODO: Component for HR?
 const BorderedItem = () => {
-  return (
-    <div style={{ borderTop: "1px solid #CCCCCC", paddingBottom: "32px" }} />
-  );
+  return <div className={borderedItemStyles["BorderedItem"]} />;
 };
 
 const Footer = ({ footerTitle, footerList }: FooterProps) => {
