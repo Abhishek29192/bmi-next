@@ -28,6 +28,8 @@ $hero-breakpoint-sm: 769px;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     margin: 10px 0 24px;
+    // NOTE: This gets rid of the next line high characters
+    line-height: 1.4em;
 
     &::after {
       // NOTE: Fix the next slide being visible
