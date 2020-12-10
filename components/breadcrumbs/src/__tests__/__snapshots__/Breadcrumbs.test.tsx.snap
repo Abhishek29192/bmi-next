@@ -205,9 +205,7 @@ exports[`Breadcrumbs component renders on a large breakpoint 1`] = `
         <span
           class="MuiButton-label"
         >
-          <span
-            class="label"
-          >
+          <span>
             Concrete Tiles
           </span>
         </span>
@@ -324,9 +322,7 @@ exports[`Breadcrumbs component renders on a small breakpoint 1`] = `
         <span
           class="MuiButton-label"
         >
-          <span
-            class="label"
-          >
+          <span>
             Concrete Tiles
           </span>
         </span>

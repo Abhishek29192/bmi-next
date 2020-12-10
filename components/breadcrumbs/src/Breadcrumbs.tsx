@@ -38,7 +38,11 @@ const BreadcrumbsItem = ({
       }
       action={action}
     >
-      <span className={styles["label"]}>{children}</span>
+      {action ? (
+        <span className={styles["label"]}>{children}</span>
+      ) : (
+        <span>{children}</span>
+      )}
     </Button>
   );
 };
