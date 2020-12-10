@@ -97,7 +97,7 @@ exports[`Checkbox component renders error 1`] = `
   <p
     class="MuiFormHelperText-root Mui-disabled Mui-error"
   >
-    This field is required
+    Feltet er obligatorisk
   </p>
 </div>
 `;

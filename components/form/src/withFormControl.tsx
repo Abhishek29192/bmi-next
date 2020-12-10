@@ -27,7 +27,8 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
 
     const getError = (val: InputValue) => {
       if (isRequired && !val) {
-        return "This field is required";
+        // TODO: This should come from some sort of Form context.
+        return "Feltet er obligatorisk";
       }
       if (getValidationError && getValidationError(val)) {
         return getValidationError(val) || null;
