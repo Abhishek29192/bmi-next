@@ -7,7 +7,7 @@ export const disableFiltersFromAggregations = (filters, aggregations) => {
     // TODO: Rename filter.name to colourfamily
     colour: "colourfamily",
     texturefamily: "texturefamily",
-    productFamily: "otherCategories"
+    productFamily: "allCategories"
   };
 
   return filters.map((filter) => {
@@ -44,8 +44,8 @@ export const compileElasticSearchQuery = (
     texturefamily: "texturefamilyCode.keyword",
     category: "categories.code.keyword",
     // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
-    productFamily: "otherCategories.code.keyword",
-    otherCategories: "otherCategories.code.keyword"
+    productFamily: "allCategories.code.keyword",
+    plpBaseCategory: "plpCategories.code.keyword"
   };
 
   filters.forEach((filter) => {
@@ -139,12 +139,12 @@ export const compileElasticSearchQuery = (
           field: "categories.code.keyword"
         }
       },
-      otherCategories: {
+      allCategories: {
         terms: {
           // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
           // Could request these separately, and figure out a way of retrying and getting more buckets if needed
           size: "100",
-          field: "otherCategories.code.keyword"
+          field: "allCategories.code.keyword"
         }
       },
       texturefamily: {
@@ -167,7 +167,7 @@ export const compileElasticSearchQuery = (
         must: [
           {
             term: {
-              [searchTerms.otherCategories]: categoryCode
+              [searchTerms.plpBaseCategory]: categoryCode
             }
           },
           ...categoryFilters
