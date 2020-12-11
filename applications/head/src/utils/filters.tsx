@@ -103,7 +103,7 @@ export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
 
   return {
     // TODO: Microcopy for label
-    label: "Marke",
+    label: "Merkevare",
     name: "brand",
     value: [],
     options: allValues

@@ -351,9 +351,11 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                     <Grid item xs={12} md={12} lg={3}>
                       <PerfectScrollbar className={filterStyles["scroll-bar"]}>
                         <div className={filterStyles["box"]}>
-                          <Typography variant="h5">Filters</Typography>
+                          <Typography variant="h5">
+                            {getMicroCopy("documentLibrary.filters.title")}
+                          </Typography>
                           <Button variant="text" onClick={clearFilters}>
-                            Clear All
+                            {getMicroCopy("documentLibrary.filters.clearAll")}
                           </Button>
                         </div>
                         <DownloadListContext.Consumer>

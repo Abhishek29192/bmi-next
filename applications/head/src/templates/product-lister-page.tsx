@@ -323,9 +323,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           marginBottom: 4
                         }}
                       >
-                        <Typography variant="h5">Filters</Typography>
+                        <Typography variant="h5">
+                          {getMicroCopy("plp.filters.title")}
+                        </Typography>
                         <Button variant="text" onClick={clearFilters}>
-                          Clear All
+                          {getMicroCopy("plp.filters.clearAll")}
                         </Button>
                       </div>
                       <Filters
@@ -381,7 +383,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                       )
                                     }}
                                   >
-                                    View details
+                                    {getMicroCopy("plp.product.viewDetails")}
                                   </AnchorLink>
                                 }
                               >
