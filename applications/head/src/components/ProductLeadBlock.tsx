@@ -121,7 +121,9 @@ const ProductLeadBlock = ({
             <LeadBlock.Card theme="blue-900">
               {keyFeatures ? (
                 <LeadBlock.Card.Section>
-                  <LeadBlock.Card.Heading>Key features</LeadBlock.Card.Heading>
+                  <LeadBlock.Card.Heading>
+                    {getMicroCopy("pdp.leadBlock.keyFeatures")}
+                  </LeadBlock.Card.Heading>
                   <LeadBlock.Card.Content>
                     <IconList>
                       {keyFeatures.map((feature, index) => (
