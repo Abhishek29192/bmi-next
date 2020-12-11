@@ -121,7 +121,7 @@ $hero-breakpoint-sm: 769px;
       padding-right: 24px;
     }
 
-    &--slim .wrapper {
+    &--slim:not(&--carousel) .wrapper {
       width: auto;
     }
 
