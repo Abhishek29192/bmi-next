@@ -35,7 +35,8 @@ const combineVariantClassifications = (
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
   return (product.variantOptions || []).map((variant) => {
-    const productCategories = getFullCategoriesPaths(
+    // Only "Category" categories which are used for filters
+    const productLeafCategories = getFullCategoriesPaths(
       product.categories || []
     ).map((categoryBranch) => {
       const parent = getGroupCategory(categoryBranch);
@@ -50,8 +51,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     // Any category that is not "category" type
     // Keeping this because there are Brand and ProductFamily categories which are important
     // TODO: save as individual Brand and ProductFamily?
-    const otherCategories = (product.categories || []).filter(
-      ({ categoryType }) => categoryType !== "Category"
+    const productFamilyCategories = (product.categories || []).filter(
+      ({ categoryType }) => categoryType === "ProductFamily"
     );
 
     const classifications = combineVariantClassifications(product, variant);
@@ -101,8 +102,11 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       brandCode: findProductBrandLogoCode(product),
       // TODO: Perhaps we're only interested in specific images?
       images: [...(variant.images || []), ...(product.images || [])],
-      categories: productCategories,
-      otherCategories,
+      categories: productLeafCategories,
+      // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
+      allCategories: product.categories || [],
+      // Used for main category filter on PLP, interested in only leaf Categories and ProductCategories
+      plpCategories: [...productLeafCategories, ...productFamilyCategories],
       classifications,
       // Special because we want to use it for sorting, atm this seems easier
       scoringWeight,
