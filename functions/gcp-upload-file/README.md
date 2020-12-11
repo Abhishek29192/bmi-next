@@ -3,7 +3,7 @@
 ## Build
 
 ```bash
-yarn run @bmi/upload-function build
+yarn run @bmi/gcp-upload-file build
 ```
 
 Functions are build into the `dist` directory.
@@ -13,5 +13,5 @@ Functions are build into the `dist` directory.
 To run a function in dev mode:
 
 ```bash
-yarn workspace @bmi/upload-function dev
+yarn workspace @bmi/gcp-upload-file dev
 ```

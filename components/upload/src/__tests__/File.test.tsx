@@ -119,6 +119,7 @@ describe("Upload component", () => {
         mapBody={mapBody}
         onDeleteClick={jest.fn()}
         onRequestSuccess={jest.fn()}
+        errorMessage="Upload failed"
       />
     );
     expect(await waitFor(() => container.firstChild)).toMatchSnapshot();

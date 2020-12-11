@@ -1,14 +1,17 @@
 "use strict";
 
 const _ = require("lodash");
-const { getFormatFromFileName } = require("./utils/documents");
+const {
+  getFormatFromFileName,
+  isPimLinkDocument
+} = require("./utils/documents");
 const {
   generateIdFromString,
   generateDigestFromData
 } = require("./utils/encryption");
 
 module.exports = {
-  type: ["PIMDocument"],
+  type: ["ProductDocument"],
   async resolve(source, args, context) {
     const assetTypes = await context.nodeModel.getAllNodes(
       { type: "ContentfulAssetType" },
@@ -22,13 +25,33 @@ module.exports = {
     return source.assets
       .map((asset) => {
         const id = generateIdFromString(source.name + asset.name);
+        const { url, fileSize, realFileName } = asset;
         const assetType = _.find(assetTypes, { pimCode: asset.assetType });
 
-        if (!assetType) {
+        if (!assetType || !url) {
           return;
         }
 
-        const { fileSize, realFileName } = asset;
+        if (isPimLinkDocument(asset)) {
+          const fieldData = {
+            title: `${source.name} ${assetType.name}`,
+            url,
+            assetType___NODE: assetType.id,
+            product___NODE: source.id
+          };
+
+          return {
+            id,
+            ...fieldData,
+            parent: source.id,
+            children: [],
+            internal: {
+              type: "PIMLinkDocument",
+              owner: "@bmi/resolvers",
+              contentDigest: generateDigestFromData(fieldData)
+            }
+          };
+        }
 
         if (!fileSize || !realFileName) {
           return;
@@ -36,8 +59,8 @@ module.exports = {
 
         const fieldData = {
           title: `${source.name} ${assetType.name}`,
-          url: asset.url,
-          assetType___NODE: assetType && assetType.id,
+          url,
+          assetType___NODE: assetType.id,
           fileSize,
           product___NODE: source.id,
           format: getFormatFromFileName(realFileName),

@@ -8,6 +8,14 @@ exports[`Typography component renders body2 correctly 1`] = `
 </p>
 `;
 
+exports[`Typography component renders body3 correctly 1`] = `
+<p
+  class="MuiTypography-root Typography body3 MuiTypography-body2"
+>
+  Hello World
+</p>
+`;
+
 exports[`Typography component renders button correctly 1`] = `
 <span
   class="MuiTypography-root Typography MuiTypography-button"

@@ -53,15 +53,15 @@ coverage_jest:
     paths:
       - coverage
 
-coverage_ts:
-  stage: check
-  script:
-    - yarn run coverage:ts
-  dependencies:
-    - install
-  artifacts:
-    paths:
-      - coverage-ts
+# coverage_ts:
+#   stage: check
+#   script:
+#     - yarn run coverage:ts
+#   dependencies:
+#     - install
+#   artifacts:
+#     paths:
+#       - coverage-ts
 
 release:
   image: node:13
@@ -71,7 +71,7 @@ release:
     - build
     - build_frc_website
     - coverage_jest
-    - coverage_ts
+    # - coverage_ts
   only:
     refs:
       - production

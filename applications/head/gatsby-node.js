@@ -7,6 +7,8 @@ const { withConfigs, styles } = require("@bmi/webpack");
 require("graphql-import-node");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
+const jsonfile = require("jsonfile");
+const fs = require("fs");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -210,6 +212,21 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     createProductPages(site.id, site.countryCode, { graphql, actions });
+
+    if (process.env.NODE_ENV === "development") {
+      const dataFilePath = "./.temp/microCopyKeys.json";
+
+      createPage({
+        path: `/${site.countryCode}/global-reources`,
+        component: path.resolve("./src/templates/_global-resources.tsx"),
+        context: {
+          siteId: site.id,
+          micropCopyData: fs.existsSync(path.join(__dirname, dataFilePath))
+            ? jsonfile.readFileSync(path.join(__dirname, dataFilePath))
+            : null
+        }
+      });
+    }
   });
 };
 

@@ -13,6 +13,12 @@ describe("Typography component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders body3 correctly", () => {
+    const { container } = render(
+      <Typography variant="body3">Hello World</Typography>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
   it("renders h1 correctly", () => {
     const { container } = render(<Typography variant="h1">Heading</Typography>);
     expect(container.firstChild).toMatchSnapshot();

@@ -4,6 +4,7 @@ import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import Icon from "@bmi/icon";
 import { LocationOn, Phone, Mail } from "@material-ui/icons";
+import classnames from "classnames";
 
 type DetailType = "address" | "phone" | "email";
 
@@ -18,9 +19,10 @@ type Props = {
   title: React.ReactNode;
   details: readonly [DetailProps, ...DetailProps[]];
   footNote: React.ReactNode;
+  isFlat?: boolean;
 };
 
-const LocationItem = ({ text, action, label, type }: DetailProps) => {
+export const LocationItem = ({ text, action, label, type }: DetailProps) => {
   const typeToIconMap: Record<DetailType, SVGImport> = {
     address: LocationOn,
     phone: Phone,
@@ -46,16 +48,20 @@ const LocationItem = ({ text, action, label, type }: DetailProps) => {
   );
 };
 
-const LocationCard = ({ title, details, footNote }: Props) => {
+const LocationCard = ({ title, details, footNote, isFlat }: Props) => {
   return (
-    <address className={styles["LocationCard"]}>
+    <address
+      className={classnames(styles["LocationCard"], {
+        [styles["LocationCard--flat"]]: isFlat
+      })}
+    >
       <Typography variant="h5">{title}</Typography>
       <dl className={styles["list"]}>
         {details.map((detail, index) => (
           <LocationItem key={index} {...detail} />
         ))}
       </dl>
-      <Typography className={styles["foot-note"]}>{footNote}</Typography>
+      <div className={styles["foot-note"]}>{footNote}</div>
     </address>
   );
 };

@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useMemo } from "react";
 import { graphql } from "gatsby";
+import { groupBy } from "lodash";
 import { Data as DocumentData } from "./Document";
 import { Data as PIMDocumentData } from "./PIMDocument";
-import DocumentResultsFooter, {
-  handleDownloadClick
-} from "../components/DocumentResultsFooter";
+import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
 import DocumentCardsResults from "./DocumentCardsResults";
 
-export type Data = (PIMDocumentData | DocumentData)[];
+export type Data = (PIMDocumentData | DocumentData | PIMLinkDocumentData)[];
 
 export type Format = "simpleTable" | "technicalTable" | "cards";
 
 type Props = {
   data: Data;
   format: Format;
+  page: number;
 };
 
 const documentResultsMap: Record<Format, React.ElementType> = {
@@ -26,10 +26,21 @@ const documentResultsMap: Record<Format, React.ElementType> = {
 
 const DOCUMENTS_PER_PAGE = 24;
 
-const DocumentResults = ({ data, format }: Props) => {
-  const [page, setPage] = useState(1);
-  const count = Math.ceil(data.length / DOCUMENTS_PER_PAGE);
+const DocumentResults = ({ data, format, page }: Props) => {
   const ResultsComponent = documentResultsMap[format];
+  const assetTypesCount = useMemo(
+    () => Object.keys(groupBy(data, "assetType.code")).length,
+    [data]
+  );
+  const tableHeaders = ["typeCode", "title", "download", "add"].filter(
+    (header) => {
+      if (assetTypesCount < 2 && header.includes("type")) {
+        return false;
+      }
+
+      return true;
+    }
+  );
 
   if (!ResultsComponent) {
     return null;
@@ -41,12 +52,7 @@ const DocumentResults = ({ data, format }: Props) => {
         documents={data}
         page={page}
         documentsPerPage={DOCUMENTS_PER_PAGE}
-      />
-      <DocumentResultsFooter
-        page={page}
-        count={count}
-        onDownloadClick={format === "cards" ? () => {} : handleDownloadClick}
-        onPageChange={(_, page) => setPage(page)}
+        headers={tableHeaders}
       />
     </>
   );
@@ -59,5 +65,6 @@ export const query = graphql`
     __typename
     ...DocumentFragment
     ...PIMDocumentFragment
+    ...PIMLinkDocumentFragment
   }
 `;

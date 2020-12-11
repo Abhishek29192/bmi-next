@@ -149,6 +149,7 @@ const Header = ({
           searchLabel={getMicroCopy("search.label")}
           searchPlaceholder={getMicroCopy("search.placeholder")}
           openLabel={getMicroCopy("menu.open")}
+          isSearchHidden
         />
       )}
     />

@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/download-function",
+  "name": "@bmi/gcp-download-zip",
   "private": true,
   "version": "0.0.0",
   "src": "src/index.ts",

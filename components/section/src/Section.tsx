@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
 import Typography, { Props as TypographyProps } from "@bmi/typography";
-import Container from "@bmi/container";
+import Container, { Props as ContainerProps } from "@bmi/container";
 import styles from "./Section.module.scss";
 import classnames from "classnames";
 
@@ -14,7 +14,8 @@ export type Props = {
   className?: string;
   id?: string;
   hasNoPadding?: boolean;
-};
+  isSlim?: boolean;
+} & ContainerProps;
 
 const Section = ({
   backgroundColor = "transparent",
@@ -23,7 +24,9 @@ const Section = ({
   spacing = "default",
   className,
   id,
-  hasNoPadding = false
+  hasNoPadding = false,
+  isSlim = false,
+  ...containerProps
 }: Props) => {
   const isNested = useContext(SectionContext);
 
@@ -46,10 +49,15 @@ const Section = ({
         className={classnames(className, styles["Section"], {
           [styles[`Section--${backgroundColor}`]]:
             backgroundColor !== "transparent",
-          [styles["Section--no-spacing"]]: spacing === "none"
+          [styles["Section--no-spacing"]]: spacing === "none",
+          [styles["Section--slim"]]: isSlim
         })}
       >
-        <Container maxWidth={size} disableGutters={hasNoPadding}>
+        <Container
+          maxWidth={size}
+          disableGutters={hasNoPadding}
+          {...containerProps}
+        >
           {children}
         </Container>
       </div>

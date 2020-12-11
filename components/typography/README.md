@@ -2,7 +2,7 @@ This component wraps the Material-UI [Typography](https://material-ui.com/compon
 
 ## Variants
 
-### body1 (default)
+### Default (`body1`)
 
 ```jsx
 <Typography>
@@ -13,10 +13,21 @@ This component wraps the Material-UI [Typography](https://material-ui.com/compon
 </Typography>
 ```
 
-### body2 (lead)
+### Lead & Hero (`body2`)
 
 ```jsx
-<Typography variant="body2">
+<Typography variant="lead">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis
+  tenetur unde suscipit, quam beatae rerum inventore consectetur, neque
+  doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi
+  quidem quibusdam.
+</Typography>
+```
+
+### Card (`body3`)
+
+```jsx
+<Typography variant="card">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis
   tenetur unde suscipit, quam beatae rerum inventore consectetur, neque
   doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi

@@ -84,7 +84,7 @@ exports[`Filters component renders disabled filters 1`] = `
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root details"
               >
                 <div
                   class="list"
@@ -252,7 +252,7 @@ exports[`Filters component renders multiple filters 1`] = `
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root details"
               >
                 <div
                   class="list"
@@ -409,7 +409,7 @@ exports[`Filters component renders multiple filters 1`] = `
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root details"
               >
                 <div
                   class="list"
@@ -577,7 +577,7 @@ exports[`Filters component renders selected filters 1`] = `
               role="region"
             >
               <div
-                class="MuiAccordionDetails-root"
+                class="MuiAccordionDetails-root details"
               >
                 <div
                   class="list"

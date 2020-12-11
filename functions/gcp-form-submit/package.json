@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/form-submit-function",
+  "name": "@bmi/gcp-form-submit",
   "private": true,
   "version": "0.0.0",
   "src": "src/index.ts",
@@ -7,7 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && functions-framework --source=dist --target=submit --port=5817"
+    "dev": "tsc && functions-framework --source=dist --target=submit --port=5817",
+    "deploy": "tsc && gcloud functions deploy form-submit --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=5 --region=europe-west3 --entry-point=submit --env-vars-file=env.yaml"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.7.1",

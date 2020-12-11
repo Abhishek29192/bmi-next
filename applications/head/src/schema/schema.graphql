@@ -21,6 +21,12 @@ interface ContentfulFormInputs {
 
   "The options for this input."
   options: String
+
+  "The permitted file types for upload."
+  accept: String
+
+  "The maximum file size for upload."
+  maxSize: Int
 }
 
 """
@@ -46,6 +52,12 @@ type contentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node 
 
   "The options for this input."
   options: String
+
+  "The permitted file types for upload."
+  accept: String
+
+  "The maximum file size for upload."
+  maxSize: Int
 }
 
 """
@@ -71,6 +83,12 @@ type contentfulInputBannerAdditionalInputsJsonNode implements ContentfulFormInpu
 
   "The options for this input."
   options: String
+
+  "The permitted file types for upload."
+  accept: String
+
+  "The maximum file size for upload."
+  maxSize: Int
 }
 
 """
@@ -187,7 +205,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   locations: [ContentfulContactDetails] @link(from: "locations___NODE")
 
   "The topics for this page."
-  contentTopics: [ContentfulContentTopic] @link(from: "contentTopics___NODE")
+  contentTopics: [ContentfulContactTopic] @link(from: "contentTopics___NODE")
 
   "The other areas title for this page."
   otherAreasTitle: String
@@ -796,12 +814,25 @@ type ContentfulResources implements Node {
 
   "The input banner for the product details page for these resources."
   pdpInputBanner: ContentfulInputBanner @link(from: "pdpInputBanner___NODE")
+
+  "The 404 error for these resources."
+  errorFourOFour: ContentfulPromo @link(from: "errorFourOFour___NODE")
+
+  "The general error for these resources."
+  errorGeneral: ContentfulPromo @link(from: "errorGeneral___NODE")
 }
+
+"""
+Represents a union for a combination of contact details and title with content.
+"""
+union ContentfulContactDetailsOrTitleWithContent =
+    ContentfulContactDetails
+  | ContentfulTitleWithContent
 
 """
 Represents a content topic.
 """
-type ContentfulContentTopic implements Node {
+type ContentfulContactTopic implements Node {
   id: ID!
 
   "The icon symbol for this topic."
@@ -820,7 +851,8 @@ type ContentfulContentTopic implements Node {
   footerTitle: String
 
   "The list of actions for this topic."
-  footerList: [ContentfulTitleWithContent] @link(from: "footerList___NODE")
+  footerList: [ContentfulContactDetailsOrTitleWithContent]
+    @link(from: "footerList___NODE")
 }
 
 """
@@ -866,6 +898,29 @@ Represents a site settings and its pages.
 type ContentfulSite implements Node {
   "The global settings for this site."
   resources: ContentfulResources @link(from: "resources___NODE")
+
+  "head script tags for this Site."
+  headScripts: contentfulSiteHeadScriptsTextNode
+    @link(from: "headScripts___NODE")
+
+  "Google Analitycs integration ID"
+  scriptGA: String
+
+  "OneTrust integration ID"
+  scriptOnetrust: String
+
+  "Google Tag Manager integration ID"
+  scriptGTM: String
+
+  "HotJar integration ID"
+  scriptHotJar: String
+}
+
+"""
+Represents head script tags.
+"""
+type contentfulSiteHeadScriptsTextNode implements Node {
+  headScripts: String
 }
 
 """
@@ -1008,7 +1063,26 @@ type PIMDocument implements Node {
   extension: String
 }
 
-union Document = ContentfulDocument | PIMDocument
+"""
+Represents a link document for a PIM product.
+"""
+type PIMLinkDocument implements Node {
+  id: ID!
+
+  "The title for this document."
+  title: String
+
+  "The URL for this document."
+  url: String
+
+  "The type for this document."
+  assetType: ContentfulAssetType @link(from: "assetType___NODE")
+
+  "The product this document belongs to."
+  product: Products @link(from: "product___NODE")
+}
+
+union Document = ContentfulDocument | PIMDocument | PIMLinkDocument
 
 """
 Represents a document library page, implementing ContentfulPage.
@@ -1057,9 +1131,11 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   pimCodes: [String]
 }
 
+union ProductDocument = PIMDocument | PIMLinkDocument
+
 type Products implements Node {
   "The documents for this product."
-  documents: [PIMDocument]! @link(from: "documents___NODE")
+  documents: [ProductDocument]! @link(from: "documents___NODE")
 }
 
 """
@@ -1077,7 +1153,7 @@ Represents a set of contact details.
 """
 type ContentfulContactDetails implements Node {
   "The title for this contact."
-  title: String!
+  title: String
 
   "The address for this contact."
   address: String
@@ -1094,6 +1170,13 @@ type ContentfulContactDetails implements Node {
 }
 
 """
+Represents the Brand Landing Page description text.
+"""
+type contentfulBrandLandingPageDescriptionTextNode implements Node {
+  description: String
+}
+
+"""
 Represents a Brand Landing Page type, implementing ContentfulPage.
 """
 type ContentfulBrandLandingPage implements ContentfulPage & Node {
@@ -1107,6 +1190,10 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "The short description for this page."
   subtitle: String
+
+  "The description for this page."
+  description: contentfulBrandLandingPageDescriptionTextNode
+    @link(from: "description___NODE")
 
   "The brand logo for this page."
   brandLogo: String

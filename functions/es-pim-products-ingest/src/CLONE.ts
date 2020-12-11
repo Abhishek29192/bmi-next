@@ -20,15 +20,6 @@ export type ProductCategoryTree = {
   };
 };
 
-export const findUniqueClassificationsOnVariant = (
-  baseClassifications: TransformedClassificationsMap,
-  variantClassifications: TransformedClassificationsMap
-): TransformedClassificationsMap => {
-  return _.pickBy(variantClassifications, (value, key) => {
-    return !(key in baseClassifications);
-  });
-};
-
 export const findProductBrandLogoCode = (product: Product) => {
   return _.result<string>(
     _.find(product.categories, {

@@ -28,32 +28,26 @@ module.exports.up = async (migration, { makeRequest }) => {
     );
     return;
   }
-
   if (!inputBannerRequest.items.length) {
     console.warn(
       "No Input Banners were found when trying to migrate back to site. Please ensure that the right data gets added."
     );
     return;
   }
-
   const inputBanner = inputBannerRequest.items[0];
-
   pageContentTypes.forEach((contentType) => {
     const currentContentType = migration.editContentType(contentType);
-
     currentContentType
       .createField("inputBanner")
       .name("Input Banner")
       .type("Link")
       .validations([{ linkContentType: ["inputBanner"] }])
       .linkType("Entry");
-
     currentContentType.changeFieldControl(
       "inputBanner",
       "builtin",
       "entryLinkEditor"
     );
-
     migration.transformEntries({
       contentType,
       from: ["showSignUpBanner"],
@@ -65,7 +59,6 @@ module.exports.up = async (migration, { makeRequest }) => {
         ) {
           return;
         }
-
         return {
           inputBanner: {
             sys: { type: "Link", linkType: "Entry", id: inputBanner.sys.id }
@@ -73,7 +66,6 @@ module.exports.up = async (migration, { makeRequest }) => {
         };
       }
     });
-
     currentContentType.deleteField("showSignUpBanner");
   });
 };

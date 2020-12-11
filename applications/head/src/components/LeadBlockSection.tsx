@@ -33,7 +33,6 @@ const LeadBlockSection = ({
       <LeadBlock>
         <LeadBlock.Content>
           <LeadBlock.Content.Section>
-            <Section.Title>{title}</Section.Title>
             {text && <RichText document={text.json} />}
           </LeadBlock.Content.Section>
           {link && (
