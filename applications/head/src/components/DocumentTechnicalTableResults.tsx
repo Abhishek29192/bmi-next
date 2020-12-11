@@ -138,7 +138,9 @@ const DocumentTechnicalTableResults = ({
       <Table rowBgColorPattern="none">
         <Table.Head>
           <Table.Row className={styles["header-row"]}>
-            <Table.Cell>Product</Table.Cell>
+            <Table.Cell>
+              {getMicroCopy("documentLibrary.headers.product")}
+            </Table.Cell>
             {assetTypes.map((assetType, index) => {
               return (
                 <Table.Cell
@@ -156,7 +158,7 @@ const DocumentTechnicalTableResults = ({
                   source={iconMap.Download}
                   className={styles["all-files-icon"]}
                 />
-                <span>All Files</span>
+                <span>{getMicroCopy("documentLibrary.headers.allFiles")}</span>
               </span>
             </Table.Cell>
           </Table.Row>

@@ -128,7 +128,7 @@ const ProductListing = ({
                       to: getProductUrl(countryCode, variant.code)
                     }}
                   >
-                    View details
+                    {getMicroCopy("pdp.relatedProducts.viewDetails")}
                   </AnchorLink>
                 }
               >

@@ -21,7 +21,7 @@ type CategoryImage = {
   realFileName: string; // includes file extension
   url: string;
 };
-type CategoryType = "Brand" | "Category"; // TODO: others?
+type CategoryType = "Brand" | "Category" | "ProductFamily"; // TODO: others?
 type Category = {
   categoryType: CategoryType;
   code: string;

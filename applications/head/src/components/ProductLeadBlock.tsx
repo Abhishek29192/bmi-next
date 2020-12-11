@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import LeadBlock from "@bmi/lead-block";
 import Icon from "@bmi/icon";
 import IconList from "@bmi/icon-list";
@@ -57,6 +57,15 @@ const ProductLeadBlock = ({
   const { getMicroCopy } = useContext(SiteContext);
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
+  const resultsElement = useRef<HTMLDivElement>(null);
+
+  const handlePageChange = (_, page) => {
+    const scrollY = resultsElement.current
+      ? resultsElement.current.offsetTop - 200
+      : 0;
+    window.scrollTo(0, scrollY);
+    setPage(page);
+  };
 
   return (
     <div className={styles["ProductLeadBlock"]}>
@@ -189,7 +198,7 @@ const ProductLeadBlock = ({
           heading={getMicroCopy("pdp.leadBlock.documents")}
           index="three"
         >
-          <div className={styles["document-library"]}>
+          <div className={styles["document-library"]} ref={resultsElement}>
             <DownloadList maxSize={MAX_DOWNLOAD_LIMIT}>
               <DocumentSimpleTableResults
                 documents={documents}
@@ -201,7 +210,7 @@ const ProductLeadBlock = ({
                 page={page}
                 count={count}
                 onDownloadClick={handleDownloadClick}
-                onPageChange={(_, page) => setPage(page)}
+                onPageChange={handlePageChange}
               />
             </DownloadList>
           </div>
