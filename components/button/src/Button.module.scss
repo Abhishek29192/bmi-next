@@ -3,6 +3,7 @@
 .Button {
   font-size: 1rem;
   border-radius: 3px;
+  overflow-wrap: anywhere;
 
   &:global(.MuiButton-text):hover {
     background-color: rgba($color-black, 0.05);
