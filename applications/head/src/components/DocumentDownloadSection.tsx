@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import filesize from "filesize";
-import { Document } from "@contentful/rich-text-types";
 import Section from "@bmi/section";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
-import RichText from "./RichText";
+import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import { Data as DocumentData } from "./Document";
 import { getClickableActionFromUrl } from "./Link";
@@ -14,7 +13,7 @@ import Icon, { iconMap } from "@bmi/icon";
 export type Data = {
   __typename: "ContentfulDocumentDownloadSection";
   title: string;
-  description: { json: Document } | null;
+  description: RichTextData | null;
   documents: DocumentData[];
 };
 
@@ -41,7 +40,7 @@ const DocumentDownloadSection = ({
       <Section.Title>{title}</Section.Title>
       {description && (
         <div style={{ marginBottom: "40px" }}>
-          <RichText document={description.json} />
+          <RichText document={description} />
         </div>
       )}
       {documents.length > 0 && (
@@ -99,7 +98,7 @@ export const query = graphql`
   fragment DocumentDownloadSectionFragment on ContentfulDocumentDownloadSection {
     title
     description {
-      json
+      ...RichTextFragment
     }
     documents {
       ...DocumentFragment

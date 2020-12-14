@@ -1,16 +1,15 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import { BLOCKS, MARKS, Document, Block } from "@contentful/rich-text-types";
-import {
-  documentToReactComponents,
-  Options
-} from "@contentful/rich-text-react-renderer";
+import { BLOCKS, MARKS, Block } from "@contentful/rich-text-types";
+import { Options } from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import styles from "./styles/RichText.module.scss";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { graphql } from "gatsby";
 
-export { Document } from "@contentful/rich-text-types";
+export type RichTextData = Parameters<typeof renderRichText>[0];
 
 type Settings = {
   theme?: "primary" | "secondary";
@@ -99,13 +98,29 @@ const RichText = ({
   document,
   ...rest
 }: {
-  document: Document;
+  document: RichTextData;
 } & Settings) => {
   return (
     <div className={styles["RichText"]}>
-      {documentToReactComponents(document, getOptions(rest))}
+      {renderRichText(document, getOptions(rest))}
     </div>
   );
 };
 
 export default RichText;
+
+export const query = graphql`
+  fragment RichTextFragment on ContentfulRichText {
+    raw
+    references {
+      __typename
+      ... on ContentfulPage {
+        # contentful_id is required to resolve the references
+        contentful_id
+        slug
+      }
+      ...EmbeddedAssetBlockFragment
+      ...EmbeddedBlockFragment
+    }
+  }
+`;

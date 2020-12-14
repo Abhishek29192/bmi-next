@@ -97,6 +97,9 @@ Represents common properties across pages.
 interface ContentfulPage @nodeInterface {
   id: ID!
 
+  "Contentful content entry ID."
+  contentful_id: String!
+
   "The name of this page, representative of the type."
   title: String
 
@@ -124,6 +127,9 @@ Represents a simple page type, implementing ContentfulPage.
 """
 type ContentfulSimplePage implements ContentfulPage & Node {
   id: ID!
+
+  "Contentful content entry ID."
+  contentful_id: String!
 
   "The name of this page, representative of the type."
   title: String
@@ -170,6 +176,9 @@ Represents a contact us page, implementing ContentfulPage.
 """
 type ContentfulContactUsPage implements ContentfulPage & Node {
   id: ID!
+
+  "Contentful content entry ID."
+  contentful_id: String!
 
   "The name of this page, representative of the type."
   title: String
@@ -220,6 +229,9 @@ Represents a team page, implementing ContentfulPage.
 type ContentfulTeamPage implements ContentfulPage & Node {
   id: ID!
 
+  "Contentful content entry ID."
+  contentful_id: String!
+
   "The name of this page, representative of the type."
   title: String
 
@@ -268,20 +280,13 @@ type ContentfulHomePage implements Node {
 }
 
 """
-Represents a product lister page content type.
-"""
-type contentfulProductListerPageContentRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
-}
-
-"""
 Represents a product lister page, implementing ContentfulPage.
 """
 type ContentfulProductListerPage implements ContentfulPage & Node {
   id: ID!
+
+  "Contentful content entry ID."
+  contentful_id: String!
 
   "The name of this page, representative of the type."
   title: String
@@ -296,7 +301,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   categoryCode: String!
 
   "The description for this category."
-  content: contentfulProductListerPageContentRichTextNode!
+  content: ContentfulRichText
 
   "The features for this category."
   features: [String]
@@ -361,14 +366,26 @@ union ContentfulPromoOrPage =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
+union ContentfulRichTextReference =
+    ContentfulAsset
+  | ContentfulTable
+  | ContentfulLink
+  | ContentfulContactUsPage
+  | ContentfulSimplePage
+  | ContentfulTeamPage
+  | ContentfulProductListerPage
+  | ContentfulDocumentLibraryPage
+
 """
-Represents the rich text content for the ContentfulCardCollectionSection.
+Represents a lead block section post it card type.
 """
-type RichText implements Node {
+type ContentfulRichText implements Node {
   id: ID!
 
-  "The JSON for this content."
-  json: JSON
+  "The raw JSON string."
+  raw: String!
+
+  references: [ContentfulRichTextReference] @link(from: "references___NODE")
 }
 
 """
@@ -381,7 +398,7 @@ type ContentfulCardCollectionSection implements Node {
   title: String
 
   "The description for this section."
-  description: RichText
+  description: ContentfulRichText
 
   "The type of card for this section."
   cardType: String!
@@ -409,7 +426,7 @@ type ContentfulCarouselSection implements Node {
   title: String
 
   "The description for this section."
-  description: RichText
+  description: ContentfulRichText
 
   "The variant of carousel to be used."
   variant: String!
@@ -419,16 +436,6 @@ type ContentfulCarouselSection implements Node {
 
   "The link for this section."
   link: ContentfulLink @link(from: "link___NODE")
-}
-
-"""
-Represents the rich text content for the ContentfulFormSection description.
-"""
-type contentfulFormSectionDescriptionRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
 }
 
 """
@@ -444,8 +451,7 @@ type ContentfulFormSection implements Node {
   showTitle: Boolean
 
   "The title for this form."
-  description: contentfulFormSectionDescriptionRichTextNode
-    @link(from: "description___NODE")
+  description: ContentfulRichText
 
   "The recipients of this form."
   recipients: String
@@ -501,26 +507,6 @@ type ContentfulShareWidgetSection implements Node {
 }
 
 """
-Represents a lead block section text type.
-"""
-type contentfulLeadBlockSectionTextRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
-}
-
-"""
-Represents a lead block section post it card type.
-"""
-type contentfulLeadBlockSectionPostItCardRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
-}
-
-"""
 Represents an introduction to a page.
 """
 type ContentfulLeadBlockSection implements Node {
@@ -528,14 +514,13 @@ type ContentfulLeadBlockSection implements Node {
   title: String
 
   "The description for this section."
-  text: contentfulLeadBlockSectionTextRichTextNode @link(from: "text___NODE")
+  text: ContentfulRichText
 
   "The link for this section, if present."
   link: ContentfulLink @link(from: "link___NODE")
 
   "The post it card content for this section, if present."
-  postItCard: contentfulLeadBlockSectionPostItCardRichTextNode
-    @link(from: "postItCard___NODE")
+  postItCard: ContentfulRichText
 }
 
 """
@@ -617,16 +602,6 @@ type ContentfulImageGallerySection implements Node {
 }
 
 """
-Represents the document download section description field.
-"""
-type contentfulDocumentDownloadSectionDescriptionRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
-}
-
-"""
 Represents a section of downloadable document assets.
 """
 type ContentfulDocumentDownloadSection implements Node {
@@ -634,8 +609,7 @@ type ContentfulDocumentDownloadSection implements Node {
   title: String
 
   "The description for this section."
-  description: contentfulDocumentDownloadSectionDescriptionRichTextNode
-    @link(from: "description___NODE")
+  description: ContentfulRichText
 
   "The documents for this section."
   documents: [ContentfulDocument] @link(from: "documents___NODE")
@@ -693,16 +667,6 @@ type ContentfulVillainSection implements Node {
 }
 #############
 
-"""
-Represents a lead block section post it card type.
-"""
-type contentfulTitleWithContentContentRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
-}
-
 type ContentfulTitleWithContent implements Node {
   id: ID!
 
@@ -710,17 +674,7 @@ type ContentfulTitleWithContent implements Node {
   title: String
 
   "The content for this title with content."
-  content: contentfulTitleWithContentContentRichTextNode
-    @link(from: "content___NODE")
-}
-
-"""
-Represents the rich text editor for team category description field.
-"""
-type contentfulTeamCategoryDescriptionRichTextNode implements Node {
-  id: ID!
-
-  json: JSON
+  content: ContentfulRichText
 }
 
 """
@@ -755,8 +709,7 @@ type ContentfulTeamCategory implements Node {
   title: String
 
   "The description for this category."
-  description: contentfulTeamCategoryDescriptionRichTextNode
-    @link(from: "description___NODE")
+  description: ContentfulRichText
 
   # TODO: See what's wrong here.
   # "The team memebers for this category."
@@ -960,16 +913,6 @@ type ContentfulLinkColumnsSection implements Node {
 }
 
 """
-Represents the rich text description for the ContentfulAssetType.
-"""
-type contentfulAssetTypeDescriptionRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
-}
-
-"""
 Represents a type of downloadable asset.
 """
 type ContentfulAssetType implements Node {
@@ -982,21 +925,10 @@ type ContentfulAssetType implements Node {
   code: String
 
   "The description of this asset type."
-  description: contentfulAssetTypeDescriptionRichTextNode
-    @link(from: "description___NODE")
+  description: ContentfulRichText
 
   "The PIM code for this asset type."
   pimCode: String
-}
-
-"""
-Represents the rich text description for the ContentfulDocument.
-"""
-type contentfulDocumentDescriptionRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
 }
 
 """
@@ -1012,8 +944,7 @@ type ContentfulDocument implements Node {
   asset: ContentfulAsset
 
   "The description of this document."
-  description: contentfulDocumentDescriptionRichTextNode
-    @link(from: "description___NODE")
+  description: ContentfulRichText
 
   "The asset type of this document."
   assetType: ContentfulAssetType @link(from: "assetType___NODE")
@@ -1023,16 +954,6 @@ type ContentfulDocument implements Node {
 
   "The image for this document."
   image: ContentfulAsset
-}
-
-"""
-Represents the rich text description for the ContentfulDocumentLibraryPage.
-"""
-type contentfulDocumentLibraryPageDescriptionRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
 }
 
 """
@@ -1090,6 +1011,9 @@ Represents a document library page, implementing ContentfulPage.
 type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   id: ID!
 
+  "Contentful content entry ID."
+  contentful_id: String!
+
   "The name of this page."
   title: String
 
@@ -1106,8 +1030,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   featuredImage: ContentfulAsset
 
   "The description for this page."
-  description: contentfulDocumentLibraryPageDescriptionRichTextNode
-    @link(from: "description___NODE")
+  description: ContentfulRichText
 
   "The data source for this page."
   source: String
@@ -1139,16 +1062,6 @@ type Products implements Node {
 }
 
 """
-Represents a rich text node in the content details content type.
-"""
-type contentfulContactDetailsOtherInformationRichTextNode implements Node {
-  id: ID!
-
-  "The JSON for this content."
-  json: JSON
-}
-
-"""
 Represents a set of contact details.
 """
 type ContentfulContactDetails implements Node {
@@ -1165,8 +1078,7 @@ type ContentfulContactDetails implements Node {
   email: String
 
   "Supplementary information for this contact."
-  otherInformation: contentfulContactDetailsOtherInformationRichTextNode
-    @link(from: "otherInformation___NODE")
+  otherInformation: ContentfulRichText
 }
 
 """
@@ -1181,6 +1093,9 @@ Represents a Brand Landing Page type, implementing ContentfulPage.
 """
 type ContentfulBrandLandingPage implements ContentfulPage & Node {
   id: ID!
+
+  "Contentful content entry ID."
+  contentful_id: String!
 
   "The name of this page, representative of the type."
   title: String

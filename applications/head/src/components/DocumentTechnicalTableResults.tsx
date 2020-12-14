@@ -35,7 +35,7 @@ const AssetHeader = ({
             {name} ({code})
           </Dialog.Title>
           <Dialog.Content>
-            <RichText document={description.json} />
+            <RichText document={description} />
           </Dialog.Content>
           <Dialog.Actions
             confirmLabel={getMicroCopy("dialog.close")}

@@ -15,7 +15,7 @@ const TitleWithContentSection = ({ data }: Props) => {
   return (
     <Section backgroundColor="white">
       <Section.Title>{data.title}</Section.Title>
-      <RichText document={data.content.json} />
+      <RichText document={data.content} />
     </Section>
   );
 };

@@ -6,11 +6,10 @@ import OverviewCard from "@bmi/overview-card";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
-import RichText from "./RichText";
+import RichText, { RichTextData } from "./RichText";
 import Typography from "@bmi/typography";
 import styles from "./styles/CardCollectionSection.module.scss";
 import { Data as PageInfoData } from "./PageInfo";
-import { Document } from "@contentful/rich-text-types";
 import { groupBy, flatten } from "lodash";
 import Chip from "@bmi/chip";
 import Carousel from "@bmi/carousel";
@@ -33,9 +32,7 @@ type Card = (
 export type Data = {
   __typename: "ContentfulCardCollectionSection";
   title: string;
-  description: {
-    json: Document;
-  };
+  description: RichTextData | null;
   cardType: "Highlight Card" | "Story Card" | "Text Card";
   cardLabel: string | null;
   groupCards: boolean;
@@ -100,7 +97,7 @@ const CardCollectionSection = ({
         <Typography className={styles["title"]} variant="h2" hasUnderline>
           {title}
         </Typography>
-        {description && <RichText document={description.json} />}
+        {description && <RichText document={description} />}
         {shouldDisplayGroups && (
           <>
             <Typography variant="h4" component="h3">
@@ -218,7 +215,7 @@ export const query = graphql`
   fragment CardCollectionSectionFragment on ContentfulCardCollectionSection {
     title
     description {
-      json
+      ...RichTextFragment
     }
     cardType
     cardLabel

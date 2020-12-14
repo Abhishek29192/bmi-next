@@ -2,6 +2,7 @@ import React from "react";
 import EmbeddedTable from "./EmbeddedTable";
 import EmbeddedLink from "./EmbeddedLink";
 import { Block } from "@contentful/rich-text-types";
+import { graphql } from "gatsby";
 
 export type Settings = {
   theme?: "primary" | "secondary";
@@ -15,13 +16,12 @@ const EmbeddedBlock = ({
   node: Block;
 } & Settings) => {
   // NOTE: No type for this from Contentful, protecting in case it's missing in JSON
-  const contentType = node.data?.target?.sys?.contentType?.sys?.contentful_id;
-  const fields = node.data?.target?.fields;
+  const fields = node.data?.target;
 
   const Component = {
-    table: EmbeddedTable,
-    link: EmbeddedLink
-  }[contentType];
+    ContentfulTable: EmbeddedTable,
+    ContentfulLink: EmbeddedLink
+  }[fields.__typename];
 
   if (!Component) {
     return null;
@@ -31,3 +31,10 @@ const EmbeddedBlock = ({
 };
 
 export default EmbeddedBlock;
+
+export const query = graphql`
+  fragment EmbeddedBlockFragment on ContentfulRichTextReference {
+    ...EmbeddedTableFragment
+    ...EmbeddedLinkFragment
+  }
+`;

@@ -89,7 +89,13 @@ HTMLCollection [
                       >
                         <div
                           class="RichText"
-                        />
+                        >
+                          <p
+                            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                          >
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -183,7 +189,13 @@ HTMLCollection [
               >
                 <div
                   class="RichText"
-                />
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                  >
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -702,7 +714,13 @@ HTMLCollection [
         >
           <div
             class="RichText"
-          />
+          >
+            <p
+              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            >
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -81,7 +81,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.6.4",
     "gatsby-plugin-typescript": "^2.4.6",
-    "gatsby-source-contentful": "^2.3.15",
+    "gatsby-source-contentful": "^4.2.1",
     "gatsby-source-filesystem": "^2.3.4",
     "gatsby-source-firestore": "^1.0.3",
     "gatsby-transformer-sharp": "^2.5.2",

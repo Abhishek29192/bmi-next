@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import LocationCard, { DetailProps } from "@bmi/location-card";
-import RichText, { Document } from "./RichText";
+import RichText, { RichTextData } from "./RichText";
 
 export type Data = {
   __typename: "ContentfulContactDetails";
@@ -9,9 +9,7 @@ export type Data = {
   address: string | null;
   phoneNumber: string | null;
   email: string | null;
-  otherInformation: {
-    json: Document;
-  } | null;
+  otherInformation: RichTextData | null;
 };
 
 type Details = readonly [DetailProps, ...DetailProps[]];
@@ -79,7 +77,7 @@ const IntegratedLocationCard = ({
       title={title}
       details={details}
       footNote={
-        otherInformation ? <RichText document={otherInformation.json} /> : null
+        otherInformation ? <RichText document={otherInformation} /> : null
       }
       isFlat={isFlat}
     />
@@ -96,7 +94,7 @@ export const query = graphql`
     phoneNumber
     email
     otherInformation {
-      json
+      ...RichTextFragment
     }
   }
 `;

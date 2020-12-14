@@ -33,9 +33,7 @@ type Props = {
   }[];
   sidebarItems?: {
     title: React.ReactNode;
-    content: {
-      json: Document;
-    };
+    content: RichTextData;
   }[];
   guaranteesAndWarranties?: GuaranteesAndAwardsAsset[];
   awardsAndCertificates?: GuaranteesAndAwardsAsset[];
@@ -145,7 +143,7 @@ const ProductLeadBlock = ({
                   </LeadBlock.Card.Heading>
                   <LeadBlock.Card.Content>
                     <RichText
-                      document={sidebarItems[0].content.json}
+                      document={sidebarItems[0].content}
                       theme="secondary"
                       backgroundTheme="dark"
                     />
@@ -184,7 +182,7 @@ const ProductLeadBlock = ({
                       <LeadBlock.Card.Heading>{title}</LeadBlock.Card.Heading>
                       <LeadBlock.Card.Content>
                         <RichText
-                          document={content.json}
+                          document={content}
                           theme="secondary"
                           backgroundTheme="dark"
                         />

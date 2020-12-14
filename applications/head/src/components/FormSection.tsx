@@ -6,14 +6,13 @@ import Section from "@bmi/section";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload, { getFileSizeString } from "@bmi/upload";
-import { Document } from "@contentful/rich-text-types";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
 import { LinkData } from "./Link";
-import RichText from "./RichText";
+import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import styles from "./styles/FormSection.module.scss";
 
@@ -42,7 +41,7 @@ export type Data = {
   __typename: "ContentfulFormSection";
   title: string;
   showTitle: boolean | null;
-  description?: { json: Document } | null;
+  description?: RichTextData | null;
   recipients: string;
   inputs: InputType[] | null;
   submitText: string | null;
@@ -203,7 +202,7 @@ const FormSection = ({
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
-      {description && <RichText document={description.json} />}
+      {description && <RichText document={description} />}
       {inputs ? (
         <Form
           onSubmit={handleSubmit}
@@ -250,7 +249,7 @@ export const query = graphql`
     title
     showTitle
     description {
-      json
+      ...RichTextFragment
     }
     recipients
     inputs {

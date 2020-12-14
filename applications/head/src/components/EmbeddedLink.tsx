@@ -1,16 +1,12 @@
 import React, { useContext } from "react";
-import _ from "lodash";
 import Button from "@bmi/button";
 import { SiteContext } from "../components/Site";
 import { LinkData, getClickableActionFromUrl } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
-import {
-  getDataFromLocale,
-  LocalisedFields
-} from "../utils/get-data-from-locale";
+import { graphql } from "gatsby";
 
 type Props = {
-  fields: LocalisedFields<LinkData>;
+  fields: LinkData;
   theme?: "primary" | "secondary";
   backgroundTheme?: "light" | "dark";
 };
@@ -20,30 +16,30 @@ const EmbeddedLink = ({
   theme = "primary",
   backgroundTheme = "light"
 }: Props) => {
-  const { node_locale, countryCode } = useContext(SiteContext);
-
-  // TODO: Check the typing here
-  const localeFields = getDataFromLocale(node_locale, fields);
+  const { countryCode } = useContext(SiteContext);
 
   return (
     <Button
       variant={theme === "primary" ? "contained" : "outlined"}
       hasDarkBackground={backgroundTheme === "dark"}
       action={getClickableActionFromUrl(
-        getDataFromLocale<LinkData["linkedPage"]>(
-          node_locale,
-          // @ts-ignore See getDataFromLocale comment
-          localeFields.linkedPage?.fields
-        ),
-        // @ts-ignore See getDataFromLocale comment
-        localeFields.url,
+        fields.linkedPage,
+        fields.url,
         countryCode
       )}
       className={styles["EmbeddedLink"]}
     >
-      {localeFields.label}
+      {fields.label}
     </Button>
   );
 };
 
 export default EmbeddedLink;
+
+export const query = graphql`
+  fragment EmbeddedLinkFragment on ContentfulLink {
+    __typename
+    contentful_id
+    ...LinkFragment
+  }
+`;

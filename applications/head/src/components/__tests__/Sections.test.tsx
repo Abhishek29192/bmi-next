@@ -1,7 +1,6 @@
 import React from "react";
 import Sections, { Data } from "../Sections";
 import { render } from "@testing-library/react";
-import { BLOCKS } from "@contentful/rich-text-types";
 import mockConsole from "jest-mock-console";
 import { SiteContext } from "../Site";
 
@@ -20,6 +19,26 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const contentMock = JSON.stringify({
+  nodeType: "document",
+  data: {},
+  content: [
+    {
+      nodeType: "paragraph",
+      content: [
+        {
+          nodeType: "text",
+          value:
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+          marks: [],
+          data: {}
+        }
+      ],
+      data: {}
+    }
+  ]
+});
+
 beforeAll(() => {
   mockConsole();
 });
@@ -35,11 +54,8 @@ describe("Sections component", () => {
             __typename: "ContentfulTitleWithContent",
             title: "hello",
             content: {
-              json: {
-                data: {},
-                nodeType: BLOCKS.DOCUMENT,
-                content: []
-              }
+              raw: contentMock,
+              references: []
             }
           }
         ],
@@ -54,11 +70,8 @@ describe("Sections component", () => {
             __typename: "ContentfulTitleWithContent",
             title: "hello",
             content: {
-              json: {
-                data: {},
-                nodeType: BLOCKS.DOCUMENT,
-                content: []
-              }
+              raw: contentMock,
+              references: []
             }
           }
         ],
@@ -188,11 +201,8 @@ describe("Sections component", () => {
         __typename: "ContentfulDocumentDownloadSection",
         title: "Document Downloads",
         description: {
-          json: {
-            data: {},
-            nodeType: BLOCKS.DOCUMENT,
-            content: []
-          }
+          raw: contentMock,
+          references: []
         },
         documents: []
       }
