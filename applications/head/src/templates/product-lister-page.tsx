@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import _ from "lodash";
 import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
@@ -101,6 +101,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);
 
+  const resultsElement = useRef<HTMLDivElement>(null);
+
   const pageCategory = useMemo(() => {
     for (let i = 0; i < data.allProducts.nodes.length; i++) {
       const { categories } = data.allProducts.nodes[i];
@@ -128,8 +130,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     Math.ceil(products.length / PAGE_SIZE)
   );
 
-  const handlePageChange = (page) => {
-    fetchProducts(filters, pageContext.categoryCode, page, PAGE_SIZE);
+  const handlePageChange = (_, page) => {
+    const scrollY = resultsElement.current
+      ? resultsElement.current.offsetTop - 200
+      : 0;
+    window.scrollTo(0, scrollY);
+    fetchProducts(filters, pageContext.categoryCode, page - 1, PAGE_SIZE);
   };
 
   const handleFiltersChange = async (filterName, filterValue, checked) => {
@@ -336,7 +342,14 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       />
                     </PerfectScrollbar>
                   </Grid>
-                  <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
+                  <Grid
+                    item
+                    xs={12}
+                    md={12}
+                    lg={9}
+                    style={{ paddingTop: 60 }}
+                    ref={resultsElement}
+                  >
                     <Grid container spacing={3}>
                       {products.length === 0 && (
                         <Typography>No results found</Typography>
@@ -402,9 +415,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   <Grid item xs={12} md={6} lg={3}>
                     <Pagination
                       page={page + 1}
-                      onChange={(_, page) => {
-                        handlePageChange(page - 1);
-                      }}
+                      onChange={handlePageChange}
                       count={pageCount}
                     />
                   </Grid>
