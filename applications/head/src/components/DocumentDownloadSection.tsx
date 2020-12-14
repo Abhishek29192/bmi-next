@@ -47,7 +47,7 @@ const DocumentDownloadSection = ({
               <Table.Cell>
                 {getMicroCopy("documentDownloadSection.documentTitle")}
               </Table.Cell>
-              <Table.Cell>
+              <Table.Cell align="right">
                 {getMicroCopy("documentDownloadSection.download")}
               </Table.Cell>
             </Table.Row>
