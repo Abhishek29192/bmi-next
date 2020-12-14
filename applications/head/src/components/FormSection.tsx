@@ -152,7 +152,7 @@ const FormSection = ({
   data: Data;
   backgroundColor: "pearl" | "white";
 }) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { countryCode, getMicroCopy, node_locale } = useContext(SiteContext);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleSubmit = async (
@@ -173,7 +173,7 @@ const FormSection = ({
       await axios.post(
         process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
         {
-          locale: "en-US",
+          locale: node_locale,
           title,
           recipients: conditionalRecipients.split(/, |,/),
           values
