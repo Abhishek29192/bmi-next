@@ -39,7 +39,11 @@ const DocumentDownloadSection = ({
   return (
     <Section backgroundColor="white">
       <Section.Title>{title}</Section.Title>
-      {description && <RichText document={description.json} />}
+      {description && (
+        <div style={{ marginBottom: "40px" }}>
+          <RichText document={description.json} />
+        </div>
+      )}
       {documents.length > 0 && (
         <Table>
           <Table.Head>
@@ -47,7 +51,7 @@ const DocumentDownloadSection = ({
               <Table.Cell>
                 {getMicroCopy("documentDownloadSection.documentTitle")}
               </Table.Cell>
-              <Table.Cell>
+              <Table.Cell align="right">
                 {getMicroCopy("documentDownloadSection.download")}
               </Table.Cell>
             </Table.Row>
