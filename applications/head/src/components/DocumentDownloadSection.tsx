@@ -39,7 +39,11 @@ const DocumentDownloadSection = ({
   return (
     <Section backgroundColor="white">
       <Section.Title>{title}</Section.Title>
-      {description && <RichText document={description.json} />}
+      {description && (
+        <div style={{ marginBottom: "40px" }}>
+          <RichText document={description.json} />
+        </div>
+      )}
       {documents.length > 0 && (
         <Table>
           <Table.Head>

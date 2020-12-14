@@ -698,8 +698,12 @@ HTMLCollection [
           Document Downloads
         </h2>
         <div
-          class="RichText"
-        />
+          style="margin-bottom: 40px;"
+        >
+          <div
+            class="RichText"
+          />
+        </div>
       </div>
     </div>
   </div>,
