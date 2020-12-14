@@ -10,7 +10,7 @@ HTMLCollection [
       class="Section Section--white"
     >
       <div
-        class="MuiContainer-root Container MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
           class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
@@ -109,7 +109,7 @@ HTMLCollection [
       class="Section Section--pearl"
     >
       <div
-        class="MuiContainer-root Container MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
           class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
@@ -199,7 +199,7 @@ HTMLCollection [
       class="Section Section--white"
     >
       <div
-        class="MuiContainer-root Container MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
           class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
@@ -284,7 +284,7 @@ HTMLCollection [
         class="Section Section--white"
       >
         <div
-          class="MuiContainer-root Container MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
             class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
@@ -419,7 +419,7 @@ HTMLCollection [
         class="Section Section--pearl"
       >
         <div
-          class="MuiContainer-root Container MuiContainer-maxWidthXl"
+          class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h2
             class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
@@ -524,7 +524,7 @@ HTMLCollection [
       class="PromoSection PromoSection Section Section--white"
     >
       <div
-        class="MuiContainer-root Container MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
           class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -567,7 +567,7 @@ HTMLCollection [
       class="ImageGallerySection Section Section--alabaster"
     >
       <div
-        class="MuiContainer-root Container MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
           class="MuiGrid-root MuiGrid-container"
@@ -690,7 +690,7 @@ HTMLCollection [
       class="Section Section--white"
     >
       <div
-        class="MuiContainer-root Container MuiContainer-maxWidthXl"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
           class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"

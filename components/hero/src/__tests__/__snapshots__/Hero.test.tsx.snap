@@ -5,7 +5,7 @@ exports[`Hero component renders level 1 1`] = `
   class="Hero"
 >
   <div
-    class="MuiContainer-root container Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root container MuiContainer-maxWidthXl"
   >
     <div
       class="wrapper"
@@ -38,7 +38,7 @@ exports[`Hero component renders level 2 1`] = `
   class="Hero Hero--slim"
 >
   <div
-    class="MuiContainer-root container Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root container MuiContainer-maxWidthXl"
   >
     <div
       class="wrapper"
@@ -62,7 +62,7 @@ exports[`Hero component renders level 3 1`] = `
   class="Hero Hero--light Hero--slim"
 >
   <div
-    class="MuiContainer-root container Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root container MuiContainer-maxWidthXl"
   >
     <div
       class="wrapper"
