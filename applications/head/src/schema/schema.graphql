@@ -883,6 +883,14 @@ type contentfulSiteHeadScriptsTextNode implements Node {
   headScripts: String
 }
 
+union LinkedPage =
+    ContentfulContactUsPage
+  | ContentfulSimplePage
+  | ContentfulTeamPage
+  | ContentfulProductListerPage
+  | ContentfulDocumentLibraryPage
+  | ContentfulHomePage
+
 """
 Represents a link.
 """
@@ -902,7 +910,7 @@ type ContentfulLink implements Node {
   url: String
 
   "The internal linked page."
-  linkedPage: ContentfulPage @link(from: "linkedPage___NODE")
+  linkedPage: LinkedPage @link(from: "linkedPage___NODE")
 
   "The linked asset."
   asset: ContentfulAsset
