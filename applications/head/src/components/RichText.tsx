@@ -1,10 +1,17 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import { BLOCKS, MARKS, Block } from "@contentful/rich-text-types";
+import {
+  BLOCKS,
+  MARKS,
+  INLINES,
+  Block,
+  Inline
+} from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
+import InlineHyperlink from "./InlineHyperlink";
 import styles from "./styles/RichText.module.scss";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { graphql } from "gatsby";
@@ -86,6 +93,9 @@ const getOptions = (settings: Settings): Options => {
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Block) => (
         <EmbeddedAssetBlock node={node} className={styles["embedded-asset"]} />
+      ),
+      [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
+        <InlineHyperlink node={node}>{children}</InlineHyperlink>
       )
     },
     renderMark: {
@@ -114,11 +124,7 @@ export const query = graphql`
     raw
     references {
       __typename
-      ... on ContentfulPage {
-        # contentful_id is required to resolve the references
-        contentful_id
-        slug
-      }
+      ...InlineHyperlinkFragment
       ...EmbeddedAssetBlockFragment
       ...EmbeddedBlockFragment
     }
