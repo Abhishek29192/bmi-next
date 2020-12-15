@@ -27,7 +27,7 @@ type InputType = {
   width?: "full" | "half";
 };
 
-const convertMarkdownLinksToAnchorLinks = (
+export const convertMarkdownLinksToAnchorLinks = (
   source?: string
 ): React.ReactNode => {
   if (!source) {
