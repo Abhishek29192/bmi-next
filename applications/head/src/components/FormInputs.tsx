@@ -7,6 +7,7 @@ import TextField from "@bmi/text-field";
 import Upload from "@bmi/upload";
 import { SiteContext } from "./Site";
 import AnchorLink from "@bmi/anchor-link";
+import matchAll from "string.prototype.matchall";
 
 const InputTypes = [
   "text",
@@ -34,7 +35,7 @@ export const convertMarkdownLinksToAnchorLinks = (
     return;
   }
 
-  const matches = [...source.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g)];
+  const matches = [...matchAll(source, /\[([^\]]+)\]\(([^)]+)\)/g)];
 
   if (!matches || !matches.length) {
     return source;
