@@ -9,6 +9,7 @@ import {
 } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
+import AnchorLink from "@bmi/anchor-link";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import InlineHyperlink from "./InlineHyperlink";
@@ -99,6 +100,18 @@ const getOptions = (settings: Settings): Options => {
       ),
       [INLINES.ASSET_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
         <InlineHyperlink node={node}>{children}</InlineHyperlink>
+      ),
+      [INLINES.HYPERLINK]: (node: Inline, children: React.ReactNode) => (
+        <AnchorLink
+          action={{
+            model: "htmlLink",
+            href: node.data.uri,
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }}
+        >
+          {children}
+        </AnchorLink>
       )
     },
     renderMark: {
