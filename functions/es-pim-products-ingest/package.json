@@ -9,7 +9,7 @@
     "build": "tsc",
     "dev": "yarn build && functions-framework --source=dist --signature-type=event --target=handleMessage",
     "predeploy": "yarn build",
-    "deploy": "gcloud functions deploy test-es-pim-product-ingest --trigger-topic=dxb-pim-transitional --runtime=nodejs10 --allow-unauthenticated --max-instances=5 --region=europe-west3 --entry-point=handleMessage --env-vars-file=env.yaml"
+    "deploy": "gcloud functions deploy pimtodxb-fakelogstash-dev-euwest3 --trigger-topic=dxb-pim-transitional --runtime=nodejs10 --allow-unauthenticated --max-instances=5 --region=europe-west3 --entry-point=handleMessage --env-vars-file=env.yaml"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.8.0",
