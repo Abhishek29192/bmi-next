@@ -15,6 +15,8 @@ import { LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import styles from "./styles/FormSection.module.scss";
+// TODO: FormInputs should be updated and used here.
+import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
 
 const InputTypes = [
   "text",
@@ -119,7 +121,13 @@ const Input = ({
         </Select>
       );
     case "checkbox":
-      return <Checkbox name={name} label={label} isRequired={required} />;
+      return (
+        <Checkbox
+          name={name}
+          label={convertMarkdownLinksToAnchorLinks(label)}
+          isRequired={required}
+        />
+      );
     case "textarea":
     case "text":
     default:
