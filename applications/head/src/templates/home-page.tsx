@@ -15,6 +15,7 @@ import { Data as PageInfoData } from "../components/PageInfo";
 import Brands, { Data as BrandData } from "../components/Brands";
 
 type HomepageData = {
+  __typename: "ContentfulHomePage";
   title: string;
   slides: (SlideData | PageInfoData)[];
   overlapCards: OverlapCardData;
@@ -46,6 +47,7 @@ const getHeroItemsWithContext = (
 
 const HomePage = ({ data }: Props) => {
   const {
+    __typename,
     title,
     slides,
     overlapCards,
@@ -77,7 +79,7 @@ const HomePage = ({ data }: Props) => {
       </SiteContext.Consumer>
       {overlapCards && <OverlapCards data={overlapCards} />}
       {brands?.length ? <Brands data={brands} /> : null}
-      {sections && <Sections data={sections} />}
+      {sections && <Sections data={sections} pageTypename={__typename} />}
     </Page>
   );
 };
@@ -87,6 +89,7 @@ export default HomePage;
 export const pageQuery = graphql`
   query HomePageById($pageId: String!, $siteId: String!) {
     contentfulHomePage(id: { eq: $pageId }) {
+      __typename
       title
       slides {
         ... on ContentfulPromoOrPage {

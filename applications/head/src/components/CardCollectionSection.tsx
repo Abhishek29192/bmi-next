@@ -13,6 +13,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { groupBy, flatten } from "lodash";
 import Chip from "@bmi/chip";
 import Carousel from "@bmi/carousel";
+import Grid from "@bmi/grid";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { iconMap } from "./Icon";
 
@@ -38,6 +39,51 @@ export type Data = {
   groupCards: boolean;
   cards: Card[];
   link: LinkData | null;
+};
+
+const CardCollectionItem = ({
+  card,
+  label,
+  type
+}: {
+  card: Card;
+  label: string;
+  type: Data["cardType"];
+}) => {
+  const { countryCode } = useContext(SiteContext);
+  const { title, subtitle, link, featuredImage, brandLogo } = transformCard(
+    card
+  );
+
+  const transformedCardLabel = label
+    ? label.replace(/{{title}}/g, title)
+    : link?.label || `Go to ${title}`;
+  return (
+    <OverviewCard
+      hasTitleUnderline
+      title={title}
+      imageSource={type !== "Text Card" ? featuredImage?.resize.src : undefined}
+      isFlat={type === "Story Card"}
+      brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
+      footer={
+        link ? (
+          <Button
+            variant="outlined"
+            action={getClickableActionFromUrl(
+              link.linkedPage,
+              link.url,
+              countryCode
+            )}
+            startIcon={<ArrowForwardIcon />}
+          >
+            {transformedCardLabel}
+          </Button>
+        ) : undefined
+      }
+    >
+      {subtitle}
+    </OverviewCard>
+  );
 };
 
 // TODO: Reuse the getCTA function here.
@@ -74,9 +120,12 @@ const moveRestKeyLast = (arr) => {
 };
 
 const CardCollectionSection = ({
-  data: { title, description, cardType, cardLabel, groupCards, cards, link }
+  data: { title, description, cardType, cardLabel, groupCards, cards, link },
+  theme
 }: {
   data: Data;
+  // TODO: Type me.
+  theme: any;
 }) => {
   const cardsByTag = useMemo(() => groupBy(cards, "tag.title"), [cards]);
   const groupKeys = moveRestKeyLast(Object.keys(cardsByTag));
@@ -90,6 +139,8 @@ const CardCollectionSection = ({
       isSelected ? cardsByTag[title] : []
     )
   );
+  const iteratableCards =
+    shouldDisplayGroups && activeCards.length ? activeCards : cards;
 
   return (
     <div className={styles["CardCollectionSection"]}>
@@ -127,70 +178,48 @@ const CardCollectionSection = ({
             </div>
           </>
         )}
-        <Carousel
-          slidesPerPage={{
-            xs: 1,
-            md: 2,
-            lg: 3,
-            xl: 4
-          }}
-          scroll="finite"
-          hasGutter
-        >
-          {(shouldDisplayGroups && activeCards.length
-            ? activeCards
-            : cards
-          ).map((card, i) => {
-            const { id } = card;
-            const {
-              title,
-              subtitle,
-              link,
-              featuredImage,
-              brandLogo
-            } = transformCard(card);
+        {theme?.cardCollectionRowType === "single-row" ? (
+          <Carousel
+            slidesPerPage={{
+              xs: 1,
+              md: 2,
+              lg: 3,
+              xl: 4
+            }}
+            scroll="finite"
+            hasGutter
+          >
+            {iteratableCards.map((card, i) => {
+              const { id } = card;
 
-            const transformedCardLabel = cardLabel
-              ? cardLabel.replace(/{{title}}/g, title)
-              : link?.label || `Go to ${title}`;
-
-            return (
-              <Carousel.Slide key={`${id}-${i}`}>
-                <OverviewCard
-                  hasTitleUnderline
-                  title={title}
-                  imageSource={
-                    cardType !== "Text Card"
-                      ? featuredImage?.resize.src
-                      : undefined
-                  }
-                  isFlat={cardType === "Story Card"}
-                  brandImageSource={
-                    cardType !== "Text Card" ? iconMap[brandLogo] : undefined
-                  }
-                  footer={
-                    link ? (
-                      <Button
-                        variant="outlined"
-                        action={getClickableActionFromUrl(
-                          link.linkedPage,
-                          link.url,
-                          countryCode
-                        )}
-                        startIcon={<ArrowForwardIcon />}
-                      >
-                        {transformedCardLabel}
-                      </Button>
-                    ) : undefined
-                  }
-                >
-                  {subtitle}
-                </OverviewCard>
-              </Carousel.Slide>
-            );
-          })}
-          <Carousel.Controls type="arrows" />
-        </Carousel>
+              return (
+                <Carousel.Slide key={`${id}-${i}`}>
+                  <CardCollectionItem
+                    card={card}
+                    label={cardLabel}
+                    type={cardType}
+                  />
+                </Carousel.Slide>
+              );
+            })}
+            <Carousel.Controls type="arrows" />
+          </Carousel>
+        ) : (
+          <Grid container>
+            {iteratableCards.map((card, i) => {
+              const { id } = card;
+              return (
+                <Grid item key={`${id}-${i}`} xs={12} md={6} xl={3}>
+                  <CardCollectionItem
+                    card={card}
+                    label={cardLabel}
+                    type={cardType}
+                  />
+                </Grid>
+              );
+            })}
+          </Grid>
+        )}
         {link && (
           <Button
             action={getClickableActionFromUrl(
