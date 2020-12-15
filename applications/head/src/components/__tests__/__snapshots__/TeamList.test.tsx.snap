@@ -5,10 +5,10 @@ exports[`TeamList component renders correctly 1`] = `
   class="EqualHeights"
 >
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+    class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
     >
       <div
         class="ProfileCard"

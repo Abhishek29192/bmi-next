@@ -58,12 +58,25 @@ const sectionsMap = {
   ContentfulDocumentDownloadSection: DocumentDownloadSection
 };
 
+// TODO: This should be exported by the card collection.
+type ThemeOptions = "cardCollectionRowType";
+
+type Theme = Partial<Record<ThemeOptions, any>>;
+
+const pageTypenameToThemeMap: Record<string, Theme> = {
+  ContentfulHomePage: {
+    cardCollectionRowType: "single-row"
+  }
+};
+
 const Sections = ({
   data,
-  startIndex = 0
+  startIndex = 0,
+  pageTypename
 }: {
   data: Data;
   startIndex?: number;
+  pageTypename?: string;
 }) => {
   return (
     <>
@@ -78,6 +91,7 @@ const Sections = ({
                 // @ts-ignore
                 data={section}
                 position={startIndex + index}
+                theme={pageTypenameToThemeMap[pageTypename] || {}}
               />
             </TableOfContent.Anchor>
           )

@@ -8,10 +8,10 @@ exports[`Footer component renders correctly 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
     >
       <div
-        class="MuiGrid-root MuiGrid-item"
+        class="MuiGrid-root item MuiGrid-item"
       >
         <h4
           class="MuiTypography-root Typography MuiTypography-h4"
@@ -179,7 +179,7 @@ exports[`Footer component renders correctly 1`] = `
         </nav>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item"
+        class="MuiGrid-root item MuiGrid-item"
       >
         <h4
           class="MuiTypography-root Typography MuiTypography-h4"
@@ -266,7 +266,7 @@ exports[`Footer component renders correctly 1`] = `
         </nav>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item"
+        class="MuiGrid-root item MuiGrid-item"
       >
         <h4
           class="MuiTypography-root Typography MuiTypography-h4"
@@ -353,7 +353,7 @@ exports[`Footer component renders correctly 1`] = `
         </nav>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item"
+        class="MuiGrid-root item MuiGrid-item"
       >
         <h4
           class="MuiTypography-root Typography MuiTypography-h4"
@@ -560,10 +560,10 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-space-between"
     >
       <div
-        class="MuiGrid-root MuiGrid-item"
+        class="MuiGrid-root item MuiGrid-item"
       >
         <h4
           class="MuiTypography-root Typography MuiTypography-h4"
@@ -731,7 +731,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
         </nav>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item"
+        class="MuiGrid-root item MuiGrid-item"
       >
         <h4
           class="MuiTypography-root Typography MuiTypography-h4"
@@ -818,7 +818,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
         </nav>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item"
+        class="MuiGrid-root item MuiGrid-item"
       >
         <h4
           class="MuiTypography-root Typography MuiTypography-h4"
@@ -905,7 +905,7 @@ exports[`Footer component renders in a bigger breakpoint 1`] = `
         </nav>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item"
+        class="MuiGrid-root item MuiGrid-item"
       >
         <h4
           class="MuiTypography-root Typography MuiTypography-h4"

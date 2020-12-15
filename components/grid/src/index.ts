@@ -1,4 +1,5 @@
 import Grid from "./Grid";
 
-export type { GridProps, GridSize } from "@material-ui/core/Grid";
+export type { GridSize } from "@material-ui/core/Grid";
+export type { Props } from "./Grid";
 export default Grid;
