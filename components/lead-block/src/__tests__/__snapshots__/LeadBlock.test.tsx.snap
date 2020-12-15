@@ -34,7 +34,7 @@ exports[`LeadBlock component renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
   >
     <div
       class="ColorPair ColorPair--pearl"
@@ -120,7 +120,7 @@ exports[`LeadBlock component renders width card theme 1`] = `
     </div>
   </div>
   <div
-    class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
   >
     <div
       class="ColorPair ColorPair--blue-900"

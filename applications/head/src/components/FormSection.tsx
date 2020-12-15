@@ -6,15 +6,17 @@ import Section from "@bmi/section";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload, { getFileSizeString } from "@bmi/upload";
-import { Document } from "@contentful/rich-text-types";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
-import React, { FormEvent, useContext } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import { LinkData } from "./Link";
-import RichText from "./RichText";
+import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import styles from "./styles/FormSection.module.scss";
+// TODO: FormInputs should be updated and used here.
+import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
 
 const InputTypes = [
   "text",
@@ -41,7 +43,7 @@ export type Data = {
   __typename: "ContentfulFormSection";
   title: string;
   showTitle: boolean | null;
-  description?: { json: Document } | null;
+  description?: RichTextData | null;
   recipients: string;
   inputs: InputType[] | null;
   submitText: string | null;
@@ -58,6 +60,7 @@ const Input = ({
   maxSize
 }: Omit<InputType, "width">) => {
   const { getMicroCopy } = useContext(SiteContext);
+  const mapBody = (file: File) => file;
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -80,29 +83,29 @@ const Input = ({
   };
 
   switch (type) {
-    // case "upload":
-    //   return (
-    //     <Upload
-    //       id={name}
-    //       name={name}
-    //       buttonLabel={label}
-    //       isRequired={required}
-    //       uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
-    //       headers={{ "Content-Type": "application/octet-stream" }}
-    //       accept={accept}
-    //       fileValidation={handleFileValidation}
-    //       instructions={
-    //         `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
-    //         (maxSize
-    //           ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
-    //               maxSize * 1048576
-    //             )}`
-    //           : "")
-    //       }
-    //       mapBody={(file) => ({ file })}
-    //       mapValue={mapValue}
-    //     />
-    //   );
+    case "upload":
+      return (
+        <Upload
+          id={name}
+          name={name}
+          buttonLabel={label}
+          isRequired={required}
+          uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
+          headers={{ "Content-Type": "application/octet-stream" }}
+          accept={accept}
+          fileValidation={handleFileValidation}
+          instructions={
+            `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
+            (maxSize
+              ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
+                  maxSize * 1048576
+                )}`
+              : "")
+          }
+          mapBody={mapBody}
+          mapValue={mapValue}
+        />
+      );
     case "select":
       return (
         <Select isRequired={required} label={label} name={name}>
@@ -118,7 +121,13 @@ const Input = ({
         </Select>
       );
     case "checkbox":
-      return <Checkbox name={name} label={label} isRequired={required} />;
+      return (
+        <Checkbox
+          name={name}
+          label={convertMarkdownLinksToAnchorLinks(label)}
+          isRequired={required}
+        />
+      );
     case "textarea":
     case "text":
     default:
@@ -151,13 +160,15 @@ const FormSection = ({
   data: Data;
   backgroundColor: "pearl" | "white";
 }) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { countryCode, getMicroCopy, node_locale } = useContext(SiteContext);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
     values: Record<string, InputValue>
   ) => {
     event.preventDefault();
+    setIsSubmitting(true);
 
     // @todo: This needs to be less reliant on string patterns
     const recipientsFromValues = values.recipients as string;
@@ -170,7 +181,7 @@ const FormSection = ({
       await axios.post(
         process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
         {
-          locale: "en-US",
+          locale: node_locale,
           title,
           recipients: conditionalRecipients.split(/, |,/),
           values
@@ -180,6 +191,7 @@ const FormSection = ({
         }
       );
 
+      setIsSubmitting(false);
       if (successRedirect) {
         navigate(
           successRedirect.url ||
@@ -189,6 +201,7 @@ const FormSection = ({
         navigate("/");
       }
     } catch (error) {
+      setIsSubmitting(false);
       // @todo Handle error
       console.error("Error", { error }); // eslint-disable-line
     }
@@ -197,7 +210,7 @@ const FormSection = ({
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
-      {description && <RichText document={description.json} />}
+      {description && <RichText document={description} />}
       {inputs ? (
         <Form
           onSubmit={handleSubmit}
@@ -212,7 +225,20 @@ const FormSection = ({
             ))}
           </Grid>
           <Form.ButtonWrapper>
-            <Form.SubmitButton endIcon={<ArrowForwardIcon />}>
+            <Form.SubmitButton
+              endIcon={
+                isSubmitting ? (
+                  <CircularProgress
+                    size={24}
+                    color="inherit"
+                    style={{ marginLeft: "0.5rem" }}
+                  />
+                ) : (
+                  <ArrowForwardIcon />
+                )
+              }
+              disabled={isSubmitting}
+            >
               {submitText || getMicroCopy("form.submit")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>
@@ -231,7 +257,7 @@ export const query = graphql`
     title
     showTitle
     description {
-      json
+      ...RichTextFragment
     }
     recipients
     inputs {

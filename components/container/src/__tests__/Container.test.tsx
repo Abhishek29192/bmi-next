@@ -7,10 +7,4 @@ describe("Container component", () => {
     const { container } = render(<Container>Content</Container>);
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders with no overflow", () => {
-    const { container } = render(
-      <Container hasRevertOverflow>Content</Container>
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
 });

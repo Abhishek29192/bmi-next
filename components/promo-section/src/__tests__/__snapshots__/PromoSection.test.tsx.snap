@@ -5,13 +5,13 @@ exports[`PromoSection component renders a two-thirds row 1`] = `
   class="PromoSection Section Section--white"
 >
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <div
       class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
       >
         <div
           class="content"
@@ -30,7 +30,7 @@ exports[`PromoSection component renders a two-thirds row 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
       >
         <div
           class="image"
@@ -47,13 +47,13 @@ exports[`PromoSection component renders correctly 1`] = `
   class="PromoSection Section Section--white"
 >
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <div
       class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
       >
         <div
           class="content"
@@ -72,7 +72,7 @@ exports[`PromoSection component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
       >
         <div
           class="image"
@@ -89,13 +89,13 @@ exports[`PromoSection component renders reversed 1`] = `
   class="PromoSection PromoSection--reversed Section Section--white"
 >
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <div
       class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
       >
         <div
           class="content"
@@ -114,7 +114,7 @@ exports[`PromoSection component renders reversed 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
       >
         <div
           class="image"
@@ -131,13 +131,13 @@ exports[`PromoSection component renders without a title 1`] = `
   class="PromoSection Section Section--white"
 >
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <div
       class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
       >
         <div
           class="content"
@@ -146,7 +146,7 @@ exports[`PromoSection component renders without a title 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
       >
         <div
           class="image"

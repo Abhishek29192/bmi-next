@@ -5,10 +5,10 @@ exports[`VerticalRoller component renders correctly 1`] = `
   class="VerticalRoller"
 >
   <div
-    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
+    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
   >
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
     >
       <div
         class="left-column"
@@ -159,7 +159,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
     >
       <div
         class="right-column"

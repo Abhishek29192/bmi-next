@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Document } from "@contentful/rich-text-types";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
@@ -10,16 +9,14 @@ import Hero from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
-import RichText from "../components/RichText";
+import RichText, { RichTextData } from "../components/RichText";
 
 type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulTeamPage";
     teamCategories: {
       title: string;
-      description: {
-        json: Document;
-      } | null;
+      description: RichTextData | null;
       // NOTE: This is snake_case because it's a relationship field.
       team_member: TeamMemberData;
     }[];
@@ -63,7 +60,7 @@ const TeamPage = ({ data }: Props) => {
             <Container>
               {category.description ? (
                 <div style={{ margin: "60px 0" }}>
-                  <RichText document={category.description.json} />
+                  <RichText document={category.description} />
                 </div>
               ) : null}
               <TeamList data={category.team_member} />
@@ -92,7 +89,7 @@ export const pageQuery = graphql`
       teamCategories {
         title
         description {
-          json
+          ...RichTextFragment
         }
         team_member {
           ...TeamMemberFragment

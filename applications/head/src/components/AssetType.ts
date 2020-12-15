@@ -1,12 +1,12 @@
 import { graphql } from "gatsby";
-import { Document } from "@contentful/rich-text-types";
+import { RichTextData } from "./RichText";
 
 export type Data = {
   __typename: "ContentfulAssetType";
   id: string;
   name: string;
   code: string;
-  description: { json: Document } | null;
+  description: RichTextData | null;
   pimCode: string | null;
 };
 
@@ -17,7 +17,7 @@ export const query = graphql`
     name
     code
     description {
-      json
+      raw
     }
     pimCode
   }

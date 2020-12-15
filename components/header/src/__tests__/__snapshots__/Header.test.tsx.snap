@@ -10,7 +10,7 @@ exports[`Header component renders correctly 1`] = `
     role="navigation"
   >
     <div
-      class="MuiContainer-root Container MuiContainer-maxWidthXl"
+      class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <ul>
         <li
@@ -128,7 +128,7 @@ exports[`Header component renders correctly 1`] = `
       />
     </button>
     <div
-      class="MuiContainer-root Container MuiContainer-maxWidthXl"
+      class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <div
         class="LanguageSelection"
@@ -157,10 +157,10 @@ exports[`Header component renders correctly 1`] = `
             Europe
           </h6>
           <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
@@ -185,7 +185,7 @@ exports[`Header component renders correctly 1`] = `
               </button>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
@@ -218,7 +218,7 @@ exports[`Header component renders correctly 1`] = `
     class="NavigationBar"
   >
     <div
-      class="MuiContainer-root Container MuiContainer-maxWidthXl"
+      class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <div
         class="NavigationBar__Left"

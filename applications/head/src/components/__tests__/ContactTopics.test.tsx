@@ -1,9 +1,8 @@
 import React from "react";
 import ContactTopics from "../ContactTopics";
 import { render } from "@testing-library/react";
-import { Document } from "@contentful/rich-text-types";
 
-const contentMock = {
+const contentMock = JSON.stringify({
   nodeType: "document",
   data: {},
   content: [
@@ -21,7 +20,7 @@ const contentMock = {
       data: {}
     }
   ]
-};
+});
 
 describe("ContactTopics component", () => {
   it("renders correctly", () => {
@@ -36,12 +35,12 @@ describe("ContactTopics component", () => {
               {
                 __typename: "ContentfulTitleWithContent",
                 title: "Frequently Asked Questions",
-                content: { json: contentMock as Document }
+                content: { raw: contentMock, references: [] }
               },
               {
                 __typename: "ContentfulTitleWithContent",
                 title: "CloseDach",
-                content: { json: contentMock as Document }
+                content: { raw: contentMock, references: [] }
               }
             ],
             footerTitle: "footer title",
@@ -49,7 +48,7 @@ describe("ContactTopics component", () => {
               {
                 __typename: "ContentfulTitleWithContent",
                 title: "teste",
-                content: { json: contentMock as Document }
+                content: { raw: contentMock, references: [] }
               }
             ]
           }

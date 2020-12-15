@@ -32,7 +32,6 @@ export const submit: HttpFunction = async (request, response) => {
       const {
         body: {
           locale,
-          title,
           recipients,
           values: { files, ...fields } // @todo "files" probably shouldn't come from CMS
         }
@@ -42,54 +41,51 @@ export const submit: HttpFunction = async (request, response) => {
         throw Error("Fields are empty");
       }
 
-      const assets = files.length
+      const assets: Array<any> = files.length
         ? await Promise.all(
-            files.map(
-              async (file) =>
-                await environment
-                  .createAsset({
-                    fields: {
-                      title: {
-                        [locale]: `User upload ${+new Date()}`
-                      },
-                      file: {
-                        [locale]: file
-                      }
+            files.map((file) =>
+              environment
+                .createAsset({
+                  fields: {
+                    title: {
+                      [locale]: `User upload ${+new Date()}`
+                    },
+                    file: {
+                      [locale]: file
                     }
-                  })
-                  .then((asset) => asset.processForAllLocales())
+                  }
+                })
+                .then((asset) => asset.processForAllLocales())
             )
           )
-        : null;
+        : [];
 
-      const entry =
-        assets !== null
-          ? await environment.createEntry("formResponse", {
-              fields: {
-                title: {
-                  [locale]: `Form: "${title}"`
-                },
-                assets,
-                fields
-              }
-            })
-          : null;
+      const uploadedAssets = assets
+        .map(({ fields }) => fields.file[locale]?.url)
+        .filter(Boolean);
+
+      const formResponse = {
+        ...fields,
+        uploadedAssets
+      };
 
       sgMail.setApiKey(SENDGRID_API_KEY);
 
-      const html = `<ul>${Object.entries(fields)
-        .map(([key, value]) => `<li><b>${key}</b>: ${value}</li>`)
+      const html = `<ul>${Object.entries(formResponse)
+        .map(
+          ([key, value]) => `<li><b>${key}</b>: ${JSON.stringify(value)}</li>`
+        )
         .join("")}</ul>`;
 
       const email = await sgMail.send({
         to: recipients,
         from: SENDGRID_FROM_EMAIL,
         subject: "Website form submission",
-        text: JSON.stringify(fields),
+        text: JSON.stringify(formResponse),
         html
       });
 
-      return response.send({ entry, assets, email });
+      return response.send({ assets, email });
     } catch (error) {
       return response.status(500).send(error);
     }

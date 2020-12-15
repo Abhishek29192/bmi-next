@@ -7,14 +7,14 @@ type Props = ButtonProps & {
   children: React.ReactNode;
 };
 
-const SubmitButton = ({ children, ...props }: Props) => {
+const SubmitButton = ({ children, disabled, ...props }: Props) => {
   const { submitButtonDisabled } = useContext(FormContext);
 
   return (
     <Button
       className={styles["Button"]}
       type="submit"
-      disabled={submitButtonDisabled}
+      disabled={disabled || submitButtonDisabled}
       {...props}
     >
       {children}

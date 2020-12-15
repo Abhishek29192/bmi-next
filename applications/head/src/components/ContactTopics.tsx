@@ -55,14 +55,14 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
       </Typography>
       {bodyList && (
         <IconList>
-          {bodyList.map(({ title, content }: TitleWithContentData, index) => (
+          {bodyList.map(({ title, content }, index) => (
             <IconList.Item
               key={index}
               icon={<EmojiObjectsOutlinedIcon style={{ color: "#009FE3" }} />}
               title={title}
               component="h5"
             >
-              <RichText document={content.json} />
+              <RichText document={content} />
             </IconList.Item>
           ))}
         </IconList>
@@ -100,7 +100,7 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
                 <Grid key={key} {...gridItemProps}>
                   <BorderedItem />
                   <Typography variant="h5">{title}</Typography>
-                  <RichText document={content.json} />
+                  <RichText document={content} />
                 </Grid>
               );
             }

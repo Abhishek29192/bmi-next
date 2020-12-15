@@ -15,7 +15,7 @@ Object {
   "action": Object {
     "linkComponent": [MockFunction],
     "model": "routerLink",
-    "to": "/no//contact-us",
+    "to": "/no/contact-us",
   },
   "label": "Go to Page",
 }

@@ -12,6 +12,11 @@ module.exports = {
     documents: pimDocuments
   },
   ContentfulHomePage: {
+    slug: {
+      resolve() {
+        return "/";
+      }
+    },
     brands
   }
 };

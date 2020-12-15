@@ -8,7 +8,7 @@ exports[`AlertBanner component renders correctly 1`] = `
     class="actions"
   />
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <h5
       class="MuiTypography-root title Typography MuiTypography-h5"
@@ -39,7 +39,7 @@ exports[`AlertBanner component renders correctly with a sticky position 1`] = `
     class="actions"
   />
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <h5
       class="MuiTypography-root title Typography MuiTypography-h5"
@@ -69,7 +69,7 @@ exports[`AlertBanner component renders correctly with a warning severity 1`] = `
     class="actions"
   />
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <h5
       class="MuiTypography-root title Typography MuiTypography-h5"
@@ -103,7 +103,7 @@ exports[`AlertBanner component renders correctly with an action 1`] = `
     </span>
   </div>
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <h5
       class="MuiTypography-root title Typography MuiTypography-h5"
