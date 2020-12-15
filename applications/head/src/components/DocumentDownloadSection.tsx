@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import filesize from "filesize";
-import { Document } from "@contentful/rich-text-types";
 import Section from "@bmi/section";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
-import RichText from "./RichText";
+import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import { Data as DocumentData } from "./Document";
 import { getClickableActionFromUrl } from "./Link";
@@ -14,7 +13,7 @@ import Icon, { iconMap } from "@bmi/icon";
 export type Data = {
   __typename: "ContentfulDocumentDownloadSection";
   title: string;
-  description: { json: Document } | null;
+  description: RichTextData | null;
   documents: DocumentData[];
 };
 
@@ -39,7 +38,11 @@ const DocumentDownloadSection = ({
   return (
     <Section backgroundColor="white">
       <Section.Title>{title}</Section.Title>
-      {description && <RichText document={description.json} />}
+      {description && (
+        <div style={{ marginBottom: "40px" }}>
+          <RichText document={description} />
+        </div>
+      )}
       {documents.length > 0 && (
         <Table>
           <Table.Head>
@@ -47,7 +50,7 @@ const DocumentDownloadSection = ({
               <Table.Cell>
                 {getMicroCopy("documentDownloadSection.documentTitle")}
               </Table.Cell>
-              <Table.Cell>
+              <Table.Cell align="right">
                 {getMicroCopy("documentDownloadSection.download")}
               </Table.Cell>
             </Table.Row>
@@ -95,7 +98,7 @@ export const query = graphql`
   fragment DocumentDownloadSectionFragment on ContentfulDocumentDownloadSection {
     title
     description {
-      json
+      ...RichTextFragment
     }
     documents {
       ...DocumentFragment

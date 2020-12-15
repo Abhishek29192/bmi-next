@@ -1,15 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Block } from "@contentful/rich-text-types";
-import {
-  getDataFromLocale,
-  LocalisedFields
-} from "../utils/get-data-from-locale";
-import { SiteContext } from "./Site";
+import { graphql } from "gatsby";
 
 type FileData = {
+  title: string;
   file: {
     url: string;
-    title: string;
     // TODO: type for set of contentTypes
     // Tracked by https://bmigroup.atlassian.net/browse/DXB-1186
     contentType: string;
@@ -30,12 +26,9 @@ const EmbeddedAssetBlock = ({
   node: Block;
   className: string;
 }) => {
-  const { node_locale } = useContext(SiteContext);
-  const fields: LocalisedFields<FileData> = node.data?.target?.fields;
-
-  const localFields = getDataFromLocale(node_locale, fields);
-
-  const { url, title, contentType } = localFields.file;
+  const data: FileData = node.data?.target;
+  const { title, file } = data;
+  const { url, contentType } = file;
 
   if (contentTypeMap[contentType] === "image") {
     return <img className={className} src={`http:${url}`} alt={title} />;
@@ -45,3 +38,14 @@ const EmbeddedAssetBlock = ({
 };
 
 export default EmbeddedAssetBlock;
+
+export const query = graphql`
+  fragment EmbeddedAssetBlockFragment on ContentfulAsset {
+    contentful_id
+    title
+    file {
+      url
+      contentType
+    }
+  }
+`;

@@ -3,22 +3,17 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
-import { Document } from "@contentful/rich-text-types";
 import { SiteContext } from "./Site";
-import RichText from "./RichText";
+import RichText, { RichTextData } from "./RichText";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import TableOfContent from "@bmi/table-of-content";
 
 export type Data = {
   __typename: "ContentfulLeadBlockSection";
   title: string;
-  text: {
-    json: Document;
-  };
+  text: RichTextData;
   link: LinkData | null;
-  postItCard: {
-    json: Document;
-  } | null;
+  postItCard: RichTextData | null;
 };
 
 const LeadBlockSection = ({
@@ -33,7 +28,7 @@ const LeadBlockSection = ({
       <LeadBlock>
         <LeadBlock.Content>
           <LeadBlock.Content.Section>
-            {text && <RichText document={text.json} />}
+            {text && <RichText document={text} />}
           </LeadBlock.Content.Section>
           {link && (
             <LeadBlock.Content.Section>
@@ -53,7 +48,7 @@ const LeadBlockSection = ({
           <LeadBlock.Card.Section>
             {postItCard ? (
               <RichText
-                document={postItCard.json}
+                document={postItCard}
                 backgroundTheme="dark"
                 underlineHeadings={["h2", "h3", "h4"]}
               />
@@ -80,13 +75,13 @@ export const query = graphql`
   fragment LeadBlockSectionFragment on ContentfulLeadBlockSection {
     title
     text {
-      json
+      ...RichTextFragment
     }
     link {
       ...LinkFragment
     }
     postItCard {
-      json
+      ...RichTextFragment
     }
   }
 `;

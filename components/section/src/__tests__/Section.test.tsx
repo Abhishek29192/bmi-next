@@ -43,12 +43,4 @@ describe("Section component", () => {
     const { container } = render(<Section isSlim>Hello world.</Section>);
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders with container properties", () => {
-    const { container } = render(
-      <Section isSlim hasRevertOverflow>
-        Hello world.
-      </Section>
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
 });

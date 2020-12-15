@@ -49,10 +49,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-9"
             >
               <p
                 class="MuiTypography-root fieldDescription Typography MuiTypography-body1"
@@ -138,10 +138,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-9"
             >
               <p
                 class="MuiTypography-root fieldDescription Typography MuiTypography-body1"
@@ -226,10 +226,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </h5>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-9"
             >
               <p
                 class="MuiTypography-root fieldDescription Typography MuiTypography-body1"
@@ -337,10 +337,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container"
+            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root MuiGrid-item MuiGrid-grid-lg-9"
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-9"
             >
               <p
                 class="MuiTypography-root fieldDescription Typography MuiTypography-body1"
@@ -494,10 +494,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           </button>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -584,10 +584,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           </button>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -639,7 +639,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -705,10 +705,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           </h5>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -760,7 +760,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -826,10 +826,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           </h5>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -881,7 +881,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -947,10 +947,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
           </h5>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -1002,7 +1002,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
           >
             <div
               class="Row"
@@ -1065,10 +1065,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         Project information (optional)
       </h3>
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6"
         >
           <div
             class="Row"
@@ -1109,10 +1109,10 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6"
         >
           <div
             class="Row"

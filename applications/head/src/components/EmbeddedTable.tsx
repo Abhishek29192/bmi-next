@@ -1,17 +1,8 @@
-import React, { useContext } from "react";
-import _ from "lodash";
+import React from "react";
 import Table from "@bmi/table";
-import { SiteContext } from "../components/Site";
+import { graphql } from "gatsby";
 
 type TableFields = {
-  data: {
-    [locale: string]: {
-      tableData: readonly string[][];
-    };
-  };
-};
-
-type LocalisedTableFields = {
   data: {
     tableData: readonly string[][];
   };
@@ -22,17 +13,9 @@ type Props = {
 };
 
 const EmbeddedTable = ({ fields }: Props) => {
-  const { node_locale } = useContext(SiteContext);
-
-  // TODO: Check the typing here
-  const localeFields = _.mapValues(
-    fields,
-    (value) => value[node_locale]
-  ) as LocalisedTableFields;
-
   const {
     data: { tableData }
-  } = localeFields;
+  } = fields;
   const [head, ...rows] = tableData || [];
 
   if (!head) {
@@ -64,3 +47,13 @@ const EmbeddedTable = ({ fields }: Props) => {
 };
 
 export default EmbeddedTable;
+
+export const query = graphql`
+  fragment EmbeddedTableFragment on ContentfulTable {
+    __typename
+    contentful_id
+    data {
+      tableData
+    }
+  }
+`;

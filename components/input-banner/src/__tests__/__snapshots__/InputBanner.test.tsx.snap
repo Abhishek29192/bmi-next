@@ -5,7 +5,7 @@ exports[`InputBanner component renders correctly 1`] = `
   class="InputBanner"
 >
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <div
       class="wrapper"
@@ -16,7 +16,7 @@ exports[`InputBanner component renders correctly 1`] = `
         Lorem ipsum
       </h3>
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
           class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-5"
@@ -28,7 +28,7 @@ exports[`InputBanner component renders correctly 1`] = `
           </p>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-5"
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-5"
         >
           <div
             class="InputGroup InputGroup--locked-md"
