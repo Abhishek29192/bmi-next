@@ -260,8 +260,14 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 type ContentfulHomePage implements Node {
   id: ID!
 
+  "Contentful content entry ID."
+  contentful_id: String!
+
   "The title for this home page."
   title: String
+
+  "The url for this page, devoid of any prefix."
+  slug: String!
 
   "Brands for Homepage"
   brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
@@ -370,6 +376,7 @@ union ContentfulRichTextReference =
     ContentfulAsset
   | ContentfulTable
   | ContentfulLink
+  | ContentfulHomePage
   | ContentfulContactUsPage
   | ContentfulSimplePage
   | ContentfulTeamPage

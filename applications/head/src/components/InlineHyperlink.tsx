@@ -8,6 +8,7 @@ import { SiteContext } from "./Site";
 const availableTypenames = [
   "ContentfulAsset",
   "ContentfulLink",
+  "ContentfulHomePage",
   "ContentfulSimplePage",
   "ContentfulContactUsPage",
   "ContentfulTeamPage",
@@ -25,7 +26,7 @@ const InlineHyperlink = ({ node, children }: Props) => {
   const fields = node.data.target;
 
   // TODO: Handle ContentfulLink case.
-  if (!availableTypenames.includes(fields.__typename)) {
+  if (!(fields && availableTypenames.includes(fields.__typename))) {
     return <>{children}</>;
   }
 
@@ -78,6 +79,11 @@ export default InlineHyperlink;
 
 export const query = graphql`
   fragment InlineHyperlinkFragment on ContentfulRichTextReference {
+    ... on ContentfulHomePage {
+      __typename
+      contentful_id
+      slug
+    }
     ... on ContentfulPage {
       __typename
       contentful_id
