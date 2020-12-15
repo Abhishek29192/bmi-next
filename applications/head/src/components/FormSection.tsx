@@ -59,6 +59,7 @@ const Input = ({
   maxSize
 }: Omit<InputType, "width">) => {
   const { getMicroCopy } = useContext(SiteContext);
+  const mapBody = (file: File) => file;
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -81,29 +82,29 @@ const Input = ({
   };
 
   switch (type) {
-    // case "upload":
-    //   return (
-    //     <Upload
-    //       id={name}
-    //       name={name}
-    //       buttonLabel={label}
-    //       isRequired={required}
-    //       uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
-    //       headers={{ "Content-Type": "application/octet-stream" }}
-    //       accept={accept}
-    //       fileValidation={handleFileValidation}
-    //       instructions={
-    //         `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
-    //         (maxSize
-    //           ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
-    //               maxSize * 1048576
-    //             )}`
-    //           : "")
-    //       }
-    //       mapBody={(file) => ({ file })}
-    //       mapValue={mapValue}
-    //     />
-    //   );
+    case "upload":
+      return (
+        <Upload
+          id={name}
+          name={name}
+          buttonLabel={label}
+          isRequired={required}
+          uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
+          headers={{ "Content-Type": "application/octet-stream" }}
+          accept={accept}
+          fileValidation={handleFileValidation}
+          instructions={
+            `${getMicroCopy("form.upload.supportedFormats")}: ${accept}.` +
+            (maxSize
+              ? ` ${getMicroCopy("form.upload.maxSize")}: ${getFileSizeString(
+                  maxSize * 1048576
+                )}`
+              : "")
+          }
+          mapBody={mapBody}
+          mapValue={mapValue}
+        />
+      );
     case "select":
       return (
         <Select isRequired={required} label={label} name={name}>
@@ -152,7 +153,7 @@ const FormSection = ({
   data: Data;
   backgroundColor: "pearl" | "white";
 }) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { countryCode, getMicroCopy, node_locale } = useContext(SiteContext);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const handleSubmit = async (
@@ -173,7 +174,7 @@ const FormSection = ({
       await axios.post(
         process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
         {
-          locale: "en-US",
+          locale: node_locale,
           title,
           recipients: conditionalRecipients.split(/, |,/),
           values
