@@ -12,6 +12,7 @@ import { SiteContext, Data as SiteData } from "./Site";
 import { generateGetMicroCopy } from "./MicroCopy";
 import { graphql } from "gatsby";
 import ErrorFallback from "./ErrorFallback";
+import styles from "./styles/Page.module.scss";
 
 export type Data = {
   slug: string | null;
@@ -135,7 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
             />
           )}
         >
-          {children}
+          <div className={styles["content"]}>{children}</div>
           {inputBanner ? <InputBanner data={inputBanner} /> : null}
         </ErrorBoundary>
         <Footer
