@@ -17,7 +17,7 @@ export const getClickableActionFromUrl = (
   if (linkedPage && "slug" in linkedPage) {
     return {
       model: "routerLink",
-      to: `/${countryCode}/${linkedPage.slug}`,
+      to: `/${countryCode}/${linkedPage.slug}`.replace(/\/+/gi, "/"),
       linkComponent: Link
     };
   }
@@ -105,6 +105,9 @@ export const query = graphql`
     isLabelHidden
     url
     linkedPage {
+      ... on ContentfulHomePage {
+        slug
+      }
       ... on ContentfulPage {
         slug
       }

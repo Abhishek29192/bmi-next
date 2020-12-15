@@ -18,11 +18,10 @@ import DocumentResultsFooter, {
 import { getCount as getSimpleTableCount } from "../components/DocumentSimpleTableResults";
 import { getCount as getTechnicalTableCount } from "../components/DocumentTechnicalTableResults";
 import { getCount as getCardsCount } from "../components/DocumentCardsResults";
-import { Document } from "@contentful/rich-text-types";
 import { SiteContext } from "../components/Site";
 import AlertBanner from "@bmi/alert-banner";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
-import RichText from "../components/RichText";
+import RichText, { RichTextData } from "../components/RichText";
 import {
   getBrandFilterFromDocuments,
   getProductFamilyFilterFromDocuments,
@@ -55,7 +54,7 @@ type Source = "PIM" | "CMS" | "ALL";
 
 type Data = PageInfoData &
   PageData & {
-    description: { json: Document } | null;
+    description: RichTextData | null;
     source: Source;
     resultsType: "Simple" | "Technical" | "Card Collection";
     documents: DocumentResultsData;
@@ -322,7 +321,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       <Hero level={2} title={title} breadcrumbs={breadcrumbs} />
       {description && (
         <Section backgroundColor="white">
-          <RichText document={description.json} />
+          <RichText document={description} />
         </Section>
       )}
       <SiteContext.Consumer>
@@ -419,7 +418,7 @@ export const pageQuery = graphql`
       ...PageInfoFragment
       ...PageFragment
       description {
-        json
+        ...RichTextFragment
       }
       source
       resultsType

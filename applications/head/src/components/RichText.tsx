@@ -1,16 +1,23 @@
 /* eslint-disable react/display-name */
 import React from "react";
-import { BLOCKS, MARKS, Document, Block } from "@contentful/rich-text-types";
 import {
-  documentToReactComponents,
-  Options
-} from "@contentful/rich-text-react-renderer";
+  BLOCKS,
+  MARKS,
+  INLINES,
+  Block,
+  Inline
+} from "@contentful/rich-text-types";
+import { Options } from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
+import AnchorLink from "@bmi/anchor-link";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
+import InlineHyperlink from "./InlineHyperlink";
 import styles from "./styles/RichText.module.scss";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { graphql } from "gatsby";
 
-export { Document } from "@contentful/rich-text-types";
+export type RichTextData = Parameters<typeof renderRichText>[0];
 
 type Settings = {
   theme?: "primary" | "secondary";
@@ -87,6 +94,24 @@ const getOptions = (settings: Settings): Options => {
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Block) => (
         <EmbeddedAssetBlock node={node} className={styles["embedded-asset"]} />
+      ),
+      [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
+        <InlineHyperlink node={node}>{children}</InlineHyperlink>
+      ),
+      [INLINES.ASSET_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
+        <InlineHyperlink node={node}>{children}</InlineHyperlink>
+      ),
+      [INLINES.HYPERLINK]: (node: Inline, children: React.ReactNode) => (
+        <AnchorLink
+          action={{
+            model: "htmlLink",
+            href: node.data.uri,
+            target: "_blank",
+            rel: "noopener noreferrer"
+          }}
+        >
+          {children}
+        </AnchorLink>
       )
     },
     renderMark: {
@@ -99,13 +124,25 @@ const RichText = ({
   document,
   ...rest
 }: {
-  document: Document;
+  document: RichTextData;
 } & Settings) => {
   return (
     <div className={styles["RichText"]}>
-      {documentToReactComponents(document, getOptions(rest))}
+      {renderRichText(document, getOptions(rest))}
     </div>
   );
 };
 
 export default RichText;
+
+export const query = graphql`
+  fragment RichTextFragment on ContentfulRichText {
+    raw
+    references {
+      __typename
+      ...InlineHyperlinkFragment
+      ...EmbeddedAssetBlockFragment
+      ...EmbeddedBlockFragment
+    }
+  }
+`;

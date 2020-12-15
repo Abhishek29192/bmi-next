@@ -23,8 +23,6 @@ const SectionAccordion = ({
   return (
     <Accordion>
       {items.map(({ title, content }) => {
-        const { json } = content;
-
         return (
           <Accordion.Item key={title}>
             <Accordion.Summary>
@@ -33,7 +31,7 @@ const SectionAccordion = ({
               </Typography>
             </Accordion.Summary>
             <Accordion.Details>
-              <RichText document={json} />
+              <RichText document={content} />
             </Accordion.Details>
           </Accordion.Item>
         );
@@ -46,11 +44,9 @@ const SectionTabs = ({ items }: { items: readonly TitleWithContentData[] }) => {
   return (
     <Tabs theme="primary" initialValue={items[0].title}>
       {items.map(({ title, content }) => {
-        const { json } = content;
-
         return (
           <Tabs.TabPanel heading={title} index={title} key={title}>
-            <RichText document={json} />
+            <RichText document={content} />
           </Tabs.TabPanel>
         );
       })}

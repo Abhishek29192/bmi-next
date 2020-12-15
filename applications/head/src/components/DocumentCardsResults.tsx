@@ -49,7 +49,7 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
                   </Button>
                 }
               >
-                {description && <RichText document={description.json} />}
+                {description && <RichText document={description} />}
               </OverviewCard>
             </Grid>
           );

@@ -12,8 +12,7 @@ import IconList from "@bmi/icon-list";
 import AnchorLink from "@bmi/anchor-link";
 import { LinkData, getClickableActionFromUrl } from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
-import { Document } from "@contentful/rich-text-types";
-import RichText from "../components/RichText";
+import RichText, { RichTextData } from "../components/RichText";
 import Filters from "@bmi/filters";
 import OverviewCard from "@bmi/overview-card";
 import { iconMap } from "../components/Icon";
@@ -44,9 +43,7 @@ const PAGE_SIZE = 24;
 type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulProductListerPage";
-    content: {
-      json: Document;
-    };
+    content: RichTextData | null;
     features: string[] | null;
     featuresLink: LinkData | null;
   };
@@ -271,7 +268,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               <Section backgroundColor="white">
                 <LeadBlock>
                   <LeadBlock.Content>
-                    <RichText document={content.json} />
+                    <RichText document={content} />
                   </LeadBlock.Content>
                   <LeadBlock.Card theme="pearl">
                     {features ? (
@@ -447,7 +444,7 @@ export const pageQuery = graphql`
     contentfulProductListerPage(id: { eq: $pageId }) {
       ...PageInfoFragment
       content {
-        json
+        ...RichTextFragment
       }
       features
       featuresLink {
