@@ -6,6 +6,7 @@ import { getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
 
 const availableTypenames = [
+  "ContentfulAsset",
   "ContentfulLink",
   "ContentfulSimplePage",
   "ContentfulContactUsPage",
@@ -44,6 +45,22 @@ const InlineHyperlink = ({ node, children }: Props) => {
     );
   }
 
+  if (fields.__typename === "ContentfulAsset") {
+    const { file } = fields;
+    return (
+      <AnchorLink
+        action={getClickableActionFromUrl(
+          undefined,
+          undefined,
+          countryCode,
+          `https:${file.url}`
+        )}
+      >
+        {children}
+      </AnchorLink>
+    );
+  }
+
   return (
     <AnchorLink
       action={{
@@ -65,6 +82,18 @@ export const query = graphql`
       __typename
       contentful_id
       slug
+    }
+    ... on ContentfulLink {
+      __typename
+      contentful_id
+      ...LinkFragment
+    }
+    ... on ContentfulAsset {
+      __typename
+      contentful_id
+      file {
+        url
+      }
     }
   }
 `;

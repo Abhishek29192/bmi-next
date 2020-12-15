@@ -96,6 +96,9 @@ const getOptions = (settings: Settings): Options => {
       ),
       [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
         <InlineHyperlink node={node}>{children}</InlineHyperlink>
+      ),
+      [INLINES.ASSET_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
+        <InlineHyperlink node={node}>{children}</InlineHyperlink>
       )
     },
     renderMark: {
