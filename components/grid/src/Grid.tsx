@@ -3,9 +3,7 @@ import MuiGrid, { GridProps } from "@material-ui/core/Grid";
 import classnames from "classnames";
 import styles from "./Grid.module.scss";
 
-export type Props = GridProps;
-
-const Grid = ({ item, container, ...rest }: Props) => {
+const Grid = ({ item, container, ...rest }: GridProps) => {
   if (item) {
     return <MuiGrid item className={styles["item"]} {...rest} />;
   }
