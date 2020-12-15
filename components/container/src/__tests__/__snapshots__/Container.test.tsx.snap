@@ -2,15 +2,7 @@
 
 exports[`Container component renders correctly 1`] = `
 <div
-  class="MuiContainer-root Container MuiContainer-maxWidthXl"
->
-  Content
-</div>
-`;
-
-exports[`Container component renders with no overflow 1`] = `
-<div
-  class="MuiContainer-root Container Container--no-overflow MuiContainer-maxWidthXl"
+  class="MuiContainer-root MuiContainer-maxWidthXl"
 >
   Content
 </div>

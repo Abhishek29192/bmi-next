@@ -5,7 +5,7 @@ exports[`OverlapCards component renders correctly 1`] = `
   class="OverlapCards"
 >
   <div
-    class="MuiContainer-root Container MuiContainer-maxWidthXl"
+    class="MuiContainer-root MuiContainer-maxWidthXl"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
