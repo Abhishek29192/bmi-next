@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import ProfileCard from "@bmi/profile-card";
