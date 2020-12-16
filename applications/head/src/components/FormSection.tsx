@@ -172,9 +172,10 @@ const FormSection = ({
 
     // @todo: This needs to be less reliant on string patterns
     const recipientsFromValues = values.recipients as string;
-    const conditionalRecipients = recipientsFromValues.includes("@")
-      ? recipientsFromValues
-      : recipients;
+    const conditionalRecipients =
+      recipientsFromValues && recipientsFromValues.includes("@")
+        ? recipientsFromValues
+        : recipients;
 
     try {
       const source = axios.CancelToken.source();
