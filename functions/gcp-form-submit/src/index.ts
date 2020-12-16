@@ -41,24 +41,25 @@ export const submit: HttpFunction = async (request, response) => {
         throw Error("Fields are empty");
       }
 
-      const assets: Array<any> = files.length
-        ? await Promise.all(
-            files.map((file) =>
-              environment
-                .createAsset({
-                  fields: {
-                    title: {
-                      [locale]: `User upload ${+new Date()}`
-                    },
-                    file: {
-                      [locale]: file
+      const assets: Array<any> =
+        files && files.length
+          ? await Promise.all(
+              files.map((file) =>
+                environment
+                  .createAsset({
+                    fields: {
+                      title: {
+                        [locale]: `User upload ${+new Date()}`
+                      },
+                      file: {
+                        [locale]: file
+                      }
                     }
-                  }
-                })
-                .then((asset) => asset.processForAllLocales())
+                  })
+                  .then((asset) => asset.processForAllLocales())
+              )
             )
-          )
-        : [];
+          : [];
 
       const uploadedAssets = assets
         .map(({ fields }) => fields.file[locale]?.url)
