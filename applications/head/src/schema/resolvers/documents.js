@@ -50,7 +50,7 @@ const resolveDocumentsFromProducts = async (
       .filter((asset) => _.includes(pimAssetTypes, asset.assetType))
       .map((asset) => {
         const id = generateIdFromString(product.name + asset.name);
-        const { url, fileSize, realFileName } = asset;
+        const { url, fileSize, realFileName, mime } = asset;
         const assetType = _.find(assetTypes, { pimCode: asset.assetType });
 
         if (!assetType || !url) {
@@ -88,7 +88,7 @@ const resolveDocumentsFromProducts = async (
           assetType___NODE: assetType.id,
           fileSize,
           product___NODE: product.id,
-          format: getFormatFromFileName(realFileName),
+          format: mime || getFormatFromFileName(realFileName),
           extension: realFileName.split(".").pop()
         };
 
