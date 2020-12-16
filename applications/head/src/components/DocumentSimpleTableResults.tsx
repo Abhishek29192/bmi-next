@@ -72,7 +72,12 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
     }}
     variant="text"
     startIcon={
-      <Icon source={fileIconsMap[format]} className={styles["download-icon"]} />
+      fileIconsMap[format] && (
+        <Icon
+          source={fileIconsMap[format]}
+          className={styles["download-icon"]}
+        />
+      )
     }
   >
     {filesize(size)}
