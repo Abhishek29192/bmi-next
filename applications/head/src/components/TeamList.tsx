@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import ProfileCard from "@bmi/profile-card";
@@ -11,8 +11,8 @@ export type Data = {
   name: string;
   jobTitle: string;
   profilePicture: {
-    file: {
-      url: string;
+    resize: {
+      src: string;
     };
   };
   links: LinkData[];
@@ -26,12 +26,12 @@ const TeamList = ({ data }: { data: Data }) => {
       <Grid container justify="center" spacing={3}>
         {data.map((teamMember, index) => {
           const { name, jobTitle, profilePicture, links } = teamMember;
-          const url = profilePicture.file.url;
+          const src = profilePicture.resize.src;
 
           return (
             <Grid item xs={12} md={data.length < 4 ? 4 : 3} key={index}>
               <ProfileCard
-                imageSource={url}
+                imageSource={src}
                 body={
                   <EqualHeights.Consumer shouldDisableBoxSizing>
                     {({ addRef, equalHeight }) => {
@@ -76,8 +76,8 @@ export const query = graphql`
     name
     jobTitle
     profilePicture {
-      file {
-        url
+      resize(width: 150) {
+        src
       }
     }
     links {
