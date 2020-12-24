@@ -13,9 +13,10 @@
       .MuiTab-root {
         min-width: initial;
         padding: 6px 15px;
+        font-size: 1rem;
 
         &.Mui-selected {
-          font-weight: bold;
+          font-family: "Effra Medium";
         }
       }
 
