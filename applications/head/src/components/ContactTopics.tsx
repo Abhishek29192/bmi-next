@@ -146,12 +146,8 @@ export const query = graphql`
     footerTitle
     footerList {
       __typename
-      # ... on ContentfulTitleWithContent {
       ...TitleWithContentFragment
-      # }
-      # ... on ContentfulContactDetails {
       ...ContactDetailsFragment
-      # }
     }
   }
 `;

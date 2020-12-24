@@ -214,7 +214,12 @@ const NavigationList = ({
                           icon && isLabelHidden && <Icon source={icon} />
                         }
                         endIcon={
-                          icon && !isLabelHidden && <Icon source={icon} />
+                          icon &&
+                          !isLabelHidden && (
+                            <span className={styles["icon-wrapper"]}>
+                              <Icon source={icon} />
+                            </span>
+                          )
                         }
                       >
                         {isLabelHidden ? null : label}
