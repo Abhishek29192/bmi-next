@@ -22,3 +22,6 @@ coverage-ts/
 # Dotenv files
 .env*
 !.env.example
+
+# Netlify build data
+.netlify
