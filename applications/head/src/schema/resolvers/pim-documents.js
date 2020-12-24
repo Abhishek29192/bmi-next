@@ -25,7 +25,7 @@ module.exports = {
     return source.assets
       .map((asset) => {
         const id = generateIdFromString(source.name + asset.name);
-        const { url, fileSize, realFileName } = asset;
+        const { url, fileSize, realFileName, mime } = asset;
         const assetType = _.find(assetTypes, { pimCode: asset.assetType });
 
         if (!assetType || !url) {
@@ -63,7 +63,7 @@ module.exports = {
           assetType___NODE: assetType.id,
           fileSize,
           product___NODE: source.id,
-          format: getFormatFromFileName(realFileName),
+          format: mime || getFormatFromFileName(realFileName),
           extension: realFileName.split(".").pop()
         };
 
