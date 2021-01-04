@@ -2,7 +2,7 @@
 
 exports[`ContactTopics component renders correctly 1`] = `
 <div
-  class="ExpandableCardList"
+  class="ExpandableCardList ContactTopics"
 >
   <div
     class="item"
@@ -173,34 +173,36 @@ exports[`ContactTopics component renders correctly 1`] = `
         <div
           class="footer"
         >
-          <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
-            style="margin-bottom: 42px;"
-          >
-            footer title
-          </h6>
-          <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-          >
+          <div>
+            <h6
+              class="MuiTypography-root Typography MuiTypography-h6"
+              style="margin-bottom: 42px;"
+            >
+              footer title
+            </h6>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4"
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="BorderedItem"
-              />
-              <h5
-                class="MuiTypography-root Typography MuiTypography-h5"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-4"
               >
-                teste
-              </h5>
-              <div
-                class="RichText"
-              >
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                <div
+                  class="BorderedItem"
+                />
+                <h5
+                  class="MuiTypography-root heading Typography MuiTypography-h5"
                 >
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                </p>
+                  teste
+                </h5>
+                <div
+                  class="RichText"
+                >
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                  >
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                  </p>
+                </div>
               </div>
             </div>
           </div>
