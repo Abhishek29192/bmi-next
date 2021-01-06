@@ -29,6 +29,9 @@ type NavigationProps = {
   setRootValue?: (value: any) => void;
   toggleLanguageSelection?: () => void;
   utilities: readonly LinkList[];
+  mainMenuTitleLabel?: string;
+  mainMenuDefaultLabel?: string;
+  languageLabel?: string;
 };
 
 const Navigation = ({
@@ -37,7 +40,10 @@ const Navigation = ({
   initialValue,
   setRootValue,
   toggleLanguageSelection,
-  utilities
+  utilities,
+  languageLabel,
+  mainMenuTitleLabel,
+  mainMenuDefaultLabel
 }: NavigationProps) => {
   const [depth, setDepth] = React.useState<number>(0);
 
@@ -56,6 +62,9 @@ const Navigation = ({
         show={initialValue !== false}
         toggleLanguageSelection={toggleLanguageSelection}
         utilities={utilities}
+        mainMenuTitleLabel={mainMenuTitleLabel}
+        mainMenuDefaultLabel={mainMenuDefaultLabel}
+        languageLabel={languageLabel}
       />
     </nav>
   );
@@ -75,6 +84,9 @@ type NavigationListProps = {
   show?: boolean;
   toggleLanguageSelection?: () => void;
   utilities?: readonly LinkList[];
+  mainMenuTitleLabel?: string;
+  mainMenuDefaultLabel?: string;
+  languageLabel?: string;
 };
 
 const NavigationList = ({
@@ -90,7 +102,10 @@ const NavigationList = ({
   setRootValue,
   show,
   toggleLanguageSelection,
-  utilities
+  utilities,
+  mainMenuTitleLabel = "BMI Group",
+  mainMenuDefaultLabel = "Main menu",
+  languageLabel
 }: NavigationListProps) => {
   const [value, setValue] = React.useState<number | boolean>(initialValue);
 
@@ -134,7 +149,7 @@ const NavigationList = ({
           !isFooter && (
             <li key={`menu-${depth}-heading`}>
               <Typography className={styles["MainMenuTitle"]} variant="h6">
-                BMI Group
+                {mainMenuTitleLabel}
               </Typography>
             </li>
           )
@@ -167,7 +182,9 @@ const NavigationList = ({
                   {isLabelHidden ? null : label}
                 </NavigationListButton>
                 <NavigationList
-                  backLabel={menu[0].isHeading ? menu[0].label : "Main menu"}
+                  backLabel={
+                    menu[0].isHeading ? menu[0].label : mainMenuDefaultLabel
+                  }
                   depth={depth + 1}
                   menu={subMenu}
                   show={value === key}
@@ -259,7 +276,7 @@ const NavigationList = ({
               endIcon={<ChevronRight className={styles["chevronRight"]} />}
               onClick={toggleLanguageSelection}
             >
-              Language
+              {languageLabel}
             </NavigationListButton>
           </li>
         )}
