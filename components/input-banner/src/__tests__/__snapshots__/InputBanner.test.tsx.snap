@@ -48,6 +48,7 @@ exports[`InputBanner component renders correctly 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiFilledInput-input"
+                  name="input-banner-text-field"
                   type="text"
                   value=""
                 />

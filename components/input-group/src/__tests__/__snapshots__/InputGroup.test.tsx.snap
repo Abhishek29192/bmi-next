@@ -19,6 +19,7 @@ exports[`InputGroup component renders correctly 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input"
+        name="first-name"
         type="text"
         value=""
       />
@@ -72,6 +73,7 @@ exports[`InputGroup component renders unlocked 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input"
+        name="first-name"
         type="text"
         value=""
       />
@@ -125,6 +127,7 @@ exports[`InputGroup component renders with an IconButton 1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input MuiOutlinedInput-input"
+        name="first-name"
         type="text"
         value=""
       />

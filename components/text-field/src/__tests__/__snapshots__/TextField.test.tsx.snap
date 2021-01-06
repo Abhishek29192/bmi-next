@@ -19,6 +19,7 @@ exports[`TextField component renders a hybrid variant 1`] = `
       aria-invalid="false"
       class="MuiInputBase-input MuiFilledInput-input"
       id="email"
+      name="Email"
       type="text"
       value=""
     />
@@ -45,6 +46,7 @@ exports[`TextField component renders as textarea 1`] = `
       aria-invalid="false"
       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
       id="email"
+      name="Email"
       rows="1"
       style="height: 0px; overflow: hidden;"
     />
@@ -90,6 +92,7 @@ exports[`TextField component renders correctly 1`] = `
       aria-invalid="false"
       class="MuiInputBase-input MuiOutlinedInput-input"
       id="email"
+      name="Email"
       placeholder="e.g. lorem@ipsum.com"
       type="text"
       value=""
@@ -129,6 +132,7 @@ exports[`TextField component renders with an extra class 1`] = `
       aria-invalid="false"
       class="MuiInputBase-input MuiOutlinedInput-input"
       id="email"
+      name="Email"
       type="text"
       value=""
     />
@@ -164,6 +168,7 @@ exports[`TextField component renders with error 1`] = `
     <input
       aria-invalid="false"
       class="MuiInputBase-input MuiOutlinedInput-input"
+      name="Nickname"
       type="text"
       value=""
     />
@@ -204,6 +209,7 @@ exports[`TextField component renders with left adornment 1`] = `
     <input
       aria-invalid="false"
       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+      name="Nickname"
       type="text"
       value=""
     />
@@ -258,6 +264,7 @@ exports[`TextField component renders with right adornment 1`] = `
     <input
       aria-invalid="false"
       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+      name="Nickname"
       type="text"
       value=""
     />

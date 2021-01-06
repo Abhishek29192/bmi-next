@@ -839,6 +839,7 @@ exports[`Header component renders correctly 1`] = `
           <input
             aria-invalid="false"
             class="MuiInputBase-input MuiFilledInput-input"
+            name="search"
             type="text"
             value=""
           />
