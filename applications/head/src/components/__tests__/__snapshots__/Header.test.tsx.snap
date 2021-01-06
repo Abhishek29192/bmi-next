@@ -209,7 +209,7 @@ exports[`Header component renders correctly 1`] = `
             <h6
               class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
             >
-              BMI Group
+              MC: menu.mainTitle
             </h6>
           </li>
           <li>
@@ -270,7 +270,7 @@ exports[`Header component renders correctly 1`] = `
                           />
                         </svg>
                       </span>
-                      Main menu
+                      MC: menu.mainDefault
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -376,7 +376,7 @@ exports[`Header component renders correctly 1`] = `
                           />
                         </svg>
                       </span>
-                      Main menu
+                      MC: menu.mainDefault
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -432,7 +432,7 @@ exports[`Header component renders correctly 1`] = `
               <span
                 class="MuiButton-label"
               >
-                Language
+                MC: menu.language
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
