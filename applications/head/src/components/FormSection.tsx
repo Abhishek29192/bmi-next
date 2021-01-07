@@ -73,6 +73,15 @@ const Input = ({
     }
   });
 
+  const handleEmailValidation = (value: string) => {
+    // Has a full stop and a `@`, and at least one character in between both.
+    if (value.match(/.+@.+\..+/)) {
+      return false;
+    } else {
+      return getMicroCopy("errors.emailInvalid");
+    }
+  };
+
   const handleFileValidation = (file: File) => {
     if (maxSize && file.size > maxSize * 1048576) {
       return getMicroCopy("errors.maxSize").replace(
@@ -140,6 +149,9 @@ const Input = ({
           label={label}
           fullWidth
           {...(type === "textarea" && { rows: 6 })}
+          {...(type === "email" && {
+            getValidationError: handleEmailValidation
+          })}
         />
       );
   }
