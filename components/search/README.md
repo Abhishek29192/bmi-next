@@ -20,17 +20,11 @@ A search widget.
 <Search defaultValue="Clay tiles" />
 ```
 
-### Controlled component
+### Helper text and button text
 
 ```jsx
-import { useState } from "react";
-
-const [value, setValue] = useState("");
-
-const handleChange = (value) => {
-  console.log("Change", { value });
-  setValue(value);
-};
-
-<Search value={value} onChange={handleChange} />;
+<Search
+  buttonText="Search again"
+  helperText="Search for a product, system, or documentation"
+/>
 ```
