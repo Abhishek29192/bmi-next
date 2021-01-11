@@ -1,0 +1,38 @@
+@import "@bmi/styles";
+
+.CalculatorStepper {
+  .title {
+    padding: 0;
+  }
+
+  .item {
+    display: none;
+  }
+
+  .step-title {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .computation {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .component {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .footer {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
