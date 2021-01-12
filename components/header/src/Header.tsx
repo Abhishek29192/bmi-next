@@ -34,6 +34,9 @@ type HeaderProps = {
   searchLabel?: string;
   searchPlaceholder?: string;
   openLabel?: string;
+  mainMenuTitleLabel?: string;
+  mainMenuDefaultLabel?: string;
+  languageLabel?: string;
 };
 
 const Header = ({
@@ -47,7 +50,10 @@ const Header = ({
   isSearchHidden,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
-  openLabel = "Open menu"
+  openLabel = "Open menu",
+  mainMenuTitleLabel,
+  mainMenuDefaultLabel,
+  languageLabel = "Language"
 }: HeaderProps) => {
   const $body: HTMLElement =
     typeof document !== "undefined"
@@ -165,6 +171,7 @@ const Header = ({
                   )}
                   onClick={toggleLanguageSelection}
                   variant="text"
+                  aria-label={languageLabel}
                 >
                   {language.icon && (
                     <Icon
@@ -285,6 +292,9 @@ const Header = ({
             toggleLanguageSelection={toggleLanguageSelection}
             utilities={utilities}
             setRootValue={setValue}
+            mainMenuTitleLabel={mainMenuTitleLabel}
+            mainMenuDefaultLabel={mainMenuDefaultLabel}
+            languageLabel={languageLabel}
           />
         </div>
       </Slide>

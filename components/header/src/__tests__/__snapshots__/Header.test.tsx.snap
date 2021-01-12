@@ -74,6 +74,7 @@ exports[`Header component renders correctly 1`] = `
           class="NavItem"
         >
           <button
+            aria-label="Language"
             class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton LanguageSelectionButton MuiButton-textPrimary"
             tabindex="0"
             type="button"
