@@ -1,6 +1,5 @@
 import React, { useContext, useMemo, useState } from "react";
 import Tabs from "@bmi/tabs";
-import _ from "lodash";
 import { Link, graphql } from "gatsby";
 import { Product, VariantOption } from "../templates/product-details-page"; // Hmmmmmm
 import {
@@ -132,7 +131,8 @@ const ProductListing = ({
                   </AnchorLink>
                 }
               >
-                NOBB number: <b>{variant.externalProductCode || "n/a"}</b>
+                {getMicroCopy("pdp.nobb.label")}:
+                <b>{variant.externalProductCode || "n/a"}</b>
               </OverviewCard>
             </Grid>
           );

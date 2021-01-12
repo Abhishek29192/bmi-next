@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Grid from "@bmi/grid";
 import ProductOverviewPane, {
   Props as ProductOverviewProps
@@ -6,6 +6,7 @@ import ProductOverviewPane, {
 import ImageGallery, { Image } from "@bmi/image-gallery";
 import styles from "./styles/ProductOverview.module.scss";
 import { iconMap } from "./Icon";
+import { SiteContext } from "./Site";
 
 export type Data = {
   name: string;
@@ -22,6 +23,7 @@ const ProductOverview = ({
   data: Data;
   children?: React.ReactNode;
 }) => {
+  const { getMicroCopy } = useContext(SiteContext);
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
@@ -33,6 +35,7 @@ const ProductOverview = ({
             brandLogo={iconMap[brandName]}
             name={name}
             nobb={nobb}
+            nobbLabel={getMicroCopy("pdp.nobb.label")}
             attributes={attributes || undefined}
           >
             {children}
