@@ -780,6 +780,18 @@ type ContentfulResources implements Node {
 
   "The general error for these resources."
   errorGeneral: ContentfulPromo @link(from: "errorGeneral___NODE")
+
+  "The search tips for the search page."
+  searchPageSearchTips: [ContentfulTitleWithContent]
+    @link(from: "searchPageSearchTips___NODE")
+
+  "The next best actions for the search page."
+  searchPageNextBestActions: [ContentfulPromoOrPage]
+    @link(from: "searchPageNextBestActions___NODE")
+
+  "The explore bar for the search page."
+  searchPageExploreBar: ContentfulNavigation
+    @link(from: "searchPageExploreBar___NODE")
 }
 
 """
