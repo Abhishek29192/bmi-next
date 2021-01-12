@@ -24,7 +24,6 @@ export type Props = Omit<TextFieldProps, "variant"> & {
   helperText?: string;
   errorText?: string;
   error?: boolean;
-  name: string;
   onChange: (value: string) => void;
 } & AdornmentProps;
 
@@ -34,10 +33,8 @@ const TextField = ({
   isTextArea,
   leftAdornment,
   rightAdornment,
-  isRequired,
   id,
   error,
-  name,
   helperText,
   errorText,
   onChange,
