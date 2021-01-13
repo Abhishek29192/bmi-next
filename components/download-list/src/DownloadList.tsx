@@ -83,7 +83,7 @@ const DownloadListButton = ({
   onClick,
   ...rest
 }: DownloadListButtonProps) => {
-  const { list, count, isLoading, setIsLoading } = useContext(
+  const { list, count, resetList, isLoading, setIsLoading } = useContext(
     DownloadListContext
   );
 
@@ -91,6 +91,7 @@ const DownloadListButton = ({
     setIsLoading(true);
     await onClick(list);
     setIsLoading(false);
+    resetList();
   };
 
   return (
