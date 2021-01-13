@@ -26,9 +26,9 @@ export const handleDownloadClick = async (
   }
 
   try {
-    if (!process.env.GATSBY_GCP_DOWNLOAD_ZIP_ENDPOINT) {
+    if (!process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT) {
       throw Error(
-        "`GATSBY_GCP_DOWNLOAD_ZIP_ENDPOINT` missing in environment config"
+        "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
       );
     }
 
@@ -44,12 +44,12 @@ export const handleDownloadClick = async (
     );
 
     const response = await axios.post(
-      process.env.GATSBY_GCP_DOWNLOAD_ZIP_ENDPOINT,
+      process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
       requestBody,
-      { responseType: "blob" }
+      { responseType: "text" }
     );
 
-    await downloadAs(response.data, `BMI_${currentTime}.zip`);
+    await downloadAs(response.data.url, `BMI_${currentTime}.zip`);
 
     if (callback) {
       callback();
