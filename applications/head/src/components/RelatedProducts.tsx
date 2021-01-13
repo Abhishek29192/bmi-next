@@ -131,7 +131,7 @@ const ProductListing = ({
                   </AnchorLink>
                 }
               >
-                {getMicroCopy("pdp.nobb.label")}:
+                {getMicroCopy("pdp.nobb.label")}:{" "}
                 <b>{variant.externalProductCode || "n/a"}</b>
               </OverviewCard>
             </Grid>
