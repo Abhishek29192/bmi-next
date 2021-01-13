@@ -1,3 +1,5 @@
+@import "@bmi/styles";
+
 .RichText {
   .title {
     margin-bottom: 28px;
@@ -5,5 +7,22 @@
 
   img.embedded-asset + img.embedded-asset {
     margin-left: 8px;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    display: flex;
+  }
+
+  li::before {
+    content: "◼︎";
+    color: $color-cyan-400;
+    margin-left: -1.5rem;
+    margin-top: 1px;
+    width: 1.5rem;
   }
 }
