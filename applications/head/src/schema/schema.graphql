@@ -152,6 +152,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
+  "The input banner for this page."
+  shareWidget: ContentfulShareWidgetSection @link(from: "shareWidget___NODE")
+
   "Tag for the page"
   tag: ContentfulTag @link(from: "tag___NODE")
 
@@ -733,7 +736,6 @@ union ContentfulSection =
   | ContentfulTabsOrAccordionSection
   | ContentfulSyndicateSection
   | ContentfulTitleWithContent
-  | ContentfulShareWidgetSection
   | ContentfulPromo
   | ContentfulImageGallerySection
   | ContentfulDocumentDownloadSection
