@@ -4,6 +4,17 @@
 const { spawnSync } = require("child_process");
 const contentful = require("contentful-management");
 const { compareSemVer, isValidSemVer, parseSemVer } = require("semver-parser");
+const { execSync } = require("child_process");
+
+const getCurrentCommitTag = () => {
+  try {
+    return execSync(`git describe --tags --abbrev=0 --exact-match`)
+      .toString()
+      .trim();
+  } catch (err) {
+    return null;
+  }
+};
 
 const { MANAGEMENT_ACCESS_TOKEN, SPACE_ID } = process.env;
 
@@ -15,39 +26,34 @@ const CONTENTFUL_PRODUCTION_BRANCH = "master";
 const CONTENTFUL_PRE_PRODUCTION_BRANCH = "pre-production";
 const CONTENTFUL_DEV_MAIN_BRANCH = "development";
 
+const ignoredHooks = ["Contentful integration", "Firestore hook"];
+
 function parseCIEnvironments() {
-  let { BRANCH, INCOMING_HOOK_TITLE, INCOMING_HOOK_BODY } = process.env;
+  let { BRANCH, INCOMING_HOOK_TITLE } = process.env;
 
   const targetBranch = BRANCH;
-  const isTriggeredByContentful =
-    INCOMING_HOOK_TITLE === "Contentful integration";
-
-  let tag = "";
-
-  if (INCOMING_HOOK_BODY) {
-    const { event_name, ref } = JSON.parse(INCOMING_HOOK_BODY);
-
-    if (event_name === "tag_push") {
-      tag = ref.replace("refs/tags/", "");
-    }
-  }
+  // TODO: Ideally we could base it on git events.
+  const shouldSkipBuild =
+    !!INCOMING_HOOK_TITLE && INCOMING_HOOK_TITLE.includes(ignoredHooks);
 
   return {
-    isTriggeredByContentful,
+    shouldSkipBuild,
     targetBranch,
-    tag
+    tag: getCurrentCommitTag()
   };
 }
 
-async function buildContentful(branch, tag, isTriggeredByContentful) {
-  // NOTE: do not need to create new contentful environment if target brach is DEV_MAIN_BRANCH (MR merged into DEV_MAIN_BRANCH) or if it is a trigger from contentful netlify app
-  if (branch === DEV_MAIN_BRANCH || isTriggeredByContentful) {
-    const targetContentfulEnvironment = {
-      [PRODUCTION_BRANCH]: CONTENTFUL_PRODUCTION_BRANCH,
-      [PRE_PRODUCTION_BRANCH]: CONTENTFUL_PRE_PRODUCTION_BRANCH,
-      [DEV_MAIN_BRANCH]: CONTENTFUL_DEV_MAIN_BRANCH
-    }[branch];
+const getTargetContentfulEnvironment = (branch) =>
+  ({
+    [PRODUCTION_BRANCH]: CONTENTFUL_PRODUCTION_BRANCH,
+    [PRE_PRODUCTION_BRANCH]: CONTENTFUL_PRE_PRODUCTION_BRANCH,
+    [DEV_MAIN_BRANCH]: CONTENTFUL_DEV_MAIN_BRANCH
+  }[branch]);
 
+async function buildContentful(branch, tag) {
+  const targetContentfulEnvironment = getTargetContentfulEnvironment(branch);
+  // NOTE: do not need to create new contentful environment if target brach is DEV_MAIN_BRANCH (MR merged into DEV_MAIN_BRANCH) or if it is a trigger from contentful netlify app
+  if (branch === DEV_MAIN_BRANCH) {
     if (!targetContentfulEnvironment) {
       console.log(
         `Build triggered on git branch ${branch} and is not one of${[
@@ -76,6 +82,14 @@ async function buildContentful(branch, tag, isTriggeredByContentful) {
         `Migration failed on contentful environment ${targetContentfulEnvironment}, please check the error log above.`
       );
     }
+
+    return;
+  }
+
+  if (!tag) {
+    console.log(
+      "No tag found. Skipping the contentful build process and will exit without error to allow the next build step to continue in the pipeline."
+    );
 
     return;
   }
@@ -170,12 +184,19 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
   console.log(
     `Creating new contentful environment ${tag} from ${CONTENTFUL_PRODUCTION_BRANCH}`
   );
-
-  let newEnv = await space.createEnvironmentWithId(
-    tag,
-    { name: tag },
-    CONTENTFUL_PRODUCTION_BRANCH
-  );
+  let newEnv;
+  try {
+    newEnv = await space.createEnvironmentWithId(
+      tag,
+      { name: tag },
+      CONTENTFUL_PRODUCTION_BRANCH
+    );
+  } catch (error) {
+    console.log(
+      "Something went wrong while creating the contentful environment. See more details below."
+    );
+    throw new Error(error);
+  }
 
   console.log(`Running migration on contentful environment ${tag}...`);
 
@@ -264,20 +285,30 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
 }
 
 async function main() {
-  const { targetBranch, tag, isTriggeredByContentful } = parseCIEnvironments();
+  const { targetBranch, tag, shouldSkipBuild } = parseCIEnvironments();
 
   console.log(`Build environment information:`, {
     targetBranch,
     tag,
-    isTriggeredByContentful
+    shouldSkipBuild
   });
+
+  if (shouldSkipBuild) {
+    console.log(
+      `Builds triggered by ${ignoredHooks.join(
+        ", "
+      )} are ignored. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
+    );
+
+    return;
+  }
 
   try {
     if (!targetBranch) {
       throw new Error("You must run this command in netlify CI environment");
     }
 
-    await buildContentful(targetBranch, tag, isTriggeredByContentful);
+    await buildContentful(targetBranch, tag);
   } catch (err) {
     console.error(err);
     process.exit(1);
