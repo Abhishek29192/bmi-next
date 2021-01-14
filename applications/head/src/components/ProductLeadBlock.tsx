@@ -40,7 +40,8 @@ type Props = {
 };
 
 const DOCUMENTS_PER_PAGE = 24;
-const MAX_DOWNLOAD_LIMIT = 10 * 1048576;
+const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
+  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 const ProductLeadBlock = ({
   description,
@@ -198,7 +199,9 @@ const ProductLeadBlock = ({
           index="three"
         >
           <div className={styles["document-library"]} ref={resultsElement}>
-            <DownloadList maxSize={MAX_DOWNLOAD_LIMIT}>
+            <DownloadList
+              maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
+            >
               <DocumentSimpleTableResults
                 documents={documents}
                 page={page}
