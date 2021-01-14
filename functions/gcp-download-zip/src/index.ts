@@ -2,10 +2,14 @@ import type { HttpFunction } from "@google-cloud/functions-framework/build/src/f
 import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage/build/src/storage";
 import Archiver from "archiver";
+import { verifyOrigins } from "./verify";
 
 const storage = new Storage();
 const bucketName = process.env.GCS_NAME;
 const bucket = storage.bucket(bucketName);
+const validHosts = process.env.DXB_VALID_HOSTS.split(",").map((value) =>
+  value.trim()
+);
 
 export const download: HttpFunction = async (request, response) => {
   response.set("Access-Control-Allow-Origin", "*");
@@ -16,6 +20,13 @@ export const download: HttpFunction = async (request, response) => {
     response.set("Access-Control-Max-Age", "3600");
 
     return response.status(204).send("");
+  } else if (
+    !verifyOrigins(
+      request.body.map((values) => values.href),
+      validHosts
+    )
+  ) {
+    return response.status(400).send("Invalid host(s).");
   } else {
     if (!(request.body && request.body.length)) {
       return response.status(400).send("Invalid request.");
