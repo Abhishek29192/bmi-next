@@ -6918,6 +6918,11 @@ commander@^2.19.0, commander@^2.20.0, commander@^2.20.3, commander@^2.8.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
+commander@^4.0.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
+  integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
+
 commander@^5.0.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-5.1.0.tgz#46abbd1652f8e059bddaef99bbdcb2ad9cf179ae"
@@ -8832,6 +8837,14 @@ entities@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/entities/-/entities-2.1.0.tgz#992d3129cf7df6870b96c57858c249a120f8b8b5"
   integrity sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==
+
+env-cmd@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/env-cmd/-/env-cmd-10.1.0.tgz#c7f5d3b550c9519f137fdac4dd8fb6866a8c8c4b"
+  integrity sha512-mMdWTT9XKN7yNth/6N6g2GuKuJTsKMDHlQFUDacb/heQRRWOTIZ42t1rMHnQu4jYxU1ajdTeJM+9eEETlqToMA==
+  dependencies:
+    commander "^4.0.0"
+    cross-spawn "^7.0.0"
 
 envinfo@^5.8.1:
   version "5.12.1"
@@ -23410,6 +23423,18 @@ yaml-loader@^0.6.0:
   dependencies:
     loader-utils "^1.4.0"
     yaml "^1.8.3"
+
+yaml2json@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/yaml2json/-/yaml2json-1.0.2.tgz#3ab846deb87c062d9904e143c6947128d488c119"
+  integrity sha1-OrhG3rh8Bi2ZBOFDxpRxKNSIwRk=
+  dependencies:
+    yaml "0.2.x"
+
+yaml@0.2.x:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-0.2.3.tgz#b5450e92e76ef36b5dd24e3660091ebaeef3e5c7"
+  integrity sha1-tUUOkudu82td0k42YAkeuu7z5cc=
 
 yaml@^1.10.0, yaml@^1.7.2, yaml@^1.8.3:
   version "1.10.0"
