@@ -6,6 +6,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { Data as ExploreBarData } from "./ExploreBar";
 import { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
 import { Data as InputBannerData } from "./InputBanner";
+import { Data as NextBestActionsData } from "./NextBestActions";
 
 type FeaturedImage = {
   featuredImage: {
@@ -29,6 +30,10 @@ export type Data = {
   pdpExploreBar: ExploreBarData | null;
   pdpShareWidget: ShareWidgetSectionData | null;
   pdpInputBanner: InputBannerData | null;
+  searchPageSearchTips: TitleWithContentData | null;
+  searchPageSidebarItems: TitleWithContentData | null;
+  searchPageNextBestActions: NextBestActionsData | null;
+  searchPageExploreBar: ExploreBarData | null;
   errorFourOFour: PromoData | null;
   errorGeneral: PromoData | null;
 };
@@ -72,6 +77,18 @@ export const query = graphql`
     }
     pdpInputBanner {
       ...InputBannerFragment
+    }
+    searchPageSearchTips {
+      ...TitleWithContentFragment
+    }
+    searchPageSidebarItems {
+      ...TitleWithContentFragment
+    }
+    searchPageNextBestActions {
+      ...NextBestActionsFragment
+    }
+    searchPageExploreBar {
+      ...ExploreBarFragment
     }
     errorFourOFour {
       ...PromoFragment

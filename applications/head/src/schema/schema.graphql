@@ -784,8 +784,12 @@ type ContentfulResources implements Node {
   errorGeneral: ContentfulPromo @link(from: "errorGeneral___NODE")
 
   "The search tips for the search page."
-  searchPageSearchTips: [ContentfulTitleWithContent]
+  searchPageSearchTips: ContentfulTitleWithContent
     @link(from: "searchPageSearchTips___NODE")
+
+  "The sidebar items for the search page."
+  searchPageSidebarItems: ContentfulTitleWithContent
+    @link(from: "searchPageSidebarItems___NODE")
 
   "The next best actions for the search page."
   searchPageNextBestActions: [ContentfulPromoOrPage]
