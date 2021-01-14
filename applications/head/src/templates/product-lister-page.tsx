@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
-import _ from "lodash";
+import { flatten } from "lodash";
 import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
 import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
@@ -351,7 +351,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       {products.length === 0 && (
                         <Typography>No results found</Typography>
                       )}
-                      {_.flatten(
+                      {flatten(
                         products.map((variant) => {
                           const brandLogoCode = variant.brandCode;
                           const brandLogo = iconMap[brandLogoCode];

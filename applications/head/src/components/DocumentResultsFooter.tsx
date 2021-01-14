@@ -4,7 +4,7 @@ import Pagination from "@bmi/pagination";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
-import _ from "lodash";
+import { flatten } from "lodash";
 import { downloadAs } from "../utils/client-download";
 
 type Props = {
@@ -32,7 +32,7 @@ export const handleDownloadClick = async (
       );
     }
 
-    const requestBody = _.flatten(listValues).map(
+    const requestBody = flatten(listValues).map(
       ({ __typename, asset, extension, title, url }) => ({
         href:
           __typename === "ContentfulDocument" ? `https:${asset.file.url}` : url,

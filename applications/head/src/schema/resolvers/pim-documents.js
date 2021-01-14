@@ -1,6 +1,6 @@
 "use strict";
 
-const _ = require("lodash");
+const { find } = require("lodash");
 const {
   getFormatFromFileName,
   isPimLinkDocument
@@ -26,7 +26,7 @@ module.exports = {
       .map((asset) => {
         const id = generateIdFromString(source.name + asset.name);
         const { url, fileSize, realFileName, mime } = asset;
-        const assetType = _.find(assetTypes, { pimCode: asset.assetType });
+        const assetType = find(assetTypes, { pimCode: asset.assetType });
 
         if (!assetType || !url) {
           return;
