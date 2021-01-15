@@ -1424,7 +1424,7 @@
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-14.1.2.tgz#33162fdbf427891122a96030f806ca9a9cf0e844"
   integrity sha512-XbgZ7op5uyYYszipgQg/bYobF4b+llXyTwS8hISRniQY9xKESz544eP2OGmRc4J3MHx29M7Vmx7TVA/IK65giQ==
 
-"@elastic/elasticsearch@^7.8.0":
+"@elastic/elasticsearch@^7.5.0", "@elastic/elasticsearch@^7.8.0":
   version "7.10.0"
   resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-7.10.0.tgz#da105a9c1f14146f9f2cab4e7026cb7949121b8d"
   integrity sha512-vXtMAQf5/DwqeryQgRriMtnFppJNLc/R7/R0D8E+wG5/kGM5i7mg+Hi7TM4NZEuXgtzZ2a/Nf7aR0vLyrxOK/w==
@@ -2798,6 +2798,14 @@
   dependencies:
     "@babel/runtime" "^7.7.2"
     regenerator-runtime "^0.13.3"
+
+"@logilab/gatsby-plugin-elasticsearch@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@logilab/gatsby-plugin-elasticsearch/-/gatsby-plugin-elasticsearch-0.1.5.tgz#48ea151e77a08b28c74fb95fbc59907bed87982e"
+  integrity sha512-uvXKIXkvbRqytvbm8e4vLnIpd4n60rbEQfKW9UW6P8ocbN+6XiH0GXWneC6RZT/mHOdwnwXo7ipiMW8OVptFgQ==
+  dependencies:
+    "@elastic/elasticsearch" "^7.5.0"
+    lodash.chunk "^4.2.0"
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
