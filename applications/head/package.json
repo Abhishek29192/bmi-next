@@ -81,6 +81,7 @@
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.6.4",
     "gatsby-plugin-typescript": "^2.4.6",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.18",
     "gatsby-source-contentful": "^4.2.1",
     "gatsby-source-filesystem": "^2.3.4",
     "gatsby-source-firestore": "^1.0.3",
@@ -99,7 +100,6 @@
   },
   "devDependencies": {
     "@types/helmet": "^0.0.48",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.18",
     "jest-preset-gatsby": "^1.0.81"
   }
 }
