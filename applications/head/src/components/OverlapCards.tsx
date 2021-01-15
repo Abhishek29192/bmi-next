@@ -9,7 +9,7 @@ type Card = {
   title: string;
   slug: string | null;
   featuredImage: {
-    resize: {
+    resized: {
       src: string;
     };
   } | null;
@@ -28,7 +28,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
               <Grid item key={key} xs={12} sm={6} md={5} lg={3}>
                 <CTACard
                   title={title}
-                  imageSource={featuredImage?.resize?.src}
+                  imageSource={featuredImage?.resized?.src}
                   action={{
                     model: "routerLink",
                     to: slug,
@@ -53,7 +53,7 @@ export const query = graphql`
       title
       slug
       featuredImage {
-        resize(width: 350) {
+        resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
           src
         }
       }

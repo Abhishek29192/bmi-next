@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import _ from "lodash";
+import { result, uniqBy, groupBy, find, pickBy } from "lodash";
 import {
   ClassificationFeatureValue,
   Product,
@@ -71,8 +71,8 @@ export const getSizeLabel = (
 };
 
 export const findMasterImageUrl = (images): string => {
-  return _.result<string>(
-    _.find(images, {
+  return result<string>(
+    find(images, {
       assetType: "MASTER_IMAGE",
       format: "Product-Listing-Card-Large-Desktop"
     }),
@@ -81,8 +81,8 @@ export const findMasterImageUrl = (images): string => {
 };
 
 export const findProductBrandLogoCode = (product: Product) => {
-  return _.result<string>(
-    _.find(product.categories, {
+  return result<string>(
+    find(product.categories, {
       parentCategoryCode: "BMI_Brands"
     }),
     "code"
@@ -90,7 +90,7 @@ export const findProductBrandLogoCode = (product: Product) => {
 };
 
 export const mapGalleryImages = (images) => {
-  const imageSets = Object.values(_.groupBy(images, "containerId")).filter(
+  const imageSets = Object.values(groupBy(images, "containerId")).filter(
     // NOTE: Only use one MASTER_IMAGE between the main product and the variant.
     (_images, index, self) => {
       return (
@@ -102,14 +102,14 @@ export const mapGalleryImages = (images) => {
   );
 
   return imageSets.map((images) => ({
-    mainSource: _.result<string>(
-      _.find(images, {
+    mainSource: result<string>(
+      find(images, {
         format: "Product-Hero-Small-Desktop-Tablet"
       }),
       "url"
     ),
-    thumbnail: _.result<string>(
-      _.find(images, {
+    thumbnail: result<string>(
+      find(images, {
         format: "Product-Color-Selector-Mobile"
       }),
       "url"
@@ -119,8 +119,8 @@ export const mapGalleryImages = (images) => {
 };
 
 export const getColourThumbnailUrl = (images): string =>
-  _.result(
-    _.find(images, { format: "Product-Color-Selector-Large-Desktop" }),
+  result(
+    find(images, { format: "Product-Color-Selector-Large-Desktop" }),
     "url"
   );
 
@@ -664,12 +664,12 @@ const findUniqueClassificationsOnVariant = (
   variantClassifications: TransformedClassificationsMap,
   numberOfVariants = 1
 ): TransformedClassificationsMap => {
-  return _.pickBy(variantClassifications, (value, code) => {
+  return pickBy(variantClassifications, (value, code) => {
     const getter = getPropIdentifier[code];
     const baseValues = baseClassifications[code] || [];
     // If all the values are the same, we'll get a single value
     const allSameValue =
-      _.uniqBy(baseValues, (value) => getter(value)).length === 1;
+      uniqBy(baseValues, (value) => getter(value)).length === 1;
 
     // AND if number of base values is equal to number of variants, all variants have the same value
     // Therefore it's common

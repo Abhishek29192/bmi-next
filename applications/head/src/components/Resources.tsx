@@ -10,7 +10,7 @@ import { Data as NextBestActionsData } from "./NextBestActions";
 
 type FeaturedImage = {
   featuredImage: {
-    resize: {
+    resized: {
       src: string;
     };
   } | null;
@@ -54,7 +54,11 @@ export const query = graphql`
 
         ... on ContentfulPromo {
           featuredImage {
-            resize(width: 350) {
+            resized: resize(
+              width: 350
+              toFormat: WEBP
+              jpegProgressive: false
+            ) {
               src
             }
           }
@@ -62,7 +66,11 @@ export const query = graphql`
 
         ... on ContentfulPage {
           featuredImage {
-            resize(width: 350) {
+            resized: resize(
+              width: 350
+              toFormat: WEBP
+              jpegProgressive: false
+            ) {
               src
             }
           }

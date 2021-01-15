@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { pick } from "lodash";
 import type {
   Product as PIMProduct,
   VariantOption as PIMVariant
@@ -62,7 +62,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     const scoringWeight =
       scoringWeightClassification?.features?.[0]?.featureValues?.[0]?.value;
 
-    const baseAttributes = _.pick(
+    const baseAttributes = pick(
       { ...product, ...variant },
       "approvalStatus",
       "externalProductCode",

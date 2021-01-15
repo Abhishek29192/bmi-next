@@ -16,6 +16,9 @@ export type Data = {
   } | null;
   featuredImage: {
     title: string;
+    resize: {
+      src: string;
+    };
     file: {
       fileName: string;
       url: string;
@@ -35,6 +38,9 @@ export const query = graphql`
     }
     featuredImage {
       title
+      resize(width: 1000, toFormat: JPG, jpegProgressive: true, quality: 60) {
+        src
+      }
       file {
         fileName
         url

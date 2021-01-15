@@ -28,7 +28,7 @@ const SyndicateSection = ({
       return {
         title,
         children: subtitle,
-        imageSource: featuredImage?.file.url,
+        imageSource: featuredImage?.resize.src,
         cta: getCTA(typePromoData, countryCode, getMicroCopy("page.linkLabel"))
       };
     }

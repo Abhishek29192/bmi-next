@@ -4,7 +4,7 @@ import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
 import { iconMap } from "./Icon";
-import _ from "lodash";
+import { isArray, isPlainObject } from "lodash";
 import { NavigationList } from "components/navigation/src";
 import { SiteContext } from "./Site";
 
@@ -89,10 +89,10 @@ const findMatchingSlug = (
     return false;
   }
   return navigationArray.some((item) => {
-    if (_.isArray(item)) {
+    if (isArray(item)) {
       return findMatchingSlug(item, path, maxDepth - 1);
     }
-    if (_.isPlainObject(item)) {
+    if (isPlainObject(item)) {
       if (item.action && item.action.to === path) {
         return true;
       } else {

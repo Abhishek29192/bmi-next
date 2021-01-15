@@ -1,7 +1,7 @@
 // THIS IS A CLONE OF EXTERNAL DEPENDENCIES I COULDN'T REQUIRE FROM HEAD ATM
 // POSSIBLY WITH SOME CHANGES
 
-import _ from "lodash";
+import { result, find } from "lodash";
 import { Product } from "./types/pim";
 
 export type Category = {
@@ -21,8 +21,8 @@ export type ProductCategoryTree = {
 };
 
 export const findProductBrandLogoCode = (product: Product) => {
-  return _.result<string>(
-    _.find(product.categories, {
+  return result<string>(
+    find(product.categories, {
       parentCategoryCode: "BMI_Brands"
     }),
     "code"
@@ -72,8 +72,8 @@ export const getFullCategoriesPaths = (
 };
 
 export const getColourThumbnailUrl = (images): string =>
-  _.result(
-    _.find(images, { format: "Product-Color-Selector-Large-Desktop" }),
+  result(
+    find(images, { format: "Product-Color-Selector-Large-Desktop" }),
     "url"
   );
 

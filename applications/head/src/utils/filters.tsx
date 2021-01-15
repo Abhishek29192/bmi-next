@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "lodash";
+import { uniqBy, map } from "lodash";
 import ColorSwatch from "../components/ColorSwatch";
 import { Product, Category } from "../templates/product-details-page";
 import {
@@ -18,7 +18,7 @@ export const isPIMDocument = (
 };
 
 const getProductsFromDocuments = (documents: DocumentResultsData) => {
-  return _.uniqBy(
+  return uniqBy(
     documents
       .map((document) => {
         if (isPIMDocument(document)) {
@@ -50,7 +50,7 @@ export const findPIMDocumentBrandCategory = (
 
 // Returns a Category like object
 const getBrandCategoryFromDocuments = (documents: DocumentResultsData) => {
-  return _.uniqBy(
+  return uniqBy(
     documents
       .map((document) => {
         if (isPIMDocument(document)) {
@@ -73,7 +73,7 @@ export const getAssetTypeFilterFromDocuments = (
   documents: DocumentResultsData
 ) => {
   // Find Unique assetTypes, they're the same as far as TS is concerned
-  const allValues = _.uniqBy(
+  const allValues = uniqBy(
     documents.map(({ assetType }) => assetType).filter(Boolean),
     "code"
   );
@@ -124,7 +124,7 @@ export const getProductFamilyFilterFromDocuments = (
 const getProductFamilyFilter = (
   products: readonly Pick<Product, "categories">[]
 ) => {
-  const allFamilyCategories = _.uniqBy(
+  const allFamilyCategories = uniqBy(
     products.reduce((allCategories, product) => {
       const productFamilyCategories = (product.categories || []).filter(
         ({ categoryType }) => categoryType === "ProductFamily"
@@ -180,7 +180,7 @@ const getColorFilter = (
 
   // Assuming all colours have the same label
   const label = colorFilters[0]?.name;
-  const values = _.uniqBy(_.map(colorFilters, "value"), "code");
+  const values = uniqBy(map(colorFilters, "value"), "code");
 
   return {
     label,
@@ -236,7 +236,7 @@ const getTextureFilter = (
 
   // Assuming all texturefamily classifications have the same label
   const label = textures[0]?.name;
-  const values = _.uniqBy(_.map(textures, "value"), "code");
+  const values = uniqBy(map(textures, "value"), "code");
 
   return {
     label,
