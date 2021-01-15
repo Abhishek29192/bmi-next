@@ -146,13 +146,13 @@ const Header = ({
           }}
           activeNavLabel={parentLabel}
           closeLabel={getMicroCopy("global.close")}
+          searchAction={`/${countryCode}/search`}
           searchLabel={getMicroCopy("search.label")}
           searchPlaceholder={getMicroCopy("search.placeholder")}
           openLabel={getMicroCopy("menu.open")}
           mainMenuTitleLabel={getMicroCopy("menu.mainTitle")}
           mainMenuDefaultLabel={getMicroCopy("menu.mainDefault")}
           languageLabel={getMicroCopy("menu.language")}
-          isSearchHidden
         />
       )}
     />

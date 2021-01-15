@@ -30,7 +30,8 @@ type HeaderProps = {
   logoAction?: ClickableAction;
   activeNavLabel?: string;
   closeLabel?: string;
-  isSearchHidden?: boolean;
+  isSearchDisabled?: boolean;
+  searchAction?: string;
   searchLabel?: string;
   searchPlaceholder?: string;
   openLabel?: string;
@@ -47,7 +48,8 @@ const Header = ({
   logoAction = { model: "htmlLink", href: "/" },
   activeNavLabel,
   closeLabel = "Close",
-  isSearchHidden,
+  isSearchDisabled,
+  searchAction,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
   openLabel = "Open menu",
@@ -247,7 +249,7 @@ const Header = ({
             </nav>
           </div>
           <div className={styles.NavigationBar__Right}>
-            {!isSearchHidden && (
+            {!isSearchDisabled && (
               <Button
                 accessibilityLabel={searchLabel}
                 isIconButton
@@ -298,7 +300,7 @@ const Header = ({
           />
         </div>
       </Slide>
-      {!isSearchHidden && (
+      {!isSearchDisabled && (
         <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
           <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
             <Button
@@ -311,7 +313,11 @@ const Header = ({
             </Button>
             <Typography variant="h4">How can we help you today?</Typography>
             {showSearch && (
-              <Search label={searchLabel} placeholder={searchPlaceholder} />
+              <Search
+                action={searchAction}
+                label={searchLabel}
+                placeholder={searchPlaceholder}
+              />
             )}
           </div>
         </Slide>
