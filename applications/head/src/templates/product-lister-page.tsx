@@ -268,7 +268,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               <Section backgroundColor="white">
                 <LeadBlock>
                   <LeadBlock.Content>
-                    <RichText document={content} underlineHeadings={["h2"]} />
+                    <RichText
+                      document={content}
+                      underlineHeadings={["h2", "h3", "h4"]}
+                    />
                   </LeadBlock.Content>
                   <LeadBlock.Card theme="pearl">
                     {features ? (
