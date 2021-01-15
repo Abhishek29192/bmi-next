@@ -152,7 +152,6 @@ const Header = ({
           mainMenuTitleLabel={getMicroCopy("menu.mainTitle")}
           mainMenuDefaultLabel={getMicroCopy("menu.mainDefault")}
           languageLabel={getMicroCopy("menu.language")}
-          isSearchHidden
         />
       )}
     />
