@@ -270,7 +270,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   >
                     <CTACard
                       title={title}
-                      imageSource={featuredImage?.resize?.src}
+                      imageSource={featuredImage?.resized?.src}
                       action={action}
                     />
                   </Grid>

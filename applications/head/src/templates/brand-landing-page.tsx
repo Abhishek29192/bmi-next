@@ -38,7 +38,7 @@ const getHeroItemsWithContext = (
     return {
       title,
       children: subtitle,
-      imageSource: featuredImage?.file.url,
+      imageSource: featuredImage?.resize.src,
       CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
     };
   });
@@ -72,7 +72,7 @@ const BrandLandingPage = ({ data }: Props) => {
           const firstSlide: HeroItem = {
             title: <BrandLogo style={{ height: "90px" }} />,
             children: description?.description,
-            imageSource: featuredImage?.file.url,
+            imageSource: featuredImage?.resize.src,
             hasUnderline: false
           };
 

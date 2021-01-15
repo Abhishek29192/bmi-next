@@ -81,7 +81,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const heroProps: HeroItem = {
     title,
     children: subtitle,
-    imageSource: featuredImage?.file.url
+    imageSource: featuredImage?.resize.src
   };
   const { countryCode } = data.contentfulSite;
   const heroLevel = (Math.min(
@@ -524,6 +524,9 @@ export const promoQuery = graphql`
     brandLogo
     slug
     featuredImage {
+      resize(toFormat: WEBP, jpegProgressive: false) {
+        src
+      }
       file {
         fileName
         url

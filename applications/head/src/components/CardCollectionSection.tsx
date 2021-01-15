@@ -18,7 +18,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { iconMap } from "./Icon";
 
 type FeaturedImage = {
-  resize: {
+  resized: {
     src: string;
   };
 };
@@ -62,7 +62,9 @@ const CardCollectionItem = ({
     <OverviewCard
       hasTitleUnderline
       title={title}
-      imageSource={type !== "Text Card" ? featuredImage?.resize.src : undefined}
+      imageSource={
+        type !== "Text Card" ? featuredImage?.resized.src : undefined
+      }
       isFlat={type === "Story Card"}
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
       footer={
@@ -262,7 +264,7 @@ export const query = graphql`
           title
         }
         featuredImage {
-          resize(width: 350) {
+          resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
             src
           }
         }
@@ -273,7 +275,7 @@ export const query = graphql`
           title
         }
         featuredImage {
-          resize(width: 350) {
+          resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
             src
           }
         }

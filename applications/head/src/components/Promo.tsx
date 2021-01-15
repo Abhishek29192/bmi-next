@@ -10,6 +10,9 @@ export type Data = {
     title: string;
   } | null;
   featuredImage: {
+    resize: {
+      src: string;
+    };
     file: {
       fileName: string;
       url: string;
@@ -27,6 +30,9 @@ export const promoQuery = graphql`
       title
     }
     featuredImage {
+      resize(width: 1000, toFormat: JPG, jpegProgressive: true, quality: 60) {
+        src
+      }
       file {
         fileName
         url

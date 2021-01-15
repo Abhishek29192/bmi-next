@@ -39,7 +39,7 @@ const getHeroItemsWithContext = (
     return {
       title,
       children: subtitle,
-      imageSource: featuredImage?.file.url,
+      imageSource: featuredImage?.resize.src,
       CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
     };
   });

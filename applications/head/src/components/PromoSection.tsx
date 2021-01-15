@@ -16,7 +16,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
   return (
     <PromoSection
       title={title}
-      imageSource={featuredImage?.file.url}
+      imageSource={featuredImage?.resize.src}
       className={styles["PromoSection"]}
     >
       {subtitle}

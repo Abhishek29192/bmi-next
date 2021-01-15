@@ -162,7 +162,7 @@ describe("Sections component", () => {
             brandLogo: null,
             subtitle: "page subtitle",
             featuredImage: {
-              resize: {
+              resized: {
                 src: "//image-url"
               }
             }

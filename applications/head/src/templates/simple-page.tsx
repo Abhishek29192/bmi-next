@@ -59,7 +59,7 @@ const SimplePage = ({ data }: Props) => {
   const heroProps: HeroItem = {
     title,
     children: subtitle,
-    imageSource: featuredImage?.file.url
+    imageSource: featuredImage?.resize.src
   };
   const heroLevel = (Math.min(
     findPath(data.contentfulSimplePage.slug, data.contentfulSite.menuNavigation)
