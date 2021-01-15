@@ -1,12 +1,15 @@
-"use strict";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { config } from "dotenv";
 
-require("dotenv").config();
+config({
+  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
+});
 
-// TODO: NOPE HACK!
+// @ts-ignore TODO: NOPE HACK!
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
-const fetch = require("node-fetch");
-const { PubSub } = require("@google-cloud/pubsub");
+import fetch, { RequestInit, BodyInit } from "node-fetch";
+import { PubSub } from "@google-cloud/pubsub";
 
 const pubSubClient = new PubSub({
   projectId: process.env.GCP_PROJECT_ID
@@ -19,7 +22,7 @@ const ENDPOINTS = {
   PRODUCTS: "/export/products"
 };
 
-const base64ToAscii = (base64String) => {
+const base64ToAscii = (base64String: string) => {
   return Buffer.from(base64String, "base64").toString("ascii");
 };
 
@@ -35,18 +38,17 @@ async function publishMessage(type, itemType, items) {
 }
 
 const getAuthToken = async () => {
-  var urlencoded = new URLSearchParams();
-  // TODO: move these into env vars
+  const urlencoded = new URLSearchParams();
   urlencoded.append("client_id", process.env.PIM_CLIENT_ID);
   urlencoded.append("client_secret", process.env.PIM_CLIENT_SECRET);
   urlencoded.append("grant_type", "client_credentials");
 
-  var requestOptions = {
+  const requestOptions: RequestInit = {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"
     },
-    body: urlencoded,
+    body: urlencoded as BodyInit,
     redirect: "follow"
   };
 
@@ -67,7 +69,7 @@ const getAuthToken = async () => {
 };
 
 const fetchData = async (path = "/", accessToken) => {
-  var options = {
+  var options: RequestInit = {
     method: "GET",
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -95,7 +97,11 @@ const fetchData = async (path = "/", accessToken) => {
   return body;
 };
 
-async function* getProductsFromMessage(endpoint, messageId, messageData) {
+async function* getProductsFromMessage(
+  endpoint: string,
+  messageId: string,
+  messageData
+) {
   // TODO: type could stay outside of this function
   const { token, type, itemType } = messageData;
 
@@ -135,13 +141,7 @@ async function* getProductsFromMessage(endpoint, messageId, messageData) {
   }
 }
 
-/**
- * Responds to any HTTP request.
- *
- * @param {!express:Request} req HTTP request context.
- * @param {!express:Response} res HTTP response context.
- */
-const handleRequest = async (req, res) => {
+export const handleRequest: HttpFunction = async (req, res) => {
   if (req.body) {
     console.log(`Received: ${JSON.stringify(req.body, null, 2)}`);
 
@@ -188,6 +188,3 @@ const handleRequest = async (req, res) => {
     res.status(404).send("not-ok");
   }
 };
-
-// NOTE: GCP likes the export this way 🤷‍♂️
-exports.handleRequest = handleRequest;
