@@ -31,6 +31,7 @@ type HeaderProps = {
   activeNavLabel?: string;
   closeLabel?: string;
   isSearchDisabled?: boolean;
+  searchAction?: string;
   searchLabel?: string;
   searchPlaceholder?: string;
   openLabel?: string;
@@ -48,6 +49,7 @@ const Header = ({
   activeNavLabel,
   closeLabel = "Close",
   isSearchDisabled,
+  searchAction,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
   openLabel = "Open menu",
@@ -311,7 +313,11 @@ const Header = ({
             </Button>
             <Typography variant="h4">How can we help you today?</Typography>
             {showSearch && (
-              <Search label={searchLabel} placeholder={searchPlaceholder} />
+              <Search
+                action={searchAction}
+                label={searchLabel}
+                placeholder={searchPlaceholder}
+              />
             )}
           </div>
         </Slide>
