@@ -4,6 +4,12 @@ import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
 
+const checkUrlAction = (url: string): boolean => {
+  const actionUrls = ["mailto:", "tel:", "callto:"];
+
+  return actionUrls.some((actionUrl) => url.startsWith(actionUrl));
+};
+
 export const getClickableActionFromUrl = (
   linkedPage?: LinkData["linkedPage"],
   url?: LinkData["url"],
@@ -23,9 +29,16 @@ export const getClickableActionFromUrl = (
   }
 
   if (url) {
+    const externalUrl = {
+      // NOTE: External links should always open in a new tab.
+      target: "_blank",
+      rel: "noopener noreferrer"
+    };
+
     return {
       model: "htmlLink",
-      href: url
+      href: url,
+      ...(checkUrlAction(url) ? {} : externalUrl)
     };
   }
 
@@ -49,10 +62,15 @@ export const getCTA = (
       return null;
     }
 
-    const { label, linkedPage, url } = data.cta;
+    const { label, linkedPage, url, asset } = data.cta;
 
     return {
-      action: getClickableActionFromUrl(linkedPage, url, countryCode),
+      action: getClickableActionFromUrl(
+        linkedPage,
+        url,
+        countryCode,
+        asset?.file?.url
+      ),
       label: label
     };
   }
@@ -72,6 +90,7 @@ export type LinkData = {
   icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
+  type?: "External" | "Internal" | "Asset";
   linkedPage: {
     // NOTE: null is for Homepage type
     slug: string | null;
@@ -104,6 +123,7 @@ export const query = graphql`
     icon
     isLabelHidden
     url
+    type
     linkedPage {
       ... on ContentfulHomePage {
         slug

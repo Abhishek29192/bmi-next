@@ -5,6 +5,8 @@ Object {
   "action": Object {
     "href": "https://www.external.co.uk",
     "model": "htmlLink",
+    "rel": "noopener noreferrer",
+    "target": "_blank",
   },
   "label": "string",
 }
@@ -33,5 +35,7 @@ exports[`Icon component getClickableActionFromUrl function returns a url 1`] = `
 Object {
   "href": "some-page",
   "model": "htmlLink",
+  "rel": "noopener noreferrer",
+  "target": "_blank",
 }
 `;

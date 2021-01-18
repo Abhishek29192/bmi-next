@@ -25,7 +25,8 @@ const EmbeddedLink = ({
       action={getClickableActionFromUrl(
         fields.linkedPage,
         fields.url,
-        countryCode
+        countryCode,
+        fields.asset?.file?.url
       )}
       className={styles["EmbeddedLink"]}
     >
