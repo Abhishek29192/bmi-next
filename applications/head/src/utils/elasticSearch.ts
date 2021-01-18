@@ -33,6 +33,7 @@ export const disableFiltersFromAggregations = (filters, aggregations) => {
 
 export const compileElasticSearchQuery = (
   filters,
+  // TODO: Handle this being optional differently
   categoryCode,
   page,
   pageSize
@@ -165,13 +166,15 @@ export const compileElasticSearchQuery = (
     query: {
       bool: {
         must: [
-          {
-            term: {
-              [searchTerms.plpBaseCategory]: categoryCode
-            }
-          },
+          categoryCode
+            ? {
+                term: {
+                  [searchTerms.plpBaseCategory]: categoryCode
+                }
+              }
+            : null,
           ...categoryFilters
-        ]
+        ].filter(Boolean)
       }
     }
   };

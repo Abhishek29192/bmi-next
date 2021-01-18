@@ -278,20 +278,56 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
 };
 
 export const getFilters = (
-  pageCategory: Category,
   pimClassificationNamespace: string,
-  products: readonly Product[]
+  products: readonly Product[],
+  pageCategory?: Category
 ) => {
   const allCategories = findAllCategories(products);
+  let showProductFamilyFilter = true;
+  let showCategoryFilters = true;
+
+  if (pageCategory) {
+    showProductFamilyFilter = pageCategory.categoryType !== "ProductFamily";
+    showCategoryFilters = pageCategory.categoryType !== "Category";
+  }
 
   return [
-    pageCategory.categoryType !== "ProductFamily"
-      ? getProductFamilyFilter(products)
-      : undefined,
+    showProductFamilyFilter ? getProductFamilyFilter(products) : undefined,
     getColorFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),
-    ...(pageCategory.categoryType !== "Category"
-      ? getCategoryFilters(allCategories)
-      : [])
+    ...(showCategoryFilters ? getCategoryFilters(allCategories) : [])
   ].filter(Boolean);
+};
+
+// TODO: Nicer way of doing this?
+export const updateFilterValue = (
+  filters,
+  filterName,
+  filterValue,
+  checked
+) => {
+  const addToArray = (array, value) => [...array, value];
+  const removeFromArray = (array, value) => array.filter((v) => v !== value);
+  const getNewValue = (filter, checked, value) => {
+    return checked
+      ? addToArray(filter.value || [], value)
+      : removeFromArray(filter.value || [], value);
+  };
+
+  return filters.map((filter) => {
+    return {
+      ...filter,
+      value:
+        filter.name === filterName
+          ? getNewValue(filter, checked, filterValue)
+          : filter.value
+    };
+  });
+};
+
+export const clearFilterValues = (filters) => {
+  return filters.map((filter) => ({
+    ...filter,
+    value: []
+  }));
 };
