@@ -8,12 +8,13 @@ import { graphql } from "gatsby";
 import React, { FormEvent, useEffect, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
+import { generateGetMicroCopy } from "../components/MicroCopy";
 import NextBestActions from "../components/NextBestActions";
 import Page from "../components/Page";
 import ProgressIndicator from "../components/ProgressIndicator";
 import RichText from "../components/RichText";
 import Scrim from "../components/Scrim";
-import { Data as SiteData, SiteContext } from "../components/Site";
+import { Data as SiteData } from "../components/Site";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 
 type Props = {
@@ -21,6 +22,10 @@ type Props = {
     contentfulSite: SiteData;
   };
 };
+
+type PageState = "default" | "hasResults" | "hasNoResults";
+
+type Results = any[]; // @todo
 
 type QueryInput = Extract<string, InputValue>;
 
@@ -54,9 +59,12 @@ const SearchPage = ({ data: { contentfulSite } }: Props) => {
     typeof window !== `undefined` ? window.location.search : ""
   );
   const [query, setQuery] = useState<QueryInput>(params.get(QUERY_KEY));
+  const [pageState, setPageState] = useState<PageState>("default");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<Results>([]);
   const { countryCode, menuNavigation, resources } = contentfulSite;
+  const getMicroCopy = generateGetMicroCopy(resources.microCopy);
+  const defaultTitle = getMicroCopy("searchPage.title");
 
   const handleSubmit = (
     event: FormEvent<HTMLFormElement>,
@@ -72,108 +80,114 @@ const SearchPage = ({ data: { contentfulSite } }: Props) => {
     );
   };
 
+  const getTitle = () => {
+    switch (pageState) {
+      case "hasResults":
+        return getMicroCopy("searchPage.title.withQuery").replace(
+          "{{query}}",
+          query
+        );
+      case "hasNoResults":
+        return getMicroCopy("searchPage.noResultsTitle").replace(
+          "{{query}}",
+          query
+        );
+      case "default":
+      default:
+        return defaultTitle;
+    }
+  };
+
   useEffect(() => {
     if (query) {
       setIsLoading(true);
       setTimeout(() => {
-        // @todo: Send off search query.
-        setResults(query === "demo" ? [1, 2, 3] : []);
+        // @todo: Send off search query, DEMO PURPOSES ONLY.
+        if (query === "demo") {
+          setResults([1, 2, 3]);
+          setPageState("hasResults");
+        } else {
+          setResults([]);
+          setPageState("hasNoResults");
+        }
         setIsLoading(false);
       }, 1000);
     }
   }, [query]);
 
   return (
-    <SiteContext.Consumer>
-      {({ getMicroCopy }) => {
-        const title = query
-          ? getMicroCopy("searchPage.title.withQuery").replace(
-              "{{query}}",
-              query
-            )
-          : getMicroCopy("searchPage.title");
-        const noResultsTitle = getMicroCopy(
-          "searchPage.noResultsTitle"
-        ).replace("{{query}}", query);
-
-        return (
-          <Page
-            title={query && results.length ? title : noResultsTitle}
-            pageData={{ slug: "search", inputBanner: null }}
-            siteData={contentfulSite}
-          >
-            {isLoading ? (
-              <Scrim theme="light">
-                <ProgressIndicator theme="light" />
-              </Scrim>
-            ) : null}
-            <Hero
-              level={3}
-              title={query && !results.length ? noResultsTitle : title}
-              breadcrumbs={
-                <Breadcrumbs
-                  title={title}
-                  slug="search"
-                  menuNavigation={menuNavigation}
-                />
-              }
+    <Page
+      title={getTitle()}
+      pageData={{ slug: "search", inputBanner: null }}
+      siteData={contentfulSite}
+    >
+      {isLoading ? (
+        <Scrim theme="light">
+          <ProgressIndicator theme="light" />
+        </Scrim>
+      ) : null}
+      <Hero
+        level={3}
+        title={getTitle()}
+        breadcrumbs={
+          <Breadcrumbs
+            title={getTitle()}
+            slug="search"
+            menuNavigation={menuNavigation}
+          />
+        }
+      />
+      <Section isSlim>
+        <LeadBlock>
+          <LeadBlock.Content>
+            <LeadBlock.Content.Section>
+              <Search
+                action={`/${countryCode}/search`}
+                buttonText={
+                  query ? getMicroCopy("searchPage.searchText") : defaultTitle
+                }
+                defaultValue={query || null}
+                fieldName={QUERY_KEY}
+                onSubmit={handleSubmit}
+                helperText={getMicroCopy("searchPage.helperText")}
+                placeholder={getMicroCopy("searchPage.placeholder")}
+              />
+            </LeadBlock.Content.Section>
+            {pageState === "hasNoResults" && resources.searchPageSearchTips && (
+              <SearchTips
+                title={resources.searchPageSearchTips.title}
+                content={resources.searchPageSearchTips.content}
+              />
+            )}
+          </LeadBlock.Content>
+          {pageState === "hasNoResults" && resources.searchPageSidebarItems && (
+            <SearchSidebarItems
+              title={resources.searchPageSidebarItems.title}
+              content={resources.searchPageSidebarItems.content}
             />
-            <Section isSlim>
-              <LeadBlock>
-                <LeadBlock.Content>
-                  <LeadBlock.Content.Section>
-                    <Search
-                      action={`/${countryCode}/search`}
-                      buttonText={
-                        query
-                          ? getMicroCopy("searchPage.searchText")
-                          : getMicroCopy("searchPage.title")
-                      }
-                      defaultValue={query || null}
-                      fieldName={QUERY_KEY}
-                      onSubmit={handleSubmit}
-                      helperText={getMicroCopy("searchPage.helperText")}
-                      placeholder={getMicroCopy("searchPage.placeholder")}
-                    />
-                  </LeadBlock.Content.Section>
-                  {query &&
-                    !results.length &&
-                    resources.searchPageSearchTips && (
-                      <SearchTips
-                        title={resources.searchPageSearchTips.title}
-                        content={resources.searchPageSearchTips.content}
-                      />
-                    )}
-                </LeadBlock.Content>
-                {query &&
-                  !results.length &&
-                  resources.searchPageSidebarItems && (
-                    <SearchSidebarItems
-                      title={resources.searchPageSidebarItems.title}
-                      content={resources.searchPageSidebarItems.content}
-                    />
-                  )}
-              </LeadBlock>
+          )}
+        </LeadBlock>
+      </Section>
+      {pageState === "hasResults" ? (
+        <Section isSlim>
+          Results
+          {results.map((result) => {
+            {
+              /* @todo: Display results */
+            }
+          })}
+        </Section>
+      ) : null}
+      {pageState === "hasNoResults"
+        ? resources.searchPageNextBestActions && (
+            <NextBestActions data={resources.searchPageNextBestActions} />
+          )
+        : resources.searchPageExploreBar && (
+            <Section backgroundColor="pearl" isSlim>
+              <ExploreBar data={resources.searchPageExploreBar} />
             </Section>
-            {query && results.length ? (
-              <Section isSlim>
-                Results
-                {/* @todo: Display results */}
-              </Section>
-            ) : null}
-            {query && !results.length
-              ? resources.searchPageNextBestActions && (
-                  <NextBestActions data={resources.searchPageNextBestActions} />
-                )
-              : resources.searchPageExploreBar && (
-                  <Section backgroundColor="pearl" isSlim>
-                    <ExploreBar data={resources.searchPageExploreBar} />
-                  </Section>
-                )}
-          </Page>
-        );
-      }}
-    </SiteContext.Consumer>
+          )}
+    </Page>
   );
 };
 
