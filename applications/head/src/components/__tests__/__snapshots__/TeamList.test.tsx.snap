@@ -8,7 +8,7 @@ exports[`TeamList component renders correctly 1`] = `
     class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-4"
     >
       <div
         class="ProfileCard"
