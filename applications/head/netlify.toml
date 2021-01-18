@@ -8,7 +8,7 @@
   publish = "public/"
 
   # Default build command.
-  command = "yarn build-contentful && yarn workspace @bmi/head run build --log-pages"
+  command = "./scripts/netlify-token-replacer.sh && yarn build-contentful && yarn workspace @bmi/head run build --log-pages"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   functions = "functions/"
@@ -33,6 +33,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "CONTENT_SECURITY_POLICY"
 
 
 # Redirect root to /no. This is temporary. This solution will not work with 
