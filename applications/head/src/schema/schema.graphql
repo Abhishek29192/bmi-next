@@ -118,8 +118,8 @@ interface ContentfulPage @nodeInterface {
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
-  "Tag for the page"
-  tag: ContentfulTag @link(from: "tag___NODE")
+  "Tags for the page"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 }
 
 """
@@ -155,8 +155,8 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The input banner for this page."
   shareWidget: ContentfulShareWidgetSection @link(from: "shareWidget___NODE")
 
-  "Tag for the page"
-  tag: ContentfulTag @link(from: "tag___NODE")
+  "Tags for the page"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 
   "The next best actions for this page."
   nextBestActions: [ContentfulPromoOrPage] @link(from: "nextBestActions___NODE")
@@ -201,8 +201,8 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
-  "Tag for the page"
-  tag: ContentfulTag @link(from: "tag___NODE")
+  "Tags for the page"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 
   "The title for the query section for this page."
   queriesTitle: String
@@ -253,8 +253,8 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
-  "Tag for the page"
-  tag: ContentfulTag @link(from: "tag___NODE")
+  "Tags for the page"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 
   "The team categories for this page."
   teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
@@ -327,8 +327,8 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
-  "Tag for the page"
-  tag: ContentfulTag @link(from: "tag___NODE")
+  "Tags for the page"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 }
 
 """
@@ -347,8 +347,8 @@ type ContentfulPromo implements Node {
   "The subtitle for this promo."
   subtitle: String
 
-  "Tag for the promo"
-  tag: ContentfulTag @link(from: "tag___NODE")
+  "Tags for this promo"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 
   "The link for this promo."
   cta: ContentfulLink @link(from: "cta___NODE")
@@ -1076,8 +1076,8 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
-  "Tag for the page"
-  tag: ContentfulTag @link(from: "tag___NODE")
+  "Tags for the page"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 
   "The documents for this page."
   documents: [Document]! @link(from: "documents___NODE")
@@ -1160,6 +1160,6 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
-  "Tag for the page."
-  tag: ContentfulTag @link(from: "tag___NODE")
+  "Tags for the page"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
 }

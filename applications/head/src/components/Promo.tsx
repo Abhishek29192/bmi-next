@@ -1,14 +1,13 @@
 import { graphql } from "gatsby";
 import { LinkData } from "./Link";
+import { TagData } from "./Tag";
 
 export type Data = {
   __typename: "ContentfulPromo";
   title: string;
   subtitle: string | null;
   brandLogo: string | null;
-  tag: {
-    title: string;
-  } | null;
+  tags: TagData[] | null;
   featuredImage: {
     file: {
       fileName: string;
@@ -23,8 +22,9 @@ export const promoQuery = graphql`
     title
     subtitle
     brandLogo
-    tag {
+    tags {
       title
+      type
     }
     featuredImage {
       file {
