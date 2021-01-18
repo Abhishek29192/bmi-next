@@ -601,7 +601,10 @@ export const getFullCategoriesPaths = (
 export const findAllCategories = (products: readonly Product[]) => {
   const allCategoryPaths = products
     .filter(({ variantOptions }) => variantOptions)
-    .map(({ categories }) => getFullCategoriesPaths(categories))
+    // Temporary tweak or leave it like this to be more resilient?
+    .map(({ categories }) =>
+      categories ? getFullCategoriesPaths(categories) : []
+    )
     .reduce((allPaths, productPaths) => [...allPaths, ...productPaths], []);
 
   return allCategoryPaths.reduce<ProductCategoryTree>((tree, path) => {
