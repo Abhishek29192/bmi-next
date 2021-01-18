@@ -362,6 +362,9 @@ type ContentfulTag implements Node {
 
   "The title should always be required."
   title: String!
+
+  "The type for this tag."
+  type: String!
 }
 
 """
