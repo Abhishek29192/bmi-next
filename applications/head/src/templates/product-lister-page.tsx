@@ -295,7 +295,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                               action={getClickableActionFromUrl(
                                 featuresLink.linkedPage,
                                 featuresLink.url,
-                                countryCode
+                                countryCode,
+                                featuresLink.asset?.file?.url
                               )}
                             >
                               {featuresLink.label}
