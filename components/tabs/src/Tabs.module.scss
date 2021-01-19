@@ -23,6 +23,10 @@
       .MuiTabs-scrollButtonsDesktop {
         display: flex;
       }
+
+      .MuiContainer-root.MuiTabs-root {
+        display: flex;
+      }
     }
   }
 
