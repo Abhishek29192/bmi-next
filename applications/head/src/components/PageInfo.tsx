@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import { TagData } from "./Tag";
 
 export type Data = {
   __typename:
@@ -11,9 +12,7 @@ export type Data = {
   subtitle: string | null;
   brandLogo: string | null;
   slug: string;
-  tag: {
-    title: string;
-  } | null;
+  tags: TagData[] | null;
   featuredImage: {
     title: string;
     resize: {
@@ -33,8 +32,9 @@ export const query = graphql`
     subtitle
     brandLogo
     slug
-    tag {
+    tags {
       title
+      type
     }
     featuredImage {
       title

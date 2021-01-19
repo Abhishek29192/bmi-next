@@ -10,7 +10,7 @@ import RichText, { RichTextData } from "./RichText";
 import Typography from "@bmi/typography";
 import styles from "./styles/CardCollectionSection.module.scss";
 import { Data as PageInfoData } from "./PageInfo";
-import { groupBy, flatten } from "lodash";
+import { uniq, flatten, groupBy, find } from "lodash";
 import Chip from "@bmi/chip";
 import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
@@ -129,16 +129,21 @@ const CardCollectionSection = ({
   // TODO: Type me.
   theme: any;
 }) => {
-  const cardsByTag = useMemo(() => groupBy(cards, "tag.title"), [cards]);
+  const cardsByTag = useMemo(
+    () => groupBy(cards, ({ tags }) => find(tags, { type: "Group" })?.title),
+    [cards]
+  );
   const groupKeys = moveRestKeyLast(Object.keys(cardsByTag));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>(
     groupKeys.length ? { [groupKeys[0]]: true } : {}
   );
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
-  const activeCards = flatten(
-    Object.entries(activeGroups).map(([title, isSelected]) =>
-      isSelected ? cardsByTag[title] : []
+  const activeCards = uniq(
+    flatten(
+      Object.entries(activeGroups).map(([title, isSelected]) =>
+        isSelected ? cardsByTag[title] : []
+      )
     )
   );
   const iteratableCards =
@@ -260,8 +265,9 @@ export const query = graphql`
       ...PageInfoFragment
       ... on ContentfulPromo {
         id
-        tag {
+        tags {
           title
+          type
         }
         featuredImage {
           resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
@@ -271,8 +277,9 @@ export const query = graphql`
       }
       ... on ContentfulPage {
         id
-        tag {
+        tags {
           title
+          type
         }
         featuredImage {
           resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
