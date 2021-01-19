@@ -110,6 +110,11 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       classifications,
       // Special because we want to use it for sorting, atm this seems easier
       scoringWeight,
+      // Parsing to a number so it'll be mapped as integer (long).
+      // @todo: Eventually to be swapped out with scoringWeight when changes have been propagated.
+      scoringWeightInt: Number.isFinite(Number.parseInt(scoringWeight))
+        ? Number.parseInt(scoringWeight)
+        : 0,
       colourfamilyCode,
       texturefamilyCode
     };
