@@ -129,7 +129,8 @@ export const compileElasticSearchQuery = (
   return {
     size: pageSize,
     from: page * pageSize,
-    sort: [{ "scoringWeight.keyword": "desc" }, { "name.keyword": "asc" }],
+    // NOTE: scoringWeightInt is a number (long) in the index, no ".keyword" field
+    sort: [{ scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
     aggs: {
       categories: {
         terms: {
