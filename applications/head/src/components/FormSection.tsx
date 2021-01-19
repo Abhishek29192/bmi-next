@@ -120,10 +120,10 @@ const Input = ({
         <Select isRequired={required} label={label} name={name}>
           <MenuItem value="none">None</MenuItem>
           {options.split(/, |,/).map((option, $i) => {
-            const [string, value] = option.split(/= |=/);
+            const [select, value] = option.split(/= |=/);
             return (
-              <MenuItem key={$i} value={value || string}>
-                {string}
+              <MenuItem key={$i} value={value ? option : select}>
+                {select}
               </MenuItem>
             );
           })}
@@ -184,9 +184,12 @@ const FormSection = ({
 
     // @todo: This needs to be less reliant on string patterns
     const recipientsFromValues = values.recipients as string;
+    const isEmailPresent = ["@", "="].every((char) =>
+      recipientsFromValues.includes(char)
+    );
     const conditionalRecipients =
-      recipientsFromValues && recipientsFromValues.includes("@")
-        ? recipientsFromValues
+      recipientsFromValues && isEmailPresent
+        ? recipientsFromValues.split(/= |=/)[1]
         : recipients;
 
     try {
@@ -196,7 +199,7 @@ const FormSection = ({
         {
           locale: node_locale,
           title,
-          recipients: conditionalRecipients.split(/, |,/),
+          recipients: conditionalRecipients,
           values
         },
         {
