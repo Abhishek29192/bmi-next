@@ -116,6 +116,11 @@ const getOptions = (settings: Settings): Options => {
     },
     renderMark: {
       [MARKS.BOLD]: (text) => <strong>{text}</strong>
+    },
+    renderText: (text) => {
+      return text.split("\n").reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
     }
   };
 };
