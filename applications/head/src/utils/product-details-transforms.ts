@@ -90,7 +90,8 @@ export const findProductBrandLogoCode = (product: Product) => {
 };
 
 export const mapGalleryImages = (images) => {
-  const imageSets = Object.values(groupBy(images, "containerId")).filter(
+  const imagesByFormat = Object.values(groupBy(images, "containerId"));
+  const masterImageSet = imagesByFormat.filter(
     // NOTE: Only use one MASTER_IMAGE between the main product and the variant.
     (_images, index, self) => {
       return (
@@ -100,6 +101,12 @@ export const mapGalleryImages = (images) => {
       );
     }
   );
+  const imageSets = [
+    ...masterImageSet,
+    ...imagesByFormat.filter((images) =>
+      images.some((image) => image.assetType === "GALLERY")
+    )
+  ];
 
   return imageSets.map((images) => ({
     mainSource: result<string>(
@@ -120,7 +127,10 @@ export const mapGalleryImages = (images) => {
 
 export const getColourThumbnailUrl = (images): string =>
   result(
-    find(images, { format: "Product-Color-Selector-Large-Desktop" }),
+    find(images, {
+      format: "Product-Color-Selector-Mobile",
+      assetType: "MASTER_IMAGE"
+    }),
     "url"
   );
 
