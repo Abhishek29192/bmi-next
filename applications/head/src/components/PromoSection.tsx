@@ -26,7 +26,8 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
             action={getClickableActionFromUrl(
               cta.linkedPage,
               cta.url,
-              countryCode
+              countryCode,
+              cta?.asset?.file?.url
             )}
           >
             {cta.label}
