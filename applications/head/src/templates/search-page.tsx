@@ -13,7 +13,7 @@ import OverviewCard from "@bmi/overview-card";
 import AnchorLink from "@bmi/anchor-link";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
 import { graphql, Link } from "gatsby";
-import React, { FormEvent, useEffect, useRef, useState } from "react";
+import React, { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
@@ -65,10 +65,6 @@ type Props = {
   };
 };
 
-type PageState = "default" | "hasResults" | "hasNoResults";
-
-type Results = any[]; // @todo
-
 type QueryInput = Extract<string, InputValue>;
 
 const SearchTips = ({
@@ -102,9 +98,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     typeof window !== `undefined` ? window.location.search : ""
   );
   const [query, setQuery] = useState<QueryInput>(params.get(QUERY_KEY));
-  const [pageState, setPageState] = useState<PageState>("default");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [results, setResults] = useState<Results>([]);
   const resultsElement = useRef<HTMLDivElement>(null);
 
   // TODO: Focusing on products tab initially, then to more generic results
@@ -117,6 +111,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
   );
+  const hasResults = products.length > 0;
 
   const { countryCode, menuNavigation, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
@@ -139,23 +134,25 @@ const SearchPage = ({ pageContext, data }: Props) => {
     isInitialLoad.current = true;
   };
 
-  const getTitle = () => {
-    switch (pageState) {
-      case "hasResults":
-        return getMicroCopy("searchPage.title.withQuery").replace(
-          "{{query}}",
-          query
-        );
-      case "hasNoResults":
-        return getMicroCopy("searchPage.noResultsTitle").replace(
-          "{{query}}",
-          query
-        );
-      case "default":
-      default:
-        return defaultTitle;
+  const pageTitle = useMemo(() => {
+    // If no query, we can't show a title referring to the query
+    if (!query) {
+      return defaultTitle;
     }
-  };
+
+    // Otherwise, the title depends on if there are results.
+    if (hasResults) {
+      return getMicroCopy("searchPage.title.withQuery").replace(
+        "{{query}}",
+        query
+      );
+    } else {
+      return getMicroCopy("searchPage.noResultsTitle").replace(
+        "{{query}}",
+        query
+      );
+    }
+  }, [query, hasResults]);
 
   const isInitialLoad = useRef(true);
 
@@ -263,7 +260,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
   return (
     <Page
-      title={getTitle()}
+      title={pageTitle}
       pageData={{ slug: "search", inputBanner: null }}
       siteData={contentfulSite}
     >
@@ -274,10 +271,10 @@ const SearchPage = ({ pageContext, data }: Props) => {
       ) : null}
       <Hero
         level={3}
-        title={getTitle()}
+        title={pageTitle}
         breadcrumbs={
           <Breadcrumbs
-            title={getTitle()}
+            title={pageTitle}
             slug="search"
             menuNavigation={menuNavigation}
           />
@@ -299,14 +296,14 @@ const SearchPage = ({ pageContext, data }: Props) => {
                 placeholder={getMicroCopy("searchPage.placeholder")}
               />
             </LeadBlock.Content.Section>
-            {pageState === "hasNoResults" && resources.searchPageSearchTips && (
+            {!hasResults && resources.searchPageSearchTips && (
               <SearchTips
                 title={resources.searchPageSearchTips.title}
                 content={resources.searchPageSearchTips.content}
               />
             )}
           </LeadBlock.Content>
-          {pageState === "hasNoResults" && resources.searchPageSidebarItems && (
+          {!hasResults && resources.searchPageSidebarItems && (
             <SearchSidebarItems
               title={resources.searchPageSidebarItems.title}
               content={resources.searchPageSidebarItems.content}
@@ -314,120 +311,122 @@ const SearchPage = ({ pageContext, data }: Props) => {
           )}
         </LeadBlock>
       </Section>
-      <Section isSlim backgroundColor="white">
-        <Tabs initialValue="products" theme="secondary">
-          <Tabs.TabPanel
-            heading={`Products (${totalProductsCount})`}
-            index="products"
-          >
-            {/* TODO: Sure the ref should be on here? how does this work across tabs? */}
-            <Grid container spacing={3} ref={resultsElement}>
-              <Grid item xs={12} md={12} lg={3}>
-                <PerfectScrollbar
-                  style={{
-                    position: "sticky",
-                    top: "180px",
-                    maxHeight: "calc(100vh - 200px)",
-                    overflow: "hidden"
-                  }}
-                >
-                  <div
+      {hasResults ? (
+        <Section isSlim backgroundColor="white">
+          <Tabs initialValue="products" theme="secondary">
+            <Tabs.TabPanel
+              heading={`Products (${totalProductsCount})`}
+              index="products"
+            >
+              {/* TODO: Sure the ref should be on here? how does this work across tabs? */}
+              <Grid container spacing={3} ref={resultsElement}>
+                <Grid item xs={12} md={12} lg={3}>
+                  <PerfectScrollbar
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: 4
+                      position: "sticky",
+                      top: "180px",
+                      maxHeight: "calc(100vh - 200px)",
+                      overflow: "hidden"
                     }}
                   >
-                    <Typography variant="h5">
-                      {getMicroCopy("plp.filters.title")}
-                    </Typography>
-                    <Button variant="text" onClick={clearFilters}>
-                      {getMicroCopy("plp.filters.clearAll")}
-                    </Button>
-                  </div>
-                  <Filters filters={filters} onChange={handleFiltersChange} />
-                </PerfectScrollbar>
-              </Grid>
-              <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
-                <Grid container spacing={3}>
-                  {products.length === 0 && (
-                    <Typography>No results found</Typography>
-                  )}
-                  {products.map((variant) => {
-                    const brandLogoCode = variant.brandCode;
-                    const brandLogo = iconMap[brandLogoCode];
-                    const mainImage = findMasterImageUrl(variant.images);
-                    const product: Product = variant.baseProduct;
-
-                    const uniqueClassifications = mapClassificationValues(
-                      findUniqueVariantClassifications(
-                        { ...variant, _product: product },
-                        pageContext.pimClassificationCatalogueNamespace
-                      )
-                    );
-
-                    return (
-                      <Grid
-                        item
-                        key={`${product.code}-${variant.code}`}
-                        xs={12}
-                        md={6}
-                        lg={4}
-                      >
-                        <OverviewCard
-                          title={product.name}
-                          titleVariant="h5"
-                          subtitle={uniqueClassifications}
-                          subtitleVariant="h6"
-                          imageSource={mainImage}
-                          imageSize="contain"
-                          brandImageSource={brandLogo}
-                          footer={
-                            <AnchorLink
-                              iconEnd
-                              action={{
-                                model: "routerLink",
-                                linkComponent: Link,
-                                to: getProductUrl(countryCode, variant.code)
-                              }}
-                            >
-                              {getMicroCopy("plp.product.viewDetails")}
-                            </AnchorLink>
-                          }
-                        >
-                          {variant.shortDescription}
-                        </OverviewCard>
-                      </Grid>
-                    );
-                  })}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        marginBottom: 4
+                      }}
+                    >
+                      <Typography variant="h5">
+                        {getMicroCopy("plp.filters.title")}
+                      </Typography>
+                      <Button variant="text" onClick={clearFilters}>
+                        {getMicroCopy("plp.filters.clearAll")}
+                      </Button>
+                    </div>
+                    <Filters filters={filters} onChange={handleFiltersChange} />
+                  </PerfectScrollbar>
                 </Grid>
-                {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
-                <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
-                  <Grid item xs={12} md={6} lg={6}></Grid>
-                  <Grid item xs={12} md={6} lg={6}>
-                    <Pagination
-                      page={page + 1}
-                      onChange={handlePageChange}
-                      count={pageCount}
-                    />
+                <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
+                  <Grid container spacing={3}>
+                    {products.length === 0 && (
+                      <Typography>No results found</Typography>
+                    )}
+                    {products.map((variant) => {
+                      const brandLogoCode = variant.brandCode;
+                      const brandLogo = iconMap[brandLogoCode];
+                      const mainImage = findMasterImageUrl(variant.images);
+                      const product: Product = variant.baseProduct;
+
+                      const uniqueClassifications = mapClassificationValues(
+                        findUniqueVariantClassifications(
+                          { ...variant, _product: product },
+                          pageContext.pimClassificationCatalogueNamespace
+                        )
+                      );
+
+                      return (
+                        <Grid
+                          item
+                          key={`${product.code}-${variant.code}`}
+                          xs={12}
+                          md={6}
+                          lg={4}
+                        >
+                          <OverviewCard
+                            title={product.name}
+                            titleVariant="h5"
+                            subtitle={uniqueClassifications}
+                            subtitleVariant="h6"
+                            imageSource={mainImage}
+                            imageSize="contain"
+                            brandImageSource={brandLogo}
+                            footer={
+                              <AnchorLink
+                                iconEnd
+                                action={{
+                                  model: "routerLink",
+                                  linkComponent: Link,
+                                  to: getProductUrl(countryCode, variant.code)
+                                }}
+                              >
+                                {getMicroCopy("plp.product.viewDetails")}
+                              </AnchorLink>
+                            }
+                          >
+                            {variant.shortDescription}
+                          </OverviewCard>
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+                  {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
+                  <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
+                    <Grid item xs={12} md={6} lg={6}></Grid>
+                    <Grid item xs={12} md={6} lg={6}>
+                      <Pagination
+                        page={page + 1}
+                        onChange={handlePageChange}
+                        count={pageCount}
+                      />
+                    </Grid>
                   </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-          </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Documents" index="documents">
-            Coming soon
-          </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Content pages" index="content-pages">
-            Coming soon
-          </Tabs.TabPanel>
-          <Tabs.TabPanel heading="Tools" index="tools">
-            Coming soon
-          </Tabs.TabPanel>
-        </Tabs>
-      </Section>
-      {pageState === "hasNoResults"
+            </Tabs.TabPanel>
+            <Tabs.TabPanel heading="Documents" index="documents">
+              Coming soon
+            </Tabs.TabPanel>
+            <Tabs.TabPanel heading="Content pages" index="content-pages">
+              Coming soon
+            </Tabs.TabPanel>
+            <Tabs.TabPanel heading="Tools" index="tools">
+              Coming soon
+            </Tabs.TabPanel>
+          </Tabs>
+        </Section>
+      ) : null}
+      {!hasResults
         ? resources.searchPageNextBestActions && (
             <NextBestActions data={resources.searchPageNextBestActions} />
           )
