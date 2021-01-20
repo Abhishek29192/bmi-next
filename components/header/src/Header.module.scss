@@ -120,14 +120,17 @@
     }
   }
 
+  .SearchButton {
+    color: $color-cyan-500;
+
+    @media (min-width: $breakpoint-sm) {
+      color: $color-white;
+    }
+  }
+
   .BurgerButton {
-    background-color: $color-white;
     color: $color-cyan-500;
     margin-left: 10px;
-
-    &:hover {
-      background-color: $color-pearl;
-    }
 
     @media (min-width: $breakpoint-sm) {
       display: none;

@@ -252,6 +252,8 @@ const Header = ({
             {!isSearchDisabled && (
               <Button
                 accessibilityLabel={searchLabel}
+                className={styles["SearchButton"]}
+                variant={size === "small" ? "text" : "contained"}
                 isIconButton
                 onClick={toggleSearch}
               >
@@ -260,7 +262,8 @@ const Header = ({
             )}
             <Button
               accessibilityLabel={openLabel}
-              className={styles.BurgerButton}
+              className={styles["BurgerButton"]}
+              variant="text"
               isIconButton
               onClick={toggleMenu}
             >
