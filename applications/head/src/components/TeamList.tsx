@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import ProfileCard from "@bmi/profile-card";
@@ -6,6 +6,7 @@ import { iconMap } from "./Icon";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import EqualHeights from "@bmi/equal-heights";
+import Button from "@bmi/button";
 
 export type Data = {
   name: string;
@@ -18,61 +19,69 @@ export type Data = {
   links: LinkData[];
 }[];
 
+const TEAM_MEMBERS_PER_PAGE = 8;
+
 const TeamList = ({ data }: { data: Data }) => {
-  const { countryCode } = useContext(SiteContext);
-
+  const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const showMoreText = getMicroCopy("global.showMore");
+  const [numberVisible, setNumberVisible] = useState(TEAM_MEMBERS_PER_PAGE);
   return (
-    <EqualHeights>
-      <Grid container justify="center" spacing={3}>
-        {data.map((teamMember, index) => {
-          const { name, jobTitle, profilePicture, links } = teamMember;
-          const src = profilePicture.resize.src;
+    <div>
+      <EqualHeights>
+        <Grid container justify="center" spacing={3}>
+          {data.slice(0, numberVisible).map((teamMember, index) => {
+            const { name, jobTitle, profilePicture, links } = teamMember;
+            const src = profilePicture.resize.src;
 
-          return (
-            <Grid
-              item
-              xs={12}
-              md={6}
-              lg={4}
-              xl={data.length < 4 ? 4 : 3}
-              key={index}
+            return (
+              <Grid item xs={12} md={6} key={index}>
+                <ProfileCard
+                  imageSource={src}
+                  body={
+                    <EqualHeights.Consumer shouldDisableBoxSizing>
+                      {({ addRef, equalHeight }) => {
+                        return (
+                          <ProfileCard.Body
+                            name={name}
+                            title={jobTitle}
+                            style={{ height: equalHeight }}
+                            ref={addRef(index)}
+                          />
+                        );
+                      }}
+                    </EqualHeights.Consumer>
+                  }
+                >
+                  {(links || []).map((link, index) => (
+                    <ProfileCard.Row
+                      key={`team-member-link-${index}`}
+                      action={getClickableActionFromUrl(
+                        link.linkedPage,
+                        link.url,
+                        countryCode
+                      )}
+                      icon={iconMap[link.icon]}
+                    >
+                      {link.label}
+                    </ProfileCard.Row>
+                  ))}
+                </ProfileCard>
+              </Grid>
+            );
+          })}
+          {numberVisible < data.length ? (
+            <Button
+              variant="outlined"
+              onClick={() =>
+                setNumberVisible((prevNum) => prevNum + TEAM_MEMBERS_PER_PAGE)
+              }
             >
-              <ProfileCard
-                imageSource={src}
-                body={
-                  <EqualHeights.Consumer shouldDisableBoxSizing>
-                    {({ addRef, equalHeight }) => {
-                      return (
-                        <ProfileCard.Body
-                          name={name}
-                          title={jobTitle}
-                          style={{ height: equalHeight }}
-                          ref={addRef(index)}
-                        />
-                      );
-                    }}
-                  </EqualHeights.Consumer>
-                }
-              >
-                {(links || []).map((link, index) => (
-                  <ProfileCard.Row
-                    key={`team-member-link-${index}`}
-                    action={getClickableActionFromUrl(
-                      link.linkedPage,
-                      link.url,
-                      countryCode
-                    )}
-                    icon={iconMap[link.icon]}
-                  >
-                    {link.label}
-                  </ProfileCard.Row>
-                ))}
-              </ProfileCard>
-            </Grid>
-          );
-        })}
-      </Grid>
-    </EqualHeights>
+              {showMoreText}
+            </Button>
+          ) : null}
+        </Grid>
+      </EqualHeights>
+    </div>
   );
 };
 
