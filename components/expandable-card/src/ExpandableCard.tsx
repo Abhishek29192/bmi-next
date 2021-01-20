@@ -212,7 +212,13 @@ const ExpandableCard = ({
   );
 };
 
-const ExpandableCardList = ({ items }: { items: readonly CardItem[] }) => {
+const ExpandableCardList = ({
+  items,
+  className
+}: {
+  items: readonly CardItem[];
+  className?: string;
+}) => {
   const expandedItems = useMemo(
     () =>
       items.filter(({ isExpanded }) => isExpanded).map((_item, index) => index),
@@ -231,7 +237,7 @@ const ExpandableCardList = ({ items }: { items: readonly CardItem[] }) => {
   }
 
   return (
-    <div className={listStyles["ExpandableCardList"]}>
+    <div className={classnames(listStyles["ExpandableCardList"], className)}>
       {items.map((props, key) => (
         <ExpandableCard
           {...props}
