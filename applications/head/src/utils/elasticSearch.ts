@@ -2,20 +2,46 @@ import { devLog } from "../utils/devLog";
 
 const ES_INDEX_NAME = "nodetest_v3_products";
 
-export const disableFiltersFromAggregations = (filters, aggregations) => {
-  const aggregationNames = {
-    // TODO: Rename filter.name to colourfamily
-    colour: "colourfamily",
-    texturefamily: "texturefamily",
-    productFamily: "allCategories"
-  };
+const ES_AGGREGATION_NAMES = {
+  // TODO: Rename filter.name to colourfamily
+  colour: "colourfamily",
+  texturefamily: "texturefamily",
+  productFamily: "allCategories"
+};
 
+export const removeIrrelevantFilters = (filters, aggregations) => {
+  const newFilters = filters
+    .map((filter) => {
+      return {
+        ...filter,
+        options: filter.options.filter((option) => {
+          // NOTE: all other filters are assumed to be categories
+          const aggregationName =
+            ES_AGGREGATION_NAMES[filter.name] || "categories";
+          const buckets = aggregations[aggregationName]?.buckets;
+
+          const aggregate = (buckets || []).find(
+            ({ key }) => key === option.value
+          );
+
+          return aggregate && aggregate.doc_count > 0;
+        })
+      };
+    })
+    // Return only filters with options
+    .filter(({ options }) => options.length);
+
+  return newFilters;
+};
+
+export const disableFiltersFromAggregations = (filters, aggregations) => {
   return filters.map((filter) => {
     return {
       ...filter,
       options: filter.options.map((option) => {
         // NOTE: all other filters are assumed to be categories
-        const aggregationName = aggregationNames[filter.name] || "categories";
+        const aggregationName =
+          ES_AGGREGATION_NAMES[filter.name] || "categories";
         const buckets = aggregations[aggregationName]?.buckets;
 
         const aggregate = (buckets || []).find(
@@ -33,9 +59,11 @@ export const disableFiltersFromAggregations = (filters, aggregations) => {
 
 export const compileElasticSearchQuery = (
   filters,
+  // TODO: Handle this being optional differently
   categoryCode,
   page,
-  pageSize
+  pageSize,
+  searchQuery?: string
 ): object => {
   const categoryFilters = [];
 
@@ -166,13 +194,37 @@ export const compileElasticSearchQuery = (
     query: {
       bool: {
         must: [
-          {
-            term: {
-              [searchTerms.plpBaseCategory]: categoryCode
-            }
-          },
+          searchQuery
+            ? {
+                multi_match: {
+                  query: searchQuery,
+                  fields: [
+                    "externalProductCode",
+                    "name",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    // known classification values
+                    // TODO: a way of doing this generically?
+                    "colourfamilyValue.keyword",
+                    "texturefamilyValue.keyword",
+                    "measurementValue.keyword",
+                    "categories.value.keyword",
+                    "plpCategories.value.keyword"
+                  ]
+                }
+              }
+            : null,
+          categoryCode
+            ? {
+                term: {
+                  [searchTerms.plpBaseCategory]: categoryCode
+                }
+              }
+            : null,
           ...categoryFilters
-        ]
+        ].filter(Boolean)
       }
     }
   };

@@ -28,7 +28,11 @@ import {
   mapClassificationValues,
   findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
-import { getFilters } from "../utils/filters";
+import {
+  clearFilterValues,
+  getFilters,
+  updateFilterValue
+} from "../utils/filters";
 import Button from "@bmi/button";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
 import {
@@ -116,9 +120,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const [filters, setFilters] = useState(
     pageCategory
       ? getFilters(
-          pageCategory,
           pageContext.pimClassificationCatalogueNamespace,
-          data.allProducts.nodes
+          data.allProducts.nodes,
+          pageCategory
         )
       : []
   );
@@ -135,25 +139,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     fetchProducts(filters, pageContext.categoryCode, page - 1, PAGE_SIZE);
   };
 
-  const handleFiltersChange = async (filterName, filterValue, checked) => {
-    const addToArray = (array, value) => [...array, value];
-    const removeFromArray = (array, value) => array.filter((v) => v !== value);
-    const getNewValue = (filter, checked, value) => {
-      return checked
-        ? addToArray(filter.value || [], filterValue)
-        : removeFromArray(filter.value || [], filterValue);
-    };
-
-    let newFilters = filters.map((filter) => {
-      return {
-        ...filter,
-        value:
-          filter.name === filterName
-            ? getNewValue(filter, checked, filterValue)
-            : filter.value
-      };
-    });
-
+  const onFiltersChange = async (newFilters) => {
     // NOTE: If filters change, we reset pagination to first page
     const result = await fetchProducts(
       newFilters,
@@ -172,30 +158,23 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     setFilters(newFilters);
   };
 
-  // Resets all selected filter values to nothing
-  // TODO: This has duplication but didn't want to refactor too much at once
-  const clearFilters = async () => {
-    let newFilters = filters.map((filter) => ({
-      ...filter,
-      value: []
-    }));
-
-    // NOTE: If filters change, we reset pagination to first page
-    const result = await fetchProducts(
-      newFilters,
-      pageContext.categoryCode,
-      0,
-      PAGE_SIZE
+  const handleFiltersChange = (filterName, filterValue, checked) => {
+    const newFilters = updateFilterValue(
+      filters,
+      filterName,
+      filterValue,
+      checked
     );
 
-    if (result && result.aggregations) {
-      newFilters = disableFiltersFromAggregations(
-        newFilters,
-        result.aggregations
-      );
-    }
+    onFiltersChange(newFilters);
+  };
 
-    setFilters(newFilters);
+  // Resets all selected filter values to nothing
+  // TODO: This has duplication but didn't want to refactor too much at once
+  const clearFilters = () => {
+    const newFilters = clearFilterValues(filters);
+
+    onFiltersChange(newFilters);
   };
 
   const fetchProducts = async (filters, categoryCode, page, pageSize) => {
