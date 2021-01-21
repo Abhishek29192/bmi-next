@@ -5,10 +5,13 @@ const { spawnSync } = require("child_process");
 const contentful = require("contentful-management");
 const { compareSemVer, isValidSemVer, parseSemVer } = require("semver-parser");
 const { execSync } = require("child_process");
+const ora = require("ora");
 
 const getCurrentCommitTag = () => {
   try {
-    return execSync(`git describe --tags --abbrev=0 --exact-match`)
+    return execSync(
+      `git fetch origin --tags && git describe --tags --abbrev=0 --exact-match`
+    )
       .toString()
       .trim();
   } catch (err) {
@@ -49,6 +52,35 @@ const getTargetContentfulEnvironment = (branch) =>
     [PRE_PRODUCTION_BRANCH]: CONTENTFUL_PRE_PRODUCTION_BRANCH,
     [DEV_MAIN_BRANCH]: CONTENTFUL_DEV_MAIN_BRANCH
   }[branch]);
+
+const wait = (aBit = 1000) => {
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      resolve();
+    }, aBit)
+  );
+};
+
+const isItCooked = (tag, space, attempts = 0) => {
+  if (attempts === 100) {
+    return;
+  }
+
+  return space
+    .getEnvironment(tag)
+    .then((newEnvironment) => {
+      if (newEnvironment.sys.status.sys.id !== "ready") {
+        throw "Status is not ready.";
+      }
+
+      return newEnvironment;
+    })
+    .catch(async () => {
+      await wait();
+
+      return isItCooked(tag, space, attempts + 1);
+    });
+};
 
 async function buildContentful(branch, tag) {
   const targetContentfulEnvironment = getTargetContentfulEnvironment(branch);
@@ -197,6 +229,14 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
     );
     throw new Error(error);
   }
+
+  const timer = ora(
+    'Waiting for the new environment status to become "Ready"'
+  ).start();
+
+  await isItCooked(tag, space);
+
+  timer.succeed("Contentful environment created.");
 
   console.log(`Running migration on contentful environment ${tag}...`);
 
