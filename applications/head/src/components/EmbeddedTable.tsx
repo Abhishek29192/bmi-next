@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "@bmi/table";
 import { graphql } from "gatsby";
+import styles from "./styles/EmbeddedTable.module.scss";
 
 type TableFields = {
   data: {
@@ -23,26 +24,28 @@ const EmbeddedTable = ({ fields }: Props) => {
   }
 
   return (
-    <Table>
-      <Table.Head>
-        <Table.Row>
-          {head.map((cellText, cellIndex) => (
-            <Table.Cell key={cellIndex}>{cellText}</Table.Cell>
-          ))}
-        </Table.Row>
-      </Table.Head>
-      {rows.length > 0 ? (
-        <Table.Body>
-          {rows.map((row, rowIndex) => (
-            <Table.Row key={rowIndex}>
-              {row.map((cellText, cellIndex) => (
-                <Table.Cell key={cellIndex}>{cellText}</Table.Cell>
-              ))}
-            </Table.Row>
-          ))}
-        </Table.Body>
-      ) : null}
-    </Table>
+    <div className={styles["EmbeddedTable"]}>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            {head.map((cellText, cellIndex) => (
+              <Table.Cell key={cellIndex}>{cellText}</Table.Cell>
+            ))}
+          </Table.Row>
+        </Table.Head>
+        {rows.length > 0 ? (
+          <Table.Body>
+            {rows.map((row, rowIndex) => (
+              <Table.Row key={rowIndex}>
+                {row.map((cellText, cellIndex) => (
+                  <Table.Cell key={cellIndex}>{cellText}</Table.Cell>
+                ))}
+              </Table.Row>
+            ))}
+          </Table.Body>
+        ) : null}
+      </Table>
+    </div>
   );
 };
 

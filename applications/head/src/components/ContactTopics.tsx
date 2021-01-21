@@ -17,6 +17,7 @@ import { Data as TitleWithContentData } from "./TitleWithContent";
 import RichText from "./RichText";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 import borderedItemStyles from "./styles/BorderedItem.module.scss";
+import styles from "./styles/ContactTopics.module.scss";
 
 export const iconMap = {
   build: BuildIcon,
@@ -78,7 +79,7 @@ const BorderedItem = () => {
 
 const Footer = ({ footerTitle, footerList }: FooterProps) => {
   return (
-    <>
+    <div>
       <Typography variant="h6" style={{ marginBottom: "42px" }}>
         {footerTitle}
       </Typography>
@@ -99,7 +100,9 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
               return (
                 <Grid key={key} {...gridItemProps}>
                   <BorderedItem />
-                  <Typography variant="h5">{title}</Typography>
+                  <Typography variant="h5" className={styles["heading"]}>
+                    {title}
+                  </Typography>
                   <RichText document={content} />
                 </Grid>
               );
@@ -114,7 +117,7 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
           })}
         </Grid>
       )}
-    </>
+    </div>
   );
 };
 
@@ -130,7 +133,9 @@ const ContactTopics = ({ topics }: { topics: Data[] }) => {
     };
   });
 
-  return <ExpandableCard.List items={items} />;
+  return (
+    <ExpandableCard.List items={items} className={styles["ContactTopics"]} />
+  );
 };
 
 export default ContactTopics;
@@ -146,12 +151,8 @@ export const query = graphql`
     footerTitle
     footerList {
       __typename
-      # ... on ContentfulTitleWithContent {
       ...TitleWithContentFragment
-      # }
-      # ... on ContentfulContactDetails {
       ...ContactDetailsFragment
-      # }
     }
   }
 `;

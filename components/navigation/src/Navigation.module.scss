@@ -121,9 +121,16 @@
   }
 
   .NavigationListButton {
+    text-align: left;
+
     svg {
       height: 30px;
       margin: -7px 0;
+    }
+
+    .icon-wrapper {
+      display: inline-block;
+      width: 100px;
     }
 
     .chevronRight,

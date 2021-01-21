@@ -4,7 +4,8 @@ import React, {
   useState,
   useMemo,
   CSSProperties,
-  useCallback
+  useCallback,
+  useLayoutEffect
 } from "react";
 import Card, { CardContent } from "@bmi/card";
 import Button from "@bmi/button";
@@ -115,6 +116,7 @@ const ExpandableCard = ({
     minWidth?: string;
     height?: string;
   }>({});
+  const [, setForceRerender] = useState(false);
   const cardElement = useRef<HTMLElement>(null);
   const [animationStatus, setAnimationStatus] = useState<AnimationStatus>(
     "END"
@@ -131,6 +133,21 @@ const ExpandableCard = ({
     },
     [isExpanded]
   );
+
+  useLayoutEffect(() => {
+    const doneResizing = () => {
+      setForceRerender((previous) => !previous);
+    };
+    let resizeId;
+    const onResize = () => {
+      clearTimeout(resizeId);
+      resizeId = setTimeout(doneResizing, 500);
+    };
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (animationStatus === "START") {
@@ -212,7 +229,13 @@ const ExpandableCard = ({
   );
 };
 
-const ExpandableCardList = ({ items }: { items: readonly CardItem[] }) => {
+const ExpandableCardList = ({
+  items,
+  className
+}: {
+  items: readonly CardItem[];
+  className?: string;
+}) => {
   const expandedItems = useMemo(
     () =>
       items.filter(({ isExpanded }) => isExpanded).map((_item, index) => index),
@@ -231,7 +254,7 @@ const ExpandableCardList = ({ items }: { items: readonly CardItem[] }) => {
   }
 
   return (
-    <div className={listStyles["ExpandableCardList"]}>
+    <div className={classnames(listStyles["ExpandableCardList"], className)}>
       {items.map((props, key) => (
         <ExpandableCard
           {...props}

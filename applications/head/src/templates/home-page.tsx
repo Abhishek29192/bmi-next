@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Search from "@bmi/search";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as InputBannerData } from "../components/InputBanner";
 import { Data as SlideData } from "../components/Promo";
 import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
-// import Search from "@bmi/search";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -39,7 +39,7 @@ const getHeroItemsWithContext = (
     return {
       title,
       children: subtitle,
-      imageSource: featuredImage?.file.url,
+      imageSource: featuredImage?.resize.src,
       CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
     };
   });
@@ -64,15 +64,15 @@ const HomePage = ({ data }: Props) => {
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
         {(context) => {
-          // const { getMicroCopy } = context;
+          const { countryCode, getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
           return (
             <Hero level={0} heroes={heroItems} hasSpaceBottom>
-              {/* NOTE: This is disabled until search gets implemented. */}
-              {/* <Search
+              <Search
+                action={`/${countryCode}/search`}
                 label={getMicroCopy("search.label")}
                 placeholder={getMicroCopy("search.placeholder")}
-              /> */}
+              />
             </Hero>
           );
         }}

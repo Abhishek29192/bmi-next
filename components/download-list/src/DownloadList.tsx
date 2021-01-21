@@ -11,6 +11,8 @@ type Context = {
   resetList: () => void;
   count: number;
   remainingSize: number;
+  isLoading: boolean;
+  setIsLoading: (newIsLoading: boolean) => void;
 };
 
 export const DownloadListContext = createContext<Context>({
@@ -18,7 +20,9 @@ export const DownloadListContext = createContext<Context>({
   updateList: () => {},
   resetList: () => {},
   count: 0,
-  remainingSize: Infinity
+  remainingSize: Infinity,
+  isLoading: false,
+  setIsLoading: () => {}
 });
 
 type DownloadListCheckboxProps = Omit<
@@ -40,7 +44,9 @@ const DownloadListCheckbox = ({
   maxLimitReachedLabel = "Max download limit reached",
   ...rest
 }: DownloadListCheckboxProps) => {
-  const { list, updateList, remainingSize } = useContext(DownloadListContext);
+  const { list, updateList, remainingSize, isLoading } = useContext(
+    DownloadListContext
+  );
   const maxLimitIsReached: boolean = fileSize > remainingSize;
 
   return (
@@ -57,7 +63,7 @@ const DownloadListCheckbox = ({
           onChange={(checked: boolean) => {
             updateList(name, checked && value, fileSize);
           }}
-          disabled={list[name] ? false : maxLimitIsReached}
+          disabled={isLoading || list[name] ? isLoading : maxLimitIsReached}
           checked={!!list[name]}
           {...rest}
         />
@@ -77,13 +83,15 @@ const DownloadListButton = ({
   onClick,
   ...rest
 }: DownloadListButtonProps) => {
-  const { list, count } = useContext(DownloadListContext);
-  const [isLoading, setIsLoading] = useState(false);
+  const { list, count, resetList, isLoading, setIsLoading } = useContext(
+    DownloadListContext
+  );
 
   const handleClick = async () => {
     setIsLoading(true);
     await onClick(list);
     setIsLoading(false);
+    resetList();
   };
 
   return (
@@ -122,6 +130,7 @@ type Props = {
 
 const DownloadList = ({ children, onChange, maxSize }: Props) => {
   const [list, setList] = useState<Context["list"]>({});
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [size, setSize] = useState<number>(0);
   const count = Object.values(list).filter(Boolean).length;
   const handleUpdateList: Context["updateList"] = (name, value, fileSize) => {
@@ -149,7 +158,9 @@ const DownloadList = ({ children, onChange, maxSize }: Props) => {
         updateList: handleUpdateList,
         resetList: handleResetList,
         count,
-        remainingSize: maxSize - size
+        remainingSize: maxSize - size,
+        isLoading,
+        setIsLoading
       }}
     >
       {children}

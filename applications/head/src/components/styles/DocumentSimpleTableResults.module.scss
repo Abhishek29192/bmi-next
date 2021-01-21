@@ -48,4 +48,12 @@
     color: $color-charcoal;
     opacity: 0.24;
   }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+
+    @media (min-width: $breakpoint-lg) {
+      content: "";
+    }
+  }
 }

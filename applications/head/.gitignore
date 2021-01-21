@@ -71,3 +71,6 @@ yarn-error.log
 
 # Temporary data folder (e.g. get microcopy)
 .temp
+
+# Netlify build
+.netlify

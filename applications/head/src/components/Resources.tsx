@@ -6,10 +6,11 @@ import { Data as PageInfoData } from "./PageInfo";
 import { Data as ExploreBarData } from "./ExploreBar";
 import { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
 import { Data as InputBannerData } from "./InputBanner";
+import { Data as NextBestActionsData } from "./NextBestActions";
 
 type FeaturedImage = {
   featuredImage: {
-    resize: {
+    resized: {
       src: string;
     };
   } | null;
@@ -29,6 +30,10 @@ export type Data = {
   pdpExploreBar: ExploreBarData | null;
   pdpShareWidget: ShareWidgetSectionData | null;
   pdpInputBanner: InputBannerData | null;
+  searchPageSearchTips: TitleWithContentData | null;
+  searchPageSidebarItems: TitleWithContentData | null;
+  searchPageNextBestActions: NextBestActionsData | null;
+  searchPageExploreBar: ExploreBarData | null;
   errorFourOFour: PromoData | null;
   errorGeneral: PromoData | null;
 };
@@ -49,7 +54,11 @@ export const query = graphql`
 
         ... on ContentfulPromo {
           featuredImage {
-            resize(width: 350) {
+            resized: resize(
+              width: 350
+              toFormat: WEBP
+              jpegProgressive: false
+            ) {
               src
             }
           }
@@ -57,7 +66,11 @@ export const query = graphql`
 
         ... on ContentfulPage {
           featuredImage {
-            resize(width: 350) {
+            resized: resize(
+              width: 350
+              toFormat: WEBP
+              jpegProgressive: false
+            ) {
               src
             }
           }
@@ -72,6 +85,18 @@ export const query = graphql`
     }
     pdpInputBanner {
       ...InputBannerFragment
+    }
+    searchPageSearchTips {
+      ...TitleWithContentFragment
+    }
+    searchPageSidebarItems {
+      ...TitleWithContentFragment
+    }
+    searchPageNextBestActions {
+      ...NextBestActionsFragment
+    }
+    searchPageExploreBar {
+      ...ExploreBarFragment
     }
     errorFourOFour {
       ...PromoFragment

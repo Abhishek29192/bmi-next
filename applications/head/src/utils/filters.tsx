@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "lodash";
+import { uniqBy, map } from "lodash";
 import ColorSwatch from "../components/ColorSwatch";
 import { Product, Category } from "../templates/product-details-page";
 import {
@@ -18,7 +18,7 @@ export const isPIMDocument = (
 };
 
 const getProductsFromDocuments = (documents: DocumentResultsData) => {
-  return _.uniqBy(
+  return uniqBy(
     documents
       .map((document) => {
         if (isPIMDocument(document)) {
@@ -50,7 +50,7 @@ export const findPIMDocumentBrandCategory = (
 
 // Returns a Category like object
 const getBrandCategoryFromDocuments = (documents: DocumentResultsData) => {
-  return _.uniqBy(
+  return uniqBy(
     documents
       .map((document) => {
         if (isPIMDocument(document)) {
@@ -73,7 +73,7 @@ export const getAssetTypeFilterFromDocuments = (
   documents: DocumentResultsData
 ) => {
   // Find Unique assetTypes, they're the same as far as TS is concerned
-  const allValues = _.uniqBy(
+  const allValues = uniqBy(
     documents.map(({ assetType }) => assetType).filter(Boolean),
     "code"
   );
@@ -124,7 +124,7 @@ export const getProductFamilyFilterFromDocuments = (
 const getProductFamilyFilter = (
   products: readonly Pick<Product, "categories">[]
 ) => {
-  const allFamilyCategories = _.uniqBy(
+  const allFamilyCategories = uniqBy(
     products.reduce((allCategories, product) => {
       const productFamilyCategories = (product.categories || []).filter(
         ({ categoryType }) => categoryType === "ProductFamily"
@@ -180,7 +180,7 @@ const getColorFilter = (
 
   // Assuming all colours have the same label
   const label = colorFilters[0]?.name;
-  const values = _.uniqBy(_.map(colorFilters, "value"), "code");
+  const values = uniqBy(map(colorFilters, "value"), "code");
 
   return {
     label,
@@ -236,7 +236,7 @@ const getTextureFilter = (
 
   // Assuming all texturefamily classifications have the same label
   const label = textures[0]?.name;
-  const values = _.uniqBy(_.map(textures, "value"), "code");
+  const values = uniqBy(map(textures, "value"), "code");
 
   return {
     label,
@@ -278,20 +278,56 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
 };
 
 export const getFilters = (
-  pageCategory: Category,
   pimClassificationNamespace: string,
-  products: readonly Product[]
+  products: readonly Product[],
+  pageCategory?: Category
 ) => {
   const allCategories = findAllCategories(products);
+  let showProductFamilyFilter = true;
+  let showCategoryFilters = true;
+
+  if (pageCategory) {
+    showProductFamilyFilter = pageCategory.categoryType !== "ProductFamily";
+    showCategoryFilters = pageCategory.categoryType !== "Category";
+  }
 
   return [
-    pageCategory.categoryType !== "ProductFamily"
-      ? getProductFamilyFilter(products)
-      : undefined,
+    showProductFamilyFilter ? getProductFamilyFilter(products) : undefined,
     getColorFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),
-    ...(pageCategory.categoryType !== "Category"
-      ? getCategoryFilters(allCategories)
-      : [])
+    ...(showCategoryFilters ? getCategoryFilters(allCategories) : [])
   ].filter(Boolean);
+};
+
+// TODO: Nicer way of doing this?
+export const updateFilterValue = (
+  filters,
+  filterName,
+  filterValue,
+  checked
+) => {
+  const addToArray = (array, value) => [...array, value];
+  const removeFromArray = (array, value) => array.filter((v) => v !== value);
+  const getNewValue = (filter, checked, value) => {
+    return checked
+      ? addToArray(filter.value || [], value)
+      : removeFromArray(filter.value || [], value);
+  };
+
+  return filters.map((filter) => {
+    return {
+      ...filter,
+      value:
+        filter.name === filterName
+          ? getNewValue(filter, checked, filterValue)
+          : filter.value
+    };
+  });
+};
+
+export const clearFilterValues = (filters) => {
+  return filters.map((filter) => ({
+    ...filter,
+    value: []
+  }));
 };

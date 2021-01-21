@@ -18,6 +18,9 @@ import LeadBlockSection, {
 import LinkColumnsSection, {
   Data as LinkColumnsSectionData
 } from "../components/LinkColumnsSection";
+import ShareWidgetSection, {
+  Data as ShareWidgetSectionData
+} from "../components/ShareWidgetSection";
 import TableOfContent from "@bmi/table-of-content";
 import AnchorLink from "@bmi/anchor-link";
 
@@ -25,6 +28,7 @@ type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
     leadBlock: LeadBlockSectionData | null;
+    shareWidget: ShareWidgetSectionData | null;
     sections: SectionsData | null;
     nextBestActions: NextBestActionsData | null;
     exploreBar: ExploreBarData | null;
@@ -45,6 +49,7 @@ const SimplePage = ({ data }: Props) => {
     subtitle,
     featuredImage,
     leadBlock,
+    shareWidget,
     sections,
     nextBestActions,
     exploreBar,
@@ -54,7 +59,7 @@ const SimplePage = ({ data }: Props) => {
   const heroProps: HeroItem = {
     title,
     children: subtitle,
-    imageSource: featuredImage?.file.url
+    imageSource: featuredImage?.resize.src
   };
   const heroLevel = (Math.min(
     findPath(data.contentfulSimplePage.slug, data.contentfulSite.menuNavigation)
@@ -93,9 +98,11 @@ const SimplePage = ({ data }: Props) => {
           </AnchorLink>
         )}
       >
+        {shareWidget && <ShareWidgetSection data={shareWidget} />}
         {leadBlock && <LeadBlockSection data={leadBlock} />}
         {sections && <Sections data={sections} startIndex={+!!leadBlock} />}
         {linkColumns && <LinkColumnsSection data={linkColumns} />}
+        {shareWidget && <ShareWidgetSection data={shareWidget} />}
         {nextBestActions && <NextBestActions data={nextBestActions} />}
         {exploreBar && (
           <Section backgroundColor="alabaster">
@@ -123,6 +130,9 @@ export const pageQuery = graphql`
       heroType
       leadBlock {
         ...LeadBlockSectionFragment
+      }
+      shareWidget {
+        ...ShareWidgetSectionFragment
       }
       sections {
         ...SectionsFragment

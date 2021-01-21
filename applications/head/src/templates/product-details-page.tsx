@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import _ from "lodash";
+import { uniqBy, flatten, map } from "lodash";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Page, { Data as PageData } from "../components/Page";
@@ -162,9 +162,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pageContext.pimClassificationCatalogueNamespace
   );
 
-  const uniqueClassifications = _.uniqBy(
-    _.flatten(
-      _.map(
+  const uniqueClassifications = uniqBy(
+    flatten(
+      map(
         [
           ...(selfProduct.classifications || []),
           ...(product.classifications || [])
@@ -270,7 +270,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   >
                     <CTACard
                       title={title}
-                      imageSource={featuredImage?.resize?.src}
+                      imageSource={featuredImage?.resized?.src}
                       action={action}
                     />
                   </Grid>

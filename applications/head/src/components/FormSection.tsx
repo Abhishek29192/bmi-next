@@ -73,6 +73,15 @@ const Input = ({
     }
   });
 
+  const handleEmailValidation = (value: string) => {
+    // Has a full stop and a `@`, and at least one character in between both.
+    if (value.match(/.+@.+\..+/)) {
+      return false;
+    } else {
+      return getMicroCopy("errors.emailInvalid");
+    }
+  };
+
   const handleFileValidation = (file: File) => {
     if (maxSize && file.size > maxSize * 1048576) {
       return getMicroCopy("errors.maxSize").replace(
@@ -111,10 +120,10 @@ const Input = ({
         <Select isRequired={required} label={label} name={name}>
           <MenuItem value="none">None</MenuItem>
           {options.split(/, |,/).map((option, $i) => {
-            const [string, value] = option.split(/= |=/);
+            const [select, value] = option.split(/= |=/);
             return (
-              <MenuItem key={$i} value={value || string}>
-                {string}
+              <MenuItem key={$i} value={value ? option : select}>
+                {select}
               </MenuItem>
             );
           })}
@@ -140,6 +149,9 @@ const Input = ({
           label={label}
           fullWidth
           {...(type === "textarea" && { rows: 6 })}
+          {...(type === "email" && {
+            getValidationError: handleEmailValidation
+          })}
         />
       );
   }
@@ -172,9 +184,13 @@ const FormSection = ({
 
     // @todo: This needs to be less reliant on string patterns
     const recipientsFromValues = values.recipients as string;
-    const conditionalRecipients = recipientsFromValues.includes("@")
-      ? recipientsFromValues
-      : recipients;
+    const isEmailPresent = ["@", "="].every((char) =>
+      recipientsFromValues.includes(char)
+    );
+    const conditionalRecipients =
+      recipientsFromValues && isEmailPresent
+        ? recipientsFromValues.split(/= |=/)[1]
+        : recipients;
 
     try {
       const source = axios.CancelToken.source();
@@ -183,7 +199,7 @@ const FormSection = ({
         {
           locale: node_locale,
           title,
-          recipients: conditionalRecipients.split(/, |,/),
+          recipients: conditionalRecipients,
           values
         },
         {

@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { mapValues } from "lodash";
 
 export type LocalisedFields<T> = {
   [key in keyof T]: {
@@ -15,5 +15,5 @@ export const getDataFromLocale = <T extends {}>(
   }
   // TODO: Ideally the return type should also be using the generic.
   // "However, it's a complicated structure. Thanks Content🤬.", (Alax Canessa)
-  return _.mapValues(fields, (value) => value[localeCode]);
+  return mapValues(fields, (value) => value[localeCode]);
 };

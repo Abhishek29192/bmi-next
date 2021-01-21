@@ -1,8 +1,10 @@
-"use strict";
+import type { HandlerFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { config } from "dotenv";
+import admin from "firebase-admin";
 
-require("dotenv").config();
-
-const admin = require("firebase-admin");
+config({
+  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
+});
 
 // TODO: I think these should start with "/", but was easier for them not to
 const COLLECTIONS = {
@@ -12,6 +14,7 @@ const COLLECTIONS = {
 
 admin.initializeApp({
   credential: admin.credential.cert({
+    // @ts-ignore 'type' does not exist in type 'ServiceAccount'.
     type: "service_account",
     project_id: process.env.GCP_PROJECT_ID,
     private_key_id: process.env.FIRESTORE_PRIVATE_KEY_ID,
@@ -30,7 +33,7 @@ admin.initializeApp({
 const db = admin.firestore();
 
 // TODO: This is batched, functions can be consolidated
-const setItemsInFirestore = async (collectionPath, item) => {
+const setItemsInFirestore = async (collectionPath: string, item) => {
   const batch = db.batch();
 
   item.forEach((item) => {
@@ -46,7 +49,7 @@ const setItemsInFirestore = async (collectionPath, item) => {
   await batch.commit();
 };
 
-const deleteItemsFromFirestore = async (collectionPath, items) => {
+const deleteItemsFromFirestore = async (collectionPath: string, items) => {
   const batch = db.batch();
 
   items.forEach((item) => {
@@ -61,15 +64,9 @@ const deleteItemsFromFirestore = async (collectionPath, items) => {
   await batch.commit();
 };
 
-/**
- * Triggered from a message on a Cloud Pub/Sub topic.
- *
- * @param {!Object} event Event payload.
- * @param {!Object} context Metadata for the event.
- */
-const handleMessage = async (event, context) => {
-  const message = event.data
-    ? JSON.parse(Buffer.from(event.data, "base64").toString())
+export const handleMessage: HandlerFunction = async ({ data }) => {
+  const message = data
+    ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
 
   console.log(
@@ -96,6 +93,3 @@ const handleMessage = async (event, context) => {
       throw new Error(`Unrecognised message type [${type}]`);
   }
 };
-
-// NOTE: GCP likes the export this way 🤷‍♂️
-exports.handleMessage = handleMessage;

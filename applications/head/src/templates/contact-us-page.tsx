@@ -51,7 +51,7 @@ const ContactUsPage = ({ data }: Props) => {
   const heroProps: HeroItem = {
     title,
     children: subtitle,
-    imageSource: featuredImage?.file.url
+    imageSource: featuredImage?.resize.src
   };
   const pageData: PageData = {
     slug,

@@ -57,9 +57,9 @@ const TeamPage = ({ data }: Props) => {
             heading={category.title}
             index={index}
           >
-            <Container>
+            <Container style={{ paddingBottom: "60px" }}>
               {category.description ? (
-                <div style={{ margin: "60px 0" }}>
+                <div style={{ marginBottom: "60px" }}>
                   <RichText document={category.description} />
                 </div>
               ) : null}

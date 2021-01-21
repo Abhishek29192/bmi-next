@@ -16,9 +16,14 @@ const IntegratedExploreBar = ({ data }: { data: Data }) => {
   return (
     <ExploreBar
       heading={label}
-      links={links.map(({ label, linkedPage, url }) => ({
+      links={links.map(({ label, linkedPage, url, asset }) => ({
         label,
-        action: getClickableActionFromUrl(linkedPage, url, countryCode)
+        action: getClickableActionFromUrl(
+          linkedPage,
+          url,
+          countryCode,
+          asset?.file?.url
+        )
       }))}
     />
   );

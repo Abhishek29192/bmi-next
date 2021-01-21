@@ -227,6 +227,14 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       });
     }
+
+    createPage({
+      path: `/${site.countryCode}/search`,
+      component: path.resolve("./src/templates/search-page.tsx"),
+      context: {
+        siteId: site.id
+      }
+    });
   });
 };
 

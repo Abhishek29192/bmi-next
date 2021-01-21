@@ -23,7 +23,7 @@ const ErrorFallback = ({
     featuredImage = null
   } = promo || {};
   return (
-    <PromoSection title={title} imageSource={featuredImage?.file.url}>
+    <PromoSection title={title} imageSource={featuredImage?.resize.src}>
       <Typography variant="body2" gutterBottom>
         {subtitle}
       </Typography>

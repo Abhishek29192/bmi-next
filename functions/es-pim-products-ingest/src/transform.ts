@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { pick } from "lodash";
 import type {
   Product as PIMProduct,
   VariantOption as PIMVariant
@@ -8,7 +8,10 @@ import {
   findProductBrandLogoCode,
   getFullCategoriesPaths,
   getGroupCategory,
-  getLeafCategory
+  getLeafCategory,
+  getSizeLabel,
+  mapProductClassifications,
+  TransformedMeasurementValue
 } from "./CLONE";
 
 // Combines all the classification representing a variant, which includes the classifications from base product, which are overwritten by variant ones.
@@ -34,6 +37,11 @@ const combineVariantClassifications = (
 };
 
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
+  const mappedClassifications = mapProductClassifications(
+    product,
+    "bmiNorwayClassificationCatalog/1.0"
+  );
+
   return (product.variantOptions || []).map((variant) => {
     // Only "Category" categories which are used for filters
     const productLeafCategories = getFullCategoriesPaths(
@@ -62,7 +70,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     const scoringWeight =
       scoringWeightClassification?.features?.[0]?.featureValues?.[0]?.value;
 
-    const baseAttributes = _.pick(
+    const baseAttributes = pick(
       { ...product, ...variant },
       "approvalStatus",
       "externalProductCode",
@@ -80,19 +88,47 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ({ code }) => code === "appearanceAttributes"
     );
 
-    let colourfamilyCode, texturefamilyCode;
+    // Codes used for matching against filter codes
+    // Values used for matching against search strings (localised input)
+    // TODO: Perhaps refactor into objects
+    let colourfamilyCode,
+      colourfamilyValue,
+      texturefamilyCode,
+      texturefamilyValue,
+      // Measurement doesn't need a code for filters at the moment
+      measurementValue;
 
     if (appearanceClassifications) {
-      colourfamilyCode = (appearanceClassifications.features || []).find(
+      const colourfamilyAppearance = (
+        appearanceClassifications.features || []
+      ).find(
         ({ code }) =>
           code ===
+          // TODO: use env var for catalogue namespace!
           `bmiNorwayClassificationCatalog/1.0/appearanceAttributes.colourfamily`
-      )?.featureValues?.[0]?.code;
-      texturefamilyCode = (appearanceClassifications.features || []).find(
+      )?.featureValues?.[0];
+
+      colourfamilyCode = colourfamilyAppearance?.code;
+      colourfamilyValue = colourfamilyAppearance?.value;
+
+      const texturefamilyAppearance = (
+        appearanceClassifications.features || []
+      ).find(
         ({ code }) =>
           code ===
           `bmiNorwayClassificationCatalog/1.0/appearanceAttributes.texturefamily`
-      )?.featureValues?.[0]?.code;
+      )?.featureValues?.[0];
+
+      texturefamilyCode = texturefamilyAppearance?.code;
+      texturefamilyValue = texturefamilyAppearance?.value;
+    }
+
+    const measurementsClassification =
+      mappedClassifications[variant.code]?.measurements;
+    if (measurementsClassification) {
+      measurementValue = getSizeLabel(
+        measurementsClassification as TransformedMeasurementValue
+      );
     }
 
     return {
@@ -110,8 +146,16 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       classifications,
       // Special because we want to use it for sorting, atm this seems easier
       scoringWeight,
+      // Parsing to a number so it'll be mapped as integer (long).
+      // @todo: Eventually to be swapped out with scoringWeight when changes have been propagated.
+      scoringWeightInt: Number.isFinite(Number.parseInt(scoringWeight))
+        ? Number.parseInt(scoringWeight)
+        : 0,
       colourfamilyCode,
-      texturefamilyCode
+      colourfamilyValue,
+      texturefamilyCode,
+      texturefamilyValue,
+      measurementValue
     };
   });
 };

@@ -18,9 +18,6 @@ import CardCollectionSection, {
 import TitleWithContentSection, {
   Data as TitleWithContentData
 } from "../components/TitleWithContentSection";
-import ShareWidgetSection, {
-  Data as ShareWidgetSectionData
-} from "../components/ShareWidgetSection";
 import PromoSection, {
   Data as PromoSectionData
 } from "../components/PromoSection";
@@ -39,7 +36,6 @@ export type Data = (
   | CarouselSectionData
   | CardCollectionSectionData
   | TitleWithContentData
-  | ShareWidgetSectionData
   | PromoSectionData
   | ImageGallerySectionData
   | DocumentDownloadSectionData
@@ -52,7 +48,6 @@ const sectionsMap = {
   ContentfulCarouselSection: CarouselSection,
   ContentfulCardCollectionSection: CardCollectionSection,
   ContentfulTitleWithContent: TitleWithContentSection,
-  ContentfulShareWidgetSection: ShareWidgetSection,
   ContentfulPromo: PromoSection,
   ContentfulImageGallerySection: ImageGallerySection,
   ContentfulDocumentDownloadSection: DocumentDownloadSection
@@ -112,7 +107,6 @@ export const query = graphql`
     ...CarouselSectionFragment
     ...CardCollectionSectionFragment
     ...TitleWithContentSectionFragment
-    ...ShareWidgetSectionFragment
     ...PromoSectionFragment
     ...ImageGallerySectionFragment
     ...DocumentDownloadSectionFragment

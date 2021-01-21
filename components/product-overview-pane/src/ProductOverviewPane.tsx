@@ -45,6 +45,7 @@ export type Props = {
   name: React.ReactNode;
   brandLogo?: SVGImport;
   nobb: React.ReactNode;
+  nobbLabel?: React.ReactNode;
   attributes?: Attribute[];
   children?: React.ReactNode;
 };
@@ -139,6 +140,7 @@ const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
 const ProductOverviewPane = ({
   name,
   nobb,
+  nobbLabel,
   brandLogo: BrandLogo,
   attributes,
   children
@@ -152,7 +154,7 @@ const ProductOverviewPane = ({
       <ul className={styles["attributes"]}>
         {[
           {
-            name: "NOBB no",
+            name: nobbLabel,
             variants: [
               {
                 label: nobb

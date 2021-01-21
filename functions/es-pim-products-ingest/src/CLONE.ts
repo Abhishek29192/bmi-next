@@ -1,7 +1,7 @@
 // THIS IS A CLONE OF EXTERNAL DEPENDENCIES I COULDN'T REQUIRE FROM HEAD ATM
 // POSSIBLY WITH SOME CHANGES
 
-import _ from "lodash";
+import { result, find } from "lodash";
 import { Product } from "./types/pim";
 
 export type Category = {
@@ -21,8 +21,8 @@ export type ProductCategoryTree = {
 };
 
 export const findProductBrandLogoCode = (product: Product) => {
-  return _.result<string>(
-    _.find(product.categories, {
+  return result<string>(
+    find(product.categories, {
       parentCategoryCode: "BMI_Brands"
     }),
     "code"
@@ -72,8 +72,8 @@ export const getFullCategoriesPaths = (
 };
 
 export const getColourThumbnailUrl = (images): string =>
-  _.result(
-    _.find(images, { format: "Product-Color-Selector-Large-Desktop" }),
+  result(
+    find(images, { format: "Product-Color-Selector-Large-Desktop" }),
     "url"
   );
 
@@ -87,11 +87,13 @@ type TransformedClassificationValue = {
   value: ClassificationFeatureValue | "n/a";
   thumbnailUrl?: string;
 };
-type TransformedMeasurementValue = {
+export type TransformedMeasurementValue = {
   [dimensionName: string]: {
     name: string;
     value: {
-      value: string;
+      value: {
+        value: string;
+      };
       unit: string;
     };
   };
@@ -114,8 +116,12 @@ export const getLeafCategory = (branch: CategoryPath) =>
 
 // Find attributes like surface finish, color, etc, from classifications
 // TODO: Try to consolidate with the "unique" approach.
+// from applications/head/src/utils/product-details-transforms.ts
 export const mapProductClassifications = (
-  product: Product,
+  product: Pick<
+    Product,
+    "code" | "images" | "classifications" | "variantOptions"
+  >,
   classificationNamepace: string
 ): ClassificationsPerProductMap => {
   const allProducts: {
@@ -129,6 +135,7 @@ export const mapProductClassifications = (
       };
     }, {})
   };
+  const mainProduct = product;
 
   // Classifications
   const SCORE_WEIGHT = "scoringWeightAttributes";
@@ -187,7 +194,10 @@ export const mapProductClassifications = (
             carryProp("colour", {
               name,
               value: featureValues ? featureValues[0] : "n/a",
-              thumbnailUrl: getColourThumbnailUrl(product.images || [])
+              thumbnailUrl: getColourThumbnailUrl([
+                ...(product.images || []),
+                ...(mainProduct.images || [])
+              ])
             });
           }
 
@@ -195,7 +205,10 @@ export const mapProductClassifications = (
             carryProp("colourfamily", {
               name,
               value: featureValues ? featureValues[0] : "n/a",
-              thumbnailUrl: getColourThumbnailUrl(product.images || [])
+              thumbnailUrl: getColourThumbnailUrl([
+                ...(product.images || []),
+                ...(mainProduct.images || [])
+              ])
             });
           }
         });
@@ -219,7 +232,7 @@ export const mapProductClassifications = (
                   name,
                   value: {
                     value: featureValues ? featureValues[0] : "n/a",
-                    unit: featureUnit.symbol
+                    unit: featureUnit?.symbol
                   }
                 }
               }
@@ -231,4 +244,29 @@ export const mapProductClassifications = (
 
     return carry;
   }, {});
+};
+
+// From applications/head/src/utils/product-details-transforms.ts
+export const getSizeLabel = (
+  measurement: TransformedMeasurementValue,
+  withUnit = true
+) => {
+  const { length, width, height } = measurement || {};
+  const components = [width, length, height].filter(Boolean);
+
+  if (!components.length) {
+    return;
+  }
+
+  const sameUnit = components.every(
+    (value, i, arr) => value.value.unit === arr[0].value.unit
+  );
+  const unit = withUnit && sameUnit ? components[0].value.unit : "";
+
+  return (
+    components
+      .map(({ value }) => value.value.value + (!sameUnit ? value.unit : ""))
+      // Add extra space if units don't match
+      .join(sameUnit ? "x" : " x ") + unit
+  );
 };
