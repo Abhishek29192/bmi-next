@@ -125,6 +125,10 @@
 
     @media (min-width: $breakpoint-sm) {
       color: $color-white;
+
+      &--isOnSearchPage {
+        display: none;
+      }
     }
   }
 

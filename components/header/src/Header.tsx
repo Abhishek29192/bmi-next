@@ -31,6 +31,7 @@ type HeaderProps = {
   activeNavLabel?: string;
   closeLabel?: string;
   isSearchDisabled?: boolean;
+  isOnSearchPage?: boolean;
   searchAction?: string;
   searchLabel?: string;
   searchPlaceholder?: string;
@@ -49,6 +50,7 @@ const Header = ({
   activeNavLabel,
   closeLabel = "Close",
   isSearchDisabled,
+  isOnSearchPage,
   searchAction,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
@@ -252,7 +254,9 @@ const Header = ({
             {!isSearchDisabled && (
               <Button
                 accessibilityLabel={searchLabel}
-                className={styles["SearchButton"]}
+                className={classnames(styles["SearchButton"], {
+                  [styles["SearchButton--isOnSearchPage"]]: isOnSearchPage
+                })}
                 variant={size === "small" ? "text" : "contained"}
                 isIconButton
                 onClick={toggleSearch}
