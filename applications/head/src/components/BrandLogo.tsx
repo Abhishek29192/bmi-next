@@ -8,11 +8,11 @@ type Props = {
 };
 
 const BrandLogo = ({ brandName }: Props) => {
-  return brandName ? (
-    <Icon source={iconMap[brandName]} className={styles["BrandLogo"]} />
-  ) : (
-    <></>
-  );
+  const iconLogo = iconMap[brandName];
+
+  return iconLogo ? (
+    <Icon source={iconLogo} className={styles["BrandLogo"]} />
+  ) : null;
 };
 
 export default BrandLogo;
