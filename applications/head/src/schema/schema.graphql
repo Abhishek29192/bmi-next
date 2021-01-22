@@ -284,6 +284,9 @@ type ContentfulHomePage implements Node {
   "The sections for this home page."
   sections: [ContentfulSection] @link(from: "sections___NODE")
 
+  "Tags for the page"
+  tags: [ContentfulTag] @link(from: "tags___NODE")
+
   "The input banner for this home page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 }
