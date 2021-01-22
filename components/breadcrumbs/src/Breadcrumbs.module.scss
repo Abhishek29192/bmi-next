@@ -12,6 +12,12 @@
     color: $color-cyan-500;
   }
 
+  li:last-child:not(:first-child) {
+    .button:disabled {
+      color: $color-slate;
+    }
+  }
+
   &--dark-themed {
     color: $color-storm;
 
@@ -29,6 +35,10 @@
         color: $color-storm;
         text-decoration: none;
       }
+      .button:disabled {
+        color: $color-storm;
+      }
+
       .label {
         max-width: none;
       }
