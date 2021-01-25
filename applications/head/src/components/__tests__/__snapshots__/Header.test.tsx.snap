@@ -140,7 +140,7 @@ exports[`Header component renders correctly 1`] = `
       >
         <button
           aria-label="MC: search.label"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained"
+          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained SearchButton"
           tabindex="0"
           type="button"
         >
@@ -164,7 +164,7 @@ exports[`Header component renders correctly 1`] = `
         </button>
         <button
           aria-label="MC: menu.open"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained BurgerButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text BurgerButton"
           tabindex="0"
           type="button"
         >

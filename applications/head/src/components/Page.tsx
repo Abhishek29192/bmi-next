@@ -24,9 +24,10 @@ type Props = {
   title: string;
   pageData: Data;
   siteData: SiteData;
+  isSearchPage?: boolean;
 };
 
-const Page = ({ title, children, pageData, siteData }: Props) => {
+const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
   const {
     node_locale,
     countryCode,
@@ -127,6 +128,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
           utilitiesData={menuUtilities}
           countryCode={countryCode}
           slug={pageData.slug || undefined}
+          isOnSearchPage={isSearchPage}
         />
         <ErrorBoundary
           fallbackRender={() => (

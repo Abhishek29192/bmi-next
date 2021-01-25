@@ -115,12 +115,14 @@ const Header = ({
   navigationData,
   utilitiesData,
   countryCode,
-  slug
+  slug,
+  isOnSearchPage
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
   countryCode: string;
   slug?: string;
+  isOnSearchPage?: boolean;
 }) => {
   if (!navigationData || !utilitiesData) {
     return null;
@@ -153,6 +155,7 @@ const Header = ({
           mainMenuTitleLabel={getMicroCopy("menu.mainTitle")}
           mainMenuDefaultLabel={getMicroCopy("menu.mainDefault")}
           languageLabel={getMicroCopy("menu.language")}
+          isOnSearchPage={isOnSearchPage}
         />
       )}
     />

@@ -12,6 +12,7 @@ import Pagination from "@bmi/pagination";
 import OverviewCard from "@bmi/overview-card";
 import AnchorLink from "@bmi/anchor-link";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { graphql, Link } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -100,6 +101,8 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const [query, setQuery] = useState<QueryInput>(params.get(QUERY_KEY));
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const resultsElement = useRef<HTMLDivElement>(null);
+  // Sorry, the Header uses custom breakpoints not used in `theme`.
+  const isSmall = useMediaQuery("@media (max-width:800px)");
 
   // TODO: Focusing on products tab initially, then to more generic results
   const initialProducts = [];
@@ -263,6 +266,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       title={pageTitle}
       pageData={{ slug: "search", inputBanner: null }}
       siteData={contentfulSite}
+      isSearchPage
     >
       {isLoading ? (
         <Scrim theme="light">
@@ -283,19 +287,21 @@ const SearchPage = ({ pageContext, data }: Props) => {
       <Section isSlim backgroundColor="white">
         <LeadBlock>
           <LeadBlock.Content>
-            <LeadBlock.Content.Section>
-              <Search
-                action={`/${countryCode}/search`}
-                buttonText={
-                  query ? getMicroCopy("searchPage.searchText") : defaultTitle
-                }
-                defaultValue={query || null}
-                fieldName={QUERY_KEY}
-                onSubmit={handleSubmit}
-                helperText={getMicroCopy("searchPage.helperText")}
-                placeholder={getMicroCopy("searchPage.placeholder")}
-              />
-            </LeadBlock.Content.Section>
+            {!isSmall && (
+              <LeadBlock.Content.Section>
+                <Search
+                  action={`/${countryCode}/search`}
+                  buttonText={
+                    query ? getMicroCopy("searchPage.searchText") : defaultTitle
+                  }
+                  defaultValue={query || null}
+                  fieldName={QUERY_KEY}
+                  onSubmit={handleSubmit}
+                  helperText={getMicroCopy("searchPage.helperText")}
+                  placeholder={getMicroCopy("searchPage.placeholder")}
+                />
+              </LeadBlock.Content.Section>
+            )}
             {!hasResults && resources.searchPageSearchTips && (
               <SearchTips
                 title={resources.searchPageSearchTips.title}
