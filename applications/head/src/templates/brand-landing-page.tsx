@@ -12,8 +12,8 @@ import OverlapCards, {
 } from "../components/OverlapCards";
 import { getCTA } from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
-import { iconMap } from "@bmi/logo";
 import Breadcrumbs from "../components/Breadcrumbs";
+import BrandLogo from "../components/BrandLogo";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
@@ -60,9 +60,7 @@ const BrandLandingPage = ({ data }: Props) => {
     slug: null,
     inputBanner
   };
-  const BrandLogo = iconMap[brandLogo];
   const breadcrumbs = <Breadcrumbs title={title} slug={slug} isDarkThemed />;
-
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -70,7 +68,7 @@ const BrandLandingPage = ({ data }: Props) => {
           // const { getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
           const firstSlide: HeroItem = {
-            title: <BrandLogo style={{ height: "90px" }} />,
+            title: <BrandLogo brandName={brandLogo} />,
             children: description?.description,
             imageSource: featuredImage?.resize.src,
             hasUnderline: false
