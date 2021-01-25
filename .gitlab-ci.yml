@@ -10,9 +10,11 @@ cache:
   key:
     files:
       - yarn.lock
+  policy: pull
   untracked: true
   paths:
     - "**/node_modules"
+    - "~/.yarn"
 
 stages:
   - install
@@ -28,14 +30,19 @@ install:
   except:
     refs:
       - schedules
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
-    - yarn install
+    - yarn install --frozen-lockfile
   cache:
-    key: ${CI_COMMIT_REF_SLUG}
+    key:
+      files:
+        - yarn.lock
     untracked: true
-  artifacts:
-    untracked: true
-    expire_in: 30 mins
+    paths:
+      - "**/node_modules"
+      - "~/.yarn"
+    policy: pull-push
 
 #  https://github.com/pivotal/LicenseFinder
 # Remove report arg when we want this job to fail
@@ -50,6 +57,11 @@ license_finder:
     - source ~/.bash_profile
   script:
     - license_finder report --format html > license_finder_output.html
+  cache:
+    key:
+      files:
+        - yarn.lock
+    policy: pull
   artifacts:
     paths:
       - license_finder_output.html
@@ -60,13 +72,10 @@ build:
     refs:
       - schedules
   needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
     - yarn run build:head
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-      - node_modules/
-      - applications/head/node_modules/
 
 build_frc_website:
   stage: build
@@ -74,13 +83,12 @@ build_frc_website:
     refs:
       - schedules
   needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
     - yarn run build:frc-website
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
+  artifacts:
     paths:
-      - node_modules/
-      - applications/frc-website/node_modules/
       - applications/frc-website/.cache/
       - applications/frc-website/public/
   only:
@@ -93,8 +101,10 @@ coverage_jest:
     refs:
       - schedules
   needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
-    - yarn && yarn run coverage:jest
+    - yarn --frozen-lockfile && yarn run coverage:jest
   dependencies:
     - install
   artifacts:
@@ -126,6 +136,8 @@ release:
     - install
     - build
     - build_frc_website
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
     - npx semantic-release
 
@@ -141,16 +153,6 @@ baseline_scan:
   needs: [release]
   script:
     - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
-
-# Exit code defines which vulnerability levels have been found
-# (1 for INFO, 2 for LOW, 4 for MODERATE, 8 for HIGH, 16 for CRITICAL)
-# Should be set as a scheduled job for cron 0 0 * * 3 (midnight every wednesday)
-audit_dependencies:
-  rules:
-    - if: '$WHICH_SCHEDULE == "audit_dependencies"'
-  script:
-    - yarn audit || exit_code=$?
-    - "[ $exit_code -gt 7 ] && exit $exit_code || exit 0"
 
 # Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
 dependabot_gitlab:
