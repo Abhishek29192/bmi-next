@@ -64,25 +64,26 @@ type FileDownloadButtonProps = {
   size: number;
 };
 
-const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
-  <Button
-    action={{
-      model: "download",
-      href: `https:${url.replace("https:", "")}`
-    }}
-    variant="text"
-    startIcon={
-      fileIconsMap[format] && (
-        <Icon
-          source={fileIconsMap[format]}
-          className={styles["download-icon"]}
-        />
-      )
-    }
-  >
-    {filesize(size)}
-  </Button>
-);
+const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
+  format && url ? (
+    <Button
+      action={{
+        model: "download",
+        href: `https:${url.replace("https:", "")}`
+      }}
+      variant="text"
+      startIcon={
+        fileIconsMap[format] && (
+          <Icon
+            source={fileIconsMap[format]}
+            className={styles["download-icon"]}
+          />
+        )
+      }
+    >
+      {filesize(size)}
+    </Button>
+  ) : null;
 
 export const getCount = (documents: Document[]) => {
   return documents.length;
