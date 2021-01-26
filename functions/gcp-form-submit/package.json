@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/secret-manager": "^3.4.0",
     "@sendgrid/mail": "^7.4.0",
     "contentful-management": "^6.1.2",
     "dotenv": "^8.2.0"
