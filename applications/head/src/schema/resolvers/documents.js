@@ -1,6 +1,6 @@
 "use strict";
 
-const _ = require("lodash");
+const { flatMap, includes, find } = require("lodash");
 const {
   getFormatFromFileName,
   isPimLinkDocument
@@ -45,13 +45,13 @@ const resolveDocumentsFromProducts = async (
     return [];
   }
 
-  const documents = _.flatMap(products, (product) =>
+  const documents = flatMap(products, (product) =>
     (product.assets || [])
-      .filter((asset) => _.includes(pimAssetTypes, asset.assetType))
+      .filter((asset) => includes(pimAssetTypes, asset.assetType))
       .map((asset) => {
         const id = generateIdFromString(product.name + asset.name);
-        const { url, fileSize, realFileName } = asset;
-        const assetType = _.find(assetTypes, { pimCode: asset.assetType });
+        const { url, fileSize, realFileName, mime } = asset;
+        const assetType = find(assetTypes, { pimCode: asset.assetType });
 
         if (!assetType || !url) {
           return;
@@ -88,7 +88,7 @@ const resolveDocumentsFromProducts = async (
           assetType___NODE: assetType.id,
           fileSize,
           product___NODE: product.id,
-          format: getFormatFromFileName(realFileName),
+          format: mime || getFormatFromFileName(realFileName),
           extension: realFileName.split(".").pop()
         };
 

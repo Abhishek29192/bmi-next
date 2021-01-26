@@ -38,7 +38,7 @@ const parseSlides = (
     return {
       title,
       brandIcon: brandLogo && iconMap[brandLogo],
-      imageSource: featuredImage ? featuredImage.file.url : null,
+      imageSource: featuredImage ? featuredImage.resize.src : null,
       description: subtitle || undefined,
       cta
     };

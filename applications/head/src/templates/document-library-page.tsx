@@ -94,7 +94,8 @@ const resultTypeFormatMap: Record<
   }
 };
 
-const MAX_DOWNLOAD_LIMIT = 10 * 1048576;
+const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
+  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 const sourceToSortMap: Record<
   Source,
@@ -327,7 +328,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       <SiteContext.Consumer>
         {({ getMicroCopy }) => {
           return (
-            <DownloadList maxSize={MAX_DOWNLOAD_LIMIT}>
+            <DownloadList
+              maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
+            >
               <DownloadListContext.Consumer>
                 {({ count }) => {
                   if (count === 0) {

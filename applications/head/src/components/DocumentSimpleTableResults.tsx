@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import filesize from "filesize";
 import classnames from "classnames";
-import _ from "lodash";
+import { get } from "lodash";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
 import Icon, { iconMap } from "@bmi/icon";
@@ -72,7 +72,12 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
     }}
     variant="text"
     startIcon={
-      <Icon source={fileIconsMap[format]} className={styles["download-icon"]} />
+      fileIconsMap[format] && (
+        <Icon
+          source={fileIconsMap[format]}
+          className={styles["download-icon"]}
+        />
+      )
     }
   >
     {filesize(size)}
@@ -207,7 +212,7 @@ const DocumentSimpleTableResults = ({
                               "documentLibrary.download"
                             )} ${title}`}
                             value={document}
-                            fileSize={_.get(
+                            fileSize={get(
                               document,
                               typenameToSizeMap[document.__typename]
                             )}

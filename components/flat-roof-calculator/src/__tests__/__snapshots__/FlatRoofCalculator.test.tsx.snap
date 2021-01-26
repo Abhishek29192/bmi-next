@@ -517,6 +517,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="fieldArea"
                     type="text"
                     value=""
                   />
@@ -607,6 +608,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="upstandHeight"
                     type="text"
                     value=""
                   />
@@ -659,6 +661,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="upstandLength"
                     type="text"
                     value=""
                   />
@@ -728,6 +731,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="kerbHeight"
                     type="text"
                     value=""
                   />
@@ -780,6 +784,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="kerbLength"
                     type="text"
                     value=""
                   />
@@ -849,6 +854,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="detailHeight1"
                     type="text"
                     value=""
                   />
@@ -901,6 +907,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="detailLength1"
                     type="text"
                     value=""
                   />
@@ -970,6 +977,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="detailHeight2"
                     type="text"
                     value=""
                   />
@@ -1022,6 +1030,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                    name="detailLength2"
                     type="text"
                     value=""
                   />
@@ -1088,6 +1097,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiOutlinedInput-input input"
+                  name="companyName"
                   type="text"
                   value=""
                 />
@@ -1132,6 +1142,7 @@ exports[`FlatRoofCalculator component renders correctly 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiOutlinedInput-input input"
+                  name="projectName"
                   type="text"
                   value=""
                 />

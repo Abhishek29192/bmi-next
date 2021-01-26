@@ -7,10 +7,10 @@
   },
   "dependencies": {
     "@bmi/schema-defs": "0.0.0",
-    "apollo-server": "^2.14.1",
+    "apollo-server": "^2.19.2",
     "cross-fetch": "^3.0.4",
     "dotenv": "^8.2.0",
-    "graphql": "14.6.0",
+    "graphql": "15.4.0",
     "graphql-tools": "^6.0.8"
   },
   "devDependencies": {

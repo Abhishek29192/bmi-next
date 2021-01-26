@@ -86,7 +86,7 @@ describe("Sections component", () => {
             __typename: "ContentfulPromo",
             title: "Villain 1",
             brandLogo: null,
-            tag: null,
+            tags: null,
             subtitle: null,
             featuredImage: null,
             cta: null
@@ -95,7 +95,7 @@ describe("Sections component", () => {
             __typename: "ContentfulPromo",
             title: "Villain 2",
             brandLogo: null,
-            tag: null,
+            tags: null,
             subtitle: null,
             featuredImage: null,
             cta: null
@@ -127,7 +127,7 @@ describe("Sections component", () => {
             title: "promo title",
             brandLogo: "AeroDek",
             subtitle: "promo subtitle",
-            tag: null,
+            tags: null,
             featuredImage: null,
             cta: {
               __typename: "ContentfulLink",
@@ -157,12 +157,12 @@ describe("Sections component", () => {
             __typename: "ContentfulSimplePage",
             id: "00000000-0000-0000-0000-000000000000",
             slug: "slug",
-            tag: null,
+            tags: null,
             title: "page title",
             brandLogo: null,
             subtitle: "page subtitle",
             featuredImage: {
-              resize: {
+              resized: {
                 src: "//image-url"
               }
             }
@@ -174,7 +174,7 @@ describe("Sections component", () => {
         title: "card section title 2",
         subtitle: null,
         brandLogo: null,
-        tag: null,
+        tags: null,
         featuredImage: null,
         cta: null
       },

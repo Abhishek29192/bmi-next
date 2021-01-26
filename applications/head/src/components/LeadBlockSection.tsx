@@ -28,7 +28,12 @@ const LeadBlockSection = ({
       <LeadBlock>
         <LeadBlock.Content>
           <LeadBlock.Content.Section>
-            {text && <RichText document={text} />}
+            {text && (
+              <RichText
+                document={text}
+                underlineHeadings={["h2", "h3", "h4"]}
+              />
+            )}
           </LeadBlock.Content.Section>
           {link && (
             <LeadBlock.Content.Section>

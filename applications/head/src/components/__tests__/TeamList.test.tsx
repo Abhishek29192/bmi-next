@@ -9,8 +9,8 @@ describe("TeamList component", () => {
         name: "Name",
         jobTitle: "Job Title",
         profilePicture: {
-          file: {
-            url: "link-to.jpg"
+          resize: {
+            src: "link-to.jpg"
           }
         },
         links: null

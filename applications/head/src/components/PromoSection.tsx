@@ -16,7 +16,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
   return (
     <PromoSection
       title={title}
-      imageSource={featuredImage?.file.url}
+      imageSource={featuredImage?.resize.src}
       className={styles["PromoSection"]}
     >
       {subtitle}
@@ -26,7 +26,8 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
             action={getClickableActionFromUrl(
               cta.linkedPage,
               cta.url,
-              countryCode
+              countryCode,
+              cta?.asset?.file?.url
             )}
           >
             {cta.label}
