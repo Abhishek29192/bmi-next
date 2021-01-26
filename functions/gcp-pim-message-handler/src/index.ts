@@ -1,9 +1,20 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { config } from "dotenv";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
 });
+
+const secretManagerClient = new SecretManagerServiceClient();
+const {
+  SECRET_MAN_GCP_PROJECT_NAME,
+  PIM_CLIENT_SECRET,
+  TRANSITIONAL_TOPIC_NAME,
+  PIM_CLIENT_ID,
+  PIM_HOST,
+  GCP_PROJECT_ID
+} = process.env;
 
 // @ts-ignore TODO: NOPE HACK!
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
@@ -12,9 +23,9 @@ import fetch, { RequestInit, BodyInit } from "node-fetch";
 import { PubSub } from "@google-cloud/pubsub";
 
 const pubSubClient = new PubSub({
-  projectId: process.env.GCP_PROJECT_ID
+  projectId: GCP_PROJECT_ID
 });
-const topicPublisher = pubSubClient.topic(process.env.TRANSITIONAL_TOPIC_NAME);
+const topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
 
 const ENDPOINTS = {
   // NOTE: Not handling categories for now because DXB doesn't need this
@@ -38,9 +49,15 @@ async function publishMessage(type, itemType, items) {
 }
 
 const getAuthToken = async () => {
+  // get PIM secret from Secret Manager
+  const pimSecret = await secretManagerClient.accessSecretVersion({
+    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
+  });
+  const pimClientSecret = pimSecret[0].payload.data.toString();
+
   const urlencoded = new URLSearchParams();
-  urlencoded.append("client_id", process.env.PIM_CLIENT_ID);
-  urlencoded.append("client_secret", process.env.PIM_CLIENT_SECRET);
+  urlencoded.append("client_id", PIM_CLIENT_ID);
+  urlencoded.append("client_secret", pimClientSecret);
   urlencoded.append("grant_type", "client_credentials");
 
   const requestOptions: RequestInit = {
@@ -53,7 +70,7 @@ const getAuthToken = async () => {
   };
 
   const response = await fetch(
-    `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+    `${PIM_HOST}/authorizationserver/oauth/token`,
     requestOptions
   );
 
@@ -79,7 +96,7 @@ const fetchData = async (path = "/", accessToken) => {
   };
 
   const response = await fetch(
-    `${process.env.PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`,
+    `${PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`,
     options
   );
 
