@@ -19,9 +19,12 @@ module.exports = {
   roots: [
     "<rootDir>/components",
     "<rootDir>/applications/head/src/components",
-    "<rootDir>/functions/gcp-upload-file"
+    "<rootDir>/functions/gcp-upload-file",
+    "<rootDir>/applications/intouch-frontend",
+    "<rootDir>/applications/intouch-api"
   ],
   testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
+  testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
     "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
     "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
