@@ -40,6 +40,7 @@ export type Data = {
   scriptOnetrust?: string | null;
   scriptGTM?: string | null;
   scriptHotJar?: string | null;
+  scriptGOptLoad?: string | null;
 };
 
 export const query = graphql`
@@ -70,6 +71,7 @@ export const query = graphql`
     scriptGA
     scriptOnetrust
     scriptGTM
-    scriptHotJar
+    scriptHotJar,
+    scriptGOptLoad
   }
 `;
