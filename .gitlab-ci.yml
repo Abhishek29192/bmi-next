@@ -133,7 +133,7 @@ release:
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
-    - npx semantic-release
+    - npx -p semantic-release@17.3.6 semantic-release
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Should be run against newly deployed site, but requires knowing when it has been deployed
