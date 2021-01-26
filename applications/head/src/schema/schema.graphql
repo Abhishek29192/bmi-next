@@ -350,6 +350,9 @@ type ContentfulPromo implements Node {
   "The subtitle for this promo."
   subtitle: String
 
+  "The body for this promo."
+  body: ContentfulRichText
+
   "Tags for this promo"
   tags: [ContentfulTag] @link(from: "tags___NODE")
 

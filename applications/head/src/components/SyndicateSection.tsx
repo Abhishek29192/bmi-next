@@ -6,6 +6,7 @@ import { Data as PromoData } from "./Promo";
 import { SiteContext } from "./Site";
 import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
+import RichText from "./RichText";
 
 export type Data = {
   __typename: "ContentfulSyndicateSection";
@@ -27,7 +28,11 @@ const SyndicateSection = ({
     ({ featuredImage, title, subtitle, ...typePromoData }, index) => {
       return {
         title,
-        children: subtitle,
+        children: (typePromoData as PromoData).body ? (
+          <RichText document={(typePromoData as PromoData).body} />
+        ) : (
+          subtitle
+        ),
         imageSource: featuredImage?.resize.src,
         cta: getCTA(typePromoData, countryCode, getMicroCopy("page.linkLabel"))
       };

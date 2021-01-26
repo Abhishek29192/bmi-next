@@ -5,13 +5,14 @@ import Button from "@bmi/button";
 import { Data as PromoData } from "./Promo";
 import { getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
+import RichText from "./RichText";
 import styles from "./styles/PromoSection.module.scss";
 
 export type Data = PromoData;
 
 const IntegratedPromoSection = ({ data }: { data: Data }) => {
   const { countryCode } = useContext(SiteContext);
-  const { title, subtitle, featuredImage, cta } = data;
+  const { title, subtitle, body, featuredImage, cta } = data;
 
   return (
     <PromoSection
@@ -19,7 +20,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       imageSource={featuredImage?.resize.src}
       className={styles["PromoSection"]}
     >
-      {subtitle}
+      {body ? <RichText document={body} /> : subtitle}
       {cta && (
         <div className={styles["link"]}>
           <Button

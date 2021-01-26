@@ -1,11 +1,13 @@
 import { graphql } from "gatsby";
 import { LinkData } from "./Link";
 import { TagData } from "./Tag";
+import { RichTextData } from "../components/RichText";
 
 export type Data = {
   __typename: "ContentfulPromo";
   title: string;
   subtitle: string | null;
+  body: RichTextData | null;
   brandLogo: string | null;
   tags: TagData[] | null;
   featuredImage: {
@@ -24,6 +26,9 @@ export const promoQuery = graphql`
   fragment PromoFragment on ContentfulPromo {
     title
     subtitle
+    body {
+      ...RichTextFragment
+    }
     brandLogo
     tags {
       title
