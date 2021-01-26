@@ -309,23 +309,25 @@ const Header = ({
       </Slide>
       {!isSearchDisabled && (
         <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
-          <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
-            <Button
-              accessibilityLabel={closeLabel}
-              className={styles.CloseButton}
-              isIconButton
-              onClick={toggleSearch}
-            >
-              <Icon source={Close} />
-            </Button>
-            <Typography variant="h4">How can we help you today?</Typography>
-            {showSearch && (
-              <Search
-                action={searchAction}
-                label={searchLabel}
-                placeholder={searchPlaceholder}
-              />
-            )}
+          <div className={styles["SearchDrawerContainer"]}>
+            <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
+              <Button
+                accessibilityLabel={closeLabel}
+                className={styles.CloseButton}
+                isIconButton
+                onClick={toggleSearch}
+              >
+                <Icon source={Close} />
+              </Button>
+              <Typography variant="h4">How can we help you today?</Typography>
+              {showSearch && (
+                <Search
+                  action={searchAction}
+                  label={searchLabel}
+                  placeholder={searchPlaceholder}
+                />
+              )}
+            </div>
           </div>
         </Slide>
       )}

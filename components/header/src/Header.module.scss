@@ -196,7 +196,22 @@
     }
   }
 
+  .SearchDrawerContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    max-width: $breakpoint-xl;
+    z-index: 11;
+
+    @media (min-width: $breakpoint-sm) {
+      top: auto;
+    }
+  }
+
   .SearchDrawer {
+    position: absolute;
     padding: 30px;
 
     @media (min-width: $breakpoint-sm) {
