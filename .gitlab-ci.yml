@@ -77,4 +77,4 @@ release:
       - production
       - pre-production
   script:
-    - npx semantic-release
+    - npx -p semantic-release@17.3.6 semantic-release
