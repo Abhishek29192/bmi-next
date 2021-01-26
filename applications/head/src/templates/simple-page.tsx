@@ -33,7 +33,13 @@ type Data = PageInfoData &
     nextBestActions: NextBestActionsData | null;
     exploreBar: ExploreBarData | null;
     linkColumns: LinkColumnsSectionData | null;
-    heroType: "Hierarchy" | "Spotlight" | null;
+    heroType:
+      | "Hierarchy"
+      | "Spotlight"
+      | "Level 1"
+      | "Level 2"
+      | "Level 3"
+      | null;
   };
 
 type Props = {
@@ -61,11 +67,24 @@ const SimplePage = ({ data }: Props) => {
     children: subtitle,
     imageSource: featuredImage?.resize.src
   };
-  const heroLevel = (Math.min(
-    findPath(data.contentfulSimplePage.slug, data.contentfulSite.menuNavigation)
-      .length + 1,
-    3
-  ) || 1) as 1 | 2 | 3;
+  let heroLevel;
+  if (heroType == "Spotlight" || heroType == "Hierarchy") {
+    heroLevel = (Math.min(
+      findPath(
+        data.contentfulSimplePage.slug,
+        data.contentfulSite.menuNavigation
+      ).length + 1,
+      3
+    ) || 1) as 1 | 2 | 3;
+  } else {
+    const levelMap = {
+      "Level 1": 1,
+      "Level 2": 2,
+      "Level 3": 3
+    };
+    heroLevel = levelMap[heroType] as 1 | 2 | 3;
+  }
+
   const breadcrumbs = (
     <Breadcrumbs
       title={title}
