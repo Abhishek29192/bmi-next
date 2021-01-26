@@ -8,7 +8,8 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:security/recommended"
   ],
   globals: {
     __dirname: "readonly",
@@ -23,7 +24,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "script"
   },
-  plugins: ["react"],
+  plugins: ["react", "security"],
   rules: {
     "prettier/prettier": "error",
     strict: "error",

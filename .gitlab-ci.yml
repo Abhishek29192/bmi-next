@@ -1,42 +1,94 @@
 image: node:12
 
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
+.sast-analyzer:
+  allow_failure: false
+
+cache:
+  key:
+    files:
+      - yarn.lock
+  policy: pull
+  untracked: true
+  paths:
+    - "**/node_modules"
+    - "~/.yarn"
+
 stages:
   - install
+  - audit
   - build
-  - check
+  - test
   - release
-  # - deploy
+  - deploy
+  - dynamic_security
 
 install:
   stage: install
+  except:
+    refs:
+      - schedules
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
-    - yarn install
+    - yarn install --frozen-lockfile
   cache:
-    key: ${CI_COMMIT_REF_SLUG}
+    key:
+      files:
+        - yarn.lock
     untracked: true
+    paths:
+      - "**/node_modules"
+      - "~/.yarn"
+    policy: pull-push
+
+#  https://github.com/pivotal/LicenseFinder
+# Remove report arg when we want this job to fail
+license_finder:
+  stage: audit
+  except:
+    refs:
+      - schedules
+  needs: [install]
+  image: licensefinder/license_finder:latest
+  before_script:
+    - source ~/.bash_profile
+  script:
+    - license_finder report --format html > license_finder_output.html
+  cache:
+    key:
+      files:
+        - yarn.lock
+    policy: pull
   artifacts:
-    untracked: true
-    expire_in: 30 mins
+    paths:
+      - license_finder_output.html
 
 build:
   stage: build
+  except:
+    refs:
+      - schedules
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
     - yarn run build:head
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-      - node_modules/
-      - applications/head/node_modules/
 
 build_frc_website:
   stage: build
+  except:
+    refs:
+      - schedules
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
     - yarn run build:frc-website
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
+  artifacts:
     paths:
-      - node_modules/
-      - applications/frc-website/node_modules/
       - applications/frc-website/.cache/
       - applications/frc-website/public/
   only:
@@ -44,9 +96,15 @@ build_frc_website:
       - applications/frc-website/**/*
 
 coverage_jest:
-  stage: check
+  stage: test
+  except:
+    refs:
+      - schedules
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
-    - yarn && yarn run coverage:jest
+    - yarn --frozen-lockfile && yarn run coverage:jest
   dependencies:
     - install
   artifacts:
@@ -54,7 +112,10 @@ coverage_jest:
       - coverage
 
 # coverage_ts:
-#   stage: check
+#   stage: test
+#   except:
+#     refs:
+#       - schedules
 #   script:
 #     - yarn run coverage:ts
 #   dependencies:
@@ -66,15 +127,57 @@ coverage_jest:
 release:
   image: node:13
   stage: release
-  dependencies:
-    - install
-    - build
-    - build_frc_website
-    - coverage_jest
-    # - coverage_ts
   only:
     refs:
       - production
       - pre-production
+  needs: [install, build, build_frc_website, eslint-sast, coverage_jest]
+  dependencies:
+    - install
+    - build
+    - build_frc_website
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
     - npx semantic-release
+
+# https://www.zaproxy.org/docs/docker/baseline-scan/
+# Should be run against newly deployed site, but requires knowing when it has been deployed
+baseline_scan:
+  image: owasp/zap2docker-stable:latest
+  stage: dynamic_security
+  only:
+    refs:
+      - production
+      - pre-production
+  needs: [release]
+  script:
+    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
+
+# Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
+dependabot_gitlab:
+  image:
+    name: docker.io/andrcuns/dependabot-gitlab:latest
+    entrypoint: [""]
+  rules:
+    - if: '$WHICH_SCHEDULE == "dependabot_gitlab"'
+  variables:
+    GIT_STRATEGY: none
+    PACKAGE_MANAGER: npm
+    RAILS_ENV: production
+    SETTINGS__STANDALONE: "true"
+  before_script:
+    - cd /home/dependabot
+  script:
+    - bundle exec rake "dependabot:update[$PROJECT_PATH,$PACKAGE_MANAGER,$DIRECTORY]"
+
+# https://www.zaproxy.org/docs/docker/full-scan/
+# Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
+# When happy with how this works, change to use zap-full-scan.py
+full_scan:
+  stage: dynamic_security
+  rules:
+    - if: '$WHICH_SCHEDULE == "full_scan"'
+  image: owasp/zap2docker-stable:latest
+  script:
+    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
