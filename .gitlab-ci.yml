@@ -46,6 +46,7 @@ install:
 
 #  https://github.com/pivotal/LicenseFinder
 # Remove report arg when we want this job to fail
+# Remove installing node 12 when https://github.com/pivotal/LicenseFinder/issues/812 is resolved
 license_finder:
   stage: audit
   except:
@@ -55,13 +56,10 @@ license_finder:
   image: licensefinder/license_finder:latest
   before_script:
     - source ~/.bash_profile
+    - yarn config set cache-folder ~/.yarn
+    - curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get -y install nodejs
   script:
     - license_finder report --format html > license_finder_output.html
-  cache:
-    key:
-      files:
-        - yarn.lock
-    policy: pull
   artifacts:
     paths:
       - license_finder_output.html
@@ -104,9 +102,8 @@ coverage_jest:
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
-    - yarn --frozen-lockfile && yarn run coverage:jest
-  dependencies:
-    - install
+    - yarn --frozen-lockfile
+    - yarn run coverage:jest
   artifacts:
     paths:
       - coverage
@@ -118,8 +115,6 @@ coverage_jest:
 #       - schedules
 #   script:
 #     - yarn run coverage:ts
-#   dependencies:
-#     - install
 #   artifacts:
 #     paths:
 #       - coverage-ts
@@ -133,7 +128,6 @@ release:
       - pre-production
   needs: [install, build, build_frc_website, eslint-sast, coverage_jest]
   dependencies:
-    - install
     - build
     - build_frc_website
   before_script:
