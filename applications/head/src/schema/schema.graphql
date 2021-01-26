@@ -898,6 +898,9 @@ type ContentfulSite implements Node {
 
   "HotJar integration ID"
   scriptHotJar: String
+
+  "Google Optimize Load balancing ID"
+  scriptGOptLoad: String
 }
 
 """

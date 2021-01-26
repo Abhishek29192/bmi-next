@@ -40,7 +40,8 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
     scriptGA,
     scriptOnetrust,
     scriptGTM,
-    scriptHotJar
+    scriptHotJar,
+    scriptGOptLoad,
   } = siteData;
 
   const { inputBanner } = pageData;
@@ -102,7 +103,12 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
           </script>
         )}
-
+        {scriptGOptLoad && (
+        <script 
+        async 
+        src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
+        ></script>
+        )}
         <meta name="robots" content="noindex" />
       </Helmet>
       {scriptGTM && (
