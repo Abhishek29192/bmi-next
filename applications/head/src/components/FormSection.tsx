@@ -183,7 +183,7 @@ const FormSection = ({
     setIsSubmitting(true);
 
     // @todo: This needs to be less reliant on string patterns
-    const recipientsFromValues = values.recipients as string;
+    const recipientsFromValues = (values.recipients as string) || "";
     const isEmailPresent = ["@", "="].every((char) =>
       recipientsFromValues.includes(char)
     );
