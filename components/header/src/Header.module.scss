@@ -157,7 +157,7 @@
   }
 
   .Backdrop {
-    z-index: 13;
+    z-index: 12;
 
     @media (min-width: $breakpoint-sm) {
       z-index: 11;
@@ -203,10 +203,11 @@
     top: 0;
     margin: auto;
     max-width: $breakpoint-xl;
-    z-index: 11;
+    z-index: 12;
 
     @media (min-width: $breakpoint-sm) {
       top: auto;
+      z-index: 11;
     }
   }
 
