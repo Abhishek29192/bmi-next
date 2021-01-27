@@ -1,21 +1,56 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import sgMail from "@sendgrid/mail";
+import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
 import { config } from "dotenv";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
 });
 
-export const submit: HttpFunction = async (request, response) => {
-  const {
-    CONTENTFUL_ENVIRONMENT,
-    CONTENTFUL_SPACE_ID,
-    CONTENTFUL_MANAGEMENT_ACCESS_TOKEN: accessToken,
-    SENDGRID_API_KEY,
-    SENDGRID_FROM_EMAIL
-  } = process.env;
+const {
+  CONTENTFUL_ENVIRONMENT,
+  CONTENTFUL_SPACE_ID,
+  SENDGRID_API_KEY_SECRET,
+  SENDGRID_FROM_EMAIL,
+  CONTENTFUL_MANAGEMENT_TOKEN_SECRET,
+  SECRET_MAN_GCP_PROJECT_NAME
+} = process.env;
 
+let contentfulEnvironmentCache;
+let sendGridClientCache;
+const secretManagerClient = new SecretManagerServiceClient();
+
+const getContentfulEnvironment = async () => {
+  if (!contentfulEnvironmentCache) {
+    const managementTokenSecret = await secretManagerClient.accessSecretVersion(
+      {
+        name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
+      }
+    );
+    const managementToken = managementTokenSecret[0].payload.data.toString();
+    const client = createClient({ accessToken: managementToken });
+    const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+    contentfulEnvironmentCache = await space.getEnvironment(
+      CONTENTFUL_ENVIRONMENT
+    );
+  }
+  return contentfulEnvironmentCache;
+};
+
+const getSendGridClient = async () => {
+  if (!sendGridClientCache) {
+    const apikKeySecret = await secretManagerClient.accessSecretVersion({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    const apiKey = apikKeySecret[0].payload.data.toString();
+    sendGridClientCache = new MailService();
+    sendGridClientCache.setApiKey(apiKey);
+  }
+  return sendGridClientCache;
+};
+
+export const submit: HttpFunction = async (request, response) => {
   response.set("Access-Control-Allow-Origin", "*");
 
   if (request.method === "OPTIONS") {
@@ -26,9 +61,7 @@ export const submit: HttpFunction = async (request, response) => {
     return response.status(204).send("");
   } else {
     try {
-      const client = createClient({ accessToken });
-      const space = await client.getSpace(CONTENTFUL_SPACE_ID);
-      const environment = await space.getEnvironment(CONTENTFUL_ENVIRONMENT);
+      const environment = await getContentfulEnvironment();
       const {
         body: {
           locale,
@@ -70,15 +103,14 @@ export const submit: HttpFunction = async (request, response) => {
         uploadedAssets
       };
 
-      sgMail.setApiKey(SENDGRID_API_KEY);
-
       const html = `<ul>${Object.entries(formResponse)
         .map(
           ([key, value]) => `<li><b>${key}</b>: ${JSON.stringify(value)}</li>`
         )
         .join("")}</ul>`;
 
-      const email = await sgMail.send({
+      const sendgridClient = await getSendGridClient();
+      const email = await sendgridClient.send({
         to: recipients,
         from: SENDGRID_FROM_EMAIL,
         subject: "Website form submission",
