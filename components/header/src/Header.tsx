@@ -35,6 +35,7 @@ type HeaderProps = {
   searchAction?: string;
   searchLabel?: string;
   searchPlaceholder?: string;
+  searchTitle?: string;
   openLabel?: string;
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
@@ -54,6 +55,7 @@ const Header = ({
   searchAction,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
+  searchTitle = "How can we help you today?",
   openLabel = "Open menu",
   mainMenuTitleLabel,
   mainMenuDefaultLabel,
@@ -319,7 +321,7 @@ const Header = ({
               >
                 <Icon source={Close} />
               </Button>
-              <Typography variant="h4">How can we help you today?</Typography>
+              <Typography variant="h4">{searchTitle}</Typography>
               {showSearch && (
                 <Search
                   action={searchAction}
