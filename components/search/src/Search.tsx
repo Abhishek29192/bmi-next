@@ -29,7 +29,7 @@ const Search = ({
   placeholder = "Search BMI...",
   ...formProps
 }: Props) => {
-  const [value, setValue] = useState<InputValue>(undefined);
+  const [value, setValue] = useState<InputValue>(defaultValue || undefined);
 
   const handleOnChange = (newValue: InputValue) => {
     setValue(newValue);
