@@ -37,6 +37,10 @@ $hero-breakpoint-sm: 769px;
     }
   }
 
+  &--light .title {
+    -webkit-line-clamp: inherit;
+  }
+
   .container {
     height: 100%;
   }
