@@ -316,7 +316,7 @@ exports[`Page component renders correctly 1`] = `
       <h4
         class="MuiTypography-root Typography MuiTypography-h4"
       >
-        How can we help you today?
+        MC: search.title
       </h4>
     </div>
   </div>
