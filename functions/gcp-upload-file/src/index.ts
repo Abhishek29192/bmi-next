@@ -3,6 +3,7 @@ import { Buffer } from "buffer";
 import { createClient } from "contentful-management";
 import { config } from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { fromBuffer } from "file-type";
 
 config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
@@ -17,6 +18,13 @@ const {
 
 let contentfulEnvironmentCache;
 const secretManagerClient = new SecretManagerServiceClient();
+
+const validMimeTypes = [
+  "application/pdf",
+  "image/jpeg",
+  "image/jpg",
+  "image/png"
+];
 
 const getContentfulEnvironment = async () => {
   if (!contentfulEnvironmentCache) {
@@ -46,12 +54,20 @@ export const upload: HttpFunction = async (request, response) => {
     return response.status(204).send("");
   } else {
     try {
-      const environment = await getContentfulEnvironment();
-
       if (!(request.body instanceof Buffer)) {
-        throw Error("Endpoint only accepts file buffers");
+        return response
+          .status(400)
+          .send(Error("Endpoint only accepts file buffers"));
       }
 
+      const fileType = await fromBuffer(request.body);
+      if (!fileType || validMimeTypes.indexOf(fileType.mime) === -1) {
+        return response
+          .status(406)
+          .send(Error(`Cannot upload files of type ${fileType?.mime}`));
+      }
+
+      const environment = await getContentfulEnvironment();
       const upload = await environment.createUpload({ file: request.body });
 
       return response.send(upload);
