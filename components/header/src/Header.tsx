@@ -143,6 +143,12 @@ const Header = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const QUERY_KEY = "q";
+  const params = new URLSearchParams(
+    typeof window !== `undefined` ? window.location.search : ""
+  );
+  const query = params.get(QUERY_KEY);
+
   return (
     <Paper className={styles.Header} component="header" elevation={3} square>
       <nav
@@ -327,6 +333,7 @@ const Header = ({
                   action={searchAction}
                   label={searchLabel}
                   placeholder={searchPlaceholder}
+                  defaultValue={isOnSearchPage ? query : ""}
                 />
               )}
             </div>
