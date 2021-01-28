@@ -137,44 +137,48 @@ HTMLCollection [
               class="TabsBar"
             >
               <div
-                class="MuiTabs-root"
+                class="MuiContainer-root MuiContainer-maxWidthXl"
               >
                 <div
-                  class="MuiTabs-scrollable"
-                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                />
-                <div
-                  class="MuiTabs-scroller MuiTabs-scrollable"
-                  style="margin-bottom: 0px;"
+                  class="MuiTabs-root"
                 >
                   <div
-                    aria-label="tabs"
-                    class="MuiTabs-flexContainer"
-                    role="tablist"
-                  >
-                    <button
-                      aria-controls="tabpanel-hello"
-                      aria-selected="true"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-                      id="tab-hello"
-                      role="tab"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <span
-                        class="MuiTab-wrapper"
-                      >
-                        hello
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </button>
-                  </div>
-                  <span
-                    class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
-                    style="left: 0px; width: 0px;"
+                    class="MuiTabs-scrollable"
+                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                   />
+                  <div
+                    class="MuiTabs-scroller MuiTabs-scrollable"
+                    style="margin-bottom: 0px;"
+                  >
+                    <div
+                      aria-label="tabs"
+                      class="MuiTabs-flexContainer"
+                      role="tablist"
+                    >
+                      <button
+                        aria-controls="tabpanel-hello"
+                        aria-selected="true"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        id="tab-hello"
+                        role="tab"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiTab-wrapper"
+                        >
+                          hello
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                    <span
+                      class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

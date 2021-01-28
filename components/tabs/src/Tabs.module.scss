@@ -2,6 +2,7 @@
 
 .Tabs {
   .TabPanelBox {
+    background: $color-white;
     padding: 24px 0 0 0;
   }
 
@@ -33,6 +34,12 @@
   &--secondary {
     .TabsBar {
       background-color: $color-pearl;
+      border-bottom: 1px solid $color-storm;
+      border-top: 1px solid $color-storm;
+
+      @media (min-width: $breakpoint-lg) {
+        border: none;
+      }
     }
   }
 }
