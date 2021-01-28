@@ -635,6 +635,20 @@ type ContentfulDocumentDownloadSection implements Node {
 }
 
 """
+Represents a section of downloadable document assets.
+"""
+type ContentfulServiceLocatorSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The label for this section."
+  label: String!
+
+  "The body for this section."
+  body: ContentfulRichText
+}
+
+"""
 Represents the union of possible navigation entities.
 """
 union ContentfulNavigationEntity =
@@ -748,6 +762,7 @@ union ContentfulSection =
   | ContentfulPromo
   | ContentfulImageGallerySection
   | ContentfulDocumentDownloadSection
+  | ContentfulServiceLocatorSection
 
 """
 Represents a key value pair for UI strings.

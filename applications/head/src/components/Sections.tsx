@@ -28,6 +28,9 @@ import TableOfContent from "@bmi/table-of-content";
 import DocumentDownloadSection, {
   Data as DocumentDownloadSectionData
 } from "../components/DocumentDownloadSection";
+import ServiceLocatorSection, {
+  Data as ServiceLocatorSectionData
+} from "../components/ServiceLocatorSection";
 
 export type Data = (
   | FormSectionData
@@ -39,6 +42,7 @@ export type Data = (
   | PromoSectionData
   | ImageGallerySectionData
   | DocumentDownloadSectionData
+  | ServiceLocatorSectionData
 )[];
 
 const sectionsMap = {
@@ -50,7 +54,8 @@ const sectionsMap = {
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulPromo: PromoSection,
   ContentfulImageGallerySection: ImageGallerySection,
-  ContentfulDocumentDownloadSection: DocumentDownloadSection
+  ContentfulDocumentDownloadSection: DocumentDownloadSection,
+  ContentfulServiceLocatorSection: ServiceLocatorSection
 };
 
 // TODO: This should be exported by the card collection.
@@ -110,5 +115,6 @@ export const query = graphql`
     ...PromoSectionFragment
     ...ImageGallerySectionFragment
     ...DocumentDownloadSectionFragment
+    ...ServiceLocatorSectionFragment
   }
 `;

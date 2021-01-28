@@ -209,6 +209,12 @@ describe("Sections component", () => {
           references: []
         },
         documents: []
+      },
+      {
+        __typename: "ContentfulServiceLocatorSection",
+        title: "Service Locator",
+        label: "Find A Roofer",
+        body: null
       }
     ];
 
