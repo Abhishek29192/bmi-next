@@ -1,19 +1,20 @@
 import { Request, Response } from "express";
 import { readFileSync } from "fs";
+import { protos } from "@google-cloud/secret-manager";
 
 const resourcesBasePath = "functions/gcp-upload-file/src/__tests__/resources";
 
 const mockRequest = (
-  body: any = readFileSync(`${resourcesBasePath}/blank.jpeg`)
-) => {
+  body: Buffer | Object = readFileSync(`${resourcesBasePath}/blank.jpeg`)
+): Partial<Request> => {
   return {
     method: "POST",
     body: body
-  } as Request;
+  };
 };
 
 const mockResponse = () => {
-  const res = {} as Response;
+  const res: Partial<Response> = {};
   res.send = jest.fn().mockReturnValue(res);
   res.status = jest.fn().mockReturnValue(res);
   res.set = jest.fn().mockReturnValue(res);
@@ -28,7 +29,9 @@ accessSecretVersion.mockResolvedValue([
 ]);
 jest.mock("@google-cloud/secret-manager", () => {
   const mSecretManagerServiceClient = jest.fn(() => ({
-    accessSecretVersion: (...args: any) => accessSecretVersion(...args)
+    accessSecretVersion: (
+      request: protos.google.cloud.secretmanager.v1.IAccessSecretVersionRequest
+    ) => accessSecretVersion(request)
   }));
   return { SecretManagerServiceClient: mSecretManagerServiceClient };
 });
@@ -41,7 +44,7 @@ getSpace.mockImplementation(() => ({
 }));
 getEnvironment.mockImplementation(() => ({ createUpload: createUpload }));
 jest.mock("contentful-management", () => ({
-  createClient: (...args: any) => ({
+  createClient: () => ({
     getSpace: getSpace
   })
 }));
@@ -56,9 +59,9 @@ beforeEach(() => {
 
 describe("Making an OPTIONS request as part of CORS", () => {
   it("returns a 204 response only allowing POST requests", async () => {
-    const req = {
+    const req: Partial<Request> = {
       method: "OPTIONS"
-    } as Request;
+    };
     const res = mockResponse();
 
     await upload(req, res);
