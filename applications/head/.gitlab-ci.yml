@@ -1,0 +1,39 @@
+image: node:12
+
+build_head:
+  stage: build
+  except:
+    refs:
+      - schedules
+  only:
+    changes:
+      - applications/head/**
+      - components/**
+      - jest/**
+      - libraries/**
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn run build:head
+
+# https://www.zaproxy.org/docs/docker/baseline-scan/
+# Triggered by Netlify when deploy is complete
+baseline_scan_head:
+  image: owasp/zap2docker-stable:latest
+  stage: dynamic_security
+  rules:
+    - if: '$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == "head"'
+  script:
+    - zap-baseline.py -t ${SITE_URL_FROM_NETLIFY} || exit 0
+
+# https://www.zaproxy.org/docs/docker/full-scan/
+# Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
+# When happy with how this works, change to use zap-full-scan.py
+full_scan_head:
+  stage: dynamic_security
+  rules:
+    - if: '$WHICH_SCHEDULE == "full_scan_head"'
+  image: owasp/zap2docker-stable:latest
+  script:
+    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/

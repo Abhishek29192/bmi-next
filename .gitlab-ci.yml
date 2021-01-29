@@ -2,6 +2,8 @@ image: node:12
 
 include:
   - template: Security/SAST.gitlab-ci.yml
+  - local: applications/frc-website/.gitlab-ci.yml
+  - local: applications/head/.gitlab-ci.yml
 
 .sast-analyzer:
   allow_failure: false
@@ -64,35 +66,6 @@ license_finder:
     paths:
       - license_finder_output.html
 
-build:
-  stage: build
-  except:
-    refs:
-      - schedules
-  needs: [install]
-  before_script:
-    - yarn config set cache-folder ~/.yarn
-  script:
-    - yarn run build:head
-
-build_frc_website:
-  stage: build
-  except:
-    refs:
-      - schedules
-  needs: [install]
-  before_script:
-    - yarn config set cache-folder ~/.yarn
-  script:
-    - yarn run build:frc-website
-  artifacts:
-    paths:
-      - applications/frc-website/.cache/
-      - applications/frc-website/public/
-  only:
-    changes:
-      - applications/frc-website/**/*
-
 coverage_jest:
   stage: test
   except:
@@ -126,33 +99,14 @@ release:
     refs:
       - production
       - pre-production
-  needs: [install, build, build_frc_website, eslint-sast, coverage_jest]
+  needs: [install, build_frc_website, build_head, eslint-sast, coverage_jest]
   dependencies:
-    - build
     - build_frc_website
+    - build_head
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
     - npx -p semantic-release@17.3.6 semantic-release
-
-# https://www.zaproxy.org/docs/docker/baseline-scan/
-# Triggered by Netlify when deploy is complete
-baseline_scan:
-  image: owasp/zap2docker-stable:latest
-  stage: dynamic_security
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "pre-production" && $SITE_URL_FROM_NETLIFY != null'
-      variables:
-        SITE_URL: "https://bmi-dxb-head-preproduction.netlify.app/no/"
-    - if: '$CI_COMMIT_BRANCH == "production" && $SITE_URL_FROM_NETLIFY != null'
-      variables:
-        SITE_URL: "https://bmi-dxb-head-production.netlify.app/no/"
-    - if: "$SITE_URL_FROM_NETLIFY != null"
-      variables:
-        SITE_URL: $SITE_URL_FROM_NETLIFY
-  needs: [release]
-  script:
-    - zap-baseline.py -t ${SITE_URL} || exit 0
 
 # Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
 dependabot_gitlab:
@@ -170,14 +124,3 @@ dependabot_gitlab:
     - cd /home/dependabot
   script:
     - bundle exec rake "dependabot:update[$PROJECT_PATH,$PACKAGE_MANAGER,$DIRECTORY]"
-
-# https://www.zaproxy.org/docs/docker/full-scan/
-# Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
-# When happy with how this works, change to use zap-full-scan.py
-full_scan:
-  stage: dynamic_security
-  rules:
-    - if: '$WHICH_SCHEDULE == "full_scan"'
-  image: owasp/zap2docker-stable:latest
-  script:
-    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/

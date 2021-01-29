@@ -24,6 +24,7 @@ const handler = async (event) => {
   params.append("token", gitLabToken);
   params.append("ref", input.branch);
   params.append("variables[SITE_URL_FROM_NETLIFY]", input.url);
+  params.append("variables[SITE_FROM_NETLIFY]", "head");
 
   try {
     const response = await fetch(gitlabWebhook, {

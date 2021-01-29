@@ -1,0 +1,20 @@
+build_frc_website:
+  stage: build
+  except:
+    refs:
+      - schedules
+  only:
+    changes:
+      - applications/frc-website/**
+      - components/**
+      - jest/**
+      - libraries/**
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn run build:frc-website
+  artifacts:
+    paths:
+      - applications/frc-website/.cache/
+      - applications/frc-website/public/

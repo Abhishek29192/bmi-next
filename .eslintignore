@@ -4,4 +4,4 @@
 
 # ESLint config files are JS source files nonetheless
 !**/.eslintrc.js
-**/netlify/functions**
+**/netlify/functions/**
