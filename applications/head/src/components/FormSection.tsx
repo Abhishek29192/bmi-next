@@ -84,10 +84,9 @@ const Input = ({
 
   const handleFileValidation = (file: File) => {
     if (maxSize && file.size > maxSize * 1048576) {
-      return getMicroCopy("errors.maxSize").replace(
-        "{{size}}",
-        getFileSizeString(maxSize * 1048576)
-      );
+      return getMicroCopy("errors.maxSize", {
+        size: getFileSizeString(maxSize * 1048576)
+      });
     }
   };
 

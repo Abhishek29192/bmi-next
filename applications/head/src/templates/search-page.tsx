@@ -145,15 +145,9 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
     // Otherwise, the title depends on if there are results.
     if (hasResults) {
-      return getMicroCopy("searchPage.title.withQuery").replace(
-        "{{query}}",
-        query
-      );
+      return getMicroCopy("searchPage.title.withQuery", { query });
     } else {
-      return getMicroCopy("searchPage.noResultsTitle").replace(
-        "{{query}}",
-        query
-      );
+      return getMicroCopy("searchPage.noResultsTitle", { query });
     }
   }, [query, hasResults]);
 
