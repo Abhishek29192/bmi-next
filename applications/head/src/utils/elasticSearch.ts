@@ -8,7 +8,9 @@ const ES_AGGREGATION_NAMES = {
   texturefamily: "texturefamily",
   productFamily: "allCategories",
   // Search page - Pages tab
-  "page-type-tag": "tags"
+  "page-type-tag": "tags",
+  // Search page - Documents tab
+  "document-asset-type": "assetTypes"
 };
 
 export const removeIrrelevantFilters = (filters, aggregations) => {

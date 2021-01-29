@@ -20,6 +20,9 @@ import { getFilters } from "../utils/filters";
 import SearchTabPanelProducts, {
   getCount as getProductsCount
 } from "../components/SearchTabProducts";
+import SearchTabPanelDocuments, {
+  getCount as getDocumentsCount
+} from "../components/SearchTabDocuments";
 import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
@@ -38,11 +41,17 @@ type Props = {
     allProducts: {
       nodes: ReadonlyArray<Product>;
     };
+    allContentfulAssetType: {
+      nodes: ReadonlyArray<{
+        name: string;
+        pimCode: string;
+      }>;
+    };
   };
 };
 
 const SearchPage = ({ pageContext, data }: Props) => {
-  const { contentfulSite } = data;
+  const { contentfulSite, allContentfulAssetType } = data;
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
@@ -73,7 +82,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       hasBeenDisplayed: false
     },
     documents: {
-      component: PlaceholderContent,
+      component: SearchTabPanelDocuments,
       heading: getMicroCopy("search.tabHeadings.documents"),
       count: 0,
       hasBeenDisplayed: false
@@ -100,8 +109,9 @@ const SearchPage = ({ pageContext, data }: Props) => {
       }
 
       // TODO: Can be put in the config object if arguments are consistent
-      const [productsCount, pagesCount] = await Promise.all([
+      const [productsCount, documentsCount, pagesCount] = await Promise.all([
         getProductsCount(query),
+        getDocumentsCount(query),
         getPagesCount(query)
       ]);
 
@@ -110,6 +120,10 @@ const SearchPage = ({ pageContext, data }: Props) => {
         products: {
           ...results.products,
           count: productsCount
+        },
+        documents: {
+          ...results.documents,
+          count: documentsCount
         },
         pages: {
           ...results.pages,
@@ -213,6 +227,9 @@ const SearchPage = ({ pageContext, data }: Props) => {
                     handleTabIsLoading(tabKey, isLoading)
                   }
                   initialFilters={initialFilters}
+                  extraData={{
+                    allContentfulAssetType: allContentfulAssetType.nodes
+                  }}
                 />
               </Container>
             ) : null}
@@ -288,6 +305,12 @@ export const pageQuery = graphql`
   query SearchPageBySiteId($siteId: String!) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
+    }
+    allContentfulAssetType {
+      nodes {
+        name
+        pimCode
+      }
     }
     allProducts {
       nodes {

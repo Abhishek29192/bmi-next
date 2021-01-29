@@ -131,7 +131,9 @@ const resolveDocumentsFromContentful = async (assetTypes, { context }) => {
   return documents || [];
 };
 
-module.exports = {
+exports.resolveDocumentsFromProducts = resolveDocumentsFromProducts;
+
+module.exports.default = {
   type: ["Document"],
   async resolve(source, args, context) {
     const assetTypes =

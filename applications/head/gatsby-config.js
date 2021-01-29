@@ -8,6 +8,44 @@ require("dotenv").config({
 
 const contentfulCredentialData = getCredentialData(process.env);
 
+const documentsQuery = `{
+  allPIMDocument {
+    __typename
+    id
+    title
+    url
+    fileSize
+    assetType {
+      name
+      code
+      pimCode
+    }
+  }
+  allContentfulDocument {
+    edges {
+      node {
+        __typename
+        id
+        title
+        asset {
+          file {
+            details {
+              size
+            }
+            url
+          }
+        }
+        assetType {
+          name
+          code
+          pimCode
+        }
+      }
+    }
+  }
+}
+`;
+
 const pagePathsQuery = `{
   allSitePage {
     totalCount
@@ -18,6 +56,7 @@ const pagePathsQuery = `{
     }
   }
 }`;
+
 const queries = [
   {
     query: pagePathsQuery,
@@ -95,6 +134,22 @@ const queries = [
         }
       }
     }
+  },
+  {
+    query: documentsQuery,
+    transformer: ({ data }) => {
+      if (!data) {
+        throw new Error("No data");
+      }
+
+      const { allPIMDocument, allContentfulDocument } = data;
+
+      return [
+        ...allPIMDocument,
+        ...allContentfulDocument.edges.map(({ node }) => node)
+      ];
+    },
+    indexName: "all-documents"
   }
 ];
 
