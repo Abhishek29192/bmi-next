@@ -214,7 +214,8 @@ describe("Sections component", () => {
         __typename: "ContentfulServiceLocatorSection",
         title: "Service Locator",
         label: "Find A Roofer",
-        body: null
+        body: null,
+        roofers: null
       }
     ];
 

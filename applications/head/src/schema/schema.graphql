@@ -646,6 +646,9 @@ type ContentfulServiceLocatorSection implements Node {
 
   "The body for this section."
   body: ContentfulRichText
+
+  "The roofers for this section."
+  roofers: [ContentfulRoofer] @link(from: "roofers___NODE")
 }
 
 """
@@ -1190,4 +1193,46 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+}
+
+"""
+Represents the company details of a roofer.
+"""
+type ContentfulRoofer implements Node {
+  id: ID!
+
+  "The name for this roofer."
+  name: String
+
+  "The location for this roofer."
+  location: Location
+
+  "The address for this roofer."
+  address: String
+
+  "The phone number for this roofer."
+  phone: String
+
+  "The email address for this roofer."
+  email: String
+
+  "The URL for the website of this roofer."
+  website: String
+
+  "The type of this roofer."
+  type: [String]
+
+  "The certification level of this roofer."
+  certification: String
+
+  "The summary of this roofer."
+  summary: String
+}
+
+type Location implements Node {
+  "The latitude for this location."
+  lat: Float!
+
+  "The longitude for this location."
+  lon: Float!
 }
