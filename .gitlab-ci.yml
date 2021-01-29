@@ -136,17 +136,23 @@ release:
     - npx -p semantic-release@17.3.6 semantic-release
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
-# Should be run against newly deployed site, but requires knowing when it has been deployed
+# Triggered by Netlify when deploy is complete
 baseline_scan:
   image: owasp/zap2docker-stable:latest
   stage: dynamic_security
-  only:
-    refs:
-      - production
-      - pre-production
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "pre-production" && $SITE_URL_FROM_NETLIFY != null'
+      variables:
+        SITE_URL: "https://bmi-dxb-head-preproduction.netlify.app/no/"
+    - if: '$CI_COMMIT_BRANCH == "production" && $SITE_URL_FROM_NETLIFY != null'
+      variables:
+        SITE_URL: "https://bmi-dxb-head-production.netlify.app/no/"
+    - if: "$SITE_URL_FROM_NETLIFY != null"
+      variables:
+        SITE_URL: $SITE_URL_FROM_NETLIFY
   needs: [release]
   script:
-    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
+    - zap-baseline.py -t ${SITE_URL} || exit 0
 
 # Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
 dependabot_gitlab:
