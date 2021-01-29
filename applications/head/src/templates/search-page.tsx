@@ -264,19 +264,21 @@ const SearchPage = ({ pageContext, data }: Props) => {
           />
         }
       />
-      <SearchBlock
-        buttonText={
-          query ? getMicroCopy("searchPage.searchText") : defaultTitle
-        }
-        countryCode={countryCode}
-        handleSubmit={handleSubmit}
-        hasResults={hasResults}
-        helperText={getMicroCopy("searchPage.helperText")}
-        placeholder={getMicroCopy("searchPage.placeholder")}
-        query={query}
-        searchPageSearchTips={resources.searchPageSearchTips}
-        searchPageSidebarItems={resources.searchPageSidebarItems}
-      />
+      <Section backgroundColor="white" isSlim>
+        <SearchBlock
+          buttonText={
+            query ? getMicroCopy("searchPage.searchText") : defaultTitle
+          }
+          countryCode={countryCode}
+          handleSubmit={handleSubmit}
+          hasResults={hasResults}
+          helperText={getMicroCopy("searchPage.helperText")}
+          placeholder={getMicroCopy("searchPage.placeholder")}
+          query={query}
+          searchPageSearchTips={resources.searchPageSearchTips}
+          searchPageSidebarItems={resources.searchPageSidebarItems}
+        />
+      </Section>
       {hasResults ? (
         <Tabs
           initialValue={initialTabKey}

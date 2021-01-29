@@ -39,50 +39,48 @@ const SearchPageBlock = ({
   searchPageSidebarItems
 }: Props) => {
   return (
-    <Container className={styles["SearchBlock"]}>
-      <Grid container spacing={3}>
-        <Grid item lg={8} xs={12}>
-          <div
-            className={classnames(styles["content"], styles["content--search"])}
-          >
-            <Search
-              action={`/${countryCode}/search`}
-              buttonText={buttonText}
-              defaultValue={query}
-              fieldName={QUERY_KEY}
-              onSubmit={handleSubmit}
-              helperText={helperText}
-              placeholder={placeholder}
-            />
+    <Grid container spacing={3} className={styles["SearchBlock"]}>
+      <Grid item lg={8} xs={12}>
+        <div
+          className={classnames(styles["content"], styles["content--search"])}
+        >
+          <Search
+            action={`/${countryCode}/search`}
+            buttonText={buttonText}
+            defaultValue={query}
+            fieldName={QUERY_KEY}
+            onSubmit={handleSubmit}
+            helperText={helperText}
+            placeholder={placeholder}
+          />
+        </div>
+        {!hasResults && searchPageSearchTips && (
+          <div className={styles["content"]}>
+            <Typography variant="h5">{searchPageSearchTips.title}</Typography>
+            <RichText document={searchPageSearchTips.content} />
           </div>
-          {!hasResults && searchPageSearchTips && (
-            <div className={styles["content"]}>
-              <Typography variant="h5">{searchPageSearchTips.title}</Typography>
-              <RichText document={searchPageSearchTips.content} />
-            </div>
-          )}
-        </Grid>
-        {!hasResults && searchPageSidebarItems && (
-          <Grid
-            item
-            lg={4}
-            xs={12}
-            className={classnames(styles["content"], styles["content--card"])}
-          >
-            <PostItCard theme="pearl">
-              <PostItCard.Section>
-                <PostItCard.Heading hasUnderline>
-                  {searchPageSidebarItems.title}
-                </PostItCard.Heading>
-                <PostItCard.Content>
-                  <RichText document={searchPageSidebarItems.content} />
-                </PostItCard.Content>
-              </PostItCard.Section>
-            </PostItCard>
-          </Grid>
         )}
       </Grid>
-    </Container>
+      {!hasResults && searchPageSidebarItems && (
+        <Grid
+          item
+          lg={4}
+          xs={12}
+          className={classnames(styles["content"], styles["content--card"])}
+        >
+          <PostItCard theme="pearl">
+            <PostItCard.Section>
+              <PostItCard.Heading hasUnderline>
+                {searchPageSidebarItems.title}
+              </PostItCard.Heading>
+              <PostItCard.Content>
+                <RichText document={searchPageSidebarItems.content} />
+              </PostItCard.Content>
+            </PostItCard.Section>
+          </PostItCard>
+        </Grid>
+      )}
+    </Grid>
   );
 };
 
