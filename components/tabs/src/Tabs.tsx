@@ -5,6 +5,7 @@ import {
   Tabs as MaterialTabs,
   TabsProps as MaterialTabsProps
 } from "@material-ui/core";
+import Container from "@bmi/container";
 import classnames from "classnames";
 import React from "react";
 import styles from "./Tabs.module.scss";
@@ -56,26 +57,28 @@ const Tabs = ({
   return (
     <div className={classnames(styles.Tabs, styles[`Tabs--${theme}`])}>
       <div className={styles.TabsBar}>
-        <MaterialTabs
-          aria-label="tabs"
-          indicatorColor="primary"
-          onChange={handleChange}
-          scrollButtons="auto"
-          textColor="primary"
-          variant="scrollable"
-          value={value}
-          {...other}
-        >
-          {children.map(({ props: { heading, index } }) => (
-            <Tab
-              aria-controls={`tabpanel-${index}`}
-              id={`tab-${index}`}
-              key={index}
-              label={heading}
-              value={index}
-            />
-          ))}
-        </MaterialTabs>
+        <Container>
+          <MaterialTabs
+            aria-label="tabs"
+            indicatorColor="primary"
+            onChange={handleChange}
+            scrollButtons="auto"
+            textColor="primary"
+            variant="scrollable"
+            value={value}
+            {...other}
+          >
+            {children.map(({ props: { heading, index } }) => (
+              <Tab
+                aria-controls={`tabpanel-${index}`}
+                id={`tab-${index}`}
+                key={index}
+                label={heading}
+                value={index}
+              />
+            ))}
+          </MaterialTabs>
+        </Container>
       </div>
       {children.map((child) => {
         const { index, ...other } = child.props;

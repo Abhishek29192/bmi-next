@@ -16,7 +16,7 @@ describe("Tabs component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders alternate theme correctly", () => {
+  it("renders secondary theme correctly", () => {
     const { container } = render(
       <Tabs theme="secondary">
         <Tabs.TabPanel heading="Tab 1" index={0}>

@@ -1,7 +1,5 @@
-import { InputValue } from "@bmi/form";
 import Hero from "@bmi/hero";
-import LeadBlock from "@bmi/lead-block";
-import Search from "@bmi/search";
+import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Typography from "@bmi/typography";
 import Filters from "@bmi/filters";
@@ -9,10 +7,10 @@ import Tabs from "@bmi/tabs";
 import Button from "@bmi/button";
 import Grid from "@bmi/grid";
 import Pagination from "@bmi/pagination";
+import { QUERY_KEY } from "@bmi/search";
 import OverviewCard from "@bmi/overview-card";
 import AnchorLink from "@bmi/anchor-link";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { graphql, Link } from "gatsby";
 import React, { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
@@ -21,10 +19,9 @@ import { generateGetMicroCopy } from "../components/MicroCopy";
 import NextBestActions from "../components/NextBestActions";
 import Page from "../components/Page";
 import ProgressIndicator from "../components/ProgressIndicator";
-import RichText from "../components/RichText";
+import SearchBlock, { QueryInput } from "../components/SearchBlock";
 import Scrim from "../components/Scrim";
 import { Data as SiteData } from "../components/Site";
-import { Data as TitleWithContentData } from "../components/TitleWithContent";
 // TODO: Move type away from a page
 import { Product } from "./product-details-page";
 import {
@@ -66,44 +63,14 @@ type Props = {
   };
 };
 
-type QueryInput = Extract<string, InputValue>;
-
-const SearchTips = ({
-  title,
-  content
-}: Omit<TitleWithContentData, "__typename">) => (
-  <LeadBlock.Content.Section>
-    <Typography variant="h5">{title}</Typography>
-    <RichText document={content} />
-  </LeadBlock.Content.Section>
-);
-
-const SearchSidebarItems = ({
-  title,
-  content
-}: Omit<TitleWithContentData, "__typename">) => (
-  <LeadBlock.Card theme="pearl">
-    <LeadBlock.Card.Section>
-      <LeadBlock.Card.Heading hasUnderline>{title}</LeadBlock.Card.Heading>
-      <LeadBlock.Card.Content>
-        <RichText document={content} />
-      </LeadBlock.Card.Content>
-    </LeadBlock.Card.Section>
-  </LeadBlock.Card>
-);
-
 const SearchPage = ({ pageContext, data }: Props) => {
   const { contentfulSite } = data;
-  const QUERY_KEY = "q";
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
   const [query, setQuery] = useState<QueryInput>(params.get(QUERY_KEY));
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const resultsElement = useRef<HTMLDivElement>(null);
-  // Sorry, the Header uses custom breakpoints not used in `theme`.
-  const isSmall = useMediaQuery("@media (max-width:800px)");
-
   // TODO: Focusing on products tab initially, then to more generic results
   const initialProducts = [];
   const [products, setProducts] = useState(initialProducts);
@@ -278,46 +245,26 @@ const SearchPage = ({ pageContext, data }: Props) => {
           />
         }
       />
-      <Section isSlim backgroundColor="white">
-        <LeadBlock>
-          <LeadBlock.Content>
-            {!isSmall && (
-              <LeadBlock.Content.Section>
-                <Search
-                  action={`/${countryCode}/search`}
-                  buttonText={
-                    query ? getMicroCopy("searchPage.searchText") : defaultTitle
-                  }
-                  defaultValue={query || null}
-                  fieldName={QUERY_KEY}
-                  onSubmit={handleSubmit}
-                  helperText={getMicroCopy("searchPage.helperText")}
-                  placeholder={getMicroCopy("searchPage.placeholder")}
-                />
-              </LeadBlock.Content.Section>
-            )}
-            {!hasResults && resources.searchPageSearchTips && (
-              <SearchTips
-                title={resources.searchPageSearchTips.title}
-                content={resources.searchPageSearchTips.content}
-              />
-            )}
-          </LeadBlock.Content>
-          {!hasResults && resources.searchPageSidebarItems && (
-            <SearchSidebarItems
-              title={resources.searchPageSidebarItems.title}
-              content={resources.searchPageSidebarItems.content}
-            />
-          )}
-        </LeadBlock>
-      </Section>
+      <SearchBlock
+        buttonText={
+          query ? getMicroCopy("searchPage.searchText") : defaultTitle
+        }
+        countryCode={countryCode}
+        handleSubmit={handleSubmit}
+        hasResults={hasResults}
+        helperText={getMicroCopy("searchPage.helperText")}
+        placeholder={getMicroCopy("searchPage.placeholder")}
+        query={query}
+        searchPageSearchTips={resources.searchPageSearchTips}
+        searchPageSidebarItems={resources.searchPageSidebarItems}
+      />
       {hasResults ? (
-        <Section isSlim backgroundColor="white">
-          <Tabs initialValue="products" theme="secondary">
-            <Tabs.TabPanel
-              heading={`Products (${totalProductsCount})`}
-              index="products"
-            >
+        <Tabs initialValue="products" theme="secondary">
+          <Tabs.TabPanel
+            heading={`Products (${totalProductsCount})`}
+            index="products"
+          >
+            <Container>
               {/* TODO: Sure the ref should be on here? how does this work across tabs? */}
               <Grid container spacing={3} ref={resultsElement}>
                 <Grid item xs={12} md={12} lg={3}>
@@ -413,18 +360,18 @@ const SearchPage = ({ pageContext, data }: Props) => {
                   </Grid>
                 </Grid>
               </Grid>
-            </Tabs.TabPanel>
-            <Tabs.TabPanel heading="Documents" index="documents">
-              Coming soon
-            </Tabs.TabPanel>
-            <Tabs.TabPanel heading="Content pages" index="content-pages">
-              Coming soon
-            </Tabs.TabPanel>
-            <Tabs.TabPanel heading="Tools" index="tools">
-              Coming soon
-            </Tabs.TabPanel>
-          </Tabs>
-        </Section>
+            </Container>
+          </Tabs.TabPanel>
+          <Tabs.TabPanel heading="Documents" index="documents">
+            Coming soon
+          </Tabs.TabPanel>
+          <Tabs.TabPanel heading="Content pages" index="content-pages">
+            Coming soon
+          </Tabs.TabPanel>
+          <Tabs.TabPanel heading="Tools" index="tools">
+            Coming soon
+          </Tabs.TabPanel>
+        </Tabs>
       ) : null}
       {!hasResults
         ? resources.searchPageNextBestActions && (
