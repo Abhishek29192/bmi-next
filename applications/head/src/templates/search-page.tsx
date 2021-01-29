@@ -2,6 +2,7 @@ import { InputValue } from "@bmi/form";
 import Hero from "@bmi/hero";
 import LeadBlock from "@bmi/lead-block";
 import Search from "@bmi/search";
+import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Typography from "@bmi/typography";
 import Filters from "@bmi/filters";
@@ -318,12 +319,12 @@ const SearchPage = ({ pageContext, data }: Props) => {
         </LeadBlock>
       </Section>
       {hasResults ? (
-        <Section isSlim backgroundColor="white">
-          <Tabs initialValue="products" theme="secondary">
-            <Tabs.TabPanel
-              heading={`Products (${totalProductsCount})`}
-              index="products"
-            >
+        <Tabs initialValue="products" theme="secondary">
+          <Tabs.TabPanel
+            heading={`Products (${totalProductsCount})`}
+            index="products"
+          >
+            <Container>
               {/* TODO: Sure the ref should be on here? how does this work across tabs? */}
               <Grid container spacing={3} ref={resultsElement}>
                 <Grid item xs={12} md={12} lg={3}>
@@ -419,18 +420,18 @@ const SearchPage = ({ pageContext, data }: Props) => {
                   </Grid>
                 </Grid>
               </Grid>
-            </Tabs.TabPanel>
-            <Tabs.TabPanel heading="Documents" index="documents">
-              Coming soon
-            </Tabs.TabPanel>
-            <Tabs.TabPanel heading="Content pages" index="content-pages">
-              Coming soon
-            </Tabs.TabPanel>
-            <Tabs.TabPanel heading="Tools" index="tools">
-              Coming soon
-            </Tabs.TabPanel>
-          </Tabs>
-        </Section>
+            </Container>
+          </Tabs.TabPanel>
+          <Tabs.TabPanel heading="Documents" index="documents">
+            Coming soon
+          </Tabs.TabPanel>
+          <Tabs.TabPanel heading="Content pages" index="content-pages">
+            Coming soon
+          </Tabs.TabPanel>
+          <Tabs.TabPanel heading="Tools" index="tools">
+            Coming soon
+          </Tabs.TabPanel>
+        </Tabs>
       ) : null}
       {!hasResults
         ? resources.searchPageNextBestActions && (
