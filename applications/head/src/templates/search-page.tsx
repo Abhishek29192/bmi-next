@@ -239,9 +239,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
         title={pageTitle}
         breadcrumbs={
           <Breadcrumbs
-            title={pageTitle}
-            slug="search"
-            menuNavigation={menuNavigation}
+            data={{ title: pageTitle, parentPage: null, slug: "search" }}
           />
         }
       />

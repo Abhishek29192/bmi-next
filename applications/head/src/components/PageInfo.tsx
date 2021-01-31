@@ -7,7 +7,8 @@ export type Data = {
     | "ContentfulContactUsPage"
     | "ContentfulTeamPage"
     | "ContentfulProductListerPage"
-    | "ContentfulDocumentLibraryPage";
+    | "ContentfulDocumentLibraryPage"
+    | "ContentfulBrandLandingPage";
   title: string;
   subtitle: string | null;
   brandLogo: string | null;

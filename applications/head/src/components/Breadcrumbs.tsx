@@ -1,12 +1,18 @@
 import React, { useContext } from "react";
 import Breadcrumbs, { Props as BreadcrumbsProps } from "@bmi/breadcrumbs";
 import { SiteContext } from "../components/Site";
+import { Data as PageInfoData } from "./PageInfo";
 
 import { getClickableActionFromUrl, LinkData, NavigationData } from "./Link";
+import { graphql } from "gatsby";
 
 type Path = {
   label: string;
   link: LinkData | null;
+};
+
+export type Data = Pick<PageInfoData, "title" | "slug"> & {
+  parentPage: Pick<PageInfoData, "__typename" | "title" | "slug"> | null;
 };
 
 export const findPath = (
@@ -71,16 +77,16 @@ export const findPath = (
 };
 
 const IntegratedBreadcrumbs = ({
-  title,
-  slug,
+  data: { title, slug, parentPage },
   menuNavigation,
   ...rest
 }: {
-  title: string;
-  slug: string;
+  data: Data;
   menuNavigation?: NavigationData;
 } & BreadcrumbsProps) => {
-  const path = menuNavigation ? findPath(slug, menuNavigation) : [];
+  const path = menuNavigation
+    ? findPath(parentPage?.slug || slug, menuNavigation)
+    : [];
   const { countryCode, homePage } = useContext(SiteContext);
 
   return (
@@ -102,9 +108,32 @@ const IntegratedBreadcrumbs = ({
           {label}
         </Breadcrumbs.Item>
       ))}
+      {parentPage ? (
+        <Breadcrumbs.Item
+          action={getClickableActionFromUrl(parentPage, null, countryCode)}
+        >
+          {parentPage.title}
+        </Breadcrumbs.Item>
+      ) : null}
       <Breadcrumbs.Item>{title}</Breadcrumbs.Item>
     </Breadcrumbs>
   );
 };
 
 export default IntegratedBreadcrumbs;
+
+export const query = graphql`
+  fragment BreadcrumbsFragment on ContentfulPage {
+    title
+    slug
+    parentPage {
+      ... on ContentfulHomePage {
+        title
+      }
+      ... on ContentfulPage {
+        title
+        slug
+      }
+    }
+  }
+`;

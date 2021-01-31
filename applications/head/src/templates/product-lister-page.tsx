@@ -1,7 +1,10 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
-import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData,
+  findPath
+} from "../components/Breadcrumbs";
 import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData, SiteContext } from "../components/Site";
@@ -44,7 +47,8 @@ import { devLog } from "../utils/devLog";
 
 const PAGE_SIZE = 24;
 
-type Data = PageInfoData &
+type Data = BreadcrumbsData &
+  PageInfoData &
   PageData & {
     __typename: "ContentfulProductListerPage";
     content: RichTextData | null;
@@ -80,6 +84,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     content,
     features,
     featuresLink,
+    parentPage,
     ...pageData
   } = data.contentfulProductListerPage;
   const heroProps: HeroItem = {
@@ -88,11 +93,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     imageSource: featuredImage?.resize.src
   };
   const { countryCode } = data.contentfulSite;
+  const parentSlug = parentPage?.slug;
   const heroLevel = (Math.min(
     findPath(
-      data.contentfulProductListerPage.slug,
+      parentSlug || data.contentfulProductListerPage.slug,
       data.contentfulSite.menuNavigation
-    ).length + 1,
+    ).length + (parentSlug ? 2 : 1),
     3
   ) || 1) as 1 | 2 | 3;
   // TODO: Ignoring gatsby data for now as fetching with ES
@@ -237,8 +243,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 {...heroProps}
                 breadcrumbs={
                   <Breadcrumbs
-                    title={title}
-                    slug={data.contentfulProductListerPage.slug}
+                    data={{
+                      title,
+                      slug: data.contentfulProductListerPage.slug,
+                      parentPage
+                    }}
                     menuNavigation={data.contentfulSite.menuNavigation}
                     isDarkThemed={heroLevel !== 3}
                   />
@@ -407,8 +416,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       </SiteContext.Consumer>
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs
-          title={title}
-          slug={data.contentfulProductListerPage.slug}
+          data={{
+            title,
+            slug: data.contentfulProductListerPage.slug,
+            parentPage
+          }}
           menuNavigation={data.contentfulSite.menuNavigation}
         />
       </Section>
@@ -426,6 +438,7 @@ export const pageQuery = graphql`
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      ...BreadcrumbsFragment
       content {
         ...RichTextFragment
       }
@@ -495,24 +508,6 @@ export const pageQuery = graphql`
             }
           }
         }
-      }
-    }
-  }
-`;
-
-export const promoQuery = graphql`
-  fragment ProductListerPageInfoFragment on ContentfulProductListerPage {
-    title
-    subtitle
-    brandLogo
-    slug
-    featuredImage {
-      resize(toFormat: WEBP, jpegProgressive: false) {
-        src
-      }
-      file {
-        fileName
-        url
       }
     }
   }

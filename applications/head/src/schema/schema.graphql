@@ -120,6 +120,9 @@ interface ContentfulPage @nodeInterface {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 """
@@ -172,6 +175,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The sections for this page."
   sections: [ContentfulSection] @link(from: "sections___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 """
@@ -224,6 +230,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The other areas for this page."
   otherAreas: [ContentfulTitleWithContent] @link(from: "otherAreas___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 """
@@ -258,6 +267,9 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 
   "The team categories for this page."
   teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 type ContentfulHomePage implements Node {
@@ -332,6 +344,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 """
@@ -1112,6 +1127,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
   "The product codes specified for this page."
   pimCodes: [String]
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 union ProductDocument = PIMDocument | PIMLinkDocument
@@ -1190,4 +1208,7 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }

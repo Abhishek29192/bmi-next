@@ -7,7 +7,9 @@ import Section from "@bmi/section";
 import { Data as SiteData } from "../components/Site";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Page, { Data as PageData } from "../components/Page";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
 import DocumentResults, {
   Data as DocumentResultsData,
   Format
@@ -52,12 +54,14 @@ const documentCountMap: Record<
 
 type Source = "PIM" | "CMS" | "ALL";
 
-type Data = PageInfoData &
+type Data = BreadcrumbsData &
+  PageInfoData &
   PageData & {
     description: RichTextData | null;
     source: Source;
     resultsType: "Simple" | "Technical" | "Card Collection";
     documents: DocumentResultsData;
+    parentPage: PageInfoData | null;
   };
 
 type Props = {
@@ -109,21 +113,26 @@ const sourceToSortMap: Record<
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     title,
+    slug,
     description,
     documents: unsortedDocuments,
     source,
-    resultsType
+    resultsType,
+    parentPage
   } = data.contentfulDocumentLibraryPage;
 
   const pageData: PageData = {
-    slug: data.contentfulDocumentLibraryPage.slug,
+    slug,
     inputBanner: data.contentfulDocumentLibraryPage.inputBanner
   };
 
   const breadcrumbs = (
     <Breadcrumbs
-      title={title}
-      slug={data.contentfulDocumentLibraryPage.slug}
+      data={{
+        title,
+        slug,
+        parentPage
+      }}
       menuNavigation={data.contentfulSite.menuNavigation}
       isDarkThemed
     />
@@ -404,8 +413,11 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       </SiteContext.Consumer>
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs
-          title={title}
-          slug={data.contentfulDocumentLibraryPage.slug}
+          data={{
+            title,
+            slug,
+            parentPage
+          }}
           menuNavigation={data.contentfulSite.menuNavigation}
         />
       </Section>
@@ -420,6 +432,7 @@ export const pageQuery = graphql`
     contentfulDocumentLibraryPage(id: { eq: $pageId }) {
       ...PageInfoFragment
       ...PageFragment
+      ...BreadcrumbsFragment
       description {
         ...RichTextFragment
       }

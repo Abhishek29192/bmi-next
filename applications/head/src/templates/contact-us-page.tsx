@@ -2,7 +2,9 @@ import React from "react";
 import { graphql } from "gatsby";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Hero, { HeroItem } from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
@@ -14,7 +16,8 @@ import ContactTopics, {
 } from "../components/ContactTopics";
 import Locations, { Data as LocationsData } from "../components/Locations";
 
-type Data = PageInfoData &
+type Data = BreadcrumbsData &
+  PageInfoData &
   PageData & {
     __typename: "ContentfulContactUsPage";
     queriesTitle: string;
@@ -46,7 +49,8 @@ const ContactUsPage = ({ data }: Props) => {
     slug,
     inputBanner,
     locationsTitle,
-    locations
+    locations,
+    parentPage
   } = data.contentfulContactUsPage;
   const heroProps: HeroItem = {
     title,
@@ -65,8 +69,7 @@ const ContactUsPage = ({ data }: Props) => {
         {...heroProps}
         breadcrumbs={
           <Breadcrumbs
-            title={title}
-            slug={slug}
+            data={{ title, slug, parentPage }}
             menuNavigation={data.contentfulSite.menuNavigation}
             isDarkThemed
           />
@@ -100,8 +103,7 @@ const ContactUsPage = ({ data }: Props) => {
       />
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs
-          title={title}
-          slug={slug}
+          data={{ title, slug, parentPage }}
           menuNavigation={data.contentfulSite.menuNavigation}
         />
       </Section>
@@ -128,6 +130,9 @@ export const pageQuery = graphql`
       locationsTitle
       locations {
         ...LocationsFragment
+      }
+      parentPage {
+        ...PageInfoFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
