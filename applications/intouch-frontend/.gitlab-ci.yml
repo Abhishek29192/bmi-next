@@ -1,0 +1,30 @@
+build_intouch_frontend:
+  stage: build
+  except:
+    refs:
+      - schedules
+  needs: [install]
+  script:
+    - yarn run build:intouch-frontend
+  # only:
+  #   changes:
+  #     - applications/intouch-frontend/**/*
+
+test_intouch_frontend:
+  stage: test
+  except:
+    refs:
+      - schedules
+  needs: [install]
+  script:
+    - yarn test:intouch-frontend
+  dependencies:
+    - install
+
+deploy_intouch_frontend_dev:
+  stage: deploy
+  only:
+    refs:
+      - intouch/dev-environment
+  script:
+    - echo "should deploy InTouch Frontend to dev environment"
