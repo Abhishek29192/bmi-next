@@ -17,7 +17,9 @@ module.exports = {
       DXB_FORCE_NETLIFY_BUILD
     } = process.env;
 
-    console.log(`Build triggered with the hook: ${INCOMING_HOOK_TITLE}`);
+    console.log(
+      `Build triggered with the hook: ${INCOMING_HOOK_TITLE || "unknown"}`
+    );
 
     if (recognisedHooks.includes(INCOMING_HOOK_TITLE)) {
       return;
