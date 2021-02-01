@@ -1212,3 +1212,13 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
+
+type contentfulTableDataJsonNode implements Node {
+  tableData: [[String]]
+}
+
+type ContentfulTable implements Node {
+  contentful_id: String!
+
+  data: contentfulTableDataJsonNode
+}
