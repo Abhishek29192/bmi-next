@@ -17,6 +17,9 @@
   package = "../../libraries/netlify-plugin-filter-tag-event"
 
 [[plugins]]
+  package = "../../libraries/netlify-plugin-clear-gatsby-cache"
+
+[[plugins]]
   # enable Gatsby.js incremental builds plugin.
   package = "netlify-plugin-gatsby-cache"
 
