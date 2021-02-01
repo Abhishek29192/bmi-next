@@ -6,7 +6,7 @@ import React, { ReactNode, useEffect, useRef, useState } from "react";
 import styles from "./GoogleMap.module.scss";
 
 type Props = google.maps.MapOptions & {
-  apiKey: string;
+  apiKey?: string;
   children?: ReactNode;
   markers?: google.maps.MarkerOptions[];
   onMarkerClick?: (
