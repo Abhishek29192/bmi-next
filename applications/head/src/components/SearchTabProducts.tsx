@@ -14,6 +14,7 @@ import {
 import { devLog } from "../utils/devLog";
 
 const PAGE_SIZE = 24;
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
 
 type Props = {
   queryString: string;
@@ -27,7 +28,10 @@ export const getCount = async (searchQuery) => {
   // See how much this function doesn't actually need this, RETHINK compile query
   let esQueryObject = compileElasticSearchQuery([], null, 0, 0, searchQuery);
 
-  const countResult = await queryElasticSearch(getCountQuery(esQueryObject));
+  const countResult = await queryElasticSearch(
+    getCountQuery(esQueryObject),
+    ES_INDEX_NAME
+  );
 
   if (countResult && countResult.hits) {
     return countResult.hits.total.value;
@@ -93,7 +97,7 @@ const SearchTabPanelProducts = (props: Props) => {
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
-    const results = await queryElasticSearch(esQueryObject);
+    const results = await queryElasticSearch(esQueryObject, ES_INDEX_NAME);
 
     if (results && results.hits) {
       const { hits } = results;

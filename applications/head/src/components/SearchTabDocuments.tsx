@@ -15,9 +15,15 @@ import {
 import { devLog } from "../utils/devLog";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { SiteContext } from "./Site";
+import DocumentResultsFooter, {
+  handleDownloadClick
+} from "./DocumentResultsFooter";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
 
 const PAGE_SIZE = 24;
-const ES_INDEX_NAME = "all-documents";
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
+const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
+  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 // Creates filters from aggregations
 // Requires contentful asset types for the localised labels
@@ -111,9 +117,10 @@ const getQueryObject = (queryString, page = 0, filters = []) => {
 export const getCount = async (queryString) => {
   const esQueryObject = getQueryObject(queryString);
 
-  const countResult = await queryElasticSearch(getCountQuery(esQueryObject), {
-    indexName: ES_INDEX_NAME
-  });
+  const countResult = await queryElasticSearch(
+    getCountQuery(esQueryObject),
+    ES_INDEX_NAME
+  );
 
   return countResult?.hits?.total?.value;
 };
@@ -165,9 +172,7 @@ const SearchTabPanelDocuments = (props: Props) => {
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
-    const results = await queryElasticSearch(esQueryObject, {
-      indexName: ES_INDEX_NAME
-    });
+    const results = await queryElasticSearch(esQueryObject, ES_INDEX_NAME);
 
     if (results && results.hits) {
       const { hits } = results;
@@ -211,7 +216,11 @@ const SearchTabPanelDocuments = (props: Props) => {
     setFilters(newFilters);
   };
 
-  const handleFiltersChange = (filterName, filterValue, checked) => {
+  const handleFiltersChange = (resetDownloadList) => (
+    filterName,
+    filterValue,
+    checked
+  ) => {
     const newFilters = updateFilterValue(
       filters,
       filterName,
@@ -219,6 +228,7 @@ const SearchTabPanelDocuments = (props: Props) => {
       checked
     );
 
+    resetDownloadList();
     onFiltersChange(newFilters);
   };
 
@@ -250,32 +260,36 @@ const SearchTabPanelDocuments = (props: Props) => {
   }, []);
 
   return (
-    <Grid container spacing={3} ref={resultsElement}>
-      <Grid item xs={12} md={12} lg={3}>
-        <FiltersSidebar
-          filters={filters}
-          onFiltersChange={handleFiltersChange}
-          onClearFilters={clearFilters}
-        />
-      </Grid>
-      <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
-        <DocumentSimpleTableResults
-          documents={results}
-          page={1}
-          documentsPerPage={PAGE_SIZE}
-        />
-        <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
-          <Grid item xs={12} md={6} lg={6}></Grid>
-          <Grid item xs={12} md={6} lg={6}>
-            <Pagination
+    <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+      <Grid container spacing={3} ref={resultsElement}>
+        <Grid item xs={12} md={12} lg={3}>
+          <DownloadListContext.Consumer>
+            {({ resetList }) => (
+              <FiltersSidebar
+                filters={filters}
+                onFiltersChange={handleFiltersChange(resetList)}
+                onClearFilters={clearFilters}
+              />
+            )}
+          </DownloadListContext.Consumer>
+        </Grid>
+        <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
+          <DocumentSimpleTableResults
+            documents={results}
+            page={1}
+            documentsPerPage={PAGE_SIZE}
+          />
+          <div>
+            <DocumentResultsFooter
               page={page + 1}
-              onChange={handlePageChange}
               count={pageCount}
+              onDownloadClick={handleDownloadClick}
+              onPageChange={handlePageChange}
             />
-          </Grid>
+          </div>
         </Grid>
       </Grid>
-    </Grid>
+    </DownloadList>
   );
 };
 

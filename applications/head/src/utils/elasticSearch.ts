@@ -1,7 +1,5 @@
 import { devLog } from "../utils/devLog";
 
-const ES_INDEX_NAME = "nodetest_v3_products";
-
 const ES_AGGREGATION_NAMES = {
   // TODO: Rename filter.name to colourfamily
   colour: "colourfamily",
@@ -195,13 +193,8 @@ export const getCountQuery = (fullQuery) => ({
   query: fullQuery.query
 });
 
-export const queryElasticSearch = async (query = {}, config?: any) => {
-  config = {
-    indexName: ES_INDEX_NAME,
-    ...config
-  };
-
-  const url = `${process.env.GATSBY_ES_ENDPOINT}/${config.indexName}/_search`;
+export const queryElasticSearch = async (query = {}, indexName: string) => {
+  const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 
   if (window.fetch) {
     try {

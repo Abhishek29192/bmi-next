@@ -302,8 +302,9 @@ const getPropIdentifier = {
 
 const getPropValue = (classification, propName) => {
   const prop = classification[propName];
+  const getter = prop && getPropIdentifier[propName];
 
-  return prop ? getPropIdentifier[propName](prop) : undefined;
+  return getter ? getter(prop) : undefined;
 };
 
 export const getProductAttributes = (
@@ -682,7 +683,7 @@ const findUniqueClassificationsOnVariant = (
     const baseValues = baseClassifications[code] || [];
     // If all the values are the same, we'll get a single value
     const allSameValue =
-      uniqBy(baseValues, (value) => getter(value)).length === 1;
+      getter && uniqBy(baseValues, (value) => getter(value)).length === 1;
 
     // AND if number of base values is equal to number of variants, all variants have the same value
     // Therefore it's common
