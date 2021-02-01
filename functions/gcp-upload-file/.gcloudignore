@@ -19,4 +19,4 @@ tsconfig.json
 env.yaml
 README.md
 node_modules
-__tests__
+**/__tests__

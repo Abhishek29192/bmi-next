@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { readFileSync } from "fs";
 import { protos } from "@google-cloud/secret-manager";
+import mockConsole from "jest-mock-console";
 
 const resourcesBasePath = "functions/gcp-upload-file/src/__tests__/resources";
 
@@ -16,6 +17,7 @@ const mockRequest = (
 const mockResponse = () => {
   const res: Partial<Response> = {};
   res.send = jest.fn().mockReturnValue(res);
+  res.sendStatus = jest.fn().mockReturnValue(res);
   res.status = jest.fn().mockReturnValue(res);
   res.set = jest.fn().mockReturnValue(res);
   return res;
@@ -49,6 +51,10 @@ jest.mock("contentful-management", () => ({
   })
 }));
 let upload;
+
+beforeAll(() => {
+  mockConsole();
+});
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -150,8 +156,7 @@ describe("Making a POST request", () => {
     expect(getEnvironment).toBeCalledTimes(0);
     expect(createUpload).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Expected Error"));
+    expect(res.sendStatus).toBeCalledWith(500);
   });
 
   it("returns status code 500 when an error is returned trying to get the space from Contentful", async () => {
@@ -170,8 +175,7 @@ describe("Making a POST request", () => {
     expect(getEnvironment).toBeCalledTimes(0);
     expect(createUpload).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Expected Error"));
+    expect(res.sendStatus).toBeCalledWith(500);
   });
 
   it("returns status code 500 when an error is returned trying to get the environment from Contentful", async () => {
@@ -190,8 +194,7 @@ describe("Making a POST request", () => {
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
     expect(createUpload).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Expected Error"));
+    expect(res.sendStatus).toBeCalledWith(500);
   });
 
   it("returns upload status from request to Contentful for pdf", async () => {

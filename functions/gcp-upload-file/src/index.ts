@@ -55,16 +55,18 @@ export const upload: HttpFunction = async (request, response) => {
   } else {
     try {
       if (!(request.body instanceof Buffer)) {
-        return response
-          .status(400)
-          .send(Error("Endpoint only accepts file buffers"));
+        const error = Error("Endpoint only accepts file buffers");
+        // eslint-disable-next-line no-console
+        console.error(error);
+        return response.status(400).send(error);
       }
 
       const fileType = await fromBuffer(request.body);
       if (!fileType || validMimeTypes.indexOf(fileType.mime) === -1) {
-        return response
-          .status(406)
-          .send(Error(`Cannot upload files of type ${fileType?.mime}`));
+        const error = Error(`Cannot upload files of type ${fileType?.mime}`);
+        // eslint-disable-next-line no-console
+        console.error(error);
+        return response.status(406).send(error);
       }
 
       const environment = await getContentfulEnvironment();
@@ -72,7 +74,9 @@ export const upload: HttpFunction = async (request, response) => {
 
       return response.send(upload);
     } catch (error) {
-      return response.status(500).send(error);
+      // eslint-disable-next-line no-console
+      console.error(error);
+      return response.sendStatus(500);
     }
   }
 };
