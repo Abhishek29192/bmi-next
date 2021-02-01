@@ -44,6 +44,7 @@ import {
   disableFiltersFromAggregations
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import FiltersSidebar from "../components/FiltersSidebar";
 
 const PAGE_SIZE = 24;
 
@@ -302,34 +303,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 )}
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={12} lg={3}>
-                    <PerfectScrollbar
-                      style={{
-                        position: "sticky",
-                        top: "180px",
-                        maxHeight: "calc(100vh - 200px)",
-                        overflow: "hidden"
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          marginBottom: 4
-                        }}
-                      >
-                        <Typography variant="h5">
-                          {getMicroCopy("plp.filters.title")}
-                        </Typography>
-                        <Button variant="text" onClick={clearFilters}>
-                          {getMicroCopy("plp.filters.clearAll")}
-                        </Button>
-                      </div>
-                      <Filters
-                        filters={filters}
-                        onChange={handleFiltersChange}
-                      />
-                    </PerfectScrollbar>
+                    <FiltersSidebar
+                      filters={filters}
+                      onFiltersChange={handleFiltersChange}
+                      onClearFilters={clearFilters}
+                    />
                   </Grid>
                   <Grid
                     item

@@ -25,11 +25,9 @@ const TabPanel = ({ children, value, index, ...other }: TabPanelProps) => (
     role="tabpanel"
     {...other}
   >
-    {value === index && (
-      <Box className={styles["TabPanelBox"]} p={3}>
-        {children}
-      </Box>
-    )}
+    <Box className={styles["TabPanelBox"]} p={3}>
+      {children}
+    </Box>
   </div>
 );
 
@@ -41,18 +39,24 @@ type TabsProps = MaterialTabsProps &
     // NOTE: This is necessary until we upgrade to @material-ui/core@^5.0.0
     // see: https://github.com/mui-org/material-ui/issues/22452#issuecomment-685756045
     component?: React.ElementType;
+    onChange?: (index: string) => void;
   };
 
 const Tabs = ({
   children,
   initialValue = 0,
   theme = "primary",
+  onChange,
   ...other
 }: TabsProps) => {
   const [value, setValue] = React.useState(initialValue);
 
-  const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) =>
+  const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) => {
+    if (onChange) {
+      onChange(newValue);
+    }
     setValue(newValue);
+  };
 
   return (
     <div className={classnames(styles.Tabs, styles[`Tabs--${theme}`])}>
@@ -80,7 +84,7 @@ const Tabs = ({
           </MaterialTabs>
         </Container>
       </div>
-      {children.map((child) => {
+      {React.Children.map(children, (child) => {
         const { index, ...other } = child.props;
         return React.cloneElement(child, {
           index,
