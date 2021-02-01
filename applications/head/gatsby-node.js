@@ -232,7 +232,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/${site.countryCode}/search`,
       component: path.resolve("./src/templates/search-page.tsx"),
       context: {
-        siteId: site.id
+        siteId: site.id,
+        countryCode: site.countryCode
       }
     });
   });
