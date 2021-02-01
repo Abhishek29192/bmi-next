@@ -89,7 +89,13 @@ exports[`Tabs component renders correctly 1`] = `
     hidden=""
     id="tabpanel-1"
     role="tabpanel"
-  />
+  >
+    <div
+      class="MuiBox-root MuiBox-root-6 TabPanelBox"
+    >
+      Content Two
+    </div>
+  </div>
 </div>
 `;
 
@@ -157,7 +163,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
             </button>
           </div>
           <span
-            class="PrivateTabIndicator-root-6 PrivateTabIndicator-colorPrimary-7 MuiTabs-indicator"
+            class="PrivateTabIndicator-root-7 PrivateTabIndicator-colorPrimary-8 MuiTabs-indicator"
             style="left: 0px; width: 0px;"
           />
         </div>
@@ -171,7 +177,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
     role="tabpanel"
   >
     <div
-      class="MuiBox-root MuiBox-root-10 TabPanelBox"
+      class="MuiBox-root MuiBox-root-11 TabPanelBox"
     >
       Content One
     </div>
@@ -182,7 +188,13 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
     hidden=""
     id="tabpanel-1"
     role="tabpanel"
-  />
+  >
+    <div
+      class="MuiBox-root MuiBox-root-12 TabPanelBox"
+    >
+      Content Two
+    </div>
+  </div>
 </div>
 `;
 

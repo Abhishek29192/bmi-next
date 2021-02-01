@@ -25,11 +25,9 @@ const TabPanel = ({ children, value, index, ...other }: TabPanelProps) => (
     role="tabpanel"
     {...other}
   >
-    {value === index && (
-      <Box className={styles["TabPanelBox"]} p={3}>
-        {children}
-      </Box>
-    )}
+    <Box className={styles["TabPanelBox"]} p={3}>
+      {children}
+    </Box>
   </div>
 );
 
