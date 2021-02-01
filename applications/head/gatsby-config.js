@@ -1,6 +1,7 @@
 "use strict";
 
 const path = require("path");
+const fs = require("fs");
 const getCredentialData = require("./src/utils/get-credentials-data");
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -58,83 +59,83 @@ const pagePathsQuery = `{
 }`;
 
 const queries = [
-  {
-    query: pagePathsQuery,
-    transformer: ({ data }) => {
-      if (!data) {
-        throw new Error("No data");
-      }
+  // {
+  //   query: pagePathsQuery,
+  //   transformer: ({ data }) => {
+  //     if (!data) {
+  //       throw new Error("No data");
+  //     }
 
-      return data.allSitePage.edges
-        .map(({ node }) => {
-          const cacheJSONFilename = node.path.replace(/\//g, "_") + ".json";
-          const dataJSONPath = path.resolve(
-            __dirname,
-            ".cache/json",
-            cacheJSONFilename
-          );
+  //     return data.allSitePage.edges
+  //       .map(({ node }) => {
+  //         const cacheJSONFilename = node.path.replace(/\//g, "_") + ".json";
+  //         const dataJSONPath = path.resolve(
+  //           __dirname,
+  //           ".cache/json",
+  //           cacheJSONFilename
+  //         );
 
-          try {
-            const dataJSON = require(dataJSONPath);
+  //         try {
+  //           const dataJSON = JSON.parse(fs.readFileSync(dataJSONPath, "utf8"));
 
-            // Ignore contentfulSite as it's global data
-            // eslint-disable-next-line no-unused-vars
-            const { contentfulSite, ...pageData } =
-              (dataJSON && dataJSON.data) || {};
+  //           // Ignore contentfulSite as it's global data
+  //           // eslint-disable-next-line no-unused-vars
+  //           const { contentfulSite, ...pageData } =
+  //             (dataJSON && dataJSON.data) || {};
 
-            // Returns title and subtitle of the page
-            const guessPageInfo = (pageData) => {
-              // Get something that might be the page data.
-              // Also acts to specify what pages are handled
-              // TODO: helper function to pick first?
-              const page =
-                pageData.contentfulHomePage ||
-                pageData.contentfulProductListerPage ||
-                pageData.contentfulTeamPage ||
-                pageData.contentfulBrandLandingPage ||
-                pageData.contentfulContactUsPage ||
-                pageData.contentfulDocumentLibraryPage ||
-                pageData.contentfulSimplePage;
+  //           // Returns title and subtitle of the page
+  //           const guessPageInfo = (pageData) => {
+  //             // Get something that might be the page data.
+  //             // Also acts to specify what pages are handled
+  //             // TODO: helper function to pick first?
+  //             const page =
+  //               pageData.contentfulHomePage ||
+  //               pageData.contentfulProductListerPage ||
+  //               pageData.contentfulTeamPage ||
+  //               pageData.contentfulBrandLandingPage ||
+  //               pageData.contentfulContactUsPage ||
+  //               pageData.contentfulDocumentLibraryPage ||
+  //               pageData.contentfulSimplePage;
 
-              if (page) {
-                // relying on PageInfoFragment
-                return {
-                  __typename: page.__typename,
-                  title: page.title,
-                  // Note: subtitle isn't pulled for some pages
-                  subtitle: page.subtitle,
-                  slug: page.slug,
-                  // TODO: filter for only PageType tags?
-                  tags: page.tags
-                };
-              }
+  //             if (page) {
+  //               // relying on PageInfoFragment
+  //               return {
+  //                 __typename: page.__typename,
+  //                 title: page.title,
+  //                 // Note: subtitle isn't pulled for some pages
+  //                 subtitle: page.subtitle,
+  //                 slug: page.slug,
+  //                 // TODO: filter for only PageType tags?
+  //                 tags: page.tags
+  //               };
+  //             }
 
-              return {};
-            };
+  //             return {};
+  //           };
 
-            return {
-              ...guessPageInfo(pageData),
-              pageData: JSON.stringify(pageData)
-            };
-          } catch (error) {
-            console.log(`Could not find JSON file for: ${cacheJSONFilename}`);
-          }
-        })
-        .filter(Boolean);
-    },
-    indexName: "content-pages",
-    indexConfig: {
-      mappings: {
-        properties: {
-          // Tells ES to treat the stringified JSON as text
-          // otherwise it tries to evaluate it
-          pageData: {
-            type: "text"
-          }
-        }
-      }
-    }
-  },
+  //           return {
+  //             ...guessPageInfo(pageData),
+  //             pageData: JSON.stringify(pageData)
+  //           };
+  //         } catch (error) {
+  //           console.log(`Could not find JSON file for: ${cacheJSONFilename}`);
+  //         }
+  //       })
+  //       .filter(Boolean);
+  //   },
+  //   indexName: process.env.GATSBY_ES_INDEX_NAME_PAGES,
+  //   indexConfig: {
+  //     mappings: {
+  //       properties: {
+  //         // Tells ES to treat the stringified JSON as text
+  //         // otherwise it tries to evaluate it
+  //         pageData: {
+  //           type: "text"
+  //         }
+  //       }
+  //     }
+  //   }
+  // },
   {
     query: documentsQuery,
     transformer: ({ data }) => {
@@ -149,7 +150,7 @@ const queries = [
         ...allContentfulDocument.edges.map(({ node }) => node)
       ];
     },
-    indexName: "all-documents"
+    indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
   }
 ];
 
@@ -162,7 +163,7 @@ const elasticSearchPlugin = {
       password: process.env.ES_ADMIN_PASSWORD
     },
     queries,
-    chunkSize: 10000 // default: 1000
+    chunkSize: 100
   }
 };
 

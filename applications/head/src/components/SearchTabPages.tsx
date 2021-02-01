@@ -17,6 +17,7 @@ import PageSummaryCard from "./PageSummaryCard";
 import { SiteContext } from "./Site";
 
 const PAGE_SIZE = 24;
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PAGES;
 
 // Creates filters from aggregations
 // It works here because the tags on pages effectively only have
@@ -106,9 +107,10 @@ const getQueryObject = (queryString, page = 0, filters = []) => {
 export const getCount = async (queryString) => {
   const esQueryObject = getQueryObject(queryString);
 
-  const countResult = await queryElasticSearch(getCountQuery(esQueryObject), {
-    indexName: "content-pages"
-  });
+  const countResult = await queryElasticSearch(
+    getCountQuery(esQueryObject),
+    ES_INDEX_NAME
+  );
 
   return countResult?.hits?.total?.value;
 };
@@ -160,9 +162,7 @@ const SearchTabPanelPages = (props: Props) => {
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
-    const results = await queryElasticSearch(esQueryObject, {
-      indexName: "content-pages"
-    });
+    const results = await queryElasticSearch(esQueryObject, ES_INDEX_NAME);
 
     if (results && results.hits) {
       const { hits } = results;
