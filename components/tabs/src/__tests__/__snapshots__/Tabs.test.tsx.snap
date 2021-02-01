@@ -185,3 +185,11 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
   />
 </div>
 `;
+
+exports[`Tabs component triggers onChange 1`] = `
+Array [
+  Array [
+    "tabTwo",
+  ],
+]
+`;
