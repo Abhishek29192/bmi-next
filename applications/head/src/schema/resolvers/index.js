@@ -3,6 +3,7 @@
 const documents = require("./documents");
 const pimDocuments = require("./pim-documents");
 const brands = require("./brands");
+const roofers = require("./roofers");
 
 module.exports = {
   ContentfulDocumentLibraryPage: {
@@ -18,5 +19,8 @@ module.exports = {
       }
     },
     brands
+  },
+  ContentfulServiceLocatorSection: {
+    roofers
   }
 };
