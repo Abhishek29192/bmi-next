@@ -12,10 +12,13 @@ import OverlapCards, {
 } from "../components/OverlapCards";
 import { getCTA } from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
 import BrandLogo from "../components/BrandLogo";
 
-type BrandLandingPageData = PageInfoData &
+type BrandLandingPageData = BreadcrumbsData &
+  PageInfoData &
   PageData & {
     description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
@@ -54,13 +57,20 @@ const BrandLandingPage = ({ data }: Props) => {
     slides,
     overlapCards,
     sections,
-    inputBanner
+    inputBanner,
+    parentPage
   } = data.contentfulBrandLandingPage;
   const pageData: PageData = {
     slug: null,
     inputBanner
   };
-  const breadcrumbs = <Breadcrumbs title={title} slug={slug} isDarkThemed />;
+  const breadcrumbs = (
+    <Breadcrumbs
+      data={{ title, parentPage, slug }}
+      menuNavigation={data.contentfulSite.menuNavigation}
+      isDarkThemed
+    />
+  );
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -95,8 +105,7 @@ const BrandLandingPage = ({ data }: Props) => {
       {sections && <Sections data={sections} />}
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs
-          title={title}
-          slug={slug}
+          data={{ title, parentPage, slug }}
           menuNavigation={data.contentfulSite.menuNavigation}
         />
       </Section>
@@ -127,7 +136,11 @@ export const pageQuery = graphql`
       inputBanner {
         ...InputBannerFragment
       }
+      parentPage {
+        ...PageInfoFragment
+      }
       ...PageInfoFragment
+      ...BreadcrumbsFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

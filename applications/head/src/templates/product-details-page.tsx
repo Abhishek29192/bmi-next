@@ -186,7 +186,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     inputBanner: resources.pdpInputBanner
   };
 
-  const breadcrumbs = <Breadcrumbs title={product.name} slug={pageData.slug} />;
+  const breadcrumbs = (
+    <Breadcrumbs
+      data={{ title: product.name, slug: pageData.slug, parentPage: null }}
+    />
+  );
 
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>

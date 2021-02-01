@@ -1,6 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData,
+  findPath
+} from "../components/Breadcrumbs";
 import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
@@ -24,7 +27,8 @@ import ShareWidgetSection, {
 import TableOfContent from "@bmi/table-of-content";
 import AnchorLink from "@bmi/anchor-link";
 
-type Data = PageInfoData &
+type Data = BreadcrumbsData &
+  PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
     leadBlock: LeadBlockSectionData | null;
@@ -40,6 +44,7 @@ type Data = PageInfoData &
       | "Level 2"
       | "Level 3"
       | null;
+    parentPage: PageInfoData | null;
   };
 
 type Props = {
@@ -53,6 +58,7 @@ const SimplePage = ({ data }: Props) => {
   const {
     title,
     subtitle,
+    slug,
     featuredImage,
     leadBlock,
     shareWidget,
@@ -60,20 +66,20 @@ const SimplePage = ({ data }: Props) => {
     nextBestActions,
     exploreBar,
     linkColumns,
-    heroType
+    heroType,
+    parentPage
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
     title,
     children: subtitle,
     imageSource: featuredImage?.resize.src
   };
+  const parentSlug = parentPage?.slug;
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {
     heroLevel = (Math.min(
-      findPath(
-        data.contentfulSimplePage.slug,
-        data.contentfulSite.menuNavigation
-      ).length + 1,
+      findPath(parentSlug || slug, data.contentfulSite.menuNavigation).length +
+        (parentSlug ? 2 : 1),
       3
     ) || 1) as 1 | 2 | 3;
   } else {
@@ -87,14 +93,13 @@ const SimplePage = ({ data }: Props) => {
 
   const breadcrumbs = (
     <Breadcrumbs
-      title={title}
-      slug={data.contentfulSimplePage.slug}
+      data={{ title, slug, parentPage }}
       menuNavigation={data.contentfulSite.menuNavigation}
       isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
     />
   );
   const pageData: PageData = {
-    slug: data.contentfulSimplePage.slug,
+    slug,
     inputBanner: data.contentfulSimplePage.inputBanner
   };
 
@@ -130,8 +135,7 @@ const SimplePage = ({ data }: Props) => {
         )}
         <Section backgroundColor="alabaster" isSlim>
           <Breadcrumbs
-            title={title}
-            slug={data.contentfulSimplePage.slug}
+            data={{ title, slug, parentPage }}
             menuNavigation={data.contentfulSite.menuNavigation}
           />
         </Section>
@@ -146,6 +150,8 @@ export const pageQuery = graphql`
   query SimplePageById($pageId: String!, $siteId: String!) {
     contentfulSimplePage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      ...PageFragment
+      ...BreadcrumbsFragment
       heroType
       leadBlock {
         ...LeadBlockSectionFragment
@@ -165,7 +171,6 @@ export const pageQuery = graphql`
       linkColumns {
         ...LinkColumnsSectionFragment
       }
-      ...PageFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
