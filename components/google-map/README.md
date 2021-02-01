@@ -6,10 +6,7 @@ Component for an embedded [Google Map](https://developers.google.com/maps). See 
 import { markers } from "./src/__tests__/__fixtures__";
 
 <div style={{ height: "400px" }}>
-  <GoogleMap
-    apiKey="AIzaSyA-ceJ082hw_1ktpiTdFM_7hFmxMw1R4gU"
-    markers={markers}
-  />
+  <GoogleMap markers={markers} />
 </div>;
 ```
 
@@ -42,11 +39,7 @@ const ControlledGoogleMap = () => {
   return (
     <>
       <div style={{ height: "400px" }}>
-        <GoogleMap
-          apiKey="AIzaSyA-ceJ082hw_1ktpiTdFM_7hFmxMw1R4gU"
-          markers={markers}
-          onMarkerClick={handleMarkerClick}
-        >
+        <GoogleMap markers={markers} onMarkerClick={handleMarkerClick}>
           {popupIsVisible && activeMarker && (
             <CompanyDetails name={activeMarker.title} details={[]}>
               <p>
