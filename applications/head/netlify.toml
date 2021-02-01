@@ -10,9 +10,6 @@
   # Default build command.
   command = "./scripts/netlify-token-replacer.sh && yarn build-contentful && yarn workspace @bmi/head run build --log-pages"
 
-  # Directory with the serverless Lambda functions to deploy to AWS.
-  functions = "netlify/functions/"
-
   # Global environment variables.
   environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true" }
 
