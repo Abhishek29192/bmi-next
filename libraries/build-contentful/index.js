@@ -7,18 +7,6 @@ const { compareSemVer, isValidSemVer, parseSemVer } = require("semver-parser");
 const { execSync } = require("child_process");
 const ora = require("ora");
 
-const getCurrentCommitTag = () => {
-  try {
-    return execSync(
-      `git fetch origin --tags && git describe --tags --abbrev=0 --exact-match`
-    )
-      .toString()
-      .trim();
-  } catch (err) {
-    return null;
-  }
-};
-
 const { MANAGEMENT_ACCESS_TOKEN, SPACE_ID } = process.env;
 
 const PRODUCTION_BRANCH = "production";
@@ -31,18 +19,61 @@ const CONTENTFUL_DEV_MAIN_BRANCH = "development";
 
 const ignoredHooks = ["Contentful integration", "Firestore hook"];
 
+const getCurrentCommitTag = () => {
+  console.log("Trying to get the tag from the commit information.");
+
+  try {
+    const tag = execSync(`git describe --tags --abbrev=0 --exact-match`)
+      .toString()
+      .trim();
+
+    console.log(`Found tag ${tag}`);
+    return tag;
+  } catch (err) {
+    return null;
+  }
+};
+
+const getTagFromHookBody = (body) => {
+  console.log("Trying to get the tag from the hook body.");
+
+  if (!body) {
+    return null;
+  }
+
+  console.log(typeof body);
+
+  const { event_name, ref } = JSON.parse(body);
+
+  if (event_name !== "tag_push") {
+    return null;
+  }
+
+  const tag = ref.replace("refs/tags/", "");
+
+  return tag;
+};
+
 function parseCIEnvironments() {
-  let { BRANCH, INCOMING_HOOK_TITLE } = process.env;
+  let { BRANCH, INCOMING_HOOK_TITLE, INCOMING_HOOK_BODY } = process.env;
+
+  console.log(BRANCH, INCOMING_HOOK_BODY);
 
   const targetBranch = BRANCH;
   // TODO: Ideally we could base it on git events.
   const shouldSkipBuild =
     !!INCOMING_HOOK_TITLE && INCOMING_HOOK_TITLE.includes(ignoredHooks);
 
+  const tag = getTagFromHookBody(INCOMING_HOOK_BODY) || getCurrentCommitTag();
+
+  if (tag) {
+    console.log(`Found tag ${tag}`);
+  }
+
   return {
     shouldSkipBuild,
     targetBranch,
-    tag: getCurrentCommitTag()
+    tag
   };
 }
 
