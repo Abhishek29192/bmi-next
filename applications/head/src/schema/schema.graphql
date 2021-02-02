@@ -1140,6 +1140,16 @@ union ProductDocument = PIMDocument | PIMLinkDocument
 type Products implements Node {
   "The documents for this product."
   documents: [ProductDocument]! @link(from: "documents___NODE")
+  
+  "The external code for this product AKA NOBB number"
+  externalProductCode: String
+}
+
+type ProductsVariantOptions implements Node {
+  "The external code for this product AKA NOBB number"
+  externalProductCode: String
+
+  productBenefits: [String]
 }
 
 """
