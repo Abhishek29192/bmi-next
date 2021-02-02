@@ -8,7 +8,7 @@
   publish = "public/"
 
   # Default build command.
-  command = "./scripts/netlify-token-replacer.sh && yarn build-contentful && yarn workspace @bmi/head run build --log-pages"
+  command = "node ./scripts/netlify-token-replacer.js && yarn build-contentful && yarn workspace @bmi/head run build --log-pages"
 
   # Global environment variables.
   environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true" }
