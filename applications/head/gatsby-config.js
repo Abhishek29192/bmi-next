@@ -16,6 +16,7 @@ const documentsQuery = `{
     title
     url
     fileSize
+    format
     assetType {
       name
       code
@@ -30,10 +31,11 @@ const documentsQuery = `{
         title
         asset {
           file {
+            url
             details {
               size
             }
-            url
+            contentType
           }
         }
         assetType {
