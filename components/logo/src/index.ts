@@ -16,6 +16,7 @@ import RoofProPartner from "./svgs/RoofProPartner.svg";
 import RoofProPartnerSmall from "./svgs/RoofProPartnerSmall.svg";
 import Standard from "./svgs/Standard.svg";
 import StandardCentred from "./svgs/StandardCentred.svg";
+import StandardPale from "./svgs/StandardPale.svg";
 import Zanda from "./svgs/Zanda.svg";
 
 export {
@@ -36,6 +37,7 @@ export {
   RoofProPartnerSmall,
   Standard,
   StandardCentred,
+  StandardPale,
   Zanda
 };
 
@@ -57,6 +59,7 @@ export const iconMap = {
   RoofProPartnerSmall,
   Standard,
   StandardCentred,
+  StandardPale,
   Zanda
 };
 
