@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
@@ -10,7 +10,7 @@ import InputBanner, {
 } from "../components/InputBanner";
 import { SiteContext, Data as SiteData } from "./Site";
 import { generateGetMicroCopy } from "./MicroCopy";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import ErrorFallback from "./ErrorFallback";
 import styles from "./styles/Page.module.scss";
 
@@ -41,7 +41,7 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
     scriptOnetrust,
     scriptGTM,
     scriptHotJar,
-    scriptGOptLoad,
+    scriptGOptLoad
   } = siteData;
 
   const { inputBanner } = pageData;
@@ -104,10 +104,10 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
           </script>
         )}
         {scriptGOptLoad && (
-        <script 
-        async 
-        src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
-        ></script>
+          <script
+            async
+            src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
+          ></script>
         )}
         <meta name="robots" content="noindex" />
       </Helmet>
@@ -143,6 +143,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
               promo={resources.errorGeneral}
             />
           )}
+          onError={() => navigate(`/${countryCode}/422`)}
         >
           <div className={styles["content"]}>{children}</div>
           {inputBanner ? <InputBanner data={inputBanner} /> : null}
