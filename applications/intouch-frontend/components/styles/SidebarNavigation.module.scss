@@ -1,0 +1,31 @@
+.sidebarNavigation {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  padding: 9px 21px;
+  color: #70706f;
+  font-size: 16px;
+  text-decoration: none;
+  transition: 0.15s;
+  cursor: pointer;
+
+  &.selected {
+    background-color: #f0f0f0;
+    color: #3b3b3b;
+  }
+
+  svg {
+    margin-right: 8px;
+  }
+
+  &:not(.selected):hover {
+    background-color: #f8f8f8;
+    color: #3b3b3b;
+  }
+}
