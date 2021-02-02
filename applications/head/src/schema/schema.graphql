@@ -953,6 +953,7 @@ union LinkedPage =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
   | ContentfulHomePage
+  | ContentfulBrandLandingPage
 
 """
 Represents a link.
