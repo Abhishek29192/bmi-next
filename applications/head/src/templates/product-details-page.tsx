@@ -205,7 +205,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 data={{
                   name: product.name,
                   brandName: brandCode || "",
-                  nobb: selfProduct.externalProductCode || "n/a",
+                  nobb: selfProduct.externalProductCode || null,
                   images: mapGalleryImages([
                     ...(selfProduct.images || []),
                     ...(product.images || [])

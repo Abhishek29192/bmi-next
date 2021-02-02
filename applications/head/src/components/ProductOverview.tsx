@@ -11,7 +11,7 @@ import { SiteContext } from "./Site";
 export type Data = {
   name: string;
   brandName: string;
-  nobb: string;
+  nobb?: string;
   images: Image[];
   attributes: ProductOverviewProps["attributes"] | null;
 };
