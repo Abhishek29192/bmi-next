@@ -47,6 +47,7 @@ import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
 
 const PAGE_SIZE = 24;
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
 
 type Data = BreadcrumbsData &
   PageInfoData &
@@ -201,7 +202,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
-    const results = await queryElasticSearch(query);
+    const results = await queryElasticSearch(query, ES_INDEX_NAME);
 
     if (results && results.hits) {
       const { hits } = results;
