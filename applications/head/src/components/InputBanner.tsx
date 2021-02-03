@@ -20,9 +20,6 @@ export type Data = {
 };
 
 const IntegratedInputBanner = ({ data }: { data?: Data }) => {
-  // NOTE: This is hidden until the newsletter is going to be integrated.
-  return null;
-
   if (!data) {
     return null;
   }
