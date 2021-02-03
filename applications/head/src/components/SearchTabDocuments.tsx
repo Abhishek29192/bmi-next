@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import Grid from "@bmi/grid";
-import Pagination from "@bmi/pagination";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import FiltersSidebar from "../components/FiltersSidebar";
 import {
   clearFilterValues,
@@ -18,7 +18,6 @@ import { SiteContext } from "./Site";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
-import DownloadList, { DownloadListContext } from "@bmi/download-list";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
