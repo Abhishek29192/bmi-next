@@ -44,7 +44,8 @@ module.exports = {
           }
         ]
       }
-    ]
+    ],
+    "import/newline-after-import": ["error", { count: 1 }]
   },
   settings: {
     "import/parsers": {
