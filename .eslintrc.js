@@ -24,14 +24,32 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "script"
   },
-  plugins: ["react", "security"],
+  plugins: ["react", "security", "import"],
   rules: {
     "prettier/prettier": "error",
     strict: "error",
     "padding-line-between-statements": [
       "error",
       { blankLine: "always", prev: "directive", next: "*" }
+    ],
+    "import/order": [
+      "error",
+      {
+        groups: ["builtin", "external", "parent", "sibling", "index"],
+        pathGroups: [
+          {
+            pattern: "@bmi/**",
+            group: "external",
+            position: "after"
+          }
+        ]
+      }
     ]
+  },
+  settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
   },
   overrides: [
     {
