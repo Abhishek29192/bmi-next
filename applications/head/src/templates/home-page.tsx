@@ -90,6 +90,8 @@ export const pageQuery = graphql`
   query HomePageById($pageId: String!, $siteId: String!) {
     contentfulHomePage(id: { eq: $pageId }) {
       __typename
+      # Only fetching slug to get it in the JSON file so it's indexed
+      slug
       title
       slides {
         ... on ContentfulPromoOrPage {
