@@ -8,10 +8,8 @@
   color: $color-slate;
   padding: 16px;
   border-radius: 0%;
-  border-top: 1px solid $color-storm;
-  border-bottom: 1px solid $color-storm;
   & + & {
-    border-top: none;
+    border-top: 1px solid $color-storm;
   }
 
   @media (min-width: $breakpoint-md) {
