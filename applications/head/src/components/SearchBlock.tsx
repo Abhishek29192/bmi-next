@@ -1,4 +1,3 @@
-import Container from "@bmi/container";
 import { InputValue } from "@bmi/form";
 import Grid from "@bmi/grid";
 import PostItCard from "@bmi/post-it-card";
@@ -15,7 +14,7 @@ export type QueryInput = Extract<string, InputValue>;
 type Props = {
   buttonText?: string;
   countryCode: string;
-  handleSubmit: (
+  handleSubmit?: (
     event: FormEvent<HTMLFormElement>,
     values: Record<typeof QUERY_KEY, QueryInput>
   ) => void;
