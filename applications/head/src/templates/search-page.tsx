@@ -4,7 +4,7 @@ import Section from "@bmi/section";
 import Tabs from "@bmi/tabs";
 import { QUERY_KEY } from "@bmi/search";
 import { graphql } from "gatsby";
-import React, { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
@@ -149,23 +149,6 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const hasResults =
     Object.values(results).reduce((sum, { count }) => sum + count, 0) > 0;
 
-  const handleSubmit = (
-    event: FormEvent<HTMLFormElement>,
-    values: Record<typeof QUERY_KEY, QueryInput>
-  ) => {
-    event.preventDefault();
-    params.set(QUERY_KEY, values[QUERY_KEY]);
-    setQuery(values[QUERY_KEY]);
-    window.history.replaceState(
-      {},
-      "",
-      `${window.location.pathname}?${params}`
-    );
-    // Reset as if the page is loaded fresh
-    // It feels a little flaky, i'm sure can have a better approach
-    isInitialLoad.current = true;
-  };
-
   const pageTitle = useMemo(() => {
     // If no query, we can't show a title referring to the query
     if (!query) {
@@ -179,8 +162,6 @@ const SearchPage = ({ pageContext, data }: Props) => {
       return getMicroCopy("searchPage.noResultsTitle", { query });
     }
   }, [query, hasResults]);
-
-  const isInitialLoad = useRef(true);
 
   const initialFilters = getFilters(
     pageContext.pimClassificationCatalogueNamespace,
@@ -270,7 +251,6 @@ const SearchPage = ({ pageContext, data }: Props) => {
             query ? getMicroCopy("searchPage.searchText") : defaultTitle
           }
           countryCode={countryCode}
-          handleSubmit={handleSubmit}
           hasResults={hasResults}
           helperText={getMicroCopy("searchPage.helperText")}
           placeholder={getMicroCopy("searchPage.placeholder")}

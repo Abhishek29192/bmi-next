@@ -16,6 +16,8 @@ const documentsQuery = `{
     title
     url
     fileSize
+    format
+    extension
     assetType {
       name
       code
@@ -30,10 +32,12 @@ const documentsQuery = `{
         title
         asset {
           file {
+            fileName
+            url
             details {
               size
             }
-            url
+            contentType
           }
         }
         assetType {
@@ -59,84 +63,76 @@ const pagePathsQuery = `{
 }`;
 
 const queries = [
-  // {
-  //   query: pagePathsQuery,
-  //   transformer: ({ data }) => {
-  //     if (!data) {
-  //       throw new Error("No data");
-  //     }
+  process.env.GATSBY_ES_INDEX_NAME_PAGES && {
+    query: pagePathsQuery,
+    transformer: ({ data }) => {
+      if (!data) {
+        throw new Error("No data");
+      }
 
-  //     return data.allSitePage.edges
-  //       .map(({ node }) => {
-  //         const cacheJSONFilename = node.path.replace(/\//g, "_") + ".json";
-  //         const dataJSONPath = path.resolve(
-  //           __dirname,
-  //           ".cache/json",
-  //           cacheJSONFilename
-  //         );
+      return data.allSitePage.edges
+        .map(({ node }) => {
+          const cacheJSONFilename = node.path.replace(/\//g, "_") + ".json";
+          const dataJSONPath = path.resolve(
+            __dirname,
+            ".cache/json",
+            cacheJSONFilename
+          );
 
-  //         try {
-  //           const dataJSON = JSON.parse(fs.readFileSync(dataJSONPath, "utf8"));
+          try {
+            const dataJSON = JSON.parse(fs.readFileSync(dataJSONPath, "utf8"));
 
-  //           // Ignore contentfulSite as it's global data
-  //           // eslint-disable-next-line no-unused-vars
-  //           const { contentfulSite, ...pageData } =
-  //             (dataJSON && dataJSON.data) || {};
+            // Ignore contentfulSite as it's global data
+            // eslint-disable-next-line no-unused-vars
+            const { contentfulSite, ...pageData } =
+              (dataJSON && dataJSON.data) || {};
 
-  //           // Returns title and subtitle of the page
-  //           const guessPageInfo = (pageData) => {
-  //             // Get something that might be the page data.
-  //             // Also acts to specify what pages are handled
-  //             // TODO: helper function to pick first?
-  //             const page =
-  //               pageData.contentfulHomePage ||
-  //               pageData.contentfulProductListerPage ||
-  //               pageData.contentfulTeamPage ||
-  //               pageData.contentfulBrandLandingPage ||
-  //               pageData.contentfulContactUsPage ||
-  //               pageData.contentfulDocumentLibraryPage ||
-  //               pageData.contentfulSimplePage;
+            // Get something that might be the page data.
+            // Also acts to specify what pages are handled
+            // TODO: helper function to pick first?
+            const page =
+              pageData.contentfulHomePage ||
+              pageData.contentfulProductListerPage ||
+              pageData.contentfulTeamPage ||
+              pageData.contentfulBrandLandingPage ||
+              pageData.contentfulContactUsPage ||
+              pageData.contentfulDocumentLibraryPage ||
+              pageData.contentfulSimplePage;
 
-  //             if (page) {
-  //               // relying on PageInfoFragment
-  //               return {
-  //                 __typename: page.__typename,
-  //                 title: page.title,
-  //                 // Note: subtitle isn't pulled for some pages
-  //                 subtitle: page.subtitle,
-  //                 slug: page.slug,
-  //                 // TODO: filter for only PageType tags?
-  //                 tags: page.tags
-  //               };
-  //             }
-
-  //             return {};
-  //           };
-
-  //           return {
-  //             ...guessPageInfo(pageData),
-  //             pageData: JSON.stringify(pageData)
-  //           };
-  //         } catch (error) {
-  //           console.log(`Could not find JSON file for: ${cacheJSONFilename}`);
-  //         }
-  //       })
-  //       .filter(Boolean);
-  //   },
-  //   indexName: process.env.GATSBY_ES_INDEX_NAME_PAGES,
-  //   indexConfig: {
-  //     mappings: {
-  //       properties: {
-  //         // Tells ES to treat the stringified JSON as text
-  //         // otherwise it tries to evaluate it
-  //         pageData: {
-  //           type: "text"
-  //         }
-  //       }
-  //     }
-  //   }
-  // },
-  {
+            // If not one of the above pages, not indexed
+            if (page) {
+              // relying on PageInfoFragment
+              return {
+                __typename: page.__typename,
+                title: page.title,
+                // Note: subtitle isn't pulled for some pages
+                subtitle: page.subtitle,
+                slug: page.slug,
+                // TODO: filter for only PageType tags?
+                tags: page.tags,
+                pageData: JSON.stringify(pageData)
+              };
+            }
+          } catch (error) {
+            console.log(`Could not find JSON file for: ${cacheJSONFilename}`);
+          }
+        })
+        .filter(Boolean);
+    },
+    indexName: process.env.GATSBY_ES_INDEX_NAME_PAGES,
+    indexConfig: {
+      mappings: {
+        properties: {
+          // Tells ES to treat the stringified JSON as text
+          // otherwise it tries to evaluate it
+          pageData: {
+            type: "text"
+          }
+        }
+      }
+    }
+  },
+  process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS && {
     query: documentsQuery,
     transformer: ({ data }) => {
       if (!data) {
@@ -152,7 +148,7 @@ const queries = [
     },
     indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
   }
-];
+].filter(Boolean);
 
 const elasticSearchPlugin = {
   resolve: `@logilab/gatsby-plugin-elasticsearch`,
