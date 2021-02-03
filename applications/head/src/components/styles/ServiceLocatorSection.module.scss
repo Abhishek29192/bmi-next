@@ -1,0 +1,33 @@
+@import "@bmi/styles";
+
+.ServiceLocationSection {
+  .search {
+    margin-bottom: 0;
+
+    .location-autocomplete {
+      margin-bottom: 8px;
+    }
+
+    .and-or-label {
+      text-align: center;
+    }
+  }
+
+  .list {
+    margin-top: -24px;
+    max-height: 400px;
+    overflow: auto;
+
+    @media (min-width: $breakpoint-md) {
+      margin: 0;
+    }
+  }
+
+  .map {
+    margin-top: -24px;
+
+    @media (min-width: $breakpoint-md) {
+      margin: 0 0 0 24px;
+    }
+  }
+}
