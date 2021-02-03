@@ -63,7 +63,7 @@ const pagePathsQuery = `{
 }`;
 
 const queries = [
-  {
+  process.env.GATSBY_ES_INDEX_NAME_PAGES && {
     query: pagePathsQuery,
     transformer: ({ data }) => {
       if (!data) {
@@ -132,7 +132,7 @@ const queries = [
       }
     }
   },
-  {
+  process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS && {
     query: documentsQuery,
     transformer: ({ data }) => {
       if (!data) {
@@ -148,7 +148,7 @@ const queries = [
     },
     indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
   }
-];
+].filter(Boolean);
 
 const elasticSearchPlugin = {
   resolve: `@logilab/gatsby-plugin-elasticsearch`,
