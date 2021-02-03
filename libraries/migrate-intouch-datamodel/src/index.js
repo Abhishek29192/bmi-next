@@ -83,18 +83,20 @@ function getData(auth) {
     },
     (err, res) => {
       if (err) return console.log("The API returned an error: " + err);
-      exportFile(res.data);
+      exportFile(res.data.values);
     }
   );
 }
 function exportFile(data) {
-  const csv = data.values
+  if (!data.length) return console.log("There is no data in the spreadsheet:");
+  const columnCount = data[0].length;
+  const csv = data
     .map((item) => {
-      if (item.length === 9) return item.map((k) => `"${k}"`);
-      else
-        return item
-          .map((k) => `"${k}"`)
-          .concat(",".repeat(9 - item.length - 1));
+      return item.length === columnCount
+        ? item.map((k) => `"${k}"`)
+        : item
+            .map((k) => `"${k}"`)
+            .concat(",".repeat(columnCount - item.length - 1));
     })
     .join("\n");
   createFiles(csv);

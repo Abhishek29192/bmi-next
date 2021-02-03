@@ -8,6 +8,7 @@ https://gist.github.com/kimnobaydd/70b8c9fe6ccd21733c8dbd3abad22b49
 
 const fs = require("fs");
 const parse = require("csv-parse/lib/sync");
+const { buildModel } = require("./buildmodel");
 
 const writeFile = (fileName, data) => {
   const dir = "./data";
@@ -21,91 +22,44 @@ const writeFile = (fileName, data) => {
   });
 };
 
-const writeSql = (records) => {
-  let alltables = "";
-  let thistable = "";
-  let firsttable = true;
-  let currentTable = "";
-  let allenums = "";
-  let thisenum = "";
-  let firstenum = true;
-  let references = "";
-  let allComment = "";
+const writeSql = (dataModel) => {
   let output = "";
 
-  for (let i = 0; i < records.length; i++) {
-    switch (records[i].Type) {
-      case "entity":
-        currentTable = records[i].Name;
-        if (firsttable == true) {
-          firsttable = false;
-        } else {
-          alltables += thistable + ");\n\n";
-          thistable = "";
-        }
-        thistable += `CREATE TABLE ${records[i].Name} (\n`;
-        allComment += `COMMENT ON TABLE ${currentTable} IS '${records[i].Description} ${records[i].Updates} ${records[i].Quantity}'; \n\n`;
-        break;
-      case "pk":
-        thistable += "  Id SERIAL PRIMARY KEY,\n";
-        break;
-      case "fk":
-        thistable += `  ${records[i].Name} int`;
-        !records[i + 1] ||
-        records[i + 1].Type == "entity" ||
-        records[i + 1].Type == "enum"
-          ? (thistable += "\n")
-          : (thistable += ",\n");
-        references += `ALTER TABLE ${currentTable} ADD FOREIGN KEY (${records[i].Name}) REFERENCES ${records[i].Description}(Id);\n\n`;
-        break;
-      case "ek":
-        thistable += `  ${records[i].Name} ${records[i].Description},\n`;
-        break;
-      case "enum":
-        if (firstenum == true) {
-          firstenum = false;
-        } else {
-          allenums += `${thisenum});\n\n`;
-          thisenum = "";
-        }
-        thisenum += `CREATE TYPE ${records[i].Name} AS ENUM (\n`;
-        break;
-      case "constant":
-        thisenum += `  '${records[i].Name}'`;
+  dataModel.enums.forEach((dropdown) => {
+    output += dropdown.getPostgresCreate();
+  });
+  output += "\n\n";
 
-        !records[i + 1] || records[i + 1].Type == "enum"
-          ? (thisenum += "\n")
-          : (thisenum += ",\n");
-        break;
-      default:
-        thistable += `  ${records[i].Name} ${records[i].Type}`;
+  dataModel.tables.forEach((table) => {
+    output += table.getPostgresCreate();
+    output += "\n\n";
+  });
 
-        !records[i + 1] ||
-        records[i + 1].Type == "entity" ||
-        records[i + 1].Type == "enum"
-          ? (thistable += "\n")
-          : (thistable += ",\n");
+  /* TODO:There are problems mockdata*/
+  dataModel.tables.forEach((table) => {
+    output += table.getPostgresInsert();
+  });
 
-        allComment += `COMMENT ON COLUMN ${currentTable}.${records[i].Name} IS '${records[i].Description}; ${records[i].Size}'; \n\n`;
-        break;
-    }
-  }
+  dataModel.references.forEach((reference) => {
+    output += reference.getPostgresCreate();
+    output += "\n\n";
+  });
 
-  allenums += `${thisenum});\n\n`;
-  alltables += `${thistable});\n\n`;
-  allComment += `\n\n`;
-
-  output = `${allenums}${alltables}${references}${allComment}`;
-
+  dataModel.tables.forEach((table) => {
+    output += table.getPostgresComment();
+    output += "\n\n";
+  });
   writeFile("sqlout.sql", output);
 };
 
 const createFiles = async (csv) => {
   const data = parse(csv, { columns: true });
   writeFile("data.csv", csv);
-  writeSql(data);
+  let myDataModel = buildModel(data);
+  writeSql(myDataModel);
   console.log("Completed");
 };
+
 module.exports = {
   createFiles
 };
