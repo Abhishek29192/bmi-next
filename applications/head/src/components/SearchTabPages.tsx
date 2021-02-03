@@ -36,7 +36,7 @@ const getPagesFilters = (aggregations: any, getMicroCopy) => {
           value: key
         }))
     }
-  ];
+  ].filter(({ options }) => options.length);
 };
 
 type Props = {
@@ -239,16 +239,26 @@ const SearchTabPanelPages = (props: Props) => {
     clearFilters();
   }, []);
 
+  const showSidebar = filters.length > 0;
+
   return (
     <Grid container spacing={3} ref={resultsElement}>
-      <Grid item xs={12} md={12} lg={3}>
-        <FiltersSidebar
-          filters={filters}
-          onFiltersChange={handleFiltersChange}
-          onClearFilters={clearFilters}
-        />
-      </Grid>
-      <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 0 }}>
+      {showSidebar ? (
+        <Grid item xs={12} md={12} lg={3}>
+          <FiltersSidebar
+            filters={filters}
+            onFiltersChange={handleFiltersChange}
+            onClearFilters={clearFilters}
+          />
+        </Grid>
+      ) : null}
+      <Grid
+        item
+        xs={12}
+        md={12}
+        lg={showSidebar ? 9 : 12}
+        style={{ paddingTop: 0 }}
+      >
         {results
           .filter(({ slug }) => slug)
           .map((result, index) => (
