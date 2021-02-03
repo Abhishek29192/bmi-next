@@ -83,7 +83,7 @@ const ResultsView = ({
               src={`${urlPrefix}${encodeURIComponent(
                 systemName
               )} ${encodeURIComponent(
-                ((submittedValues || {}).color || "").replace(/\//g, ":")
+                ((submittedValues || {}).color || "").replace(/\//g, "-")
               )}.jpg`}
               className={styles.img}
             />
