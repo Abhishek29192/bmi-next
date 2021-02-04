@@ -7,8 +7,7 @@ require("dotenv").config();
 
 const { PG_USER, PG_HOST, PG_DATABASE, PG_PASSWORD, PG_SCHEMA } = process.env;
 
-let fullQuery = `DROP SCHEMA IF EXISTS ${PG_SCHEMA} CASCADE;
-CREATE SCHEMA IF NOT EXISTS ${PG_SCHEMA};
+let fullQuery = `CREATE SCHEMA IF NOT EXISTS ${PG_SCHEMA};
 SET search_path = ${PG_SCHEMA};
 `;
 const updateDb = (query) => {
