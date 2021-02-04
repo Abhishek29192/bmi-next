@@ -21,7 +21,13 @@ type ProductMessageFunction = (
   }
 ) => any;
 
-const ES_INDEX_PREFIX = "nodetest_v3";
+const {
+  ES_INDEX_PREFIX,
+  SECRET_MAN_GCP_PROJECT_NAME,
+  ES_PASSWORD_SECRET,
+  ES_CLOUD_ID,
+  ES_USERNAME
+} = process.env;
 
 config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
@@ -33,16 +39,16 @@ let esClientCache;
 const getEsClient = async () => {
   if (!esClientCache) {
     const esPasswordSecret = await secretManagerClient.accessSecretVersion({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.ES_PASSWORD_SECRET}/versions/latest`
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
     const esPassword = esPasswordSecret[0].payload.data.toString();
 
     esClientCache = new Client({
       cloud: {
-        id: process.env.ES_CLOUD_ID
+        id: ES_CLOUD_ID
       },
       auth: {
-        username: process.env.ES_USERNAME,
+        username: ES_USERNAME,
         password: esPassword
       },
       headers: {
