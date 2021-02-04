@@ -5,9 +5,11 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 type Option = google.maps.places.AutocompletePrediction;
 
+export type GeocoderResult = google.maps.GeocoderResult;
+
 type Props = Omit<AutocompleteProps, "options"> & {
   apiKey: string;
-  onPlaceChange?: (place: google.maps.GeocoderResult) => void;
+  onPlaceChange?: (place: GeocoderResult) => void;
 };
 
 const GoogleAutocomplete = ({ apiKey, onPlaceChange, ...props }: Props) => {
@@ -43,7 +45,7 @@ const GoogleAutocomplete = ({ apiKey, onPlaceChange, ...props }: Props) => {
   const getGeocode = useMemo(
     () => (
       request: google.maps.GeocoderRequest,
-      callback: (results: google.maps.GeocoderResult[]) => void
+      callback: (results: GeocoderResult[]) => void
     ) =>
       googleGeocoder.current
         ? googleGeocoder.current.geocode(request, callback)
