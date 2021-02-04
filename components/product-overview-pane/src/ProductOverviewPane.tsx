@@ -151,19 +151,23 @@ const ProductOverviewPane = ({
       <Typography className={styles["heading"]} variant="h3" component="h1">
         {name}
       </Typography>
-      <ul className={styles["attributes"]}>
-        {[
-          {
-            name: nobbLabel,
-            variants: [
-              {
-                label: nobb
-              }
-            ]
-          },
-          ...attributes
-        ].map(renderAttribute)}
-      </ul>
+      {nobb === null ? (
+        ""
+      ) : (
+        <ul className={styles["attributes"]}>
+          {[
+            {
+              name: nobbLabel,
+              variants: [
+                {
+                  label: nobb
+                }
+              ]
+            },
+            ...attributes
+          ].map(renderAttribute)}
+        </ul>
+      )}
       {children}
     </div>
   );

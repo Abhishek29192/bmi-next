@@ -45,7 +45,9 @@ const FourOFour = ({ data }: { data: Data }) => {
               cta?.url,
               // TODO: As per below TODO
               // Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
-              "no"
+              // rc note: improved, this would be sufficient if the bit on line
+              //          21 were correct
+              siteData?.countryCode
             )}
           >
             {cta.label}
@@ -63,7 +65,9 @@ export const pageQuery = graphql`
     # TODO: The country code should come from somewhere else, however unable to
     # pass the context to this page.
     # Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
-    allContentfulSite(filter: { countryCode: { eq: "no" } }) {
+    # rc note: filter not required at this stage - site isn't ready for it
+    #    the following allows it to search all sites, but not break the build
+    allContentfulSite(filter: { countryCode: { ne: "99" } }) {
       nodes {
         ...SiteFragment
       }

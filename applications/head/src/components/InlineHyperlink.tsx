@@ -13,7 +13,8 @@ const availableTypenames = [
   "ContentfulContactUsPage",
   "ContentfulTeamPage",
   "ContentfulProductListerPage",
-  "ContentfulDocumentLibraryPage"
+  "ContentfulDocumentLibraryPage",
+  "ContentfulBrandLandingPage"
 ];
 
 type Props = {
