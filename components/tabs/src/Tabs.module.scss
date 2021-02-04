@@ -11,6 +11,11 @@
     font-size: 1.25rem;
 
     :global {
+      .MuiContainer-root {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
       .MuiTab-root {
         min-width: initial;
         padding: 6px 15px;
@@ -39,6 +44,21 @@
 
       @media (min-width: $breakpoint-lg) {
         border: none;
+      }
+    }
+  }
+
+  &--is-mobile-only {
+    @media (min-width: $breakpoint-md) {
+      display: flex;
+
+      .TabsBar {
+        display: none;
+      }
+
+      .TabPanel,
+      .TabPanelBox {
+        display: initial;
       }
     }
   }

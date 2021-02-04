@@ -73,6 +73,7 @@ exports[`Tabs component renders correctly 1`] = `
   </div>
   <div
     aria-labelledby="tab-0"
+    class="MuiGrid-root TabPanel MuiGrid-item"
     heading="Tab 1"
     id="tabpanel-0"
     role="tabpanel"
@@ -85,6 +86,7 @@ exports[`Tabs component renders correctly 1`] = `
   </div>
   <div
     aria-labelledby="tab-1"
+    class="MuiGrid-root TabPanel MuiGrid-item"
     heading="Tab 2"
     hidden=""
     id="tabpanel-1"
@@ -172,6 +174,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
   </div>
   <div
     aria-labelledby="tab-0"
+    class="MuiGrid-root TabPanel MuiGrid-item"
     heading="Tab 1"
     id="tabpanel-0"
     role="tabpanel"
@@ -184,6 +187,7 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
   </div>
   <div
     aria-labelledby="tab-1"
+    class="MuiGrid-root TabPanel MuiGrid-item"
     heading="Tab 2"
     hidden=""
     id="tabpanel-1"

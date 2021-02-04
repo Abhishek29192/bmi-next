@@ -5,11 +5,14 @@ import NearMe from "@material-ui/icons/NearMe";
 import React, { MouseEvent, useState } from "react";
 import styles from "./GeolocationButton.module.scss";
 
+const geolocation =
+  typeof navigator !== "undefined" ? navigator.geolocation : false;
+
 export const getCurrentPosition = () =>
   new Promise<Position>((resolve, reject) =>
-    !navigator.geolocation
-      ? reject("Your browser does not support the GeoLocation API")
-      : navigator.geolocation.getCurrentPosition(resolve, reject)
+    geolocation
+      ? geolocation.getCurrentPosition(resolve, reject)
+      : reject("Your browser does not support the GeoLocation API")
   );
 
 type Props = ButtonProps & {
@@ -46,7 +49,7 @@ const GeolocationButton = ({
   return (
     <Button
       className={styles["GeolocationButton"]}
-      disabled={isLoading || !navigator.geolocation}
+      disabled={isLoading || !geolocation}
       onClick={handleClick}
       startIcon={
         isLoading ? (
