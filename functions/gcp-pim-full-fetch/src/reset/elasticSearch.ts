@@ -5,7 +5,9 @@ const secretManagerClient = new SecretManagerServiceClient();
 const {
   ES_PASSWORD_SECRET,
   SECRET_MAN_GCP_PROJECT_NAME,
-  ES_INDEX_NAME
+  ES_INDEX_NAME,
+  ES_CLOUD_ID,
+  ES_USERNAME
 } = process.env;
 
 let esClientCache;
@@ -18,10 +20,10 @@ const getEsClient = async () => {
 
     esClientCache = new Client({
       cloud: {
-        id: process.env.ES_CLOUD_ID
+        id: ES_CLOUD_ID
       },
       auth: {
-        username: process.env.ES_USERNAME,
+        username: ES_USERNAME,
         password: esPassword
       },
       headers: {
