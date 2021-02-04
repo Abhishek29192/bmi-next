@@ -105,11 +105,11 @@ const queries = [
               return {
                 __typename: page.__typename,
                 title: page.title,
-                // Note: subtitle isn't pulled for some pages
+                // Note: subtitle isn't available for some pages
                 subtitle: page.subtitle,
                 slug: page.slug,
-                // TODO: filter for only PageType tags?
-                tags: page.tags,
+                // only "Page type" tags are relevant to search
+                tags: page.tags.filter(({ type }) => type === "Page type"),
                 pageData: JSON.stringify(pageData)
               };
             }

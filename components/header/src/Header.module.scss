@@ -125,7 +125,10 @@
 
     @media (min-width: $breakpoint-sm) {
       color: $color-white;
+    }
 
+    // This breakpoint is not custom to this component
+    @media (min-width: $breakpoint-lg) {
       &--isOnSearchPage {
         display: none;
       }
