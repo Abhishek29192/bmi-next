@@ -5,6 +5,7 @@ build_head:
   except:
     refs:
       - schedules
+      - /^intouch\//
   only:
     changes:
       - applications/head/**
