@@ -1,0 +1,24 @@
+@import "@bmi/styles";
+
+.RoofDimensions {
+  .illustration {
+    display: block;
+    margin: 0 auto;
+
+    @media (min-width: $breakpoint-md) {
+      width: 350px;
+    }
+  }
+
+  .form {
+    margin: 0 auto;
+
+    @media (min-width: $breakpoint-lg) {
+      width: 66%;
+    }
+  }
+
+  .input {
+    background-color: $color-white;
+  }
+}
