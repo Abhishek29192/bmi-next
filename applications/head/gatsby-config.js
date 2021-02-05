@@ -109,12 +109,15 @@ const queries = [
                 subtitle: page.subtitle,
                 slug: page.slug,
                 // only "Page type" tags are relevant to search
-                tags: page.tags.filter(({ type }) => type === "Page type"),
+                tags: (page.tags || []).filter(
+                  ({ type }) => type === "Page type"
+                ),
                 pageData: JSON.stringify(pageData)
               };
             }
           } catch (error) {
-            console.log(`Could not find JSON file for: ${cacheJSONFilename}`);
+            console.log(`Error getting file from: ${dataJSONPath}`);
+            console.log(error);
           }
         })
         .filter(Boolean);
