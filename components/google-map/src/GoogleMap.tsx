@@ -55,6 +55,21 @@ const GoogleMap = ({
   ) => {
     const googleMarker = new google.maps.Marker({
       map: googleMap.current,
+      icon: {
+        path:
+          "M16,0A12,12,0,0,0,4,12C4,23,16,32,16,32s12-9,12-20A12,12,0,0,0,16,0Zm0,17a5,5,0,1,1,5-5A5,5,0,0,1,16,17Z",
+        fillColor: "#0072b0",
+        fillOpacity: 1,
+        strokeColor: "#fff",
+        strokeWeight: 1,
+        labelOrigin: new google.maps.Point(66, 17)
+      },
+      label: {
+        text: options.title,
+        fontSize: "14px",
+        color: "#000000",
+        fontFamily: "Effra Regular"
+      },
       ...options
     });
 
