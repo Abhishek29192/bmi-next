@@ -41,8 +41,6 @@ const getTagFromHookBody = (body) => {
     return null;
   }
 
-  console.log(typeof body);
-
   const { event_name, ref } = JSON.parse(body);
 
   if (event_name !== "tag_push") {
@@ -56,8 +54,6 @@ const getTagFromHookBody = (body) => {
 
 function parseCIEnvironments() {
   let { BRANCH, INCOMING_HOOK_TITLE, INCOMING_HOOK_BODY } = process.env;
-
-  console.log(BRANCH, INCOMING_HOOK_BODY);
 
   const targetBranch = BRANCH;
   // TODO: Ideally we could base it on git events.
