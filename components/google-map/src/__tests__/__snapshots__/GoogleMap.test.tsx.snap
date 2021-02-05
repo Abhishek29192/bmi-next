@@ -58,8 +58,8 @@ Array [
     </div>,
     Object {
       "center": Object {
-        "lat": 51.5,
-        "lng": 0,
+        "lat": 63.990556,
+        "lng": 12.3077779,
       },
       "fullscreenControl": false,
       "mapTypeControl": false,

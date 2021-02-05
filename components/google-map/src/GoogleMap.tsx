@@ -36,7 +36,8 @@ const defaultMapControls = {
 };
 
 const GoogleMap = ({
-  center = { lat: 51.5, lng: 0 },
+  // TODO: hardcoded to center of Norway set dynamically center and map bounds.
+  center = { lat: 63.990556, lng: 12.3077779 },
   children,
   markers = [],
   onMarkerClick,
