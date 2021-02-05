@@ -1,5 +1,8 @@
 import Autocomplete from "@bmi/autocomplete";
 import GeolocationButton from "@bmi/geolocation-button";
+import GoogleAutocomplete, {
+  GeocoderResult as GoogleGeocoderResult
+} from "@bmi/google-autocomplete";
 import Grid from "@bmi/grid";
 import LinkCard from "@bmi/link-card";
 import Section from "@bmi/section";
@@ -22,14 +25,35 @@ export type Data = {
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const { getMicroCopy } = useContext(SiteContext);
-  const [selectedLinkCard, setSelectedLinkCard] = useState<string>("");
-  const [userPosition, setUserPosision] = useState<Position>();
+  const [selectedRoofer, setSelectedRoofer] = useState<string>("");
+  const [activePosition, setActivePosition] = useState<Position>(null);
+  const googleApiKey = process.env.GATSBY_GOOGLE_API_KEY;
   const { label, body, roofers } = data;
 
-  const handleListCloseClick = () => setSelectedLinkCard("");
+  const handleListCloseClick = () => setSelectedRoofer("");
 
   const handleListClick = (roofer: RooferData) => {
-    setSelectedLinkCard(roofer.id);
+    setSelectedRoofer(roofer.id);
+  };
+
+  const handlePlaceChange = (location: GoogleGeocoderResult) => {
+    if (!location) {
+      return;
+    }
+
+    // @todo: No nice way to create a native GeolocationPosition object?
+    setActivePosition({
+      coords: {
+        accuracy: null,
+        latitude: location.geometry.location.lat(),
+        longitude: location.geometry.location.lng(),
+        altitude: null,
+        altitudeAccuracy: null,
+        heading: null,
+        speed: null
+      },
+      timestamp: +new Date()
+    });
   };
 
   return (
@@ -48,17 +72,22 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             className={styles["company-autocomplete"]}
             options={roofers ? roofers.map(({ name }) => name) : []}
           />
-          <Typography className={styles["and-or-label"]}>
-            {getMicroCopy("findARoofer.andOr")}
-          </Typography>
-          <Autocomplete
-            size="small"
-            id="location-autocomplete"
-            label={getMicroCopy("findARoofer.locationFieldLabel")}
-            className={styles["location-autocomplete"]}
-            options={[]}
-          />
-          <GeolocationButton onPosition={setUserPosision}>
+          {googleApiKey && (
+            <>
+              <Typography className={styles["and-or-label"]}>
+                {getMicroCopy("findARoofer.andOr")}
+              </Typography>
+              <GoogleAutocomplete
+                size="small"
+                id="location-autocomplete"
+                apiKey={googleApiKey}
+                label={getMicroCopy("findARoofer.locationFieldLabel")}
+                className={styles["location-autocomplete"]}
+                onPlaceChange={handlePlaceChange}
+              />
+            </>
+          )}
+          <GeolocationButton onPosition={setActivePosition}>
             {getMicroCopy("findARoofer.geolocationButton")}
           </GeolocationButton>
         </Grid>
@@ -82,7 +111,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     key={roofer.id}
                     onClick={() => handleListClick(roofer)}
                     onCloseClick={handleListCloseClick}
-                    isOpen={selectedLinkCard === roofer.id}
+                    isOpen={selectedRoofer === roofer.id}
                     title={roofer.name}
                     subtitle={roofer.address}
                   >
@@ -98,7 +127,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           heading="Map"
           index="map"
         >
-          <div className={styles["map"]}>Map</div>
+          <div className={styles["map"]}>
+            {/* @todo: Use `activePosition` for map here */}
+          </div>
         </Tabs.TabPanel>
       </Tabs>
     </Section>

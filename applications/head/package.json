@@ -36,6 +36,7 @@
     "@bmi/footer": "0.0.0",
     "@bmi/form": "0.0.0",
     "@bmi/geolocation-button": "0.0.0",
+    "@bmi/google-autocomplete": "0.0.0",
     "@bmi/grid": "0.0.0",
     "@bmi/hero": "0.0.0",
     "@bmi/hide-print": "0.0.0",
