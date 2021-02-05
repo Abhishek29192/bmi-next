@@ -186,7 +186,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     inputBanner: resources.pdpInputBanner
   };
 
-  const breadcrumbs = <Breadcrumbs title={product.name} slug={pageData.slug} />;
+  const breadcrumbs = (
+    <Breadcrumbs
+      data={{ title: product.name, slug: pageData.slug, parentPage: null }}
+    />
+  );
 
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
@@ -201,7 +205,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 data={{
                   name: product.name,
                   brandName: brandCode || "",
-                  nobb: selfProduct.externalProductCode || "n/a",
+                  nobb: selfProduct.externalProductCode || null,
                   images: mapGalleryImages([
                     ...(selfProduct.images || []),
                     ...(product.images || [])

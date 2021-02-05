@@ -84,10 +84,9 @@ const Input = ({
 
   const handleFileValidation = (file: File) => {
     if (maxSize && file.size > maxSize * 1048576) {
-      return getMicroCopy("errors.maxSize").replace(
-        "{{size}}",
-        getFileSizeString(maxSize * 1048576)
-      );
+      return getMicroCopy("errors.maxSize", {
+        size: getFileSizeString(maxSize * 1048576)
+      });
     }
   };
 
@@ -183,7 +182,7 @@ const FormSection = ({
     setIsSubmitting(true);
 
     // @todo: This needs to be less reliant on string patterns
-    const recipientsFromValues = values.recipients as string;
+    const recipientsFromValues = (values.recipients as string) || "";
     const isEmailPresent = ["@", "="].every((char) =>
       recipientsFromValues.includes(char)
     );

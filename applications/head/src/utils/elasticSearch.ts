@@ -1,12 +1,14 @@
 import { devLog } from "../utils/devLog";
 
-const ES_INDEX_NAME = "nodetest_v3_products";
-
 const ES_AGGREGATION_NAMES = {
   // TODO: Rename filter.name to colourfamily
   colour: "colourfamily",
   texturefamily: "texturefamily",
-  productFamily: "allCategories"
+  productFamily: "allCategories",
+  // Search page - Pages tab
+  "page-type-tag": "tags",
+  // Search page - Documents tab
+  "document-asset-type": "assetTypes"
 };
 
 export const removeIrrelevantFilters = (filters, aggregations) => {
@@ -57,6 +59,15 @@ export const disableFiltersFromAggregations = (filters, aggregations) => {
   });
 };
 
+const searchTerms = {
+  colour: "colourfamilyCode.keyword",
+  texturefamily: "texturefamilyCode.keyword",
+  category: "categories.code.keyword",
+  // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
+  productFamily: "allCategories.code.keyword",
+  plpBaseCategory: "plpCategories.code.keyword"
+};
+
 export const compileElasticSearchQuery = (
   filters,
   // TODO: Handle this being optional differently
@@ -67,90 +78,34 @@ export const compileElasticSearchQuery = (
 ): object => {
   const categoryFilters = [];
 
-  const searchTerms = {
-    colour: "colourfamilyCode.keyword",
-    texturefamily: "texturefamilyCode.keyword",
-    category: "categories.code.keyword",
-    // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
-    productFamily: "allCategories.code.keyword",
-    plpBaseCategory: "plpCategories.code.keyword"
-  };
-
   filters.forEach((filter) => {
     // If no values chosen, ignore it
     if (!filter.value.length) {
       return;
     }
 
-    if (filter.name === "colour") {
-      const colourTermQuery = (value) => ({
-        term: {
-          [searchTerms.colour]: value
-        }
-      });
-      const coloursQuery =
-        filter.value.length === 1
-          ? colourTermQuery(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(colourTermQuery)
-              }
-            };
+    // Handle these specific filters or fallback to "category".
+    const searchTerm = ["colour", "texturefamily", "productFamily"].includes(
+      filter.name
+    )
+      ? searchTerms[filter.name]
+      : searchTerms.category;
 
-      categoryFilters.push(coloursQuery);
-    } else if (filter.name === "texturefamily") {
-      const textureTermQuery = (value) => ({
-        term: {
-          [searchTerms.texturefamily]: value
-        }
-      });
-      const texturesQuery =
-        filter.value.length === 1
-          ? textureTermQuery(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(textureTermQuery)
-              }
-            };
-
-      categoryFilters.push(texturesQuery);
-      // TODO: This is at this point generic
-    } else if (filter.name === "productFamily") {
-      const queryTerm = (value) => ({
-        term: {
-          [searchTerms.productFamily]: value
-        }
-      });
-      const query =
-        filter.value.length === 1
-          ? queryTerm(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(queryTerm)
-              }
-            };
-
-      categoryFilters.push(query);
-    } else {
-      const categoriesQuery =
-        filter.value.length === 1
-          ? {
-              term: {
-                [searchTerms.category]: filter.value[0]
-              }
+    const termQuery = (value) => ({
+      term: {
+        [searchTerm]: value
+      }
+    });
+    const query =
+      filter.value.length === 1
+        ? termQuery(filter.value[0])
+        : {
+            bool: {
+              should: filter.value.map(termQuery)
             }
-          : {
-              bool: {
-                should: filter.value.map((value) => ({
-                  term: {
-                    [searchTerms.category]: value
-                  }
-                }))
-              }
-            };
+          };
 
-      categoryFilters.push(categoriesQuery);
-    }
+    categoryFilters.push(query);
   });
 
   // NOTE: ES Doesn't like an empty query object
@@ -230,8 +185,16 @@ export const compileElasticSearchQuery = (
   };
 };
 
-export const queryElasticSearch = async (query = {}) => {
-  const url = `${process.env.GATSBY_ES_ENDPOINT}/${ES_INDEX_NAME}/_search`;
+// Returns a query that allows us to query for total count
+// Size: 0 means no actual results will be returned
+// only interested in the query - pagination, aggregates, and sorting don't affect total count
+export const getCountQuery = (fullQuery) => ({
+  size: 0,
+  query: fullQuery.query
+});
+
+export const queryElasticSearch = async (query = {}, indexName: string) => {
+  const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 
   if (window.fetch) {
     try {

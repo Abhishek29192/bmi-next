@@ -3,7 +3,9 @@ import { graphql } from "gatsby";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Hero from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
@@ -11,7 +13,8 @@ import { Data as PageInfoData } from "../components/PageInfo";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText, { RichTextData } from "../components/RichText";
 
-type Data = PageInfoData &
+type Data = BreadcrumbsData &
+  PageInfoData &
   PageData & {
     __typename: "ContentfulTeamPage";
     teamCategories: {
@@ -30,7 +33,13 @@ type Props = {
 };
 
 const TeamPage = ({ data }: Props) => {
-  const { title, teamCategories, slug, inputBanner } = data.contentfulTeamPage;
+  const {
+    title,
+    teamCategories,
+    slug,
+    inputBanner,
+    parentPage
+  } = data.contentfulTeamPage;
   const pageData: PageData = {
     slug,
     inputBanner
@@ -43,8 +52,7 @@ const TeamPage = ({ data }: Props) => {
         title={title}
         breadcrumbs={
           <Breadcrumbs
-            title={title}
-            slug={slug}
+            data={{ title, slug, parentPage }}
             menuNavigation={data.contentfulSite.menuNavigation}
             isDarkThemed
           />
@@ -70,8 +78,7 @@ const TeamPage = ({ data }: Props) => {
       </Tabs>
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs
-          title={title}
-          slug={slug}
+          data={{ title, slug, parentPage }}
           menuNavigation={data.contentfulSite.menuNavigation}
         />
       </Section>
@@ -96,6 +103,7 @@ export const pageQuery = graphql`
         }
       }
       ...PageFragment
+      ...BreadcrumbsFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

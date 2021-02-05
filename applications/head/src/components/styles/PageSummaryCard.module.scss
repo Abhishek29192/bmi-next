@@ -1,0 +1,15 @@
+@import "@bmi/styles";
+
+.PageSummaryCard {
+  padding-top: 32px;
+  padding-bottom: 24px;
+  width: 100%;
+
+  & + & {
+    border-top: 1px solid $color-storm;
+  }
+
+  .description {
+    margin-top: 24px;
+  }
+}

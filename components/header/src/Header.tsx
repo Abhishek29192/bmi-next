@@ -31,9 +31,11 @@ type HeaderProps = {
   activeNavLabel?: string;
   closeLabel?: string;
   isSearchDisabled?: boolean;
+  isOnSearchPage?: boolean;
   searchAction?: string;
   searchLabel?: string;
   searchPlaceholder?: string;
+  searchTitle?: string;
   openLabel?: string;
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
@@ -49,9 +51,11 @@ const Header = ({
   activeNavLabel,
   closeLabel = "Close",
   isSearchDisabled,
+  isOnSearchPage,
   searchAction,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
+  searchTitle = "How can we help you today?",
   openLabel = "Open menu",
   mainMenuTitleLabel,
   mainMenuDefaultLabel,
@@ -138,6 +142,12 @@ const Header = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const QUERY_KEY = "q";
+  const params = new URLSearchParams(
+    typeof window !== `undefined` ? window.location.search : ""
+  );
+  const query = params.get(QUERY_KEY);
 
   return (
     <Paper className={styles.Header} component="header" elevation={3} square>
@@ -252,6 +262,10 @@ const Header = ({
             {!isSearchDisabled && (
               <Button
                 accessibilityLabel={searchLabel}
+                className={classnames(styles["SearchButton"], {
+                  [styles["SearchButton--isOnSearchPage"]]: isOnSearchPage
+                })}
+                variant={size === "small" ? "text" : "contained"}
                 isIconButton
                 onClick={toggleSearch}
               >
@@ -260,7 +274,8 @@ const Header = ({
             )}
             <Button
               accessibilityLabel={openLabel}
-              className={styles.BurgerButton}
+              className={styles["BurgerButton"]}
+              variant="text"
               isIconButton
               onClick={toggleMenu}
             >
@@ -302,23 +317,26 @@ const Header = ({
       </Slide>
       {!isSearchDisabled && (
         <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
-          <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
-            <Button
-              accessibilityLabel={closeLabel}
-              className={styles.CloseButton}
-              isIconButton
-              onClick={toggleSearch}
-            >
-              <Icon source={Close} />
-            </Button>
-            <Typography variant="h4">How can we help you today?</Typography>
-            {showSearch && (
-              <Search
-                action={searchAction}
-                label={searchLabel}
-                placeholder={searchPlaceholder}
-              />
-            )}
+          <div className={styles["SearchDrawerContainer"]}>
+            <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
+              <Button
+                accessibilityLabel={closeLabel}
+                className={styles.CloseButton}
+                isIconButton
+                onClick={toggleSearch}
+              >
+                <Icon source={Close} />
+              </Button>
+              <Typography variant="h4">{searchTitle}</Typography>
+              {showSearch && (
+                <Search
+                  action={searchAction}
+                  label={searchLabel}
+                  placeholder={searchPlaceholder}
+                  defaultValue={isOnSearchPage ? query : ""}
+                />
+              )}
+            </div>
           </div>
         </Slide>
       )}

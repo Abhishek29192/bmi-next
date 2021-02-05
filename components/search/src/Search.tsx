@@ -7,6 +7,8 @@ import { Cancel, Search as SearchIcon } from "@material-ui/icons";
 import React, { useState } from "react";
 import styles from "./Search.module.scss";
 
+export const QUERY_KEY = "q";
+
 type Props = Omit<FormProps, "children" | "onChange"> & {
   buttonText?: string;
   clearLabel?: string;
@@ -24,12 +26,12 @@ const Search = ({
   defaultValue,
   helperText,
   label = "Search",
-  fieldName = "q",
+  fieldName = QUERY_KEY,
   onChange,
   placeholder = "Search BMI...",
   ...formProps
 }: Props) => {
-  const [value, setValue] = useState<InputValue>(undefined);
+  const [value, setValue] = useState<InputValue>(defaultValue || undefined);
 
   const handleOnChange = (newValue: InputValue) => {
     setValue(newValue);

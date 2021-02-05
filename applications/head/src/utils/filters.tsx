@@ -30,7 +30,7 @@ const getProductsFromDocuments = (documents: DocumentResultsData) => {
   );
 };
 
-const sortAlphabeticallyBy = (propName) => (a, b) => {
+export const sortAlphabeticallyBy = (propName) => (a, b) => {
   if (a[propName] < b[propName]) {
     return -1;
   }

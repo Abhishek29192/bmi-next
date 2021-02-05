@@ -120,6 +120,9 @@ interface ContentfulPage @nodeInterface {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 """
@@ -172,6 +175,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The sections for this page."
   sections: [ContentfulSection] @link(from: "sections___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 """
@@ -224,6 +230,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The other areas for this page."
   otherAreas: [ContentfulTitleWithContent] @link(from: "otherAreas___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 """
@@ -258,6 +267,9 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 
   "The team categories for this page."
   teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 type ContentfulHomePage implements Node {
@@ -332,6 +344,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 """
@@ -349,6 +364,9 @@ type ContentfulPromo implements Node {
 
   "The subtitle for this promo."
   subtitle: String
+
+  "The body for this promo."
+  body: ContentfulRichText
 
   "Tags for this promo"
   tags: [ContentfulTag] @link(from: "tags___NODE")
@@ -632,6 +650,23 @@ type ContentfulDocumentDownloadSection implements Node {
 }
 
 """
+Represents a section of downloadable document assets.
+"""
+type ContentfulServiceLocatorSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The label for this section."
+  label: String!
+
+  "The body for this section."
+  body: ContentfulRichText
+
+  "The roofers for this section."
+  roofers: [ContentfulRoofer] @link(from: "roofers___NODE")
+}
+
+"""
 Represents the union of possible navigation entities.
 """
 union ContentfulNavigationEntity =
@@ -745,6 +780,7 @@ union ContentfulSection =
   | ContentfulPromo
   | ContentfulImageGallerySection
   | ContentfulDocumentDownloadSection
+  | ContentfulServiceLocatorSection
 
 """
 Represents a key value pair for UI strings.
@@ -898,6 +934,9 @@ type ContentfulSite implements Node {
 
   "HotJar integration ID"
   scriptHotJar: String
+
+  "Google Optimize Load balancing ID"
+  scriptGOptLoad: String
 }
 
 """
@@ -914,6 +953,7 @@ union LinkedPage =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
   | ContentfulHomePage
+  | ContentfulBrandLandingPage
 
 """
 Represents a link.
@@ -1091,6 +1131,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
   "The product codes specified for this page."
   pimCodes: [String]
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
 union ProductDocument = PIMDocument | PIMLinkDocument
@@ -1098,6 +1141,16 @@ union ProductDocument = PIMDocument | PIMLinkDocument
 type Products implements Node {
   "The documents for this product."
   documents: [ProductDocument]! @link(from: "documents___NODE")
+  
+  "The external code for this product AKA NOBB number"
+  externalProductCode: String
+}
+
+type ProductsVariantOptions implements Node {
+  "The external code for this product AKA NOBB number"
+  externalProductCode: String
+
+  productBenefits: [String]
 }
 
 """
@@ -1169,4 +1222,59 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+}
+
+type contentfulTableDataJsonNode implements Node {
+  tableData: [[String]]
+}
+
+type ContentfulTable implements Node {
+  contentful_id: String!
+
+  data: contentfulTableDataJsonNode
+}
+
+"""
+Represents the company details of a roofer.
+"""
+type ContentfulRoofer implements Node {
+  id: ID!
+
+  "The name for this roofer."
+  name: String
+
+  "The location for this roofer."
+  location: Location
+
+  "The address for this roofer."
+  address: String
+
+  "The phone number for this roofer."
+  phone: String
+
+  "The email address for this roofer."
+  email: String
+
+  "The URL for the website of this roofer."
+  website: String
+
+  "The type of this roofer."
+  type: [String]
+
+  "The certification level of this roofer."
+  certification: String
+
+  "The summary of this roofer."
+  summary: String
+}
+
+type Location implements Node {
+  "The latitude for this location."
+  lat: Float!
+
+  "The longitude for this location."
+  lon: Float!
 }

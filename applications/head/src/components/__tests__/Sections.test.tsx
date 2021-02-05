@@ -88,6 +88,7 @@ describe("Sections component", () => {
             brandLogo: null,
             tags: null,
             subtitle: null,
+            body: null,
             featuredImage: null,
             cta: null
           },
@@ -97,6 +98,7 @@ describe("Sections component", () => {
             brandLogo: null,
             tags: null,
             subtitle: null,
+            body: null,
             featuredImage: null,
             cta: null
           }
@@ -127,6 +129,7 @@ describe("Sections component", () => {
             title: "promo title",
             brandLogo: "AeroDek",
             subtitle: "promo subtitle",
+            body: null,
             tags: null,
             featuredImage: null,
             cta: {
@@ -173,6 +176,7 @@ describe("Sections component", () => {
         __typename: "ContentfulPromo",
         title: "card section title 2",
         subtitle: null,
+        body: null,
         brandLogo: null,
         tags: null,
         featuredImage: null,
@@ -205,6 +209,13 @@ describe("Sections component", () => {
           references: []
         },
         documents: []
+      },
+      {
+        __typename: "ContentfulServiceLocatorSection",
+        title: "Service Locator",
+        label: "Find A Roofer",
+        body: null,
+        roofers: null
       }
     ];
 

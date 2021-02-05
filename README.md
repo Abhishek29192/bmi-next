@@ -311,3 +311,21 @@ Which will generate a preview link. To then promote it to production, run:
 ```shell
 $ netlify deploy --prod
 ```
+
+### Netlify Functions
+
+#### Create function
+
+To create a new function, run the below command. To be triggered by [specific events](https://docs.netlify.com/functions/trigger-on-events), the function needs to be named after the event.
+
+```bash
+cd path/to/functions
+netlify functions:create --name [function name]
+```
+
+#### Run locally
+
+```bash
+netlify dev # to start the dev server to host the function
+netlify functions:invoke --functions [path/to/functions] [function name] --payload '{}'
+```

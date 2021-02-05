@@ -26,10 +26,9 @@ const Brands = ({ data }: { data: Data[] }) => {
             <BrandIntroCard
               logoIcon={iconMap[brand.brandLogo]}
               description={brand.subtitle}
-              buttonLabel={getMicroCopy("homepage.brands.learn").replace(
-                "{{title}}",
-                brand.title
-              )}
+              buttonLabel={getMicroCopy("homepage.brands.learn", {
+                title: brand.title
+              })}
               action={{
                 model: "routerLink",
                 to: brand.slug,

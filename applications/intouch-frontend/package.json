@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
     "@bmi/button": "0.0.0",

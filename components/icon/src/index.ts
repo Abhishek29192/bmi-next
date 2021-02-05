@@ -2,7 +2,8 @@ import {
   Help as QuestionMark,
   Mail,
   Person as User,
-  Phone
+  Phone,
+  PhoneIphone as PhoneMobile
 } from "@material-ui/icons";
 import Icon from "./Icon";
 import Arrow from "./svgs/Arrow.svg";
@@ -24,6 +25,7 @@ export {
   LinkedIn,
   Mail,
   Phone,
+  PhoneMobile,
   QuestionMark,
   User,
   YouTube,
@@ -42,6 +44,7 @@ export const iconMap = {
   LinkedIn,
   Mail,
   Phone,
+  PhoneMobile,
   QuestionMark,
   User,
   YouTube,

@@ -34,7 +34,7 @@ const TeamList = ({ data }: { data: Data }) => {
             const src = profilePicture.resize.src;
 
             return (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} sm={6} lg={3} key={index}>
                 <ProfileCard
                   imageSource={src}
                   body={

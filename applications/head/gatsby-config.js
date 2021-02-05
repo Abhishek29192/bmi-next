@@ -1,11 +1,167 @@
 "use strict";
 
+const path = require("path");
+const fs = require("fs");
 const getCredentialData = require("./src/utils/get-credentials-data");
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
 const contentfulCredentialData = getCredentialData(process.env);
+
+const documentsQuery = `{
+  allPIMDocument {
+    __typename
+    id
+    title
+    url
+    fileSize
+    format
+    extension
+    assetType {
+      name
+      code
+      pimCode
+    }
+  }
+  allContentfulDocument {
+    edges {
+      node {
+        __typename
+        id
+        title
+        asset {
+          file {
+            fileName
+            url
+            details {
+              size
+            }
+            contentType
+          }
+        }
+        assetType {
+          name
+          code
+          pimCode
+        }
+      }
+    }
+  }
+}
+`;
+
+const pagePathsQuery = `{
+  allSitePage {
+    totalCount
+    edges {
+      node {
+        path
+      }
+    }
+  }
+}`;
+
+const queries = [
+  process.env.GATSBY_ES_INDEX_NAME_PAGES && {
+    query: pagePathsQuery,
+    transformer: ({ data }) => {
+      if (!data) {
+        throw new Error("No data");
+      }
+
+      return data.allSitePage.edges
+        .map(({ node }) => {
+          const cacheJSONFilename = node.path.replace(/\//g, "_") + ".json";
+          const dataJSONPath = path.resolve(
+            __dirname,
+            ".cache/json",
+            cacheJSONFilename
+          );
+
+          try {
+            const dataJSON = JSON.parse(fs.readFileSync(dataJSONPath, "utf8"));
+
+            // Ignore contentfulSite as it's global data
+            // eslint-disable-next-line no-unused-vars
+            const { contentfulSite, ...pageData } =
+              (dataJSON && dataJSON.data) || {};
+
+            // Get something that might be the page data.
+            // Also acts to specify what pages are handled
+            // TODO: helper function to pick first?
+            const page =
+              pageData.contentfulHomePage ||
+              pageData.contentfulProductListerPage ||
+              pageData.contentfulTeamPage ||
+              pageData.contentfulBrandLandingPage ||
+              pageData.contentfulContactUsPage ||
+              pageData.contentfulDocumentLibraryPage ||
+              pageData.contentfulSimplePage;
+
+            // If not one of the above pages, not indexed
+            if (page) {
+              // relying on PageInfoFragment
+              return {
+                __typename: page.__typename,
+                title: page.title,
+                // Note: subtitle isn't available for some pages
+                subtitle: page.subtitle,
+                slug: page.slug,
+                // only "Page type" tags are relevant to search
+                tags: page.tags.filter(({ type }) => type === "Page type"),
+                pageData: JSON.stringify(pageData)
+              };
+            }
+          } catch (error) {
+            console.log(`Could not find JSON file for: ${cacheJSONFilename}`);
+          }
+        })
+        .filter(Boolean);
+    },
+    indexName: process.env.GATSBY_ES_INDEX_NAME_PAGES,
+    indexConfig: {
+      mappings: {
+        properties: {
+          // Tells ES to treat the stringified JSON as text
+          // otherwise it tries to evaluate it
+          pageData: {
+            type: "text"
+          }
+        }
+      }
+    }
+  },
+  process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS && {
+    query: documentsQuery,
+    transformer: ({ data }) => {
+      if (!data) {
+        throw new Error("No data");
+      }
+
+      const { allPIMDocument, allContentfulDocument } = data;
+
+      return [
+        ...allPIMDocument,
+        ...allContentfulDocument.edges.map(({ node }) => node)
+      ];
+    },
+    indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
+  }
+].filter(Boolean);
+
+const elasticSearchPlugin = {
+  resolve: `@logilab/gatsby-plugin-elasticsearch`,
+  options: {
+    node: process.env.GATSBY_ES_ENDPOINT,
+    auth: {
+      username: process.env.ES_ADMIN_USERNAME,
+      password: process.env.ES_ADMIN_PASSWORD
+    },
+    queries,
+    chunkSize: 100
+  }
+};
 
 module.exports = {
   siteMetadata: {
@@ -32,7 +188,107 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`
+        display: `minimal-ui`,
+        include_favicon: true,
+        cache_busting_mode: `query`,
+        icon: `src/images/favicon.png`,
+        icons: [
+          {
+            src: `icons/icon-16x16.png`,
+            sizes: `16x16`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-24x24.png`,
+            sizes: `24x24`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-32x32.png`,
+            sizes: `32x32`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-48x48.png`,
+            sizes: `48x48`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-57x57.png`,
+            sizes: `57x57`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-60x60.png`,
+            sizes: `60x60`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-64x64.png`,
+            sizes: `64x64`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-72x72.png`,
+            sizes: `72x72`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-76x76.png`,
+            sizes: `76x76`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-96x96.png`,
+            sizes: `96x96`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-114x114.png`,
+            sizes: `114x114`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-120x120.png`,
+            sizes: `120x120`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-128x128.png`,
+            sizes: `128x128`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-144x144.png`,
+            sizes: `144x144`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-152x152.png`,
+            sizes: `152x152`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-180x180.png`,
+            sizes: `180x180`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-256x256.png`,
+            sizes: `256x256`,
+            type: `image/png`
+          },
+          {
+            src: `icons/icon-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`
+          }
+        ]
       }
     },
     {
@@ -92,6 +348,8 @@ module.exports = {
         ]
       }
     },
+    // TODO: Disabled while in WIP on other things
+    elasticSearchPlugin,
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {

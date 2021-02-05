@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
@@ -10,7 +10,7 @@ import InputBanner, {
 } from "../components/InputBanner";
 import { SiteContext, Data as SiteData } from "./Site";
 import { generateGetMicroCopy } from "./MicroCopy";
-import { graphql } from "gatsby";
+import { graphql, navigate } from "gatsby";
 import ErrorFallback from "./ErrorFallback";
 import styles from "./styles/Page.module.scss";
 
@@ -24,9 +24,10 @@ type Props = {
   title: string;
   pageData: Data;
   siteData: SiteData;
+  isSearchPage?: boolean;
 };
 
-const Page = ({ title, children, pageData, siteData }: Props) => {
+const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
   const {
     node_locale,
     countryCode,
@@ -39,7 +40,8 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
     scriptGA,
     scriptOnetrust,
     scriptGTM,
-    scriptHotJar
+    scriptHotJar,
+    scriptGOptLoad
   } = siteData;
 
   const { inputBanner } = pageData;
@@ -101,7 +103,12 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
           </script>
         )}
-
+        {scriptGOptLoad && (
+          <script
+            async
+            src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
+          ></script>
+        )}
         <meta name="robots" content="noindex" />
       </Helmet>
       {scriptGTM && (
@@ -127,6 +134,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
           utilitiesData={menuUtilities}
           countryCode={countryCode}
           slug={pageData.slug || undefined}
+          isOnSearchPage={isSearchPage}
         />
         <ErrorBoundary
           fallbackRender={() => (
@@ -135,6 +143,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
               promo={resources.errorGeneral}
             />
           )}
+          onError={() => navigate(`/${countryCode}/422`)}
         >
           <div className={styles["content"]}>{children}</div>
           {inputBanner ? <InputBanner data={inputBanner} /> : null}

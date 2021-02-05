@@ -15,6 +15,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "scripts": {
+    "clean": "gatsby clean",
     "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build && gatsby serve",
     "build": "gatsby build",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "@bmi/anchor-link": "0.0.0",
+    "@bmi/autocomplete": "0.0.0",
     "@bmi/button": "0.0.0",
     "@bmi/checkbox": "0.0.0",
     "@bmi/clickable": "0.0.0",
@@ -33,6 +35,8 @@
     "@bmi/expandable-links-text-card": "0.0.0",
     "@bmi/footer": "0.0.0",
     "@bmi/form": "0.0.0",
+    "@bmi/geolocation-button": "0.0.0",
+    "@bmi/google-autocomplete": "0.0.0",
     "@bmi/grid": "0.0.0",
     "@bmi/hero": "0.0.0",
     "@bmi/hide-print": "0.0.0",
@@ -63,6 +67,7 @@
     "@bmi/vertical-roller": "0.0.0",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
+    "@logilab/gatsby-plugin-elasticsearch": "^0.1.5",
     "@material-ui/styles": "^4.10.0",
     "@types/file-saver": "^2.0.1",
     "axios": "^0.21.0",

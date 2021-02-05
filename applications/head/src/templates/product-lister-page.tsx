@@ -1,7 +1,10 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
-import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData,
+  findPath
+} from "../components/Breadcrumbs";
 import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData, SiteContext } from "../components/Site";
@@ -41,10 +44,13 @@ import {
   disableFiltersFromAggregations
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import FiltersSidebar from "../components/FiltersSidebar";
 
 const PAGE_SIZE = 24;
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
 
-type Data = PageInfoData &
+type Data = BreadcrumbsData &
+  PageInfoData &
   PageData & {
     __typename: "ContentfulProductListerPage";
     content: RichTextData | null;
@@ -80,6 +86,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     content,
     features,
     featuresLink,
+    parentPage,
     ...pageData
   } = data.contentfulProductListerPage;
   const heroProps: HeroItem = {
@@ -88,11 +95,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     imageSource: featuredImage?.resize.src
   };
   const { countryCode } = data.contentfulSite;
+  const parentSlug = parentPage?.slug;
   const heroLevel = (Math.min(
     findPath(
-      data.contentfulProductListerPage.slug,
+      parentSlug || data.contentfulProductListerPage.slug,
       data.contentfulSite.menuNavigation
-    ).length + 1,
+    ).length + (parentSlug ? 2 : 1),
     3
   ) || 1) as 1 | 2 | 3;
   // TODO: Ignoring gatsby data for now as fetching with ES
@@ -194,7 +202,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
-    const results = await queryElasticSearch(query);
+    const results = await queryElasticSearch(query, ES_INDEX_NAME);
 
     if (results && results.hits) {
       const { hits } = results;
@@ -237,8 +245,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 {...heroProps}
                 breadcrumbs={
                   <Breadcrumbs
-                    title={title}
-                    slug={data.contentfulProductListerPage.slug}
+                    data={{
+                      title,
+                      slug: data.contentfulProductListerPage.slug,
+                      parentPage
+                    }}
                     menuNavigation={data.contentfulSite.menuNavigation}
                     isDarkThemed={heroLevel !== 3}
                   />
@@ -293,34 +304,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 )}
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={12} lg={3}>
-                    <PerfectScrollbar
-                      style={{
-                        position: "sticky",
-                        top: "180px",
-                        maxHeight: "calc(100vh - 200px)",
-                        overflow: "hidden"
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          marginBottom: 4
-                        }}
-                      >
-                        <Typography variant="h5">
-                          {getMicroCopy("plp.filters.title")}
-                        </Typography>
-                        <Button variant="text" onClick={clearFilters}>
-                          {getMicroCopy("plp.filters.clearAll")}
-                        </Button>
-                      </div>
-                      <Filters
-                        filters={filters}
-                        onChange={handleFiltersChange}
-                      />
-                    </PerfectScrollbar>
+                    <FiltersSidebar
+                      filters={filters}
+                      onFiltersChange={handleFiltersChange}
+                      onClearFilters={clearFilters}
+                    />
                   </Grid>
                   <Grid
                     item
@@ -407,8 +395,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       </SiteContext.Consumer>
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs
-          title={title}
-          slug={data.contentfulProductListerPage.slug}
+          data={{
+            title,
+            slug: data.contentfulProductListerPage.slug,
+            parentPage
+          }}
           menuNavigation={data.contentfulSite.menuNavigation}
         />
       </Section>
@@ -426,6 +417,7 @@ export const pageQuery = graphql`
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      ...BreadcrumbsFragment
       content {
         ...RichTextFragment
       }
@@ -495,24 +487,6 @@ export const pageQuery = graphql`
             }
           }
         }
-      }
-    }
-  }
-`;
-
-export const promoQuery = graphql`
-  fragment ProductListerPageInfoFragment on ContentfulProductListerPage {
-    title
-    subtitle
-    brandLogo
-    slug
-    featuredImage {
-      resize(toFormat: WEBP, jpegProgressive: false) {
-        src
-      }
-      file {
-        fileName
-        url
       }
     }
   }

@@ -16,8 +16,15 @@ module.exports = {
   ],
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  roots: ["<rootDir>/components", "<rootDir>/applications/head/src/components"],
+  roots: [
+    "<rootDir>/components",
+    "<rootDir>/applications/head/src/components",
+    "<rootDir>/functions/gcp-upload-file",
+    "<rootDir>/applications/intouch-frontend",
+    "<rootDir>/applications/intouch-api"
+  ],
   testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
+  testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
     "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
     "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
@@ -30,5 +37,6 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
+  setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
   setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"]
 };

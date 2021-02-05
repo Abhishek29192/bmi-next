@@ -1,0 +1,23 @@
+@import "@bmi/styles";
+
+.SearchBlock {
+  .content {
+    margin: 24px 0;
+
+    &--search {
+      display: none;
+
+      @media (min-width: $breakpoint-lg) {
+        display: block;
+      }
+    }
+
+    &--card {
+      margin-top: 0;
+
+      @media (min-width: $breakpoint-lg) {
+        margin-top: 24px;
+      }
+    }
+  }
+}

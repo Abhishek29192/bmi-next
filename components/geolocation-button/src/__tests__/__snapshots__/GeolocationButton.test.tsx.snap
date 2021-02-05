@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GeolocationButton component calls onPosition on click 1`] = `Array []`;
+
+exports[`GeolocationButton component renders correctly 1`] = `
+<button
+  class="MuiButtonBase-root MuiButton-root MuiButton-text Button GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
+  disabled=""
+  tabindex="-1"
+  type="button"
+>
+  <span
+    class="MuiButton-label"
+  >
+    <span
+      class="MuiButton-startIcon MuiButton-iconSizeMedium"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"
+        />
+      </svg>
+    </span>
+    Use my location
+  </span>
+</button>
+`;

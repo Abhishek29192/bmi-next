@@ -5,16 +5,6 @@
   font-size: 1rem;
 }
 
-.LeadBlockContent {
-  @media (max-width: $breakpoint-lg) {
-    margin-bottom: 32px;
-  }
-}
-
-.LeadBlockContentSection:first-child {
-  margin-bottom: 48px;
-}
-
 .LeadBlockContentSection {
   margin-bottom: 32px;
 }
