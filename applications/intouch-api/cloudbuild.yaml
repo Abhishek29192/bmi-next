@@ -60,11 +60,11 @@ steps:
         "--platform",
         "managed",
         "--allow-unauthenticated",
-        "--add-cloudsql-instances=bmi-intouch:europe-west2:companies-db",
+        "--add-cloudsql-instances=automated-style-303709:europe-west2:companies-db",
         "--set-env-vars=DATABASE=postgres",
         "--set-env-vars=PG_USER=postgres",
-        "--set-env-vars=PASSWORD=bHpuecIrItH6wEJ4",
-        "--set-env-vars=HOST=/cloudsql/bmi-intouch:europe-west2:companies-db",
+        "--set-env-vars=PASSWORD=N17mCOEvcLdnq5qH",
+        "--set-env-vars=HOST=/cloudsql/automated-style-303709:europe-west2:companies-db",
         "--set-env-vars=PG_SCHEMA=public",
       ]
   - name: "gcr.io/cloud-builders/gcloud"
@@ -80,7 +80,7 @@ steps:
         "--platform",
         "managed",
         "--allow-unauthenticated",
-        "--set-env-vars=COMPANY_SERVICE=https://companies-akoergu63a-nw.a.run.app/graphql",
-        "--set-env-vars=PRODUCT_SERVICE=https://products-akoergu63a-nw.a.run.app/graphql",
+        "--set-env-vars=COMPANY_SERVICE=https://companies-rfwslk3zjq-nw.a.run.app/graphql",
+        "--set-env-vars=PRODUCT_SERVICE=https://products-rfwslk3zjq-nw.a.run.app/graphql",
       ]
-logsBucket: "gs://bmi-product-bucket"
+logsBucket: "gs://intouch-replaform-bucket"
