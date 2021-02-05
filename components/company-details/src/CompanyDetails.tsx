@@ -1,20 +1,19 @@
-import React from "react";
-import Button from "@bmi/button";
-import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
+import Button from "@bmi/button";
 import Icon from "@bmi/icon";
-import Logo, { RoofProExpert, RoofProPartner, RoofProElite } from "@bmi/logo";
-import styles from "./CompanyDetails.module.scss";
-
+import Logo, { RoofProElite, RoofProExpert, RoofProPartner } from "@bmi/logo";
+import Typography from "@bmi/typography";
 import {
-  LocationOn,
-  Phone,
-  Mail,
   Directions,
+  LocationOn,
+  Mail,
+  Phone,
   Public
 } from "@material-ui/icons";
+import React from "react";
+import styles from "./CompanyDetails.module.scss";
 
-type RoofProLevel = "expert" | "partner" | "elite";
+export type RoofProLevel = "expert" | "partner" | "elite";
 
 type DetailTypeWithIcons =
   | "address"
@@ -25,7 +24,7 @@ type DetailTypeWithIcons =
 
 type DetailType = DetailTypeWithIcons | "cta" | "content";
 
-type DetailProps =
+export type DetailProps =
   | {
       type: "roofProLevel";
       label: React.ReactNode;
@@ -39,7 +38,7 @@ type DetailProps =
     };
 
 type Props = {
-  name: React.ReactNode;
+  name?: React.ReactNode;
   details: readonly DetailProps[];
   children: React.ReactNode;
 };
@@ -91,6 +90,7 @@ const DetailsItem = (props: DetailProps) => {
       partner: RoofProPartner,
       elite: RoofProElite
     };
+    const iconSource = iconSourceMap[level as RoofProLevel];
 
     return (
       <div className={styles["row"]}>
@@ -98,10 +98,16 @@ const DetailsItem = (props: DetailProps) => {
           <span className={styles["label"]}>{label}</span>
         </dt>
         <dd className={styles["description"]}>
-          <Logo
-            source={iconSourceMap[level]}
-            className={styles[`roofProLevelIcon--${level}`]}
-          />
+          {iconSource ? (
+            <Logo
+              source={iconSource}
+              className={styles[`roofProLevelIcon--${level}`]}
+            />
+          ) : (
+            <pre style={{ color: "#d6001c" }}>
+              Error: Level &quot;{level}&quot; does not exist
+            </pre>
+          )}
           <span className={styles["accessibility-label"]}>{level}</span>
         </dd>
       </div>
@@ -139,9 +145,11 @@ const DetailsItem = (props: DetailProps) => {
 const CompanyDetails = ({ name, details, children }: Props) => {
   return (
     <div className={styles["CompanyDetails"]}>
-      <Typography variant="h5" className={styles["title"]}>
-        {name}
-      </Typography>
+      {name && (
+        <Typography variant="h5" className={styles["title"]}>
+          {name}
+        </Typography>
+      )}
       <div className={styles["scrollableContent"]}>
         {details.length ? (
           <dl className={styles["list"]}>
