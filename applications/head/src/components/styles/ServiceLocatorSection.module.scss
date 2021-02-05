@@ -15,7 +15,7 @@
 
   .list {
     margin-top: -24px;
-    max-height: 400px;
+    max-height: 640px;
     overflow: auto;
 
     @media (min-width: $breakpoint-md) {
@@ -23,8 +23,13 @@
     }
   }
 
+  .no-results {
+    text-align: center;
+  }
+
   .map {
     margin-top: -24px;
+    max-height: 640px;
 
     @media (min-width: $breakpoint-md) {
       margin: 0 0 0 24px;

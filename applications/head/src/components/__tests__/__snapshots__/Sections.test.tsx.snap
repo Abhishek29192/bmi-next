@@ -912,7 +912,20 @@ HTMLCollection [
               <div
                 class="list"
               >
-                findARoofer.noResults
+                <div
+                  class="no-results"
+                >
+                  <h4
+                    class="MuiTypography-root Typography MuiTypography-h4"
+                  >
+                    findARoofer.noResults.title
+                  </h4>
+                  <p
+                    class="MuiTypography-root Typography MuiTypography-body1"
+                  >
+                    findARoofer.noResults.subtitle
+                  </p>
+                </div>
               </div>
             </div>
           </div>
