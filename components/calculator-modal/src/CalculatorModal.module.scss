@@ -12,24 +12,11 @@
   display: flex;
   flex-flow: column nowrap;
 
-  &--bg-white {
-    background-color: $color-white;
-  }
-
-  &--bg-pearl {
-    background-color: $color-pearl;
-  }
-
-  &--bg-alabaster {
-    background-color: $color-alabaster;
-  }
-
   .header {
     display: flex;
     flex: 0 0 auto;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    background-color: $color-white;
   }
 
   .headerContainer {
@@ -69,4 +56,12 @@
     margin-bottom: 24px;
     padding: 0 30px;
   }
+}
+
+.white {
+  background-color: $color-white;
+}
+
+.pearl {
+  background-color: $color-pearl;
 }
