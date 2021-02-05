@@ -1,0 +1,19 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+[build.processing]
+  skip_processing = true
+
+
+# test rule - copy and replace as necessary to create new redirect rules
+[[redirects]]
+  from = "/test/*"
+  to = "https://beta.bmigroup.com/no"
+  status = 301
+  force = true
+  [redirects.headers]
+    X-From = "Netlify"
