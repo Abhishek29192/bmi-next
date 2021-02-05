@@ -1,71 +1,52 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import classnames from "classnames";
-import styles from "./CalculatorStepper.module.scss";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Divider from "@material-ui/core/Divider";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Form from "@bmi/form";
+import styles from "./CalculatorStepper.module.scss";
 
 type Props = {
   selected: string;
   children: React.ReactNode;
 };
 
+const isStepElement = (
+  element: React.ReactNode
+): element is React.ReactElement<StepProps, typeof Step> =>
+  element &&
+  typeof element === "object" &&
+  "type" in element &&
+  element.type === Step;
+
 const CalculatorStepper = ({ selected, children }: Props) => {
-  const SelectedIdentifier = (
-    <Typography
-      variant="body1"
-      style={{
-        backgroundColor: "#D9D8D8"
-      }}
-    >
-      Selected: {selected}
-    </Typography>
-  );
-
-  const isSelected = selected ? SelectedIdentifier : null;
-
-  const items = React.Children.map(children, (child) => {
-    const { value } = child.props;
-
-    if (value !== selected) {
-      return React.cloneElement(child, {
-        className: classnames(styles["item"])
-      });
-    } else {
-      return child;
-    }
+  // TODO: add warnings for invalid items/keys
+  const current = React.Children.toArray(children).filter((item) => {
+    return isStepElement(item) && (item.key + "").substr(2) === selected;
   });
 
-  return (
-    <div className={classnames(styles["stepper"])}>
-      <div>{isSelected}</div>
-      {items}
-    </div>
-  );
+  return <div className={classnames(styles["stepper"])}>{current}</div>;
 };
 
 type StepProps = {
-  value: string;
   title: string;
   subtitle: string;
-  displayComputation?: string;
-  backButtonLabel?: string;
+  paragraph?: string;
+  backLabel?: string;
   backButtonOnClick?: () => void;
   linkLabel?: string;
   linkOnClick?: () => void;
   nextLabel?: string;
-  nextButtonOnClick?: (value: object) => void;
+  nextButtonOnClick?: (e: FormEvent, value: object) => void;
   children: React.ReactNode;
 };
 
 const Step = ({
-  value,
   title,
   subtitle,
-  displayComputation,
-  backButtonLabel,
+  paragraph,
+  backLabel,
   backButtonOnClick,
   linkLabel,
   linkOnClick,
@@ -73,48 +54,52 @@ const Step = ({
   nextButtonOnClick,
   children
 }: StepProps) => {
-  const BackButton = (
+  const backButton = (
     <Button
       variant="outlined"
       onClick={backButtonOnClick}
       accessibilityLabel={"Back"}
       startIcon={<ArrowBackIcon />}
+      className={styles["rowItem"]}
     >
-      {backButtonLabel}
+      {backLabel}
     </Button>
   );
 
-  const Link = (
-    <Button onClick={linkOnClick} variant="text">
+  const link = (
+    <Button onClick={linkOnClick} variant="text" className={styles["rowItem"]}>
       {linkLabel}
     </Button>
   );
 
-  const NextButton = (
-    <Form.SubmitButton accessibilityLabel={"Next"}>
+  const nextButton = (
+    <Form.SubmitButton
+      className={styles["rowItem"]}
+      accessibilityLabel={"Next"}
+    >
       {nextLabel}
     </Form.SubmitButton>
   );
 
-  const backButton = <div className={styles["back-button"]}>{BackButton}</div>;
-  const displayBackButton = backButtonLabel ? backButton : null;
-
-  const nextButton = <div className={styles["next-button"]}>{NextButton}</div>;
-  const displayNextButton = nextLabel ? nextButton : null;
-
-  const theLink = <div className={styles["link"]}>{Link}</div>;
-  const displayLink = linkLabel ? theLink : null;
-
-  const footerMarkup = (
-    <div className={classnames(styles["footer"])}>
-      {displayBackButton}
-      {displayLink}
-      {displayNextButton}
+  const footer = (
+    <div
+      className={classnames(
+        styles["footer"],
+        styles["breakableRow"],
+        styles["breakableRow--reverse"]
+      )}
+    >
+      <div className={styles["breakableRow"]}>
+        {backLabel ? backButton : null}
+      </div>
+      <div className={styles["breakableRow"]}>
+        {linkLabel ? link : null}
+        {nextLabel ? nextButton : null}
+      </div>
     </div>
   );
 
-  const hasButton = backButtonLabel || nextLabel || linkLabel;
-  const Footer = hasButton ? footerMarkup : null;
+  const hasButtons = backLabel || nextLabel || linkLabel;
 
   return (
     <Form
@@ -124,18 +109,15 @@ const Step = ({
       <Typography variant="h4" className={classnames(styles["step-title"])}>
         {title}
       </Typography>
-      <Typography variant="body2" className={classnames(styles["computation"])}>
-        {displayComputation}
+      <Typography variant="h6" className={classnames(styles["computation"])}>
+        {paragraph}
       </Typography>
       <Typography variant="body1" className={classnames(styles["subtitle"])}>
         {subtitle}
       </Typography>
-      <Typography variant="h5" className={classnames(styles["component"])}>
-        {children}
-      </Typography>
-
-      <Divider />
-      {Footer}
+      {children}
+      <Divider className={styles["hr"]} />
+      {hasButtons ? footer : null}
     </Form>
   );
 };

@@ -1,23 +1,24 @@
 import React from "react";
+import { render, fireEvent } from "@testing-library/react";
 import CalculatorStepper from "../";
-import { render } from "@testing-library/react";
 
 describe("CalculatorStepper component", () => {
+  const SelectingARoof = () => {
+    return (
+      <div>
+        <p>This is the Selecting a Roof Shape page.</p>
+      </div>
+    );
+  };
+
   it("renders correctly", () => {
-    const SelectingARoof = () => {
-      return (
-        <div>
-          <p>This is the Selecting a Roof Shape page.</p>
-        </div>
-      );
-    };
     const { container } = render(
       <CalculatorStepper selected="select-a-roof-shape">
         <CalculatorStepper.Step
-          value="select-a-roof-shape"
+          key="select-a-roof-shape"
           title="This is the 2nd page"
           subtitle="Choose the closest to your roof shape"
-          backButtonLabel="Go Back"
+          backLabel="Go Back"
           backButtonOnClick={() => {}}
           linkLabel="Skip"
           linkOnClick={() => {}}
@@ -29,5 +30,61 @@ describe("CalculatorStepper component", () => {
       </CalculatorStepper>
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("ignores footer when there are no buttons", () => {
+    const { container } = render(
+      <CalculatorStepper selected="select-a-roof-shape">
+        <CalculatorStepper.Step
+          key="select-a-roof-shape"
+          title="This is the 2nd page"
+          subtitle="Choose the closest to your roof shape"
+        >
+          <SelectingARoof />
+        </CalculatorStepper.Step>
+      </CalculatorStepper>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("calls button events", () => {
+    const onClickBack = jest.fn();
+    const backLabel = "Go Back";
+
+    const onClickLink = jest.fn();
+    const linkLabel = "Skip";
+
+    const onClickNext = jest.fn();
+    const nextLabel = "Calculate";
+
+    const { getByText } = render(
+      <CalculatorStepper selected="select-a-roof-shape">
+        <CalculatorStepper.Step
+          key="select-a-roof-shape"
+          title="This is the 2nd page"
+          subtitle="Choose the closest to your roof shape"
+          backLabel={backLabel}
+          backButtonOnClick={onClickBack}
+          linkLabel={linkLabel}
+          linkOnClick={onClickLink}
+          nextLabel={nextLabel}
+          nextButtonOnClick={onClickNext}
+        >
+          <SelectingARoof />
+        </CalculatorStepper.Step>
+      </CalculatorStepper>
+    );
+
+    const backButton = getByText(backLabel);
+    fireEvent.click(backButton);
+    expect(onClickBack.mock.calls).toMatchSnapshot();
+
+    const linkButton = getByText(linkLabel);
+    fireEvent.click(linkButton);
+    expect(onClickLink.mock.calls).toMatchSnapshot();
+
+    const nextButton = getByText(nextLabel);
+    fireEvent.click(nextButton);
+    expect(onClickNext.mock.calls).toMatchSnapshot();
   });
 });
