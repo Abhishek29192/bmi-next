@@ -61,7 +61,13 @@ Array [
         "lat": 51.5,
         "lng": 0,
       },
+      "fullscreenControl": false,
+      "mapTypeControl": false,
+      "rotateControl": false,
+      "scaleControl": false,
+      "streetViewControl": false,
       "zoom": 8,
+      "zoomControl": true,
     },
   ],
 ]

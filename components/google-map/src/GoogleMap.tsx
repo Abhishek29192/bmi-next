@@ -26,6 +26,15 @@ type Props = MapOptions & {
   ) => void;
 };
 
+const defaultMapControls = {
+  zoomControl: true,
+  mapTypeControl: false,
+  scaleControl: false,
+  streetViewControl: false,
+  rotateControl: false,
+  fullscreenControl: false
+};
+
 const GoogleMap = ({
   center = { lat: 51.5, lng: 0 },
   children,
@@ -61,7 +70,7 @@ const GoogleMap = ({
 
   useEffect(() => {
     if (google) {
-      const options = { center, zoom, ...mapOptions };
+      const options = { center, zoom, ...defaultMapControls, ...mapOptions };
       googleMap.current = new google.maps.Map(mapElement.current, options);
       googleMarkers.current = markers.map(createGoogleMarker);
     }
