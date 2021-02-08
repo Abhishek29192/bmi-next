@@ -167,12 +167,14 @@ exports.createPages = async ({ graphql, actions }) => {
           homePage {
             __typename
             id
+            path
           }
           pages {
             ... on ContentfulPage {
               __typename
               id
-              slug
+              path
+              title
 
               ... on ContentfulProductListerPage {
                 categoryCode
@@ -206,7 +208,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
 
       createPage({
-        path: `/${site.countryCode}/${page.slug || ""}`,
+        path: `/${site.countryCode}/${page.path}`.replace(/\/+/gi, "/"),
         component,
         context: {
           pageId: page.id,
