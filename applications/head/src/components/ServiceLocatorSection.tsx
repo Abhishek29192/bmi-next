@@ -1,8 +1,13 @@
 import Autocomplete from "@bmi/autocomplete";
+import CompanyDetails, {
+  DetailProps,
+  RoofProLevel
+} from "@bmi/company-details";
 import GeolocationButton from "@bmi/geolocation-button";
 import GoogleAutocomplete, {
   GeocoderResult as GoogleGeocoderResult
 } from "@bmi/google-autocomplete";
+import { GoogleLatLng } from "@bmi/google-map";
 import Grid from "@bmi/grid";
 import LinkCard from "@bmi/link-card";
 import Section from "@bmi/section";
@@ -10,6 +15,7 @@ import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import { graphql } from "gatsby";
 import React, { useContext, useState } from "react";
+import { getClickableActionFromUrl, LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { Data as RooferData } from "./Roofer";
 import { SiteContext } from "./Site";
@@ -24,9 +30,9 @@ export type Data = {
 };
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [selectedRoofer, setSelectedRoofer] = useState<string>("");
-  const [activePosition, setActivePosition] = useState<Position>(null);
+  const [activePosition, setActivePosition] = useState<GoogleLatLng>(null);
   const googleApiKey = process.env.GATSBY_GOOGLE_API_KEY;
   const { label, body, roofers } = data;
 
@@ -41,19 +47,74 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       return;
     }
 
-    // @todo: No nice way to create a native GeolocationPosition object?
     setActivePosition({
-      coords: {
-        accuracy: null,
-        latitude: location.geometry.location.lat(),
-        longitude: location.geometry.location.lng(),
-        altitude: null,
-        altitudeAccuracy: null,
-        heading: null,
-        speed: null
-      },
-      timestamp: +new Date()
+      lat: location.geometry.location.lat(),
+      lng: location.geometry.location.lng()
     });
+  };
+
+  const getUrlClickableAction = (url: LinkData["url"]) =>
+    getClickableActionFromUrl(null, url, countryCode);
+
+  const getCompanyDetails = (roofer: RooferData): DetailProps[] => {
+    return [
+      {
+        type: "cta" as "cta",
+        text: getMicroCopy("findARoofer.getDirectionsLabel"),
+        action: getUrlClickableAction(
+          `https://www.google.com/maps/dir//${roofer.address}/`
+        ),
+        label: getMicroCopy("findARoofer.getDirectionsLabel")
+      },
+      ...(roofer.phone
+        ? [
+            {
+              type: "phone" as "phone",
+              text: roofer.phone,
+              action: getUrlClickableAction(`tel:${roofer.phone}`),
+              label: getMicroCopy("findARoofer.telephoneLabel")
+            }
+          ]
+        : []),
+      ...(roofer.email
+        ? [
+            {
+              type: "email" as "email",
+              text: roofer.email,
+              action: getUrlClickableAction(`mailto:${roofer.email}`),
+              label: getMicroCopy("findARoofer.emailLabel")
+            }
+          ]
+        : []),
+      ...(roofer.website
+        ? [
+            {
+              type: "website" as "website",
+              text: getMicroCopy("findARoofer.websiteLabel"),
+              action: getUrlClickableAction(roofer.website),
+              label: getMicroCopy("findARoofer.websiteLabel")
+            }
+          ]
+        : []),
+      ...(roofer.type
+        ? [
+            {
+              type: "content" as "content",
+              label: getMicroCopy("findARoofer.roofTypeLabel"),
+              text: <b>{roofer.type}</b>
+            }
+          ]
+        : []),
+      ...(roofer.certification
+        ? [
+            {
+              type: "roofProLevel" as "roofProLevel",
+              label: getMicroCopy("findARoofer.certificationLabel"),
+              level: roofer.certification.toLowerCase() as RoofProLevel
+            }
+          ]
+        : [])
+    ];
   };
 
   return (
@@ -70,7 +131,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             id="company-autocomplete"
             label={getMicroCopy("findARoofer.companyFieldLabel")}
             className={styles["company-autocomplete"]}
-            options={roofers ? roofers.map(({ name }) => name) : []}
+            onInputChange={(_, inputValue) => {
+              // @todo Company search
+            }}
+            options={
+              roofers && roofers.length ? roofers.map(({ name }) => name) : []
+            }
           />
           {googleApiKey && (
             <>
@@ -87,7 +153,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               />
             </>
           )}
-          <GeolocationButton onPosition={setActivePosition}>
+          <GeolocationButton
+            onPosition={({ coords }) =>
+              setActivePosition({ lat: coords.latitude, lng: coords.longitude })
+            }
+          >
             {getMicroCopy("findARoofer.geolocationButton")}
           </GeolocationButton>
         </Grid>
@@ -105,20 +175,31 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           index="list"
         >
           <div className={styles["list"]}>
-            {roofers
-              ? roofers.map((roofer) => (
-                  <LinkCard
-                    key={roofer.id}
-                    onClick={() => handleListClick(roofer)}
-                    onCloseClick={handleListCloseClick}
-                    isOpen={selectedRoofer === roofer.id}
-                    title={roofer.name}
-                    subtitle={roofer.address}
-                  >
-                    {roofer.summary}
-                  </LinkCard>
-                ))
-              : getMicroCopy("findARoofer.noResults")}
+            {roofers && roofers.length ? (
+              roofers.map((roofer) => (
+                <LinkCard
+                  key={roofer.id}
+                  onClick={() => handleListClick(roofer)}
+                  onCloseClick={handleListCloseClick}
+                  isOpen={selectedRoofer === roofer.id}
+                  title={roofer.name}
+                  subtitle={roofer.address}
+                >
+                  <CompanyDetails details={getCompanyDetails(roofer)}>
+                    <Typography>{roofer.summary}</Typography>
+                  </CompanyDetails>
+                </LinkCard>
+              ))
+            ) : (
+              <div className={styles["no-results"]}>
+                <Typography variant="h4">
+                  {getMicroCopy("findARoofer.noResults.title")}
+                </Typography>
+                <Typography>
+                  {getMicroCopy("findARoofer.noResults.subtitle")}
+                </Typography>
+              </div>
+            )}
           </div>
         </Tabs.TabPanel>
         <Tabs.TabPanel

@@ -5,6 +5,8 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import styles from "./GoogleMap.module.scss";
 
+export type GoogleLatLng = google.maps.LatLngLiteral;
+
 type Props = google.maps.MapOptions & {
   apiKey?: string;
   children?: ReactNode;
