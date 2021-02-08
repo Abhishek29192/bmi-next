@@ -801,6 +801,34 @@ HTMLCollection [
                 </div>
               </div>
             </div>
+            <p
+              class="MuiTypography-root and-or-label Typography MuiTypography-body1"
+            >
+              findARoofer.andOr
+            </p>
+            <div
+              style="text-align: center;"
+            >
+              <div
+                class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+                role="progressbar"
+                style="width: 40px; height: 40px;"
+              >
+                <svg
+                  class="MuiCircularProgress-svg"
+                  viewBox="22 22 44 44"
+                >
+                  <circle
+                    class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+                    cx="44"
+                    cy="44"
+                    fill="none"
+                    r="20.2"
+                    stroke-width="3.6"
+                  />
+                </svg>
+              </div>
+            </div>
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button GeolocationButton MuiButton-textPrimary Mui-disabled Mui-disabled"
               disabled=""
@@ -866,7 +894,7 @@ HTMLCollection [
                       <span
                         class="MuiTab-wrapper"
                       >
-                        List
+                        findARoofer.listLabel
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -884,7 +912,7 @@ HTMLCollection [
                       <span
                         class="MuiTab-wrapper"
                       >
-                        Map
+                        findARoofer.mapLabel
                       </span>
                       <span
                         class="MuiTouchRipple-root"
@@ -902,7 +930,7 @@ HTMLCollection [
           <div
             aria-labelledby="tab-list"
             class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-4"
-            heading="List"
+            heading="findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
           >
@@ -932,7 +960,7 @@ HTMLCollection [
           <div
             aria-labelledby="tab-map"
             class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-8"
-            heading="Map"
+            heading="findARoofer.mapLabel"
             hidden=""
             id="tabpanel-map"
             role="tabpanel"

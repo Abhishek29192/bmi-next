@@ -1,40 +1,35 @@
-/* global google */
 import Autocomplete, { Props as AutocompleteProps } from "@bmi/autocomplete";
-import { Loader } from "@googlemaps/js-api-loader";
-import React, { useEffect, useMemo, useRef, useState } from "react";
-
-type Option = google.maps.places.AutocompletePrediction;
-
-export type GeocoderResult = google.maps.GeocoderResult;
+import GoogleApi, {
+  AutocompletePrediction,
+  AutocompleteService,
+  AutocompletionRequest,
+  Geocoder,
+  GeocoderRequest,
+  GeocoderResult,
+  Google
+} from "@bmi/google-api";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 type Props = Omit<AutocompleteProps, "options"> & {
-  apiKey: string;
   onPlaceChange?: (place: GeocoderResult) => void;
 };
 
-const GoogleAutocomplete = ({ apiKey, onPlaceChange, ...props }: Props) => {
+const GoogleAutocomplete = ({ onPlaceChange, ...props }: Props) => {
+  const google = useContext<Google>(GoogleApi);
   const debouncer = useRef<NodeJS.Timeout>();
-  const googleAutocomplete = useRef<google.maps.places.AutocompleteService>();
-  const googleGeocoder = useRef<google.maps.Geocoder>();
+  const googleAutocomplete = useRef<AutocompleteService>();
+  const googleGeocoder = useRef<Geocoder>();
   const [value, setValue] = useState<any>("");
   const [inputValue, setInputValue] = useState<string>("");
-  const [options, setOptions] = useState<(Option | string)[]>([]);
-  const loader = new Loader({
-    apiKey,
-    version: "weekly",
-    libraries: ["places"]
-  });
-
-  const initialise = async () => {
-    await loader.load();
-    googleAutocomplete.current = new google.maps.places.AutocompleteService();
-    googleGeocoder.current = new google.maps.Geocoder();
-  };
+  const [options, setOptions] = useState<(AutocompletePrediction | string)[]>(
+    []
+  );
 
   const getPlacePredictions = useMemo(
     () => (
-      request: google.maps.places.AutocompletionRequest,
-      callback: (result: Option[]) => void
+      request: AutocompletionRequest,
+      callback: (result: AutocompletePrediction[]) => void
     ) =>
       googleAutocomplete.current
         ? googleAutocomplete.current.getPlacePredictions(request, callback)
@@ -44,7 +39,7 @@ const GoogleAutocomplete = ({ apiKey, onPlaceChange, ...props }: Props) => {
 
   const getGeocode = useMemo(
     () => (
-      request: google.maps.GeocoderRequest,
+      request: GeocoderRequest,
       callback: (results: GeocoderResult[]) => void
     ) =>
       googleGeocoder.current
@@ -54,8 +49,11 @@ const GoogleAutocomplete = ({ apiKey, onPlaceChange, ...props }: Props) => {
   );
 
   useEffect(() => {
-    initialise();
-  }, []);
+    if (google) {
+      googleAutocomplete.current = new google.maps.places.AutocompleteService();
+      googleGeocoder.current = new google.maps.Geocoder();
+    }
+  }, [google]);
 
   useEffect(() => {
     if (inputValue === "") {
@@ -77,9 +75,9 @@ const GoogleAutocomplete = ({ apiKey, onPlaceChange, ...props }: Props) => {
     }
   }, [value]);
 
-  return (
+  return google ? (
     <Autocomplete
-      getOptionLabel={(option: Option) =>
+      getOptionLabel={(option: AutocompletePrediction) =>
         typeof option === "string" ? option : option.description
       }
       options={options}
@@ -92,7 +90,7 @@ const GoogleAutocomplete = ({ apiKey, onPlaceChange, ...props }: Props) => {
         clearTimeout(debouncer.current);
         debouncer.current = setTimeout(() => setInputValue(inputValue), 500);
       }}
-      renderOption={({ structured_formatting }: Option) => (
+      renderOption={({ structured_formatting }: AutocompletePrediction) => (
         <Autocomplete.Option
           text={structured_formatting.main_text}
           secondaryText={structured_formatting.secondary_text}
@@ -101,6 +99,10 @@ const GoogleAutocomplete = ({ apiKey, onPlaceChange, ...props }: Props) => {
       )}
       {...props}
     />
+  ) : (
+    <div style={{ textAlign: "center" }}>
+      <CircularProgress />
+    </div>
   );
 };
 
