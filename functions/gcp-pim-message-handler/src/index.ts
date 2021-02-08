@@ -13,7 +13,8 @@ const {
   TRANSITIONAL_TOPIC_NAME,
   PIM_CLIENT_ID,
   PIM_HOST,
-  GCP_PROJECT_ID
+  GCP_PROJECT_ID,
+  BUILD_TRIGGER_ENDPOINT
 } = process.env;
 
 // @ts-ignore TODO: NOPE HACK!
@@ -195,6 +196,31 @@ export const handleRequest: HttpFunction = async (req, res) => {
           await publishMessage(type, itemType, page.items);
         }
       }
+
+      // Constants for setting up metadata server request
+      // See https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature
+      const metadataServerURL =
+        "http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=";
+      const tokenUrl = metadataServerURL + BUILD_TRIGGER_ENDPOINT;
+
+      // fetch the auth token
+      const tokenResponse = await fetch(tokenUrl, {
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      });
+      const token = await tokenResponse.text();
+
+      // call netlify build trigger function - fire and forget
+      // Provide the token in the request to the receiving function
+      fetch("BUILD_TRIGGER_ENDPOINT", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `bearer ${token}`
+        },
+        body: JSON.stringify({ data: "filler data" })
+      });
     } catch (error) {
       console.error(error);
     }
