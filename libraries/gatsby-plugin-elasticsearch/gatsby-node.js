@@ -50,6 +50,12 @@ exports.onPostBuild = async function (
       alias = await alias(graphql);
     }
 
+    // Empty alias is invalid
+    if (!alias) {
+      report.panic(`"${alias}" is not a valid indexName.`);
+      return;
+    }
+
     await deleteOrphanIndices(client, alias);
 
     const newIndex = await getUniqueIndexName(client, alias);
