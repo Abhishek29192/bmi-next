@@ -1,48 +1,44 @@
-/* global google */
 import Card from "@bmi/card";
-import { Loader } from "@googlemaps/js-api-loader";
+import GoogleApi, {
+  Google,
+  Map,
+  MapOptions,
+  Marker,
+  MarkerOptions
+} from "@bmi/google-api";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, {
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from "react";
 import styles from "./GoogleMap.module.scss";
 
-export type GoogleLatLng = google.maps.LatLngLiteral;
-
-type Props = google.maps.MapOptions & {
-  apiKey?: string;
+type Props = MapOptions & {
   children?: ReactNode;
-  markers?: google.maps.MarkerOptions[];
+  markers?: MarkerOptions[];
   onMarkerClick?: (
-    marker: google.maps.Marker,
+    marker: Marker,
     index: number,
     event: MouseEvent | Event | TouchEvent | PointerEvent
   ) => void;
 };
 
 const GoogleMap = ({
-  apiKey,
   center = { lat: 51.5, lng: 0 },
   children,
-  markers,
+  markers = [],
   onMarkerClick,
   zoom = 8,
   ...mapOptions
 }: Props) => {
+  const google = useContext<Google>(GoogleApi);
   const [error, setError] = useState<Error>();
-  const googleMap = useRef<google.maps.Map>();
-  const googleMarkers = useRef<google.maps.Marker[]>([]);
+  const googleMap = useRef<Map>();
+  const googleMarkers = useRef<Marker[]>([]);
   const mapElement = useRef<HTMLDivElement>();
-  const loader = new Loader({ apiKey, version: "weekly" });
-
-  const initialiseMap = async () => {
-    const options = { center, zoom, ...mapOptions };
-    try {
-      await loader.load();
-      googleMap.current = new google.maps.Map(mapElement.current, options);
-      googleMarkers.current = markers.map(createGoogleMarker);
-    } catch (error) {
-      setError(error);
-    }
-  };
 
   const createGoogleMarker = (
     options: google.maps.MarkerOptions,
@@ -64,8 +60,12 @@ const GoogleMap = ({
     googleMarker.setMap(null);
 
   useEffect(() => {
-    initialiseMap();
-  }, []);
+    if (google) {
+      const options = { center, zoom, ...mapOptions };
+      googleMap.current = new google.maps.Map(mapElement.current, options);
+      googleMarkers.current = markers.map(createGoogleMarker);
+    }
+  }, [google]);
 
   useEffect(() => {
     if (googleMap.current) {
