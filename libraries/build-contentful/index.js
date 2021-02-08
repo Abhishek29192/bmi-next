@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
-const { spawnSync } = require("child_process");
-const { execSync } = require("child_process");
+const { spawnSync, execSync } = require("child_process");
 const contentful = require("contentful-management");
 const { compareSemVer, isValidSemVer, parseSemVer } = require("semver-parser");
 const ora = require("ora");
