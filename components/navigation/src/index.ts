@@ -4,5 +4,6 @@ import Navigation, {
   NavigationListButton
 } from "./Navigation";
 
-export { LinkList, NavigationList, NavigationListButton };
+export { NavigationListButton };
+export type { LinkList, NavigationList };
 export default Navigation;
