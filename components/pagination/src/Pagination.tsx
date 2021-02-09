@@ -7,8 +7,8 @@ import Button from "@bmi/button";
 import DoubleLeftArrow from "@bmi/pagination/svgs/arrow-left-double.svg";
 import DoubleRightArrow from "@bmi/pagination/svgs/arrow-right-double.svg";
 import Ellipsis from "@bmi/pagination/svgs/ellipsis.svg";
-import styles from "./Pagination.module.scss";
 import useDimensions, { DimensionObject } from "@bmi/use-dimensions";
+import styles from "./Pagination.module.scss";
 
 const MAX_ITEM_COUNT = 11;
 

@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./SpotlightHero.module.scss";
 import classnames from "classnames";
 import Typography from "@bmi/typography";
 import Container from "@bmi/container";
+import styles from "./SpotlightHero.module.scss";
 
 const SpotlightHero = ({
   title,

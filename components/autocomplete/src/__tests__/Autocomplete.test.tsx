@@ -1,6 +1,6 @@
 import React from "react";
-import Autocomplete from "../";
 import { render } from "@testing-library/react";
+import Autocomplete from "../";
 
 describe("Autocomplete component", () => {
   it("renders correctly", () => {

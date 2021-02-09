@@ -2,7 +2,8 @@
 
 const getFieldValidations = require("../../utils/getFieldValidations");
 
-module.exports.description = "Add document library page to pages validation for page content type";
+module.exports.description =
+  "Add document library page to pages validation for page content type";
 
 module.exports.up = async (migration, { makeRequest }) => {
   const site = migration.editContentType("site");

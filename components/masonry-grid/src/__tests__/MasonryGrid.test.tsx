@@ -1,6 +1,6 @@
 import React from "react";
-import MasonryGrid from "../";
 import { render } from "@testing-library/react";
+import MasonryGrid from "../";
 
 describe("MasonryGrid component", () => {
   it("renders correctly", () => {

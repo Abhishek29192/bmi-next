@@ -1,7 +1,7 @@
 import React from "react";
-import SlideControls from "../";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
+import SlideControls from "../";
 
 afterEach(cleanup);
 

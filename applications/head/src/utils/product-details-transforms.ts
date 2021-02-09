@@ -1,11 +1,11 @@
 import { Link } from "gatsby";
 import { result, uniqBy, groupBy, find, pickBy } from "lodash";
+import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 import {
   ClassificationFeatureValue,
   Product,
   VariantOption
 } from "../templates/product-details-page";
-import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 
 const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
 export const getProductUrl = (countryCode, productCode) =>

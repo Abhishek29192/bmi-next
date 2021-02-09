@@ -1,4 +1,5 @@
 import { products } from "./data";
+
 const resolvers = {
   BmiProduct: {
     __resolveReference(object) {

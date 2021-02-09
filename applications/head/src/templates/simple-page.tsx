@@ -1,11 +1,15 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Hero, { HeroItem } from "@bmi/hero";
+import Section from "@bmi/section";
+import SpotlightHero from "@bmi/spotlight-hero";
+import TableOfContent from "@bmi/table-of-content";
+import AnchorLink from "@bmi/anchor-link";
 import Breadcrumbs, {
   Data as BreadcrumbsData,
   findPath
 } from "../components/Breadcrumbs";
 import Page, { Data as PageData } from "../components/Page";
-import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as PageInfoData } from "../components/PageInfo";
@@ -13,8 +17,6 @@ import NextBestActions, {
   Data as NextBestActionsData
 } from "../components/NextBestActions";
 import ExploreBar, { Data as ExploreBarData } from "../components/ExploreBar";
-import Section from "@bmi/section";
-import SpotlightHero from "@bmi/spotlight-hero";
 import LeadBlockSection, {
   Data as LeadBlockSectionData
 } from "../components/LeadBlockSection";
@@ -24,8 +26,6 @@ import LinkColumnsSection, {
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
-import TableOfContent from "@bmi/table-of-content";
-import AnchorLink from "@bmi/anchor-link";
 
 type Data = BreadcrumbsData &
   PageInfoData &

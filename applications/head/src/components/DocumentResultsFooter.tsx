@@ -2,10 +2,10 @@ import axios from "axios";
 import React, { useContext } from "react";
 import Pagination from "@bmi/pagination";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
-import { SiteContext } from "./Site";
-import styles from "./styles/DocumentResultsFooter.module.scss";
 import { flatten } from "lodash";
 import { downloadAs } from "../utils/client-download";
+import { SiteContext } from "./Site";
+import styles from "./styles/DocumentResultsFooter.module.scss";
 
 type Props = {
   page: number;

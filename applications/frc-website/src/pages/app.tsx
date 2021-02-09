@@ -1,11 +1,11 @@
 import React from "react";
-import Page from "../components/Page";
 import FlatRoofCalculator from "@bmi/flat-roof-calculator";
 import calculatorData from "@bmi/flat-roof-calculator/src/samples/calculatorData";
+import { navigate } from "gatsby";
+import Page from "../components/Page";
 import Container from "../components/Container";
 import { treeFieldsDisplay } from "../lib/treeFieldsDisplay";
 import { measurementsProps } from "../lib/measurementsProps";
-import { navigate } from "gatsby";
 import { inputContent } from "../lib/inputContent";
 
 const APP = () => (

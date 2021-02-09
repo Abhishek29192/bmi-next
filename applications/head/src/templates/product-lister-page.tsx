@@ -1,29 +1,15 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
-import Breadcrumbs, {
-  Data as BreadcrumbsData,
-  findPath
-} from "../components/Breadcrumbs";
-import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
-import { Data as SiteData, SiteContext } from "../components/Site";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import CheckIcon from "@material-ui/icons/Check";
 import IconList from "@bmi/icon-list";
 import AnchorLink from "@bmi/anchor-link";
-import { LinkData, getClickableActionFromUrl } from "../components/Link";
-import { Data as PageInfoData } from "../components/PageInfo";
-import RichText, { RichTextData } from "../components/RichText";
-import Filters from "@bmi/filters";
 import OverviewCard from "@bmi/overview-card";
-import { iconMap } from "../components/Icon";
-import ProgressIndicator from "../components/ProgressIndicator";
-import Scrim from "../components/Scrim";
 import Grid from "@bmi/grid";
 import Pagination from "@bmi/pagination";
-import { Product } from "./product-details-page";
 import Typography from "@bmi/typography";
 import {
   getProductUrl,
@@ -36,8 +22,18 @@ import {
   getFilters,
   updateFilterValue
 } from "../utils/filters";
-import Button from "@bmi/button";
-import PerfectScrollbar from "@bmi/perfect-scrollbar";
+import Scrim from "../components/Scrim";
+import ProgressIndicator from "../components/ProgressIndicator";
+import { iconMap } from "../components/Icon";
+import RichText, { RichTextData } from "../components/RichText";
+import { Data as PageInfoData } from "../components/PageInfo";
+import { LinkData, getClickableActionFromUrl } from "../components/Link";
+import { Data as SiteData, SiteContext } from "../components/Site";
+import Page, { Data as PageData } from "../components/Page";
+import Breadcrumbs, {
+  Data as BreadcrumbsData,
+  findPath
+} from "../components/Breadcrumbs";
 import {
   queryElasticSearch,
   compileElasticSearchQuery,
@@ -45,6 +41,7 @@ import {
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
+import { Product } from "./product-details-page";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;

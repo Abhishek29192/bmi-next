@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from "react";
-import { FieldsDisplay } from "./types/FieldsDisplay";
 import {
   parse as queryString,
   stringify as stringifyQueryString
 } from "query-string";
+import { FieldsDisplay } from "./types/FieldsDisplay";
 import styles from "./FlatRoofCalculator.module.scss";
 import { getSystem } from "./calculations/getSystem";
 import { calculateQuantities } from "./calculations/calculateQuantities";

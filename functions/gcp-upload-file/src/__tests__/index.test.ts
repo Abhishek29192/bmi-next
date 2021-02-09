@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
 import { readFileSync } from "fs";
+import { Request, Response } from "express";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
 

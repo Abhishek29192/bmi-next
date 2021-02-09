@@ -1,6 +1,6 @@
 import React from "react";
-import Chip from "../";
 import { render } from "@testing-library/react";
+import Chip from "../";
 
 describe("Chip component", () => {
   it("renders correctly default chip", () => {

@@ -15,8 +15,8 @@ import MuiTableHead, { TableHeadProps } from "@material-ui/core/TableHead";
 import MuiTableRow, { TableRowProps } from "@material-ui/core/TableRow";
 import ColorPair, { Colors } from "@bmi/color-pair";
 import useDimensions from "@bmi/use-dimensions";
-import styles from "./Table.module.scss";
 import TableBody from "@material-ui/core/TableBody";
+import styles from "./Table.module.scss";
 
 const TableContext = createContext<{
   theme: Colors;

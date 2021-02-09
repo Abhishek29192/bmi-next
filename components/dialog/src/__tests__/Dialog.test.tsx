@@ -1,6 +1,6 @@
 import React from "react";
-import Dialog from "../";
 import { render } from "@testing-library/react";
+import Dialog from "../";
 
 describe("Dialog component", () => {
   it("renders correctly", () => {

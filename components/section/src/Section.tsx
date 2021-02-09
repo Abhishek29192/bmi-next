@@ -1,8 +1,8 @@
 import React, { createContext, useContext } from "react";
 import Typography, { Props as TypographyProps } from "@bmi/typography";
 import Container, { Props as ContainerProps } from "@bmi/container";
-import styles from "./Section.module.scss";
 import classnames from "classnames";
+import styles from "./Section.module.scss";
 
 export const SectionContext = createContext<boolean>(false);
 

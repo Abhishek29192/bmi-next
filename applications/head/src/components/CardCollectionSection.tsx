@@ -3,18 +3,18 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
-import { SiteContext } from "./Site";
-import { getClickableActionFromUrl, LinkData } from "./Link";
-import { Data as PromoData } from "./Promo";
-import RichText, { RichTextData } from "./RichText";
 import Typography from "@bmi/typography";
-import styles from "./styles/CardCollectionSection.module.scss";
-import { Data as PageInfoData } from "./PageInfo";
 import { uniq, flatten, groupBy, find } from "lodash";
 import Chip from "@bmi/chip";
 import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { SiteContext } from "./Site";
+import { getClickableActionFromUrl, LinkData } from "./Link";
+import { Data as PromoData } from "./Promo";
+import RichText, { RichTextData } from "./RichText";
+import styles from "./styles/CardCollectionSection.module.scss";
+import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 
 type FeaturedImage = {

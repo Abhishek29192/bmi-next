@@ -40,10 +40,13 @@ const deleteElasticSearchIndex = async () => {
   var client = await getEsClient();
   return client.indices.delete({ index: ES_INDEX_NAME }).then(
     function (resp) {
+      // eslint-disable-next-line no-console
       console.log(`Successfully deleted index: ${ES_INDEX_NAME}`);
+      // eslint-disable-next-line no-console
       console.log(JSON.stringify(resp, null, 4));
     },
     function (err) {
+      // eslint-disable-next-line no-console
       console.trace(err.message);
     }
   );

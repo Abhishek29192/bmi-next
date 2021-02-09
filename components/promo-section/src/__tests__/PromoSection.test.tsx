@@ -1,7 +1,7 @@
 import React from "react";
-import PromoSection from "..";
 import { render } from "@testing-library/react";
 import mockImage from "path-to-image.png";
+import PromoSection from "..";
 
 describe("PromoSection component", () => {
   it("renders correctly", () => {

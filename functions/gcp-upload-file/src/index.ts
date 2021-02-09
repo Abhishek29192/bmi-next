@@ -1,5 +1,5 @@
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Buffer } from "buffer";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { createClient } from "contentful-management";
 import { config } from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";

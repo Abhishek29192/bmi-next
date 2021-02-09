@@ -2,9 +2,9 @@ import React from "react";
 import { ButtonProps, IconButtonProps } from "@bmi/button";
 import { Props as TextFieldProps } from "@bmi/text-field";
 import classnames from "classnames";
-import styles from "./InputGroup.module.scss";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import styles from "./InputGroup.module.scss";
 
 // TODO: This check doesn't really work.
 type Props = {

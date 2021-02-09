@@ -29,6 +29,7 @@ const setItemsInFirestore = async (collectionPath: string, item) => {
 
     batch.set(docRef, item);
 
+    // eslint-disable-next-line no-console
     console.log(`Set ${docPath}`);
   });
 
@@ -44,6 +45,7 @@ const deleteItemsFromFirestore = async (collectionPath: string, items) => {
 
     batch.delete(docRef);
 
+    // eslint-disable-next-line no-console
     console.log(`Delete ${docPath}`);
   });
 
@@ -55,6 +57,7 @@ export const handleMessage: HandlerFunction = async ({ data }) => {
     ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
 
+  // eslint-disable-next-line no-console
   console.log(
     `WRITE: Received message [${message.type}][${message.itemType}]: ${
       (message.items || []).length

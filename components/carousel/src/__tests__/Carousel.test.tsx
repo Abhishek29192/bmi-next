@@ -1,8 +1,8 @@
 import React from "react";
-import Carousel, { getPageFromAbsoluteIndex } from "../";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
 import mockConsole from "jest-mock-console";
+import Carousel, { getPageFromAbsoluteIndex } from "../";
 
 beforeAll(() => {
   mockConsole();

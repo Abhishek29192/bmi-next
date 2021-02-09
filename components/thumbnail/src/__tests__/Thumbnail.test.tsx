@@ -1,7 +1,7 @@
 import React from "react";
-import Thumbnail from "../";
 import { render } from "@testing-library/react";
 import mockImage from "path-to-img.jpg";
+import Thumbnail from "../";
 
 describe("Thumbnail component", () => {
   it("renders correctly", () => {

@@ -4,6 +4,7 @@ import MaterialChip from "@material-ui/core/Chip";
 import ClearIcon from "@material-ui/icons/Clear";
 import { Colors } from "@bmi/color-pair";
 import styles from "./Chip.module.scss";
+
 type Props = {
   children: React.ReactNode;
   theme?: Colors;

@@ -3,11 +3,11 @@ import { graphql } from "gatsby";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
+import Hero from "@bmi/hero";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
-import Hero from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";

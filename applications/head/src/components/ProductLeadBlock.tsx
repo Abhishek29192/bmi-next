@@ -6,11 +6,11 @@ import Tabs from "@bmi/tabs";
 import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
+import DownloadList from "@bmi/download-list";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { SiteContext } from "./Site";
 import { Data as PIMDocumentData } from "./PIMDocument";
-import DownloadList from "@bmi/download-list";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";

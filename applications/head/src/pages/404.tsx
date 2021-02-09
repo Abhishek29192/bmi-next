@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Data as SiteData } from "../components/Site";
-import Page from "../components/Page";
 import Button from "@bmi/button";
 import Typography from "@bmi/typography";
 import PromoSection from "@bmi/promo-section";
+import Page from "../components/Page";
+import { Data as SiteData } from "../components/Site";
 import { getClickableActionFromUrl } from "../components/Link";
 
 type Data = {

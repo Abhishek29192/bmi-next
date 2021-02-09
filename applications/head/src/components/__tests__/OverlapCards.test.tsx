@@ -1,7 +1,7 @@
 import React from "react";
-import OverlapCards, { Data } from "../OverlapCards";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import OverlapCards, { Data } from "../OverlapCards";
 
 beforeAll(() => {
   mockConsole();

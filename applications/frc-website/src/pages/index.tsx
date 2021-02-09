@@ -1,7 +1,4 @@
 import React from "react";
-import Page from "../components/Page";
-import OptionCard from "../components/OptionCard";
-import DescriptionCard from "../components/DescriptionCard";
 import Hero from "@bmi/hero";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
@@ -13,6 +10,9 @@ import {
 } from "query-string";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import DescriptionCard from "../components/DescriptionCard";
+import OptionCard from "../components/OptionCard";
+import Page from "../components/Page";
 import Container from "../components/Container";
 import pageStyles from "../components/Page.module.scss";
 import landing from "../images/landing.jpg";

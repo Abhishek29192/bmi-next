@@ -1,6 +1,6 @@
 import React from "react";
-import AlertBanner from "..";
 import { render } from "@testing-library/react";
+import AlertBanner from "..";
 
 describe("AlertBanner component", () => {
   it("renders correctly", () => {

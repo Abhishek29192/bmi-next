@@ -43,8 +43,10 @@ async function publishMessage(type, itemType, items) {
 
   try {
     const messageId = await topicPublisher.publish(messageBuffer);
+    // eslint-disable-next-line no-console
     console.log(`PUB SUB MESSAGE PUBLISHED: ${messageId}`);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
   }
 }
@@ -136,6 +138,7 @@ async function* getProductsFromMessage(
       access_token
     );
 
+    // eslint-disable-next-line no-console
     console.log(
       "Message page:",
       JSON.stringify({
@@ -146,6 +149,7 @@ async function* getProductsFromMessage(
         totalProductCount: messageResponse.totalProductCount
       })
     );
+    // eslint-disable-next-line no-console
     console.log(
       `[${type}][${itemType}]: [${(messageResponse.products || [])
         .map(({ code }) => code)
@@ -161,6 +165,7 @@ async function* getProductsFromMessage(
 
 export const handleRequest: HttpFunction = async (req, res) => {
   if (req.body) {
+    // eslint-disable-next-line no-console
     console.log(`Received: ${JSON.stringify(req.body, null, 2)}`);
 
     const { message } = req.body;
@@ -169,6 +174,7 @@ export const handleRequest: HttpFunction = async (req, res) => {
 
     // Request data, which may then run over an async generator which
     // callback to push a message per page
+    // eslint-disable-next-line no-console
     console.log("Message data:", message.messageId, messageData);
 
     try {
@@ -222,11 +228,13 @@ export const handleRequest: HttpFunction = async (req, res) => {
         body: JSON.stringify({ data: "filler data" })
       });
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
 
     res.status(200).send("ok");
   } else {
+    // eslint-disable-next-line no-console
     console.log("No data received");
     res.status(404).send("not-ok");
   }

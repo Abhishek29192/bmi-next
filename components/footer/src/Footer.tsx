@@ -1,12 +1,12 @@
 import React from "react";
 import Button, { ClickableAction } from "@bmi/button";
 import Container from "@bmi/container";
-import styles from "./Footer.module.scss";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import classnames from "classnames";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import styles from "./Footer.module.scss";
 import StandardLogo from "./svgs/Standard.svg";
 import StandardCenteredLogo from "./svgs/Standard_centered.svg";
 

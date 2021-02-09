@@ -1,6 +1,6 @@
 import { postgraphile } from "postgraphile";
-import { AuthorWrapResolversPlugin } from "./plugins";
 import FederationPlugin from "@graphile/federation";
+import { AuthorWrapResolversPlugin } from "./plugins";
 
 const { DATABASE, PG_USER, PASSWORD, HOST, PG_SCHEMA } = process.env;
 
