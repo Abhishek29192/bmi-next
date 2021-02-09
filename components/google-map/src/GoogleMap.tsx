@@ -100,6 +100,18 @@ const GoogleMap = ({
     return () => googleMarkers.current.map(deleteGoogleMarker);
   }, [markers]);
 
+  useEffect(() => {
+    if (googleMap.current) {
+      googleMap.current.panTo(center);
+    }
+  }, [center]);
+
+  useEffect(() => {
+    if (googleMap.current) {
+      googleMap.current.setZoom(zoom);
+    }
+  }, [zoom]);
+
   return (
     <div className={styles["GoogleMap"]}>
       <div className={styles["map"]} ref={mapElement}>
