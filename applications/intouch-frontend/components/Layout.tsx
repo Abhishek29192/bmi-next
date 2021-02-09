@@ -1,18 +1,20 @@
 import React from "react";
 import Head from "next/head";
-import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
 import BmiThemeProvider from "@bmi/theme-provider";
-import Logo from "@bmi/logo";
-import { BMI, StandardPale } from "@bmi/logo";
-import { Sidebar } from "./SidebarNavigation";
-import styles from "./styles/Layout.module.scss";
+import { BMI } from "@bmi/logo";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { Sidebar } from "./Sidebar";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import styles from "./styles/Layout.module.scss";
+
 interface Props {
   children: React.ReactNode | React.ReactNode[];
+  title: string;
 }
 
-const Layout = ({ children }: Props) => (
+const Layout = ({ children, title }: Props) => (
   <BmiThemeProvider>
     <div>
       <Head>
@@ -28,16 +30,10 @@ const Layout = ({ children }: Props) => (
         </div>
 
         <div className={styles.appMain}>
-          <div className={styles.appHeader}>
-            <Typography variant="h3">COMPANY NAME</Typography>
-          </div>
-
+          <Header title={title} />
           <div className={styles.appContent}>{children}</div>
 
-          <div className={styles.appFooter}>
-            <Icon source={BMI} style={{ width: 50 }} />
-            <Logo source={StandardPale} style={{ width: 120 }} />
-          </div>
+          <Footer />
         </div>
       </div>
     </div>
@@ -46,7 +42,7 @@ const Layout = ({ children }: Props) => (
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common", "sidebar"]))
+    ...(await serverSideTranslations(locale, ["common"]))
   }
 });
 

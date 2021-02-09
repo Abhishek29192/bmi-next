@@ -1,4 +1,8 @@
 {
-  "SEARCH_PRODUCT": "Produkt suchen",
-  "PLEASE_SELECT_THE_PRODUCTS": "Bitte wählen Sie die Produkte aus, die Sie hinzufügen möchten"
+  "Home": "Startseite",
+  "Projects": "Projekte",
+  "Training": "Ausbildung",
+  "Team": "Team",
+  "Company": "Firma",
+  "Toolkit": "Werkzeuge"
 }

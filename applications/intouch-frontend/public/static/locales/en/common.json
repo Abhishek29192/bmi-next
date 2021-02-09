@@ -1,4 +1,8 @@
 {
-  "SEARCH_PRODUCT": "Search product",
-  "PLEASE_SELECT_THE_PRODUCTS": "Please select the products you would like to add"
+  "Home": "Home",
+  "Projects": "Projects",
+  "Training": "Training",
+  "Team": "Team",
+  "Company": "Company",
+  "Toolkit": "Toolkit"
 }

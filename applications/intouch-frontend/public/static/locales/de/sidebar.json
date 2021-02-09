@@ -1,8 +1,8 @@
 {
-  "HOME": "Startseite",
-  "PROJECTS": "Projekte",
-  "TRAINNG": "Ausbildung",
-  "TEAM": "Team",
-  "COMPANY": "Firma",
-  "TOOLKIT": "Werkzeuge"
+  "Home": "Startseite",
+  "Projects": "Projekte",
+  "Training": "Ausbildung",
+  "Team": "Arbeitsgruppe",
+  "Company": "Firma",
+  "Toolkit": "Werkzeuge"
 }

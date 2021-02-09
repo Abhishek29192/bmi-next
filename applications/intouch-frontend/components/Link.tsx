@@ -1,22 +1,23 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import PropTypes from "prop-types";
+import Icon from "@bmi/icon";
+import styles from "./styles/Sidebar.module.scss";
 
-const SelectedLink = ({ href, children }) => {
-  const router = useRouter();
+interface Props {
+  href?: string;
+  icon: React.FC; // TODO: convert into an SVG component
+  label: string;
+}
 
-  let className = children.props.className || "";
-  if (router.pathname === href) {
-    className = `${className} selected`;
-  }
-
-  return <Link href={href}>{React.cloneElement(children, { className })}</Link>;
-};
-
-SelectedLink.propTypes = {
-  children: PropTypes.node,
-  href: PropTypes.string
+const SelectedLink = ({ href, icon, label }: Props) => {
+  return (
+    <Link href={href}>
+      <a className={styles.sidebarLink}>
+        <Icon source={icon} color="primary" style={{ fontSize: 24 }} />
+        {label}
+      </a>
+    </Link>
+  );
 };
 
 export default SelectedLink;
