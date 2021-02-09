@@ -937,6 +937,12 @@ type ContentfulSite implements Node {
 
   "Google Optimize Load balancing ID"
   scriptGOptLoad: String
+
+  "Google Recaptcha ID"
+  scriptGRecaptchaId: String
+
+  "Google Recaptcha Use Net?"
+  scriptGRecaptchaNet: String
 }
 
 """
@@ -1141,7 +1147,7 @@ union ProductDocument = PIMDocument | PIMLinkDocument
 type Products implements Node {
   "The documents for this product."
   documents: [ProductDocument]! @link(from: "documents___NODE")
-  
+
   "The external code for this product AKA NOBB number"
   externalProductCode: String
 }

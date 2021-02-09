@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext } from "react";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Pagination from "@bmi/pagination";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import { flatten } from "lodash";
@@ -11,11 +12,16 @@ type Props = {
   page: number;
   count: number;
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
-  onDownloadClick?: (list: Record<string, any>, callback?: () => void) => void;
+  onDownloadClick?: (
+    list: Record<string, any>,
+    token: string,
+    callback?: () => void
+  ) => void;
 };
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
+  token: string,
   callback?: () => void
 ) => {
   const listValues = Object.values(list).filter(Boolean);
@@ -32,7 +38,7 @@ export const handleDownloadClick = async (
       );
     }
 
-    const requestBody = flatten(listValues).map(
+    const documents = flatten(listValues).map(
       ({ __typename, asset, extension, title, url }) => ({
         href:
           __typename === "ContentfulDocument" ? `https:${asset.file.url}` : url,
@@ -45,8 +51,8 @@ export const handleDownloadClick = async (
 
     const response = await axios.post(
       process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
-      requestBody,
-      { responseType: "text" }
+      { documents: documents },
+      { responseType: "text", headers: { "X-Recaptcha-Token": token } }
     );
 
     await downloadAs(response.data.url, `BMI_${currentTime}.zip`);
@@ -65,7 +71,12 @@ const DocumentResultsFooter = ({
   onPageChange,
   onDownloadClick
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const {
+    getMicroCopy,
+    countryCode,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet
+  } = useContext(SiteContext);
   const { resetList } = useContext(DownloadListContext);
 
   return (
@@ -77,16 +88,20 @@ const DocumentResultsFooter = ({
         className={styles["pagination"]}
       />
       {onDownloadClick && (
-        <>
+        <GoogleReCaptchaProvider
+          reCaptchaKey={scriptGRecaptchaId}
+          useRecaptchaNet={scriptGRecaptchaNet}
+          language={countryCode}
+        >
           <DownloadList.Clear
             label={getMicroCopy("downloadList.clear")}
             className={styles["clear-downloads"]}
           />
           <DownloadList.Button
             label={`${getMicroCopy("downloadList.download")} ({{count}})`}
-            onClick={(list) => onDownloadClick(list, resetList)}
+            onClick={(list, token) => onDownloadClick(list, token, resetList)}
           />
-        </>
+        </GoogleReCaptchaProvider>
       )}
     </div>
   );

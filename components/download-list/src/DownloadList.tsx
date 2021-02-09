@@ -4,6 +4,7 @@ import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Tooltip from "@material-ui/core/Tooltip";
+import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 type Context = {
   list: Record<string, any>;
@@ -72,10 +73,10 @@ const DownloadListCheckbox = ({
   );
 };
 
-type DownloadListButtonProps = ButtonProps & {
+type DownloadListButtonProps = Omit<ButtonProps, "onClick"> & {
   /** Accepts a {{count}} placeholder that will be replaced by the actual count.  */
   label: string;
-  onClick: (list: Context["list"]) => void;
+  onClick: (list: Context["list"], token: string) => void;
 };
 
 const DownloadListButton = ({
@@ -86,25 +87,29 @@ const DownloadListButton = ({
   const { list, count, resetList, isLoading, setIsLoading } = useContext(
     DownloadListContext
   );
+  const [token, setToken] = useState<string>();
 
   const handleClick = async () => {
     setIsLoading(true);
-    await onClick(list);
+    await onClick(list, token);
     setIsLoading(false);
     resetList();
   };
 
   return (
-    <Button onClick={handleClick} disabled={isLoading} {...rest}>
-      {label.replace("{{count}}", `${count}`)}
-      {isLoading && (
-        <CircularProgress
-          size={24}
-          color="inherit"
-          style={{ marginLeft: "0.5rem" }}
-        />
-      )}
-    </Button>
+    <>
+      <GoogleReCaptcha onVerify={setToken} />
+      <Button onClick={handleClick} disabled={isLoading} {...rest}>
+        {label.replace("{{count}}", `${count}`)}
+        {isLoading && (
+          <CircularProgress
+            size={24}
+            color="inherit"
+            style={{ marginLeft: "0.5rem" }}
+          />
+        )}
+      </Button>
+    </>
   );
 };
 

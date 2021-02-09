@@ -60,6 +60,7 @@ exports[`DownloadList component triggers an onClick event 1`] = `
 Array [
   Array [
     Object {},
+    undefined,
   ],
 ]
 `;

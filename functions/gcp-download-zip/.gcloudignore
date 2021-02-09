@@ -14,6 +14,7 @@
 .gitignore
 
 node_modules
+**/__tests__
 
 yarn-error.log
 .env*

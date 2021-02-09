@@ -8,11 +8,11 @@ Monorepo for BMI-DXB website that includes a component library and an API gatewa
 
 ### Prerequities
 
-| Dependency | Version |
-| ---------- | ------- |
-| Node       | >= 10   |
-| Git        | >= 2.18 |
-| Yarn       | >= 1.20 |
+| Dependency | Version    |
+| ---------- | ---------- |
+| Node       | >= 10 < 15 |
+| Git        | >= 2.18    |
+| Yarn       | >= 1.20    |
 
 ### Install
 

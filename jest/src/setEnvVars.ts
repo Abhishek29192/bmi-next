@@ -17,3 +17,8 @@ process.env.APSIS_TARGET_EMAIL_ATTRIBUTE_ID = "9820534";
 process.env.APSIS_TARGET_GDPR_1_ATTRIBUTE_ID = "312460234";
 process.env.APSIS_TARGET_GDPR_2_ATTRIBUTE_ID = "312461234";
 process.env.APSIS_TARGET_CHANNEL = "com.channels.email";
+
+process.env.GCS_NAME = "TEST_GCS_NAME";
+process.env.DXB_VALID_HOSTS = "test.dxb.valid.host";
+process.env.RECAPTCHA_SECRET_KEY = "TEST_RECAPTCHA_SECRET_KEY";
+process.env.RECAPTCHA_MINIMUM_SCORE = "0.5";
