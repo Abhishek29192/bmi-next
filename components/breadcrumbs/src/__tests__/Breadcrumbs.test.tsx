@@ -1,7 +1,7 @@
 import React from "react";
-import Breadcrumbs from "..";
 import mediaQuery from "css-mediaquery";
 import { render } from "@testing-library/react";
+import Breadcrumbs from "..";
 
 function createMatchMedia(width?: unknown) {
   return (query: string) => ({

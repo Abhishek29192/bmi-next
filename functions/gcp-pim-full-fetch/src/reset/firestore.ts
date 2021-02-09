@@ -27,6 +27,7 @@ async function deleteQueryBatch(db, query, resolve) {
   });
   await batch.commit();
 
+  // eslint-disable-next-line no-console
   console.log(`Deleted a batch of ${batchSize}`);
 
   // Recurse on the next process tick, to avoid

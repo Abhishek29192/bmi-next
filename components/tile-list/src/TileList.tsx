@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Button from "@bmi/button";
-import styles from "./TileList.module.scss";
 import Card from "@bmi/card";
 import Icon from "@bmi/icon";
 import classnames from "classnames";
+import styles from "./TileList.module.scss";
 
 type TileProps = {
   children: React.ReactNode;

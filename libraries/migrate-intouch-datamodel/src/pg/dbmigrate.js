@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 "use strict";
 
-const { Pool } = require("pg");
 const fs = require("fs");
+const { Pool } = require("pg");
 require("dotenv").config();
 
 const { PG_USER, PG_HOST, PG_DATABASE, PG_PASSWORD, PG_SCHEMA } = process.env;

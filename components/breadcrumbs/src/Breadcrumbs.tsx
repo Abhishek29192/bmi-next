@@ -8,8 +8,8 @@ import { useTheme } from "@material-ui/core/styles";
 import Button, { ClickableAction } from "@bmi/button";
 import Icon from "@bmi/icon";
 import Typography from "@bmi/typography";
-import styles from "./Breadcrumbs.module.scss";
 import classnames from "classnames";
+import styles from "./Breadcrumbs.module.scss";
 
 type BreadcrumbsItemProps = {
   children: React.ReactNode;

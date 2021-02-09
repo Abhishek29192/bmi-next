@@ -17,8 +17,8 @@ import SlideControls, {
   Props as SlideControlsProps
 } from "@bmi/slide-controls";
 import ArrowControl from "@bmi/arrow-control";
-import styles from "./Carousel.module.scss";
 import { withWidth, WithWidth } from "@material-ui/core";
+import styles from "./Carousel.module.scss";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const InfiniteSwipeableViewsComponent = virtualize(autoPlay(SwipeableViews));

@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Data as SiteData } from "../components/Site";
-import Page from "../components/Page";
 import Section from "@bmi/section";
 import Hero from "@bmi/hero";
 import Table from "@bmi/table";
 import Typography from "@bmi/typography/src";
+import Page from "../components/Page";
+import { Data as SiteData } from "../components/Site";
 
 type Data = {
   data: {

@@ -1,6 +1,6 @@
 import GoogleApi from "@bmi/google-api";
-import { render } from "@testing-library/react";
 import React from "react";
+import { render } from "@testing-library/react";
 import GoogleMap from "../";
 
 describe("GoogleMap component", () => {

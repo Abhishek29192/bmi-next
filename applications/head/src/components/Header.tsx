@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
-import { LinkData, NavigationData, NavigationItem } from "./Link";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
-import { iconMap } from "./Icon";
 import { isArray, isPlainObject } from "lodash";
 import { NavigationList } from "components/navigation/src";
+import { iconMap } from "./Icon";
+import { LinkData, NavigationData, NavigationItem } from "./Link";
 import { SiteContext } from "./Site";
 
 const parseNavigation = (

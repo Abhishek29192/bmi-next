@@ -2,14 +2,14 @@ import React from "react";
 import { uniqBy, map } from "lodash";
 import ColorSwatch from "../components/ColorSwatch";
 import { Product, Category } from "../templates/product-details-page";
+import { Data as DocumentResultsData } from "../components/DocumentResults";
+import { Data as PIMDocumentData } from "../components/PIMDocument";
+import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
 import {
   findAllCategories,
   mapProductClassifications,
   ProductCategoryTree
 } from "./product-details-transforms";
-import { Data as DocumentResultsData } from "../components/DocumentResults";
-import { Data as PIMDocumentData } from "../components/PIMDocument";
-import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
 
 export const isPIMDocument = (
   item: DocumentResultsData[0]

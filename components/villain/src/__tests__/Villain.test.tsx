@@ -1,7 +1,7 @@
 import React from "react";
-import Villain from "../";
 import { render } from "@testing-library/react";
 import testImage from "test-image.png";
+import Villain from "../";
 
 describe("Villain component", () => {
   it("renders correctly", () => {

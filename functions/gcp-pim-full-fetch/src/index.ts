@@ -1,10 +1,10 @@
 import { URLSearchParams } from "url";
-import { deleteElasticSearchIndex } from "./reset/elasticSearch";
-import { deleteFirestoreCollection } from "./reset/firestore";
 import fetch from "node-fetch";
 import { PubSub } from "@google-cloud/pubsub";
 import dotenv from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { deleteFirestoreCollection } from "./reset/firestore";
+import { deleteElasticSearchIndex } from "./reset/elasticSearch";
 
 // Hack to please TS
 type RequestRedirect = "error" | "follow" | "manual";
@@ -35,8 +35,10 @@ async function publishMessage(type, itemType, items) {
 
   try {
     const messageId = await topicPublisher.publish(messageBuffer);
+    // eslint-disable-next-line no-console
     console.log(`PUB SUB MESSAGE PUBLISHED: ${messageId}`);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
   }
 }
@@ -70,7 +72,8 @@ const getAuthToken = async () => {
   );
 
   if (!response.ok) {
-    console.log("ERROR!", response.status, response.statusText);
+    // eslint-disable-next-line no-console
+    console.error("ERROR!", response.status, response.statusText);
     throw new Error(response.statusText);
   }
 
@@ -95,11 +98,13 @@ const fetchData = async (path = "/") => {
 
   const fullPath = `${PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`;
 
+  // eslint-disable-next-line no-console
   console.log(`FETCH: ${fullPath}`);
   const response = await fetch(fullPath, options);
 
   if (!response.ok) {
-    console.log("ERROR!", response.status, response.statusText);
+    // eslint-disable-next-line no-console
+    console.error("ERROR!", response.status, response.statusText);
     throw new Error(response.statusText);
   }
 
@@ -117,6 +122,7 @@ async function* getProducts() {
       `/export/products?currentPage=${currentPage}`
     );
 
+    // eslint-disable-next-line no-console
     console.log(
       "Message page:",
       JSON.stringify({
@@ -145,22 +151,26 @@ const handleRequest = async (req, res) => {
   if (req.body) {
     // TODO: Delete entire firestore database, if flag passed in request
 
+    // eslint-disable-next-line no-console
     console.log("Clearing out data...");
 
     await deleteElasticSearchIndex();
     await deleteFirestoreCollection();
 
+    // eslint-disable-next-line no-console
     console.log(`Getting the whole catalogue.`);
 
     const messagePages = getProducts();
     for await (const page of messagePages) {
       if (page.products) {
+        // eslint-disable-next-line no-console
         console.log(`GET: Updating ${(page.products || []).length}`);
 
         try {
           publishMessage("UPDATED", "PRODUCTS", page.products);
         } catch (e) {
-          console.log(e);
+          // eslint-disable-next-line no-console
+          console.error(e);
           break;
         }
       }
@@ -180,6 +190,7 @@ const handleRequest = async (req, res) => {
 
     res.status(200).send("ok");
   } else {
+    // eslint-disable-next-line no-console
     console.log("no data received.");
     res.status(404).send("not-ok");
   }

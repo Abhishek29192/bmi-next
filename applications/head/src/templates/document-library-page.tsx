@@ -4,6 +4,12 @@ import { sortBy } from "lodash";
 import Hero from "@bmi/hero";
 import Grid from "@bmi/grid";
 import Section from "@bmi/section";
+import AlertBanner from "@bmi/alert-banner";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
+import Filters from "@bmi/filters";
+import PerfectScrollbar from "components/perfect-scrollbar/src";
+import Typography from "@bmi/typography/src";
+import Button from "@bmi/button/src";
 import { Data as SiteData } from "../components/Site";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Page, { Data as PageData } from "../components/Page";
@@ -21,8 +27,6 @@ import { getCount as getSimpleTableCount } from "../components/DocumentSimpleTab
 import { getCount as getTechnicalTableCount } from "../components/DocumentTechnicalTableResults";
 import { getCount as getCardsCount } from "../components/DocumentCardsResults";
 import { SiteContext } from "../components/Site";
-import AlertBanner from "@bmi/alert-banner";
-import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import RichText, { RichTextData } from "../components/RichText";
 import {
   getBrandFilterFromDocuments,
@@ -32,11 +36,7 @@ import {
   findPIMDocumentBrandCategory,
   isPIMDocument
 } from "../utils/filters";
-import Filters from "@bmi/filters";
 import { devLog } from "../utils/devLog";
-import PerfectScrollbar from "components/perfect-scrollbar/src";
-import Typography from "@bmi/typography/src";
-import Button from "@bmi/button/src";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import filterStyles from "../components/styles/Filters.module.scss";

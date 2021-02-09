@@ -1,9 +1,9 @@
 import React from "react";
 import classnames from "classnames";
-import styles from "./ProductDetailsCard.module.scss";
 import { ClickableAction } from "@bmi/clickable";
 import Typography from "@bmi/typography";
 import AnchorLink from "@bmi/anchor-link";
+import styles from "./ProductDetailsCard.module.scss";
 
 type Props = {
   imageSource: string;

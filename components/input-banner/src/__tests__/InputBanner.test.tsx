@@ -1,6 +1,6 @@
 import React from "react";
-import InputBanner from "../";
 import { render } from "@testing-library/react";
+import InputBanner from "../";
 
 describe("InputBanner component", () => {
   it("renders correctly", () => {

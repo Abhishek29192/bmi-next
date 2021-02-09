@@ -1,7 +1,7 @@
 import React from "react";
-import CalculatorModal from "../";
 import { render } from "@testing-library/react";
 import mockLogo from "mock-icon.svg";
+import CalculatorModal from "../";
 
 describe("CalculatorModal component", () => {
   it("renders correctly", () => {

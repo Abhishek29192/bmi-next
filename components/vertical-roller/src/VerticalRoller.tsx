@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./VerticalRoller.module.scss";
 import Button, { ClickableAction } from "@bmi/button";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
 import SlideControls from "@bmi/slide-controls";
@@ -7,6 +6,7 @@ import Typography from "@bmi/typography";
 import RollerSelector from "@bmi/roller-selector";
 import ArrowIcon from "@material-ui/icons/ArrowForward";
 import Grid from "@bmi/grid";
+import styles from "./VerticalRoller.module.scss";
 
 export type Slide = {
   title: React.ReactNode;

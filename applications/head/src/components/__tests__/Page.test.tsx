@@ -1,8 +1,8 @@
 import React from "react";
+import { render } from "@testing-library/react";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
 import Page, { Data } from "../Page";
-import { render } from "@testing-library/react";
 
 describe("Page component", () => {
   it("renders correctly", () => {

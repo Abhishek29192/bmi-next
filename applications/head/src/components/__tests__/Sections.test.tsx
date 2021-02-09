@@ -1,7 +1,7 @@
 import React from "react";
-import Sections, { Data } from "../Sections";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import Sections, { Data } from "../Sections";
 import { SiteContext } from "../Site";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {

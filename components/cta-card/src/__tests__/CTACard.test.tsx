@@ -1,6 +1,6 @@
 import React from "react";
-import CTACard from "..";
 import { render } from "@testing-library/react";
+import CTACard from "..";
 import demoHouseImage from "./images/demo-tiles.jpg";
 
 describe("CtaCard component", () => {

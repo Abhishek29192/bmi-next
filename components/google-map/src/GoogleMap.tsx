@@ -26,8 +26,18 @@ type Props = MapOptions & {
   ) => void;
 };
 
+const defaultMapControls = {
+  zoomControl: true,
+  mapTypeControl: false,
+  scaleControl: false,
+  streetViewControl: false,
+  rotateControl: false,
+  fullscreenControl: false
+};
+
 const GoogleMap = ({
-  center = { lat: 51.5, lng: 0 },
+  // TODO: hardcoded to center of Norway set dynamically center and map bounds.
+  center = { lat: 63.990556, lng: 12.3077779 },
   children,
   markers = [],
   onMarkerClick,
@@ -46,6 +56,21 @@ const GoogleMap = ({
   ) => {
     const googleMarker = new google.maps.Marker({
       map: googleMap.current,
+      icon: {
+        path:
+          "M16,0A12,12,0,0,0,4,12C4,23,16,32,16,32s12-9,12-20A12,12,0,0,0,16,0Zm0,17a5,5,0,1,1,5-5A5,5,0,0,1,16,17Z",
+        fillColor: "#0072b0",
+        fillOpacity: 1,
+        strokeColor: "#fff",
+        strokeWeight: 1,
+        labelOrigin: new google.maps.Point(66, 17)
+      },
+      label: {
+        text: options.title,
+        fontSize: "14px",
+        color: "#000000",
+        fontFamily: "Effra Regular"
+      },
       ...options
     });
 
@@ -61,7 +86,7 @@ const GoogleMap = ({
 
   useEffect(() => {
     if (google) {
-      const options = { center, zoom, ...mapOptions };
+      const options = { center, zoom, ...defaultMapControls, ...mapOptions };
       googleMap.current = new google.maps.Map(mapElement.current, options);
       googleMarkers.current = markers.map(createGoogleMarker);
     }

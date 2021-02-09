@@ -1,6 +1,6 @@
 import React from "react";
-import UpDownSimpleNumericInput from "../";
 import { render } from "@testing-library/react";
+import UpDownSimpleNumericInput from "../";
 
 describe("UpDownSimpleNumericInput component", () => {
   it("renders correctly", () => {

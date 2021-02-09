@@ -3,6 +3,8 @@ import { graphql } from "gatsby";
 import { uniqBy, flatten, map } from "lodash";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
+import Grid, { GridSize } from "@bmi/grid";
+import CTACard from "@bmi/cta-card";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import ProductOverview, {
@@ -17,8 +19,6 @@ import {
   getProductTechnicalSpecifications
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
-import Grid, { GridSize } from "@bmi/grid";
-import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
 import { Data as PIMDocumentData } from "../components/PIMDocument";

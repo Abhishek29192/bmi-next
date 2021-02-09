@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./Hero.module.scss";
 import Button, { ClickableAction } from "@bmi/button";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
@@ -7,6 +6,7 @@ import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
 import SlideControls from "@bmi/slide-controls";
 import classnames from "classnames";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import styles from "./Hero.module.scss";
 
 export type HeroItem = {
   title: React.ReactNode;

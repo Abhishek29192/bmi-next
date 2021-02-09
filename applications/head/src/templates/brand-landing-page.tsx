@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Hero, { HeroItem } from "@bmi/hero";
+import Section from "@bmi/section";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
-import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
 // import Search from "@bmi/search";
-import Section from "@bmi/section";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";

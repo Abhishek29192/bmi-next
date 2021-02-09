@@ -2,11 +2,11 @@ import React from "react";
 import { graphql } from "gatsby";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
+import Hero, { HeroItem } from "@bmi/hero";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
-import Hero, { HeroItem } from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";

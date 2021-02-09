@@ -1,6 +1,6 @@
 import React from "react";
-import BrandLogo from "../BrandLogo";
 import { render } from "@testing-library/react";
+import BrandLogo from "../BrandLogo";
 
 describe("BrandLogo component", () => {
   it("renders correctly", () => {

@@ -68,6 +68,15 @@ license_finder:
     paths:
       - license_finder_output.html
 
+eslint:
+  stage: test
+  except:
+    refs:
+      - schedules
+  needs: [install]
+  script:
+    - yarn eslint "**/*.{js,ts,tsx}" || exit 0
+
 coverage_jest:
   stage: test
   except:

@@ -1,6 +1,6 @@
 import React from "react";
-import ArrowControl from "../";
 import { render, fireEvent } from "@testing-library/react";
+import ArrowControl from "../";
 
 describe("ArrowControl component", () => {
   it("renders correctly", () => {

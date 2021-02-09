@@ -1,7 +1,7 @@
 import React from "react";
-import FileComponent from "../_File";
 import { render, waitFor, cleanup } from "@testing-library/react";
 import axios from "axios";
+import FileComponent from "../_File";
 
 jest.mock("axios");
 

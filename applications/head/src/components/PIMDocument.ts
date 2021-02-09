@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
-import { Data as AssetTypeData } from "./AssetType";
 import { Category, Classification } from "../templates/product-details-page";
+import { Data as AssetTypeData } from "./AssetType";
 
 export type Data = {
   __typename: "PIMDocument";

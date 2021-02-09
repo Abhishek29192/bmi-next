@@ -1,6 +1,6 @@
 import React from "react";
-import Tabs from "../";
 import { render, fireEvent } from "@testing-library/react";
+import Tabs from "../";
 
 describe("Tabs component", () => {
   it("renders correctly", () => {

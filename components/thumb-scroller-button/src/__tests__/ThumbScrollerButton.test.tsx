@@ -1,6 +1,6 @@
 import React from "react";
-import ThumbScrollerButton from "../";
 import { render } from "@testing-library/react";
+import ThumbScrollerButton from "../";
 
 describe("ThumbScrollerButton component", () => {
   it("renders correctly", () => {

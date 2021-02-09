@@ -1,9 +1,9 @@
 import React from "react";
-import SpotlightHero from "../";
 import { render } from "@testing-library/react";
 import Breadcrumbs from "@bmi/breadcrumbs";
-import imageSource from "./images/demo-house.png";
 import Typography from "@bmi/typography";
+import SpotlightHero from "../";
+import imageSource from "./images/demo-house.png";
 
 const breadcrumbNode = (
   <Breadcrumbs isDarkThemed>

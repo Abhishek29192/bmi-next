@@ -1,7 +1,7 @@
 import React from "react";
-import DownloadList from "../";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
+import DownloadList from "../";
 
 afterEach(cleanup);
 

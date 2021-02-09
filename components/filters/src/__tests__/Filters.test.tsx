@@ -1,6 +1,6 @@
 import React from "react";
-import Filters from "../";
 import { render, fireEvent } from "@testing-library/react";
+import Filters from "../";
 
 describe("Filters component", () => {
   it("renders correctly", () => {
