@@ -154,7 +154,7 @@ const queries = [
 ].filter(Boolean);
 
 const elasticSearchPlugin = {
-  resolve: `@logilab/gatsby-plugin-elasticsearch`,
+  resolve: `@bmi/gatsby-plugin-elasticsearch`,
   options: {
     node: process.env.GATSBY_ES_ENDPOINT,
     auth: {
