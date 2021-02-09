@@ -29,10 +29,12 @@
 
   .map {
     margin-top: -24px;
-    max-height: 640px;
+    height: 100%;
+    height: 750px;
 
     @media (min-width: $breakpoint-md) {
       margin: 0 0 0 24px;
+      height: 640px;
     }
   }
 }

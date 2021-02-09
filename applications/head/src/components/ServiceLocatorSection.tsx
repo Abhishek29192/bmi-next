@@ -15,6 +15,7 @@ import GoogleAutocomplete from "@bmi/google-autocomplete";
 import Grid from "@bmi/grid";
 import LinkCard from "@bmi/link-card";
 import Section from "@bmi/section";
+import GoogleMap from "@bmi/google-map";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
 import { graphql } from "gatsby";
@@ -33,12 +34,23 @@ export type Data = {
   roofers: [RooferData];
 };
 
+const transformToGoogleMapsMarker = (roofer) => ({
+  title: roofer.name,
+  position: {
+    lat: roofer.location.lat,
+    lng: roofer.location.lon
+  }
+});
+
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
+  const { label, body, roofers } = data;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<string>("");
   const [activePosition, setActivePosition] = useState<GoogleLatLng>(null);
-  const { label, body, roofers } = data;
+  const [markers, setMarkers] = useState(
+    roofers && roofers.map((roofer) => transformToGoogleMapsMarker(roofer))
+  );
 
   const initialise = async () => {
     await loadGoogleApi(process.env.GATSBY_GOOGLE_API_KEY, ["places"]);
@@ -221,7 +233,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             index="map"
           >
             <div className={styles["map"]}>
-              {/* @todo: Use `activePosition` for map here */}
+              <GoogleMap markers={markers} />
             </div>
           </Tabs.TabPanel>
         </Tabs>
