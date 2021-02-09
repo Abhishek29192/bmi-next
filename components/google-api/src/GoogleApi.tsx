@@ -12,6 +12,9 @@ export type Map = google.maps.Map;
 export type MapOptions = google.maps.MapOptions;
 export type Marker = google.maps.Marker;
 export type MarkerOptions = google.maps.MarkerOptions;
+export type MarkerOptionsWithId = google.maps.MarkerOptions & {
+  id: string;
+};
 export type Point = google.maps.Point;
 
 type GoogleMaps = {

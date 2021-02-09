@@ -4,7 +4,7 @@ import GoogleApi, {
   Map,
   MapOptions,
   Marker,
-  MarkerOptions
+  MarkerOptionsWithId
 } from "@bmi/google-api";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React, {
@@ -18,10 +18,10 @@ import styles from "./GoogleMap.module.scss";
 
 type Props = MapOptions & {
   children?: ReactNode;
-  markers?: MarkerOptions[];
+  markers?: MarkerOptionsWithId[];
   onMarkerClick?: (
+    id: string,
     marker: Marker,
-    index: number,
     event: MouseEvent | Event | TouchEvent | PointerEvent
   ) => void;
 };
@@ -50,10 +50,7 @@ const GoogleMap = ({
   const googleMarkers = useRef<Marker[]>([]);
   const mapElement = useRef<HTMLDivElement>();
 
-  const createGoogleMarker = (
-    options: google.maps.MarkerOptions,
-    index: number
-  ) => {
+  const createGoogleMarker = ({ id, ...options }: MarkerOptionsWithId) => {
     const googleMarker = new google.maps.Marker({
       map: googleMap.current,
       icon: {
@@ -75,7 +72,7 @@ const GoogleMap = ({
     });
 
     googleMarker.addListener("click", ({ domEvent }) => {
-      onMarkerClick && onMarkerClick(googleMarker, index, domEvent);
+      onMarkerClick && onMarkerClick(id, googleMarker, domEvent);
     });
 
     return googleMarker;
@@ -109,7 +106,7 @@ const GoogleMap = ({
           <CircularProgress />
         )}
       </div>
-      {children && <Card className={styles["popup"]}>{children}</Card>}
+      {children && <div className={styles["popup"]}>{children}</div>}
     </div>
   );
 };

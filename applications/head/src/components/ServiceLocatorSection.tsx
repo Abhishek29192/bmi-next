@@ -1,5 +1,8 @@
 /* global google */
 import Autocomplete from "@bmi/autocomplete";
+import Button from "@bmi/button";
+import Card, { CardHeader, CardContent } from "@bmi/card";
+import CloseIcon from "@material-ui/icons/Close";
 import CompanyDetails, {
   DetailProps,
   RoofProLevel
@@ -9,7 +12,8 @@ import GoogleApi, {
   GeocoderResult as GoogleGeocoderResult,
   Google,
   LatLngLiteral as GoogleLatLng,
-  loadGoogleApi
+  loadGoogleApi,
+  MarkerOptionsWithId
 } from "@bmi/google-api";
 import GoogleAutocomplete from "@bmi/google-autocomplete";
 import Grid from "@bmi/grid";
@@ -34,12 +38,17 @@ export type Data = {
   roofers: [RooferData];
 };
 
-const transformToGoogleMapsMarker = (roofer) => ({
-  title: roofer.name,
+const transformToMarkerData = ({
+  id,
+  name,
+  location
+}): MarkerOptionsWithId => ({
+  title: name,
   position: {
-    lat: roofer.location.lat,
-    lng: roofer.location.lon
-  }
+    lat: location.lat,
+    lng: location.lon
+  },
+  id
 });
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
@@ -48,8 +57,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const [googleApi, setgoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<string>("");
   const [activePosition, setActivePosition] = useState<GoogleLatLng>(null);
+  const [rooferPopup, setRooferPopup] = useState<RooferData>(null);
   const [markers, setMarkers] = useState(
-    roofers && roofers.map((roofer) => transformToGoogleMapsMarker(roofer))
+    roofers && roofers.map(transformToMarkerData)
   );
 
   const initialise = async () => {
@@ -77,6 +87,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       lng: location.geometry.location.lng()
     });
   };
+
+  const handleMarkerClick = (id: string) => {
+    const clickedRoofer = roofers.find((roofer) => roofer.id === id);
+
+    setRooferPopup(clickedRoofer);
+  };
+
+  const handleCloseRooferPopup = () => setRooferPopup(null);
 
   const getUrlClickableAction = (url: LinkData["url"]) =>
     getClickableActionFromUrl(null, url, countryCode);
@@ -233,7 +251,30 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             index="map"
           >
             <div className={styles["map"]}>
-              <GoogleMap markers={markers} />
+              <GoogleMap markers={markers} onMarkerClick={handleMarkerClick}>
+                {rooferPopup && (
+                  <Card>
+                    <CardHeader
+                      title={rooferPopup.name}
+                      action={
+                        <Button
+                          isIconButton
+                          variant="text"
+                          accessibilityLabel={getMicroCopy("global.close")}
+                          onClick={handleCloseRooferPopup}
+                        >
+                          <CloseIcon />
+                        </Button>
+                      }
+                    ></CardHeader>
+                    <CardContent>
+                      <CompanyDetails details={getCompanyDetails(rooferPopup)}>
+                        <Typography>{rooferPopup.summary}</Typography>
+                      </CompanyDetails>
+                    </CardContent>
+                  </Card>
+                )}
+              </GoogleMap>
             </div>
           </Tabs.TabPanel>
         </Tabs>

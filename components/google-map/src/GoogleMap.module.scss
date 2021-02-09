@@ -14,14 +14,16 @@
 
   .popup {
     left: 0;
-    margin: auto;
-    max-height: calc(100% - 40px);
-    overflow: auto;
-    padding: 20px;
+    margin: 0 18px;
     position: absolute;
     right: 0;
-    top: 20px;
-    width: 400px;
+    top: 32px;
+    bottom: 32px;
+    max-width: 500px;
+
+    @media (min-width: $breakpoint-md) {
+      margin: 0 auto;
+    }
   }
 
   .error {

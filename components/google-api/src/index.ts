@@ -13,6 +13,7 @@ export type {
   MapOptions,
   Marker,
   MarkerOptions,
+  MarkerOptionsWithId,
   Point
 } from "./GoogleApi";
 
