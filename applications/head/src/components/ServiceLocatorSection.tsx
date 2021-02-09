@@ -1,7 +1,7 @@
 import Autocomplete from "@bmi/autocomplete";
 import Button from "@bmi/button";
-import Card, { CardHeader, CardContent } from "@bmi/card";
-import CloseIcon from "@material-ui/icons/Close";
+import Card, { CardContent, CardHeader } from "@bmi/card";
+import Chip from "@bmi/chip";
 import CompanyDetails, {
   DetailProps,
   RoofProLevel
@@ -15,17 +15,24 @@ import GoogleApi, {
   MarkerOptionsWithId
 } from "@bmi/google-api";
 import GoogleAutocomplete from "@bmi/google-autocomplete";
+import GoogleMap from "@bmi/google-map";
 import Grid from "@bmi/grid";
 import LinkCard from "@bmi/link-card";
 import Section from "@bmi/section";
-import GoogleMap from "@bmi/google-map";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
+import CloseIcon from "@material-ui/icons/Close";
 import { graphql } from "gatsby";
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+  useState
+} from "react";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
-import { Data as RooferData } from "./Roofer";
+import { Data as RooferData, RooferType, RooferTypes } from "./Roofer";
 import { SiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
@@ -34,7 +41,7 @@ export type Data = {
   title: string;
   label: string;
   body: RichTextData | null;
-  roofers: [RooferData];
+  roofers: RooferData[] | null;
 };
 
 const transformToMarkerData = ({
@@ -50,15 +57,35 @@ const transformToMarkerData = ({
   id
 });
 
+const initialActiveFilters = RooferTypes.reduce(
+  (carry, key) => ({ ...carry, [key]: true }),
+  {}
+);
+
+const activeFilterReducer = (
+  state: Record<RooferType, boolean>,
+  filter: RooferType
+) => ({
+  ...state,
+  [filter]: !state[filter as RooferType]
+});
+
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const { label, body, roofers } = data;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
-  const [selectedRoofer, setSelectedRoofer] = useState<string>("");
+  const [filteredRoofers, setFilteredRoofers] = useState<RooferData[]>(
+    roofers || []
+  );
+  const [selectedRoofer, setSelectedRoofer] = useState<string>(null);
   const [activePosition, setActivePosition] = useState<GoogleLatLng>(null);
   const [rooferPopup, setRooferPopup] = useState<RooferData>(null);
   const [markers, setMarkers] = useState(
-    roofers && roofers.map(transformToMarkerData)
+    filteredRoofers.map(transformToMarkerData)
+  );
+  const [activeFilters, updateActiveFilters] = useReducer(
+    activeFilterReducer,
+    initialActiveFilters
   );
 
   const initialise = async () => {
@@ -71,7 +98,23 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialise();
   }, []);
 
-  const handleListCloseClick = () => setSelectedRoofer("");
+  useEffect(() => {
+    setFilteredRoofers(filterRoofers);
+  }, [activeFilters]);
+
+  useEffect(() => {
+    setMarkers(filteredRoofers.map(transformToMarkerData));
+  }, [filteredRoofers]);
+
+  const filterRoofers = useMemo<RooferData[]>(
+    () =>
+      (roofers || []).filter(({ type }) =>
+        type.some((filter) => activeFilters[filter as RooferType])
+      ),
+    [activeFilters]
+  );
+
+  const handleListCloseClick = () => setSelectedRoofer(null);
 
   const handleListClick = (roofer: RooferData) => {
     setSelectedRoofer(roofer.id);
@@ -168,8 +211,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       <GoogleApi.Provider value={googleApi}>
         <Section.Title>{label}</Section.Title>
         {body && <RichText document={body} />}
-        <Grid container spacing={3} className={styles["search"]}>
-          <Grid item xs={12} md={4}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={4} className={styles["search"]}>
             <Autocomplete
               size="small"
               id="company-autocomplete"
@@ -178,9 +221,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               onInputChange={(_, inputValue) => {
                 // @todo Company search
               }}
-              options={
-                roofers && roofers.length ? roofers.map(({ name }) => name) : []
-              }
+              options={(roofers || []).map(({ name }) => name)}
             />
             <Typography className={styles["and-or-label"]}>
               {getMicroCopy("findARoofer.andOr")}
@@ -203,6 +244,19 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               {getMicroCopy("findARoofer.geolocationButton")}
             </GeolocationButton>
           </Grid>
+          <Grid item xs={12} md={8} className={styles["filters"]}>
+            {getMicroCopy("findARoofer.filtersLabel")}
+            {RooferTypes.map((rooferType, index) => (
+              <Chip
+                key={index}
+                type="selectable"
+                onClick={() => updateActiveFilters(rooferType)}
+                isSelected={activeFilters[rooferType as RooferType]}
+              >
+                {rooferType}
+              </Chip>
+            ))}
+          </Grid>
         </Grid>
         <Tabs
           initialValue="list"
@@ -217,8 +271,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             index="list"
           >
             <div className={styles["list"]}>
-              {roofers && roofers.length ? (
-                roofers.map((roofer) => (
+              {filteredRoofers.length ? (
+                filteredRoofers.map((roofer) => (
                   <LinkCard
                     key={roofer.id}
                     onClick={() => handleListClick(roofer)}

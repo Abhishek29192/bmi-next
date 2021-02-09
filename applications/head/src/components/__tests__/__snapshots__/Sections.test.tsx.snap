@@ -696,10 +696,10 @@ HTMLCollection [
           Find A Roofer
         </h2>
         <div
-          class="MuiGrid-root search MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+            class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
           >
             <div
               aria-expanded="false"
@@ -855,6 +855,39 @@ HTMLCollection [
                 findARoofer.geolocationButton
               </span>
             </button>
+          </div>
+          <div
+            class="MuiGrid-root filters MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+          >
+            findARoofer.filtersLabel
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiChip-label"
+              >
+                Pitched roof
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiChip-label"
+              >
+                Flat roof
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
           </div>
         </div>
         <div

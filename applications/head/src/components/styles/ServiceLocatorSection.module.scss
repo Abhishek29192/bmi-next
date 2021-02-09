@@ -13,6 +13,12 @@
     }
   }
 
+  .filters {
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .list {
     margin-top: -24px;
     max-height: 640px;
