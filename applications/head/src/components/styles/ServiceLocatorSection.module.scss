@@ -29,8 +29,7 @@
 
   .map {
     margin-top: -24px;
-    height: 100%;
-    height: 750px;
+    height: calc(100vh - 48px); // Note: minus tab label height.
 
     @media (min-width: $breakpoint-md) {
       margin: 0 0 0 24px;
