@@ -213,7 +213,7 @@ export const handleRequest: HttpFunction = async (req, res) => {
 
       // call netlify build trigger function - fire and forget
       // Provide the token in the request to the receiving function
-      fetch("BUILD_TRIGGER_ENDPOINT", {
+      fetch(BUILD_TRIGGER_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
