@@ -1,5 +1,9 @@
 import { graphql } from "gatsby";
 
+export const RooferTypes = ["Pitched roof", "Flat roof"];
+
+export type RooferType = typeof RooferTypes[number];
+
 export type Data = {
   __typename: "ContentfulRoofer";
   id: string;
@@ -12,7 +16,7 @@ export type Data = {
   phone: string | null;
   email: string | null;
   website: string | null;
-  type: string[] | null;
+  type: RooferType[] | null;
   certification: string | null;
   summary: string | null;
 };
