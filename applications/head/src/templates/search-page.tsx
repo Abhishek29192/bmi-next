@@ -218,7 +218,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   return (
     <Page
       title={pageTitle}
-      pageData={{ slug: "search", inputBanner: null }}
+      pageData={{ path: "search", inputBanner: null }}
       siteData={contentfulSite}
       isSearchPage
     >
@@ -231,9 +231,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
         level={3}
         title={pageTitle}
         breadcrumbs={
-          <Breadcrumbs
-            data={{ title: pageTitle, parentPage: null, slug: "search" }}
-          />
+          <Breadcrumbs data={[{ id: "", label: pageTitle, slug: "search" }]} />
         }
       />
       <Section backgroundColor="white" isSlim>

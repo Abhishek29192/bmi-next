@@ -16,8 +16,7 @@ import ContactTopics, {
 } from "../components/ContactTopics";
 import Locations, { Data as LocationsData } from "../components/Locations";
 
-type Data = BreadcrumbsData &
-  PageInfoData &
+type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulContactUsPage";
     queriesTitle: string;
@@ -27,6 +26,7 @@ type Data = BreadcrumbsData &
     contentTopics: ContactTopicsData[];
     locationsTitle: string | null;
     locations: LocationsData | null;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -46,11 +46,11 @@ const ContactUsPage = ({ data }: Props) => {
     otherAreasTitle,
     otherAreas,
     contentTopics,
-    slug,
+    path,
     inputBanner,
     locationsTitle,
     locations,
-    parentPage
+    breadcrumbs
   } = data.contentfulContactUsPage;
   const heroProps: HeroItem = {
     title,
@@ -58,7 +58,7 @@ const ContactUsPage = ({ data }: Props) => {
     imageSource: featuredImage?.resize.src
   };
   const pageData: PageData = {
-    slug,
+    path,
     inputBanner
   };
 
@@ -67,13 +67,7 @@ const ContactUsPage = ({ data }: Props) => {
       <Hero
         level={1}
         {...heroProps}
-        breadcrumbs={
-          <Breadcrumbs
-            data={{ title, slug, parentPage }}
-            menuNavigation={data.contentfulSite.menuNavigation}
-            isDarkThemed
-          />
-        }
+        breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
       />
       <Section backgroundColor="pearl">
         <Section.Title>{queriesTitle}</Section.Title>
@@ -102,10 +96,7 @@ const ContactUsPage = ({ data }: Props) => {
         }}
       />
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          data={{ title, slug, parentPage }}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );
@@ -117,6 +108,7 @@ export const pageQuery = graphql`
   query ContactUsPageById($pageId: String!, $siteId: String!) {
     contentfulContactUsPage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      ...BreadcrumbsFragment
       queriesTitle
       queriesSubtitle
       contentTopics {
@@ -130,9 +122,6 @@ export const pageQuery = graphql`
       locationsTitle
       locations {
         ...LocationsFragment
-      }
-      parentPage {
-        ...PageInfoFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {

@@ -20,10 +20,10 @@ export const getClickableActionFromUrl = (
     return;
   }
 
-  if (linkedPage && "slug" in linkedPage) {
+  if (linkedPage && "path" in linkedPage) {
     return {
       model: "routerLink",
-      to: `/${countryCode}/${linkedPage.slug}`.replace(/\/+/gi, "/"),
+      to: `/${countryCode}/${linkedPage.path}`.replace(/\/+/gi, "/"),
       linkComponent: Link
     };
   }
@@ -53,7 +53,7 @@ export const getClickableActionFromUrl = (
 export const getCTA = (
   data:
     | Pick<PromoData, "__typename" | "cta">
-    | Pick<PageInfoData, "__typename" | "slug">,
+    | Pick<PageInfoData, "__typename" | "path">,
   countryCode: string,
   linkLabel?: string
 ) => {
@@ -75,10 +75,10 @@ export const getCTA = (
     };
   }
 
-  const { slug } = data;
+  const { path } = data;
 
   return {
-    action: getClickableActionFromUrl({ slug }, null, countryCode),
+    action: getClickableActionFromUrl({ path }, null, countryCode),
     label: linkLabel
   };
 };
@@ -93,7 +93,7 @@ export type LinkData = {
   type?: "External" | "Internal" | "Asset";
   linkedPage: {
     // NOTE: null is for Homepage type
-    slug: string | null;
+    path: string | null;
   } | null;
   asset?: {
     file: {
@@ -126,10 +126,10 @@ export const query = graphql`
     type
     linkedPage {
       ... on ContentfulHomePage {
-        slug
+        path
       }
       ... on ContentfulPage {
-        slug
+        path
       }
     }
     asset {

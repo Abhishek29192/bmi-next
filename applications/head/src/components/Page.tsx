@@ -15,7 +15,7 @@ import ErrorFallback from "./ErrorFallback";
 import styles from "./styles/Page.module.scss";
 
 export type Data = {
-  slug: string | null;
+  path: string | null;
   inputBanner: InputBannerData | null;
 };
 
@@ -141,7 +141,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
           navigationData={menuNavigation}
           utilitiesData={menuUtilities}
           countryCode={countryCode}
-          slug={pageData.slug || undefined}
+          slug={pageData.path || undefined}
           isOnSearchPage={isSearchPage}
         />
         <ErrorBoundary
@@ -179,7 +179,7 @@ export default withErrorBoundary(Page, {
 
 export const query = graphql`
   fragment PageFragment on ContentfulPage {
-    slug
+    path
     inputBanner {
       ...InputBannerFragment
     }

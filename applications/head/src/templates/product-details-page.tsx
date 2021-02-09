@@ -182,14 +182,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   const { resources, countryCode } = contentfulSite;
   const pageData: PageData = {
-    slug: null,
+    path: null,
     inputBanner: resources.pdpInputBanner
   };
 
   const breadcrumbs = (
-    <Breadcrumbs
-      data={{ title: product.name, slug: pageData.slug, parentPage: null }}
-    />
+    <Breadcrumbs data={[{ id: "", label: product.name, slug: null }]} />
   );
 
   return (
