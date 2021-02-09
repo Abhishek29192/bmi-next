@@ -1,4 +1,3 @@
-/* global google */
 import Autocomplete from "@bmi/autocomplete";
 import Button from "@bmi/button";
 import Card, { CardHeader, CardContent } from "@bmi/card";
@@ -64,6 +63,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const initialise = async () => {
     await loadGoogleApi(process.env.GATSBY_GOOGLE_API_KEY, ["places"]);
+    /* global google */
     setgoogleApi(typeof google !== "undefined" ? google : null);
   };
 
