@@ -1,0 +1,41 @@
+@import "@bmi/styles";
+
+$sidebar-width: 200px;
+
+.sidebar {
+  width: $sidebar-width;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  clip-path: inset(0px -10px 0px 0px);
+  height: 100vh;
+  z-index: 10;
+  position: relative;
+  background-color: $color-white;
+  flex-shrink: 0;
+}
+
+.appContainer {
+  display: flex;
+}
+
+.appMain {
+  background-color: $color-pearl;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 120px 2fr 100px;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}
+
+.logoContainer {
+  margin: 26px 21px 0 21px;
+  border-bottom: 1px solid $color-storm;
+  padding-bottom: 22px;
+}
+
+.appContent {
+  max-width: calc(100vw - $sidebar-width);
+}
