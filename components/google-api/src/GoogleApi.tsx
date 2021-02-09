@@ -12,6 +12,7 @@ export type Map = google.maps.Map;
 export type MapOptions = google.maps.MapOptions;
 export type Marker = google.maps.Marker;
 export type MarkerOptions = google.maps.MarkerOptions;
+export type Point = google.maps.Point;
 
 type GoogleMaps = {
   Geocoder: {
@@ -22,6 +23,9 @@ type GoogleMaps = {
   };
   Marker: {
     new (options: MarkerOptions): Marker;
+  };
+  Point: {
+    new (x: number, y: number): Point;
   };
 };
 
