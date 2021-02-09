@@ -4,12 +4,15 @@ import PostItCard from "@bmi/post-it-card";
 import Search, { QUERY_KEY } from "@bmi/search";
 import Typography from "@bmi/typography";
 import classnames from "classnames";
-import React, { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
 import RichText from "../components/RichText";
 import styles from "./styles/SearchBlock.module.scss";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 
 export type QueryInput = Extract<string, InputValue>;
+
+// Search is enabled if there is any truthy value at all
+const isInputValueValid = (value) => !!value;
 
 type Props = {
   buttonText?: string;
@@ -37,6 +40,14 @@ const SearchPageBlock = ({
   searchPageSearchTips,
   searchPageSidebarItems
 }: Props) => {
+  const [isSearchSubmitDisabled, setIsSearchSubmitDisabled] = useState(
+    !isInputValueValid(query)
+  );
+
+  const handleInputOnChange = (value) => {
+    setIsSearchSubmitDisabled(!isInputValueValid(value));
+  };
+
   return (
     <Grid container spacing={3} className={styles["SearchBlock"]}>
       <Grid item lg={8} xs={12}>
@@ -51,6 +62,8 @@ const SearchPageBlock = ({
             onSubmit={handleSubmit}
             helperText={helperText}
             placeholder={placeholder}
+            onChange={handleInputOnChange}
+            isSubmitDisabled={isSearchSubmitDisabled}
           />
         </div>
         {!hasResults && searchPageSearchTips && (
