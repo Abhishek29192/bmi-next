@@ -1,8 +1,8 @@
 import React from "react";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
-import styles from "./ResponseMessage.module.scss";
 import classnames from "classnames";
+import styles from "./ResponseMessage.module.scss";
 
 type Props = {
   icon: SVGImport;

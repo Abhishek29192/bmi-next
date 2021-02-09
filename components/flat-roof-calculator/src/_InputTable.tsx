@@ -1,5 +1,4 @@
 import React from "react";
-import { FieldsDisplay } from "./types/FieldsDisplay";
 import classnames from "classnames";
 import {
   TableContainer,
@@ -8,6 +7,7 @@ import {
   TableRow,
   TableCell
 } from "@material-ui/core";
+import { FieldsDisplay } from "./types/FieldsDisplay";
 import styles from "./FlatRoofCalculator.module.scss";
 import { fieldLabels } from "./FlatRoofCalculator";
 import { FormValues } from "./types/FormValues";

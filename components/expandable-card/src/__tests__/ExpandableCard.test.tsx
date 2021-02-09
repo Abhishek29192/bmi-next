@@ -1,5 +1,4 @@
 import React from "react";
-import ExpandableCard from "..";
 import {
   render,
   fireEvent,
@@ -7,6 +6,7 @@ import {
   createEvent
 } from "@testing-library/react";
 import BuildIcon from "test.svg";
+import ExpandableCard from "..";
 
 afterEach(cleanup);
 

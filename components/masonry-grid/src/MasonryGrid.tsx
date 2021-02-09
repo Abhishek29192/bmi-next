@@ -1,8 +1,7 @@
 import React from "react";
 import Masonry from "react-masonry-css";
-import styles from "./MasonryGrid.module.scss";
-
 import { useTheme } from "@material-ui/core/styles";
+import styles from "./MasonryGrid.module.scss";
 
 type MasonryGridProps = {
   children: React.ReactNode;

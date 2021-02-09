@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../Footer";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import Footer from "../Footer";
 
 import { SiteContext } from "../Site";
 

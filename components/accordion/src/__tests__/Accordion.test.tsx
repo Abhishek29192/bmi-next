@@ -1,7 +1,7 @@
 import React from "react";
-import Accordion from "../";
 import { render, fireEvent } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import Accordion from "../";
 
 beforeAll(() => {
   mockConsole();

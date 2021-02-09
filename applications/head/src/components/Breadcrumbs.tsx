@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import Breadcrumbs, { Props as BreadcrumbsProps } from "@bmi/breadcrumbs";
+import { graphql } from "gatsby";
 import { SiteContext } from "../components/Site";
 import { Data as PageInfoData } from "./PageInfo";
-
 import { getClickableActionFromUrl, LinkData, NavigationData } from "./Link";
-import { graphql } from "gatsby";
 
 type Path = {
   label: string;

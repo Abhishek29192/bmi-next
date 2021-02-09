@@ -1,6 +1,6 @@
 import React from "react";
-import Bullets from "../";
 import { render } from "@testing-library/react";
+import Bullets from "../";
 
 describe("Bullets component", () => {
   it("renders correctly", () => {

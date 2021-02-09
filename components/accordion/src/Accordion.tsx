@@ -7,8 +7,8 @@ import MaterialAccordionSummary, {
 } from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React, { useState } from "react";
-import styles from "./Accordion.module.scss";
 import classnames from "classnames";
+import styles from "./Accordion.module.scss";
 
 type AccordionItemProps = ExpansionPanelProps & {
   isExpanded?: boolean;

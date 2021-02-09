@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import Clickable, { withClickable } from "../";
 import mockConsole from "jest-mock-console";
+import Clickable, { withClickable } from "../";
 
 beforeAll(() => {
   mockConsole();

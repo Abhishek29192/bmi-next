@@ -1,8 +1,8 @@
 import { graphql } from "gatsby";
 import React, { useContext, useState } from "react";
-import { SiteContext } from "./Site";
 import Grid from "@bmi/grid";
 import Button from "@bmi/button";
+import { SiteContext } from "./Site";
 import styles from "./styles/Locations.module.scss";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
 

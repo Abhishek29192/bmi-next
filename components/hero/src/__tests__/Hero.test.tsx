@@ -1,7 +1,7 @@
 import React from "react";
-import Hero from "../";
 import { render } from "@testing-library/react";
 import imageSource from "mock-image.jpg";
+import Hero from "../";
 
 describe("Hero component", () => {
   it("renders level 1", () => {

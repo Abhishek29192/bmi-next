@@ -1,8 +1,8 @@
 import React from "react";
-import ProductOverviewPane, { Props } from "..";
 import { render } from "@testing-library/react";
 import MockLogo from "path-to-logo.svg";
 import mockImage from "path-to-image.png";
+import ProductOverviewPane, { Props } from "..";
 
 const attributes: Props["attributes"] = [
   {

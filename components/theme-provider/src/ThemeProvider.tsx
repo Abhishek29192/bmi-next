@@ -4,8 +4,8 @@ import {
   ThemeProvider as MaterialThemeProvider
 } from "@material-ui/core";
 import React from "react";
-import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 import variables from "@bmi/styles";
+import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
 const theme = createMuiTheme({
   breakpoints: {

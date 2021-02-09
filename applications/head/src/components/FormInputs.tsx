@@ -5,9 +5,9 @@ import Grid from "@bmi/grid";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload from "@bmi/upload";
-import { SiteContext } from "./Site";
 import AnchorLink from "@bmi/anchor-link";
 import matchAll from "string.prototype.matchall";
+import { SiteContext } from "./Site";
 
 const InputTypes = [
   "text",

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./UpDownSimpleNumericInput.module.scss";
 import classnames from "classnames";
 import Button from "@bmi/button";
 import AddIcon from "@material-ui/icons/Add";
@@ -7,6 +6,7 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import Icon from "@bmi/icon";
 import { withFormControl } from "@bmi/form";
 import RawTextField from "@bmi/raw-text-field";
+import styles from "./UpDownSimpleNumericInput.module.scss";
 
 type Props = {
   name: string;

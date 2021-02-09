@@ -1,6 +1,6 @@
 import React from "react";
-import LocationCard from "../";
 import { render } from "@testing-library/react";
+import LocationCard from "../";
 
 describe("LocationCard component", () => {
   it("renders correctly with props", () => {

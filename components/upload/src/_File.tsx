@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Upload.module.scss";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
@@ -8,6 +7,7 @@ import FileIcon from "@material-ui/icons/FileCopy";
 import Icon from "@bmi/icon";
 import { LinearProgress } from "@material-ui/core";
 import axios from "axios";
+import styles from "./Upload.module.scss";
 
 export type UploadFile = {
   file: File;

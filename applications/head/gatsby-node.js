@@ -1,14 +1,14 @@
 "use strict";
 
+const path = require("path");
+const fs = require("fs");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
-const path = require("path");
 const { withConfigs, styles } = require("@bmi/webpack");
 require("graphql-import-node");
+const jsonfile = require("jsonfile");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
-const jsonfile = require("jsonfile");
-const fs = require("fs");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`

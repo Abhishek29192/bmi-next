@@ -1,6 +1,6 @@
 import React from "react";
-import { StateSlideControls as SlideControls } from "../";
 import { render, fireEvent, cleanup } from "@testing-library/react";
+import { StateSlideControls as SlideControls } from "../";
 
 afterEach(cleanup);
 

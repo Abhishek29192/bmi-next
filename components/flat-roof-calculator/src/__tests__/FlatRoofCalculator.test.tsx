@@ -1,7 +1,7 @@
 import React from "react";
+import { render } from "@testing-library/react";
 import FlatRoofCalculator from "../";
 import calculatorData from "../samples/calculatorData";
-import { render } from "@testing-library/react";
 
 describe("FlatRoofCalculator component", () => {
   it("renders correctly", () => {

@@ -1,8 +1,8 @@
 import React from "react";
-import Upload from "../";
 import { render, fireEvent, waitFor, cleanup } from "@testing-library/react";
 import mediaQuery from "css-mediaquery";
 import axios from "axios";
+import Upload from "../";
 
 jest.mock("axios");
 

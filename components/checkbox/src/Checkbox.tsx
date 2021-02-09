@@ -3,8 +3,8 @@ import MuiCheckbox, { CheckboxProps } from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import styles from "./Checkbox.module.scss";
 import { withFormControl } from "@bmi/form";
+import styles from "./Checkbox.module.scss";
 
 export type Props = CheckboxProps & {
   label?: React.ReactNode;

@@ -1,10 +1,10 @@
 import React, { ChangeEvent } from "react";
-import styles from "./TextField.module.scss";
 import classnames from "classnames";
 import { withFormControl } from "@bmi/form";
 import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ErrorRounded from "@material-ui/icons/ErrorRounded";
+import styles from "./TextField.module.scss";
 
 type AdornmentProps =
   | {

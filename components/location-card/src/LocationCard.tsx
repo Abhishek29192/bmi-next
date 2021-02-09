@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./LocationCard.module.scss";
 import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import Icon from "@bmi/icon";
 import { LocationOn, Phone, Mail } from "@material-ui/icons";
 import classnames from "classnames";
+import styles from "./LocationCard.module.scss";
 
 type DetailType = "address" | "phone" | "email";
 

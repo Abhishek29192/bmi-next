@@ -1,6 +1,6 @@
 import React from "react";
-import TeamList, { Data } from "../TeamList";
 import { render } from "@testing-library/react";
+import TeamList, { Data } from "../TeamList";
 
 describe("TeamList component", () => {
   it("renders correctly", () => {

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Button from "@bmi/button";
 import UpArrow from "@material-ui/icons/ExpandLess";
 import Icon from "@bmi/icon";
-import styles from "./BackToTop.module.scss";
 import classnames from "classnames";
+import styles from "./BackToTop.module.scss";
 
 type Props = {
   accessibilityLabel: string;

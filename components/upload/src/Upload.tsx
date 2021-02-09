@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Upload.module.scss";
 import Typography from "@bmi/typography";
 import { withFormControl } from "@bmi/form";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
-import File, { UploadFile } from "./_File";
 import Accordion from "@bmi/accordion";
 import Icon from "@bmi/icon";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
@@ -13,6 +11,8 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Button from "@bmi/button";
 import AttachFileIcon from "@material-ui/icons/AttachFile";
+import File, { UploadFile } from "./_File";
+import styles from "./Upload.module.scss";
 
 export type Props = {
   buttonLabel?: string;

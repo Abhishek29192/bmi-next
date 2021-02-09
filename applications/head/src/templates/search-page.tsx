@@ -15,7 +15,6 @@ import SearchBlock, { QueryInput } from "../components/SearchBlock";
 import Scrim from "../components/Scrim";
 import { Data as SiteData } from "../components/Site";
 // TODO: Move type away from a page
-import { Product } from "./product-details-page";
 import { getFilters } from "../utils/filters";
 import SearchTabPanelProducts, {
   getCount as getProductsCount
@@ -26,6 +25,7 @@ import SearchTabPanelDocuments, {
 import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
+import { Product } from "./product-details-page";
 
 type Props = {
   // TODO: pageContext is/should be the same for all pages, same type

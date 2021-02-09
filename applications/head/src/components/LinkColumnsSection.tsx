@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
-import { getClickableActionFromUrl, NavigationData, LinkData } from "./Link";
 import AddIcon from "@material-ui/icons/Add";
 import Button from "@bmi/button";
 import ExpandableLinksTextCard from "@bmi/expandable-links-text-card";
 import MasonryGrid from "@bmi/masonry-grid";
 import RemoveIcon from "@material-ui/icons/Remove";
 import Section from "@bmi/section";
-import { SiteContext } from "./Site";
 import { ClickableAction } from "components/clickable/src";
+import { SiteContext } from "./Site";
+import { getClickableActionFromUrl, NavigationData, LinkData } from "./Link";
 
 export type Data = {
   __typename: "ContentfulLinkColumnsSection";

@@ -1,6 +1,6 @@
 import React from "react";
-import TableOfContent from "../";
 import { render } from "@testing-library/react";
+import TableOfContent from "../";
 
 describe("TableOfContent component", () => {
   it("renders correctly", () => {

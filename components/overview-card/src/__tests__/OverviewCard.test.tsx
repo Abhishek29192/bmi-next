@@ -1,9 +1,9 @@
 import React from "react";
-import OverviewCard from "../";
 import { render } from "@testing-library/react";
 import Button from "@bmi/button";
 import mockImage from "path-to-image.jpg";
 import mockLogo from "mock-to-logo.svg";
+import OverviewCard from "../";
 
 describe("OverviewCard component", () => {
   it("renders correctly", () => {

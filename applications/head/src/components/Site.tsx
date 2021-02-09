@@ -71,7 +71,7 @@ export const query = graphql`
     scriptGA
     scriptOnetrust
     scriptGTM
-    scriptHotJar,
+    scriptHotJar
     scriptGOptLoad
   }
 `;
