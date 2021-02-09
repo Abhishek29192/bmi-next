@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import BackToTop from "@bmi/back-to-top";
+import { graphql, navigate } from "gatsby";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InputBanner, {
@@ -10,7 +11,6 @@ import InputBanner, {
 } from "../components/InputBanner";
 import { SiteContext, Data as SiteData } from "./Site";
 import { generateGetMicroCopy } from "./MicroCopy";
-import { graphql, navigate } from "gatsby";
 import ErrorFallback from "./ErrorFallback";
 import styles from "./styles/Page.module.scss";
 
@@ -50,7 +50,11 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
 
   return (
     <BmiThemeProvider>
-      <Helmet title={title} defer={false}>
+      <Helmet
+        htmlAttributes={{ lang: node_locale }}
+        title={title}
+        defer={false}
+      >
         {scriptGTM && (
           <script>
             {` <!-- Google Tag Manager -->
