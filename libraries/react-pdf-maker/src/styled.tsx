@@ -10,6 +10,7 @@ const calculateStyle = (style, props) => {
   return calculatedStyle;
 };
 
+// eslint-disable-next-line react/display-name
 const styled = (Component) => (style) => (props) => (
   <Component {...calculateStyle(style, props)} {...props} />
 );

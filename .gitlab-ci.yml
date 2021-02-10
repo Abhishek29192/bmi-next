@@ -75,7 +75,7 @@ eslint:
       - schedules
   needs: [install]
   script:
-    - yarn eslint "**/*.{js,ts,tsx}" || exit 0
+    - yarn eslint "**/*.{js,ts,tsx}"
 
 coverage_jest:
   stage: test
