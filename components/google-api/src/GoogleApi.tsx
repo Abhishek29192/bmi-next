@@ -17,33 +17,8 @@ export type MarkerOptionsWithId = google.maps.MarkerOptions & {
 };
 export type Point = google.maps.Point;
 
-type GoogleMaps = {
-  Geocoder: {
-    new (): Geocoder;
-  };
-  Map: {
-    new (map: Element, options?: MapOptions): Map;
-  };
-  Marker: {
-    new (options: MarkerOptions): Marker;
-  };
-  Point: {
-    new (x: number, y: number): Point;
-  };
-};
-
-type GooglePlaces = {
-  AutocompleteService: {
-    new (): AutocompleteService;
-  };
-};
-
-// All APIs that are used by the codebase are explicitly cast here.
-export type Google = {
-  maps: GoogleMaps & {
-    places?: GooglePlaces;
-  };
-};
+/* global google */
+export type Google = typeof google;
 
 export function loadGoogleApi(
   apiKey: LoaderOptions["apiKey"],
