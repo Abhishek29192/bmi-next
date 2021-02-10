@@ -163,6 +163,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     const clickedRoofer = roofers.find((roofer) => roofer.id === id);
 
     setRooferPopup(clickedRoofer);
+    setSelectedRoofer(id);
   };
 
   const handleCloseRooferPopup = () => setRooferPopup(null);
