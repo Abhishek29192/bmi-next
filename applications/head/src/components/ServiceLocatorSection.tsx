@@ -109,7 +109,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const filterRoofers = useMemo<RooferData[]>(
     () =>
       (roofers || []).filter(({ type }) =>
-        type.some((filter) => activeFilters[filter as RooferType])
+        type ? type.some((filter) => activeFilters[filter as RooferType]) : true
       ),
     [activeFilters]
   );
