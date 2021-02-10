@@ -14,8 +14,6 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import SearchBlock, { QueryInput } from "../components/SearchBlock";
 import Scrim from "../components/Scrim";
 import { Data as SiteData } from "../components/Site";
-// TODO: Move type away from a page
-import { getFilters } from "../utils/filters";
 import SearchTabPanelProducts, {
   getCount as getProductsCount
 } from "../components/SearchTabProducts";
@@ -25,7 +23,7 @@ import SearchTabPanelDocuments, {
 import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
-import { Product } from "./product-details-page";
+import { ProductFilter } from "../utils/filters";
 
 type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
@@ -38,20 +36,18 @@ type Props = {
   };
   data: {
     contentfulSite: SiteData;
-    allProducts: {
-      nodes: ReadonlyArray<Product>;
-    };
     allContentfulAssetType: {
       nodes: ReadonlyArray<{
         name: string;
         pimCode: string;
       }>;
     };
+    productFilters: ReadonlyArray<ProductFilter>;
   };
 };
 
 const SearchPage = ({ pageContext, data }: Props) => {
-  const { contentfulSite, allContentfulAssetType } = data;
+  const { contentfulSite, allContentfulAssetType, productFilters } = data;
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
@@ -163,12 +159,6 @@ const SearchPage = ({ pageContext, data }: Props) => {
     }
   }, [query, hasResults]);
 
-  const initialFilters = getFilters(
-    pageContext.pimClassificationCatalogueNamespace,
-    // Don't really like this as it seems like too much computation for the page
-    data.allProducts.nodes
-  );
-
   // If any of the tabs are loading
   const tabIsLoading = Object.values(tabsLoading).some(
     (isLoading) => isLoading
@@ -207,7 +197,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
                   onLoadingChange={(isLoading) =>
                     handleTabIsLoading(tabKey, isLoading)
                   }
-                  initialFilters={initialFilters}
+                  initialFilters={productFilters}
                   extraData={{
                     allContentfulAssetType: allContentfulAssetType.nodes
                   }}
@@ -284,7 +274,10 @@ const SearchPage = ({ pageContext, data }: Props) => {
 export default SearchPage;
 
 export const pageQuery = graphql`
-  query SearchPageBySiteId($siteId: String!) {
+  query SearchPageBySiteId(
+    $siteId: String!
+    $pimClassificationCatalogueNamespace: String!
+  ) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
@@ -294,62 +287,14 @@ export const pageQuery = graphql`
         pimCode
       }
     }
-    allProducts {
-      nodes {
-        name
-        code
-        categories {
-          categoryType
-          code
-          name
-          parentCategoryCode
-        }
-        images {
-          assetType
-          containerId
-          url
-          format
-        }
-        classifications {
-          name
-          code
-          features {
-            name
-            code
-            featureValues {
-              value
-              code
-            }
-            featureUnit {
-              symbol
-            }
-          }
-        }
-        variantOptions {
-          code
-          shortDescription
-          images {
-            assetType
-            containerId
-            url
-            format
-          }
-          classifications {
-            name
-            code
-            features {
-              name
-              code
-              featureValues {
-                value
-                code
-              }
-              featureUnit {
-                symbol
-              }
-            }
-          }
-        }
+    productFilters(
+      pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
+    ) {
+      label
+      name
+      options {
+        label
+        value
       }
     }
   }
