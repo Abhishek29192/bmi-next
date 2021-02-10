@@ -79,6 +79,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   );
   const [selectedRoofer, setSelectedRoofer] = useState<string>(null);
   const [activePosition, setActivePosition] = useState<GoogleLatLng>(null);
+  const [activeSearchString, setActiveSearchString] = useState<string>("");
   const [rooferPopup, setRooferPopup] = useState<RooferData>(null);
   const [markers, setMarkers] = useState(
     filteredRoofers.map(transformToMarkerData)
@@ -100,18 +101,22 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   useEffect(() => {
     setFilteredRoofers(filterRoofers);
-  }, [activeFilters]);
+  }, [activeFilters, activeSearchString]);
 
   useEffect(() => {
     setMarkers(filteredRoofers.map(transformToMarkerData));
   }, [filteredRoofers]);
 
+  const typeFilter = (type: RooferType[]) =>
+    type ? type.some((filter) => activeFilters[filter as RooferType]) : true;
+
   const filterRoofers = useMemo<RooferData[]>(
     () =>
-      (roofers || []).filter(({ type }) =>
-        type ? type.some((filter) => activeFilters[filter as RooferType]) : true
+      (roofers || []).filter(
+        ({ type, name }) =>
+          typeFilter(type) && name.includes(activeSearchString)
       ),
-    [activeFilters]
+    [activeFilters, activeSearchString]
   );
 
   const handleListCloseClick = () => setSelectedRoofer(null);
@@ -218,8 +223,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               id="company-autocomplete"
               label={getMicroCopy("findARoofer.companyFieldLabel")}
               className={styles["company-autocomplete"]}
-              onInputChange={(_, inputValue) => {
-                // @todo Company search
+              onChange={(_, inputValue) => {
+                setActiveSearchString(inputValue || "");
               }}
               options={(roofers || []).map(({ name }) => name)}
             />
