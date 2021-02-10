@@ -6,4 +6,12 @@ export default class Map {
   setZoom() {
     // Mock setZoom
   }
+
+  setCenter() {
+    // Mock setCenter
+  }
+
+  fitBounds() {
+    // Mock fitBounds
+  }
 }

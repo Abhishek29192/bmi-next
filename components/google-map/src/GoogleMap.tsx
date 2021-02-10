@@ -1,6 +1,7 @@
 import Card from "@bmi/card";
 import GoogleApi, {
   Google,
+  LatLngBoundsLiteral,
   Map,
   MapOptions,
   Marker,
@@ -17,6 +18,7 @@ import React, {
 import styles from "./GoogleMap.module.scss";
 
 type Props = MapOptions & {
+  bounds?: LatLngBoundsLiteral;
   children?: ReactNode;
   markers?: MarkerOptionsWithId[];
   onMarkerClick?: (
@@ -36,12 +38,12 @@ const defaultMapControls = {
 };
 
 const GoogleMap = ({
-  // TODO: hardcoded to center of Norway set dynamically center and map bounds.
-  center = { lat: 63.990556, lng: 12.3077779 },
+  bounds,
+  center,
   children,
   markers = [],
   onMarkerClick,
-  zoom = 8,
+  zoom,
   ...mapOptions
 }: Props) => {
   const google = useContext<Google>(GoogleApi);
@@ -86,6 +88,14 @@ const GoogleMap = ({
       const options = { center, zoom, ...defaultMapControls, ...mapOptions };
       googleMap.current = new google.maps.Map(mapElement.current, options);
       googleMarkers.current = markers.map(createGoogleMarker);
+
+      if (center) {
+        googleMap.current.setCenter(center);
+      }
+
+      if (bounds) {
+        googleMap.current.fitBounds(bounds);
+      }
     }
   }, [google]);
 
@@ -96,6 +106,12 @@ const GoogleMap = ({
 
     return () => googleMarkers.current.map(deleteGoogleMarker);
   }, [markers]);
+
+  useEffect(() => {
+    if (googleMap.current) {
+      googleMap.current.fitBounds(bounds);
+    }
+  }, [bounds]);
 
   useEffect(() => {
     if (googleMap.current) {
