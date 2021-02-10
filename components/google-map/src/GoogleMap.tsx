@@ -80,7 +80,7 @@ const GoogleMap = ({
     return googleMarker;
   };
 
-  const deleteGoogleMarker = (googleMarker: google.maps.Marker) =>
+  const deleteGoogleMarker = (googleMarker: Marker) =>
     googleMarker.setMap(null);
 
   useEffect(() => {
@@ -101,10 +101,9 @@ const GoogleMap = ({
 
   useEffect(() => {
     if (googleMap.current) {
+      googleMarkers.current.map(deleteGoogleMarker);
       googleMarkers.current = markers.map(createGoogleMarker);
     }
-
-    return () => googleMarkers.current.map(deleteGoogleMarker);
   }, [markers]);
 
   useEffect(() => {

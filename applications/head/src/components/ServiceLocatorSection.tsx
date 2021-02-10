@@ -62,18 +62,17 @@ const initialMapBounds = {
   west: 4.0649
 };
 
-const transformToMarkerData = ({
-  id,
-  name,
-  location
-}): MarkerOptionsWithId => ({
-  title: name,
-  position: {
-    lat: location.lat,
-    lng: location.lon
-  },
-  id
-});
+const activeMarkerIcon = {
+  icon: {
+    path:
+      "M16,0A12,12,0,0,0,4,12C4,23,16,32,16,32s12-9,12-20A12,12,0,0,0,16,0Zm0,17a5,5,0,1,1,5-5A5,5,0,0,1,16,17Z",
+    fillColor: "#005b8c",
+    fillOpacity: 1,
+    strokeColor: "#fff",
+    strokeWeight: 1,
+    scale: 1.3
+  }
+};
 
 const initialActiveFilters = RooferTypes.reduce(
   (carry, key) => ({ ...carry, [key]: true }),
@@ -103,9 +102,23 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const [zoom, setZoom] = useState<number>(5);
   const [activeSearchString, setActiveSearchString] = useState<string>("");
   const [rooferPopup, setRooferPopup] = useState<RooferData>(null);
-  const [markers, setMarkers] = useState(
-    filteredRoofers.map(transformToMarkerData)
+
+  const markers = useMemo(
+    () =>
+      filteredRoofers.map(
+        ({ id, name, location }: RooferData): MarkerOptionsWithId => ({
+          id,
+          title: name,
+          position: {
+            lat: location.lat,
+            lng: location.lon
+          },
+          ...(id === selectedRoofer ? { icon: activeMarkerIcon.icon } : {})
+        })
+      ),
+    [selectedRoofer, filteredRoofers]
   );
+
   const [activeFilters, updateActiveFilters] = useReducer(
     activeFilterReducer,
     initialActiveFilters
@@ -124,10 +137,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   useEffect(() => {
     setFilteredRoofers(filterRoofers);
   }, [activeFilters, activeSearchString]);
-
-  useEffect(() => {
-    setMarkers(filteredRoofers.map(transformToMarkerData));
-  }, [filteredRoofers]);
 
   const typeFilter = (type: RooferType[]) =>
     type ? type.some((filter) => activeFilters[filter as RooferType]) : true;
