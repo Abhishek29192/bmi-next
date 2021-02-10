@@ -13,7 +13,9 @@
   ],
   "scripts": {
     "dev": "yarn workspace @bmi/head run dev",
+    "dev:intouch-frontend": "yarn workspace @bmi/intouch-frontend run dev",
     "start": "yarn workspace @bmi/head run start",
+    "start:intouch-frontend": "yarn workspace @bmi/intouch-frontend run start",
     "clean:head": "yarn workspace @bmi/head run clean",
     "build": "tsc",
     "build:head": "yarn workspace @bmi/head run build",

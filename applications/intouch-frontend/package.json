@@ -10,8 +10,11 @@
     "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.7",
     "@bmi/button": "0.0.0",
     "@bmi/typography": "0.0.0",
+    "@bmi/card": "0.0.0",
+    "@bmi/company-details": "0.0.0",
     "next": "10.0.5",
     "next-fonts": "^1.5.1",
     "next-i18next": "8.0.0-beta.4",
