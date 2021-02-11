@@ -4,6 +4,8 @@ import { graphql } from "gatsby";
 import InputBanner from "@bmi/input-banner";
 import Dialog from "@bmi/dialog";
 import Form, { FormContext } from "@bmi/form";
+import axios from "axios";
+import { devLog } from "../utils/devLog";
 import { SiteContext } from "./Site";
 import FormInputs, { Data as FormInputsData } from "./FormInputs";
 
@@ -27,8 +29,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   const [email, setEmail] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [secondDialogOpen, setSecondDialogOpen] = useState(false);
-  const { getMicroCopy } = useContext(SiteContext);
-
+  const { getMicroCopy, countryCode } = useContext(SiteContext);
   const {
     title,
     description,
@@ -40,15 +41,30 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   } = data;
 
   const handleSubmit = useCallback(
-    (additionalFields) => {
-      // TODO: Integrate with the service Norway wants.
-      // I have no idea on how different markets will implement this. But it's 03:40
-      // and I'm not willing to figure that out now.
-
-      // eslint-disable-next-line no-console
-      console.log({ email, ...additionalFields });
+    async (additionalFields) => {
+      // integrate with Apsis API using GCP function
+      if (!process.env.GATSBY_GCP_APSIS_ENDPOINT) {
+        devLog("APSIS API Endpoint is not configured.");
+        return;
+      }
+      try {
+        const source = axios.CancelToken.source();
+        await axios.post(
+          process.env.GATSBY_GCP_APSIS_ENDPOINT,
+          {
+            email,
+            ...additionalFields
+          },
+          {
+            cancelToken: source.token
+          }
+        );
+        setSecondDialogOpen(true);
+      } catch (error) {
+        // TODO : implement DXB-1540, allow user to re-try sign-up
+        devLog(error);
+      }
       setDialogOpen(false);
-      setSecondDialogOpen(true);
     },
     [email]
   );
