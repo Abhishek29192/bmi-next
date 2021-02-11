@@ -10,7 +10,9 @@ import GeolocationButton from "@bmi/geolocation-button";
 import GoogleApi, {
   GeocoderResult as GoogleGeocoderResult,
   Google,
-  LatLngLiteral as GoogleLatLng,
+  LatLngLiteral as GoogleLatLngLiteral,
+  LatLngBounds as GoogleLatLngBounds,
+  LatLngBoundsLiteral as GoogleLatLngBoundsLiteral,
   loadGoogleApi,
   MarkerOptionsWithId
 } from "@bmi/google-api";
@@ -94,7 +96,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     roofers || []
   );
   const [selectedRoofer, setSelectedRoofer] = useState<string>(null);
-  const [activePosition, setActivePosition] = useState<GoogleLatLng>(null);
+  const [centre, setCentre] = useState<GoogleLatLngLiteral>(initialMapCenter);
+  const [bounds, setBounds] = useState<
+    GoogleLatLngBounds | GoogleLatLngBoundsLiteral
+  >(initialMapBounds);
+  const [zoom, setZoom] = useState<number>(5);
   const [activeSearchString, setActiveSearchString] = useState<string>("");
   const [rooferPopup, setRooferPopup] = useState<RooferData>(null);
   const [markers, setMarkers] = useState(
@@ -146,7 +152,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       return;
     }
 
-    setActivePosition({
+    setBounds(location.geometry.viewport);
+    setCentre({
       lat: location.geometry.location.lat(),
       lng: location.geometry.location.lng()
     });
@@ -255,12 +262,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               onPlaceChange={handlePlaceChange}
             />
             <GeolocationButton
-              onPosition={({ coords }) =>
-                setActivePosition({
+              onPosition={({ coords }) => {
+                setZoom(coords.accuracy / 10);
+                setCentre({
                   lat: coords.latitude,
                   lng: coords.longitude
-                })
-              }
+                });
+              }}
             >
               {getMicroCopy("findARoofer.geolocationButton")}
             </GeolocationButton>
@@ -327,10 +335,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           >
             <div className={styles["map"]}>
               <GoogleMap
-                center={initialMapCenter}
-                bounds={initialMapBounds}
+                bounds={bounds}
+                center={centre}
                 markers={markers}
                 onMarkerClick={handleMarkerClick}
+                zoom={zoom}
               >
                 {rooferPopup && (
                   <Card>

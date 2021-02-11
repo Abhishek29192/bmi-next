@@ -8,6 +8,7 @@ export type Geocoder = google.maps.Geocoder;
 export type GeocoderRequest = google.maps.GeocoderRequest;
 export type GeocoderResult = google.maps.GeocoderResult;
 export type LatLngLiteral = google.maps.LatLngLiteral;
+export type LatLngBounds = google.maps.LatLngBounds;
 export type LatLngBoundsLiteral = google.maps.LatLngBoundsLiteral;
 export type Map = google.maps.Map;
 export type MapOptions = google.maps.MapOptions;
