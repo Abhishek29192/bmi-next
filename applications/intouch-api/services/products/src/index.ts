@@ -1,21 +1,15 @@
-/* This is an example for the purpose of testing Apollo Server */
-import { ApolloServer } from "apollo-server";
-import { buildFederatedSchema } from "@apollo/federation";
-import { resolvers } from "./resolvers";
-import { typeDefs } from "./schema";
+import express from "express";
+import dotenv from "dotenv";
 
-const server = new ApolloServer({
-  schema: buildFederatedSchema([
-    {
-      typeDefs,
-      resolvers
-    }
-  ]),
-  introspection: true,
-  playground: true
-});
+dotenv.config();
+
+import postgraphile from "../../shared/postgraphile/";
+
+const app = express();
+app.use(postgraphile);
+
 const PORT = process.env.PORT || 4002;
-server.listen({ port: PORT }).then(({ url }) => {
+app.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`🚀 Product service ready at ${url}`);
+  console.log(`🚀 Product service started at http://localhost:${PORT}`);
 });
