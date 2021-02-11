@@ -8,6 +8,7 @@ export type {
   GeocoderRequest,
   GeocoderResult,
   Google,
+  LatLngBoundsLiteral,
   LatLngLiteral,
   Map,
   MapOptions,

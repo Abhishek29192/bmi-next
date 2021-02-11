@@ -44,6 +44,22 @@ export type Data = {
   roofers: RooferData[] | null;
 };
 
+// TODO: dynamically set center and boundaries based on market country
+// Tracked by: https://bmigroup.atlassian.net/browse/DXB-1561
+// Centre for Norway
+const initialMapCenter = {
+  lat: 60.47202399999999,
+  lng: 8.468945999999999
+};
+
+// Bounds for Norway
+const initialMapBounds = {
+  east: 31.3549999,
+  north: 71.30780000000001,
+  south: 57.8097,
+  west: 4.0649
+};
+
 const transformToMarkerData = ({
   id,
   name,
@@ -310,7 +326,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             index="map"
           >
             <div className={styles["map"]}>
-              <GoogleMap markers={markers} onMarkerClick={handleMarkerClick}>
+              <GoogleMap
+                center={initialMapCenter}
+                bounds={initialMapBounds}
+                markers={markers}
+                onMarkerClick={handleMarkerClick}
+              >
                 {rooferPopup && (
                   <Card>
                     <CardHeader
