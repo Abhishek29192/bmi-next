@@ -14,7 +14,7 @@ import GoogleApi, {
   LatLngBounds as GoogleLatLngBounds,
   LatLngBoundsLiteral as GoogleLatLngBoundsLiteral,
   loadGoogleApi,
-  MarkerOptionsWithId
+  MarkerOptionsWithData
 } from "@bmi/google-api";
 import GoogleAutocomplete from "@bmi/google-autocomplete";
 import GoogleMap from "@bmi/google-map";
@@ -62,18 +62,6 @@ const initialMapBounds = {
   west: 4.0649
 };
 
-const activeMarkerIcon = {
-  icon: {
-    path:
-      "M16,0A12,12,0,0,0,4,12C4,23,16,32,16,32s12-9,12-20A12,12,0,0,0,16,0Zm0,17a5,5,0,1,1,5-5A5,5,0,0,1,16,17Z",
-    fillColor: "#005b8c",
-    fillOpacity: 1,
-    strokeColor: "#fff",
-    strokeWeight: 1,
-    scale: 1.3
-  }
-};
-
 const initialActiveFilters = RooferTypes.reduce(
   (carry, key) => ({ ...carry, [key]: true }),
   {}
@@ -106,14 +94,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const markers = useMemo(
     () =>
       filteredRoofers.map(
-        ({ id, name, location }: RooferData): MarkerOptionsWithId => ({
+        ({ id, name, location }: RooferData): MarkerOptionsWithData => ({
           id,
           title: name,
           position: {
             lat: location.lat,
             lng: location.lon
           },
-          ...(id === selectedRoofer ? { icon: activeMarkerIcon.icon } : {})
+          isActive: id === selectedRoofer
         })
       ),
     [selectedRoofer, filteredRoofers]

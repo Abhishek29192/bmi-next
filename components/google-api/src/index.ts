@@ -15,7 +15,7 @@ export type {
   MapOptions,
   Marker,
   MarkerOptions,
-  MarkerOptionsWithId,
+  MarkerOptionsWithData,
   Point
 } from "./GoogleApi";
 

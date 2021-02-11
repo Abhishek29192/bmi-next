@@ -5,7 +5,7 @@ import GoogleApi, {
   Map,
   MapOptions,
   Marker,
-  MarkerOptionsWithId
+  MarkerOptionsWithData
 } from "@bmi/google-api";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React, {
@@ -20,7 +20,7 @@ import styles from "./GoogleMap.module.scss";
 type Props = MapOptions & {
   bounds?: LatLngBounds | LatLngBoundsLiteral;
   children?: ReactNode;
-  markers?: MarkerOptionsWithId[];
+  markers?: MarkerOptionsWithData[];
   onMarkerClick?: (
     id: string,
     marker: Marker,
@@ -52,18 +52,31 @@ const GoogleMap = ({
   const googleMarkers = useRef<Marker[]>([]);
   const mapElement = useRef<HTMLDivElement>();
 
-  const createGoogleMarker = ({ id, ...options }: MarkerOptionsWithId) => {
+  const createGoogleMarker = ({
+    id,
+    isActive,
+    ...options
+  }: MarkerOptionsWithData) => {
+    const defaultIcon = {
+      path:
+        "M16,0A12,12,0,0,0,4,12C4,23,16,32,16,32s12-9,12-20A12,12,0,0,0,16,0Zm0,17a5,5,0,1,1,5-5A5,5,0,0,1,16,17Z",
+      fillColor: "#0072b0",
+      fillOpacity: 1,
+      strokeColor: "#fff",
+      strokeWeight: 1,
+      anchor: new google.maps.Point(13, 34),
+      labelOrigin: new google.maps.Point(66, 17)
+    };
+
+    const activeIcon = {
+      ...defaultIcon,
+      fillColor: "#005b8c",
+      scale: 1.5
+    };
+
     const googleMarker = new google.maps.Marker({
       map: googleMap.current,
-      icon: {
-        path:
-          "M16,0A12,12,0,0,0,4,12C4,23,16,32,16,32s12-9,12-20A12,12,0,0,0,16,0Zm0,17a5,5,0,1,1,5-5A5,5,0,0,1,16,17Z",
-        fillColor: "#0072b0",
-        fillOpacity: 1,
-        strokeColor: "#fff",
-        strokeWeight: 1,
-        labelOrigin: new google.maps.Point(66, 17)
-      },
+      icon: isActive ? activeIcon : defaultIcon,
       label: {
         text: options.title,
         fontSize: "14px",
