@@ -1,6 +1,6 @@
-import Card from "@bmi/card";
 import GoogleApi, {
   Google,
+  LatLngBounds,
   LatLngBoundsLiteral,
   Map,
   MapOptions,
@@ -18,7 +18,7 @@ import React, {
 import styles from "./GoogleMap.module.scss";
 
 type Props = MapOptions & {
-  bounds?: LatLngBoundsLiteral;
+  bounds?: LatLngBounds | LatLngBoundsLiteral;
   children?: ReactNode;
   markers?: MarkerOptionsWithId[];
   onMarkerClick?: (
