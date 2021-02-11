@@ -14,7 +14,7 @@ import GoogleApi, {
   LatLngBounds as GoogleLatLngBounds,
   LatLngBoundsLiteral as GoogleLatLngBoundsLiteral,
   loadGoogleApi,
-  MarkerOptionsWithId
+  MarkerOptionsWithData
 } from "@bmi/google-api";
 import GoogleAutocomplete from "@bmi/google-autocomplete";
 import GoogleMap from "@bmi/google-map";
@@ -62,19 +62,6 @@ const initialMapBounds = {
   west: 4.0649
 };
 
-const transformToMarkerData = ({
-  id,
-  name,
-  location
-}): MarkerOptionsWithId => ({
-  title: name,
-  position: {
-    lat: location.lat,
-    lng: location.lon
-  },
-  id
-});
-
 const initialActiveFilters = RooferTypes.reduce(
   (carry, key) => ({ ...carry, [key]: true }),
   {}
@@ -103,9 +90,23 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const [zoom, setZoom] = useState<number>(5);
   const [activeSearchString, setActiveSearchString] = useState<string>("");
   const [rooferPopup, setRooferPopup] = useState<RooferData>(null);
-  const [markers, setMarkers] = useState(
-    filteredRoofers.map(transformToMarkerData)
+
+  const markers = useMemo(
+    () =>
+      filteredRoofers.map(
+        ({ id, name, location }: RooferData): MarkerOptionsWithData => ({
+          id,
+          title: name,
+          position: {
+            lat: location.lat,
+            lng: location.lon
+          },
+          isActive: id === selectedRoofer
+        })
+      ),
+    [selectedRoofer, filteredRoofers]
   );
+
   const [activeFilters, updateActiveFilters] = useReducer(
     activeFilterReducer,
     initialActiveFilters
@@ -124,10 +125,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   useEffect(() => {
     setFilteredRoofers(filterRoofers);
   }, [activeFilters, activeSearchString]);
-
-  useEffect(() => {
-    setMarkers(filteredRoofers.map(transformToMarkerData));
-  }, [filteredRoofers]);
 
   const typeFilter = (type: RooferType[]) =>
     type ? type.some((filter) => activeFilters[filter as RooferType]) : true;
@@ -163,6 +160,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     const clickedRoofer = roofers.find((roofer) => roofer.id === id);
 
     setRooferPopup(clickedRoofer);
+    setSelectedRoofer(id);
   };
 
   const handleCloseRooferPopup = () => setRooferPopup(null);
