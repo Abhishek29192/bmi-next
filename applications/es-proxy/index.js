@@ -14,7 +14,7 @@ var port = Number(process.env.PORT || 3000);
 var apiServerHost = process.env.ES_HOST;
 
 // Listen for requests on all endpoints
-app.use("/", function (req, res, body) {
+app.use("/", (req, res) => {
   // short-circuit favicon requests for easier debugging
   if (req.url != "/favicon.ico") {
     console.log("req.method: " + req.method);
@@ -47,7 +47,7 @@ app.use("/", function (req, res, body) {
             },
             rejectUnauthorized: false
           },
-          function (err, res, body) {
+          () => {
             // you could do something here before returning the response
           }
         )
