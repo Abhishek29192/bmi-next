@@ -1,12 +1,8 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
-import { config } from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-
-config({
-  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
-});
+import { Environment } from "contentful-management/dist/typings/entities/environment";
 
 const {
   CONTENTFUL_ENVIRONMENT,
@@ -14,11 +10,14 @@ const {
   SENDGRID_API_KEY_SECRET,
   SENDGRID_FROM_EMAIL,
   CONTENTFUL_MANAGEMENT_TOKEN_SECRET,
-  SECRET_MAN_GCP_PROJECT_NAME
+  SECRET_MAN_GCP_PROJECT_NAME,
+  RECAPTCHA_SECRET_KEY,
+  RECAPTCHA_MINIMUM_SCORE
 } = process.env;
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
 
-let contentfulEnvironmentCache;
-let sendGridClientCache;
+let contentfulEnvironmentCache: Environment;
+let sendGridClientCache: MailService;
 const secretManagerClient = new SecretManagerServiceClient();
 
 const getContentfulEnvironment = async () => {
@@ -40,10 +39,10 @@ const getContentfulEnvironment = async () => {
 
 const getSendGridClient = async () => {
   if (!sendGridClientCache) {
-    const apikKeySecret = await secretManagerClient.accessSecretVersion({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${SENDGRID_API_KEY_SECRET}/versions/latest`
+    const apiKeySecret = await secretManagerClient.accessSecretVersion({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${SENDGRID_API_KEY_SECRET}/versions/latest`
     });
-    const apiKey = apikKeySecret[0].payload.data.toString();
+    const apiKey = apiKeySecret[0].payload.data.toString();
     sendGridClientCache = new MailService();
     sendGridClientCache.setApiKey(apiKey);
   }
@@ -61,7 +60,12 @@ export const submit: HttpFunction = async (request, response) => {
     return response.status(204).send("");
   } else {
     try {
-      const environment = await getContentfulEnvironment();
+      if (!request.body) {
+        // eslint-disable-next-line no-console
+        console.error("Invalid request.");
+        return response.status(400).send(Error("Invalid request."));
+      }
+
       const {
         body: {
           locale,
@@ -71,8 +75,42 @@ export const submit: HttpFunction = async (request, response) => {
       } = request;
 
       if (!fields || !Object.entries(fields).length) {
-        throw Error("Fields are empty");
+        return response.status(400).send(Error("Fields are empty."));
       }
+
+      if (!request.headers["X-Recaptcha-Token"]) {
+        // eslint-disable-next-line no-console
+        console.error("Token not provided.");
+        return response.status(400).send(Error("Token not provided."));
+      }
+
+      try {
+        const recaptchaResponse = await fetch(
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${request.headers["X-Recaptcha-Token"]}`,
+          { method: "POST" }
+        );
+        if (!recaptchaResponse.ok) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Recaptcha check failed with status ${recaptchaResponse.status}.`
+          );
+          return response.status(400).send(Error("Recaptcha check failed."));
+        }
+        const json = await recaptchaResponse.json();
+        if (!json.success || json.score < minimumScore) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Recaptcha check failed with error ${JSON.stringify(json)}.`
+          );
+          return response.status(400).send(Error("Recaptcha check failed."));
+        }
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(`Recaptcha request failed with error ${error}.`);
+        return response.status(500).send(Error("Recaptcha request failed."));
+      }
+
+      const environment = await getContentfulEnvironment();
 
       const assets: Array<any> =
         files && files.length
@@ -110,7 +148,7 @@ export const submit: HttpFunction = async (request, response) => {
         .join("")}</ul>`;
 
       const sendgridClient = await getSendGridClient();
-      const email = await sendgridClient.send({
+      await sendgridClient.send({
         to: recipients,
         from: SENDGRID_FROM_EMAIL,
         subject: "Website form submission",
@@ -118,9 +156,11 @@ export const submit: HttpFunction = async (request, response) => {
         html
       });
 
-      return response.send({ assets, email });
+      return response.sendStatus(200);
     } catch (error) {
-      return response.status(500).send(error);
+      // eslint-disable-next-line no-console
+      console.error(error);
+      return response.sendStatus(500);
     }
   }
 };

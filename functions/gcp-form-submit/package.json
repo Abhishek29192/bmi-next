@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && functions-framework --source=dist --target=submit --port=5817",
+    "dev": "tsc && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=submit --port=5817",
     "deploy": "tsc && gcloud functions deploy form-submit --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=5 --region=europe-west3 --entry-point=submit --env-vars-file=env.yaml"
   },
   "dependencies": {
@@ -15,6 +15,10 @@
     "@google-cloud/secret-manager": "^3.4.0",
     "@sendgrid/mail": "^7.4.0",
     "contentful-management": "^6.1.2",
-    "dotenv": "^8.2.0"
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "js-yaml": "^4.0.0"
   }
 }

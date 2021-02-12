@@ -1,15 +1,18 @@
-import { readFileSync } from "fs";
 import { IncomingHttpHeaders } from "http";
 import { Request, Response } from "express";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
 import fetchMock from "jest-fetch-mock";
 
-const resourcesBasePath = "functions/gcp-upload-file/src/__tests__/resources";
 const validToken = "valid-token";
+const locale = "nb-NO";
 
 const mockRequest = (
-  body: Buffer | Object = readFileSync(`${resourcesBasePath}/blank.jpeg`),
+  body: Object = {
+    locale: locale,
+    recipients: "email@email.com",
+    values: { files: ["path/to/file"], a: "b" }
+  },
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
 ): Partial<Request> => {
   return {
@@ -45,17 +48,31 @@ jest.mock("@google-cloud/secret-manager", () => {
 
 const getSpace = jest.fn();
 const getEnvironment = jest.fn();
-const createUpload = jest.fn();
-getSpace.mockImplementation(() => ({
-  getEnvironment: getEnvironment
-}));
-getEnvironment.mockImplementation(() => ({ createUpload: createUpload }));
+const createAsset = jest.fn();
+const processForAllLocales = jest.fn();
+processForAllLocales.mockResolvedValue({
+  fields: { file: { [locale]: { url: "https://localhost" } } }
+});
+createAsset.mockResolvedValue({ processForAllLocales: processForAllLocales });
+getEnvironment.mockResolvedValue({ createAsset: createAsset });
+getSpace.mockResolvedValue({ getEnvironment: getEnvironment });
 jest.mock("contentful-management", () => ({
   createClient: () => ({
     getSpace: getSpace
   })
 }));
-let upload;
+
+const setApiKey = jest.fn();
+const send = jest.fn();
+jest.mock("@sendgrid/mail", () => {
+  const mMailService = jest.fn(() => ({
+    setApiKey: setApiKey,
+    send: send
+  }));
+  return { MailService: mMailService };
+});
+
+let submit;
 
 beforeAll(() => {
   mockConsole();
@@ -64,8 +81,9 @@ beforeAll(() => {
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
+  fetchMock.resetMocks();
   const index = require("../index");
-  upload = index.upload;
+  submit = index.submit;
 });
 
 describe("Making an OPTIONS request as part of CORS", () => {
@@ -75,12 +93,13 @@ describe("Making an OPTIONS request as part of CORS", () => {
     };
     const res = mockResponse();
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "POST");
     expect(res.set).toBeCalledWith(
@@ -96,37 +115,64 @@ describe("Making an OPTIONS request as part of CORS", () => {
 describe("Making a POST request", () => {
   it("returns status code 400 when the token is missing", async () => {
     const req = mockRequest(
-      readFileSync(`${resourcesBasePath}/blank.jpeg`),
+      {
+        locale: "no",
+        recipients: "email@email.com",
+        values: { files: [], a: "b" }
+      },
       {}
     );
     const res = mockResponse();
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Token not provided."));
   });
 
-  it("returns status code 400 when the body is not a Buffer", async () => {
-    const req = mockRequest({});
+  it("returns status code 400 when the body is not provided", async () => {
+    const req = {
+      method: "POST",
+      headers: { "X-Recaptcha-Token": validToken }
+    };
     const res = mockResponse();
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(
-      Error("Endpoint only accepts file buffers")
-    );
+    expect(res.send).toBeCalledWith(Error("Invalid request."));
+  });
+
+  it("returns status code 400 when the body has no 'fields'", async () => {
+    const req = mockRequest({
+      locale: "no",
+      recipients: "email@email.com",
+      values: { files: [] }
+    });
+    const res = mockResponse();
+
+    await submit(req, res);
+
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Fields are empty."));
   });
 
   it("returns status code 500 when the recaptcha request fails", async () => {
@@ -135,7 +181,7 @@ describe("Making a POST request", () => {
 
     fetchMock.mockRejectOnce();
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -146,7 +192,8 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(500);
     expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
@@ -158,7 +205,7 @@ describe("Making a POST request", () => {
 
     fetchMock.mockResponse("{}", { status: 400 });
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -169,7 +216,8 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
@@ -186,7 +234,7 @@ describe("Making a POST request", () => {
       })
     );
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -197,7 +245,8 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
@@ -214,7 +263,7 @@ describe("Making a POST request", () => {
       })
     );
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -225,16 +274,24 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
   });
 
   it("returns status code 400 when the token is invalid", async () => {
-    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpeg`), {
-      "X-Recaptcha-Token": "invalid-token"
-    });
+    const req = mockRequest(
+      {
+        locale: "nb-NO",
+        recipients: "email@email.com",
+        values: { files: [], a: "b" }
+      },
+      {
+        "X-Recaptcha-Token": "invalid-token"
+      }
+    );
     const res = mockResponse();
 
     fetchMock.mockResponse(
@@ -244,7 +301,7 @@ describe("Making a POST request", () => {
       })
     );
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -255,70 +312,11 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledTimes(0);
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
-  });
-
-  it("returns status code 406 when the type of file to be uploaded is not allowed", async () => {
-    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.gif`));
-    const res = mockResponse();
-
-    fetchMock.mockResponse(
-      JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    );
-
-    await upload(req, res);
-
-    expect(
-      fetchMock
-    ).toBeCalledWith(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(accessSecretVersion).toBeCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(406);
-    expect(res.send).toBeCalledWith(
-      Error(`Cannot upload files of type image/gif`)
-    );
-  });
-
-  it("returns status code 406 when the type of file to be uploaded is not allowed, even if filename is valid", async () => {
-    const req = mockRequest(readFileSync(`${resourcesBasePath}/not-png.png`));
-    const res = mockResponse();
-
-    fetchMock.mockResponse(
-      JSON.stringify({
-        success: true,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    );
-
-    await upload(req, res);
-
-    expect(
-      fetchMock
-    ).toBeCalledWith(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
-      { method: "POST" }
-    );
-    expect(accessSecretVersion).toBeCalledTimes(0);
-    expect(getSpace).toBeCalledTimes(0);
-    expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(406);
-    expect(res.send).toBeCalledWith(
-      Error(`Cannot upload files of type undefined`)
-    );
   });
 
   it("returns status code 500 when an error is returned from Secret Manager", async () => {
@@ -336,7 +334,7 @@ describe("Making a POST request", () => {
       throw new Error("Expected Error");
     });
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -349,7 +347,8 @@ describe("Making a POST request", () => {
     });
     expect(getSpace).toBeCalledTimes(0);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -369,7 +368,7 @@ describe("Making a POST request", () => {
       throw new Error("Expected Error");
     });
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -382,7 +381,8 @@ describe("Making a POST request", () => {
     });
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledTimes(0);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -402,7 +402,7 @@ describe("Making a POST request", () => {
       throw new Error("Expected Error");
     });
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -415,28 +415,27 @@ describe("Making a POST request", () => {
     });
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(createUpload).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
 
-  it("returns upload status from request to Contentful for pdf", async () => {
-    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.pdf`));
+  it("returns status code 500 when creating the asset in Contentful fails", async () => {
+    const req = mockRequest();
     const res = mockResponse();
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses({
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
-    const uploadResponse = {
-      expected: "response"
-    };
-    createUpload.mockResolvedValueOnce(uploadResponse);
+    createAsset.mockRejectedValueOnce(Error("Expected Error"));
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -449,13 +448,23 @@ describe("Making a POST request", () => {
     });
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.send).toBeCalledWith(uploadResponse);
+    expect(res.sendStatus).toBeCalledWith(500);
   });
 
-  it("returns upload status from request to Contentful for jpg", async () => {
-    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpg`));
+  it("returns status code 500 when processing the asset in Contentful for all locales fails", async () => {
+    const req = mockRequest();
     const res = mockResponse();
 
     fetchMock.mockResponse(
@@ -465,12 +474,9 @@ describe("Making a POST request", () => {
       })
     );
 
-    const uploadResponse = {
-      expected: "response"
-    };
-    createUpload.mockResolvedValueOnce(uploadResponse);
+    processForAllLocales.mockRejectedValueOnce(Error("Expected Error"));
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -483,13 +489,23 @@ describe("Making a POST request", () => {
     });
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(1);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.send).toBeCalledWith(uploadResponse);
+    expect(res.sendStatus).toBeCalledWith(500);
   });
 
-  it("returns upload status from request to Contentful for jpeg", async () => {
-    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpeg`));
+  it("returns status code 500 when getting the sendGrid secret key fails", async () => {
+    const req = mockRequest();
     const res = mockResponse();
 
     fetchMock.mockResponse(
@@ -499,12 +515,15 @@ describe("Making a POST request", () => {
       })
     );
 
-    const uploadResponse = {
-      expected: "response"
-    };
-    createUpload.mockResolvedValueOnce(uploadResponse);
+    accessSecretVersion
+      .mockResolvedValueOnce([
+        {
+          payload: { data: "access-token" }
+        }
+      ])
+      .mockRejectedValueOnce(Error("Expected Error"));
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -517,13 +536,27 @@ describe("Making a POST request", () => {
     });
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    expect(setApiKey).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.send).toBeCalledWith(uploadResponse);
+    expect(res.sendStatus).toBeCalledWith(500);
   });
 
-  it("returns upload status from request to Contentful for png", async () => {
-    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.png`));
+  it("returns status code 500 when sending the email request fails", async () => {
+    const req = mockRequest();
     const res = mockResponse();
 
     fetchMock.mockResponse(
@@ -533,12 +566,9 @@ describe("Making a POST request", () => {
       })
     );
 
-    const uploadResponse = {
-      expected: "response"
-    };
-    createUpload.mockResolvedValueOnce(uploadResponse);
+    send.mockRejectedValueOnce(Error("Expected Error"));
 
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -551,13 +581,35 @@ describe("Making a POST request", () => {
     });
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    expect(setApiKey).toBeCalledWith("access-token");
+    expect(send).toBeCalledWith({
+      to: "email@email.com",
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Website form submission",
+      text: JSON.stringify({ a: "b", uploadedAssets: ["https://localhost"] }),
+      html:
+        '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: ["https://localhost"]</li></ul>'
+    });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.send).toBeCalledWith(uploadResponse);
+    expect(res.sendStatus).toBeCalledWith(500);
   });
 
-  it("returns upload status from request to Contentful for png, even if filename is different", async () => {
-    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank-png.txt`));
+  it("returns status 200 when successfully sends email", async () => {
+    const req = mockRequest();
     const res = mockResponse();
 
     fetchMock.mockResponse(
@@ -567,12 +619,7 @@ describe("Making a POST request", () => {
       })
     );
 
-    const uploadResponse = {
-      expected: "response"
-    };
-    createUpload.mockResolvedValueOnce(uploadResponse);
-
-    await upload(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -585,9 +632,130 @@ describe("Making a POST request", () => {
     });
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    expect(setApiKey).toBeCalledWith("access-token");
+    expect(send).toBeCalledWith({
+      to: "email@email.com",
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Website form submission",
+      text: JSON.stringify({ a: "b", uploadedAssets: ["https://localhost"] }),
+      html:
+        '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: ["https://localhost"]</li></ul>'
+    });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.send).toBeCalledWith(uploadResponse);
+    expect(res.sendStatus).toBeCalledWith(200);
+  });
+
+  it("returns status 200 when successfully sends email when there are no files", async () => {
+    const req = mockRequest({
+      locale: locale,
+      recipients: "email@email.com",
+      values: { files: [], a: "b" }
+    });
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    await submit(req, res);
+
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
+    });
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    expect(setApiKey).toBeCalledWith("access-token");
+    expect(send).toBeCalledWith({
+      to: "email@email.com",
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Website form submission",
+      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
+      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
+    });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(200);
+  });
+
+  it("returns status 200 when successfully sends email when the file doesn't have the desired local", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    processForAllLocales.mockResolvedValueOnce({
+      fields: { file: { "en-UK": { url: "https://localhost" } } }
+    });
+
+    await submit(req, res);
+
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
+    });
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    expect(setApiKey).toBeCalledWith("access-token");
+    expect(send).toBeCalledWith({
+      to: "email@email.com",
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Website form submission",
+      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
+      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
+    });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(200);
   });
 
   it("only gets Contentful environment once regardless of number of requests", async () => {
@@ -601,13 +769,8 @@ describe("Making a POST request", () => {
       })
     );
 
-    const uploadResponse = {
-      expected: "response"
-    };
-    createUpload.mockResolvedValueOnce(uploadResponse);
-
-    await upload(req, res);
-    await upload(req, res);
+    await submit(req, res);
+    await submit(req, res);
 
     expect(
       fetchMock
@@ -618,16 +781,58 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
     });
-    expect(accessSecretVersion).toBeCalledTimes(1);
     expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
-    expect(getSpace).toBeCalledTimes(1);
     expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
-    expect(getEnvironment).toBeCalledTimes(1);
-    expect(createUpload).toBeCalledWith({ file: req.body });
-    expect(createUpload).toBeCalledTimes(2);
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(2);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    expect(setApiKey).toBeCalledWith("access-token");
+    expect(send).toBeCalledWith({
+      to: "email@email.com",
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Website form submission",
+      text: JSON.stringify({ a: "b", uploadedAssets: ["https://localhost"] }),
+      html:
+        '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: ["https://localhost"]</li></ul>'
+    });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledTimes(2);
-    expect(res.send).toBeCalledWith(uploadResponse);
-    expect(res.send).toBeCalledTimes(2);
+    expect(res.sendStatus).toBeCalledWith(200);
+    expect(res.sendStatus).toBeCalledTimes(2);
   });
 });
+
+interface MockedResponse {
+  url: string;
+  body: string;
+  status?: number;
+  error?: boolean;
+}
+
+const mockResponses = (...mockedResponses: MockedResponse[]) => {
+  fetchMock.mockResponse((request) => {
+    for (let mockedResponse of mockedResponses) {
+      if (request.url === mockedResponse.url) {
+        if (mockedResponse.error) {
+          return Promise.reject(mockedResponse.body);
+        }
+        return Promise.resolve({
+          body: mockedResponse.body,
+          init: { status: mockedResponse.status }
+        });
+      }
+    }
+    return Promise.reject(new Error(`${request.url} has not been mocked`));
+  });
+};
