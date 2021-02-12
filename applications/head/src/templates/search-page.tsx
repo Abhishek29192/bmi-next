@@ -56,8 +56,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
   const defaultTitle = getMicroCopy("searchPage.title");
 
-  // TODO: rename to queryString or searchQuery to be clearer?
-  const query = useMemo(() => params.get(QUERY_KEY), [params]);
+  const queryString = useMemo(() => params.get(QUERY_KEY), [params]);
   const [tabsLoading, setTabsLoading] = useState({});
   const [areTabsResolved, setAreTabsResolved] = useState(false);
   const [results, setResults] = useState<
@@ -101,15 +100,15 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
   useEffect(() => {
     const getCounts = async () => {
-      if (!query) {
+      if (!queryString) {
         return;
       }
 
       // TODO: Can be put in the config object if arguments are consistent
       const [productsCount, documentsCount, pagesCount] = await Promise.all([
-        getProductsCount(query),
-        getDocumentsCount(query),
-        getPagesCount(query)
+        getProductsCount(queryString),
+        getDocumentsCount(queryString),
+        getPagesCount(queryString)
       ]);
 
       const newResults = {
@@ -142,24 +141,24 @@ const SearchPage = ({ pageContext, data }: Props) => {
     };
 
     getCounts();
-  }, [query]);
+  }, [queryString]);
 
   const hasResults = Object.values(results).some(({ count }) => !!count);
 
   const pageTitle = useMemo(() => {
     // If no query, we can't show a title referring to the query
     // if tabs not resolved yet, we can't conclude what will be the result
-    if (!query || !areTabsResolved) {
+    if (!queryString || !areTabsResolved) {
       return defaultTitle;
     }
 
     // Otherwise, the title depends on if there are results.
     if (hasResults) {
-      return getMicroCopy("searchPage.title.withQuery", { query });
+      return getMicroCopy("searchPage.title.withQuery", { query: queryString });
     } else {
-      return getMicroCopy("searchPage.noResultsTitle", { query });
+      return getMicroCopy("searchPage.noResultsTitle", { query: queryString });
     }
-  }, [query, hasResults, areTabsResolved]);
+  }, [queryString, hasResults, areTabsResolved]);
 
   // If any of the tabs are loading
   const tabIsLoading = Object.values(tabsLoading).some(
@@ -194,7 +193,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
             {hasBeenDisplayed ? (
               <Container>
                 <Component
-                  queryString={query}
+                  queryString={queryString}
                   pageContext={pageContext}
                   onLoadingChange={(isLoading) =>
                     handleTabIsLoading(tabKey, isLoading)
@@ -240,13 +239,13 @@ const SearchPage = ({ pageContext, data }: Props) => {
       <Section backgroundColor="white" isSlim>
         <SearchBlock
           buttonText={
-            query ? getMicroCopy("searchPage.searchText") : defaultTitle
+            queryString ? getMicroCopy("searchPage.searchText") : defaultTitle
           }
           countryCode={countryCode}
           hasResults={hasResults}
           helperText={getMicroCopy("searchPage.helperText")}
           placeholder={getMicroCopy("searchPage.placeholder")}
-          query={query}
+          query={queryString}
           searchPageSearchTips={resources.searchPageSearchTips}
           searchPageSidebarItems={resources.searchPageSidebarItems}
         />
