@@ -52,13 +52,14 @@ const SearchPage = ({ pageContext, data }: Props) => {
     typeof window !== `undefined` ? window.location.search : ""
   );
 
-  const { countryCode, menuNavigation, resources } = contentfulSite;
+  const { countryCode, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
   const defaultTitle = getMicroCopy("searchPage.title");
 
   // TODO: rename to queryString or searchQuery to be clearer?
-  const [query, setQuery] = useState<QueryInput>(params.get(QUERY_KEY));
+  const query = useMemo(() => params.get(QUERY_KEY), [params]);
   const [tabsLoading, setTabsLoading] = useState({});
+  const [areTabsResolved, setAreTabsResolved] = useState(false);
   const [results, setResults] = useState<
     Record<
       "products" | "documents" | "pages",
@@ -137,17 +138,18 @@ const SearchPage = ({ pageContext, data }: Props) => {
       }
 
       setResults(newResults);
+      setAreTabsResolved(true);
     };
 
     getCounts();
   }, [query]);
 
-  const hasResults =
-    Object.values(results).reduce((sum, { count }) => sum + count, 0) > 0;
+  const hasResults = Object.values(results).some(({ count }) => !!count);
 
   const pageTitle = useMemo(() => {
     // If no query, we can't show a title referring to the query
-    if (!query) {
+    // if tabs not resolved yet, we can't conclude what will be the result
+    if (!query || !areTabsResolved) {
       return defaultTitle;
     }
 
@@ -157,7 +159,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
     } else {
       return getMicroCopy("searchPage.noResultsTitle", { query });
     }
-  }, [query, hasResults]);
+  }, [query, hasResults, areTabsResolved]);
 
   // If any of the tabs are loading
   const tabIsLoading = Object.values(tabsLoading).some(
