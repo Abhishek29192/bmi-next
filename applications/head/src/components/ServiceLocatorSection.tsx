@@ -10,9 +10,9 @@ import GeolocationButton from "@bmi/geolocation-button";
 import GoogleApi, {
   GeocoderResult as GoogleGeocoderResult,
   Google,
-  LatLngLiteral as GoogleLatLngLiteral,
   LatLngBounds as GoogleLatLngBounds,
   LatLngBoundsLiteral as GoogleLatLngBoundsLiteral,
+  LatLngLiteral as GoogleLatLngLiteral,
   loadGoogleApi,
   MarkerOptionsWithData
 } from "@bmi/google-api";
@@ -87,7 +87,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     roofers || []
   );
   const [selectedRoofer, setSelectedRoofer] = useState<string>(null);
-  const [centre, setCentre] = useState<GoogleLatLngLiteral>(initialMapCenter);
+  const [centre, setCentre] = useState<GoogleLatLngLiteral>();
   const [bounds, setBounds] = useState<
     GoogleLatLngBounds | GoogleLatLngBoundsLiteral
   >(initialMapBounds);
@@ -351,7 +351,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             <div className={styles["map"]}>
               <GoogleMap
                 bounds={bounds}
-                center={centre}
+                center={centre || initialMapCenter}
                 markers={markers}
                 onMarkerClick={handleMarkerClick}
                 zoom={zoom}
