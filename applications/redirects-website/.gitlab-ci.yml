@@ -1,0 +1,17 @@
+build_redirects_website:
+  stage: build
+  except:
+    refs:
+      - schedules
+  only:
+    changes:
+      - applications/redirects-website/**
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn run build:redirects-website
+  artifacts:
+    paths:
+      - applications/redirects-website/.cache/
+      - applications/redirects-website/public/

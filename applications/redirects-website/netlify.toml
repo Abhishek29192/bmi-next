@@ -5,6 +5,14 @@
   # nothing to build here, this instance is for redirects only
   ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
 
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website run build"
+
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
+
 [build.processing]
   skip_processing = true
 

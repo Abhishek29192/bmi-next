@@ -18,6 +18,7 @@
     "build": "tsc",
     "build:head": "yarn workspace @bmi/head run build",
     "build:frc-website": "yarn workspace @bmi/frc-website run build",
+    "build:redirects-website": "yarn workspace @bmi/redirects-website run build",
     "coverage:components": "yarn test:components --coverage",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "coverage:ts": "typescript-coverage-report",
