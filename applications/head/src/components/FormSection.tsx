@@ -11,10 +11,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
-import {
-  GoogleReCaptchaProvider,
-  GoogleReCaptcha
-} from "react-google-recaptcha-v3";
+import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 import { LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
@@ -180,13 +177,7 @@ const FormSection = ({
   data: Data;
   backgroundColor: "pearl" | "white";
 }) => {
-  const {
-    countryCode,
-    getMicroCopy,
-    node_locale,
-    scriptGRecaptchaId,
-    scriptGRecaptchaNet
-  } = useContext(SiteContext);
+  const { countryCode, getMicroCopy, node_locale } = useContext(SiteContext);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [token, setToken] = useState<string>();
 
@@ -244,44 +235,38 @@ const FormSection = ({
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && <RichText document={description} />}
       {inputs ? (
-        <GoogleReCaptchaProvider
-          reCaptchaKey={scriptGRecaptchaId}
-          useRecaptchaNet={scriptGRecaptchaNet}
-          language={countryCode}
+        <Form
+          onSubmit={handleSubmit}
+          className={styles["Form"]}
+          rightAlignButton
         >
           <GoogleReCaptcha onVerify={setToken} />
-          <Form
-            onSubmit={handleSubmit}
-            className={styles["Form"]}
-            rightAlignButton
-          >
-            <Grid container spacing={3}>
-              {inputs.map(({ width, ...props }, $i) => (
-                <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
-                  <Input token={token} {...props} />
-                </Grid>
-              ))}
-            </Grid>
-            <Form.ButtonWrapper>
-              <Form.SubmitButton
-                endIcon={
-                  isSubmitting ? (
-                    <CircularProgress
-                      size={24}
-                      color="inherit"
-                      style={{ marginLeft: "0.5rem" }}
-                    />
-                  ) : (
-                    <ArrowForwardIcon />
-                  )
-                }
-                disabled={isSubmitting}
-              >
-                {submitText || getMicroCopy("form.submit")}
-              </Form.SubmitButton>
-            </Form.ButtonWrapper>
-          </Form>
-        </GoogleReCaptchaProvider>
+          <Grid container spacing={3}>
+            {inputs.map(({ width, ...props }, $i) => (
+              <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
+                <Input token={token} {...props} />
+              </Grid>
+            ))}
+          </Grid>
+          <Form.ButtonWrapper>
+            <Form.SubmitButton
+              endIcon={
+                isSubmitting ? (
+                  <CircularProgress
+                    size={24}
+                    color="inherit"
+                    style={{ marginLeft: "0.5rem" }}
+                  />
+                ) : (
+                  <ArrowForwardIcon />
+                )
+              }
+              disabled={isSubmitting}
+            >
+              {submitText || getMicroCopy("form.submit")}
+            </Form.SubmitButton>
+          </Form.ButtonWrapper>
+        </Form>
       ) : (
         "Form contains no fields"
       )}
