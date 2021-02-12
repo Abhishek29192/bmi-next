@@ -38,12 +38,16 @@ import { Data as RooferData, RooferType, RooferTypes } from "./Roofer";
 import { SiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
+type Roofer = RooferData & {
+  distance?: number;
+};
+
 export type Data = {
   __typename: "ContentfulServiceLocatorSection";
   title: string;
   label: string;
   body: RichTextData | null;
-  roofers: RooferData[] | null;
+  roofers: Roofer[] | null;
 };
 
 // TODO: dynamically set center and boundaries based on market country
@@ -79,7 +83,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const { label, body, roofers } = data;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
-  const [filteredRoofers, setFilteredRoofers] = useState<RooferData[]>(
+  const [filteredRoofers, setFilteredRoofers] = useState<Roofer[]>(
     roofers || []
   );
   const [selectedRoofer, setSelectedRoofer] = useState<string>(null);
@@ -129,7 +133,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const typeFilter = (type: RooferType[]) =>
     type ? type.some((filter) => activeFilters[filter as RooferType]) : true;
 
-  const filterRoofers = useMemo<RooferData[]>(
+  const filterRoofers = useMemo<Roofer[]>(
     () =>
       (roofers || []).filter(
         ({ type, name }) =>
@@ -140,7 +144,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const handleListCloseClick = () => setSelectedRoofer(null);
 
-  const handleListClick = (roofer: RooferData) => {
+  const handleListClick = (roofer: Roofer) => {
     setSelectedRoofer(roofer.id);
   };
 
@@ -168,7 +172,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const getUrlClickableAction = (url: LinkData["url"]) =>
     getClickableActionFromUrl(null, url, countryCode);
 
-  const getCompanyDetails = (roofer: RooferData): DetailProps[] => {
+  const getCompanyDetails = (roofer: Roofer): DetailProps[] => {
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
     return [
@@ -182,6 +186,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         ),
         label: getMicroCopy("findARoofer.getDirectionsLabel")
       },
+      ...(roofer.distance !== undefined
+        ? [
+            {
+              type: "distance" as "distance",
+              text: `${Math.floor(roofer.distance) / 1000}km`,
+              label: getMicroCopy("findARoofer.distanceLabel")
+            }
+          ]
+        : []),
       ...(roofer.phone
         ? [
             {
