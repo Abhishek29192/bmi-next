@@ -145,15 +145,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const handlePlaceChange = (location: GoogleGeocoderResult) => {
-    if (!location) {
-      return;
-    }
-
-    setBounds(location.geometry.viewport);
-    setCentre({
-      lat: location.geometry.location.lat(),
-      lng: location.geometry.location.lng()
-    });
+    setBounds(location ? location.geometry.viewport : initialMapBounds);
+    setCentre(
+      location
+        ? {
+            lat: location.geometry.location.lat(),
+            lng: location.geometry.location.lng()
+          }
+        : null
+    );
   };
 
   const handleMarkerClick = (id: string) => {
