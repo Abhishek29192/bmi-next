@@ -1,4 +1,4 @@
-import GoogleApi, { loadGoogleApi } from "./GoogleApi";
+import GoogleApi, { computeDistanceBetween, loadGoogleApi } from "./GoogleApi";
 
 export type {
   AutocompletePrediction,
@@ -18,7 +18,6 @@ export type {
   MarkerOptionsWithData,
   Point
 } from "./GoogleApi";
-
-export { loadGoogleApi };
+export { computeDistanceBetween, loadGoogleApi };
 
 export default GoogleApi;

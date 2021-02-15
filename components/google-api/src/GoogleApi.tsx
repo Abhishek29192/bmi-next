@@ -24,6 +24,18 @@ export type Point = google.maps.Point;
 /* global google */
 export type Google = typeof google;
 
+export function computeDistanceBetween(
+  start: LatLngLiteral,
+  end: LatLngLiteral
+) {
+  return start && google
+    ? google.maps.geometry.spherical.computeDistanceBetween(
+        new google.maps.LatLng(start.lat, start.lng),
+        new google.maps.LatLng(end.lat, end.lng)
+      )
+    : undefined;
+}
+
 export function loadGoogleApi(
   apiKey: LoaderOptions["apiKey"],
   libraries: LoaderOptions["libraries"]

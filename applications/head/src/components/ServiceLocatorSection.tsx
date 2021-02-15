@@ -8,11 +8,12 @@ import CompanyDetails, {
 } from "@bmi/company-details";
 import GeolocationButton from "@bmi/geolocation-button";
 import GoogleApi, {
+  computeDistanceBetween,
   GeocoderResult as GoogleGeocoderResult,
   Google,
-  LatLngLiteral as GoogleLatLngLiteral,
   LatLngBounds as GoogleLatLngBounds,
   LatLngBoundsLiteral as GoogleLatLngBoundsLiteral,
+  LatLngLiteral as GoogleLatLngLiteral,
   loadGoogleApi,
   MarkerOptionsWithData
 } from "@bmi/google-api";
@@ -38,12 +39,16 @@ import { Data as RooferData, RooferType, RooferTypes } from "./Roofer";
 import { SiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
+type Roofer = RooferData & {
+  distance?: number;
+};
+
 export type Data = {
   __typename: "ContentfulServiceLocatorSection";
   title: string;
   label: string;
   body: RichTextData | null;
-  roofers: RooferData[] | null;
+  roofers: Roofer[] | null;
 };
 
 // TODO: dynamically set center and boundaries based on market country
@@ -79,17 +84,59 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const { label, body, roofers } = data;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
-  const [filteredRoofers, setFilteredRoofers] = useState<RooferData[]>(
-    roofers || []
-  );
   const [selectedRoofer, setSelectedRoofer] = useState<string>(null);
-  const [centre, setCentre] = useState<GoogleLatLngLiteral>(initialMapCenter);
+  const [centre, setCentre] = useState<GoogleLatLngLiteral>();
   const [bounds, setBounds] = useState<
     GoogleLatLngBounds | GoogleLatLngBoundsLiteral
   >(initialMapBounds);
   const [zoom, setZoom] = useState<number>(5);
   const [activeSearchString, setActiveSearchString] = useState<string>("");
   const [rooferPopup, setRooferPopup] = useState<RooferData>(null);
+  const [activeFilters, updateActiveFilters] = useReducer(
+    activeFilterReducer,
+    initialActiveFilters
+  );
+
+  const initialise = async () => {
+    await loadGoogleApi(process.env.GATSBY_GOOGLE_API_KEY, [
+      "places",
+      "geometry"
+    ]);
+    /* global google */
+    setgoogleApi(typeof google !== "undefined" ? google : null);
+  };
+
+  useEffect(() => {
+    initialise();
+  }, []);
+
+  const filter = ({ type, name }: Roofer) =>
+    (type
+      ? type.some((filter) => activeFilters[filter as RooferType])
+      : true) && name.includes(activeSearchString);
+
+  const filteredRoofers = useMemo<Roofer[]>(
+    () =>
+      (roofers || [])
+        .reduce(
+          (carry, current) =>
+            filter(current)
+              ? [
+                  ...carry,
+                  {
+                    ...current,
+                    distance: computeDistanceBetween(centre, {
+                      lat: current.location.lat,
+                      lng: current.location.lon
+                    })
+                  }
+                ]
+              : carry,
+          []
+        )
+        .sort((rooferA, rooferB) => rooferA.distance - rooferB.distance),
+    [activeFilters, activeSearchString, centre]
+  );
 
   const markers = useMemo(
     () =>
@@ -107,40 +154,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     [selectedRoofer, filteredRoofers]
   );
 
-  const [activeFilters, updateActiveFilters] = useReducer(
-    activeFilterReducer,
-    initialActiveFilters
-  );
-
-  const initialise = async () => {
-    await loadGoogleApi(process.env.GATSBY_GOOGLE_API_KEY, ["places"]);
-    /* global google */
-    setgoogleApi(typeof google !== "undefined" ? google : null);
-  };
-
-  useEffect(() => {
-    initialise();
-  }, []);
-
-  useEffect(() => {
-    setFilteredRoofers(filterRoofers);
-  }, [activeFilters, activeSearchString]);
-
-  const typeFilter = (type: RooferType[]) =>
-    type ? type.some((filter) => activeFilters[filter as RooferType]) : true;
-
-  const filterRoofers = useMemo<RooferData[]>(
-    () =>
-      (roofers || []).filter(
-        ({ type, name }) =>
-          typeFilter(type) && name.includes(activeSearchString)
-      ),
-    [activeFilters, activeSearchString]
-  );
-
   const handleListCloseClick = () => setSelectedRoofer(null);
 
-  const handleListClick = (roofer: RooferData) => {
+  const handleListClick = (roofer: Roofer) => {
     setSelectedRoofer(roofer.id);
   };
 
@@ -168,7 +184,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const getUrlClickableAction = (url: LinkData["url"]) =>
     getClickableActionFromUrl(null, url, countryCode);
 
-  const getCompanyDetails = (roofer: RooferData): DetailProps[] => {
+  const getCompanyDetails = (roofer: Roofer): DetailProps[] => {
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
     return [
@@ -182,6 +198,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         ),
         label: getMicroCopy("findARoofer.getDirectionsLabel")
       },
+      ...(roofer.distance !== undefined
+        ? [
+            {
+              type: "distance" as "distance",
+              text: `${Math.floor(roofer.distance) / 1000}km`,
+              label: getMicroCopy("findARoofer.distanceLabel")
+            }
+          ]
+        : []),
       ...(roofer.phone
         ? [
             {
@@ -338,7 +363,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             <div className={styles["map"]}>
               <GoogleMap
                 bounds={bounds}
-                center={centre}
+                center={centre || initialMapCenter}
                 markers={markers}
                 onMarkerClick={handleMarkerClick}
                 zoom={zoom}
