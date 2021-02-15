@@ -315,7 +315,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 ))
               ) : (
                 <div className={styles["no-results"]}>
-                  <Typography variant="h4">
+                  <Typography
+                    variant="h4"
+                    className={styles["no-results-heading"]}
+                  >
                     {getMicroCopy("findARoofer.noResults.title")}
                   </Typography>
                   <Typography>
