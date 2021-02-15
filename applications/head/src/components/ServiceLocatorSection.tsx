@@ -169,12 +169,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     getClickableActionFromUrl(null, url, countryCode);
 
   const getCompanyDetails = (roofer: RooferData): DetailProps[] => {
+    const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
+
     return [
       {
         type: "cta" as "cta",
         text: getMicroCopy("findARoofer.getDirectionsLabel"),
         action: getUrlClickableAction(
-          `https://www.google.com/maps/dir//${roofer.address}/`
+          `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+            roofer.address
+          )}/`
         ),
         label: getMicroCopy("findARoofer.getDirectionsLabel")
       },
