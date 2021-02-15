@@ -9,7 +9,6 @@ import IconList from "@bmi/icon-list";
 import AnchorLink from "@bmi/anchor-link";
 import OverviewCard from "@bmi/overview-card";
 import Grid from "@bmi/grid";
-import Pagination from "@bmi/pagination";
 import Typography from "@bmi/typography";
 import ColorSwatch from "../components/ColorSwatch";
 import {
@@ -18,6 +17,7 @@ import {
   mapClassificationValues,
   findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
+import ResultsPagination from "../components/ResultsPagination";
 import {
   clearFilterValues,
   ProductFilter,
@@ -369,15 +369,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                         })
                       )}
                     </Grid>
-                  </Grid>
-                </Grid>
-                {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
-                <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
-                  <Grid item xs={12} md={6} lg={9}></Grid>
-                  <Grid item xs={12} md={6} lg={3}>
-                    <Pagination
+                    <ResultsPagination
                       page={page + 1}
-                      onChange={handlePageChange}
+                      onPageChange={handlePageChange}
                       count={pageCount}
                     />
                   </Grid>
