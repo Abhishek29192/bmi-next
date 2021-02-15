@@ -110,7 +110,7 @@ describe("Making a POST request", () => {
     await optInEmailMarketing(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECTRET}/versions/latest`
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);

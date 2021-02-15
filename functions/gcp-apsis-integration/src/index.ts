@@ -13,7 +13,7 @@ config({
 const {
   APSIS_API_BASE_URL,
   APSIS_CLIENT_ID,
-  APSIS_CLIENT_SECTRET,
+  APSIS_CLIENT_SECRET,
   APSIS_TARGET_KEYSPACE,
   APSIS_TARGET_SECTION,
   APSIS_CONSENT_LIST_DESCRIMINATOR,
@@ -32,7 +32,7 @@ const secretManagerClient = new SecretManagerServiceClient();
 const getAuthToken = async () => {
   // get APSIS secret from Secret Manager
   const apsisSecret = await secretManagerClient.accessSecretVersion({
-    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${APSIS_CLIENT_SECTRET}/versions/latest`
+    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${APSIS_CLIENT_SECRET}/versions/latest`
   });
 
   const apsisClientSecret = apsisSecret[0].payload.data.toString();
@@ -209,6 +209,8 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
         return response.sendStatus(500);
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(`APSIS integration Error occured`, error);
       return response.sendStatus(500);
     }
   }
