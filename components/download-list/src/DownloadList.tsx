@@ -4,7 +4,10 @@ import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Tooltip from "@material-ui/core/Tooltip";
-import { GoogleReCaptcha } from "react-google-recaptcha-v3";
+import {
+  GoogleReCaptchaProvider,
+  GoogleReCaptcha
+} from "react-google-recaptcha-v3";
 
 type Context = {
   list: Record<string, any>;
@@ -14,6 +17,7 @@ type Context = {
   remainingSize: number;
   isLoading: boolean;
   setIsLoading: (newIsLoading: boolean) => void;
+  useRecaptcha: boolean;
 };
 
 export const DownloadListContext = createContext<Context>({
@@ -23,7 +27,8 @@ export const DownloadListContext = createContext<Context>({
   count: 0,
   remainingSize: Infinity,
   isLoading: false,
-  setIsLoading: () => {}
+  setIsLoading: () => {},
+  useRecaptcha: false
 });
 
 type DownloadListCheckboxProps = Omit<
@@ -84,9 +89,14 @@ const DownloadListButton = ({
   onClick,
   ...rest
 }: DownloadListButtonProps) => {
-  const { list, count, resetList, isLoading, setIsLoading } = useContext(
-    DownloadListContext
-  );
+  const {
+    list,
+    count,
+    resetList,
+    isLoading,
+    setIsLoading,
+    useRecaptcha
+  } = useContext(DownloadListContext);
   const [token, setToken] = useState<string>();
 
   const handleClick = async () => {
@@ -98,7 +108,7 @@ const DownloadListButton = ({
 
   return (
     <>
-      <GoogleReCaptcha onVerify={setToken} />
+      {useRecaptcha && <GoogleReCaptcha onVerify={setToken} />}
       <Button onClick={handleClick} disabled={isLoading} {...rest}>
         {label.replace("{{count}}", `${count}`)}
         {isLoading && (
@@ -131,9 +141,21 @@ type Props = {
   children: React.ReactNode;
   maxSize?: number;
   onChange?: (list: Context["list"]) => void;
+  useRecaptcha: boolean;
+  scriptGRecaptchaId?: string;
+  scriptGRecaptchaNet?: boolean;
+  language?: string;
 };
 
-const DownloadList = ({ children, onChange, maxSize }: Props) => {
+const DownloadList = ({
+  children,
+  onChange,
+  maxSize,
+  useRecaptcha,
+  scriptGRecaptchaId,
+  scriptGRecaptchaNet,
+  language
+}: Props) => {
   const [list, setList] = useState<Context["list"]>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [size, setSize] = useState<number>(0);
@@ -165,10 +187,20 @@ const DownloadList = ({ children, onChange, maxSize }: Props) => {
         count,
         remainingSize: maxSize - size,
         isLoading,
-        setIsLoading
+        setIsLoading,
+        useRecaptcha
       }}
     >
-      {children}
+      {(useRecaptcha && (
+        <GoogleReCaptchaProvider
+          reCaptchaKey={scriptGRecaptchaId}
+          useRecaptchaNet={scriptGRecaptchaNet}
+          language={language}
+        >
+          {children}
+        </GoogleReCaptchaProvider>
+      )) ||
+        children}
     </DownloadListContext.Provider>
   );
 };

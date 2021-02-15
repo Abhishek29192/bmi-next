@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useContext } from "react";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Pagination from "@bmi/pagination";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import { flatten } from "lodash";
@@ -71,12 +70,7 @@ const DocumentResultsFooter = ({
   onPageChange,
   onDownloadClick
 }: Props) => {
-  const {
-    getMicroCopy,
-    countryCode,
-    scriptGRecaptchaId,
-    scriptGRecaptchaNet
-  } = useContext(SiteContext);
+  const { getMicroCopy } = useContext(SiteContext);
   const { resetList } = useContext(DownloadListContext);
 
   return (
@@ -88,11 +82,7 @@ const DocumentResultsFooter = ({
         className={styles["pagination"]}
       />
       {onDownloadClick && (
-        <GoogleReCaptchaProvider
-          reCaptchaKey={scriptGRecaptchaId}
-          useRecaptchaNet={scriptGRecaptchaNet}
-          language={countryCode}
-        >
+        <>
           <DownloadList.Clear
             label={getMicroCopy("downloadList.clear")}
             className={styles["clear-downloads"]}
@@ -101,7 +91,7 @@ const DocumentResultsFooter = ({
             label={`${getMicroCopy("downloadList.download")} ({{count}})`}
             onClick={(list, token) => onDownloadClick(list, token, resetList)}
           />
-        </GoogleReCaptchaProvider>
+        </>
       )}
     </div>
   );
