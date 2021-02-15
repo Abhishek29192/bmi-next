@@ -47,7 +47,7 @@ describe("Header component", () => {
                   isLabelHidden: null,
                   icon: null,
                   linkedPage: {
-                    slug: "landing-page"
+                    path: "landing-page"
                   }
                 }
               ]
@@ -67,7 +67,7 @@ describe("Header component", () => {
               isLabelHidden: null,
               icon: null,
               linkedPage: {
-                slug: "landing-page"
+                path: "landing-page"
               }
             }
           ]

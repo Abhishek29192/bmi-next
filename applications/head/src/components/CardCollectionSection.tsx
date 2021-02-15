@@ -109,7 +109,7 @@ const transformCard = ({
   } else {
     link = {
       linkedPage: {
-        slug: rest.slug
+        path: rest.path
       }
     };
   }

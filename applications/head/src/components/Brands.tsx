@@ -9,7 +9,7 @@ import { SiteContext } from "./Site";
 
 export type Data = {
   title: string;
-  slug: string;
+  path: string;
   subtitle: string;
   brandLogo: string;
 };
@@ -22,7 +22,7 @@ const Brands = ({ data }: { data: Data[] }) => {
       <Section.Title> {getMicroCopy("homepage.brands")}</Section.Title>
       <Grid container justify="center">
         {data.map((brand, index) => (
-          <Grid item xs={12} md={6} xl={3} key={`${brand.slug}-${index}`}>
+          <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
             <BrandIntroCard
               logoIcon={iconMap[brand.brandLogo]}
               description={brand.subtitle}
@@ -31,7 +31,7 @@ const Brands = ({ data }: { data: Data[] }) => {
               })}
               action={{
                 model: "routerLink",
-                to: brand.slug,
+                to: brand.path,
                 linkComponent: Link
               }}
             />
@@ -47,7 +47,7 @@ export default Brands;
 export const query = graphql`
   fragment BrandFragment on ContentfulBrandLandingPage {
     title
-    slug
+    path
     subtitle
     brandLogo
   }

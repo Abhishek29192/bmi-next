@@ -23,7 +23,7 @@ Object {
 }
 `;
 
-exports[`Icon component getClickableActionFromUrl function returns a Link router to page slug 1`] = `
+exports[`Icon component getClickableActionFromUrl function returns a Link router to page path 1`] = `
 Object {
   "linkComponent": [MockFunction],
   "model": "routerLink",

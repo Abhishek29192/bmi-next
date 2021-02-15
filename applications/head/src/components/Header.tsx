@@ -60,7 +60,7 @@ const parseNavigation = (
       if (linkedPage) {
         action = {
           model: "routerLink",
-          to: `/${countryCode}/${linkedPage.slug}`,
+          to: `/${countryCode}/${linkedPage.path}`,
           linkComponent: Link
         };
       } else if (url) {
