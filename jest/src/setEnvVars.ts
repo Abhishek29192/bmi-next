@@ -6,7 +6,7 @@ process.env.CONTENTFUL_ENVIRONMENT = "TEST_CONTENTFUL_ENVIRONMENT";
 
 process.env.APSIS_API_BASE_URL = "https://api.apsis.one";
 process.env.APSIS_CLIENT_ID = "";
-process.env.APSIS_CLIENT_SECTRET = "";
+process.env.APSIS_CLIENT_SECRET = "";
 
 process.env.APSIS_TARGET_SECTION = "usercreated.sections.fulq3a5aou";
 process.env.APSIS_TARGET_KEYSPACE = "com.keyspaces.email";
