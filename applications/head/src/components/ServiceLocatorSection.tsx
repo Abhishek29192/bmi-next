@@ -276,6 +276,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               onChange={(_, inputValue) => {
                 setActiveSearchString(inputValue || "");
               }}
+              filterOptions={(options, { inputValue }) => {
+                if (inputValue.length < 3) {
+                  return [];
+                }
+
+                return options.filter((option) =>
+                  option.toLowerCase().includes(inputValue.toLowerCase())
+                );
+              }}
               options={(roofers || []).map(({ name }) => name)}
             />
             <Typography className={styles["and-or-label"]}>
