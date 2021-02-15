@@ -126,7 +126,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     });
   };
 
-  const [filters, setFilters] = useState(resolveFilters(data.productFilters));
+  const resolvedFilters = useMemo(() => resolveFilters(data.productFilters), [
+    data.productFilters
+  ]);
+  const [filters, setFilters] = useState(resolvedFilters);
 
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
