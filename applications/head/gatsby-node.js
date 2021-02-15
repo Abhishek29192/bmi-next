@@ -244,6 +244,14 @@ exports.createPages = async ({ graphql, actions }) => {
         siteId: site.id
       }
     });
+
+    createPage({
+      path: `/${site.countryCode}/sitemap`,
+      component: path.resolve("./src/templates/sitemap.tsx"),
+      context: {
+        siteId: site.id
+      }
+    });
   });
 };
 
