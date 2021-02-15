@@ -977,7 +977,7 @@ HTMLCollection [
                   class="no-results"
                 >
                   <h4
-                    class="MuiTypography-root Typography MuiTypography-h4"
+                    class="MuiTypography-root no-results-heading Typography MuiTypography-h4"
                   >
                     findARoofer.noResults.title
                   </h4>
