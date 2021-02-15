@@ -122,6 +122,23 @@ exports[`Footer component renders correctly 1`] = `
               />
             </a>
           </li>
+          <li
+            class="list-item"
+          >
+            <a
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+              href="/uk/sitemap"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                global.sitemap
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </li>
         </ul>
         <div
           class="standard-logo"
