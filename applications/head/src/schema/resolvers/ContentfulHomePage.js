@@ -6,6 +6,11 @@ module.exports = {
       return "/";
     }
   },
+  path: {
+    resolve() {
+      return "/";
+    }
+  },
   brands: {
     type: ["ContentfulBrandLandingPage"],
     async resolve(source, args, context) {
