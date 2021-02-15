@@ -1,6 +1,4 @@
-import React from "react";
 import { uniqBy, map } from "lodash";
-import ColorSwatch from "../components/ColorSwatch";
 import { Product, Category } from "../templates/product-details-page";
 import { Data as DocumentResultsData } from "../components/DocumentResults";
 import { Data as PIMDocumentData } from "../components/PIMDocument";
@@ -10,6 +8,15 @@ import {
   mapProductClassifications,
   ProductCategoryTree
 } from "./product-details-transforms";
+
+export type ProductFilter = {
+  label: string;
+  name: string;
+  options: ReadonlyArray<{
+    label: string;
+    value: string;
+  }>;
+};
 
 export const isPIMDocument = (
   item: DocumentResultsData[0]
@@ -125,7 +132,7 @@ const getProductFamilyFilter = (
   products: readonly Pick<Product, "categories">[]
 ) => {
   const allFamilyCategories = uniqBy(
-    products.reduce((allCategories, product) => {
+    products.reduce<Category[]>((allCategories, product) => {
       const productFamilyCategories = (product.categories || []).filter(
         ({ categoryType }) => categoryType === "ProductFamily"
       );
@@ -167,7 +174,7 @@ const getColorFilter = (
 
       return [
         ...allColors,
-        ...Object.values(productClassifications).map((classifications: any) => {
+        ...Object.values(productClassifications).map((classifications) => {
           return classifications.colourfamily;
         })
       ];
@@ -189,12 +196,7 @@ const getColorFilter = (
     options: values
       .sort(sortAlphabeticallyBy("value"))
       .map(({ code, value }) => ({
-        label: (
-          <>
-            <ColorSwatch colorCode={code} />
-            {value}
-          </>
-        ),
+        label: value,
         value: code
       }))
   };
@@ -223,7 +225,7 @@ const getTextureFilter = (
 
       return [
         ...allTextures,
-        ...Object.values(productClassifications).map((classifications: any) => {
+        ...Object.values(productClassifications).map((classifications) => {
           return classifications.texturefamily;
         })
       ];

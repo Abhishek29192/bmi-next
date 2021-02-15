@@ -1,5 +1,8 @@
 "use strict";
 
+// Enables requiring .ts files
+require("ts-node").register();
+
 const path = require("path");
 const fs = require("fs");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
@@ -9,6 +12,9 @@ require("graphql-import-node");
 const jsonfile = require("jsonfile");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
+const {
+  generateDigestFromData
+} = require("./src/schema/resolvers/utils/encryption");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -233,7 +239,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("./src/templates/search-page.tsx"),
       context: {
         siteId: site.id,
-        countryCode: site.countryCode
+        countryCode: site.countryCode,
+        pimClassificationCatalogueNamespace
       }
     });
 
@@ -271,4 +278,26 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createResolvers = ({ createResolvers }) => {
   createResolvers(resolvers);
+};
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNode } = actions;
+
+  if (node.internal.type === "Products") {
+    (node.categories || []).forEach((category) => {
+      createNode({
+        ...category,
+
+        // Required fields.
+        id: `product-category-${category.code}`,
+        parent: null, // or null if it's a source node without a parent
+        children: [],
+        internal: {
+          type: `ProductCategory`,
+          contentDigest: generateDigestFromData(category),
+          description: `PIM Product Category`
+        }
+      });
+    });
+  }
 };

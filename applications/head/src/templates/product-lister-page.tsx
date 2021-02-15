@@ -11,6 +11,7 @@ import OverviewCard from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Pagination from "@bmi/pagination";
 import Typography from "@bmi/typography";
+import ColorSwatch from "../components/ColorSwatch";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -19,7 +20,7 @@ import {
 } from "../utils/product-details-transforms";
 import {
   clearFilterValues,
-  getFilters,
+  ProductFilter,
   updateFilterValue
 } from "../utils/filters";
 import Scrim from "../components/Scrim";
@@ -67,9 +68,7 @@ type Props = {
   data: {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
-    allProducts: {
-      nodes: ReadonlyArray<Product>;
-    };
+    productFilters: ReadonlyArray<ProductFilter>;
   };
 };
 
@@ -101,7 +100,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     3
   ) || 1) as 1 | 2 | 3;
   // TODO: Ignoring gatsby data for now as fetching with ES
-  // const { nodes: initialProducts } = data.allProducts;
   const initialProducts = [];
 
   const [isLoading, setIsLoading] = useState(false);
@@ -109,28 +107,27 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const resultsElement = useRef<HTMLDivElement>(null);
 
-  const pageCategory = useMemo(() => {
-    for (let i = 0; i < data.allProducts.nodes.length; i++) {
-      const { categories } = data.allProducts.nodes[i];
-
-      const category = (categories || []).find(
-        ({ code }) => code === pageContext.categoryCode
-      );
-
-      if (category) {
-        return category;
+  // map colour filter values to specific colour swatch representation for PLP
+  const resolveFilters = (filters) => {
+    return filters.map((filter) => {
+      if (filter.name === "colour") {
+        filter.options = filter.options.map((option) => ({
+          ...option,
+          label: (
+            <>
+              <ColorSwatch colorCode={option.value} />
+              {option.label}
+            </>
+          )
+        }));
       }
-    }
-  }, [data.allProducts.nodes]);
-  const [filters, setFilters] = useState(
-    pageCategory
-      ? getFilters(
-          pageContext.pimClassificationCatalogueNamespace,
-          data.allProducts.nodes,
-          pageCategory
-        )
-      : []
-  );
+
+      return filter;
+    });
+  };
+
+  const [filters, setFilters] = useState(resolveFilters(data.productFilters));
+
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
@@ -411,6 +408,7 @@ export const pageQuery = graphql`
     $pageId: String!
     $siteId: String!
     $categoryCode: String!
+    $pimClassificationCatalogueNamespace: String!
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
       ...PageInfoFragment
@@ -426,64 +424,15 @@ export const pageQuery = graphql`
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
-    allProducts(
-      filter: { categories: { elemMatch: { code: { eq: $categoryCode } } } }
+    productFilters(
+      pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
+      categoryCode: $categoryCode
     ) {
-      nodes {
-        name
-        code
-        categories {
-          categoryType
-          code
-          name
-          parentCategoryCode
-        }
-        images {
-          assetType
-          containerId
-          url
-          format
-        }
-        classifications {
-          name
-          code
-          features {
-            name
-            code
-            featureValues {
-              value
-              code
-            }
-            featureUnit {
-              symbol
-            }
-          }
-        }
-        variantOptions {
-          code
-          shortDescription
-          images {
-            assetType
-            containerId
-            url
-            format
-          }
-          classifications {
-            name
-            code
-            features {
-              name
-              code
-              featureValues {
-                value
-                code
-              }
-              featureUnit {
-                symbol
-              }
-            }
-          }
-        }
+      label
+      name
+      options {
+        label
+        value
       }
     }
   }

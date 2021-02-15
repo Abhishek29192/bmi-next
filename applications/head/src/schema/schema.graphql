@@ -125,6 +125,28 @@ interface ContentfulPage @nodeInterface {
   parentPage: LinkedPage @link(from: "parentPage___NODE")
 }
 
+type FilterOption {
+  "Localised label visible in the UI."
+  label: String!
+
+  "Value of this option."
+  value: String!
+}
+
+"""
+Represents values available to filter products by.
+"""
+type Filter {
+  "Localised label visible in the UI."
+  label: String!
+
+  "Programatic name of the filter."
+  name: String!
+
+  "Available filter options."
+  options: [FilterOption]!
+}
+
 """
 Represents a simple page type, implementing ContentfulPage.
 """
