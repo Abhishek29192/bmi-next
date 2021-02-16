@@ -28,6 +28,7 @@ stages:
   - release
   - deploy
   - dynamic_security
+  - lighthouse_scan
 
 install:
   stage: install
