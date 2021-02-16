@@ -137,24 +137,21 @@ const DownloadListClear = ({ label, ...rest }: DownloadListClearProps) => {
   );
 };
 
+type GoogleRecaptchaProps = GoogleReCaptchaProvider["props"];
+
 type Props = {
   children: React.ReactNode;
   maxSize?: number;
   onChange?: (list: Context["list"]) => void;
-  useRecaptcha: boolean;
-  scriptGRecaptchaId?: string;
-  scriptGRecaptchaNet?: boolean;
-  language?: string;
-};
+  useRecaptcha?: boolean;
+} & GoogleRecaptchaProps;
 
 const DownloadList = ({
   children,
   onChange,
   maxSize,
   useRecaptcha,
-  scriptGRecaptchaId,
-  scriptGRecaptchaNet,
-  language
+  ...reCaptchaProps
 }: Props) => {
   const [list, setList] = useState<Context["list"]>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -191,16 +188,13 @@ const DownloadList = ({
         useRecaptcha
       }}
     >
-      {(useRecaptcha && (
-        <GoogleReCaptchaProvider
-          reCaptchaKey={scriptGRecaptchaId}
-          useRecaptchaNet={scriptGRecaptchaNet}
-          language={language}
-        >
+      {useRecaptcha ? (
+        <GoogleReCaptchaProvider {...reCaptchaProps}>
           {children}
         </GoogleReCaptchaProvider>
-      )) ||
-        children}
+      ) : (
+        children
+      )}
     </DownloadListContext.Provider>
   );
 };

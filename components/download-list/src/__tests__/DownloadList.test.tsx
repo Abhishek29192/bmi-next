@@ -11,8 +11,8 @@ describe("DownloadList component", () => {
       <DownloadList
         onChange={() => {}}
         useRecaptcha={false}
-        scriptGRecaptchaId={"TEST_RECAPTCHA_KEY"}
-        scriptGRecaptchaNet={false}
+        reCaptchaKey={"TEST_RECAPTCHA_KEY"}
+        useRecaptchaNet={false}
         language="en-GB"
       >
         <DownloadList.Checkbox
@@ -32,8 +32,8 @@ describe("DownloadList component", () => {
       <DownloadList
         onChange={() => {}}
         useRecaptcha={true}
-        scriptGRecaptchaId={"TEST_RECAPTCHA_KEY"}
-        scriptGRecaptchaNet={false}
+        reCaptchaKey={"TEST_RECAPTCHA_KEY"}
+        useRecaptchaNet={false}
         language="en-GB"
       >
         <DownloadList.Checkbox
@@ -53,8 +53,8 @@ describe("DownloadList component", () => {
       <DownloadList
         onChange={() => {}}
         useRecaptcha={true}
-        scriptGRecaptchaId={"TEST_RECAPTCHA_KEY"}
-        scriptGRecaptchaNet={true}
+        reCaptchaKey={"TEST_RECAPTCHA_KEY"}
+        useRecaptchaNet={true}
         language="en-GB"
       >
         <DownloadList.Checkbox
@@ -89,7 +89,7 @@ describe("DownloadList component", () => {
     const onClick = jest.fn();
     const label = "Download";
     const { findByText } = render(
-      <DownloadList useRecaptcha={false}>
+      <DownloadList>
         <DownloadList.Checkbox name="id-1" ariaLabel={label} value={true} />
 
         <DownloadList.Button label="Download" onClick={onClick} />
@@ -107,8 +107,8 @@ describe("DownloadList component", () => {
     const { findByText } = render(
       <DownloadList
         useRecaptcha={true}
-        scriptGRecaptchaId={"TEST_RECAPTCHA_KEY"}
-        scriptGRecaptchaNet={false}
+        reCaptchaKey={"TEST_RECAPTCHA_KEY"}
+        useRecaptchaNet={false}
         language="en-GB"
       >
         <DownloadList.Checkbox name="id-1" ariaLabel={label} value={true} />
@@ -126,7 +126,7 @@ describe("DownloadList component", () => {
     const onClick = jest.fn();
     const label = "Clear";
     const { findByText } = render(
-      <DownloadList useRecaptcha={false}>
+      <DownloadList>
         <DownloadList.Checkbox name="id-1" ariaLabel={label} value={true} />
 
         <DownloadList.Clear label="Clear" />
