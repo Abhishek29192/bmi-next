@@ -14,11 +14,13 @@ import { SiteContext, Data as SiteData } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
+import { Data as SEOContentData } from "./SEOContent";
 import styles from "./styles/Page.module.scss";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   inputBanner: InputBannerData | null;
+  seo: SEOContentData | null;
 };
 
 type Props = {
@@ -48,7 +50,7 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
     scriptGRecaptchaNet
   } = siteData;
 
-  const { breadcrumbs, inputBanner } = pageData;
+  const { breadcrumbs, inputBanner, seo } = pageData;
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
@@ -56,9 +58,13 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
     <BmiThemeProvider>
       <Helmet
         htmlAttributes={{ lang: node_locale }}
-        title={title}
+        title={seo?.metaTitle || title}
         defer={false}
       >
+        {seo?.metaDescription && (
+          <meta name="description" content={seo.metaDescription} />
+        )}
+
         {scriptGTM && (
           <script>
             {` <!-- Google Tag Manager -->
@@ -190,6 +196,9 @@ export const query = graphql`
     breadcrumbs
     inputBanner {
       ...InputBannerFragment
+    }
+    seo {
+      ...SEOContentFragment
     }
   }
 `;

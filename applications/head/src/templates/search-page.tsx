@@ -218,7 +218,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   return (
     <Page
       title={pageTitle}
-      pageData={{ breadcrumbs: null, inputBanner: null }}
+      pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={contentfulSite}
       isSearchPage
     >

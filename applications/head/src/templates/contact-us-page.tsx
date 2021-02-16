@@ -49,7 +49,8 @@ const ContactUsPage = ({ data }: Props) => {
     inputBanner,
     locationsTitle,
     locations,
-    breadcrumbs
+    breadcrumbs,
+    seo
   } = data.contentfulContactUsPage;
   const heroProps: HeroItem = {
     title,
@@ -58,7 +59,8 @@ const ContactUsPage = ({ data }: Props) => {
   };
   const pageData: PageData = {
     breadcrumbs,
-    inputBanner
+    inputBanner,
+    seo
   };
 
   return (

@@ -65,7 +65,8 @@ const SimplePage = ({ data }: Props) => {
     exploreBar,
     linkColumns,
     heroType,
-    breadcrumbs
+    breadcrumbs,
+    seo
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
     title,
@@ -93,7 +94,8 @@ const SimplePage = ({ data }: Props) => {
   );
   const pageData: PageData = {
     breadcrumbs,
-    inputBanner: data.contentfulSimplePage.inputBanner
+    inputBanner: data.contentfulSimplePage.inputBanner,
+    seo
   };
 
   return (

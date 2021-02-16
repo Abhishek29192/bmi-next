@@ -116,12 +116,14 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     documents: unsortedDocuments,
     source,
     resultsType,
-    breadcrumbs
+    breadcrumbs,
+    seo
   } = data.contentfulDocumentLibraryPage;
 
   const pageData: PageData = {
     breadcrumbs,
-    inputBanner: data.contentfulDocumentLibraryPage.inputBanner
+    inputBanner: data.contentfulDocumentLibraryPage.inputBanner,
+    seo
   };
 
   const getFilters = (
