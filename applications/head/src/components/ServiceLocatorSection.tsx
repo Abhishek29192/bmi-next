@@ -303,8 +303,17 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     >
       <GoogleApi.Provider value={googleApi}>
         {position > 0 && <Section.Title>{label}</Section.Title>}
-        {body && <RichText document={body} />}
-        <Grid container spacing={3}>
+        {body && (
+          <div className={styles["body"]}>
+            <RichText document={body} />
+          </div>
+        )}
+        <Grid
+          container
+          spacing={3}
+          alignItems="flex-end"
+          className={styles["controls"]}
+        >
           <Grid item xs={12} md={4} className={styles["search"]}>
             <Autocomplete
               size="small"
@@ -353,18 +362,24 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               {getMicroCopy("findARoofer.geolocationButton")}
             </GeolocationButton>
           </Grid>
-          <Grid item xs={12} md={8} className={styles["filters"]}>
-            {getMicroCopy("findARoofer.filtersLabel")}
-            {rooferTypes.map((rooferType, index) => (
-              <Chip
-                key={index}
-                type="selectable"
-                onClick={() => updateActiveFilters(rooferType)}
-                isSelected={activeFilters[rooferType as RooferType]}
-              >
-                {rooferType}
-              </Chip>
-            ))}
+          <Grid item xs={12} md={8}>
+            <div className={styles["filters"]}>
+              <Typography variant="h6">
+                {getMicroCopy("findARoofer.filtersLabel")}
+              </Typography>
+              <div className={styles["chips"]}>
+                {rooferTypes.map((rooferType, index) => (
+                  <Chip
+                    key={index}
+                    type="selectable"
+                    onClick={() => updateActiveFilters(rooferType)}
+                    isSelected={activeFilters[rooferType as RooferType]}
+                  >
+                    {rooferType}
+                  </Chip>
+                ))}
+              </div>
+            </div>
           </Grid>
         </Grid>
         <Tabs

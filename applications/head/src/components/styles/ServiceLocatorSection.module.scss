@@ -1,6 +1,14 @@
 @import "@bmi/styles";
 
 .ServiceLocationSection {
+  .body {
+    margin-bottom: 24px;
+  }
+
+  .controls {
+    margin-bottom: 24px;
+  }
+
   .search {
     margin-bottom: 0;
 
@@ -10,23 +18,32 @@
 
     .and-or-label {
       text-align: center;
+      line-height: 32px;
     }
   }
 
   .filters {
-    align-items: flex-end;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: $breakpoint-lg) {
+      justify-content: flex-end;
+    }
+
+    .chips {
+      margin-left: 19px;
+      margin-bottom: -5px;
+    }
   }
 
   .list {
     height: 100%;
-    margin-top: -24px;
-    max-height: 640px;
+    max-height: calc(100vh - 48px); // Note: minus tab label height.
     overflow: auto;
 
-    @media (min-width: $breakpoint-md) {
-      margin: 0;
+    @media (min-width: $breakpoint-lg) {
+      max-height: 640px;
     }
   }
 
@@ -43,10 +60,9 @@
   }
 
   .map {
-    margin-top: -24px;
     height: calc(100vh - 48px); // Note: minus tab label height.
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       margin: 0 0 0 24px;
       height: 640px;
     }
