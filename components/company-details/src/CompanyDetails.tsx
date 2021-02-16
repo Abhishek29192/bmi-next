@@ -100,10 +100,7 @@ const DetailsItem = (props: DetailProps) => {
         </dt>
         <dd className={styles["description"]}>
           {iconSource ? (
-            <Logo
-              source={iconSource}
-              className={styles[`roofProLevelIcon--${level}`]}
-            />
+            <Logo source={iconSource} className={styles[`roofProLevelIcon`]} />
           ) : (
             <pre style={{ color: "#d6001c" }}>
               Error: Level &quot;{level}&quot; does not exist
