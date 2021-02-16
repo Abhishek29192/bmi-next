@@ -1,19 +1,17 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { createClient } from "contentful-management";
-import { config } from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { fromBuffer } from "file-type";
-
-config({
-  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
-});
 
 const {
   CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE_ID,
   SECRET_MAN_GCP_PROJECT_NAME,
-  CONTENTFUL_MANAGEMENT_TOKEN_SECRET
+  CONTENTFUL_MANAGEMENT_TOKEN_SECRET,
+  RECAPTCHA_SECRET_KEY,
+  RECAPTCHA_MINIMUM_SCORE
 } = process.env;
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
 
 let contentfulEnvironmentCache;
 const secretManagerClient = new SecretManagerServiceClient();
@@ -53,11 +51,43 @@ export const upload: HttpFunction = async (request, response) => {
     return response.status(204).send("");
   } else {
     try {
+      if (!request.headers["X-Recaptcha-Token"]) {
+        // eslint-disable-next-line no-console
+        console.error("Token not provided.");
+        return response.status(400).send(Error("Token not provided."));
+      }
+
       if (!(request.body instanceof Buffer)) {
         const error = Error("Endpoint only accepts file buffers");
         // eslint-disable-next-line no-console
         console.error(error);
         return response.status(400).send(error);
+      }
+
+      try {
+        const recaptchaResponse = await fetch(
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${request.headers["X-Recaptcha-Token"]}`,
+          { method: "POST" }
+        );
+        if (!recaptchaResponse.ok) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Recaptcha check failed with status ${recaptchaResponse.status}.`
+          );
+          return response.status(400).send(Error("Recaptcha check failed."));
+        }
+        const json = await recaptchaResponse.json();
+        if (!json.success || json.score < minimumScore) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Recaptcha check failed with error ${JSON.stringify(json)}.`
+          );
+          return response.status(400).send(Error("Recaptcha check failed."));
+        }
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(`Recaptcha request failed with error ${error}.`);
+        return response.status(500).send(Error("Recaptcha request failed."));
       }
 
       const fileType = await fromBuffer(request.body);

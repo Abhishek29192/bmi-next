@@ -3,6 +3,7 @@
 module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: ["json", "lcov", "text", "text-summary"],
+  coveragePathIgnorePatterns: ["node_modules/", "coverage/", "coverage-ts/"],
   collectCoverageFrom: [
     "**/*.{ts,tsx,js}",
     "!**/node_modules/**",
