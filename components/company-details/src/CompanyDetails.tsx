@@ -10,6 +10,7 @@ import {
   Phone,
   Public
 } from "@material-ui/icons";
+import PerfectScrollbar from "@bmi/perfect-scrollbar";
 import React from "react";
 import styles from "./CompanyDetails.module.scss";
 
@@ -150,7 +151,7 @@ const CompanyDetails = ({ name, details, children }: Props) => {
           {name}
         </Typography>
       )}
-      <div className={styles["scrollableContent"]}>
+      <PerfectScrollbar>
         {details.length ? (
           <dl className={styles["list"]}>
             {details.map((detail, index) => (
@@ -159,7 +160,7 @@ const CompanyDetails = ({ name, details, children }: Props) => {
           </dl>
         ) : null}
         {children}
-      </div>
+      </PerfectScrollbar>
     </div>
   );
 };
