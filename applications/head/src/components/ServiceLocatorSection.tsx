@@ -173,6 +173,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const handleListClick = (roofer: Roofer) => {
     setSelectedRoofer(roofer.id);
+    setRooferPopup(roofer);
   };
 
   const handlePlaceChange = (location: GoogleGeocoderResult) => {
