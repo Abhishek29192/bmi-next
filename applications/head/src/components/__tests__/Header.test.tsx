@@ -11,7 +11,7 @@ describe("Header component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <Header
-        slug="/"
+        activeLabel="Main"
         countryCode="gb"
         navigationData={{
           __typename: "ContentfulNavigation",

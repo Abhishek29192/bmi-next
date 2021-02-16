@@ -46,7 +46,6 @@ const ContactUsPage = ({ data }: Props) => {
     otherAreasTitle,
     otherAreas,
     contentTopics,
-    path,
     inputBanner,
     locationsTitle,
     locations,
@@ -58,7 +57,7 @@ const ContactUsPage = ({ data }: Props) => {
     imageSource: featuredImage?.resize.src
   };
   const pageData: PageData = {
-    path,
+    breadcrumbs,
     inputBanner
   };
 

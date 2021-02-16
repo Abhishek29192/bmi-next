@@ -112,7 +112,6 @@ const sourceToSortMap: Record<
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     title,
-    path,
     description,
     documents: unsortedDocuments,
     source,
@@ -121,7 +120,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   } = data.contentfulDocumentLibraryPage;
 
   const pageData: PageData = {
-    path,
+    breadcrumbs,
     inputBanner: data.contentfulDocumentLibraryPage.inputBanner
   };
 

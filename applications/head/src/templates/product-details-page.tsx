@@ -182,7 +182,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   const { resources, countryCode } = contentfulSite;
   const pageData: PageData = {
-    path: null,
+    breadcrumbs: null,
     inputBanner: resources.pdpInputBanner
   };
 

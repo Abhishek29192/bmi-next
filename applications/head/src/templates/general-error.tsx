@@ -16,7 +16,7 @@ const GeneralError = ({ data }: Props) => {
   return (
     <Page
       title={errorGeneral.title}
-      pageData={{ path: null, inputBanner: null }}
+      pageData={{ breadcrumbs: null, inputBanner: null }}
       siteData={siteData}
     >
       <ErrorFallback countryCode={siteData.countryCode} promo={errorGeneral} />

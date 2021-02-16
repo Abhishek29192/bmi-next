@@ -60,7 +60,7 @@ const BrandLandingPage = ({ data }: Props) => {
     breadcrumbs
   } = data.contentfulBrandLandingPage;
   const pageData: PageData = {
-    path: null,
+    breadcrumbs,
     inputBanner
   };
   return (

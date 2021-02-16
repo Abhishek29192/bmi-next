@@ -30,19 +30,18 @@ type Props = {
     contentfulTeamPage: Data;
     contentfulSite: SiteData;
   };
-  pageContext: {};
 };
 
-const TeamPage = ({ data, pageContext }: Props) => {
+const TeamPage = ({ data }: Props) => {
   const {
     title,
     teamCategories,
-    path,
+
     inputBanner,
     breadcrumbs
   } = data.contentfulTeamPage;
   const pageData: PageData = {
-    path,
+    breadcrumbs,
     inputBanner
   };
 

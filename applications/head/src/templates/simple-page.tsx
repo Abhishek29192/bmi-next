@@ -57,7 +57,6 @@ const SimplePage = ({ data }: Props) => {
   const {
     title,
     subtitle,
-    path,
     featuredImage,
     leadBlock,
     shareWidget,
@@ -93,7 +92,7 @@ const SimplePage = ({ data }: Props) => {
     />
   );
   const pageData: PageData = {
-    path,
+    breadcrumbs,
     inputBanner: data.contentfulSimplePage.inputBanner
   };
 

@@ -56,7 +56,7 @@ const HomePage = ({ data }: Props) => {
     inputBanner
   } = data.contentfulHomePage;
   const pageData: PageData = {
-    path: null,
+    breadcrumbs: null,
     inputBanner
   };
 
