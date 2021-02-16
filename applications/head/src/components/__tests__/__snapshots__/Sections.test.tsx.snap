@@ -932,7 +932,7 @@ HTMLCollection [
           </div>
           <div
             aria-labelledby="tab-list"
-            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-4"
+            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
             heading="findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
@@ -962,7 +962,7 @@ HTMLCollection [
           </div>
           <div
             aria-labelledby="tab-map"
-            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-8"
+            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
             heading="findARoofer.mapLabel"
             hidden=""
             id="tabpanel-map"

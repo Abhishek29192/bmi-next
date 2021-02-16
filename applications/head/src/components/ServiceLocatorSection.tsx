@@ -374,7 +374,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           visibleUntil="md"
         >
           <Tabs.TabPanel
-            md={4}
+            md={12}
+            lg={4}
             className={styles["tab-panel"]}
             heading={getMicroCopy("findARoofer.listLabel")}
             index="list"
@@ -411,7 +412,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             </div>
           </Tabs.TabPanel>
           <Tabs.TabPanel
-            md={8}
+            md={12}
+            lg={8}
             className={styles["tab-panel"]}
             heading={getMicroCopy("findARoofer.mapLabel")}
             index="map"
