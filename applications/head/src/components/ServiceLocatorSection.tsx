@@ -134,7 +134,22 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               : carry,
           []
         )
-        .sort((rooferA, rooferB) => rooferA.distance - rooferB.distance),
+        .sort((rooferA, rooferB) => {
+          const distanceSort = centre ? rooferA.distance - rooferB.distance : 0;
+
+          if (distanceSort === 0) {
+            const rooferNameA = rooferA.name.toLowerCase();
+            const rooferNameB = rooferB.name.toLowerCase();
+
+            if (rooferNameA === rooferNameB) {
+              return 0;
+            } else {
+              return rooferNameA < rooferNameB ? -1 : 1;
+            }
+          }
+
+          return distanceSort;
+        }),
     [activeFilters, activeSearchString, centre]
   );
 
