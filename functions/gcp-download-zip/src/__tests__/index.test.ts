@@ -77,10 +77,10 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "POST");
-    expect(res.set).toBeCalledWith(
-      "Access-Control-Allow-Headers",
-      "Content-Type"
-    );
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Headers", [
+      "Content-Type",
+      "X-Recaptcha-Token"
+    ]);
     expect(res.set).toBeCalledWith("Access-Control-Max-Age", "3600");
     expect(res.status).toBeCalledWith(204);
     expect(res.send).toBeCalledWith("");

@@ -11,6 +11,7 @@ import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
 import { SiteContext, Data as SiteData } from "./Site";
+import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
 import styles from "./styles/Page.module.scss";
