@@ -690,11 +690,6 @@ HTMLCollection [
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          Find A Roofer
-        </h2>
         <div
           class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
         >

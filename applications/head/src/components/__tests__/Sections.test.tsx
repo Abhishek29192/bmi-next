@@ -218,7 +218,8 @@ describe("Sections component", () => {
         title: "Service Locator",
         label: "Find A Roofer",
         body: null,
-        roofers: null
+        roofers: null,
+        position: 0
       }
     ];
 

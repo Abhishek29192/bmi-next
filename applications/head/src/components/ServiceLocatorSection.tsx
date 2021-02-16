@@ -49,6 +49,7 @@ export type Data = {
   label: string;
   body: RichTextData | null;
   roofers: Roofer[] | null;
+  position: number;
 };
 
 // TODO: dynamically set center and boundaries based on market country
@@ -82,7 +83,7 @@ const activeFilterReducer = (
 });
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
-  const { label, body, roofers } = data;
+  const { label, body, roofers, position } = data;
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
@@ -301,7 +302,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       className={styles["ServiceLocationSection"]}
     >
       <GoogleApi.Provider value={googleApi}>
-        <Section.Title>{label}</Section.Title>
+        {position > 0 && <Section.Title>{label}</Section.Title>}
         {body && <RichText document={body} />}
         <Grid container spacing={3}>
           <Grid item xs={12} md={4} className={styles["search"]}>
