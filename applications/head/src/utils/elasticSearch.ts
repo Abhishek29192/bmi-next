@@ -80,7 +80,7 @@ export const compileElasticSearchQuery = (
 
   filters.forEach((filter) => {
     // If no values chosen, ignore it
-    if (!filter.value.length) {
+    if (!(filter.value || []).length) {
       return;
     }
 
