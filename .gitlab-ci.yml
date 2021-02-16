@@ -6,9 +6,21 @@ include:
   - local: applications/head/.gitlab-ci.yml
   - local: applications/intouch-frontend/.gitlab-ci.yml
   - local: applications/intouch-api/.gitlab-ci.yml
+  - local: functions/gcp-apsis-integration/.gitlab-ci.yml
+  - local: functions/gcp-download-zip/.gitlab-ci.yml
+  - local: functions/gcp-form-submit/.gitlab-ci.yml
+  - local: functions/gcp-upload-file/.gitlab-ci.yml
 
 .sast-analyzer:
   allow_failure: false
+
+eslint-sast:
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
+
+nodejs-scan-sast:
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
 
 cache:
   key:
@@ -32,9 +44,8 @@ stages:
 
 install:
   stage: install
-  except:
-    refs:
-      - schedules
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
@@ -48,15 +59,15 @@ install:
       - "**/node_modules"
       - "~/.yarn"
     policy: pull-push
+  interruptible: true
 
 #  https://github.com/pivotal/LicenseFinder
 # Remove report arg when we want this job to fail
 # Remove installing node 12 when https://github.com/pivotal/LicenseFinder/issues/812 is resolved
 license_finder:
   stage: audit
-  except:
-    refs:
-      - schedules
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
   needs: [install]
   image: licensefinder/license_finder:latest
   before_script:
@@ -68,53 +79,24 @@ license_finder:
   artifacts:
     paths:
       - license_finder_output.html
+  interruptible: true
 
 eslint:
   stage: test
-  except:
-    refs:
-      - schedules
-  needs: [install]
-  script:
-    - yarn eslint "**/*.{js,ts,tsx}"
-
-coverage_jest:
-  stage: test
-  except:
-    refs:
-      - schedules
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
-    - yarn --frozen-lockfile
-    - yarn run coverage:jest
-  artifacts:
-    paths:
-      - coverage
-
-# coverage_ts:
-#   stage: test
-#   except:
-#     refs:
-#       - schedules
-#   script:
-#     - yarn run coverage:ts
-#   artifacts:
-#     paths:
-#       - coverage-ts
+    - yarn eslint "**/*.{js,ts,tsx}"
+  interruptible: true
 
 release:
   image: node:13
   stage: release
-  only:
-    refs:
-      - production
-      - pre-production
-  needs: [install, build_frc_website, build_head, eslint-sast, coverage_jest]
-  dependencies:
-    - build_frc_website
-    - build_head
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "production" || $CI_COMMIT_BRANCH == "pre-production"'
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:

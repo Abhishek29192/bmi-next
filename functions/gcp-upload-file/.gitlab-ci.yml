@@ -1,0 +1,28 @@
+image: node:12
+
+test_gcp_upload_file:
+  stage: test
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
+      changes:
+        - functions/gcp-upload-file/**
+        - jest/**
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn workspace @bmi/gcp-upload-file coverage:jest
+  interruptible: true
+
+build_gcp_upload_file:
+  stage: build
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
+      changes:
+        - functions/gcp-upload-file/**
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn workspace @bmi/gcp-upload-file build
+  interruptible: true

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "coverage:jest": "jest --coverage"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
