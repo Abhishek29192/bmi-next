@@ -64,8 +64,7 @@ const GoogleMap = ({
       fillOpacity: 1,
       strokeColor: "#fff",
       strokeWeight: 1,
-      anchor: new google.maps.Point(13, 34),
-      labelOrigin: new google.maps.Point(66, 17)
+      anchor: new google.maps.Point(13, 34)
     };
 
     const activeIcon = {
@@ -77,12 +76,6 @@ const GoogleMap = ({
     const googleMarker = new google.maps.Marker({
       map: googleMap.current,
       icon: isActive ? activeIcon : defaultIcon,
-      label: {
-        text: options.title,
-        fontSize: "14px",
-        color: "#000000",
-        fontFamily: "Effra Regular"
-      },
       ...options
     });
 
