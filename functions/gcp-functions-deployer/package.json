@@ -1,0 +1,23 @@
+{
+  "name": "@bmi/gcp-functions-deployer",
+  "private": true,
+  "version": "0.0.0",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=deploy --port=9704 --signature-type=event",
+    "coverage:jest": "jest --coverage"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/secret-manager": "^3.4.0",
+    "@google-cloud/storage": "^5.7.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "js-yaml": "^4.0.0"
+  }
+}
