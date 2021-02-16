@@ -272,6 +272,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               size="small"
               id="company-autocomplete"
               label={getMicroCopy("findARoofer.companyFieldLabel")}
+              noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
               className={styles["company-autocomplete"]}
               onChange={(_, inputValue) => {
                 setActiveSearchString(inputValue || "");
@@ -294,6 +295,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               size="small"
               id="location-autocomplete"
               label={getMicroCopy("findARoofer.locationFieldLabel")}
+              noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
               className={styles["location-autocomplete"]}
               onPlaceChange={handlePlaceChange}
             />
