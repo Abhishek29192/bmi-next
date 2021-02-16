@@ -260,13 +260,13 @@ const SearchTabPanelPages = (props: Props) => {
         style={{ paddingTop: 0 }}
       >
         {results
-          .filter(({ slug }) => slug)
+          .filter(({ path }) => path)
           .map((result, index) => (
             <PageSummaryCard
               key={index}
               title={result.title}
               subtitle={result.subtitle}
-              slug={result.slug}
+              path={result.path}
               countryCode={pageContext.countryCode}
             />
           ))}
