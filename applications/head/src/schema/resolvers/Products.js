@@ -1,6 +1,6 @@
 "use strict";
 
-const { find } = require("lodash");
+const { find, flatten } = require("lodash");
 const {
   getFormatFromFileName,
   isPimLinkDocument
@@ -10,7 +10,78 @@ const {
   generateDigestFromData
 } = require("./utils/encryption");
 
+const { resolvePath, getUrlFromPath } = require("./utils/path");
+
+const getSlugAttributes = (source) => {
+  if (!source.classifications || !source.classifications.length) {
+    return [];
+  }
+
+  return flatten(
+    ["colour", "texturefamily"].map((attribute) => {
+      return (source.classifications || [])
+        .map(({ features }) => {
+          const feature = find(
+            features,
+            ({ code }) => code.split(".").pop() === attribute
+          );
+          if (
+            !feature ||
+            !feature.featureValues ||
+            !feature.featureValues.length
+          ) {
+            return false;
+          }
+
+          return feature.featureValues[0].value;
+        })
+        .filter(Boolean);
+    })
+  );
+};
+
+const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
+
+const resolvePathFromFamily = async (source, args, context) => {
+  const parentFamilies = await context.nodeModel.runQuery({
+    query: {
+      filter: {
+        categoryCode: {
+          in: (source.categories || []).map(({ code }) => code)
+        }
+      }
+    },
+    type: "ContentfulProductListerPage"
+  });
+
+  if (!parentFamilies || !parentFamilies.length) {
+    return [];
+  }
+
+  return resolvePath(parentFamilies[0], args, context);
+};
+
 module.exports = {
+  variantOptions: {
+    async resolve(source, args, context) {
+      const fullPath = await resolvePathFromFamily(source, args, context);
+
+      return (source.variantOptions || []).map((variant) => {
+        const breadcrumbs = fullPath.concat({
+          id: variant.code,
+          label: source.name,
+          slug: getSlug([source.name, ...getSlugAttributes(variant)].join("/"))
+        });
+        const path = `p/${getUrlFromPath(breadcrumbs)}`;
+
+        return {
+          ...variant,
+          path,
+          breadcrumbs
+        };
+      });
+    }
+  },
   documents: {
     type: ["ProductDocument"],
     async resolve(source, args, context) {

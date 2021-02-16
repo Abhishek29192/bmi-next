@@ -1221,6 +1221,12 @@ type ProductsVariantOptions implements Node {
   externalProductCode: String
 
   productBenefits: [String]
+
+  "The path for this product."
+  path: String
+
+  "The breadcrumbs for this product."
+  breadcrumbs: JSON
 }
 
 """
