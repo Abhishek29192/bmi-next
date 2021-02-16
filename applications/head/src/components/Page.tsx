@@ -41,7 +41,9 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
     scriptOnetrust,
     scriptGTM,
     scriptHotJar,
-    scriptGOptLoad
+    scriptGOptLoad,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet
   } = siteData;
 
   const { inputBanner } = pageData;
@@ -130,7 +132,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
           node_locale,
           countryCode,
           homePage: siteData.homePage,
-          getMicroCopy
+          getMicroCopy,
+          scriptGRecaptchaId,
+          scriptGRecaptchaNet
         }}
       >
         <Header

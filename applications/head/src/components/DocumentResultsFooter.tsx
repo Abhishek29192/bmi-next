@@ -11,11 +11,16 @@ type Props = {
   page: number;
   count: number;
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
-  onDownloadClick?: (list: Record<string, any>, callback?: () => void) => void;
+  onDownloadClick?: (
+    list: Record<string, any>,
+    token: string,
+    callback?: () => void
+  ) => void;
 };
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
+  token: string,
   callback?: () => void
 ) => {
   const listValues = Object.values(list).filter(Boolean);
@@ -32,7 +37,7 @@ export const handleDownloadClick = async (
       );
     }
 
-    const requestBody = flatten(listValues).map(
+    const documents = flatten(listValues).map(
       ({ __typename, asset, extension, title, url }) => ({
         href:
           __typename === "ContentfulDocument" ? `https:${asset.file.url}` : url,
@@ -45,8 +50,8 @@ export const handleDownloadClick = async (
 
     const response = await axios.post(
       process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
-      requestBody,
-      { responseType: "text" }
+      { documents: documents },
+      { responseType: "text", headers: { "X-Recaptcha-Token": token } }
     );
 
     await downloadAs(response.data.url, `BMI_${currentTime}.zip`);
@@ -84,7 +89,7 @@ const DocumentResultsFooter = ({
           />
           <DownloadList.Button
             label={`${getMicroCopy("downloadList.download")} ({{count}})`}
-            onClick={(list) => onDownloadClick(list, resetList)}
+            onClick={(list, token) => onDownloadClick(list, token, resetList)}
           />
         </>
       )}
