@@ -7,9 +7,7 @@ import {
   VariantOption
 } from "../templates/product-details-page";
 
-const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
-export const getProductUrl = (countryCode, productCode) =>
-  `/${countryCode}/products/${getSlug(productCode)}`;
+export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
 
 const getProductProp = (classifications, productCode, propName) =>
   classifications[productCode] ? classifications[productCode][propName] : null;
@@ -440,7 +438,7 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(pageContext.countryCode, selfProduct.path)
                 }
               }
             : {})
@@ -472,7 +470,7 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(pageContext.countryCode, selfProduct.path)
                 }
               }
             : {})
@@ -499,7 +497,7 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(pageContext.countryCode, selfProduct.path)
                 }
               }
             : {})

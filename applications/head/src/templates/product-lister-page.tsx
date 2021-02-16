@@ -63,6 +63,7 @@ type Props = {
     countryCode: string;
     categoryCode: string;
     pimClassificationCatalogueNamespace: string;
+    variantCodeToPathMap: Record<string, string>;
   };
   data: {
     contentfulProductListerPage: Data;
@@ -340,7 +341,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                       linkComponent: Link,
                                       to: getProductUrl(
                                         countryCode,
-                                        variant.code
+                                        pageContext.variantCodeToPathMap[
+                                          variant.path
+                                        ]
                                       )
                                     }}
                                   >

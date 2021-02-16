@@ -124,7 +124,7 @@ const ProductListing = ({
                     action={{
                       model: "routerLink",
                       linkComponent: Link,
-                      to: getProductUrl(countryCode, variant.code)
+                      to: getProductUrl(countryCode, variant.path)
                     }}
                   >
                     {getMicroCopy("pdp.relatedProducts.viewDetails")}
@@ -250,6 +250,7 @@ export const query = graphql`
       parentCategoryCode
     }
     variantOptions {
+      path
       code
       externalProductCode
       shortDescription

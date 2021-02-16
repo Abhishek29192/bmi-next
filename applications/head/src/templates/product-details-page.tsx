@@ -23,7 +23,9 @@ import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
 import { Data as PIMDocumentData } from "../components/PIMDocument";
 import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -81,6 +83,8 @@ export type VariantOption = {
   approvalStatus: string;
   shortDescription: string;
   longDescription: string;
+  breadcrumbs: BreadcrumbsData;
+  path: string;
 };
 
 export type Category = {
@@ -115,6 +119,7 @@ export type Product = {
   classifications?: ReadonlyArray<Classification>;
   variantOptions?: ReadonlyArray<VariantOption>;
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
+  breadcrumbs: null;
 };
 
 type Props = {
@@ -181,20 +186,19 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   );
 
   const { resources, countryCode } = contentfulSite;
+  const { breadcrumbs } = selfProduct;
   const pageData: PageData = {
-    breadcrumbs: null,
+    breadcrumbs,
     inputBanner: resources.pdpInputBanner
   };
 
-  const breadcrumbs = (
-    <Breadcrumbs data={[{ id: "", label: product.name, slug: null }]} />
-  );
-
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
-      <Section backgroundColor="pearl" isSlim>
-        {breadcrumbs}
-      </Section>
+      {breadcrumbs && (
+        <Section backgroundColor="pearl" isSlim>
+          <Breadcrumbs data={breadcrumbs} />
+        </Section>
+      )}
       <Container>
         <SiteContext.Consumer>
           {({ getMicroCopy }) => {
@@ -287,9 +291,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           <ExploreBar data={resources.pdpExploreBar} />
         </Section>
       )}
-      <Section backgroundColor="alabaster" isSlim>
-        {breadcrumbs}
-      </Section>
+      {breadcrumbs && (
+        <Section backgroundColor="pearl" isSlim>
+          <Breadcrumbs data={breadcrumbs} />
+        </Section>
+      )}
     </Page>
   );
 };
@@ -348,6 +354,8 @@ export const pageQuery = graphql`
       }
       productBenefits
       variantOptions {
+        path
+        breadcrumbs
         isSampleOrderAllowed
         code
         externalProductCode

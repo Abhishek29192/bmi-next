@@ -23,6 +23,7 @@ type Props = {
 
 const ProductsGridView = ({ products, pageContext }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
+  const { variantCodeToPathMap } = pageContext;
 
   if (products.length === 0) {
     // TODO: Microcopy?
@@ -66,7 +67,10 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
                   action={{
                     model: "routerLink",
                     linkComponent: Link,
-                    to: getProductUrl(pageContext.countryCode, variant.code)
+                    to: getProductUrl(
+                      pageContext.countryCode,
+                      variantCodeToPathMap[variant.code]
+                    )
                   }}
                 >
                   {getMicroCopy("plp.product.viewDetails")}
