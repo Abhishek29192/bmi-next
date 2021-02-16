@@ -189,6 +189,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
     return [
       {
+        type: "address",
+        text: roofer.address,
+        label: getMicroCopy("findARoofer.address")
+      },
+      {
         type: "cta" as "cta",
         text: getMicroCopy("findARoofer.getDirectionsLabel"),
         action: getUrlClickableAction(
