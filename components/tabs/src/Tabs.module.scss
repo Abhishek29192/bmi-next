@@ -48,7 +48,22 @@
     }
   }
 
-  &--is-mobile-only {
+  &--visible-until-md {
+    @media (min-width: $breakpoint-lg) {
+      display: flex;
+
+      .TabsBar {
+        display: none;
+      }
+
+      .TabPanel,
+      .TabPanelBox {
+        display: initial;
+      }
+    }
+  }
+
+  &--visible-until-sm {
     @media (min-width: $breakpoint-md) {
       display: flex;
 

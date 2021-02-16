@@ -371,7 +371,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           initialValue="list"
           className={styles["tab-bar"]}
           theme="secondary"
-          isMobileOnly
+          visibleUntil="md"
         >
           <Tabs.TabPanel
             md={4}

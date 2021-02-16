@@ -861,7 +861,7 @@ HTMLCollection [
           </div>
         </div>
         <div
-          class="Tabs Tabs--secondary Tabs--is-mobile-only"
+          class="Tabs Tabs--secondary Tabs--visible-until-md"
         >
           <div
             class="TabsBar"
