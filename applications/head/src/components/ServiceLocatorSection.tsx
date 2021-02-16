@@ -82,6 +82,8 @@ const activeFilterReducer = (
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const { label, body, roofers } = data;
+  const radius = 50; // @todo: To come from CMS.
+  const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<string>(null);
@@ -110,30 +112,43 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialise();
   }, []);
 
-  const filter = ({ type, name }: Roofer) =>
-    (type
+  const typeFilter = (type: Roofer["type"]) =>
+    type?.length
       ? type.some((filter) => activeFilters[filter as RooferType])
-      : true) && name.includes(activeSearchString);
+      : true;
+
+  const nameFilter = (name: Roofer["name"]) =>
+    name.includes(activeSearchString);
+
+  const distanceFilter = (distance: Roofer["distance"]) =>
+    distance ? distance < FILTER_RADIUS : true;
 
   const filteredRoofers = useMemo<Roofer[]>(
     () =>
       (roofers || [])
-        .reduce(
-          (carry, current) =>
-            filter(current)
-              ? [
-                  ...carry,
-                  {
-                    ...current,
-                    distance: computeDistanceBetween(centre, {
-                      lat: current.location.lat,
-                      lng: current.location.lon
-                    })
-                  }
-                ]
-              : carry,
-          []
-        )
+        .reduce((carry, current) => {
+          const { name, location, type } = current;
+          const distance = computeDistanceBetween(centre, {
+            lat: location.lat,
+            lng: location.lon
+          });
+
+          if (
+            typeFilter(type) &&
+            nameFilter(name) &&
+            distanceFilter(distance)
+          ) {
+            return [
+              ...carry,
+              {
+                ...current,
+                distance
+              }
+            ];
+          }
+
+          return carry;
+        }, [])
         .sort((rooferA, rooferB) => {
           const distanceSort = centre ? rooferA.distance - rooferB.distance : 0;
 
