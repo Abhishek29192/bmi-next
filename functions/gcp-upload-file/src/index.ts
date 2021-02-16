@@ -45,7 +45,10 @@ export const upload: HttpFunction = async (request, response) => {
 
   if (request.method === "OPTIONS") {
     response.set("Access-Control-Allow-Methods", "POST");
-    response.set("Access-Control-Allow-Headers", "Content-Type");
+    response.set("Access-Control-Allow-Headers", [
+      "Content-Type",
+      "X-Recaptcha-Token"
+    ]);
     response.set("Access-Control-Max-Age", "3600");
 
     return response.status(204).send("");

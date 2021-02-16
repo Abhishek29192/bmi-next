@@ -6,10 +6,6 @@ import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 type RequestRedirect = "error" | "follow" | "manual";
 
-config({
-  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
-});
-
 const {
   APSIS_API_BASE_URL,
   APSIS_CLIENT_ID,
@@ -22,8 +18,11 @@ const {
   APSIS_TARGET_GDPR_1_ATTRIBUTE_ID,
   APSIS_TARGET_GDPR_2_ATTRIBUTE_ID,
   APSIS_TARGET_CHANNEL,
-  SECRET_MAN_GCP_PROJECT_NAME
+  SECRET_MAN_GCP_PROJECT_NAME,
+  RECAPTCHA_SECRET_KEY,
+  RECAPTCHA_MINIMUM_SCORE
 } = process.env;
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
 
 const apsisAudianceBase = `${APSIS_API_BASE_URL}/audience`;
 
@@ -189,6 +188,38 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
       const {
         body: { email, gdpr_1, gdpr_2 }
       } = request;
+
+      if (!request.headers["X-Recaptcha-Token"]) {
+        // eslint-disable-next-line no-console
+        console.error("Token not provided.");
+        return response.status(400).send(Error("Token not provided."));
+      }
+
+      try {
+        const recaptchaResponse = await fetch(
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${request.headers["X-Recaptcha-Token"]}`,
+          { method: "POST" }
+        );
+        if (!recaptchaResponse.ok) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Recaptcha check failed with status ${recaptchaResponse.status}.`
+          );
+          return response.status(400).send(Error("Recaptcha check failed."));
+        }
+        const json = await recaptchaResponse.json();
+        if (!json.success || json.score < minimumScore) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Recaptcha check failed with error ${JSON.stringify(json)}.`
+          );
+          return response.status(400).send(Error("Recaptcha check failed."));
+        }
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(`Recaptcha request failed with error ${error}.`);
+        return response.status(500).send(Error("Recaptcha request failed."));
+      }
 
       const { access_token } = await getAuthToken();
 

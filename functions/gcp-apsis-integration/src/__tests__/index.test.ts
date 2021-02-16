@@ -1,13 +1,20 @@
 import { escape } from "querystring";
+import { IncomingHttpHeaders } from "http";
 import { Request, Response } from "express";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
 import fetchMock from "jest-fetch-mock";
 
-const mockRequest = (body?): Partial<Request> => {
+const validToken = "valid-token";
+
+const mockRequest = (
+  body: Object = { email: "a@a.com", gdpr_1: true, gdpr_2: true },
+  headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
+): Partial<Request> => {
   return {
     method: "POST",
-    body: body
+    body: body,
+    headers: headers
   };
 };
 
@@ -97,18 +104,164 @@ describe("Making an OPTIONS request as part of CORS", () => {
 });
 
 describe("Making a POST request", () => {
-  beforeEach(() => {
-    fetchMock.resetMocks();
-  });
-  it("returns status code 500 when an error is returned from Secret Manager", async () => {
-    const req = mockRequest({ email: "a@a.com", gdpr_1: true, gdpr_2: true });
+  it("returns status code 400 when the token is missing", async () => {
+    const req = mockRequest(
+      { email: "a@a.com", gdpr_1: true, gdpr_2: true },
+      {}
+    );
     const res = mockResponse();
+
+    await optInEmailMarketing(req, res);
+
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Token not provided."));
+  });
+
+  it("returns status code 500 when the recaptcha request fails", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    fetchMock.mockRejectOnce();
+
+    await optInEmailMarketing(req, res);
+
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
+  });
+
+  it("returns status code 400 when the recaptcha request returns a non-ok response", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    fetchMock.mockResponse("{}", { status: 400 });
+
+    await optInEmailMarketing(req, res);
+
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
+  });
+
+  it("returns status code 400 when the recaptcha check fails", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: false,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
+  });
+
+  it("returns status code 400 when the recaptcha score is less than minimum score", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: true,
+        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE) - 0.1
+      })
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
+  });
+
+  it("returns status code 400 when the token is invalid", async () => {
+    const req = mockRequest(
+      { email: "a@a.com", gdpr_1: true, gdpr_2: true },
+      {
+        "X-Recaptcha-Token": "invalid-token"
+      }
+    );
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: false,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=invalid-token`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
+  });
+
+  it("returns status code 500 when an error is returned from Secret Manager", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
     accessSecretVersion.mockImplementationOnce(() => {
       throw new Error("Expected Error");
     });
 
     await optInEmailMarketing(req, res);
 
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
@@ -117,20 +270,35 @@ describe("Making a POST request", () => {
   });
 
   it("returns status code 500 when an error is returned from Oauth", async () => {
-    const req = mockRequest({ email: "a@a.com", gdpr_1: true, gdpr_2: true });
+    const req = mockRequest();
     const res = mockResponse();
 
-    mockResponses({
-      url: oAuthEndpoint,
-      body: "",
-      status: 500
-    });
+    mockResponses(
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
+      {
+        url: oAuthEndpoint,
+        body: "",
+        status: 500
+      }
+    );
 
     await optInEmailMarketing(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toBeCalledTimes(1);
+    expect(fetchMock).toBeCalledTimes(2);
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
     expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
       body:
         '{"client_id":"","client_secret":"access-token","grant_type":"client_credentials"}',
@@ -155,6 +323,13 @@ describe("Making a POST request", () => {
 
     mockResponses(
       {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
+      {
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
@@ -171,7 +346,14 @@ describe("Making a POST request", () => {
     await optInEmailMarketing(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(fetchMock).toBeCalledTimes(2);
+    expect(res.sendStatus).toBeCalledWith(500);
+    expect(fetchMock).toBeCalledTimes(3);
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
     expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
       body:
         '{"client_id":"","client_secret":"access-token","grant_type":"client_credentials"}',
@@ -182,7 +364,6 @@ describe("Making a POST request", () => {
       method: "POST",
       redirect: "follow"
     });
-
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
       {
@@ -195,8 +376,6 @@ describe("Making a POST request", () => {
         method: "PATCH"
       }
     );
-
-    expect(res.sendStatus).toBeCalledWith(500);
   });
 
   it("returns status code 500 when an error is returned from createConsent", async () => {
@@ -210,6 +389,13 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     mockResponses(
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
       {
         url: oAuthEndpoint,
         body: JSON.stringify({
@@ -232,7 +418,14 @@ describe("Making a POST request", () => {
     await optInEmailMarketing(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(fetchMock).toBeCalledTimes(3);
+    expect(res.sendStatus).toBeCalledWith(500);
+    expect(fetchMock).toBeCalledTimes(4);
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
     expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
       body:
         '{"client_id":"","client_secret":"access-token","grant_type":"client_credentials"}',
@@ -243,7 +436,6 @@ describe("Making a POST request", () => {
       method: "POST",
       redirect: "follow"
     });
-
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
       {
@@ -269,8 +461,6 @@ describe("Making a POST request", () => {
         method: "POST"
       }
     );
-
-    expect(res.sendStatus).toBeCalledWith(500);
   });
 
   it("returns status code 500 when an error is returned from createSubscription", async () => {
@@ -284,6 +474,13 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     mockResponses(
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
       {
         url: oAuthEndpoint,
         body: JSON.stringify({
@@ -311,7 +508,14 @@ describe("Making a POST request", () => {
     await optInEmailMarketing(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(fetchMock).toBeCalledTimes(4);
+    expect(res.sendStatus).toBeCalledWith(500);
+    expect(fetchMock).toBeCalledTimes(5);
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
     expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
       body:
         '{"client_id":"","client_secret":"access-token","grant_type":"client_credentials"}',
@@ -322,7 +526,6 @@ describe("Making a POST request", () => {
       method: "POST",
       redirect: "follow"
     });
-
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
       {
@@ -348,7 +551,6 @@ describe("Making a POST request", () => {
         method: "POST"
       }
     );
-
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
       {
@@ -362,8 +564,6 @@ describe("Making a POST request", () => {
         method: "POST"
       }
     );
-
-    expect(res.sendStatus).toBeCalledWith(500);
   });
 
   it("returns status code 200 when ALL api calls succeed", async () => {
@@ -377,6 +577,13 @@ describe("Making a POST request", () => {
     const res = mockResponse();
 
     mockResponses(
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
       {
         url: oAuthEndpoint,
         body: JSON.stringify({
@@ -404,7 +611,14 @@ describe("Making a POST request", () => {
     await optInEmailMarketing(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(fetchMock).toBeCalledTimes(4);
+    expect(res.sendStatus).toBeCalledWith(200);
+    expect(fetchMock).toBeCalledTimes(5);
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${validToken}`,
+      { method: "POST" }
+    );
     expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
       body:
         '{"client_id":"","client_secret":"access-token","grant_type":"client_credentials"}',
@@ -415,7 +629,6 @@ describe("Making a POST request", () => {
       method: "POST",
       redirect: "follow"
     });
-
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
       {
@@ -441,7 +654,6 @@ describe("Making a POST request", () => {
         method: "POST"
       }
     );
-
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
       {
@@ -455,8 +667,6 @@ describe("Making a POST request", () => {
         method: "POST"
       }
     );
-
-    expect(res.sendStatus).toBeCalledWith(200);
   });
 });
 

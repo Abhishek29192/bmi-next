@@ -4,6 +4,7 @@ import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import BackToTop from "@bmi/back-to-top";
 import { graphql, navigate } from "gatsby";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InputBanner, {
@@ -138,29 +139,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
           scriptGRecaptchaNet
         }}
       >
-        <Header
-          navigationData={menuNavigation}
-          utilitiesData={menuUtilities}
-          countryCode={countryCode}
-          activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
-          isOnSearchPage={isSearchPage}
-        />
-        <ErrorBoundary
-          fallbackRender={() => (
-            <ErrorFallback
-              countryCode={countryCode}
-              promo={resources.errorGeneral}
-            />
-          )}
-          onError={() => navigate(`/${countryCode}/422`)}
+        <GoogleReCaptchaProvider
+          reCaptchaKey={scriptGRecaptchaId}
+          useRecaptchaNet={scriptGRecaptchaNet}
+          language={countryCode}
         >
-          <div className={styles["content"]}>{children}</div>
-          {inputBanner ? <InputBanner data={inputBanner} /> : null}
-        </ErrorBoundary>
-        <Footer
-          mainNavigation={footerMainNavigation}
-          secondaryNavigation={footerSecondaryNavigation}
-        />
+          <Header
+            navigationData={menuNavigation}
+            utilitiesData={menuUtilities}
+            countryCode={countryCode}
+            activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
+            isOnSearchPage={isSearchPage}
+          />
+          <ErrorBoundary
+            fallbackRender={() => (
+              <ErrorFallback
+                countryCode={countryCode}
+                promo={resources.errorGeneral}
+              />
+            )}
+            onError={() => navigate(`/${countryCode}/422`)}
+          >
+            <div className={styles["content"]}>{children}</div>
+            {inputBanner ? <InputBanner data={inputBanner} /> : null}
+          </ErrorBoundary>
+          <Footer
+            mainNavigation={footerMainNavigation}
+            secondaryNavigation={footerSecondaryNavigation}
+          />
+        </GoogleReCaptchaProvider>
       </SiteContext.Provider>
       <BackToTop accessibilityLabel="Back to the top" />
     </BmiThemeProvider>
