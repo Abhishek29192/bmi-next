@@ -292,18 +292,21 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               size="small"
               id="company-autocomplete"
               label={getMicroCopy("findARoofer.companyFieldLabel")}
+              noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
               className={styles["company-autocomplete"]}
               onChange={(_, inputValue) => {
                 setActiveSearchString(inputValue || "");
               }}
               filterOptions={(options, { inputValue }) => {
-                if (inputValue.length < 3) {
-                  return [];
+                if (inputValue.length > 2) {
+                  return options.filter((option) =>
+                    option.toLowerCase().includes(inputValue.toLowerCase())
+                  );
                 }
-
-                return options.filter((option) =>
-                  option.toLowerCase().includes(inputValue.toLowerCase())
-                );
+                // @todo Returning `false` from this function is the *only* way
+                // this works to hide the dropdown but is not typed as such in
+                // MaterialUI.
+                return false as any;
               }}
               options={(roofers || []).map(({ name }) => name)}
             />
@@ -314,6 +317,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               size="small"
               id="location-autocomplete"
               label={getMicroCopy("findARoofer.locationFieldLabel")}
+              noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
               className={styles["location-autocomplete"]}
               onPlaceChange={handlePlaceChange}
             />
