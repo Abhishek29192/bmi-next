@@ -30,6 +30,7 @@ baseline_scan_head:
 
 # https://www.zaproxy.org/docs/docker/full-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
+# SAST_DISABLED should be set to true
 # When happy with how this works, change to use zap-full-scan.py
 full_scan_head:
   stage: dynamic_security
@@ -56,6 +57,7 @@ lighthouseci_build_scan_head:
 # https://github.com/GoogleChrome/lighthouse-ci 
 # Should be set as a scheduled job for cron 0 2 * * 0 (2am every sunday) for QA
 # Additional scheduled jobs for Pre-Prod and Prod at 3am and 4am
+# SAST_DISABLED should be set to true
 lighthouseci_scan_head:
   stage: lighthouse_scan
   variables:
@@ -64,11 +66,9 @@ lighthouseci_scan_head:
     - if: '$WHICH_SCHEDULE == "lighthouseci_scan_head"'
   image: cypress/browsers:node14.15.0-chrome86-ff82
   script:
-    #- yarn global add puppeteer
-    #- yarn global add @lhci/cli
     - cd applications/head
-    - sed -i 's/"http:\/\/localhost:8000\/no"/'$LIGHTHOUSE_URLS'/g;s/ "pwd",/ '$NETLIFY_PWD',/g' lighthouserc.js
-    - yarn lhci autorun 
+    - sed -i 's/"http:\/\/localhost:8000\/no"/'$LIGHTHOUSE_URLS'/g' lighthouserc.js
+    - yarn lhci autorun --collect.settings.pwd=$NETLIFY_PWD 
   artifacts:
     paths:
       - applications/head/.lighthouseci

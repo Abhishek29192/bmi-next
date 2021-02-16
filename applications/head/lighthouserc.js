@@ -15,21 +15,22 @@ module.exports = {
       },
       settings: {
         // NOTE: set password for puppeteerScript.
-        // Defaulted to "pwd" (ignored) , set to correct value in
+        // Defaulted to empty string (ignored), set to correct value in
         // command line with --collect.settings.pwd=
-        pwd: "pwd",
+        pwd: "",
         chromeFlags: "--no-sandbox"
       }
     },
     assert: {
       assertions: {
         // NOTE: Set additional categories with alerting here.
-        "categories:accessibility": ["warn", { minScore: 0.75 }]
+        "categories:accessibility": ["error", { minScore: 0.9 }]
       }
-    }
+    },
     // TODO: Future work to configure upload section to upload to Lighthouse
     // server for performance analysis and build history.
-    // upload: {
-    // }
+    upload: {
+      target: "temporary-public-storage"
+    }
   }
 };

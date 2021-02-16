@@ -9,10 +9,7 @@ module.exports = async (browser, context) => {
   const page = await browser.newPage();
   await page.goto(context.url);
 
-  if (
-    context.options.settings.pwd != "pwd" ||
-    context.options.settings.pwd != ""
-  ) {
+  if (context.options.settings.pwd != "") {
     try {
       await page.waitForSelector(
         ".main > .card > .body > form > input[type='password']",
