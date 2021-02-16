@@ -50,7 +50,7 @@ const GlobalResources = ({ data, pageContext }: Data) => {
   return (
     <Page
       title="Global resources"
-      pageData={{ slug: "global resources", inputBanner: null }}
+      pageData={{ path: "global-resources", inputBanner: null }}
       siteData={siteData}
     >
       <Hero level={2} title="Global Resources"></Hero>

@@ -122,7 +122,7 @@ describe("Sections component", () => {
           isLabelHidden: null,
           url: null,
           linkedPage: {
-            slug: "contact-us"
+            path: "contact-us"
           }
         },
         cards: [
@@ -142,7 +142,7 @@ describe("Sections component", () => {
               isLabelHidden: null,
               url: null,
               linkedPage: {
-                slug: "contact-us"
+                path: "contact-us"
               }
             },
             id: "00000000-0000-0000-0000-000000000000"
@@ -161,6 +161,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulSimplePage",
             id: "00000000-0000-0000-0000-000000000000",
+            path: "path",
             slug: "slug",
             tags: null,
             title: "page title",

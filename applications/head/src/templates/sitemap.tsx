@@ -24,7 +24,7 @@ const Sitemap = ({ data }: Props) => {
   return (
     <Page
       title={getMicroCopy("global.sitemap")}
-      pageData={{ slug: null, inputBanner: null }}
+      pageData={{ breadcrumbs: null, inputBanner: null }}
       siteData={siteData}
     >
       {menuNavigation && <SitemapSection data={menuNavigation} />}

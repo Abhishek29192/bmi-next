@@ -51,7 +51,7 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
     ...secondary,
     {
       label: getMicroCopy("global.sitemap"),
-      action: getClickableActionFromUrl({ slug: "sitemap" }, null, countryCode)
+      action: getClickableActionFromUrl({ path: "sitemap" }, null, countryCode)
     }
   ];
 

@@ -1,13 +1,18 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
+import React, { useContext } from "react";
+import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import Container from "@bmi/container";
 import styles from "./styles/OverlapCards.module.scss";
+import { Data as PromoData } from "./Promo";
+import { Data as PageInfoData } from "./PageInfo";
+import { getCTA } from "./Link";
+import { SiteContext } from "./Site";
 
-type Card = {
-  title: string;
-  slug: string | null;
+type Card = (
+  | Pick<PromoData, "__typename" | "title" | "cta">
+  | Pick<PageInfoData, "__typename" | "title" | "path">
+) & {
   featuredImage: {
     resized: {
       src: string;
@@ -19,21 +24,21 @@ type Card = {
 export type Data = [Card, Card, ...Card[]];
 
 const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
+  const { countryCode } = useContext(SiteContext);
+
   return (
     <div className={styles["OverlapCards"]}>
       <Container>
         <Grid spacing={3} container justify="center">
-          {data.map(({ title, featuredImage, slug }, key) => {
+          {data.map(({ title, featuredImage, ...rest }, key) => {
+            const { action } = getCTA(rest, countryCode);
+
             return (
               <Grid item key={key} xs={12} sm={6} md={5} lg={3}>
                 <CTACard
                   title={title}
                   imageSource={featuredImage?.resized?.src}
-                  action={{
-                    model: "routerLink",
-                    to: slug,
-                    linkComponent: Link
-                  }}
+                  action={action}
                 />
               </Grid>
             );
@@ -48,10 +53,17 @@ export default IntegratedOverlapCards;
 
 export const query = graphql`
   fragment OverlapCardFragment on ContentfulPromoOrPage {
-    ...PromoFragment
+    ... on ContentfulPromo {
+      ...PromoFragment
+      featuredImage {
+        resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+          src
+        }
+      }
+    }
     ... on ContentfulPage {
       title
-      slug
+      path
       featuredImage {
         resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
           src

@@ -39,7 +39,7 @@ describe("SitemapSection component", () => {
               isLabelHidden: null,
               icon: null,
               linkedPage: {
-                slug: "landing-page"
+                path: "landing-page"
               }
             }
           ]

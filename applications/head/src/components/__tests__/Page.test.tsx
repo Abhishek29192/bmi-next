@@ -33,11 +33,14 @@ describe("Page component", () => {
       footerSecondaryNavigation: mockNavigation,
       menuNavigation: mockNavigation,
       menuUtilities: mockNavigation,
-      resources: null
+      resources: null,
+      scriptGOptLoad: null,
+      scriptGRecaptchaId: null,
+      scriptGRecaptchaNet: null
     };
 
     const pageData: Data = {
-      slug: "page-title",
+      breadcrumbs: null,
       inputBanner: null
     };
 

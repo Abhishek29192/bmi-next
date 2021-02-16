@@ -10,12 +10,13 @@ import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
 import { SiteContext, Data as SiteData } from "./Site";
+import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
 import styles from "./styles/Page.module.scss";
 
 export type Data = {
-  slug: string | null;
+  breadcrumbs: BreadcrumbsData | null;
   inputBanner: InputBannerData | null;
 };
 
@@ -46,7 +47,7 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
     scriptGRecaptchaNet
   } = siteData;
 
-  const { inputBanner } = pageData;
+  const { breadcrumbs, inputBanner } = pageData;
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
@@ -141,7 +142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
           navigationData={menuNavigation}
           utilitiesData={menuUtilities}
           countryCode={countryCode}
-          slug={pageData.slug || undefined}
+          activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
           isOnSearchPage={isSearchPage}
         />
         <ErrorBoundary
@@ -179,7 +180,7 @@ export default withErrorBoundary(Page, {
 
 export const query = graphql`
   fragment PageFragment on ContentfulPage {
-    slug
+    breadcrumbs
     inputBanner {
       ...InputBannerFragment
     }

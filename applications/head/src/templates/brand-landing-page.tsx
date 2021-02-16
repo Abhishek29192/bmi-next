@@ -17,13 +17,13 @@ import Breadcrumbs, {
 } from "../components/Breadcrumbs";
 import BrandLogo from "../components/BrandLogo";
 
-type BrandLandingPageData = BreadcrumbsData &
-  PageInfoData &
+type BrandLandingPageData = PageInfoData &
   PageData & {
     description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;
     sections: SectionsData;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -51,26 +51,18 @@ const BrandLandingPage = ({ data }: Props) => {
   const {
     title,
     description,
-    slug,
     brandLogo,
     featuredImage,
     slides,
     overlapCards,
     sections,
     inputBanner,
-    parentPage
+    breadcrumbs
   } = data.contentfulBrandLandingPage;
   const pageData: PageData = {
-    slug: null,
+    breadcrumbs,
     inputBanner
   };
-  const breadcrumbs = (
-    <Breadcrumbs
-      data={{ title, parentPage, slug }}
-      menuNavigation={data.contentfulSite.menuNavigation}
-      isDarkThemed
-    />
-  );
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -87,7 +79,7 @@ const BrandLandingPage = ({ data }: Props) => {
           return (
             <Hero
               level={0}
-              breadcrumbs={breadcrumbs}
+              breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
             >
@@ -104,10 +96,7 @@ const BrandLandingPage = ({ data }: Props) => {
       {overlapCards && <OverlapCards data={overlapCards} />}
       {sections && <Sections data={sections} />}
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          data={{ title, parentPage, slug }}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );

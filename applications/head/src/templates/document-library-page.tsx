@@ -54,14 +54,13 @@ const documentCountMap: Record<
 
 type Source = "PIM" | "CMS" | "ALL";
 
-type Data = BreadcrumbsData &
-  PageInfoData &
+type Data = PageInfoData &
   PageData & {
     description: RichTextData | null;
     source: Source;
     resultsType: "Simple" | "Technical" | "Card Collection";
     documents: DocumentResultsData;
-    parentPage: PageInfoData | null;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -113,30 +112,17 @@ const sourceToSortMap: Record<
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     title,
-    slug,
     description,
     documents: unsortedDocuments,
     source,
     resultsType,
-    parentPage
+    breadcrumbs
   } = data.contentfulDocumentLibraryPage;
 
   const pageData: PageData = {
-    slug,
+    breadcrumbs,
     inputBanner: data.contentfulDocumentLibraryPage.inputBanner
   };
-
-  const breadcrumbs = (
-    <Breadcrumbs
-      data={{
-        title,
-        slug,
-        parentPage
-      }}
-      menuNavigation={data.contentfulSite.menuNavigation}
-      isDarkThemed
-    />
-  );
 
   const getFilters = (
     documents: DocumentResultsData,
@@ -328,7 +314,11 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
           <ProgressIndicator theme="light" />
         </Scrim>
       ) : null}
-      <Hero level={2} title={title} breadcrumbs={breadcrumbs} />
+      <Hero
+        level={2}
+        title={title}
+        breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
+      />
       {description && (
         <Section backgroundColor="white">
           <RichText document={description} />
@@ -421,14 +411,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
         }}
       </SiteContext.Consumer>
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          data={{
-            title,
-            slug,
-            parentPage
-          }}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );

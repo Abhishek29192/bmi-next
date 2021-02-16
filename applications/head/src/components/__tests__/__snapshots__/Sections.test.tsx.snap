@@ -449,7 +449,7 @@ HTMLCollection [
                   >
                     <a
                       class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                      href="/uk/slug"
+                      href="/uk/path"
                     >
                       <span
                         class="MuiButton-label"

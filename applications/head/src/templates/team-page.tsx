@@ -13,8 +13,7 @@ import { Data as PageInfoData } from "../components/PageInfo";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText, { RichTextData } from "../components/RichText";
 
-type Data = BreadcrumbsData &
-  PageInfoData &
+type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulTeamPage";
     teamCategories: {
@@ -23,6 +22,7 @@ type Data = BreadcrumbsData &
       // NOTE: This is snake_case because it's a relationship field.
       team_member: TeamMemberData;
     }[];
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -36,12 +36,12 @@ const TeamPage = ({ data }: Props) => {
   const {
     title,
     teamCategories,
-    slug,
+
     inputBanner,
-    parentPage
+    breadcrumbs
   } = data.contentfulTeamPage;
   const pageData: PageData = {
-    slug,
+    breadcrumbs,
     inputBanner
   };
 
@@ -50,13 +50,7 @@ const TeamPage = ({ data }: Props) => {
       <Hero
         level={2}
         title={title}
-        breadcrumbs={
-          <Breadcrumbs
-            data={{ title, slug, parentPage }}
-            menuNavigation={data.contentfulSite.menuNavigation}
-            isDarkThemed
-          />
-        }
+        breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
       />
       <Tabs theme="secondary" component={Container}>
         {teamCategories.map((category, index) => (
@@ -77,10 +71,7 @@ const TeamPage = ({ data }: Props) => {
         ))}
       </Tabs>
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          data={{ title, slug, parentPage }}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );

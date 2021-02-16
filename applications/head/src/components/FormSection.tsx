@@ -227,7 +227,7 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            `/${countryCode}/${successRedirect.linkedPage.slug}`
+            `/${countryCode}/${successRedirect.linkedPage.path}`
         );
       } else {
         navigate("/");

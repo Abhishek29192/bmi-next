@@ -32,8 +32,7 @@ import { LinkData, getClickableActionFromUrl } from "../components/Link";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import Breadcrumbs, {
-  Data as BreadcrumbsData,
-  findPath
+  Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import {
   queryElasticSearch,
@@ -47,13 +46,13 @@ import { Product } from "./product-details-page";
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
 
-type Data = BreadcrumbsData &
-  PageInfoData &
+type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulProductListerPage";
     content: RichTextData | null;
     features: string[] | null;
     featuresLink: LinkData | null;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -64,6 +63,7 @@ type Props = {
     countryCode: string;
     categoryCode: string;
     pimClassificationCatalogueNamespace: string;
+    variantCodeToPathMap: Record<string, string>;
   };
   data: {
     contentfulProductListerPage: Data;
@@ -82,8 +82,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     content,
     features,
     featuresLink,
-    parentPage,
-    ...pageData
+    breadcrumbs,
+    inputBanner
   } = data.contentfulProductListerPage;
   const heroProps: HeroItem = {
     title,
@@ -91,14 +91,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     imageSource: featuredImage?.resize.src
   };
   const { countryCode } = data.contentfulSite;
-  const parentSlug = parentPage?.slug;
-  const heroLevel = (Math.min(
-    findPath(
-      parentSlug || data.contentfulProductListerPage.slug,
-      data.contentfulSite.menuNavigation
-    ).length + (parentSlug ? 2 : 1),
-    3
-  ) || 1) as 1 | 2 | 3;
   // TODO: Ignoring gatsby data for now as fetching with ES
   const initialProducts = [];
 
@@ -226,6 +218,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     ({ code }) => code === pageContext.categoryCode
   )?.name;
 
+  const pageData: PageData = { breadcrumbs, inputBanner };
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -238,19 +232,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 </Scrim>
               ) : null}
               <Hero
-                level={heroLevel}
+                level={2}
                 {...heroProps}
-                breadcrumbs={
-                  <Breadcrumbs
-                    data={{
-                      title,
-                      slug: data.contentfulProductListerPage.slug,
-                      parentPage
-                    }}
-                    menuNavigation={data.contentfulSite.menuNavigation}
-                    isDarkThemed={heroLevel !== 3}
-                  />
-                }
+                breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               />
               <Section backgroundColor="white">
                 <LeadBlock>
@@ -357,7 +341,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                       linkComponent: Link,
                                       to: getProductUrl(
                                         countryCode,
-                                        variant.code
+                                        pageContext.variantCodeToPathMap[
+                                          variant.path
+                                        ]
                                       )
                                     }}
                                   >
@@ -385,14 +371,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         }}
       </SiteContext.Consumer>
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          data={{
-            title,
-            slug: data.contentfulProductListerPage.slug,
-            parentPage
-          }}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );

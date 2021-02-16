@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
-import { isArray, isPlainObject } from "lodash";
-import { NavigationList } from "components/navigation/src";
 import { iconMap } from "./Icon";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import { SiteContext } from "./Site";
@@ -60,7 +58,7 @@ const parseNavigation = (
       if (linkedPage) {
         action = {
           model: "routerLink",
-          to: `/${countryCode}/${linkedPage.slug}`,
+          to: `/${countryCode}/${linkedPage.path}`,
           linkComponent: Link
         };
       } else if (url) {
@@ -80,48 +78,17 @@ const parseNavigation = (
   }, []);
 };
 
-const findMatchingSlug = (
-  navigationArray: ReadonlyArray<any>,
-  path: string,
-  maxDepth: number = 10
-): boolean => {
-  if (maxDepth == 0) {
-    return false;
-  }
-  return navigationArray.some((item) => {
-    if (isArray(item)) {
-      return findMatchingSlug(item, path, maxDepth - 1);
-    }
-    if (isPlainObject(item)) {
-      if (item.action && item.action.to === path) {
-        return true;
-      } else {
-        return findMatchingSlug(Object.values(item), path, maxDepth - 1);
-      }
-    }
-  });
-};
-
-const findParentLabel = (
-  navigation: NavigationList[],
-  path: string
-): string | undefined => {
-  return navigation.find((navItem) => {
-    return findMatchingSlug(Object.values(navItem), path);
-  })?.label;
-};
-
 const Header = ({
   navigationData,
   utilitiesData,
   countryCode,
-  slug,
+  activeLabel,
   isOnSearchPage
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
   countryCode: string;
-  slug?: string;
+  activeLabel?: string;
   isOnSearchPage?: boolean;
 }) => {
   if (!navigationData || !utilitiesData) {
@@ -131,9 +98,6 @@ const Header = ({
   const { getMicroCopy } = useContext(SiteContext);
   const utilities = parseNavigation(utilitiesData.links, countryCode);
   const navigation = parseNavigation(navigationData.links, countryCode);
-
-  const parentLabel =
-    slug && findParentLabel(navigation, `/${countryCode}/${slug}`);
 
   return (
     <HidePrint
@@ -146,7 +110,7 @@ const Header = ({
             linkComponent: Link,
             to: `/${countryCode}/`
           }}
-          activeNavLabel={parentLabel}
+          activeNavLabel={activeLabel}
           closeLabel={getMicroCopy("global.close")}
           searchAction={`/${countryCode}/search`}
           searchLabel={getMicroCopy("search.label")}

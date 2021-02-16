@@ -26,7 +26,8 @@ const pimClassificationCatalogueNamespace =
 const createProductPages = async (
   siteId,
   countryCode,
-  { graphql, actions }
+  { graphql, actions },
+  variantCodeToPathMap
 ) => {
   if (!pimClassificationCatalogueNamespace) {
     console.warn(
@@ -55,14 +56,12 @@ const createProductPages = async (
           }
           variantOptions {
             code
+            path
           }
         }
       }
     }
   `);
-
-  // Dasherise product code
-  const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
 
   if (result.errors) {
     throw new Error(result.errors);
@@ -121,8 +120,10 @@ const createProductPages = async (
     }
 
     (product.variantOptions || []).forEach((variantOption) => {
+      variantCodeToPathMap[variantOption.code] = variantOption.path;
+
       createPage({
-        path: `/${countryCode}/products/${getSlug(variantOption.code)}`,
+        path: `/${countryCode}/${variantOption.path}`,
         component,
         context: {
           productId: product.id,
@@ -167,12 +168,14 @@ exports.createPages = async ({ graphql, actions }) => {
           homePage {
             __typename
             id
+            path
           }
           pages {
             ... on ContentfulPage {
               __typename
               id
-              slug
+              path
+              title
 
               ... on ContentfulProductListerPage {
                 categoryCode
@@ -194,7 +197,17 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   } = result;
 
-  sites.forEach((site) => {
+  for (const site of sites) {
+    // TODO: This is temporary until we'll have the path inside ES.
+    const variantCodeToPathMap = {};
+
+    await createProductPages(
+      site.id,
+      site.countryCode,
+      { graphql, actions },
+      variantCodeToPathMap
+    );
+
     ([site.homePage, ...site.pages] || []).forEach((page) => {
       const component = componentMap[page.__typename];
 
@@ -206,18 +219,17 @@ exports.createPages = async ({ graphql, actions }) => {
       }
 
       createPage({
-        path: `/${site.countryCode}/${page.slug || ""}`,
+        path: `/${site.countryCode}/${page.path}`.replace(/\/+/gi, "/"),
         component,
         context: {
           pageId: page.id,
           siteId: site.id,
           categoryCode: page.categoryCode,
-          pimClassificationCatalogueNamespace
+          pimClassificationCatalogueNamespace,
+          variantCodeToPathMap
         }
       });
     });
-
-    createProductPages(site.id, site.countryCode, { graphql, actions });
 
     if (process.env.NODE_ENV === "development") {
       const dataFilePath = "./.temp/microCopyKeys.json";
@@ -240,7 +252,8 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         siteId: site.id,
         countryCode: site.countryCode,
-        pimClassificationCatalogueNamespace
+        pimClassificationCatalogueNamespace,
+        variantCodeToPathMap
       }
     });
 
@@ -259,7 +272,7 @@ exports.createPages = async ({ graphql, actions }) => {
         siteId: site.id
       }
     });
-  });
+  }
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {

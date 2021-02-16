@@ -106,6 +106,12 @@ interface ContentfulPage @nodeInterface {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
+
   "The brand logo for this page."
   brandLogo: String
 
@@ -162,6 +168,12 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
+
   "The brand logo for this page."
   brandLogo: String
 
@@ -216,6 +228,12 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
 
   "This field will always return null."
   brandLogo: String
@@ -272,6 +290,12 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
+
   "This field will always return null."
   brandLogo: String
 
@@ -306,6 +330,12 @@ type ContentfulHomePage implements Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
+
   "Brands for Homepage"
   brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
 
@@ -339,6 +369,12 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
 
   "This field will always return null."
   brandLogo: String
@@ -1127,6 +1163,12 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
+
   "The brand logo for this page (unused)."
   brandLogo: String
 
@@ -1179,6 +1221,12 @@ type ProductsVariantOptions implements Node {
   externalProductCode: String
 
   productBenefits: [String]
+
+  "The path for this product."
+  path: String
+
+  "The breadcrumbs for this product."
+  breadcrumbs: JSON
 }
 
 """
@@ -1222,6 +1270,12 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
 
   "The short description for this page."
   subtitle: String

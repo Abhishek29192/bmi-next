@@ -10,13 +10,13 @@ type Props = {
   };
 };
 
-const GeneralError = ({ data }: { data: Props }) => {
+const GeneralError = ({ data }: Props) => {
   const siteData = data.contentfulSite;
   const { errorGeneral } = siteData.resources;
   return (
     <Page
       title={errorGeneral.title}
-      pageData={{ slug: null, inputBanner: null }}
+      pageData={{ breadcrumbs: null, inputBanner: null }}
       siteData={siteData}
     >
       <ErrorFallback countryCode={siteData.countryCode} promo={errorGeneral} />
