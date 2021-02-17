@@ -100,19 +100,22 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const resultsElement = useRef<HTMLDivElement>(null);
 
-  // map colour filter values to specific colour swatch representation for PLP
+  // NOTE: map colour filter values to specific colour swatch representation
   const resolveFilters = (filters) => {
     return filters.map((filter) => {
       if (filter.name === "colour") {
-        filter.options = filter.options.map((option) => ({
-          ...option,
-          label: (
-            <>
-              <ColorSwatch colorCode={option.value} />
-              {option.label}
-            </>
-          )
-        }));
+        return {
+          ...filter,
+          options: filter.options.map((option) => ({
+            ...option,
+            label: (
+              <>
+                <ColorSwatch colorCode={option.value} />
+                {option.label}
+              </>
+            )
+          }))
+        };
       }
 
       return filter;
