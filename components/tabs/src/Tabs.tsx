@@ -45,7 +45,7 @@ type TabsProps = MaterialTabsProps &
   Pick<AppBarProps, "color"> & {
     children: React.ReactElement[];
     initialValue?: any;
-    isMobileOnly?: boolean;
+    visibleUntil?: "sm" | "md";
     theme?: "primary" | "secondary";
     // NOTE: This is necessary until we upgrade to @material-ui/core@^5.0.0
     // see: https://github.com/mui-org/material-ui/issues/22452#issuecomment-685756045
@@ -56,7 +56,7 @@ type TabsProps = MaterialTabsProps &
 const Tabs = ({
   children,
   initialValue = 0,
-  isMobileOnly,
+  visibleUntil,
   theme = "primary",
   onChange,
   ...other
@@ -73,7 +73,7 @@ const Tabs = ({
   return (
     <div
       className={classnames(styles["Tabs"], styles[`Tabs--${theme}`], {
-        [styles["Tabs--is-mobile-only"]]: isMobileOnly
+        [styles[`Tabs--visible-until-${visibleUntil}`]]: visibleUntil
       })}
     >
       <div className={styles["TabsBar"]}>

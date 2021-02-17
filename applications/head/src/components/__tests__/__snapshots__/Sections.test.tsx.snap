@@ -690,13 +690,8 @@ HTMLCollection [
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
-        <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-        >
-          Find A Roofer
-        </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root controls MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-end"
         >
           <div
             class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
@@ -832,41 +827,53 @@ HTMLCollection [
             </button>
           </div>
           <div
-            class="MuiGrid-root filters MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
           >
-            findARoofer.filtersLabel
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
-              role="button"
-              tabindex="0"
+              class="filters"
             >
-              <span
-                class="MuiChip-label"
+              <h6
+                class="MuiTypography-root Typography MuiTypography-h6"
               >
-                Pitched roof
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-            <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="MuiChip-label"
+                findARoofer.filtersLabel
+              </h6>
+              <div
+                class="chips"
               >
-                Flat roof
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Pitched roof
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Flat roof
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div
-          class="Tabs Tabs--secondary Tabs--is-mobile-only"
+          class="Tabs Tabs--secondary Tabs--visible-until-md"
         >
           <div
             class="TabsBar"
@@ -937,7 +944,7 @@ HTMLCollection [
           </div>
           <div
             aria-labelledby="tab-list"
-            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-4"
+            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
             heading="findARoofer.listLabel"
             id="tabpanel-list"
             role="tabpanel"
@@ -967,7 +974,7 @@ HTMLCollection [
           </div>
           <div
             aria-labelledby="tab-map"
-            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-8"
+            class="MuiGrid-root TabPanel tab-panel MuiGrid-item MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
             heading="findARoofer.mapLabel"
             hidden=""
             id="tabpanel-map"

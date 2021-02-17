@@ -49,6 +49,7 @@ export type Data = {
   label: string;
   body: RichTextData | null;
   roofers: Roofer[] | null;
+  position: number;
 };
 
 // TODO: dynamically set center and boundaries based on market country
@@ -78,11 +79,11 @@ const activeFilterReducer = (
   filter: RooferType
 ) => ({
   ...state,
-  [filter]: !state[filter as RooferType]
+  [filter]: !state[filter]
 });
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
-  const { label, body, roofers } = data;
+  const { label, body, roofers, position } = data;
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
@@ -114,9 +115,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   }, []);
 
   const typeFilter = (type: Roofer["type"]) =>
-    type?.length
-      ? type.some((filter) => activeFilters[filter as RooferType])
-      : true;
+    type?.length ? type.some((filter) => activeFilters[filter]) : true;
 
   const nameFilter = (name: Roofer["name"]) =>
     name.includes(activeSearchString);
@@ -226,6 +225,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         label: getMicroCopy("findARoofer.address")
       },
       {
+        // TODO: resolve types assertions of creating DetailProps array
         type: "cta" as "cta",
         text: getMicroCopy("findARoofer.getDirectionsLabel"),
         action: getUrlClickableAction(
@@ -301,9 +301,18 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       className={styles["ServiceLocationSection"]}
     >
       <GoogleApi.Provider value={googleApi}>
-        <Section.Title>{label}</Section.Title>
-        {body && <RichText document={body} />}
-        <Grid container spacing={3}>
+        {position > 0 && <Section.Title>{label}</Section.Title>}
+        {body && (
+          <div className={styles["body"]}>
+            <RichText document={body} />
+          </div>
+        )}
+        <Grid
+          container
+          spacing={3}
+          alignItems="flex-end"
+          className={styles["controls"]}
+        >
           <Grid item xs={12} md={4} className={styles["search"]}>
             <Autocomplete
               size="small"
@@ -352,28 +361,35 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               {getMicroCopy("findARoofer.geolocationButton")}
             </GeolocationButton>
           </Grid>
-          <Grid item xs={12} md={8} className={styles["filters"]}>
-            {getMicroCopy("findARoofer.filtersLabel")}
-            {rooferTypes.map((rooferType, index) => (
-              <Chip
-                key={index}
-                type="selectable"
-                onClick={() => updateActiveFilters(rooferType)}
-                isSelected={activeFilters[rooferType as RooferType]}
-              >
-                {rooferType}
-              </Chip>
-            ))}
+          <Grid item xs={12} md={8}>
+            <div className={styles["filters"]}>
+              <Typography variant="h6">
+                {getMicroCopy("findARoofer.filtersLabel")}
+              </Typography>
+              <div className={styles["chips"]}>
+                {rooferTypes.map((rooferType, index) => (
+                  <Chip
+                    key={index}
+                    type="selectable"
+                    onClick={() => updateActiveFilters(rooferType)}
+                    isSelected={activeFilters[rooferType]}
+                  >
+                    {rooferType}
+                  </Chip>
+                ))}
+              </div>
+            </div>
           </Grid>
         </Grid>
         <Tabs
           initialValue="list"
           className={styles["tab-bar"]}
           theme="secondary"
-          isMobileOnly
+          visibleUntil="md"
         >
           <Tabs.TabPanel
-            md={4}
+            md={12}
+            lg={4}
             className={styles["tab-panel"]}
             heading={getMicroCopy("findARoofer.listLabel")}
             index="list"
@@ -410,7 +426,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             </div>
           </Tabs.TabPanel>
           <Tabs.TabPanel
-            md={8}
+            md={12}
+            lg={8}
             className={styles["tab-panel"]}
             heading={getMicroCopy("findARoofer.mapLabel")}
             index="map"
