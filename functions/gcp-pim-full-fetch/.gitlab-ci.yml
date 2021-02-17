@@ -1,0 +1,87 @@
+build_gcp-pim-full-fetch:
+  stage: build
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      changes:
+        - functions/gcp-pim-full-fetch/**
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn workspace @bmi/gcp-pim-full-fetch run build
+  artifacts:
+    paths:
+      - functions/gcp-pim-full-fetch/dist
+  interruptible: true
+
+package_gcp-pim-full-fetch:
+  stage: package
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "pre-production" || $CI_COMMIT_BRANCH == "production"'
+      changes:
+        - functions/gcp-pim-full-fetch/**
+  needs: [build_gcp-pim-full-fetch]
+  dependencies:
+    - build_gcp-pim-full-fetch
+  before_script:
+    - apt-get update
+    - apt-get install -y zip unzip
+    - mkdir -p dist/functions
+  script:
+    - cd functions/gcp-pim-full-fetch; zip -r $CI_PROJECT_DIR/dist/functions/gcp-pim-full-fetch.zip package.json dist/; cd $CI_PROJECT_DIR;
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist/functions
+  interruptible: true
+
+# Deploy to QA Storage
+deploy_qa_gcp-pim-full-fetch:
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  stage: deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      changes:
+        - functions/gcp-pim-full-fetch/**
+      allow_failure: true
+  needs: [package_gcp-pim-full-fetch]
+  dependencies:
+    - package_gcp-pim-full-fetch
+  before_script:
+    - gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY_QA"
+    - gcloud config set project $GCP_DXB_PROJECT_ID_QA
+  script:
+    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-full-fetch.zip gs://$GCP_DXB_BUILD_STORAGE_QA/sources/
+
+# Deploy to Pre-Production Storage
+deploy_preproduction_gcp-pim-full-fetch:
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  stage: deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "pre-production"'
+      changes:
+        - functions/gcp-pim-full-fetch/**
+  needs: [package_gcp-pim-full-fetch]
+  dependencies:
+    - package_gcp-pim-full-fetch
+  before_script:
+    - gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY_PREPROD"
+    - gcloud config set project $GCP_DXB_PROJECT_ID_PREPROD
+  script:
+    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-full-fetch.zip gs://$GCP_DXB_BUILD_STORAGE_PREPROD/sources/
+
+# Deploy to Production Storage
+deploy_production_gcp-pim-full-fetch:
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  stage: deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "production"'
+      changes:
+        - functions/gcp-pim-full-fetch/**
+  needs: [package_gcp-pim-full-fetch]
+  dependencies:
+    - package_gcp-pim-full-fetch
+  before_script:
+    - gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY_PROD"
+    - gcloud config set project $GCP_DXB_PROJECT_ID_PROD
+  script:
+    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-full-fetch.zip gs://$GCP_DXB_BUILD_STORAGE_PROD/sources/
