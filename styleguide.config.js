@@ -61,7 +61,7 @@ const webpackConfig = withConfigs(
       ]
     }
   },
-  [styles({ dev: true })]
+  [styles({ dev: true, exclude: { css: null } })]
 );
 
 module.exports = {
