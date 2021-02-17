@@ -38,7 +38,13 @@ const LinkCard = ({
       <div className={styles["icon"]}>
         <ChevronRightIcon onClick={isOpen ? onCloseClick : null} />
       </div>
-      {isOpen && <div className={styles["details"]}>{children}</div>}
+      <div
+        className={classnames(styles["details"], {
+          [styles[`details--selected`]]: isOpen
+        })}
+      >
+        {children}
+      </div>
     </Card>
   );
 };

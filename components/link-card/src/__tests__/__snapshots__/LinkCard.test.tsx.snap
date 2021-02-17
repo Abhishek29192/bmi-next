@@ -31,7 +31,7 @@ exports[`LinkCard component renders closed variant 1`] = `
     </svg>
   </div>
   <div
-    class="details"
+    class="details details--selected"
   >
     test
   </div>
@@ -67,6 +67,11 @@ exports[`LinkCard component renders correctly open variant 1`] = `
         d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
       />
     </svg>
+  </div>
+  <div
+    class="details"
+  >
+    test
   </div>
 </div>
 `;
