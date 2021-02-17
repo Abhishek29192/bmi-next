@@ -38,7 +38,7 @@ module.exports = {
         type: "Products"
       });
 
-      if (!products) {
+      if (!(products && products.length)) {
         return [];
       }
 
@@ -46,8 +46,10 @@ module.exports = {
         categoryCode &&
         (await context.nodeModel.runQuery({
           query: {
-            code: {
-              eq: categoryCode
+            filter: {
+              code: {
+                eq: categoryCode
+              }
             }
           },
           type: "ProductCategory"
