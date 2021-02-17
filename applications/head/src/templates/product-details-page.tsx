@@ -218,7 +218,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     pageContext,
                     {
                       size: getMicroCopy("pdp.overview.size")
-                    }
+                    },
+                    product.variantOptions.reduce(
+                      (carry, { code, path }) => ({ ...carry, [code]: path }),
+                      {}
+                    )
                   )
                 }}
               >

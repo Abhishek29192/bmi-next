@@ -309,7 +309,8 @@ export const getProductAttributes = (
   productClassifications,
   selfProduct,
   pageContext,
-  options
+  options,
+  variantCodeToPathMap
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedSurfaceTreatment = getProductProp(
     productClassifications,
@@ -438,7 +439,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, selfProduct.path)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})
@@ -470,7 +474,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, selfProduct.path)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})
@@ -497,7 +504,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, selfProduct.path)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})
