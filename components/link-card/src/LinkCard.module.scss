@@ -8,12 +8,14 @@
   color: $color-slate;
   padding: 16px;
   border-radius: 0%;
+  cursor: pointer;
   & + & {
     border-top: 1px solid $color-storm;
   }
 
   @media (min-width: $breakpoint-md) {
     border: 1px solid $color-storm;
+    margin-top: -1px;
 
     &--selected {
       background-color: $color-alabaster;
@@ -39,14 +41,14 @@
   }
 
   .icon {
-    margin: 8px;
-    width: 48px;
-    margin: auto;
+    height: 24px;
+    width: 24px;
+    margin: 12px;
     color: rgba($color-black, 0.2);
     flex: 0 1;
     svg {
       transform: rotate(90deg);
-      transition: transform ease-in-out 0.5s, color ease-in-out 0.5s;
+      transition: transform ease-in-out 280ms, color ease-in-out 280ms;
       @media (min-width: $breakpoint-md) {
         transform: none;
       }
@@ -58,7 +60,7 @@
       svg {
         color: $color-cyan-500;
         transform: rotate(-90deg);
-        transition: transform ease-in-out 0.5s, color ease-in-out 0.5s;
+        transition: transform ease-in-out 280ms, color ease-in-out 280ms;
         @media (min-width: $breakpoint-md) {
           color: rgba($color-black, 0.2);
         }
@@ -73,6 +75,16 @@
 
   .details {
     flex: 3 0 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 280ms ease;
+    &--selected {
+      overflow: visible;
+      /* only way to animate is to control max-height */
+      /* will we have ever have details more than 9999px long?? */
+      max-height: 9999px;
+      transition: max-height 280ms ease;
+    }
     @media (min-width: $breakpoint-md) {
       display: none;
     }
