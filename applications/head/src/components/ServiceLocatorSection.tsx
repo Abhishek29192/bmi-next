@@ -79,7 +79,7 @@ const activeFilterReducer = (
   filter: RooferType
 ) => ({
   ...state,
-  [filter]: !state[filter as RooferType]
+  [filter]: !state[filter]
 });
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
@@ -115,9 +115,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   }, []);
 
   const typeFilter = (type: Roofer["type"]) =>
-    type?.length
-      ? type.some((filter) => activeFilters[filter as RooferType])
-      : true;
+    type?.length ? type.some((filter) => activeFilters[filter]) : true;
 
   const nameFilter = (name: Roofer["name"]) =>
     name.includes(activeSearchString);
@@ -227,6 +225,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         label: getMicroCopy("findARoofer.address")
       },
       {
+        // TODO: resolve types assertions of creating DetailProps array
         type: "cta" as "cta",
         text: getMicroCopy("findARoofer.getDirectionsLabel"),
         action: getUrlClickableAction(
@@ -373,7 +372,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     key={index}
                     type="selectable"
                     onClick={() => updateActiveFilters(rooferType)}
-                    isSelected={activeFilters[rooferType as RooferType]}
+                    isSelected={activeFilters[rooferType]}
                   >
                     {rooferType}
                   </Chip>
