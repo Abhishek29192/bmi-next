@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/calculator-modal",
+  "name": "@bmi/calculator-stepper",
   "private": true,
   "version": "0.0.0",
   "src": "src/index.ts",
@@ -10,12 +10,11 @@
   },
   "dependencies": {
     "@bmi/button": "0.0.0",
-    "@bmi/container": "0.0.0",
-    "@bmi/icon": "0.0.0",
+    "@bmi/form": "0.0.0",
     "@bmi/styles": "0.0.0",
-    "@bmi/logo": "0.0.0",
-    "@material-ui/icons": "^4.9.1",
+    "@bmi/typography": "0.0.0",
     "@material-ui/core": "^4.10.1",
+    "@material-ui/icons": "^4.9.1",
     "classnames": "^2.2.6",
     "react": "^16.13.1"
   }

@@ -10,7 +10,22 @@ describe("CalculatorModal component", () => {
         headerCenter="Some Central Content"
         logo={mockLogo}
         open
-        onCloseClick={console.log}
+        onCloseClick={jest.fn()}
+      >
+        Some content
+      </CalculatorModal>
+    );
+    expect(container.parentElement).toMatchSnapshot();
+  });
+
+  it("renders with pearl background", () => {
+    const { container } = render(
+      <CalculatorModal
+        headerCenter="Some Central Content"
+        logo={mockLogo}
+        open
+        onCloseClick={jest.fn()}
+        pearl
       >
         Some content
       </CalculatorModal>
@@ -23,7 +38,7 @@ describe("CalculatorModal component", () => {
       <CalculatorModal
         headerCenter="Some Central Content"
         logo={mockLogo}
-        onCloseClick={console.log}
+        onCloseClick={jest.fn()}
       >
         Some content
       </CalculatorModal>
