@@ -343,7 +343,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                       to: getProductUrl(
                                         countryCode,
                                         pageContext.variantCodeToPathMap[
-                                          variant.path
+                                          variant.code
                                         ]
                                       )
                                     }}
