@@ -216,15 +216,19 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const getUrlClickableAction = (url: LinkData["url"]) =>
     getClickableActionFromUrl(null, url, countryCode);
 
-  const getCompanyDetails = (roofer: Roofer): DetailProps[] => {
+  const getCompanyDetails = (
+    roofer: Roofer,
+    isAddressHidden?: boolean
+  ): DetailProps[] => {
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
-    return [
-      {
-        type: "address",
-        text: roofer.address,
-        label: getMicroCopy("findARoofer.address")
-      },
+    const address: DetailProps = {
+      type: "address",
+      text: roofer.address,
+      label: getMicroCopy("findARoofer.address")
+    };
+
+    const companyDetails: DetailProps[] = [
       {
         type: "cta" as "cta",
         text: getMicroCopy("findARoofer.getDirectionsLabel"),
@@ -293,6 +297,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           ]
         : [])
     ];
+
+    return isAddressHidden ? companyDetails : [address, ...companyDetails];
   };
 
   return (
@@ -389,7 +395,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     title={roofer.name}
                     subtitle={roofer.address}
                   >
-                    <CompanyDetails details={getCompanyDetails(roofer)}>
+                    <CompanyDetails details={getCompanyDetails(roofer, true)}>
                       <Typography>{roofer.summary}</Typography>
                     </CompanyDetails>
                   </LinkCard>
