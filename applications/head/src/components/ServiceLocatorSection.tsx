@@ -35,7 +35,7 @@ import React, {
 } from "react";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
-import { Data as RooferData, RooferType, RooferTypes } from "./Roofer";
+import { Data as RooferData, RooferType, rooferTypes } from "./Roofer";
 import { SiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
@@ -67,7 +67,7 @@ const initialMapBounds = {
   west: 4.0649
 };
 
-const initialActiveFilters = RooferTypes.reduce(
+const initialActiveFilters = rooferTypes.reduce(
   (carry, key) => ({ ...carry, [key]: true }),
   {}
 );
@@ -353,7 +353,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           </Grid>
           <Grid item xs={12} md={8} className={styles["filters"]}>
             {getMicroCopy("findARoofer.filtersLabel")}
-            {RooferTypes.map((rooferType, index) => (
+            {rooferTypes.map((rooferType, index) => (
               <Chip
                 key={index}
                 type="selectable"
