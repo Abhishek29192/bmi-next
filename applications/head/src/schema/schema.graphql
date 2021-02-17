@@ -1018,7 +1018,7 @@ type ContentfulSite implements Node {
   scriptGRecaptchaId: String
 
   "Google Recaptcha Use Net?"
-  scriptGRecaptchaNet: String
+  scriptGRecaptchaNet: Boolean
 }
 
 """
