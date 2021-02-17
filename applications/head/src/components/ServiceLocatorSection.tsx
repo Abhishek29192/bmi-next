@@ -20,7 +20,7 @@ import GoogleApi, {
 import GoogleAutocomplete from "@bmi/google-autocomplete";
 import GoogleMap from "@bmi/google-map";
 import Grid from "@bmi/grid";
-import LinkCard from "@bmi/link-card";
+import LinkCard, { LinkCardProps } from "@bmi/link-card";
 import Section from "@bmi/section";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
@@ -31,6 +31,7 @@ import React, {
   useEffect,
   useMemo,
   useReducer,
+  useRef,
   useState
 } from "react";
 import { getClickableActionFromUrl, LinkData } from "./Link";
@@ -81,6 +82,20 @@ const activeFilterReducer = (
   ...state,
   [filter]: !state[filter]
 });
+
+const IntegratedLinkCard = ({ isOpen, ...rest }: LinkCardProps) => {
+  const linkCardElement = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (isOpen && linkCardElement.current) {
+      linkCardElement.current.parentElement.scrollTo({
+        top: linkCardElement.current.offsetTop
+      });
+    }
+  }, [isOpen, linkCardElement]);
+
+  return <LinkCard isOpen={isOpen} ref={linkCardElement} {...rest} />;
+};
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const { label, body, roofers, position } = data;
@@ -397,7 +412,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             <div className={styles["list"]}>
               {filteredRoofers.length ? (
                 filteredRoofers.map((roofer) => (
-                  <LinkCard
+                  <IntegratedLinkCard
                     key={roofer.id}
                     onClick={() => handleListClick(roofer)}
                     onCloseClick={handleListCloseClick}
@@ -408,7 +423,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     <CompanyDetails details={getCompanyDetails(roofer)}>
                       <Typography>{roofer.summary}</Typography>
                     </CompanyDetails>
-                  </LinkCard>
+                  </IntegratedLinkCard>
                 ))
               ) : (
                 <div className={styles["no-results"]}>

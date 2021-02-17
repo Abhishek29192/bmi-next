@@ -38,6 +38,7 @@
   }
 
   .list {
+    position: relative;
     height: 100%;
     max-height: calc(100vh - 48px); // Note: minus tab label height.
     overflow: auto;
