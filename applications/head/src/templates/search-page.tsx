@@ -33,6 +33,7 @@ type Props = {
     countryCode: string;
     categoryCode: string; // this is optional?
     pimClassificationCatalogueNamespace: string;
+    variantCodeToPathMap: Record<string, string>;
   };
   data: {
     contentfulSite: SiteData;
