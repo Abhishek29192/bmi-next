@@ -28,3 +28,15 @@ A search widget.
   helperText="Search for a product, system, or documentation"
 />
 ```
+
+### Disabled input
+
+Control whether the submit button is disabled from the outside.
+
+```jsx
+<Search
+  buttonText="Search again"
+  helperText="Search for a product, system, or documentation"
+  isSubmitDisabled={true}
+/>
+```

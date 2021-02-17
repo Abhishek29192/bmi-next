@@ -108,6 +108,7 @@ const queries = [
                 // Note: subtitle isn't available for some pages
                 subtitle: page.subtitle,
                 slug: page.slug,
+                path: page.path,
                 // only "Page type" tags are relevant to search
                 tags: (page.tags || []).filter(
                   ({ type }) => type === "Page type"
@@ -154,7 +155,7 @@ const queries = [
 ].filter(Boolean);
 
 const elasticSearchPlugin = {
-  resolve: `@logilab/gatsby-plugin-elasticsearch`,
+  resolve: `@bmi/gatsby-plugin-elasticsearch`,
   options: {
     node: process.env.GATSBY_ES_ENDPOINT,
     auth: {

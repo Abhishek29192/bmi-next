@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 "use strict";
 
-const { spawnSync } = require("child_process");
+const { spawnSync, execSync } = require("child_process");
 const contentful = require("contentful-management");
 const { compareSemVer, isValidSemVer, parseSemVer } = require("semver-parser");
-const { execSync } = require("child_process");
 const ora = require("ora");
 
 const { MANAGEMENT_ACCESS_TOKEN, SPACE_ID } = process.env;
@@ -17,7 +16,7 @@ const CONTENTFUL_PRODUCTION_BRANCH = "master";
 const CONTENTFUL_PRE_PRODUCTION_BRANCH = "pre-production";
 const CONTENTFUL_DEV_MAIN_BRANCH = "development";
 
-const ignoredHooks = ["Contentful integration", "Firestore hook"];
+const allowedHooks = ["Gitlab Tag Trigger"];
 
 const getCurrentCommitTag = () => {
   console.log("Trying to get the tag from the commit information.");
@@ -41,8 +40,6 @@ const getTagFromHookBody = (body) => {
     return null;
   }
 
-  console.log(typeof body);
-
   const { event_name, ref } = JSON.parse(body);
 
   if (event_name !== "tag_push") {
@@ -57,12 +54,10 @@ const getTagFromHookBody = (body) => {
 function parseCIEnvironments() {
   let { BRANCH, INCOMING_HOOK_TITLE, INCOMING_HOOK_BODY } = process.env;
 
-  console.log(BRANCH, INCOMING_HOOK_BODY);
-
   const targetBranch = BRANCH;
   // TODO: Ideally we could base it on git events.
   const shouldSkipBuild =
-    !!INCOMING_HOOK_TITLE && INCOMING_HOOK_TITLE.includes(ignoredHooks);
+    !!INCOMING_HOOK_TITLE && !INCOMING_HOOK_TITLE.includes(allowedHooks);
 
   const tag = getTagFromHookBody(INCOMING_HOOK_BODY) || getCurrentCommitTag();
 
@@ -366,9 +361,9 @@ async function main() {
 
   if (shouldSkipBuild) {
     console.log(
-      `Builds triggered by ${ignoredHooks.join(
+      `Only builds triggered by ${allowedHooks.join(
         ", "
-      )} are ignored. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
+      )} are allowed. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
     );
 
     return;

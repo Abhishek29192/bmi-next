@@ -317,7 +317,12 @@ const Header = ({
       </Slide>
       {!isSearchDisabled && (
         <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
-          <div className={styles["SearchDrawerContainer"]}>
+          <div
+            className={classnames(styles["SearchDrawerContainer"], {
+              [styles["SearchDrawerContainer--hidden"]]:
+                !showSearch && size === "small"
+            })}
+          >
             <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
               <Button
                 accessibilityLabel={closeLabel}

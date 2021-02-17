@@ -1,6 +1,6 @@
 import React from "react";
-import LinkCard from "../";
 import { render } from "@testing-library/react";
+import LinkCard from "../";
 
 describe("LinkCard component", () => {
   it("renders correctly open variant", () => {

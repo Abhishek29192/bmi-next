@@ -4,6 +4,20 @@
   position: relative;
   height: 100%;
 
+  :global {
+    .MuiPaper-root {
+      display: flex;
+      flex-direction: column;
+      max-height: 100%;
+
+      .MuiCardContent-root {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+      }
+    }
+  }
+
   .map {
     background-color: $color-pearl;
     align-items: center;
@@ -14,14 +28,21 @@
 
   .popup {
     left: 0;
-    margin: auto;
-    max-height: calc(100% - 40px);
-    overflow: auto;
-    padding: 20px;
+    margin: 0 20px;
     position: absolute;
     right: 0;
-    top: 20px;
-    width: 400px;
+    top: 0;
+    max-width: 500px;
+    padding: 32px 0;
+    pointer-events: none;
+
+    & > * {
+      pointer-events: all;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      margin: 0 auto;
+    }
   }
 
   .error {

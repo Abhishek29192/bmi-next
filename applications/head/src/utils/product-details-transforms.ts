@@ -1,15 +1,13 @@
 import { Link } from "gatsby";
 import { result, uniqBy, groupBy, find, pickBy } from "lodash";
+import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 import {
   ClassificationFeatureValue,
   Product,
   VariantOption
 } from "../templates/product-details-page";
-import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 
-const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
-export const getProductUrl = (countryCode, productCode) =>
-  `/${countryCode}/products/${getSlug(productCode)}`;
+export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
 
 const getProductProp = (classifications, productCode, propName) =>
   classifications[productCode] ? classifications[productCode][propName] : null;
@@ -311,7 +309,8 @@ export const getProductAttributes = (
   productClassifications,
   selfProduct,
   pageContext,
-  options
+  options,
+  variantCodeToPathMap
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedSurfaceTreatment = getProductProp(
     productClassifications,
@@ -440,7 +439,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})
@@ -472,7 +474,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})
@@ -499,7 +504,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})

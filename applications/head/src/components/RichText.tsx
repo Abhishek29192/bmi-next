@@ -10,12 +10,12 @@ import {
 import { Options } from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
 import AnchorLink from "@bmi/anchor-link";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { graphql } from "gatsby";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import InlineHyperlink from "./InlineHyperlink";
 import styles from "./styles/RichText.module.scss";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
-import { graphql } from "gatsby";
 
 export type RichTextData = Parameters<typeof renderRichText>[0];
 

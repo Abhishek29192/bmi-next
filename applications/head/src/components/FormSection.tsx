@@ -11,6 +11,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
+import { GoogleReCaptcha } from "react-google-recaptcha-v3";
 import { LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
@@ -37,6 +38,7 @@ type InputType = {
   width?: "full" | "half";
   accept?: string;
   maxSize?: number;
+  token?: string;
 };
 
 export type Data = {
@@ -57,7 +59,8 @@ const Input = ({
   type,
   required,
   accept = ".pdf, .jpg, .jpeg, .png",
-  maxSize
+  maxSize,
+  token
 }: Omit<InputType, "width">) => {
   const { getMicroCopy } = useContext(SiteContext);
   const mapBody = (file: File) => file;
@@ -99,7 +102,10 @@ const Input = ({
           buttonLabel={label}
           isRequired={required}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
-          headers={{ "Content-Type": "application/octet-stream" }}
+          headers={{
+            "Content-Type": "application/octet-stream",
+            "X-Recaptcha-Token": token
+          }}
           accept={accept}
           fileValidation={handleFileValidation}
           instructions={
@@ -173,6 +179,7 @@ const FormSection = ({
 }) => {
   const { countryCode, getMicroCopy, node_locale } = useContext(SiteContext);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [token, setToken] = useState<string>();
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -202,7 +209,8 @@ const FormSection = ({
           values
         },
         {
-          cancelToken: source.token
+          cancelToken: source.token,
+          headers: { "X-Recaptcha-Token": token }
         }
       );
 
@@ -210,7 +218,7 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            `/${countryCode}/${successRedirect.linkedPage.slug}`
+            `/${countryCode}/${successRedirect.linkedPage.path}`
         );
       } else {
         navigate("/");
@@ -232,10 +240,11 @@ const FormSection = ({
           className={styles["Form"]}
           rightAlignButton
         >
+          <GoogleReCaptcha onVerify={setToken} />
           <Grid container spacing={3}>
             {inputs.map(({ width, ...props }, $i) => (
               <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
-                <Input {...props} />
+                <Input token={token} {...props} />
               </Grid>
             ))}
           </Grid>

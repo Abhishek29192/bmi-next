@@ -1,7 +1,7 @@
 import React from "react";
-import TextField from "../";
 import { render } from "@testing-library/react";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import TextField from "../";
 
 describe("TextField component", () => {
   it("renders correctly", () => {

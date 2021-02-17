@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import IconList from "../";
 import UserIcon from "@material-ui/icons/Person";
+import IconList from "../";
 
 describe("IconList component", () => {
   it("renders correctly with default icon", () => {

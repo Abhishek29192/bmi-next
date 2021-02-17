@@ -4,6 +4,12 @@ import { sortBy } from "lodash";
 import Hero from "@bmi/hero";
 import Grid from "@bmi/grid";
 import Section from "@bmi/section";
+import AlertBanner from "@bmi/alert-banner";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
+import Filters from "@bmi/filters";
+import PerfectScrollbar from "components/perfect-scrollbar/src";
+import Typography from "@bmi/typography/src";
+import Button from "@bmi/button/src";
 import { Data as SiteData } from "../components/Site";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Page, { Data as PageData } from "../components/Page";
@@ -21,8 +27,6 @@ import { getCount as getSimpleTableCount } from "../components/DocumentSimpleTab
 import { getCount as getTechnicalTableCount } from "../components/DocumentTechnicalTableResults";
 import { getCount as getCardsCount } from "../components/DocumentCardsResults";
 import { SiteContext } from "../components/Site";
-import AlertBanner from "@bmi/alert-banner";
-import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import RichText, { RichTextData } from "../components/RichText";
 import {
   getBrandFilterFromDocuments,
@@ -32,11 +36,7 @@ import {
   findPIMDocumentBrandCategory,
   isPIMDocument
 } from "../utils/filters";
-import Filters from "@bmi/filters";
 import { devLog } from "../utils/devLog";
-import PerfectScrollbar from "components/perfect-scrollbar/src";
-import Typography from "@bmi/typography/src";
-import Button from "@bmi/button/src";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import filterStyles from "../components/styles/Filters.module.scss";
@@ -54,14 +54,13 @@ const documentCountMap: Record<
 
 type Source = "PIM" | "CMS" | "ALL";
 
-type Data = BreadcrumbsData &
-  PageInfoData &
+type Data = PageInfoData &
   PageData & {
     description: RichTextData | null;
     source: Source;
     resultsType: "Simple" | "Technical" | "Card Collection";
     documents: DocumentResultsData;
-    parentPage: PageInfoData | null;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -113,30 +112,19 @@ const sourceToSortMap: Record<
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     title,
-    slug,
     description,
     documents: unsortedDocuments,
     source,
     resultsType,
-    parentPage
+    breadcrumbs,
+    seo
   } = data.contentfulDocumentLibraryPage;
 
   const pageData: PageData = {
-    slug,
-    inputBanner: data.contentfulDocumentLibraryPage.inputBanner
+    breadcrumbs,
+    inputBanner: data.contentfulDocumentLibraryPage.inputBanner,
+    seo
   };
-
-  const breadcrumbs = (
-    <Breadcrumbs
-      data={{
-        title,
-        slug,
-        parentPage
-      }}
-      menuNavigation={data.contentfulSite.menuNavigation}
-      isDarkThemed
-    />
-  );
 
   const getFilters = (
     documents: DocumentResultsData,
@@ -328,17 +316,30 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
           <ProgressIndicator theme="light" />
         </Scrim>
       ) : null}
-      <Hero level={2} title={title} breadcrumbs={breadcrumbs} />
+      <Hero
+        level={2}
+        title={title}
+        breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
+      />
       {description && (
         <Section backgroundColor="white">
           <RichText document={description} />
         </Section>
       )}
       <SiteContext.Consumer>
-        {({ getMicroCopy }) => {
+        {({
+          getMicroCopy,
+          scriptGRecaptchaId,
+          scriptGRecaptchaNet,
+          node_locale
+        }) => {
           return (
             <DownloadList
               maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
+              useRecaptcha={format !== "cards"}
+              reCaptchaKey={scriptGRecaptchaId}
+              useRecaptchaNet={scriptGRecaptchaNet}
+              language={node_locale}
             >
               <DownloadListContext.Consumer>
                 {({ count }) => {
@@ -412,14 +413,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
         }}
       </SiteContext.Consumer>
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          data={{
-            title,
-            slug,
-            parentPage
-          }}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );

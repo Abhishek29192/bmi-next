@@ -52,7 +52,7 @@ module.exports.up = (migration) => {
 module.exports.down = (migration) => {
   const documentLibraryPage = migration.editContentType("documentLibraryPage");
 
-  documentLibraryPage.editField("tag").disabled(false).omitted(false);;
+  documentLibraryPage.editField("tag").disabled(false).omitted(false);
 
   migration.transformEntries({
     contentType: "documentLibraryPage",

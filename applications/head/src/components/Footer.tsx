@@ -44,15 +44,22 @@ type Props = {
 };
 
 const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
-  const { countryCode } = useContext(SiteContext);
+  const { countryCode, getMicroCopy } = useContext(SiteContext);
   const main = parseNavigation(mainNavigation.links, countryCode);
   const secondary = parseNavigation(secondaryNavigation.links, countryCode);
+  const secondaryWithSitemap = [
+    ...secondary,
+    {
+      label: getMicroCopy("global.sitemap"),
+      action: getClickableActionFromUrl({ path: "sitemap" }, null, countryCode)
+    }
+  ];
 
   return (
     <HidePrint>
       <Footer
         mainNavigation={main}
-        secondaryNavigation={secondary}
+        secondaryNavigation={secondaryWithSitemap}
         logo={BmiIcon}
       />
     </HidePrint>

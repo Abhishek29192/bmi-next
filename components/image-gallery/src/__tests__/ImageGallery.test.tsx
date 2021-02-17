@@ -1,6 +1,6 @@
 import React from "react";
-import ImageGallery from "../";
 import { render } from "@testing-library/react";
+import ImageGallery from "../";
 import mockImage from "./images/demo-tiles.jpg";
 
 describe("ImageGallery component", () => {

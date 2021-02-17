@@ -1,6 +1,6 @@
 import React from "react";
-import RawTextField from "../";
 import { render } from "@testing-library/react";
+import RawTextField from "../";
 
 describe("RawTextField component", () => {
   it("renders correctly", () => {

@@ -1,27 +1,57 @@
-Component for an embedded [Google Map](https://developers.google.com/maps). See the Google Maps JavaScript API [documentation](https://developers.google.com/maps/documentation/javascript/overview).
+Component for an embedded [Google Map](https://developers.google.com/maps).
+See the Google Maps JavaScript API
+[documentation](https://developers.google.com/maps/documentation/javascript/overview).
 
 ## Static
 
 ```jsx
 import { markers } from "./src/__tests__/__fixtures__";
+import GoogleApi, { loadGoogleApi } from "@bmi/google-api";
+import React, { useEffect, useState } from "react";
 
-<div style={{ height: "400px" }}>
-  <GoogleMap markers={markers} />
-</div>;
+const GoogleMapDemo = () => {
+  const [googleApi, setgoogleApi] = useState(false);
+
+  const initialise = async () => {
+    await loadGoogleApi(undefined, ["places"]);
+    setgoogleApi(typeof google !== "undefined" ? google : null);
+  };
+
+  useEffect(() => {
+    initialise();
+  }, []);
+
+  return (
+    <GoogleApi.Provider value={googleApi}>
+      <div style={{ height: "400px" }}>
+        <GoogleMap markers={markers} />
+      </div>
+    </GoogleApi.Provider>
+  );
+};
+
+<GoogleMapDemo />;
 ```
 
 ## Controlled map
 
 ```jsx
-import { useState } from "react";
+import { markers as initialMarkers } from "./src/__tests__/__fixtures__";
 import Button from "@bmi/button";
 import CompanyDetails from "@bmi/company-details";
-import { markers as initialMarkers } from "./src/__tests__/__fixtures__";
+import GoogleApi, { loadGoogleApi } from "@bmi/google-api";
+import React, { useEffect, useState } from "react";
 
 const ControlledGoogleMap = () => {
+  const [googleApi, setgoogleApi] = useState(false);
   const [markers, setMarkers] = useState(initialMarkers);
   const [activeMarker, setActiveMarker] = useState();
   const [popupIsVisible, setPopupIsVisible] = useState(false);
+
+  const initialise = async () => {
+    await loadGoogleApi(undefined, ["places"]);
+    setgoogleApi(typeof google !== "undefined" ? google : null);
+  };
 
   const handleMarkerClick = (marker, index) => {
     setPopupIsVisible(true);
@@ -36,8 +66,12 @@ const ControlledGoogleMap = () => {
     setMarkers(markers.slice(1));
   };
 
+  useEffect(() => {
+    initialise();
+  }, []);
+
   return (
-    <>
+    <GoogleApi.Provider value={googleApi}>
       <div style={{ height: "400px" }}>
         <GoogleMap markers={markers} onMarkerClick={handleMarkerClick}>
           {popupIsVisible && activeMarker && (
@@ -59,7 +93,7 @@ const ControlledGoogleMap = () => {
       <Button onClick={handleRemoveMarkerClick} style={{ marginTop: "1rem" }}>
         Remove marker
       </Button>
-    </>
+    </GoogleApi.Provider>
   );
 };
 

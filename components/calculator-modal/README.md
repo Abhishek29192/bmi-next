@@ -24,3 +24,26 @@ const [open, setOpen] = React.useState(false);
   </CalculatorModal>
 </>;
 ```
+
+### Pearl background
+
+```jsx
+import Button from "@bmi/button";
+const [open, setOpen] = React.useState(false);
+<>
+  <Button onClick={() => setOpen(true)}>Open modal</Button>
+  <CalculatorModal
+    open={open}
+    pearl
+    onCloseClick={() => setOpen(false)}
+    headerCenter="Some rather lengthy, extremely verbose, Central Content in the header"
+    backdropProps={{
+      className: "test-backdrop"
+    }}
+  >
+    {new Array(30).fill("Some content").map((content, i) => (
+      <div key={i}>{content}</div>
+    ))}
+  </CalculatorModal>
+</>;
+```

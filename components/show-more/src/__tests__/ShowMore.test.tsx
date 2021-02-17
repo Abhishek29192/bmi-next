@@ -1,7 +1,7 @@
 import React from "react";
-import ShowMore from "../";
 import { render, fireEvent } from "@testing-library/react";
 import Button from "@bmi/button";
+import ShowMore from "../";
 
 describe("ShowMore component", () => {
   it("renders correctly", () => {

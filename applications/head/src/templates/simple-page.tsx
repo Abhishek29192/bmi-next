@@ -1,11 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Hero, { HeroItem } from "@bmi/hero";
+import Section from "@bmi/section";
+import SpotlightHero from "@bmi/spotlight-hero";
+import TableOfContent from "@bmi/table-of-content";
+import AnchorLink from "@bmi/anchor-link";
 import Breadcrumbs, {
-  Data as BreadcrumbsData,
-  findPath
+  Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import Page, { Data as PageData } from "../components/Page";
-import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as PageInfoData } from "../components/PageInfo";
@@ -13,8 +16,6 @@ import NextBestActions, {
   Data as NextBestActionsData
 } from "../components/NextBestActions";
 import ExploreBar, { Data as ExploreBarData } from "../components/ExploreBar";
-import Section from "@bmi/section";
-import SpotlightHero from "@bmi/spotlight-hero";
 import LeadBlockSection, {
   Data as LeadBlockSectionData
 } from "../components/LeadBlockSection";
@@ -24,11 +25,8 @@ import LinkColumnsSection, {
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
-import TableOfContent from "@bmi/table-of-content";
-import AnchorLink from "@bmi/anchor-link";
 
-type Data = BreadcrumbsData &
-  PageInfoData &
+type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
     leadBlock: LeadBlockSectionData | null;
@@ -45,6 +43,7 @@ type Data = BreadcrumbsData &
       | "Level 3"
       | null;
     parentPage: PageInfoData | null;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -58,7 +57,6 @@ const SimplePage = ({ data }: Props) => {
   const {
     title,
     subtitle,
-    slug,
     featuredImage,
     leadBlock,
     shareWidget,
@@ -67,21 +65,18 @@ const SimplePage = ({ data }: Props) => {
     exploreBar,
     linkColumns,
     heroType,
-    parentPage
+    breadcrumbs,
+    seo
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
     title,
     children: subtitle,
     imageSource: featuredImage?.resize.src
   };
-  const parentSlug = parentPage?.slug;
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {
-    heroLevel = (Math.min(
-      findPath(parentSlug || slug, data.contentfulSite.menuNavigation).length +
-        (parentSlug ? 2 : 1),
-      3
-    ) || 1) as 1 | 2 | 3;
+    heroLevel = (Math.min(breadcrumbs.filter(({ slug }) => slug).length, 3) ||
+      1) as 1 | 2 | 3;
   } else {
     const levelMap = {
       "Level 1": 1,
@@ -91,24 +86,24 @@ const SimplePage = ({ data }: Props) => {
     heroLevel = levelMap[heroType] as 1 | 2 | 3;
   }
 
-  const breadcrumbs = (
+  const breadcrumbsNode = (
     <Breadcrumbs
-      data={{ title, slug, parentPage }}
-      menuNavigation={data.contentfulSite.menuNavigation}
+      data={breadcrumbs}
       isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
     />
   );
   const pageData: PageData = {
-    slug,
-    inputBanner: data.contentfulSimplePage.inputBanner
+    breadcrumbs,
+    inputBanner: data.contentfulSimplePage.inputBanner,
+    seo
   };
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       {heroType === "Spotlight" ? (
-        <SpotlightHero {...heroProps} breadcrumbs={breadcrumbs} />
+        <SpotlightHero {...heroProps} breadcrumbs={breadcrumbsNode} />
       ) : (
-        <Hero level={heroLevel} {...heroProps} breadcrumbs={breadcrumbs} />
+        <Hero level={heroLevel} {...heroProps} breadcrumbs={breadcrumbsNode} />
       )}
       <TableOfContent
         renderLink={(sectionId, title) => (
@@ -134,10 +129,7 @@ const SimplePage = ({ data }: Props) => {
           </Section>
         )}
         <Section backgroundColor="alabaster" isSlim>
-          <Breadcrumbs
-            data={{ title, slug, parentPage }}
-            menuNavigation={data.contentfulSite.menuNavigation}
-          />
+          <Breadcrumbs data={breadcrumbs} />
         </Section>
       </TableOfContent>
     </Page>

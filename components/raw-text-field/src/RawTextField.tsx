@@ -1,10 +1,10 @@
 import React from "react";
 import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
-import styles from "./RawTextField.module.scss";
 import classnames from "classnames";
 
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ErrorRounded from "@material-ui/icons/ErrorRounded";
+import styles from "./RawTextField.module.scss";
 
 type AdornmentProps =
   | {

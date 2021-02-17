@@ -1,10 +1,10 @@
 import React from "react";
+import { render } from "@testing-library/react";
 import ColorPair, {
   availableThemes,
   withColorPair,
   ColorPairContext
 } from "../";
-import { render } from "@testing-library/react";
 
 describe("ColorPair component", () => {
   it("renders correctly", () => {

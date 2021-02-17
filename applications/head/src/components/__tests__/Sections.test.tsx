@@ -1,7 +1,7 @@
 import React from "react";
-import Sections, { Data } from "../Sections";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import Sections, { Data } from "../Sections";
 import { SiteContext } from "../Site";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -11,7 +11,9 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
         node_locale: "en-UK",
         homePage: { title: "Home Page" },
         getMicroCopy: (path) => path,
-        countryCode: "uk"
+        countryCode: "uk",
+        scriptGRecaptchaId: "",
+        scriptGRecaptchaNet: false
       }}
     >
       {children}
@@ -120,7 +122,7 @@ describe("Sections component", () => {
           isLabelHidden: null,
           url: null,
           linkedPage: {
-            slug: "contact-us"
+            path: "contact-us"
           }
         },
         cards: [
@@ -140,7 +142,7 @@ describe("Sections component", () => {
               isLabelHidden: null,
               url: null,
               linkedPage: {
-                slug: "contact-us"
+                path: "contact-us"
               }
             },
             id: "00000000-0000-0000-0000-000000000000"
@@ -159,6 +161,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulSimplePage",
             id: "00000000-0000-0000-0000-000000000000",
+            path: "path",
             slug: "slug",
             tags: null,
             title: "page title",
@@ -215,7 +218,8 @@ describe("Sections component", () => {
         title: "Service Locator",
         label: "Find A Roofer",
         body: null,
-        roofers: null
+        roofers: null,
+        position: 0
       }
     ];
 

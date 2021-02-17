@@ -1,6 +1,6 @@
 import { ApolloServer, makeExecutableSchema } from "apollo-server";
-import resolvers from "./src/resolvers";
 import typeDefs from "@bmi/schema-defs";
+import resolvers from "./src/resolvers";
 
 const runServer = async () => {
   const schema = makeExecutableSchema({ typeDefs, resolvers });

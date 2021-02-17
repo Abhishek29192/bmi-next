@@ -1,12 +1,12 @@
 import React from "react";
 import mediaQuery from "css-mediaquery";
-import TwoPaneCarousel from "../";
-import { Props } from "../types";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
 import imageSource from "test-image.jpg";
 import BrandIcon from "brand-logo.svg";
 import mockConsole from "jest-mock-console";
+import TwoPaneCarousel from "../";
+import { Props } from "../types";
 
 beforeAll(() => {
   mockConsole();

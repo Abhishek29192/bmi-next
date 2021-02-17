@@ -1,4 +1,0 @@
-# [START gae_quickstart_yaml]
-service: company
-runtime: nodejs14
-# [END gae_quickstart_yaml]

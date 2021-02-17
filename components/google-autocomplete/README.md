@@ -1,24 +1,32 @@
-Autocomplete component using the Google Places API.
+Autocomplete component using the Google Places API. This component uses the
+[`GoogleApi`](/#/GoogleApi) context provider.
 
 ## Default
 
 ```jsx
-import React, { useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import GoogleApi, { loadGoogleApi } from "@bmi/google-api";
 
 const GoogleAutocompleteDemo = ({ apiKey }) => {
   const [place, setPlace] = useState(null);
+  const [googleApi, setgoogleApi] = useState(false);
+
+  const initialise = async () => {
+    await loadGoogleApi(apiKey, ["places"]);
+    setgoogleApi(typeof google !== "undefined" ? google : null);
+  };
+
+  useEffect(() => {
+    apiKey && initialise();
+  }, []);
 
   const handlePlaceChange = (newPlace) => {
     setPlace(newPlace);
   };
 
   return (
-    <>
-      {apiKey === "PASTE_API_KEY_HERE" ? (
-        "Please enter a Google API key into the code below"
-      ) : (
-        <GoogleAutocomplete apiKey={apiKey} onPlaceChange={handlePlaceChange} />
-      )}
+    <GoogleApi.Provider value={googleApi}>
+      <GoogleAutocomplete onPlaceChange={handlePlaceChange} />
       {place && (
         <table style={{ borderSpacing: "1rem 0" }}>
           <thead>
@@ -35,9 +43,9 @@ const GoogleAutocompleteDemo = ({ apiKey }) => {
           </tbody>
         </table>
       )}
-    </>
+    </GoogleApi.Provider>
   );
 };
 
-<GoogleAutocompleteDemo apiKey="PASTE_API_KEY_HERE" />;
+<GoogleAutocompleteDemo apiKey="" />;
 ```

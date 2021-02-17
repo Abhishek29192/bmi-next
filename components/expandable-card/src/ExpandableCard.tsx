@@ -11,9 +11,9 @@ import Card, { CardContent } from "@bmi/card";
 import Button from "@bmi/button";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@bmi/typography";
+import classnames from "classnames";
 import styles from "./ExpandableCard.module.scss";
 import listStyles from "./ExpandableCardList.module.scss";
-import classnames from "classnames";
 
 type CardItem = {
   icon: SVGImport;

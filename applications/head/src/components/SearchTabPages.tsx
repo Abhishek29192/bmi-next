@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import Grid from "@bmi/grid";
-import Pagination from "@bmi/pagination";
 import FiltersSidebar from "../components/FiltersSidebar";
 import {
   clearFilterValues,
@@ -15,6 +14,7 @@ import {
 import { devLog } from "../utils/devLog";
 import PageSummaryCard from "./PageSummaryCard";
 import { SiteContext } from "./Site";
+import ResultsPagination from "./ResultsPagination";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PAGES;
@@ -260,26 +260,21 @@ const SearchTabPanelPages = (props: Props) => {
         style={{ paddingTop: 0 }}
       >
         {results
-          .filter(({ slug }) => slug)
+          .filter(({ path }) => path)
           .map((result, index) => (
             <PageSummaryCard
               key={index}
               title={result.title}
               subtitle={result.subtitle}
-              slug={result.slug}
+              path={result.path}
               countryCode={pageContext.countryCode}
             />
           ))}
-        <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
-          <Grid item xs={12} md={6} lg={6}></Grid>
-          <Grid item xs={12} md={6} lg={6}>
-            <Pagination
-              page={page + 1}
-              onChange={handlePageChange}
-              count={pageCount}
-            />
-          </Grid>
-        </Grid>
+        <ResultsPagination
+          page={page + 1}
+          onPageChange={handlePageChange}
+          count={pageCount}
+        />
       </Grid>
     </Grid>
   );

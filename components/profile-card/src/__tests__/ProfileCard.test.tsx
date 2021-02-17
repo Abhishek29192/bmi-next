@@ -1,8 +1,8 @@
 import React from "react";
-import ProfileCard from "../";
 import { render } from "@testing-library/react";
 import imageSource from "mock-image.jpg";
 import iconSource from "mock-icon.svg";
+import ProfileCard from "../";
 
 describe("ProfileCard component", () => {
   it("renders correctly", () => {

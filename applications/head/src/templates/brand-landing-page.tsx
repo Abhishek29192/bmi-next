@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Hero, { HeroItem } from "@bmi/hero";
+import Section from "@bmi/section";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
-import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
 // import Search from "@bmi/search";
-import Section from "@bmi/section";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -17,13 +17,13 @@ import Breadcrumbs, {
 } from "../components/Breadcrumbs";
 import BrandLogo from "../components/BrandLogo";
 
-type BrandLandingPageData = BreadcrumbsData &
-  PageInfoData &
+type BrandLandingPageData = PageInfoData &
   PageData & {
     description: null | { description: string };
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;
     sections: SectionsData;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -51,26 +51,21 @@ const BrandLandingPage = ({ data }: Props) => {
   const {
     title,
     description,
-    slug,
     brandLogo,
     featuredImage,
     slides,
     overlapCards,
     sections,
     inputBanner,
-    parentPage
+    breadcrumbs,
+    seo
   } = data.contentfulBrandLandingPage;
   const pageData: PageData = {
-    slug: null,
-    inputBanner
+    breadcrumbs,
+    inputBanner,
+    seo
   };
-  const breadcrumbs = (
-    <Breadcrumbs
-      data={{ title, parentPage, slug }}
-      menuNavigation={data.contentfulSite.menuNavigation}
-      isDarkThemed
-    />
-  );
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -87,7 +82,7 @@ const BrandLandingPage = ({ data }: Props) => {
           return (
             <Hero
               level={0}
-              breadcrumbs={breadcrumbs}
+              breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
             >
@@ -104,10 +99,7 @@ const BrandLandingPage = ({ data }: Props) => {
       {overlapCards && <OverlapCards data={overlapCards} />}
       {sections && <Sections data={sections} />}
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          data={{ title, parentPage, slug }}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );
@@ -133,13 +125,11 @@ export const pageQuery = graphql`
       sections {
         ...SectionsFragment
       }
-      inputBanner {
-        ...InputBannerFragment
-      }
       parentPage {
         ...PageInfoFragment
       }
       ...PageInfoFragment
+      ...PageFragment
       ...BreadcrumbsFragment
     }
     contentfulSite(id: { eq: $siteId }) {

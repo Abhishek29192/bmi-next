@@ -28,6 +28,7 @@ stages:
   - release
   - deploy
   - dynamic_security
+  - lighthouse_scan
 
 install:
   stage: install
@@ -67,6 +68,15 @@ license_finder:
   artifacts:
     paths:
       - license_finder_output.html
+
+eslint:
+  stage: test
+  except:
+    refs:
+      - schedules
+  needs: [install]
+  script:
+    - yarn eslint "**/*.{js,ts,tsx}"
 
 coverage_jest:
   stage: test

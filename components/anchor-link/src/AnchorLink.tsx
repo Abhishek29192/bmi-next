@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import classnames from "classnames";
-import styles from "./AnchorLink.module.scss";
 import Icon from "@bmi/icon";
 import { withClickable } from "@bmi/clickable";
-import arrowForwardIcon from "./icons/arrow-right.svg";
 import Link, { LinkProps } from "@material-ui/core/Link";
 import { ColorPairContext } from "@bmi/color-pair";
+import arrowForwardIcon from "./icons/arrow-right.svg";
+import styles from "./AnchorLink.module.scss";
 
 export type Props = Omit<LinkProps, "color"> & {
   children: React.ReactNode;

@@ -1,8 +1,8 @@
 import React from "react";
-import TileList from "../";
 import { render, fireEvent } from "@testing-library/react";
 import Typography from "@bmi/typography";
 import UserIcon from "@material-ui/icons/Person";
+import TileList from "../";
 
 describe("TileList component", () => {
   it("renders correctly", () => {

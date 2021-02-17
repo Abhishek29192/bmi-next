@@ -1,10 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
+
 dotenv.config();
-import postgraphile from "./postgraphile";
+
+import postgraphile from "../../shared/postgraphile";
 
 const app = express();
-
 app.use(postgraphile);
 
 const PORT = process.env.PORT || 4001;

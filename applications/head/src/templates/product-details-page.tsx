@@ -3,6 +3,8 @@ import { graphql } from "gatsby";
 import { uniqBy, flatten, map } from "lodash";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
+import Grid, { GridSize } from "@bmi/grid";
+import CTACard from "@bmi/cta-card";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import ProductOverview, {
@@ -17,13 +19,13 @@ import {
   getProductTechnicalSpecifications
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
-import Grid, { GridSize } from "@bmi/grid";
-import CTACard from "@bmi/cta-card";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
 import { Data as PIMDocumentData } from "../components/PIMDocument";
 import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -81,6 +83,8 @@ export type VariantOption = {
   approvalStatus: string;
   shortDescription: string;
   longDescription: string;
+  breadcrumbs: BreadcrumbsData;
+  path: string;
 };
 
 export type Category = {
@@ -115,6 +119,7 @@ export type Product = {
   classifications?: ReadonlyArray<Classification>;
   variantOptions?: ReadonlyArray<VariantOption>;
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
+  breadcrumbs: null;
 };
 
 type Props = {
@@ -181,22 +186,19 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   );
 
   const { resources, countryCode } = contentfulSite;
+  const { breadcrumbs } = selfProduct;
   const pageData: PageData = {
-    slug: null,
+    breadcrumbs,
     inputBanner: resources.pdpInputBanner
   };
 
-  const breadcrumbs = (
-    <Breadcrumbs
-      data={{ title: product.name, slug: pageData.slug, parentPage: null }}
-    />
-  );
-
   return (
     <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
-      <Section backgroundColor="pearl" isSlim>
-        {breadcrumbs}
-      </Section>
+      {breadcrumbs && (
+        <Section backgroundColor="pearl" isSlim>
+          <Breadcrumbs data={breadcrumbs} />
+        </Section>
+      )}
       <Container>
         <SiteContext.Consumer>
           {({ getMicroCopy }) => {
@@ -216,7 +218,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     pageContext,
                     {
                       size: getMicroCopy("pdp.overview.size")
-                    }
+                    },
+                    product.variantOptions.reduce(
+                      (carry, { code, path }) => ({ ...carry, [code]: path }),
+                      {}
+                    )
                   )
                 }}
               >
@@ -289,9 +295,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           <ExploreBar data={resources.pdpExploreBar} />
         </Section>
       )}
-      <Section backgroundColor="alabaster" isSlim>
-        {breadcrumbs}
-      </Section>
+      {breadcrumbs && (
+        <Section backgroundColor="pearl" isSlim>
+          <Breadcrumbs data={breadcrumbs} />
+        </Section>
+      )}
     </Page>
   );
 };
@@ -350,6 +358,8 @@ export const pageQuery = graphql`
       }
       productBenefits
       variantOptions {
+        path
+        breadcrumbs
         isSampleOrderAllowed
         code
         externalProductCode

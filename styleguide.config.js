@@ -2,8 +2,8 @@
 
 const path = require("path");
 const fs = require("fs");
-const { withConfigs, styles } = require("./libraries/webpack");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const { withConfigs, styles } = require("./libraries/webpack");
 
 const webpackConfig = withConfigs(
   {
@@ -61,7 +61,7 @@ const webpackConfig = withConfigs(
       ]
     }
   },
-  [styles({ dev: true })]
+  [styles({ dev: true, exclude: { css: null } })]
 );
 
 module.exports = {
@@ -89,12 +89,14 @@ module.exports = {
       .join(componentPath, `../../${componentName}.md`)
       .replace();
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (fs.existsSync(specificComponentExampleFile)) {
       return specificComponentExampleFile;
     }
 
     const exampleFile = path.join(componentPath, "../../README.md");
 
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     if (fs.existsSync(exampleFile)) {
       return exampleFile;
     }

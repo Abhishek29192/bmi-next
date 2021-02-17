@@ -1,8 +1,8 @@
 "use strict";
 
+const fs = require("fs");
 const findInFiles = require("find-in-files");
 const jsonfile = require("jsonfile");
-const fs = require("fs");
 const _ = require("lodash");
 
 const pattern = /getMicroCopy\("([A-z.]+)"\)/;

@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../Footer";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import Footer from "../Footer";
 
 import { SiteContext } from "../Site";
 
@@ -12,7 +12,9 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
         node_locale: "en-UK",
         homePage: { title: "Home Page" },
         getMicroCopy: (path) => path,
-        countryCode: "uk"
+        countryCode: "uk",
+        scriptGRecaptchaId: "",
+        scriptGRecaptchaNet: false
       }}
     >
       {children}
@@ -63,7 +65,7 @@ describe("Footer component", () => {
                     isLabelHidden: null,
                     icon: null,
                     linkedPage: {
-                      slug: "landing-page"
+                      path: "landing-page"
                     }
                   }
                 ]
@@ -83,7 +85,7 @@ describe("Footer component", () => {
                 isLabelHidden: null,
                 icon: null,
                 linkedPage: {
-                  slug: "landing-page"
+                  path: "landing-page"
                 }
               }
             ]

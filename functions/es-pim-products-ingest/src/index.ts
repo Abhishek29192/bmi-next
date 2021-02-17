@@ -1,9 +1,9 @@
 import { Client } from "@elastic/elasticsearch";
 import { config } from "dotenv";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { transformProduct } from "./transform";
 import { Operation as ESOperation } from "./types/elasticSearch";
 import { Product as PIMProduct } from "./types/pim";
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 type ProductMessage = {
   type: string;
@@ -21,7 +21,13 @@ type ProductMessageFunction = (
   }
 ) => any;
 
-const ES_INDEX_PREFIX = "nodetest_v3";
+const {
+  ES_INDEX_PREFIX,
+  SECRET_MAN_GCP_PROJECT_NAME,
+  ES_PASSWORD_SECRET,
+  ES_CLOUD_ID,
+  ES_USERNAME
+} = process.env;
 
 config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
@@ -33,16 +39,16 @@ let esClientCache;
 const getEsClient = async () => {
   if (!esClientCache) {
     const esPasswordSecret = await secretManagerClient.accessSecretVersion({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.ES_PASSWORD_SECRET}/versions/latest`
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
     const esPassword = esPasswordSecret[0].payload.data.toString();
 
     esClientCache = new Client({
       cloud: {
-        id: process.env.ES_CLOUD_ID
+        id: ES_CLOUD_ID
       },
       auth: {
-        username: process.env.ES_USERNAME,
+        username: ES_USERNAME,
         password: esPassword
       },
       headers: {
@@ -66,8 +72,10 @@ const pingEsCluster = async () => {
   let client = await getEsClient();
   client.ping(function (error) {
     if (error) {
+      // eslint-disable-next-line no-console
       console.error("Elasticsearch cluster is down!");
     } else {
+      // eslint-disable-next-line no-console
       console.log("Elasticsearch is connected");
     }
   });
@@ -109,13 +117,16 @@ const setItemsInElasticSearch = async (
     body
   });
 
+  // eslint-disable-next-line no-console
   console.log(`[UPDATED][${bulkResponse.status}]`);
 
   if (bulkResponse.errors) {
-    console.log("ERROR", JSON.stringify(bulkResponse.errors, null, 2));
+    // eslint-disable-next-line no-console
+    console.error("ERROR", JSON.stringify(bulkResponse.errors, null, 2));
   }
 
   const { body: count } = await client.count({ index });
+  // eslint-disable-next-line no-console
   console.log("Total count:", count);
 };
 
@@ -132,18 +143,23 @@ const deleteItemsFromElasticsearch = async (itemType, items) => {
     body
   });
 
+  // eslint-disable-next-line no-console
   console.log(`[DELETED][${bulkResponse.status}]`);
 
   if (bulkResponse.errors) {
+    // eslint-disable-next-line no-console
     console.log("[ERROR]", JSON.stringify(bulkResponse.errors, null, 2));
   }
 
   const { body: count } = await client.count({ index });
+  // eslint-disable-next-line no-console
   console.log("Total count:", count);
 };
 
-const handleMessage: ProductMessageFunction = async (event, context) => {
+export const handleMessage: ProductMessageFunction = async (event, context) => {
+  // eslint-disable-next-line no-console
   console.log("event", event);
+  // eslint-disable-next-line no-console
   console.log("context", context);
 
   await pingEsCluster();
@@ -159,10 +175,12 @@ const handleMessage: ProductMessageFunction = async (event, context) => {
 
   const { type, itemType, items } = message;
   if (!items) {
+    // eslint-disable-next-line no-console
     console.log("[ERROR]: NO Items received");
     return;
   }
 
+  // eslint-disable-next-line no-console
   console.log("Received message", {
     type,
     itemType,
@@ -177,8 +195,7 @@ const handleMessage: ProductMessageFunction = async (event, context) => {
       deleteItemsFromElasticsearch(itemType, items);
       break;
     default:
-      console.log(`[ERROR]: Undercognised message type [${type}]`);
+      // eslint-disable-next-line no-console
+      console.error(`[ERROR]: Undercognised message type [${type}]`);
   }
 };
-
-exports.handleMessage = handleMessage;

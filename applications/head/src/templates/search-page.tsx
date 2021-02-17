@@ -14,9 +14,6 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import SearchBlock, { QueryInput } from "../components/SearchBlock";
 import Scrim from "../components/Scrim";
 import { Data as SiteData } from "../components/Site";
-// TODO: Move type away from a page
-import { Product } from "./product-details-page";
-import { getFilters } from "../utils/filters";
 import SearchTabPanelProducts, {
   getCount as getProductsCount
 } from "../components/SearchTabProducts";
@@ -26,6 +23,7 @@ import SearchTabPanelDocuments, {
 import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
+import { ProductFilter } from "../utils/filters";
 
 type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
@@ -35,34 +33,33 @@ type Props = {
     countryCode: string;
     categoryCode: string; // this is optional?
     pimClassificationCatalogueNamespace: string;
+    variantCodeToPathMap: Record<string, string>;
   };
   data: {
     contentfulSite: SiteData;
-    allProducts: {
-      nodes: ReadonlyArray<Product>;
-    };
     allContentfulAssetType: {
       nodes: ReadonlyArray<{
         name: string;
         pimCode: string;
       }>;
     };
+    productFilters: ReadonlyArray<ProductFilter>;
   };
 };
 
 const SearchPage = ({ pageContext, data }: Props) => {
-  const { contentfulSite, allContentfulAssetType } = data;
+  const { contentfulSite, allContentfulAssetType, productFilters } = data;
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
 
-  const { countryCode, menuNavigation, resources } = contentfulSite;
+  const { countryCode, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
   const defaultTitle = getMicroCopy("searchPage.title");
 
-  // TODO: rename to queryString or searchQuery to be clearer?
-  const [query, setQuery] = useState<QueryInput>(params.get(QUERY_KEY));
+  const queryString = useMemo(() => params.get(QUERY_KEY), [params]);
   const [tabsLoading, setTabsLoading] = useState({});
+  const [areTabsResolved, setAreTabsResolved] = useState(false);
   const [results, setResults] = useState<
     Record<
       "products" | "documents" | "pages",
@@ -104,15 +101,15 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
   useEffect(() => {
     const getCounts = async () => {
-      if (!query) {
+      if (!queryString) {
         return;
       }
 
       // TODO: Can be put in the config object if arguments are consistent
       const [productsCount, documentsCount, pagesCount] = await Promise.all([
-        getProductsCount(query),
-        getDocumentsCount(query),
-        getPagesCount(query)
+        getProductsCount(queryString),
+        getDocumentsCount(queryString),
+        getPagesCount(queryString)
       ]);
 
       const newResults = {
@@ -141,33 +138,28 @@ const SearchPage = ({ pageContext, data }: Props) => {
       }
 
       setResults(newResults);
+      setAreTabsResolved(true);
     };
 
     getCounts();
-  }, [query]);
+  }, [queryString]);
 
-  const hasResults =
-    Object.values(results).reduce((sum, { count }) => sum + count, 0) > 0;
+  const hasResults = Object.values(results).some(({ count }) => !!count);
 
   const pageTitle = useMemo(() => {
     // If no query, we can't show a title referring to the query
-    if (!query) {
+    // if tabs not resolved yet, we can't conclude what will be the result
+    if (!queryString || !areTabsResolved) {
       return defaultTitle;
     }
 
     // Otherwise, the title depends on if there are results.
     if (hasResults) {
-      return getMicroCopy("searchPage.title.withQuery", { query });
+      return getMicroCopy("searchPage.title.withQuery", { query: queryString });
     } else {
-      return getMicroCopy("searchPage.noResultsTitle", { query });
+      return getMicroCopy("searchPage.noResultsTitle", { query: queryString });
     }
-  }, [query, hasResults]);
-
-  const initialFilters = getFilters(
-    pageContext.pimClassificationCatalogueNamespace,
-    // Don't really like this as it seems like too much computation for the page
-    data.allProducts.nodes
-  );
+  }, [queryString, hasResults, areTabsResolved]);
 
   // If any of the tabs are loading
   const tabIsLoading = Object.values(tabsLoading).some(
@@ -202,12 +194,12 @@ const SearchPage = ({ pageContext, data }: Props) => {
             {hasBeenDisplayed ? (
               <Container>
                 <Component
-                  queryString={query}
+                  queryString={queryString}
                   pageContext={pageContext}
                   onLoadingChange={(isLoading) =>
                     handleTabIsLoading(tabKey, isLoading)
                   }
-                  initialFilters={initialFilters}
+                  initialFilters={productFilters}
                   extraData={{
                     allContentfulAssetType: allContentfulAssetType.nodes
                   }}
@@ -227,7 +219,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   return (
     <Page
       title={pageTitle}
-      pageData={{ slug: "search", inputBanner: null }}
+      pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={contentfulSite}
       isSearchPage
     >
@@ -240,21 +232,19 @@ const SearchPage = ({ pageContext, data }: Props) => {
         level={3}
         title={pageTitle}
         breadcrumbs={
-          <Breadcrumbs
-            data={{ title: pageTitle, parentPage: null, slug: "search" }}
-          />
+          <Breadcrumbs data={[{ id: "", label: pageTitle, slug: "search" }]} />
         }
       />
       <Section backgroundColor="white" isSlim>
         <SearchBlock
           buttonText={
-            query ? getMicroCopy("searchPage.searchText") : defaultTitle
+            queryString ? getMicroCopy("searchPage.searchText") : defaultTitle
           }
           countryCode={countryCode}
           hasResults={hasResults}
           helperText={getMicroCopy("searchPage.helperText")}
           placeholder={getMicroCopy("searchPage.placeholder")}
-          query={query}
+          query={queryString}
           searchPageSearchTips={resources.searchPageSearchTips}
           searchPageSidebarItems={resources.searchPageSidebarItems}
         />
@@ -284,7 +274,10 @@ const SearchPage = ({ pageContext, data }: Props) => {
 export default SearchPage;
 
 export const pageQuery = graphql`
-  query SearchPageBySiteId($siteId: String!) {
+  query SearchPageBySiteId(
+    $siteId: String!
+    $pimClassificationCatalogueNamespace: String!
+  ) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
@@ -294,62 +287,14 @@ export const pageQuery = graphql`
         pimCode
       }
     }
-    allProducts {
-      nodes {
-        name
-        code
-        categories {
-          categoryType
-          code
-          name
-          parentCategoryCode
-        }
-        images {
-          assetType
-          containerId
-          url
-          format
-        }
-        classifications {
-          name
-          code
-          features {
-            name
-            code
-            featureValues {
-              value
-              code
-            }
-            featureUnit {
-              symbol
-            }
-          }
-        }
-        variantOptions {
-          code
-          shortDescription
-          images {
-            assetType
-            containerId
-            url
-            format
-          }
-          classifications {
-            name
-            code
-            features {
-              name
-              code
-              featureValues {
-                value
-                code
-              }
-              featureUnit {
-                symbol
-              }
-            }
-          }
-        }
+    productFilters(
+      pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
+    ) {
+      label
+      name
+      options {
+        label
+        value
       }
     }
   }

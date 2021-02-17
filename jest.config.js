@@ -3,9 +3,11 @@
 module.exports = {
   coverageDirectory: "coverage",
   coverageReporters: ["json", "lcov", "text", "text-summary"],
+  coveragePathIgnorePatterns: ["node_modules/", "coverage/", "coverage-ts/"],
   collectCoverageFrom: [
     "**/*.{ts,tsx,js}",
     "!**/node_modules/**",
+    "!**/__tests__/**",
     "!**/*.config.js",
     "!.*.js",
     "!**/.*.js",
@@ -19,7 +21,7 @@ module.exports = {
   roots: [
     "<rootDir>/components",
     "<rootDir>/applications/head/src/components",
-    "<rootDir>/functions/gcp-upload-file",
+    "<rootDir>/functions",
     "<rootDir>/applications/intouch-frontend",
     "<rootDir>/applications/intouch-api"
   ],
@@ -37,6 +39,9 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
-  setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
+  setupFiles: [
+    "<rootDir>/jest/src/setEnvVars.ts",
+    "<rootDir>/jest/src/setupTests.ts"
+  ],
   setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"]
 };

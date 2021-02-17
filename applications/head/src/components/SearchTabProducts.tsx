@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import Grid from "@bmi/grid";
-import Pagination from "@bmi/pagination";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
 import { clearFilterValues, updateFilterValue } from "../utils/filters";
@@ -12,6 +11,7 @@ import {
   getCountQuery
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import ResultsPagination from "./ResultsPagination";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -186,16 +186,13 @@ const SearchTabPanelProducts = (props: Props) => {
         <Grid container spacing={3}>
           <ProductsGridView products={products} pageContext={pageContext} />
         </Grid>
-        <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
-          <Grid item xs={12} md={6} lg={6}></Grid>
-          <Grid item xs={12} md={6} lg={6}>
-            <Pagination
-              page={page + 1}
-              onChange={handlePageChange}
-              count={pageCount}
-            />
-          </Grid>
-        </Grid>
+        <div style={{ marginTop: 48, marginBottom: 48 }}>
+          <ResultsPagination
+            page={page + 1}
+            onPageChange={handlePageChange}
+            count={pageCount}
+          />
+        </div>
       </Grid>
     </Grid>
   );

@@ -3,18 +3,17 @@ import { graphql } from "gatsby";
 import Tabs from "@bmi/tabs";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
+import Hero from "@bmi/hero";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
-import Hero from "@bmi/hero";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText, { RichTextData } from "../components/RichText";
 
-type Data = BreadcrumbsData &
-  PageInfoData &
+type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulTeamPage";
     teamCategories: {
@@ -23,6 +22,7 @@ type Data = BreadcrumbsData &
       // NOTE: This is snake_case because it's a relationship field.
       team_member: TeamMemberData;
     }[];
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -36,13 +36,14 @@ const TeamPage = ({ data }: Props) => {
   const {
     title,
     teamCategories,
-    slug,
     inputBanner,
-    parentPage
+    breadcrumbs,
+    seo
   } = data.contentfulTeamPage;
   const pageData: PageData = {
-    slug,
-    inputBanner
+    breadcrumbs,
+    inputBanner,
+    seo
   };
 
   return (
@@ -50,13 +51,7 @@ const TeamPage = ({ data }: Props) => {
       <Hero
         level={2}
         title={title}
-        breadcrumbs={
-          <Breadcrumbs
-            data={{ title, slug, parentPage }}
-            menuNavigation={data.contentfulSite.menuNavigation}
-            isDarkThemed
-          />
-        }
+        breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
       />
       <Tabs theme="secondary" component={Container}>
         {teamCategories.map((category, index) => (
@@ -77,10 +72,7 @@ const TeamPage = ({ data }: Props) => {
         ))}
       </Tabs>
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          data={{ title, slug, parentPage }}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );

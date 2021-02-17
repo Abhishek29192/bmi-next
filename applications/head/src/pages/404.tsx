@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Data as SiteData } from "../components/Site";
-import Page from "../components/Page";
 import Button from "@bmi/button";
 import Typography from "@bmi/typography";
 import PromoSection from "@bmi/promo-section";
+import Page from "../components/Page";
+import { Data as SiteData } from "../components/Site";
 import { getClickableActionFromUrl } from "../components/Link";
 
 type Data = {
@@ -31,7 +31,7 @@ const FourOFour = ({ data }: { data: Data }) => {
   return (
     <Page
       title={title || "Error:404.title"}
-      pageData={{ slug: null, inputBanner: null }}
+      pageData={{ path: null, inputBanner: null, seo: null }}
       siteData={siteData}
     >
       <PromoSection title={title} imageSource={featuredImage?.file.url}>

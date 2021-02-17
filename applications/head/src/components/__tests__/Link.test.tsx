@@ -2,9 +2,9 @@ import { getClickableActionFromUrl, getCTA } from "../Link";
 
 describe("Icon component", () => {
   describe("getClickableActionFromUrl function", () => {
-    it("returns a Link router to page slug", () => {
+    it("returns a Link router to page path", () => {
       expect(
-        getClickableActionFromUrl({ slug: "some-page" }, undefined, "en")
+        getClickableActionFromUrl({ path: "some-page" }, undefined, "en")
       ).toMatchSnapshot();
     });
     it("returns a url", () => {
@@ -45,7 +45,7 @@ describe("Icon component", () => {
         getCTA(
           {
             __typename: "ContentfulContactUsPage",
-            slug: "/contact-us"
+            path: "/contact-us"
           },
           "no",
           "Go to Page"

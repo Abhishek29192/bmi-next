@@ -1,8 +1,8 @@
 import React from "react";
+import { render } from "@testing-library/react";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
 import Page, { Data } from "../Page";
-import { render } from "@testing-library/react";
 
 describe("Page component", () => {
   it("renders correctly", () => {
@@ -33,12 +33,16 @@ describe("Page component", () => {
       footerSecondaryNavigation: mockNavigation,
       menuNavigation: mockNavigation,
       menuUtilities: mockNavigation,
-      resources: null
+      resources: null,
+      scriptGOptLoad: null,
+      scriptGRecaptchaId: null,
+      scriptGRecaptchaNet: null
     };
 
     const pageData: Data = {
-      slug: "page-title",
-      inputBanner: null
+      breadcrumbs: null,
+      inputBanner: null,
+      seo: null
     };
 
     const { container } = render(

@@ -3,6 +3,7 @@
 
 const fs = require("fs");
 const { promisify } = require("util");
+
 const writeFile = promisify(fs.writeFile);
 const wsName = process.argv[2];
 const componentsDir = process.cwd() + "/components";

@@ -94,6 +94,7 @@ const getQueryObject = (queryString, page = 0, filters = []) => {
   return {
     size: PAGE_SIZE,
     from: page * PAGE_SIZE,
+    sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
     aggs: {
       assetTypes: {
         terms: {

@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
-import AnchorLink from "..";
 import { render } from "@testing-library/react";
+import AnchorLink from "..";
 
 const MockColorPairContext = createContext<{
   type: "dark" | "light";

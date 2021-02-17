@@ -1,6 +1,6 @@
 import React from "react";
-import NBACard from "../";
 import { render } from "@testing-library/react";
+import NBACard from "../";
 
 describe("NbaCard component", () => {
   it("renders correctly", () => {

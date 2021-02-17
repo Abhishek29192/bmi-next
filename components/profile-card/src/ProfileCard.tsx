@@ -1,8 +1,8 @@
 import React, { RefObject } from "react";
 import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
-import styles from "./ProfileCard.module.scss";
 import classnames from "classnames";
+import styles from "./ProfileCard.module.scss";
 
 type Props = {
   imageSource: string;

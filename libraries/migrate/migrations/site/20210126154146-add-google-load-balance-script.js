@@ -5,7 +5,10 @@ module.exports.up = (migration) => {
   // https://github.com/contentful/migration-cli/tree/master/examples
 
   const site = migration.editContentType("site");
-  site.createField("scriptGOptLoad").name("Google Optimize Load balancing ID").type("Symbol");
+  site
+    .createField("scriptGOptLoad")
+    .name("Google Optimize Load balancing ID")
+    .type("Symbol");
 };
 
 module.exports.down = (migration) => {

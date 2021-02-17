@@ -1,12 +1,12 @@
 import React from "react";
 import Typography from "@bmi/typography";
 import Form, { FormProps } from "@bmi/form";
-import MeasurementsSection from "./_MeasurementsSection";
-import Section from "./_Section";
 import Divider from "@material-ui/core/Divider";
 import Button from "@bmi/button";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import Section from "./_Section";
+import MeasurementsSection from "./_MeasurementsSection";
 import styles from "./FlatRoofCalculator.module.scss";
 import { ProjectInformationSection } from "./_ProjectInformationSection";
 import { FormValues } from "./types/FormValues";

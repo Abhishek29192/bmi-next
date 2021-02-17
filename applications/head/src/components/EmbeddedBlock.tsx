@@ -1,8 +1,8 @@
 import React from "react";
-import EmbeddedTable from "./EmbeddedTable";
-import EmbeddedLink from "./EmbeddedLink";
 import { Block } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
+import EmbeddedTable from "./EmbeddedTable";
+import EmbeddedLink from "./EmbeddedLink";
 
 export type Settings = {
   theme?: "primary" | "secondary";

@@ -1,7 +1,7 @@
 import React from "react";
-import ExpandableLinksTextCard from "../";
 import { render } from "@testing-library/react";
 import Button from "@bmi/button";
+import ExpandableLinksTextCard from "../";
 
 describe("ExpandableLinksTextCard component", () => {
   it("renders correctly", () => {

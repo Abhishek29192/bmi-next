@@ -1,121 +1,71 @@
 import React, { useContext } from "react";
+import { graphql } from "gatsby";
 import Breadcrumbs, { Props as BreadcrumbsProps } from "@bmi/breadcrumbs";
 import { SiteContext } from "../components/Site";
-import { Data as PageInfoData } from "./PageInfo";
+import { getClickableActionFromUrl } from "./Link";
 
-import { getClickableActionFromUrl, LinkData, NavigationData } from "./Link";
-import { graphql } from "gatsby";
-
-type Path = {
+type BreadcrumbItem = {
+  id: string;
   label: string;
-  link: LinkData | null;
+  slug: string | null;
 };
 
-export type Data = Pick<PageInfoData, "title" | "slug"> & {
-  parentPage: Pick<PageInfoData, "__typename" | "title" | "slug"> | null;
-};
+export type Data = BreadcrumbItem[];
 
-export const findPath = (
-  slug: string,
-  menuNavigation: NavigationData
-): Path[] => {
-  let found;
+const getBreadcrumbsItem = (
+  items: BreadcrumbItem[]
+): [BreadcrumbItem[], BreadcrumbItem] => {
+  if (items.length === 1) {
+    return [[], items[0]];
+  }
 
-  const __helper = (
-    menuNavigation: NavigationData,
-    path: Path[] = []
-  ): Path[] => {
-    if (!menuNavigation.links?.length) {
-      return [];
-    }
+  const breadcrumbsItems = [...items]
+    .filter(({ slug }) => slug)
+    .map((item, index, array) => {
+      const breadcrumbItem: BreadcrumbItem = {
+        id: item.id,
+        label: item.label,
+        slug:
+          index !== array.length - 1
+            ? array
+                .slice(0, index + 1)
+                .map(({ slug }) => slug)
+                .join("/")
+            : null
+      };
 
-    let result = path;
-    menuNavigation.links.some((item) => {
-      if (found) {
-        return true;
-      }
-
-      if (item.__typename === "ContentfulNavigationItem") {
-        return;
-      }
-
-      if (
-        item.__typename === "ContentfulLink" &&
-        item.linkedPage?.slug === slug
-      ) {
-        found = true;
-        result = path;
-        return true;
-      }
-
-      if (item.__typename === "ContentfulNavigation") {
-        if (item.link?.linkedPage?.slug === slug) {
-          found = true;
-          result = path;
-          return true;
-        }
-
-        result = __helper(item, [
-          ...path,
-          ...(item.link
-            ? [
-                {
-                  label: item.label,
-                  link: item.link
-                }
-              ]
-            : [])
-        ]);
-      }
+      return breadcrumbItem;
     });
+  const currentBreadcrumb = breadcrumbsItems.pop();
 
-    return result;
-  };
-
-  const result = __helper(menuNavigation);
-  return found ? result : [];
+  return [breadcrumbsItems, currentBreadcrumb];
 };
 
 const IntegratedBreadcrumbs = ({
-  data: { title, slug, parentPage },
-  menuNavigation,
+  data,
   ...rest
 }: {
   data: Data;
-  menuNavigation?: NavigationData;
 } & BreadcrumbsProps) => {
-  const path = menuNavigation
-    ? findPath(parentPage?.slug || slug, menuNavigation)
-    : [];
   const { countryCode, homePage } = useContext(SiteContext);
+  const [breadcrumbsItems, currentBreadcrumb] = getBreadcrumbsItem(data);
 
   return (
     <Breadcrumbs {...rest}>
       <Breadcrumbs.Item
-        action={getClickableActionFromUrl({ slug: "" }, null, countryCode)}
+        action={getClickableActionFromUrl({ path: "" }, null, countryCode)}
       >
         {homePage.title}
       </Breadcrumbs.Item>
-      {path.map(({ label, link }) => (
+      {breadcrumbsItems.map(({ label, slug }) => (
         <Breadcrumbs.Item
           key={label}
-          action={getClickableActionFromUrl(
-            link?.linkedPage,
-            link?.url,
-            countryCode
-          )}
+          action={getClickableActionFromUrl({ path: slug }, null, countryCode)}
         >
           {label}
         </Breadcrumbs.Item>
       ))}
-      {parentPage ? (
-        <Breadcrumbs.Item
-          action={getClickableActionFromUrl(parentPage, null, countryCode)}
-        >
-          {parentPage.title}
-        </Breadcrumbs.Item>
-      ) : null}
-      <Breadcrumbs.Item>{title}</Breadcrumbs.Item>
+      <Breadcrumbs.Item>{currentBreadcrumb.label}</Breadcrumbs.Item>
     </Breadcrumbs>
   );
 };
@@ -124,16 +74,6 @@ export default IntegratedBreadcrumbs;
 
 export const query = graphql`
   fragment BreadcrumbsFragment on ContentfulPage {
-    title
-    slug
-    parentPage {
-      ... on ContentfulHomePage {
-        title
-      }
-      ... on ContentfulPage {
-        title
-        slug
-      }
-    }
+    breadcrumbs
   }
 `;

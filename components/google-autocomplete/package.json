@@ -10,9 +10,8 @@
   },
   "dependencies": {
     "@bmi/autocomplete": "0.0.0",
-    "@googlemaps/js-api-loader": "^1.11.1",
+    "@bmi/google-api": "0.0.0",
     "@material-ui/core": "^4.10.1",
-    "@types/googlemaps": "^3.43.2",
     "react": "^16.13.1"
   }
 }

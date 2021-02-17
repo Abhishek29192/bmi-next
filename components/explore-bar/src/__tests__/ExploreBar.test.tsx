@@ -1,6 +1,6 @@
 import React from "react";
-import ExploreBar from "..";
 import { render } from "@testing-library/react";
+import ExploreBar from "..";
 
 describe("ExploreBar component", () => {
   it("renders correctly", () => {

@@ -11,8 +11,8 @@ import styles from "./CalculatorModal.module.scss";
 
 type Props = {
   open?: boolean;
-  color?: "white" | "pearl" | "alabaster";
-  logo: SVGImport;
+  pearl?: boolean;
+  logo?: SVGImport;
   onCloseClick: () => any;
   onBackdropClick?: ModalProps["onBackdropClick"];
   backdropProps?: ModalProps["BackdropProps"];
@@ -20,11 +20,11 @@ type Props = {
   ariaDescribedby?: string;
   children: React.ReactNode;
   className?: string;
-  headerCenter: string;
+  headerCenter?: string;
 };
 const CalculatorModal = ({
   open = true,
-  color = "pearl",
+  pearl,
   logo = brandLogo,
   onCloseClick,
   onBackdropClick = onCloseClick,
@@ -47,10 +47,15 @@ const CalculatorModal = ({
         className={classnames(
           className,
           styles["CalculatorModal"],
-          styles[`CalculatorModal--bg-${color}`]
+          styles[pearl ? "pearl" : "white"]
         )}
       >
-        <div className={styles["header"]}>
+        <div
+          className={classnames(
+            styles["header"],
+            styles[pearl ? "white" : "pearl"]
+          )}
+        >
           <Container className={styles["headerContainer"]}>
             <Icon
               source={logo}

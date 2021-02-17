@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import Button from "@bmi/button";
+import { graphql } from "gatsby";
 import { SiteContext } from "../components/Site";
 import { LinkData, getClickableActionFromUrl } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
-import { graphql } from "gatsby";
 
 type Props = {
   fields: LinkData;
