@@ -7,9 +7,13 @@ include:
   - local: applications/intouch-frontend/.gitlab-ci.yml
   - local: applications/intouch-api/.gitlab-ci.yml
   - local: components/.gitlab-ci.yml
+  - local: functions/es-pim-products-ingest/.gitlab-ci.yml
   - local: functions/gcp-apsis-integration/.gitlab-ci.yml
   - local: functions/gcp-download-zip/.gitlab-ci.yml
+  - local: functions/gcp-firestore-writer/.gitlab-ci.yml
   - local: functions/gcp-form-submit/.gitlab-ci.yml
+  - local: functions/gcp-pim-full-fetch/.gitlab-ci.yml
+  - local: functions/gcp-pim-message-handler/.gitlab-ci.yml
   - local: functions/gcp-upload-file/.gitlab-ci.yml
 
 .sast-analyzer:
@@ -39,6 +43,7 @@ stages:
   - build
   - test
   - release
+  - package
   - deploy
   - dynamic_security
   - lighthouse_scan
