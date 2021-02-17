@@ -325,6 +325,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 return false as any;
               }}
               options={(roofers || []).map(({ name }) => name)}
+              freeSolo
             />
             <Typography className={styles["and-or-label"]}>
               {getMicroCopy("findARoofer.andOr")}
@@ -336,6 +337,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
               className={styles["location-autocomplete"]}
               onPlaceChange={handlePlaceChange}
+              freeSolo
             />
             <GeolocationButton
               onPosition={({ coords }) => {
