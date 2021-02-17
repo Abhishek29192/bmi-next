@@ -27,9 +27,15 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   }
 
   const [email, setEmail] = useState("");
+  const [token, setToken] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [secondDialogOpen, setSecondDialogOpen] = useState(false);
-  const { getMicroCopy, countryCode } = useContext(SiteContext);
+  const {
+    getMicroCopy,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet,
+    node_locale
+  } = useContext(SiteContext);
   const {
     title,
     description,
@@ -56,7 +62,8 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
             ...additionalFields
           },
           {
-            cancelToken: source.token
+            cancelToken: source.token,
+            headers: { "X-Recaptcha-Token": token }
           }
         );
         setSecondDialogOpen(true);
@@ -121,8 +128,9 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         description={description.description}
         inputLabel={inputLabel}
         inputCallToAction={submitButtonLabel}
-        onSubmit={(email) => {
+        onSubmit={(email, token) => {
           setEmail(email);
+          setToken(token);
 
           if (additionalInputs) {
             setDialogOpen(true);
@@ -132,6 +140,10 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
 
           setSecondDialogOpen(true);
         }}
+        useRecaptcha={true}
+        reCaptchaKey={scriptGRecaptchaId}
+        useRecaptchaNet={scriptGRecaptchaNet}
+        language={node_locale}
       />
     </>
   );
