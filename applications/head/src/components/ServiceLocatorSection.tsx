@@ -456,7 +456,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 zoom={zoom}
               >
                 {rooferPopup && (
-                  <Card>
+                  <Card className={styles["product-details-card"]}>
                     <CardHeader
                       title={rooferPopup.name}
                       action={
@@ -465,6 +465,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                           variant="text"
                           accessibilityLabel={getMicroCopy("global.close")}
                           onClick={handleCloseRooferPopup}
+                          className={
+                            styles["product-details-card__close-button"]
+                          }
                         >
                           <CloseIcon />
                         </Button>

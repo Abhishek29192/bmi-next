@@ -10,6 +10,7 @@ import {
   Phone,
   Public
 } from "@material-ui/icons";
+import PerfectScrollbar from "@bmi/perfect-scrollbar";
 import React from "react";
 import styles from "./CompanyDetails.module.scss";
 
@@ -99,10 +100,7 @@ const DetailsItem = (props: DetailProps) => {
         </dt>
         <dd className={styles["description"]}>
           {iconSource ? (
-            <Logo
-              source={iconSource}
-              className={styles[`roofProLevelIcon--${level}`]}
-            />
+            <Logo source={iconSource} className={styles[`roofProLevelIcon`]} />
           ) : (
             <pre style={{ color: "#d6001c" }}>
               Error: Level &quot;{level}&quot; does not exist
@@ -150,7 +148,7 @@ const CompanyDetails = ({ name, details, children }: Props) => {
           {name}
         </Typography>
       )}
-      <div className={styles["scrollableContent"]}>
+      <PerfectScrollbar>
         {details.length ? (
           <dl className={styles["list"]}>
             {details.map((detail, index) => (
@@ -159,7 +157,7 @@ const CompanyDetails = ({ name, details, children }: Props) => {
           </dl>
         ) : null}
         {children}
-      </div>
+      </PerfectScrollbar>
     </div>
   );
 };

@@ -9,6 +9,31 @@
     margin-bottom: 24px;
   }
 
+  .product-details-card {
+    border-radius: 0;
+
+    :global {
+      .MuiCardHeader-root {
+        padding: 30px 30px 10px;
+      }
+      .MuiCardContent-root {
+        padding: 10px 30px 30px;
+      }
+      .MuiCardHeader-action {
+        margin-top: -24px;
+        margin-right: -24px;
+      }
+    }
+
+    .product-details-card__close-button {
+      color: $color-slate;
+
+      &:hover {
+        color: $color-charcoal;
+      }
+    }
+  }
+
   .search {
     margin-bottom: 0;
 

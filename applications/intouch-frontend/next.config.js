@@ -46,7 +46,10 @@ module.exports = withFonts({
     return withConfigs(config, [
       styles({
         dev,
-        isServer
+        isServer,
+        exclude: {
+          css: null
+        }
       })
     ]);
   }
