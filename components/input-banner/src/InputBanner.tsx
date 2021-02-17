@@ -34,7 +34,7 @@ const InputBanner = ({
   inputLabel,
   inputCallToAction,
   onSubmit,
-  ...reCaptchaProps
+  useRecaptcha
 }: Props) => {
   const [emailInput, setEmailInput] = useState<string>("");
   const [token, setToken] = useState<string>();
@@ -49,61 +49,79 @@ const InputBanner = ({
 
   return (
     <div className={styles["InputBanner"]}>
-      <GoogleReCaptchaProvider {...reCaptchaProps}>
-        <GoogleReCaptcha onVerify={setToken} />
-        <Container>
-          <div className={styles["wrapper"]}>
-            <Typography variant="h3" hasUnderline className={styles["title"]}>
-              {title}
-            </Typography>
-            <Grid container spacing={3}>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                lg={5}
-                className={styles["description-grid"]}
-              >
-                <Typography variant="body2">{description}</Typography>
-              </Grid>
-              <Grid item xs={12} sm={6} lg={5}>
-                <InputGroup
-                  lockBreakpoint="md"
-                  input={
-                    <TextField
-                      name="input-banner-text-field"
-                      variant="hybrid"
-                      label={inputLabel}
-                      value={emailInput}
-                      onChange={(value: string) => {
-                        setEmailInput(value);
-                      }}
-                      onKeyDown={({ key }) => {
-                        if (key === "Enter") {
-                          handleSubmit();
-                        }
-                      }}
-                    />
-                  }
-                  button={
-                    <Button
-                      disabled={!validateEmail(emailInput)}
-                      endIcon={<ArrowForwardIcon />}
-                      onClick={() => {
-                        handleSubmit();
-                      }}
-                    >
-                      {inputCallToAction}
-                    </Button>
-                  }
-                />
-              </Grid>
+      {useRecaptcha && <GoogleReCaptcha onVerify={setToken} />}
+      <Container>
+        <div className={styles["wrapper"]}>
+          <Typography variant="h3" hasUnderline className={styles["title"]}>
+            {title}
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              lg={5}
+              className={styles["description-grid"]}
+            >
+              <Typography variant="body2">{description}</Typography>
             </Grid>
-          </div>
-        </Container>
-      </GoogleReCaptchaProvider>
+            <Grid item xs={12} sm={6} lg={5}>
+              <InputGroup
+                lockBreakpoint="md"
+                input={
+                  <TextField
+                    name="input-banner-text-field"
+                    variant="hybrid"
+                    label={inputLabel}
+                    value={emailInput}
+                    onChange={(value: string) => {
+                      setEmailInput(value);
+                    }}
+                    onKeyDown={({ key }) => {
+                      if (key === "Enter") {
+                        handleSubmit();
+                      }
+                    }}
+                  />
+                }
+                button={
+                  <Button
+                    disabled={!validateEmail(emailInput)}
+                    endIcon={<ArrowForwardIcon />}
+                    onClick={() => {
+                      handleSubmit();
+                    }}
+                  >
+                    {inputCallToAction}
+                  </Button>
+                }
+              />
+            </Grid>
+          </Grid>
+        </div>
+      </Container>
     </div>
   );
 };
 
-export default InputBanner;
+const InputBannerWrapper = ({
+  title,
+  description,
+  inputLabel,
+  inputCallToAction,
+  onSubmit,
+  useRecaptcha,
+  ...recaptchaProps
+}: Props) => {
+  const props = { title, description, inputLabel, inputCallToAction, onSubmit };
+
+  return useRecaptcha ? (
+    <GoogleReCaptchaProvider {...recaptchaProps}>
+      <InputBanner useRecaptcha={useRecaptcha} {...props} />
+    </GoogleReCaptchaProvider>
+  ) : (
+    <InputBanner useRecaptcha={useRecaptcha} {...props} />
+  );
+};
+
+export default InputBannerWrapper;
