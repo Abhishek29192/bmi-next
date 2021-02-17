@@ -94,14 +94,6 @@ const GoogleMap = ({
       const options = { center, zoom, ...defaultMapControls, ...mapOptions };
       googleMap.current = new google.maps.Map(mapElement.current, options);
       googleMarkers.current = markers.map(createGoogleMarker);
-
-      if (center) {
-        googleMap.current.setCenter(center);
-      }
-
-      if (bounds) {
-        googleMap.current.fitBounds(bounds);
-      }
     }
   }, [google]);
 
