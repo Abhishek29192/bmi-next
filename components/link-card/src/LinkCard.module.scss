@@ -8,12 +8,14 @@
   color: $color-slate;
   padding: 16px;
   border-radius: 0%;
+  cursor: pointer;
   & + & {
     border-top: 1px solid $color-storm;
   }
 
   @media (min-width: $breakpoint-md) {
     border: 1px solid $color-storm;
+    margin-top: -1px;
 
     &--selected {
       background-color: $color-alabaster;
@@ -39,9 +41,9 @@
   }
 
   .icon {
-    margin: 8px;
-    width: 48px;
-    margin: auto;
+    height: 24px;
+    width: 24px;
+    margin: 12px;
     color: rgba($color-black, 0.2);
     flex: 0 1;
     svg {
