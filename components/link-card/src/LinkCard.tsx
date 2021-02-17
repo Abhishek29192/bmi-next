@@ -29,7 +29,7 @@ const LinkCard = ({
       })}
       onClick={!isOpen ? onClick : null}
     >
-      <div className={styles["item"]}>
+      <div className={styles["item"]} onClick={isOpen ? onCloseClick : null}>
         <Typography gutterBottom variant="h6">
           {title}
         </Typography>
