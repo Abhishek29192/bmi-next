@@ -349,7 +349,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 // MaterialUI.
                 return false as any;
               }}
-              options={(roofers || []).map(({ name }) => name)}
+              options={filteredRoofers.map(({ name }) => name)}
               freeSolo
             />
             <Typography className={styles["and-or-label"]}>
