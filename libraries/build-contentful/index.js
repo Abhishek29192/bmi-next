@@ -16,7 +16,7 @@ const CONTENTFUL_PRODUCTION_BRANCH = "master";
 const CONTENTFUL_PRE_PRODUCTION_BRANCH = "pre-production";
 const CONTENTFUL_DEV_MAIN_BRANCH = "development";
 
-const ignoredHooks = ["Contentful integration", "Firestore hook"];
+const allowedHooks = ["Gitlab Tag Trigger"];
 
 const getCurrentCommitTag = () => {
   console.log("Trying to get the tag from the commit information.");
@@ -57,7 +57,7 @@ function parseCIEnvironments() {
   const targetBranch = BRANCH;
   // TODO: Ideally we could base it on git events.
   const shouldSkipBuild =
-    !!INCOMING_HOOK_TITLE && INCOMING_HOOK_TITLE.includes(ignoredHooks);
+    !!INCOMING_HOOK_TITLE && !INCOMING_HOOK_TITLE.includes(allowedHooks);
 
   const tag = getTagFromHookBody(INCOMING_HOOK_BODY) || getCurrentCommitTag();
 
@@ -361,9 +361,9 @@ async function main() {
 
   if (shouldSkipBuild) {
     console.log(
-      `Builds triggered by ${ignoredHooks.join(
+      `Only builds triggered by ${allowedHooks.join(
         ", "
-      )} are ignored. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
+      )} are allowed. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
     );
 
     return;
