@@ -67,10 +67,11 @@ const initialMapBounds = {
   west: 4.0649
 };
 
+// TODO: Cast this properly.
 const initialActiveFilters = rooferTypes.reduce(
   (carry, key) => ({ ...carry, [key]: true }),
   {}
-);
+) as Record<RooferType, boolean>;
 
 const activeFilterReducer = (
   state: Record<RooferType, boolean>,
