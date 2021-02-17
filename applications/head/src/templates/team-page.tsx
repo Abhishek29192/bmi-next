@@ -36,13 +36,14 @@ const TeamPage = ({ data }: Props) => {
   const {
     title,
     teamCategories,
-
     inputBanner,
-    breadcrumbs
+    breadcrumbs,
+    seo
   } = data.contentfulTeamPage;
   const pageData: PageData = {
     breadcrumbs,
-    inputBanner
+    inputBanner,
+    seo
   };
 
   return (

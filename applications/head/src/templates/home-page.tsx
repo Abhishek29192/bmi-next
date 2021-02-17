@@ -4,7 +4,6 @@ import Search from "@bmi/search";
 import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as InputBannerData } from "../components/InputBanner";
 import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
@@ -21,8 +20,7 @@ type HomepageData = {
   overlapCards: OverlapCardData;
   brands: BrandData[];
   sections: SectionsData | null;
-  inputBanner: InputBannerData | null;
-};
+} & PageData;
 
 type Props = {
   data: {
@@ -53,11 +51,13 @@ const HomePage = ({ data }: Props) => {
     overlapCards,
     brands,
     sections,
-    inputBanner
+    inputBanner,
+    seo
   } = data.contentfulHomePage;
   const pageData: PageData = {
     breadcrumbs: null,
-    inputBanner
+    inputBanner,
+    seo
   };
 
   return (
@@ -110,6 +110,9 @@ export const pageQuery = graphql`
       }
       inputBanner {
         ...InputBannerFragment
+      }
+      seo {
+        ...SEOContentFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {

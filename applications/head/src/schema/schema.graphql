@@ -129,6 +129,9 @@ interface ContentfulPage @nodeInterface {
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 type FilterOption {
@@ -212,6 +215,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 """
@@ -273,6 +279,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 """
@@ -316,6 +325,9 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 type ContentfulHomePage implements Node {
@@ -353,6 +365,9 @@ type ContentfulHomePage implements Node {
 
   "The input banner for this home page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 """
@@ -405,6 +420,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 """
@@ -1204,6 +1222,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 union ProductDocument = PIMDocument | PIMLinkDocument
@@ -1307,6 +1328,9 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 type contentfulTableDataJsonNode implements Node {
@@ -1359,4 +1383,14 @@ type Location implements Node {
 
   "The longitude for this location."
   lon: Float!
+}
+
+type ContentfulSeoContent implements Node {
+  id: ID!
+
+  "Meta title tag."
+  metaTitle: String
+
+  "Meta description tag."
+  metaDescription: String
 }

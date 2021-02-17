@@ -85,6 +85,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     breadcrumbs,
     inputBanner
   } = data.contentfulProductListerPage;
+
   const heroProps: HeroItem = {
     title,
     children: subtitle,
@@ -388,6 +389,7 @@ export const pageQuery = graphql`
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      ...PageFragment
       ...BreadcrumbsFragment
       content {
         ...RichTextFragment

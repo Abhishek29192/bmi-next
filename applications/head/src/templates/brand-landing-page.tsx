@@ -57,12 +57,15 @@ const BrandLandingPage = ({ data }: Props) => {
     overlapCards,
     sections,
     inputBanner,
-    breadcrumbs
+    breadcrumbs,
+    seo
   } = data.contentfulBrandLandingPage;
   const pageData: PageData = {
     breadcrumbs,
-    inputBanner
+    inputBanner,
+    seo
   };
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -122,13 +125,11 @@ export const pageQuery = graphql`
       sections {
         ...SectionsFragment
       }
-      inputBanner {
-        ...InputBannerFragment
-      }
       parentPage {
         ...PageInfoFragment
       }
       ...PageInfoFragment
+      ...PageFragment
       ...BreadcrumbsFragment
     }
     contentfulSite(id: { eq: $siteId }) {

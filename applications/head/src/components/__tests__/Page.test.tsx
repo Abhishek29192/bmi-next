@@ -41,7 +41,8 @@ describe("Page component", () => {
 
     const pageData: Data = {
       breadcrumbs: null,
-      inputBanner: null
+      inputBanner: null,
+      seo: null
     };
 
     const { container } = render(
