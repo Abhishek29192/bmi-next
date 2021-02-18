@@ -14,11 +14,10 @@ export type Map = google.maps.Map;
 export type MapOptions = google.maps.MapOptions;
 export type Marker = google.maps.Marker;
 export type MarkerOptions = google.maps.MarkerOptions;
-type MarkerData = {
-  id: string;
+export type MarkerOptionsWithData<Data> = google.maps.MarkerOptions & {
   isActive: boolean;
+  data: Data;
 };
-export type MarkerOptionsWithData = google.maps.MarkerOptions & MarkerData;
 export type Point = google.maps.Point;
 
 /* global google */

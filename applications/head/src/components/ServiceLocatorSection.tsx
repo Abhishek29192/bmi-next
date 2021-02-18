@@ -103,14 +103,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
-  const [selectedRoofer, setSelectedRoofer] = useState<string>(null);
+  const [selectedRoofer, setSelectedRoofer] = useState<Roofer>(null);
   const [centre, setCentre] = useState<GoogleLatLngLiteral>();
   const [bounds, setBounds] = useState<
     GoogleLatLngBounds | GoogleLatLngBoundsLiteral
   >(initialMapBounds);
   const [zoom, setZoom] = useState<number>(5);
   const [activeSearchString, setActiveSearchString] = useState<string>("");
-  const [rooferPopup, setRooferPopup] = useState<RooferData>(null);
   const [activeFilters, updateActiveFilters] = useReducer(
     activeFilterReducer,
     initialActiveFilters
@@ -186,14 +185,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const markers = useMemo(
     () =>
       filteredRoofers.map(
-        ({ id, name, location }: RooferData): MarkerOptionsWithData => ({
-          id,
-          title: name,
+        (roofer: Roofer): MarkerOptionsWithData<Roofer> => ({
+          title: roofer.name,
           position: {
-            lat: location.lat,
-            lng: location.lon
+            lat: roofer.location.lat,
+            lng: roofer.location.lon
           },
-          isActive: id === selectedRoofer
+          isActive: selectedRoofer && selectedRoofer.id === roofer.id,
+          data: roofer
         })
       ),
     [selectedRoofer, filteredRoofers]
@@ -202,8 +201,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const handleListCloseClick = () => setSelectedRoofer(null);
 
   const handleListClick = (roofer: Roofer) => {
-    setSelectedRoofer(roofer.id);
-    setRooferPopup(roofer);
+    setSelectedRoofer(roofer);
   };
 
   const handlePlaceChange = (location: GoogleGeocoderResult) => {
@@ -218,14 +216,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     );
   };
 
-  const handleMarkerClick = (id: string) => {
-    const clickedRoofer = roofers.find((roofer) => roofer.id === id);
-
-    setRooferPopup(clickedRoofer);
-    setSelectedRoofer(id);
+  const handleMarkerClick = (data: Roofer) => {
+    setSelectedRoofer(data);
   };
 
-  const handleCloseRooferPopup = () => setRooferPopup(null);
+  const handleCloseRooferPopup = () => setSelectedRoofer(null);
 
   const getUrlClickableAction = (url: LinkData["url"]) =>
     getClickableActionFromUrl(null, url, countryCode);
@@ -422,7 +417,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     key={roofer.id}
                     onClick={() => handleListClick(roofer)}
                     onCloseClick={handleListCloseClick}
-                    isOpen={selectedRoofer === roofer.id}
+                    isOpen={selectedRoofer && selectedRoofer.id === roofer.id}
                     title={roofer.name}
                     subtitle={roofer.address}
                   >
@@ -461,10 +456,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 onMarkerClick={handleMarkerClick}
                 zoom={zoom}
               >
-                {rooferPopup && (
+                {selectedRoofer && (
                   <Card className={styles["product-details-card"]}>
                     <CardHeader
-                      title={rooferPopup.name}
+                      title={selectedRoofer.name}
                       action={
                         <Button
                           isIconButton
@@ -480,8 +475,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                       }
                     ></CardHeader>
                     <CardContent>
-                      <CompanyDetails details={getCompanyDetails(rooferPopup)}>
-                        <Typography>{rooferPopup.summary}</Typography>
+                      <CompanyDetails
+                        details={getCompanyDetails(selectedRoofer)}
+                      >
+                        <Typography>{selectedRoofer.summary}</Typography>
                       </CompanyDetails>
                     </CardContent>
                   </Card>
