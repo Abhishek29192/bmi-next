@@ -11,8 +11,6 @@ import GoogleApi, {
   computeDistanceBetween,
   GeocoderResult as GoogleGeocoderResult,
   Google,
-  LatLngBounds as GoogleLatLngBounds,
-  LatLngBoundsLiteral as GoogleLatLngBoundsLiteral,
   LatLngLiteral as GoogleLatLngLiteral,
   loadGoogleApi,
   MarkerOptionsWithData
@@ -53,6 +51,9 @@ export type Data = {
   position: number;
 };
 
+// TODO: Maybe calculate this from `range`?
+const PLACE_LEVEL_ZOOM = 8;
+
 // TODO: dynamically set center and boundaries based on market country
 // Tracked by: https://bmigroup.atlassian.net/browse/DXB-1561
 // Centre for Norway
@@ -61,13 +62,8 @@ const initialMapCenter = {
   lng: 8.468945999999999
 };
 
-// Bounds for Norway
-const initialMapBounds = {
-  east: 31.3549999,
-  north: 71.30780000000001,
-  south: 57.8097,
-  west: 4.0649
-};
+// Zoom for norway
+const initialMapZoom = 5;
 
 // TODO: Cast this properly.
 const initialActiveFilters = rooferTypes.reduce(
@@ -105,9 +101,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const [googleApi, setgoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<Roofer>(null);
   const [centre, setCentre] = useState<GoogleLatLngLiteral>();
-  const [bounds, setBounds] = useState<
-    GoogleLatLngBounds | GoogleLatLngBoundsLiteral
-  >(initialMapBounds);
   const [zoom, setZoom] = useState<number>(5);
   const [activeSearchString, setActiveSearchString] = useState<string>("");
   const [activeFilters, updateActiveFilters] = useReducer(
@@ -198,14 +191,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     [selectedRoofer, filteredRoofers]
   );
 
-  const handleListCloseClick = () => setSelectedRoofer(null);
-
   const handleListClick = (roofer: Roofer) => {
     setSelectedRoofer(roofer);
   };
 
   const handlePlaceChange = (location: GoogleGeocoderResult) => {
-    setBounds(location ? location.geometry.viewport : initialMapBounds);
+    // We want to clear the roofer whenever the place changes.
+    setSelectedRoofer(null);
+    setZoom(location ? PLACE_LEVEL_ZOOM : initialMapZoom);
     setCentre(
       location
         ? {
@@ -216,11 +209,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     );
   };
 
-  const handleMarkerClick = (data: Roofer) => {
-    setSelectedRoofer(data);
+  const handleMarkerClick = (roofer: Roofer) => {
+    setSelectedRoofer(roofer);
   };
 
-  const handleCloseRooferPopup = () => setSelectedRoofer(null);
+  const clearRooferAndResetMap = () => {
+    setSelectedRoofer(null);
+    setZoom(centre ? PLACE_LEVEL_ZOOM : initialMapZoom);
+    setCentre(centre || null);
+  };
 
   const getUrlClickableAction = (url: LinkData["url"]) =>
     getClickableActionFromUrl(null, url, countryCode);
@@ -416,7 +413,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   <IntegratedLinkCard
                     key={roofer.id}
                     onClick={() => handleListClick(roofer)}
-                    onCloseClick={handleListCloseClick}
+                    onCloseClick={clearRooferAndResetMap}
                     isOpen={selectedRoofer && selectedRoofer.id === roofer.id}
                     title={roofer.name}
                     subtitle={roofer.address}
@@ -450,7 +447,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           >
             <div className={styles["map"]}>
               <GoogleMap
-                bounds={bounds}
                 center={centre || initialMapCenter}
                 markers={markers}
                 onMarkerClick={handleMarkerClick}
@@ -465,7 +461,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                           isIconButton
                           variant="text"
                           accessibilityLabel={getMicroCopy("global.close")}
-                          onClick={handleCloseRooferPopup}
+                          onClick={clearRooferAndResetMap}
                           className={
                             styles["product-details-card__close-button"]
                           }
