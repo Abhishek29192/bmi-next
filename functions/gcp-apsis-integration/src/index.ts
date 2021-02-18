@@ -1,6 +1,5 @@
 import { escape } from "querystring";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { config } from "dotenv";
 import fetch from "node-fetch";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
@@ -26,15 +25,29 @@ const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
 
 const apsisAudianceBase = `${APSIS_API_BASE_URL}/audience`;
 
+let recaptchaSecretKeyCache: string;
+let apsisClientSecretCache: string;
 const secretManagerClient = new SecretManagerServiceClient();
 
-const getAuthToken = async () => {
-  // get APSIS secret from Secret Manager
-  const apsisSecret = await secretManagerClient.accessSecretVersion({
-    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${APSIS_CLIENT_SECRET}/versions/latest`
-  });
+const getRecaptchaSecretKey = async () => {
+  if (!recaptchaSecretKeyCache) {
+    const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
 
-  const apsisClientSecret = apsisSecret[0].payload.data.toString();
+    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
+  }
+  return recaptchaSecretKeyCache;
+};
+
+const getAuthToken = async () => {
+  if (!apsisClientSecretCache) {
+    const apsisSecret = await secretManagerClient.accessSecretVersion({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${APSIS_CLIENT_SECRET}/versions/latest`
+    });
+
+    apsisClientSecretCache = apsisSecret[0].payload.data.toString();
+  }
 
   const redirect: RequestRedirect = "follow";
   var requestOptions = {
@@ -45,7 +58,7 @@ const getAuthToken = async () => {
     },
     body: JSON.stringify({
       client_id: APSIS_CLIENT_ID,
-      client_secret: apsisClientSecret,
+      client_secret: apsisClientSecretCache,
       grant_type: "client_credentials"
     }),
     redirect
@@ -64,8 +77,7 @@ const getAuthToken = async () => {
     throw new Error(response.statusText);
   }
 
-  const data = await response.json();
-  return data;
+  return await response.json();
 };
 
 const createProfile = async (
@@ -197,7 +209,9 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${request.headers["X-Recaptcha-Token"]}`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${
+            request.headers["X-Recaptcha-Token"]
+          }`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {
