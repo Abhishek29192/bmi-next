@@ -18,6 +18,7 @@ const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
 
 let contentfulEnvironmentCache: Environment;
 let sendGridClientCache: MailService;
+let recaptchaSecretKeyCache: string;
 const secretManagerClient = new SecretManagerServiceClient();
 
 const getContentfulEnvironment = async () => {
@@ -47,6 +48,17 @@ const getSendGridClient = async () => {
     sendGridClientCache.setApiKey(apiKey);
   }
   return sendGridClientCache;
+};
+
+const getRecaptchaSecretKey = async () => {
+  if (!recaptchaSecretKeyCache) {
+    const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+
+    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
+  }
+  return recaptchaSecretKeyCache;
 };
 
 export const submit: HttpFunction = async (request, response) => {
@@ -89,7 +101,9 @@ export const submit: HttpFunction = async (request, response) => {
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET_KEY}&response=${request.headers["X-Recaptcha-Token"]}`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${
+            request.headers["X-Recaptcha-Token"]
+          }`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {

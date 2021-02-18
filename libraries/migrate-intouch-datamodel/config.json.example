@@ -1,0 +1,16 @@
+{
+  "company": {
+    "user": "postgres",
+    "host": "35.246.98.166",
+    "database": "postgres",
+    "password": "companies-db",
+    "port": 5432
+  },
+  "products": {
+    "user": "postgres",
+    "host": "34.105.184.233",
+    "database": "postgres",
+    "password": "products-db",
+    "port": 5432
+  }
+}

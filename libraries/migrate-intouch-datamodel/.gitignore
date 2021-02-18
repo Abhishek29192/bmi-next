@@ -3,3 +3,5 @@
 !.env.example
 token.json
 /data
+config.json
+!config.json.example

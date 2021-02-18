@@ -22,41 +22,53 @@ const writeFile = (fileName, data) => {
   });
 };
 
-const writeSql = (dataModel) => {
+const writeSql = (dataModel, service) => {
   let output = "";
 
-  dataModel.enums.forEach((dropdown) => {
-    output += dropdown.getPostgresCreate();
-  });
+  dataModel.enums
+    .filter((item) => item.service === service)
+    .forEach((dropdown) => {
+      output += dropdown.getPostgresCreate();
+    });
   output += "\n\n";
 
-  dataModel.tables.forEach((table) => {
+  const tables = dataModel.tables.filter((item) => item.service === service);
+
+  tables.forEach((table) => {
     output += table.getPostgresCreate();
     output += "\n\n";
   });
 
-  /* TODO:There are problems mockdata*/
-  dataModel.tables.forEach((table) => {
+  tables.forEach((table) => {
     output += table.getPostgresInsert();
   });
 
-  dataModel.references.forEach((reference) => {
+  const references = dataModel.references.filter((item) => {
+    const sourceTables = tables.filter((x) => x.name === item.source);
+    const refTables = tables.filter((x) => x.name === item.target);
+    return sourceTables.length > 0 && refTables.length > 0;
+  });
+  references.forEach((reference) => {
     output += reference.getPostgresCreate();
     output += "\n\n";
   });
 
-  dataModel.tables.forEach((table) => {
+  tables.forEach((table) => {
     output += table.getPostgresComment();
     output += "\n\n";
   });
-  writeFile("sqlout.sql", output);
+  writeFile(`${service.toLowerCase()}.sql`, output);
 };
 
 const createFiles = async (csv) => {
   const data = parse(csv, { columns: true });
   writeFile("data.csv", csv);
   let myDataModel = buildModel(data);
-  writeSql(myDataModel);
+
+  myDataModel.services.forEach((service) => {
+    writeSql(myDataModel, service);
+  });
+
   console.log("Completed");
 };
 

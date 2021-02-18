@@ -13,6 +13,7 @@ class DataModel {
     this.tables = [];
     this.enums = [];
     this.references = [];
+    this.services = [];
   }
 
   addTable(table) {
@@ -25,6 +26,10 @@ class DataModel {
 
   addReference(reference) {
     this.references.push(reference);
+  }
+
+  addServices(services) {
+    this.services = services;
   }
 }
 
@@ -52,9 +57,10 @@ class Thing {
 }
 
 class Table extends Thing {
-  constructor(name, description, examples) {
+  constructor(name, description, examples, service) {
     super(name, description);
     this.examples = examples;
+    this.service = service;
   }
 
   addColumn(name, description, type, mockValues) {
@@ -87,7 +93,8 @@ ${this.properties
   }
 
   getPostgresInsert() {
-    let sqlString = `TRUNCATE TABLE ${this.name} RESTART IDENTITY;\n`;
+    let sqlString = `
+TRUNCATE TABLE ${this.name} RESTART IDENTITY;\n`;
     let finalProperty = this.properties.length - 1;
     for (let j = 0; j < this.examples; j++) {
       sqlString += "INSERT INTO " + this.name + "(";
@@ -126,6 +133,11 @@ ${this.properties
 }
 
 class Enum extends Thing {
+  constructor(name, description, service) {
+    super(name, description);
+    this.service = service;
+  }
+
   addValue(name, description) {
     let value = new Value(name, description);
     this.properties.push(value);
@@ -146,17 +158,17 @@ ${this.properties
 }
 
 class Reference {
-  constructor(source, referenceField, target) {
+  constructor(source, referenceField, target, service) {
     this.source = source;
     this.referenceField = referenceField;
     this.target = target;
+    this.service = service;
   }
 
   getPostgresCreate() {
     return `ALTER TABLE ${this.source} ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target}(Id);`;
   }
 }
-
 const buildModel = (records) => {
   let myDataModel = new DataModel();
 
@@ -174,7 +186,12 @@ const buildModel = (records) => {
         } else {
           myDataModel.addTable(myTable);
         }
-        myTable = new Table(record.Name, record.Description, record.Examples);
+        myTable = new Table(
+          record.Name,
+          record.Description,
+          record.Examples,
+          record.Service
+        );
         break;
       case "pk":
         myTable.addColumn(record.Name, record.Description, "pk", record.Mocks);
@@ -183,7 +200,8 @@ const buildModel = (records) => {
         myReference = new Reference(
           myTable.name,
           record.Name,
-          record.Description
+          record.Description,
+          record.Service
         );
         myDataModel.addReference(myReference); // create a reference and add it to the list of references
         myTable.addColumn(record.Name, "fk", "int", record.Mocks); // add the new attribute to the current table
@@ -198,7 +216,7 @@ const buildModel = (records) => {
         } else {
           myDataModel.addEnum(myEnum); // add the last enum to the list of enums
         }
-        myEnum = new Enum(record.Name, record.Description); // create a new enum based on the current record
+        myEnum = new Enum(record.Name, record.Description, record.Service); // create a new enum based on the current record
         break;
       case "constant":
         myEnum.addValue(record.Name, record.Description); // add the value to the current enum based on the current record. todo modify constructor to not require 4 arguments
@@ -214,6 +232,15 @@ const buildModel = (records) => {
     }
   });
   myDataModel.addEnum(myEnum); // add the final enum to the list of enums
+
+  const services = [
+    ...new Set([
+      ...myDataModel.tables.map((item) => item.service),
+      ...myDataModel.enums.map((item) => item.service)
+    ])
+  ];
+  myDataModel.addServices(services);
+
   return myDataModel;
 };
 

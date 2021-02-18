@@ -17,12 +17,16 @@ import React, {
 } from "react";
 import styles from "./GoogleMap.module.scss";
 
+// This component is not concerned with the shape of
+// the arbitraty data sent into the marker.
+type MarkerData = any;
+
 type Props = MapOptions & {
   bounds?: LatLngBounds | LatLngBoundsLiteral;
   children?: ReactNode;
-  markers?: MarkerOptionsWithData[];
+  markers?: MarkerOptionsWithData<MarkerData>[];
   onMarkerClick?: (
-    id: string,
+    data: MarkerData,
     marker: Marker,
     event: MouseEvent | Event | TouchEvent | PointerEvent
   ) => void;
@@ -53,10 +57,10 @@ const GoogleMap = ({
   const mapElement = useRef<HTMLDivElement>();
 
   const createGoogleMarker = ({
-    id,
     isActive,
+    data,
     ...options
-  }: MarkerOptionsWithData) => {
+  }: MarkerOptionsWithData<MarkerData>) => {
     const defaultIcon = {
       path:
         "M16,0A12,12,0,0,0,4,12C4,23,16,32,16,32s12-9,12-20A12,12,0,0,0,16,0Zm0,17a5,5,0,1,1,5-5A5,5,0,0,1,16,17Z",
@@ -80,7 +84,7 @@ const GoogleMap = ({
     });
 
     googleMarker.addListener("click", ({ domEvent }) => {
-      onMarkerClick && onMarkerClick(id, googleMarker, domEvent);
+      onMarkerClick && onMarkerClick(data, googleMarker, domEvent);
     });
 
     return googleMarker;
