@@ -1,17 +1,36 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import Archiver from "archiver";
 import { verifyOrigins } from "./verify";
 
+const {
+  GCS_NAME,
+  DXB_VALID_HOSTS,
+  SECRET_MAN_GCP_PROJECT_NAME,
+  RECAPTCHA_SECRET_KEY,
+  RECAPTCHA_MINIMUM_SCORE
+} = process.env;
+
 const storage = new Storage();
-const bucketName = process.env.GCS_NAME;
-const bucket = storage.bucket(bucketName);
-const validHosts = process.env.DXB_VALID_HOSTS.split(",").map((value) =>
-  value.trim()
-);
-const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-const minimumScore = parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE);
+const bucket = storage.bucket(GCS_NAME);
+const validHosts = DXB_VALID_HOSTS.split(",").map((value) => value.trim());
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+
+let recaptchaSecretKeyCache: string;
+const secretManagerClient = new SecretManagerServiceClient();
+
+const getRecaptchaSecretKey = async () => {
+  if (!recaptchaSecretKeyCache) {
+    const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+
+    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
+  }
+  return recaptchaSecretKeyCache;
+};
 
 export const download: HttpFunction = async (request, response) => {
   response.set("Access-Control-Allow-Origin", "*");
@@ -55,7 +74,9 @@ export const download: HttpFunction = async (request, response) => {
 
     try {
       const recaptchaResponse = await fetch(
-        `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${request.headers["X-Recaptcha-Token"]}`,
+        `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${
+          request.headers["X-Recaptcha-Token"]
+        }`,
         { method: "POST" }
       );
       if (!recaptchaResponse.ok) {
