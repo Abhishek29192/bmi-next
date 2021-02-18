@@ -12,6 +12,7 @@ const {
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+const recaptchaTokeHeader = "X-Recaptcha-Token";
 
 let contentfulEnvironmentCache;
 let recaptchaSecretKeyCache;
@@ -66,7 +67,11 @@ export const upload: HttpFunction = async (request, response) => {
     return response.status(204).send("");
   } else {
     try {
-      if (!request.headers["X-Recaptcha-Token"]) {
+      const recaptchaToken =
+        // eslint-disable-next-line security/detect-object-injection
+        request.headers[recaptchaTokeHeader] ||
+        request.headers[recaptchaTokeHeader.toLowerCase()];
+      if (!recaptchaToken) {
         // eslint-disable-next-line no-console
         console.error("Token not provided.");
         return response.status(400).send(Error("Token not provided."));
@@ -81,9 +86,7 @@ export const upload: HttpFunction = async (request, response) => {
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${
-            request.headers["X-Recaptcha-Token"]
-          }`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${recaptchaToken}`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {

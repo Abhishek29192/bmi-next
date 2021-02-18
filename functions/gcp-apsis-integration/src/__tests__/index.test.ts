@@ -652,6 +652,121 @@ describe("Making a POST request", () => {
     );
   });
 
+  it("returns status code 200 when ALL api calls succeed with lowercase recaptcha header", async () => {
+    const payloadEmail = "a@a.com";
+    const oAuthToken = "fdfdsfsdfdfdadsfdsfafsafds";
+    const req = mockRequest(
+      {
+        email: payloadEmail,
+        gdpr_1: true,
+        gdpr_2: true
+      },
+      { "x-recaptcha-token": validToken }
+    );
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+
+    mockResponses(
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
+      {
+        url: oAuthEndpoint,
+        body: JSON.stringify({
+          access_token: oAuthToken
+        }),
+        status: 200
+      },
+      {
+        url: getCreateProfileEndpoint(payloadEmail),
+        body: "",
+        status: 200
+      },
+      {
+        url: getCreateConsentEndpoint(payloadEmail),
+        body: "",
+        status: 200
+      },
+      {
+        url: getCreateSubscriptionEndpoint(payloadEmail),
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" }),
+        status: 200
+      }
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(200);
+    expect(fetchMock).toBeCalledTimes(5);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
+    });
+    expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
+      body: `{"client_id":"","client_secret":"${apsisClientSecret}","grant_type":"client_credentials"}`,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      redirect: "follow"
+    });
+    expect(fetchMock).toBeCalledWith(
+      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
+      {
+        body: '{"9820534":"a@a.com","312460234":true,"312461234":true}',
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${oAuthToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "PATCH"
+      }
+    );
+    expect(fetchMock).toBeCalledWith(
+      "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
+      {
+        body:
+          '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${oAuthToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      }
+    );
+    expect(fetchMock).toBeCalledWith(
+      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
+      {
+        body:
+          '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
+        headers: {
+          Accept: "application/json",
+          Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      }
+    );
+  });
+
   it("returns status code 200 when ALL api calls succeed", async () => {
     const payloadEmail = "a@a.com";
     const oAuthToken = "fdfdsfsdfdfdadsfdsfafsafds";

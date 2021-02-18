@@ -22,6 +22,7 @@ const {
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 const apsisAudianceBase = `${APSIS_API_BASE_URL}/audience`;
 
@@ -201,7 +202,11 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
         body: { email, gdpr_1, gdpr_2 }
       } = request;
 
-      if (!request.headers["X-Recaptcha-Token"]) {
+      const recaptchaToken =
+        // eslint-disable-next-line security/detect-object-injection
+        request.headers[recaptchaTokenHeader] ||
+        request.headers[recaptchaTokenHeader.toLowerCase()];
+      if (!recaptchaToken) {
         // eslint-disable-next-line no-console
         console.error("Token not provided.");
         return response.status(400).send(Error("Token not provided."));
@@ -209,9 +214,7 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${
-            request.headers["X-Recaptcha-Token"]
-          }`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${recaptchaToken}`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {
