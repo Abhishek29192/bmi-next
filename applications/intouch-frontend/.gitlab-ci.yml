@@ -5,6 +5,7 @@ build_intouch_frontend:
       changes:
         - applications/intouch-frontend/**
         - components/**
+        - libraries/**
   needs: [install]
   script:
     - yarn workspace @bmi/intouch-frontend build
@@ -18,6 +19,7 @@ test_intouch_frontend:
         - applications/intouch-frontend/**
         - components/**
         - jest/**
+        - libraries/**
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn

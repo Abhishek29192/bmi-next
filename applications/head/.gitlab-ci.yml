@@ -8,6 +8,7 @@ test_head:
         - applications/head/**
         - components/**
         - jest/**
+        - libraries/**
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
@@ -22,6 +23,7 @@ build_head:
       changes:
         - applications/head/**
         - components/**
+        - libraries/**
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
