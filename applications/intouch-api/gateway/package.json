@@ -2,6 +2,7 @@
   "name": "@bmi/intouch-api-gateway",
   "version": "1.0.0",
   "description": "BMI InTouch GraphQL API GateWay",
+  "license": "BMI-DXB",
   "main": "index.ts",
   "private": true,
   "scripts": {

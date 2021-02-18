@@ -1,7 +1,7 @@
 {
   "name": "@bmi/gcp-pim-full-fetch",
   "version": "0.0.0",
-  "license": "UNLICENSED",
+  "license": "BMI-DXB",
   "src": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

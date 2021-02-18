@@ -1,6 +1,7 @@
 {
   "name": "@bmi/styles",
   "version": "0.0.0",
+  "license": "BMI-DXB",
   "main": "./index.scss",
   "types": "./index.d.ts",
   "dependencies": {
