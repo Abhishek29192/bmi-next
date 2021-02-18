@@ -717,6 +717,58 @@ describe("Making a POST request", () => {
     expect(res.send).toBeCalledWith(uploadResponse);
   });
 
+  it("returns status 200 with lowercase recaptcha header", async () => {
+    const req = mockRequest(readFileSync(`${resourcesBasePath}/blank.jpeg`), {
+      "x-recaptcha-token": validToken
+    });
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockImplementationOnce(() => [
+        { payload: { data: managementTokenSecret } }
+      ]);
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    const uploadResponse = {
+      expected: "response"
+    };
+    createUpload.mockResolvedValueOnce(uploadResponse);
+
+    await upload(req, res);
+    await upload(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
+    });
+    expect(accessSecretVersion).toBeCalledTimes(2);
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getSpace).toBeCalledTimes(1);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(getEnvironment).toBeCalledTimes(1);
+    expect(createUpload).toBeCalledWith({ file: req.body });
+    expect(createUpload).toBeCalledTimes(2);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.set).toBeCalledTimes(2);
+    expect(res.send).toBeCalledWith(uploadResponse);
+    expect(res.send).toBeCalledTimes(2);
+  });
+
   it("only gets Recaptcha secret and Contentful environment once regardless of number of requests", async () => {
     const req = mockRequest();
     const res = mockResponse();
