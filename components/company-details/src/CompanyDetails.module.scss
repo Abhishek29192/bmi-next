@@ -21,6 +21,11 @@
     vertical-align: text-bottom;
   }
 
+  // Note: override user agent stylesheet
+  address {
+    font-style: inherit;
+  }
+
   .row {
     display: flex;
     margin-bottom: 20px;
