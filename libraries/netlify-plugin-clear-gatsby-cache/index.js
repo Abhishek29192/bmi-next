@@ -3,13 +3,13 @@
 const recognisedHooks = ["Clean cache"];
 
 module.exports = {
-  onPreBuild: ({ utils: { run } }) => {
+  onPreBuild: async ({ utils: { run } }) => {
     const { INCOMING_HOOK_TITLE } = process.env;
 
     console.log(`Build triggered with the hook: ${INCOMING_HOOK_TITLE}`);
 
     if (recognisedHooks.includes(INCOMING_HOOK_TITLE)) {
-      run.command("yarn clean:head");
+      await run.command("yarn clean:head");
     }
   }
 };
