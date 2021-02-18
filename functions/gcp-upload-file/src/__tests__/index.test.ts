@@ -1,3 +1,4 @@
+import path from "path";
 import { readFileSync } from "fs";
 import { IncomingHttpHeaders } from "http";
 import { Request, Response } from "express";
@@ -5,7 +6,7 @@ import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
 import fetchMock from "jest-fetch-mock";
 
-const resourcesBasePath = "functions/gcp-upload-file/src/__tests__/resources";
+const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 const validToken = "valid-token";
 const recaptchaSecret = "recaptcha-secret";
 const managementTokenSecret = "management-token-secret";
