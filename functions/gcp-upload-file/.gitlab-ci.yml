@@ -3,7 +3,7 @@ image: node:12
 test_gcp_upload_file:
   stage: test
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
       changes:
         - functions/gcp-upload-file/**
         - jest/**
@@ -17,7 +17,7 @@ test_gcp_upload_file:
 build_gcp_upload_file:
   stage: build
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID"
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
       changes:
         - functions/gcp-upload-file/**
   needs: [install]
