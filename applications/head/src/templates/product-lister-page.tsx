@@ -83,7 +83,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     features,
     featuresLink,
     breadcrumbs,
-    inputBanner
+    inputBanner,
+    seo
   } = data.contentfulProductListerPage;
 
   const heroProps: HeroItem = {
@@ -219,7 +220,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     ({ code }) => code === pageContext.categoryCode
   )?.name;
 
-  const pageData: PageData = { breadcrumbs, inputBanner };
+  const pageData: PageData = { breadcrumbs, inputBanner, seo };
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
