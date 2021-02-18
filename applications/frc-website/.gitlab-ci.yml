@@ -1,20 +1,18 @@
 build_frc_website:
   stage: build
-  except:
-    refs:
-      - schedules
-  only:
-    changes:
-      - applications/frc-website/**
-      - components/**
-      - jest/**
-      - libraries/**
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/frc-website/**
+        - components/**
+        - libraries/**
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
-    - yarn run build:frc-website
+    - yarn workspace @bmi/frc-website build
   artifacts:
     paths:
       - applications/frc-website/.cache/
       - applications/frc-website/public/
+  interruptible: true

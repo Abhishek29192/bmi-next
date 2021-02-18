@@ -562,6 +562,66 @@ describe("Making a POST request", () => {
     expect(publicUrl).toBeCalledTimes(1);
   });
 
+  it("returns status code 200 when successfully created zip file when lowercase recaptcha header is used", async () => {
+    const req = mockRequest(
+      {
+        documents: [mockDocument()]
+      },
+      {
+        "x-recaptcha-token": validToken
+      }
+    );
+    const res = mockResponse();
+
+    accessSecretVersion.mockResolvedValueOnce([
+      { payload: { data: recaptchaSecret } }
+    ]);
+
+    mockResponses(
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        }),
+        status: 200
+      },
+      {
+        url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
+        body: "Some value",
+        status: 200
+      }
+    );
+    createWriteStream.mockImplementation(() =>
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
+      fs.createWriteStream(temporaryFile)
+    );
+    publicUrl.mockImplementation(() => "https://somewhere/file.zip");
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledTimes(0);
+    expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
+    expect(createWriteStream).toBeCalledTimes(1);
+    expect(fetchMock).toBeCalledWith(
+      `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
+    );
+    expect(publicUrl).toBeCalledTimes(1);
+  });
+
   it("returns status code 200 when successfully created zip file", async () => {
     const req = mockRequest(
       {

@@ -848,6 +848,75 @@ describe("Making a POST request", () => {
     expect(res.sendStatus).toBeCalledWith(200);
   });
 
+  it("returns status 200 when successfully sends email when the recaptcha header is lowercase", async () => {
+    const req = mockRequest(
+      {
+        locale: locale,
+        recipients: "email@email.com",
+        values: { files: ["path/to/file"], a: "b" }
+      },
+      { "x-recaptcha-token": validToken }
+    );
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockResolvedValueOnce([{ payload: { data: managementTokenSecret } }])
+      .mockResolvedValueOnce([{ payload: { data: sendGridSecret } }]);
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    processForAllLocales.mockResolvedValueOnce({
+      fields: { file: { "en-UK": { url: "https://localhost" } } }
+    });
+
+    await submit(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(
+      fetchMock
+    ).toBeCalledWith(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
+    });
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(createAsset).toBeCalledWith({
+      fields: {
+        title: {
+          [locale]: expect.stringContaining("User upload ")
+        },
+        file: {
+          [locale]: "path/to/file"
+        }
+      }
+    });
+    expect(processForAllLocales).toBeCalledTimes(1);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    expect(setApiKey).toBeCalledWith(sendGridSecret);
+    expect(send).toBeCalledWith({
+      to: "email@email.com",
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Website form submission",
+      text: JSON.stringify({ a: "b", uploadedAssets: [] }),
+      html: '<ul><li><b>a</b>: "b"</li><li><b>uploadedAssets</b>: []</li></ul>'
+    });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(200);
+  });
+
   it("only gets Recaptcha secret, Contentful environment and Send Grid secret once regardless of number of requests", async () => {
     const req = mockRequest();
     const res = mockResponse();

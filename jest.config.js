@@ -20,10 +20,8 @@ module.exports = {
   testEnvironment: "jsdom",
   roots: [
     "<rootDir>/components",
-    "<rootDir>/applications/head/src/components",
-    "<rootDir>/functions",
-    "<rootDir>/applications/intouch-frontend",
-    "<rootDir>/applications/intouch-api"
+    "<rootDir>/applications",
+    "<rootDir>/functions"
   ],
   testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],

@@ -17,6 +17,7 @@ const storage = new Storage();
 const bucket = storage.bucket(GCS_NAME);
 const validHosts = DXB_VALID_HOSTS.split(",").map((value) => value.trim());
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 let recaptchaSecretKeyCache: string;
 const secretManagerClient = new SecretManagerServiceClient();
@@ -55,7 +56,11 @@ export const download: HttpFunction = async (request, response) => {
       console.error("List of documents not provided.");
       return response.status(400).send("List of documents not provided.");
     }
-    if (!request.headers["X-Recaptcha-Token"]) {
+    const recaptchaToken =
+      // eslint-disable-next-line security/detect-object-injection
+      request.headers[recaptchaTokenHeader] ||
+      request.headers[recaptchaTokenHeader.toLowerCase()];
+    if (!recaptchaToken) {
       // eslint-disable-next-line no-console
       console.error("Token not provided.");
       return response.status(400).send("Token not provided.");
@@ -74,9 +79,7 @@ export const download: HttpFunction = async (request, response) => {
 
     try {
       const recaptchaResponse = await fetch(
-        `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${
-          request.headers["X-Recaptcha-Token"]
-        }`,
+        `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${recaptchaToken}`,
         { method: "POST" }
       );
       if (!recaptchaResponse.ok) {

@@ -1,30 +1,35 @@
 build_intouch_frontend:
   stage: build
-  except:
-    refs:
-      - schedules
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch-frontend/**
+        - components/**
+        - libraries/**
   needs: [install]
   script:
-    - yarn run build:intouch-frontend
-  # only:
-  #   changes:
-  #     - applications/intouch-frontend/**/*
+    - yarn workspace @bmi/intouch-frontend build
+  interruptible: true
 
 test_intouch_frontend:
   stage: test
-  except:
-    refs:
-      - schedules
+  rules:
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch-frontend/**
+        - components/**
+        - jest/**
+        - libraries/**
   needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
-    - yarn test:intouch-frontend
-  dependencies:
-    - install
+    - yarn workspace @bmi/intouch-frontend coverage:jest
+  interruptible: true
 
 deploy_intouch_frontend_dev:
   stage: deploy
-  only:
-    refs:
-      - intouch/dev-environment
+  rules:
+    - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
   script:
     - echo "should deploy InTouch Frontend to dev environment"

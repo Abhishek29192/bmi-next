@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=submit --port=5817",
-    "deploy": "tsc && gcloud functions deploy form-submit --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=5 --region=europe-west3 --entry-point=submit --env-vars-file=env.yaml"
+    "deploy": "tsc && gcloud functions deploy form-submit --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=5 --region=europe-west3 --entry-point=submit --env-vars-file=env.yaml",
+    "coverage:jest": "jest --coverage"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.7.1",

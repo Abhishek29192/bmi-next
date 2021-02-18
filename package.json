@@ -23,6 +23,7 @@
     "build:intouch-frontend": "yarn workspace @bmi/intouch-frontend run build",
     "test:intouch-frontend": "jest --testPathPattern=\"applications/intouch-frontend\"",
     "test:intouch-api": "jest --testPathPattern=\"applications/intouch-api\"",
+    "coverage:components": "jest --coverage --testPathPattern=\"components\"",
     "coverage:jest": "jest --coverage",
     "coverage:ts": "typescript-coverage-report",
     "workbench": "styleguidist server",
