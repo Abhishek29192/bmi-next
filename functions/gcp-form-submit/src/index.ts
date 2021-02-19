@@ -70,7 +70,7 @@ export const submit: HttpFunction = async (request, response) => {
     response.set("Access-Control-Allow-Methods", "POST");
     response.set("Access-Control-Allow-Headers", [
       "Content-Type",
-      "X-Recaptcha-Token"
+      recaptchaTokenHeader
     ]);
     response.set("Access-Control-Max-Age", "3600");
 
