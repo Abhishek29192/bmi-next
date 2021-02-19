@@ -127,8 +127,9 @@ export const download: HttpFunction = async (request, response) => {
         request.body.documents.map(async ({ name, href }) => {
           const response = await fetch(href);
           if (!response.ok) {
-            throw Error(
-              `Got a non-ok response back from document fetch (${response.status}).`
+            // eslint-disable-next-line no-console
+            console.error(
+              `Got a non-ok response back from document fetch (${response.status}). Not throwing an error to allow other documents to be downloaded.`
             );
           }
           const buffer = await response.buffer();
