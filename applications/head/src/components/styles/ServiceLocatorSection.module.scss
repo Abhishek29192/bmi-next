@@ -6,7 +6,7 @@
   }
 
   .controls {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
 
   .product-details-card {
@@ -43,7 +43,20 @@
 
     .and-or-label {
       text-align: center;
-      line-height: 32px;
+      line-height: 2;
+
+      span {
+        background: $color-white;
+        padding: 0 0.5rem;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid $color-pearl;
+        margin: -1rem 0 1rem 0;
+      }
     }
   }
 
@@ -52,7 +65,7 @@
     align-items: center;
     justify-content: center;
 
-    @media (min-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-md) {
       justify-content: flex-end;
     }
 
@@ -70,7 +83,28 @@
 
     @media (min-width: $breakpoint-lg) {
       max-height: 640px;
+      border-bottom: 1px solid $color-storm;
+      border-top: 1px solid $color-storm;
     }
+  }
+
+  .tabs {
+    margin-left: -16px;
+    margin-right: -16px;
+
+    @media (min-width: $breakpoint-sm) {
+      margin-left: -24px;
+      margin-right: -24px;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .tab-panel > div {
+    padding-top: 0;
   }
 
   .no-results {

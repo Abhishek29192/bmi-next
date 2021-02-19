@@ -326,7 +326,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           alignItems="flex-end"
           className={styles["controls"]}
         >
-          <Grid item xs={12} md={4} className={styles["search"]}>
+          <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
             <Autocomplete
               size="small"
               id="company-autocomplete"
@@ -351,7 +351,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               freeSolo
             />
             <Typography className={styles["and-or-label"]}>
-              {getMicroCopy("findARoofer.andOr")}
+              <span>{getMicroCopy("findARoofer.andOr")}</span>
             </Typography>
             <GoogleAutocomplete
               size="small"
@@ -374,7 +374,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               {getMicroCopy("findARoofer.geolocationButton")}
             </GeolocationButton>
           </Grid>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={6} lg={8}>
             <div className={styles["filters"]}>
               <Typography variant="h6">
                 {getMicroCopy("findARoofer.filtersLabel")}
@@ -396,9 +396,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         </Grid>
         <Tabs
           initialValue="list"
-          className={styles["tab-bar"]}
+          className={styles["tabs"]}
           theme="secondary"
           visibleUntil="md"
+          variant="fullWidth"
         >
           <Tabs.TabPanel
             md={12}
