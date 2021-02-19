@@ -110,6 +110,7 @@ const Header = ({
             linkComponent: Link,
             to: `/${countryCode}/`
           }}
+          logoLabel={getMicroCopy("global.logoLabel")}
           activeNavLabel={activeLabel}
           closeLabel={getMicroCopy("global.close")}
           searchAction={`/${countryCode}/search`}
