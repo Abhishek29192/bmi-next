@@ -848,7 +848,7 @@ HTMLCollection [
                   <span
                     class="MuiChip-label"
                   >
-                    Pitched roof
+                    findARoofer.filters.pitchedRoof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
@@ -862,7 +862,7 @@ HTMLCollection [
                   <span
                     class="MuiChip-label"
                   >
-                    Flat roof
+                    findARoofer.filters.flatRoof
                   </span>
                   <span
                     class="MuiTouchRipple-root"
