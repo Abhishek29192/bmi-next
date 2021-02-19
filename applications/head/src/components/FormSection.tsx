@@ -11,7 +11,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
-import { GoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
@@ -59,10 +59,14 @@ const Input = ({
   type,
   required,
   accept = ".pdf, .jpg, .jpeg, .png",
-  maxSize,
-  token
+  maxSize
 }: Omit<InputType, "width">) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const {
+    getMicroCopy,
+    node_locale,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet
+  } = useContext(SiteContext);
   const mapBody = (file: File) => file;
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
@@ -103,8 +107,7 @@ const Input = ({
           isRequired={required}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{
-            "Content-Type": "application/octet-stream",
-            "X-Recaptcha-Token": token
+            "Content-Type": "application/octet-stream"
           }}
           accept={accept}
           fileValidation={handleFileValidation}
@@ -118,6 +121,10 @@ const Input = ({
           }
           mapBody={mapBody}
           mapValue={mapValue}
+          useRecaptcha={true}
+          reCaptchaKey={scriptGRecaptchaId}
+          language={node_locale}
+          useRecaptchaNet={scriptGRecaptchaNet}
         />
       );
     case "select":
@@ -179,7 +186,7 @@ const FormSection = ({
 }) => {
   const { countryCode, getMicroCopy, node_locale } = useContext(SiteContext);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [token, setToken] = useState<string>();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -200,6 +207,8 @@ const FormSection = ({
 
     try {
       const source = axios.CancelToken.source();
+      const token = await executeRecaptcha();
+
       await axios.post(
         process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
         {
@@ -240,11 +249,10 @@ const FormSection = ({
           className={styles["Form"]}
           rightAlignButton
         >
-          <GoogleReCaptcha onVerify={setToken} />
           <Grid container spacing={3}>
             {inputs.map(({ width, ...props }, $i) => (
               <Grid key={$i} item xs={12} md={width === "full" ? 12 : 6}>
-                <Input token={token} {...props} />
+                <Input {...props} />
               </Grid>
             ))}
           </Grid>

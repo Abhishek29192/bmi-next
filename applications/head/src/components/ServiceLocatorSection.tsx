@@ -32,6 +32,7 @@ import React, {
   useRef,
   useState
 } from "react";
+import { camelCase } from "lodash";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { Data as RooferData, RooferType, rooferTypes } from "./Roofer";
@@ -83,11 +84,17 @@ const IntegratedLinkCard = ({ isOpen, ...rest }: LinkCardProps) => {
   const linkCardElement = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (isOpen && linkCardElement.current) {
-      linkCardElement.current.parentElement.scrollTo({
-        top: linkCardElement.current.offsetTop
-      });
-    }
+    let timer1 = setTimeout(() => {
+      if (isOpen && linkCardElement.current) {
+        linkCardElement.current.parentElement.scrollTo({
+          top: linkCardElement.current.offsetTop + 1,
+          behavior: "smooth"
+        });
+      }
+    }, 750);
+    return () => {
+      clearTimeout(timer1);
+    };
   }, [isOpen, linkCardElement]);
 
   return <LinkCard isOpen={isOpen} ref={linkCardElement} {...rest} />;
@@ -235,6 +242,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     };
 
     const companyDetails: DetailProps[] = [
+      ...(roofer.distance !== undefined
+        ? [
+            {
+              type: "distance" as "distance",
+              text: `${Math.floor(roofer.distance) / 1000}km`,
+              label: getMicroCopy("findARoofer.distanceLabel")
+            }
+          ]
+        : []),
       {
         // TODO: resolve types assertions of creating DetailProps array
         type: "cta" as "cta",
@@ -246,15 +262,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         ),
         label: getMicroCopy("findARoofer.getDirectionsLabel")
       },
-      ...(roofer.distance !== undefined
-        ? [
-            {
-              type: "distance" as "distance",
-              text: `${Math.floor(roofer.distance) / 1000}km`,
-              label: getMicroCopy("findARoofer.distanceLabel")
-            }
-          ]
-        : []),
       ...(roofer.phone
         ? [
             {
@@ -326,7 +333,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           alignItems="flex-end"
           className={styles["controls"]}
         >
-          <Grid item xs={12} md={4} className={styles["search"]}>
+          <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
             <Autocomplete
               size="small"
               id="company-autocomplete"
@@ -351,7 +358,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               freeSolo
             />
             <Typography className={styles["and-or-label"]}>
-              {getMicroCopy("findARoofer.andOr")}
+              <span>{getMicroCopy("findARoofer.andOr")}</span>
             </Typography>
             <GoogleAutocomplete
               size="small"
@@ -374,7 +381,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               {getMicroCopy("findARoofer.geolocationButton")}
             </GeolocationButton>
           </Grid>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={6} lg={8}>
             <div className={styles["filters"]}>
               <Typography variant="h6">
                 {getMicroCopy("findARoofer.filtersLabel")}
@@ -387,7 +394,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     onClick={() => updateActiveFilters(rooferType)}
                     isSelected={activeFilters[rooferType]}
                   >
-                    {rooferType}
+                    {getMicroCopy(
+                      `findARoofer.filters.${camelCase(rooferType)}`
+                    )}
                   </Chip>
                 ))}
               </div>
@@ -396,9 +405,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         </Grid>
         <Tabs
           initialValue="list"
-          className={styles["tab-bar"]}
+          className={styles["tabs"]}
           theme="secondary"
           visibleUntil="md"
+          variant="fullWidth"
         >
           <Tabs.TabPanel
             md={12}

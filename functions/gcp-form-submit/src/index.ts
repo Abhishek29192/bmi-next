@@ -3,6 +3,7 @@ import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { Environment } from "contentful-management/dist/typings/entities/environment";
+import fetch from "node-fetch";
 
 const {
   CONTENTFUL_ENVIRONMENT,
@@ -69,7 +70,7 @@ export const submit: HttpFunction = async (request, response) => {
     response.set("Access-Control-Allow-Methods", "POST");
     response.set("Access-Control-Allow-Headers", [
       "Content-Type",
-      "X-Recaptcha-Token"
+      recaptchaTokenHeader
     ]);
     response.set("Access-Control-Max-Age", "3600");
 

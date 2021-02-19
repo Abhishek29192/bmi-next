@@ -28,20 +28,16 @@
 
   .popup {
     left: 0;
-    margin: 0 20px;
+    margin: 0 auto;
     position: absolute;
     right: 0;
     top: 0;
     max-width: 500px;
-    padding: 32px 0;
+    padding: 32px 20px;
     pointer-events: none;
 
     & > * {
       pointer-events: all;
-    }
-
-    @media (min-width: $breakpoint-md) {
-      margin: 0 auto;
     }
   }
 

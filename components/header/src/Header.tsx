@@ -28,6 +28,7 @@ type HeaderProps = {
   navigation: readonly NavigationList[];
   utilities: readonly LinkList[];
   logoAction?: ClickableAction;
+  logoLabel?: string;
   activeNavLabel?: string;
   closeLabel?: string;
   isSearchDisabled?: boolean;
@@ -48,6 +49,7 @@ const Header = ({
   navigation,
   utilities,
   logoAction = { model: "htmlLink", href: "/" },
+  logoLabel = "Link to home",
   activeNavLabel,
   closeLabel = "Close",
   isSearchDisabled,
@@ -228,7 +230,11 @@ const Header = ({
       <div className={styles.NavigationBar}>
         <Container>
           <div className={styles.NavigationBar__Left}>
-            <Clickable {...logoAction} className={styles.LogoLink}>
+            <Clickable
+              {...logoAction}
+              className={styles.LogoLink}
+              aria-label={logoLabel}
+            >
               <Icon className={styles.Logo} source={BmiIcon} />
             </Clickable>
             <nav

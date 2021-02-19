@@ -225,6 +225,7 @@ exports[`Header component renders correctly 1`] = `
         class="NavigationBar__Left"
       >
         <a
+          aria-label="Link to home"
           class="LogoLink"
           href="/"
         >

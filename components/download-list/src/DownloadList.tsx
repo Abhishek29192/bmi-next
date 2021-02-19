@@ -6,7 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Tooltip from "@material-ui/core/Tooltip";
 import {
   GoogleReCaptchaProvider,
-  GoogleReCaptcha
+  useGoogleReCaptcha
 } from "react-google-recaptcha-v3";
 
 type Context = {
@@ -97,9 +97,10 @@ const DownloadListButton = ({
     setIsLoading,
     useRecaptcha
   } = useContext(DownloadListContext);
-  const [token, setToken] = useState<string>();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleClick = async () => {
+    const token = useRecaptcha && (await executeRecaptcha());
     setIsLoading(true);
     await onClick(list, token);
     setIsLoading(false);
@@ -108,7 +109,6 @@ const DownloadListButton = ({
 
   return (
     <>
-      {useRecaptcha && <GoogleReCaptcha onVerify={setToken} />}
       <Button onClick={handleClick} disabled={isLoading} {...rest}>
         {label.replace("{{count}}", `${count}`)}
         {isLoading && (

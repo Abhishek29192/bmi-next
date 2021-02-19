@@ -55,6 +55,7 @@ type TabsProps = MaterialTabsProps &
 
 const Tabs = ({
   children,
+  className,
   initialValue = 0,
   visibleUntil,
   theme = "primary",
@@ -72,9 +73,14 @@ const Tabs = ({
 
   return (
     <div
-      className={classnames(styles["Tabs"], styles[`Tabs--${theme}`], {
-        [styles[`Tabs--visible-until-${visibleUntil}`]]: visibleUntil
-      })}
+      className={classnames(
+        styles["Tabs"],
+        styles[`Tabs--${theme}`],
+        {
+          [styles[`Tabs--visible-until-${visibleUntil}`]]: visibleUntil
+        },
+        className
+      )}
     >
       <div className={styles["TabsBar"]}>
         <Container>

@@ -11,8 +11,11 @@ import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Button from "@bmi/button";
 import AttachFileIcon from "@material-ui/icons/AttachFile";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import File, { UploadFile } from "./_File";
 import styles from "./Upload.module.scss";
+
+type GoogleRecaptchaProps = GoogleReCaptchaProvider["props"];
 
 export type Props = {
   buttonLabel?: string;
@@ -29,7 +32,8 @@ export type Props = {
   mapBody?: (file: File) => Record<string, any>;
   mapValue?: (file: File, response: any) => any;
   fileValidation?: (file: File) => string;
-};
+  useRecaptcha?: boolean;
+} & GoogleRecaptchaProps;
 
 const Upload = ({
   instructions,
@@ -45,7 +49,8 @@ const Upload = ({
   mapBody,
   mapValue,
   fileValidation,
-  onChange
+  onChange,
+  useRecaptcha
 }: Props) => {
   const [files, setFiles] = useState<readonly UploadFile[]>([]);
   const [dragCounter, setDragCounter] = useState(0);
@@ -116,6 +121,7 @@ const Upload = ({
                 files.filter((_file, fileIndex) => fileIndex !== index)
               );
             }}
+            useRecaptcha={useRecaptcha}
           />
         );
       })}
@@ -198,4 +204,29 @@ const Upload = ({
   );
 };
 
-export default withFormControl<Props>(Upload);
+const UploadWrapper = ({
+  useRecaptcha,
+  reCaptchaKey,
+  language,
+  useRecaptchaNet,
+  scriptProps,
+  children,
+  ...props
+}: Props) => {
+  return useRecaptcha ? (
+    <GoogleReCaptchaProvider
+      reCaptchaKey={reCaptchaKey}
+      language={language}
+      useRecaptchaNet={useRecaptchaNet}
+      scriptProps={scriptProps}
+    >
+      <Upload useRecaptcha={useRecaptcha} {...props}>
+        {children}
+      </Upload>
+    </GoogleReCaptchaProvider>
+  ) : (
+    <Upload {...props}>{children}</Upload>
+  );
+};
+
+export default withFormControl<Props>(UploadWrapper);

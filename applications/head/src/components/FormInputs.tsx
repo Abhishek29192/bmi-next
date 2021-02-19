@@ -71,7 +71,12 @@ const Input = ({
   type,
   required
 }: Omit<InputType, "width">) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const {
+    getMicroCopy,
+    node_locale,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet
+  } = useContext(SiteContext);
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -98,6 +103,10 @@ const Input = ({
           instructions={getMicroCopy("upload.instructions")}
           mapBody={(file) => ({ file })}
           mapValue={mapValue}
+          useRecaptcha={true}
+          reCaptchaKey={scriptGRecaptchaId}
+          language={node_locale}
+          useRecaptchaNet={scriptGRecaptchaNet}
         />
       );
     case "select":
