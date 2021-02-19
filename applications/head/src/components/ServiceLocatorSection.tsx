@@ -83,12 +83,17 @@ const IntegratedLinkCard = ({ isOpen, ...rest }: LinkCardProps) => {
   const linkCardElement = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (isOpen && linkCardElement.current) {
-      linkCardElement.current.parentElement.scrollTo({
-        top: linkCardElement.current.offsetTop,
-        behavior: "smooth"
-      });
-    }
+    let timer1 = setTimeout(() => {
+      if (isOpen && linkCardElement.current) {
+        linkCardElement.current.parentElement.scrollTo({
+          top: linkCardElement.current.offsetTop + 1,
+          behavior: "smooth"
+        });
+      }
+    }, 750);
+    return () => {
+      clearTimeout(timer1);
+    };
   }, [isOpen, linkCardElement]);
 
   return <LinkCard isOpen={isOpen} ref={linkCardElement} {...rest} />;
