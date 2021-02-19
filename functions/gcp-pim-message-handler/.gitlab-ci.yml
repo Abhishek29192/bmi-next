@@ -1,7 +1,7 @@
 build_gcp-pim-message-handler:
   stage: build
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
       changes:
         - functions/gcp-pim-message-handler/**
   needs: [install]
@@ -17,7 +17,7 @@ build_gcp-pim-message-handler:
 package_gcp-pim-message-handler:
   stage: package
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "pre-production" || $CI_COMMIT_BRANCH == "production"'
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
       changes:
         - functions/gcp-pim-message-handler/**
   needs: [build_gcp-pim-message-handler]
@@ -34,12 +34,12 @@ package_gcp-pim-message-handler:
       - $CI_PROJECT_DIR/dist/functions
   interruptible: true
 
-# Deploy to QA Storage
-deploy_qa_gcp-pim-message-handler:
+# Deploy to QA or Pre-Production or Production Storage
+deploy_gcp-pim-message-handler:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
       changes:
         - functions/gcp-pim-message-handler/**
       allow_failure: true
@@ -47,41 +47,27 @@ deploy_qa_gcp-pim-message-handler:
   dependencies:
     - package_gcp-pim-message-handler
   before_script:
-    - gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY_QA"
-    - gcloud config set project $GCP_DXB_PROJECT_ID_QA
-  script:
-    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-message-handler.zip gs://$GCP_DXB_BUILD_STORAGE_QA/sources/
+    - >
+      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
+        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
+        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_QA
+        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_QA
+      fi
+          
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
+        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_PREPROD
+        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_PREPROD
+        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_PREPROD
+      fi
 
-# Deploy to Pre-Production Storage
-deploy_preproduction_gcp-pim-message-handler:
-  image: gcr.io/google.com/cloudsdktool/cloud-sdk
-  stage: deploy
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "pre-production"'
-      changes:
-        - functions/gcp-pim-message-handler/**
-  needs: [package_gcp-pim-message-handler]
-  dependencies:
-    - package_gcp-pim-message-handler
-  before_script:
-    - gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY_PREPROD"
-    - gcloud config set project $GCP_DXB_PROJECT_ID_PREPROD
-  script:
-    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-message-handler.zip gs://$GCP_DXB_BUILD_STORAGE_PREPROD/sources/
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
+        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_PROD
+        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_PROD
+        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_PROD
+      fi
 
-# Deploy to Production Storage
-deploy_production_gcp-pim-message-handler:
-  image: gcr.io/google.com/cloudsdktool/cloud-sdk
-  stage: deploy
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "production"'
-      changes:
-        - functions/gcp-pim-message-handler/**
-  needs: [package_gcp-pim-message-handler]
-  dependencies:
-    - package_gcp-pim-message-handler
-  before_script:
-    - gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY_PROD"
-    - gcloud config set project $GCP_DXB_PROJECT_ID_PROD
+      gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY"
+      gcloud config set project $GCP_DXB_PROJECT_ID
   script:
-    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-message-handler.zip gs://$GCP_DXB_BUILD_STORAGE_PROD/sources/
+    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-message-handler.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
+
