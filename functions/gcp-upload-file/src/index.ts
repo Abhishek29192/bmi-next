@@ -13,7 +13,7 @@ const {
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
-const recaptchaTokeHeader = "X-Recaptcha-Token";
+const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 let contentfulEnvironmentCache;
 let recaptchaSecretKeyCache;
@@ -61,7 +61,7 @@ export const upload: HttpFunction = async (request, response) => {
     response.set("Access-Control-Allow-Methods", "POST");
     response.set("Access-Control-Allow-Headers", [
       "Content-Type",
-      "X-Recaptcha-Token"
+      recaptchaTokenHeader
     ]);
     response.set("Access-Control-Max-Age", "3600");
 
@@ -70,8 +70,8 @@ export const upload: HttpFunction = async (request, response) => {
     try {
       const recaptchaToken =
         // eslint-disable-next-line security/detect-object-injection
-        request.headers[recaptchaTokeHeader] ||
-        request.headers[recaptchaTokeHeader.toLowerCase()];
+        request.headers[recaptchaTokenHeader] ||
+        request.headers[recaptchaTokenHeader.toLowerCase()];
       if (!recaptchaToken) {
         // eslint-disable-next-line no-console
         console.error("Token not provided.");

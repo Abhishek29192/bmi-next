@@ -220,7 +220,9 @@ const UploadWrapper = ({
       useRecaptchaNet={useRecaptchaNet}
       scriptProps={scriptProps}
     >
-      <Upload {...props}>{children}</Upload>
+      <Upload useRecaptcha={useRecaptcha} {...props}>
+        {children}
+      </Upload>
     </GoogleReCaptchaProvider>
   ) : (
     <Upload {...props}>{children}</Upload>
