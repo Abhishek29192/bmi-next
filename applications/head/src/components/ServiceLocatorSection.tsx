@@ -85,7 +85,8 @@ const IntegratedLinkCard = ({ isOpen, ...rest }: LinkCardProps) => {
   useEffect(() => {
     if (isOpen && linkCardElement.current) {
       linkCardElement.current.parentElement.scrollTo({
-        top: linkCardElement.current.offsetTop
+        top: linkCardElement.current.offsetTop,
+        behavior: "smooth"
       });
     }
   }, [isOpen, linkCardElement]);
