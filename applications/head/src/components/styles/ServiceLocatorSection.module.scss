@@ -67,7 +67,7 @@
     height: 100%;
     max-height: calc(100vh - 48px); // Note: minus tab label height.
     overflow: auto;
-
+    border-top: 1px solid $color-storm;
     @media (min-width: $breakpoint-lg) {
       max-height: 640px;
     }
