@@ -7,8 +7,8 @@ import TextField from "@bmi/text-field";
 import Typography from "@bmi/typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import {
-  GoogleReCaptcha,
-  GoogleReCaptchaProvider
+  GoogleReCaptchaProvider,
+  useGoogleReCaptcha
 } from "react-google-recaptcha-v3";
 import styles from "./InputBanner.module.scss";
 
@@ -37,11 +37,14 @@ const InputBanner = ({
   useRecaptcha
 }: Props) => {
   const [emailInput, setEmailInput] = useState<string>("");
-  const [token, setToken] = useState<string>();
-  const handleSubmit = useCallback(() => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const handleSubmit = useCallback(async () => {
     if (!onSubmit || !validateEmail(emailInput)) {
       return;
     }
+
+    const token = useRecaptcha && (await executeRecaptcha());
 
     onSubmit(emailInput, token);
     setEmailInput("");
@@ -49,7 +52,6 @@ const InputBanner = ({
 
   return (
     <div className={styles["InputBanner"]}>
-      {useRecaptcha && <GoogleReCaptcha onVerify={setToken} />}
       <Container>
         <div className={styles["wrapper"]}>
           <Typography variant="h3" hasUnderline className={styles["title"]}>

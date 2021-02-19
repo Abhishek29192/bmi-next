@@ -7,6 +7,7 @@ import FileIcon from "@material-ui/icons/FileCopy";
 import Icon from "@bmi/icon";
 import { LinearProgress } from "@material-ui/core";
 import axios from "axios";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import styles from "./Upload.module.scss";
 
 export type UploadFile = {
@@ -23,6 +24,7 @@ type Props = {
   onRequestSuccess?: (responseBody) => void;
   errorMessage?: string;
   validation?: (file: File) => string;
+  useRecaptcha?: boolean;
 };
 
 export const getFileSizeString = (size: number): string => {
@@ -42,10 +44,13 @@ const File = ({
   onDeleteClick,
   onRequestSuccess,
   errorMessage,
-  validation
+  validation,
+  useRecaptcha
 }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const previewImage = file.type.includes("image")
     ? URL.createObjectURL(file)
     : null;
@@ -61,9 +66,13 @@ const File = ({
     }
 
     try {
+      const token = useRecaptcha && (await executeRecaptcha());
+
       const res = await axios.post(uri, mapBody(file), {
         cancelToken: source.token,
-        headers
+        headers: useRecaptcha
+          ? { ...headers, "X-Recaptcha-Token": token }
+          : headers
       });
       const body = res.data;
 

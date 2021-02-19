@@ -5,6 +5,16 @@ import DownloadList from "../";
 
 afterEach(cleanup);
 
+const executeRecaptcha = jest.fn().mockResolvedValue("valid-token");
+const recaptchaSpy = jest.spyOn(
+  require("react-google-recaptcha-v3"),
+  "useGoogleReCaptcha"
+);
+
+recaptchaSpy.mockReturnValue({
+  executeRecaptcha: executeRecaptcha
+});
+
 describe("DownloadList component", () => {
   it("renders correctly", () => {
     const { container } = render(

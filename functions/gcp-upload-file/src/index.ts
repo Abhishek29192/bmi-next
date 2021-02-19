@@ -2,6 +2,7 @@ import type { HttpFunction } from "@google-cloud/functions-framework/build/src/f
 import { createClient } from "contentful-management";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { fromBuffer } from "file-type";
+import fetch from "node-fetch";
 
 const {
   CONTENTFUL_ENVIRONMENT,
