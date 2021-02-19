@@ -128,7 +128,12 @@ export const getCount = async (queryString) => {
 const SearchTabPanelDocuments = (props: Props) => {
   const { queryString, onLoadingChange, extraData } = props;
 
-  const { getMicroCopy } = useContext(SiteContext);
+  const {
+    getMicroCopy,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet,
+    node_locale
+  } = useContext(SiteContext);
 
   // TODO: Not sure if we need this, would be nice to remove
   const isInitialLoad = useRef(true);
@@ -260,7 +265,13 @@ const SearchTabPanelDocuments = (props: Props) => {
   }, []);
 
   return (
-    <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+    <DownloadList
+      useRecaptcha={true}
+      reCaptchaKey={scriptGRecaptchaId}
+      useRecaptchaNet={scriptGRecaptchaNet}
+      language={node_locale}
+      maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
+    >
       <Grid container spacing={3} ref={resultsElement}>
         <Grid item xs={12} md={12} lg={3}>
           <DownloadListContext.Consumer>
