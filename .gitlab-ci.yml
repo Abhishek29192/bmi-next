@@ -6,6 +6,7 @@ include:
   - local: applications/head/.gitlab-ci.yml
   - local: applications/intouch-frontend/.gitlab-ci.yml
   - local: applications/intouch-api/.gitlab-ci.yml
+  - local: components/.gitlab-ci.yml
   - local: functions/gcp-apsis-integration/.gitlab-ci.yml
   - local: functions/gcp-download-zip/.gitlab-ci.yml
   - local: functions/gcp-form-submit/.gitlab-ci.yml

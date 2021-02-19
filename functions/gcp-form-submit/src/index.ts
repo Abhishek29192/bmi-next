@@ -3,6 +3,7 @@ import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { Environment } from "contentful-management/dist/typings/entities/environment";
+import fetch from "node-fetch";
 
 const {
   CONTENTFUL_ENVIRONMENT,
