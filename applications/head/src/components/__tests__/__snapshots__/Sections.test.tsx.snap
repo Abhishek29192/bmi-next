@@ -875,7 +875,7 @@ HTMLCollection [
           </div>
         </div>
         <div
-          class="Tabs Tabs--secondary tabs Tabs--visible-until-md"
+          class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
         >
           <div
             class="TabsBar"
