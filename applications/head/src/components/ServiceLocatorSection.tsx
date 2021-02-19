@@ -235,6 +235,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     };
 
     const companyDetails: DetailProps[] = [
+      ...(roofer.distance !== undefined
+        ? [
+            {
+              type: "distance" as "distance",
+              text: `${Math.floor(roofer.distance) / 1000}km`,
+              label: getMicroCopy("findARoofer.distanceLabel")
+            }
+          ]
+        : []),
       {
         // TODO: resolve types assertions of creating DetailProps array
         type: "cta" as "cta",
@@ -246,15 +255,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         ),
         label: getMicroCopy("findARoofer.getDirectionsLabel")
       },
-      ...(roofer.distance !== undefined
-        ? [
-            {
-              type: "distance" as "distance",
-              text: `${Math.floor(roofer.distance) / 1000}km`,
-              label: getMicroCopy("findARoofer.distanceLabel")
-            }
-          ]
-        : []),
       ...(roofer.phone
         ? [
             {
