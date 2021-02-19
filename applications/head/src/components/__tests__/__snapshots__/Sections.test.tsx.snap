@@ -694,7 +694,7 @@ HTMLCollection [
           class="MuiGrid-root controls MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-end"
         >
           <div
-            class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4"
+            class="MuiGrid-root search MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
           >
             <div
               aria-expanded="false"
@@ -774,7 +774,9 @@ HTMLCollection [
             <p
               class="MuiTypography-root and-or-label Typography MuiTypography-body1"
             >
-              findARoofer.andOr
+              <span>
+                findARoofer.andOr
+              </span>
             </p>
             <div
               style="text-align: center;"
@@ -827,7 +829,7 @@ HTMLCollection [
             </button>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8"
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
           >
             <div
               class="filters"
@@ -873,7 +875,7 @@ HTMLCollection [
           </div>
         </div>
         <div
-          class="Tabs Tabs--secondary Tabs--visible-until-md"
+          class="Tabs Tabs--secondary tabs Tabs--visible-until-md"
         >
           <div
             class="TabsBar"
@@ -882,15 +884,11 @@ HTMLCollection [
               class="MuiContainer-root MuiContainer-maxWidthXl"
             >
               <div
-                class="MuiTabs-root tab-bar"
+                class="MuiTabs-root"
               >
                 <div
-                  class="MuiTabs-scrollable"
-                  style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-                />
-                <div
-                  class="MuiTabs-scroller MuiTabs-scrollable"
-                  style="margin-bottom: 0px;"
+                  class="MuiTabs-scroller MuiTabs-fixed"
+                  style="overflow: hidden;"
                 >
                   <div
                     aria-label="tabs"
@@ -900,7 +898,7 @@ HTMLCollection [
                     <button
                       aria-controls="tabpanel-list"
                       aria-selected="true"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected MuiTab-fullWidth"
                       id="tab-list"
                       role="tab"
                       tabindex="0"
@@ -918,7 +916,7 @@ HTMLCollection [
                     <button
                       aria-controls="tabpanel-map"
                       aria-selected="false"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary MuiTab-fullWidth"
                       id="tab-map"
                       role="tab"
                       tabindex="-1"
