@@ -32,6 +32,7 @@ import React, {
   useRef,
   useState
 } from "react";
+import { camelCase } from "lodash";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { Data as RooferData, RooferType, rooferTypes } from "./Roofer";
@@ -393,7 +394,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                     onClick={() => updateActiveFilters(rooferType)}
                     isSelected={activeFilters[rooferType]}
                   >
-                    {rooferType}
+                    {getMicroCopy(
+                      `findARoofer.filters.${camelCase(rooferType)}`
+                    )}
                   </Chip>
                 ))}
               </div>
