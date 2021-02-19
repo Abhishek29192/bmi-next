@@ -75,16 +75,6 @@
 
   .details {
     flex: 3 0 100%;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 280ms ease;
-    &--selected {
-      overflow: visible;
-      /* only way to animate is to control max-height */
-      /* will we have ever have details more than 9999px long?? */
-      max-height: 9999px;
-      transition: max-height 280ms ease;
-    }
     @media (min-width: $breakpoint-md) {
       display: none;
     }

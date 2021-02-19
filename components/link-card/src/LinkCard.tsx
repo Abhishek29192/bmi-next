@@ -3,6 +3,7 @@ import classnames from "classnames";
 import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import Card from "@bmi/card";
 import Typography from "@bmi/typography";
+import Collapse from "@material-ui/core/Collapse";
 import styles from "./LinkCard.module.scss";
 
 export type Props = {
@@ -35,13 +36,9 @@ const LinkCard = (
       <div className={styles["icon"]}>
         <ChevronRightIcon onClick={isOpen ? onCloseClick : null} />
       </div>
-      <div
-        className={classnames(styles["details"], {
-          [styles[`details--selected`]]: isOpen
-        })}
-      >
+      <Collapse in={isOpen} className={styles["details"]} collapsedHeight={0}>
         {children}
-      </div>
+      </Collapse>
     </Card>
   );
 };
