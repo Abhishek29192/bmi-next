@@ -1,13 +1,10 @@
 build_frc_website:
   stage: build
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/frc-website/**
-        - components/**
-        - libraries/**
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
+    - '[[ "${bin/ingore_build.sh applications/frc-website components libraries}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/frc-website build

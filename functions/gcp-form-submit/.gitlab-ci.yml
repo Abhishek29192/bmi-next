@@ -3,12 +3,10 @@ image: node:12
 test_gcp-form-submit:
   stage: test
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - functions/gcp-form-submit/**
-        - jest/**
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-form-submit jest}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-form-submit coverage:jest
@@ -17,11 +15,10 @@ test_gcp-form-submit:
 build_gcp-form-submit:
   stage: build
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - functions/gcp-form-submit/**
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-form-submit}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-form-submit build
@@ -34,12 +31,11 @@ package_gcp-form-submit:
   stage: package
   rules:
     - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
-      changes:
-        - functions/gcp-form-submit/**
   needs: [build_gcp-form-submit]
   dependencies:
     - build_gcp-form-submit
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-form-submit}" == "true" ]] && exit 0 || echo "Running job"'
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
@@ -48,7 +44,7 @@ package_gcp-form-submit:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions
-  interruptible: true
+  interruptible: false
 
 # Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-form-submit:
@@ -56,13 +52,12 @@ deploy_gcp-form-submit:
   stage: deploy
   rules:
     - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
-      changes:
-        - functions/gcp-form-submit/**
       allow_failure: true
   needs: [package_gcp-form-submit]
   dependencies:
     - package_gcp-form-submit
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-form-submit}" == "true" ]] && exit 0 || echo "Running job"'
     - >
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
         GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
@@ -86,3 +81,4 @@ deploy_gcp-form-submit:
       gcloud config set project $GCP_DXB_PROJECT_ID
   script:
     - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-form-submit.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
+  interruptible: false

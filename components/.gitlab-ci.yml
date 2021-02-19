@@ -3,12 +3,10 @@ image: node:12
 test_components:
   stage: test
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - components/**
-        - jest/**
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
+    - '[[ "${bin/ingore_build.sh components jest}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn coverage:components

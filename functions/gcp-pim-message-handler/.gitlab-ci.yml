@@ -1,11 +1,10 @@
 build_gcp-pim-message-handler:
   stage: build
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - functions/gcp-pim-message-handler/**
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-pim-message-handler}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-pim-message-handler run build
@@ -18,12 +17,11 @@ package_gcp-pim-message-handler:
   stage: package
   rules:
     - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
-      changes:
-        - functions/gcp-pim-message-handler/**
   needs: [build_gcp-pim-message-handler]
   dependencies:
     - build_gcp-pim-message-handler
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-pim-message-handler}" == "true" ]] && exit 0 || echo "Running job"'
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
@@ -32,7 +30,7 @@ package_gcp-pim-message-handler:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions
-  interruptible: true
+  interruptible: false
 
 # Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-pim-message-handler:
@@ -40,13 +38,12 @@ deploy_gcp-pim-message-handler:
   stage: deploy
   rules:
     - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
-      changes:
-        - functions/gcp-pim-message-handler/**
       allow_failure: true
   needs: [package_gcp-pim-message-handler]
   dependencies:
     - package_gcp-pim-message-handler
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-pim-message-handler}" == "true" ]] && exit 0 || echo "Running job"'
     - >
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
         GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
@@ -70,4 +67,4 @@ deploy_gcp-pim-message-handler:
       gcloud config set project $GCP_DXB_PROJECT_ID
   script:
     - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-message-handler.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
-
+  interruptible: false
