@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import { Data as SiteData, SiteContext } from "../components/Site";
+import { Data as SiteData } from "../components/Site";
 import Page from "../components/Page";
 import SitemapSection from "../components/SitemapSection";
+import { generateGetMicroCopy } from "../components/MicroCopy";
 
 type Props = {
   data: {
@@ -11,8 +12,6 @@ type Props = {
 };
 
 const Sitemap = ({ data }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
-
   const siteData = data.contentfulSite;
   const {
     footerMainNavigation,
@@ -20,6 +19,8 @@ const Sitemap = ({ data }: Props) => {
     menuNavigation,
     menuUtilities
   } = siteData;
+
+  const getMicroCopy = generateGetMicroCopy(siteData.resources.microCopy);
 
   return (
     <Page
