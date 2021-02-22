@@ -120,7 +120,6 @@ const Header = ({
           openLabel={getMicroCopy("menu.open")}
           mainMenuTitleLabel={getMicroCopy("menu.mainTitle")}
           mainMenuDefaultLabel={getMicroCopy("menu.mainDefault")}
-          languageLabel={getMicroCopy("menu.language")}
           isOnSearchPage={isOnSearchPage}
         />
       )}
