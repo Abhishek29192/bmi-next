@@ -5,6 +5,7 @@ import InputBanner from "@bmi/input-banner";
 import Dialog from "@bmi/dialog";
 import Form, { FormContext } from "@bmi/form";
 import axios from "axios";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { devLog } from "../utils/devLog";
 import { SiteContext } from "./Site";
 import FormInputs, { Data as FormInputsData } from "./FormInputs";
@@ -27,15 +28,10 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   }
 
   const [email, setEmail] = useState("");
-  const [token, setToken] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [secondDialogOpen, setSecondDialogOpen] = useState(false);
-  const {
-    getMicroCopy,
-    scriptGRecaptchaId,
-    scriptGRecaptchaNet,
-    node_locale
-  } = useContext(SiteContext);
+  const { getMicroCopy } = useContext(SiteContext);
   const {
     title,
     description,
@@ -53,6 +49,9 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         devLog("APSIS API Endpoint is not configured.");
         return;
       }
+
+      const token = await executeRecaptcha();
+
       try {
         const source = axios.CancelToken.source();
         await axios.post(
@@ -73,7 +72,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
       }
       setDialogOpen(false);
     },
-    [email, token]
+    [email]
   );
 
   return (
@@ -128,9 +127,8 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         description={description.description}
         inputLabel={inputLabel}
         inputCallToAction={submitButtonLabel}
-        onSubmit={(email, token) => {
+        onSubmit={(email) => {
           setEmail(email);
-          setToken(token);
 
           if (additionalInputs) {
             setDialogOpen(true);
@@ -140,10 +138,6 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
 
           setSecondDialogOpen(true);
         }}
-        useRecaptcha={true}
-        reCaptchaKey={scriptGRecaptchaId}
-        useRecaptchaNet={scriptGRecaptchaNet}
-        language={node_locale}
       />
     </>
   );
