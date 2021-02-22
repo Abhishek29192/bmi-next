@@ -6,7 +6,7 @@ test_components:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${scripts/ignore_build.sh components jest}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh components jest)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn coverage:components

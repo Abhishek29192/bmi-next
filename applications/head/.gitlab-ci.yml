@@ -6,7 +6,7 @@ test_head:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${scripts/ignore_build.sh applications/head components libraries jest}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh applications/head components libraries jest)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/head coverage:jest
@@ -17,7 +17,7 @@ build_head:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${scripts/ignore_build.sh applications/head components libraries}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh applications/head components libraries)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/head build
