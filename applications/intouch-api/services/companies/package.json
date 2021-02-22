@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "description": "BMI InTouch Companies GraphQL API",
-  "license": "MIT",
+  "license": "BMI-DXB",
   "private": true,
   "scripts": {
     "dev": "nodemon dist/index.js",

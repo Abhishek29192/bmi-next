@@ -2,6 +2,7 @@
   "name": "@bmi/webpack",
   "private": true,
   "version": "0.0.0",
+  "license": "BMI-DXB",
   "main": "./index.js",
   "dependencies": {
     "@svgr/webpack": "^4.3.3",

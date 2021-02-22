@@ -7,7 +7,7 @@
     "node",
     "elastic search"
   ],
-  "license": "MIT",
+  "license": "BMI-DXB",
   "scripts": {
     "serve": "node index.js"
   },

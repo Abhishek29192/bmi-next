@@ -2,6 +2,7 @@
   "name": "@bmi/intouch-frontend",
   "version": "0.0.0",
   "private": true,
+  "license": "BMI-DXB",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

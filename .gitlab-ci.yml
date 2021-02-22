@@ -81,10 +81,11 @@ license_finder:
     - yarn config set cache-folder ~/.yarn
     - curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get -y install nodejs
   script:
-    - license_finder report --format html > license_finder_output.html
+    - license_finder action_items --format html > license_finder_output.html
   artifacts:
     paths:
       - license_finder_output.html
+    when: always
   interruptible: true
 
 eslint:
