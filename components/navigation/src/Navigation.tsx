@@ -270,7 +270,7 @@ const NavigationList = ({
             ))}
           </ul>
         )}
-        {isRoot && (
+        {isRoot && !!languageLabel && (
           <li>
             <NavigationListButton
               endIcon={<ChevronRight className={styles["chevronRight"]} />}
