@@ -7,6 +7,7 @@ import TextField from "@bmi/text-field";
 import Upload from "@bmi/upload";
 import AnchorLink from "@bmi/anchor-link";
 import matchAll from "string.prototype.matchall";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { SiteContext } from "./Site";
 
 const InputTypes = [
@@ -71,12 +72,9 @@ const Input = ({
   type,
   required
 }: Omit<InputType, "width">) => {
-  const {
-    getMicroCopy,
-    node_locale,
-    scriptGRecaptchaId,
-    scriptGRecaptchaNet
-  } = useContext(SiteContext);
+  const { getMicroCopy } = useContext(SiteContext);
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -98,15 +96,22 @@ const Input = ({
           buttonLabel={label}
           isRequired={required}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
-          headers={{ "Content-Type": "application/octet-stream" }}
+          headers={{
+            "Content-Type": "application/octet-stream"
+          }}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions={getMicroCopy("upload.instructions")}
           mapBody={(file) => ({ file })}
           mapValue={mapValue}
-          useRecaptcha={true}
-          reCaptchaKey={scriptGRecaptchaId}
-          language={node_locale}
-          useRecaptchaNet={scriptGRecaptchaNet}
+          onUploadRequest={async () => {
+            const token = await executeRecaptcha();
+
+            return {
+              headers: {
+                "X-Recaptcha-Token": token
+              }
+            };
+          }}
         />
       );
     case "select":

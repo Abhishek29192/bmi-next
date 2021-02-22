@@ -61,12 +61,9 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
-  const {
-    getMicroCopy,
-    node_locale,
-    scriptGRecaptchaId,
-    scriptGRecaptchaNet
-  } = useContext(SiteContext);
+  const { getMicroCopy } = useContext(SiteContext);
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const mapBody = (file: File) => file;
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
@@ -121,10 +118,15 @@ const Input = ({
           }
           mapBody={mapBody}
           mapValue={mapValue}
-          useRecaptcha={true}
-          reCaptchaKey={scriptGRecaptchaId}
-          language={node_locale}
-          useRecaptchaNet={scriptGRecaptchaNet}
+          onUploadRequest={async () => {
+            const token = await executeRecaptcha();
+
+            return {
+              headers: {
+                "X-Recaptcha-Token": token
+              }
+            };
+          }}
         />
       );
     case "select":
