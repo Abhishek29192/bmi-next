@@ -6,7 +6,7 @@ test_gcp-form-submit:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${scripts/ignore_build.sh functions/gcp-form-submit jest}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh functions/gcp-form-submit jest)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-form-submit coverage:jest
@@ -17,7 +17,7 @@ build_gcp-form-submit:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${scripts/ignore_build.sh functions/gcp-form-submit}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh functions/gcp-form-submit)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-form-submit build
@@ -28,12 +28,12 @@ build_gcp-form-submit:
 package_gcp-form-submit:
   stage: package
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || ($CI_COMMIT_TAG && ($CI_COMMIT_BRANCH == "pre-production" || $CI_COMMIT_BRANCH == "production"))'
   needs: [build_gcp-form-submit]
   dependencies:
     - build_gcp-form-submit
   before_script:
-    - '[[ "${scripts/ignore_build.sh functions/gcp-form-submit}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh functions/gcp-form-submit)" == "true" ]] && exit 0 || echo "Running job"'
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
@@ -48,13 +48,13 @@ deploy_gcp-form-submit:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || ($CI_COMMIT_TAG && ($CI_COMMIT_BRANCH == "pre-production" || $CI_COMMIT_BRANCH == "production"))'
       allow_failure: true
   needs: [package_gcp-form-submit]
   dependencies:
     - package_gcp-form-submit
   before_script:
-    - '[[ "${scripts/ignore_build.sh functions/gcp-form-submit}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh functions/gcp-form-submit)" == "true" ]] && exit 0 || echo "Running job"'
     - |
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
         GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA

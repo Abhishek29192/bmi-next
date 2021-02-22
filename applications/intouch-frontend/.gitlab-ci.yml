@@ -4,7 +4,7 @@ build_intouch_frontend:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   script:
-    - '[[ "${scripts/ignore_build.sh applications/intouch-frontend components libraries}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh applications/intouch-frontend components libraries)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn workspace @bmi/intouch-frontend build
 
 test_intouch_frontend:
@@ -13,7 +13,7 @@ test_intouch_frontend:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${scripts/ignore_build.sh applications/intouch-frontend components libraries jest}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "$(scripts/ignore_build.sh applications/intouch-frontend components libraries jest)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/intouch-frontend coverage:jest
