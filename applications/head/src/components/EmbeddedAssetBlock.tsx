@@ -16,7 +16,8 @@ type FileData = {
 const contentTypeMap = {
   "image/jpg": "image",
   "image/jpeg": "image",
-  "image/png": "image"
+  "image/png": "image",
+  "image/webp": "image"
 };
 
 const EmbeddedAssetBlock = ({
@@ -31,7 +32,7 @@ const EmbeddedAssetBlock = ({
   const { url, contentType } = file;
 
   if (contentTypeMap[contentType] === "image") {
-    return <img className={className} src={`http:${url}`} alt={title} />;
+    return <img className={className} src={`https:${url}`} alt={title} />;
   }
 
   return null;

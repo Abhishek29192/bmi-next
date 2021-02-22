@@ -2,7 +2,7 @@
   "name": "@bmi/main",
   "version": "0.0.0",
   "private": true,
-  "license": "MIT",
+  "license": "BMI-DXB",
   "main": "index.js",
   "workspaces": [
     "applications/**",

@@ -1,24 +1,24 @@
 "use strict";
 
-const getFieldValidations = require("../../utils/getFieldValidations");
+const getFieldValidations = require("../../../../utils/getFieldValidations");
 
 module.exports.description =
-  "Add titleWithContent to the brand landing page sections";
+  "Add document download section to sections validation for page content type";
 
 module.exports.up = async (migration, { makeRequest }) => {
-  const brandLandingPage = migration.editContentType("brandLandingPage");
+  const page = migration.editContentType("page");
 
   const { getItemsValidations } = await getFieldValidations(
     makeRequest,
-    brandLandingPage.id,
+    page.id,
     "sections"
   );
 
-  brandLandingPage.editField("sections").items({
+  page.editField("sections").items({
     type: "Link",
     validations: [
       {
-        linkContentType: [...getItemsValidations(), "titleWithContent", ""]
+        linkContentType: [...getItemsValidations(), "documentDownloadSection"]
       }
     ],
     linkType: "Entry"
@@ -26,20 +26,20 @@ module.exports.up = async (migration, { makeRequest }) => {
 };
 
 module.exports.down = async (migration, { makeRequest }) => {
-  const brandLandingPage = migration.editContentType("brandLandingPage");
+  const page = migration.editContentType("page");
 
   const { getItemsValidations } = await getFieldValidations(
     makeRequest,
-    brandLandingPage.id,
+    page.id,
     "sections"
   );
 
-  brandLandingPage.editField("sections").items({
+  page.editField("sections").items({
     type: "Link",
     validations: [
       {
         linkContentType: getItemsValidations().filter(
-          (entryType) => entryType !== "titleWithContent"
+          (entryType) => entryType !== "documentDownloadSection"
         )
       }
     ],

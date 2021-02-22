@@ -1,7 +1,7 @@
 {
   "name": "@bmi/schema-defs",
   "version": "0.0.0",
-  "license": "UNLICENSED",
+  "license": "BMI-DXB",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",

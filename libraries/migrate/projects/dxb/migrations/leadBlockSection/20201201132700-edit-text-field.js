@@ -1,50 +1,49 @@
 "use strict";
 
-module.exports.description =
-  "Edit the content time for the Product Lister Page";
+module.exports.description = "Edit the text field for the Lead Block Section";
 
 const {
   getEnabledNodeTypesValidations,
   getMessageFromEnabledNodeTypes
-} = require("../../utils/richTextValidations");
+} = require("../../../../utils/richTextValidations");
 
 module.exports.up = async (migration, { makeRequest }) => {
-  const productListerPage = migration.editContentType("productListerPage");
+  const leadBlockSection = migration.editContentType("leadBlockSection");
 
   const { enabledNodeTypesValidation } = await getEnabledNodeTypesValidations(
     makeRequest,
-    "productListerPage",
-    "content"
+    "leadBlockSection",
+    "text"
   );
 
-  productListerPage.editField("content").validations([
+  leadBlockSection.editField("text").validations([
     {
       enabledNodeTypes: [
         ...enabledNodeTypesValidation.enabledNodeTypes,
-        "embedded-asset-block"
+        "heading-2"
       ],
       message: getMessageFromEnabledNodeTypes([
         ...enabledNodeTypesValidation.enabledNodeTypes,
-        "embedded-asset-block"
+        "heading-2"
       ])
     }
   ]);
 };
 
 module.exports.down = async (migration, { makeRequest }) => {
-  const productListerPage = migration.editContentType("productListerPage");
+  const leadBlockSection = migration.editContentType("leadBlockSection");
 
   const { enabledNodeTypesValidation } = await getEnabledNodeTypesValidations(
     makeRequest,
-    "productListerPage",
-    "content"
+    "leadBlockSection",
+    "text"
   );
 
   const previousEnabledNodes = enabledNodeTypesValidation.enabledNodeTypes.filter(
-    (node) => node !== "embedded-asset-block"
+    (node) => node !== "heading-2"
   );
 
-  productListerPage.editField("content").validations([
+  leadBlockSection.editField("text").validations([
     {
       enabledNodeTypes: previousEnabledNodes,
       message: getMessageFromEnabledNodeTypes(previousEnabledNodes)

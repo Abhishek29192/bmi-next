@@ -2,7 +2,7 @@
   "name": "@bmi/migrate-intouch-datamodel",
   "version": "1.0.0",
   "main": "src/index.js",
-  "license": "MIT",
+  "license": "BMI-DXB",
   "dependencies": {
     "csv-parse": "^4.15.0",
     "dotenv": "^8.2.0",

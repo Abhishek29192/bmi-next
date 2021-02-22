@@ -2,7 +2,7 @@
 
 module.exports.description = "Add Document Library to Card Sections";
 
-const getFieldValidations = require("../../utils/getFieldValidations");
+const getFieldValidations = require("../../../../utils/getFieldValidations");
 
 module.exports.up = async (migration, { makeRequest }) => {
   const cardCollectionSection = migration.editContentType(

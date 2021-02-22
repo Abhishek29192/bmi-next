@@ -61,7 +61,7 @@ const Header = ({
   openLabel = "Open menu",
   mainMenuTitleLabel,
   mainMenuDefaultLabel,
-  languageLabel = "Language"
+  languageLabel
 }: HeaderProps) => {
   const $body: HTMLElement =
     typeof document !== "undefined"

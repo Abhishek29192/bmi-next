@@ -2,23 +2,37 @@
 "use strict";
 
 const { spawnSync } = require("child_process");
+const { existsSync, mkdirSync } = require("fs");
+const { join } = require("path");
+
 require("dotenv").config({
   path: `${__dirname}/.env.${process.env.NODE_ENV || "development"}`
 });
 
 const main = async ([command = "--help", ...options]) => {
-  const { SPACE_ID, MANAGEMENT_ACCESS_TOKEN } = process.env;
+  const {
+    SPACE_ID,
+    MANAGEMENT_ACCESS_TOKEN,
+    PROJECT_RELATIVE_PATH
+  } = process.env;
 
   try {
-    if (!SPACE_ID || !MANAGEMENT_ACCESS_TOKEN)
-      throw Error("Missing env config `SPACE_ID` or `MANAGEMENT_ACCESS_TOKEN`");
+    if (!SPACE_ID || !MANAGEMENT_ACCESS_TOKEN || !PROJECT_RELATIVE_PATH)
+      throw Error(
+        "Missing env config `SPACE_ID` or `MANAGEMENT_ACCESS_TOKEN` or `PROJECT_RELATIVE_PATH`"
+      );
+
+    const projectPath = join(__dirname, PROJECT_RELATIVE_PATH);
+    if (!existsSync(projectPath)) {
+      mkdirSync(projectPath);
+    }
 
     const sub = spawnSync(
       "ctf-migrate",
       [command, "-s", SPACE_ID, "-t", MANAGEMENT_ACCESS_TOKEN, ...options],
       {
         stdio: "inherit",
-        cwd: __dirname
+        cwd: projectPath
       }
     );
 

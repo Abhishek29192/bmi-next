@@ -171,7 +171,8 @@ module.exports = {
   siteMetadata: {
     title: `BMI dxb`,
     description: ``,
-    author: `bmi`
+    author: `bmi`,
+    siteUrl: `https://www.bmigroup.com`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -367,6 +368,12 @@ module.exports = {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
         disable: process.env.NODE_ENV !== "development"
+      }
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/no/sitemap.xml`
       }
     }
   ]

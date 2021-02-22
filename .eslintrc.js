@@ -149,7 +149,7 @@ module.exports = {
       }
     },
     {
-      files: ["**/migrate/migrations/**/*.js"],
+      files: ["**/migrate/**/migrations/**/*.js"],
       rules: {
         strict: "off"
       }

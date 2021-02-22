@@ -31,3 +31,5 @@ contentful-import-error-log-*
 dump.json
 
 builds/
+
+license_finder_output.html

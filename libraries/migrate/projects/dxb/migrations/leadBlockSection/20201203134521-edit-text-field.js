@@ -5,7 +5,7 @@ module.exports.description = "Edit the text field for the Lead Block Section";
 const {
   getEnabledNodeTypesValidations,
   getMessageFromEnabledNodeTypes
-} = require("../../utils/richTextValidations");
+} = require("../../../../utils/richTextValidations");
 
 module.exports.up = async (migration, { makeRequest }) => {
   const leadBlockSection = migration.editContentType("leadBlockSection");
@@ -20,11 +20,13 @@ module.exports.up = async (migration, { makeRequest }) => {
     {
       enabledNodeTypes: [
         ...enabledNodeTypesValidation.enabledNodeTypes,
-        "heading-2"
+        // TODO: Semantic component for presentational variant of headings
+        // Tracked by https://bmigroup.atlassian.net/browse/DXB-1179
+        "heading-5"
       ],
       message: getMessageFromEnabledNodeTypes([
         ...enabledNodeTypesValidation.enabledNodeTypes,
-        "heading-2"
+        "heading-5"
       ])
     }
   ]);
@@ -40,7 +42,7 @@ module.exports.down = async (migration, { makeRequest }) => {
   );
 
   const previousEnabledNodes = enabledNodeTypesValidation.enabledNodeTypes.filter(
-    (node) => node !== "heading-2"
+    (node) => node !== "heading-5"
   );
 
   leadBlockSection.editField("text").validations([

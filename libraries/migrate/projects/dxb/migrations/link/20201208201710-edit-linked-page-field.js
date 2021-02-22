@@ -2,7 +2,7 @@
 
 const {
   getLinkContentTypeValidations
-} = require("../../utils/fieldValidations");
+} = require("../../../../utils/fieldValidations");
 
 const diffEntryTypes = ["documentLibraryPage", "homePage"];
 

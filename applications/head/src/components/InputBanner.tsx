@@ -73,7 +73,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
       }
       setDialogOpen(false);
     },
-    [email]
+    [email, token]
   );
 
   return (

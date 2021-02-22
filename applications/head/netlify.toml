@@ -17,11 +17,11 @@
   package = "../../libraries/netlify-plugin-filter-tag-event"
 
 [[plugins]]
-  package = "../../libraries/netlify-plugin-clear-gatsby-cache"
-
-[[plugins]]
   # enable Gatsby.js incremental builds plugin.
   package = "netlify-plugin-gatsby-cache"
+
+[[plugins]]
+  package = "../../libraries/netlify-plugin-clear-gatsby-cache"
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.

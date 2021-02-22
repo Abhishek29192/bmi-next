@@ -500,7 +500,7 @@ describe("Making a POST request", () => {
     expect(publicUrl).toBeCalledTimes(1);
   });
 
-  it("returns status code 500 when document fetch request returns a non-ok response", async () => {
+  it("returns status code 200 when document fetch request returns a non-ok response", async () => {
     const req = mockRequest(
       {
         documents: [
@@ -541,8 +541,8 @@ describe("Making a POST request", () => {
     await download(req, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith("Failed to add a doument to the zip file.");
+    expect(res.status).toBeCalledTimes(0);
+    expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
     expect(bucket).toBeCalledWith(process.env.GCS_NAME);
     expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
     expect(accessSecretVersion).toBeCalledWith({

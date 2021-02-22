@@ -1,7 +1,7 @@
 {
   "name": "@bmi/migrate",
   "version": "0.0.0",
-  "license": "UNLICENSED",
+  "license": "BMI-DXB",
   "main": "cli.js",
   "bin": {
     "migrate": "./cli.js"

@@ -1,51 +1,50 @@
 "use strict";
 
-module.exports.description = "Edit the text field for the Lead Block Section";
+module.exports.description =
+  "Edit the content time for the Product Lister Page";
 
 const {
   getEnabledNodeTypesValidations,
   getMessageFromEnabledNodeTypes
-} = require("../../utils/richTextValidations");
+} = require("../../../../utils/richTextValidations");
 
 module.exports.up = async (migration, { makeRequest }) => {
-  const leadBlockSection = migration.editContentType("leadBlockSection");
+  const productListerPage = migration.editContentType("productListerPage");
 
   const { enabledNodeTypesValidation } = await getEnabledNodeTypesValidations(
     makeRequest,
-    "leadBlockSection",
-    "text"
+    "productListerPage",
+    "content"
   );
 
-  leadBlockSection.editField("text").validations([
+  productListerPage.editField("content").validations([
     {
       enabledNodeTypes: [
         ...enabledNodeTypesValidation.enabledNodeTypes,
-        // TODO: Semantic component for presentational variant of headings
-        // Tracked by https://bmigroup.atlassian.net/browse/DXB-1179
-        "heading-5"
+        "embedded-asset-block"
       ],
       message: getMessageFromEnabledNodeTypes([
         ...enabledNodeTypesValidation.enabledNodeTypes,
-        "heading-5"
+        "embedded-asset-block"
       ])
     }
   ]);
 };
 
 module.exports.down = async (migration, { makeRequest }) => {
-  const leadBlockSection = migration.editContentType("leadBlockSection");
+  const productListerPage = migration.editContentType("productListerPage");
 
   const { enabledNodeTypesValidation } = await getEnabledNodeTypesValidations(
     makeRequest,
-    "leadBlockSection",
-    "text"
+    "productListerPage",
+    "content"
   );
 
   const previousEnabledNodes = enabledNodeTypesValidation.enabledNodeTypes.filter(
-    (node) => node !== "heading-5"
+    (node) => node !== "embedded-asset-block"
   );
 
-  leadBlockSection.editField("text").validations([
+  productListerPage.editField("content").validations([
     {
       enabledNodeTypes: previousEnabledNodes,
       message: getMessageFromEnabledNodeTypes(previousEnabledNodes)

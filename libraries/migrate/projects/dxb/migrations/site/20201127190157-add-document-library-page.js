@@ -1,24 +1,24 @@
 "use strict";
 
-const getFieldValidations = require("../../utils/getFieldValidations");
+const getFieldValidations = require("../../../../utils/getFieldValidations");
 
 module.exports.description =
-  "Add service locator section to sections validation for page content type";
+  "Add document library page to pages validation for page content type";
 
 module.exports.up = async (migration, { makeRequest }) => {
-  const page = migration.editContentType("page");
+  const site = migration.editContentType("site");
 
   const { getItemsValidations } = await getFieldValidations(
     makeRequest,
-    page.id,
-    "sections"
+    site.id,
+    "pages"
   );
 
-  page.editField("sections").items({
+  site.editField("pages").items({
     type: "Link",
     validations: [
       {
-        linkContentType: [...getItemsValidations(), "serviceLocatorSection"]
+        linkContentType: [...getItemsValidations(), "documentLibraryPage"]
       }
     ],
     linkType: "Entry"
@@ -26,20 +26,20 @@ module.exports.up = async (migration, { makeRequest }) => {
 };
 
 module.exports.down = async (migration, { makeRequest }) => {
-  const page = migration.editContentType("page");
+  const site = migration.editContentType("site");
 
   const { getItemsValidations } = await getFieldValidations(
     makeRequest,
-    page.id,
-    "sections"
+    site.id,
+    "pages"
   );
 
-  page.editField("sections").items({
+  site.editField("pages").items({
     type: "Link",
     validations: [
       {
         linkContentType: getItemsValidations().filter(
-          (entryType) => entryType !== "serviceLocatorSection"
+          (entryType) => entryType !== "documentLibraryPage"
         )
       }
     ],
