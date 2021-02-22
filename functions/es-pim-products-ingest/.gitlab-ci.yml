@@ -4,7 +4,7 @@ build_es-pim-products-ingest:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/es-pim-products-ingest}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "${scripts/ignore_build.sh functions/es-pim-products-ingest}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/es-pim-products-ingest build
@@ -21,7 +21,7 @@ package_es-pim-products-ingest:
   dependencies:
     - build_es-pim-products-ingest
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/es-pim-products-ingest}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "${scripts/ignore_build.sh functions/es-pim-products-ingest}" == "true" ]] && exit 0 || echo "Running job"'
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
@@ -43,8 +43,8 @@ deploy_es-pim-products-ingest:
   dependencies:
     - package_es-pim-products-ingest
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/es-pim-products-ingest}" == "true" ]] && exit 0 || echo "Running job"'
-    - >
+    - '[[ "${scripts/ignore_build.sh functions/es-pim-products-ingest}" == "true" ]] && exit 0 || echo "Running job"'
+    - |
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
         GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
         GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_QA

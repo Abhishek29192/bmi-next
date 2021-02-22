@@ -4,7 +4,7 @@ build_gcp-firestore-writer:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/gcp-firestore-writer}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "${scripts/ignore_build.sh functions/gcp-firestore-writer}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-firestore-writer build
@@ -21,7 +21,7 @@ package_gcp-firestore-writer:
   dependencies:
     - build_gcp-firestore-writer
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/gcp-firestore-writer}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "${scripts/ignore_build.sh functions/gcp-firestore-writer}" == "true" ]] && exit 0 || echo "Running job"'
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
@@ -43,8 +43,8 @@ deploy_gcp-firestore-writer:
   dependencies:
     - package_gcp-firestore-writer
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/gcp-firestore-writer}" == "true" ]] && exit 0 || echo "Running job"'
-    - >
+    - '[[ "${scripts/ignore_build.sh functions/gcp-firestore-writer}" == "true" ]] && exit 0 || echo "Running job"'
+    - |
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
         GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
         GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_QA
