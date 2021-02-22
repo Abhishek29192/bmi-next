@@ -6,7 +6,6 @@ build_intouch_frontend:
   script:
     - '[[ "${bin/ingore_build.sh applications/intouch-frontend components libraries}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn workspace @bmi/intouch-frontend build
-  interruptible: true
 
 test_intouch_frontend:
   stage: test
@@ -18,7 +17,6 @@ test_intouch_frontend:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/intouch-frontend coverage:jest
-  interruptible: true
 
 deploy_intouch_frontend_dev:
   stage: deploy

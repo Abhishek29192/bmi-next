@@ -10,7 +10,6 @@ test_gcp-apsis-integration:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-apsis-integration coverage:jest
-  interruptible: true
 
 build_gcp-apsis-integration:
   stage: build
@@ -25,7 +24,6 @@ build_gcp-apsis-integration:
   artifacts:
     paths:
       - functions/gcp-apsis-integration/dist
-  interruptible: true
 
 package_gcp-apsis-integration:
   stage: package
@@ -44,7 +42,6 @@ package_gcp-apsis-integration:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions
-  interruptible: false
 
 # Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-apsis-integration:
@@ -83,4 +80,3 @@ deploy_gcp-apsis-integration:
 
   script:
     - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-apsis-integration.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
-  interruptible: false

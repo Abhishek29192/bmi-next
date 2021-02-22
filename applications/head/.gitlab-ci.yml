@@ -10,7 +10,6 @@ test_head:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/head coverage:jest
-  interruptible: true
 
 build_head:
   stage: build
@@ -22,7 +21,6 @@ build_head:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/head build
-  interruptible: true
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Triggered by Netlify when deploy is complete
