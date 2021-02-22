@@ -9,7 +9,7 @@ module.exports = {
     console.log(`Build triggered with the hook: ${INCOMING_HOOK_TITLE}`);
 
     if (recognisedHooks.includes(INCOMING_HOOK_TITLE)) {
-      await run.command("yarn clean");
+      await run.command("yarn workspace @bmi/head run clean");
     }
   }
 };
