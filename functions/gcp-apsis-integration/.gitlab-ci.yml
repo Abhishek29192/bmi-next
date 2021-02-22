@@ -6,7 +6,7 @@ test_gcp-apsis-integration:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/gcp-apsis-integration jest}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "${scripts/ignore_build.sh functions/gcp-apsis-integration jest}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-apsis-integration coverage:jest
@@ -17,7 +17,7 @@ build_gcp-apsis-integration:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/gcp-apsis-integration}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "${scripts/ignore_build.sh functions/gcp-apsis-integration}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-apsis-integration build
@@ -33,7 +33,7 @@ package_gcp-apsis-integration:
   dependencies:
     - build_gcp-apsis-integration
   before_script:
-    - '[[ "${bin/ingore_build.sh functions/gcp-apsis-integration}" == "true" ]] && exit 0 || echo "Running job"'
+    - '[[ "${scripts/ignore_build.sh functions/gcp-apsis-integration}" == "true" ]] && exit 0 || echo "Running job"'
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
@@ -49,14 +49,13 @@ deploy_gcp-apsis-integration:
   stage: deploy
   rules:
     - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
-      changes:
-        - functions/gcp-apsis-integration/**
       allow_failure: true
   needs: [package_gcp-apsis-integration]
   dependencies:
     - package_gcp-apsis-integration
   before_script:
-    - >
+    - '[[ "${scripts/ignore_build.sh functions/gcp-apsis-integration}" == "true" ]] && exit 0 || echo "Running job"'
+    - |
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
         GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
         GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_QA
@@ -77,6 +76,5 @@ deploy_gcp-apsis-integration:
 
       gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY"
       gcloud config set project $GCP_DXB_PROJECT_ID
-
   script:
     - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-apsis-integration.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
