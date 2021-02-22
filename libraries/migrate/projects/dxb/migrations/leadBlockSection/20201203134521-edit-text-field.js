@@ -5,7 +5,7 @@ module.exports.description = "Edit the text field for the Lead Block Section";
 const {
   getEnabledNodeTypesValidations,
   getMessageFromEnabledNodeTypes
-} = require("../../utils/richTextValidations");
+} = require("../../../../utils/richTextValidations");
 
 module.exports.up = async (migration, { makeRequest }) => {
   const leadBlockSection = migration.editContentType("leadBlockSection");

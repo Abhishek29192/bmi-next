@@ -1,6 +1,6 @@
 "use strict";
 
-const getFieldValidations = require("../../utils/getFieldValidations");
+const getFieldValidations = require("../../../../utils/getFieldValidations");
 
 module.exports.description =
   "Add Brand Landing Page to pages validation for page content type";

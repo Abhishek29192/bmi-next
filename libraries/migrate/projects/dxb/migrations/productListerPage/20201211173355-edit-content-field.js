@@ -6,7 +6,7 @@ module.exports.description =
 const {
   getEnabledNodeTypesValidations,
   getMessageFromEnabledNodeTypes
-} = require("../../utils/richTextValidations");
+} = require("../../../../utils/richTextValidations");
 
 module.exports.up = async (migration, { makeRequest }) => {
   const productListerPage = migration.editContentType("productListerPage");
