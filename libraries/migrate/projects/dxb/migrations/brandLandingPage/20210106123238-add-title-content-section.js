@@ -1,6 +1,6 @@
 "use strict";
 
-const getFieldValidations = require("../../utils/getFieldValidations");
+const getFieldValidations = require("../../../../utils/getFieldValidations");
 
 module.exports.description =
   "Add titleWithContent to the brand landing page sections";
