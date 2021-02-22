@@ -16,7 +16,7 @@ build_es-pim-products-ingest:
 package_es-pim-products-ingest:
   stage: package
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || ($CI_COMMIT_TAG && ($CI_COMMIT_BRANCH == "pre-production" || $CI_COMMIT_BRANCH == "production"))'
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
   needs: [build_es-pim-products-ingest]
   dependencies:
     - build_es-pim-products-ingest
@@ -37,7 +37,7 @@ deploy_es-pim-products-ingest:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || ($CI_COMMIT_TAG && ($CI_COMMIT_BRANCH == "pre-production" || $CI_COMMIT_BRANCH == "production"))'
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
       allow_failure: true
   needs: [package_es-pim-products-ingest]
   dependencies:

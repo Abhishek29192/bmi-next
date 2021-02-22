@@ -21,13 +21,13 @@ else
   exit
 fi
 
-echo "Base directory: $base_directories"
-echo "Commit to compare: $commit_to_compare"
-echo "Current commit: $CI_COMMIT_SHA"
+echo "Base directory: $base_directories" >&2
+echo "Commit to compare: $commit_to_compare"  >&2
+echo "Current commit: $CI_COMMIT_SHA" >&2
 
 if git diff --quiet $CI_COMMIT_SHA $commit_to_compare $base_directories; then
   echo "No changes are found in the base directory. Cancel the build"  >&2
-  echo "true"
+  echo "false"
 else
   echo "Changes are found in the base directory. Continue the build."  >&2
   echo "false"
