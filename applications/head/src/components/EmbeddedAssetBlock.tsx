@@ -16,7 +16,8 @@ type FileData = {
 const contentTypeMap = {
   "image/jpg": "image",
   "image/jpeg": "image",
-  "image/png": "image"
+  "image/png": "image",
+  "image/webp": "image"
 };
 
 const EmbeddedAssetBlock = ({
