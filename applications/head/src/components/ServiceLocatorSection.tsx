@@ -18,7 +18,7 @@ import GoogleApi, {
 import GoogleAutocomplete from "@bmi/google-autocomplete";
 import GoogleMap from "@bmi/google-map";
 import Grid from "@bmi/grid";
-import LinkCard, { LinkCardProps } from "@bmi/link-card";
+import LinkCard, { Props as LinkCardProps } from "@bmi/link-card";
 import Section from "@bmi/section";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";

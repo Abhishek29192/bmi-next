@@ -1,5 +1,5 @@
-import LinkCard, { Props as LinkCardProps } from "./LinkCard";
+import LinkCard from "./LinkCard";
 
-export { LinkCardProps };
+export type { Props } from "./LinkCard";
 
 export default LinkCard;
