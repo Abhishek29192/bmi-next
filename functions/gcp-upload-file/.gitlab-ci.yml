@@ -10,7 +10,6 @@ test_gcp-upload-file:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-upload-file coverage:jest
-  interruptible: true
 
 build_gcp-upload-file:
   stage: build
@@ -25,7 +24,6 @@ build_gcp-upload-file:
   artifacts:
     paths:
       - functions/gcp-upload-file/dist
-  interruptible: true
 
 package_gcp-upload-file:
   stage: package
@@ -44,7 +42,6 @@ package_gcp-upload-file:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions
-  interruptible: false
 
 # Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-upload-file:
@@ -81,4 +78,3 @@ deploy_gcp-upload-file:
       gcloud config set project $GCP_DXB_PROJECT_ID
   script:
     - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-upload-file.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
-  interruptible: false

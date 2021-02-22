@@ -10,4 +10,3 @@ test_components:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn coverage:components
-  interruptible: true

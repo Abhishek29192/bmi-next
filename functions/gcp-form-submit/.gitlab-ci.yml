@@ -10,7 +10,6 @@ test_gcp-form-submit:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-form-submit coverage:jest
-  interruptible: true
 
 build_gcp-form-submit:
   stage: build
@@ -25,7 +24,6 @@ build_gcp-form-submit:
   artifacts:
     paths:
       - functions/gcp-form-submit/dist
-  interruptible: true
 
 package_gcp-form-submit:
   stage: package
@@ -44,7 +42,6 @@ package_gcp-form-submit:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions
-  interruptible: false
 
 # Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-form-submit:
@@ -81,4 +78,3 @@ deploy_gcp-form-submit:
       gcloud config set project $GCP_DXB_PROJECT_ID
   script:
     - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-form-submit.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
-  interruptible: false

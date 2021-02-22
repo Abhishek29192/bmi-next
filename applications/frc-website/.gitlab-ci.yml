@@ -12,4 +12,3 @@ build_frc_website:
     paths:
       - applications/frc-website/.cache/
       - applications/frc-website/public/
-  interruptible: true

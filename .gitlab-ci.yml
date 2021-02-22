@@ -65,7 +65,6 @@ install:
       - "**/node_modules"
       - "~/.yarn"
     policy: pull-push
-  interruptible: true
 
 #  https://github.com/pivotal/LicenseFinder
 # Remove report arg when we want this job to fail
@@ -86,7 +85,6 @@ license_finder:
     paths:
       - license_finder_output.html
     when: always
-  interruptible: true
 
 eslint:
   stage: test
@@ -97,7 +95,6 @@ eslint:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn eslint "**/*.{js,ts,tsx}"
-  interruptible: true
 
 release:
   image: node:13
