@@ -370,6 +370,11 @@ module.exports = {
         disable: process.env.NODE_ENV !== "development"
       }
     },
-    `gatsby-plugin-sitemap`
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/no/sitemap.xml`
+      }
+    }
   ]
 };
