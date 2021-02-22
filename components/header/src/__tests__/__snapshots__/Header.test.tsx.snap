@@ -74,7 +74,6 @@ exports[`Header component renders correctly 1`] = `
           class="NavItem"
         >
           <button
-            aria-label="Language"
             class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton LanguageSelectionButton MuiButton-textPrimary"
             tabindex="0"
             type="button"
@@ -756,36 +755,6 @@ exports[`Header component renders correctly 1`] = `
               </a>
             </li>
           </ul>
-          <li>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label"
-              >
-                Language
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root chevronRight"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
         </ul>
       </div>
     </nav>
