@@ -52,12 +52,7 @@ const ProductLeadBlock = ({
   awardsAndCertificates,
   documents
 }: Props) => {
-  const {
-    getMicroCopy,
-    scriptGRecaptchaId,
-    scriptGRecaptchaNet,
-    node_locale
-  } = useContext(SiteContext);
+  const { getMicroCopy } = useContext(SiteContext);
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -206,10 +201,6 @@ const ProductLeadBlock = ({
           <div className={styles["document-library"]} ref={resultsElement}>
             <DownloadList
               maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
-              useRecaptcha={true}
-              reCaptchaKey={scriptGRecaptchaId}
-              useRecaptchaNet={scriptGRecaptchaNet}
-              language={node_locale}
             >
               <DocumentSimpleTableResults
                 documents={documents}

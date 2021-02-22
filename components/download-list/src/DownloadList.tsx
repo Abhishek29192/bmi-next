@@ -1,13 +1,25 @@
-import React, { createContext, useContext, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useRef
+} from "react";
 import Button, { ButtonProps } from "@bmi/button";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Tooltip from "@material-ui/core/Tooltip";
-import {
-  GoogleReCaptchaProvider,
-  useGoogleReCaptcha
-} from "react-google-recaptcha-v3";
+
+function usePrevious<T>(value: T) {
+  const ref = useRef<T>();
+
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
+}
 
 type Context = {
   list: Record<string, any>;
@@ -17,7 +29,6 @@ type Context = {
   remainingSize: number;
   isLoading: boolean;
   setIsLoading: (newIsLoading: boolean) => void;
-  useRecaptcha: boolean;
 };
 
 export const DownloadListContext = createContext<Context>({
@@ -27,8 +38,7 @@ export const DownloadListContext = createContext<Context>({
   count: 0,
   remainingSize: Infinity,
   isLoading: false,
-  setIsLoading: () => {},
-  useRecaptcha: false
+  setIsLoading: () => {}
 });
 
 type DownloadListCheckboxProps = Omit<
@@ -81,7 +91,7 @@ const DownloadListCheckbox = ({
 type DownloadListButtonProps = Omit<ButtonProps, "onClick"> & {
   /** Accepts a {{count}} placeholder that will be replaced by the actual count.  */
   label: string;
-  onClick: (list: Context["list"], token: string) => void;
+  onClick: (list: Context["list"]) => void | Promise<void>;
 };
 
 const DownloadListButton = ({
@@ -89,20 +99,13 @@ const DownloadListButton = ({
   onClick,
   ...rest
 }: DownloadListButtonProps) => {
-  const {
-    list,
-    count,
-    resetList,
-    isLoading,
-    setIsLoading,
-    useRecaptcha
-  } = useContext(DownloadListContext);
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  const { list, count, resetList, isLoading, setIsLoading } = useContext(
+    DownloadListContext
+  );
 
   const handleClick = async () => {
-    const token = useRecaptcha && (await executeRecaptcha());
     setIsLoading(true);
-    await onClick(list, token);
+    await onClick(list);
     setIsLoading(false);
     resetList();
   };
@@ -137,23 +140,21 @@ const DownloadListClear = ({ label, ...rest }: DownloadListClearProps) => {
   );
 };
 
-type GoogleRecaptchaProps = GoogleReCaptchaProvider["props"];
-
 type Props = {
   children: React.ReactNode;
   maxSize?: number;
   onChange?: (list: Context["list"]) => void;
-  useRecaptcha?: boolean;
-} & GoogleRecaptchaProps;
+  initialList?: Context["list"];
+};
 
 const DownloadList = ({
   children,
   onChange,
   maxSize,
-  useRecaptcha,
-  ...reCaptchaProps
+  initialList = {}
 }: Props) => {
-  const [list, setList] = useState<Context["list"]>({});
+  const [list, setList] = useState<Context["list"]>(initialList);
+  const previousList = usePrevious<Context["list"]>(list);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [size, setSize] = useState<number>(0);
   const count = Object.values(list).filter(Boolean).length;
@@ -164,16 +165,22 @@ const DownloadList = ({
     }));
 
     setSize((prevSize) => (value ? prevSize + fileSize : prevSize - fileSize));
-
-    if (onChange) {
-      onChange(list);
-    }
   };
 
   const handleResetList = () => {
     setList({});
     setSize(0);
   };
+
+  useEffect(() => {
+    if (
+      previousList &&
+      onChange &&
+      JSON.stringify(previousList) !== JSON.stringify(list)
+    ) {
+      onChange(list);
+    }
+  }, [previousList, list]);
 
   return (
     <DownloadListContext.Provider
@@ -184,17 +191,10 @@ const DownloadList = ({
         count,
         remainingSize: maxSize - size,
         isLoading,
-        setIsLoading,
-        useRecaptcha
+        setIsLoading
       }}
     >
-      {useRecaptcha ? (
-        <GoogleReCaptchaProvider {...reCaptchaProps}>
-          {children}
-        </GoogleReCaptchaProvider>
-      ) : (
-        children
-      )}
+      {children}
     </DownloadListContext.Provider>
   );
 };
