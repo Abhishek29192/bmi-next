@@ -3,12 +3,10 @@ image: node:12
 test_gcp-apsis-integration:
   stage: test
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - functions/gcp-apsis-integration/**
-        - jest/**
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-apsis-integration jest}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-apsis-integration coverage:jest
@@ -17,11 +15,10 @@ test_gcp-apsis-integration:
 build_gcp-apsis-integration:
   stage: build
   rules:
-    - if: "$CI_COMMIT_TAG || $CI_MERGE_REQUEST_ID || $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - functions/gcp-apsis-integration/**
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
   needs: [install]
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-apsis-integration}" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-apsis-integration build
@@ -34,12 +31,11 @@ package_gcp-apsis-integration:
   stage: package
   rules:
     - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
-      changes:
-        - functions/gcp-apsis-integration/**
   needs: [build_gcp-apsis-integration]
   dependencies:
     - build_gcp-apsis-integration
   before_script:
+    - '[[ "${bin/ingore_build.sh functions/gcp-apsis-integration}" == "true" ]] && exit 0 || echo "Running job"'
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
@@ -48,7 +44,7 @@ package_gcp-apsis-integration:
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions
-  interruptible: true
+  interruptible: false
 
 # Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-apsis-integration:
@@ -87,3 +83,4 @@ deploy_gcp-apsis-integration:
 
   script:
     - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-apsis-integration.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
+  interruptible: false
