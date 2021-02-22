@@ -28,7 +28,7 @@ build_gcp-upload-file:
 package_gcp-upload-file:
   stage: package
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || ($CI_COMMIT_TAG && ($CI_COMMIT_BRANCH == "pre-production" || $CI_COMMIT_BRANCH == "production"))'
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
   needs: [build_gcp-upload-file]
   dependencies:
     - build_gcp-upload-file
@@ -48,7 +48,7 @@ deploy_gcp-upload-file:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || ($CI_COMMIT_TAG && ($CI_COMMIT_BRANCH == "pre-production" || $CI_COMMIT_BRANCH == "production"))'
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
       allow_failure: true
   needs: [package_gcp-upload-file]
   dependencies:

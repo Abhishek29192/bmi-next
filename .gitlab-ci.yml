@@ -100,7 +100,7 @@ release:
   image: node:13
   stage: release
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
+    - if: "$CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production'"
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
