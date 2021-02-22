@@ -1,15 +1,23 @@
-import express from "express";
-import dotenv from "dotenv";
+import { ApolloServer } from "apollo-server";
+import { postgraphileApollo } from "./postgraphile";
 
-dotenv.config();
+async function main() {
+  const { schema, plugin } = await postgraphileApollo();
 
-import postgraphile from "../../shared/postgraphile";
+  const server = new ApolloServer({
+    schema: schema,
+    plugins: [plugin]
+  });
 
-const app = express();
-app.use(postgraphile);
+  const PORT = process.env.PORT || 4001;
+  await server.listen(PORT, () => {
+    // eslint-disable-next-line no-console
+    console.log(`🚀 Product service started at http://localhost:${PORT}`);
+  });
+}
 
-const PORT = process.env.PORT || 4001;
-app.listen(PORT, () => {
+main().catch((e) => {
   // eslint-disable-next-line no-console
-  console.log(`🚀 Company service started at http://localhost:${PORT}`);
+  console.error(e);
+  process.exit(1);
 });
