@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   max-height: 100%;
+  flex: 1;
 
   .title {
     margin-bottom: 30px;
@@ -15,27 +16,19 @@
     margin: 0;
   }
 
-  // NOTE: Icons are slightly different sizes (letter descenders etc)
-  .roofProLevelIcon--expert {
+  .roofProLevelIcon {
     height: 20px;
     vertical-align: text-bottom;
   }
-  .roofProLevelIcon--elite {
-    height: 16px;
-    vertical-align: baseline;
-  }
-  .roofProLevelIcon--partner {
-    height: 16px;
-    vertical-align: baseline;
-  }
 
-  .scrollableContent {
-    overflow-y: scroll;
+  // Note: override user agent stylesheet
+  address {
+    font-style: inherit;
   }
 
   .row {
     display: flex;
-    margin-bottom: 20px;
+    margin: 20px 0;
   }
 
   .row--cta {

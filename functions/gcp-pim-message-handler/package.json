@@ -1,7 +1,7 @@
 {
   "name": "@bmi/gcp-pim-message-handler",
   "version": "0.0.0",
-  "license": "UNLICENSED",
+  "license": "BMI-DXB",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",
+    "@google-cloud/secret-manager": "^3.4.0",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
   },

@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Data as SiteData } from "../components/Site";
-import Page from "../components/Page";
 import Button from "@bmi/button";
 import Typography from "@bmi/typography";
 import PromoSection from "@bmi/promo-section";
+import Page from "../components/Page";
+import { Data as SiteData } from "../components/Site";
 import { getClickableActionFromUrl } from "../components/Link";
 
 type Data = {
@@ -31,7 +31,7 @@ const FourOFour = ({ data }: { data: Data }) => {
   return (
     <Page
       title={title || "Error:404.title"}
-      pageData={{ slug: null, inputBanner: null }}
+      pageData={{ path: null, inputBanner: null, seo: null }}
       siteData={siteData}
     >
       <PromoSection title={title} imageSource={featuredImage?.file.url}>
@@ -45,7 +45,9 @@ const FourOFour = ({ data }: { data: Data }) => {
               cta?.url,
               // TODO: As per below TODO
               // Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
-              "no"
+              // rc note: improved, this would be sufficient if the bit on line
+              //          21 were correct
+              siteData?.countryCode
             )}
           >
             {cta.label}
@@ -63,7 +65,9 @@ export const pageQuery = graphql`
     # TODO: The country code should come from somewhere else, however unable to
     # pass the context to this page.
     # Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
-    allContentfulSite(filter: { countryCode: { eq: "no" } }) {
+    # rc note: filter not required at this stage - site isn't ready for it
+    #    the following allows it to search all sites, but not break the build
+    allContentfulSite(filter: { countryCode: { ne: "99" } }) {
       nodes {
         ...SiteFragment
       }

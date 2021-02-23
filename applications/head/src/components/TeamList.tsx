@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import ProfileCard from "@bmi/profile-card";
+import EqualHeights from "@bmi/equal-heights";
+import Button from "@bmi/button";
 import { iconMap } from "./Icon";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
-import EqualHeights from "@bmi/equal-heights";
-import Button from "@bmi/button";
 
 export type Data = {
   name: string;
@@ -34,7 +34,7 @@ const TeamList = ({ data }: { data: Data }) => {
             const src = profilePicture.resize.src;
 
             return (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} sm={6} lg={3} key={index}>
                 <ProfileCard
                   imageSource={src}
                   body={

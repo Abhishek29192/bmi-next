@@ -7,6 +7,8 @@ import { Cancel, Search as SearchIcon } from "@material-ui/icons";
 import React, { useState } from "react";
 import styles from "./Search.module.scss";
 
+export const QUERY_KEY = "q";
+
 type Props = Omit<FormProps, "children" | "onChange"> & {
   buttonText?: string;
   clearLabel?: string;
@@ -16,6 +18,7 @@ type Props = Omit<FormProps, "children" | "onChange"> & {
   fieldName?: string;
   onChange?: (value: InputValue) => void;
   placeholder?: string;
+  isSubmitDisabled?: boolean;
 };
 
 const Search = ({
@@ -24,12 +27,13 @@ const Search = ({
   defaultValue,
   helperText,
   label = "Search",
-  fieldName = "q",
+  fieldName = QUERY_KEY,
   onChange,
   placeholder = "Search BMI...",
+  isSubmitDisabled,
   ...formProps
 }: Props) => {
-  const [value, setValue] = useState<InputValue>(undefined);
+  const [value, setValue] = useState<InputValue>(defaultValue || undefined);
 
   const handleOnChange = (newValue: InputValue) => {
     setValue(newValue);
@@ -39,13 +43,14 @@ const Search = ({
     }
   };
 
-  const clearSearch = () => setValue("");
+  const clearSearch = () => handleOnChange("");
 
   return (
     <Form className={styles["Search"]} {...formProps}>
       <InputGroup
         button={
           <Button
+            disabled={isSubmitDisabled}
             accessibilityLabel={label}
             {...(buttonText && { endIcon: <Icon source={SearchIcon} /> })}
             isIconButton={!buttonText}

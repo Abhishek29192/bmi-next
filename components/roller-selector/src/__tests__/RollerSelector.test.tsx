@@ -1,6 +1,6 @@
 import React from "react";
-import RollerSelector from "../";
 import { render, fireEvent } from "@testing-library/react";
+import RollerSelector from "../";
 
 describe("RollerSelector component", () => {
   it("renders correctly", () => {

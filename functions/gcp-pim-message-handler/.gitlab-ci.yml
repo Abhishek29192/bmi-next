@@ -1,0 +1,70 @@
+build_gcp-pim-message-handler:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+  needs: [install]
+  before_script:
+    - '[[ "$(scripts/ignore_build.sh functions/gcp-pim-message-handler)" == "true" ]] && exit 0 || echo "Running job"'
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn workspace @bmi/gcp-pim-message-handler run build
+  artifacts:
+    paths:
+      - functions/gcp-pim-message-handler/dist
+  interruptible: true
+
+package_gcp-pim-message-handler:
+  stage: package
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
+  needs: [build_gcp-pim-message-handler]
+  dependencies:
+    - build_gcp-pim-message-handler
+  before_script:
+    - '[[ "$(scripts/ignore_build.sh functions/gcp-pim-message-handler)" == "true" ]] && exit 0 || echo "Running job"'
+    - apt-get update
+    - apt-get install -y zip unzip
+    - mkdir -p dist/functions
+  script:
+    - cd functions/gcp-pim-message-handler; zip -r $CI_PROJECT_DIR/dist/functions/gcp-pim-message-handler.zip package.json dist/; cd $CI_PROJECT_DIR;
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist/functions
+  interruptible: false
+
+# Deploy to QA or Pre-Production or Production Storage
+deploy_gcp-pim-message-handler:
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  stage: deploy
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
+      allow_failure: true
+  needs: [package_gcp-pim-message-handler]
+  dependencies:
+    - package_gcp-pim-message-handler
+  before_script:
+    - '[[ "$(scripts/ignore_build.sh functions/gcp-pim-message-handler)" == "true" ]] && exit 0 || echo "Running job"'
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
+        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
+        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_QA
+        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_QA
+      fi
+          
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
+        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_PREPROD
+        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_PREPROD
+        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_PREPROD
+      fi
+
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
+        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_PROD
+        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_PROD
+        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_PROD
+      fi
+
+      gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY"
+      gcloud config set project $GCP_DXB_PROJECT_ID
+  script:
+    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-pim-message-handler.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
+  interruptible: false

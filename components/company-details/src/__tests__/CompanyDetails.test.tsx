@@ -1,6 +1,6 @@
 import React from "react";
-import CompanyDetails from "../";
 import { render } from "@testing-library/react";
+import CompanyDetails from "../";
 
 describe("CompanyDetails component", () => {
   it("renders with no details", () => {

@@ -1,6 +1,6 @@
 import React from "react";
-import HidePrint from "../";
 import { render } from "@testing-library/react";
+import HidePrint from "../";
 
 describe("HidePrint component", () => {
   it("renders correctly", () => {

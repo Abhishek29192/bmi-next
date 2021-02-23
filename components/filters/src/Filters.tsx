@@ -17,7 +17,7 @@ type Filter = {
   options: ReadonlyArray<FilterOption>;
 };
 
-type Props = {
+export type Props = {
   filters: ReadonlyArray<Filter>;
   onChange?: (filterName: string, filterValue: string, value: boolean) => void;
 };

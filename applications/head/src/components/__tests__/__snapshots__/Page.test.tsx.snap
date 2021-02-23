@@ -114,7 +114,7 @@ exports[`Page component renders correctly 1`] = `
       >
         <button
           aria-label="MC: search.label"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained"
+          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained SearchButton"
           tabindex="0"
           type="button"
         >
@@ -138,7 +138,7 @@ exports[`Page component renders correctly 1`] = `
         </button>
         <button
           aria-label="MC: menu.open"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained BurgerButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text BurgerButton"
           tabindex="0"
           type="button"
         >
@@ -248,73 +248,47 @@ exports[`Page component renders correctly 1`] = `
               </a>
             </li>
           </ul>
-          <li>
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-label"
-              >
-                MC: menu.language
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root chevronRight"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </li>
         </ul>
       </div>
     </nav>
   </div>
   <div
-    class="Drawer SearchDrawer"
+    class="SearchDrawerContainer"
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
-    <button
-      aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
-      tabindex="0"
-      type="button"
+    <div
+      class="Drawer SearchDrawer"
     >
-      <span
-        class="MuiIconButton-label"
+      <button
+        aria-label="MC: global.close"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
+        tabindex="0"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
+        <span
+          class="MuiIconButton-label"
         >
-          <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-          />
-        </svg>
-      </span>
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-    <h4
-      class="MuiTypography-root Typography MuiTypography-h4"
-    >
-      How can we help you today?
-    </h4>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <h4
+        class="MuiTypography-root Typography MuiTypography-h4"
+      >
+        MC: search.title
+      </h4>
+    </div>
   </div>
 </header>
 `;

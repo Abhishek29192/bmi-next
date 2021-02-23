@@ -2,11 +2,12 @@
   "name": "@bmi/intouch-api-gateway",
   "version": "1.0.0",
   "description": "BMI InTouch GraphQL API GateWay",
+  "license": "BMI-DXB",
   "main": "index.ts",
   "private": true,
   "scripts": {
-    "start": "tsc && node dist/index.js",
-    "gcp-build": "tsc -p ."
+    "start": "node dist/index.js",
+    "build": "tsc -p ."
   },
   "dependencies": {
     "@apollo/gateway": "^0.22.0",

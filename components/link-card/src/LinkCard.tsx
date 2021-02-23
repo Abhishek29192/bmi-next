@@ -1,11 +1,12 @@
-import React from "react";
+import React, { forwardRef, MutableRefObject } from "react";
 import classnames from "classnames";
 import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import Card from "@bmi/card";
 import Typography from "@bmi/typography";
+import Collapse from "@material-ui/core/Collapse";
 import styles from "./LinkCard.module.scss";
 
-type Props = {
+export type Props = {
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   children: React.ReactNode;
@@ -14,22 +15,19 @@ type Props = {
   onCloseClick?: () => void;
 };
 
-const LinkCard = ({
-  title,
-  subtitle,
-  isOpen = false,
-  children,
-  onClick,
-  onCloseClick
-}: Props) => {
+const LinkCard = (
+  { title, subtitle, isOpen = false, children, onClick, onCloseClick }: Props,
+  forwardedRef: MutableRefObject<HTMLElement>
+) => {
   return (
     <Card
       className={classnames(styles["LinkCard"], {
         [styles[`LinkCard--selected`]]: isOpen
       })}
       onClick={!isOpen ? onClick : null}
+      ref={forwardedRef}
     >
-      <div className={styles["item"]}>
+      <div className={styles["item"]} onClick={isOpen ? onCloseClick : null}>
         <Typography gutterBottom variant="h6">
           {title}
         </Typography>
@@ -38,9 +36,11 @@ const LinkCard = ({
       <div className={styles["icon"]}>
         <ChevronRightIcon onClick={isOpen ? onCloseClick : null} />
       </div>
-      {isOpen && <div className={styles["details"]}>{children}</div>}
+      <Collapse in={isOpen} className={styles["details"]} collapsedHeight={0}>
+        {children}
+      </Collapse>
     </Card>
   );
 };
 
-export default LinkCard;
+export default forwardRef<HTMLElement, Props>(LinkCard);

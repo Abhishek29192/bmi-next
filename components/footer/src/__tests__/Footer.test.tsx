@@ -1,12 +1,12 @@
 import React from "react";
 import mediaQuery from "css-mediaquery";
-import Footer from "../";
 import { render } from "@testing-library/react";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/Mail";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import YouTubeIcon from "@material-ui/icons/YouTube";
+import Footer from "../";
 import BmiIcon from "../svgs/BMI.svg";
 
 function createMatchMedia(width?: unknown) {

@@ -1,9 +1,10 @@
 import { URLSearchParams } from "url";
-import { deleteElasticSearchIndex } from "./reset/elasticSearch";
-import { deleteFirestoreCollection } from "./reset/firestore";
 import fetch from "node-fetch";
 import { PubSub } from "@google-cloud/pubsub";
 import dotenv from "dotenv";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { deleteFirestoreCollection } from "./reset/firestore";
+import { deleteElasticSearchIndex } from "./reset/elasticSearch";
 
 // Hack to please TS
 type RequestRedirect = "error" | "follow" | "manual";
@@ -13,26 +14,45 @@ dotenv.config();
 // TODO: NOPE HACK!
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
+const {
+  TRANSITIONAL_TOPIC_NAME,
+  GCP_PROJECT_ID,
+  PIM_CLIENT_ID,
+  PIM_CLIENT_SECRET,
+  PIM_HOST,
+  SECRET_MAN_GCP_PROJECT_NAME
+} = process.env;
+
+const secretManagerClient = new SecretManagerServiceClient();
+
 const pubSubClient = new PubSub({
-  projectId: process.env.GCP_PROJECT_ID
+  projectId: GCP_PROJECT_ID
 });
-const topicPublisher = pubSubClient.topic(process.env.TRANSITIONAL_TOPIC_NAME);
+const topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
 
 async function publishMessage(type, itemType, items) {
   const messageBuffer = Buffer.from(JSON.stringify({ type, itemType, items }));
 
   try {
     const messageId = await topicPublisher.publish(messageBuffer);
+    // eslint-disable-next-line no-console
     console.log(`PUB SUB MESSAGE PUBLISHED: ${messageId}`);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
   }
 }
 
 const getAuthToken = async () => {
+  // get PIM secret from Secret Manager
+  const pimSecret = await secretManagerClient.accessSecretVersion({
+    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
+  });
+  const pimClientSecret = pimSecret[0].payload.data.toString();
+
   var urlencoded = new URLSearchParams();
-  urlencoded.append("client_id", process.env.PIM_CLIENT_ID);
-  urlencoded.append("client_secret", process.env.PIM_CLIENT_SECRET);
+  urlencoded.append("client_id", PIM_CLIENT_ID);
+  urlencoded.append("client_secret", pimClientSecret);
   urlencoded.append("grant_type", "client_credentials");
 
   const redirect: RequestRedirect = "follow";
@@ -47,12 +67,13 @@ const getAuthToken = async () => {
   };
 
   const response = await fetch(
-    `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+    `${PIM_HOST}/authorizationserver/oauth/token`,
     requestOptions
   );
 
   if (!response.ok) {
-    console.log("ERROR!", response.status, response.statusText);
+    // eslint-disable-next-line no-console
+    console.error("ERROR!", response.status, response.statusText);
     throw new Error(response.statusText);
   }
 
@@ -75,13 +96,15 @@ const fetchData = async (path = "/") => {
     redirect
   };
 
-  const fullPath = `${process.env.PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`;
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`;
 
+  // eslint-disable-next-line no-console
   console.log(`FETCH: ${fullPath}`);
   const response = await fetch(fullPath, options);
 
   if (!response.ok) {
-    console.log("ERROR!", response.status, response.statusText);
+    // eslint-disable-next-line no-console
+    console.error("ERROR!", response.status, response.statusText);
     throw new Error(response.statusText);
   }
 
@@ -99,6 +122,7 @@ async function* getProducts() {
       `/export/products?currentPage=${currentPage}`
     );
 
+    // eslint-disable-next-line no-console
     console.log(
       "Message page:",
       JSON.stringify({
@@ -127,22 +151,26 @@ const handleRequest = async (req, res) => {
   if (req.body) {
     // TODO: Delete entire firestore database, if flag passed in request
 
+    // eslint-disable-next-line no-console
     console.log("Clearing out data...");
 
     await deleteElasticSearchIndex();
     await deleteFirestoreCollection();
 
+    // eslint-disable-next-line no-console
     console.log(`Getting the whole catalogue.`);
 
     const messagePages = getProducts();
     for await (const page of messagePages) {
       if (page.products) {
+        // eslint-disable-next-line no-console
         console.log(`GET: Updating ${(page.products || []).length}`);
 
         try {
           publishMessage("UPDATED", "PRODUCTS", page.products);
         } catch (e) {
-          console.log(e);
+          // eslint-disable-next-line no-console
+          console.error(e);
           break;
         }
       }
@@ -162,6 +190,7 @@ const handleRequest = async (req, res) => {
 
     res.status(200).send("ok");
   } else {
+    // eslint-disable-next-line no-console
     console.log("no data received.");
     res.status(404).send("not-ok");
   }

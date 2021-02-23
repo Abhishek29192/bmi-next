@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../Header";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import Header from "../Header";
 
 beforeAll(() => {
   mockConsole();
@@ -11,7 +11,7 @@ describe("Header component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <Header
-        slug="/"
+        activeLabel="Main"
         countryCode="gb"
         navigationData={{
           __typename: "ContentfulNavigation",
@@ -47,7 +47,7 @@ describe("Header component", () => {
                   isLabelHidden: null,
                   icon: null,
                   linkedPage: {
-                    slug: "landing-page"
+                    path: "landing-page"
                   }
                 }
               ]
@@ -67,7 +67,7 @@ describe("Header component", () => {
               isLabelHidden: null,
               icon: null,
               linkedPage: {
-                slug: "landing-page"
+                path: "landing-page"
               }
             }
           ]

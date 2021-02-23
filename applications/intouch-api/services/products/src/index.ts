@@ -1,21 +1,23 @@
-/* This is an example for the purpose of testing Apollo Server */
 import { ApolloServer } from "apollo-server";
-import { buildFederatedSchema } from "@apollo/federation";
-import { resolvers } from "./resolvers";
-import { typeDefs } from "./schema";
+import { postgraphileApollo } from "./postgraphile";
 
-const server = new ApolloServer({
-  schema: buildFederatedSchema([
-    {
-      typeDefs,
-      resolvers
-    }
-  ]),
-  introspection: true,
-  playground: true
-});
-const PORT = process.env.PORT || 4002;
-server.listen({ port: PORT }).then(({ url }) => {
+async function main() {
+  const { schema, plugin } = await postgraphileApollo();
+
+  const server = new ApolloServer({
+    schema: schema,
+    plugins: [plugin]
+  });
+
+  const PORT = process.env.PORT || 4002;
+  await server.listen(PORT, () => {
+    // eslint-disable-next-line no-console
+    console.log(`🚀 Product service started at http://localhost:${PORT}`);
+  });
+}
+
+main().catch((e) => {
   // eslint-disable-next-line no-console
-  console.log(`🚀 Product service ready at ${url}`);
+  console.error(e);
+  process.exit(1);
 });

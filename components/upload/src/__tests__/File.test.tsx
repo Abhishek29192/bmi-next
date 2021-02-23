@@ -1,9 +1,18 @@
 import React from "react";
-import FileComponent from "../_File";
 import { render, waitFor, cleanup } from "@testing-library/react";
 import axios from "axios";
+import FileComponent from "../_File";
 
 jest.mock("axios");
+const executeRecaptcha = jest.fn().mockResolvedValue("valid-token");
+jest.mock("react-google-recaptcha-v3", () => {
+  const useGoogleReCaptcha = jest.fn().mockImplementation(() => ({
+    executeRecaptcha: executeRecaptcha
+  }));
+  return {
+    useGoogleReCaptcha: useGoogleReCaptcha
+  };
+});
 
 const uri = "abc";
 const mapBody = jest.fn();
@@ -22,6 +31,7 @@ describe("Upload component", () => {
     window.URL.revokeObjectURL = initialRevokeObjectURL;
   });
   afterEach(cleanup);
+
   it("renders correctly", async () => {
     axios.post = jest.fn().mockResolvedValue({
       data: {
@@ -53,9 +63,48 @@ describe("Upload component", () => {
         onRequestSuccess={onRequestSuccess}
       />
     );
+    expect(executeRecaptcha).toBeCalledTimes(0);
     expect(axios.post).toHaveBeenCalled();
     expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
   });
+
+  it("renders correctly with recaptcha", async () => {
+    axios.post = jest.fn().mockResolvedValue({
+      data: {
+        sys: {
+          type: "x"
+        }
+      }
+    });
+
+    axios.CancelToken.source = jest
+      .fn()
+      .mockReturnValue({ token: "this", cancel: () => {} });
+
+    const { container } = render(
+      <FileComponent
+        file={{
+          name: "something",
+          type: "file/docx",
+          size: 123,
+          lastModified: 123,
+          arrayBuffer: jest.fn(),
+          slice: jest.fn(),
+          stream: jest.fn(),
+          text: jest.fn()
+        }}
+        uri={uri}
+        mapBody={mapBody}
+        onDeleteClick={onDeleteClick}
+        onRequestSuccess={onRequestSuccess}
+        useRecaptcha={true}
+      />
+    );
+    expect(executeRecaptcha).toHaveBeenCalled();
+    await waitFor(() => expect(axios.post).toHaveBeenCalled());
+    expect(await waitFor(() => container.firstChild)).toMatchSnapshot();
+  });
+
   it("renders correctly with large file size", async () => {
     axios.post = jest.fn().mockResolvedValue({
       data: {

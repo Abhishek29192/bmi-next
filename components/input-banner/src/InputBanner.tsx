@@ -6,6 +6,10 @@ import InputGroup from "@bmi/input-group";
 import TextField from "@bmi/text-field";
 import Typography from "@bmi/typography";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import {
+  GoogleReCaptchaProvider,
+  useGoogleReCaptcha
+} from "react-google-recaptcha-v3";
 import styles from "./InputBanner.module.scss";
 
 const validateEmail = (email: string): boolean => {
@@ -13,27 +17,36 @@ const validateEmail = (email: string): boolean => {
   return re.test(email);
 };
 
+type GoogleRecaptchaProps = GoogleReCaptchaProvider["props"];
+
 type Props = {
   title: React.ReactNode;
   description: React.ReactNode;
   inputLabel: string;
   inputCallToAction: React.ReactNode;
-  onSubmit?: (email: string) => void;
-};
+  onSubmit?: (email: string, token?: string) => void;
+  useRecaptcha?: boolean;
+} & GoogleRecaptchaProps;
+
 const InputBanner = ({
   title,
   description,
   inputLabel,
   inputCallToAction,
-  onSubmit
+  onSubmit,
+  useRecaptcha
 }: Props) => {
   const [emailInput, setEmailInput] = useState<string>("");
-  const handleSubmit = useCallback(() => {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const handleSubmit = useCallback(async () => {
     if (!onSubmit || !validateEmail(emailInput)) {
       return;
     }
 
-    onSubmit(emailInput);
+    const token = useRecaptcha && (await executeRecaptcha());
+
+    onSubmit(emailInput, token);
     setEmailInput("");
   }, [emailInput]);
 
@@ -93,4 +106,24 @@ const InputBanner = ({
   );
 };
 
-export default InputBanner;
+const InputBannerWrapper = ({
+  title,
+  description,
+  inputLabel,
+  inputCallToAction,
+  onSubmit,
+  useRecaptcha,
+  ...recaptchaProps
+}: Props) => {
+  const props = { title, description, inputLabel, inputCallToAction, onSubmit };
+
+  return useRecaptcha ? (
+    <GoogleReCaptchaProvider {...recaptchaProps}>
+      <InputBanner useRecaptcha={useRecaptcha} {...props} />
+    </GoogleReCaptchaProvider>
+  ) : (
+    <InputBanner useRecaptcha={useRecaptcha} {...props} />
+  );
+};
+
+export default InputBannerWrapper;

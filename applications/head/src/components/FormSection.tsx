@@ -11,6 +11,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
@@ -37,6 +38,7 @@ type InputType = {
   width?: "full" | "half";
   accept?: string;
   maxSize?: number;
+  token?: string;
 };
 
 export type Data = {
@@ -59,7 +61,12 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const {
+    getMicroCopy,
+    node_locale,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet
+  } = useContext(SiteContext);
   const mapBody = (file: File) => file;
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
@@ -84,10 +91,9 @@ const Input = ({
 
   const handleFileValidation = (file: File) => {
     if (maxSize && file.size > maxSize * 1048576) {
-      return getMicroCopy("errors.maxSize").replace(
-        "{{size}}",
-        getFileSizeString(maxSize * 1048576)
-      );
+      return getMicroCopy("errors.maxSize", {
+        size: getFileSizeString(maxSize * 1048576)
+      });
     }
   };
 
@@ -100,7 +106,9 @@ const Input = ({
           buttonLabel={label}
           isRequired={required}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
-          headers={{ "Content-Type": "application/octet-stream" }}
+          headers={{
+            "Content-Type": "application/octet-stream"
+          }}
           accept={accept}
           fileValidation={handleFileValidation}
           instructions={
@@ -113,6 +121,10 @@ const Input = ({
           }
           mapBody={mapBody}
           mapValue={mapValue}
+          useRecaptcha={true}
+          reCaptchaKey={scriptGRecaptchaId}
+          language={node_locale}
+          useRecaptchaNet={scriptGRecaptchaNet}
         />
       );
     case "select":
@@ -174,6 +186,7 @@ const FormSection = ({
 }) => {
   const { countryCode, getMicroCopy, node_locale } = useContext(SiteContext);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -183,7 +196,7 @@ const FormSection = ({
     setIsSubmitting(true);
 
     // @todo: This needs to be less reliant on string patterns
-    const recipientsFromValues = values.recipients as string;
+    const recipientsFromValues = (values.recipients as string) || "";
     const isEmailPresent = ["@", "="].every((char) =>
       recipientsFromValues.includes(char)
     );
@@ -194,6 +207,8 @@ const FormSection = ({
 
     try {
       const source = axios.CancelToken.source();
+      const token = await executeRecaptcha();
+
       await axios.post(
         process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
         {
@@ -203,7 +218,8 @@ const FormSection = ({
           values
         },
         {
-          cancelToken: source.token
+          cancelToken: source.token,
+          headers: { "X-Recaptcha-Token": token }
         }
       );
 
@@ -211,7 +227,7 @@ const FormSection = ({
       if (successRedirect) {
         navigate(
           successRedirect.url ||
-            `/${countryCode}/${successRedirect.linkedPage.slug}`
+            `/${countryCode}/${successRedirect.linkedPage.path}`
         );
       } else {
         navigate("/");

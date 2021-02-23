@@ -1,18 +1,20 @@
 {
   "name": "@bmi/gcp-firestore-writer",
+  "private": true,
   "version": "0.0.0",
-  "license": "UNLICENSED",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && functions-framework --source=dist --target=handleMessage --port=3001"
+    "dev": "tsc && functions-framework --source=dist --target=handleMessage --port=3001",
+    "deploy": "tsc && gcloud functions deploy firestore-writer --trigger-topic=dxb-pim-transitional --runtime=nodejs10 --max-instances=5 --region=europe-west3 --entry-point=handleMessage --env-vars-file=env.yaml"
   },
   "dependencies": {
+    "@google-cloud/functions-framework": "^1.7.1",
     "dotenv": "^8.2.0",
     "firebase-admin": "^9.2.0",
     "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {
-    "@google-cloud/functions-framework": "^1.7.1"
   }
 }

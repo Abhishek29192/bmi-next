@@ -1,6 +1,6 @@
 import React from "react";
-import EqualHeights from "../";
 import { render } from "@testing-library/react";
+import EqualHeights from "../";
 
 describe("EqualHeights component", () => {
   it("renders correctly", () => {

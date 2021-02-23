@@ -31,33 +31,47 @@ const createStyleLoaders = (isModule, isSass = true, dev, isServer) =>
     }
   ].filter(Boolean);
 
-const styleRules = ({ dev, isServer } = {}) => ({
-  plugins: dev
-    ? []
-    : [
-        new ExtractCssChunks({
-          filename: "static/chunks/[name].[contenthash:8].css",
-          chunkFilename: "static/chunks/[name].[contenthash:8].chunk.css",
-          ignoreOrder: true // Enable to remove warnings about conflicting order
-        })
-      ],
-  rules: [
-    {
-      test: /\.css$/,
-      exclude: /node_modules/,
-      use: createStyleLoaders(false, false, dev, isServer)
-    },
-    {
-      test: /\.module.scss$/,
-      exclude: /node_modules/,
-      use: createStyleLoaders(true, true, dev, isServer)
-    },
-    {
-      test: /(?<!\.module)\.scss$/,
-      exclude: /node_modules/,
-      use: createStyleLoaders(false, true, dev, isServer)
-    }
-  ]
-});
+const getExclude = (test) => {
+  if (test === undefined) {
+    return /node_modules/;
+  }
+
+  if (!test) {
+    return;
+  }
+
+  return test;
+};
+
+const styleRules = ({ dev, isServer, exclude = {} } = {}) => {
+  return {
+    plugins: dev
+      ? []
+      : [
+          new ExtractCssChunks({
+            filename: "static/chunks/[name].[contenthash:8].css",
+            chunkFilename: "static/chunks/[name].[contenthash:8].chunk.css",
+            ignoreOrder: true // Enable to remove warnings about conflicting order
+          })
+        ],
+    rules: [
+      {
+        test: /\.css$/,
+        exclude: getExclude(exclude.css),
+        use: createStyleLoaders(false, false, dev, isServer)
+      },
+      {
+        test: /\.module.scss$/,
+        exclude: getExclude(exclude.scssModule),
+        use: createStyleLoaders(true, true, dev, isServer)
+      },
+      {
+        test: /(?<!\.module)\.scss$/,
+        exclude: getExclude(exclude.scss),
+        use: createStyleLoaders(false, true, dev, isServer)
+      }
+    ]
+  };
+};
 
 module.exports = styleRules;

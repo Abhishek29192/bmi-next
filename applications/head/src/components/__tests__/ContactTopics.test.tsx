@@ -1,6 +1,6 @@
 import React from "react";
-import ContactTopics from "../ContactTopics";
 import { render } from "@testing-library/react";
+import ContactTopics from "../ContactTopics";
 
 const contentMock = JSON.stringify({
   nodeType: "document",

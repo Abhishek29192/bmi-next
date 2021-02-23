@@ -1,6 +1,6 @@
 import React, { createContext, CSSProperties } from "react";
-import styles from "./ColorPair.module.scss";
 import classnames from "classnames";
+import styles from "./ColorPair.module.scss";
 
 export type Colors =
   | "white"

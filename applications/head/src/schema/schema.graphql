@@ -106,6 +106,12 @@ interface ContentfulPage @nodeInterface {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
+
   "The brand logo for this page."
   brandLogo: String
 
@@ -120,6 +126,34 @@ interface ContentfulPage @nodeInterface {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
+}
+
+type FilterOption {
+  "Localised label visible in the UI."
+  label: String!
+
+  "Value of this option."
+  value: String!
+}
+
+"""
+Represents values available to filter products by.
+"""
+type Filter {
+  "Localised label visible in the UI."
+  label: String!
+
+  "Programatic name of the filter."
+  name: String!
+
+  "Available filter options."
+  options: [FilterOption]!
 }
 
 """
@@ -136,6 +170,12 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
 
   "The brand logo for this page."
   brandLogo: String
@@ -172,6 +212,12 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The sections for this page."
   sections: [ContentfulSection] @link(from: "sections___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 """
@@ -188,6 +234,12 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
 
   "This field will always return null."
   brandLogo: String
@@ -224,6 +276,12 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The other areas for this page."
   otherAreas: [ContentfulTitleWithContent] @link(from: "otherAreas___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 """
@@ -240,6 +298,12 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
 
   "This field will always return null."
   brandLogo: String
@@ -258,6 +322,12 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 
   "The team categories for this page."
   teamCategories: [ContentfulTeamCategory] @link(from: "teamCategories___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 type ContentfulHomePage implements Node {
@@ -271,6 +341,12 @@ type ContentfulHomePage implements Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
 
   "Brands for Homepage"
   brands: [ContentfulBrandLandingPage]! @link(from: "brands___NODE")
@@ -289,6 +365,9 @@ type ContentfulHomePage implements Node {
 
   "The input banner for this home page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 """
@@ -305,6 +384,12 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The url for this page, devoid of any prefix."
   slug: String!
+
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
 
   "This field will always return null."
   brandLogo: String
@@ -332,6 +417,12 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 """
@@ -349,6 +440,9 @@ type ContentfulPromo implements Node {
 
   "The subtitle for this promo."
   subtitle: String
+
+  "The body for this promo."
+  body: ContentfulRichText
 
   "Tags for this promo"
   tags: [ContentfulTag] @link(from: "tags___NODE")
@@ -632,6 +726,23 @@ type ContentfulDocumentDownloadSection implements Node {
 }
 
 """
+Represents a section of downloadable document assets.
+"""
+type ContentfulServiceLocatorSection implements Node {
+  "The title for this section."
+  title: String
+
+  "The label for this section."
+  label: String!
+
+  "The body for this section."
+  body: ContentfulRichText
+
+  "The roofers for this section."
+  roofers: [ContentfulRoofer] @link(from: "roofers___NODE")
+}
+
+"""
 Represents the union of possible navigation entities.
 """
 union ContentfulNavigationEntity =
@@ -745,6 +856,7 @@ union ContentfulSection =
   | ContentfulPromo
   | ContentfulImageGallerySection
   | ContentfulDocumentDownloadSection
+  | ContentfulServiceLocatorSection
 
 """
 Represents a key value pair for UI strings.
@@ -898,6 +1010,15 @@ type ContentfulSite implements Node {
 
   "HotJar integration ID"
   scriptHotJar: String
+
+  "Google Optimize Load balancing ID"
+  scriptGOptLoad: String
+
+  "Google Recaptcha ID"
+  scriptGRecaptchaId: String
+
+  "Google Recaptcha Use Net?"
+  scriptGRecaptchaNet: Boolean
 }
 
 """
@@ -914,6 +1035,7 @@ union LinkedPage =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
   | ContentfulHomePage
+  | ContentfulBrandLandingPage
 
 """
 Represents a link.
@@ -1059,6 +1181,12 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
+
   "The brand logo for this page (unused)."
   brandLogo: String
 
@@ -1091,6 +1219,12 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
   "The product codes specified for this page."
   pimCodes: [String]
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
 }
 
 union ProductDocument = PIMDocument | PIMLinkDocument
@@ -1098,6 +1232,39 @@ union ProductDocument = PIMDocument | PIMLinkDocument
 type Products implements Node {
   "The documents for this product."
   documents: [ProductDocument]! @link(from: "documents___NODE")
+
+  "The external code for this product AKA NOBB number"
+  externalProductCode: String
+}
+
+type ProductsVariantOptions implements Node {
+  "The external code for this product AKA NOBB number"
+  externalProductCode: String
+
+  productBenefits: [String]
+
+  "The path for this product."
+  path: String
+
+  "The breadcrumbs for this product."
+  breadcrumbs: JSON
+}
+
+"""
+The category for a product.
+"""
+type ProductCategory implements Node {
+  "The name for this category."
+  name: String
+
+  "The type for this category."
+  categoryType: String
+
+  "The code for this category."
+  code: String
+
+  "The code of this category's parent."
+  parentCategoryCode: String
 }
 
 """
@@ -1142,6 +1309,12 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   "The url for this page, devoid of any prefix."
   slug: String!
 
+  "The full path for this page, devoid of any prefix."
+  path: String!
+
+  "The breadcrumb items for this page, devoid of any prefix."
+  breadcrumbs: JSON
+
   "The short description for this page."
   subtitle: String
 
@@ -1169,4 +1342,72 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
+
+  "The parent page of this page."
+  parentPage: LinkedPage @link(from: "parentPage___NODE")
+
+  "SEO content"
+  seo: ContentfulSeoContent @link(from: "seo___NODE")
+}
+
+type contentfulTableDataJsonNode implements Node {
+  tableData: [[String]]
+}
+
+type ContentfulTable implements Node {
+  contentful_id: String!
+
+  data: contentfulTableDataJsonNode
+}
+
+"""
+Represents the company details of a roofer.
+"""
+type ContentfulRoofer implements Node {
+  id: ID!
+
+  "The name for this roofer."
+  name: String
+
+  "The location for this roofer."
+  location: Location
+
+  "The address for this roofer."
+  address: String
+
+  "The phone number for this roofer."
+  phone: String
+
+  "The email address for this roofer."
+  email: String
+
+  "The URL for the website of this roofer."
+  website: String
+
+  "The type of this roofer."
+  type: [String]
+
+  "The certification level of this roofer."
+  certification: String
+
+  "The summary of this roofer."
+  summary: String
+}
+
+type Location implements Node {
+  "The latitude for this location."
+  lat: Float!
+
+  "The longitude for this location."
+  lon: Float!
+}
+
+type ContentfulSeoContent implements Node {
+  id: ID!
+
+  "Meta title tag."
+  metaTitle: String
+
+  "Meta description tag."
+  metaDescription: String
 }

@@ -5,9 +5,9 @@ import Grid from "@bmi/grid";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload from "@bmi/upload";
-import { SiteContext } from "./Site";
 import AnchorLink from "@bmi/anchor-link";
 import matchAll from "string.prototype.matchall";
+import { SiteContext } from "./Site";
 
 const InputTypes = [
   "text",
@@ -71,7 +71,12 @@ const Input = ({
   type,
   required
 }: Omit<InputType, "width">) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const {
+    getMicroCopy,
+    node_locale,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet
+  } = useContext(SiteContext);
   const mapValue = ({ name, type }, upload) => ({
     fileName: name,
     contentType: type,
@@ -98,6 +103,10 @@ const Input = ({
           instructions={getMicroCopy("upload.instructions")}
           mapBody={(file) => ({ file })}
           mapValue={mapValue}
+          useRecaptcha={true}
+          reCaptchaKey={scriptGRecaptchaId}
+          language={node_locale}
+          useRecaptchaNet={scriptGRecaptchaNet}
         />
       );
     case "select":

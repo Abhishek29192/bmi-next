@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import Button from "@bmi/button";
-import { Data as DocumentData } from "./Document";
 import OverviewCard from "@bmi/overview-card";
-import RichText from "./RichText";
-import { SiteContext } from "./Site";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Grid from "@bmi/grid";
+import { Data as DocumentData } from "./Document";
+import RichText from "./RichText";
+import { SiteContext } from "./Site";
 import { iconMap } from "./Icon";
 
 type Props = {

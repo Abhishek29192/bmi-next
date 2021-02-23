@@ -1,9 +1,9 @@
 import React from "react";
-import InputGroup from "../";
 import { render } from "@testing-library/react";
 import Button from "@bmi/button";
 import TextField from "@bmi/text-field";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import InputGroup from "../";
 
 describe("InputGroup component", () => {
   it("renders correctly", () => {

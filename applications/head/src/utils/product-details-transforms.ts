@@ -1,15 +1,13 @@
 import { Link } from "gatsby";
 import { result, uniqBy, groupBy, find, pickBy } from "lodash";
+import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 import {
   ClassificationFeatureValue,
   Product,
   VariantOption
 } from "../templates/product-details-page";
-import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 
-const getSlug = (string) => string.toLowerCase().replace(/[-_\s]+/gi, "-");
-export const getProductUrl = (countryCode, productCode) =>
-  `/${countryCode}/products/${getSlug(productCode)}`;
+export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
 
 const getProductProp = (classifications, productCode, propName) =>
   classifications[productCode] ? classifications[productCode][propName] : null;
@@ -302,15 +300,17 @@ const getPropIdentifier = {
 
 const getPropValue = (classification, propName) => {
   const prop = classification[propName];
+  const getter = prop && getPropIdentifier[propName];
 
-  return prop ? getPropIdentifier[propName](prop) : undefined;
+  return getter ? getter(prop) : undefined;
 };
 
 export const getProductAttributes = (
   productClassifications,
   selfProduct,
   pageContext,
-  options
+  options,
+  variantCodeToPathMap
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedSurfaceTreatment = getProductProp(
     productClassifications,
@@ -439,7 +439,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})
@@ -471,7 +474,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})
@@ -498,7 +504,10 @@ export const getProductAttributes = (
                 action: {
                   model: "routerLink",
                   linkComponent: Link,
-                  to: getProductUrl(pageContext.countryCode, variantCode)
+                  to: getProductUrl(
+                    pageContext.countryCode,
+                    variantCodeToPathMap[variantCode]
+                  )
                 }
               }
             : {})
@@ -682,7 +691,7 @@ const findUniqueClassificationsOnVariant = (
     const baseValues = baseClassifications[code] || [];
     // If all the values are the same, we'll get a single value
     const allSameValue =
-      uniqBy(baseValues, (value) => getter(value)).length === 1;
+      getter && uniqBy(baseValues, (value) => getter(value)).length === 1;
 
     // AND if number of base values is equal to number of variants, all variants have the same value
     // Therefore it's common

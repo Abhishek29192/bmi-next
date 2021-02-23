@@ -1,7 +1,7 @@
 import React from "react";
-import Sections, { Data } from "../Sections";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import Sections, { Data } from "../Sections";
 import { SiteContext } from "../Site";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -11,7 +11,9 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
         node_locale: "en-UK",
         homePage: { title: "Home Page" },
         getMicroCopy: (path) => path,
-        countryCode: "uk"
+        countryCode: "uk",
+        scriptGRecaptchaId: "",
+        scriptGRecaptchaNet: false
       }}
     >
       {children}
@@ -88,6 +90,7 @@ describe("Sections component", () => {
             brandLogo: null,
             tags: null,
             subtitle: null,
+            body: null,
             featuredImage: null,
             cta: null
           },
@@ -97,6 +100,7 @@ describe("Sections component", () => {
             brandLogo: null,
             tags: null,
             subtitle: null,
+            body: null,
             featuredImage: null,
             cta: null
           }
@@ -118,7 +122,7 @@ describe("Sections component", () => {
           isLabelHidden: null,
           url: null,
           linkedPage: {
-            slug: "contact-us"
+            path: "contact-us"
           }
         },
         cards: [
@@ -127,6 +131,7 @@ describe("Sections component", () => {
             title: "promo title",
             brandLogo: "AeroDek",
             subtitle: "promo subtitle",
+            body: null,
             tags: null,
             featuredImage: null,
             cta: {
@@ -137,7 +142,7 @@ describe("Sections component", () => {
               isLabelHidden: null,
               url: null,
               linkedPage: {
-                slug: "contact-us"
+                path: "contact-us"
               }
             },
             id: "00000000-0000-0000-0000-000000000000"
@@ -156,6 +161,7 @@ describe("Sections component", () => {
           {
             __typename: "ContentfulSimplePage",
             id: "00000000-0000-0000-0000-000000000000",
+            path: "path",
             slug: "slug",
             tags: null,
             title: "page title",
@@ -173,6 +179,7 @@ describe("Sections component", () => {
         __typename: "ContentfulPromo",
         title: "card section title 2",
         subtitle: null,
+        body: null,
         brandLogo: null,
         tags: null,
         featuredImage: null,
@@ -205,6 +212,14 @@ describe("Sections component", () => {
           references: []
         },
         documents: []
+      },
+      {
+        __typename: "ContentfulServiceLocatorSection",
+        title: "Service Locator",
+        label: "Find A Roofer",
+        body: null,
+        roofers: null,
+        position: 0
       }
     ];
 

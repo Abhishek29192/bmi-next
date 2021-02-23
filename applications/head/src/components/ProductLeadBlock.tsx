@@ -6,11 +6,11 @@ import Tabs from "@bmi/tabs";
 import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
+import DownloadList from "@bmi/download-list";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { SiteContext } from "./Site";
 import { Data as PIMDocumentData } from "./PIMDocument";
-import DownloadList from "@bmi/download-list";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
@@ -52,7 +52,12 @@ const ProductLeadBlock = ({
   awardsAndCertificates,
   documents
 }: Props) => {
-  const { getMicroCopy } = useContext(SiteContext);
+  const {
+    getMicroCopy,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet,
+    node_locale
+  } = useContext(SiteContext);
   const [page, setPage] = useState(1);
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -201,6 +206,10 @@ const ProductLeadBlock = ({
           <div className={styles["document-library"]} ref={resultsElement}>
             <DownloadList
               maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
+              useRecaptcha={true}
+              reCaptchaKey={scriptGRecaptchaId}
+              useRecaptchaNet={scriptGRecaptchaNet}
+              language={node_locale}
             >
               <DocumentSimpleTableResults
                 documents={documents}

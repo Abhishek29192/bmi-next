@@ -3,20 +3,24 @@ import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import BackToTop from "@bmi/back-to-top";
+import { graphql, navigate } from "gatsby";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
 import { SiteContext, Data as SiteData } from "./Site";
+import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
-import { graphql } from "gatsby";
 import ErrorFallback from "./ErrorFallback";
+import { Data as SEOContentData } from "./SEOContent";
 import styles from "./styles/Page.module.scss";
 
 export type Data = {
-  slug: string | null;
+  breadcrumbs: BreadcrumbsData | null;
   inputBanner: InputBannerData | null;
+  seo: SEOContentData | null;
 };
 
 type Props = {
@@ -24,9 +28,10 @@ type Props = {
   title: string;
   pageData: Data;
   siteData: SiteData;
+  isSearchPage?: boolean;
 };
 
-const Page = ({ title, children, pageData, siteData }: Props) => {
+const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
   const {
     node_locale,
     countryCode,
@@ -39,16 +44,27 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
     scriptGA,
     scriptOnetrust,
     scriptGTM,
-    scriptHotJar
+    scriptHotJar,
+    scriptGOptLoad,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet
   } = siteData;
 
-  const { inputBanner } = pageData;
+  const { breadcrumbs, inputBanner, seo } = pageData;
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
   return (
     <BmiThemeProvider>
-      <Helmet title={title} defer={false}>
+      <Helmet
+        htmlAttributes={{ lang: node_locale }}
+        title={seo?.metaTitle || title}
+        defer={false}
+      >
+        {seo?.metaDescription && (
+          <meta name="description" content={seo.metaDescription} />
+        )}
+
         {scriptGTM && (
           <script>
             {` <!-- Google Tag Manager -->
@@ -101,7 +117,12 @@ const Page = ({ title, children, pageData, siteData }: Props) => {
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
           </script>
         )}
-
+        {scriptGOptLoad && (
+          <script
+            async
+            src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
+          ></script>
+        )}
         <meta name="robots" content="noindex" />
       </Helmet>
       {scriptGTM && (
@@ -119,30 +140,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
           node_locale,
           countryCode,
           homePage: siteData.homePage,
-          getMicroCopy
+          getMicroCopy,
+          scriptGRecaptchaId,
+          scriptGRecaptchaNet
         }}
       >
-        <Header
-          navigationData={menuNavigation}
-          utilitiesData={menuUtilities}
-          countryCode={countryCode}
-          slug={pageData.slug || undefined}
-        />
-        <ErrorBoundary
-          fallbackRender={() => (
-            <ErrorFallback
-              countryCode={countryCode}
-              promo={resources.errorGeneral}
-            />
-          )}
+        <GoogleReCaptchaProvider
+          reCaptchaKey={scriptGRecaptchaId}
+          useRecaptchaNet={scriptGRecaptchaNet}
+          language={countryCode}
         >
-          <div className={styles["content"]}>{children}</div>
-          {inputBanner ? <InputBanner data={inputBanner} /> : null}
-        </ErrorBoundary>
-        <Footer
-          mainNavigation={footerMainNavigation}
-          secondaryNavigation={footerSecondaryNavigation}
-        />
+          <Header
+            navigationData={menuNavigation}
+            utilitiesData={menuUtilities}
+            countryCode={countryCode}
+            activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
+            isOnSearchPage={isSearchPage}
+          />
+          <ErrorBoundary
+            fallbackRender={() => (
+              <ErrorFallback
+                countryCode={countryCode}
+                promo={resources.errorGeneral}
+              />
+            )}
+            onError={() => navigate(`/${countryCode}/422`)}
+          >
+            <div className={styles["content"]}>{children}</div>
+            {inputBanner ? <InputBanner data={inputBanner} /> : null}
+          </ErrorBoundary>
+          <Footer
+            mainNavigation={footerMainNavigation}
+            secondaryNavigation={footerSecondaryNavigation}
+          />
+        </GoogleReCaptchaProvider>
       </SiteContext.Provider>
       <BackToTop accessibilityLabel="Back to the top" />
     </BmiThemeProvider>
@@ -162,9 +193,12 @@ export default withErrorBoundary(Page, {
 
 export const query = graphql`
   fragment PageFragment on ContentfulPage {
-    slug
+    breadcrumbs
     inputBanner {
       ...InputBannerFragment
+    }
+    seo {
+      ...SEOContentFragment
     }
   }
 `;

@@ -1,7 +1,10 @@
-import TextField, { Props as PropsType } from "./TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import ControlledTextField, {
+  Props as PropsType,
+  TextField
+} from "./TextField";
 
-export { InputAdornment };
+export { InputAdornment, TextField };
 export type Props = PropsType;
 
-export default TextField;
+export default ControlledTextField;

@@ -1,48 +1,50 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
-import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
-import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
-import { Data as SiteData, SiteContext } from "../components/Site";
 import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import CheckIcon from "@material-ui/icons/Check";
 import IconList from "@bmi/icon-list";
 import AnchorLink from "@bmi/anchor-link";
-import { LinkData, getClickableActionFromUrl } from "../components/Link";
-import { Data as PageInfoData } from "../components/PageInfo";
-import RichText, { RichTextData } from "../components/RichText";
-import Filters from "@bmi/filters";
 import OverviewCard from "@bmi/overview-card";
-import { iconMap } from "../components/Icon";
-import ProgressIndicator from "../components/ProgressIndicator";
-import Scrim from "../components/Scrim";
 import Grid from "@bmi/grid";
-import Pagination from "@bmi/pagination";
-import { Product } from "./product-details-page";
 import Typography from "@bmi/typography";
+import ColorSwatch from "../components/ColorSwatch";
 import {
   getProductUrl,
   findMasterImageUrl,
   mapClassificationValues,
   findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
+import ResultsPagination from "../components/ResultsPagination";
 import {
   clearFilterValues,
-  getFilters,
+  ProductFilter,
   updateFilterValue
 } from "../utils/filters";
-import Button from "@bmi/button";
-import PerfectScrollbar from "@bmi/perfect-scrollbar";
+import Scrim from "../components/Scrim";
+import ProgressIndicator from "../components/ProgressIndicator";
+import { iconMap } from "../components/Icon";
+import RichText, { RichTextData } from "../components/RichText";
+import { Data as PageInfoData } from "../components/PageInfo";
+import { LinkData, getClickableActionFromUrl } from "../components/Link";
+import { Data as SiteData, SiteContext } from "../components/Site";
+import Page, { Data as PageData } from "../components/Page";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
 import {
   queryElasticSearch,
   compileElasticSearchQuery,
   disableFiltersFromAggregations
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import FiltersSidebar from "../components/FiltersSidebar";
+import { Product } from "./product-details-page";
 
 const PAGE_SIZE = 24;
+const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
 
 type Data = PageInfoData &
   PageData & {
@@ -50,6 +52,7 @@ type Data = PageInfoData &
     content: RichTextData | null;
     features: string[] | null;
     featuresLink: LinkData | null;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -60,13 +63,12 @@ type Props = {
     countryCode: string;
     categoryCode: string;
     pimClassificationCatalogueNamespace: string;
+    variantCodeToPathMap: Record<string, string>;
   };
   data: {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
-    allProducts: {
-      nodes: ReadonlyArray<Product>;
-    };
+    productFilters: ReadonlyArray<ProductFilter>;
   };
 };
 
@@ -80,23 +82,18 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     content,
     features,
     featuresLink,
-    ...pageData
+    breadcrumbs,
+    inputBanner,
+    seo
   } = data.contentfulProductListerPage;
+
   const heroProps: HeroItem = {
     title,
     children: subtitle,
     imageSource: featuredImage?.resize.src
   };
   const { countryCode } = data.contentfulSite;
-  const heroLevel = (Math.min(
-    findPath(
-      data.contentfulProductListerPage.slug,
-      data.contentfulSite.menuNavigation
-    ).length + 1,
-    3
-  ) || 1) as 1 | 2 | 3;
   // TODO: Ignoring gatsby data for now as fetching with ES
-  // const { nodes: initialProducts } = data.allProducts;
   const initialProducts = [];
 
   const [isLoading, setIsLoading] = useState(false);
@@ -104,28 +101,33 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const resultsElement = useRef<HTMLDivElement>(null);
 
-  const pageCategory = useMemo(() => {
-    for (let i = 0; i < data.allProducts.nodes.length; i++) {
-      const { categories } = data.allProducts.nodes[i];
-
-      const category = (categories || []).find(
-        ({ code }) => code === pageContext.categoryCode
-      );
-
-      if (category) {
-        return category;
+  // NOTE: map colour filter values to specific colour swatch representation
+  const resolveFilters = (filters) => {
+    return filters.map((filter) => {
+      if (filter.name === "colour") {
+        return {
+          ...filter,
+          options: filter.options.map((option) => ({
+            ...option,
+            label: (
+              <>
+                <ColorSwatch colorCode={option.value} />
+                {option.label}
+              </>
+            )
+          }))
+        };
       }
-    }
-  }, [data.allProducts.nodes]);
-  const [filters, setFilters] = useState(
-    pageCategory
-      ? getFilters(
-          pageContext.pimClassificationCatalogueNamespace,
-          data.allProducts.nodes,
-          pageCategory
-        )
-      : []
-  );
+
+      return filter;
+    });
+  };
+
+  const resolvedFilters = useMemo(() => resolveFilters(data.productFilters), [
+    data.productFilters
+  ]);
+  const [filters, setFilters] = useState(resolvedFilters);
+
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
@@ -194,7 +196,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
-    const results = await queryElasticSearch(query);
+    const results = await queryElasticSearch(query, ES_INDEX_NAME);
 
     if (results && results.hits) {
       const { hits } = results;
@@ -221,6 +223,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     ({ code }) => code === pageContext.categoryCode
   )?.name;
 
+  const pageData: PageData = { breadcrumbs, inputBanner, seo };
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -233,16 +237,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 </Scrim>
               ) : null}
               <Hero
-                level={heroLevel}
+                level={2}
                 {...heroProps}
-                breadcrumbs={
-                  <Breadcrumbs
-                    title={title}
-                    slug={data.contentfulProductListerPage.slug}
-                    menuNavigation={data.contentfulSite.menuNavigation}
-                    isDarkThemed={heroLevel !== 3}
-                  />
-                }
+                breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               />
               <Section backgroundColor="white">
                 <LeadBlock>
@@ -293,34 +290,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 )}
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={12} lg={3}>
-                    <PerfectScrollbar
-                      style={{
-                        position: "sticky",
-                        top: "180px",
-                        maxHeight: "calc(100vh - 200px)",
-                        overflow: "hidden"
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          marginBottom: 4
-                        }}
-                      >
-                        <Typography variant="h5">
-                          {getMicroCopy("plp.filters.title")}
-                        </Typography>
-                        <Button variant="text" onClick={clearFilters}>
-                          {getMicroCopy("plp.filters.clearAll")}
-                        </Button>
-                      </div>
-                      <Filters
-                        filters={filters}
-                        onChange={handleFiltersChange}
-                      />
-                    </PerfectScrollbar>
+                    <FiltersSidebar
+                      filters={filters}
+                      onFiltersChange={handleFiltersChange}
+                      onClearFilters={clearFilters}
+                    />
                   </Grid>
                   <Grid
                     item
@@ -372,7 +346,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                       linkComponent: Link,
                                       to: getProductUrl(
                                         countryCode,
-                                        variant.code
+                                        pageContext.variantCodeToPathMap[
+                                          variant.code
+                                        ]
                                       )
                                     }}
                                   >
@@ -387,15 +363,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                         })
                       )}
                     </Grid>
-                  </Grid>
-                </Grid>
-                {/* TODO: Not sure if the spacing aligns correctly, also, offset? */}
-                <Grid container style={{ marginTop: 48, marginBottom: 48 }}>
-                  <Grid item xs={12} md={6} lg={9}></Grid>
-                  <Grid item xs={12} md={6} lg={3}>
-                    <Pagination
+                    <ResultsPagination
                       page={page + 1}
-                      onChange={handlePageChange}
+                      onPageChange={handlePageChange}
                       count={pageCount}
                     />
                   </Grid>
@@ -406,11 +376,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         }}
       </SiteContext.Consumer>
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          title={title}
-          slug={data.contentfulProductListerPage.slug}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );
@@ -423,9 +389,12 @@ export const pageQuery = graphql`
     $pageId: String!
     $siteId: String!
     $categoryCode: String!
+    $pimClassificationCatalogueNamespace: String!
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      ...PageFragment
+      ...BreadcrumbsFragment
       content {
         ...RichTextFragment
       }
@@ -437,82 +406,15 @@ export const pageQuery = graphql`
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
-    allProducts(
-      filter: { categories: { elemMatch: { code: { eq: $categoryCode } } } }
+    productFilters(
+      pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
+      categoryCode: $categoryCode
     ) {
-      nodes {
-        name
-        code
-        categories {
-          categoryType
-          code
-          name
-          parentCategoryCode
-        }
-        images {
-          assetType
-          containerId
-          url
-          format
-        }
-        classifications {
-          name
-          code
-          features {
-            name
-            code
-            featureValues {
-              value
-              code
-            }
-            featureUnit {
-              symbol
-            }
-          }
-        }
-        variantOptions {
-          code
-          shortDescription
-          images {
-            assetType
-            containerId
-            url
-            format
-          }
-          classifications {
-            name
-            code
-            features {
-              name
-              code
-              featureValues {
-                value
-                code
-              }
-              featureUnit {
-                symbol
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const promoQuery = graphql`
-  fragment ProductListerPageInfoFragment on ContentfulProductListerPage {
-    title
-    subtitle
-    brandLogo
-    slug
-    featuredImage {
-      resize(toFormat: WEBP, jpegProgressive: false) {
-        src
-      }
-      file {
-        fileName
-        url
+      label
+      name
+      options {
+        label
+        value
       }
     }
   }

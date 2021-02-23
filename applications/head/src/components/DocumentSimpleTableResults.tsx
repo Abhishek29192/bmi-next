@@ -5,11 +5,11 @@ import { get } from "lodash";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
 import Icon, { iconMap } from "@bmi/icon";
+import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import { Data as PIMDocumentData } from "./PIMDocument";
 import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import { Data as DocumentData } from "./Document";
 import { SiteContext } from "./Site";
-import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
@@ -64,25 +64,26 @@ type FileDownloadButtonProps = {
   size: number;
 };
 
-const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => (
-  <Button
-    action={{
-      model: "download",
-      href: `https:${url.replace("https:", "")}`
-    }}
-    variant="text"
-    startIcon={
-      fileIconsMap[format] && (
-        <Icon
-          source={fileIconsMap[format]}
-          className={styles["download-icon"]}
-        />
-      )
-    }
-  >
-    {filesize(size)}
-  </Button>
-);
+const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
+  format && url ? (
+    <Button
+      action={{
+        model: "download",
+        href: `https:${url.replace("https:", "")}`
+      }}
+      variant="text"
+      startIcon={
+        fileIconsMap[format] && (
+          <Icon
+            source={fileIconsMap[format]}
+            className={styles["download-icon"]}
+          />
+        )
+      }
+    >
+      {filesize(size)}
+    </Button>
+  ) : null;
 
 export const getCount = (documents: Document[]) => {
   return documents.length;

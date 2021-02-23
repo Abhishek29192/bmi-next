@@ -1,9 +1,21 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { config } from "dotenv";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
 });
+
+const secretManagerClient = new SecretManagerServiceClient();
+const {
+  SECRET_MAN_GCP_PROJECT_NAME,
+  PIM_CLIENT_SECRET,
+  TRANSITIONAL_TOPIC_NAME,
+  PIM_CLIENT_ID,
+  PIM_HOST,
+  GCP_PROJECT_ID,
+  BUILD_TRIGGER_ENDPOINT
+} = process.env;
 
 // @ts-ignore TODO: NOPE HACK!
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
@@ -12,9 +24,9 @@ import fetch, { RequestInit, BodyInit } from "node-fetch";
 import { PubSub } from "@google-cloud/pubsub";
 
 const pubSubClient = new PubSub({
-  projectId: process.env.GCP_PROJECT_ID
+  projectId: GCP_PROJECT_ID
 });
-const topicPublisher = pubSubClient.topic(process.env.TRANSITIONAL_TOPIC_NAME);
+const topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME);
 
 const ENDPOINTS = {
   // NOTE: Not handling categories for now because DXB doesn't need this
@@ -31,16 +43,24 @@ async function publishMessage(type, itemType, items) {
 
   try {
     const messageId = await topicPublisher.publish(messageBuffer);
+    // eslint-disable-next-line no-console
     console.log(`PUB SUB MESSAGE PUBLISHED: ${messageId}`);
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
   }
 }
 
 const getAuthToken = async () => {
+  // get PIM secret from Secret Manager
+  const pimSecret = await secretManagerClient.accessSecretVersion({
+    name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${PIM_CLIENT_SECRET}/versions/latest`
+  });
+  const pimClientSecret = pimSecret[0].payload.data.toString();
+
   const urlencoded = new URLSearchParams();
-  urlencoded.append("client_id", process.env.PIM_CLIENT_ID);
-  urlencoded.append("client_secret", process.env.PIM_CLIENT_SECRET);
+  urlencoded.append("client_id", PIM_CLIENT_ID);
+  urlencoded.append("client_secret", pimClientSecret);
   urlencoded.append("grant_type", "client_credentials");
 
   const requestOptions: RequestInit = {
@@ -53,7 +73,7 @@ const getAuthToken = async () => {
   };
 
   const response = await fetch(
-    `${process.env.PIM_HOST}/authorizationserver/oauth/token`,
+    `${PIM_HOST}/authorizationserver/oauth/token`,
     requestOptions
   );
 
@@ -79,7 +99,7 @@ const fetchData = async (path = "/", accessToken) => {
   };
 
   const response = await fetch(
-    `${process.env.PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`,
+    `${PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`,
     options
   );
 
@@ -118,6 +138,7 @@ async function* getProductsFromMessage(
       access_token
     );
 
+    // eslint-disable-next-line no-console
     console.log(
       "Message page:",
       JSON.stringify({
@@ -128,6 +149,7 @@ async function* getProductsFromMessage(
         totalProductCount: messageResponse.totalProductCount
       })
     );
+    // eslint-disable-next-line no-console
     console.log(
       `[${type}][${itemType}]: [${(messageResponse.products || [])
         .map(({ code }) => code)
@@ -143,6 +165,7 @@ async function* getProductsFromMessage(
 
 export const handleRequest: HttpFunction = async (req, res) => {
   if (req.body) {
+    // eslint-disable-next-line no-console
     console.log(`Received: ${JSON.stringify(req.body, null, 2)}`);
 
     const { message } = req.body;
@@ -151,6 +174,7 @@ export const handleRequest: HttpFunction = async (req, res) => {
 
     // Request data, which may then run over an async generator which
     // callback to push a message per page
+    // eslint-disable-next-line no-console
     console.log("Message data:", message.messageId, messageData);
 
     try {
@@ -178,12 +202,39 @@ export const handleRequest: HttpFunction = async (req, res) => {
           await publishMessage(type, itemType, page.items);
         }
       }
+
+      // Constants for setting up metadata server request
+      // See https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature
+      const metadataServerURL =
+        "http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=";
+      const tokenUrl = metadataServerURL + BUILD_TRIGGER_ENDPOINT;
+
+      // fetch the auth token
+      const tokenResponse = await fetch(tokenUrl, {
+        headers: {
+          "Metadata-Flavor": "Google"
+        }
+      });
+      const token = await tokenResponse.text();
+
+      // call netlify build trigger function - fire and forget
+      // Provide the token in the request to the receiving function
+      fetch(BUILD_TRIGGER_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `bearer ${token}`
+        },
+        body: JSON.stringify({ data: "filler data" })
+      });
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
 
     res.status(200).send("ok");
   } else {
+    // eslint-disable-next-line no-console
     console.log("No data received");
     res.status(404).send("not-ok");
   }

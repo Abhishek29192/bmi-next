@@ -1,6 +1,6 @@
 import React from "react";
-import PostItCard from "../";
 import { render } from "@testing-library/react";
+import PostItCard from "../";
 
 describe("PostItCard component", () => {
   it("renders correctly", () => {

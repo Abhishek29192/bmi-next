@@ -11,6 +11,8 @@ type Context = {
     title: string;
   };
   getMicroCopy: GetMicroCopy;
+  scriptGRecaptchaId: string;
+  scriptGRecaptchaNet: boolean;
 };
 
 export const SiteContext = createContext<Context>({
@@ -19,7 +21,9 @@ export const SiteContext = createContext<Context>({
   homePage: {
     title: ""
   },
-  getMicroCopy: fallbackGetMicroCopy
+  getMicroCopy: fallbackGetMicroCopy,
+  scriptGRecaptchaId: "",
+  scriptGRecaptchaNet: false
 });
 
 export type Data = {
@@ -40,6 +44,9 @@ export type Data = {
   scriptOnetrust?: string | null;
   scriptGTM?: string | null;
   scriptHotJar?: string | null;
+  scriptGOptLoad?: string | null;
+  scriptGRecaptchaId?: string | null;
+  scriptGRecaptchaNet?: boolean | null;
 };
 
 export const query = graphql`
@@ -71,5 +78,8 @@ export const query = graphql`
     scriptOnetrust
     scriptGTM
     scriptHotJar
+    scriptGOptLoad
+    scriptGRecaptchaId
+    scriptGRecaptchaNet
   }
 `;

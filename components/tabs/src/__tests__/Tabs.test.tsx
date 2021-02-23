@@ -1,6 +1,6 @@
 import React from "react";
+import { render, fireEvent } from "@testing-library/react";
 import Tabs from "../";
-import { render } from "@testing-library/react";
 
 describe("Tabs component", () => {
   it("renders correctly", () => {
@@ -16,7 +16,7 @@ describe("Tabs component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
-  it("renders alternate theme correctly", () => {
+  it("renders secondary theme correctly", () => {
     const { container } = render(
       <Tabs theme="secondary">
         <Tabs.TabPanel heading="Tab 1" index={0}>
@@ -28,5 +28,22 @@ describe("Tabs component", () => {
       </Tabs>
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+  it("triggers onChange", () => {
+    const onChange = jest.fn();
+    const { getByText } = render(
+      <Tabs initialValue="tabOne" theme="secondary" onChange={onChange}>
+        <Tabs.TabPanel heading="Tab 1" index={"tabOne"}>
+          Content One
+        </Tabs.TabPanel>
+        <Tabs.TabPanel heading="Tab 2" index={"tabTwo"}>
+          Content Two
+        </Tabs.TabPanel>
+      </Tabs>
+    );
+    const firstTabHeading = getByText("Tab 2");
+    fireEvent.click(firstTabHeading);
+
+    expect(onChange.mock.calls).toMatchSnapshot();
   });
 });

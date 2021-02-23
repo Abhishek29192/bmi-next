@@ -4,6 +4,8 @@ import { graphql } from "gatsby";
 import InputBanner from "@bmi/input-banner";
 import Dialog from "@bmi/dialog";
 import Form, { FormContext } from "@bmi/form";
+import axios from "axios";
+import { devLog } from "../utils/devLog";
 import { SiteContext } from "./Site";
 import FormInputs, { Data as FormInputsData } from "./FormInputs";
 
@@ -20,18 +22,20 @@ export type Data = {
 };
 
 const IntegratedInputBanner = ({ data }: { data?: Data }) => {
-  // NOTE: This is hidden until the newsletter is going to be integrated.
-  return null;
-
   if (!data) {
     return null;
   }
 
   const [email, setEmail] = useState("");
+  const [token, setToken] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
   const [secondDialogOpen, setSecondDialogOpen] = useState(false);
-  const { getMicroCopy } = useContext(SiteContext);
-
+  const {
+    getMicroCopy,
+    scriptGRecaptchaId,
+    scriptGRecaptchaNet,
+    node_locale
+  } = useContext(SiteContext);
   const {
     title,
     description,
@@ -43,17 +47,33 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   } = data;
 
   const handleSubmit = useCallback(
-    (additionalFields) => {
-      // TODO: Integrate with the service Norway wants.
-      // I have no idea on how different markets will implement this. But it's 03:40
-      // and I'm not willing to figure that out now.
-
-      // eslint-disable-next-line no-console
-      console.log({ email, ...additionalFields });
+    async (additionalFields) => {
+      // integrate with Apsis API using GCP function
+      if (!process.env.GATSBY_GCP_APSIS_ENDPOINT) {
+        devLog("APSIS API Endpoint is not configured.");
+        return;
+      }
+      try {
+        const source = axios.CancelToken.source();
+        await axios.post(
+          process.env.GATSBY_GCP_APSIS_ENDPOINT,
+          {
+            email,
+            ...additionalFields
+          },
+          {
+            cancelToken: source.token,
+            headers: { "X-Recaptcha-Token": token }
+          }
+        );
+        setSecondDialogOpen(true);
+      } catch (error) {
+        // TODO : implement DXB-1540, allow user to re-try sign-up
+        devLog(error);
+      }
       setDialogOpen(false);
-      setSecondDialogOpen(true);
     },
-    [email]
+    [email, token]
   );
 
   return (
@@ -108,8 +128,9 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         description={description.description}
         inputLabel={inputLabel}
         inputCallToAction={submitButtonLabel}
-        onSubmit={(email) => {
+        onSubmit={(email, token) => {
           setEmail(email);
+          setToken(token);
 
           if (additionalInputs) {
             setDialogOpen(true);
@@ -119,6 +140,10 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
 
           setSecondDialogOpen(true);
         }}
+        useRecaptcha={true}
+        reCaptchaKey={scriptGRecaptchaId}
+        useRecaptchaNet={scriptGRecaptchaNet}
+        language={node_locale}
       />
     </>
   );

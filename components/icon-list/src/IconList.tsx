@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./IconList.module.scss";
 import Typography from "@bmi/typography";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import classnames from "classnames";
+import styles from "./IconList.module.scss";
 
 type ListItemProps = {
   icon?: React.ReactNode;

@@ -1,14 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
+import TableOfContent from "@bmi/table-of-content";
 import FormSection, {
   Data as FormSectionData
 } from "../components/FormSection";
 import TabsOrAccordionSection, {
   Data as TabsOrAccordionSectionData
 } from "../components/TabsOrAccordionSection";
-import SyndicateSection, {
-  Data as SyndicateSectionData
-} from "./SyndicateSection";
 import CarouselSection, {
   Data as CarouselSectionData
 } from "../components/CarouselSection";
@@ -24,10 +22,15 @@ import PromoSection, {
 import ImageGallerySection, {
   Data as ImageGallerySectionData
 } from "../components/ImageGallerySection";
-import TableOfContent from "@bmi/table-of-content";
 import DocumentDownloadSection, {
   Data as DocumentDownloadSectionData
 } from "../components/DocumentDownloadSection";
+import ServiceLocatorSection, {
+  Data as ServiceLocatorSectionData
+} from "../components/ServiceLocatorSection";
+import SyndicateSection, {
+  Data as SyndicateSectionData
+} from "./SyndicateSection";
 
 export type Data = (
   | FormSectionData
@@ -39,6 +42,7 @@ export type Data = (
   | PromoSectionData
   | ImageGallerySectionData
   | DocumentDownloadSectionData
+  | ServiceLocatorSectionData
 )[];
 
 const sectionsMap = {
@@ -50,7 +54,8 @@ const sectionsMap = {
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulPromo: PromoSection,
   ContentfulImageGallerySection: ImageGallerySection,
-  ContentfulDocumentDownloadSection: DocumentDownloadSection
+  ContentfulDocumentDownloadSection: DocumentDownloadSection,
+  ContentfulServiceLocatorSection: ServiceLocatorSection
 };
 
 // TODO: This should be exported by the card collection.
@@ -110,5 +115,6 @@ export const query = graphql`
     ...PromoSectionFragment
     ...ImageGallerySectionFragment
     ...DocumentDownloadSectionFragment
+    ...ServiceLocatorSectionFragment
   }
 `;

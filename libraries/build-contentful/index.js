@@ -1,23 +1,10 @@
 #!/usr/bin/env node
 "use strict";
 
-const { spawnSync } = require("child_process");
+const { spawnSync, execSync } = require("child_process");
 const contentful = require("contentful-management");
 const { compareSemVer, isValidSemVer, parseSemVer } = require("semver-parser");
-const { execSync } = require("child_process");
 const ora = require("ora");
-
-const getCurrentCommitTag = () => {
-  try {
-    return execSync(
-      `git fetch origin --tags && git describe --tags --abbrev=0 --exact-match`
-    )
-      .toString()
-      .trim();
-  } catch (err) {
-    return null;
-  }
-};
 
 const { MANAGEMENT_ACCESS_TOKEN, SPACE_ID } = process.env;
 
@@ -29,20 +16,59 @@ const CONTENTFUL_PRODUCTION_BRANCH = "master";
 const CONTENTFUL_PRE_PRODUCTION_BRANCH = "pre-production";
 const CONTENTFUL_DEV_MAIN_BRANCH = "development";
 
-const ignoredHooks = ["Contentful integration", "Firestore hook"];
+const allowedHooks = ["Gitlab Tag Trigger"];
+
+const getCurrentCommitTag = () => {
+  console.log("Trying to get the tag from the commit information.");
+
+  try {
+    const tag = execSync(`git describe --tags --abbrev=0 --exact-match`)
+      .toString()
+      .trim();
+
+    console.log(`Found tag ${tag}`);
+    return tag;
+  } catch (err) {
+    return null;
+  }
+};
+
+const getTagFromHookBody = (body) => {
+  console.log("Trying to get the tag from the hook body.");
+
+  if (!body) {
+    return null;
+  }
+
+  const { event_name, ref } = JSON.parse(body);
+
+  if (event_name !== "tag_push") {
+    return null;
+  }
+
+  const tag = ref.replace("refs/tags/", "");
+
+  return tag;
+};
 
 function parseCIEnvironments() {
-  let { BRANCH, INCOMING_HOOK_TITLE } = process.env;
+  let { BRANCH, INCOMING_HOOK_TITLE, INCOMING_HOOK_BODY } = process.env;
 
   const targetBranch = BRANCH;
   // TODO: Ideally we could base it on git events.
   const shouldSkipBuild =
-    !!INCOMING_HOOK_TITLE && INCOMING_HOOK_TITLE.includes(ignoredHooks);
+    !!INCOMING_HOOK_TITLE && !INCOMING_HOOK_TITLE.includes(allowedHooks);
+
+  const tag = getTagFromHookBody(INCOMING_HOOK_BODY) || getCurrentCommitTag();
+
+  if (tag) {
+    console.log(`Found tag ${tag}`);
+  }
 
   return {
     shouldSkipBuild,
     targetBranch,
-    tag: getCurrentCommitTag()
+    tag
   };
 }
 
@@ -335,9 +361,9 @@ async function main() {
 
   if (shouldSkipBuild) {
     console.log(
-      `Builds triggered by ${ignoredHooks.join(
+      `Only builds triggered by ${allowedHooks.join(
         ", "
-      )} are ignored. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
+      )} are allowed. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
     );
 
     return;

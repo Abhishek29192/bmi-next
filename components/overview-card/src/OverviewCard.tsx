@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
-import styles from "./OverviewCard.module.scss";
 import Typography from "@bmi/typography";
+import styles from "./OverviewCard.module.scss";
 
 type Props = {
   title: React.ReactNode;

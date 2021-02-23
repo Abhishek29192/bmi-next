@@ -1,8 +1,8 @@
 import React from "react";
-import ProductDetailsCard from "../";
 import { render } from "@testing-library/react";
 import mockProduct from "mock-image.jpg";
 import mockLogo from "mock-icon.svg";
+import ProductDetailsCard from "../";
 
 describe("ProductDetailsCard component", () => {
   it("renders correctly with optional prop", () => {

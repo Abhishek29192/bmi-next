@@ -13,7 +13,8 @@ const availableTypenames = [
   "ContentfulContactUsPage",
   "ContentfulTeamPage",
   "ContentfulProductListerPage",
-  "ContentfulDocumentLibraryPage"
+  "ContentfulDocumentLibraryPage",
+  "ContentfulBrandLandingPage"
 ];
 
 type Props = {
@@ -66,7 +67,7 @@ const InlineHyperlink = ({ node, children }: Props) => {
     <AnchorLink
       action={{
         model: "routerLink",
-        to: `/${countryCode}/${fields.slug}`.replace(/\/+/gi, "/"),
+        to: `/${countryCode}/${fields.path}`.replace(/\/+/gi, "/"),
         linkComponent: Link
       }}
     >
@@ -82,12 +83,12 @@ export const query = graphql`
     ... on ContentfulHomePage {
       __typename
       contentful_id
-      slug
+      path
     }
     ... on ContentfulPage {
       __typename
       contentful_id
-      slug
+      path
     }
     ... on ContentfulLink {
       __typename

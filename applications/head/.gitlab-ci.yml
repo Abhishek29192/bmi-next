@@ -1,0 +1,78 @@
+image: node:12
+
+test_head:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+  needs: [install]
+  before_script:
+    - '[[ "$(scripts/ignore_build.sh applications/head components libraries jest)" == "true" ]] && exit 0 || echo "Running job"'
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn workspace @bmi/head coverage:jest
+
+build_head:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+  needs: [install]
+  before_script:
+    - '[[ "$(scripts/ignore_build.sh applications/head components libraries)" == "true" ]] && exit 0 || echo "Running job"'
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn workspace @bmi/head build
+
+# https://www.zaproxy.org/docs/docker/baseline-scan/
+# Triggered by Netlify when deploy is complete
+baseline_scan_head:
+  image: owasp/zap2docker-stable:latest
+  stage: dynamic_security
+  rules:
+    - if: '$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == "head"'
+  script:
+    - zap-baseline.py -t ${SITE_URL_FROM_NETLIFY} || exit 0
+
+# https://www.zaproxy.org/docs/docker/full-scan/
+# Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
+# SAST_DISABLED should be set to true
+# When happy with how this works, change to use zap-full-scan.py
+full_scan_head:
+  stage: dynamic_security
+  rules:
+    - if: '$WHICH_SCHEDULE == "full_scan_head"'
+  image: owasp/zap2docker-stable:latest
+  script:
+    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
+
+# https://github.com/GoogleChrome/lighthouse-ci
+# Lighthouse scan on netlify build
+lighthouseci_build_scan_head:
+  stage: lighthouse_scan
+  rules:
+    - if: '$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == "head"'
+  image: cypress/browsers:node14.15.0-chrome86-ff82
+  script:
+    - cd applications/head
+    - yarn lhci autorun --collect.url='$SITE_URL_FROM_NETLIFY' || echo "LHCI failed!"
+  artifacts:
+    paths:
+      - applications/head/.lighthouseci
+
+# https://github.com/GoogleChrome/lighthouse-ci
+# Should be set as a scheduled job for cron 0 2 * * 0 (2am every sunday) for QA
+# Additional scheduled jobs for Pre-Prod and Prod at 3am and 4am
+# SAST_DISABLED should be set to true
+lighthouseci_scan_head:
+  stage: lighthouse_scan
+  variables:
+    NETLIFY_PWD: "$LIGHTHOUSE_PWD"
+  rules:
+    - if: '$WHICH_SCHEDULE == "lighthouseci_scan_head"'
+  image: cypress/browsers:node14.15.0-chrome86-ff82
+  script:
+    - cd applications/head
+    - sed -i 's/"http:\/\/localhost:8000\/no"/'$LIGHTHOUSE_URLS'/g' lighthouserc.js
+    - yarn lhci autorun --collect.settings.pwd=$NETLIFY_PWD
+  artifacts:
+    paths:
+      - applications/head/.lighthouseci

@@ -1,80 +1,124 @@
 image: node:12
 
+include:
+  - template: Security/SAST.gitlab-ci.yml
+  - local: applications/frc-website/.gitlab-ci.yml
+  - local: applications/head/.gitlab-ci.yml
+  - local: applications/intouch-frontend/.gitlab-ci.yml
+  - local: applications/intouch-api/.gitlab-ci.yml
+  - local: components/.gitlab-ci.yml
+  - local: functions/es-pim-products-ingest/.gitlab-ci.yml
+  - local: functions/gcp-apsis-integration/.gitlab-ci.yml
+  - local: functions/gcp-download-zip/.gitlab-ci.yml
+  - local: functions/gcp-firestore-writer/.gitlab-ci.yml
+  - local: functions/gcp-form-submit/.gitlab-ci.yml
+  - local: functions/gcp-pim-full-fetch/.gitlab-ci.yml
+  - local: functions/gcp-pim-message-handler/.gitlab-ci.yml
+  - local: functions/gcp-upload-file/.gitlab-ci.yml
+
+.sast-analyzer:
+  allow_failure: false
+
+eslint-sast:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+
+nodejs-scan-sast:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+
+cache:
+  key:
+    files:
+      - yarn.lock
+  policy: pull
+  untracked: true
+  paths:
+    - "**/node_modules"
+    - "~/.yarn"
+
 stages:
   - install
+  - audit
   - build
-  - check
+  - test
   - release
-  # - deploy
+  - package
+  - deploy
+  - dynamic_security
+  - lighthouse_scan
 
 install:
   stage: install
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_TAG"
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
-    - yarn install
+    - yarn install --frozen-lockfile
   cache:
-    key: ${CI_COMMIT_REF_SLUG}
+    key:
+      files:
+        - yarn.lock
     untracked: true
-  artifacts:
-    untracked: true
-    expire_in: 30 mins
-
-build:
-  stage: build
-  script:
-    - yarn run build:head
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
     paths:
-      - node_modules/
-      - applications/head/node_modules/
+      - "**/node_modules"
+      - "~/.yarn"
+    policy: pull-push
 
-build_frc_website:
-  stage: build
+#  https://github.com/pivotal/LicenseFinder
+# Remove report arg when we want this job to fail
+# Remove installing node 12 when https://github.com/pivotal/LicenseFinder/issues/812 is resolved
+license_finder:
+  stage: audit
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+  needs: [install]
+  image: licensefinder/license_finder:latest
+  before_script:
+    - source ~/.bash_profile
+    - yarn config set cache-folder ~/.yarn
+    - curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get -y install nodejs
   script:
-    - yarn run build:frc-website
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-      - node_modules/
-      - applications/frc-website/node_modules/
-      - applications/frc-website/.cache/
-      - applications/frc-website/public/
-  only:
-    changes:
-      - applications/frc-website/**/*
-
-coverage_jest:
-  stage: check
-  script:
-    - yarn && yarn run coverage:jest
-  dependencies:
-    - install
+    - license_finder action_items --format html > license_finder_output.html
   artifacts:
     paths:
-      - coverage
+      - license_finder_output.html
+    when: always
 
-# coverage_ts:
-#   stage: check
-#   script:
-#     - yarn run coverage:ts
-#   dependencies:
-#     - install
-#   artifacts:
-#     paths:
-#       - coverage-ts
+eslint:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+  script:
+    - yarn eslint "**/*.{js,ts,tsx}"
 
 release:
   image: node:13
   stage: release
-  dependencies:
-    - install
-    - build
-    - build_frc_website
-    - coverage_jest
-    # - coverage_ts
-  only:
-    refs:
-      - production
-      - pre-production
+  rules:
+    - if: "$CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production'"
+  before_script:
+    - yarn config set cache-folder ~/.yarn
   script:
     - npx -p semantic-release@17.3.6 semantic-release
+
+# Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
+dependabot_gitlab:
+  image:
+    name: docker.io/andrcuns/dependabot-gitlab:latest
+    entrypoint: [""]
+  rules:
+    - if: '$WHICH_SCHEDULE == "dependabot_gitlab"'
+  variables:
+    GIT_STRATEGY: none
+    PACKAGE_MANAGER: npm
+    RAILS_ENV: production
+    SETTINGS__STANDALONE: "true"
+  before_script:
+    - cd /home/dependabot
+  script:
+    - bundle exec rake "dependabot:update[$PROJECT_PATH,$PACKAGE_MANAGER,$DIRECTORY]"

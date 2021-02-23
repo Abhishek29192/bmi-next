@@ -8,11 +8,11 @@ Monorepo for BMI-DXB website that includes a component library and an API gatewa
 
 ### Prerequities
 
-| Dependency | Version |
-| ---------- | ------- |
-| Node       | >= 10   |
-| Git        | >= 2.18 |
-| Yarn       | >= 1.20 |
+| Dependency | Version    |
+| ---------- | ---------- |
+| Node       | >= 10 < 15 |
+| Git        | >= 2.18    |
+| Yarn       | >= 1.20    |
 
 ### Install
 
@@ -310,4 +310,22 @@ Which will generate a preview link. To then promote it to production, run:
 
 ```shell
 $ netlify deploy --prod
+```
+
+### Netlify Functions
+
+#### Create function
+
+To create a new function, run the below command. To be triggered by [specific events](https://docs.netlify.com/functions/trigger-on-events), the function needs to be named after the event.
+
+```bash
+cd path/to/functions
+netlify functions:create --name [function name]
+```
+
+#### Run locally
+
+```bash
+netlify dev # to start the dev server to host the function
+netlify functions:invoke --functions [path/to/functions] [function name] --payload '{}'
 ```

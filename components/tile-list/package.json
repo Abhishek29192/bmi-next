@@ -2,6 +2,7 @@
   "name": "@bmi/tile-list",
   "private": true,
   "version": "0.0.0",
+  "license": "BMI-DXB",
   "dependencies": {
     "@bmi/button": "0.0.0",
     "@bmi/card": "0.0.0",

@@ -16,7 +16,7 @@ styleguide/
 coverage/
 coverage-ts/
 
-# OS
+# OS
 .DS_Store
 
 # Dotenv files
@@ -25,3 +25,11 @@ coverage-ts/
 
 # Netlify build data
 .netlify
+
+# Contentful files
+contentful-import-error-log-*
+dump.json
+
+builds/
+
+license_finder_output.html

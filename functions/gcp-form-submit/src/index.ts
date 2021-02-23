@@ -1,34 +1,88 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import sgMail from "@sendgrid/mail";
+import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
-import { config } from "dotenv";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import { Environment } from "contentful-management/dist/typings/entities/environment";
+import fetch from "node-fetch";
 
-config({
-  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
-});
+const {
+  CONTENTFUL_ENVIRONMENT,
+  CONTENTFUL_SPACE_ID,
+  SENDGRID_API_KEY_SECRET,
+  SENDGRID_FROM_EMAIL,
+  CONTENTFUL_MANAGEMENT_TOKEN_SECRET,
+  SECRET_MAN_GCP_PROJECT_NAME,
+  RECAPTCHA_SECRET_KEY,
+  RECAPTCHA_MINIMUM_SCORE
+} = process.env;
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+const recaptchaTokenHeader = "X-Recaptcha-Token";
+
+let contentfulEnvironmentCache: Environment;
+let sendGridClientCache: MailService;
+let recaptchaSecretKeyCache: string;
+const secretManagerClient = new SecretManagerServiceClient();
+
+const getContentfulEnvironment = async () => {
+  if (!contentfulEnvironmentCache) {
+    const managementTokenSecret = await secretManagerClient.accessSecretVersion(
+      {
+        name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${CONTENTFUL_MANAGEMENT_TOKEN_SECRET}/versions/latest`
+      }
+    );
+    const managementToken = managementTokenSecret[0].payload.data.toString();
+    const client = createClient({ accessToken: managementToken });
+    const space = await client.getSpace(CONTENTFUL_SPACE_ID);
+    contentfulEnvironmentCache = await space.getEnvironment(
+      CONTENTFUL_ENVIRONMENT
+    );
+  }
+  return contentfulEnvironmentCache;
+};
+
+const getSendGridClient = async () => {
+  if (!sendGridClientCache) {
+    const apiKeySecret = await secretManagerClient.accessSecretVersion({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${SENDGRID_API_KEY_SECRET}/versions/latest`
+    });
+    const apiKey = apiKeySecret[0].payload.data.toString();
+    sendGridClientCache = new MailService();
+    sendGridClientCache.setApiKey(apiKey);
+  }
+  return sendGridClientCache;
+};
+
+const getRecaptchaSecretKey = async () => {
+  if (!recaptchaSecretKeyCache) {
+    const recaptchaSecretKey = await secretManagerClient.accessSecretVersion({
+      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+
+    recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
+  }
+  return recaptchaSecretKeyCache;
+};
 
 export const submit: HttpFunction = async (request, response) => {
-  const {
-    CONTENTFUL_ENVIRONMENT,
-    CONTENTFUL_SPACE_ID,
-    CONTENTFUL_MANAGEMENT_ACCESS_TOKEN: accessToken,
-    SENDGRID_API_KEY,
-    SENDGRID_FROM_EMAIL
-  } = process.env;
-
   response.set("Access-Control-Allow-Origin", "*");
 
   if (request.method === "OPTIONS") {
     response.set("Access-Control-Allow-Methods", "POST");
-    response.set("Access-Control-Allow-Headers", "Content-Type");
+    response.set("Access-Control-Allow-Headers", [
+      "Content-Type",
+      recaptchaTokenHeader
+    ]);
     response.set("Access-Control-Max-Age", "3600");
 
     return response.status(204).send("");
   } else {
     try {
-      const client = createClient({ accessToken });
-      const space = await client.getSpace(CONTENTFUL_SPACE_ID);
-      const environment = await space.getEnvironment(CONTENTFUL_ENVIRONMENT);
+      if (!request.body) {
+        // eslint-disable-next-line no-console
+        console.error("Invalid request.");
+        return response.status(400).send(Error("Invalid request."));
+      }
+
       const {
         body: {
           locale,
@@ -38,8 +92,46 @@ export const submit: HttpFunction = async (request, response) => {
       } = request;
 
       if (!fields || !Object.entries(fields).length) {
-        throw Error("Fields are empty");
+        return response.status(400).send(Error("Fields are empty."));
       }
+
+      const recaptchaToken =
+        // eslint-disable-next-line security/detect-object-injection
+        request.headers[recaptchaTokenHeader] ||
+        request.headers[recaptchaTokenHeader.toLowerCase()];
+      if (!recaptchaToken) {
+        // eslint-disable-next-line no-console
+        console.error("Token not provided.");
+        return response.status(400).send(Error("Token not provided."));
+      }
+
+      try {
+        const recaptchaResponse = await fetch(
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getRecaptchaSecretKey()}&response=${recaptchaToken}`,
+          { method: "POST" }
+        );
+        if (!recaptchaResponse.ok) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Recaptcha check failed with status ${recaptchaResponse.status}.`
+          );
+          return response.status(400).send(Error("Recaptcha check failed."));
+        }
+        const json = await recaptchaResponse.json();
+        if (!json.success || json.score < minimumScore) {
+          // eslint-disable-next-line no-console
+          console.error(
+            `Recaptcha check failed with error ${JSON.stringify(json)}.`
+          );
+          return response.status(400).send(Error("Recaptcha check failed."));
+        }
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error(`Recaptcha request failed with error ${error}.`);
+        return response.status(500).send(Error("Recaptcha request failed."));
+      }
+
+      const environment = await getContentfulEnvironment();
 
       const assets: Array<any> =
         files && files.length
@@ -70,15 +162,14 @@ export const submit: HttpFunction = async (request, response) => {
         uploadedAssets
       };
 
-      sgMail.setApiKey(SENDGRID_API_KEY);
-
       const html = `<ul>${Object.entries(formResponse)
         .map(
           ([key, value]) => `<li><b>${key}</b>: ${JSON.stringify(value)}</li>`
         )
         .join("")}</ul>`;
 
-      const email = await sgMail.send({
+      const sendgridClient = await getSendGridClient();
+      await sendgridClient.send({
         to: recipients,
         from: SENDGRID_FROM_EMAIL,
         subject: "Website form submission",
@@ -86,9 +177,11 @@ export const submit: HttpFunction = async (request, response) => {
         html
       });
 
-      return response.send({ assets, email });
+      return response.sendStatus(200);
     } catch (error) {
-      return response.status(500).send(error);
+      // eslint-disable-next-line no-console
+      console.error(error);
+      return response.sendStatus(500);
     }
   }
 };

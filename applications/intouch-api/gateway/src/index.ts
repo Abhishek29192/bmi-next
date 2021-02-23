@@ -1,5 +1,6 @@
 import { ApolloServer } from "apollo-server";
 import dotenv from "dotenv";
+
 dotenv.config();
 import gateway from "./gateway";
 

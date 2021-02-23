@@ -1,19 +1,21 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Hero, { HeroItem } from "@bmi/hero";
+import Section from "@bmi/section";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
-import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
 // import Search from "@bmi/search";
-import Section from "@bmi/section";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
 import { getCTA } from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
-import { iconMap } from "@bmi/logo";
-import Breadcrumbs from "../components/Breadcrumbs";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
+import BrandLogo from "../components/BrandLogo";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
@@ -21,6 +23,7 @@ type BrandLandingPageData = PageInfoData &
     slides: (SlideData | PageInfoData)[];
     overlapCards: OverlapCardData | null;
     sections: SectionsData;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -48,20 +51,20 @@ const BrandLandingPage = ({ data }: Props) => {
   const {
     title,
     description,
-    slug,
     brandLogo,
     featuredImage,
     slides,
     overlapCards,
     sections,
-    inputBanner
+    inputBanner,
+    breadcrumbs,
+    seo
   } = data.contentfulBrandLandingPage;
   const pageData: PageData = {
-    slug: null,
-    inputBanner
+    breadcrumbs,
+    inputBanner,
+    seo
   };
-  const BrandLogo = iconMap[brandLogo];
-  const breadcrumbs = <Breadcrumbs title={title} slug={slug} isDarkThemed />;
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
@@ -70,7 +73,7 @@ const BrandLandingPage = ({ data }: Props) => {
           // const { getMicroCopy } = context;
           const heroItems = getHeroItemsWithContext(context, slides);
           const firstSlide: HeroItem = {
-            title: <BrandLogo style={{ height: "90px" }} />,
+            title: <BrandLogo brandName={brandLogo} />,
             children: description?.description,
             imageSource: featuredImage?.resize.src,
             hasUnderline: false
@@ -79,7 +82,7 @@ const BrandLandingPage = ({ data }: Props) => {
           return (
             <Hero
               level={0}
-              breadcrumbs={breadcrumbs}
+              breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
             >
@@ -96,11 +99,7 @@ const BrandLandingPage = ({ data }: Props) => {
       {overlapCards && <OverlapCards data={overlapCards} />}
       {sections && <Sections data={sections} />}
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          title={title}
-          slug={slug}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );
@@ -126,10 +125,12 @@ export const pageQuery = graphql`
       sections {
         ...SectionsFragment
       }
-      inputBanner {
-        ...InputBannerFragment
+      parentPage {
+        ...PageInfoFragment
       }
       ...PageInfoFragment
+      ...PageFragment
+      ...BreadcrumbsFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

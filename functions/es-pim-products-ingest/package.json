@@ -2,6 +2,7 @@
   "name": "@bmi/es-pim-products-ingest",
   "private": true,
   "version": "0.0.0",
+  "license": "BMI-DXB",
   "src": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,6 +15,7 @@
   "dependencies": {
     "@elastic/elasticsearch": "^7.8.0",
     "@google-cloud/pubsub": "^0.18.0",
+    "@google-cloud/secret-manager": "^3.4.0",
     "dotenv": "^8.2.0",
     "lodash": "^4.17.20"
   }

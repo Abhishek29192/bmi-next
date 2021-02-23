@@ -1,8 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Breadcrumbs, { findPath } from "../components/Breadcrumbs";
-import Page, { Data as PageData } from "../components/Page";
 import Hero, { HeroItem } from "@bmi/hero";
+import Section from "@bmi/section";
+import SpotlightHero from "@bmi/spotlight-hero";
+import TableOfContent from "@bmi/table-of-content";
+import AnchorLink from "@bmi/anchor-link";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
+import Page, { Data as PageData } from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as PageInfoData } from "../components/PageInfo";
@@ -10,8 +16,6 @@ import NextBestActions, {
   Data as NextBestActionsData
 } from "../components/NextBestActions";
 import ExploreBar, { Data as ExploreBarData } from "../components/ExploreBar";
-import Section from "@bmi/section";
-import SpotlightHero from "@bmi/spotlight-hero";
 import LeadBlockSection, {
   Data as LeadBlockSectionData
 } from "../components/LeadBlockSection";
@@ -21,8 +25,6 @@ import LinkColumnsSection, {
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
-import TableOfContent from "@bmi/table-of-content";
-import AnchorLink from "@bmi/anchor-link";
 
 type Data = PageInfoData &
   PageData & {
@@ -33,7 +35,15 @@ type Data = PageInfoData &
     nextBestActions: NextBestActionsData | null;
     exploreBar: ExploreBarData | null;
     linkColumns: LinkColumnsSectionData | null;
-    heroType: "Hierarchy" | "Spotlight" | null;
+    heroType:
+      | "Hierarchy"
+      | "Spotlight"
+      | "Level 1"
+      | "Level 2"
+      | "Level 3"
+      | null;
+    parentPage: PageInfoData | null;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -54,37 +64,46 @@ const SimplePage = ({ data }: Props) => {
     nextBestActions,
     exploreBar,
     linkColumns,
-    heroType
+    heroType,
+    breadcrumbs,
+    seo
   } = data.contentfulSimplePage;
   const heroProps: HeroItem = {
     title,
     children: subtitle,
     imageSource: featuredImage?.resize.src
   };
-  const heroLevel = (Math.min(
-    findPath(data.contentfulSimplePage.slug, data.contentfulSite.menuNavigation)
-      .length + 1,
-    3
-  ) || 1) as 1 | 2 | 3;
-  const breadcrumbs = (
+  let heroLevel;
+  if (heroType == "Spotlight" || heroType == "Hierarchy") {
+    heroLevel = (Math.min(breadcrumbs.filter(({ slug }) => slug).length, 3) ||
+      1) as 1 | 2 | 3;
+  } else {
+    const levelMap = {
+      "Level 1": 1,
+      "Level 2": 2,
+      "Level 3": 3
+    };
+    heroLevel = levelMap[heroType] as 1 | 2 | 3;
+  }
+
+  const breadcrumbsNode = (
     <Breadcrumbs
-      title={title}
-      slug={data.contentfulSimplePage.slug}
-      menuNavigation={data.contentfulSite.menuNavigation}
+      data={breadcrumbs}
       isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
     />
   );
   const pageData: PageData = {
-    slug: data.contentfulSimplePage.slug,
-    inputBanner: data.contentfulSimplePage.inputBanner
+    breadcrumbs,
+    inputBanner: data.contentfulSimplePage.inputBanner,
+    seo
   };
 
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       {heroType === "Spotlight" ? (
-        <SpotlightHero {...heroProps} breadcrumbs={breadcrumbs} />
+        <SpotlightHero {...heroProps} breadcrumbs={breadcrumbsNode} />
       ) : (
-        <Hero level={heroLevel} {...heroProps} breadcrumbs={breadcrumbs} />
+        <Hero level={heroLevel} {...heroProps} breadcrumbs={breadcrumbsNode} />
       )}
       <TableOfContent
         renderLink={(sectionId, title) => (
@@ -110,11 +129,7 @@ const SimplePage = ({ data }: Props) => {
           </Section>
         )}
         <Section backgroundColor="alabaster" isSlim>
-          <Breadcrumbs
-            title={title}
-            slug={data.contentfulSimplePage.slug}
-            menuNavigation={data.contentfulSite.menuNavigation}
-          />
+          <Breadcrumbs data={breadcrumbs} />
         </Section>
       </TableOfContent>
     </Page>
@@ -127,6 +142,8 @@ export const pageQuery = graphql`
   query SimplePageById($pageId: String!, $siteId: String!) {
     contentfulSimplePage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      ...PageFragment
+      ...BreadcrumbsFragment
       heroType
       leadBlock {
         ...LeadBlockSectionFragment
@@ -146,7 +163,6 @@ export const pageQuery = graphql`
       linkColumns {
         ...LinkColumnsSectionFragment
       }
-      ...PageFragment
     }
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment

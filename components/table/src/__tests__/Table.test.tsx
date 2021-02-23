@@ -1,7 +1,7 @@
 import React from "react";
-import Table from "../";
 import { render } from "@testing-library/react";
 import * as all from "@bmi/use-dimensions";
+import Table from "../";
 
 function getDimensionHookFn(
   width

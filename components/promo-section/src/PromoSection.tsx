@@ -2,8 +2,8 @@ import React from "react";
 import Grid, { GridSize } from "@bmi/grid";
 import Typography from "@bmi/typography";
 import classnames from "classnames";
-import styles from "./PromoSection.module.scss";
 import Section from "@bmi/section";
+import styles from "./PromoSection.module.scss";
 
 type Props = {
   title?: React.ReactNode;

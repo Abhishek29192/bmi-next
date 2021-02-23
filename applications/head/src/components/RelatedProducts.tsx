@@ -1,7 +1,13 @@
 import React, { useContext, useMemo, useState } from "react";
 import Tabs from "@bmi/tabs";
 import { Link, graphql } from "gatsby";
-import { Product, VariantOption } from "../templates/product-details-page"; // Hmmmmmm
+import { Add as AddIcon } from "@material-ui/icons";
+import Grid from "@bmi/grid";
+import OverviewCard from "@bmi/overview-card";
+import AnchorLink from "@bmi/anchor-link";
+import Button from "@bmi/button";
+import Section from "@bmi/section";
+import { iconMap } from "../components/Icon";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -10,13 +16,7 @@ import {
   groupProductsByCategory,
   findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
-import { Add as AddIcon } from "@material-ui/icons";
-import { iconMap } from "../components/Icon";
-import Grid from "@bmi/grid";
-import OverviewCard from "@bmi/overview-card";
-import AnchorLink from "@bmi/anchor-link";
-import Button from "@bmi/button";
-import Section from "@bmi/section";
+import { Product, VariantOption } from "../templates/product-details-page"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
 import { SiteContext } from "./Site";
 
@@ -124,15 +124,22 @@ const ProductListing = ({
                     action={{
                       model: "routerLink",
                       linkComponent: Link,
-                      to: getProductUrl(countryCode, variant.code)
+                      to: getProductUrl(countryCode, variant.path)
                     }}
                   >
                     {getMicroCopy("pdp.relatedProducts.viewDetails")}
                   </AnchorLink>
                 }
               >
-                {getMicroCopy("pdp.nobb.label")}:{" "}
-                <b>{variant.externalProductCode || "n/a"}</b>
+                {variant.externalProductCode !== null &&
+                variant.externalProductCode !== "" ? (
+                  <>
+                    {getMicroCopy("pdp.nobb.label")}:{" "}
+                    <b>{variant.externalProductCode}</b>
+                  </>
+                ) : (
+                  ""
+                )}
               </OverviewCard>
             </Grid>
           );
@@ -243,6 +250,7 @@ export const query = graphql`
       parentCategoryCode
     }
     variantOptions {
+      path
       code
       externalProductCode
       shortDescription

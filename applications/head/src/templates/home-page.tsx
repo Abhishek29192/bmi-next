@@ -1,11 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Search from "@bmi/search";
+import Hero, { HeroItem } from "@bmi/hero";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as InputBannerData } from "../components/InputBanner";
 import { Data as SlideData } from "../components/Promo";
-import Hero, { HeroItem } from "@bmi/hero";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
   Data as OverlapCardData
@@ -21,8 +20,7 @@ type HomepageData = {
   overlapCards: OverlapCardData;
   brands: BrandData[];
   sections: SectionsData | null;
-  inputBanner: InputBannerData | null;
-};
+} & PageData;
 
 type Props = {
   data: {
@@ -53,11 +51,13 @@ const HomePage = ({ data }: Props) => {
     overlapCards,
     brands,
     sections,
-    inputBanner
+    inputBanner,
+    seo
   } = data.contentfulHomePage;
   const pageData: PageData = {
-    slug: null,
-    inputBanner
+    breadcrumbs: null,
+    inputBanner,
+    seo
   };
 
   return (
@@ -90,6 +90,8 @@ export const pageQuery = graphql`
   query HomePageById($pageId: String!, $siteId: String!) {
     contentfulHomePage(id: { eq: $pageId }) {
       __typename
+      # Only fetching slug to get it in the JSON file so it's indexed
+      slug
       title
       slides {
         ... on ContentfulPromoOrPage {
@@ -108,6 +110,9 @@ export const pageQuery = graphql`
       }
       inputBanner {
         ...InputBannerFragment
+      }
+      seo {
+        ...SEOContentFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {

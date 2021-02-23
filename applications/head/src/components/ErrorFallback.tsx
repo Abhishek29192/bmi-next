@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "@bmi/button";
 import Typography from "@bmi/typography";
-import { Data as PromoData } from "./Promo";
 import PromoSection from "@bmi/promo-section";
+import { Data as PromoData } from "./Promo";
 import { getClickableActionFromUrl } from "./Link";
 
 const ErrorFallback = ({

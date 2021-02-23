@@ -8,12 +8,12 @@ import VerticalRoller, {
 } from "@bmi/vertical-roller";
 import Section from "@bmi/section";
 import Button from "@bmi/button";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Data as PromoData } from "../components/Promo";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { LinkData, getCTA, getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import styles from "./styles/CarouselSection.module.scss";
 
 type Slide = PromoData | PageInfoData;

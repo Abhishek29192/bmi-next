@@ -2,15 +2,24 @@
   "name": "@bmi/intouch-frontend",
   "version": "0.0.0",
   "private": true,
+  "license": "BMI-DXB",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "yarn lint --fix",
+    "coverage:jest": "jest --coverage"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.7",
     "@bmi/button": "0.0.0",
     "@bmi/typography": "0.0.0",
+    "@bmi/card": "0.0.0",
+    "@bmi/company-details": "0.0.0",
     "next": "10.0.5",
+    "next-fonts": "^1.5.1",
+    "next-i18next": "8.0.0-beta.4",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   }

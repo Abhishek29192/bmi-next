@@ -3,7 +3,6 @@ import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import Bullets from "@bmi/bullets";
 import AnchorLink from "@bmi/anchor-link";
-import Section from "./_Section";
 import classnames from "classnames";
 import Divider from "@material-ui/core/Divider";
 import Button from "@bmi/button";
@@ -18,6 +17,7 @@ import {
   TableRow,
   TableCell
 } from "@material-ui/core";
+import Section from "./_Section";
 import styles from "./FlatRoofCalculator.module.scss";
 import InputTable from "./_InputTable";
 import { fieldLabels } from "./FlatRoofCalculator";

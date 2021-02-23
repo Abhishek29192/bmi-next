@@ -3,7 +3,7 @@
 const PRODUCTION_BRANCH = "production";
 const PRE_PRODUCTION_BRANCH = "pre-production";
 
-const recognisedHooks = ["Contentful integration", "Firestore hook"];
+const recognisedHooks = ["Gitlab Tag Trigger"];
 
 // NOTE: https://github.com/semver/semver/issues/232#issuecomment-405596809
 const semVerRegex = /^(?<prefix>v?)(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)\.(?<patch>0|[1-9]\d*)(?:-(?<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/;
@@ -17,9 +17,11 @@ module.exports = {
       DXB_FORCE_NETLIFY_BUILD
     } = process.env;
 
-    console.log(`Build triggered with the hook: ${INCOMING_HOOK_TITLE}`);
+    console.log(
+      `Build triggered with the hook: ${INCOMING_HOOK_TITLE || "unknown"}`
+    );
 
-    if (recognisedHooks.includes(INCOMING_HOOK_TITLE)) {
+    if (!recognisedHooks.includes(INCOMING_HOOK_TITLE)) {
       return;
     }
 

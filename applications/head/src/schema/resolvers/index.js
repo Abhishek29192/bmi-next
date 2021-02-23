@@ -1,22 +1,31 @@
 "use strict";
 
-const documents = require("./documents");
-const pimDocuments = require("./pim-documents");
-const brands = require("./brands");
+const ContentfulDocumentLibraryPage = require("./ContentfulDocumentLibraryPage");
+const {
+  ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
+  ContentfulSimplePage,
+  ContentfulContactUsPage,
+  ContentfulTeamPage,
+  ContentfulProductListerPage,
+  ContentfulBrandLandingPage
+} = require("./ContentfulPage");
+const ContentfulHomePage = require("./ContentfulHomePage");
+const ContentfulServiceLocatorSection = require("./ContentfulServiceLocatorSection");
+const Products = require("./Products");
+const Query = require("./Query");
 
 module.exports = {
   ContentfulDocumentLibraryPage: {
-    documents
+    ...ContentfulDocumentLibraryPage,
+    ...ContentfulDocumentLibraryPageCommon
   },
-  Products: {
-    documents: pimDocuments
-  },
-  ContentfulHomePage: {
-    slug: {
-      resolve() {
-        return "/";
-      }
-    },
-    brands
-  }
+  ContentfulSimplePage,
+  ContentfulContactUsPage,
+  ContentfulTeamPage,
+  ContentfulProductListerPage,
+  ContentfulBrandLandingPage,
+  ContentfulServiceLocatorSection,
+  ContentfulHomePage,
+  Products,
+  Query
 };

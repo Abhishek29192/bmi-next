@@ -1,6 +1,6 @@
 import React from "react";
-import Select, { MenuItem } from "../";
 import { render, fireEvent } from "@testing-library/react";
+import Select, { MenuItem } from "../";
 
 describe("Select component", () => {
   it("renders correctly", () => {

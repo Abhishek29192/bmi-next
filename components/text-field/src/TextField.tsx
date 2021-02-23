@@ -1,11 +1,10 @@
-import React from "react";
-import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
-import styles from "./TextField.module.scss";
+import React, { ChangeEvent } from "react";
 import classnames from "classnames";
 import { withFormControl } from "@bmi/form";
-
+import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ErrorRounded from "@material-ui/icons/ErrorRounded";
+import styles from "./TextField.module.scss";
 
 type AdornmentProps =
   | {
@@ -24,10 +23,10 @@ export type Props = Omit<TextFieldProps, "variant"> & {
   helperText?: string;
   errorText?: string;
   error?: boolean;
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
 } & AdornmentProps;
 
-const TextField = ({
+export const TextField = ({
   className,
   variant,
   isTextArea,
@@ -38,6 +37,7 @@ const TextField = ({
   helperText,
   errorText,
   onChange,
+  InputProps,
   ...props
 }: Props) => {
   const hasAdornment = error || leftAdornment || rightAdornment;
@@ -54,11 +54,15 @@ const TextField = ({
             {leftAdornment}
             {!error ? rightAdornment : null}
           </InputAdornment>
-        )
+        ),
+        ...InputProps
       }
-    : null;
+    : InputProps;
 
-  const handleChange = (event) => onChange(event.target.value);
+  const handleChange = (
+    event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => onChange && onChange(event.target.value);
+
   return (
     <MaterialTextField
       {...props}

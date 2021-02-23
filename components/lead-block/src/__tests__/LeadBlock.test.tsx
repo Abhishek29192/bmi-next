@@ -1,6 +1,6 @@
 import React from "react";
-import LeadBlock from "../";
 import { render } from "@testing-library/react";
+import LeadBlock from "../";
 
 describe("LeadBlock component", () => {
   it("renders correctly", () => {

@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
-import { Data as PageInfoData } from "../components/PageInfo";
-import { Data as PromoData } from "../components/Promo";
-import { SiteContext } from "./Site";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
 import NBACard from "@bmi/nba-card";
 import AnchorLink from "@bmi/anchor-link";
-import { getCTA } from "./Link";
 import { Colors } from "@bmi/color-pair";
+import { Data as PromoData } from "../components/Promo";
+import { Data as PageInfoData } from "../components/PageInfo";
+import { getCTA } from "./Link";
+import { SiteContext } from "./Site";
 
 export type Data = (PromoData | PageInfoData)[];
 

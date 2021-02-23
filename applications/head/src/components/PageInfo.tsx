@@ -7,11 +7,13 @@ export type Data = {
     | "ContentfulContactUsPage"
     | "ContentfulTeamPage"
     | "ContentfulProductListerPage"
-    | "ContentfulDocumentLibraryPage";
+    | "ContentfulDocumentLibraryPage"
+    | "ContentfulBrandLandingPage";
   title: string;
   subtitle: string | null;
   brandLogo: string | null;
   slug: string;
+  path: string;
   tags: TagData[] | null;
   featuredImage: {
     title: string;
@@ -32,6 +34,7 @@ export const query = graphql`
     subtitle
     brandLogo
     slug
+    path
     tags {
       title
       type

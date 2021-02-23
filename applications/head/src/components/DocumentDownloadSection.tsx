@@ -4,11 +4,11 @@ import filesize from "filesize";
 import Section from "@bmi/section";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
+import Icon, { iconMap } from "@bmi/icon";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import { Data as DocumentData } from "./Document";
 import { getClickableActionFromUrl } from "./Link";
-import Icon, { iconMap } from "@bmi/icon";
 
 export type Data = {
   __typename: "ContentfulDocumentDownloadSection";

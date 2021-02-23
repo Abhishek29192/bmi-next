@@ -2,9 +2,11 @@ import React from "react";
 import { graphql } from "gatsby";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
-import Breadcrumbs from "../components/Breadcrumbs";
-import { Data as SiteData } from "../components/Site";
 import Hero, { HeroItem } from "@bmi/hero";
+import Breadcrumbs, {
+  Data as BreadcrumbsData
+} from "../components/Breadcrumbs";
+import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
@@ -24,6 +26,7 @@ type Data = PageInfoData &
     contentTopics: ContactTopicsData[];
     locationsTitle: string | null;
     locations: LocationsData | null;
+    breadcrumbs: BreadcrumbsData;
   };
 
 type Props = {
@@ -43,10 +46,11 @@ const ContactUsPage = ({ data }: Props) => {
     otherAreasTitle,
     otherAreas,
     contentTopics,
-    slug,
     inputBanner,
     locationsTitle,
-    locations
+    locations,
+    breadcrumbs,
+    seo
   } = data.contentfulContactUsPage;
   const heroProps: HeroItem = {
     title,
@@ -54,8 +58,9 @@ const ContactUsPage = ({ data }: Props) => {
     imageSource: featuredImage?.resize.src
   };
   const pageData: PageData = {
-    slug,
-    inputBanner
+    breadcrumbs,
+    inputBanner,
+    seo
   };
 
   return (
@@ -63,14 +68,7 @@ const ContactUsPage = ({ data }: Props) => {
       <Hero
         level={1}
         {...heroProps}
-        breadcrumbs={
-          <Breadcrumbs
-            title={title}
-            slug={slug}
-            menuNavigation={data.contentfulSite.menuNavigation}
-            isDarkThemed
-          />
-        }
+        breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
       />
       <Section backgroundColor="pearl">
         <Section.Title>{queriesTitle}</Section.Title>
@@ -99,11 +97,7 @@ const ContactUsPage = ({ data }: Props) => {
         }}
       />
       <Section backgroundColor="alabaster" isSlim>
-        <Breadcrumbs
-          title={title}
-          slug={slug}
-          menuNavigation={data.contentfulSite.menuNavigation}
-        />
+        <Breadcrumbs data={breadcrumbs} />
       </Section>
     </Page>
   );
@@ -115,6 +109,7 @@ export const pageQuery = graphql`
   query ContactUsPageById($pageId: String!, $siteId: String!) {
     contentfulContactUsPage(id: { eq: $pageId }) {
       ...PageInfoFragment
+      ...BreadcrumbsFragment
       queriesTitle
       queriesSubtitle
       contentTopics {
