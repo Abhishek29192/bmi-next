@@ -7,7 +7,6 @@ import FileIcon from "@material-ui/icons/FileCopy";
 import Icon from "@bmi/icon";
 import { LinearProgress } from "@material-ui/core";
 import axios from "axios";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import styles from "./Upload.module.scss";
 
 export type UploadFile = {
@@ -15,16 +14,20 @@ export type UploadFile = {
   value?: ReturnType<(response: any) => any>;
 };
 
-type Props = {
+type RequestData = {
+  headers: Record<string, string>;
+};
+
+export type Props = {
   file: File;
   uri: string;
-  headers?: Record<string, string>;
+  headers?: RequestData["headers"];
   mapBody?: (file: File) => Record<string, any>;
   onDeleteClick: () => void;
   onRequestSuccess?: (responseBody) => void;
   errorMessage?: string;
   validation?: (file: File) => string;
-  useRecaptcha?: boolean;
+  onRequest?: (file: File) => Promise<void | Partial<RequestData>>;
 };
 
 export const getFileSizeString = (size: number): string => {
@@ -45,11 +48,10 @@ const File = ({
   onRequestSuccess,
   errorMessage,
   validation,
-  useRecaptcha
+  onRequest
 }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const previewImage = file.type.includes("image")
     ? URL.createObjectURL(file)
@@ -58,6 +60,7 @@ const File = ({
   const handleFileUpload = async () => {
     const fileValidationError = validation && validation(file);
     const source = axios.CancelToken.source();
+    const additionalRequestData = (onRequest && (await onRequest(file))) || {};
 
     if (fileValidationError) {
       setError(fileValidationError);
@@ -66,13 +69,12 @@ const File = ({
     }
 
     try {
-      const token = useRecaptcha && (await executeRecaptcha());
-
       const res = await axios.post(uri, mapBody(file), {
         cancelToken: source.token,
-        headers: useRecaptcha
-          ? { ...headers, "X-Recaptcha-Token": token }
-          : headers
+        headers: {
+          ...headers,
+          ...additionalRequestData.headers
+        }
       });
       const body = res.data;
 
