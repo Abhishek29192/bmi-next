@@ -198,13 +198,6 @@ module.exports = {
         include_favicon: true,
         cache_busting_mode: `query`,
         icon: `src/images/favicon.png`,
-        localize: [
-          {
-            start_url: `/no/`,
-            lang: `no`,
-            icon: `src/images/favicon.png`
-          }
-        ],
         icons: [
           {
             src: `icons/icon-16x16.png`,
