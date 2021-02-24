@@ -4,9 +4,10 @@ build_gcp-download-zip:
   stage: build
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - functions/gcp-download-zip/**/*
   needs: [install]
   before_script:
-    - '[[ "$(scripts/ignore_build.sh functions/gcp-download-zip)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-download-zip build
@@ -18,9 +19,11 @@ test_cp-download-zip:
   stage: test
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
+      changes:
+        - functions/gcp-download-zip/**/*
+        - jest/**/*
   needs: [install]
   before_script:
-    - '[[ "$(scripts/ignore_build.sh functions/gcp-download-zip jest)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-download-zip coverage:jest
@@ -29,11 +32,12 @@ package_gcp-download-zip:
   stage: package
   rules:
     - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - functions/gcp-download-zip/**/*
   needs: [build_gcp-download-zip]
   dependencies:
     - build_gcp-download-zip
   before_script:
-    - '[[ "$(scripts/ignore_build.sh functions/gcp-download-zip)" == "true" ]] && exit 0 || echo "Running job"'
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
@@ -49,12 +53,13 @@ deploy_gcp-download-zip:
   stage: deploy
   rules:
     - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - functions/gcp-download-zip/**/*
       allow_failure: true
   needs: [package_gcp-download-zip]
   dependencies:
     - package_gcp-download-zip
   before_script:
-    - '[[ "$(scripts/ignore_build.sh functions/gcp-download-zip)" == "true" ]] && exit 0 || echo "Running job"'
     - |
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
         GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
