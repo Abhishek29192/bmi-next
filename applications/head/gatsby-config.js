@@ -174,6 +174,7 @@ module.exports = {
     author: `bmi`,
     siteUrl: `https://www.bmigroup.com`
   },
+  assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -197,6 +198,13 @@ module.exports = {
         include_favicon: true,
         cache_busting_mode: `query`,
         icon: `src/images/favicon.png`,
+        localize: [
+          {
+            start_url: `/no/`,
+            lang: `no`,
+            icon: `src/images/favicon.png`
+          }
+        ],
         icons: [
           {
             src: `icons/icon-16x16.png`,
