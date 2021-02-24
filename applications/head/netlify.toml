@@ -34,6 +34,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "CONTENT_SECURITY_POLICY"
+    Access-Control-Allow-Origin = "ACCESS_CONTROL_ALLOW_ORIGIN"
 
 
 # Redirect root to /no. This is temporary. This solution will not work with 
