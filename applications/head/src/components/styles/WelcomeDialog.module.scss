@@ -1,0 +1,18 @@
+.WelcomeDialog {
+  .contentArea {
+    max-height: 400px;
+  }
+  .brands {
+    margin-top: 24px;
+  }
+  .brand {
+    margin-bottom: 16px;
+    margin-right: 16px;
+  }
+  .body {
+    margin-top: 24px;
+    &--with-brand {
+      margin-top: 16px;
+    }
+  }
+}

@@ -12,6 +12,7 @@ import OverlapCards, {
 import { getCTA } from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Brands, { Data as BrandData } from "../components/Brands";
+import WelcomeDialog from "../components/WelcomeDialog";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -59,7 +60,8 @@ const HomePage = ({ data }: Props) => {
     inputBanner,
     seo
   };
-
+  const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
+    data.contentfulSite.resources || {};
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -80,6 +82,13 @@ const HomePage = ({ data }: Props) => {
       {overlapCards && <OverlapCards data={overlapCards} />}
       {brands?.length ? <Brands data={brands} /> : null}
       {sections && <Sections data={sections} pageTypename={__typename} />}
+      <WelcomeDialog
+        data={{
+          welcomeDialogTitle,
+          welcomeDialogBody,
+          welcomeDialogBrands
+        }}
+      />
     </Page>
   );
 };

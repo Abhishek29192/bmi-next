@@ -916,6 +916,12 @@ type ContentfulResources implements Node {
   "The explore bar for the search page."
   searchPageExploreBar: ContentfulNavigation
     @link(from: "searchPageExploreBar___NODE")
+
+  welcomeDialogTitle: String
+
+  welcomeDialogBody: ContentfulRichText
+
+  welcomeDialogBrands: [String]
 }
 
 """
