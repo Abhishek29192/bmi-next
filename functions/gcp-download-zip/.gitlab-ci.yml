@@ -3,7 +3,7 @@ image: node:12
 build_gcp-download-zip:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: [install]
   before_script:
     - '[[ "$(scripts/ignore_build.sh functions/gcp-download-zip)" == "true" ]] && exit 0 || echo "Running job"'
@@ -17,7 +17,7 @@ build_gcp-download-zip:
 test_cp-download-zip:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_TAG"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
   needs: [install]
   before_script:
     - '[[ "$(scripts/ignore_build.sh functions/gcp-download-zip jest)" == "true" ]] && exit 0 || echo "Running job"'
@@ -28,7 +28,7 @@ test_cp-download-zip:
 package_gcp-download-zip:
   stage: package
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
   needs: [build_gcp-download-zip]
   dependencies:
     - build_gcp-download-zip
@@ -48,7 +48,7 @@ deploy_gcp-download-zip:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG'
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
       allow_failure: true
   needs: [package_gcp-download-zip]
   dependencies:

@@ -3,7 +3,7 @@ image: node:12
 test_components:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: [install]
   before_script:
     - '[[ "$(scripts/ignore_build.sh components jest)" == "true" ]] && exit 0 || echo "Running job"'
