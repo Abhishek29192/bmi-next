@@ -11,7 +11,7 @@ import { generateGetMicroCopy } from "../components/MicroCopy";
 import NextBestActions from "../components/NextBestActions";
 import Page from "../components/Page";
 import ProgressIndicator from "../components/ProgressIndicator";
-import SearchBlock, { QueryInput } from "../components/SearchBlock";
+import SearchBlock from "../components/SearchBlock";
 import Scrim from "../components/Scrim";
 import { Data as SiteData } from "../components/Site";
 import SearchTabPanelProducts, {
