@@ -58,6 +58,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const defaultTitle = getMicroCopy("searchPage.title");
 
   const queryString = useMemo(() => params.get(QUERY_KEY), [params]);
+  const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
   const [tabsLoading, setTabsLoading] = useState({});
   const [areTabsResolved, setAreTabsResolved] = useState(false);
   const [results, setResults] = useState<
@@ -102,6 +103,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   useEffect(() => {
     const getCounts = async () => {
       if (!queryString) {
+        setPageIsLoading(false);
         return;
       }
 
@@ -139,6 +141,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
 
       setResults(newResults);
       setAreTabsResolved(true);
+      setPageIsLoading(false);
     };
 
     getCounts();
@@ -162,9 +165,8 @@ const SearchPage = ({ pageContext, data }: Props) => {
   }, [queryString, hasResults, areTabsResolved]);
 
   // If any of the tabs are loading
-  const tabIsLoading = Object.values(tabsLoading).some(
-    (isLoading) => isLoading
-  );
+  const tabIsLoading =
+    Object.values(tabsLoading).some((isLoading) => isLoading) || pageIsLoading;
 
   const handleTabChange = (tabKey) => {
     setResults({
@@ -242,6 +244,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           }
           countryCode={countryCode}
           hasResults={hasResults}
+          isLoading={tabIsLoading}
           helperText={getMicroCopy("searchPage.helperText")}
           placeholder={getMicroCopy("searchPage.placeholder")}
           query={queryString}
