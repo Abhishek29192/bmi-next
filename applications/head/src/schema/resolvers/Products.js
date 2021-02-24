@@ -67,15 +67,19 @@ module.exports = {
       const fullPath = await resolvePathFromFamily(source, args, context);
 
       return (source.variantOptions || []).map((variant) => {
+        const id = generateIdFromString(variant.code);
         const breadcrumbs = fullPath.concat({
-          id: variant.code,
+          id,
           label: source.name,
-          slug: getSlug([source.name, ...getSlugAttributes(variant)].join("/"))
+          slug: getSlug(
+            [source.name, ...getSlugAttributes(variant), id].join("/")
+          )
         });
         const path = `p/${getUrlFromPath(breadcrumbs)}`;
 
         return {
           ...variant,
+          id,
           path,
           breadcrumbs
         };

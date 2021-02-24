@@ -19851,6 +19851,11 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
+postgraphile-apollo-server@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/postgraphile-apollo-server/-/postgraphile-apollo-server-0.1.1.tgz#27b19c91d23cc7f5ae56a0314783ddbe17badaa2"
+  integrity sha512-3hZrh9aaJ81wIfj1sGbuIfnR3rE9WWQsv8OrHvYg7/MAkDAvtthHkAZvoQHWT320g/rF4cqDVTkHVFhID3ZN0g==
+
 postgraphile-core@4.10.0:
   version "4.10.0"
   resolved "https://registry.yarnpkg.com/postgraphile-core/-/postgraphile-core-4.10.0.tgz#eea2672413d85d62da1670db141fc9e4f709b52b"
