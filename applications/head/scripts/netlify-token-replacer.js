@@ -15,6 +15,10 @@ const replaceToken = () => {
     fileContent
       .replace("CONTENT_SECURITY_POLICY", process.env.CONTENT_SECURITY_POLICY)
       .replace("X_ROBOTS_TAG", process.env.X_ROBOTS_TAG)
+      .replace(
+        "ACCESS_CONTROL_ALLOW_ORIGIN",
+        process.env.ACCESS_CONTROL_ALLOW_ORIGIN
+      )
   );
 };
 
