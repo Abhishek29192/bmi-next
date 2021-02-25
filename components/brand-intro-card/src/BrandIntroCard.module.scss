@@ -11,6 +11,7 @@
   flex-direction: column;
 
   .brand-logo {
+    background: $color-white;
     height: 60px;
     @media (min-width: $breakpoint-md) {
       height: 80px;

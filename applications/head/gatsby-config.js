@@ -174,6 +174,7 @@ module.exports = {
     author: `bmi`,
     siteUrl: `https://www.bmigroup.com`
   },
+  assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {

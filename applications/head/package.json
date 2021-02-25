@@ -17,8 +17,8 @@
   "scripts": {
     "clean": "gatsby clean",
     "dev": "gatsby clean && gatsby develop",
-    "start": "gatsby build && gatsby serve",
-    "build": "gatsby build",
+    "start": "gatsby build --prefix-paths && gatsby serve",
+    "build": "gatsby build --prefix-paths",
     "coverage:jest": "jest --coverage",
     "microcopy": "node ./scripts/get-microcopy.js"
   },

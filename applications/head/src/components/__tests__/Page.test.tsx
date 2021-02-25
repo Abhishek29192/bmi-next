@@ -35,7 +35,7 @@ describe("Page component", () => {
       menuUtilities: mockNavigation,
       resources: null,
       scriptGOptLoad: null,
-      scriptGRecaptchaId: null,
+      scriptGRecaptchaId: "1234",
       scriptGRecaptchaNet: null
     };
 

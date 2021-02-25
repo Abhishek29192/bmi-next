@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Pagination from "@bmi/pagination";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import { flatten } from "lodash";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
@@ -72,6 +73,7 @@ const DocumentResultsFooter = ({
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
   const { resetList } = useContext(DownloadListContext);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   return (
     <div className={styles["DocumentResultsFooter"]}>
@@ -89,7 +91,11 @@ const DocumentResultsFooter = ({
           />
           <DownloadList.Button
             label={`${getMicroCopy("downloadList.download")} ({{count}})`}
-            onClick={(list, token) => onDownloadClick(list, token, resetList)}
+            onClick={async (list) => {
+              const token = await executeRecaptcha();
+
+              onDownloadClick(list, token, resetList);
+            }}
           />
         </>
       )}

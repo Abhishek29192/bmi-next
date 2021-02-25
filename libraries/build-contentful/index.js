@@ -55,9 +55,9 @@ function parseCIEnvironments() {
   let { BRANCH, INCOMING_HOOK_TITLE, INCOMING_HOOK_BODY } = process.env;
 
   const targetBranch = BRANCH;
-  // TODO: Ideally we could base it on git events.
-  const shouldSkipBuild =
-    !!INCOMING_HOOK_TITLE && !INCOMING_HOOK_TITLE.includes(allowedHooks);
+  const shouldBuild =
+    targetBranch === DEV_MAIN_BRANCH ||
+    (INCOMING_HOOK_TITLE && INCOMING_HOOK_TITLE.includes(allowedHooks));
 
   const tag = getTagFromHookBody(INCOMING_HOOK_BODY) || getCurrentCommitTag();
 
@@ -66,7 +66,7 @@ function parseCIEnvironments() {
   }
 
   return {
-    shouldSkipBuild,
+    shouldBuild,
     targetBranch,
     tag
   };
@@ -351,15 +351,15 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
 }
 
 async function main() {
-  const { targetBranch, tag, shouldSkipBuild } = parseCIEnvironments();
+  const { targetBranch, tag, shouldBuild } = parseCIEnvironments();
 
   console.log(`Build environment information:`, {
     targetBranch,
     tag,
-    shouldSkipBuild
+    shouldBuild
   });
 
-  if (shouldSkipBuild) {
+  if (!shouldBuild) {
     console.log(
       `Only builds triggered by ${allowedHooks.join(
         ", "
