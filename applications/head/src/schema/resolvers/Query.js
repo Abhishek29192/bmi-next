@@ -52,7 +52,8 @@ module.exports = {
               }
             }
           },
-          type: "ProductCategory"
+          type: "ProductCategory",
+          firstOnly: true
         }));
 
       return getFilters(
