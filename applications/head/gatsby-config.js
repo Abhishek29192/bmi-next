@@ -364,7 +364,8 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
