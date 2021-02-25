@@ -335,7 +335,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         >
           <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
             <Autocomplete
-              size="small"
               id="company-autocomplete"
               label={getMicroCopy("findARoofer.companyFieldLabel")}
               noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
@@ -361,7 +360,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               <span>{getMicroCopy("findARoofer.andOr")}</span>
             </Typography>
             <GoogleAutocomplete
-              size="small"
               id="location-autocomplete"
               label={getMicroCopy("findARoofer.locationFieldLabel")}
               noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
