@@ -401,7 +401,7 @@ const PdfDocument = ({
       "3d": `${window.location.origin}${urlPrefix}${encodeURIComponent(
         `${systemName} ${((submittedValues || {})["color"] || "").replace(
           /\//g,
-          ":"
+          "-"
         )}.jpg`
       )}`
     }}
