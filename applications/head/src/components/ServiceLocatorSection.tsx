@@ -80,24 +80,32 @@ const activeFilterReducer = (
   [filter]: !state[filter]
 });
 
-const IntegratedLinkCard = ({ isOpen, ...rest }: LinkCardProps) => {
+const IntegratedLinkCard = ({
+  isOpen,
+  onExpandCompleted,
+  ...rest
+}: LinkCardProps) => {
   const linkCardElement = useRef<HTMLElement>(null);
+  const [hasCardExpansionCompleted, setCardExpansionCompleted] = useState(
+    false
+  );
 
-  useEffect(() => {
-    let timer1 = setTimeout(() => {
-      if (isOpen && linkCardElement.current) {
-        linkCardElement.current.parentElement.scrollTo({
-          top: linkCardElement.current.offsetTop + 1,
-          behavior: "smooth"
-        });
-      }
-    }, 750);
-    return () => {
-      clearTimeout(timer1);
-    };
-  }, [isOpen, linkCardElement]);
-
-  return <LinkCard isOpen={isOpen} ref={linkCardElement} {...rest} />;
+  if (isOpen && linkCardElement.current && hasCardExpansionCompleted) {
+    linkCardElement.current.parentElement.scrollTo({
+      top: linkCardElement.current.offsetTop + 1,
+      behavior: "smooth"
+    });
+  }
+  return (
+    <LinkCard
+      isOpen={isOpen}
+      ref={linkCardElement}
+      {...rest}
+      onExpandCompleted={() => {
+        setCardExpansionCompleted(true);
+      }}
+    />
+  );
 };
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
