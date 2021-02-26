@@ -86,30 +86,51 @@ baseline_scan_head:
   image: owasp/zap2docker-stable:latest
   stage: dynamic_security
   rules:
-    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head'"
+    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head' && $CONTEXT_FROM_NETLIFY && ($CI_COMMIT_REF_NAME != 'master' && $CI_COMMIT_REF_NAME != 'pre-production' && $CI_COMMIT_REF_NAME != 'production')"
   cache: {}
   script:
-    - zap-baseline.py -t ${SITE_URL_FROM_NETLIFY} || exit 0
+    - zap-baseline.py -t ${SITE_URL_FROM_NETLIFY} -r zap_output.html -n applications/head/CONTEXT_FROM_NETLIFY.context -U $CONTEXT_FROM_NETLIFY || exit 0
+  artifacts:
+    paths:
+      - zap_output.html
 
 # https://www.zaproxy.org/docs/docker/full-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true
 # When happy with how this works, change to use zap-full-scan.py
-full_scan_head:
+full_scan_head_qa:
   stage: dynamic_security
   rules:
-    - if: "$WHICH_SCHEDULE == 'full_scan_head'"
+    - if: "$WHICH_SCHEDULE == 'full_scan_head_qa'"
   image: owasp/zap2docker-stable:latest
   cache: {}
   script:
-    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
+    - zap-full-scan.py -t https://bmi-dxb-head-qa.netlify.app/ -r zap_output.html -n applications/head/qa.context -U qa
+  artifacts:
+    paths:
+      - zap_output.html
+
+# https://www.zaproxy.org/docs/docker/baseline-scan/
+# Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
+# SAST_DISABLED should be set to true
+# When happy with how this works, change to use zap-full-scan.py
+baseline_scan_head_prod:
+  stage: dynamic_security
+  rules:
+    - if: '$WHICH_SCHEDULE == "baseline_scan_head_prod"'
+  image: owasp/zap2docker-stable:latest
+  script:
+    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app -r zap_output.html -n applications/head/prod.context
+  artifacts:
+    paths:
+      - zap_output.html
 
 # https://github.com/GoogleChrome/lighthouse-ci
 # Lighthouse scan on netlify build
 lighthouseci_build_scan_head:
   stage: lighthouse_scan
   rules:
-    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head'"
+    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head' && ($CI_COMMIT_REF_NAME != 'master' && $CI_COMMIT_REF_NAME != 'pre-production' && $CI_COMMIT_REF_NAME != 'production')"
   image: cypress/browsers:node14.15.0-chrome86-ff82
   script:
     - cd applications/head
