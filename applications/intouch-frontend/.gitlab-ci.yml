@@ -1,7 +1,7 @@
 build_intouch_frontend:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: [install]
   script:
     - '[[ "$(scripts/ignore_build.sh applications/intouch-frontend components libraries)" == "true" ]] && exit 0 || echo "Running job"'
@@ -10,7 +10,7 @@ build_intouch_frontend:
 test_intouch_frontend:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: [install]
   before_script:
     - '[[ "$(scripts/ignore_build.sh applications/intouch-frontend components libraries jest)" == "true" ]] && exit 0 || echo "Running job"'
