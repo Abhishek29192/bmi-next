@@ -2,9 +2,12 @@ build_frc_website:
   stage: build
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/frc-website/**/*
+        - components/**/*
+        - libraries/**/*
   needs: [install]
   before_script:
-    - '[[ "$(scripts/ignore_build.sh applications/frc-website components libraries)" == "true" ]] && exit 0 || echo "Running job"'
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/frc-website build
