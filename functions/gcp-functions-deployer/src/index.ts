@@ -7,18 +7,19 @@ import { filterFunctionMetadata } from "./filter";
 const storage = new Storage();
 const {
   GCP_STORAGE_NAME,
-  GCP_CLOUD_BUILD_TRIGGER_URL,
   SECRET_MAN_GCP_PROJECT_NAME,
   TRIGGER_SECRET,
   TRIGGER_API_KEY_SECRET,
   FUNCTIONS_METADATA_FOLDER,
   FUNCTIONS_METADATA_FILE,
-  FUNCTIONS_SOURCE_FOLDER
+  FUNCTIONS_SOURCE_FOLDER,
+  GCP_PROJECT_NAME
 } = process.env;
 const secretManagerClient = new SecretManagerServiceClient();
 const bucket = storage.bucket(GCP_STORAGE_NAME);
+const triggerNameRegex = "sources/(.*).zip";
 
-async function triggerCloudBuild(request: string) {
+async function triggerCloudBuild(request: string, source: string) {
   const secret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${TRIGGER_SECRET}/versions/latest`
   });
@@ -29,14 +30,20 @@ async function triggerCloudBuild(request: string) {
   });
   const apiKey = apiKeySecret[0].payload.data.toString();
 
-  const url = `${GCP_CLOUD_BUILD_TRIGGER_URL}?secret=${secretText}&key=${apiKey}`;
-  console.log(`Build base URL: ${GCP_CLOUD_BUILD_TRIGGER_URL}`);
+  const match = source.match(triggerNameRegex);
+  if (!match) {
+    throw "trigger not found";
+  }
+
+  const triggerName = `${match[1]}-trigger`;
+  const url = `https://cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiKey}&secret=${secretText}`;
   var response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(request),
     headers: { "Content-Type": "application/json" }
   });
   if (response.status != 200) {
+    // eslint-disable-next-line no-console
     console.error(
       `Build trigger error: ${response.status} ${response.statusText}`
     );
@@ -44,10 +51,13 @@ async function triggerCloudBuild(request: string) {
 }
 
 export const deploy: HandlerFunction = async (file, context) => {
+  // eslint-disable-next-line no-console
   console.log(`Bucket: ${file.bucket}`);
+  // eslint-disable-next-line no-console
   console.log(`File: ${file.name}`);
 
   if (!file.name.startsWith(`${FUNCTIONS_SOURCE_FOLDER}/`)) {
+    // eslint-disable-next-line no-console
     console.warn("Invalid source folder received. Skipping the deployment.");
     return;
   }
@@ -57,18 +67,21 @@ export const deploy: HandlerFunction = async (file, context) => {
   );
 
   if (!metadataFile) {
+    // eslint-disable-next-line no-console
     console.warn("Metadata file not found. Skipping the deployment.");
     return;
   }
 
+  // eslint-disable-next-line no-console
   console.log(`file: ${metadataFile.name}`);
   try {
     var fileContent = await metadataFile.download();
     var metadata = await filterFunctionMetadata(fileContent, file.name);
     if (metadata) {
-      await triggerCloudBuild(metadata);
+      await triggerCloudBuild(metadata, file.name);
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
   }
 };

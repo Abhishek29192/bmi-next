@@ -113,10 +113,12 @@ describe("When function is called with a valid file", () => {
   });
 
   it("Calls Cloud-Build webhook", async () => {
+    const triggerName = "gcp-download-zip-trigger";
+
     await deploy({ name: validFile }, {});
 
     expect(fetchMock).toBeCalledWith(
-      `${process.env.GCP_CLOUD_BUILD_TRIGGER_URL}?secret=${trigger_secret}&key=${apiSecret}`,
+      `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       {
         method: "POST",
         body: JSON.stringify(function1Metadata),

@@ -4,6 +4,7 @@ export function filterFunctionMetadata(
   content: DownloadResponse,
   sourceName: string
 ): string {
+  // eslint-disable-next-line no-console
   console.log(`sourceName:${sourceName}`);
   // console.log(`Download response: ${content}`);
   if (!content) {

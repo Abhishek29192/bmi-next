@@ -33,3 +33,4 @@ process.env.GCP_STORAGE_NAME = "dxb-gcp-storage";
 process.env.GCP_CLOUD_BUILD_TRIGGER_URL = "https://google.com";
 process.env.TRIGGER_SECRET = "seceret_key";
 process.env.TRIGGER_API_KEY_SECRET = "api_secret_key";
+process.env.GCP_PROJECT_NAME = "dxb-gcp-project";
