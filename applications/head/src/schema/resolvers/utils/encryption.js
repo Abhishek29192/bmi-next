@@ -3,8 +3,8 @@
 const crypto = require("crypto");
 const MurmurHash3 = require("imurmurhash");
 
-exports.generateIdFromString = (string) =>
-  MurmurHash3(string + new Date().getTime().toString)
+exports.generateIdFromString = (string, useDate = true) =>
+  MurmurHash3(string + useDate ? new Date().getTime().toString : "")
     .result()
     .toString();
 
