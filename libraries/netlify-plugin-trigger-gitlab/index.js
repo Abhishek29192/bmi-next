@@ -4,10 +4,18 @@ const { URLSearchParams } = require("url");
 const fetch = require("node-fetch");
 
 module.exports = {
-  onSuccess: async ({ inputs: { gitlabUrl, application, zapContext } }) => {
+  onSuccess: async ({
+    inputs: { gitlabUrl, application, zapContext },
+    utils
+  }) => {
     console.log("Sending trigger to GitLab");
     const baseUrl =
       process.env.DEPLOY_URL || process.env.DEPLOY_PRIME_URL || process.env.URL;
+    if (!baseUrl) {
+      return utils.build.failPlugin(
+        "Could not find the base URL of the deployed site"
+      );
+    }
     const branch = process.env.BRANCH || "master";
     const params = new URLSearchParams();
     params.append("token", process.env.GITLAB_TOKEN);
