@@ -22,6 +22,7 @@ type Props = {
     values: Record<typeof QUERY_KEY, QueryInput>
   ) => void;
   hasResults?: boolean;
+  isLoading?: boolean;
   helperText?: string;
   placeholder?: string;
   query?: string;
@@ -34,6 +35,7 @@ const SearchPageBlock = ({
   countryCode,
   handleSubmit,
   hasResults,
+  isLoading,
   helperText,
   placeholder,
   query = null,
@@ -66,14 +68,14 @@ const SearchPageBlock = ({
             isSubmitDisabled={isSearchSubmitDisabled}
           />
         </div>
-        {!hasResults && searchPageSearchTips && (
+        {!isLoading && !hasResults && searchPageSearchTips && (
           <div className={styles["content"]}>
             <Typography variant="h5">{searchPageSearchTips.title}</Typography>
             <RichText document={searchPageSearchTips.content} />
           </div>
         )}
       </Grid>
-      {!hasResults && searchPageSidebarItems && (
+      {!isLoading && !hasResults && searchPageSidebarItems && (
         <Grid
           item
           lg={4}
