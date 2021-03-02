@@ -37,17 +37,12 @@ const mMetaFile1 = {
   download: downloadFile
 };
 
-const mMetaFile2 = {
-  name: "file2.json",
-  download: downloadFile
-};
-
-const getFiles = jest.fn().mockImplementation(() => {
-  const fileArray = [mMetaFile1, mMetaFile2];
-  return [fileArray];
+const file = jest.fn().mockImplementation(() => {
+  return mMetaFile1;
 });
-let bucket = jest.fn().mockImplementation(() => ({
-  getFiles: () => getFiles()
+
+const bucket = jest.fn().mockImplementation(() => ({
+  file: () => file()
 }));
 
 jest.mock("@google-cloud/storage/build/src/storage", () => {
@@ -85,25 +80,25 @@ beforeEach(() => {
 describe("When function is called for an invalid file", () => {
   const invalidFile = "random/invalid.txt";
 
-  it("Does not try to get metadata files", async () => {
+  it("Does not try to get metadata file", async () => {
     await deploy({ name: invalidFile }, {});
 
-    expect(getFiles).toBeCalledTimes(0);
+    expect(file).toBeCalledTimes(0);
   });
 });
 
 describe("When function is called with a valid file", () => {
   const validFile = "sources/gcp-download-zip.zip";
-  it("Fetch all meta files", async () => {
+  it("Fetch the meta file", async () => {
     await deploy({ name: validFile }, {});
 
-    expect(getFiles).toBeCalledTimes(1);
+    expect(file).toBeCalledTimes(1);
   });
 
   it("Downloads all meta files", async () => {
     await deploy({ name: validFile }, {});
 
-    expect(downloadFile).toBeCalledTimes(2);
+    expect(downloadFile).toBeCalledTimes(1);
   });
 
   it("Calls secret manager to fetch secrets", async () => {
