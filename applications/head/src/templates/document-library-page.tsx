@@ -187,8 +187,10 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     () => sourceToSortMap[source](unsortedDocuments),
     [unsortedDocuments]
   );
+  const format = resultTypeFormatMap[source][resultsType];
+  const getCount = documentCountMap[format];
   const [pageCount, setPageCount] = useState(
-    Math.ceil(initialDocuments.length / PAGE_SIZE)
+    Math.ceil(getCount(initialDocuments) / PAGE_SIZE)
   );
   const [results, setResults] = useState(initialDocuments);
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -201,8 +203,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       pageContext.pimClassificationCatalogueNamespace
     ).filter(Boolean)
   );
-
-  const format = resultTypeFormatMap[source][resultsType];
 
   const filterDocuments = (
     documents: DocumentResultsData,
