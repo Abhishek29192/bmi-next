@@ -373,9 +373,46 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
+      resolve: "gatsby-plugin-sitemap",
       options: {
-        output: `/no/sitemap.xml`
+        output: "/no/sitemap.xml",
+        sitemapSize: 50000,
+        sitemapName: "/no/sitemap"
+      }
+    },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        output: "/no/images.xml",
+        sitemapName: "/no/images",
+        sitemapSize: 50000,
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allContentfulAsset {
+            nodes {
+              file {
+                url
+              }
+            }
+          }
+        }`,
+        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+        serialize: ({ allContentfulAsset }) =>
+          allContentfulAsset.nodes.map((node) => ({
+            url: `https:${node.file.url}`,
+            changefreq: "daily",
+            priority: 0.7
+          }))
       }
     }
   ]
