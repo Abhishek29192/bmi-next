@@ -25,3 +25,12 @@ process.env.RECAPTCHA_MINIMUM_SCORE = "0.5";
 
 process.env.SENDGRID_API_KEY_SECRET = "TEST_SENDGRID_API_KEY_SECRET";
 process.env.SENDGRID_FROM_EMAIL = "TEST_SENDGRID_FROM_EMAIL";
+
+process.env.FUNCTIONS_SOURCE_FOLDER = "sources";
+process.env.FUNCTIONS_METADATA_FOLDER = "functions_metadata";
+process.env.GCP_STORAGE_NAME = "dxb-gcp-storage";
+process.env.GCP_STORAGE_NAME = "dxb-gcp-storage";
+process.env.GCP_CLOUD_BUILD_TRIGGER_URL = "https://google.com";
+process.env.TRIGGER_SECRET = "seceret_key";
+process.env.TRIGGER_API_KEY_SECRET = "api_secret_key";
+process.env.GCP_PROJECT_NAME = "dxb-gcp-project";
