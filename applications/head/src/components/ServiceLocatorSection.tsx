@@ -355,6 +355,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               }}
               options={filteredRoofers.map(({ name }) => name)}
               freeSolo
+              startAdornmentIcon="HardHatHead"
             />
             <Typography className={styles["and-or-label"]}>
               <span>{getMicroCopy("findARoofer.andOr")}</span>
@@ -366,6 +367,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               className={styles["location-autocomplete"]}
               onPlaceChange={handlePlaceChange}
               freeSolo
+              startAdornmentIcon="LocationOn"
             />
             <GeolocationButton
               onPosition={({ coords }) => {
