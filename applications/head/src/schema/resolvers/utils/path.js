@@ -4,7 +4,10 @@ const getUrlFromPath = (path) => {
   return path
     .filter(({ slug }) => slug)
     .map(({ slug }) => slug)
-    .join("/");
+    .join("/")
+    .replace(/\/+/gi, "/")
+    .replace("*", "")
+    .replace('"', "");
 };
 
 const getPath = async (page, context) => {
