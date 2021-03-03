@@ -1,6 +1,18 @@
 @import "@bmi/styles";
 
 .DocumentTechnicalTableResults {
+  .accordion-div {
+    @media (min-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+
+  .table-div {
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+
   .header-row {
     vertical-align: top;
     color: $color-slate;
@@ -35,6 +47,37 @@
   .align-center {
     text-align: center;
     vertical-align: middle;
+  }
+
+  .accordion-details {
+    padding: 0px 15px;
+    min-height: 56px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    border-bottom: 1px solid $color-storm;
+    :last-child {
+      border-bottom: none;
+    }
+  }
+
+  .accordion-details-left-align {
+    width: 37px;
+    margin-top: 12px;
+    margin-right: 15px;
+  }
+
+  .accordion-details-left-align-smallmargin {
+    width: 37px;
+    margin-top: 7px;
+    margin-right: 15px;
+  }
+
+  .accordion-details-right-align {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .no-document-icon {
