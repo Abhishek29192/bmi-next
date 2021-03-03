@@ -292,6 +292,7 @@ export const pageQuery = graphql`
     }
     productFilters(
       pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
+      showBrandFilter: true
     ) {
       label
       name
