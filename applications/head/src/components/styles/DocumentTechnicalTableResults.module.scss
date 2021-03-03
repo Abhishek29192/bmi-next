@@ -1,18 +1,6 @@
 @import "@bmi/styles";
 
 .DocumentTechnicalTableResults {
-  .accordion-div {
-    @media (min-width: $breakpoint-lg) {
-      display: none;
-    }
-  }
-
-  .table-div {
-    @media (max-width: $breakpoint-lg) {
-      display: none;
-    }
-  }
-
   .header-row {
     vertical-align: top;
     color: $color-slate;
@@ -78,6 +66,10 @@
     margin-top: 15px;
     display: flex;
     justify-content: flex-end;
+
+    .all-files-icon {
+      color: $color-cyan-500;
+    }
   }
 
   .no-document-icon {
