@@ -1,4 +1,5 @@
 import fs from "fs";
+import os from "os";
 import { Request, Response } from "express";
 import mockConsole from "jest-mock-console";
 import fetchMock from "jest-fetch-mock";
@@ -58,7 +59,7 @@ jest.mock("@google-cloud/storage", () => {
 });
 
 const validToken = "valid-token";
-const temporaryFile = "/tmp/gcp-download-zip.zip";
+const temporaryFile = `${os.tmpdir()}/gcp-download-zip.zip`;
 
 let download;
 
