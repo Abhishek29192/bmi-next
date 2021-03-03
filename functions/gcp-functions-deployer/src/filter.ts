@@ -6,16 +6,18 @@ export function filterFunctionMetadata(
 ): string {
   // eslint-disable-next-line no-console
   console.log(`sourceName:${sourceName}`);
-  // console.log(`Download response: ${content}`);
   if (!content) {
     return null;
   }
-  var allFunctionMetadata = JSON.parse(content[0].toString());
-  var curerntFunctionMetadata = allFunctionMetadata.filter(function (el) {
+  const allFunctionMetadata = JSON.parse(content[0].toString());
+  const curerntFunctionMetadata = allFunctionMetadata.find(function (el) {
     return el.source_archive_object === sourceName;
   });
-  if (curerntFunctionMetadata.length >= 1) {
-    return curerntFunctionMetadata[0];
+
+  if (!curerntFunctionMetadata) {
+    // eslint-disable-next-line no-console
+    console.warn(`Metadata not found for source : ${sourceName}`);
+    return null;
   }
-  return null;
+  return curerntFunctionMetadata;
 }

@@ -37,7 +37,7 @@ async function triggerCloudBuild(request: string, source: string) {
 
   const triggerName = `${match[1]}-trigger`;
   const url = `https://cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiKey}&secret=${secretText}`;
-  var response = await fetch(url, {
+  const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(request),
     headers: { "Content-Type": "application/json" }
@@ -75,10 +75,13 @@ export const deploy: HandlerFunction = async (file, context) => {
   // eslint-disable-next-line no-console
   console.log(`file: ${metadataFile.name}`);
   try {
-    var fileContent = await metadataFile.download();
-    var metadata = await filterFunctionMetadata(fileContent, file.name);
+    const fileContent = await metadataFile.download();
+    const metadata = await filterFunctionMetadata(fileContent, file.name);
     if (metadata) {
       await triggerCloudBuild(metadata, file.name);
+    } else {
+      // eslint-disable-next-line no-console
+      console.warn(`Metadata file not found for ${file.name} source`);
     }
   } catch (error) {
     // eslint-disable-next-line no-console

@@ -19,21 +19,21 @@ beforeEach(() => {
 
 describe("When called with null content", () => {
   it("Returns null", async () => {
-    var value = await filterFunctionMetadata(null, "somefile.zip");
+    const value = await filterFunctionMetadata(null, "somefile.zip");
     expect(value).toBe(null);
   });
 });
 
 describe("When called with valid content and source matches", () => {
-  var buffer = fs.readFileSync(`${resourcesBasePath}/market1_metadata.json`);
-  var jsonObject = JSON.parse(
+  const buffer = fs.readFileSync(`${resourcesBasePath}/market1_metadata.json`);
+  const jsonObject = JSON.parse(
     fs.readFileSync(
       `${resourcesBasePath}/market1_function1_metadata.json`,
       "utf8"
     )
   );
   it("returns content back", async () => {
-    var value = await filterFunctionMetadata(
+    const value = await filterFunctionMetadata(
       [buffer],
       "sources/somefunction1.zip"
     );
@@ -43,9 +43,12 @@ describe("When called with valid content and source matches", () => {
 });
 
 describe("When called with valid content and source does not match", () => {
-  var buffer = fs.readFileSync(`${resourcesBasePath}/market1_metadata.json`);
+  const buffer = fs.readFileSync(`${resourcesBasePath}/market1_metadata.json`);
   it("returns null", async () => {
-    var value = await filterFunctionMetadata([buffer], "sources/unmatched.zip");
+    const value = await filterFunctionMetadata(
+      [buffer],
+      "sources/unmatched.zip"
+    );
 
     expect(value).toBe(null);
   });
