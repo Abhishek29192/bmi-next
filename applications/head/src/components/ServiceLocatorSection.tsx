@@ -343,7 +343,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         >
           <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
             <Autocomplete
-              size="small"
               id="company-autocomplete"
               label={getMicroCopy("findARoofer.companyFieldLabel")}
               noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
@@ -364,18 +363,19 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               }}
               options={filteredRoofers.map(({ name }) => name)}
               freeSolo
+              startAdornmentIcon="HardHatHead"
             />
             <Typography className={styles["and-or-label"]}>
               <span>{getMicroCopy("findARoofer.andOr")}</span>
             </Typography>
             <GoogleAutocomplete
-              size="small"
               id="location-autocomplete"
               label={getMicroCopy("findARoofer.locationFieldLabel")}
               noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
               className={styles["location-autocomplete"]}
               onPlaceChange={handlePlaceChange}
               freeSolo
+              startAdornmentIcon="LocationOn"
             />
             <GeolocationButton
               onPosition={({ coords }) => {
