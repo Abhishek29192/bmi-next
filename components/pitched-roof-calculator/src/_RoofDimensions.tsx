@@ -2,7 +2,6 @@ import React from "react";
 import Grid from "@bmi/grid";
 import TextField from "@bmi/text-field";
 import styles from "./_RoofDimensions.module.scss";
-import Roof4 from "./images/roof-dimensions/4.svg";
 
 const isNumber = (value: string) => /^([0-9])+(\.[0-9]+)?$/.test(value);
 
@@ -67,55 +66,15 @@ const types: {
   }
 };
 
-type Item = {
-  name: string;
-  type: Type;
-};
-
-const roof4Items: ReadonlyArray<Item> = [
-  {
-    name: "A",
-    type: "LENGTH"
-  },
-  {
-    name: "B",
-    type: "LENGTH"
-  },
-  {
-    name: "C",
-    type: "LENGTH"
-  },
-  {
-    name: "D",
-    type: "LENGTH"
-  },
-  {
-    name: "P1",
-    type: "PITCH"
-  },
-  {
-    name: "P2",
-    type: "PITCH"
-  }
-];
-
-type Dimensions = {
-  [key: string]: string;
-};
-
 type RoofDimensionsProps = {
-  dimensions: Dimensions;
-  roof?: {
-    illustration?: SVGImport;
-    items?: ReadonlyArray<Item>;
-  };
+  dimensions: Record<string, string>;
+  roof?: any;
 };
 
 const RoofDimensions = ({
   dimensions,
-  roof: { illustration = Roof4, items = roof4Items } = {}
+  roof: { dimensionsIllustration: Illustration, dimensions: items }
 }: RoofDimensionsProps) => {
-  const Illustration = illustration;
   return (
     <div className={styles["RoofDimensions"]}>
       <div className={styles["form"]}>
