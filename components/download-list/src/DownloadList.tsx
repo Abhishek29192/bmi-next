@@ -5,7 +5,7 @@ import React, {
   useState,
   useRef
 } from "react";
-import Button, { ButtonProps } from "@bmi/button";
+import DefaultButton, { ButtonProps } from "@bmi/button";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -89,12 +89,14 @@ const DownloadListCheckbox = ({
 };
 
 type DownloadListButtonProps = Omit<ButtonProps, "onClick"> & {
+  component?: React.ComponentType<any>; // TODO
   /** Accepts a {{count}} placeholder that will be replaced by the actual count.  */
   label: string;
   onClick: (list: Context["list"]) => void | Promise<void>;
 };
 
 const DownloadListButton = ({
+  component,
   label,
   onClick,
   ...rest
@@ -102,6 +104,8 @@ const DownloadListButton = ({
   const { list, count, resetList, isLoading, setIsLoading } = useContext(
     DownloadListContext
   );
+
+  const Button = component || DefaultButton;
 
   const handleClick = async () => {
     setIsLoading(true);
