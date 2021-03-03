@@ -29,7 +29,6 @@
   [plugins.inputs]
     gitlabUrl = "https://gitlab.com/api/v4/projects/19163612/trigger/pipeline"
     application = "head"
-    context = "qa"
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.

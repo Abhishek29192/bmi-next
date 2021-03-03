@@ -86,7 +86,7 @@ baseline_scan_head:
   image: owasp/zap2docker-stable:latest
   stage: dynamic_security
   rules:
-    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head' && $CONTEXT_FROM_NETLIFY && ($CI_COMMIT_REF_NAME != 'master' && $CI_COMMIT_REF_NAME != 'pre-production' && $CI_COMMIT_REF_NAME != 'production')"
+    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head' && $CONTEXT_FROM_NETLIFY"
   cache: {}
   script:
     - zap-baseline.py -t ${SITE_URL_FROM_NETLIFY} -r zap_output.html -n applications/head/CONTEXT_FROM_NETLIFY.context -U $CONTEXT_FROM_NETLIFY || exit 0
@@ -120,7 +120,7 @@ baseline_scan_head_prod:
     - if: '$WHICH_SCHEDULE == "baseline_scan_head_prod"'
   image: owasp/zap2docker-stable:latest
   script:
-    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app -r zap_output.html -n applications/head/prod.context
+    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app -r zap_output.html -n applications/head/production.context
   artifacts:
     paths:
       - zap_output.html

@@ -4,5 +4,3 @@ inputs:
     description: URL of the GitLab pipeline to trigger
   - name: application
     description: Name of the application (e.g. head)
-  - name: zapContext
-    description: Zap context to use

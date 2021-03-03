@@ -3,11 +3,28 @@
 const { URLSearchParams } = require("url");
 const fetch = require("node-fetch");
 
+const getZapContext = (branch) => {
+  switch (branch) {
+    case "master":
+      return "qa";
+    case "pre-production":
+      return "pre-production";
+    case "production":
+      return "production";
+    default:
+      return null;
+  }
+};
+
 module.exports = {
-  onSuccess: async ({
-    inputs: { gitlabUrl, application, zapContext },
-    utils
-  }) => {
+  onSuccess: async ({ inputs: { gitlabUrl, application }, utils }) => {
+    const branch = process.env.BRANCH || "master";
+    const zapContext = getZapContext(branch);
+    if (!zapContext) {
+      console.log("SKIPPING: Unable to find ZAP context");
+      return;
+    }
+
     console.log("Sending trigger to GitLab");
     const baseUrl =
       process.env.DEPLOY_URL || process.env.DEPLOY_PRIME_URL || process.env.URL;
@@ -16,7 +33,7 @@ module.exports = {
         "Could not find the base URL of the deployed site"
       );
     }
-    const branch = process.env.BRANCH || "master";
+
     const params = new URLSearchParams();
     params.append("token", process.env.GITLAB_TOKEN);
     params.append("ref", branch);
