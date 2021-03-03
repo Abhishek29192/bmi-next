@@ -219,7 +219,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
 
       createPage({
-        path: `/${site.countryCode}/${page.path}`.replace(/\/+/gi, "/"),
+        path: `/${site.countryCode}/${page.path}`,
         component,
         context: {
           pageId: page.id,
