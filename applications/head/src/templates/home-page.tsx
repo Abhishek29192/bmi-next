@@ -1,18 +1,20 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Search from "@bmi/search";
+import Button, { ButtonProps } from "@bmi/button";
 import Hero, { HeroItem } from "@bmi/hero";
-import { Data as SiteData, SiteContext } from "../components/Site";
-import Page, { Data as PageData } from "../components/Page";
-import { Data as SlideData } from "../components/Promo";
-import Sections, { Data as SectionsData } from "../components/Sections";
+import Search from "@bmi/search";
+import { graphql } from "gatsby";
+import React from "react";
+import Brands, { Data as BrandData } from "../components/Brands";
+import { getCTA } from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
-import { getCTA } from "../components/Link";
+import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
-import Brands, { Data as BrandData } from "../components/Brands";
+import { Data as SlideData } from "../components/Promo";
+import Sections, { Data as SectionsData } from "../components/Sections";
+import { Data as SiteData, SiteContext } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
+import withGTM from "../utils/google-tag-manager";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -62,6 +64,8 @@ const HomePage = ({ data }: Props) => {
   };
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
     data.contentfulSite.resources || {};
+  const GTMButton = withGTM<ButtonProps>(Button);
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -71,6 +75,12 @@ const HomePage = ({ data }: Props) => {
           return (
             <Hero level={0} heroes={heroItems} hasSpaceBottom>
               <Search
+                buttonComponent={(props) => (
+                  <GTMButton
+                    gtm={{ id: "search2", label: getMicroCopy("search.label") }}
+                    {...props}
+                  />
+                )}
                 action={`/${countryCode}/search`}
                 label={getMicroCopy("search.label")}
                 placeholder={getMicroCopy("search.placeholder")}

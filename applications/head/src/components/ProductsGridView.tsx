@@ -1,16 +1,18 @@
-import React, { useContext } from "react";
-import { Link } from "gatsby";
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import { ClickableAction } from "@bmi/clickable";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
+import { Link } from "gatsby";
+import React, { useContext } from "react";
+import { iconMap } from "../components/Icon";
+import withGTM from "../utils/google-tag-manager";
 import {
   findMasterImageUrl,
   findUniqueVariantClassifications,
   getProductUrl,
   mapClassificationValues
 } from "../utils/product-details-transforms";
-import { iconMap } from "../components/Icon";
 import { SiteContext } from "./Site";
 
 // TODO: This is the transformed indexed data
@@ -29,6 +31,12 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
     // TODO: Microcopy?
     return <Typography>No results found</Typography>;
   }
+
+  const GTMAnchorLink = withGTM<
+    AnchorLinkProps & {
+      action?: ClickableAction;
+    }
+  >(AnchorLink);
 
   return (
     <>
@@ -62,8 +70,9 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
               imageSize="contain"
               brandImageSource={brandLogo}
               footer={
-                <AnchorLink
+                <GTMAnchorLink
                   iconEnd
+                  gtm={{ id: "selector-cards2", action: "Selector - Cards" }}
                   action={{
                     model: "routerLink",
                     linkComponent: Link,
@@ -74,7 +83,7 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
                   }}
                 >
                   {getMicroCopy("plp.product.viewDetails")}
-                </AnchorLink>
+                </GTMAnchorLink>
               }
             >
               {variant.shortDescription}

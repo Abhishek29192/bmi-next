@@ -1,3 +1,4 @@
+import Button, { ButtonProps } from "@bmi/button";
 import Checkbox from "@bmi/checkbox";
 import Form from "@bmi/form";
 import { InputValue } from "@bmi/form/src/withFormControl";
@@ -12,12 +13,13 @@ import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import withGTM from "../utils/google-tag-manager";
+// TODO: FormInputs should be updated and used here.
+import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
 import { LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import styles from "./styles/FormSection.module.scss";
-// TODO: FormInputs should be updated and used here.
-import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
 
 const InputTypes = [
   "text",
@@ -190,6 +192,8 @@ const FormSection = ({
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
+  const GTMButton = withGTM<ButtonProps>(Button);
+
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
     values: Record<string, InputValue>
@@ -260,6 +264,9 @@ const FormSection = ({
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton
+              component={(props) => (
+                <GTMButton gtm={{ id: "form-button1" }} {...props} />
+              )}
               endIcon={
                 isSubmitting ? (
                   <CircularProgress

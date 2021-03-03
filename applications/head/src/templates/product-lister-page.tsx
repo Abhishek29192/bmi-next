@@ -1,3 +1,5 @@
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import { ClickableAction } from "@bmi/clickable";
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
@@ -6,11 +8,11 @@ import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import CheckIcon from "@material-ui/icons/Check";
 import IconList from "@bmi/icon-list";
-import AnchorLink from "@bmi/anchor-link";
 import OverviewCard from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import ColorSwatch from "../components/ColorSwatch";
+import withGTM from "../utils/google-tag-manager";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -225,6 +227,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const pageData: PageData = { breadcrumbs, inputBanner, seo };
 
+  const GTMAnchorLink = withGTM<
+    AnchorLinkProps & {
+      action?: ClickableAction;
+    }
+  >(AnchorLink);
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -339,8 +347,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
                                 footer={
-                                  <AnchorLink
+                                  <GTMAnchorLink
                                     iconEnd
+                                    gtm={{
+                                      id: "selector-cards2",
+                                      action: "Selector - Cards"
+                                    }}
                                     action={{
                                       model: "routerLink",
                                       linkComponent: Link,
@@ -353,7 +365,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                     }}
                                   >
                                     {getMicroCopy("plp.product.viewDetails")}
-                                  </AnchorLink>
+                                  </GTMAnchorLink>
                                 }
                               >
                                 {variant.shortDescription}

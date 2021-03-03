@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
-import filesize from "filesize";
-import classnames from "classnames";
-import { get } from "lodash";
-import Table from "@bmi/table";
-import Button from "@bmi/button";
-import Icon, { iconMap } from "@bmi/icon";
+import Button, { ButtonProps } from "@bmi/button";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
+import { ClickableAction } from "@bmi/clickable";
+import Icon, { iconMap } from "@bmi/icon";
+import Table from "@bmi/table";
+import classnames from "classnames";
+import filesize from "filesize";
+import { get } from "lodash";
+import React, { useContext } from "react";
+import withGTM from "../utils/google-tag-manager";
+import { Data as DocumentData } from "./Document";
 import { Data as PIMDocumentData } from "./PIMDocument";
 import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
-import { Data as DocumentData } from "./Document";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
@@ -31,6 +33,12 @@ const fileIconsMap: Record<Format, React.ComponentType> = {
   "image/jpeg": iconMap.FileJPEG,
   "image/png": iconMap.FilePNG
 };
+
+const GTMButton = withGTM<
+  ButtonProps & {
+    action?: ClickableAction;
+  }
+>(Button);
 
 const mapAssetToFileDownload = (
   data: DocumentData | PIMDocumentData
@@ -66,7 +74,8 @@ type FileDownloadButtonProps = {
 
 const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
   format && url ? (
-    <Button
+    <GTMButton
+      gtm={{ id: "download1", label: "Download", action: url }}
       action={{
         model: "download",
         href: `https:${url.replace("https:", "")}`
@@ -82,7 +91,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       }
     >
       {filesize(size)}
-    </Button>
+    </GTMButton>
   ) : null;
 
 export const getCount = (documents: Document[]) => {

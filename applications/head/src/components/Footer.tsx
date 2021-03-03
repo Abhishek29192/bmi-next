@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
-import { graphql } from "gatsby";
+import Button, { ButtonProps } from "@bmi/button";
 import Footer, { MenuItem } from "@bmi/footer";
-import HidePrint from "@bmi/hide-print";
 import BmiIcon from "@bmi/footer/src/svgs/BMI.svg";
+import HidePrint from "@bmi/hide-print";
+import { graphql } from "gatsby";
+import React, { useContext } from "react";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { getClickableActionFromUrl, NavigationData, LinkData } from "./Link";
+import { getClickableActionFromUrl, LinkData, NavigationData } from "./Link";
 import { SiteContext } from "./Site";
 
 const parseNavigation = (
@@ -55,9 +57,17 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
     }
   ];
 
+  const GTMButton = withGTM<ButtonProps>(Button, {
+    label: "accessibilityLabel",
+    action: "action"
+  });
+
   return (
     <HidePrint>
       <Footer
+        buttonComponent={(props) => (
+          <GTMButton gtm={{ id: "nav-footer1" }} {...props} />
+        )}
         mainNavigation={main}
         secondaryNavigation={secondaryWithSitemap}
         logo={BmiIcon}
