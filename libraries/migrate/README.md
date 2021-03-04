@@ -74,3 +74,17 @@ yarn migrate down <filename> <options>
 | -c  | --content-type <content-type>                | one or more content type names to process                                  |
 | -a  | --all                                        | processes migrations for all content types                                 |
 | -d  | --dry-run                                    | only shows the plan, don't write anything to contentful. defaults to false |
+
+### Create roles
+
+Custom roles with permissions can be added to a Contentful space by running the following script.
+
+```bash
+yarn createRoles
+```
+
+The only way to migrate users is via the Content Management API (read [here](https://www.contentfulcommunity.com/t/migration-of-custom-roles-and-users-from-one-space-to-other/789)).
+
+The custom roles with permissions need to be specified in a JSON file, at the following path: `{PROJECT_RELATIVE_PATH}/roles.json`.
+
+[This documentation](https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles) shows some of the accepted key value pairs for roles & permissions.
