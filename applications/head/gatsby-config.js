@@ -375,16 +375,16 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        output: "/no/sitemap.xml",
+        output: `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`,
         sitemapSize: 50000,
-        sitemapName: "/no/sitemap"
+        sitemapName: `/${process.env.SPACE_MARKET_CODE}/sitemap`
       }
     },
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
-        output: "/no/images.xml",
-        sitemapName: "/no/images",
+        output: `/${process.env.SPACE_MARKET_CODE}/images.xml`,
+        sitemapName: `/${process.env.SPACE_MARKET_CODE}/images`,
         sitemapSize: 50000,
         query: `
         {
