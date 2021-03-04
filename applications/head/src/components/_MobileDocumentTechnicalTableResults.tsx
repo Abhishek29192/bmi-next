@@ -42,7 +42,7 @@ const MobileDocumentTechnicalTableResults = ({
                       key={`${productName}-asset-${asset.id}`}
                       className={styles["accordion-details"]}
                     >
-                      <div className={styles["accordion-details-left-align"]}>
+                      <div className={styles["icon-container"]}>
                         {asset.__typename !== "PIMLinkDocument" ? (
                           <Icon
                             source={fileIconsMap[asset.format]}
@@ -55,17 +55,13 @@ const MobileDocumentTechnicalTableResults = ({
                           />
                         )}
                       </div>
-                      <div className={styles["accordion-details-left-align"]}>
+                      <div className={styles["icon-container"]}>
                         {assetType.code}
                       </div>
-                      <div
-                        className={
-                          styles["accordion-details-left-align-smallmargin"]
-                        }
-                      >
+                      <div className={styles["info-icon-container"]}>
                         <AssetHeader assetType={assetType} />
                       </div>
-                      <div className={styles["accordion-details-right-align"]}>
+                      <div className={styles["download-icon-container"]}>
                         {asset.__typename !== "PIMLinkDocument" ? (
                           <Clickable
                             model="download"

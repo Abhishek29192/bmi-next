@@ -47,28 +47,25 @@
     :last-child {
       border-bottom: none;
     }
-  }
+    .icon-container {
+      width: 37px;
+      margin-top: 12px;
+      margin-right: 15px;
+    }
+    .info-icon-container {
+      width: 37px;
+      margin-top: 7px;
+      margin-right: 15px;
+    }
+    .download-icon-container {
+      width: 100%;
+      margin-top: 15px;
+      display: flex;
+      justify-content: flex-end;
 
-  .accordion-details-left-align {
-    width: 37px;
-    margin-top: 12px;
-    margin-right: 15px;
-  }
-
-  .accordion-details-left-align-smallmargin {
-    width: 37px;
-    margin-top: 7px;
-    margin-right: 15px;
-  }
-
-  .accordion-details-right-align {
-    width: 100%;
-    margin-top: 15px;
-    display: flex;
-    justify-content: flex-end;
-
-    .all-files-icon {
-      color: $color-cyan-500;
+      .all-files-icon {
+        color: $color-cyan-500;
+      }
     }
   }
 

@@ -11,6 +11,7 @@ import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import { Data as DocumentData } from "./Document";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
+import { Format } from "./types";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
@@ -22,8 +23,6 @@ type Props = {
   documentsPerPage: number;
   headers?: AvailableHeader[];
 };
-
-type Format = "application/pdf" | "image/jpg" | "image/jpeg" | "image/png";
 
 const fileIconsMap: Record<Format, React.ComponentType> = {
   "application/pdf": iconMap.FilePDF,
