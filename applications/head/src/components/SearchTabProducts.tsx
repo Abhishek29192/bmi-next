@@ -20,6 +20,7 @@ type Props = {
   queryString: string;
   initialProducts?: ReadonlyArray<any>; // TODO
   onLoadingChange?: (isLoading: boolean) => void;
+  onCountChange?: (count: number) => void;
   initialFilters: any; // TODO
   pageContext: any; // TODO
 };
@@ -46,6 +47,7 @@ const SearchTabPanelProducts = (props: Props) => {
     pageContext,
     initialProducts = [],
     onLoadingChange,
+    onCountChange,
     initialFilters
   } = props;
 
@@ -106,6 +108,8 @@ const SearchTabPanelProducts = (props: Props) => {
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
       setProducts(hits.hits.map((hit) => hit._source));
+
+      onCountChange && onCountChange(hits.total.value);
     }
 
     updateLoadingStatus(false);

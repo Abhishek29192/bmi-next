@@ -61,6 +61,10 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
   const [tabsLoading, setTabsLoading] = useState({});
   const [areTabsResolved, setAreTabsResolved] = useState(false);
+  // NOTE: Kept in state so the page's state determined by initial page load is preserved as tabs' counts may change
+  // It should not be possible to arrive at 0 results by interacting with filters
+  // but this is an additional precaution as it's not expected.
+  const [pageHasResults, setPageHasResults] = useState(false);
   const [results, setResults] = useState<
     Record<
       "products" | "documents" | "pages",
@@ -140,14 +144,13 @@ const SearchPage = ({ pageContext, data }: Props) => {
       }
 
       setResults(newResults);
+      setPageHasResults(Object.values(newResults).some(({ count }) => !!count));
       setAreTabsResolved(true);
       setPageIsLoading(false);
     };
 
     getCounts();
   }, [queryString]);
-
-  const hasResults = Object.values(results).some(({ count }) => !!count);
 
   const pageTitle = useMemo(() => {
     // If no query, we can't show a title referring to the query
@@ -157,12 +160,12 @@ const SearchPage = ({ pageContext, data }: Props) => {
     }
 
     // Otherwise, the title depends on if there are results.
-    if (hasResults) {
+    if (pageHasResults) {
       return getMicroCopy("searchPage.title.withQuery", { query: queryString });
     } else {
       return getMicroCopy("searchPage.noResultsTitle", { query: queryString });
     }
-  }, [queryString, hasResults, areTabsResolved]);
+  }, [queryString, pageHasResults, areTabsResolved]);
 
   // If any of the tabs are loading
   const tabIsLoading =
@@ -176,6 +179,18 @@ const SearchPage = ({ pageContext, data }: Props) => {
         hasBeenDisplayed: true
       }
     });
+  };
+
+  const onTabCountChange = (tabKey, count) => {
+    const newResults = {
+      ...results,
+      [tabKey]: {
+        ...results[tabKey],
+        count
+      }
+    };
+
+    setResults(newResults);
   };
 
   const renderTabs = (): React.ReactElement[] => {
@@ -205,6 +220,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
                   extraData={{
                     allContentfulAssetType: allContentfulAssetType.nodes
                   }}
+                  onCountChange={(count) => onTabCountChange(tabKey, count)}
                 />
               </Container>
             ) : null}
@@ -243,7 +259,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
             queryString ? getMicroCopy("searchPage.searchText") : defaultTitle
           }
           countryCode={countryCode}
-          hasResults={hasResults}
+          hasResults={pageHasResults}
           isLoading={tabIsLoading}
           helperText={getMicroCopy("searchPage.helperText")}
           placeholder={getMicroCopy("searchPage.placeholder")}
@@ -252,7 +268,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           searchPageSidebarItems={resources.searchPageSidebarItems}
         />
       </Section>
-      {hasResults ? (
+      {pageHasResults ? (
         <Tabs
           initialValue={initialTabKey}
           theme="secondary"
@@ -261,7 +277,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           {renderTabs()}
         </Tabs>
       ) : null}
-      {!hasResults
+      {!pageHasResults
         ? resources.searchPageNextBestActions && (
             <NextBestActions data={resources.searchPageNextBestActions} />
           )
