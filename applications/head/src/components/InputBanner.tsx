@@ -6,9 +6,12 @@ import Dialog from "@bmi/dialog";
 import Form, { FormContext } from "@bmi/form";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import ErrorIcon from "@material-ui/icons/WarningOutlined";
+import Typography from "@bmi/typography";
 import { devLog } from "../utils/devLog";
 import { SiteContext } from "./Site";
 import FormInputs, { Data as FormInputsData } from "./FormInputs";
+import RichText, { RichTextData } from "./RichText";
 
 export type Data = {
   title: string;
@@ -20,6 +23,10 @@ export type Data = {
   additionalInputs: FormInputsData;
   confirmationButtonLabel: string | null;
   thankYouMessage: string;
+  allowRetry: string | null;
+  errorTitle: string | null;
+  errorBody: RichTextData | null;
+  retryButtonLabel: string | null;
 };
 
 const IntegratedInputBanner = ({ data }: { data?: Data }) => {
@@ -28,9 +35,11 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   }
 
   const [email, setEmail] = useState("");
+  const [additionalFields, setAdditionalFields] = useState(null);
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [secondDialogOpen, setSecondDialogOpen] = useState(false);
+  const [retryDialogOpen, setRetryDialogOpen] = useState(false);
   const { getMicroCopy } = useContext(SiteContext);
   const {
     title,
@@ -39,11 +48,17 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
     submitButtonLabel,
     additionalInputs,
     thankYouMessage,
-    confirmationButtonLabel
+    confirmationButtonLabel,
+    allowRetry,
+    errorTitle,
+    errorBody,
+    retryButtonLabel
   } = data;
 
+  const canRetry = allowRetry === "Yes";
+
   const handleSubmit = useCallback(
-    async (additionalFields) => {
+    async (values) => {
       // integrate with Apsis API using GCP function
       if (!process.env.GATSBY_GCP_APSIS_ENDPOINT) {
         devLog("APSIS API Endpoint is not configured.");
@@ -58,7 +73,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
           process.env.GATSBY_GCP_APSIS_ENDPOINT,
           {
             email,
-            ...additionalFields
+            ...values
           },
           {
             cancelToken: source.token,
@@ -67,8 +82,13 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         );
         setSecondDialogOpen(true);
       } catch (error) {
-        // TODO : implement DXB-1540, allow user to re-try sign-up
         devLog(error);
+        /* do not show anything for retry */
+        /* If retry title in the inputBanner content is not populated on contentful CMS! */
+        if (errorTitle && errorBody) {
+          setAdditionalFields(values);
+          setRetryDialogOpen(true);
+        }
       }
       setDialogOpen(false);
     },
@@ -105,6 +125,48 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
           </Form>
         </Dialog>
       )}
+
+      <Dialog
+        open={retryDialogOpen}
+        onCloseClick={() => {
+          setRetryDialogOpen(false);
+        }}
+      >
+        <Dialog.Title>
+          {/* have to keep style for Title component here for simplicity */}
+          {/* to allow styled children, we will have to change Dialog control and its style overrides */}
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <ErrorIcon
+              color="error"
+              fontSize={"small"}
+              style={{ marginRight: "8px" }}
+            />
+            <Typography variant={"h6"} component="span">
+              {errorTitle}
+            </Typography>
+          </div>
+        </Dialog.Title>
+        <Dialog.Content>
+          {errorBody ? <RichText document={errorBody} /> : null}
+        </Dialog.Content>
+
+        <Dialog.Actions
+          cancelLabel={getMicroCopy("dialog.close")}
+          onCancelClick={() => {
+            setRetryDialogOpen(false);
+          }}
+          confirmLabel={
+            canRetry ? retryButtonLabel || getMicroCopy("dialog.retry") : null
+          }
+          onConfirmClick={() => {
+            if (canRetry) {
+              setRetryDialogOpen(false);
+              handleSubmit(additionalFields);
+            }
+          }}
+        />
+      </Dialog>
+
       <Dialog
         open={secondDialogOpen}
         onCloseClick={() => setSecondDialogOpen(false)}
@@ -158,5 +220,11 @@ export const query = graphql`
     }
     confirmationButtonLabel
     thankYouMessage
+    allowRetry
+    errorTitle
+    errorBody {
+      ...RichTextFragment
+    }
+    retryButtonLabel
   }
 `;
