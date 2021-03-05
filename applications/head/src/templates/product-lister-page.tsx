@@ -11,7 +11,6 @@ import IconList from "@bmi/icon-list";
 import OverviewCard from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
-import ColorSwatch from "../components/ColorSwatch";
 import withGTM from "../utils/google-tag-manager";
 import {
   getProductUrl,
@@ -25,6 +24,7 @@ import {
   ProductFilter,
   updateFilterValue
 } from "../utils/filters";
+import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
 import { iconMap } from "../components/Icon";
@@ -104,21 +104,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
 
   // NOTE: map colour filter values to specific colour swatch representation
-  const resolveFilters = (filters) => {
+  const resolveFilters = (filters: readonly ProductFilter[]) => {
     return filters.map((filter) => {
       if (filter.name === "colour") {
-        return {
-          ...filter,
-          options: filter.options.map((option) => ({
-            ...option,
-            label: (
-              <>
-                <ColorSwatch colorCode={option.value} />
-                {option.label}
-              </>
-            )
-          }))
-        };
+        return enhanceColourFilterWithSwatches(filter);
       }
 
       return filter;
