@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles/ColorSwatch.module.scss";
 
-const COLOR_CODES = {
+export const COLOR_CODES = {
   ANTHRACITE: "#393E42",
   ANTIQUE_BROWN: "#6B3C33",
   ANTIQUE_CLAY: "#CB9E7C",

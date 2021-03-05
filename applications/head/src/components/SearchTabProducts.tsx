@@ -1,8 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Grid from "@bmi/grid";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
-import { clearFilterValues, updateFilterValue } from "../utils/filters";
+import {
+  clearFilterValues,
+  ProductFilter,
+  updateFilterValue
+} from "../utils/filters";
 import {
   queryElasticSearch,
   compileElasticSearchQuery,
@@ -11,6 +15,7 @@ import {
   getCountQuery
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import ResultsPagination from "./ResultsPagination";
 
 const PAGE_SIZE = 24;
@@ -21,7 +26,7 @@ type Props = {
   initialProducts?: ReadonlyArray<any>; // TODO
   onLoadingChange?: (isLoading: boolean) => void;
   onCountChange?: (count: number) => void;
-  initialFilters: any; // TODO
+  initialFilters: readonly ProductFilter[];
   pageContext: any; // TODO
 };
 
@@ -56,7 +61,18 @@ const SearchTabPanelProducts = (props: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [products, setProducts] = useState(initialProducts);
-  const [filters, setFilters] = useState(initialFilters);
+
+  // NOTE: map colour filter values to specific colour swatch representation
+  const enhancedFilters = useMemo(() => {
+    return initialFilters.map((filter) => {
+      if (filter.name === "colour") {
+        return enhanceColourFilterWithSwatches(filter);
+      }
+
+      return filter;
+    });
+  }, [initialFilters]);
+  const [filters, setFilters] = useState(enhancedFilters);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
