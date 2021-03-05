@@ -124,7 +124,7 @@ const Header = ({
           activeNavLabel={activeLabel}
           closeLabel={getMicroCopy("global.close")}
           searchButtonComponent={(props: ButtonProps) => (
-            <GTMSearchButton id="search1" {...props} />
+            <GTMSearchButton gtm={{ id: "search1" }} {...props} />
           )}
           navigationButtonComponent={(props: ButtonProps) => (
             <GTMNavigationButton gtm={{ id: "nav-main-menu" }} {...props} />
