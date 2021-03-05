@@ -1,7 +1,9 @@
+import Button, { ButtonProps } from "@bmi/button";
 import Section from "@bmi/section";
 import ShareWidget from "@bmi/share-widget";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
+import withGTM from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";
 
 export type Data = {
@@ -18,6 +20,8 @@ export type Data = {
   pinterest: boolean | null;
   twitter: boolean | null;
 };
+
+const GTMButton = withGTM<ButtonProps>(Button, { label: "accessibilityLabel" });
 
 const ShareWidgetSection = ({
   data: {
@@ -70,6 +74,9 @@ const ShareWidgetSection = ({
       <ShareWidget
         title={title}
         message={message}
+        buttonComponent={(props: ButtonProps) => (
+          <GTMButton gtm={{ id: "cta-share1" }} {...props} />
+        )}
         clipboardSuccessMessage={
           clipboardSuccessMessage || getMicroCopy("share.clipboardSuccess")
         }

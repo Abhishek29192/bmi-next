@@ -1,4 +1,4 @@
-import Button from "@bmi/button";
+import DefaultButton from "@bmi/button";
 import Icon from "@bmi/icon";
 import Typography from "@bmi/typography";
 import { Tooltip } from "@material-ui/core";
@@ -35,6 +35,7 @@ type Channel =
     };
 
 type Props = {
+  buttonComponent?: React.ComponentType<any>; // TODO
   channels: Channel[];
   clipboardSuccessMessage?: string;
   clipboardErrorMessage?: string;
@@ -44,6 +45,7 @@ type Props = {
 };
 
 const ShareWidget = ({
+  buttonComponent,
   channels,
   clipboardSuccessMessage = "Copied to clipboard",
   clipboardErrorMessage = "There was an error copying to clipboard",
@@ -53,6 +55,8 @@ const ShareWidget = ({
 }: Props) => {
   const [tooltipTitle, setTooltipTitle] = useState<string>("");
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
+
+  const Button = buttonComponent || DefaultButton;
 
   useEffect(() => {
     let openTooltipTimeout: NodeJS.Timeout;

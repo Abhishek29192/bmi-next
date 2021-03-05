@@ -1,4 +1,4 @@
-import Button from "@bmi/button";
+import DefaultButton from "@bmi/button";
 import Form, { FormProps, InputValue } from "@bmi/form";
 import Icon from "@bmi/icon";
 import InputGroup from "@bmi/input-group";
@@ -13,6 +13,7 @@ type Props = Omit<FormProps, "children" | "onChange"> & {
   buttonText?: string;
   clearLabel?: string;
   defaultValue?: InputValue;
+  buttonComponent?: React.ComponentType<any>; // TODO
   helperText?: string;
   label?: string;
   fieldName?: string;
@@ -25,6 +26,7 @@ const Search = ({
   buttonText,
   clearLabel = "Clear",
   defaultValue,
+  buttonComponent,
   helperText,
   label = "Search",
   fieldName = QUERY_KEY,
@@ -34,6 +36,7 @@ const Search = ({
   ...formProps
 }: Props) => {
   const [value, setValue] = useState<InputValue>(defaultValue || undefined);
+  const Button = buttonComponent || DefaultButton;
 
   const handleOnChange = (newValue: InputValue) => {
     setValue(newValue);
