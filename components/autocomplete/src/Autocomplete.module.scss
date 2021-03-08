@@ -1,3 +1,5 @@
+@import "@bmi/styles";
+
 .option {
   mark {
     background-color: transparent;
@@ -6,6 +8,7 @@
 }
 
 .start-adornment-icon {
+  color: $color-slate;
   width: 18px;
   height: 18px;
   margin: 0 7px;
