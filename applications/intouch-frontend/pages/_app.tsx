@@ -15,7 +15,7 @@ const {
 } = process.env;
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const [token, setToken] = useState<String>();
+  const [token, setToken] = useState<string>();
   const {
     isLoading,
     isAuthenticated,

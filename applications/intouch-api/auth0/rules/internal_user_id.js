@@ -1,5 +1,5 @@
 // eslint-disable-next-line strict, no-unused-vars
-async function InternalUserIdRole(user, context, callback) {
+async function InternalUserIdRule(user, context, callback) {
   const axios = require("axios");
 
   const { stats } = context;
