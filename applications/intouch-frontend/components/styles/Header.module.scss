@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: #292d41;
+  background-color: $color-blue-900;
   color: white;
   padding: 0 1rem;
 
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: space-between;
   height: 72px;
-  background: white;
+  background: $color-white;
 
   @media (min-width: $breakpoint-md) {
     display: none;

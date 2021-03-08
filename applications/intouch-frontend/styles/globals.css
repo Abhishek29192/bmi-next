@@ -13,15 +13,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-/* TODO: Create proper component for Avatar */
-.avatar {
-  background-color: #c5c5c5;
-  border-radius: 100%;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 0.5rem;
-}

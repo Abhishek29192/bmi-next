@@ -3,7 +3,7 @@
 $sidebar-width: 200px;
 
 .cookieBanner {
-  background-color: #181818;
+  background-color: $color-black;
   width: 100%;
 
   max-width: calc(100vw - #{$sidebar-width});
