@@ -325,7 +325,7 @@ module.exports = {
       })
     ),
     {
-      resolve: "gatsby-source-firestore",
+      resolve: "@bmi/gatsby-plugin-firestore",
       options: {
         credential: {
           type: "service_account",
