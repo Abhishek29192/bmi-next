@@ -11,6 +11,7 @@ import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { SiteContext } from "./Site";
 import { Data as PIMDocumentData } from "./PIMDocument";
+import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
@@ -36,7 +37,7 @@ type Props = {
   }[];
   guaranteesAndWarranties?: GuaranteesAndAwardsAsset[];
   awardsAndCertificates?: GuaranteesAndAwardsAsset[];
-  documents: PIMDocumentData[];
+  documents: (PIMDocumentData | PIMLinkDocumentData)[];
 };
 
 const DOCUMENTS_PER_PAGE = 24;
