@@ -73,25 +73,26 @@ const createProductPages = async (
     }
   } = result;
 
-  products.forEach(async (product) => {
-    const component = componentMap[product.__typename];
+  await Promise.all(
+    products.map(async (product) => {
+      const component = componentMap[product.__typename];
 
-    if (!component) {
-      console.warn(
-        `CreatePage: Could not map the page to any component. Make sure you handle the __typename [${product.__typename}] with a template.`
-      );
-      return;
-    }
+      if (!component) {
+        console.warn(
+          `CreatePage: Could not map the page to any component. Make sure you handle the __typename [${product.__typename}] with a template.`
+        );
+        return;
+      }
 
-    const productFamilyCode = (
-      (product.categories || []).find(({ categoryType }) => {
-        return categoryType === "ProductFamily";
-      }) || {}
-    ).code;
+      const productFamilyCode = (
+        (product.categories || []).find(({ categoryType }) => {
+          return categoryType === "ProductFamily";
+        }) || {}
+      ).code;
 
-    let relatedProductCodes = [];
-    if (productFamilyCode) {
-      const result = await graphql(`
+      let relatedProductCodes = [];
+      if (productFamilyCode) {
+        const result = await graphql(`
       {
         categoryProducts: allProducts(
           filter: {
@@ -105,37 +106,40 @@ const createProductPages = async (
         }
         `);
 
-      if (result.errors) {
-        throw new Error(result.errors);
+        if (result.errors) {
+          throw new Error(result.errors);
+        }
+
+        // TODO: Probably a way of abstracting this into a function
+        const {
+          data: {
+            categoryProducts: { nodes: relatedProducts }
+          }
+        } = result;
+
+        relatedProductCodes = relatedProducts.map(({ code }) => code);
       }
 
-      // TODO: Probably a way of abstracting this into a function
-      const {
-        data: {
-          categoryProducts: { nodes: relatedProducts }
-        }
-      } = result;
+      await Promise.all(
+        (product.variantOptions || []).map(async (variantOption) => {
+          variantCodeToPathMap[variantOption.code] = variantOption.path;
 
-      relatedProductCodes = relatedProducts.map(({ code }) => code);
-    }
-
-    (product.variantOptions || []).forEach((variantOption) => {
-      variantCodeToPathMap[variantOption.code] = variantOption.path;
-
-      createPage({
-        path: `/${countryCode}/${variantOption.path}`,
-        component,
-        context: {
-          productId: product.id,
-          variantCode: variantOption.code,
-          siteId: siteId,
-          countryCode,
-          relatedProductCodes,
-          pimClassificationCatalogueNamespace
-        }
-      });
-    });
-  });
+          await createPage({
+            path: `/${countryCode}/${variantOption.path}`,
+            component,
+            context: {
+              productId: product.id,
+              variantCode: variantOption.code,
+              siteId: siteId,
+              countryCode,
+              relatedProductCodes,
+              pimClassificationCatalogueNamespace
+            }
+          });
+        })
+      );
+    })
+  );
 };
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -208,35 +212,37 @@ exports.createPages = async ({ graphql, actions }) => {
       variantCodeToPathMap
     );
 
-    ([site.homePage, ...site.pages] || []).forEach((page) => {
-      const component = componentMap[page.__typename];
+    await Promise.all(
+      ([site.homePage, ...site.pages] || []).map(async (page) => {
+        const component = componentMap[page.__typename];
 
-      if (!component) {
-        console.warn(
-          "CreatePage: Could not map the page to any component. Make sure you handle the __typename with a template."
-        );
-        return;
-      }
-
-      createPage({
-        // TODO: This removes the extra / for the homepage. The country code
-        // could live in the page.path instead.
-        path: `/${site.countryCode}/${page.path}`.replace(/\/+/gi, "/"),
-        component,
-        context: {
-          pageId: page.id,
-          siteId: site.id,
-          categoryCode: page.categoryCode,
-          pimClassificationCatalogueNamespace,
-          variantCodeToPathMap
+        if (!component) {
+          console.warn(
+            "CreatePage: Could not map the page to any component. Make sure you handle the __typename with a template."
+          );
+          return;
         }
-      });
-    });
+
+        await createPage({
+          // TODO: This removes the extra / for the homepage. The country code
+          // could live in the page.path instead.
+          path: `/${site.countryCode}/${page.path}`.replace(/\/+/gi, "/"),
+          component,
+          context: {
+            pageId: page.id,
+            siteId: site.id,
+            categoryCode: page.categoryCode,
+            pimClassificationCatalogueNamespace,
+            variantCodeToPathMap
+          }
+        });
+      })
+    );
 
     if (process.env.NODE_ENV === "development") {
       const dataFilePath = "./.temp/microCopyKeys.json";
 
-      createPage({
+      await createPage({
         path: `/${site.countryCode}/global-reources`,
         component: path.resolve("./src/templates/_global-resources.tsx"),
         context: {
@@ -248,7 +254,7 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     }
 
-    createPage({
+    await createPage({
       path: `/${site.countryCode}/search`,
       component: path.resolve("./src/templates/search-page.tsx"),
       context: {
@@ -259,7 +265,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
 
-    createPage({
+    await createPage({
       path: `/${site.countryCode}/422`,
       component: path.resolve("./src/templates/general-error.tsx"),
       context: {
@@ -267,7 +273,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
 
-    createPage({
+    await createPage({
       path: `/${site.countryCode}/sitemap`,
       component: path.resolve("./src/templates/sitemap.tsx"),
       context: {
@@ -303,24 +309,26 @@ exports.createResolvers = ({ createResolvers }) => {
   createResolvers(resolvers);
 };
 
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = async ({ node, actions }) => {
   const { createNode } = actions;
 
   if (node.internal.type === "Products") {
-    (node.categories || []).forEach((category) => {
-      createNode({
-        ...category,
+    await Promise.all(
+      (node.categories || []).map(async (category) => {
+        await createNode({
+          ...category,
 
-        // Required fields.
-        id: `product-category-${category.code}`,
-        parent: null, // or null if it's a source node without a parent
-        children: [],
-        internal: {
-          type: `ProductCategory`,
-          contentDigest: generateDigestFromData(category),
-          description: `PIM Product Category`
-        }
-      });
-    });
+          // Required fields.
+          id: `product-category-${category.code}`,
+          parent: null, // or null if it's a source node without a parent
+          children: [],
+          internal: {
+            type: `ProductCategory`,
+            contentDigest: generateDigestFromData(category),
+            description: `PIM Product Category`
+          }
+        });
+      })
+    );
   }
 };
