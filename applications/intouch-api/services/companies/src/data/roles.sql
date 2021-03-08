@@ -1,0 +1,28 @@
+-- https://www.postgresql.org/docs/9.1/sql-grant.html
+
+CREATE ROLE super_admin NOLOGIN;
+CREATE ROLE market_admin NOLOGIN;
+CREATE ROLE company_owner NOLOGIN;
+CREATE ROLE company_admin NOLOGIN;
+CREATE ROLE installer NOLOGIN;
+
+GRANT installer TO company_admin;
+GRANT company_admin TO company_owner;
+GRANT company_owner TO market_admin;
+GRANT market_admin TO super_admin;
+
+GRANT USAGE ON SCHEMA public TO market_admin;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO market_admin;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO market_admin;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO market_admin;
+ALTER DEFAULT PRIVILEGES FOR USER market_admin IN SCHEMA public GRANT SELECT ON TABLES TO market_admin;
+ALTER DEFAULT PRIVILEGES FOR USER market_admin IN SCHEMA public GRANT USAGE, SELECT ON SEQUENCES TO market_admin;
+ALTER DEFAULT PRIVILEGES FOR USER market_admin IN SCHEMA public GRANT EXECUTE ON FUNCTIONS TO market_admin;
+
+GRANT USAGE ON SCHEMA public TO installer;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO installer;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO installer;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO installer;
+ALTER DEFAULT PRIVILEGES FOR USER installer IN SCHEMA public GRANT SELECT ON TABLES TO installer;
+ALTER DEFAULT PRIVILEGES FOR USER installer IN SCHEMA public GRANT USAGE, SELECT ON SEQUENCES TO installer;
+ALTER DEFAULT PRIVILEGES FOR USER installer IN SCHEMA public GRANT EXECUTE ON FUNCTIONS TO installer;
