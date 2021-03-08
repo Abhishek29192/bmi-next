@@ -49,7 +49,7 @@ const DocumentTechnicalTableResults = ({
   }
 
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <div className={styles["DocumentTechnicalTableResults"]}>
