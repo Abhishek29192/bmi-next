@@ -14,6 +14,9 @@
     .MuiFormControlLabel-root {
       margin-right: 0;
     }
+    .MuiAccordionDetails-root {
+      padding: 0px 15px;
+    }
   }
 
   .asset-type-cell {
@@ -44,7 +47,7 @@
     vertical-align: middle;
     background-color: white;
     border-bottom: 1px solid $color-storm;
-    :last-child {
+    &:last-child {
       border-bottom: none;
     }
     .icon-container {
