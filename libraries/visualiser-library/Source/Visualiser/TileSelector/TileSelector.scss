@@ -1,0 +1,61 @@
+.tile-selector-modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	border: 0;
+	z-index: 1;
+	background-color: get_palette(whiteBG);
+
+	h1 {
+		text-align: center;
+		margin-bottom: 2.5rem;
+	}
+
+	h2 {
+		margin-top: 1.25rem;
+	}
+
+	.tile-selector-content {
+		margin: 2.625rem auto;
+		max-width: 82.4375rem;
+		width: 100%;
+		position: relative;
+		padding: 0 1.5rem;
+
+		.close-selector {
+			position: absolute;
+			top: -0.875rem;
+			right: 1.5rem;
+		}
+
+		.tile-list {
+			margin: 1.25rem 0 0;
+			padding: 0;
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.tile-selector-modal {
+		h1 {
+			margin-bottom: 4.25rem;
+		}
+
+		h2 {
+			margin-top: 3.125rem;
+		}
+
+		.tile-selector-content {
+			margin: 4.0625rem auto;
+
+			.close-selector {
+				top: -0.5625rem;
+				right: 0;
+			}
+		}
+	}
+};
