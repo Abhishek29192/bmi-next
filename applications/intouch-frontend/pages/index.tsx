@@ -8,7 +8,7 @@ const Homepage = () => {
   const { t } = useTranslation("common");
 
   return (
-    <Layout title={t("Home")}>
+    <Layout title="JS Roofers">
       <Hero
         level={0}
         hasSpaceBottom

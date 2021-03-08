@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Card from "@bmi/card";
 import CompanyDetails from "@bmi/company-details";
 import { useQuery, gql } from "@apollo/client";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import PhoneIcon from "@material-ui/icons/Phone";
+import MailIcon from "@material-ui/icons/Mail";
+import AddIcon from "@material-ui/icons/Add";
+import Typography from "@bmi/typography";
+import Grid from "@bmi/grid";
+import { Person } from "@material-ui/icons";
+import Icon from "@bmi/icon";
 import Layout from "../components/Layout";
+import InfoPair from "../components/InfoPair";
+import CardHeader from "../components/CardHeader";
+import GridStyles from "../styles/Grid.module.scss";
 
 const GET_COMPANY = gql`
   query GetCompanyDetail($companyId: Int!) {
@@ -98,7 +110,7 @@ const getCompanyData = (
 };
 
 const Company = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("company-page");
 
   const { loading, data } = useQuery<CompanyData, CompanyVars>(GET_COMPANY, {
     variables: { companyId: 2 }

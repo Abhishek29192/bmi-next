@@ -2,12 +2,80 @@
 
 .header {
   width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  clip-path: inset(0px 0px -10px 0px);
-  padding: 26px 22px;
-  background-color: $color-white;
   z-index: 5;
   position: relative;
   display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.upperHeader {
+  height: 40px;
+  display: flex;
   align-items: center;
+  justify-content: flex-end;
+  background-color: #292d41;
+  color: white;
+  padding: 0 1rem;
+
+  a {
+    font-size: 0.85rem;
+    margin-left: 1.5rem;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    padding: 1.5rem;
+    height: 50px;
+    text-decoration: underline;
+  }
+}
+
+.midHeader {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  background: white;
+
+  @media (min-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.midHeaderNav {
+  display: flex;
+}
+
+.lowerHeader {
+  height: 64px;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 1.5rem;
+    height: 90px;
+  }
+}
+
+.lowerHeaderMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lowerHeaderUserLevel {
+  color: $color-cyan-400;
+}
+
+.lowerHeaderNav {
+  display: none;
+  @media (min-width: $breakpoint-md) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
