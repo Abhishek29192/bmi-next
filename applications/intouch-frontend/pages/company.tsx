@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import CardContent from "@material-ui/core/CardContent";
@@ -10,7 +10,8 @@ import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import Card from "@bmi/card";
 import CompanyDetails from "@bmi/company-details";
-import { useQuery, gql } from "@apollo/client";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useQuery, useLazyQuery, gql } from "@apollo/client";
 import { Person } from "@material-ui/icons";
 import Icon from "@bmi/icon";
 import Layout from "../components/Layout";
@@ -33,20 +34,51 @@ const GET_COMPANY = gql`
   }
 `;
 
-interface Company {
+const GET_ACCOUNT = gql`
+  query GetAccount($userId: Int!) {
+    accountById(id: $userId) {
+      firstname
+      lastname
+      companiesByOwner {
+        nodes {
+          id
+        }
+      }
+    }
+  }
+`;
+
+const USER_ID_CLAIM = `${process.env.NEXT_PUBLIC_AUTH_NAMESPACE}/internal_user_id`;
+
+type Company = {
+  id: number;
   name: string;
   privateemail: string;
   aboutus: string;
   phone: string;
   website: string;
   tradingaddressline2: string;
-}
-interface CompanyData {
+};
+type CompanyData = {
   companyById: Company;
-}
-interface CompanyVars {
+};
+type CompanyVars = {
   companyId: number;
-}
+};
+
+type Account = {
+  firstname: string;
+  lastname: string;
+  companiesByOwner: {
+    nodes: Company[];
+  };
+};
+type AccountData = {
+  accountById: Account;
+};
+type AccountVars = {
+  userId: number;
+};
 
 const getCompanyData = (
   companyData: CompanyData
@@ -113,17 +145,31 @@ const getCompanyData = (
 
 const Company = () => {
   const { t } = useTranslation("company-page");
+  const { user } = useAuth0();
+  const [company, setCompany] = useState<CompanyData>();
 
-  const { loading, data } = useQuery<CompanyData, CompanyVars>(GET_COMPANY, {
-    variables: { companyId: 2 }
+  const [loadCompany] = useLazyQuery<CompanyData, CompanyVars>(GET_COMPANY, {
+    onCompleted: (data) => setCompany(data)
   });
 
-  if (loading) {
-    return <p>Loading</p>;
+  useQuery<AccountData, AccountVars>(GET_ACCOUNT, {
+    variables: { userId: user[USER_ID_CLAIM] },
+    onCompleted: ({ accountById }) => {
+      if (accountById?.companiesByOwner?.nodes?.length > 0) {
+        loadCompany({
+          variables: {
+            companyId: accountById.companiesByOwner.nodes[0].id
+          }
+        });
+      }
+    }
+  });
+
+  if (!company) {
+    return <p>No company found</p>;
   }
 
-  const { name, aboutus, details } = getCompanyData(data);
-
+  const { name, aboutus, details } = getCompanyData(company);
   return (
     <Layout title={t("Company")}>
       <Grid
