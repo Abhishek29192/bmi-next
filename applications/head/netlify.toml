@@ -103,7 +103,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/monarplan"
+ from="/no/produkter/monarplan*"
  to="/no/pvc-takfolie"
  force=true
 
@@ -1028,12 +1028,7 @@
  force=true
 
 [[redirects]]
- from="/no/sxa/file/download/"
- to="/no/dokumentasjon"
- force=true
-
-[[redirects]]
- from="/no/sxa/file/download"
+ from="/no/sxa/file/download*"
  to="/no/dokumentasjon"
  force=true
 
@@ -1113,7 +1108,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-evo-"
+ from="/no/produkter/zanda/zanda-evo-*"
  to="/no/takstein/betongtakstein/zanda-evo"
  force=true
 
@@ -1139,7 +1134,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-arktis-"
+ from="/no/produkter/zanda/zanda-arktis-*"
  to="/no/takstein/betongtakstein/zanda-arktis"
  force=true
 
@@ -1234,7 +1229,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-classic-"
+ from="/no/produkter/zanda/zanda-classic-*"
  to="/no/takstein/betongtakstein/zanda-classic"
  force=true
 
@@ -1244,7 +1239,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-minster-"
+ from="/no/produkter/zanda/zanda-minster-*"
  to="/no/takstein/betongtakstein/zanda-minster"
  force=true
 
@@ -1259,7 +1254,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-protector-"
+ from="/no/produkter/zanda/zanda-protector-*"
  to="/no/takstein/betongtakstein/zanda-protector"
  force=true
 
@@ -1269,12 +1264,12 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-vestland-"
+ from="/no/produkter/zanda/zanda-vestland-*"
  to="/no/takstein/betongtakstein/zanda-vestland"
  force=true
 
 [[redirects]]
- from="/no/produkter/monier/dantegl-"
+ from="/no/produkter/monier/dantegl-*"
  to="/no/takstein/tegltakstein/dantegl"
  force=true
 
@@ -1284,7 +1279,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/monier/hollander-"
+ from="/no/produkter/monier/hollander-*"
  to="/no/takstein/tegltakstein/hollander-v"
  force=true
 
