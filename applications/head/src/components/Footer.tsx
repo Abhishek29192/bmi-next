@@ -58,7 +58,7 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   ];
 
   const GTMButton = withGTM<ButtonProps>(Button, {
-    label: "accessibilityLabel",
+    label: "children",
     action: "action"
   });
 
