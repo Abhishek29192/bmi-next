@@ -17,7 +17,7 @@ export default function withGTM<P>(
   const ComponentWithGTM = ({ gtm, ...props }: GTM & P) => {
     const dataGtm = {
       id: gtm.id || props[propsToGtmMap.id],
-      label: gtm.label || props[propsToGtmMap.label],
+      label: gtm.label || String(props[propsToGtmMap.label]),
       action: gtm.action || props[propsToGtmMap.action]
     };
 
