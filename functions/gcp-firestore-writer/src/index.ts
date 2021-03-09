@@ -73,10 +73,10 @@ export const handleMessage: HandlerFunction = async ({ data }) => {
 
   switch (type) {
     case "UPDATED":
-      setItemsInFirestore(collectionPath, items);
+      await setItemsInFirestore(collectionPath, items);
       break;
     case "DELETED":
-      deleteItemsFromFirestore(collectionPath, items);
+      await deleteItemsFromFirestore(collectionPath, items);
       break;
     default:
       throw new Error(`Unrecognised message type [${type}]`);

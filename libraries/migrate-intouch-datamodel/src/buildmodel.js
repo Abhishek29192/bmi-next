@@ -84,49 +84,35 @@ ${this.properties
   }
 
   getPostgresComment() {
-    return `COMMENT ON TABLE ${this.name} IS '${this.description}';
-${this.properties
-  .map((property) => {
-    return `COMMENT ON COLUMN ${this.name}.${property.name} IS '${property.description}';`;
-  })
-  .join("\n")}`;
+    const columnsComment = this.properties
+      .map(
+        (property) =>
+          `COMMENT ON COLUMN ${this.name}.${property.name} IS '${property.description}';`
+      )
+      .join("\n");
+
+    return `COMMENT ON TABLE ${this.name} IS '${this.description}';\n${columnsComment}`;
   }
 
   getPostgresInsert() {
-    let sqlString = `
-TRUNCATE TABLE ${this.name} RESTART IDENTITY;\n`;
-    let finalProperty = this.properties.length - 1;
+    let sqlString = `\nTRUNCATE TABLE ${this.name} RESTART IDENTITY;\n`;
+
+    const columns = this.properties.map((property) => property.name).join();
     for (let j = 0; j < this.examples; j++) {
-      sqlString += "INSERT INTO " + this.name + "(";
-      for (let i = 0; i < finalProperty; i++) {
-        sqlString += this.properties[i].name + ",";
-      }
-      sqlString += this.properties[finalProperty].name;
-      sqlString += ")\n";
-      sqlString += "VALUES (";
+      const values = this.properties
+        .map((property) => {
+          const mockValue = property.mockValues[+j]
+            ? property.mockValues[+j]
+            : "";
 
-      for (let i = 0; i < finalProperty; i++) {
-        if (
-          this.properties[i].type == "boolean" ||
-          this.properties[i].type == "int" ||
-          this.properties[i].type == "real"
-        ) {
-          sqlString += this.properties[i].mockValues[j] + ",";
-        } else {
-          sqlString += "'" + this.properties[i].mockValues[j] + "',";
-        }
-      }
-      if (
-        this.properties[finalProperty].type == "int" ||
-        this.properties[finalProperty].type == "boolean" ||
-        this.properties[finalProperty].type == "real"
-      ) {
-        sqlString += this.properties[finalProperty].mockValues[j];
-      } else {
-        sqlString += "'" + this.properties[finalProperty].mockValues[j] + "'";
-      }
-
-      sqlString += ");\n";
+          return mockValue == ""
+            ? "null"
+            : ["boolean", "int", "real"].some((type) => type === property.type)
+            ? mockValue
+            : `'${mockValue}'`;
+        })
+        .join();
+      sqlString += `INSERT INTO ${this.name}(${columns})\nVALUES (${values});\n`;
     }
     return sqlString;
   }

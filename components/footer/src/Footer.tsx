@@ -1,5 +1,5 @@
 import React from "react";
-import Button, { ClickableAction } from "@bmi/button";
+import DefaultButton, { ClickableAction } from "@bmi/button";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
@@ -11,6 +11,7 @@ import StandardLogo from "./svgs/Standard.svg";
 import StandardCenteredLogo from "./svgs/Standard_centered.svg";
 
 export type MenuItem = {
+  component?: React.ComponentType<any>; // TODO
   icon?: SVGImport;
   label: string;
   action?: ClickableAction;
@@ -19,13 +20,22 @@ export type MenuItem = {
 };
 
 type Props = {
+  buttonComponent?: React.ComponentType<any>; // TODO
   mainNavigation: readonly MenuItem[];
   secondaryNavigation?: readonly MenuItem[];
   logo?: SVGImport;
 };
 
-const NavigationItem = ({ label, icon, isLabelHidden, action }: MenuItem) => {
+const NavigationItem = ({
+  component,
+  label,
+  icon,
+  isLabelHidden,
+  action
+}: MenuItem) => {
   const IconComponent = icon;
+
+  const Button = component || DefaultButton;
 
   return (
     <li
@@ -59,7 +69,13 @@ const NavigationItem = ({ label, icon, isLabelHidden, action }: MenuItem) => {
   );
 };
 
-const MainNavigation = ({ menu }: { menu: readonly MenuItem[] }) => {
+const MainNavigation = ({
+  buttonComponent,
+  menu
+}: {
+  buttonComponent?: React.ComponentType<any>; // TODO
+  menu: readonly MenuItem[];
+}) => {
   return (
     <Grid container spacing={3} justify="space-between">
       {menu.map((menuItem, index) => {
@@ -70,7 +86,11 @@ const MainNavigation = ({ menu }: { menu: readonly MenuItem[] }) => {
               <nav>
                 <ul className={styles["list"]}>
                   {menuItem.menu.map((subMenuItem, index) => (
-                    <NavigationItem key={index} {...subMenuItem} />
+                    <NavigationItem
+                      key={index}
+                      component={buttonComponent}
+                      {...subMenuItem}
+                    />
                   ))}
                 </ul>
               </nav>
@@ -83,9 +103,11 @@ const MainNavigation = ({ menu }: { menu: readonly MenuItem[] }) => {
 };
 
 const SecondaryNavigation = ({
+  buttonComponent,
   logo,
   menu
 }: {
+  buttonComponent?: React.ComponentType<any>; // TODO
   logo?: SVGImport;
   menu?: readonly MenuItem[];
 }) => {
@@ -104,7 +126,11 @@ const SecondaryNavigation = ({
       {menu && menu.length && (
         <ul className={classnames(styles["list"], styles["list--inline"])}>
           {menu.map((menuItem, index) => (
-            <NavigationItem key={index} {...menuItem} />
+            <NavigationItem
+              key={index}
+              component={buttonComponent}
+              {...menuItem}
+            />
           ))}
         </ul>
       )}
@@ -115,12 +141,24 @@ const SecondaryNavigation = ({
   );
 };
 
-const Footer = ({ mainNavigation, secondaryNavigation, logo }: Props) => {
+const Footer = ({
+  buttonComponent,
+  mainNavigation,
+  secondaryNavigation,
+  logo
+}: Props) => {
   return (
     <div className={styles["Footer"]}>
       <Container>
-        <MainNavigation menu={mainNavigation} />
-        <SecondaryNavigation menu={secondaryNavigation} logo={logo} />
+        <MainNavigation
+          menu={mainNavigation}
+          buttonComponent={buttonComponent}
+        />
+        <SecondaryNavigation
+          menu={secondaryNavigation}
+          logo={logo}
+          buttonComponent={buttonComponent}
+        />
       </Container>
     </div>
   );

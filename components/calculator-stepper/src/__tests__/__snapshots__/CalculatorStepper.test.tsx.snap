@@ -132,10 +132,14 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
     >
       Choose the closest to your roof shape
     </p>
-    <div>
-      <p>
-        This is the Selecting a Roof Shape page.
-      </p>
+    <div
+      class="content"
+    >
+      <div>
+        <p>
+          This is the Selecting a Roof Shape page.
+        </p>
+      </div>
     </div>
     <hr
       class="MuiDivider-root hr"
@@ -164,10 +168,14 @@ exports[`CalculatorStepper component renders correctly 1`] = `
     >
       Choose the closest to your roof shape
     </p>
-    <div>
-      <p>
-        This is the Selecting a Roof Shape page.
-      </p>
+    <div
+      class="content"
+    >
+      <div>
+        <p>
+          This is the Selecting a Roof Shape page.
+        </p>
+      </div>
     </div>
     <hr
       class="MuiDivider-root hr"

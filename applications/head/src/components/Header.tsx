@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
-import { graphql, Link } from "gatsby";
+import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
+import { graphql, Link } from "gatsby";
+import React, { useContext } from "react";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import { LinkData, NavigationData, NavigationItem } from "./Link";
 import { SiteContext } from "./Site";
@@ -78,6 +80,14 @@ const parseNavigation = (
   }, []);
 };
 
+const GTMSearchButton = withGTM<ButtonProps>(Button, {
+  label: "buttonText" as "buttonText"
+});
+const GTMNavigationButton = withGTM<ButtonProps>(Button, {
+  label: "children",
+  action: "action"
+});
+
 const Header = ({
   navigationData,
   utilitiesData,
@@ -113,6 +123,12 @@ const Header = ({
           logoLabel={getMicroCopy("global.logoLabel")}
           activeNavLabel={activeLabel}
           closeLabel={getMicroCopy("global.close")}
+          searchButtonComponent={(props: ButtonProps) => (
+            <GTMSearchButton gtm={{ id: "search1" }} {...props} />
+          )}
+          navigationButtonComponent={(props: ButtonProps) => (
+            <GTMNavigationButton gtm={{ id: "nav-main-menu" }} {...props} />
+          )}
           searchAction={`/${countryCode}/search`}
           searchLabel={getMicroCopy("search.label")}
           searchPlaceholder={getMicroCopy("search.placeholder")}

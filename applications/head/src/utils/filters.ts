@@ -47,12 +47,31 @@ export const sortAlphabeticallyBy = (propName) => (a, b) => {
   return 0;
 };
 
+const findPIMProductBrandCategory = (
+  product: Pick<Product, "categories">
+): Category => {
+  return (product.categories || []).find(
+    ({ categoryType }) => categoryType === "Brand"
+  );
+};
+
 export const findPIMDocumentBrandCategory = (
   document: PIMDocumentData | PIMLinkDocumentData
 ): Category => {
-  return (document.product.categories || []).find(
-    ({ categoryType }) => categoryType === "Brand"
-  );
+  return findPIMProductBrandCategory(document.product);
+};
+
+// Returns a Category like object
+const getBrandCategoryFromProducts = (products: readonly Product[]) => {
+  return uniqBy(
+    products
+      .map((product) => {
+        return findPIMProductBrandCategory(product);
+      })
+      .filter(Boolean),
+    "code"
+    // We might get a result of an empty filter if documents don't have brand
+  ).filter(({ name }) => name);
 };
 
 // Returns a Category like object
@@ -91,6 +110,7 @@ export const getAssetTypeFilterFromDocuments = (
 
   return {
     // TODO: Microcopy for label
+    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
     label: "Aktivatype",
     name: "contentfulAssetType",
     value: [],
@@ -98,6 +118,28 @@ export const getAssetTypeFilterFromDocuments = (
       label: assetType.name,
       value: assetType.code
     }))
+  };
+};
+
+const getBrandFilterFromProducts = (products: readonly Product[]) => {
+  const allValues = getBrandCategoryFromProducts(products);
+
+  if (allValues.length === 0) {
+    return;
+  }
+
+  return {
+    // TODO: Microcopy for label
+    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
+    label: "Merkevare",
+    name: "brand",
+    value: [],
+    options: allValues
+      .sort(sortAlphabeticallyBy("name"))
+      .map((brandCategory) => ({
+        label: brandCategory.name,
+        value: brandCategory.code
+      }))
   };
 };
 
@@ -110,6 +152,7 @@ export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
 
   return {
     // TODO: Microcopy for label
+    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
     label: "Merkevare",
     name: "brand",
     value: [],
@@ -148,6 +191,7 @@ const getProductFamilyFilter = (
 
   return {
     // TODO: Microcopy for label
+    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
     label: "Produktfamilie",
     name: "productFamily",
     value: [],
@@ -282,7 +326,8 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
 export const getFilters = (
   pimClassificationNamespace: string,
   products: readonly Product[],
-  pageCategory?: Category
+  pageCategory?: Category,
+  showBrandFilter?: boolean
 ) => {
   const allCategories = findAllCategories(products);
   let showProductFamilyFilter = true;
@@ -294,6 +339,7 @@ export const getFilters = (
   }
 
   return [
+    showBrandFilter ? getBrandFilterFromProducts(products) : undefined,
     showProductFamilyFilter ? getProductFamilyFilter(products) : undefined,
     getColorFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),

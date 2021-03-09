@@ -31,7 +31,7 @@
     "cookieconsent": "^3.1.1",
     "dotenv": "^8.2.0",
     "find-up": "^4.1.0",
-    "gatsby": "^2.21.37",
+    "gatsby": "^2.32.9",
     "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-react-svg": "^3.0.0",

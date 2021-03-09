@@ -4,7 +4,10 @@ const getUrlFromPath = (path) => {
   return path
     .filter(({ slug }) => slug)
     .map(({ slug }) => slug)
-    .join("/");
+    .join("/")
+    .replace(/\/+/gi, "/")
+    .replace("*", "")
+    .replace('"', "");
 };
 
 const getPath = async (page, context) => {
@@ -36,10 +39,15 @@ const getPath = async (page, context) => {
       return null;
     }
 
-    const { id, slug, title } = await context.nodeModel.getNodeById({
-      id: link.linkedPage___NODE,
-      type: "ContentfulPage"
+    const linkedPage = await context.nodeModel.getNodeById({
+      id: link.linkedPage___NODE
     });
+
+    if (!linkedPage) {
+      return null;
+    }
+
+    const { id, slug, title } = linkedPage;
 
     return {
       id,

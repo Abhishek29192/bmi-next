@@ -1,8 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Grid from "@bmi/grid";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
-import { clearFilterValues, updateFilterValue } from "../utils/filters";
+import {
+  clearFilterValues,
+  ProductFilter,
+  updateFilterValue
+} from "../utils/filters";
 import {
   queryElasticSearch,
   compileElasticSearchQuery,
@@ -11,6 +15,7 @@ import {
   getCountQuery
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
+import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import ResultsPagination from "./ResultsPagination";
 
 const PAGE_SIZE = 24;
@@ -20,7 +25,8 @@ type Props = {
   queryString: string;
   initialProducts?: ReadonlyArray<any>; // TODO
   onLoadingChange?: (isLoading: boolean) => void;
-  initialFilters: any; // TODO
+  onCountChange?: (count: number) => void;
+  initialFilters: readonly ProductFilter[];
   pageContext: any; // TODO
 };
 
@@ -46,6 +52,7 @@ const SearchTabPanelProducts = (props: Props) => {
     pageContext,
     initialProducts = [],
     onLoadingChange,
+    onCountChange,
     initialFilters
   } = props;
 
@@ -54,7 +61,18 @@ const SearchTabPanelProducts = (props: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [products, setProducts] = useState(initialProducts);
-  const [filters, setFilters] = useState(initialFilters);
+
+  // NOTE: map colour filter values to specific colour swatch representation
+  const enhancedFilters = useMemo(() => {
+    return initialFilters.map((filter) => {
+      if (filter.name === "colour") {
+        return enhanceColourFilterWithSwatches(filter);
+      }
+
+      return filter;
+    });
+  }, [initialFilters]);
+  const [filters, setFilters] = useState(enhancedFilters);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
@@ -106,6 +124,8 @@ const SearchTabPanelProducts = (props: Props) => {
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
       setProducts(hits.hits.map((hit) => hit._source));
+
+      onCountChange && onCountChange(hits.total.value);
     }
 
     updateLoadingStatus(false);

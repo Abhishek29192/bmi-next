@@ -1,6 +1,11 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
+import mockConsole from "jest-mock-console";
 import CalculatorStepper from "../";
+
+beforeAll(() => {
+  mockConsole();
+});
 
 describe("CalculatorStepper component", () => {
   const SelectingARoof = () => {

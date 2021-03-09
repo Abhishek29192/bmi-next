@@ -373,9 +373,54 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
+      resolve: "gatsby-plugin-sitemap",
       options: {
-        output: `/no/sitemap.xml`
+        output: `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`,
+        sitemapSize: 50000,
+        sitemapName: `/${process.env.SPACE_MARKET_CODE}/sitemap`
+      }
+    },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        output: `/${process.env.SPACE_MARKET_CODE}/images.xml`,
+        sitemapName: `/${process.env.SPACE_MARKET_CODE}/images`,
+        sitemapSize: 50000,
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allContentfulAsset {
+            nodes {
+              file {
+                url
+              }
+            }
+          }
+        }`,
+        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+        serialize: ({ allContentfulAsset }) =>
+          allContentfulAsset.nodes.map((node) => ({
+            url: `https:${node.file.url}`,
+            changefreq: "daily",
+            priority: 0.7
+          }))
+      }
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GOOGLE_TAGMANAGER_ID,
+        includeInDevelopment: true,
+        defaultDataLayer: { platform: "gatsby", env: process.env.NODE_ENV }
       }
     }
   ]

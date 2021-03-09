@@ -67,7 +67,7 @@ module.exports = {
       const fullPath = await resolvePathFromFamily(source, args, context);
 
       return (source.variantOptions || []).map((variant) => {
-        const id = generateIdFromString(variant.code);
+        const id = generateIdFromString(variant.code, false);
         const breadcrumbs = fullPath.concat({
           id,
           label: source.name,

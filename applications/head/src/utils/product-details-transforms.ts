@@ -374,6 +374,11 @@ export const getProductAttributes = (
           return carry;
         }
 
+        // NOTE: Not matching for the main product.
+        if (!variantCodeToPathMap[productCode]) {
+          return carry;
+        }
+
         const matches = Object.entries(filter).filter(([key, value]) => {
           return getPropValue(classification, key) === value;
         }).length;

@@ -4,10 +4,7 @@
 const { spawnSync } = require("child_process");
 const { existsSync, mkdirSync } = require("fs");
 const { join } = require("path");
-
-require("dotenv").config({
-  path: `${__dirname}/.env.${process.env.NODE_ENV || "development"}`
-});
+require("./env");
 
 const main = async ([command = "--help", ...options]) => {
   const {

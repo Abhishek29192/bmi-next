@@ -5,6 +5,7 @@ const ES_AGGREGATION_NAMES = {
   colour: "colourfamily",
   texturefamily: "texturefamily",
   productFamily: "allCategories",
+  brand: "allCategories",
   // Search page - Pages tab
   "page-type-tag": "tags",
   // Search page - Documents tab
@@ -59,12 +60,14 @@ export const disableFiltersFromAggregations = (filters, aggregations) => {
   });
 };
 
+// Filter.name => ES index mapping
 const searchTerms = {
   colour: "colourfamilyCode.keyword",
   texturefamily: "texturefamilyCode.keyword",
   category: "categories.code.keyword",
   // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
   productFamily: "allCategories.code.keyword",
+  brand: "allCategories.code.keyword",
   plpBaseCategory: "plpCategories.code.keyword"
 };
 
@@ -85,9 +88,12 @@ export const compileElasticSearchQuery = (
     }
 
     // Handle these specific filters or fallback to "category".
-    const searchTerm = ["colour", "texturefamily", "productFamily"].includes(
-      filter.name
-    )
+    const searchTerm = [
+      "colour",
+      "texturefamily",
+      "productFamily",
+      "brand"
+    ].includes(filter.name)
       ? searchTerms[filter.name]
       : searchTerms.category;
 

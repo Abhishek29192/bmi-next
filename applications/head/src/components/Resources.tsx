@@ -7,6 +7,7 @@ import { Data as ExploreBarData } from "./ExploreBar";
 import { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
 import { Data as InputBannerData } from "./InputBanner";
 import { Data as NextBestActionsData } from "./NextBestActions";
+import { RichTextData } from "./RichText";
 
 type FeaturedImage = {
   featuredImage: {
@@ -36,6 +37,9 @@ export type Data = {
   searchPageExploreBar: ExploreBarData | null;
   errorFourOFour: PromoData | null;
   errorGeneral: PromoData | null;
+  welcomeDialogTitle: string | null;
+  welcomeDialogBrands: [string] | null;
+  welcomeDialogBody: RichTextData | null;
 };
 
 export const query = graphql`
@@ -104,5 +108,6 @@ export const query = graphql`
     errorGeneral {
       ...PromoFragment
     }
+    ...WelcomeDialogFragment
   }
 `;

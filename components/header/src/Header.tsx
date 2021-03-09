@@ -31,6 +31,8 @@ type HeaderProps = {
   logoLabel?: string;
   activeNavLabel?: string;
   closeLabel?: string;
+  searchButtonComponent?: React.ComponentType<any>; // TODO
+  navigationButtonComponent?: React.ComponentType<any>; // TODO
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
   searchAction?: string;
@@ -52,6 +54,8 @@ const Header = ({
   logoLabel = "Link to home",
   activeNavLabel,
   closeLabel = "Close",
+  searchButtonComponent,
+  navigationButtonComponent,
   isSearchDisabled,
   isOnSearchPage,
   searchAction,
@@ -312,6 +316,7 @@ const Header = ({
             menu={navigation}
             initialDepth={typeof value === "number" ? 1 : 0}
             initialValue={value}
+            buttonComponent={navigationButtonComponent}
             toggleLanguageSelection={toggleLanguageSelection}
             utilities={utilities}
             setRootValue={setValue}
@@ -342,6 +347,7 @@ const Header = ({
               {showSearch && (
                 <Search
                   action={searchAction}
+                  buttonComponent={searchButtonComponent}
                   label={searchLabel}
                   placeholder={searchPlaceholder}
                   defaultValue={isOnSearchPage ? query : ""}

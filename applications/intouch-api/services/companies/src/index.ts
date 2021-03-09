@@ -12,7 +12,7 @@ async function main() {
   const PORT = process.env.PORT || 4001;
   await server.listen(PORT, () => {
     // eslint-disable-next-line no-console
-    console.log(`🚀 Product service started at http://localhost:${PORT}`);
+    console.log(`🚀 Companies service started at http://localhost:${PORT}`);
   });
 }
 

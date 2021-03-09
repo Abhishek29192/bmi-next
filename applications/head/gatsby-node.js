@@ -219,6 +219,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
 
       createPage({
+        // TODO: This removes the extra / for the homepage. The country code
+        // could live in the page.path instead.
         path: `/${site.countryCode}/${page.path}`.replace(/\/+/gi, "/"),
         component,
         context: {

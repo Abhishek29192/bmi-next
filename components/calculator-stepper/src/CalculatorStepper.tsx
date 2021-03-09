@@ -115,7 +115,7 @@ const Step = ({
       <Typography variant="body1" className={classnames(styles["subtitle"])}>
         {subtitle}
       </Typography>
-      {children}
+      <div className={styles["content"]}>{children}</div>
       <Divider className={styles["hr"]} />
       {hasButtons ? footer : null}
     </Form>

@@ -916,6 +916,12 @@ type ContentfulResources implements Node {
   "The explore bar for the search page."
   searchPageExploreBar: ContentfulNavigation
     @link(from: "searchPageExploreBar___NODE")
+
+  welcomeDialogTitle: String
+
+  welcomeDialogBody: ContentfulRichText
+
+  welcomeDialogBrands: [String]
 }
 
 """
@@ -986,6 +992,18 @@ type ContentfulInputBanner implements Node {
 
   "The label for the confirmation button for this banner."
   confirmationButtonLabel: String
+
+  "The Allow Retry checkbox"
+  allowRetry: String
+
+  "The retry dialog title"
+  errorTitle: String
+
+  "The retry dialog body"
+  errorBody: ContentfulRichText
+
+  "The retry dialog confirm button label"
+  retryButtonLabel: String
 }
 
 """
