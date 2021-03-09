@@ -1028,12 +1028,7 @@
  force=true
 
 [[redirects]]
- from="/no/sxa/file/download*"
- to="/no/dokumentasjon"
- force=true
-
-[[redirects]]
- from="/no/dokumentasjon//miljødeklarasjon"
+ from="/no/dokumentasjon/miljødeklarasjon"
  to="/no/dokumentasjon/miljødeklarasjoner"
  force=true
 
@@ -2622,6 +2617,12 @@
  to="/no/p/snosikring/turmalin-snøfanger-konsoll-sn-tu-605/galvanisert/289015683"
  force=true
 
+
+
+[[redirects]]
+ from="/no/sxa/file/download*"
+ to="/no/dokumentasjon"
+ force=true
 
 
 
