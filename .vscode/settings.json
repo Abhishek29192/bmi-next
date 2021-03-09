@@ -9,11 +9,9 @@
     "typescriptreact"
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
-  "spellright.language": [
-    "en"
-  ],
-  "spellright.documentTypes": [
-    "latex",
-    "plaintext"
-  ]
+  "spellright.language": ["en"],
+  "spellright.documentTypes": ["latex", "plaintext"],
+  "[sql]": {
+    "editor.formatOnSave": false
+  }
 }

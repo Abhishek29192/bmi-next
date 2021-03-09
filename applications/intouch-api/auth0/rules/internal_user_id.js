@@ -3,8 +3,13 @@ async function InternalUserIdRule(user, context, callback) {
   const axios = require("axios");
 
   const { stats } = context;
-  // eslint-disable-next-line no-undef
-  const { namespace, gatewayApiKey, apiGatewayUrl } = configuration;
+  const {
+    namespace,
+    gatewayClientId,
+    gatewaySecret,
+    apiGatewayUrl,
+    audience
+  } = configuration; // eslint-disable-line no-undef
 
   const count = stats && stats.loginsCount ? stats.loginsCount : 0;
   if (user.app_metadata && count > 1) {
@@ -37,19 +42,32 @@ async function InternalUserIdRule(user, context, callback) {
     }
   }`;
 
-  const fetchGateway = (query) =>
-    axios({
+  const fetchGateway = async (query) => {
+    const { data } = await axios({
+      method: "POST",
+      url: `https://${auth0.domain}/oauth/token`, // eslint-disable-line no-undef
+      headers: { "content-type": "application/json" },
+      data: JSON.stringify({
+        client_id: gatewayClientId,
+        client_secret: gatewaySecret,
+        audience: audience,
+        grant_type: "client_credentials"
+      })
+    });
+
+    return axios({
       method: "post",
       url: apiGatewayUrl, // eslint-disable-line no-undef
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": gatewayApiKey
+        Authorization: `Bearer ${data.access_token}`
       },
       data: JSON.stringify({
         query: query,
         variables: {}
       })
     });
+  };
 
   let dbUserId;
   const {
