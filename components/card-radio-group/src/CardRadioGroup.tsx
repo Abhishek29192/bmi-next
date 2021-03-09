@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import CardInput, { Props as CardInputProps } from "@bmi/card-input";
 import { withFormControl } from "@bmi/form";
 import classnames from "classnames";
@@ -11,6 +11,7 @@ export type Props = {
   children: React.ReactNode;
   defaultValue?: string;
   onChange?: (value: string) => void;
+  clean?: boolean;
 };
 
 const isRadioItemElement = (
@@ -23,7 +24,8 @@ const CardRadioGroup = ({
   className,
   defaultValue,
   onChange,
-  children
+  children,
+  clean
 }: Props) => {
   const [selected, setSelected] = useState(defaultValue);
   const items = useMemo(
@@ -58,6 +60,10 @@ const CardRadioGroup = ({
       }),
     [children, name, selected, onChange]
   );
+
+  useEffect(() => {
+    setSelected(defaultValue);
+  }, [clean]);
 
   return (
     <div className={classnames(styles["CardRadioGroup"], className)}>

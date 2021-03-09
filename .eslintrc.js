@@ -72,6 +72,21 @@ module.exports = {
       }
     },
     {
+      files: ["**/*.jsx"],
+      env: {
+        browser: true,
+        node: false,
+        "shared-node-browser": true
+      },
+      parserOptions: {
+        ecmaVersion: 2018,
+        ecmaFeatures: {
+          jsx: true
+        },
+        sourceType: "module"
+      }
+    },
+    {
       files: ["**/*.{ts,tsx}"],
       parser: "@typescript-eslint/parser",
       env: {
