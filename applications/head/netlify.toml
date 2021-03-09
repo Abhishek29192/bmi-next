@@ -103,27 +103,12 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/monarplan*"
+ from="/no/produkter/monarplan"
  to="/no/pvc-takfolie"
  force=true
 
 [[redirects]]
  from="/no/produkter/pvc"
- to="/no/pvc-takfolie"
- force=true
-
-[[redirects]]
- from="/no/produkter/monarplan-innvendig-hjørne"
- to="/no/pvc-takfolie"
- force=true
-
-[[redirects]]
- from="/no/produkter/monarplan-utvendig-hjørne"
- to="/no/pvc-takfolie"
- force=true
-
-[[redirects]]
- from="/no/produkter/monarplan-w-gangbane"
  to="/no/pvc-takfolie"
  force=true
 
@@ -1043,13 +1028,13 @@
  force=true
 
 [[redirects]]
- from="/no/sxa/file/download*"
+ from="/no/sxa/file/download/"
  to="/no/dokumentasjon"
  force=true
 
 [[redirects]]
- from="/no/dokumentasjon//fdv-forvaltning-drift-og-vedlikehold"
- to="/no/dokumentasjon/forvaltning-drift-og-vedlikehold"
+ from="/no/sxa/file/download"
+ to="/no/dokumentasjon"
  force=true
 
 [[redirects]]
@@ -1128,49 +1113,10 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-evo-normalstein"
+ from="/no/produkter/zanda/zanda-evo-"
  to="/no/takstein/betongtakstein/zanda-evo"
  force=true
 
-[[redirects]]
- from="/no/produkter/zanda/zanda-evo-gavlbeslag-h%C3%B8yre"
- to="/no/takstein/betongtakstein/zanda-evo"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-evo-gavlbeslag-venstre"
- to="/no/takstein/betongtakstein/zanda-evo"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-evo-halvstein"
- to="/no/takstein/betongtakstein/zanda-evo"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-evo-m%C3%B8nestein"
- to="/no/takstein/betongtakstein/zanda-evo"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-evo-m%C3%B8nestein-slutt"
- to="/no/takstein/betongtakstein/zanda-evo"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-evo-m%C3%B8nestein-start"
- to="/no/takstein/betongtakstein/zanda-evo"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-evo-normalstein"
- to="/no/takstein/betongtakstein/zanda-evo"
- force=true
-
-[[redirects]]
- from="/no/produkter/skratak-produkter/evo"
- to="/no/takstein/betongtakstein/zanda-evo"
- force=true
 
 [[redirects]]
  from="/no/search-page"
@@ -1193,62 +1139,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-arktis-gavlavslutning-h%C3%B8yre"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-gavlavslutning-venstre"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-gavlstein-h%C3%B8yre"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-gavlstein-venstre"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-halvstein"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-m%C3%B8neavslutning"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-m%C3%B8nestein"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-normalstein"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-t-m%C3%B8ne"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-universaltetning"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-valmbegynnelse"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-valmtetning"
+ from="/no/produkter/zanda/zanda-arktis-"
  to="/no/takstein/betongtakstein/zanda-arktis"
  force=true
 
@@ -1259,11 +1150,6 @@
 
 [[redirects]]
  from="/no/produkter/zanda-arktis-normalstein"
- to="/no/takstein/betongtakstein/zanda-arktis"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-arktis-normalstein"
  to="/no/takstein/betongtakstein/zanda-arktis"
  force=true
 
@@ -1348,47 +1234,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-classic-normalstein"
- to="/no/takstein/betongtakstein/zanda-classic"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-classic-gavlstein-h%C3%B8yre"
- to="/no/takstein/betongtakstein/zanda-classic"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-classic-gavlstein-venstre"
- to="/no/takstein/betongtakstein/zanda-classic"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-classic-halvstein"
- to="/no/takstein/betongtakstein/zanda-classic"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-classic-m%C3%B8neavslutning"
- to="/no/takstein/betongtakstein/zanda-classic"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-classic-m%C3%B8nestein"
- to="/no/takstein/betongtakstein/zanda-classic"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-classic-t-m%C3%B8ne"
- to="/no/takstein/betongtakstein/zanda-classic"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-classic-valmbegynnelse"
- to="/no/takstein/betongtakstein/zanda-classic"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-classic-valmtetning"
+ from="/no/produkter/zanda/zanda-classic-"
  to="/no/takstein/betongtakstein/zanda-classic"
  force=true
 
@@ -1398,57 +1244,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-minster-normalstein"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-avl%C3%B8psventilasjonspakke"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-gavlstein-h%C3%B8yre"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-gavlstein-venstre"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-halvgavlstein-h%C3%B8yre"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-halvgavlstein-venstre"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-halvstein"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-m%C3%B8neavslutning"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-m%C3%B8nebegynnelse-slutt"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-m%C3%B8nestein"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-minster-normalstein"
+ from="/no/produkter/zanda/zanda-minster-"
  to="/no/takstein/betongtakstein/zanda-minster"
  force=true
 
@@ -1458,82 +1254,12 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-minster-ventilasjonspakke"
- to="/no/takstein/betongtakstein/zanda-minster"
- force=true
-
-[[redirects]]
  from="/no/produkter/zanda-protector-normalstein"
  to="/no/takstein/betongtakstein/zanda-protector"
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-protector-normalstein"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-gavlavslutning-h%C3%B8yre"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-gavlavslutning-venstre"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-gavlstein-h%C3%B8yre"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-gavlstein-venstre"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-halvstein"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-m%C3%B8neavslutning"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-m%C3%B8nestein"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-normalstein"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-t-m%C3%B8ne"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-universaltetning"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-valmbegynnelse"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-valmtetning"
- to="/no/takstein/betongtakstein/zanda-protector"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-protector-ventilasjonstein"
+ from="/no/produkter/zanda/zanda-protector-"
  to="/no/takstein/betongtakstein/zanda-protector"
  force=true
 
@@ -1543,87 +1269,12 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-vestland-gavlstein-h%C3%B8yre"
+ from="/no/produkter/zanda/zanda-vestland-"
  to="/no/takstein/betongtakstein/zanda-vestland"
  force=true
 
 [[redirects]]
- from="/no/produkter/zanda/zanda-vestland-gavlstein-venstre"
- to="/no/takstein/betongtakstein/zanda-vestland"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-vestland-halvstein"
- to="/no/takstein/betongtakstein/zanda-vestland"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-vestland-m%C3%B8neavslutning"
- to="/no/takstein/betongtakstein/zanda-vestland"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-vestland-m%C3%B8nestein"
- to="/no/takstein/betongtakstein/zanda-vestland"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-vestland-normalstein"
- to="/no/takstein/betongtakstein/zanda-vestland"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-vestland-t-m%C3%B8ne"
- to="/no/takstein/betongtakstein/zanda-vestland"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-vestland-valmbegynnelse"
- to="/no/takstein/betongtakstein/zanda-vestland"
- force=true
-
-[[redirects]]
- from="/no/produkter/zanda/zanda-vestland-valmtetning"
- to="/no/takstein/betongtakstein/zanda-vestland"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/dantegl-avl%C3%B8psventilasjonspakke"
- to="/no/takstein/tegltakstein/dantegl"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/dantegl-m%C3%B8neavslutning"
- to="/no/takstein/tegltakstein/dantegl"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/dantegl-m%C3%B8nebegynnelse"
- to="/no/takstein/tegltakstein/dantegl"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/dantegl-m%C3%B8nestein"
- to="/no/takstein/tegltakstein/dantegl"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/dantegl-normalstein"
- to="/no/takstein/tegltakstein/dantegl"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/dantegl-t-m%C3%B8ne"
- to="/no/takstein/tegltakstein/dantegl"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/dantegl-y-m%C3%B8nebegynnelse"
- to="/no/takstein/tegltakstein/dantegl"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/dantegl-y-m%C3%B8neslutt"
+ from="/no/produkter/monier/dantegl-"
  to="/no/takstein/tegltakstein/dantegl"
  force=true
 
@@ -1633,67 +1284,12 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/monier/hollander-v-2-3-stein"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-avl%C3%B8psventilasjonspakke"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-gavlstein-h%C3%B8yre"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-gavlstein-venstre"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-m%C3%B8neavslutning"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-m%C3%B8nebegynnelse"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-m%C3%B8nestein"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-normalstein"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-valmbegynnelse"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-valmtetning"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-ventilasjonspakke"
+ from="/no/produkter/monier/hollander-"
  to="/no/takstein/tegltakstein/hollander-v"
  force=true
 
 [[redirects]]
  from="/no/produkter/hollander-v-normalstein"
- to="/no/takstein/tegltakstein/hollander-v"
- force=true
-
-[[redirects]]
- from="/no/produkter/monier/hollander-v-normalstein"
  to="/no/takstein/tegltakstein/hollander-v"
  force=true
 
