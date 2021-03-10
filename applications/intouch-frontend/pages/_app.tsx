@@ -20,8 +20,6 @@ const App = ({ Component, pageProps }: AppProps) => {
     isLoading,
     isAuthenticated,
     error,
-    user,
-    logout,
     loginWithRedirect,
     getAccessTokenSilently
   } = useAuth0();
@@ -49,10 +47,6 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     token && (
       <ApolloProvider client={apolloClient(token)}>
-        {user.nickname}
-        <button onClick={() => logout({ returnTo: window.location.origin })}>
-          Logout
-        </button>
         <Component {...pageProps} />
       </ApolloProvider>
     )
