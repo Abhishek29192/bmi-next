@@ -131,15 +131,6 @@ const Header = ({
         ? "small"
         : "large"
     );
-    // @todo: calculate from `es` somehow...
-    // const $NavigationBarLeft: HTMLElement = document.querySelector(
-    //   `.${styles.NavigationBar__Left}`
-    // );
-    // const $NavigationBarRight: HTMLElement = document.querySelector(
-    //   `.${styles.NavigationBar__Right}`
-    // );
-    // const es = $NavigationBarRight.offsetLeft - $NavigationBarLeft.offsetWidth;
-    // setSize(es <= 20 ? "small" : "large");
   };
 
   React.useEffect(() => {
