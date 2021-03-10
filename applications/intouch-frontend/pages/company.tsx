@@ -250,7 +250,7 @@ const Company = () => {
                   </Typography>
                   <Typography
                     variant="h6"
-                    style={{ color: "#70706f", fontWeight: "light" }}
+                    style={{ color: "#70706f", fontWeight: "lighter" }}
                   >
                     Company Administrator
                   </Typography>
