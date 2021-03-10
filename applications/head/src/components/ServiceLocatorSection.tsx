@@ -305,7 +305,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             {
               type: "content" as "content",
               label: getMicroCopy("findARoofer.roofTypeLabel"),
-              text: <b>{roofer.type}</b>
+              text: (
+                <b>
+                  {roofer.type
+                    .map((type) =>
+                      getMicroCopy(`findARoofer.filters.${camelCase(type)}`)
+                    )
+                    .join(" | ")}
+                </b>
+              )
             }
           ]
         : []),
