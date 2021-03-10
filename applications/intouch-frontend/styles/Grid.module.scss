@@ -1,0 +1,17 @@
+@import "@bmi/styles";
+
+.outerGrid {
+  padding-top: 1.5rem;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 1.5rem;
+  }
+}
+
+.Card {
+  padding: 0;
+  height: 100%;
+  @media (min-width: $breakpoint-md) {
+    padding: 1rem;
+  }
+}

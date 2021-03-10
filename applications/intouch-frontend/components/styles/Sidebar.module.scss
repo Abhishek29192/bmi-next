@@ -5,6 +5,10 @@
   flex-direction: column;
   margin: 0;
   padding: 20px 0;
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
 }
 
 .sidebarLink {
@@ -16,12 +20,6 @@
   text-decoration: none;
   transition: 0.15s;
   cursor: pointer;
-
-  // TODO: This needs clarifying in the designs.
-  // &.selected {
-  //   background-color: #f0f0f0;
-  //   color: #3b3b3b;
-  // }
 
   svg {
     margin-right: 8px;

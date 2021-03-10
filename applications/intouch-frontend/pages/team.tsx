@@ -2,11 +2,16 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Layout from "../components/Layout";
+import SidePanel from "../components/SidePanel";
 
 const Team = () => {
   const { t } = useTranslation("common");
 
-  return <Layout title={t("Team")}>Team page content goes here.</Layout>;
+  return (
+    <Layout title={t("Team")}>
+      <SidePanel>&nbsp;</SidePanel>
+    </Layout>
+  );
 };
 
 export const getStaticProps = async ({ locale }) => ({
