@@ -14,7 +14,8 @@
   "scripts": {
     "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build && gatsby serve",
-    "build": "tsc --noEmit && gatsby build --prefix-paths"
+    "check:ts": "tsc --noEmit",
+    "build": "gatsby build --prefix-paths"
   },
   "dependencies": {
     "@bmi/button": "0.0.0",

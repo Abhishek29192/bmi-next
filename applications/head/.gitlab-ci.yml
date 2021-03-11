@@ -27,6 +27,7 @@ build_head:
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
+    - yarn workspace @bmi/head check:ts
     - yarn workspace @bmi/head build
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
