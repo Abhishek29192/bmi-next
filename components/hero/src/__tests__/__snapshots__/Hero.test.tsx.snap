@@ -14,7 +14,7 @@ exports[`Hero component renders level 1 1`] = `
         class="content"
       >
         <h1
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+          class="MuiTypography-root title title--truncated Typography Typography--underline MuiTypography-h1"
         >
           H1 Heading
         </h1>
