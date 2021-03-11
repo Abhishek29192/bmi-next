@@ -263,7 +263,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           isLoading={tabIsLoading}
           helperText={getMicroCopy("searchPage.helperText")}
           placeholder={getMicroCopy("searchPage.placeholder")}
-          query={queryString}
+          query={areTabsResolved ? queryString : ""}
           searchPageSearchTips={resources.searchPageSearchTips}
           searchPageSidebarItems={resources.searchPageSidebarItems}
         />
