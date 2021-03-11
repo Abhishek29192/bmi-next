@@ -80,24 +80,32 @@ const activeFilterReducer = (
   [filter]: !state[filter]
 });
 
-const IntegratedLinkCard = ({ isOpen, ...rest }: LinkCardProps) => {
+const IntegratedLinkCard = ({
+  isOpen,
+  onExpandCompleted,
+  ...rest
+}: LinkCardProps) => {
   const linkCardElement = useRef<HTMLElement>(null);
+  const [hasCardExpansionCompleted, setCardExpansionCompleted] = useState(
+    false
+  );
 
-  useEffect(() => {
-    let timer1 = setTimeout(() => {
-      if (isOpen && linkCardElement.current) {
-        linkCardElement.current.parentElement.scrollTo({
-          top: linkCardElement.current.offsetTop + 1,
-          behavior: "smooth"
-        });
-      }
-    }, 750);
-    return () => {
-      clearTimeout(timer1);
-    };
-  }, [isOpen, linkCardElement]);
-
-  return <LinkCard isOpen={isOpen} ref={linkCardElement} {...rest} />;
+  if (isOpen && linkCardElement.current && hasCardExpansionCompleted) {
+    linkCardElement.current.parentElement.scrollTo({
+      top: linkCardElement.current.offsetTop + 1,
+      behavior: "smooth"
+    });
+  }
+  return (
+    <LinkCard
+      isOpen={isOpen}
+      ref={linkCardElement}
+      {...rest}
+      onExpandCompleted={() => {
+        setCardExpansionCompleted(true);
+      }}
+    />
+  );
 };
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
@@ -335,7 +343,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         >
           <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
             <Autocomplete
-              size="small"
               id="company-autocomplete"
               label={getMicroCopy("findARoofer.companyFieldLabel")}
               noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
@@ -356,18 +363,19 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               }}
               options={filteredRoofers.map(({ name }) => name)}
               freeSolo
+              startAdornmentIcon="HardHatHead"
             />
             <Typography className={styles["and-or-label"]}>
               <span>{getMicroCopy("findARoofer.andOr")}</span>
             </Typography>
             <GoogleAutocomplete
-              size="small"
               id="location-autocomplete"
               label={getMicroCopy("findARoofer.locationFieldLabel")}
               noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
               className={styles["location-autocomplete"]}
               onPlaceChange={handlePlaceChange}
               freeSolo
+              startAdornmentIcon="LocationOn"
             />
             <GeolocationButton
               onPosition={({ coords }) => {

@@ -17,6 +17,8 @@ import FilePDF from "./svgs/FilePDF.svg";
 import FilePNG from "./svgs/FilePNG.svg";
 import Cross from "./svgs/Cross.svg";
 import External from "./svgs/External.svg";
+import HardHatHead from "./svgs/HardHatHead.svg";
+import LocationOn from "./svgs/LocationOn.svg";
 
 export {
   Arrow,
@@ -34,7 +36,9 @@ export {
   FilePDF,
   FilePNG,
   Cross,
-  External
+  External,
+  HardHatHead,
+  LocationOn
 };
 
 export const iconMap = {
@@ -53,7 +57,11 @@ export const iconMap = {
   FilePDF,
   FilePNG,
   Cross,
-  External
+  External,
+  HardHatHead,
+  LocationOn
 };
+
+export type IconName = keyof typeof iconMap;
 
 export default Icon;

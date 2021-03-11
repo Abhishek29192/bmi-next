@@ -15,3 +15,20 @@ Text input field with autocomplete dropdown.
   ]}
 />
 ```
+
+### Start adornment
+
+```jsx
+<Autocomplete
+  options={[
+    "Icopal",
+    "Monier",
+    "Monarplan",
+    "Monarflex",
+    "Arrow",
+    "Zanda",
+    "AeroDek"
+  ]}
+  startAdornmentIcon="HardHatHead"
+/>
+```

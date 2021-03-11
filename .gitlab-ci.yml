@@ -10,6 +10,7 @@ include:
   - local: functions/es-pim-products-ingest/.gitlab-ci.yml
   - local: functions/gcp-apsis-integration/.gitlab-ci.yml
   - local: functions/gcp-download-zip/.gitlab-ci.yml
+  - local: functions/gcp-functions-deployer/.gitlab-ci.yml
   - local: functions/gcp-firestore-writer/.gitlab-ci.yml
   - local: functions/gcp-form-submit/.gitlab-ci.yml
   - local: functions/gcp-pim-full-fetch/.gitlab-ci.yml
@@ -21,11 +22,11 @@ include:
 
 eslint-sast:
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 nodejs-scan-sast:
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 cache:
   key:
@@ -51,7 +52,7 @@ stages:
 install:
   stage: install
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_TAG"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:
@@ -72,7 +73,7 @@ install:
 license_finder:
   stage: audit
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: [install]
   image: licensefinder/license_finder:latest
   before_script:
@@ -89,7 +90,7 @@ license_finder:
 eslint:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
@@ -100,7 +101,7 @@ release:
   image: node:13
   stage: release
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:

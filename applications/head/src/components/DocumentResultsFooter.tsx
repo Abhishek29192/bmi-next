@@ -1,10 +1,12 @@
-import axios from "axios";
-import React, { useContext } from "react";
-import Pagination from "@bmi/pagination";
+import Button, { ButtonProps } from "@bmi/button";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
+import Pagination from "@bmi/pagination";
+import axios from "axios";
 import { flatten } from "lodash";
+import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";
+import withGTM from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
 
@@ -18,6 +20,8 @@ type Props = {
     callback?: () => void
   ) => void;
 };
+
+const GTMButton = withGTM<ButtonProps>(Button);
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
@@ -90,6 +94,12 @@ const DocumentResultsFooter = ({
             className={styles["clear-downloads"]}
           />
           <DownloadList.Button
+            component={(props) => (
+              <GTMButton
+                gtm={{ id: "download3-button1", label: "Download" }}
+                {...props}
+              />
+            )}
             label={`${getMicroCopy("downloadList.download")} ({{count}})`}
             onClick={async (list) => {
               const token = await executeRecaptcha();

@@ -1,4 +1,4 @@
-import Button, { ButtonProps, ClickableAction } from "@bmi/button";
+import DefaultButton, { ButtonProps, ClickableAction } from "@bmi/button";
 import Icon from "@bmi/icon";
 import Typography from "@bmi/typography";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
@@ -23,6 +23,7 @@ export type NavigationList = LinkList & {
 };
 
 type NavigationProps = {
+  buttonComponent?: React.ComponentType<any>; // TODO
   menu: readonly NavigationList[];
   initialDepth?: number;
   initialValue?: number | boolean;
@@ -35,6 +36,7 @@ type NavigationProps = {
 };
 
 const Navigation = ({
+  buttonComponent,
   menu,
   initialDepth = 0,
   initialValue,
@@ -52,6 +54,7 @@ const Navigation = ({
   return (
     <nav className={styles["Navigation"]}>
       <NavigationList
+        buttonComponent={buttonComponent}
         className={styles[`Offset${depth * 100}`]}
         depth={0}
         initialValue={initialValue}
@@ -72,6 +75,7 @@ const Navigation = ({
 
 type NavigationListProps = {
   backLabel?: string;
+  buttonComponent?: React.ComponentType<any>; // TODO
   className?: string;
   depth: number;
   initialValue?: number | boolean;
@@ -91,6 +95,7 @@ type NavigationListProps = {
 
 const NavigationList = ({
   backLabel = "Back",
+  buttonComponent,
   className,
   depth,
   initialValue = false,
@@ -108,6 +113,8 @@ const NavigationList = ({
   languageLabel
 }: NavigationListProps) => {
   const [value, setValue] = React.useState<number | boolean>(initialValue);
+
+  const Button = buttonComponent || DefaultButton;
 
   React.useEffect(() => setValue(initialValue), [initialValue]);
 
@@ -136,6 +143,7 @@ const NavigationList = ({
         {parentHandleClick ? (
           <li className={styles["BackNavigation"]} key={`menu-${depth}-back`}>
             <NavigationListButton
+              component={Button}
               className={styles["BackButton"]}
               startIcon={<ChevronLeft className={styles["chevronLeft"]} />}
               endIcon={false}
@@ -173,6 +181,7 @@ const NavigationList = ({
             subMenu ? (
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
+                  component={Button}
                   active={value === key}
                   accessibilityLabel={label}
                   startIcon={icon && <Icon source={icon} />}
@@ -182,6 +191,7 @@ const NavigationList = ({
                   {isLabelHidden ? null : label}
                 </NavigationListButton>
                 <NavigationList
+                  buttonComponent={Button}
                   backLabel={
                     menu[0].isHeading ? menu[0].label : mainMenuDefaultLabel
                   }
@@ -225,6 +235,7 @@ const NavigationList = ({
                   } else {
                     return (
                       <NavigationListButton
+                        component={Button}
                         action={action}
                         accessibilityLabel={label}
                         startIcon={
@@ -249,6 +260,7 @@ const NavigationList = ({
             ),
             footer && (
               <NavigationList
+                buttonComponent={Button}
                 depth={depth + 1}
                 isFooter={true}
                 key={`menu-${depth}-navigation-list-${key}`}
@@ -263,7 +275,7 @@ const NavigationList = ({
           <ul className={styles["Utilities"]}>
             {utilities.map(({ label, action }, key) => (
               <li key={`mobile-utilities-link-${key}`}>
-                <NavigationListButton action={action}>
+                <NavigationListButton component={Button} action={action}>
                   {label}
                 </NavigationListButton>
               </li>
@@ -273,6 +285,7 @@ const NavigationList = ({
         {isRoot && !!languageLabel && (
           <li>
             <NavigationListButton
+              component={Button}
               endIcon={<ChevronRight className={styles["chevronRight"]} />}
               onClick={toggleLanguageSelection}
             >
@@ -288,15 +301,17 @@ const NavigationList = ({
 type NavigationListButtonProps = ButtonProps & {
   active?: boolean;
   action?: ClickableAction;
+  component?: React.ComponentType<any>; // TODO
 };
 
 export const NavigationListButton = ({
   active = false,
+  component: Component = DefaultButton,
   children,
   className,
   ...rest
 }: NavigationListButtonProps) => (
-  <Button
+  <Component
     className={classnames(styles["NavigationListButton"], className, {
       [styles["NavigationListButton--active"]]: active
     })}
@@ -304,7 +319,7 @@ export const NavigationListButton = ({
     {...rest}
   >
     {children}
-  </Button>
+  </Component>
 );
 
 export default Navigation;

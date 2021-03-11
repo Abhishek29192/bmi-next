@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
-import { graphql } from "gatsby";
+import Button, { ButtonProps } from "@bmi/button";
+import { ClickableAction } from "@bmi/clickable";
 import PromoSection from "@bmi/promo-section";
-import Button from "@bmi/button";
-import { Data as PromoData } from "./Promo";
+import { graphql } from "gatsby";
+import React, { useContext } from "react";
+import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
-import { SiteContext } from "./Site";
+import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
+import { SiteContext } from "./Site";
 import styles from "./styles/PromoSection.module.scss";
 
 export type Data = PromoData;
@@ -13,6 +15,12 @@ export type Data = PromoData;
 const IntegratedPromoSection = ({ data }: { data: Data }) => {
   const { countryCode } = useContext(SiteContext);
   const { title, subtitle, body, featuredImage, cta } = data;
+
+  const GTMButton = withGTM<
+    ButtonProps & {
+      action?: ClickableAction;
+    }
+  >(Button);
 
   return (
     <PromoSection
@@ -23,7 +31,8 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       {body ? <RichText document={body} /> : subtitle}
       {cta && (
         <div className={styles["link"]}>
-          <Button
+          <GTMButton
+            gtm={{ id: "cta-click1 ", label: cta.label, action: cta.url }}
             action={getClickableActionFromUrl(
               cta.linkedPage,
               cta.url,
@@ -32,7 +41,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
             )}
           >
             {cta.label}
-          </Button>
+          </GTMButton>
         </div>
       )}
     </PromoSection>

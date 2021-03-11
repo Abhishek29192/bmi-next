@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { FormContext } from "./";
 
-export type InputValue = string | boolean | File[] | string[];
+export type InputValue = string | number | boolean | File[] | string[];
 
 export type Props = {
   isRequired?: boolean;

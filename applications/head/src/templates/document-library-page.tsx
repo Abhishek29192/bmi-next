@@ -10,6 +10,8 @@ import Filters from "@bmi/filters";
 import PerfectScrollbar from "components/perfect-scrollbar/src";
 import Typography from "@bmi/typography/src";
 import Button from "@bmi/button/src";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
 import { Data as SiteData } from "../components/Site";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Page, { Data as PageData } from "../components/Page";
@@ -126,6 +128,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     seo
   };
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   const getFilters = (
     documents: DocumentResultsData,
     source: Data["source"],
@@ -187,8 +192,10 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     () => sourceToSortMap[source](unsortedDocuments),
     [unsortedDocuments]
   );
+  const format = resultTypeFormatMap[source][resultsType];
+  const getCount = documentCountMap[format];
   const [pageCount, setPageCount] = useState(
-    Math.ceil(initialDocuments.length / PAGE_SIZE)
+    Math.ceil(getCount(initialDocuments) / PAGE_SIZE)
   );
   const [results, setResults] = useState(initialDocuments);
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -201,8 +208,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       pageContext.pimClassificationCatalogueNamespace
     ).filter(Boolean)
   );
-
-  const format = resultTypeFormatMap[source][resultsType];
 
   const filterDocuments = (
     documents: DocumentResultsData,
@@ -393,7 +398,8 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                               page={page}
                               count={pageCount}
                               onDownloadClick={
-                                format === "cards"
+                                format === "cards" ||
+                                (!matches && format === "technicalTable")
                                   ? undefined
                                   : handleDownloadClick
                               }

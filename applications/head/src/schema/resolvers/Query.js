@@ -22,10 +22,15 @@ module.exports = {
     type: ["Filter"],
     args: {
       pimClassificationCatalogueNamespace: "String!",
-      categoryCode: "String"
+      categoryCode: "String",
+      showBrandFilter: "Boolean"
     },
     async resolve(source, args, context) {
-      const { pimClassificationCatalogueNamespace, categoryCode } = args;
+      const {
+        pimClassificationCatalogueNamespace,
+        categoryCode,
+        showBrandFilter
+      } = args;
 
       const products = await context.nodeModel.runQuery({
         query: categoryCode
@@ -52,13 +57,15 @@ module.exports = {
               }
             }
           },
-          type: "ProductCategory"
+          type: "ProductCategory",
+          firstOnly: true
         }));
 
       return getFilters(
         pimClassificationCatalogueNamespace,
         products,
-        category
+        category,
+        showBrandFilter
       );
     }
   }

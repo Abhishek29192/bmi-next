@@ -42,6 +42,7 @@ const getPagesFilters = (aggregations: any, getMicroCopy) => {
 type Props = {
   queryString: string;
   onLoadingChange?: (isLoading: boolean) => void;
+  onCountChange?: (count: number) => void;
   pageContext: any; // TODO
 };
 
@@ -116,7 +117,7 @@ export const getCount = async (queryString) => {
 };
 
 const SearchTabPanelPages = (props: Props) => {
-  const { queryString, pageContext, onLoadingChange } = props;
+  const { queryString, pageContext, onLoadingChange, onCountChange } = props;
 
   const { getMicroCopy } = useContext(SiteContext);
 
@@ -171,6 +172,8 @@ const SearchTabPanelPages = (props: Props) => {
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
       setResults(hits.hits.map((hit) => hit._source));
+
+      onCountChange && onCountChange(hits.total.value);
     }
 
     updateLoadingStatus(false);
