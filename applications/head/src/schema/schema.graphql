@@ -187,7 +187,7 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   heroType: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset
+  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
 
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
@@ -248,7 +248,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset
+  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
 
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
@@ -312,7 +312,7 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset
+  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
 
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
@@ -410,7 +410,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset
+  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
 
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
@@ -874,10 +874,11 @@ Represents a list of resources for global settings.
 """
 type ContentfulResources implements Node {
   "The micro copy pairs for these resources."
-  microCopy: [ContentfulMicroCopy]
+  microCopy: [ContentfulMicroCopy] @link(by: "id", from: "microCopy___NODE")
 
   "The elements for the product details page sidebar for these resources."
   pdpSidebarItems: [ContentfulTitleWithContent]
+    @link(by: "id", from: "pdpSideBarItems___NODE")
 
   "The title for the product details page cards for these resources."
   pdpCardsTitle: String
@@ -1077,7 +1078,7 @@ type ContentfulLink implements Node {
   linkedPage: LinkedPage @link(from: "linkedPage___NODE")
 
   "The linked asset."
-  asset: ContentfulAsset
+  asset: ContentfulAsset @link(by: "id", from: "asset___NODE")
 }
 
 """
@@ -1120,7 +1121,7 @@ type ContentfulDocument implements Node {
   title: String
 
   "The document's corresponding asset."
-  asset: ContentfulAsset
+  asset: ContentfulAsset @link(by: "id", from: "asset___NODE")
 
   "The description of this document."
   description: ContentfulRichText
@@ -1132,7 +1133,7 @@ type ContentfulDocument implements Node {
   brand: String
 
   "The image for this document."
-  image: ContentfulAsset
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
 }
 
 """
@@ -1353,7 +1354,7 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   sections: [ContentfulSection] @link(from: "sections___NODE")
 
   "The main image of brand page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset
+  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
 
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
@@ -1375,7 +1376,7 @@ type contentfulTableDataJsonNode implements Node {
 type ContentfulTable implements Node {
   contentful_id: String!
 
-  data: contentfulTableDataJsonNode
+  data: contentfulTableDataJsonNode @link(by: "id", from: "data___NODE")
 }
 
 """
