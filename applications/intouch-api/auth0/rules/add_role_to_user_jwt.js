@@ -1,6 +1,4 @@
-// eslint-disable-next-line strict, no-unused-vars
 async function AddRoleToUser(user, context, callback) {
-  // eslint-disable-next-line no-undef
   const { namespace } = configuration;
   const { stats } = context;
 
@@ -12,7 +10,6 @@ async function AddRoleToUser(user, context, callback) {
   if (count <= 1) {
     user.app_metadata.role = DEFAULT_ROLE;
 
-    // eslint-disable-next-line no-undef
     await auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
   }
 

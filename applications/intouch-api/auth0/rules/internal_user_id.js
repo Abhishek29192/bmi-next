@@ -1,4 +1,3 @@
-// eslint-disable-next-line strict, no-unused-vars
 async function InternalUserIdRule(user, context, callback) {
   const axios = require("axios");
 
@@ -9,7 +8,7 @@ async function InternalUserIdRule(user, context, callback) {
     gatewaySecret,
     apiGatewayUrl,
     audience
-  } = configuration; // eslint-disable-line no-undef
+  } = configuration;
 
   const count = stats && stats.loginsCount ? stats.loginsCount : 0;
   if (user.app_metadata && count > 1) {
@@ -45,7 +44,7 @@ async function InternalUserIdRule(user, context, callback) {
   const fetchGateway = async (query) => {
     const { data } = await axios({
       method: "POST",
-      url: `https://${auth0.domain}/oauth/token`, // eslint-disable-line no-undef
+      url: `https://${auth0.domain}/oauth/token`,
       headers: { "content-type": "application/json" },
       data: JSON.stringify({
         client_id: gatewayClientId,
@@ -57,7 +56,7 @@ async function InternalUserIdRule(user, context, callback) {
 
     return axios({
       method: "post",
-      url: apiGatewayUrl, // eslint-disable-line no-undef
+      url: apiGatewayUrl,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${data.access_token}`
@@ -90,7 +89,6 @@ async function InternalUserIdRule(user, context, callback) {
   user.app_metadata = user.app_metadata || {};
   user.app_metadata.internal_user_id = dbUserId;
 
-  // eslint-disable-next-line no-undef
   await auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
 
   context.idToken = {
