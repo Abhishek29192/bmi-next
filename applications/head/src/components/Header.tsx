@@ -131,7 +131,7 @@ const Header = ({
           )}
           searchAction={`/${countryCode}/search`}
           searchLabel={getMicroCopy("search.label")}
-          searchPlaceholder={getMicroCopy("search.placeholder")}
+          searchPlaceholder={getMicroCopy("search.placeholder.header")}
           searchTitle={getMicroCopy("search.title")}
           openLabel={getMicroCopy("menu.open")}
           mainMenuTitleLabel={getMicroCopy("menu.mainTitle")}

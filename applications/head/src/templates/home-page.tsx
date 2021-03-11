@@ -83,7 +83,7 @@ const HomePage = ({ data }: Props) => {
                 )}
                 action={`/${countryCode}/search`}
                 label={getMicroCopy("search.label")}
-                placeholder={getMicroCopy("search.placeholder")}
+                placeholder={getMicroCopy("search.placeholder.hero")}
               />
             </Hero>
           );
