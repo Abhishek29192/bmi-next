@@ -112,7 +112,6 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
             src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
           ></script>
         )}
-        <meta name="robots" content="noindex" />
       </Helmet>
 
       <SiteContext.Provider
