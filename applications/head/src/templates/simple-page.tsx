@@ -26,6 +26,8 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
 
+// import YoutubeVideo from "@bmi/youtube-video";
+
 type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
