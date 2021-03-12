@@ -415,13 +415,20 @@ module.exports = {
           }))
       }
     },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: process.env.GOOGLE_TAGMANAGER_ID,
-        includeInDevelopment: true,
-        defaultDataLayer: { platform: "gatsby", env: process.env.NODE_ENV }
-      }
-    }
+    ...(process.env.GOOGLE_TAGMANAGER_ID
+      ? [
+          {
+            resolve: "gatsby-plugin-google-tagmanager",
+            options: {
+              id: process.env.GOOGLE_TAGMANAGER_ID,
+              includeInDevelopment: true,
+              defaultDataLayer: {
+                platform: "gatsby",
+                env: process.env.NODE_ENV
+              }
+            }
+          }
+        ]
+      : [])
   ]
 };
