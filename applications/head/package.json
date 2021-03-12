@@ -101,6 +101,7 @@
     "gatsby-source-contentful": "^4.2.1",
     "gatsby-source-filesystem": "^2.3.4",
     "gatsby-transformer-sharp": "^2.5.2",
+    "googleapis": "^67.1.1",
     "graphql-import-node": "^0.0.4",
     "imurmurhash": "^0.1.4",
     "jsonfile": "^6.1.0",
