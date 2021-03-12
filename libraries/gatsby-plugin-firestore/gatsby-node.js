@@ -1,3 +1,10 @@
+/*
+Copy of https://github.com/taessina/gatsby-source-firestore/blob/master/gatsby-node.js,
+but as the latest changes have not been released and it's no longer supported, brought in here.
+
+Potentially we should fork the project properly and open-source it with a release.
+*/
+
 "use strict";
 
 const crypto = require("crypto");
