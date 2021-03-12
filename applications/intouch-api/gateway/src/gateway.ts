@@ -5,10 +5,11 @@ import {
 } from "@apollo/gateway";
 import { ContentfulSchema } from "./local-services";
 
-const { COMPANY_SERVICE_URL } = process.env;
+const { COMPANY_SERVICE_URL, TRAINING_SERVICE_URL } = process.env;
 const LOCAL_SERVICE_URL = "localService";
 const serviceList = [
   { name: "companies", url: COMPANY_SERVICE_URL },
+  { name: "training", url: TRAINING_SERVICE_URL },
   { name: "contentful", url: LOCAL_SERVICE_URL }
 ];
 
