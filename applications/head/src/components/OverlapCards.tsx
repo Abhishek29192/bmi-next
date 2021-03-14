@@ -56,7 +56,7 @@ export const query = graphql`
     ... on ContentfulPromo {
       ...PromoFragment
       featuredImage {
-        resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+        resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
           src
         }
       }
@@ -65,7 +65,7 @@ export const query = graphql`
       title
       path
       featuredImage {
-        resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+        resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
           src
         }
       }

@@ -270,7 +270,7 @@ export const query = graphql`
           type
         }
         featuredImage {
-          resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+          resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
             src
           }
         }
@@ -282,7 +282,7 @@ export const query = graphql`
           type
         }
         featuredImage {
-          resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+          resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
             src
           }
         }
