@@ -5,88 +5,92 @@ exports[`OverlapCards component renders correctly 1`] = `
   class="OverlapCards"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container"
   >
     <div
-      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+      class="MuiContainer-root MuiContainer-maxWidthXl"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
+        class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
       >
-        <a
-          class="MuiButtonBase-root Card"
-          href="/uk/some-page"
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
         >
-          <div
-            class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+          <a
+            class="MuiButtonBase-root Card"
+            href="/uk/some-page"
           >
-            <section
-              class="top-box"
-            >
-              <h5
-                class="MuiTypography-root heading Typography MuiTypography-h5"
-              >
-                Call to action
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                  />
-                </svg>
-              </h5>
-            </section>
             <div
-              class="image"
-              style="background-image: url(link-to-page.png);"
+              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <section
+                class="top-box"
+              >
+                <h5
+                  class="MuiTypography-root heading Typography MuiTypography-h5"
+                >
+                  Call to action
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root icon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </h5>
+              </section>
+              <div
+                class="image"
+                style="background-image: url(link-to-page.png);"
+              />
+            </div>
+            <span
+              class="MuiTouchRipple-root"
             />
-          </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </a>
-      </div>
-      <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
-      >
-        <a
-          class="MuiButtonBase-root Card"
-          href="/uk/some-page"
+          </a>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
         >
-          <div
-            class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+          <a
+            class="MuiButtonBase-root Card"
+            href="/uk/some-page"
           >
-            <section
-              class="top-box"
-            >
-              <h5
-                class="MuiTypography-root heading Typography MuiTypography-h5"
-              >
-                Call to action
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root icon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                  />
-                </svg>
-              </h5>
-            </section>
             <div
-              class="image"
-              style="background-image: url(link-to-page.png);"
+              class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <section
+                class="top-box"
+              >
+                <h5
+                  class="MuiTypography-root heading Typography MuiTypography-h5"
+                >
+                  Call to action
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root icon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </h5>
+              </section>
+              <div
+                class="image"
+                style="background-image: url(link-to-page.png);"
+              />
+            </div>
+            <span
+              class="MuiTouchRipple-root"
             />
-          </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   </div>

@@ -56,35 +56,39 @@ exports[`Villain component renders full size 1`] = `
   class="Villain Villain--full-size ColorPair ColorPair--blue-800"
 >
   <div
-    class="MuiContainer-root container MuiContainer-maxWidthXl"
+    class="Container"
   >
     <div
-      class="content"
+      class="MuiContainer-root container MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        H2 Heading
-      </h2>
       <div
-        class="text"
+        class="content"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
-      </div>
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiButton-label"
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
-          Call to action
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+          H2 Heading
+        </h2>
+        <div
+          class="text"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Call to action
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -99,35 +103,39 @@ exports[`Villain component renders full size and reversed 1`] = `
   class="Villain Villain--full-size Villain--reversed ColorPair ColorPair--blue-800"
 >
   <div
-    class="MuiContainer-root container MuiContainer-maxWidthXl"
+    class="Container"
   >
     <div
-      class="content"
+      class="MuiContainer-root container MuiContainer-maxWidthXl"
     >
-      <h2
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-      >
-        H2 Heading
-      </h2>
       <div
-        class="text"
+        class="content"
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
-      </div>
-      <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiButton-label"
+        <h2
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
-          Call to action
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
+          H2 Heading
+        </h2>
+        <div
+          class="text"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained Button cta MuiButton-containedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Call to action
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
     </div>
   </div>
   <div

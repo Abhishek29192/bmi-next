@@ -60,6 +60,12 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
         title={seo?.metaTitle || title}
         defer={false}
       >
+        {/* NOTE: expand viewport beyond safe area */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+
         {seo?.metaDescription && (
           <meta name="description" content={seo.metaDescription} />
         )}

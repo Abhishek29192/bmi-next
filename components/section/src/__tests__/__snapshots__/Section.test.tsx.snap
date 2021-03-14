@@ -5,9 +5,13 @@ exports[`Section component does not render nested section components 1`] = `
   class="Section"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container"
   >
-    Hello world.
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hello world.
+    </div>
   </div>
 </div>
 `;
@@ -17,9 +21,13 @@ exports[`Section component renders a white section 1`] = `
   class="Section Section--white"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container"
   >
-    Hello world.
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hello world.
+    </div>
   </div>
 </div>
 `;
@@ -29,9 +37,13 @@ exports[`Section component renders as slim 1`] = `
   class="Section Section--slim"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container"
   >
-    Hello world.
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hello world.
+    </div>
   </div>
 </div>
 `;
@@ -41,9 +53,13 @@ exports[`Section component renders correctly 1`] = `
   class="Section"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container"
   >
-    Hello world.
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      Hello world.
+    </div>
   </div>
 </div>
 `;
@@ -53,14 +69,18 @@ exports[`Section component renders with a custom className 1`] = `
   class="test Section"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container"
   >
-    <h2
-      class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      H2 Heading
-    </h2>
-    Hello world.
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        H2 Heading
+      </h2>
+      Hello world.
+    </div>
   </div>
 </div>
 `;
@@ -70,14 +90,18 @@ exports[`Section component renders with a title 1`] = `
   class="Section"
 >
   <div
-    class="MuiContainer-root MuiContainer-maxWidthXl"
+    class="Container"
   >
-    <h2
-      class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
     >
-      H2 Heading
-    </h2>
-    Hello world.
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        H2 Heading
+      </h2>
+      Hello world.
+    </div>
   </div>
 </div>
 `;
