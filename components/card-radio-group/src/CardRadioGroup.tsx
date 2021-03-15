@@ -1,7 +1,5 @@
 import React, { useMemo, useState } from "react";
-import CardRadioButton, {
-  Props as CardRadioButtonProps
-} from "@bmi/card-radio-button";
+import CardInput, { Props as CardInputProps } from "@bmi/card-input";
 import { withFormControl } from "@bmi/form";
 import classnames from "classnames";
 import Grid from "@bmi/grid";
@@ -17,10 +15,8 @@ export type Props = {
 
 const isRadioItemElement = (
   element: React.ReactNode
-): element is React.ReactElement<
-  CardRadioButtonProps,
-  typeof CardRadioButton
-> => React.isValidElement(element) && element.type === CardRadioButton;
+): element is React.ReactElement<CardInputProps, typeof CardInput> =>
+  React.isValidElement(element) && element.type === CardInput;
 
 const CardRadioGroup = ({
   name,
@@ -76,7 +72,7 @@ const CardRadioGroupFormControl = Object.defineProperty(
   withFormControl<Props>(CardRadioGroup),
   "Item",
   {
-    value: CardRadioButton,
+    value: CardInput,
     writable: false
   }
 );

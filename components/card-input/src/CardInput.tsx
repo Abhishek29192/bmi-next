@@ -1,9 +1,10 @@
 import React from "react";
 import classnames from "classnames";
 import ToggleCard, { ToggleCardProps } from "@bmi/toggle-card";
-import styles from "./CardRadioButton.module.scss";
+import styles from "./CardInput.module.scss";
 
 export type Props = {
+  type?: "radio" | "checkbox";
   name?: string;
   value: string;
   checked?: boolean;
@@ -11,7 +12,8 @@ export type Props = {
   onChange?: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
 } & ToggleCardProps;
 
-const CardRadioButton = ({
+const CardInput = ({
+  type = "radio",
   name,
   value,
   checked,
@@ -20,12 +22,11 @@ const CardRadioButton = ({
   ...rest
 }: Props) => {
   return (
-    <div className={classnames(styles["CardRadioButton"], className)}>
+    <div className={classnames(styles["CardInput"], className)}>
       <label>
         <input
           className={styles["input"]}
-          type="radio"
-          {...{ name, value, checked, onChange }}
+          {...{ type, name, value, checked, onChange }}
         />
         <ToggleCard className={styles["card"]} {...rest} />
       </label>
@@ -33,6 +34,6 @@ const CardRadioButton = ({
   );
 };
 
-CardRadioButton.Paragraph = ToggleCard.Paragraph;
+CardInput.Paragraph = ToggleCard.Paragraph;
 
-export default CardRadioButton;
+export default CardInput;

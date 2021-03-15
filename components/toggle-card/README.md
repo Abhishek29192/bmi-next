@@ -2,7 +2,7 @@ A card component for selecting items from a collection, typically a [CardRadioGr
 
 The entire card is tappable and includes a disabled state.
 
-To see the selected state in action see CardRadioGroup or [CardRadioButton](http://localhost:6060/#/CardRadioButton).
+To see the selected state in action see CardRadioGroup or [CardInput](http://localhost:6060/#/CardInput).
 
 ## Variants
 
