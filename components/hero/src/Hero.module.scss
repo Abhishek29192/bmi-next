@@ -30,8 +30,11 @@ $hero-breakpoint-sm: 769px;
     // NOTE: This gets rid of the next line high characters
     line-height: 1.4em;
 
-    &--truncated {
-      -webkit-line-clamp: 2;
+    // NOTE: none of the headers are truncated on mobile
+    @media (min-width: $hero-breakpoint-sm) {
+      &--truncated {
+        -webkit-line-clamp: 2;
+      }
     }
 
     &::after {
