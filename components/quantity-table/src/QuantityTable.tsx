@@ -8,19 +8,19 @@ import UpDownSimpleNumericInput from "@bmi/up-down-simple-numeric-input";
 import styles from "./QuantityTable.module.scss";
 
 type RowProps = {
-  imageSource: string;
+  image: string;
   description: string;
-  nobb: number;
+  externalProductCode: string;
   packSize: string;
-  productAmount: number;
+  quantity: number;
 };
 
 type BuildRowProps = {
-  onDelete: (nobb: number) => void;
-  onChangeQuantity: (nobb: number, newQuantity: any) => void;
+  onDelete: (externalProductCode: string) => void;
+  onChangeQuantity: (externalProductCode: string, newQuantity: any) => void;
   rows: RowProps[];
   packSize?: string;
-  nobbNumber?: string;
+  externalProductCode?: string;
   quantity?: string;
   remove?: string;
 };
@@ -28,18 +28,18 @@ type BuildRowProps = {
 type HeaderProps = {
   title: string;
   packSize: string;
-  nobbNumber: string;
+  externalProductCode: string;
   quantity: string;
   remove: string;
 };
 
 export type Props = {
-  onDelete: (nobb: number) => void;
-  onChangeQuantity: (nobb: number, newQuantity: any) => void;
+  onDelete: (externalProductCode: string) => void;
+  onChangeQuantity: (externalProductCode: string, newQuantity: any) => void;
   rows: RowProps[];
   title: string;
   packSize: string;
-  nobbNumber: string;
+  externalProductCode: string;
   quantity: string;
   remove: string;
 };
@@ -59,7 +59,7 @@ const SmallHeader = ({ title }: SmallHeaderProps) => (
 const MediumHeader = ({
   title,
   packSize,
-  nobbNumber,
+  externalProductCode,
   quantity,
   remove
 }: HeaderProps) => (
@@ -71,7 +71,7 @@ const MediumHeader = ({
       <Typography variant="h6">{packSize}</Typography>
     </Table.Cell>
     <Table.Cell className={styles.header}>
-      <Typography variant="h6">{nobbNumber}</Typography>
+      <Typography variant="h6">{externalProductCode}</Typography>
     </Table.Cell>
     <Table.Cell className={styles.header}>
       <Typography variant="h6">{quantity}</Typography>
@@ -87,7 +87,7 @@ const BuildSmallViewRows = ({
   onChangeQuantity,
   rows,
   packSize,
-  nobbNumber
+  externalProductCode
 }: BuildRowProps) => {
   return (
     <>
@@ -101,14 +101,18 @@ const BuildSmallViewRows = ({
           <Table.Cell className={styles.smallCell}>
             <div className={styles.rowParent}>
               <div className={styles.cellRow}>
-                <img src={row.imageSource} className={styles.picture} />
+                <img src={row.image} className={styles.picture} />
                 <Typography className={styles.smallDescription}>
                   {row.description}
                 </Typography>
               </div>
               <div className={styles.cellRow}>
-                <Typography variant="subtitle1">{nobbNumber}:</Typography>
-                <Typography className={styles.boldText}>{row.nobb}</Typography>
+                <Typography variant="subtitle1">
+                  {externalProductCode}:
+                </Typography>
+                <Typography className={styles.boldText}>
+                  {row.externalProductCode}
+                </Typography>
               </div>
               <div className={styles.cellRow}>
                 <Typography variant="subtitle1">{packSize}:</Typography>
@@ -119,16 +123,18 @@ const BuildSmallViewRows = ({
               <div className={classnames(styles.cellRow, styles.cellRowLast)}>
                 <div className={styles.iteratorCellSmall}>
                   <UpDownSimpleNumericInput
-                    name={row.nobb.toString()}
+                    name={row.externalProductCode.toString()}
                     min={0}
-                    defaultValue={row.productAmount}
-                    onChange={(value) => onChangeQuantity(row.nobb, value)}
+                    defaultValue={row.quantity}
+                    onChange={(value) =>
+                      onChangeQuantity(row.externalProductCode, value)
+                    }
                   />
                 </div>
                 <Icon
                   className={styles.icon}
                   source={Delete}
-                  onClick={() => onDelete(row.nobb)}
+                  onClick={() => onDelete(row.externalProductCode)}
                 />
               </div>
             </div>
@@ -155,7 +161,7 @@ const BuildMediumViewRows = ({
         >
           <Table.Cell>
             <div className={styles.cellRow}>
-              <img src={row.imageSource} className={styles.picture} />
+              <img src={row.image} className={styles.picture} />
               <Typography className={styles.firstDescription}>
                 {row.description}
               </Typography>
@@ -165,17 +171,19 @@ const BuildMediumViewRows = ({
             <Typography>{row.packSize}</Typography>
           </Table.Cell>
           <Table.Cell className={styles.mediumCell}>
-            <Typography>{row.nobb}</Typography>
+            <Typography>{row.externalProductCode}</Typography>
           </Table.Cell>
           <Table.Cell
             className={classnames(styles.mediumCell, styles.iteratorCellMedium)}
           >
             <div className={styles.iteratorCellMedium}>
               <UpDownSimpleNumericInput
-                name={row.nobb.toString()}
+                name={row.externalProductCode.toString()}
                 min={0}
-                defaultValue={row.productAmount}
-                onChange={(value) => onChangeQuantity(row.nobb, value)}
+                defaultValue={row.quantity}
+                onChange={(value) =>
+                  onChangeQuantity(row.externalProductCode, value)
+                }
               />
             </div>
           </Table.Cell>
@@ -183,7 +191,7 @@ const BuildMediumViewRows = ({
             <Icon
               className={styles.icon}
               source={Delete}
-              onClick={() => onDelete(row.nobb)}
+              onClick={() => onDelete(row.externalProductCode)}
             />
           </Table.Cell>
         </Table.Row>
@@ -198,7 +206,7 @@ const QuantityTable = ({
   rows,
   title,
   packSize,
-  nobbNumber,
+  externalProductCode,
   quantity,
   remove
 }: Props) => {
@@ -214,7 +222,7 @@ const QuantityTable = ({
             onChangeQuantity={onChangeQuantity}
             rows={rows}
             packSize={packSize}
-            nobbNumber={nobbNumber}
+            externalProductCode={externalProductCode}
             quantity={quantity}
             remove={remove}
           />
@@ -225,7 +233,7 @@ const QuantityTable = ({
           <MediumHeader
             title={title}
             packSize={packSize}
-            nobbNumber={nobbNumber}
+            externalProductCode={externalProductCode}
             quantity={quantity}
             remove={remove}
           />
