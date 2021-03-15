@@ -38,8 +38,8 @@
 
 
 [[redirects]]
- from="https://beta.bmigroup.com/no*"
- to="https://www.bmigroup.com/no:splat"
+ from="https://beta.bmigroup.com/no/*"
+ to="https://www.bmigroup.com/no/:splat"
  force=true
 
 [[redirects]]
