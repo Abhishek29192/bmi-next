@@ -18,6 +18,6 @@ export default gql`
     email: String
     user_level: String
     userInfo: UserInfo
-    enrollment: Enrollment
+    enrollment(options: PageQueryOptions): Enrollment
   }
 `;
