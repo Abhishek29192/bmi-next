@@ -5,5 +5,5 @@ Pitched Roof Calculator, part of WebTools.
 ### Default
 
 ```jsx
-<PitchedRoofCalculator />
+<PitchedRoofCalculator isDebugging />
 ```
