@@ -3,8 +3,10 @@ import { gql } from "apollo-server";
 export default gql`
   extend type Query {
     course(id: Int!): Course
+    courses(options: PageQueryOptions): CoursesData
   }
-  type Category {
+
+  type CourseCategory {
     id: Int
     name: String
   }
@@ -117,7 +119,7 @@ export default gql`
     max_session_to_pass: Int
     has_session_completion_rule: Boolean
     ics_url: String
-    category: [Category]
+    category: [CourseCategory]
     tree: [Tree]
     sessions: [CourseSessions]
     social_settings: SocialSettings
@@ -245,5 +247,51 @@ export default gql`
     self_unenrollment_settings: SelfUnenrollmentSettings
     partner_data: PartnerData
     enter_status: EnterStatus
+  }
+
+  type Courses {
+    id_course: Int
+    name: String
+    uidCourse: String
+    description: String
+    date_last_updated: String
+    course_type: String
+    selling: Boolean
+    code: String
+    slug_name: String
+    image: String
+    duration: Int
+    language: String
+    language_label: String
+    price: String
+    is_new: String
+    is_opened: String
+    rating_option: String
+    current_rating: Int
+    credits: Int
+    img_url: String
+    can_rate: Boolean
+    can_self_unenroll: Boolean
+    start_date: String
+    end_date: String
+    enrollment_policy: Int
+    max_attempts: Int
+    is_affiliate: Boolean
+    partner_fileds: String
+    affiliate_price: String
+    partner_data: PartnerData
+    available_seats: AvailableSeats
+    category: CourseCategory
+  }
+
+  type CoursesData {
+    count: Int
+    has_more_data: Boolean
+    current_page: Int
+    current_page_size: Int
+    total_page_count: Int
+    total_count: Int
+    sort: [Sort]
+    items: [Courses]
   }
 `;

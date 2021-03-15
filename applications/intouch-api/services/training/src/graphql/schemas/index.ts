@@ -6,6 +6,10 @@ import courseSchema from "./course";
 import branchSchema from "./branch";
 import groupSchema from "./group";
 import training from "./training";
+import certification from "./certification";
+import catalogue from "./catalogue";
+import category from "./category";
+import report from "./report";
 
 export default [
   userSchema,
@@ -15,5 +19,9 @@ export default [
   courseSchema,
   branchSchema,
   groupSchema,
-  training
+  training,
+  certification,
+  catalogue,
+  category,
+  report
 ];

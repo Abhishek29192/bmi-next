@@ -77,3 +77,23 @@ export interface ITrainingUser {
 export interface ISession {
   data: ITrainingUser;
 }
+export interface IPageQueryOptions {
+  paginate?: IPaginateOptions;
+}
+
+export interface IPaginateOptions {
+  page?: number;
+  page_size?: number;
+}
+export interface SortOptions {
+  field?: string;
+  order?: SortOrderEnum;
+}
+
+export enum SortOrderEnum {
+  Asc = "ASC",
+  Desc = "DESC"
+}
+export type QueryStringParams = {
+  [param: string]: string;
+};

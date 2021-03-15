@@ -2,7 +2,14 @@ import { gql } from "apollo-server";
 
 export default gql`
   extend type Query {
-    branches: BranchType
+    branches(options: PageQueryOptions): BranchType
+  }
+  input PageQueryOptions {
+    paginate: PaginateOptions
+  }
+  input PaginateOptions {
+    page: Int
+    page_size: Int
   }
   type Branch {
     id: String

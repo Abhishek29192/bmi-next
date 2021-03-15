@@ -107,6 +107,7 @@ export default gql`
     current_page: Int
     current_page_size: Int
     total_page_count: Int
+    total_count: Int
     actions: [String]
     sort: [Sort]
     items: [EnrollmentItems]

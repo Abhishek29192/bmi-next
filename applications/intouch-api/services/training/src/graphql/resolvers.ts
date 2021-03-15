@@ -22,6 +22,9 @@ const resolvers: GraphQLResolverMap = {
     course: async (_source, { id }, { dataSources }: IContext) => {
       return dataSources.doceboApi.getCourse(id);
     },
+    courses: async (_source, { options }, { dataSources }: IContext) => {
+      return dataSources.doceboApi.getCourses(options);
+    },
     checkUserValidatiy: async (
       _source,
       { username, email },
@@ -29,8 +32,27 @@ const resolvers: GraphQLResolverMap = {
     ) => {
       return dataSources.doceboApi.checkUserValidatiy(username, email);
     },
-    branches: async (_source, _args, { dataSources }: IContext) => {
-      return dataSources.doceboApi.getBranches();
+    branches: async (_source, { options }, { dataSources }: IContext) => {
+      return dataSources.doceboApi.getBranches(options);
+    },
+    certifications: async (_source, { options }, { dataSources }: IContext) => {
+      return dataSources.doceboApi.getCertifications(options);
+    },
+    catalogues: async (_source, { options }, { dataSources }: IContext) => {
+      return dataSources.doceboApi.getCatalogues(options);
+    },
+    categories: async (_source, { options }, { dataSources }: IContext) => {
+      return dataSources.doceboApi.getCategories(options);
+    },
+    enrollmentsReport: async (
+      _source,
+      { branchId, options },
+      { dataSources }: IContext
+    ) => {
+      return dataSources.doceboApi.getEnrollmentsReport(branchId, options);
+    },
+    certificationsReport: async (_source, _args, { dataSources }: IContext) => {
+      return dataSources.doceboApi.getCertificationsReport();
     }
   },
   TrainingInfo: {
@@ -46,9 +68,9 @@ const resolvers: GraphQLResolverMap = {
       const { id } = _source;
       return dataSources.doceboApi.getUser(id);
     },
-    enrollment: async (_source, _args, { dataSources }: IContext) => {
+    enrollment: async (_source, { options }, { dataSources }: IContext) => {
       const { id } = _source;
-      return dataSources.doceboApi.getEnrollmentByUserId(id);
+      return dataSources.doceboApi.getEnrollmentByUserId(id, options);
     }
   },
   EnrollmentItems: {
