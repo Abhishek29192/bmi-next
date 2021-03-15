@@ -32,7 +32,7 @@ const CalculatorStepper = ({ selected, children }: Props) => {
 type StepProps = {
   title: string;
   subtitle: string;
-  paragraph?: string;
+  paragraph?: React.ReactNode;
   backLabel?: string;
   backButtonOnClick?: () => void;
   linkLabel?: string;
