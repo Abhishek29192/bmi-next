@@ -8,6 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { KeyboardArrowDown, Person } from "@material-ui/icons";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { useAuth0 } from "@auth0/auth0-react";
 import Icon from "@bmi/icon";
 import styles from "./styles/UserMenu.module.scss";
 
@@ -26,6 +27,7 @@ export default function MenuListComposition() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
+  const { user, logout } = useAuth0();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -72,7 +74,7 @@ export default function MenuListComposition() {
             <div className={styles.avatar}>
               <Icon source={Person} style={{ width: 20, color: "#eeeeee" }} />
             </div>
-            <div className={styles.userName}>Mike R.</div>
+            <div className={styles.userName}>{user.nickname}</div>
             <Icon source={KeyboardArrowDown} color="action" />
           </div>
         </Button>
@@ -99,7 +101,13 @@ export default function MenuListComposition() {
                     onKeyDown={handleListKeyDown}
                   >
                     <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem
+                      onClick={() =>
+                        logout({ returnTo: window.location.origin })
+                      }
+                    >
+                      Logout
+                    </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

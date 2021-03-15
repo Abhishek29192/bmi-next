@@ -10,7 +10,21 @@ const postGraphileOptions = {
   watchPg: true,
   graphiql: true,
   enhanceGraphiql: true,
-  appendPlugins: [FederationPlugin, CompanyWrapPlugin]
+  appendPlugins: [FederationPlugin, CompanyWrapPlugin],
+  pgSettings: async (req) => {
+    const internalUserId = req.headers.get("x-authenticated-internal-user-id");
+    let role = req.headers.get("x-authenticated-role");
+
+    // I need this because req.headers.get return the word "undefined" as string instead of undefined
+    if (!role || role === "undefined") {
+      role = "installer";
+    }
+
+    return {
+      role,
+      "app.current_account": internalUserId
+    };
+  }
 };
 
 const { PG_SCHEMA, PG_USER, PASSWORD, HOST, DATABASE, PG_PORT } = process.env;
