@@ -25,7 +25,7 @@ async function InternalUserIdRule(user, context, callback) {
   }
 
   // to be changed with accountByEmail
-  const ACCUONT_BY_ID = `query {
+  const ACCOUNT_BY_ID = `query {
     allAccounts(condition: { email: "${user.email}" }) {
       nodes {
         id
@@ -42,54 +42,60 @@ async function InternalUserIdRule(user, context, callback) {
   }`;
 
   const fetchGateway = async (query) => {
-    const { data } = await axios({
-      method: "POST",
-      url: `https://${auth0.domain}/oauth/token`,
-      headers: { "content-type": "application/json" },
-      data: JSON.stringify({
-        client_id: gatewayClientId,
-        client_secret: gatewaySecret,
-        audience: audience,
-        grant_type: "client_credentials"
-      })
-    });
+    try {
+      const { data: dataToken } = await axios({
+        method: "POST",
+        url: `https://${auth0.domain}/oauth/token`,
+        headers: { "content-type": "application/json" },
+        data: JSON.stringify({
+          client_id: gatewayClientId,
+          client_secret: gatewaySecret,
+          audience: audience,
+          grant_type: "client_credentials"
+        })
+      });
 
-    return axios({
-      method: "post",
-      url: apiGatewayUrl,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${data.access_token}`
-      },
-      data: JSON.stringify({
-        query: query,
-        variables: {}
-      })
-    });
+      const { data } = await axios({
+        method: "post",
+        url: apiGatewayUrl,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${dataToken.access_token}`
+        },
+        data: JSON.stringify({
+          query: query,
+          variables: {}
+        })
+      });
+
+      return data;
+    } catch (error) {
+      callback(error);
+    }
   };
 
   let dbUserId;
-  const {
-    data: { data }
-  } = await fetchGateway(ACCUONT_BY_ID);
+  const { data } = await fetchGateway(ACCOUNT_BY_ID);
   if (
-    !data ||
-    !data.allAccounts ||
-    !data.allAccounts.nodes ||
-    data.allAccounts.nodes.length === 0
+    data &&
+    data.allAccounts &&
+    data.allAccounts.nodes &&
+    data.allAccounts.nodes.length
   ) {
-    const {
-      data: { data }
-    } = await fetchGateway(CREATE_ACCOUNT);
-    dbUserId = data.createAccount.account.id;
-  } else {
     dbUserId = data.allAccounts.nodes[0].id;
+  } else {
+    const { data } = await fetchGateway(CREATE_ACCOUNT);
+    dbUserId = data.createAccount.account.id;
   }
 
   user.app_metadata = user.app_metadata || {};
   user.app_metadata.internal_user_id = dbUserId;
 
-  await auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+  try {
+    await auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+  } catch (error) {
+    callback(error);
+  }
 
   context.idToken = {
     ...context.idToken,

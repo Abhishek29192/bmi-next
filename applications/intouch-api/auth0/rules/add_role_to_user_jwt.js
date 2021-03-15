@@ -10,7 +10,11 @@ async function AddRoleToUser(user, context, callback) {
   if (count <= 1) {
     user.app_metadata.role = DEFAULT_ROLE;
 
-    await auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+    try {
+      await auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+    } catch (error) {
+      callback(error);
+    }
   }
 
   context.idToken = {

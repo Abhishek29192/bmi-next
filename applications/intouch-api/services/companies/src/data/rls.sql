@@ -8,6 +8,7 @@ CREATE POLICY policy_company_admin ON Account FOR ALL TO company_admin
      USING (EXISTS(SELECT EndUser FROM CompanyMember WHERE EndUser = id AND Company = current_company())) 
 WITH CHECK (EXISTS(SELECT EndUser FROM CompanyMember WHERE EndUser = id AND Company = current_company()));
 
+
 ALTER TABLE Company ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS policy_super_admin ON Company;
 DROP POLICY IF EXISTS policy_market_admin ON Company;
@@ -15,6 +16,7 @@ DROP POLICY IF EXISTS policy_company_admin ON Company;
 CREATE POLICY policy_super_admin ON Company FOR ALL TO super_admin USING (true) WITH CHECK (true);
 CREATE POLICY policy_market_admin ON Company FOR ALL TO market_admin USING (current_market() = Market) WITH CHECK (current_market() = Market);
 CREATE POLICY policy_company_admin ON Company FOR ALL TO company_admin USING (current_company() = id) WITH CHECK (current_company() = id);
+
 
 ALTER TABLE CompanyMember ENABLE ROW LEVEL SECURITY;
 DROP POLICY IF EXISTS policy_super_admin ON CompanyMember;
@@ -31,7 +33,6 @@ CREATE POLICY policy_installer_select ON CompanyMember FOR SELECT TO installer U
 CREATE POLICY policy_installer_delete ON CompanyMember FOR DELETE TO installer USING (
   current_account() = EndUser
 );
-
 
 
 ALTER TABLE Project ENABLE ROW LEVEL SECURITY;

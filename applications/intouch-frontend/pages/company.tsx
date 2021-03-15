@@ -148,6 +148,7 @@ const Company = () => {
   const { user } = useAuth0();
   const [company, setCompany] = useState<CompanyData>();
 
+  // TODO: move these requests on server side
   const [loadCompany] = useLazyQuery<CompanyData, CompanyVars>(GET_COMPANY, {
     onCompleted: (data) => setCompany(data)
   });

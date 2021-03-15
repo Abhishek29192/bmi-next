@@ -9,9 +9,7 @@ import cors from "cors";
 import gatewayService from "./gateway";
 import auth from "./middleware/auth";
 
-const PORT = process.env.PORT || 4000;
-
-const { AUTH0_NAMESPACE } = process.env;
+const { AUTH0_NAMESPACE, PORT = 4000 } = process.env;
 
 (async () => {
   try {
@@ -27,13 +25,13 @@ const { AUTH0_NAMESPACE } = process.env;
       introspection: true,
       playground: true,
       context: ({ req }) => {
-        const user = req["user"];
+        const { user, headers } = req;
         const userUuid = user?.sub?.split("|")?.[1];
         const role = user[`${AUTH0_NAMESPACE}/role`];
         const internalUserId = user[`${AUTH0_NAMESPACE}/internal_user_id`];
 
         return {
-          authorization: req.headers.authorization,
+          authorization: headers.authorization,
           "x-authenticated-user-id": userUuid,
           "x-authenticated-role": role,
           "x-authenticated-internal-user-id": internalUserId
