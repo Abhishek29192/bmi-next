@@ -80,7 +80,9 @@ const CarouselSection = ({
           action={getClickableActionFromUrl(
             link?.linkedPage,
             link?.url,
-            countryCode
+            countryCode,
+            null,
+            link.label
           )}
           className={styles["link"]}
           endIcon={<ArrowForwardIcon />}

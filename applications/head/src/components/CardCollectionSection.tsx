@@ -74,7 +74,9 @@ const CardCollectionItem = ({
             action={getClickableActionFromUrl(
               link.linkedPage,
               link.url,
-              countryCode
+              countryCode,
+              null,
+              transformedCardLabel
             )}
             startIcon={<ArrowForwardIcon />}
           >
@@ -232,7 +234,9 @@ const CardCollectionSection = ({
             action={getClickableActionFromUrl(
               link?.linkedPage,
               link?.url,
-              countryCode
+              countryCode,
+              null,
+              link.label
             )}
             className={styles["link"]}
             endIcon={<ArrowForwardIcon />}

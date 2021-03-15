@@ -222,7 +222,7 @@ exports[`Page component renders correctly 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-              data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\",\\"action\\":{\\"model\\":\\"htmlLink\\",\\"href\\":\\"link-to-page\\"}}"
+              data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
               href="link-to-page"
               tabindex="0"
             >
@@ -243,7 +243,7 @@ exports[`Page component renders correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\",\\"action\\":{\\"model\\":\\"htmlLink\\",\\"href\\":\\"link-to-page\\"}}"
+                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="link-to-page"
                 tabindex="0"
               >

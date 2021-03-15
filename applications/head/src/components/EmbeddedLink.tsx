@@ -26,7 +26,8 @@ const EmbeddedLink = ({
         fields.linkedPage,
         fields.url,
         countryCode,
-        fields.asset?.file?.url
+        fields.asset?.file?.url,
+        fields.label
       )}
       className={styles["EmbeddedLink"]}
     >

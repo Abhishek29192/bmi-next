@@ -269,7 +269,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 featuresLink.linkedPage,
                                 featuresLink.url,
                                 countryCode,
-                                featuresLink.asset?.file?.url
+                                featuresLink.asset?.file?.url,
+                                featuresLink.label
                               )}
                             >
                               {featuresLink.label}
