@@ -12,76 +12,84 @@ exports[`SpotlightHero component renders correctly 1`] = `
       class="header"
     >
       <div
-        class="MuiContainer-root header-container MuiContainer-maxWidthXl"
+        class="Container"
       >
         <div
-          class="breadcrumbs"
+          class="MuiContainer-root header-container MuiContainer-maxWidthXl"
         >
-          <nav
-            aria-label="breadcrumbs"
-            class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
+          <div
+            class="breadcrumbs"
           >
-            <ol
-              class="MuiBreadcrumbs-ol"
+            <nav
+              aria-label="breadcrumbs"
+              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs Breadcrumbs--dark-themed MuiTypography-body1 MuiTypography-colorTextSecondary"
             >
-              <li
-                class="MuiBreadcrumbs-li"
+              <ol
+                class="MuiBreadcrumbs-ol"
               >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
-                  href="/"
-                  tabindex="0"
+                <li
+                  class="MuiBreadcrumbs-li"
                 >
-                  <span
-                    class="MuiButton-label"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button button link Button--dark-background MuiButton-textPrimary"
+                    href="/"
+                    tabindex="0"
                   >
                     <span
-                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                      class="MuiButton-label"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root icon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
+                      <span
+                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
                       >
-                        <path
-                          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
-                        />
-                      </svg>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root icon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="label"
+                      >
+                        Tiles
+                      </span>
                     </span>
                     <span
-                      class="label"
-                    >
-                      Tiles
-                    </span>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </li>
-            </ol>
-          </nav>
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <h1
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+          >
+            H1 Heading desktop
+          </h1>
         </div>
-        <h1
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
-        >
-          H1 Heading desktop
-        </h1>
       </div>
     </div>
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="content"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
-        <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+        <div
+          class="content"
         >
-          Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu quis ex nostrud sunt ad eu laboris commodo deserunt commodo. Exercitation ullamco ipsum duis reprehenderit labore officia incididunt amet aliquip quis.
-        </p>
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1"
+          >
+            Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu quis ex nostrud sunt ad eu laboris commodo deserunt commodo. Exercitation ullamco ipsum duis reprehenderit labore officia incididunt amet aliquip quis.
+          </p>
+        </div>
       </div>
     </div>
     <div

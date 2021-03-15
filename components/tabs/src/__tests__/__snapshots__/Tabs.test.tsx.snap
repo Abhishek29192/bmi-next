@@ -8,65 +8,69 @@ exports[`Tabs component renders correctly 1`] = `
     class="TabsBar"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiTabs-root"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiTabs-scrollable"
-          style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-        />
-        <div
-          class="MuiTabs-scroller MuiTabs-scrollable"
-          style="margin-bottom: 0px;"
+          class="MuiTabs-root"
         >
           <div
-            aria-label="tabs"
-            class="MuiTabs-flexContainer"
-            role="tablist"
-          >
-            <button
-              aria-controls="tabpanel-0"
-              aria-selected="true"
-              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-              id="tab-0"
-              role="tab"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiTab-wrapper"
-              >
-                Tab 1
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-            <button
-              aria-controls="tabpanel-1"
-              aria-selected="false"
-              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
-              id="tab-1"
-              role="tab"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                class="MuiTab-wrapper"
-              >
-                Tab 2
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-          <span
-            class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
-            style="left: 0px; width: 0px;"
+            class="MuiTabs-scrollable"
+            style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
           />
+          <div
+            class="MuiTabs-scroller MuiTabs-scrollable"
+            style="margin-bottom: 0px;"
+          >
+            <div
+              aria-label="tabs"
+              class="MuiTabs-flexContainer"
+              role="tablist"
+            >
+              <button
+                aria-controls="tabpanel-0"
+                aria-selected="true"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                id="tab-0"
+                role="tab"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiTab-wrapper"
+                >
+                  Tab 1
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                aria-controls="tabpanel-1"
+                aria-selected="false"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                id="tab-1"
+                role="tab"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="MuiTab-wrapper"
+                >
+                  Tab 2
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+            <span
+              class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+              style="left: 0px; width: 0px;"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -109,65 +113,69 @@ exports[`Tabs component renders secondary theme correctly 1`] = `
     class="TabsBar"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="MuiTabs-root"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiTabs-scrollable"
-          style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-        />
-        <div
-          class="MuiTabs-scroller MuiTabs-scrollable"
-          style="margin-bottom: 0px;"
+          class="MuiTabs-root"
         >
           <div
-            aria-label="tabs"
-            class="MuiTabs-flexContainer"
-            role="tablist"
-          >
-            <button
-              aria-controls="tabpanel-0"
-              aria-selected="true"
-              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
-              id="tab-0"
-              role="tab"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiTab-wrapper"
-              >
-                Tab 1
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-            <button
-              aria-controls="tabpanel-1"
-              aria-selected="false"
-              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
-              id="tab-1"
-              role="tab"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                class="MuiTab-wrapper"
-              >
-                Tab 2
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-          <span
-            class="PrivateTabIndicator-root-7 PrivateTabIndicator-colorPrimary-8 MuiTabs-indicator"
-            style="left: 0px; width: 0px;"
+            class="MuiTabs-scrollable"
+            style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
           />
+          <div
+            class="MuiTabs-scroller MuiTabs-scrollable"
+            style="margin-bottom: 0px;"
+          >
+            <div
+              aria-label="tabs"
+              class="MuiTabs-flexContainer"
+              role="tablist"
+            >
+              <button
+                aria-controls="tabpanel-0"
+                aria-selected="true"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                id="tab-0"
+                role="tab"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiTab-wrapper"
+                >
+                  Tab 1
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+              <button
+                aria-controls="tabpanel-1"
+                aria-selected="false"
+                class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                id="tab-1"
+                role="tab"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="MuiTab-wrapper"
+                >
+                  Tab 2
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+            <span
+              class="PrivateTabIndicator-root-7 PrivateTabIndicator-colorPrimary-8 MuiTabs-indicator"
+              style="left: 0px; width: 0px;"
+            />
+          </div>
         </div>
       </div>
     </div>
