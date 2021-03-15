@@ -3,7 +3,7 @@ import Link from "next/link";
 import Icon from "@bmi/icon";
 import Logo, { BMI, StandardPale } from "@bmi/logo";
 import { useTranslation } from "next-i18next";
-import styles from "./styles/Footer.module.scss";
+import styles from "./styles.module.scss";
 
 export const Footer = () => {
   const { t } = useTranslation("footer");

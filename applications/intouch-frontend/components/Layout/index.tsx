@@ -3,17 +3,17 @@ import Head from "next/head";
 import Icon from "@bmi/icon";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { BMI } from "@bmi/logo";
-import { Sidebar } from "./Sidebar";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
-import styles from "./styles/Layout.module.scss";
+import { Sidebar } from "../Sidebar";
+import { Header } from "../Header";
+import { Footer } from "../Footer";
+import styles from "./styles.module.scss";
 
 export type LayoutProps = {
   children: React.ReactNode | React.ReactNode[];
   title: string;
 };
 
-const Layout = ({ children, title }: LayoutProps) => {
+export const Layout = ({ children, title }: LayoutProps) => {
   return (
     <BmiThemeProvider>
       <div>
@@ -47,5 +47,3 @@ const Layout = ({ children, title }: LayoutProps) => {
     </BmiThemeProvider>
   );
 };
-
-export default Layout;

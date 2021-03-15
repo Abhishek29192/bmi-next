@@ -10,7 +10,7 @@ import { KeyboardArrowDown, Person } from "@material-ui/icons";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { useUser } from "@auth0/nextjs-auth0";
 import Icon from "@bmi/icon";
-import styles from "./styles/UserMenu.module.scss";
+import styles from "./styles.module.scss";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

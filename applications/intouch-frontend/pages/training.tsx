@@ -6,8 +6,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { QueryResult } from "@apollo/client";
 import auth0 from "../lib/auth0";
-import Layout from "../components/Layout";
-
+import { Layout } from "../components/Layout";
 import { EnrollmentItems } from "../graphql/generated/schemas";
 import { TrainingsQuery } from "../graphql/generated/operations";
 import { useTrainingsQuery } from "../graphql/generated/hooks";

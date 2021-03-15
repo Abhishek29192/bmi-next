@@ -13,9 +13,9 @@ import CompanyDetails from "@bmi/company-details";
 
 import { Person } from "@material-ui/icons";
 import Icon from "@bmi/icon";
-import Layout from "../components/Layout";
-import InfoPair from "../components/InfoPair";
-import CardHeader from "../components/CardHeader";
+import { Layout } from "../components/Layout";
+import { InfoPair } from "../components/InfoPair";
+import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
 import serverSiderProps, { CompanyData } from "../lib/serverSideProps/company";
 

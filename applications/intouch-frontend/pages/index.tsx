@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "@bmi/hero";
 import auth0 from "../lib/auth0";
-import Layout from "../components/Layout";
+import { Layout } from "../components/Layout";
 
 const Homepage = () => {
   return (

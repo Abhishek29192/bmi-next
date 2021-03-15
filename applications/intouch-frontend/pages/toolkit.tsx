@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import auth0 from "../lib/auth0";
-import Layout from "../components/Layout";
+import { Layout } from "../components/Layout";
 
 const Toolkit = () => {
   const { t } = useTranslation("common");
