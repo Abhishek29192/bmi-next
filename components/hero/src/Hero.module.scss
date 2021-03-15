@@ -64,6 +64,7 @@ $hero-breakpoint-sm: 769px;
   }
 
   .content {
+    height: 100%;
     margin-top: auto;
     margin-bottom: auto;
   }
@@ -92,8 +93,11 @@ $hero-breakpoint-sm: 769px;
     font-size: 18px;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
+
+    @media (min-width: $breakpoint-sm) {
+      -webkit-line-clamp: 5;
+    }
   }
 
   .cta {
