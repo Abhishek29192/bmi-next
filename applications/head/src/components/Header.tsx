@@ -5,12 +5,27 @@ import { graphql, Link } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { LinkData, NavigationData, NavigationItem } from "./Link";
+import { LinkData, NavigationData, NavigationItem, getCTA } from "./Link";
 import { SiteContext } from "./Site";
+
+const getFooter = (promo, countryCode, getMicroCopy) => {
+  const cta = getCTA(promo, countryCode, getMicroCopy("page.linkLabel"));
+
+  return [
+    {
+      label: promo.title,
+      image: promo.featuredImage?.resize.src
+    },
+    { label: promo.title, isHeading: true },
+    ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
+    ...(cta ? [cta] : [])
+  ];
+};
 
 const parseNavigation = (
   navigationItems: (NavigationData | NavigationItem | LinkData)[],
-  countryCode: string
+  countryCode: string,
+  getMicroCopy
 ) => {
   if (!navigationItems || navigationItems.length === 0) {
     return [];
@@ -18,11 +33,21 @@ const parseNavigation = (
 
   return navigationItems.reduce((result, { __typename, ...item }) => {
     if (__typename === "ContentfulNavigation") {
-      const { label, links, link } = item as NavigationData;
-      return result.concat({
+      const { label, links, link, promo } = item as NavigationData;
+
+      const navItem = {
         label,
-        menu: parseNavigation(link ? [link, ...links] : links, countryCode)
-      });
+        menu: parseNavigation(
+          link ? [link, ...links] : links,
+          countryCode,
+          getMicroCopy
+        ),
+        ...(!!promo && {
+          footer: getFooter(promo, countryCode, getMicroCopy)
+        })
+      };
+
+      return result.concat(navItem);
     }
 
     if (__typename === "ContentfulNavigationItem") {
@@ -106,8 +131,16 @@ const Header = ({
   }
 
   const { getMicroCopy } = useContext(SiteContext);
-  const utilities = parseNavigation(utilitiesData.links, countryCode);
-  const navigation = parseNavigation(navigationData.links, countryCode);
+  const utilities = parseNavigation(
+    utilitiesData.links,
+    countryCode,
+    getMicroCopy
+  );
+  const navigation = parseNavigation(
+    navigationData.links,
+    countryCode,
+    getMicroCopy
+  );
 
   return (
     <HidePrint
@@ -158,6 +191,14 @@ export const query = graphql`
           ...LinkFragment
         }
         label
+        promo {
+          __typename
+          ... on ContentfulPromoOrPage {
+            __typename
+            ...PromoFragment
+            ...PageInfoFragment
+          }
+        }
         links {
           ... on ContentfulNavigationItem {
             type
