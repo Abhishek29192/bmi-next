@@ -285,6 +285,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
+
+  "The featured Video"
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 }
 
 """
