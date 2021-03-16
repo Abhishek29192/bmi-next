@@ -33,6 +33,7 @@ type HeaderProps = {
   closeLabel?: string;
   searchButtonComponent?: React.ComponentType<any>; // TODO
   navigationButtonComponent?: React.ComponentType<any>; // TODO
+  promoButtonComponent?: React.ComponentType<any>; // TODO
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
   searchAction?: string;
@@ -56,6 +57,7 @@ const Header = ({
   closeLabel = "Close",
   searchButtonComponent,
   navigationButtonComponent,
+  promoButtonComponent,
   isSearchDisabled,
   isOnSearchPage,
   searchAction,
@@ -317,6 +319,7 @@ const Header = ({
             initialDepth={typeof value === "number" ? 1 : 0}
             initialValue={value}
             buttonComponent={navigationButtonComponent}
+            promoButtonComponent={promoButtonComponent}
             toggleLanguageSelection={toggleLanguageSelection}
             utilities={utilities}
             setRootValue={setValue}
