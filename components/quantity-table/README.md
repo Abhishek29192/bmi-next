@@ -12,41 +12,42 @@ import CalculatorModal from "@bmi/calculator-modal";
 
 const rowsTemplate = [
   {
-    imageSource: tileBrown,
-    description: "Lorem ipsum",
-    nobb: 123456789,
+    image: tileBrown,
+    description: "Lorem ipsum dolor sit amet memento mori",
+    externalProductCode: "123456789",
     packSize: "22 x 42",
-    productAmount: 43
+    quantity: 43
   },
   {
-    imageSource: tileBrown,
-    description: "Lorem ipsum",
-    nobb: 523456789,
-    packSize: "14 x 82",
-    productAmount: 22
+    image: tileBrown,
+    description: "Lorem ipsum dolor sit amet memento mori",
+    externalProductCode: "123456789",
+    packSize: "22 x 42",
+    quantity: 43
   },
   {
-    imageSource: tileBrown,
-    description: "Lorem ipsum",
-    nobb: 223456789,
-    packSize: "-",
-    productAmount: 52
+    image: tileBrown,
+    description: "Lorem ipsum dolor sit amet memento mori",
+    externalProductCode: "123456789",
+    packSize: "22 x 42",
+    quantity: 43
   },
   {
-    imageSource: tileBrown,
-    description: "Lorem ipsum",
-    nobb: 323456789,
-    packSize: "5 x 9",
-    productAmount: 22
+    image: tileBrown,
+    description: "Lorem ipsum dolor sit amet memento mori",
+    externalProductCode: "123456789",
+    packSize: "22 x 42",
+    quantity: 43
   },
   {
-    imageSource: tileBrown,
-    description: "Lorem ipsum",
-    nobb: 423456789,
-    packSize: "263 x 1",
-    productAmount: 52
+    image: tileBrown,
+    description: "Lorem ipsum dolor sit amet memento mori",
+    externalProductCode: "123456789",
+    packSize: "22 x 42",
+    quantity: 43
   }
 ];
+
 const [rows, setRows] = useState(rowsTemplate);
 const onDelete = (nobbNumber) => {
   setRows(
@@ -72,11 +73,13 @@ const [open, setOpen] = React.useState(false);
       onDelete={(value) => onDelete(value)}
       onChangeQuantity={(nobb, value) => console.log("enter ", nobb, value)}
       rows={rows}
-      title="Tile Products"
-      packSize="Pack size"
-      nobbNumber="Nobb no"
-      quantity="Quantity"
-      remove="Remove"
+      {...{
+        title: "Product",
+        packSize: "Pack size",
+        externalProductCode: "Nobb no",
+        quantity: "Quantity",
+        remove: "Remove"
+      }}
     />
   </CalculatorModal>
 </>;

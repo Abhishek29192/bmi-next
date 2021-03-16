@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Button from "@bmi/button";
 import CalculatorModal from "@bmi/calculator-modal";
 import CalculatorStepper from "@bmi/calculator-stepper";
@@ -9,8 +9,10 @@ import TileOptions from "./_TileOptions";
 import VariantSelection from "./_VariantSelection";
 import UnderlaySelection from "./_UnderlaySelection";
 import Guttering from "./_Guttering";
+import { calculateArea } from "./calculation/calculate";
+import Results from "./_Results";
 
-const PitchedRoofCalculator = () => {
+const PitchedRoofCalculator = ({ isDebugging }: any) => {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
     | "select-roof"
@@ -26,9 +28,9 @@ const PitchedRoofCalculator = () => {
   const [dimensions, setDimensions] = useState({});
   const [tile, setTile] = useState(null);
   const [variant, setVariant] = useState(null);
-  const [tileOptions, setTileOptions] = useState({});
+  const [tileOptions, setTileOptions] = useState<any>({});
   const [underlay, setUnderlay] = useState({});
-  const [guttering, setGuttering] = useState({});
+  const [guttering, setGuttering] = useState<any>({});
 
   const selectRoof = (newRoof) => {
     setSelected("enter-dimensions");
@@ -64,6 +66,12 @@ const PitchedRoofCalculator = () => {
     set(values);
     setSelected(next);
   };
+
+  const measurements = useMemo(() => {
+    if (!roof || !dimensions) return null;
+    const { faces, lines } = roof.getMeasurements(dimensions);
+    return { faces, lines, area: calculateArea(faces) };
+  }, [roof, dimensions]);
 
   return (
     <>
@@ -182,12 +190,27 @@ const PitchedRoofCalculator = () => {
           <CalculatorStepper.Step
             key="your-solution-contains"
             title="Your solution contains"
-            subtitle="Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: X% into this material calculation"
-            paragraph="For the total measured area for your roof: -"
+            subtitle="Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 0% into this material calculation"
+            paragraph={
+              <span>
+                For the total measured area for your roof:{" "}
+                {((measurements || { area: 0 }).area / 10000).toFixed(2)}m
+                <sup>2</sup>
+              </span>
+            }
             backLabel="Go back"
             backButtonOnClick={() => setSelected("guttering")}
           >
-            <span>Placeholder for the basket component</span>
+            <Results
+              {...{
+                isDebugging,
+                measurements,
+                variant,
+                tileOptions,
+                underlay,
+                guttering
+              }}
+            />
           </CalculatorStepper.Step>
         </CalculatorStepper>
       </CalculatorModal>

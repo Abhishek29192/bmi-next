@@ -1,16 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardRadioGroup component calls onChange 1`] = `
+exports[`CardCheckboxGroup component calls onChange 1`] = `
 Array [
   Array [
-    "Aerodek Traditional",
+    Array [
+      "Aerodek Traditional",
+    ],
   ],
 ]
 `;
 
-exports[`CardRadioGroup component renders correctly 1`] = `
+exports[`CardCheckboxGroup component renders correctly 1`] = `
 <div
-  class="CardRadioGroup"
+  class="CardCheckboxGroup"
 >
   <div
     class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
@@ -25,7 +27,7 @@ exports[`CardRadioGroup component renders correctly 1`] = `
           <input
             class="input"
             name="tileType"
-            type="radio"
+            type="checkbox"
             value="Zanda Arktis"
           />
           <div
@@ -69,7 +71,7 @@ exports[`CardRadioGroup component renders correctly 1`] = `
           <input
             class="input"
             name="tileType"
-            type="radio"
+            type="checkbox"
             value="Aerodek Traditional"
           />
           <div
@@ -107,9 +109,9 @@ exports[`CardRadioGroup component renders correctly 1`] = `
 </div>
 `;
 
-exports[`CardRadioGroup component renders with initial value 1`] = `
+exports[`CardCheckboxGroup component renders with initial value 1`] = `
 <div
-  class="CardRadioGroup"
+  class="CardCheckboxGroup"
 >
   <div
     class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
@@ -125,7 +127,7 @@ exports[`CardRadioGroup component renders with initial value 1`] = `
             checked=""
             class="input"
             name="tileType"
-            type="radio"
+            type="checkbox"
             value="Zanda Arktis"
           />
           <div
@@ -169,7 +171,7 @@ exports[`CardRadioGroup component renders with initial value 1`] = `
           <input
             class="input"
             name="tileType"
-            type="radio"
+            type="checkbox"
             value="Aerodek Traditional"
           />
           <div

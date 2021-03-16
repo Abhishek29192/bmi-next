@@ -1,19 +1,35 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import CardRadioButton from "../";
+import CardInput from "../";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 
-describe("CardRadioButton component", () => {
+describe("CardInput component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <CardRadioButton
+      <CardInput
         name="tileType"
         value="Aerodek Classic"
         title="Aerodek Classic"
         imageSource={demoFormattedImage}
       >
-        <CardRadioButton.Paragraph>6 colours </CardRadioButton.Paragraph>
-      </CardRadioButton>
+        <CardInput.Paragraph>6 colours </CardInput.Paragraph>
+      </CardInput>
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders as checkbox", () => {
+    const { container } = render(
+      <CardInput
+        type="checkbox"
+        name="tileType"
+        value="Aerodek Classic"
+        title="Aerodek Classic"
+        imageSource={demoFormattedImage}
+      >
+        <CardInput.Paragraph>6 colours </CardInput.Paragraph>
+      </CardInput>
     );
 
     expect(container.firstChild).toMatchSnapshot();
@@ -23,15 +39,15 @@ describe("CardRadioButton component", () => {
     const handleOnChange = jest.fn();
 
     const { container } = render(
-      <CardRadioButton
+      <CardInput
         name="tileType"
         value="Aerodek Classic"
         title="Aerodek Classic"
         imageSource={demoFormattedImage}
         onChange={handleOnChange}
       >
-        <CardRadioButton.Paragraph>6 colours </CardRadioButton.Paragraph>
-      </CardRadioButton>
+        <CardInput.Paragraph>6 colours </CardInput.Paragraph>
+      </CardInput>
     );
 
     fireEvent.click(container.querySelector("label"));
