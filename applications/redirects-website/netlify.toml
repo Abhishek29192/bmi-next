@@ -17,11 +17,2256 @@
   skip_processing = true
 
 
-# test rule - copy and replace as necessary to create new redirect rules
+
 [[redirects]]
-  from = "/test/*"
-  to = "https://beta.bmigroup.com/no"
-  status = 301
-  force = true
-  [redirects.headers]
-    X-From = "Netlify"
+ from="/Produkter.aspx"
+ to="https://www.bmigroup.com/no/?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/IcopalNO/2011/OmIcopal/OmIcopal1jpg.jpg?h=243&w=776"
+ to="https://www.bmigroup.com/no/merkevarer?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/UploadFolder/Others/icopalno/shingel/dokumenter/shingel%20garantibevis.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon/garantier-og-sertifikater?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal.aspx"
+ to="https://www.bmigroup.com/no/icopal?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Adresser.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/IcopalTak%20as/Tak-%20og%20membrantekking.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/IcopalTak%20as/HMS.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/IcopalTak%20as/Radonsikring.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Icopals%20verdier.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/IcopalTak%20as/Miljotak.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Icopals%20historie.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/IcopalTak%20as/Serviceavtaler.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Adresser/presenning-stillasinndekning.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Ekstranet.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/IcopalTak%20as.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Adresser/IcopalTak.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/IcopalTak%20as/Avdelinger.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Adresser/proffsalg.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss/vare-ansatte?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Adresser/produktsalg.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss/vare-ansatte?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Adresser/civil-engineering.aspx"
+ to="https://www.bmigroup.com/no/kontakt-oss/vare-ansatte?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/jobb-icopal.aspx"
+ to="https://www.bmigroup.com/no/karriereutvikling?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/AboutIcopal/Miljo%20og%20kvalitet.aspx"
+ to="https://www.bmigroup.com/no/klima-og-miljoavtrykk?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Error%20Pages/404.aspx"
+ to="https://www.bmigroup.com/no/422?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Global/Toolbox/Sitemap.aspx"
+ to="https://www.bmigroup.com/no/sitemap?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/brosjyre-bestilling.aspx"
+ to="https://www.bmigroup.com/no/bestill-brosjyrer?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/cookies/cookies.aspx"
+ to="https://www.bmigroup.com/no/bruk-av-informasjonskapsler?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/sitecore%20modules/Cookies%20Settings/themes/default.css"
+ to="https://www.bmigroup.com/no/bruk-av-informasjonskapsler?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Hvordan%20sjekke%20taket%20ditt.aspx"
+ to="https://www.bmigroup.com/no/inspirasjon-tips-og-rad/slik-sikrer-de-tette-tak-i-generasjoner?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/nyheter.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_27_04_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_22_03_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_13_10_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_25_01_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_31_03_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_14_01_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_28_04_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_03_11_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_20_09_2017.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_08_10_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_14_06_2017.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_03_04_2017.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_12_10_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemB_14_01_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_24_06_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_04_04_2016.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_17_12_2013.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_26_06_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_16_06_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_15_11_2013.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_15_12_2014.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_09_06_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_10_06_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_11_09_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_02_07_2015.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Presse/NewsItemA_14_11_2014.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/Tilstandsrapport%20for%20norske%20boliger.aspx"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden_content/nyheter/NewsItemA_11_09_2015.aspx"
+ to="https://www.bmigroup.com/no/referansehistorier/rema-1000-viser-vei-med-miljotak?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Dampsperre.aspx"
+ to="https://www.bmigroup.com/no/dampsperrer?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Dampsperre/reflex-110.aspx"
+ to="https://www.bmigroup.com/no/dampsperrer?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Flate%20tak%20og%20membraner.aspx"
+ to="https://www.bmigroup.com/no/membraner?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Flate%20tak%20og%20membraner.aspx"
+ to="https://www.bmigroup.com/no/membraner/bromembraner?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Flate%20tak%20og%20membraner/Asfalt%20takbelegg.aspx"
+ to="https://www.bmigroup.com/no/asfalt-takbelegg?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Flate%20tak%20og%20membraner/Noxite%20miljotak.aspx"
+ to="https://www.bmigroup.com/no/asfalt-takbelegg?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Flate%20tak%20og%20membraner/fallsikring.aspx"
+ to="https://www.bmigroup.com/no/fallsikring?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Flate%20tak%20og%20membraner/PVC.aspx"
+ to="https://www.bmigroup.com/no/pvc-takfolie?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Flate%20tak%20og%20membraner/Vanntrykksmembran.aspx"
+ to="https://www.bmigroup.com/no/membraner/vanntrykksmembraner?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/FONDA%20Grunnplater/FONDA%20Geoplex.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-under-bakken/geomembran?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/FONDA%20Grunnplater/FONDA%20Universal.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-under-bakken/grunnmursplater?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/FONDA%20Grunnplater.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-under-bakken/grunnmursplater?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Glassrekkverk.aspx"
+ to="https://www.bmigroup.com/no/glassrekkverk-med-stolper?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Gulvunderlag.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-gulvet/fuktsperre-og-gulvunderlag?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Gulvunderlag/Gulvpapp.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-gulvet/fuktsperre-og-gulvunderlag?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Gulvunderlag/FONDA%20Universal.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-gulvet/fuktsperre-og-gulvunderlag?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/plot-zoom.aspx"
+ to="https://www.bmigroup.com/no/terrassesystem?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Presenninger.aspx"
+ to="https://www.bmigroup.com/no/presenning?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Presenninger/MONARFLEX%20Stilasinndekninger.aspx"
+ to="https://www.bmigroup.com/no/monarflex-stillasinndekning?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Radonprodukter.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-gulvet/radonsperrer?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Radonprodukter/Radonsperre.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-gulvet/radonsperrer?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak.aspx"
+ to="https://www.bmigroup.com/no/staltakpanner?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak/AeroDek.aspx"
+ to="https://www.bmigroup.com/no/aerodek?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak/AeroDek/Quadro-Plus.aspx"
+ to="https://www.bmigroup.com/no/staltakpanner/aerodek-quadro-plus?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak/AeroDek/Robust-Plus.aspx"
+ to="https://www.bmigroup.com/no/staltakpanner/aerodek-robust-plus?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak/AeroDek/Tradition-Plus.aspx"
+ to="https://www.bmigroup.com/no/staltakpanner/aerodek-tradition-plus?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak/AeroDek/Tradition.aspx"
+ to="https://www.bmigroup.com/no/staltakpanner/aerodek-tradition?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak/AeroDek/Unique-Plus.aspx"
+ to="https://www.bmigroup.com/no/staltakpanner/aerodek-unique-plus?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak/Shingel.aspx"
+ to="https://www.bmigroup.com/no/takshingel?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Skraa%20tak/Torvtak.aspx"
+ to="https://www.bmigroup.com/no/torvtak?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Svillemembran.aspx"
+ to="https://www.bmigroup.com/no/produkter-til-under-bakken/svillemembran?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Takrenner.aspx"
+ to="https://www.bmigroup.com/no/takrenner?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Takrenner/Takrenner%20staal.aspx"
+ to="https://www.bmigroup.com/no/takrenner?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Takrenner/beslag.aspx"
+ to="https://www.bmigroup.com/no/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Takrenner/Takrenner%20plast/Produktpresentasjon%20plastrenne.aspx"
+ to="https://www.bmigroup.com/no/takrenner/plasttakrenne-105-mm?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Takrenner/Takrenner%20plast.aspx"
+ to="https://www.bmigroup.com/no/takrenner/plasttakrenne-105-mm?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Tettesystem.aspx"
+ to="https://www.bmigroup.com/no/tettesystemer-fra-bmi?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Tettesystem/Tape%20og%20mansjetter.aspx"
+ to="https://www.bmigroup.com/no/mansjetter?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Undertak.aspx"
+ to="https://www.bmigroup.com/no/undertak?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Undertak/Primo.aspx"
+ to="https://www.bmigroup.com/no/undertak?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Undertak/diffex.aspx"
+ to="https://www.bmigroup.com/no/undertak/diffex?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Undertak/MONARFLEX%20%20Monarfol.aspx"
+ to="https://www.bmigroup.com/no/undertak/monarfol-super?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Undertak/Super%20D.aspx"
+ to="https://www.bmigroup.com/no/underlagsbelegg/icopal-super-d?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Undertak/ultra-d.aspx"
+ to="https://www.bmigroup.com/no/underlagsbelegg/icopal-ultra-d?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Undertak/Ventex.aspx"
+ to="https://www.bmigroup.com/no/undertak/ventex-supra?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Vindsperrer.aspx"
+ to="https://www.bmigroup.com/no/vindsperrer?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Vindsperrer/UV-Vindsperre.aspx"
+ to="https://www.bmigroup.com/no/vindsperrer?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Vindsperrer/firesmart.aspx"
+ to="https://www.bmigroup.com/no/vindsperrer/firesmart-uv?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Vindsperrer/primex.aspx"
+ to="https://www.bmigroup.com/no/undertak/primex?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Vindsperrer/Vaflex.aspx"
+ to="https://www.bmigroup.com/no/vindsperrer/vaflex?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Vindsperrer/vx-primo.aspx"
+ to="https://www.bmigroup.com/no/vindsperrer/vx-primo?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Produkter/Vindsperrer/Windbreak.aspx"
+ to="https://www.bmigroup.com/no/vindsperrer/windbreak?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takplanlegger/"
+ to="https://www.bmigroup.com/no/beregning-og-visualisering?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Beregningsprogram.aspx"
+ to="https://www.bmigroup.com/no/beregning-og-visualisering?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Glassrekkverk.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/~/media/UploadFolder/*"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+[[redirects]]
+ from="/~/media/IcopalNO/*"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+[[redirects]]
+ from="/Gamle%20Dokumenter/Miljodeklarasjoner.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Gamle%20Dokumenter/FDV%20dokumenter.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+[[redirects]]
+ from="/Gamle%20Dokumenter.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Diverse%20produkter.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Radonprodukter.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Undertak.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Vindsperrer%20og%20dampsperrer.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Grunnplater.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Arkitekter.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Takrenner%20og%20beslag.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Skraa%20tak.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Gulvunderlag.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/plot-zoom.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Skorsteiner%20og%20ildsteder.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/Flate%20tak%20og%20membraner.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/Dokumentasjon/presenninger.aspx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+
+[[redirects]]
+ from="https://www.icopal.no/"
+ to="https://www.bmigroup.com/no/?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="https://www.icopal.no"
+ to="https://www.bmigroup.com/no/?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="http://www.icopal.no/"
+ to="https://www.bmigroup.com/no/?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="http://www.icopal.no"
+ to="https://www.bmigroup.com/no/?utm_source=icopal.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+
+
+
+# ZANDA *************************************
+
+
+
+
+[[redirects]]
+ from="/om-monier/om-braas-monier-gruppen.html"
+ to="https://www.bmigroup.com/no/merkevarer?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/garanti.html"
+ to="https://www.bmigroup.com/no/dokumentasjon/garantier-og-sertifikater?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kontakt/forbrukerkontakt.html"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kontakt/forbrukerkontakt/kontaktformular.html"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kontakt/transportinformasjon.html"
+ to="https://www.bmigroup.com/no/kontakt-oss?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kontakt/proffkontakt.html"
+ to="https://www.bmigroup.com/no/kontakt-oss/vare-ansatte?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/arbeide-hos-monier.html"
+ to="https://www.bmigroup.com/no/karriereutvikling?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/helse-og-sikkerhet.html"
+ to="https://www.bmigroup.com/no/klima-og-miljoavtrykk?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/miljoeet-i-fokus.html"
+ to="https://www.bmigroup.com/no/klima-og-miljoavtrykk?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/monier-tester-og-utvikler.html"
+ to="https://www.bmigroup.com/no/klima-og-miljoavtrykk?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/footmenu/site-map.html"
+ to="https://www.bmigroup.com/no/sitemap?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kontakt/presse.html"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/nyheter.html"
+ to="https://www.bmigroup.com/no/nyheter?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak.html"
+ to="https://www.bmigroup.com/no/undertak?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/divoroll.html"
+ to="https://www.bmigroup.com/no/undertak?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/divoroll/divoroll-prima.html"
+ to="https://www.bmigroup.com/no/undertak?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/divoroll/divoroll-top.html"
+ to="https://www.bmigroup.com/no/undertak?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takguide/takkalkulatoren.html"
+ to="https://www.bmigroup.com/no/beregning-og-visualisering?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/takkalkulator-pro.html"
+ to="https://www.bmigroup.com/no/beregning-og-visualisering?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/hidden/legal-disclaimer.html"
+ to="https://www.bmigroup.com/no/ansvarsfraskivelse?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter.html"
+ to="https://www.bmigroup.com/no/takstein?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/BMI_Zanda_Monier__Produktkatalog_2020.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Assembly_Instructions/20014-Zanda-Evo-forenklet-leggeanvisning.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Assembly_Instructions/20015-Zanda-Minster-forenklet-leggeanvisning.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Assembly_Instructions/427039_NO_DivorollTop.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Assembly_Instructions/Montering_av_snoefanger_2015_01.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Sonelister/NORGE_SONELISTE_2018.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/catalogue/Divoroll-brosjyre_inkl_innstikk2011.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Assembly_Instructions/Monteringsanvisning_-_Tegl_og_betongtakstein.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Kundeinformasjon/Samlokalisering_Zanda_Icopal_hovedlager.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/flash/roofillu-no/index.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Assembly_Instructions/20016-Monier-Turmalin-forenklet-leggeanvisning.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/_migrated/pics/get_adobe_reader.gif"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/NO_Ridge-Hip.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/catalogue/Nova-brosjyre.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/Lageroversikt_Monier_2018.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/NO_SnowSafety.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/NO_Divowind_endelig.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Ventilasjonsflyer_klar.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/Salgs-_og_leveringsbet_2018.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/xls/Lageroversikt.xlsx"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_11.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Dantegl_Scandica_tegltakstein_FDV_Revidert_versjon_1.5.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/Monier_Wedges_Product_Data_Sheet_NO_ver1.00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Divoroll_TOP_NO_v_1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Zanda_Elegant_FDV_Revidert_versjon_1.4.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_YEP_2200_NO_v1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Zanda_Minster_FDV_Revidert_versjon_1.6.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Rubin_Tegltakstein.FDV_Revidert_versjon_1.5.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/DOP_Minster_NO_v1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/Teknisk_godkjenning_Divoroll_Prima.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Vittinge_E13_tegltakstein_FDV_Revidert_versjon_1.4.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/flash/roofillu-no/application.swf?lang=se"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV-2009/Minster_Skifergraa_FDV_2008-11-05.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_12.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Nova.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/Wakaflex_Product_Data_Sheet_NO_ver0.02.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/Ytelseserklaering_Zanda_NO_v1_01.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Terfelt_NO_v1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_4B.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Hollander.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/Terfelt__Produktdatablad.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Zanda_Protector_FDV_Revidert_versjon_1.3.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Divoroll_Top_RU.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/FDV/FDV_Turmalin.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Product_data_sheets_2017/ZANDA_PROTECTOR_produktdatablad_Redigert.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/Product_Data_Sheet_Zanda_Arktis_NO_1.02.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Divoroll_TOP_RU_NO_v1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/NOVA_Product_Data_Sheet_NO_ver1.01.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_14C.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Turmalin.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Dantegl_NO_v1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/FDV/FDV_Hollander_V.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Zanda_Minster_v2.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Assembly_Instructions/Leggeveiledning_Zanda_Minster.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Nortegl.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Monier_KDN.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Divoroll_TOP_RU_NO_v1_01.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/FDV/FDV_Nova.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Dantegl_Danica_tegltakstein_FDV_Revidert_versjon_1.5.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Product_data_sheets_2017/ZANDA_ELEGANT_produktdatablad_Redigert.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/KDN_VH_Product_Data_Sheet_NO_ver.1.00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_14B.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Divoroll_Prima.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Product_data_sheets_2017/DANTEGL_SCANDICA_produktdatablad_Redigert.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/Divowind_Produktdatablad_NO.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Terfelt_Glass_NO_V1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/klagerapport_2013_for_kunde_01.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_15.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Divoroll_Prima_NO_v_1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_9B.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/catalogue/Produktbrosjyre_2016.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Product_data_sheets_2017/ZANDA_VESTLAND_produktdatablad_Redigert.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Product_data_sheets_2017/ZANDA_RUSTIKK_produktdatablad_Redigert.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Teknisk_godkjenning_Divoroll_Top_og_Top_RU.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Rapport_Zanda_Arktis_rasvinkel.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_14D.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/DOP_Divoroll_Prima_NO_v_1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/TDS/TDS_Monier_Dantegl.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/FDV/FDV_Dantegl.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Zanda_Vestland_FDV_Revidert_versjon_1.4.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/Divoroll_Top_130_Product_Data_Sheet_NO_ver1.00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Zanda_Polar_FDV_Revidert_versjon_1.4.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/Unoroll_Product_Data_Sheet_NO_ver1.00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV-2009/H-P_Beh.FDV_2008-11-05.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/product_sheets/NORTEGL_Product_Data_Sheet_NO_ver1.00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/FDV/FDV_KDN.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_3.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Figaroll_PLUS_Product_Data_Sheet_NO_ver002.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/Product_data_sheets_2017/ZANDA_POLAR_produktdatablad_Redigert.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/flash/roofillu-no/js/objectfix.js"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/Zanda-IcopalForhandlersalg_01.09.18.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Falsat_tegel_NO_v1_00.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV_2017/Zanda_Arktis_FDV_Revidert_versjon_1.1.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/FDV-2009/H-P_Ubeh.FDV_2008-11-05.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/pdf/DOP/DOP_Divoroll_TOP_NO_v_1_01.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_10.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/DOP_Divowind_NO_v1_00_YE.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/downloads/Drawings_and_descriptions/FIG_4.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/FDV/FDV_Nortegl.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/Moniers_haandtering_av_klager._02.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/fileadmin/bu-files/no/documents/pdf/Arktis_200x285-flyer-CMYK.pdf"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/cad-tegninger-og-beskrivelser.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/fdv-dokumentasjon.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/produktdatablad/takstein.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/produktdatablad/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/produktdatablad/tilbehoer.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/produktdatablad/undertak.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/produktdatablad/ventilasjon.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/tekniske-godkjenninger.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/ytelseserklaering.html"
+ to="https://www.bmigroup.com/no/dokumentasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/functional/find-a-retailer-search.html"
+ to="https://www.bmigroup.com/no/vare-forhandlere?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/soek-taklegger/soek-forhandler.html"
+ to="https://www.bmigroup.com/no/vare-forhandlere?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kontakt/reklamasjon.html"
+ to="https://www.bmigroup.com/no/reklamasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/kontakt/reklamasjonsskjema.html"
+ to="https://www.bmigroup.com/no/reklamasjon?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/nyheter/husk-taksikring-i-vinter.html"
+ to="https://www.bmigroup.com/no/hvordan-gjore-taket-klart-for-vinteren?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/nyheter/nyhet-zanda-arktis.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-arktis.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-arktis/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-arktis/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-arktis/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-arktis/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-arktis/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-arktis/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/nyhet-zanda-arktis.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/nyheter/tips-om-takrenovering.html"
+ to="https://www.bmigroup.com/no/ofte-stilte-sporsmal/gjor-bmi-norge-befaringer-for-renovering-av-tak-eller-legging-av-nye-tak?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/om-monier/om-monier.html"
+ to="https://www.bmigroup.com/no/monier?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/soek-taklegger/soek-taklegger.html"
+ to="https://www.bmigroup.com/no/finn-en-takpartner?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/soek-taklegger/soek-taklegger/takleggere-i-midt-norge.html"
+ to="https://www.bmigroup.com/no/finn-en-takpartner?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/soek-taklegger/soek-taklegger/takleggere-i-nord-norge.html"
+ to="https://www.bmigroup.com/no/finn-en-takpartner?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/soek-taklegger/soek-taklegger/takleggere-paa-oestlandet.html"
+ to="https://www.bmigroup.com/no/finn-en-takpartner?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/soek-taklegger/soek-taklegger/takleggere-paa-soerlandet.html"
+ to="https://www.bmigroup.com/no/finn-en-takpartner?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/soek-taklegger/soek-taklegger/takleggere-paa-vestlandet.html"
+ to="https://www.bmigroup.com/no/finn-en-takpartner?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takguide/brosjyrer.html"
+ to="https://www.bmigroup.com/no/dokumentasjon/Brosjyrer-og-kataloger?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takguide/gratis-takbefaring.html"
+ to="https://www.bmigroup.com/no/gratis-takbefaring?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takguide/inspirasjon.html"
+ to="https://www.bmigroup.com/no/inspirasjon-tips-og-rad?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takguide/spoersmaal-og-svar.html"
+ to="https://www.bmigroup.com/no/ofte-stilte-sporsmal?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-classic.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-classic/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-classic/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-classic/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-classic/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-classic/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-classic/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-minster.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-minster/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-minster/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-minster/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-minster/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-minster/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-minster/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-protector.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-protector/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-protector/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-protector/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-protector/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-protector/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-protector/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-vestland.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-vestland/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-vestland/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-vestland/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-vestland/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-vestland/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/betongtakstein/zanda-vestland/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/dantegl.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/dantegl/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/dantegl/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/dantegl/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/dantegl/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/dantegl/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/dantegl/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/hollander-v.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/hollander-v?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/hollander-v/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/hollander-v?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/hollander-v/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/hollander-v?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/hollander-v/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/hollander-v?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/hollander-v/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/hollander-v?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/hollander-v/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/hollander-v?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/hollander-v/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/hollander-v?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/kdn-vh.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/kdn-vh/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/kdn-vh/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/kdn-vh/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/kdn-vh/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/kdn-vh/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/kdn-vh/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nortegl.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nortegl/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nortegl/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nortegl/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nortegl/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nortegl/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nortegl/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nova.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nova/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nova/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nova/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nova/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nova/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/nova/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/turmalin.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/turmalin/festemateriell.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/turmalin/snoe-og-sikring.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/turmalin/takstein.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/turmalin/tetteprodukter.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/turmalin/tilbehoer.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/tegltakstein/turmalin/ventilasjon.html"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/bitumen.html"
+ to="https://www.bmigroup.com/no/underlagsbelegg?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/bitumen/terfelt-glass.html"
+ to="https://www.bmigroup.com/no/underlagsbelegg?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/bitumen/terfelt.html"
+ to="https://www.bmigroup.com/no/underlagsbelegg?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/bitumen/veltitech-145.html"
+ to="https://www.bmigroup.com/no/underlagsbelegg?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/bitumen/yep-2200.html"
+ to="https://www.bmigroup.com/no/underlagsbelegg?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takprodukter/undertak/divoroll/divoroll-top-ru.html"
+ to="https://www.bmigroup.com/no/undertak/divoroll-top-ru?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/takproff/faktablad/monteringsanvisninger.html"
+ to="https://www.bmigroup.com/no/dokumentasjon/monteringsanvisninger?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/no/?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+[[redirects]]
+ from="/no/catalog/products/concrete"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/101"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/118/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/118/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/118/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/118/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/118/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/118/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-arktis?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/62"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/62/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/62/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/62/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/62/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/62/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/62/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-classic?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/58"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/58/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/58/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/58/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/58/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/58/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/58/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-minster?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/60/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/60"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/60/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/60/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/60/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/60/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/60/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-protector?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/63"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/63/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/63/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/63/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/63/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/63/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/63/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/betongtakstein/zanda-vestland?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/clay"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/70"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/70/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/70/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/70/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/70/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/70/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/70/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/dantegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/65"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/65/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/65/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/65/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/65/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/65/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/65/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/kdn?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/67"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/67/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/67/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/67/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/67/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/67/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/67/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nortegl?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/68"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/68/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/68/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/68/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/68/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/68/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/68/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/nova?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/64"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/64/complements/accessories/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/64/complements/attachment/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/64/complements/roof_tile/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/64/complements/seal/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/64/complements/snow_security/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/64/complements/ventilation/"
+ to="https://www.bmigroup.com/no/takstein/tegltakstein/turmalin?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+[[redirects]]
+ from="/no/catalog/products/"
+ to="https://www.bmigroup.com/no/takstein?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+
+[[redirects]]
+ from="/no/"
+ to="https://www.bmigroup.com/no?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
+
+
+[[redirects]]
+ from="/no"
+ to="https://www.bmigroup.com/no?utm_source=zanda.no&utm_medium=referral-redirect&utm_campaign=dxb-redirects"
+ force=true
