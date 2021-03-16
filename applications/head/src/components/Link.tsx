@@ -17,7 +17,16 @@ export const getClickableActionFromUrl = (
   assetUrl?: string,
   label?: string
 ): ClickableAction | undefined => {
-  if (!countryCode && !assetUrl) {
+  if (assetUrl) {
+    return {
+      model: "download",
+      href: assetUrl,
+      // @ts-ignore data-gtm is not defined but a general html attribute
+      "data-gtm": JSON.stringify({ id: "cta-click1", action: assetUrl, label })
+    };
+  }
+
+  if (!countryCode) {
     return;
   }
 
@@ -46,15 +55,6 @@ export const getClickableActionFromUrl = (
       ...(checkUrlAction(url) ? {} : externalUrl),
       // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify({ id: "cta-click1", action: url, label })
-    };
-  }
-
-  if (assetUrl) {
-    return {
-      model: "download",
-      href: assetUrl,
-      // @ts-ignore data-gtm is not defined but a general html attribute
-      "data-gtm": JSON.stringify({ id: "cta-click1", action: assetUrl, label })
     };
   }
 };
