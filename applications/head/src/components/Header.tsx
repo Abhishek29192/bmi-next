@@ -1,8 +1,9 @@
+import React, { useContext } from "react";
+import { graphql, Link } from "gatsby";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
-import { graphql, Link } from "gatsby";
-import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import { LinkData, NavigationData, NavigationItem, getCTA } from "./Link";
@@ -161,6 +162,15 @@ const Header = ({
           )}
           navigationButtonComponent={(props: ButtonProps) => (
             <GTMNavigationButton gtm={{ id: "nav-main-menu" }} {...props} />
+          )}
+          promoButtonComponent={(props: ButtonProps) => (
+            <Button
+              {...props}
+              variant="outlined"
+              endIcon={<ArrowForwardIcon />}
+              className="Button"
+              style={{ marginLeft: "10px" }}
+            />
           )}
           searchAction={`/${countryCode}/search`}
           searchLabel={getMicroCopy("search.label")}
