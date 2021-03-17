@@ -3,8 +3,9 @@
 exports[`Button component renders a disabled icon button 1`] = `
 <button
   aria-label="UserIcon"
-  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained IconButton--disabled"
-  tabindex="0"
+  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained IconButton--disabled Mui-disabled Mui-disabled"
+  disabled=""
+  tabindex="-1"
   type="button"
 >
   <span
@@ -21,9 +22,6 @@ exports[`Button component renders a disabled icon button 1`] = `
       />
     </svg>
   </span>
-  <span
-    class="MuiTouchRipple-root"
-  />
 </button>
 `;
 
