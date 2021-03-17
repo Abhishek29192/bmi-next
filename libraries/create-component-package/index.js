@@ -72,8 +72,8 @@ export default ${componentName};
 `;
 
 const testContent = `import React from "react";
-import ${componentName} from "../";
 import { render } from "@testing-library/react";
+import ${componentName} from "../";
 
 describe("${componentName} component", () => {
   it("renders correctly", () => {
