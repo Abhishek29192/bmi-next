@@ -9,7 +9,7 @@ import { iconMap } from "./Icon";
 import { LinkData, NavigationData, NavigationItem, getCTA } from "./Link";
 import { SiteContext } from "./Site";
 
-const getFooter = (promo, countryCode, getMicroCopy) => {
+const getPromoSection = (promo, countryCode, getMicroCopy) => {
   const cta = getCTA(promo, countryCode, getMicroCopy("page.linkLabel"));
 
   return [
@@ -44,7 +44,7 @@ const parseNavigation = (
           getMicroCopy
         ),
         ...(!!promo && {
-          footer: getFooter(promo, countryCode, getMicroCopy)
+          footer: getPromoSection(promo, countryCode, getMicroCopy)
         })
       };
 
