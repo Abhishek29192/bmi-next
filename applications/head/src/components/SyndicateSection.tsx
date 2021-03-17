@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
-import Video from "../components/Video";
+import Video from "./Video";
 import { Data as PromoData } from "./Promo";
 import { SiteContext } from "./Site";
 import { getCTA } from "./Link";

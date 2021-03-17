@@ -4,7 +4,7 @@ import PromoSection from "@bmi/promo-section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
-import Video from "../components/Video";
+import Video from "./Video";
 import { getClickableActionFromUrl } from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";

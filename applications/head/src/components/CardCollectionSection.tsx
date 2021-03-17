@@ -10,7 +10,7 @@ import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
-import Video from "../components/Video";
+import Video from "./Video";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
@@ -70,10 +70,12 @@ const CardCollectionItem = ({
       hasTitleUnderline
       title={title}
       imageSource={
-        featuredVideo ? (
-          <Video data={featuredVideo} />
-        ) : type !== "Text Card" ? (
-          featuredImage?.resized.src
+        type !== "Text Card" ? (
+          featuredVideo ? (
+            <Video data={featuredVideo} />
+          ) : (
+            featuredImage?.resized.src
+          )
         ) : undefined
       }
       isFlat={type === "Story Card"}

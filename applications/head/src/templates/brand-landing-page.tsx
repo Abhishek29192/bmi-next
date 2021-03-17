@@ -65,7 +65,8 @@ const BrandLandingPage = ({ data }: Props) => {
     sections,
     inputBanner,
     breadcrumbs,
-    seo
+    seo,
+    featuredVideo
   } = data.contentfulBrandLandingPage;
   const pageData: PageData = {
     breadcrumbs,
@@ -82,7 +83,11 @@ const BrandLandingPage = ({ data }: Props) => {
           const firstSlide: HeroItem = {
             title: <BrandLogo brandName={brandLogo} />,
             children: description?.description,
-            imageSource: featuredImage?.resize.src,
+            imageSource: featuredVideo ? (
+              <Video data={featuredVideo} />
+            ) : (
+              featuredImage?.resize.src
+            ),
             hasUnderline: false
           };
 

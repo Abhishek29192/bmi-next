@@ -15,6 +15,7 @@ import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
 import withGTM from "../utils/google-tag-manager";
+import Video from "../components/Video";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -36,14 +37,20 @@ const getHeroItemsWithContext = (
   { getMicroCopy, countryCode },
   slides: HomepageData["slides"]
 ): HeroItem[] => {
-  return slides.map(({ title, subtitle, featuredImage, ...rest }) => {
-    return {
-      title,
-      children: subtitle,
-      imageSource: featuredImage?.resize.src,
-      CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
-    };
-  });
+  return slides.map(
+    ({ title, subtitle, featuredImage, featuredVideo, ...rest }) => {
+      return {
+        title,
+        children: subtitle,
+        imageSource: featuredVideo ? (
+          <Video data={featuredVideo} />
+        ) : (
+          featuredImage?.resize.src
+        ),
+        CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
+      };
+    }
+  );
 };
 
 const HomePage = ({ data }: Props) => {
