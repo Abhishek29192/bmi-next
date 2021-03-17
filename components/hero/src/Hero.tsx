@@ -11,7 +11,7 @@ import styles from "./Hero.module.scss";
 export type HeroItem = {
   title: React.ReactNode;
   /** Only required for level 1 */
-  imageSource: string;
+  imageSource: string | React.ReactNode;
   /** Only required for level 1 */
   children: React.ReactNode;
   CTA?: {
@@ -205,7 +205,9 @@ const SingleHero = ({
         <div
           style={{ backgroundImage: `url(${levelProps.imageSource})` }}
           className={styles["image"]}
-        />
+        >
+          {typeof levelProps.imageSource !== "string" && levelProps.imageSource}
+        </div>
       )}
     </div>
   );

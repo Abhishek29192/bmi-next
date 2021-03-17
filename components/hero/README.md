@@ -122,3 +122,21 @@ import thirdImageSource from "./images/demo-house.png";
   <Search />
 </Hero>;
 ```
+
+### With Video
+
+```jsx
+import YoutubeVideo from "@bmi/youtube-video";
+
+<Hero
+  imageSource={
+    <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+  }
+  title="H1 Heading desktop dark BG"
+  level={1}
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt
+  quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor
+  nisl, nec vestibulum odio molestie tincidunt.
+</Hero>;
+```
