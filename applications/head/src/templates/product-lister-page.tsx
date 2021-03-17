@@ -1,5 +1,4 @@
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
-import { ClickableAction } from "@bmi/clickable";
+import AnchorLink from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
@@ -11,7 +10,6 @@ import IconList from "@bmi/icon-list";
 import OverviewCard from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
-import withGTM from "../utils/google-tag-manager";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -216,12 +214,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const pageData: PageData = { breadcrumbs, inputBanner, seo };
 
-  const GTMAnchorLink = withGTM<
-    AnchorLinkProps & {
-      action?: ClickableAction;
-    }
-  >(AnchorLink);
-
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -340,12 +332,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
                                 footer={
-                                  <GTMAnchorLink
+                                  <AnchorLink
                                     iconEnd
-                                    gtm={{
-                                      id: "selector-cards2",
-                                      action: "Selector - Cards"
-                                    }}
                                     action={{
                                       model: "routerLink",
                                       linkComponent: Link,
@@ -358,7 +346,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                     }}
                                   >
                                     {getMicroCopy("plp.product.viewDetails")}
-                                  </GTMAnchorLink>
+                                  </AnchorLink>
                                 }
                               >
                                 {variant.shortDescription}
