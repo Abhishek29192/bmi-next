@@ -8,7 +8,9 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     class="item"
   >
     <div
+      aria-label="Lorem ipsum"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="height: 0px; position: absolute; top: 0px; right: 0px; left: 0px; min-height: auto;"
     >
       <button
@@ -62,7 +64,9 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 0"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -116,7 +120,9 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 1"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -170,7 +176,9 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 2"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -224,7 +232,9 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 3"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -285,7 +295,9 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 0"
       class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -339,7 +351,9 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 1"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -393,7 +407,9 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 2"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -447,7 +463,9 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 3"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -508,7 +526,9 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 0"
       class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -562,7 +582,9 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 1"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -616,7 +638,9 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 2"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -670,7 +694,9 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 3"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -724,7 +750,9 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -785,7 +813,9 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 1"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -839,7 +869,9 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 2"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -893,7 +925,9 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 3"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -954,7 +988,9 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 0"
       class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -1008,7 +1044,9 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 1"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -1062,7 +1100,9 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 2"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -1116,7 +1156,9 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 3"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -1177,7 +1219,9 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 0"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="height: 0px; position: absolute; top: 0px; right: 0px; left: 0px; min-height: auto;"
     >
       <button
@@ -1232,7 +1276,9 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
     style="min-width: 0px; height: 0px;"
   >
     <div
+      aria-label="Lorem Ipsum 1"
       class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="height: 0px; top: 0px; right: 0px; left: 0px;"
     >
       <button
@@ -1286,7 +1332,9 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 2"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -1340,7 +1388,9 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
     class="item"
   >
     <div
+      aria-label="Lorem Ipsum 3"
       class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      role="button"
       style="min-height: 100%;"
     >
       <button
@@ -1398,7 +1448,9 @@ exports[`ExpandableCard component it expands the card when changing isExpanded 1
   style="min-width: 0px; height: 0px;"
 >
   <div
+    aria-label="Lorem Ipsum"
     class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+    role="button"
     style="pointer-events: auto; height: 0px;"
   >
     <div
@@ -1431,7 +1483,9 @@ exports[`ExpandableCard component it expands the card when changing isExpanded 2
   style=""
 >
   <div
+    aria-label="Lorem Ipsum"
     class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+    role="button"
     style="pointer-events: auto; min-height: 100%;"
   >
     <div
@@ -1470,7 +1524,9 @@ Array [
 exports[`ExpandableCard component renders an expanded card 1`] = `
 <div>
   <div
+    aria-label="Lorem Ipsum"
     class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+    role="button"
     style="min-height: 100%; pointer-events: auto;"
   >
     <div
@@ -1501,7 +1557,9 @@ exports[`ExpandableCard component renders an expanded card 1`] = `
 exports[`ExpandableCard component renders correctly 1`] = `
 <div>
   <div
+    aria-label="Lorem Ipsum"
     class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+    role="button"
     style="min-height: 100%; pointer-events: auto;"
   >
     <div
@@ -1537,7 +1595,9 @@ exports[`ExpandableCard component renders correctly 1`] = `
 exports[`ExpandableCard component renders with no footer 1`] = `
 <div>
   <div
+    aria-label="Lorem Ipsum"
     class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+    role="button"
     style="min-height: 100%; pointer-events: auto;"
   >
     <div

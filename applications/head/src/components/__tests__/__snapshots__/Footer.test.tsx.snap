@@ -34,7 +34,7 @@ exports[`Footer component renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":{\\"model\\":\\"htmlLink\\",\\"href\\":\\"tel:+4401234567890\\"}}"
+                    data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
                     href="tel:+4401234567890"
                     tabindex="0"
                   >

@@ -1,5 +1,5 @@
 import React from "react";
-import Checkbox from "@bmi/checkbox";
+import DefaultCheckbox from "@bmi/checkbox";
 import Typography from "@bmi/typography";
 import Accordion from "@bmi/accordion";
 import styles from "./Filters.module.scss";
@@ -20,9 +20,14 @@ type Filter = {
 export type Props = {
   filters: ReadonlyArray<Filter>;
   onChange?: (filterName: string, filterValue: string, value: boolean) => void;
+  checkboxComponent?: React.ComponentType<any>; // TODO
 };
 
-const Filters = ({ filters, onChange }: Props) => {
+const Filters = ({
+  filters,
+  onChange,
+  checkboxComponent: Checkbox = DefaultCheckbox
+}: Props) => {
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);
   };

@@ -21,7 +21,7 @@ type Props = {
   ) => void;
 };
 
-const GTMButton = withGTM<ButtonProps>(Button);
+const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
@@ -76,7 +76,7 @@ const DocumentResultsFooter = ({
   onDownloadClick
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
-  const { resetList } = useContext(DownloadListContext);
+  const { resetList, list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   return (
@@ -96,7 +96,10 @@ const DocumentResultsFooter = ({
           <DownloadList.Button
             component={(props) => (
               <GTMButton
-                gtm={{ id: "download3-button1", label: "Download" }}
+                gtm={{
+                  id: "download3-button1",
+                  action: Object.values(list).map(({ url }) => url)
+                }}
                 {...props}
               />
             )}

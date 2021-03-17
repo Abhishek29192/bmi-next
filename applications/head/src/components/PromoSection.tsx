@@ -37,7 +37,8 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
               cta.linkedPage,
               cta.url,
               countryCode,
-              cta?.asset?.file?.url
+              cta?.asset?.file?.url,
+              cta.label
             )}
           >
             {cta.label}

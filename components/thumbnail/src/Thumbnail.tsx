@@ -4,7 +4,7 @@ import { withClickable } from "@bmi/clickable";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import styles from "./Thumbnail.module.scss";
 
-type Props = ButtonBaseProps & {
+export type Props = ButtonBaseProps & {
   altText: string;
   state?: "enabled" | "disabled" | "selected";
   imageSource?: string;

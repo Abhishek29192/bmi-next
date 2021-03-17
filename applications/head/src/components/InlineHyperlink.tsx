@@ -39,7 +39,8 @@ const InlineHyperlink = ({ node, children }: Props) => {
           linkedPage,
           url,
           countryCode,
-          asset ? `https:${asset?.file?.url}` : undefined
+          asset ? `https:${asset?.file?.url}` : undefined,
+          String(children)
         )}
       >
         {children}
@@ -55,7 +56,8 @@ const InlineHyperlink = ({ node, children }: Props) => {
           undefined,
           undefined,
           countryCode,
-          `https:${file.url}`
+          `https:${file.url}`,
+          String(children)
         )}
       >
         {children}

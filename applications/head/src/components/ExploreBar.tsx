@@ -22,7 +22,8 @@ const IntegratedExploreBar = ({ data }: { data: Data }) => {
           linkedPage,
           url,
           countryCode,
-          asset?.file?.url
+          asset?.file?.url,
+          label
         )
       }))}
     />

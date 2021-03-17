@@ -81,6 +81,7 @@ exports[`Header component renders correctly 1`] = `
                     aria-controls="navigation-tabpanel-0"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                     id="navigation-tab-0"
                     role="tab"
                     tabindex="-1"
@@ -109,6 +110,7 @@ exports[`Header component renders correctly 1`] = `
                     aria-controls="navigation-tabpanel-1"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\"}"
                     id="navigation-tab-1"
                     role="tab"
                     tabindex="-1"
@@ -318,7 +320,7 @@ exports[`Header component renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":{\\"model\\":\\"htmlLink\\",\\"href\\":\\"tel:+4401234567890\\"}}"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"+44 (0) 1234567890\\"}"
                     href="tel:+4401234567890"
                     tabindex="0"
                   >

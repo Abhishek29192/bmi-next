@@ -41,7 +41,9 @@ const LeadBlockSection = ({
                 action={getClickableActionFromUrl(
                   link.linkedPage,
                   link.url,
-                  countryCode
+                  countryCode,
+                  null,
+                  link.label
                 )}
               >
                 {link.label}

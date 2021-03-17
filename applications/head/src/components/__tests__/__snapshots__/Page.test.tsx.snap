@@ -83,6 +83,7 @@ exports[`Page component renders correctly 1`] = `
                     aria-controls="navigation-tabpanel-0"
                     aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     id="navigation-tab-0"
                     role="tab"
                     tabindex="-1"
@@ -222,7 +223,7 @@ exports[`Page component renders correctly 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-              data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\",\\"action\\":{\\"model\\":\\"htmlLink\\",\\"href\\":\\"link-to-page\\"}}"
+              data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
               href="link-to-page"
               tabindex="0"
             >
@@ -243,7 +244,7 @@ exports[`Page component renders correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\",\\"action\\":{\\"model\\":\\"htmlLink\\",\\"href\\":\\"link-to-page\\"}}"
+                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="link-to-page"
                 tabindex="0"
               >

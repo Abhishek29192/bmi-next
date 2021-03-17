@@ -14,17 +14,31 @@ export const getClickableActionFromUrl = (
   linkedPage?: LinkData["linkedPage"],
   url?: LinkData["url"],
   countryCode?: string,
-  assetUrl?: string
+  assetUrl?: string,
+  label?: string
 ): ClickableAction | undefined => {
-  if (!countryCode && !assetUrl) {
+  if (assetUrl) {
+    return {
+      model: "download",
+      href: assetUrl,
+      // @ts-ignore data-gtm is not defined but a general html attribute
+      "data-gtm": JSON.stringify({ id: "cta-click1", action: assetUrl, label })
+    };
+  }
+
+  if (!countryCode) {
     return;
   }
 
   if (linkedPage && "path" in linkedPage) {
+    const to = `/${countryCode}/${linkedPage.path}`.replace(/\/+/gi, "/");
+
     return {
       model: "routerLink",
-      to: `/${countryCode}/${linkedPage.path}`.replace(/\/+/gi, "/"),
-      linkComponent: Link
+      to,
+      linkComponent: Link,
+      // @ts-ignore data-gtm is not defined but a general html attribute
+      "data-gtm": JSON.stringify({ id: "cta-click1", action: to, label })
     };
   }
 
@@ -38,14 +52,9 @@ export const getClickableActionFromUrl = (
     return {
       model: "htmlLink",
       href: url,
-      ...(checkUrlAction(url) ? {} : externalUrl)
-    };
-  }
-
-  if (assetUrl) {
-    return {
-      model: "download",
-      href: assetUrl
+      ...(checkUrlAction(url) ? {} : externalUrl),
+      // @ts-ignore data-gtm is not defined but a general html attribute
+      "data-gtm": JSON.stringify({ id: "cta-click1", action: url, label })
     };
   }
 };
@@ -69,7 +78,8 @@ export const getCTA = (
         linkedPage,
         url,
         countryCode,
-        asset?.file?.url
+        asset?.file?.url,
+        label
       ),
       label: label
     };
@@ -78,7 +88,13 @@ export const getCTA = (
   const { path } = data;
 
   return {
-    action: getClickableActionFromUrl({ path }, null, countryCode),
+    action: getClickableActionFromUrl(
+      { path },
+      null,
+      countryCode,
+      null,
+      linkLabel
+    ),
     label: linkLabel
   };
 };

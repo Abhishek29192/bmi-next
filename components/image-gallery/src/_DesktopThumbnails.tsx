@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
-import Thumbnail from "@bmi/thumbnail";
+import DefaultThumbnail from "@bmi/thumbnail";
 import ThumbScrollerButton from "@bmi/thumb-scroller-button";
 import { Image } from "./types";
 import styles from "./ImageGallery.module.scss";
@@ -10,11 +10,17 @@ type Props = {
   /** The index to identify the active thumbnail */
   activeImageIndex: number;
   onThumbnailClick: (index: number) => void;
+  component?: React.ComponentType<any>; // TODO
 };
 
 const THUMBNAIL_WIDTH = 86;
 
-const Thumbnails = ({ images, activeImageIndex, onThumbnailClick }: Props) => {
+const Thumbnails = ({
+  images,
+  activeImageIndex,
+  onThumbnailClick,
+  component: Thumbnail = DefaultThumbnail
+}: Props) => {
   const thumbnailsRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
   const [visibleArrows, setVisibleArrows] = useState<{

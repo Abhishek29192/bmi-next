@@ -38,6 +38,7 @@ HTMLCollection [
                   aria-disabled="false"
                   aria-expanded="false"
                   class="MuiButtonBase-root MuiAccordionSummary-root"
+                  data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
                   role="button"
                   tabindex="0"
                 >
@@ -169,6 +170,7 @@ HTMLCollection [
                             aria-controls="tabpanel-hello"
                             aria-selected="true"
                             class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                            data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                             id="tab-hello"
                             role="tab"
                             tabindex="0"
@@ -647,6 +649,7 @@ HTMLCollection [
                   >
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                      data-gtm="{\\"id\\":\\"image-gallery1\\",\\"label\\":\\"my test title\\",\\"action\\":\\"url\\"}"
                       style="background-image: url(url);"
                       tabindex="0"
                       type="button"
@@ -659,6 +662,7 @@ HTMLCollection [
                     </button>
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      data-gtm="{\\"id\\":\\"image-gallery1\\",\\"label\\":\\"my test title2\\",\\"action\\":\\"url2\\"}"
                       style="background-image: url(url2);"
                       tabindex="0"
                       type="button"

@@ -53,14 +53,26 @@ const IntegratedBreadcrumbs = ({
   return (
     <Breadcrumbs {...rest}>
       <Breadcrumbs.Item
-        action={getClickableActionFromUrl({ path: "" }, null, countryCode)}
+        action={getClickableActionFromUrl(
+          { path: "" },
+          null,
+          countryCode,
+          null,
+          homePage.title
+        )}
       >
         {homePage.title}
       </Breadcrumbs.Item>
       {breadcrumbsItems.map(({ label, slug }) => (
         <Breadcrumbs.Item
           key={label}
-          action={getClickableActionFromUrl({ path: slug }, null, countryCode)}
+          action={getClickableActionFromUrl(
+            { path: slug },
+            null,
+            countryCode,
+            null,
+            label
+          )}
         >
           {label}
         </Breadcrumbs.Item>

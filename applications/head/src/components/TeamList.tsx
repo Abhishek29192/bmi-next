@@ -58,7 +58,9 @@ const TeamList = ({ data }: { data: Data }) => {
                       action={getClickableActionFromUrl(
                         link.linkedPage,
                         link.url,
-                        countryCode
+                        countryCode,
+                        null,
+                        link.label
                       )}
                       icon={iconMap[link.icon]}
                     >

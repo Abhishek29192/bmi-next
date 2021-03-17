@@ -1,7 +1,7 @@
 import {
   AppBarProps,
   Box,
-  Tab,
+  Tab as DefaultTab,
   Tabs as MaterialTabs,
   TabsProps as MaterialTabsProps
 } from "@material-ui/core";
@@ -45,6 +45,7 @@ type TabsProps = MaterialTabsProps &
   Pick<AppBarProps, "color"> & {
     children: React.ReactElement[];
     initialValue?: any;
+    tabComponent?: React.ComponentType<any>; // TODO
     visibleUntil?: "sm" | "md";
     theme?: "primary" | "secondary";
     // NOTE: This is necessary until we upgrade to @material-ui/core@^5.0.0
@@ -57,6 +58,7 @@ const Tabs = ({
   children,
   className,
   initialValue = 0,
+  tabComponent: Tab = DefaultTab,
   visibleUntil,
   theme = "primary",
   onChange,
