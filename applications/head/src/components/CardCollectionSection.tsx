@@ -5,10 +5,11 @@ import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
 import { uniq, flatten, groupBy, find } from "lodash";
-import Chip from "@bmi/chip";
+import Chip, { Props as ChipProps } from "@bmi/chip";
 import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import withGTM from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
@@ -151,6 +152,8 @@ const CardCollectionSection = ({
   const iteratableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;
 
+  const GTMChip = withGTM<ChipProps>(Chip);
+
   return (
     <div className={styles["CardCollectionSection"]}>
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
@@ -165,12 +168,22 @@ const CardCollectionSection = ({
             </Typography>
             <div className={styles["group-chips"]}>
               {groupKeys.map((tagTitle, index) => {
+                const label =
+                  tagTitle === "undefined"
+                    ? getMicroCopy("cardCollection.restLabel")
+                    : tagTitle;
+
                 return (
-                  <Chip
+                  <GTMChip
                     key={`${tagTitle}-${index}`}
                     type="selectable"
                     isSelected={activeGroups[tagTitle]}
                     theme={cardType === "Story Card" ? "pearl" : "white"}
+                    gtm={{
+                      id: "selector-cards1",
+                      label,
+                      action: "Selector – Cards Filter"
+                    }}
                     onClick={() => {
                       setActiveGroups((activeGroups) => ({
                         ...activeGroups,
@@ -178,10 +191,8 @@ const CardCollectionSection = ({
                       }));
                     }}
                   >
-                    {tagTitle === "undefined"
-                      ? getMicroCopy("cardCollection.restLabel")
-                      : tagTitle}
-                  </Chip>
+                    {label}
+                  </GTMChip>
                 );
               })}
             </div>

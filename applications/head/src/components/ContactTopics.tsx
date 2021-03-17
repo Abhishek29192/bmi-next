@@ -10,9 +10,11 @@ import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import HelpIcon from "@material-ui/icons/Help";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
 import ExpandableCard from "@bmi/expandable-card";
+import Card, { CardProps } from "@bmi/card";
 import Typography from "@bmi/typography";
 import Grid, { GridProps } from "@bmi/grid";
 import IconList from "@bmi/icon-list";
+import withGTM from "../utils/google-tag-manager";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 import RichText from "./RichText";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
@@ -122,6 +124,7 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
 };
 
 const ContactTopics = ({ topics }: { topics: Data[] }) => {
+  const GTMCard = withGTM<CardProps>(Card, { label: "aria-label" });
   const items = topics.map((item) => {
     return {
       icon: iconMap[item.icon],
@@ -134,7 +137,19 @@ const ContactTopics = ({ topics }: { topics: Data[] }) => {
   });
 
   return (
-    <ExpandableCard.List items={items} className={styles["ContactTopics"]} />
+    <ExpandableCard.List
+      items={items}
+      className={styles["ContactTopics"]}
+      cardComponent={(props) => (
+        <GTMCard
+          gtm={{
+            id: "selector-cards2",
+            action: "Selector – Cards"
+          }}
+          {...props}
+        />
+      )}
+    />
   );
 };
 

@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import Button from "@bmi/button";
+import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import Typography from "@bmi/typography";
 import Filters, { Props as FilterProps } from "@bmi/filters";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
+import withGTM from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";
 
 type Props = {
@@ -19,6 +21,10 @@ const FiltersSidebar = ({
   onClearFilters
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
+
+  const GTMCheckbox = withGTM<CheckboxProps>(Checkbox, {
+    label: "label"
+  });
 
   return (
     <PerfectScrollbar
@@ -44,7 +50,16 @@ const FiltersSidebar = ({
           {getMicroCopy("plp.filters.clearAll")}
         </Button>
       </div>
-      <Filters filters={filters} onChange={onFiltersChange} />
+      <Filters
+        filters={filters}
+        onChange={onFiltersChange}
+        checkboxComponent={(props: CheckboxProps) => (
+          <GTMCheckbox
+            gtm={{ id: "filter1", action: "Selector – Filter" }}
+            {...props}
+          />
+        )}
+      />
     </PerfectScrollbar>
   );
 };

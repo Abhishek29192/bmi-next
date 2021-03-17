@@ -4,6 +4,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
+import { Tab, TabProps } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import { LinkData, NavigationData, NavigationItem, getCTA } from "./Link";
@@ -113,6 +114,9 @@ const GTMNavigationButton = withGTM<ButtonProps>(Button, {
   label: "children",
   action: "action"
 });
+const GTMNavigationTab = withGTM<TabProps>(Tab, {
+  label: "label"
+});
 
 const Header = ({
   navigationData,
@@ -157,6 +161,9 @@ const Header = ({
           logoLabel={getMicroCopy("global.logoLabel")}
           activeNavLabel={activeLabel}
           closeLabel={getMicroCopy("global.close")}
+          tabComponent={(props: TabProps) => (
+            <GTMNavigationTab gtm={{ id: "nav-main-menu" }} {...props} />
+          )}
           searchButtonComponent={(props: ButtonProps) => (
             <GTMSearchButton gtm={{ id: "search1" }} {...props} />
           )}

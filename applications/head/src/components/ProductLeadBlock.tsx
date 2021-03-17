@@ -6,7 +6,9 @@ import Tabs from "@bmi/tabs";
 import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
+import { Tab, TabProps } from "@material-ui/core";
 import DownloadList from "@bmi/download-list";
+import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { SiteContext } from "./Site";
@@ -58,6 +60,10 @@ const ProductLeadBlock = ({
   const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
 
+  const GTMTab = withGTM<TabProps>(Tab, {
+    label: "label"
+  });
+
   const handlePageChange = (_, page) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
@@ -68,7 +74,15 @@ const ProductLeadBlock = ({
 
   return (
     <div className={styles["ProductLeadBlock"]}>
-      <Tabs initialValue="one">
+      <Tabs
+        initialValue="one"
+        tabComponent={(props: TabProps) => (
+          <GTMTab
+            gtm={{ id: "selector-tabs1", action: "Selector – Tabs" }}
+            {...props}
+          />
+        )}
+      >
         <Tabs.TabPanel
           heading={getMicroCopy("pdp.leadBlock.about")}
           index="one"

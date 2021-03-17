@@ -3,8 +3,9 @@ import { graphql } from "gatsby";
 import filesize from "filesize";
 import Section from "@bmi/section";
 import Table from "@bmi/table";
-import Button from "@bmi/button";
+import Button, { ButtonProps } from "@bmi/button";
 import Icon, { iconMap } from "@bmi/icon";
+import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import { Data as DocumentData } from "./Document";
@@ -35,6 +36,10 @@ const DocumentDownloadSection = ({
 }) => {
   const { getMicroCopy } = useContext(SiteContext);
 
+  const GTMButton = withGTM<ButtonProps>(Button, {
+    label: "children"
+  });
+
   return (
     <Section backgroundColor="white">
       <Section.Title>{title}</Section.Title>
@@ -63,7 +68,12 @@ const DocumentDownloadSection = ({
                 <Table.Row key={`${title}-${index}`}>
                   <Table.Cell>{title}</Table.Cell>
                   <Table.Cell align="right">
-                    <Button
+                    <GTMButton
+                      gtm={{
+                        id: "download1",
+                        label: filesize(details.size),
+                        action: url
+                      }}
                       action={getClickableActionFromUrl(
                         null,
                         null,
@@ -80,7 +90,7 @@ const DocumentDownloadSection = ({
                       }
                     >
                       {filesize(details.size)}
-                    </Button>
+                    </GTMButton>
                   </Table.Cell>
                 </Table.Row>
               );
