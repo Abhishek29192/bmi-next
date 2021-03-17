@@ -42,6 +42,25 @@ import imageSource from "./images/tiles-on-sea.png";
 </PromoSection>;
 ```
 
+### With Video
+
+```jsx
+import YoutubeVideo from "@bmi/youtube-video";
+
+<PromoSection
+  title="H2 Heading"
+  imageSource={
+    <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+  }
+  layout="two-thirds"
+>
+  Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
+  mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt
+  posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus
+  lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+</PromoSection>;
+```
+
 #### Reversed
 
 ```jsx

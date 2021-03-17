@@ -7,7 +7,7 @@ import styles from "./PromoSection.module.scss";
 
 type Props = {
   title?: React.ReactNode;
-  imageSource: string;
+  imageSource: string | React.ReactNode;
   children: React.ReactNode;
   layout?: "half" | "two-thirds";
   isReversed?: boolean;
@@ -58,11 +58,15 @@ const PromoSection = ({
         </Grid>
         <Grid item xs={12} sm={rows[1]}>
           <div
+            style={
+              typeof imageSource === "string"
+                ? { backgroundImage: `url(${imageSource})` }
+                : {}
+            }
             className={styles["image"]}
-            style={{
-              backgroundImage: `url("${imageSource}")`
-            }}
-          />
+          >
+            {typeof imageSource !== "string" && imageSource}
+          </div>
         </Grid>
       </Grid>
     </Section>
