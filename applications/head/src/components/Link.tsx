@@ -112,6 +112,7 @@ export type NavigationData = {
   __typename: "ContentfulNavigation";
   label: string | null;
   link: LinkData | null;
+  promo?: PromoData | null;
   links: (NavigationData | NavigationItem | LinkData)[];
 };
 

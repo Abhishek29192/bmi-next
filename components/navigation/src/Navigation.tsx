@@ -24,6 +24,7 @@ export type NavigationList = LinkList & {
 
 type NavigationProps = {
   buttonComponent?: React.ComponentType<any>; // TODO
+  promoButtonComponent?: React.ComponentType<any>; // TODO
   menu: readonly NavigationList[];
   initialDepth?: number;
   initialValue?: number | boolean;
@@ -37,6 +38,7 @@ type NavigationProps = {
 
 const Navigation = ({
   buttonComponent,
+  promoButtonComponent,
   menu,
   initialDepth = 0,
   initialValue,
@@ -55,6 +57,7 @@ const Navigation = ({
     <nav className={styles["Navigation"]}>
       <NavigationList
         buttonComponent={buttonComponent}
+        promoButtonComponent={promoButtonComponent}
         className={styles[`Offset${depth * 100}`]}
         depth={0}
         initialValue={initialValue}
@@ -76,6 +79,7 @@ const Navigation = ({
 type NavigationListProps = {
   backLabel?: string;
   buttonComponent?: React.ComponentType<any>; // TODO
+  promoButtonComponent?: React.ComponentType<any>; // TODO
   className?: string;
   depth: number;
   initialValue?: number | boolean;
@@ -96,6 +100,7 @@ type NavigationListProps = {
 const NavigationList = ({
   backLabel = "Back",
   buttonComponent,
+  promoButtonComponent,
   className,
   depth,
   initialValue = false,
@@ -260,7 +265,9 @@ const NavigationList = ({
             ),
             footer && (
               <NavigationList
-                buttonComponent={Button}
+                buttonComponent={
+                  promoButtonComponent ? promoButtonComponent : Button
+                }
                 depth={depth + 1}
                 isFooter={true}
                 key={`menu-${depth}-navigation-list-${key}`}

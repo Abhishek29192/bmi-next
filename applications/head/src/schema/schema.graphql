@@ -776,6 +776,9 @@ type ContentfulNavigation implements Node {
 
   "The link associated with this navigation."
   link: ContentfulLink @link(from: "link___NODE")
+
+  "Promo for navigation."
+  promo: ContentfulPromoOrPage @link(from: "promo___NODE")
 }
 
 """
