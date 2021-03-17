@@ -11,7 +11,13 @@ import Clickable, { ClickableAction } from "@bmi/clickable";
 import Navigation, { LinkList, NavigationList } from "@bmi/navigation";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
-import { Backdrop, Paper, Slide, Tab, Tabs } from "@material-ui/core";
+import {
+  Backdrop,
+  Paper,
+  Slide,
+  Tab as DefaultTab,
+  Tabs
+} from "@material-ui/core";
 import {
   Close,
   KeyboardArrowDown,
@@ -34,6 +40,7 @@ type HeaderProps = {
   searchButtonComponent?: React.ComponentType<any>; // TODO
   navigationButtonComponent?: React.ComponentType<any>; // TODO
   promoButtonComponent?: React.ComponentType<any>; // TODO
+  tabComponent?: React.ComponentType<any>; // TODO
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
   searchAction?: string;
@@ -58,6 +65,7 @@ const Header = ({
   searchButtonComponent,
   navigationButtonComponent,
   promoButtonComponent,
+  tabComponent: Tab = DefaultTab,
   isSearchDisabled,
   isOnSearchPage,
   searchAction,
