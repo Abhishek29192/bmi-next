@@ -7,4 +7,6 @@ const { sidings: sidingsSetData } = sidingsData;
 
 export { tilesSetData, sidingsSetData };
 
+export type { Parameters } from "./Visualiser";
+
 export default Visualiser;

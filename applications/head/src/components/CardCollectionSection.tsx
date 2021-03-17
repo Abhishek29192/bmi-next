@@ -18,6 +18,7 @@ import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/CardCollectionSection.module.scss";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
+import { VisualiserContext } from "./Visualiser";
 
 type FeaturedImage = {
   resized: {
@@ -53,6 +54,7 @@ const CardCollectionItem = ({
   type: Data["cardType"];
 }) => {
   const { countryCode } = useContext(SiteContext);
+  const { open } = useContext(VisualiserContext);
   const {
     title,
     subtitle,
@@ -89,7 +91,11 @@ const CardCollectionItem = ({
               link.url,
               countryCode,
               null,
-              transformedCardLabel
+              transformedCardLabel,
+              link?.type,
+              () => {
+                open(link?.parameters);
+              }
             )}
             startIcon={<ArrowForwardIcon />}
           >
@@ -155,6 +161,7 @@ const CardCollectionSection = ({
     groupKeys.length ? { [groupKeys[0]]: true } : {}
   );
   const { getMicroCopy, countryCode } = useContext(SiteContext);
+  const { open } = useContext(VisualiserContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
   const activeCards = uniq(
     flatten(
@@ -261,7 +268,11 @@ const CardCollectionSection = ({
               link?.url,
               countryCode,
               null,
-              link.label
+              link?.label,
+              link?.type,
+              () => {
+                open(link?.parameters);
+              }
             )}
             className={styles["link"]}
             endIcon={<ArrowForwardIcon />}

@@ -1100,6 +1100,12 @@ type ContentfulLink implements Node {
 
   "The linked asset."
   asset: ContentfulAsset @link(by: "id", from: "asset___NODE")
+
+  "The type of this link."
+  type: String
+
+  "The parameters used for a webtools type of link."
+  parameters: JSON
 }
 
 """

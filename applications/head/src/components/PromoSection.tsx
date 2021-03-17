@@ -10,11 +10,13 @@ import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { SiteContext } from "./Site";
 import styles from "./styles/PromoSection.module.scss";
+import { VisualiserContext } from "./Visualiser";
 
 export type Data = PromoData;
 
 const IntegratedPromoSection = ({ data }: { data: Data }) => {
   const { countryCode } = useContext(SiteContext);
+  const { open } = useContext(VisualiserContext);
   const { title, subtitle, body, featuredImage, cta, featuredVideo } = data;
 
   const GTMButton = withGTM<
@@ -45,7 +47,11 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
               cta.url,
               countryCode,
               cta?.asset?.file?.url,
-              cta.label
+              cta.label,
+              cta?.type,
+              () => {
+                open(cta?.parameters);
+              }
             )}
           >
             {cta.label}

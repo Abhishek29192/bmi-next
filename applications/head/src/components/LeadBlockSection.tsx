@@ -5,6 +5,7 @@ import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import TableOfContent from "@bmi/table-of-content";
 import { SiteContext } from "./Site";
+import { VisualiserContext } from "./Visualiser";
 import RichText, { RichTextData } from "./RichText";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 
@@ -22,6 +23,7 @@ const LeadBlockSection = ({
   data: Data;
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { open } = useContext(VisualiserContext);
 
   return (
     <Section backgroundColor="white">
@@ -43,7 +45,11 @@ const LeadBlockSection = ({
                   link.url,
                   countryCode,
                   null,
-                  link.label
+                  link.label,
+                  link?.type,
+                  () => {
+                    open(link?.parameters);
+                  }
                 )}
               >
                 {link.label}

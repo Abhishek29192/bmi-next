@@ -11,13 +11,30 @@ const checkUrlAction = (url: string): boolean => {
   return actionUrls.some((actionUrl) => url.startsWith(actionUrl));
 };
 
+// TODO: This whole function needs refactoring
 export const getClickableActionFromUrl = (
   linkedPage?: LinkData["linkedPage"],
   url?: LinkData["url"],
   countryCode?: string,
   assetUrl?: string,
-  label?: string
+  label?: string,
+  type?: LinkData["type"],
+  onClick?: (...args: any) => void
 ): ClickableAction | undefined => {
+  if (type === "Visualiser") {
+    const dataGtm = { id: "cta-visualiser1", action: "visualiser", label };
+
+    return {
+      model: "default",
+      onClick: (...args) => {
+        onClick && onClick(...args);
+        pushToDataLayer(dataGtm);
+      },
+      // @ts-ignore data-gtm is not defined but a general html attribute
+      "data-gtm": JSON.stringify(dataGtm)
+    };
+  }
+
   if (assetUrl) {
     const dataGtm = { id: "cta-click1", action: assetUrl, label };
 
@@ -114,7 +131,8 @@ export type LinkData = {
   icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
-  type?: "External" | "Internal" | "Asset";
+  type: "External" | "Internal" | "Asset" | "Visualiser" | null;
+  parameters: JSON | null;
   linkedPage: {
     // NOTE: null is for Homepage type
     path: string | null;
@@ -166,5 +184,6 @@ export const query = graphql`
         }
       }
     }
+    parameters
   }
 `;

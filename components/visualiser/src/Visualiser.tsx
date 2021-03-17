@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, createContext } from "react";
 import { ClickableAction } from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Card, { CardActions, CardContent } from "@bmi/card";
@@ -32,18 +32,21 @@ const MATERIAL_NAME_MAP = {
   3: "Takpanner"
 };
 
-type Props = {
-  contentSource: string;
-  open: boolean;
-  title?: string;
+export type Parameters = {
   tileId?: number;
   colourId?: number;
   sidingId?: number;
   viewMode?: "roof" | "tile";
   tiles: TileProps[];
   sidings: SidingProps[];
-  onClose: () => any;
 };
+
+type Props = {
+  contentSource: string;
+  open: boolean;
+  title?: string;
+  onClose?: () => any;
+} & Parameters;
 
 type TileProps =
   | any

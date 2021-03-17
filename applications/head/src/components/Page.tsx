@@ -15,6 +15,7 @@ import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
 import { Data as SEOContentData } from "./SEOContent";
+import VisualiserProvider from "./Visualiser";
 import styles from "./styles/Page.module.scss";
 
 export type Data = {
@@ -151,7 +152,10 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
             )}
             onError={() => navigate(`/${countryCode}/422`)}
           >
-            <div className={styles["content"]}>{children}</div>
+            {/* // TODO: Come from env variable or whatever */}
+            <VisualiserProvider contentSource="https://storage.googleapis.com/bmi-dxb-webtools-storage-dev">
+              <div className={styles["content"]}>{children}</div>
+            </VisualiserProvider>
             {inputBanner ? <InputBanner data={inputBanner} /> : null}
           </ErrorBoundary>
           <Footer
