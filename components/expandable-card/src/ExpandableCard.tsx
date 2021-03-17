@@ -7,7 +7,7 @@ import React, {
   useCallback,
   useLayoutEffect
 } from "react";
-import Card, { CardContent } from "@bmi/card";
+import DefaultCard, { CardContent } from "@bmi/card";
 import Button from "@bmi/button";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@bmi/typography";
@@ -24,6 +24,7 @@ type CardItem = {
   isExpanded?: boolean;
 };
 export type Props = CardItem & {
+  cardComponent?: React.ComponentType<any>; // TODO
   className?: string;
   onClick?: () => void;
   onCloseClick?: () => void;
@@ -101,6 +102,7 @@ const getStyleFromAnimationStatus = (
 
 const ExpandableCard = ({
   icon: Icon,
+  cardComponent: Card = DefaultCard,
   className,
   title,
   body,
@@ -181,6 +183,8 @@ const ExpandableCard = ({
   return (
     <div className={className} style={wrapperSize}>
       <Card
+        role="button"
+        aria-label={title}
         onTransitionEnd={({ propertyName }) =>
           handleTransitionEnd(propertyName)
         }
@@ -231,10 +235,12 @@ const ExpandableCard = ({
 
 const ExpandableCardList = ({
   items,
-  className
+  className,
+  cardComponent
 }: {
   items: readonly CardItem[];
   className?: string;
+  cardComponent?: React.ComponentType<any>; // TODO
 }) => {
   const expandedItems = useMemo(
     () =>
@@ -258,6 +264,7 @@ const ExpandableCardList = ({
       {items.map((props, key) => (
         <ExpandableCard
           {...props}
+          cardComponent={cardComponent}
           className={listStyles["item"]}
           key={key}
           isExpanded={expandedItem === key}
