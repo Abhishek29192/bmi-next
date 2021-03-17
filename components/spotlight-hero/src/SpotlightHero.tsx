@@ -4,24 +4,30 @@ import Typography from "@bmi/typography";
 import Container from "@bmi/container";
 import styles from "./SpotlightHero.module.scss";
 
+type Props = {
+  title: React.ReactNode;
+  children: React.ReactNode;
+  imageSource: string | React.ReactNode;
+  backgroundColor?: "cyan" | "teal" | "blue" | "charcoal";
+  breadcrumbs?: React.ReactNode;
+};
+
 const SpotlightHero = ({
   title,
   children,
   imageSource,
   backgroundColor = "blue",
   breadcrumbs
-}: {
-  title: React.ReactNode;
-  children: React.ReactNode;
-  imageSource: string;
-  backgroundColor?: "cyan" | "teal" | "blue" | "charcoal";
-  breadcrumbs?: React.ReactNode;
-}) => {
+}: Props) => {
   return (
     <div className={styles["SpotlightHero"]}>
       <div
         className={styles["image"]}
-        style={{ backgroundImage: `url(${imageSource})` }}
+        style={
+          typeof imageSource === "string"
+            ? { backgroundImage: `url(${imageSource})` }
+            : undefined
+        }
       >
         <div className={styles["header"]}>
           <Container className={styles["header-container"]}>
@@ -41,7 +47,11 @@ const SpotlightHero = ({
             styles["overlay"],
             styles[`overlay--${backgroundColor}`]
           )}
-        />
+        >
+          {typeof imageSource !== "string" &&
+            React.isValidElement(imageSource) &&
+            React.cloneElement(imageSource, { layout: "in-place" })}
+        </div>
       </div>
     </div>
   );
