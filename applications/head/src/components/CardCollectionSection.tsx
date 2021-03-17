@@ -10,6 +10,7 @@ import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
+import Video from "../components/Video";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
@@ -52,9 +53,14 @@ const CardCollectionItem = ({
   type: Data["cardType"];
 }) => {
   const { countryCode } = useContext(SiteContext);
-  const { title, subtitle, link, featuredImage, brandLogo } = transformCard(
-    card
-  );
+  const {
+    title,
+    subtitle,
+    link,
+    featuredImage,
+    brandLogo,
+    featuredVideo
+  } = transformCard(card);
 
   const transformedCardLabel = label
     ? label.replace(/{{title}}/g, title)
@@ -64,7 +70,11 @@ const CardCollectionItem = ({
       hasTitleUnderline
       title={title}
       imageSource={
-        type !== "Text Card" ? featuredImage?.resized.src : undefined
+        featuredVideo ? (
+          <Video data={featuredVideo} />
+        ) : type !== "Text Card" ? (
+          featuredImage?.resized.src
+        ) : undefined
       }
       isFlat={type === "Story Card"}
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
@@ -97,6 +107,7 @@ const transformCard = ({
   subtitle,
   featuredImage,
   brandLogo,
+  featuredVideo,
   ...rest
 }: Card): {
   title: Card["title"];
@@ -104,6 +115,7 @@ const transformCard = ({
   link: LinkData | null;
   featuredImage: Card["featuredImage"];
   brandLogo: Card["brandLogo"];
+  featuredVideo: Card["featuredVideo"];
 } => {
   let link = null;
 
@@ -117,7 +129,7 @@ const transformCard = ({
     };
   }
 
-  return { title, subtitle, link, featuredImage, brandLogo };
+  return { title, subtitle, link, featuredImage, brandLogo, featuredVideo };
 };
 
 const moveRestKeyLast = (arr) => {
@@ -289,6 +301,9 @@ export const query = graphql`
             src
           }
         }
+        featuredVideo {
+          ...VideoFragment
+        }
       }
       ... on ContentfulPage {
         id
@@ -300,6 +315,9 @@ export const query = graphql`
           resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
             src
           }
+        }
+        featuredVideo {
+          ...VideoFragment
         }
       }
     }

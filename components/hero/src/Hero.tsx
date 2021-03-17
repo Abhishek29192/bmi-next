@@ -156,7 +156,9 @@ const Hero = ({
                 style={{
                   backgroundImage: `url(${imageSource})`
                 }}
-              />
+              >
+                {typeof imageSource !== "string" && imageSource}
+              </div>
             </Carousel.Slide>
           ))}
         </Carousel>

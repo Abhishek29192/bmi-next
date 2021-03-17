@@ -291,9 +291,6 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
-
-  "The featured Video"
-  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 }
 
 """
@@ -1485,7 +1482,7 @@ type ContentfulVideo implements Node {
   youtubeId: String!
 
   "The preview image for this document."
-  previewImage: ContentfulAsset
+  previewImage: ContentfulAsset @link(by: "id", from: "previewImage___NODE")
 
   "The size for this video."
   videoRatio: VideoRatio

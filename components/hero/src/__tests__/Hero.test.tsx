@@ -15,6 +15,21 @@ describe("Hero component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("renders react component as imageSource", () => {
+    const { container } = render(
+      <Hero
+        imageSource={<div>Test component</div>}
+        title="H1 Heading"
+        level={1}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
+        tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus
+        suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+      </Hero>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it("renders level 2", () => {
     const { container } = render(<Hero title="H1 Heading" level={2} />);
     expect(container.firstChild).toMatchSnapshot();

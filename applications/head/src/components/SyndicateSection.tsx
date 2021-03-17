@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
+import Video from "../components/Video";
 import { Data as PromoData } from "./Promo";
 import { SiteContext } from "./Site";
 import { getCTA } from "./Link";
@@ -33,7 +34,11 @@ const SyndicateSection = ({
         ) : (
           subtitle
         ),
-        imageSource: featuredImage?.resize.src,
+        imageSource: typePromoData.featuredVideo ? (
+          <Video data={typePromoData.featuredVideo} />
+        ) : (
+          featuredImage?.resize.src
+        ),
         cta: getCTA(typePromoData, countryCode, getMicroCopy("page.linkLabel"))
       };
     }

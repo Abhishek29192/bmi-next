@@ -267,7 +267,6 @@ HTMLCollection [
               >
                 <div
                   class="image"
-                  style="background-image: url(undefined);"
                 />
               </div>
             </div>
@@ -299,7 +298,6 @@ HTMLCollection [
               >
                 <div
                   class="image"
-                  style="background-image: url(undefined);"
                 />
               </div>
             </div>
@@ -548,7 +546,6 @@ HTMLCollection [
             >
               <div
                 class="image"
-                style="background-image: url(undefined);"
               />
             </div>
           </div>
