@@ -45,7 +45,7 @@ type Props = {
   contentSource: string;
   open: boolean;
   title?: string;
-  onClose?: () => any;
+  onClose: () => any;
 } & Parameters;
 
 type TileProps =
