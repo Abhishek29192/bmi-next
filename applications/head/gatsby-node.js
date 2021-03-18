@@ -12,9 +12,6 @@ require("graphql-import-node");
 const jsonfile = require("jsonfile");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
-const {
-  generateDigestFromData
-} = require("./src/schema/resolvers/utils/encryption");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -307,28 +304,4 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.createResolvers = ({ createResolvers }) => {
   createResolvers(resolvers);
-};
-
-exports.onCreateNode = async ({ node, actions }) => {
-  const { createNode } = actions;
-
-  if (node.internal.type === "Products") {
-    await Promise.all(
-      (node.categories || []).map(async (category) => {
-        await createNode({
-          ...category,
-
-          // Required fields.
-          id: `product-category-${category.code}`,
-          parent: null, // or null if it's a source node without a parent
-          children: [],
-          internal: {
-            type: `ProductCategory`,
-            contentDigest: generateDigestFromData(category),
-            description: `PIM Product Category`
-          }
-        });
-      })
-    );
-  }
 };

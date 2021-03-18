@@ -1282,23 +1282,6 @@ type ProductsVariantOptions implements Node {
 }
 
 """
-The category for a product.
-"""
-type ProductCategory implements Node {
-  "The name for this category."
-  name: String
-
-  "The type for this category."
-  categoryType: String
-
-  "The code for this category."
-  code: String
-
-  "The code of this category's parent."
-  parentCategoryCode: String
-}
-
-"""
 Represents a set of contact details.
 """
 type ContentfulContactDetails implements Node {
