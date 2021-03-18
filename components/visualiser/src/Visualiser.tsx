@@ -375,6 +375,16 @@ const Visualiser = ({
     () => tiles.find(({ id }) => id === activeTileId) || tiles[0],
     [activeTileId]
   );
+  const handleOnClose = () => {
+    setIsLoading(true);
+    setActiveTileId(tileId);
+    setActiveColourId(colourId);
+    setActiveSidingId(sidingId);
+    setIsTileSelectorOpen(false);
+    setIsSidingsSelectorOpen(false);
+    setMode(viewMode);
+    onClose();
+  };
 
   const activeColour = useMemo(
     () =>
@@ -398,8 +408,8 @@ const Visualiser = ({
   return (
     <Dialog
       open={open}
-      onCloseClick={onClose}
-      onBackdropClick={onClose}
+      onCloseClick={handleOnClose}
+      onBackdropClick={handleOnClose}
       maxWidth="xl"
       className={styles["Visualiser"]}
     >
