@@ -6,7 +6,7 @@ exports[`Page component renders correctly 1`] = `
 >
   <nav
     aria-label="Utilities"
-    class="UtilitiesBar"
+    class="utilities-bar"
     role="navigation"
   >
     <div
@@ -17,11 +17,11 @@ exports[`Page component renders correctly 1`] = `
       >
         <ul>
           <li
-            class="NavItem"
+            class="nav-item"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
               href="link-to-page"
               tabindex="0"
             >
@@ -40,7 +40,7 @@ exports[`Page component renders correctly 1`] = `
     </div>
   </nav>
   <div
-    class="NavigationBar"
+    class="navigation-bar"
   >
     <div
       class="Container"
@@ -49,19 +49,19 @@ exports[`Page component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="NavigationBar__Left"
+          class="navigation-bar__left"
         >
           <a
-            class="LogoLink"
+            class="logo-link"
             href="/uk/"
           >
             <svg
-              class="Logo"
+              class="logo"
             />
           </a>
           <nav
             aria-label="Navigation"
-            class="Navigation"
+            class="navigation"
             role="navigation"
           >
             <div
@@ -82,7 +82,7 @@ exports[`Page component renders correctly 1`] = `
                   <button
                     aria-controls="navigation-tabpanel-0"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item MuiTab-labelIcon"
                     data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                     id="navigation-tab-0"
                     role="tab"
@@ -118,11 +118,11 @@ exports[`Page component renders correctly 1`] = `
           </nav>
         </div>
         <div
-          class="NavigationBar__Right"
+          class="navigation-bar__right"
         >
           <button
             aria-label="MC: search.label"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained SearchButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
             tabindex="0"
             type="button"
           >
@@ -146,7 +146,7 @@ exports[`Page component renders correctly 1`] = `
           </button>
           <button
             aria-label="MC: menu.open"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text BurgerButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
             tabindex="0"
             type="button"
           >
@@ -174,16 +174,16 @@ exports[`Page component renders correctly 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="MuiBackdrop-root Backdrop"
+    class="MuiBackdrop-root backdrop"
     style="opacity: 0; visibility: hidden;"
   />
   <div
-    class="Drawer NavDrawer"
+    class="drawer nav-drawer"
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <button
       aria-label="MC: global.close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
       tabindex="0"
       type="button"
     >
@@ -264,15 +264,15 @@ exports[`Page component renders correctly 1`] = `
     </nav>
   </div>
   <div
-    class="SearchDrawerContainer"
+    class="search-drawer-container"
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <div
-      class="Drawer SearchDrawer"
+      class="drawer search-drawer"
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
         tabindex="0"
         type="button"
       >

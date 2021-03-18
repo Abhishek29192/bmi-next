@@ -6,7 +6,7 @@ exports[`Header component renders correctly 1`] = `
 >
   <nav
     aria-label="Utilities"
-    class="UtilitiesBar"
+    class="utilities-bar"
     role="navigation"
   >
     <div
@@ -17,11 +17,11 @@ exports[`Header component renders correctly 1`] = `
       >
         <ul>
           <li
-            class="NavItem"
+            class="nav-item"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
@@ -36,11 +36,11 @@ exports[`Header component renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="NavItem"
+            class="nav-item"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
@@ -55,11 +55,11 @@ exports[`Header component renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="NavItem"
+            class="nav-item"
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
@@ -74,10 +74,10 @@ exports[`Header component renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="NavItem"
+            class="nav-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton LanguageSelectionButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
               tabindex="0"
               type="button"
             >
@@ -85,11 +85,11 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiButton-label"
               >
                 <svg
-                  class="LanguageIcon"
+                  class="language-icon"
                 />
                 GB
                 <span
-                  class="downArrow"
+                  class="down-arrow"
                 >
                   ▾
                 </span>
@@ -104,12 +104,12 @@ exports[`Header component renders correctly 1`] = `
     </div>
   </nav>
   <div
-    class="Drawer LanguageDrawer"
+    class="drawer language-drawer"
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <button
       aria-label="Close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
       tabindex="0"
       type="button"
     >
@@ -223,7 +223,7 @@ exports[`Header component renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="NavigationBar"
+    class="navigation-bar"
   >
     <div
       class="Container"
@@ -232,20 +232,20 @@ exports[`Header component renders correctly 1`] = `
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="NavigationBar__Left"
+          class="navigation-bar__left"
         >
           <a
             aria-label="Link to home"
-            class="LogoLink"
+            class="logo-link"
             href="/"
           >
             <svg
-              class="Logo"
+              class="logo"
             />
           </a>
           <nav
             aria-label="Navigation"
-            class="Navigation"
+            class="navigation"
             role="navigation"
           >
             <div
@@ -266,7 +266,7 @@ exports[`Header component renders correctly 1`] = `
                   <button
                     aria-controls="navigation-tabpanel-0"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item MuiTab-labelIcon"
                     id="navigation-tab-0"
                     role="tab"
                     tabindex="-1"
@@ -301,11 +301,11 @@ exports[`Header component renders correctly 1`] = `
           </nav>
         </div>
         <div
-          class="NavigationBar__Right"
+          class="navigation-bar__right"
         >
           <button
             aria-label="Search"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained SearchButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
             tabindex="0"
             type="button"
           >
@@ -329,7 +329,7 @@ exports[`Header component renders correctly 1`] = `
           </button>
           <button
             aria-label="Open menu"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text BurgerButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
             tabindex="0"
             type="button"
           >
@@ -357,16 +357,16 @@ exports[`Header component renders correctly 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="MuiBackdrop-root Backdrop"
+    class="MuiBackdrop-root backdrop"
     style="opacity: 0; visibility: hidden;"
   />
   <div
-    class="Drawer NavDrawer"
+    class="drawer nav-drawer"
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <button
       aria-label="Close"
-      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
       tabindex="0"
       type="button"
     >
@@ -772,15 +772,15 @@ exports[`Header component renders correctly 1`] = `
     </nav>
   </div>
   <div
-    class="SearchDrawerContainer"
+    class="search-drawer-container"
     style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
   >
     <div
-      class="Drawer SearchDrawer"
+      class="drawer search-drawer"
     >
       <button
         aria-label="Close"
-        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained CloseButton"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
         tabindex="0"
         type="button"
       >

@@ -4,8 +4,8 @@
   // This class is attached to the `body`
   overflow: hidden;
 
-  .NavigationBar,
-  .UtilitiesBar {
+  .navigation-bar,
+  .utilities-bar {
     padding-right: 15px;
   }
 }
@@ -29,11 +29,11 @@
     padding-left: 0;
   }
 
-  .LogoLink {
+  .logo-link {
     display: inherit;
   }
 
-  .Logo {
+  .logo {
     margin: 10px 10px 10px 0;
     width: 50px;
     height: 50px;
@@ -49,14 +49,14 @@
     }
   }
 
-  .Navigation {
+  .navigation {
     display: none;
 
     @media (min-width: $breakpoint-header-sm) {
       display: block;
     }
 
-    .NavItem {
+    .nav-item {
       background-clip: padding-box;
       border: 1px solid transparent;
       border-radius: 3px 3px 0 0;
@@ -122,7 +122,7 @@
     }
   }
 
-  .SearchButton {
+  .search-button {
     color: $color-cyan-500;
 
     @media (min-width: $breakpoint-header-sm) {
@@ -137,7 +137,7 @@
     }
   }
 
-  .BurgerButton {
+  .burger-button {
     color: $color-cyan-500;
     margin-left: 10px;
 
@@ -146,7 +146,7 @@
     }
   }
 
-  .CloseButton {
+  .close-button {
     background-color: $color-white;
     color: $color-slate;
     margin: 7px;
@@ -161,7 +161,7 @@
     }
   }
 
-  .Backdrop {
+  .backdrop {
     z-index: 12;
 
     @media (min-width: $breakpoint-header-sm) {
@@ -169,7 +169,7 @@
     }
   }
 
-  .Drawer {
+  .drawer {
     background-color: $color-white;
     border: 1px solid $color-storm;
     height: 100vh;
@@ -186,7 +186,7 @@
     }
   }
 
-  .NavDrawer {
+  .nav-drawer {
     overflow: hidden;
 
     @media (min-width: $breakpoint-header-sm) {
@@ -201,7 +201,7 @@
     }
   }
 
-  .SearchDrawerContainer {
+  .search-drawer-container {
     position: absolute;
     left: 0;
     right: 0;
@@ -220,7 +220,7 @@
     }
   }
 
-  .SearchDrawer {
+  .search-drawer {
     position: absolute;
     padding: 30px;
 
@@ -234,7 +234,7 @@
     }
   }
 
-  .LanguageDrawer {
+  .language-drawer {
     z-index: 14;
 
     @media (min-width: $breakpoint-header-sm) {
@@ -249,7 +249,7 @@
     }
   }
 
-  .UtilitiesBar {
+  .utilities-bar {
     background-color: $color-pearl;
     display: none;
     padding-top: 0.4375rem;
@@ -267,7 +267,7 @@
       display: block;
     }
 
-    .NavItem {
+    .nav-item {
       display: flex;
       align-items: center;
 
@@ -275,7 +275,7 @@
         text-decoration: none;
       }
 
-      & + .NavItem::before {
+      & + .nav-item::before {
         content: "";
         display: block;
         background-color: $color-storm;
@@ -285,7 +285,7 @@
       }
     }
 
-    .UtilitiesButton {
+    .utilities-button {
       font-size: 0.875rem;
       color: $color-charcoal;
 
@@ -293,37 +293,37 @@
         font-size: 1rem;
       }
     }
-  }
 
-  .LanguageSelectionButton {
-    transition: border $transition-timing, padding-bottom $transition-timing,
-      margin-bottom $transition-timing;
-    border: 1px solid transparent;
+    .language-selection-button {
+      transition: border $transition-timing, padding-bottom $transition-timing,
+        margin-bottom $transition-timing;
+      border: 1px solid transparent;
 
-    &--active {
-      border: 1px solid $color-storm;
-      border-bottom-color: $color-white;
-      border-radius: 4px 4px 0 0;
-      margin-bottom: -0.5rem;
-      padding-bottom: 0.875rem;
-    }
+      &--active {
+        border: 1px solid $color-storm;
+        border-bottom-color: $color-white;
+        border-radius: 4px 4px 0 0;
+        margin-bottom: -0.5rem;
+        padding-bottom: 0.875rem;
+      }
 
-    .downArrow {
-      margin-left: 1rem;
-      transition: transform $transition-timing;
+      .down-arrow {
+        margin-left: 1rem;
+        transition: transform $transition-timing;
 
-      &--up {
-        transform: rotate(180deg);
+        &--up {
+          transform: rotate(180deg);
+        }
       }
     }
+
+    .language-icon {
+      margin-right: 10px;
+      width: 20px;
+    }
   }
 
-  .LanguageIcon {
-    margin-right: 10px;
-    width: 20px;
-  }
-
-  .NavigationBar {
+  .navigation-bar {
     background-color: $color-white;
     position: relative;
     z-index: 12;
@@ -338,18 +338,18 @@
       justify-content: space-between;
     }
 
-    &__Left {
+    &__left {
       display: flex;
       align-items: flex-end;
       margin-bottom: -1px;
     }
 
-    &__Right {
+    &__right {
       display: initial;
     }
   }
 
-  .Footer {
+  .footer {
     position: absolute;
     top: 3rem;
     right: 0;
