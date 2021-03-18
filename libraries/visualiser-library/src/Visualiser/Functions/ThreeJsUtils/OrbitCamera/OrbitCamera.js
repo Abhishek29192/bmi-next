@@ -1,5 +1,4 @@
 // TODO: resolve eslint issues:
-/* eslint-disable */
 import {
   EventDispatcher,
   MOUSE,
