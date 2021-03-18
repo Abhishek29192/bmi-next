@@ -1,9 +1,10 @@
-import React, { createContext, useState, useMemo } from "react";
+import React, { createContext, useState } from "react";
 import Visualiser, {
   Parameters,
   tilesSetData,
   sidingsSetData
 } from "@bmi/visualiser";
+import { graphql } from "gatsby";
 
 type Context = {
   isOpen: boolean;
@@ -53,5 +54,14 @@ const VisualiserProvider = ({ children, contentSource }: Props) => {
     </VisualiserContext.Provider>
   );
 };
+
+export const query = graphql`
+  fragment VisualiserFragment on contentfulLinkParametersJsonNode {
+    tileId
+    colourId
+    sidingId
+    viewMode
+  }
+`;
 
 export default VisualiserProvider;

@@ -184,6 +184,8 @@ export const query = graphql`
         }
       }
     }
-    parameters
+    parameters {
+      ...VisualiserFragment
+    }
   }
 `;

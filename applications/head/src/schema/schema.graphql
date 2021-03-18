@@ -1105,7 +1105,24 @@ type ContentfulLink implements Node {
   type: String
 
   "The parameters used for a webtools type of link."
-  parameters: JSON
+  parameters: contentfulLinkParametersJsonNode @link(by: "id", from: "parameters___NODE")
+}
+
+type contentfulLinkParametersJsonNode implements Node {
+  id: ID!
+
+  "The tile id for this webtool."
+  tileId: Int
+
+  "The colour id for this webtool."
+  colourId: Int
+
+  "The siding id for this webtool."
+  sidingId: Int
+
+  "The viewMode for this webtool."
+  viewMode: String
+
 }
 
 """
