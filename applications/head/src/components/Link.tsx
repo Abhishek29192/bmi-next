@@ -1,5 +1,6 @@
-import { graphql, Link } from "gatsby";
 import { ClickableAction } from "@bmi/clickable";
+import { graphql, Link } from "gatsby";
+import { pushToDataLayer } from "../utils/google-tag-manager";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
@@ -18,11 +19,14 @@ export const getClickableActionFromUrl = (
   label?: string
 ): ClickableAction | undefined => {
   if (assetUrl) {
+    const dataGtm = { id: "cta-click1", action: assetUrl, label };
+
     return {
       model: "download",
       href: assetUrl,
       // @ts-ignore data-gtm is not defined but a general html attribute
-      "data-gtm": JSON.stringify({ id: "cta-click1", action: assetUrl, label })
+      "data-gtm": JSON.stringify(dataGtm),
+      onClick: () => pushToDataLayer(dataGtm)
     };
   }
 
@@ -32,13 +36,15 @@ export const getClickableActionFromUrl = (
 
   if (linkedPage && "path" in linkedPage) {
     const to = `/${countryCode}/${linkedPage.path}`.replace(/\/+/gi, "/");
+    const dataGtm = { id: "cta-click1", action: to, label };
 
     return {
       model: "routerLink",
       to,
       linkComponent: Link,
       // @ts-ignore data-gtm is not defined but a general html attribute
-      "data-gtm": JSON.stringify({ id: "cta-click1", action: to, label })
+      "data-gtm": JSON.stringify(dataGtm),
+      onClick: () => pushToDataLayer(dataGtm)
     };
   }
 
@@ -48,13 +54,15 @@ export const getClickableActionFromUrl = (
       target: "_blank",
       rel: "noopener noreferrer"
     };
+    const dataGtm = { id: "cta-click1", action: url, label };
 
     return {
       model: "htmlLink",
       href: url,
       ...(checkUrlAction(url) ? {} : externalUrl),
       // @ts-ignore data-gtm is not defined but a general html attribute
-      "data-gtm": JSON.stringify({ id: "cta-click1", action: url, label })
+      "data-gtm": JSON.stringify(dataGtm),
+      onClick: () => pushToDataLayer(dataGtm)
     };
   }
 };
