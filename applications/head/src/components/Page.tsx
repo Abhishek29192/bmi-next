@@ -152,7 +152,6 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
             )}
             onError={() => navigate(`/${countryCode}/422`)}
           >
-            {/* // TODO: Come from env variable or whatever */}
             <VisualiserProvider
               contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
             >
