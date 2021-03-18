@@ -346,7 +346,7 @@ const Visualiser = ({
   tileId,
   colourId,
   sidingId,
-  viewMode = "tile",
+  viewMode,
   tiles,
   sidings,
   onClose
@@ -360,21 +360,21 @@ const Visualiser = ({
   const [mode, setMode] = useState(viewMode);
 
   useEffect(() => {
-    if (!open) {
-      setActiveTileId(tileId);
-      setActiveColourId(colourId);
-      setActiveSidingId(sidingId);
-      setIsTileSelectorOpen(false);
-      setIsSidingsSelectorOpen(false);
-      setIsLoading(true);
-      setMode(viewMode);
-    }
-  }, [open]);
+    setMode(viewMode);
+  }, [viewMode]);
 
-  const activeTile = useMemo(
-    () => tiles.find(({ id }) => id === activeTileId) || tiles[0],
-    [activeTileId]
-  );
+  useEffect(() => {
+    setActiveTileId(tileId);
+  }, [tileId]);
+
+  useEffect(() => {
+    setActiveSidingId(sidingId);
+  }, [sidingId]);
+
+  useEffect(() => {
+    setActiveColourId(colourId);
+  }, [colourId]);
+
   const handleOnClose = () => {
     setIsLoading(true);
     setActiveTileId(tileId);
@@ -386,16 +386,27 @@ const Visualiser = ({
     onClose();
   };
 
+  const activeTile = useMemo(() => {
+    return (
+      tiles.find(({ id }) => id === activeTileId) ||
+      tiles.find(({ id }) => id === tileId) ||
+      tiles[0]
+    );
+  }, [tiles, activeTileId, tileId]);
+
   const activeColour = useMemo(
     () =>
       activeTile.colours.find(({ id }) => id === activeColourId) ||
       activeTile.colours[0],
-    [activeTileId, activeColourId]
+    [activeTile, activeColourId]
   );
 
   const activeSiding = useMemo(
-    () => sidings.find(({ id }) => id === activeSidingId) || sidings[0],
-    [activeSidingId]
+    () =>
+      sidings.find(({ id }) => id === activeSidingId) ||
+      sidings.find(({ id }) => id === sidingId) ||
+      sidings[0],
+    [activeSidingId, sidings, sidingId]
   );
 
   const setActiveProduct = (tileId, colourId) => {
@@ -451,13 +462,15 @@ const Visualiser = ({
               </Grid>
             </Grid>
           </div>
-          <Viewer
-            tile={activeTile}
-            colour={activeColour}
-            options={{ contentSource }}
-            siding={activeSiding}
-            setIsLoading={(isLoading) => setIsLoading(isLoading)}
-          />
+          {mode && (
+            <Viewer
+              tile={activeTile}
+              colour={activeColour}
+              options={{ contentSource }}
+              siding={activeSiding}
+              setIsLoading={(isLoading) => setIsLoading(isLoading)}
+            />
+          )}
           <TileSectorDialog
             open={isTileSelectorOpen}
             onCloseClick={setIsTileSelectorOpen}
