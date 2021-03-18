@@ -19,6 +19,10 @@ declare let window: Window & {
   dataLayer: object[];
 };
 
+export function pushToDataLayer(dataGtm: GTM["gtm"]) {
+  window.dataLayer && window.dataLayer.push(dataGtm);
+}
+
 export default function withGTM<P>(
   Component: React.ComponentType<any>,
   propsToGtmMap: Map<P> = {}
@@ -34,7 +38,7 @@ export default function withGTM<P>(
     };
 
     const handleClick = (...args) => {
-      window.dataLayer && window.dataLayer.push(dataGtm);
+      pushToDataLayer(dataGtm);
       // @ts-ignore TS does not realise P could include `onClick`
       props.onClick && props.onClick(...args);
     };
