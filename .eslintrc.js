@@ -63,7 +63,7 @@ module.exports = {
       files: "*.{ts,tsx}",
       settings: {
         react: {
-          version: "latest"
+          version: "detect"
         }
       },
       excludedFiles: ["*.test.tsx"],
