@@ -153,7 +153,9 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
             onError={() => navigate(`/${countryCode}/422`)}
           >
             {/* // TODO: Come from env variable or whatever */}
-            <VisualiserProvider contentSource="https://storage.googleapis.com/bmi-dxb-webtools-storage-dev">
+            <VisualiserProvider
+              contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+            >
               <div className={styles["content"]}>{children}</div>
             </VisualiserProvider>
             {inputBanner ? <InputBanner data={inputBanner} /> : null}
