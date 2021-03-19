@@ -47,19 +47,9 @@ module.exports = {
         return [];
       }
 
-      const category =
-        categoryCode &&
-        (await context.nodeModel.runQuery({
-          query: {
-            filter: {
-              code: {
-                eq: categoryCode
-              }
-            }
-          },
-          type: "ProductCategory",
-          firstOnly: true
-        }));
+      const category = (products[0].categories || []).find(
+        ({ code }) => code === categoryCode
+      );
 
       return getFilters(
         pimClassificationCatalogueNamespace,
