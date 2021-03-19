@@ -35,7 +35,7 @@ const parseNavigation = (
 
   return navigationItems.reduce((result, { __typename, ...item }) => {
     if (__typename === "ContentfulNavigation") {
-      const { label, links, link, promo } = item as NavigationData;
+      const { label, links, link, promos } = item as NavigationData;
 
       const navItem = {
         label,
@@ -44,9 +44,12 @@ const parseNavigation = (
           countryCode,
           getMicroCopy
         ),
-        ...(!!promo && {
-          footer: getPromoSection(promo, countryCode, getMicroCopy)
-        })
+        ...(promos &&
+          promos.length && {
+            footer: promos
+              .map((promo) => getPromoSection(promo, countryCode, getMicroCopy))
+              .flat()
+          })
       };
 
       return result.concat(navItem);
@@ -176,7 +179,7 @@ const Header = ({
               variant="outlined"
               endIcon={<ArrowForwardIcon />}
               className="Button"
-              style={{ marginLeft: "10px" }}
+              style={{ marginLeft: 10, marginBottom: 15 }}
             />
           )}
           searchAction={`/${countryCode}/search`}
@@ -208,8 +211,7 @@ export const query = graphql`
           ...LinkFragment
         }
         label
-        promo {
-          __typename
+        promos {
           ... on ContentfulPromoOrPage {
             __typename
             ...PromoFragment

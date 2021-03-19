@@ -787,7 +787,7 @@ type ContentfulNavigation implements Node {
   link: ContentfulLink @link(from: "link___NODE")
 
   "Promo for navigation."
-  promo: ContentfulPromoOrPage @link(from: "promo___NODE")
+  promos: [ContentfulPromoOrPage] @link(from: "promos___NODE")
 }
 
 """
