@@ -7,14 +7,11 @@ Potentially we should fork the project properly and open-source it with a releas
 
 "use strict";
 
-const crypto = require("crypto");
 const report = require("gatsby-cli/lib/reporter");
 const firebase = require("firebase-admin");
 
-const getDigest = (id) => crypto.createHash("md5").update(id).digest("hex");
-
 exports.sourceNodes = async (
-  { boundActionCreators },
+  { createContentDigest, actions },
   { types, credential, appConfig }
 ) => {
   try {
@@ -36,13 +33,13 @@ exports.sourceNodes = async (
     timestampsInSnapshots: true
   });
 
-  const { createNode } = boundActionCreators;
+  const { createNode } = actions;
 
   const promises = types.map(
     async ({ collection, type, map = (node) => node }) => {
       const snapshot = await db.collection(collection).get();
       for (let doc of snapshot.docs) {
-        const contentDigest = getDigest(doc.id);
+        const contentDigest = createContentDigest(doc.data());
         createNode(
           Object.assign({}, map(doc.data()), {
             id: doc.id,
