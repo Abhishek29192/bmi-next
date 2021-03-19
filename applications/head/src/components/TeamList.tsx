@@ -94,7 +94,7 @@ export const query = graphql`
     name
     jobTitle
     profilePicture {
-      resize(width: 150) {
+      resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
         src
       }
     }
