@@ -36,7 +36,7 @@ export type Parameters = {
   tileId?: number;
   colourId?: number;
   sidingId?: number;
-  viewMode?: "roof" | "tile";
+  viewMode?: "tile" | "roof";
   tiles: TileProps[];
   sidings: SidingProps[];
 };
@@ -346,7 +346,7 @@ const Visualiser = ({
   tileId,
   colourId,
   sidingId,
-  viewMode,
+  viewMode = "tile",
   tiles,
   sidings,
   onClose
