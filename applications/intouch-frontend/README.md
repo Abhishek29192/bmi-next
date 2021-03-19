@@ -8,7 +8,14 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 
 - First, follow the monoropo instructions (root directory README). You should have installed all the necessary dependencies.
 
-- run `yarn workspace @bmi/intouch-frontend dev` from the monorepo root directory.
+- Create self-signed certificate
+  `openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem`
+
+- Move the cert.pem & kjey.pen in the folder `./development-certs`
+
+- run `yarn workspace @bmi/intouch-frontend dev-https` from the monorepo root directory
+
+- visit [https://localhost:3000](https://localhost:3000)
 
 ## Workspaces
 
