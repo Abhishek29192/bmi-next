@@ -6,6 +6,7 @@ Object {
     "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}",
     "href": "https://www.external.co.uk",
     "model": "htmlLink",
+    "onClick": [Function],
     "rel": "noopener noreferrer",
     "target": "_blank",
   },
@@ -19,6 +20,7 @@ Object {
     "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/contact-us\\",\\"label\\":\\"Go to Page\\"}",
     "linkComponent": [MockFunction],
     "model": "routerLink",
+    "onClick": [Function],
     "to": "/no/contact-us",
   },
   "label": "Go to Page",
@@ -30,6 +32,7 @@ Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/some-page\\"}",
   "linkComponent": [MockFunction],
   "model": "routerLink",
+  "onClick": [Function],
   "to": "/en/some-page",
 }
 `;
@@ -39,6 +42,7 @@ Object {
   "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"some-page\\"}",
   "href": "some-page",
   "model": "htmlLink",
+  "onClick": [Function],
   "rel": "noopener noreferrer",
   "target": "_blank",
 }
