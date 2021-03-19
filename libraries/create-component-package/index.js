@@ -40,6 +40,7 @@ const packageContent = `{
   "name": "@bmi/${wsName}",
   "private": true,
   "version": "0.0.0",
+  "license": "BMI-DXB",
   "src": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
