@@ -1100,6 +1100,33 @@ type ContentfulLink implements Node {
 
   "The linked asset."
   asset: ContentfulAsset @link(by: "id", from: "asset___NODE")
+
+  "The type of this link."
+  type: String
+
+  "The parameters used for a webtools type of link."
+  parameters: contentfulLinkParametersJsonNode
+    @link(by: "id", from: "parameters___NODE")
+}
+
+"""
+Represents a JSON Object for the ContentfulLink parameters.
+It will accepts different fields depending on the type
+"""
+type contentfulLinkParametersJsonNode implements Node @dontInfer {
+  id: ID!
+
+  "The tile id for this webtool."
+  tileId: Int
+
+  "The colour id for this webtool."
+  colourId: Int
+
+  "The siding id for this webtool."
+  sidingId: Int
+
+  "The viewMode for this webtool."
+  viewMode: String
 }
 
 """

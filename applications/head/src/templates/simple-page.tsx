@@ -70,6 +70,7 @@ const SimplePage = ({ data }: Props) => {
     seo,
     featuredVideo
   } = data.contentfulSimplePage;
+
   const heroProps: HeroItem = {
     title,
     children: subtitle,

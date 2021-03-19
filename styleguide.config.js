@@ -5,10 +5,48 @@ const fs = require("fs");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const { withConfigs, styles } = require("./libraries/webpack");
 
+const babel = {
+  loader: "babel-loader",
+  options: {
+    presets: [
+      [
+        "@babel/preset-env",
+        {
+          modules: false,
+          targets: {
+            node: "current"
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ],
+    env: {
+      production: {
+        // TODO: This complains for already minified libraries (e.g. ThreeJs).
+        // Ideally we should have a specific rule just for that file.
+        // presets: ["minify"]
+      },
+      test: {
+        presets: ["@babel/preset-env", "@babel/preset-react"]
+      }
+    }
+  }
+};
+
 const webpackConfig = withConfigs(
   {
     module: {
       rules: [
+        {
+          test: /\.js(x?)$/,
+          use: [babel], // , 'source-map-loader'],
+          exclude: /node_modules/
+        },
+        {
+          test: /\.svg$/,
+          use: "file-loader",
+          include: path.resolve(__dirname, "libraries/visualiser-library")
+        },
         {
           test: /\.ts(x?)$/,
           exclude: /node_modules/,
@@ -23,7 +61,10 @@ const webpackConfig = withConfigs(
         },
         {
           test: /\.svg$/,
-          exclude: /node_modules/,
+          exclude: [
+            /node_modules/,
+            path.resolve(__dirname, "libraries/visualiser-library")
+          ],
           use: ["@svgr/webpack"]
         },
         {

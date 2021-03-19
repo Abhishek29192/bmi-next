@@ -125,7 +125,9 @@ describe("Sections component", () => {
           url: null,
           linkedPage: {
             path: "contact-us"
-          }
+          },
+          type: null,
+          parameters: null
         },
         cards: [
           {
@@ -146,7 +148,9 @@ describe("Sections component", () => {
               url: null,
               linkedPage: {
                 path: "contact-us"
-              }
+              },
+              type: null,
+              parameters: null
             },
             id: "00000000-0000-0000-0000-000000000000"
           }

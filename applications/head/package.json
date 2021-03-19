@@ -24,6 +24,7 @@
     "microcopy": "node ./scripts/get-microcopy.js"
   },
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.13.5",
     "@bmi/anchor-link": "0.0.0",
     "@bmi/autocomplete": "0.0.0",
     "@bmi/button": "0.0.0",

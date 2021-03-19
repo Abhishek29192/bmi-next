@@ -20,6 +20,10 @@ import Cross from "./svgs/Cross.svg";
 import External from "./svgs/External.svg";
 import HardHatHead from "./svgs/HardHatHead.svg";
 import LocationOn from "./svgs/LocationOn.svg";
+import TileColour from "./svgs/TileColour.svg";
+import SelectRoof from "./svgs/SelectRoof.svg";
+import SelectTile from "./svgs/SelectTile.svg";
+import SelectWallColour from "./svgs/SelectWallColour.svg";
 
 export {
   Arrow,
@@ -40,7 +44,11 @@ export {
   External,
   HardHatHead,
   LocationOn,
-  PlayArrow
+  PlayArrow,
+  TileColour,
+  SelectRoof,
+  SelectTile,
+  SelectWallColour
 };
 
 export const iconMap = {
@@ -62,7 +70,11 @@ export const iconMap = {
   External,
   HardHatHead,
   LocationOn,
-  PlayArrow
+  PlayArrow,
+  TileColour,
+  SelectRoof,
+  SelectTile,
+  SelectWallColour
 };
 
 export type IconName = keyof typeof iconMap;
