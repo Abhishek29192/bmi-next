@@ -21,6 +21,6 @@ app.prepare().then(() => {
     const parsedUrl = parse(req.url, true);
     handle(req, res, parsedUrl);
   }).listen(3000, () => {
-    console.log("> Server started on https://dev.intouch:3000/");
+    console.log("> Server started on https://localhost:3000/");
   });
 });
