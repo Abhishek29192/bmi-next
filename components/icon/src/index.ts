@@ -3,7 +3,8 @@ import {
   Mail,
   Person as User,
   Phone,
-  PhoneIphone as PhoneMobile
+  PhoneIphone as PhoneMobile,
+  PlayArrow
 } from "@material-ui/icons";
 import Icon from "./Icon";
 import Arrow from "./svgs/Arrow.svg";
@@ -38,7 +39,8 @@ export {
   Cross,
   External,
   HardHatHead,
-  LocationOn
+  LocationOn,
+  PlayArrow
 };
 
 export const iconMap = {
@@ -59,7 +61,8 @@ export const iconMap = {
   Cross,
   External,
   HardHatHead,
-  LocationOn
+  LocationOn,
+  PlayArrow
 };
 
 export type IconName = keyof typeof iconMap;

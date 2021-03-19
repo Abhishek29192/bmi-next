@@ -85,3 +85,24 @@ const breadcrumbNode = (
   </SpotlightHero>
 </>;
 ```
+
+### With Video
+
+```jsx
+import YoutubeVideo from "@bmi/youtube-video";
+import Typography from "@bmi/typography";
+
+<SpotlightHero
+  title="H1 Heading desktop"
+  imageSource={
+    <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+  }
+  backgroundColor="cyan"
+>
+  <Typography>
+    Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu quis
+    ex nostrud sunt ad eu laboris commodo deserunt commodo. Exercitation ullamco
+    ipsum duis reprehenderit labore officia incididunt amet aliquip quis.
+  </Typography>
+</SpotlightHero>;
+```

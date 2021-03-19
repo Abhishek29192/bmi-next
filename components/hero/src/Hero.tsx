@@ -11,7 +11,7 @@ import styles from "./Hero.module.scss";
 export type HeroItem = {
   title: React.ReactNode;
   /** Only required for level 1 */
-  imageSource: string;
+  imageSource: string | React.ReactNode;
   /** Only required for level 1 */
   children: React.ReactNode;
   CTA?: {
@@ -153,10 +153,16 @@ const Hero = ({
             <Carousel.Slide key={`image-slide-${index}`}>
               <div
                 className={styles["image"]}
-                style={{
-                  backgroundImage: `url(${imageSource})`
-                }}
-              />
+                style={
+                  typeof imageSource !== "string"
+                    ? {}
+                    : {
+                        backgroundImage: `url(${imageSource})`
+                      }
+                }
+              >
+                {typeof imageSource !== "string" && imageSource}
+              </div>
             </Carousel.Slide>
           ))}
         </Carousel>
@@ -203,9 +209,15 @@ const SingleHero = ({
       </Container>
       {levelProps.level === 1 && (
         <div
-          style={{ backgroundImage: `url(${levelProps.imageSource})` }}
+          style={
+            typeof levelProps.imageSource !== "string"
+              ? {}
+              : { backgroundImage: `url(${levelProps.imageSource})` }
+          }
           className={styles["image"]}
-        />
+        >
+          {typeof levelProps.imageSource !== "string" && levelProps.imageSource}
+        </div>
       )}
     </div>
   );

@@ -121,6 +121,9 @@ interface ContentfulPage @nodeInterface {
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset
 
+  "The featured Video"
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
@@ -253,6 +256,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
 
+  "The featured Video"
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
@@ -285,9 +291,6 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
-
-  "The featured Video"
-  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 }
 
 """
@@ -319,6 +322,9 @@ type ContentfulTeamPage implements ContentfulPage & Node {
 
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+
+  "The featured Video"
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
@@ -417,6 +423,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "The main image of this page. Can be used when referencing this page."
   featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+
+  "The featured Video"
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
@@ -1227,6 +1236,9 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   "The main image of this page. Can be used when referencing this page (unused)."
   featuredImage: ContentfulAsset
 
+  "The featured Video"
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+
   "The description for this page."
   description: ContentfulRichText
 
@@ -1368,6 +1380,9 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   "The main image of brand page. Can be used when referencing this page."
   featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
 
+  "The featured Video"
+  featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
 
@@ -1461,13 +1476,13 @@ type ContentfulVideo implements Node {
   label: String!
 
   "The sub title for the video"
-  subTitle: String
+  subtitle: String
 
   "The youtube id for the video"
   youtubeId: String!
 
   "The preview image for this document."
-  previewImage: ContentfulAsset
+  previewImage: ContentfulAsset @link(by: "id", from: "previewImage___NODE")
 
   "The size for this video."
   videoRatio: VideoRatio

@@ -10,7 +10,7 @@ type Props = {
   subtitleVariant?: "h5" | "h6"; // TODO: Add h6 (from DS) smallest when needed.
   hasTitleUnderline?: boolean;
   children: React.ReactNode;
-  imageSource?: string;
+  imageSource?: string | React.ReactNode;
   imageSize?: "cover" | "contain";
   brandImageSource?: SVGImport;
   footer?: React.ReactNode;
@@ -43,8 +43,14 @@ const OverviewCard = ({
           className={classnames(styles["header-picture"], {
             [styles[`header-picture--${imageSize}`]]: imageSize !== "cover"
           })}
-          style={{ backgroundImage: `url(${imageSource})` }}
-        />
+          style={
+            typeof imageSource === "string"
+              ? { backgroundImage: `url(${imageSource})` }
+              : {}
+          }
+        >
+          {typeof imageSource !== "string" && imageSource}
+        </div>
       ) : null}
       <div className={styles["body"]}>
         {brandImageSource ? (

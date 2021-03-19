@@ -1,5 +1,6 @@
 import { graphql } from "gatsby";
 import { TagData } from "./Tag";
+import { Data as VideoData } from "./Video";
 
 export type Data = {
   __typename:
@@ -25,6 +26,7 @@ export type Data = {
       url: string;
     };
   } | null;
+  featuredVideo: VideoData | null;
 };
 
 export const query = graphql`
@@ -48,6 +50,9 @@ export const query = graphql`
         fileName
         url
       }
+    }
+    featuredVideo {
+      ...VideoFragment
     }
   }
 `;

@@ -15,6 +15,7 @@ import ContactTopics, {
   Data as ContactTopicsData
 } from "../components/ContactTopics";
 import Locations, { Data as LocationsData } from "../components/Locations";
+import Video from "../components/Video";
 
 type Data = PageInfoData &
   PageData & {
@@ -50,12 +51,17 @@ const ContactUsPage = ({ data }: Props) => {
     locationsTitle,
     locations,
     breadcrumbs,
-    seo
+    seo,
+    featuredVideo
   } = data.contentfulContactUsPage;
   const heroProps: HeroItem = {
     title,
     children: subtitle,
-    imageSource: featuredImage?.resize.src
+    imageSource: featuredVideo ? (
+      <Video data={featuredVideo} />
+    ) : (
+      featuredImage?.resize.src
+    )
   };
   const pageData: PageData = {
     breadcrumbs,

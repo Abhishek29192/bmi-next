@@ -8,6 +8,7 @@ There are 2 varieties of the Villain - Full Width and Grid Width. Each of these 
 
 ```jsx
 import Section from "@bmi/section";
+import YoutubeVideo from "@bmi/youtube-video";
 import greyTiles from "./images/grey-tiles.png";
 import greyRoofHouseImage from "./images/grey-roof-house.png";
 
@@ -30,6 +31,18 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
     blandit, finibus augue et, ultricies felis.
   </Villain>
+
+  <Villain
+    title="With video"
+    imageSource={
+      <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+    }
+    cta={{ label: "Call to action" }}
+    isReversed
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
+    blandit, finibus augue et, ultricies felis.
+  </Villain>
 </Section>;
 ```
 
@@ -44,6 +57,27 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
 <Villain
   title="H2 Heading"
   imageSource={greyRoofHouseImage}
+  cta={{ label: "Call to action" }}
+  isFullWidth
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit,
+  finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed
+  sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas
+  sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh
+  suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
+</Villain>;
+```
+
+#### With Video
+
+```jsx
+import YoutubeVideo from "@bmi/youtube-video";
+
+<Villain
+  title="H2 Heading"
+  imageSource={
+    <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+  }
   cta={{ label: "Call to action" }}
   isFullWidth
 >

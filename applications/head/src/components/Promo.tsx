@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import { RichTextData } from "../components/RichText";
 import { LinkData } from "./Link";
 import { TagData } from "./Tag";
+import { Data as VideoData } from "./Video";
 
 export type Data = {
   __typename: "ContentfulPromo";
@@ -20,6 +21,7 @@ export type Data = {
     };
   };
   cta: LinkData | null;
+  featuredVideo: VideoData | null;
 };
 
 export const promoQuery = graphql`
@@ -45,6 +47,9 @@ export const promoQuery = graphql`
     }
     cta {
       ...LinkFragment
+    }
+    featuredVideo {
+      ...VideoFragment
     }
   }
 `;

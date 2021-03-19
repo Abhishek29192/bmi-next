@@ -124,3 +124,21 @@ import { AeroDek as brandLogo } from "@bmi/logo";
   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
 </OverviewCard>;
 ```
+
+### With Video
+
+```jsx
+import Button from "@bmi/button";
+import YoutubeVideo from "@bmi/youtube-video";
+
+<OverviewCard
+  title="Unde Mmnis Iste"
+  imageSource={
+    <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+  }
+  hasTitleUnderline
+  footer={<Button variant="outlined">Go to this</Button>}
+>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+</OverviewCard>;
+```

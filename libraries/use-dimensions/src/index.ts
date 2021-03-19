@@ -2,16 +2,16 @@
 
 import { useState, useCallback, useLayoutEffect, useEffect } from "react";
 
-export interface DimensionObject {
+export type DimensionObject = Partial<{
   width: number;
   height: number;
   right: number;
   bottom: number;
-}
+}>;
 
 export type UseDimensionsHook = [
   (node: HTMLElement) => void,
-  {} | DimensionObject,
+  DimensionObject,
   HTMLElement
 ];
 
@@ -33,7 +33,7 @@ function getDimensionObject(node: HTMLElement): DimensionObject {
 function useDimensions({
   liveMeasure = true
 }: UseDimensionsArgs = {}): UseDimensionsHook {
-  const [dimensions, setDimensions] = useState({});
+  const [dimensions, setDimensions] = useState<DimensionObject>({});
   const [node, setNode] = useState(null);
   const useLayoutHookBasedOnEnvironment =
     typeof window === "undefined" ? useEffect : useLayoutEffect;
