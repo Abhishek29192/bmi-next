@@ -51,7 +51,7 @@ export default gql`
     status: String
     dates: [Dates]
   }
-  type Subscription {
+  type EnrollmentSubscription {
     subscribed: Boolean
     is_active: Boolean
   }
@@ -97,7 +97,7 @@ export default gql`
     hidden: Boolean
     outdated: Outdated
     enrolled_sessions: [EnrolledSessions]
-    subscription: [Subscription]
+    subscription: [EnrollmentSubscription]
     course: Course
   }
   type Enrollment {

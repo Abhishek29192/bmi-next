@@ -91,7 +91,7 @@ export default gql`
     can_manage_subordinates: Boolean
     select_orgchart: SelectOrgchart
   }
-  type Message {
+  type UserMessage {
     id: String
     message: String
   }
@@ -99,7 +99,7 @@ export default gql`
   type UserCreateResponse {
     success: Boolean
     user_id: Int
-    message: [Message]
+    message: [UserMessage]
   }
   type UserValidatiy {
     success: Boolean
