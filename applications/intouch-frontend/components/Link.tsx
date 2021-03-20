@@ -5,7 +5,7 @@ import styles from "./styles/Sidebar.module.scss";
 
 type Props = {
   href?: string;
-  icon: React.FC; // TODO: convert into an SVG component
+  icon: SVGImport;
   label: string;
 };
 
