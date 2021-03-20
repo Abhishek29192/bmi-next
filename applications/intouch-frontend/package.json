@@ -10,7 +10,9 @@
     "dev-https": "nodemon ./dev-server.js",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
-    "coverage:jest": "jest --coverage"
+    "coverage:jest": "jest --coverage",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
@@ -24,5 +26,12 @@
     "next-i18next": "8.0.0-beta.4",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/react": "^6.1.21",
+    "storybook-addon-next-router": "^2.0.4"
   }
 }

@@ -1,0 +1,6 @@
+html,
+body,
+#root {
+  /* set base font-size for rem's */
+  font-size: 18px;
+}
