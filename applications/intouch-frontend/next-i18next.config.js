@@ -1,9 +1,19 @@
 "use strict";
 
-const path = require("path");
-
 module.exports = {
-  defaultLocale: "en",
-  locales: ["en", "de"],
-  localePath: path.resolve("./public/static/locales")
+  i18n: {
+    localeDetection: false,
+    locales: ["en", "de"],
+    defaultLocale: "en",
+    domains: [
+      {
+        domain: "localhost",
+        defaultLocale: "en"
+      },
+      {
+        domain: "bmitest.local",
+        defaultLocale: "de"
+      }
+    ]
+  }
 };
