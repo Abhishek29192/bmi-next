@@ -74,7 +74,9 @@ export default function MenuListComposition() {
             <div className={styles.avatar}>
               <Icon source={Person} style={{ width: 20, color: "#eeeeee" }} />
             </div>
-            <div className={styles.userName}>{user.nickname}</div>
+            <div className={styles.userName}>
+              {user ? user.nickname : "User Name"}
+            </div>
             <Icon source={KeyboardArrowDown} color="action" />
           </div>
         </Button>
