@@ -1,10 +1,10 @@
 import React from "react";
 import Typography from "@bmi/typography";
 
-interface Props {
+type Props = {
   title: string;
   children: React.ReactNode | React.ReactNode[];
-}
+};
 
 const InfoPair = ({ title, children }: Props) => (
   <div style={{ marginBottom: "2rem" }}>

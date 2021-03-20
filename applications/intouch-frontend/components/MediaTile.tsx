@@ -2,9 +2,9 @@ import React from "react";
 import TouchRipple from "@material-ui/core/ButtonBase/TouchRipple";
 import styles from "./styles/MediaTile.module.scss";
 
-interface Props {
+type Props = {
   children: React.ReactNode | React.ReactNode[];
-}
+};
 
 const MediaTile = ({ children }: Props) => (
   <div>
