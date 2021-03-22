@@ -39,12 +39,13 @@ const getSize = (
     height: height * videoRatio
   };
 };
-
 const sharedOptions = {
   modestbranding: 1,
   cc: 0,
   fs: 0,
-  rel: 0
+  rel: 0,
+  disablekb: 1,
+  enablejsapi: 1
 };
 const playerStyle: CSSProperties = {
   position: "relative",
@@ -64,8 +65,6 @@ const DialogVideo = ({
   const [isDialogOpen, setDialogOpen] = useState(false);
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
   const [ref, dimensions] = useDimensions();
-  const { width, height } = getSize(embedWidth, embedHeight, dimensions);
-
   return (
     <div
       className={classnames(styles["YoutubeVideo"], className)}
@@ -90,12 +89,12 @@ const DialogVideo = ({
       >
         <Dialog.Title>{null}</Dialog.Title>
         <Dialog.Content className={styles["dialog-content"]}>
-          <div ref={ref}>
+          <div ref={ref} style={{ height: "100%" }}>
             {dimensions.width && (
               <ReactPlayer
                 url={videoUrl}
                 width="100%"
-                height={(dimensions.width * height) / width}
+                height={"100%"}
                 controls
                 playing
                 config={{

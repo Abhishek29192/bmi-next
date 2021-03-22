@@ -37,6 +37,7 @@
 }
 
 .PlayerDialog {
+  height: calc(100vh - 20px);
   .dialog-content {
     padding-left: 16px;
     padding-right: 16px;
