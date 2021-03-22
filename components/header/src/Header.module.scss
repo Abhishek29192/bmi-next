@@ -1,5 +1,16 @@
 @import "@bmi/styles";
 
+// Responsive sizes
+$logo-width: 60px;
+$logo-width-lg: 80px;
+$logo-margin: 10px;
+$button-padding-sides: 12px;
+$button-padding-left-lg: 14px;
+$button-padding-right-lg: 8px;
+$chevron-width: 16px;
+$chevron-width-lg: 24px;
+$chevron-margin-left-lg: 3px;
+
 .MenuIsOpen {
   // This class is attached to the `body`
   overflow: hidden;
@@ -34,49 +45,25 @@
   }
 
   .logo {
-    margin: 10px 10px 10px 0;
+    margin: $logo-margin $logo-margin $logo-margin 0;
     width: 50px;
     height: 50px;
-
-    @media (min-width: $breakpoint-header-sm) {
-      width: 60px;
-      height: 60px;
-    }
-
-    @media (min-width: $breakpoint-header-md) {
-      width: 80px;
-      height: 80px;
-    }
   }
 
   .navigation {
     display: none;
-
-    @media (min-width: $breakpoint-header-sm) {
-      display: block;
-    }
 
     .nav-item {
       background-clip: padding-box;
       border: 1px solid transparent;
       border-radius: 3px 3px 0 0;
       min-width: auto;
+      padding: 6px $button-padding-sides;
       transition: color $transition-timing, background-color $transition-timing,
         box-shadow $transition-timing, border $transition-timing;
       color: $color-slate;
       font-size: 16px;
       opacity: 1;
-
-      @media (min-width: $breakpoint-header-md) {
-        font-size: 16px;
-        padding-bottom: 32px;
-        padding-top: 31px;
-      }
-
-      @media (min-width: $breakpoint-header-lg) {
-        font-size: 18px;
-        padding: 30px 8px 30px 14px;
-      }
 
       &:hover {
         background-color: $color-pearl;
@@ -91,22 +78,12 @@
       :global {
         .MuiTab-wrapper {
           flex-direction: column-reverse;
-
-          @media (min-width: $breakpoint-header-md) {
-            flex-direction: row-reverse;
-          }
         }
 
         .MuiSvgIcon-root {
           margin-bottom: 0;
-          height: 16px;
-          width: 16px;
-
-          @media (min-width: $breakpoint-header-lg) {
-            margin-left: 3px;
-            height: 24px;
-            width: 24px;
-          }
+          height: $chevron-width;
+          width: $chevron-width;
         }
       }
 
@@ -125,10 +102,6 @@
   .search-button {
     color: $color-cyan-500;
 
-    @media (min-width: $breakpoint-header-sm) {
-      color: $color-white;
-    }
-
     // This breakpoint is not custom to this component
     @media (min-width: $breakpoint-lg) {
       &--isOnSearchPage {
@@ -140,10 +113,6 @@
   .burger-button {
     color: $color-cyan-500;
     margin-left: 10px;
-
-    @media (min-width: $breakpoint-header-sm) {
-      display: none;
-    }
   }
 
   .close-button {
@@ -163,10 +132,6 @@
 
   .backdrop {
     z-index: 12;
-
-    @media (min-width: $breakpoint-header-sm) {
-      z-index: 11;
-    }
   }
 
   .drawer {
@@ -178,27 +143,10 @@
     top: 0;
     width: 315px;
     z-index: 13;
-
-    @media (min-width: $breakpoint-header-sm) {
-      height: auto;
-      top: auto;
-      z-index: 11;
-    }
   }
 
   .nav-drawer {
     overflow: hidden;
-
-    @media (min-width: $breakpoint-header-sm) {
-      left: 0;
-      height: calc(100vh - 132px); // Header height md
-      width: 100%;
-      position: absolute;
-    }
-
-    @media (min-width: $breakpoint-header-md) {
-      height: calc(100vh - 160px); // Header height lg
-    }
   }
 
   .search-drawer-container {
@@ -213,21 +161,11 @@
     &--hidden {
       display: none;
     }
-
-    @media (min-width: $breakpoint-header-sm) {
-      top: auto;
-      z-index: 11;
-    }
   }
 
   .search-drawer {
     position: absolute;
     padding: 30px;
-
-    @media (min-width: $breakpoint-header-sm) {
-      right: 20px;
-      width: 566px;
-    }
 
     :global(.MuiTypography-root) {
       margin-bottom: 32px;
@@ -236,17 +174,6 @@
 
   .language-drawer {
     z-index: 14;
-
-    @media (min-width: $breakpoint-header-sm) {
-      left: 0;
-      height: calc(100vh - 52px); // Nav height md
-      width: 100%;
-      position: absolute;
-    }
-
-    @media (min-width: $breakpoint-header-md) {
-      height: calc(100vh - 56px); // Nav height lg
-    }
   }
 
   .utilities-bar {
@@ -261,10 +188,6 @@
     ul {
       display: flex;
       justify-content: flex-end;
-    }
-
-    @media (min-width: $breakpoint-header-sm) {
-      display: block;
     }
 
     .nav-item {
@@ -288,10 +211,6 @@
     .utilities-button {
       font-size: 0.875rem;
       color: $color-charcoal;
-
-      @media (min-width: $breakpoint-header-lg) {
-        font-size: 1rem;
-      }
     }
 
     .language-selection-button {
@@ -328,10 +247,6 @@
     position: relative;
     z-index: 12;
 
-    // &--small {} // Unused
-    // &--medium {}
-    // &--large {}
-
     :global(.MuiContainer-root) {
       display: flex;
       align-items: center;
@@ -354,8 +269,124 @@
     top: 3rem;
     right: 0;
   }
+
+  // Calculated header sizes.
+  &--small {
+    .logo {
+      width: $logo-width;
+      height: $logo-width;
+    }
+
+    .navigation {
+      display: block;
+    }
+
+    .burger-button {
+      display: none;
+    }
+
+    .search-button {
+      color: $color-white;
+    }
+
+    .backdrop {
+      z-index: 11;
+    }
+
+    .drawer {
+      height: auto;
+      top: auto;
+      z-index: 11;
+    }
+
+    .nav-drawer {
+      left: 0;
+      height: calc(100vh - 132px); // Header height md
+      width: 100%;
+      position: absolute;
+    }
+
+    .search-drawer-container {
+      top: auto;
+      z-index: 11;
+    }
+
+    .search-drawer {
+      right: 20px;
+      width: 566px;
+    }
+
+    .language-drawer {
+      left: 0;
+      height: calc(100vh - 52px); // Nav height md
+      width: 100%;
+      position: absolute;
+    }
+
+    .utilities-bar {
+      display: block;
+    }
+  }
+
+  &--medium {
+    .navigation .nav-item {
+      font-size: 16px;
+      padding-bottom: 32px;
+      padding-top: 31px;
+
+      :global {
+        .MuiTab-wrapper {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+
+    .nav-drawer {
+      height: calc(100vh - 160px); // Header height lg
+    }
+
+    .language-drawer {
+      height: calc(100vh - 56px); // Nav height lg
+    }
+  }
+
+  &--large {
+    .logo {
+      width: $logo-width-lg;
+      height: $logo-width-lg;
+    }
+
+    .navigation .nav-item {
+      font-size: 18px;
+      padding: 30px $button-padding-right-lg 30px $button-padding-left-lg;
+
+      :global {
+        .MuiSvgIcon-root {
+          margin-left: $chevron-margin-left-lg;
+          height: $chevron-width-lg;
+          width: $chevron-width-lg;
+        }
+      }
+    }
+
+    .utilities-button {
+      font-size: 1rem;
+    }
+  }
 }
 
 :export {
   breakpoint-sm: 800;
+  char-width-sm: 8px;
+  char-width-md: 8px;
+  char-width-lg: 9px;
+  logo-width-sm: $logo-width + $logo-margin;
+  logo-width-md: $logo-width + $logo-margin;
+  logo-width-lg: $logo-width-lg + $logo-margin;
+  button-spacing-sm: $button-padding-sides * 2;
+  button-spacing-md: $button-padding-sides * 2 + $chevron-width;
+  button-spacing-lg: $button-padding-left-lg + $button-padding-right-lg +
+    $chevron-width-lg + $chevron-margin-left-lg;
+  search-icon-width: 48px;
+  container-padding: 24px * 2;
 }

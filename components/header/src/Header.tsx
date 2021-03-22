@@ -27,6 +27,11 @@ import {
 import classnames from "classnames";
 import React from "react";
 import styles from "./Header.module.scss";
+import {
+  getElementWidths,
+  getSize,
+  HeaderSizes
+} from "./utils/widthCalculations";
 
 type HeaderProps = {
   language?: LanguageSelectionItem;
@@ -81,12 +86,13 @@ const Header = ({
     typeof document !== "undefined"
       ? document.querySelector("body")
       : undefined;
-  const [size, setSize] = React.useState<"small" | "medium" | "large">("small");
+  const [sizes, setSizes] = React.useState<HeaderSizes>([]);
   const [showLanguageSelection, setShowLanguageSelection] = React.useState<
     boolean
   >(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<number | boolean>(false);
+  const elementWidths = getElementWidths(navigation);
 
   const amendClassList = (classValue: string, method: "add" | "remove") => {
     if (!$body) {
@@ -136,11 +142,7 @@ const Header = ({
   };
 
   const handleResize = ({ currentTarget }) => {
-    setSize(
-      currentTarget.innerWidth < parseFloat(styles["breakpoint-sm"])
-        ? "small"
-        : "large"
-    );
+    setSizes(getSize(currentTarget.innerWidth, elementWidths));
   };
 
   React.useEffect(() => {
@@ -157,7 +159,15 @@ const Header = ({
   const query = params.get(QUERY_KEY);
 
   return (
-    <Paper className={styles["Header"]} component="header" elevation={3} square>
+    <Paper
+      className={classnames(
+        styles["Header"],
+        ...sizes.map((size) => styles[`Header--${size}`])
+      )}
+      component="header"
+      elevation={3}
+      square
+    >
       <nav
         aria-label="Utilities"
         className={styles["utilities-bar"]}
@@ -214,7 +224,7 @@ const Header = ({
       </nav>
       {languages && (
         <Slide
-          direction={size === "small" ? "left" : "down"}
+          direction={!sizes.length ? "left" : "down"}
           in={showLanguageSelection}
         >
           <div
@@ -278,7 +288,7 @@ const Header = ({
                 className={classnames(styles["search-button"], {
                   [styles["search-button--is-on-search-page"]]: isOnSearchPage
                 })}
-                variant={size === "small" ? "text" : "contained"}
+                variant={!sizes.length ? "text" : "contained"}
                 isIconButton
                 onClick={toggleSearch}
               >
@@ -302,10 +312,7 @@ const Header = ({
         open={value !== false || showSearch || showLanguageSelection}
         onClick={hideAll}
       />
-      <Slide
-        direction={size === "small" ? "left" : "down"}
-        in={value !== false}
-      >
+      <Slide direction={!sizes.length ? "left" : "down"} in={value !== false}>
         <div className={classnames(styles["drawer"], styles["nav-drawer"])}>
           <Button
             accessibilityLabel={closeLabel}
@@ -327,15 +334,16 @@ const Header = ({
             mainMenuTitleLabel={mainMenuTitleLabel}
             mainMenuDefaultLabel={mainMenuDefaultLabel}
             languageLabel={languageLabel}
+            sizes={sizes}
           />
         </div>
       </Slide>
       {!isSearchDisabled && (
-        <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
+        <Slide direction={!sizes.length ? "left" : "down"} in={showSearch}>
           <div
             className={classnames(styles["search-drawer-container"], {
               [styles["search-drawer-container--hidden"]]:
-                !showSearch && size === "small"
+                !showSearch && !sizes.length
             })}
           >
             <div
