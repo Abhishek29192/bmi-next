@@ -55,9 +55,18 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
     };
     return this.post(`/oauth2/token`, body);
   }
+  async getSSOUrl(path: string = "/learn/mycourses") {
+    return `${this.baseURL}${path};type=oauth2_response;access_token=${this.context.token};expires_in=3600;token_type=Bearer;scope=api`;
+  }
 
-  async getSSOUrl() {
-    return `${this.baseURL}/learn/home;type=oauth2_response;reenter_cc=0;access_token=${this.context.token};expires_in=3600;token_type=Bearer`;
+  async createSSOUrl(username: string, path: string = "/learn/mycourses") {
+    const {
+      access_token,
+      expires_in,
+      token_type,
+      scope
+    } = await this.getTokenByJWTPayload(username);
+    return `${this.baseURL}${path};type=oauth2_response;access_token=${access_token};expires_in=${expires_in};token_type=${token_type};scope=${scope}`;
   }
 
   async getUser(id: Number) {

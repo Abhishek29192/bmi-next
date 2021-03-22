@@ -74,6 +74,10 @@ const resolvers: GraphQLResolverMap = {
     }
   },
   EnrollmentItems: {
+    url: async (_source, _args, { dataSources }: IContext) => {
+      const { url } = _source;
+      return dataSources.doceboApi.getSSOUrl(url);
+    },
     course: async (_source, _args, { dataSources }: IContext) => {
       const { id } = _source;
       return dataSources.doceboApi.getCourse(id);
@@ -93,6 +97,13 @@ const resolvers: GraphQLResolverMap = {
       { dataSources }: IContext
     ) => {
       return dataSources.doceboApi.createGroup(groupCreateInput);
+    },
+    createSSOUrl: async (
+      _source,
+      { username, path },
+      { dataSources }: IContext
+    ) => {
+      return dataSources.doceboApi.createSSOUrl(username, path);
     }
   }
 };

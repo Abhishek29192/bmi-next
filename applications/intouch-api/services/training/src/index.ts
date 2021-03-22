@@ -18,9 +18,8 @@ async function main() {
       };
     },
     context: ({ req }): IContext => {
-      const token = req.headers.authorization || "";
       return {
-        token: token
+        token: req.headers["x-docebo-user-token"] as string
       };
     }
   });

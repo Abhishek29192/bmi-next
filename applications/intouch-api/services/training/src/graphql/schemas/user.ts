@@ -6,6 +6,7 @@ export default gql`
   }
   extend type Mutation {
     createUser(userCreateInput: UserCreateInput): UserCreateResponse
+    createSSOUrl(username: String!, path: String): String
   }
 
   type Branches {
