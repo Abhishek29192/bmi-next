@@ -13,21 +13,28 @@ exports[`CtaCard component renders correctly 1`] = `
     <section
       class="top-box"
     >
-      <h5
-        class="MuiTypography-root heading Typography MuiTypography-h5"
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root"
+        href="#"
+        tabindex="0"
       >
-        Call to Action Card
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        <h5
+          class="MuiTypography-root heading Typography MuiTypography-h5"
         >
-          <path
-            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-          />
-        </svg>
-      </h5>
+          Call to Action Card
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            />
+          </svg>
+        </h5>
+      </a>
     </section>
     <div
       class="image"
