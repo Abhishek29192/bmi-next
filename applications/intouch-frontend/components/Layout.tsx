@@ -3,19 +3,17 @@ import Head from "next/head";
 import Icon from "@bmi/icon";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { BMI } from "@bmi/logo";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-
 import styles from "./styles/Layout.module.scss";
 
-interface Props {
+export type LayoutProps = {
   children: React.ReactNode | React.ReactNode[];
   title: string;
-}
+};
 
-const Layout = ({ children, title }: Props) => {
+const Layout = ({ children, title }: LayoutProps) => {
   return (
     <BmiThemeProvider>
       <div>
@@ -49,11 +47,5 @@ const Layout = ({ children, title }: Props) => {
     </BmiThemeProvider>
   );
 };
-
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ["common"]))
-  }
-});
 
 export default Layout;

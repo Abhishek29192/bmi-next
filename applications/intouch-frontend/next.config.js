@@ -3,23 +3,10 @@
 const path = require("path");
 const { withConfigs, styles } = require("@bmi/webpack");
 const withFonts = require("next-fonts");
+const { i18n } = require("./next-i18next.config");
 
 module.exports = withFonts({
-  i18n: {
-    localeDetection: false,
-    locales: ["en", "de"],
-    defaultLocale: "en",
-    domains: [
-      {
-        domain: "localhost",
-        defaultLocale: "en"
-      },
-      {
-        domain: "bmitest.local",
-        defaultLocale: "de"
-      }
-    ]
-  },
+  i18n,
   webpack: (config, { defaultLoaders, dev, isServer }) => {
     // solution taken from https://github.com/jeantil/next-9-ts-aliases-workspaces/blob/master/packages/web-app/next.config.js
     config.module.rules.push({

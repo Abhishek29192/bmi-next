@@ -10,11 +10,11 @@ import UserMenu from "./UserMenu";
 import NotificationsPanel from "./NotificationsPanel";
 import styles from "./styles/Header.module.scss";
 
-interface Props {
+export type HeaderProps = {
   title: string;
-}
+};
 
-export const Header = ({ title }: Props) => {
+export const Header = ({ title }: HeaderProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const toggle = () => {

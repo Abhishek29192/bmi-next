@@ -1,12 +1,8 @@
 import React from "react";
 import Hero from "@bmi/hero";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Layout from "../components/Layout";
 
 const Homepage = () => {
-  const { t } = useTranslation("common");
-
   return (
     <Layout title="JS Roofers">
       <Hero
@@ -46,11 +42,5 @@ const Homepage = () => {
     </Layout>
   );
 };
-
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ["common", "sidebar", "footer"]))
-  }
-});
 
 export default Homepage;
