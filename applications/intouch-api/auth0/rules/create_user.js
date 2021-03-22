@@ -1,9 +1,16 @@
 async function InternalUserIdRule(user, context, callback) {
   const axios = require("axios");
 
+  const INSTALLER = "installer";
+  const COMPANY_ADMIN = "company_admin";
+
+  const rolesMap = {
+    company_admin: "COMPANY_ADMIN",
+    installer: "INSTALLER"
+  };
+
   const { stats } = context;
   const {
-    namespace,
     gatewayClientId,
     gatewaySecret,
     apiGatewayUrl,
@@ -12,21 +19,16 @@ async function InternalUserIdRule(user, context, callback) {
 
   const count = stats && stats.loginsCount ? stats.loginsCount : 0;
   if (user.app_metadata && count > 1) {
-    context.idToken = {
-      ...context.idToken,
-      [`${namespace}/internal_user_id`]: user.app_metadata.internal_user_id
-    };
-    context.accessToken = {
-      ...context.accessToken,
-      [`${namespace}/internal_user_id`]: user.app_metadata.internal_user_id
-    };
-
     return callback(null, user, context);
   }
 
+  const { user_metadata, email } = user;
+  const { firstname, lastname, type } = user_metadata;
+  const user_role = type === "company" ? COMPANY_ADMIN : INSTALLER;
+
   // to be changed with accountByEmail
   const ACCOUNT_BY_ID = `query {
-    allAccounts(condition: { email: "${user.email}" }) {
+    allAccounts(condition: { email: "${email}" }) {
       nodes {
         id
       }
@@ -35,7 +37,10 @@ async function InternalUserIdRule(user, context, callback) {
 
   const CREATE_ACCOUNT = `mutation {
     createAccount(input: { account: {
-        email: "${user.email}"
+        email: "${email}",
+        firstname: "${firstname}",
+        lastname: "${lastname}",
+        role: ${rolesMap[user_role]}
     } } ) { 
       account { id } 
     }
@@ -70,7 +75,7 @@ async function InternalUserIdRule(user, context, callback) {
 
       return data;
     } catch (error) {
-      callback(error);
+      return callback(error);
     }
   };
 
@@ -90,21 +95,13 @@ async function InternalUserIdRule(user, context, callback) {
 
   user.app_metadata = user.app_metadata || {};
   user.app_metadata.internal_user_id = dbUserId;
+  user.app_metadata.role = user_role;
 
   try {
     await auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
   } catch (error) {
-    callback(error);
+    return callback(error);
   }
-
-  context.idToken = {
-    ...context.idToken,
-    [`${namespace}/internal_user_id`]: dbUserId
-  };
-  context.accessToken = {
-    ...context.accessToken,
-    [`${namespace}/internal_user_id`]: dbUserId
-  };
 
   return callback(null, user, context);
 }
