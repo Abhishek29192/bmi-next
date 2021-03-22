@@ -36,7 +36,8 @@ describe("OverlapCards component", () => {
           resized: {
             src: "link-to-page.png"
           }
-        }
+        },
+        featuredVideo: null
       },
       {
         __typename: "ContentfulSimplePage",
@@ -46,7 +47,8 @@ describe("OverlapCards component", () => {
           resized: {
             src: "link-to-page.png"
           }
-        }
+        },
+        featuredVideo: null
       }
     ];
 
