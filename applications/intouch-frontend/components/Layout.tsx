@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Icon from "@bmi/icon";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { BMI } from "@bmi/logo";
@@ -48,11 +47,5 @@ const Layout = ({ children, title }: LayoutProps) => {
     </BmiThemeProvider>
   );
 };
-
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ["common"]))
-  }
-});
 
 export default Layout;
