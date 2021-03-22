@@ -2,7 +2,7 @@
 
 exports[`Page component renders correctly 1`] = `
 <header
-  class="MuiPaper-root Header MuiPaper-elevation3"
+  class="MuiPaper-root Header Header--small Header--medium Header--large MuiPaper-elevation3"
 >
   <nav
     aria-label="Utilities"
@@ -206,7 +206,7 @@ exports[`Page component renders correctly 1`] = `
       />
     </button>
     <nav
-      class="Navigation"
+      class="Navigation Navigation--small Navigation--medium Navigation--large"
     >
       <div
         class="NavigationList Offset0"
