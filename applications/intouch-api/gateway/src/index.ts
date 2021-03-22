@@ -29,9 +29,11 @@ const { AUTH0_NAMESPACE, PORT = 4000 } = process.env;
         const userUuid = user?.sub?.split("|")?.[1];
         const role = user[`${AUTH0_NAMESPACE}/role`];
         const internalUserId = user[`${AUTH0_NAMESPACE}/internal_user_id`];
+        const docebo_token = user[`${AUTH0_NAMESPACE}/docebo_token`];
 
         return {
           authorization: headers.authorization,
+          "x-docebo-user-token": docebo_token,
           "x-authenticated-user-id": userUuid,
           "x-authenticated-role": role,
           "x-authenticated-internal-user-id": internalUserId

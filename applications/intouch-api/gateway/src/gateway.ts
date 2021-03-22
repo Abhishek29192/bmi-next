@@ -27,6 +27,10 @@ const createGateway = async () => {
           willSendRequest({ request, context }) {
             request.http.headers.set("authorization", context.authorization);
             request.http.headers.set(
+              "x-docebo-user-token",
+              context["x-docebo-user-token"]
+            );
+            request.http.headers.set(
               "x-authenticated-internal-user-id",
               context["x-authenticated-internal-user-id"]
             );
