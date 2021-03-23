@@ -84,17 +84,16 @@ const DialogVideo = ({
         maxWidth={"xl"}
         open={isDialogOpen}
         onCloseClick={() => setDialogOpen(false)}
-        // TODO: Move this style to a variant of the Dialog component.
         className={styles["PlayerDialog"]}
       >
         <Dialog.Title>{null}</Dialog.Title>
         <Dialog.Content className={styles["dialog-content"]}>
-          <div ref={ref} style={{ height: "100%" }}>
+          <div ref={ref} className={styles["video-container"]}>
             {dimensions.width && (
               <ReactPlayer
                 url={videoUrl}
                 width="100%"
-                height={"100%"}
+                height="100%"
                 controls
                 playing
                 config={{
