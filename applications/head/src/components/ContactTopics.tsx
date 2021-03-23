@@ -137,19 +137,7 @@ const ContactTopics = ({ topics }: { topics: Data[] }) => {
   });
 
   return (
-    <ExpandableCard.List
-      items={items}
-      className={styles["ContactTopics"]}
-      cardComponent={(props) => (
-        <GTMCard
-          gtm={{
-            id: "selector-cards2",
-            action: "Selector – Cards"
-          }}
-          {...props}
-        />
-      )}
-    />
+    <ExpandableCard.List items={items} className={styles["ContactTopics"]} />
   );
 };
 
