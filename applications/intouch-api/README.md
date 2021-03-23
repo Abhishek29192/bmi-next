@@ -27,7 +27,6 @@ You will need to pass the Auth0 `access_token` as a Bearer token for each reques
 To get the `access_token`:
 
 - Sign up as a user on InTouch. You can do so from InTouch frontend.
-  - If you are accessing the frontend on localhost, and you get an error on Chrome related to the https certificate try out [this solution](https://stackoverflow.com/questions/58802767/no-proceed-anyway-option-on-neterr-cert-invalid-in-chrome-on-macos/63539455#63539455).
 - Login to InTouch Frontend, or simply refresh the page if already logged in.
 - Open the Chrome Developer Tools. On the network tab, you should see a request for `/oauth/token` to Auth0. Inspect the JSON response, and copy the `access_token` value.
 

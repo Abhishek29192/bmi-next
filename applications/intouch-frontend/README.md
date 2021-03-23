@@ -11,11 +11,15 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 - Create self-signed certificate
   `openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem`
 
-- Move the cert.pem & kjey.pen in the folder `./development-certs`
+- Move the cert.pem & key.pem in the folder `./development-certs`
 
 - run `yarn workspace @bmi/intouch-frontend dev-https` from the monorepo root directory
 
 - visit [https://localhost:3000](https://localhost:3000)
+
+### Problems with self-signed certificate?
+
+If you are accessing the frontend on localhost, and you get an error on Chrome related to the https certificate try out [this solution](https://stackoverflow.com/questions/58802767/no-proceed-anyway-option-on-neterr-cert-invalid-in-chrome-on-macos/63539455#63539455).
 
 ## Workspaces
 
