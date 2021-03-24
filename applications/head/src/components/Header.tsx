@@ -16,7 +16,7 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
   return [
     {
       label: promo.title,
-      image: promo.featuredImage?.resize.src
+      image: promo.featuredMedia?.image?.resize.src
     },
     { label: promo.title, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),

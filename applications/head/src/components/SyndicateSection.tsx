@@ -26,7 +26,7 @@ const SyndicateSection = ({
   const { countryCode, getMicroCopy } = useContext(SiteContext);
 
   const villainsData = villains.map(
-    ({ featuredImage, title, subtitle, ...typePromoData }, index) => {
+    ({ featuredMedia, title, subtitle, ...typePromoData }, index) => {
       return {
         title,
         children: (typePromoData as PromoData).body ? (
@@ -37,7 +37,7 @@ const SyndicateSection = ({
         imageSource: typePromoData.featuredVideo ? (
           <Video data={typePromoData.featuredVideo} />
         ) : (
-          featuredImage?.resize.src
+          featuredMedia?.image?.resize.src
         ),
         cta: getCTA(typePromoData, countryCode, getMicroCopy("page.linkLabel"))
       };

@@ -79,7 +79,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
     title,
     subtitle,
-    featuredImage,
+    featuredMedia,
     content,
     features,
     featuresLink,
@@ -91,7 +91,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const heroProps: HeroItem = {
     title,
     children: subtitle,
-    imageSource: featuredImage?.resize.src
+    imageSource: featuredMedia?.image?.resize.src
   };
   const { countryCode } = data.contentfulSite;
   // TODO: Ignoring gatsby data for now as fetching with ES

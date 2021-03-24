@@ -91,7 +91,7 @@ describe("Sections component", () => {
             tags: null,
             subtitle: null,
             body: null,
-            featuredImage: null,
+            featuredMedia: null,
             cta: null,
             featuredVideo: null
           },
@@ -102,7 +102,7 @@ describe("Sections component", () => {
             tags: null,
             subtitle: null,
             body: null,
-            featuredImage: null,
+            featuredMedia: null,
             cta: null,
             featuredVideo: null
           }
@@ -137,7 +137,7 @@ describe("Sections component", () => {
             subtitle: "promo subtitle",
             body: null,
             tags: null,
-            featuredImage: null,
+            featuredMedia: null,
             featuredVideo: null,
             cta: {
               __typename: "ContentfulLink",
@@ -174,9 +174,15 @@ describe("Sections component", () => {
             title: "page title",
             brandLogo: null,
             subtitle: "page subtitle",
-            featuredImage: {
-              resized: {
-                src: "//image-url"
+            featuredMedia: {
+              type: null,
+              altText: "Lorem ipsum",
+              caption: null,
+              focalPoint: null,
+              image: {
+                resize: {
+                  src: "//image-url"
+                }
               }
             },
             featuredVideo: null
@@ -190,7 +196,7 @@ describe("Sections component", () => {
         body: null,
         brandLogo: null,
         tags: null,
-        featuredImage: null,
+        featuredMedia: null,
         cta: null,
         featuredVideo: null
       },

@@ -20,10 +20,10 @@ const ErrorFallback = ({
       linkedPage: undefined,
       url: undefined
     },
-    featuredImage = null
+    featuredMedia = null
   } = promo || {};
   return (
-    <PromoSection title={title} imageSource={featuredImage?.resize.src}>
+    <PromoSection title={title} imageSource={featuredMedia?.image?.resize.src}>
       <Typography variant="body2" gutterBottom>
         {subtitle}
       </Typography>

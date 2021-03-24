@@ -37,13 +37,13 @@ const parseSlides = (
   linkLabel: string
 ): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
   return slides.map((slide) => {
-    const { title, subtitle, brandLogo, featuredImage, ...rest } = slide;
+    const { title, subtitle, brandLogo, featuredMedia, ...rest } = slide;
     const cta = getCTA(rest, countryCode, linkLabel);
 
     return {
       title,
       brandIcon: brandLogo && iconMap[brandLogo],
-      imageSource: featuredImage ? featuredImage.resize.src : null,
+      imageSource: featuredMedia?.image?.resize.src,
       description: subtitle || undefined,
       cta
     };

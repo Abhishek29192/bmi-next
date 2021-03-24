@@ -39,14 +39,14 @@ const getHeroItemsWithContext = (
   slides: BrandLandingPageData["slides"]
 ): HeroItem[] => {
   return slides.map(
-    ({ title, subtitle, featuredImage, featuredVideo, ...rest }) => {
+    ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       return {
         title,
         children: subtitle,
         imageSource: featuredVideo ? (
           <Video data={featuredVideo} />
         ) : (
-          featuredImage?.resize.src
+          featuredMedia?.image?.resize.src
         ),
         CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
       };
@@ -59,7 +59,7 @@ const BrandLandingPage = ({ data }: Props) => {
     title,
     description,
     brandLogo,
-    featuredImage,
+    featuredMedia,
     slides,
     overlapCards,
     sections,
@@ -86,7 +86,7 @@ const BrandLandingPage = ({ data }: Props) => {
             imageSource: featuredVideo ? (
               <Video data={featuredVideo} />
             ) : (
-              featuredImage?.resize.src
+              featuredMedia?.image?.resize.src
             ),
             hasUnderline: false
           };

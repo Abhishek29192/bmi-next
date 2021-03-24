@@ -38,14 +38,14 @@ const getHeroItemsWithContext = (
   slides: HomepageData["slides"]
 ): HeroItem[] => {
   return slides.map(
-    ({ title, subtitle, featuredImage, featuredVideo, ...rest }) => {
+    ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
       return {
         title,
         children: subtitle,
         imageSource: featuredVideo ? (
           <Video data={featuredVideo} />
         ) : (
-          featuredImage?.resize.src
+          featuredMedia?.image?.resize.src
         ),
         CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
       };

@@ -20,18 +20,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { VisualiserContext } from "./Visualiser";
 
-type FeaturedImage = {
-  resized: {
-    src: string;
-  };
-};
-
-type Card = (
-  | Omit<PageInfoData, "featuredImage">
-  | Omit<PromoData, "featuredImage">
-) & { id: string } & {
-  featuredImage: FeaturedImage;
-};
+type Card = (PageInfoData | PromoData) & { id: string };
 
 export type Data = {
   __typename: "ContentfulCardCollectionSection";
@@ -59,7 +48,7 @@ const CardCollectionItem = ({
     title,
     subtitle,
     link,
-    featuredImage,
+    featuredMedia,
     brandLogo,
     featuredVideo
   } = transformCard(card);
@@ -79,7 +68,7 @@ const CardCollectionItem = ({
           featuredVideo ? (
             <Video data={featuredVideo} />
           ) : (
-            featuredImage?.resized.src
+            featuredMedia?.image?.resize.src
           )
         ) : undefined
       }
@@ -121,7 +110,7 @@ const CardCollectionItem = ({
 const transformCard = ({
   title,
   subtitle,
-  featuredImage,
+  featuredMedia,
   brandLogo,
   featuredVideo,
   ...rest
@@ -129,7 +118,7 @@ const transformCard = ({
   title: Card["title"];
   subtitle: Card["subtitle"];
   link: LinkData | null;
-  featuredImage: Card["featuredImage"];
+  featuredMedia: Card["featuredMedia"];
   brandLogo: Card["brandLogo"];
   featuredVideo: Card["featuredVideo"];
 } => {
@@ -145,7 +134,7 @@ const transformCard = ({
     };
   }
 
-  return { title, subtitle, link, featuredImage, brandLogo, featuredVideo };
+  return { title, subtitle, link, featuredMedia, brandLogo, featuredVideo };
 };
 
 const moveRestKeyLast = (arr) => {
@@ -317,11 +306,7 @@ export const query = graphql`
           title
           type
         }
-        featuredImage {
-          resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
-            src
-          }
-        }
+        # TODO: This is useless as it's coming from Promo and PageInfo fragments
         featuredVideo {
           ...VideoFragment
         }
@@ -332,11 +317,7 @@ export const query = graphql`
           title
           type
         }
-        featuredImage {
-          resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
-            src
-          }
-        }
+        # TODO: This is useless as it's coming from Promo and PageInfo fragments
         featuredVideo {
           ...VideoFragment
         }

@@ -25,7 +25,7 @@ const FourOFour = ({ data }: { data: Data }) => {
       linkedPage: undefined,
       url: undefined
     },
-    featuredImage = null
+    featuredMedia = null
   } = errorFourOFour || {};
 
   return (
@@ -34,7 +34,7 @@ const FourOFour = ({ data }: { data: Data }) => {
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={siteData}
     >
-      <PromoSection title={title} imageSource={featuredImage?.file.url}>
+      <PromoSection title={title} imageSource={featuredMedia?.image?.file.url}>
         <Typography variant="body2" gutterBottom>
           {subtitle}
         </Typography>

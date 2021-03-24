@@ -58,7 +58,7 @@ const SimplePage = ({ data }: Props) => {
   const {
     title,
     subtitle,
-    featuredImage,
+    featuredMedia,
     leadBlock,
     shareWidget,
     sections,
@@ -77,7 +77,7 @@ const SimplePage = ({ data }: Props) => {
     imageSource: featuredVideo ? (
       <Video data={featuredVideo} />
     ) : (
-      featuredImage?.resize.src
+      featuredMedia?.image?.resize.src
     )
   };
   let heroLevel;

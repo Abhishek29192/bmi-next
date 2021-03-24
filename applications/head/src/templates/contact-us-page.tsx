@@ -41,7 +41,7 @@ const ContactUsPage = ({ data }: Props) => {
   const {
     title,
     subtitle,
-    featuredImage,
+    featuredMedia,
     queriesTitle,
     queriesSubtitle,
     otherAreasTitle,
@@ -60,7 +60,7 @@ const ContactUsPage = ({ data }: Props) => {
     imageSource: featuredVideo ? (
       <Video data={featuredVideo} />
     ) : (
-      featuredImage?.resize.src
+      featuredMedia?.image?.resize.src
     )
   };
   const pageData: PageData = {

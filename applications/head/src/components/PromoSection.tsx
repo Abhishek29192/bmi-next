@@ -17,7 +17,7 @@ export type Data = PromoData;
 const IntegratedPromoSection = ({ data }: { data: Data }) => {
   const { countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
-  const { title, subtitle, body, featuredImage, cta, featuredVideo } = data;
+  const { title, subtitle, body, featuredMedia, cta, featuredVideo } = data;
 
   const GTMButton = withGTM<
     ButtonProps & {
@@ -32,7 +32,7 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
         featuredVideo ? (
           <Video data={featuredVideo} />
         ) : (
-          featuredImage?.resize.src
+          featuredMedia?.image?.resize.src
         )
       }
       className={styles["PromoSection"]}
