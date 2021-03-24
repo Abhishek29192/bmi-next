@@ -23,8 +23,8 @@ module.exports.up = (migration) => {
     .linkType("Entry");
 
   partnerBrand
-    .createField("desciption")
-    .name("Desciption")
+    .createField("description")
+    .name("Description")
     .type("RichText")
     .required(true)
     .validations([{ nodes: {} }]);
@@ -37,7 +37,7 @@ module.exports.up = (migration) => {
 
   partnerBrand.changeFieldControl("name", "builtin", "singleLine");
   partnerBrand.changeFieldControl("image", "builtin", "entryLinkEditor");
-  partnerBrand.changeFieldControl("desciption", "builtin", "richTextEditor", {
+  partnerBrand.changeFieldControl("description", "builtin", "richTextEditor", {
     helpText:
       "A long description of the Partner that appears in the Partner Brands page. Note that there is one Partner Brands page per market. The Partner Brands carousel links to the Partner Brands page."
   });
