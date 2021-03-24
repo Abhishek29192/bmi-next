@@ -77,7 +77,13 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
               key={`${level}-${label}`}
             >
               <AnchorLink
-                action={getClickableActionFromUrl(linkedPage, url, countryCode)}
+                action={getClickableActionFromUrl(
+                  linkedPage,
+                  url,
+                  countryCode,
+                  null,
+                  label
+                )}
               >
                 {label}
               </AnchorLink>

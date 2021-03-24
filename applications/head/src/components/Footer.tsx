@@ -35,7 +35,13 @@ const parseNavigation = (
       label,
       icon: iconName ? iconMap[iconName] : undefined,
       isLabelHidden,
-      action: getClickableActionFromUrl(linkedPage, url, countryCode)
+      action: getClickableActionFromUrl(
+        linkedPage,
+        url,
+        countryCode,
+        null,
+        label
+      )
     };
   });
 };
@@ -53,13 +59,18 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
     ...secondary,
     {
       label: getMicroCopy("global.sitemap"),
-      action: getClickableActionFromUrl({ path: "sitemap" }, null, countryCode)
+      action: getClickableActionFromUrl(
+        { path: "sitemap" },
+        null,
+        countryCode,
+        null,
+        getMicroCopy("global.sitemap")
+      )
     }
   ];
 
   const GTMButton = withGTM<ButtonProps>(Button, {
-    label: "accessibilityLabel",
-    action: "action"
+    label: "children"
   });
 
   return (

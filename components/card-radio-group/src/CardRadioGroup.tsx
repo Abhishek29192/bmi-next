@@ -1,7 +1,5 @@
-import React, { useMemo, useState } from "react";
-import CardRadioButton, {
-  Props as CardRadioButtonProps
-} from "@bmi/card-radio-button";
+import React, { useEffect, useMemo, useState } from "react";
+import CardInput, { Props as CardInputProps } from "@bmi/card-input";
 import { withFormControl } from "@bmi/form";
 import classnames from "classnames";
 import Grid from "@bmi/grid";
@@ -13,21 +11,21 @@ export type Props = {
   children: React.ReactNode;
   defaultValue?: string;
   onChange?: (value: string) => void;
+  clean?: boolean;
 };
 
 const isRadioItemElement = (
   element: React.ReactNode
-): element is React.ReactElement<
-  CardRadioButtonProps,
-  typeof CardRadioButton
-> => React.isValidElement(element) && element.type === CardRadioButton;
+): element is React.ReactElement<CardInputProps, typeof CardInput> =>
+  React.isValidElement(element) && element.type === CardInput;
 
 const CardRadioGroup = ({
   name,
   className,
   defaultValue,
   onChange,
-  children
+  children,
+  clean
 }: Props) => {
   const [selected, setSelected] = useState(defaultValue);
   const items = useMemo(
@@ -63,6 +61,10 @@ const CardRadioGroup = ({
     [children, name, selected, onChange]
   );
 
+  useEffect(() => {
+    setSelected(defaultValue);
+  }, [clean]);
+
   return (
     <div className={classnames(styles["CardRadioGroup"], className)}>
       <Grid container spacing={2}>
@@ -76,7 +78,7 @@ const CardRadioGroupFormControl = Object.defineProperty(
   withFormControl<Props>(CardRadioGroup),
   "Item",
   {
-    value: CardRadioButton,
+    value: CardInput,
     writable: false
   }
 );

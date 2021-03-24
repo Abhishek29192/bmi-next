@@ -4,6 +4,8 @@ import ProductOverviewPane, {
   Props as ProductOverviewProps
 } from "@bmi/product-overview-pane";
 import ImageGallery, { Image } from "@bmi/image-gallery";
+import Thumbnail, { Props as ThumbnailProps } from "@bmi/thumbnail";
+import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/ProductOverview.module.scss";
 import { iconMap } from "./Icon";
 import { SiteContext } from "./Site";
@@ -24,6 +26,12 @@ const ProductOverview = ({
   children?: React.ReactNode;
 }) => {
   const { getMicroCopy } = useContext(SiteContext);
+
+  const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
+    action: "imageSource",
+    label: "altText"
+  });
+
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
@@ -35,6 +43,9 @@ const ProductOverview = ({
             brandLogo={iconMap[brandName]}
             name={name}
             nobb={nobb}
+            thumbnailComponent={(props: ThumbnailProps) => (
+              <GTMThumbnail gtm={{ id: "thumbnail1" }} {...props} />
+            )}
             nobbLabel={getMicroCopy("pdp.nobb.label")}
             attributes={attributes || undefined}
           >

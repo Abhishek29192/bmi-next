@@ -25,6 +25,7 @@ import LinkColumnsSection, {
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
+import Video from "../components/Video";
 
 type Data = PageInfoData &
   PageData & {
@@ -66,12 +67,18 @@ const SimplePage = ({ data }: Props) => {
     linkColumns,
     heroType,
     breadcrumbs,
-    seo
+    seo,
+    featuredVideo
   } = data.contentfulSimplePage;
+
   const heroProps: HeroItem = {
     title,
     children: subtitle,
-    imageSource: featuredImage?.resize.src
+    imageSource: featuredVideo ? (
+      <Video data={featuredVideo} />
+    ) : (
+      featuredImage?.resize.src
+    )
   };
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {

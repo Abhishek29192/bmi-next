@@ -18,7 +18,7 @@ import styles from "./Villain.module.scss";
 export type Props = {
   children: React.ReactNode;
   title: React.ReactNode;
-  imageSource?: string;
+  imageSource?: string | React.ReactNode;
   isFullWidth?: boolean;
   isReversed?: boolean;
   cta?: {
@@ -67,9 +67,15 @@ const FullSizeVillain = ({
         </div>
       </Container>
       <div
-        style={{ backgroundImage: `url(${imageSource})` }}
+        style={
+          typeof imageSource === "string"
+            ? { backgroundImage: `url(${imageSource})` }
+            : {}
+        }
         className={styles["image"]}
-      />
+      >
+        {typeof imageSource !== "string" && imageSource}
+      </div>
     </ColorPair>
   );
 };
@@ -129,9 +135,17 @@ const ContainedVillain = ({
           </Grid>
           <Grid item xs={12} sm={8}>
             <div
-              style={{ backgroundImage: `url(${imageSource})` }}
+              style={
+                typeof imageSource === "string"
+                  ? { backgroundImage: `url(${imageSource})` }
+                  : {}
+              }
               className={styles["image"]}
-            />
+            >
+              {typeof imageSource !== "string" &&
+                React.isValidElement(imageSource) &&
+                React.cloneElement(imageSource)}
+            </div>
           </Grid>
         </Grid>
       </ThemeProvider>

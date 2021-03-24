@@ -36,7 +36,7 @@ export const query = graphql`
       ...AssetTypeFragment
     }
     image {
-      resize(height: 180) {
+      resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
         src
       }
     }

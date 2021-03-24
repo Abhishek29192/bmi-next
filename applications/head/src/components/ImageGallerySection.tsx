@@ -1,9 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 import ImageGallery, { Image } from "@bmi/image-gallery";
+import Thumbnail, { Props as ThumbnailProps } from "@bmi/thumbnail";
 import Typography from "@bmi/typography";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
+import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/ImageGallerySection.module.scss";
 
 type GallerySectionImage = {
@@ -34,6 +36,11 @@ export const transformImagesSrc = (images: GallerySectionImage[]): Image[] => {
 const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
   const { title, description, images } = data;
 
+  const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
+    label: "altText",
+    action: "imageSource"
+  });
+
   return (
     <Section
       backgroundColor="alabaster"
@@ -54,6 +61,9 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
           <ImageGallery
             images={transformImagesSrc(images)}
             imageSize="cover"
+            thumbnailComponent={(props: ThumbnailProps) => (
+              <GTMThumbnail gtm={{ id: "image-gallery1" }} {...props} />
+            )}
           ></ImageGallery>
         </Grid>
       </Grid>

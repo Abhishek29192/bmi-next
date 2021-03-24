@@ -12,9 +12,10 @@
 
 .Header {
   $transition-timing: 280ms cubic-bezier(0.4, 0, 0.2, 1);
-  // Breakpoint overrides
-  $breakpoint-sm: 800px;
-  $breakpoint-md: 1080px;
+  // Header specific breakpoints
+  $breakpoint-header-sm: 800px;
+  $breakpoint-header-md: 1080px;
+  $breakpoint-header-lg: 1200px;
 
   position: sticky;
   top: 0;
@@ -37,12 +38,12 @@
     width: 50px;
     height: 50px;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       width: 60px;
       height: 60px;
     }
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-header-md) {
       width: 80px;
       height: 80px;
     }
@@ -51,11 +52,12 @@
   .Navigation {
     display: none;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       display: block;
     }
 
     .NavItem {
+      background-clip: padding-box;
       border: 1px solid transparent;
       border-radius: 3px 3px 0 0;
       min-width: auto;
@@ -65,13 +67,13 @@
       font-size: 16px;
       opacity: 1;
 
-      @media (min-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-header-md) {
         font-size: 16px;
         padding-bottom: 32px;
         padding-top: 31px;
       }
 
-      @media (min-width: 1200px) {
+      @media (min-width: $breakpoint-header-lg) {
         font-size: 18px;
         padding: 30px 8px 30px 14px;
       }
@@ -90,7 +92,7 @@
         .MuiTab-wrapper {
           flex-direction: column-reverse;
 
-          @media (min-width: $breakpoint-md) {
+          @media (min-width: $breakpoint-header-md) {
             flex-direction: row-reverse;
           }
         }
@@ -100,7 +102,7 @@
           height: 16px;
           width: 16px;
 
-          @media (min-width: 1200px) {
+          @media (min-width: $breakpoint-header-lg) {
             margin-left: 3px;
             height: 24px;
             width: 24px;
@@ -123,7 +125,7 @@
   .SearchButton {
     color: $color-cyan-500;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       color: $color-white;
     }
 
@@ -139,7 +141,7 @@
     color: $color-cyan-500;
     margin-left: 10px;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       display: none;
     }
   }
@@ -162,7 +164,7 @@
   .Backdrop {
     z-index: 12;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       z-index: 11;
     }
   }
@@ -177,7 +179,7 @@
     width: 315px;
     z-index: 13;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       height: auto;
       top: auto;
       z-index: 11;
@@ -187,14 +189,14 @@
   .NavDrawer {
     overflow: hidden;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       left: 0;
       height: calc(100vh - 132px); // Header height md
       width: 100%;
       position: absolute;
     }
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-header-md) {
       height: calc(100vh - 160px); // Header height lg
     }
   }
@@ -212,7 +214,7 @@
       display: none;
     }
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       top: auto;
       z-index: 11;
     }
@@ -222,7 +224,7 @@
     position: absolute;
     padding: 30px;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       right: 20px;
       width: 566px;
     }
@@ -235,14 +237,14 @@
   .LanguageDrawer {
     z-index: 14;
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       left: 0;
       height: calc(100vh - 52px); // Nav height md
       width: 100%;
       position: absolute;
     }
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-header-md) {
       height: calc(100vh - 56px); // Nav height lg
     }
   }
@@ -261,7 +263,7 @@
       justify-content: flex-end;
     }
 
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-header-sm) {
       display: block;
     }
 
@@ -287,7 +289,7 @@
       font-size: 0.875rem;
       color: $color-charcoal;
 
-      @media (min-width: $breakpoint-md) {
+      @media (min-width: $breakpoint-header-lg) {
         font-size: 1rem;
       }
     }
@@ -339,6 +341,7 @@
     &__Left {
       display: flex;
       align-items: flex-end;
+      margin-bottom: -1px;
     }
 
     &__Right {

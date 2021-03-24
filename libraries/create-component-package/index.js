@@ -40,6 +40,7 @@ const packageContent = `{
   "name": "@bmi/${wsName}",
   "private": true,
   "version": "0.0.0",
+  "license": "BMI-DXB",
   "src": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -72,8 +73,8 @@ export default ${componentName};
 `;
 
 const testContent = `import React from "react";
-import ${componentName} from "../";
 import { render } from "@testing-library/react";
+import ${componentName} from "../";
 
 describe("${componentName} component", () => {
   it("renders correctly", () => {

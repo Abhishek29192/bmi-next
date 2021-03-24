@@ -11,7 +11,9 @@ const {
 } = require("./ContentfulPage");
 const ContentfulHomePage = require("./ContentfulHomePage");
 const ContentfulServiceLocatorSection = require("./ContentfulServiceLocatorSection");
+const ContentfulVideo = require("./ContentfulVideo");
 const Products = require("./Products");
+const ContentfulLink = require("./ContentfulLink");
 const Query = require("./Query");
 
 module.exports = {
@@ -26,6 +28,8 @@ module.exports = {
   ContentfulBrandLandingPage,
   ContentfulServiceLocatorSection,
   ContentfulHomePage,
+  ContentfulVideo,
   Products,
+  ContentfulLink,
   Query
 };

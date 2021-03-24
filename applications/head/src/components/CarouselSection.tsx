@@ -14,6 +14,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { LinkData, getCTA, getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
+import { VisualiserContext } from "./Visualiser";
 import styles from "./styles/CarouselSection.module.scss";
 
 type Slide = PromoData | PageInfoData;
@@ -51,6 +52,7 @@ const CarouselSection = ({
   data: Data;
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
+  const { open } = useContext(VisualiserContext);
 
   return (
     <Section
@@ -80,7 +82,13 @@ const CarouselSection = ({
           action={getClickableActionFromUrl(
             link?.linkedPage,
             link?.url,
-            countryCode
+            countryCode,
+            null,
+            link.label,
+            link?.type,
+            () => {
+              open(link?.parameters);
+            }
           )}
           className={styles["link"]}
           endIcon={<ArrowForwardIcon />}

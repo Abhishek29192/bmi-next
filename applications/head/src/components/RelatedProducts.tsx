@@ -1,12 +1,14 @@
 import React, { useContext, useMemo, useState } from "react";
 import Tabs from "@bmi/tabs";
 import { Link, graphql } from "gatsby";
+import { Tab, TabProps } from "@material-ui/core";
 import { Add as AddIcon } from "@material-ui/icons";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
 import AnchorLink from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "../components/Icon";
 import {
   getProductUrl,
@@ -180,11 +182,27 @@ const RelatedProducts = ({
     return null;
   }
 
+  const GTMTab = withGTM<TabProps>(Tab, {
+    label: "label"
+  });
+
   return (
     <Section backgroundColor="alabaster">
       <Section.Title>{getMicroCopy("pdp.relatedProducts.title")}</Section.Title>
       <div className={styles["RelatedProducts"]}>
-        <Tabs theme="secondary" initialValue={Object.keys(productGroups)[0]}>
+        <Tabs
+          theme="secondary"
+          initialValue={Object.keys(productGroups)[0]}
+          tabComponent={(props: TabProps) => (
+            <GTMTab
+              gtm={{
+                id: "related-products-filter1",
+                action: "Filter – Related Products"
+              }}
+              {...props}
+            />
+          )}
+        >
           {Object.entries(productGroups)
             .filter(([_, products]) =>
               products.some((product) => product.variantOptions)

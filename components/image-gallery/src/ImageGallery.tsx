@@ -8,9 +8,14 @@ import styles from "./ImageGallery.module.scss";
 type Props = {
   images: Image[];
   imageSize?: "cover" | "contain";
+  thumbnailComponent?: React.ComponentType<any>; // TODO
 };
 
-const ImageGallery = ({ images, imageSize = "contain" }: Props) => {
+const ImageGallery = ({
+  images,
+  imageSize = "contain",
+  thumbnailComponent
+}: Props) => {
   if (!images.length) {
     return null;
   }
@@ -39,6 +44,7 @@ const ImageGallery = ({ images, imageSize = "contain" }: Props) => {
       {images.length > 1 && (
         <Thumbnails
           images={images}
+          component={thumbnailComponent}
           activeImageIndex={activeImageIndex}
           onThumbnailClick={setActiveImageIndex}
         />

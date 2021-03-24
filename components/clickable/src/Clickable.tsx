@@ -1,11 +1,15 @@
 import React, { forwardRef, MouseEvent } from "react";
 
+type ClickFunction = (
+  event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
+) => void;
+type Default = { onClick?: ClickFunction };
 type DownloadLink = { href: string; download?: string | boolean };
 type HtmlLink = { href: string; target?: string; rel?: string };
 type RouterLink = { to: string; linkComponent: React.ElementType };
 
 export type ClickableAction =
-  | { model?: "default" }
+  | ({ model?: "default" } & Default)
   | { model: "submit" }
   | { model: "reset" }
   | ({ model: "htmlLink" } & HtmlLink)
@@ -14,7 +18,7 @@ export type ClickableAction =
 
 type Props = {
   className?: string;
-  onClick?: (event: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
+  onClick?: ClickFunction;
   children?: React.ReactNode;
   markupComponent?: React.ElementType<any>;
 } & ClickableAction;
@@ -148,8 +152,8 @@ export const withClickable = <P extends Record<string, any> = {}>(
       <Clickable
         forwardedRef={forwardedRef}
         markupComponent={Component}
-        {...action}
         {...props}
+        {...action}
       >
         {children}
       </Clickable>

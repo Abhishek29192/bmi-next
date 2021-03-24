@@ -5,10 +5,12 @@ import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
 import { uniq, flatten, groupBy, find } from "lodash";
-import Chip from "@bmi/chip";
+import Chip, { Props as ChipProps } from "@bmi/chip";
 import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import withGTM from "../utils/google-tag-manager";
+import Video from "./Video";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
@@ -16,6 +18,7 @@ import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/CardCollectionSection.module.scss";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
+import { VisualiserContext } from "./Visualiser";
 
 type FeaturedImage = {
   resized: {
@@ -51,9 +54,15 @@ const CardCollectionItem = ({
   type: Data["cardType"];
 }) => {
   const { countryCode } = useContext(SiteContext);
-  const { title, subtitle, link, featuredImage, brandLogo } = transformCard(
-    card
-  );
+  const { open } = useContext(VisualiserContext);
+  const {
+    title,
+    subtitle,
+    link,
+    featuredImage,
+    brandLogo,
+    featuredVideo
+  } = transformCard(card);
 
   const transformedCardLabel = label
     ? label.replace(/{{title}}/g, title)
@@ -63,7 +72,13 @@ const CardCollectionItem = ({
       hasTitleUnderline
       title={title}
       imageSource={
-        type !== "Text Card" ? featuredImage?.resized.src : undefined
+        type !== "Text Card" ? (
+          featuredVideo ? (
+            <Video data={featuredVideo} />
+          ) : (
+            featuredImage?.resized.src
+          )
+        ) : undefined
       }
       isFlat={type === "Story Card"}
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
@@ -74,7 +89,13 @@ const CardCollectionItem = ({
             action={getClickableActionFromUrl(
               link.linkedPage,
               link.url,
-              countryCode
+              countryCode,
+              null,
+              transformedCardLabel,
+              link?.type,
+              () => {
+                open(link?.parameters);
+              }
             )}
             startIcon={<ArrowForwardIcon />}
           >
@@ -94,6 +115,7 @@ const transformCard = ({
   subtitle,
   featuredImage,
   brandLogo,
+  featuredVideo,
   ...rest
 }: Card): {
   title: Card["title"];
@@ -101,6 +123,7 @@ const transformCard = ({
   link: LinkData | null;
   featuredImage: Card["featuredImage"];
   brandLogo: Card["brandLogo"];
+  featuredVideo: Card["featuredVideo"];
 } => {
   let link = null;
 
@@ -114,7 +137,7 @@ const transformCard = ({
     };
   }
 
-  return { title, subtitle, link, featuredImage, brandLogo };
+  return { title, subtitle, link, featuredImage, brandLogo, featuredVideo };
 };
 
 const moveRestKeyLast = (arr) => {
@@ -138,6 +161,7 @@ const CardCollectionSection = ({
     groupKeys.length ? { [groupKeys[0]]: true } : {}
   );
   const { getMicroCopy, countryCode } = useContext(SiteContext);
+  const { open } = useContext(VisualiserContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
   const activeCards = uniq(
     flatten(
@@ -148,6 +172,8 @@ const CardCollectionSection = ({
   );
   const iteratableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;
+
+  const GTMChip = withGTM<ChipProps>(Chip);
 
   return (
     <div className={styles["CardCollectionSection"]}>
@@ -163,12 +189,22 @@ const CardCollectionSection = ({
             </Typography>
             <div className={styles["group-chips"]}>
               {groupKeys.map((tagTitle, index) => {
+                const label =
+                  tagTitle === "undefined"
+                    ? getMicroCopy("cardCollection.restLabel")
+                    : tagTitle;
+
                 return (
-                  <Chip
+                  <GTMChip
                     key={`${tagTitle}-${index}`}
                     type="selectable"
                     isSelected={activeGroups[tagTitle]}
                     theme={cardType === "Story Card" ? "pearl" : "white"}
+                    gtm={{
+                      id: "selector-cards1",
+                      label,
+                      action: "Selector – Cards Filter"
+                    }}
                     onClick={() => {
                       setActiveGroups((activeGroups) => ({
                         ...activeGroups,
@@ -176,10 +212,8 @@ const CardCollectionSection = ({
                       }));
                     }}
                   >
-                    {tagTitle === "undefined"
-                      ? getMicroCopy("cardCollection.restLabel")
-                      : tagTitle}
-                  </Chip>
+                    {label}
+                  </GTMChip>
                 );
               })}
             </div>
@@ -232,7 +266,13 @@ const CardCollectionSection = ({
             action={getClickableActionFromUrl(
               link?.linkedPage,
               link?.url,
-              countryCode
+              countryCode,
+              null,
+              link?.label,
+              link?.type,
+              () => {
+                open(link?.parameters);
+              }
             )}
             className={styles["link"]}
             endIcon={<ArrowForwardIcon />}
@@ -270,9 +310,12 @@ export const query = graphql`
           type
         }
         featuredImage {
-          resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+          resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
             src
           }
+        }
+        featuredVideo {
+          ...VideoFragment
         }
       }
       ... on ContentfulPage {
@@ -282,9 +325,12 @@ export const query = graphql`
           type
         }
         featuredImage {
-          resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+          resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
             src
           }
+        }
+        featuredVideo {
+          ...VideoFragment
         }
       }
     }

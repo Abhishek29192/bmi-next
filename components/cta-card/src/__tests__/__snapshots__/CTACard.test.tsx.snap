@@ -1,5 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CtaCard component CtaCard with component as imageSource renders correctly 1`] = `
+<button
+  class="MuiButtonBase-root Card"
+  tabindex="0"
+  type="button"
+>
+  <div
+    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <section
+      class="top-box"
+    >
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root"
+        href="#"
+        tabindex="0"
+      >
+        <h5
+          class="MuiTypography-root heading Typography MuiTypography-h5"
+        >
+          Call to Action Card
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            />
+          </svg>
+        </h5>
+      </a>
+    </section>
+    <div
+      class="image"
+    >
+      <div>
+        I am component
+      </div>
+    </div>
+  </div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
 exports[`CtaCard component renders correctly 1`] = `
 <a
   aria-disabled="false"
@@ -13,21 +62,28 @@ exports[`CtaCard component renders correctly 1`] = `
     <section
       class="top-box"
     >
-      <h5
-        class="MuiTypography-root heading Typography MuiTypography-h5"
+      <a
+        aria-disabled="false"
+        class="MuiButtonBase-root"
+        href="#"
+        tabindex="0"
       >
-        Call to Action Card
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
+        <h5
+          class="MuiTypography-root heading Typography MuiTypography-h5"
         >
-          <path
-            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-          />
-        </svg>
-      </h5>
+          Call to Action Card
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+            />
+          </svg>
+        </h5>
+      </a>
     </section>
     <div
       class="image"

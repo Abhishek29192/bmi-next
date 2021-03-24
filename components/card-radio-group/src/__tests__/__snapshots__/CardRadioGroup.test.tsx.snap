@@ -19,7 +19,7 @@ exports[`CardRadioGroup component renders correctly 1`] = `
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
     >
       <div
-        class="CardRadioButton item"
+        class="CardInput item"
       >
         <label>
           <input
@@ -63,7 +63,7 @@ exports[`CardRadioGroup component renders correctly 1`] = `
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
     >
       <div
-        class="CardRadioButton item"
+        class="CardInput item"
       >
         <label>
           <input
@@ -118,7 +118,7 @@ exports[`CardRadioGroup component renders with initial value 1`] = `
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
     >
       <div
-        class="CardRadioButton item"
+        class="CardInput item"
       >
         <label>
           <input
@@ -163,7 +163,7 @@ exports[`CardRadioGroup component renders with initial value 1`] = `
       class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
     >
       <div
-        class="CardRadioButton item"
+        class="CardInput item"
       >
         <label>
           <input

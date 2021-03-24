@@ -341,10 +341,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
           return (
             <DownloadList
               maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
-              useRecaptcha={format !== "cards"}
-              reCaptchaKey={scriptGRecaptchaId}
-              useRecaptchaNet={scriptGRecaptchaNet}
-              language={node_locale}
             >
               <DownloadListContext.Consumer>
                 {({ count }) => {

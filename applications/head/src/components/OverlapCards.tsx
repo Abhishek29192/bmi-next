@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import Container from "@bmi/container";
+import Video, { Data as VideoData } from "../components/Video";
 import styles from "./styles/OverlapCards.module.scss";
 import { Data as PromoData } from "./Promo";
 import { Data as PageInfoData } from "./PageInfo";
@@ -18,6 +19,7 @@ type Card = (
       src: string;
     };
   } | null;
+  featuredVideo: VideoData | null;
 };
 
 // NOTE: Minimum two cards required.
@@ -30,14 +32,19 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
     <div className={styles["OverlapCards"]}>
       <Container>
         <Grid spacing={3} container justify="center">
-          {data.map(({ title, featuredImage, ...rest }, key) => {
+          {data.map(({ title, featuredImage, featuredVideo, ...rest }, key) => {
             const { action } = getCTA(rest, countryCode);
-
             return (
               <Grid item key={key} xs={12} sm={6} md={5} lg={3}>
                 <CTACard
                   title={title}
-                  imageSource={featuredImage?.resized?.src}
+                  imageSource={
+                    featuredVideo ? (
+                      <Video data={featuredVideo} />
+                    ) : (
+                      featuredImage?.resized?.src
+                    )
+                  }
                   action={action}
                 />
               </Grid>
@@ -56,18 +63,24 @@ export const query = graphql`
     ... on ContentfulPromo {
       ...PromoFragment
       featuredImage {
-        resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+        resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
           src
         }
+      }
+      featuredVideo {
+        ...VideoFragment
       }
     }
     ... on ContentfulPage {
       title
       path
       featuredImage {
-        resized: resize(width: 350, toFormat: WEBP, jpegProgressive: false) {
+        resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
           src
         }
+      }
+      featuredVideo {
+        ...VideoFragment
       }
     }
   }

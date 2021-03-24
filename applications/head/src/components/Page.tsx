@@ -15,6 +15,7 @@ import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
 import { Data as SEOContentData } from "./SEOContent";
+import VisualiserProvider from "./Visualiser";
 import styles from "./styles/Page.module.scss";
 
 export type Data = {
@@ -60,6 +61,12 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
         title={seo?.metaTitle || title}
         defer={false}
       >
+        {/* NOTE: expand viewport beyond safe area */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+
         {seo?.metaDescription && (
           <meta name="description" content={seo.metaDescription} />
         )}
@@ -145,7 +152,11 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
             )}
             onError={() => navigate(`/${countryCode}/422`)}
           >
-            <div className={styles["content"]}>{children}</div>
+            <VisualiserProvider
+              contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+            >
+              <div className={styles["content"]}>{children}</div>
+            </VisualiserProvider>
             {inputBanner ? <InputBanner data={inputBanner} /> : null}
           </ErrorBoundary>
           <Footer

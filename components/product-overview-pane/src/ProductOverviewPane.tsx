@@ -2,7 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import PureChip from "@bmi/chip";
 import { ClickableAction, withClickable } from "@bmi/clickable";
-import Thumbnail from "@bmi/thumbnail";
+import DefaultThumbnail from "@bmi/thumbnail";
 import Typography from "@bmi/typography";
 import styles from "./ProductOverviewPane.module.scss";
 
@@ -37,6 +37,7 @@ type Attribute = {
     }
   | {
       type: "thumbnails";
+      component?: React.ComponentType<any>; // TODO
       variants: Variant[];
     }
 );
@@ -48,13 +49,16 @@ export type Props = {
   nobbLabel?: React.ReactNode;
   attributes?: Attribute[];
   children?: React.ReactNode;
+  thumbnailComponent?: React.ComponentType<any>; // TODO
 };
 
 const renderThumbnailAttribute = (
   name: string,
   variants: Variant[],
-  key: string
+  key: string,
+  component?: React.ComponentType<any> // TODO
 ) => {
+  const Thumbnail = component || DefaultThumbnail;
   const activeColor = variants.find(({ isSelected }) => isSelected);
 
   if (!activeColor) {
@@ -111,7 +115,12 @@ const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
   }
 
   if (attribute.type === "thumbnails") {
-    return renderThumbnailAttribute(name, attribute.variants, key);
+    return renderThumbnailAttribute(
+      name,
+      attribute.variants,
+      key,
+      attribute.component
+    );
   }
 
   return (
@@ -142,6 +151,7 @@ const ProductOverviewPane = ({
   nobb,
   nobbLabel,
   brandLogo: BrandLogo,
+  thumbnailComponent,
   attributes,
   children
 }: Props) => {
@@ -164,7 +174,11 @@ const ProductOverviewPane = ({
                 }
               ]
             },
-            ...attributes
+            ...attributes.map((attribute) =>
+              attribute.type === "thumbnails"
+                ? { ...attribute, component: thumbnailComponent }
+                : attribute
+            )
           ].map(renderAttribute)}
         </ul>
       )}

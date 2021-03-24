@@ -2,18 +2,22 @@ import Button, { ButtonProps } from "@bmi/button";
 import Icon from "@bmi/icon";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import NearMe from "@material-ui/icons/NearMe";
-import React, { MouseEvent, useState } from "react";
+import React, { MouseEvent, useEffect, useState } from "react";
 import styles from "./GeolocationButton.module.scss";
 
-const geolocation =
-  typeof navigator !== "undefined" ? navigator.geolocation : false;
+const getGeolocation = () => {
+  return typeof navigator !== "undefined" ? navigator.geolocation : undefined;
+};
 
-export const getCurrentPosition = () =>
-  new Promise<Position>((resolve, reject) =>
+const getCurrentPosition = () => {
+  const geolocation = getGeolocation();
+
+  return new Promise<Position>((resolve, reject) =>
     geolocation
       ? geolocation.getCurrentPosition(resolve, reject)
       : reject("Your browser does not support the GeoLocation API")
   );
+};
 
 type Props = ButtonProps & {
   onPosition: (
@@ -30,6 +34,13 @@ const GeolocationButton = ({
   ...props
 }: Props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  // NOTE: workaround to force it to re-render on client
+  // point is for the SSR state to be different from client
+  const [geolocation, setGeolocation] = useState(null);
+
+  useEffect(() => {
+    setGeolocation(getGeolocation());
+  }, []);
 
   const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {
     setIsLoading(true);

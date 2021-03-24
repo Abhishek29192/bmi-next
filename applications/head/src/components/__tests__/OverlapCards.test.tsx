@@ -36,7 +36,8 @@ describe("OverlapCards component", () => {
           resized: {
             src: "link-to-page.png"
           }
-        }
+        },
+        featuredVideo: null
       },
       {
         __typename: "ContentfulSimplePage",
@@ -46,6 +47,33 @@ describe("OverlapCards component", () => {
           resized: {
             src: "link-to-page.png"
           }
+        },
+        featuredVideo: null
+      },
+      {
+        __typename: "ContentfulSimplePage",
+        title: "Card with Video",
+        path: "some-page",
+        featuredImage: {
+          resized: {
+            src: "link-to-page.png"
+          }
+        },
+        featuredVideo: {
+          title: "video title",
+          label: "video label",
+          subtitle: "video subtitle",
+          youtubeId: "TDNEwZbm_Nk",
+          previewImage: {
+            resize: {
+              src: "link-to-page.png"
+            },
+            file: {
+              fileName: "",
+              url: ""
+            }
+          },
+          videoRatio: null
         }
       }
     ];

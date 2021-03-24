@@ -5,5 +5,6 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardActionArea from "@material-ui/core/CardActionArea";
 
+export type { CardProps } from "@material-ui/core/Card";
 export { CardActions, CardContent, CardHeader, CardMedia, CardActionArea };
 export default Card;

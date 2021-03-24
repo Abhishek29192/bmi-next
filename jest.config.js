@@ -35,7 +35,8 @@ module.exports = {
     "^@bmi/styles$": require.resolve("./jest/src/CSSModuleImport.ts")
   },
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"
+    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(js|jsx)$": "babel-jest"
   },
   setupFiles: [
     "<rootDir>/jest/src/setEnvVars.ts",

@@ -89,7 +89,7 @@ const AccordionItem = ({
   );
 };
 
-type AccordionSummaryProps = ExpansionPanelSummaryProps & {
+export type AccordionSummaryProps = ExpansionPanelSummaryProps & {
   expandIcon?: React.ReactElement;
   collapseIcon?: React.ReactElement;
 };

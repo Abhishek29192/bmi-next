@@ -59,7 +59,9 @@ const IntegratedPostItCard = ({
                     action={getClickableActionFromUrl(
                       link.linkedPage,
                       link.url,
-                      countryCode
+                      countryCode,
+                      null,
+                      link.label
                     )}
                   >
                     {link.label}
@@ -69,7 +71,9 @@ const IntegratedPostItCard = ({
                     action={getClickableActionFromUrl(
                       link.linkedPage,
                       link.url,
-                      countryCode
+                      countryCode,
+                      null,
+                      link.label
                     )}
                   >
                     {link.label}

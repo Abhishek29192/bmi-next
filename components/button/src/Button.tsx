@@ -55,6 +55,7 @@ const Button = ({
         className
       )}
       aria-label={accessibilityLabel}
+      disabled={disabled}
       {...rest}
     >
       {children}

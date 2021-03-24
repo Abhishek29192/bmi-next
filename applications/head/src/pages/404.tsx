@@ -31,7 +31,7 @@ const FourOFour = ({ data }: { data: Data }) => {
   return (
     <Page
       title={title || "Error:404.title"}
-      pageData={{ path: null, inputBanner: null, seo: null }}
+      pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={siteData}
     >
       <PromoSection title={title} imageSource={featuredImage?.file.url}>
@@ -47,7 +47,9 @@ const FourOFour = ({ data }: { data: Data }) => {
               // Tracked by https://bmigroup.atlassian.net/browse/DXB-1197
               // rc note: improved, this would be sufficient if the bit on line
               //          21 were correct
-              siteData?.countryCode
+              siteData?.countryCode,
+              null,
+              cta.label
             )}
           >
             {cta.label}

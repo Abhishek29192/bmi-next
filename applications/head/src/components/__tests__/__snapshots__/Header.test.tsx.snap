@@ -10,182 +10,192 @@ exports[`Header component renders correctly 1`] = `
     role="navigation"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
-      <ul>
-        <li
-          class="NavItem"
-        >
-          <a
-            class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
-            href="/gb/landing-page"
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <ul>
+          <li
+            class="NavItem"
           >
-            <span
-              class="MuiButton-label"
+            <a
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button UtilitiesButton MuiButton-textPrimary"
+              href="/gb/landing-page"
             >
-              Our story
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
-        </li>
-      </ul>
+              <span
+                class="MuiButton-label"
+              >
+                Our story
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <div
     class="NavigationBar"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthXl"
+      class="Container"
     >
       <div
-        class="NavigationBar__Left"
+        class="MuiContainer-root MuiContainer-maxWidthXl"
       >
-        <a
-          class="LogoLink"
-          href="/gb/"
+        <div
+          class="NavigationBar__Left"
         >
-          <svg
-            class="Logo"
-          />
-        </a>
-        <nav
-          aria-label="Navigation"
-          class="Navigation"
-          role="navigation"
-        >
-          <div
-            class="MuiTabs-root"
+          <a
+            class="LogoLink"
+            href="/gb/"
+          >
+            <svg
+              class="Logo"
+            />
+          </a>
+          <nav
+            aria-label="Navigation"
+            class="Navigation"
+            role="navigation"
           >
             <div
-              class="MuiTabs-scrollable"
-              style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
-            />
-            <div
-              class="MuiTabs-scroller MuiTabs-scrollable"
-              style="margin-bottom: 0px;"
+              class="MuiTabs-root"
             >
               <div
-                class="MuiTabs-flexContainer"
-                role="tablist"
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
               >
-                <button
-                  aria-controls="navigation-tabpanel-0"
-                  aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
-                  id="navigation-tab-0"
-                  role="tab"
-                  tabindex="-1"
-                  type="button"
+                <div
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
                 >
-                  <span
-                    class="MuiTab-wrapper"
+                  <button
+                    aria-controls="navigation-tabpanel-0"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
+                    id="navigation-tab-0"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiTab-wrapper"
                     >
-                      <path
-                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                      />
-                    </svg>
-                    Get in touch
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-                <button
-                  aria-controls="navigation-tabpanel-1"
-                  aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
-                  id="navigation-tab-1"
-                  role="tab"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <span
-                    class="MuiTab-wrapper"
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
+                      Get in touch
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-controls="navigation-tabpanel-1"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit NavItem MuiTab-labelIcon"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\"}"
+                    id="navigation-tab-1"
+                    role="tab"
+                    tabindex="-1"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
+                    <span
+                      class="MuiTab-wrapper"
                     >
-                      <path
-                        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                      />
-                    </svg>
-                    About BMI
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
+                      About BMI
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <span
+                  class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorSecondary-3 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
               </div>
-              <span
-                class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorSecondary-3 MuiTabs-indicator"
-                style="left: 0px; width: 0px;"
-              />
             </div>
-          </div>
-        </nav>
-      </div>
-      <div
-        class="NavigationBar__Right"
-      >
-        <button
-          aria-label="MC: search.label"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained SearchButton"
-          tabindex="0"
-          type="button"
+          </nav>
+        </div>
+        <div
+          class="NavigationBar__Right"
         >
-          <span
-            class="MuiIconButton-label"
+          <button
+            aria-label="MC: search.label"
+            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained SearchButton"
+            tabindex="0"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <span
+              class="MuiIconButton-label"
             >
-              <path
-                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-        <button
-          aria-label="MC: menu.open"
-          class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text BurgerButton"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiIconButton-label"
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-label="MC: menu.open"
+            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text BurgerButton"
+            tabindex="0"
+            type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              focusable="false"
-              viewBox="0 0 24 24"
+            <span
+              class="MuiIconButton-label"
             >
-              <path
-                d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -310,7 +320,7 @@ exports[`Header component renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":{\\"model\\":\\"htmlLink\\",\\"href\\":\\"tel:+4401234567890\\"}}"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"+44 (0) 1234567890\\"}"
                     href="tel:+4401234567890"
                     tabindex="0"
                   >
