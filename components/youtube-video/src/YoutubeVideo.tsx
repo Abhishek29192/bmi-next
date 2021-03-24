@@ -30,8 +30,8 @@ const getSize = (
     };
   }
 
-  const widthRatio = dimensions.width / width;
-  const heightRatio = dimensions.height / height;
+  const widthRatio = width ? dimensions.width / width : 0;
+  const heightRatio = height ? dimensions.height / height : 0;
   const videoRatio = Math.max(widthRatio, heightRatio);
 
   return {
@@ -65,6 +65,16 @@ const DialogVideo = ({
   const [isDialogOpen, setDialogOpen] = useState(false);
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
   const [ref, dimensions] = useDimensions();
+  const { width, height } = getSize(embedWidth, embedHeight, dimensions);
+  let calculatedHeight = dimensions.height;
+  // this is to fix safari full height issue with css properties!
+  // this allows us keep player's height at max available height of container at all times
+  if (dimensions.width && height && width > 0) {
+    calculatedHeight = Math.max(
+      (dimensions.width * height) / width,
+      calculatedHeight
+    );
+  }
   return (
     <div
       className={classnames(styles["YoutubeVideo"], className)}
@@ -93,7 +103,7 @@ const DialogVideo = ({
               <ReactPlayer
                 url={videoUrl}
                 width="100%"
-                height="100%"
+                height={calculatedHeight}
                 controls
                 playing
                 config={{

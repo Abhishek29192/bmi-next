@@ -27,8 +27,8 @@ const Video = ({ data }: { data: Data }) => {
     <YoutubeVideo
       label={label}
       videoId={youtubeId}
-      embedHeight={videoRatio?.height || undefined}
-      embedWidth={videoRatio?.width || undefined}
+      embedHeight={videoRatio?.height || 0}
+      embedWidth={videoRatio?.width || 0}
       previewImageSource={previewImage?.resize.src || undefined}
       className={className}
     />
