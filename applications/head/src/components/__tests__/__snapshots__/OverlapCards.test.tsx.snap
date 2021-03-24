@@ -140,7 +140,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                 class="image"
               >
                 <div
-                  class="YoutubeVideo"
+                  class="YoutubeVideo videoCard"
                   style="background-image: url(link-to-page.png);"
                 >
                   <span

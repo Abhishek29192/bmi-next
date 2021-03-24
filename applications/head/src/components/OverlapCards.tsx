@@ -40,7 +40,12 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
                   title={title}
                   imageSource={
                     featuredVideo ? (
-                      <Video data={featuredVideo} />
+                      <Video
+                        data={{
+                          ...featuredVideo,
+                          ...{ className: styles["videoCard"] }
+                        }}
+                      />
                     ) : (
                       featuredImage?.resized?.src
                     )

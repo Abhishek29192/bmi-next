@@ -73,7 +73,8 @@ describe("OverlapCards component", () => {
               url: ""
             }
           },
-          videoRatio: null
+          videoRatio: null,
+          className: null
         }
       }
     ];
