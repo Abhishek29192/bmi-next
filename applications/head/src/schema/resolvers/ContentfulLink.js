@@ -34,17 +34,21 @@ const getNodeData = (parentId, fieldData) => ({
 
 module.exports = {
   parameters: {
-    type: `contentfulLinkParametersJsonNode`,
-    resolve(source) {
-      if (!source.parameters) {
+    type: "contentfulLinkParametersJsonNode",
+    async resolve(source, args, context) {
+      if (!source.parameters___NODE) {
         return null;
       }
 
+      const parameters = await context.nodeModel.getNodeById({
+        id: source.parameters___NODE
+      });
+
       if (source.type === "Visualiser") {
-        const { tileId, colourId, sidingId, viewMode } = source.parameters;
+        const { tileId, colourId, sidingId, viewMode } = parameters;
 
         return getNodeData(source.id, {
-          id: source.parameters.id,
+          id: source.parameters___NODE,
           tileId: getNumberValue(tileId),
           colourId: getNumberValue(colourId),
           sidingId: getNumberValue(sidingId),
