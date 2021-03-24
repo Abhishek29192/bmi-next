@@ -17,10 +17,11 @@ export type Data = {
     };
   } | null;
   videoRatio: { width: number; height: number } | null;
+  className: string | null;
 };
 
 const Video = ({ data }: { data: Data }) => {
-  const { label, youtubeId, previewImage, videoRatio } = data;
+  const { label, youtubeId, previewImage, videoRatio, className } = data;
 
   return (
     <YoutubeVideo
@@ -29,6 +30,7 @@ const Video = ({ data }: { data: Data }) => {
       embedHeight={videoRatio?.height || undefined}
       embedWidth={videoRatio?.width || undefined}
       previewImageSource={previewImage?.resize.src || undefined}
+      className={className}
     />
   );
 };
