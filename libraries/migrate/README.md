@@ -88,3 +88,25 @@ The only way to migrate users is via the Content Management API (read [here](htt
 The custom roles with permissions need to be specified in a JSON file, at the following path: `{PROJECT_RELATIVE_PATH}/roles.json`.
 
 [This documentation](https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles) shows some of the accepted key value pairs for roles & permissions.
+
+### Mock Data
+
+#### Upload
+
+In case you want to upload some mock data (content + assets) from your local machine into Contentful, you can run
+
+```bash
+yarn content-upload
+```
+
+Make sure you have set up the environment variables into `.env.development`.
+
+#### Download
+
+To download assets and content from Contentful into your local repo, you can run this command.
+
+```bash
+yarn content-download
+```
+
+Make sure you have set up the environment variables into `.env.development`.
