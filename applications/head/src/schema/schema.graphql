@@ -1502,15 +1502,12 @@ type contentfulImageCaptionTextNode implements Node {
   caption: String
 }
 
-type contentfulImageFocalPointJsonNodeFocalPoint implements Node {
+"""
+Represents a focal point with the percentage of x and y.
+"""
+type FocalPoint {
   x: Int
-
   y: Int
-}
-
-type contentfulImageFocalPointJsonNode implements Node {
-  focalPoint: contentfulImageFocalPointJsonNodeFocalPoint
-    @link(by: "id", from: "focalPoint___NODE")
 }
 
 """
@@ -1533,6 +1530,5 @@ type ContentfulImage implements Node {
     @link(by: "id", from: "caption___NODE")
 
   "The focal point for this Image."
-  focalPoint: contentfulImageFocalPointJsonNode
-    @link(by: "id", from: "focalPoint___NODE")
+  focalPoint: FocalPoint
 }

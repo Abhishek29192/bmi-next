@@ -19,10 +19,8 @@ export type Data = {
     caption: string;
   } | null;
   focalPoint: {
-    focalPoint: {
-      x: number;
-      y: number;
-    };
+    x: number;
+    y: number;
   } | null;
 };
 
@@ -40,10 +38,8 @@ export const query = graphql`
       }
     }
     focalPoint {
-      focalPoint {
-        x
-        y
-      }
+      x
+      y
     }
   }
 `;
