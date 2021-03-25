@@ -15,7 +15,7 @@ build_gcp-download-zip:
     paths:
       - functions/gcp-download-zip/dist
 
-test_cp-download-zip:
+test_gcp-download-zip:
   stage: test
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
@@ -27,6 +27,7 @@ test_cp-download-zip:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-download-zip coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 package_gcp-download-zip:
   stage: package
