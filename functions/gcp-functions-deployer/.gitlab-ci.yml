@@ -27,6 +27,7 @@ test_cp-download-zip:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-functions-deployer coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 package_gcp-functions-deployer:
   stage: package

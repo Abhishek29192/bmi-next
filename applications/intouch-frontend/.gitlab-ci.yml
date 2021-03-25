@@ -24,6 +24,7 @@ test_intouch_frontend:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/intouch-frontend coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 deploy_intouch_frontend_dev:
   stage: deploy

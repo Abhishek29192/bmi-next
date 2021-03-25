@@ -12,6 +12,7 @@ test_gcp-apsis-integration:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-apsis-integration coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 build_gcp-apsis-integration:
   stage: build
