@@ -1,67 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AppProps } from "next/app";
 import { appWithTranslation } from "next-i18next";
 import { ApolloProvider } from "@apollo/client";
-import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
-import apolloClient from "../lib/apolloClient";
+import { UserProvider } from "@auth0/nextjs-auth0";
+import { useApollo } from "../lib/apolloClient";
+
+import initilaProps from "../lib/initialProps/app";
+import useApi from "../hooks/useApi";
 
 import "../styles/globals.css";
 
-const {
-  NEXT_PUBLIC_AUTH_DOMAIN,
-  NEXT_PUBLIC_AUTH_CLIENTID,
-  NEXT_PUBLIC_AUTH_REDIRECTURI,
-  NEXT_PUBLIC_AUTH_AUDIENCE
-} = process.env;
+const App = ({ Component, pageProps, ...rest }: AppProps) => {
+  const apolloClient = useApollo(pageProps?.initialApolloState);
 
-const App = ({ Component, pageProps }: AppProps) => {
-  const [token, setToken] = useState<string>();
-  const {
-    isLoading,
-    isAuthenticated,
-    error,
-    loginWithRedirect,
-    getAccessTokenSilently
-  } = useAuth0();
-
-  useEffect(() => {
-    const getToken = async () => {
-      const bearerToken = isAuthenticated ? await getAccessTokenSilently() : "";
-      setToken(bearerToken);
-    };
-
-    getToken();
-  }, [isAuthenticated, getAccessTokenSilently]);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const { error } = useApi("/profile");
   if (error) {
-    return <div>Oops... {error.message}</div>;
-  }
-
-  if (!isAuthenticated) {
-    return <button onClick={() => loginWithRedirect()}>Login</button>;
+    window.location.assign(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/logout`
+    );
   }
 
   return (
-    token && (
-      <ApolloProvider client={apolloClient(token)}>
-        <Component {...pageProps} />
-      </ApolloProvider>
-    )
+    <ApolloProvider client={apolloClient}>
+      <Component {...pageProps} apolloClient={apolloClient} {...rest} />
+    </ApolloProvider>
   );
 };
 
-const AuthWrapper = ({ Component, pageProps, ...rest }: AppProps) => (
-  <Auth0Provider
-    domain={NEXT_PUBLIC_AUTH_DOMAIN}
-    clientId={NEXT_PUBLIC_AUTH_CLIENTID}
-    redirectUri={NEXT_PUBLIC_AUTH_REDIRECTURI}
-    audience={NEXT_PUBLIC_AUTH_AUDIENCE}
-  >
-    <App Component={Component} pageProps={pageProps} {...rest} />
-  </Auth0Provider>
-);
+const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
+  return (
+    <UserProvider>
+      <App Component={Component} pageProps={pageProps} {...rest} />
+    </UserProvider>
+  );
+};
 
-export default appWithTranslation(AuthWrapper);
+AuthApp.getInitialProps = initilaProps;
+
+export default appWithTranslation(AuthApp);

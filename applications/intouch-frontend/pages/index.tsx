@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "@bmi/hero";
+import auth0 from "../lib/auth0";
 import Layout from "../components/Layout";
 
 const Homepage = () => {
@@ -42,5 +43,11 @@ const Homepage = () => {
     </Layout>
   );
 };
+
+export const getServerSideProps = auth0.withPageAuthRequired({
+  async getServerSideProps(ctx) {
+    return { props: {} };
+  }
+});
 
 export default Homepage;

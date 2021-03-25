@@ -2,9 +2,9 @@
 
 const fs = require("fs");
 require("dotenv").config();
-const { parse } = require("url");
 const { createServer } = require("https");
 const next = require("next");
+const express = require("express");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({
@@ -17,10 +17,9 @@ const httpsOptions = {
 };
 
 app.prepare().then(() => {
-  createServer(httpsOptions, (req, res) => {
-    const parsedUrl = parse(req.url, true);
-    handle(req, res, parsedUrl);
-  }).listen(3000, () => {
-    console.log("> Server started on https://localhost:3000/");
+  const expressApp = express();
+  expressApp.all("*", handle);
+  createServer(httpsOptions, expressApp).listen(3000, () => {
+    console.log(`🚀 Server started on ${process.env.NEXT_PUBLIC_BASE_URL}`);
   });
 });

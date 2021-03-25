@@ -34,9 +34,11 @@
     }
 
     .btn-link {
-      background-color: none;
+      background-color: transparent;
       color: #007bbd;
       cursor: pointer;
+      margin: 10px auto;
+      display: block;
       border: none;
     }
 
@@ -218,11 +220,6 @@
                 placeholder="Enter your password"
               />
             </div>
-            <span class="forgot-password-link">
-              <button title="Forgot Password" id="link-reset" class="btn-link">
-                Forgot Password?
-              </button>
-            </span>
             <button
               type="submit"
               id="btn-login"
@@ -230,6 +227,11 @@
             >
               Log In
             </button>
+            <span class="forgot-password-link">
+              <button title="Forgot Password" id="link-reset" class="btn-link">
+                Forgot Password?
+              </button>
+            </span>
             <button type="button" id="btn-not-registered" class="btn-link">
               Not registered?
             </button>
@@ -290,6 +292,8 @@
         var config = JSON.parse(
           decodeURIComponent(escape(window.atob(hash || "@@config@@")))
         );
+
+        console.log("config", config);
 
         var leeway = config.internalOptions.leeway;
         if (leeway) {
@@ -361,7 +365,8 @@
               user_metadata: {
                 type: radios.value,
                 firstname,
-                lastname
+                lastname,
+                market: config.extraParams.market
               }
             },
             function (err) {
