@@ -4,8 +4,12 @@
   "license": "BMI-DXB",
   "main": "cli.js",
   "bin": {
-    "migrate": "./cli.js",
-    "createRoles": "./createRoles.js"
+    "migrate": "./cli.js"
+  },
+  "scripts": {
+    "createRoles": "./createRoles.js",
+    "content-download": "./content-download.sh",
+    "content-upload": "./content-upload.sh"
   },
   "resolutions": {
     "eslint": "6.8.0"
