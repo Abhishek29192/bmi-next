@@ -427,6 +427,18 @@ module.exports = {
             }
           }
         ]
+      : []),
+    ...(process.env.HUBSPOT_ID
+      ? [
+          {
+            resolve: "gatsby-plugin-hubspot",
+            options: {
+              trackingCode: process.env.HUBSPOT_ID,
+              respectDNT: true,
+              productionOnly: false
+            }
+          }
+        ]
       : [])
   ],
   flags: {
