@@ -6,5 +6,6 @@ import Card, {
   CardActionArea
 } from "./Card";
 
+export type { CardProps } from "./Card";
 export { CardActions, CardContent, CardHeader, CardMedia, CardActionArea };
 export default Card;

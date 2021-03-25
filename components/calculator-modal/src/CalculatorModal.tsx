@@ -56,7 +56,7 @@ const CalculatorModal = ({
             styles[pearl ? "white" : "pearl"]
           )}
         >
-          <Container className={styles["headerContainer"]}>
+          <Container className={styles["headerContainer"]} fullWidth>
             <Icon
               source={logo}
               className={classnames(styles["headerSide"], styles["logo"])}

@@ -32,7 +32,9 @@ describe("Icon component", () => {
               icon: null,
               isLabelHidden: null,
               url: "https://www.external.co.uk",
-              linkedPage: null
+              linkedPage: null,
+              type: "External",
+              parameters: null
             }
           },
           "no",

@@ -32,7 +32,9 @@ const ErrorFallback = ({
           action={getClickableActionFromUrl(
             cta?.linkedPage,
             cta?.url,
-            countryCode
+            countryCode,
+            null,
+            cta.label
           )}
         >
           {cta.label}

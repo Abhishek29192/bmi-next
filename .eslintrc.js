@@ -63,12 +63,27 @@ module.exports = {
       files: "*.{ts,tsx}",
       settings: {
         react: {
-          version: "latest"
+          version: "detect"
         }
       },
       excludedFiles: ["*.test.tsx"],
       rules: {
         "no-console": "error"
+      }
+    },
+    {
+      files: ["**/*.jsx"],
+      env: {
+        browser: true,
+        node: false,
+        "shared-node-browser": true
+      },
+      parserOptions: {
+        ecmaVersion: 2018,
+        ecmaFeatures: {
+          jsx: true
+        },
+        sourceType: "module"
       }
     },
     {

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import classnames from "classnames";
-import Thumbnail from "@bmi/thumbnail";
+import DefaultThumbnail from "@bmi/thumbnail";
 import styles from "./ImageGallery.module.scss";
 import { Image } from "./types";
 
@@ -9,11 +9,17 @@ type Props = {
   /** The index to identify the active thumbnail */
   activeImageIndex: number;
   onThumbnailClick: (index: number) => void;
+  component?: React.ComponentType<any>; // TODO
 };
 
 const THUMBNAIL_WIDTH = 86;
 
-const Thumbnails = ({ images, activeImageIndex, onThumbnailClick }: Props) => {
+const Thumbnails = ({
+  images,
+  activeImageIndex,
+  onThumbnailClick,
+  component: Thumbnail = DefaultThumbnail
+}: Props) => {
   let debouncer: NodeJS.Timeout;
   const thumbnailsRef = useRef<HTMLDivElement>(null);
   const [visibleGradients, setVisibleGradients] = useState<{

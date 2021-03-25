@@ -50,7 +50,17 @@ const GlobalResources = ({ data, pageContext }: Data) => {
   return (
     <Page
       title="Global resources"
-      pageData={{ path: "global-resources", inputBanner: null, seo: null }}
+      pageData={{
+        breadcrumbs: [
+          {
+            id: "global-resources",
+            label: "global-resources",
+            slug: null
+          }
+        ],
+        inputBanner: null,
+        seo: null
+      }}
       siteData={siteData}
     >
       <Hero level={2} title="Global Resources"></Hero>

@@ -208,8 +208,8 @@ export const queryElasticSearch = async (query = {}, indexName: string) => {
         method: "POST",
         mode: "cors",
         headers: {
-          authorization: `Basic ${btoa(
-            `${process.env.GATSBY_ES_USERNAME}:${process.env.GATSBY_ES_PASSWORD}`
+          authorization: `ApiKey ${btoa(
+            `${process.env.GATSBY_ES_API_KEY_ID}:${process.env.GATSBY_ES_API_KEY}`
           )}`,
           "content-type": "application/json"
         },

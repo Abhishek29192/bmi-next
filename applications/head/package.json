@@ -18,11 +18,13 @@
     "clean": "gatsby clean",
     "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build --prefix-paths && gatsby serve",
+    "check:ts": "tsc --noEmit",
     "build": "gatsby build --prefix-paths",
     "coverage:jest": "jest --coverage",
     "microcopy": "node ./scripts/get-microcopy.js"
   },
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.13.5",
     "@bmi/anchor-link": "0.0.0",
     "@bmi/autocomplete": "0.0.0",
     "@bmi/button": "0.0.0",
@@ -39,6 +41,7 @@
     "@bmi/footer": "0.0.0",
     "@bmi/form": "0.0.0",
     "@bmi/gatsby-plugin-elasticsearch": "0.0.0",
+    "@bmi/gatsby-plugin-firestore": "0.0.0",
     "@bmi/geolocation-button": "0.0.0",
     "@bmi/google-api": "0.0.0",
     "@bmi/google-autocomplete": "0.0.0",
@@ -77,6 +80,7 @@
     "@material-ui/styles": "^4.10.0",
     "@types/file-saver": "^2.0.1",
     "axios": "^0.21.0",
+    "babel-preset-gatsby": "^0.12.2",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "file-saver": "^2.0.5",
@@ -98,8 +102,8 @@
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.18",
     "gatsby-source-contentful": "^4.2.1",
     "gatsby-source-filesystem": "^2.3.4",
-    "gatsby-source-firestore": "^1.0.3",
     "gatsby-transformer-sharp": "^2.5.2",
+    "googleapis": "^67.1.1",
     "graphql-import-node": "^0.0.4",
     "imurmurhash": "^0.1.4",
     "jsonfile": "^6.1.0",
@@ -116,6 +120,7 @@
   },
   "devDependencies": {
     "@types/helmet": "^0.0.48",
+    "babel-preset-gatsby": "^0.12.2",
     "jest-preset-gatsby": "^1.0.81"
   }
 }

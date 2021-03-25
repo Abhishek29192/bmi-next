@@ -58,7 +58,9 @@ const TeamList = ({ data }: { data: Data }) => {
                       action={getClickableActionFromUrl(
                         link.linkedPage,
                         link.url,
-                        countryCode
+                        countryCode,
+                        null,
+                        link.label
                       )}
                       icon={iconMap[link.icon]}
                     >
@@ -92,7 +94,7 @@ export const query = graphql`
     name
     jobTitle
     profilePicture {
-      resize(width: 150) {
+      resize(width: 200, toFormat: WEBP, jpegProgressive: false) {
         src
       }
     }

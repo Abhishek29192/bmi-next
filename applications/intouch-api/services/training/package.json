@@ -1,0 +1,28 @@
+{
+  "name": "@bmi/intouch-api-service-training",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "BMI-DXB",
+  "private": true,
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "@apollo/federation": "^0.21.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "apollo-datasource-rest": "^0.10.0",
+    "apollo-server": "^2.19.2",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.4.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/node": "^14.14.20",
+    "dotenv": "^8.2.0",
+    "nodemon": "latest",
+    "typescript": "^3.9.3"
+  }
+}

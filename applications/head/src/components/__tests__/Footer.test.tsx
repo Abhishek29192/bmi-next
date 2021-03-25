@@ -48,7 +48,9 @@ describe("Footer component", () => {
                     url: "tel:+4401234567890",
                     isLabelHidden: null,
                     icon: "Phone",
-                    linkedPage: null
+                    linkedPage: null,
+                    type: null,
+                    parameters: null
                   }
                 ]
               },
@@ -66,7 +68,9 @@ describe("Footer component", () => {
                     icon: null,
                     linkedPage: {
                       path: "landing-page"
-                    }
+                    },
+                    type: null,
+                    parameters: null
                   }
                 ]
               }
@@ -86,7 +90,9 @@ describe("Footer component", () => {
                 icon: null,
                 linkedPage: {
                   path: "landing-page"
-                }
+                },
+                type: null,
+                parameters: null
               }
             ]
           }}

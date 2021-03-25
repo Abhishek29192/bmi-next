@@ -1,12 +1,10 @@
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
-import { ClickableAction } from "@bmi/clickable";
+import AnchorLink from "@bmi/anchor-link";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
 import { Link } from "gatsby";
 import React, { useContext } from "react";
 import { iconMap } from "../components/Icon";
-import withGTM from "../utils/google-tag-manager";
 import {
   findMasterImageUrl,
   findUniqueVariantClassifications,
@@ -31,12 +29,6 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
     // TODO: Microcopy?
     return <Typography>No results found</Typography>;
   }
-
-  const GTMAnchorLink = withGTM<
-    AnchorLinkProps & {
-      action?: ClickableAction;
-    }
-  >(AnchorLink);
 
   return (
     <>
@@ -70,9 +62,8 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
               imageSize="contain"
               brandImageSource={brandLogo}
               footer={
-                <GTMAnchorLink
+                <AnchorLink
                   iconEnd
-                  gtm={{ id: "selector-cards2", action: "Selector - Cards" }}
                   action={{
                     model: "routerLink",
                     linkComponent: Link,
@@ -83,7 +74,7 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
                   }}
                 >
                   {getMicroCopy("plp.product.viewDetails")}
-                </GTMAnchorLink>
+                </AnchorLink>
               }
             >
               {variant.shortDescription}

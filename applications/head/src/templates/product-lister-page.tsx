@@ -1,5 +1,4 @@
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
-import { ClickableAction } from "@bmi/clickable";
+import AnchorLink from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
@@ -11,7 +10,6 @@ import IconList from "@bmi/icon-list";
 import OverviewCard from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
-import withGTM from "../utils/google-tag-manager";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -216,12 +214,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const pageData: PageData = { breadcrumbs, inputBanner, seo };
 
-  const GTMAnchorLink = withGTM<
-    AnchorLinkProps & {
-      action?: ClickableAction;
-    }
-  >(AnchorLink);
-
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -269,7 +261,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 featuresLink.linkedPage,
                                 featuresLink.url,
                                 countryCode,
-                                featuresLink.asset?.file?.url
+                                featuresLink.asset?.file?.url,
+                                featuresLink.label
                               )}
                             >
                               {featuresLink.label}
@@ -286,18 +279,20 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   <Section.Title hasUnderline>{categoryName}</Section.Title>
                 )}
                 <Grid container spacing={3}>
-                  <Grid item xs={12} md={12} lg={3}>
-                    <FiltersSidebar
-                      filters={filters}
-                      onFiltersChange={handleFiltersChange}
-                      onClearFilters={clearFilters}
-                    />
-                  </Grid>
+                  {filters.length ? (
+                    <Grid item xs={12} md={12} lg={3}>
+                      <FiltersSidebar
+                        filters={filters}
+                        onFiltersChange={handleFiltersChange}
+                        onClearFilters={clearFilters}
+                      />
+                    </Grid>
+                  ) : null}
                   <Grid
                     item
                     xs={12}
                     md={12}
-                    lg={9}
+                    lg={filters.length ? 9 : 12}
                     style={{ paddingTop: 60 }}
                     ref={resultsElement}
                   >
@@ -326,6 +321,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                               xs={12}
                               md={6}
                               lg={4}
+                              xl={filters.length ? 4 : 3}
                             >
                               <OverviewCard
                                 title={product.name}
@@ -336,12 +332,8 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
                                 footer={
-                                  <GTMAnchorLink
+                                  <AnchorLink
                                     iconEnd
-                                    gtm={{
-                                      id: "selector-cards2",
-                                      action: "Selector - Cards"
-                                    }}
                                     action={{
                                       model: "routerLink",
                                       linkComponent: Link,
@@ -354,7 +346,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                     }}
                                   >
                                     {getMicroCopy("plp.product.viewDetails")}
-                                  </GTMAnchorLink>
+                                  </AnchorLink>
                                 }
                               >
                                 {variant.shortDescription}

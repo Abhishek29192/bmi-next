@@ -1,4 +1,4 @@
-A controlling container for [CardRadioButton](/#/CardRadioButton).
+A controlling container for [CardInput](/#/CardInput).
 
 ## Variants
 
@@ -32,7 +32,7 @@ import demoFormattedImage from "./images/demo-product-format.jpg";
 import demoImage from "./images/demo-product.jpg";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 
-<CardRadioGroup name="tileType" defaultValue={"Zanda Arktis"}>
+<CardRadioGroup name="tileType2" defaultValue={"Zanda Arktis"}>
   <CardRadioGroup.Item
     value="Zanda Arktis"
     title="Zanda Arktis"

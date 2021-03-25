@@ -13,7 +13,15 @@ type Props = {
 
 const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => (
   <div className={styles["PageSummaryCard"]}>
-    <AnchorLink action={getClickableActionFromUrl({ path }, null, countryCode)}>
+    <AnchorLink
+      action={getClickableActionFromUrl(
+        { path },
+        null,
+        countryCode,
+        null,
+        title
+      )}
+    >
       <Typography variant="h4">{title}</Typography>
     </AnchorLink>
     <Typography variant="lead" className={styles["description"]}>

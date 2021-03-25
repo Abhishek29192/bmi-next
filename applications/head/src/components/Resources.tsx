@@ -59,7 +59,7 @@ export const query = graphql`
         ... on ContentfulPromo {
           featuredImage {
             resized: resize(
-              width: 350
+              width: 684
               toFormat: WEBP
               jpegProgressive: false
             ) {
@@ -71,7 +71,7 @@ export const query = graphql`
         ... on ContentfulPage {
           featuredImage {
             resized: resize(
-              width: 350
+              width: 684
               toFormat: WEBP
               jpegProgressive: false
             ) {

@@ -92,7 +92,8 @@ describe("Sections component", () => {
             subtitle: null,
             body: null,
             featuredImage: null,
-            cta: null
+            cta: null,
+            featuredVideo: null
           },
           {
             __typename: "ContentfulPromo",
@@ -102,7 +103,8 @@ describe("Sections component", () => {
             subtitle: null,
             body: null,
             featuredImage: null,
-            cta: null
+            cta: null,
+            featuredVideo: null
           }
         ],
         isReversed: false
@@ -123,7 +125,9 @@ describe("Sections component", () => {
           url: null,
           linkedPage: {
             path: "contact-us"
-          }
+          },
+          type: null,
+          parameters: null
         },
         cards: [
           {
@@ -134,6 +138,7 @@ describe("Sections component", () => {
             body: null,
             tags: null,
             featuredImage: null,
+            featuredVideo: null,
             cta: {
               __typename: "ContentfulLink",
               id: "00000000-0000-0000-0000-000000000000",
@@ -143,7 +148,9 @@ describe("Sections component", () => {
               url: null,
               linkedPage: {
                 path: "contact-us"
-              }
+              },
+              type: null,
+              parameters: null
             },
             id: "00000000-0000-0000-0000-000000000000"
           }
@@ -171,7 +178,8 @@ describe("Sections component", () => {
               resized: {
                 src: "//image-url"
               }
-            }
+            },
+            featuredVideo: null
           }
         ]
       },
@@ -183,7 +191,8 @@ describe("Sections component", () => {
         brandLogo: null,
         tags: null,
         featuredImage: null,
-        cta: null
+        cta: null,
+        featuredVideo: null
       },
       {
         __typename: "ContentfulImageGallerySection",

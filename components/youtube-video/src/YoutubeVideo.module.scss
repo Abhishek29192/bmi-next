@@ -1,0 +1,52 @@
+@import "@bmi/styles";
+
+.YoutubeVideo {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  &::after {
+    content: "";
+    background: rgba($color-black, 0.65);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &--in-place {
+    display: block;
+
+    &::after {
+      background: transparent;
+    }
+  }
+
+  .play-button {
+    z-index: 2;
+  }
+}
+
+.PlayerDialog {
+  height: calc(100vh - 20px);
+  .dialog-content {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    overflow: hidden;
+  }
+  .video-container {
+    height: 100%;
+  }
+}

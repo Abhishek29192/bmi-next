@@ -28,49 +28,57 @@ exports[`CalculatorModal component renders closed 1`] = `
         class="header pearl"
       >
         <div
-          class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+          class="Container Container--full-width"
         >
-          <svg
-            class="headerSide logo"
-          />
           <div
-            class="headerCenter"
+            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
           >
-            Some Central Content
-          </div>
-          <button
-            aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text headerSide iconButton"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+            <svg
+              class="headerSide logo"
             />
-          </button>
+            <div
+              class="headerCenter"
+            >
+              Some Central Content
+            </div>
+            <button
+              aria-label="Close"
+              class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text headerSide iconButton"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </div>
       </div>
       <div
         class="content"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="Container"
         >
-          Some content
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            Some content
+          </div>
         </div>
       </div>
     </div>
@@ -110,49 +118,57 @@ exports[`CalculatorModal component renders correctly 1`] = `
         class="header pearl"
       >
         <div
-          class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+          class="Container Container--full-width"
         >
-          <svg
-            class="headerSide logo"
-          />
           <div
-            class="headerCenter"
+            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
           >
-            Some Central Content
-          </div>
-          <button
-            aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text headerSide iconButton"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+            <svg
+              class="headerSide logo"
             />
-          </button>
+            <div
+              class="headerCenter"
+            >
+              Some Central Content
+            </div>
+            <button
+              aria-label="Close"
+              class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text headerSide iconButton"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </div>
       </div>
       <div
         class="content"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="Container"
         >
-          Some content
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            Some content
+          </div>
         </div>
       </div>
     </div>
@@ -192,49 +208,57 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
         class="header white"
       >
         <div
-          class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
+          class="Container Container--full-width"
         >
-          <svg
-            class="headerSide logo"
-          />
           <div
-            class="headerCenter"
+            class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
           >
-            Some Central Content
-          </div>
-          <button
-            aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text headerSide iconButton"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiIconButton-label"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                />
-              </svg>
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+            <svg
+              class="headerSide logo"
             />
-          </button>
+            <div
+              class="headerCenter"
+            >
+              Some Central Content
+            </div>
+            <button
+              aria-label="Close"
+              class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text headerSide iconButton"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
         </div>
       </div>
       <div
         class="content"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="Container"
         >
-          Some content
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            Some content
+          </div>
         </div>
       </div>
     </div>

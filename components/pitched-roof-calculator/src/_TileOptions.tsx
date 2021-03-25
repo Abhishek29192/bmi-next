@@ -1,5 +1,6 @@
 import React from "react";
 import CardRadioGroup from "@bmi/card-radio-group";
+import CardCheckboxGroup from "@bmi/card-checkbox-group";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type VergeOptionsProps = {
@@ -66,11 +67,51 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
   );
 };
 
+type VentilationHoodOptionsProps = {
+  // TODO: Type when importing from Contentful
+  selected?: string[];
+  options: ReadonlyArray<any>;
+};
+
+const VentilationHoodOptions = ({
+  selected,
+  options
+}: VentilationHoodOptionsProps) => {
+  if (!options.length) {
+    return null;
+  }
+
+  return (
+    <FieldContainer title={"Select ventilation hood items"}>
+      <CardCheckboxGroup
+        name="ventilation"
+        defaultValue={selected}
+        isRequired
+        showNone
+      >
+        {options.map(({ description, image, externalProductCode }) => (
+          <CardCheckboxGroup.Item
+            key={externalProductCode}
+            value={externalProductCode}
+            title={description}
+            imageSource={image}
+          >
+            <CardCheckboxGroup.Item.Paragraph>
+              Nobb: <strong>{externalProductCode}</strong>
+            </CardCheckboxGroup.Item.Paragraph>
+          </CardCheckboxGroup.Item>
+        ))}
+      </CardCheckboxGroup>
+    </FieldContainer>
+  );
+};
+
 type TileOptionsProps = {
   variant: any;
   selections: {
     verge?: string;
     ridge?: string;
+    ventilation?: string[];
   };
 };
 
@@ -84,6 +125,10 @@ const TileOptions = ({ variant, selections }: TileOptionsProps) => {
       <RidgeOptions
         selected={selections.ridge}
         options={variant.ridgeOptions}
+      />
+      <VentilationHoodOptions
+        selected={selections.ventilation}
+        options={variant.ventilationHoodOptions || []}
       />
     </div>
   );

@@ -11,7 +11,7 @@ import styles from "./Hero.module.scss";
 export type HeroItem = {
   title: React.ReactNode;
   /** Only required for level 1 */
-  imageSource: string;
+  imageSource: string | React.ReactNode;
   /** Only required for level 1 */
   children: React.ReactNode;
   CTA?: {
@@ -106,7 +106,10 @@ const Hero = ({
                       <Typography
                         variant="h1"
                         hasUnderline={hasUnderline}
-                        className={styles["title"]}
+                        className={classnames(
+                          styles["title"],
+                          styles["title--truncated"]
+                        )}
                       >
                         {title}
                       </Typography>
@@ -150,10 +153,16 @@ const Hero = ({
             <Carousel.Slide key={`image-slide-${index}`}>
               <div
                 className={styles["image"]}
-                style={{
-                  backgroundImage: `url(${imageSource})`
-                }}
-              />
+                style={
+                  typeof imageSource !== "string"
+                    ? {}
+                    : {
+                        backgroundImage: `url(${imageSource})`
+                      }
+                }
+              >
+                {typeof imageSource !== "string" && imageSource}
+              </div>
             </Carousel.Slide>
           ))}
         </Carousel>
@@ -183,7 +192,13 @@ const SingleHero = ({
         <div className={styles["wrapper"]}>
           {breadcrumbs}
           <div className={styles["content"]}>
-            <Typography variant="h1" hasUnderline className={styles["title"]}>
+            <Typography
+              variant="h1"
+              hasUnderline
+              className={classnames(styles["title"], {
+                [styles["title--truncated"]]: levelProps.level === 1
+              })}
+            >
               {title}
             </Typography>
             {levelProps.level === 1 && (
@@ -194,9 +209,15 @@ const SingleHero = ({
       </Container>
       {levelProps.level === 1 && (
         <div
-          style={{ backgroundImage: `url(${levelProps.imageSource})` }}
+          style={
+            typeof levelProps.imageSource !== "string"
+              ? {}
+              : { backgroundImage: `url(${levelProps.imageSource})` }
+          }
           className={styles["image"]}
-        />
+        >
+          {typeof levelProps.imageSource !== "string" && levelProps.imageSource}
+        </div>
       )}
     </div>
   );

@@ -18,7 +18,9 @@ describe("Page component", () => {
           icon: null,
           isLabelHidden: false,
           url: "link-to-page",
-          linkedPage: null
+          linkedPage: null,
+          type: "External",
+          parameters: null
         }
       ]
     };

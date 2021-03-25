@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YoutubeVideo component renders in dialog layout correctly 1`] = `
+<div
+  class="YoutubeVideo"
+  style="background-image: url(https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg);"
+>
+  <span
+    class="AlternativeContent"
+  >
+    test video
+  </span>
+  <button
+    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained play-button"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M8 5v14l11-7z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;
+
+exports[`YoutubeVideo component renders in in-place layout correctly 1`] = `
+<div
+  class="YoutubeVideo YoutubeVideo--in-place"
+/>
+`;

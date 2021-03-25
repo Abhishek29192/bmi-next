@@ -22,7 +22,9 @@ describe("SitemapSection component", () => {
               url: "tel:+4401234567890",
               isLabelHidden: null,
               icon: "Phone",
-              linkedPage: null
+              linkedPage: null,
+              type: "External",
+              parameters: null
             }
           ]
         },
@@ -40,7 +42,9 @@ describe("SitemapSection component", () => {
               icon: null,
               linkedPage: {
                 path: "landing-page"
-              }
+              },
+              type: "Internal",
+              parameters: null
             }
           ]
         }

@@ -33,7 +33,7 @@ import React, {
   useState
 } from "react";
 import { camelCase } from "lodash";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { Data as RooferData, RooferType, rooferTypes } from "./Roofer";
 import { SiteContext } from "./Site";
@@ -234,9 +234,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setCentre(centre || null);
   };
 
-  const getUrlClickableAction = (url: LinkData["url"]) =>
-    getClickableActionFromUrl(null, url, countryCode);
-
   const getCompanyDetails = (
     roofer: Roofer,
     isAddressHidden?: boolean
@@ -263,10 +260,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
         // TODO: resolve types assertions of creating DetailProps array
         type: "cta" as "cta",
         text: getMicroCopy("findARoofer.getDirectionsLabel"),
-        action: getUrlClickableAction(
+        action: getClickableActionFromUrl(
+          null,
           `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
             roofer.address
-          )}/`
+          )}/`,
+          countryCode,
+          null,
+          getMicroCopy("findARoofer.getDirectionsLabel")
         ),
         label: getMicroCopy("findARoofer.getDirectionsLabel")
       },
@@ -275,7 +276,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             {
               type: "phone" as "phone",
               text: roofer.phone,
-              action: getUrlClickableAction(`tel:${roofer.phone}`),
+              action: getClickableActionFromUrl(
+                null,
+                `tel:${roofer.phone}`,
+                countryCode,
+                null,
+                getMicroCopy("findARoofer.telephoneLabel")
+              ),
               label: getMicroCopy("findARoofer.telephoneLabel")
             }
           ]
@@ -285,7 +292,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             {
               type: "email" as "email",
               text: roofer.email,
-              action: getUrlClickableAction(`mailto:${roofer.email}`),
+              action: getClickableActionFromUrl(
+                null,
+                `mailto:${roofer.email}`,
+                countryCode,
+                null,
+                getMicroCopy("findARoofer.emailLabel")
+              ),
               label: getMicroCopy("findARoofer.emailLabel")
             }
           ]
@@ -295,7 +308,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             {
               type: "website" as "website",
               text: getMicroCopy("findARoofer.websiteLabel"),
-              action: getUrlClickableAction(roofer.website),
+              action: getClickableActionFromUrl(
+                null,
+                roofer.website,
+                countryCode,
+                null,
+                getMicroCopy("findARoofer.websiteLabel")
+              ),
               label: getMicroCopy("findARoofer.websiteLabel")
             }
           ]
@@ -305,7 +324,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             {
               type: "content" as "content",
               label: getMicroCopy("findARoofer.roofTypeLabel"),
-              text: <b>{roofer.type}</b>
+              text: (
+                <b>
+                  {roofer.type
+                    .map((type) =>
+                      getMicroCopy(`findARoofer.filters.${camelCase(type)}`)
+                    )
+                    .join(" | ")}
+                </b>
+              )
             }
           ]
         : []),

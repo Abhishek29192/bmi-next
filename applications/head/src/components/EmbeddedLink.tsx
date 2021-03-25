@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Button from "@bmi/button";
 import { graphql } from "gatsby";
 import { SiteContext } from "../components/Site";
+import { VisualiserContext } from "./Visualiser";
 import { LinkData, getClickableActionFromUrl } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
 
@@ -17,6 +18,7 @@ const EmbeddedLink = ({
   backgroundTheme = "light"
 }: Props) => {
   const { countryCode } = useContext(SiteContext);
+  const { open } = useContext(VisualiserContext);
 
   return (
     <Button
@@ -26,7 +28,12 @@ const EmbeddedLink = ({
         fields.linkedPage,
         fields.url,
         countryCode,
-        fields.asset?.file?.url
+        fields.asset?.file?.url,
+        fields.label,
+        fields.type,
+        () => {
+          open(fields.parameters);
+        }
       )}
       className={styles["EmbeddedLink"]}
     >

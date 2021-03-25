@@ -1,0 +1,27 @@
+{
+  "name": "@bmi/gatsby-plugin-firestore",
+  "description": "Gatsby source plugin for building websites using the Firestore as a data source",
+  "version": "0.0.0",
+  "private": true,
+  "keywords": [
+    "firebase",
+    "firestore",
+    "gatsby-plugin",
+    "gatsby-source-plugin",
+    "gatsby-source",
+    "gatsby"
+  ],
+  "main": "gatsby-node.js",
+  "files": [
+    "gatsby-node.js",
+    "README.md"
+  ],
+  "scripts": {
+    "lint": "prettier --write gatsby-node.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^9.2.0",
+    "gatsby-cli": "^2.19.2"
+  },
+  "license": "MIT"
+}

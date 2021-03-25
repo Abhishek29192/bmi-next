@@ -189,7 +189,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { breadcrumbs } = selfProduct;
   const pageData: PageData = {
     breadcrumbs,
-    inputBanner: resources.pdpInputBanner
+    inputBanner: resources.pdpInputBanner,
+    seo: null
   };
 
   return (

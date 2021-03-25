@@ -3,11 +3,11 @@ import Link from "next/link";
 import Icon from "@bmi/icon";
 import styles from "./styles/Sidebar.module.scss";
 
-interface Props {
+type Props = {
   href?: string;
-  icon: React.FC; // TODO: convert into an SVG component
+  icon: SVGImport;
   label: string;
-}
+};
 
 const SelectedLink = ({ href, icon, label }: Props) => {
   return (

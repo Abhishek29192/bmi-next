@@ -4,17 +4,20 @@ import PromoSection from "@bmi/promo-section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
+import Video from "./Video";
 import { getClickableActionFromUrl } from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
 import { SiteContext } from "./Site";
 import styles from "./styles/PromoSection.module.scss";
+import { VisualiserContext } from "./Visualiser";
 
 export type Data = PromoData;
 
 const IntegratedPromoSection = ({ data }: { data: Data }) => {
   const { countryCode } = useContext(SiteContext);
-  const { title, subtitle, body, featuredImage, cta } = data;
+  const { open } = useContext(VisualiserContext);
+  const { title, subtitle, body, featuredImage, cta, featuredVideo } = data;
 
   const GTMButton = withGTM<
     ButtonProps & {
@@ -25,7 +28,13 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
   return (
     <PromoSection
       title={title}
-      imageSource={featuredImage?.resize.src}
+      imageSource={
+        featuredVideo ? (
+          <Video data={featuredVideo} />
+        ) : (
+          featuredImage?.resize.src
+        )
+      }
       className={styles["PromoSection"]}
     >
       {body ? <RichText document={body} /> : subtitle}
@@ -37,7 +46,12 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
               cta.linkedPage,
               cta.url,
               countryCode,
-              cta?.asset?.file?.url
+              cta?.asset?.file?.url,
+              cta.label,
+              cta?.type,
+              () => {
+                open(cta?.parameters);
+              }
             )}
           >
             {cta.label}

@@ -3,7 +3,7 @@ image: node:12
 build_gcp-functions-deployer:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
       changes:
         - functions/gcp-functions-deployer/**/*
   needs: [install]
@@ -18,7 +18,7 @@ build_gcp-functions-deployer:
 test_cp-download-zip:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - functions/gcp-functions-deployer/**/*
         - jest/**/*

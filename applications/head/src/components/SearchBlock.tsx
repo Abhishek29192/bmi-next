@@ -4,7 +4,7 @@ import PostItCard from "@bmi/post-it-card";
 import Search, { QUERY_KEY } from "@bmi/search";
 import Typography from "@bmi/typography";
 import classnames from "classnames";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, useEffect } from "react";
 import RichText from "../components/RichText";
 import styles from "./styles/SearchBlock.module.scss";
 import { Data as TitleWithContentData } from "./TitleWithContent";
@@ -42,12 +42,13 @@ const SearchPageBlock = ({
   searchPageSearchTips,
   searchPageSidebarItems
 }: Props) => {
-  const [isSearchSubmitDisabled, setIsSearchSubmitDisabled] = useState(
-    !isInputValueValid(query)
-  );
+  const [internalQueryState, setInternalQueryState] = useState(query);
+  useEffect(() => {
+    setInternalQueryState(query);
+  }, [query]);
 
   const handleInputOnChange = (value) => {
-    setIsSearchSubmitDisabled(!isInputValueValid(value));
+    setInternalQueryState(value);
   };
 
   return (
@@ -59,13 +60,13 @@ const SearchPageBlock = ({
           <Search
             action={`/${countryCode}/search`}
             buttonText={buttonText}
-            defaultValue={query}
+            value={internalQueryState}
             fieldName={QUERY_KEY}
             onSubmit={handleSubmit}
             helperText={helperText}
             placeholder={placeholder}
             onChange={handleInputOnChange}
-            isSubmitDisabled={isSearchSubmitDisabled}
+            isSubmitDisabled={!isInputValueValid(query)}
           />
         </div>
         {!isLoading && !hasResults && searchPageSearchTips && (

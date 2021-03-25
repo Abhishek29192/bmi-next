@@ -13,26 +13,39 @@
     background-size: cover;
   }
 
+  .video {
+    position: absolute;
+    top: 0;
+  }
+
   .overlay {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0.8;
+    z-index: 0;
 
-    &--cyan {
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      opacity: 0.8;
+      top: 0;
+    }
+
+    &--cyan::after {
       background-color: $color-cyan-700;
     }
-    &--blue {
+    &--blue::after {
       background-color: $color-blue-900;
     }
-    &--charcoal {
+    &--charcoal::after {
       background-color: $color-charcoal;
     }
-    &--teal {
+    &--teal::after {
       background-color: $color-teal-500;
     }
   }
