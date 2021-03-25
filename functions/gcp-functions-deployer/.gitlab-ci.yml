@@ -15,7 +15,7 @@ build_gcp-functions-deployer:
     paths:
       - functions/gcp-functions-deployer/dist
 
-test_cp-download-zip:
+test_gcp-functions-deployer:
   stage: test
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"

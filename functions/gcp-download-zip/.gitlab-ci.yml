@@ -15,7 +15,7 @@ build_gcp-download-zip:
     paths:
       - functions/gcp-download-zip/dist
 
-test_cp-download-zip:
+test_gcp-download-zip:
   stage: test
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
