@@ -2112,7 +2112,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.13.6", "@babel/runtime@^7.5.0":
+"@babel/runtime@^7.13.6", "@babel/runtime@^7.5.0", "@babel/runtime@^7.6.3":
   version "7.13.10"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
   integrity sha512-4QPkjJq6Ns3V/RgpEahRk+AGfL0eO6RHHtTWoNNr5mO49G6B5+X6d6THgWEAvTrznU5xYpbAlVKRYcsCgh/Akw==
@@ -13907,6 +13907,13 @@ gatsby-plugin-google-tagmanager@^3.0.0:
   integrity sha512-qhbmiEPUeexSgsWfHL1hs853W+xkC8zM6NzHlsAnnmPak0y76yFKsNppGz/UbrbD5SBzZ5i6xETVL84Ytqlm+A==
   dependencies:
     "@babel/runtime" "^7.12.5"
+
+gatsby-plugin-hubspot@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-hubspot/-/gatsby-plugin-hubspot-1.3.4.tgz#2fe3d78f414b3740b7ef7e8e5f3c3ab9f6556a3a"
+  integrity sha512-gprtNDFe0TAQBPLSh2DHE2ZUGvdy647uLuBFP1PbdbSWQnurXEJ/SdJkZtl3bkBo9qmUbu9BwYlb1UQ7fyiioA==
+  dependencies:
+    "@babel/runtime" "^7.6.3"
 
 gatsby-plugin-manifest@^2.4.5:
   version "2.4.35"
