@@ -14,6 +14,7 @@ class DataModel {
     this.enums = [];
     this.references = [];
     this.services = [];
+    this.triggers = [];
   }
 
   addTable(table) {
@@ -30,6 +31,24 @@ class DataModel {
 
   addServices(services) {
     this.services = services;
+  }
+
+  addTrigger(trigger) {
+    this.triggers.push(trigger);
+  }
+
+  getDefaultFunctions() {
+    return `CREATE OR REPLACE FUNCTION update_modified_column()
+RETURNS TRIGGER
+AS $$
+BEGIN
+NEW.updated_at = now();
+RETURN NEW;
+END;
+$$
+LANGUAGE 'plpgsql';
+
+`;
   }
 }
 
@@ -61,6 +80,16 @@ class Table extends Thing {
     super(name, description);
     this.examples = examples;
     this.service = service;
+    this.additionalFields = [
+      {
+        name: "created_at",
+        type: "timestamp NOT NULL DEFAULT now()"
+      },
+      {
+        name: "updated_at",
+        type: "timestamp NOT NULL DEFAULT now()"
+      }
+    ];
   }
 
   addColumn(name, description, type, mockValues) {
@@ -69,6 +98,10 @@ class Table extends Thing {
   }
 
   getPostgresCreate() {
+    const additionalColumns = this.additionalFields.map(({ name, type }) => {
+      return `${name} ${type}`;
+    });
+
     return `DROP TABLE IF EXISTS ${this.name} CASCADE;
 CREATE TABLE ${this.name} (
 ${this.properties
@@ -79,6 +112,7 @@ ${this.properties
         : `${property.name} ${property.type}`;
     return column;
   })
+  .concat(additionalColumns)
   .join(",\n")
   .concat(`\n);`)}`;
   }
@@ -116,6 +150,9 @@ ${this.properties
     }
     return sqlString;
   }
+  getSequence() {
+    return `SELECT SETVAL('${this.name}_id_seq', (select MAX(ID) from ${this.name}));`;
+  }
 }
 
 class Enum extends Thing {
@@ -152,9 +189,27 @@ class Reference {
   }
 
   getPostgresCreate() {
-    return `ALTER TABLE ${this.source} ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target}(Id);`;
+    return `ALTER TABLE ${this.source} ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target}(Id);
+CREATE INDEX ON ${this.source} (${this.referenceField});`;
   }
 }
+
+class Trigger {
+  constructor(source, service) {
+    this.source = source;
+    this.service = service;
+  }
+
+  getPostgresCreate() {
+    return `CREATE TRIGGER set_${this.source}_updated_at 
+BEFORE UPDATE ON ${this.source} 
+FOR EACH ROW 
+EXECUTE PROCEDURE update_modified_column();
+
+`;
+  }
+}
+
 const buildModel = (records) => {
   let myDataModel = new DataModel();
 
@@ -163,6 +218,7 @@ const buildModel = (records) => {
   let myTable = new Table();
   let myEnum = new Enum();
   let myReference = new Reference();
+  let trigger = new Trigger();
 
   records.forEach((record) => {
     switch (record.Type) {
@@ -171,6 +227,7 @@ const buildModel = (records) => {
           firstTable = false;
         } else {
           myDataModel.addTable(myTable);
+          myDataModel.addTrigger(trigger);
         }
         myTable = new Table(
           record.Name,
@@ -178,6 +235,7 @@ const buildModel = (records) => {
           record.Examples,
           record.Service
         );
+        trigger = new Trigger(record.Name, record.Service);
         break;
       case "pk":
         myTable.addColumn(record.Name, record.Description, "pk", record.Mocks);
