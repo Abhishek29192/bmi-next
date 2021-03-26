@@ -97,7 +97,7 @@ const DialogVideo = ({
       <AlternativeContent>{label}</AlternativeContent>
       <Button
         isIconButton
-        onClick={(e) => {
+        onClick={(e: any) => {
           setDialogOpen(true);
         }}
         className={styles["play-button"]}

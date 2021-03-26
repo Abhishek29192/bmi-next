@@ -22,10 +22,10 @@ export type Props = {
   file: File;
   uri: string;
   headers?: RequestData["headers"];
-  mapBody?: (file: File) => Record<string, any>;
+  mapBody: (file: File) => Record<string, any>;
   onDeleteClick: () => void;
-  onRequestSuccess?: (responseBody) => void;
-  errorMessage?: string;
+  onRequestSuccess: (responseBody: any) => void;
+  errorMessage: string;
   validation?: (file: File) => string;
   onRequest?: (file: File) => Promise<void | Partial<RequestData>>;
 };

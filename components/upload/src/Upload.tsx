@@ -28,7 +28,7 @@ export type Props = {
   uri: string;
   headers?: Record<string, string>;
   mapBody?: (file: File) => Record<string, any>;
-  mapValue?: (file: File, response: any) => any;
+  mapValue: (file: File, response: any) => any;
   fileValidation?: (file: File) => string;
   onUploadRequest?: FileProps["onRequest"];
   microcopyProvider: Record<string, string>;
@@ -85,7 +85,8 @@ const Upload = ({
       .filter((item) => item.kind === "file")
       .map((item) => ({
         file: item.getAsFile()
-      }));
+      }))
+      .filter(({ file }) => !!file) as UploadFile[];
     setFiles((currentFiles) => currentFiles.concat(files));
   };
 

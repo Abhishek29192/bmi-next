@@ -95,6 +95,8 @@ const Table = ({
 
     if (
       "width" in normalTableDimensions &&
+      containerDimensions.width &&
+      normalTableDimensions.width &&
       containerDimensions.width < normalTableDimensions.width
     ) {
       if (!header) {
@@ -106,6 +108,8 @@ const Table = ({
 
     if (
       "width" in mediumTableDimensions &&
+      containerDimensions.width &&
+      mediumTableDimensions.width &&
       containerDimensions.width < mediumTableDimensions.width
     ) {
       setTableSize("small");
