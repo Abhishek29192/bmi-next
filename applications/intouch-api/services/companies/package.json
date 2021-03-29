@@ -13,6 +13,7 @@
     "fill-db": "node scripts/index.js"
   },
   "dependencies": {
+    "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",
     "apollo-server": "^2.19.2",
     "auth0": "^2.33.0",

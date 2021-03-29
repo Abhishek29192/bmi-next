@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -10,86 +10,20 @@ import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import Card from "@bmi/card";
 import CompanyDetails from "@bmi/company-details";
-import { useAuth0 } from "@auth0/auth0-react";
-import { useQuery, useLazyQuery, gql } from "@apollo/client";
+
 import { Person } from "@material-ui/icons";
 import Icon from "@bmi/icon";
 import Layout from "../components/Layout";
 import InfoPair from "../components/InfoPair";
 import CardHeader from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
-
-// WIP - need to integrate API response properly.
-
-const GET_COMPANY = gql`
-  query GetCompanyDetail($companyId: Int!) {
-    companyById(id: $companyId) {
-      name
-      privateemail
-      aboutus
-      phone
-      website
-      tradingaddressline2
-    }
-  }
-`;
-
-const GET_ACCOUNT = gql`
-  query GetAccount($userId: Int!) {
-    accountById(id: $userId) {
-      firstname
-      lastname
-      companiesByOwner {
-        nodes {
-          id
-        }
-      }
-    }
-  }
-`;
-
-const USER_ID_CLAIM = `${process.env.NEXT_PUBLIC_AUTH_NAMESPACE}/internal_user_id`;
-
-type Company = {
-  id: number;
-  name: string;
-  privateemail: string;
-  aboutus: string;
-  phone: string;
-  website: string;
-  tradingaddressline2: string;
-};
-type CompanyData = {
-  companyById: Company;
-};
-type CompanyVars = {
-  companyId: number;
-};
-
-type Account = {
-  firstname: string;
-  lastname: string;
-  companiesByOwner: {
-    nodes: Company[];
-  };
-};
-type AccountData = {
-  accountById: Account;
-};
-type AccountVars = {
-  userId: number;
-};
+import serverSiderProps, { CompanyData } from "../lib/serverSideProps/company";
 
 const getCompanyData = (
   companyData: CompanyData
 ): { name: string; aboutus: string; details: any } => {
-  const company = companyData.companyById;
+  const company = companyData.company;
   const details = [
-    {
-      type: "address",
-      text: company.tradingaddressline2,
-      label: "Address"
-    },
     {
       type: "cta",
       text: "Get directions",
@@ -138,33 +72,13 @@ const getCompanyData = (
   ];
   return {
     name: company.name,
-    aboutus: company.aboutus,
+    aboutus: "company.aboutUs",
     details
   };
 };
 
-const Company = () => {
+const Company = ({ company }: any) => {
   const { t } = useTranslation("company-page");
-  const { user } = useAuth0();
-  const [company, setCompany] = useState<CompanyData>();
-
-  // TODO: move these requests on server side
-  const [loadCompany] = useLazyQuery<CompanyData, CompanyVars>(GET_COMPANY, {
-    onCompleted: (data) => setCompany(data)
-  });
-
-  useQuery<AccountData, AccountVars>(GET_ACCOUNT, {
-    variables: { userId: user[USER_ID_CLAIM] },
-    onCompleted: ({ accountById }) => {
-      if (accountById?.companiesByOwner?.nodes?.length > 0) {
-        loadCompany({
-          variables: {
-            companyId: accountById.companiesByOwner.nodes[0].id
-          }
-        });
-      }
-    }
-  });
 
   if (!company) {
     return <p>No company found</p>;
@@ -330,15 +244,6 @@ const Company = () => {
   );
 };
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, [
-      "common",
-      "sidebar",
-      "footer",
-      "company-page"
-    ]))
-  }
-});
+export const getServerSideProps = serverSiderProps;
 
 export default Company;

@@ -8,7 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { KeyboardArrowDown, Person } from "@material-ui/icons";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useUser } from "@auth0/nextjs-auth0";
 import Icon from "@bmi/icon";
 import styles from "./styles/UserMenu.module.scss";
 
@@ -27,7 +27,7 @@ export default function MenuListComposition() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
-  const { user, logout } = useAuth0();
+  const { user } = useUser();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -103,11 +103,7 @@ export default function MenuListComposition() {
                     onKeyDown={handleListKeyDown}
                   >
                     <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem
-                      onClick={() =>
-                        logout({ returnTo: window.location.origin })
-                      }
-                    >
+                    <MenuItem component="a" href="/api/auth/logout">
                       Logout
                     </MenuItem>
                   </MenuList>

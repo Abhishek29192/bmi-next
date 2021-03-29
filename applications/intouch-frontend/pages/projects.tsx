@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Layout from "../components/Layout";
+import auth0 from "../lib/auth0";
 
 const Projects = () => {
   const { t } = useTranslation("common");
@@ -11,9 +12,17 @@ const Projects = () => {
   );
 };
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ["common", "sidebar", "footer"]))
+export const getServerSideProps = auth0.withPageAuthRequired({
+  async getServerSideProps({ locale }) {
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer"
+        ]))
+      }
+    };
   }
 });
 
