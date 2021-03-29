@@ -12,6 +12,12 @@ module.exports.up = (migration) => {
     );
 
   carouselItem
+    .createField("header")
+    .name("Header")
+    .type("Symbol")
+    .required(true);
+
+  carouselItem
     .createField("imageSet")
     .name("Image Set")
     .type("Link")
@@ -28,22 +34,16 @@ module.exports.up = (migration) => {
     .required(true)
     .validations([{ in: audiences }]);
 
-  carouselItem
-    .createField("header")
-    .name("Header")
-    .type("Symbol")
-    .required(true);
+  carouselItem.createField("body").name("Body").type("Text").required(true);
 
-  carouselItem.createField("body").name("Body").type("Symbol").required(true);
-
-  carouselItem.changeFieldControl("imageSet", "builtin", "entryLinkEditor");
-  carouselItem.changeFieldControl("audience", "builtin", "singleLine", {
-    helpText: "Role"
-  });
   carouselItem.changeFieldControl("header", "builtin", "singleLine", {
     helpText: "The header for the item"
   });
-  carouselItem.changeFieldControl("body", "builtin", "singleLine", {
+  carouselItem.changeFieldControl("imageSet", "builtin", "entryLinkEditor");
+  carouselItem.changeFieldControl("audience", "builtin", "dropdown", {
+    helpText: "Role"
+  });
+  carouselItem.changeFieldControl("body", "builtin", "multipleLine", {
     helpText: "The body text for the item"
   });
 };

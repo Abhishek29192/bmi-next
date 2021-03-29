@@ -36,10 +36,10 @@ module.exports.up = (migration) => {
   messageTemplate
     .createField("notificationBody")
     .name("Notification Body")
-    .type("RichText")
-    .validations([{ nodes: {} }]);
+    .type("Symbol")
+    .required(true);
 
-  messageTemplate.createField("emailBody").name("EmailBody").type("Symbol");
+  messageTemplate.createField("emailBody").name("Email Body").type("Text");
 
   messageTemplate.changeFieldControl("event", "builtin", "dropdown");
   messageTemplate.changeFieldControl("format", "builtin", "checkbox");
@@ -47,9 +47,9 @@ module.exports.up = (migration) => {
   messageTemplate.changeFieldControl(
     "notificationBody",
     "builtin",
-    "richTextEditor"
+    "singleLine"
   );
-  messageTemplate.changeFieldControl("emailBody", "builtin", "singleLine");
+  messageTemplate.changeFieldControl("emailBody", "builtin", "multipleLine");
 };
 
 module.exports.down = (migration) =>

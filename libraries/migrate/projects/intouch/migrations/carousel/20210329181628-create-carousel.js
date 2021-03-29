@@ -9,7 +9,7 @@ module.exports.up = (migration) => {
 
   carousel
     .createField("list")
-    .name("list")
+    .name("List")
     .type("Array")
     .required(true)
     .items({
@@ -18,7 +18,7 @@ module.exports.up = (migration) => {
       linkType: "Entry"
     });
 
-  carousel.createField("caption").name("caption").type("Text");
+  carousel.createField("caption").name("Caption").type("Text");
 
   carousel
     .createField("name")
