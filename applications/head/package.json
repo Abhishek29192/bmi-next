@@ -16,8 +16,8 @@
   },
   "scripts": {
     "clean": "gatsby clean",
-    "dev": "gatsby clean && gatsby develop",
-    "start": "gatsby build --prefix-paths && gatsby serve",
+    "dev": "node ./scripts/netlify-toml-builder.js && gatsby clean && gatsby develop",
+    "start": "node ./scripts/netlify-toml-builder.js && gatsby build --prefix-paths && gatsby serve",
     "check:ts": "tsc --noEmit",
     "build": "gatsby build --prefix-paths",
     "coverage:jest": "jest --coverage",
