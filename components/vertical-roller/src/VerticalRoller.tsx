@@ -22,9 +22,10 @@ export type Slide = {
 type Props = {
   title: React.ReactNode;
   slides: Slide[];
+  rollerSectionComponent?: React.ComponentType<any>; // TODO
 };
 
-const VerticalRoller = ({ title, slides }: Props) => {
+const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
   const [activePage, setActivePage] = useState<number>(0);
 
   return (
@@ -41,6 +42,7 @@ const VerticalRoller = ({ title, slides }: Props) => {
                   <RollerSelector
                     className={styles["selector"]}
                     key={`roller-selector-${index}`}
+                    component={rollerSectionComponent}
                     isSelected={
                       getPageFromAbsoluteIndex(activePage, slides.length) ===
                       index + 1
