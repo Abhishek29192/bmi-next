@@ -21,12 +21,14 @@ export type Props = {
   filters: ReadonlyArray<Filter>;
   onChange?: (filterName: string, filterValue: string, value: boolean) => void;
   checkboxComponent?: React.ComponentType<any>; // TODO
+  accordionSummaryComponent?: React.ComponentType<any>; // TODO
 };
 
 const Filters = ({
   filters,
   onChange,
-  checkboxComponent: Checkbox = DefaultCheckbox
+  checkboxComponent: Checkbox = DefaultCheckbox,
+  accordionSummaryComponent: AccordionSummary = Accordion.Summary
 }: Props) => {
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);
@@ -50,9 +52,9 @@ const Filters = ({
 
           return (
             <Accordion.Item key={filter.name}>
-              <Accordion.Summary>
+              <AccordionSummary>
                 <Typography variant="h6">{filter.label}</Typography>
-              </Accordion.Summary>
+              </AccordionSummary>
               <Accordion.Details>
                 <div className={styles["list"]}>
                   {filterOptions.map((option) => (
