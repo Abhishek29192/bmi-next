@@ -36,7 +36,7 @@ const ProductOverview = ({
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={12} lg={8}>
-          <ImageGallery images={images} />
+          <ImageGallery images={images} layout="short" />
         </Grid>
         <Grid item xs={12} md={12} lg={4}>
           <ProductOverviewPane
