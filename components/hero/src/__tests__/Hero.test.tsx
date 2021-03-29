@@ -6,7 +6,11 @@ import Hero from "../";
 describe("Hero component", () => {
   it("renders level 1", () => {
     const { container } = render(
-      <Hero imageSource={imageSource} title="H1 Heading" level={1}>
+      <Hero
+        media={<img src={imageSource} alt="Lorem ipsum" />}
+        title="H1 Heading"
+        level={1}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
         tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus
         suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
@@ -15,13 +19,9 @@ describe("Hero component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it("renders react component as imageSource", () => {
+  it("renders with deprecated imageSource", () => {
     const { container } = render(
-      <Hero
-        imageSource={<div>Test component</div>}
-        title="H1 Heading"
-        level={1}
-      >
+      <Hero imageSource={imageSource} title="H1 Heading" level={1}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
         tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus
         suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
