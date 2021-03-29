@@ -10,6 +10,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@bmi/media": "0.0.0",
     "@bmi/styles": "0.0.0",
     "@bmi/thumb-scroller-button": "0.0.0",
     "@bmi/thumbnail": "0.0.0",

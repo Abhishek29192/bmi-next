@@ -8,6 +8,8 @@
     overflow: hidden;
     max-height: 360px;
     height: calc(100vw - (16px * 2));
+    object-fit: contain;
+    // TODO: Remove these when `mainSource` gets deprecated.
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -15,6 +17,8 @@
     -webkit-print-color-adjust: exact;
 
     &--cover {
+      object-fit: cover;
+      // TODO: Remove this when `mainSource` gets deprecated.
       background-size: cover;
     }
     &--short {
