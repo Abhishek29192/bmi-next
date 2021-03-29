@@ -10,7 +10,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import styles from "./YoutubeVideo.module.scss";
 
-type Props = {
+export type Props = {
   label: React.ReactNode;
   subtitle?: React.ReactNode;
   videoId: string;
