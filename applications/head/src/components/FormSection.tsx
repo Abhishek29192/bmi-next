@@ -192,7 +192,7 @@ const FormSection = ({
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const GTMButton = withGTM<ButtonProps>(Button);
+  const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -264,8 +264,14 @@ const FormSection = ({
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton
-              component={(props) => (
-                <GTMButton gtm={{ id: "form-button1" }} {...props} />
+              component={(props: ButtonProps) => (
+                <GTMButton
+                  gtm={{
+                    id: "form-button1",
+                    action: title
+                  }}
+                  {...props}
+                />
               )}
               endIcon={
                 isSubmitting ? (

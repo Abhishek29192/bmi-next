@@ -1,10 +1,11 @@
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
 import { Link } from "gatsby";
 import React, { useContext } from "react";
 import { iconMap } from "../components/Icon";
+import withGTM from "../utils/google-tag-manager";
 import {
   findMasterImageUrl,
   findUniqueVariantClassifications,
@@ -30,6 +31,8 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
     return <Typography>No results found</Typography>;
   }
 
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+
   return (
     <>
       {products.map((variant) => {
@@ -37,6 +40,10 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
         const brandLogo = iconMap[brandLogoCode];
         const mainImage = findMasterImageUrl(variant.images);
         const product = variant.baseProduct;
+        const productUrl = getProductUrl(
+          pageContext.countryCode,
+          variantCodeToPathMap[variant.code]
+        );
 
         const uniqueClassifications = mapClassificationValues(
           findUniqueVariantClassifications(
@@ -62,19 +69,21 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
               imageSize="contain"
               brandImageSource={brandLogo}
               footer={
-                <AnchorLink
+                <GTMAnchorLink
                   iconEnd
                   action={{
                     model: "routerLink",
                     linkComponent: Link,
-                    to: getProductUrl(
-                      pageContext.countryCode,
-                      variantCodeToPathMap[variant.code]
-                    )
+                    to: productUrl
+                  }}
+                  gtm={{
+                    id: "cta-click1",
+                    label: getMicroCopy("plp.product.viewDetails"),
+                    action: productUrl
                   }}
                 >
                   {getMicroCopy("plp.product.viewDetails")}
-                </AnchorLink>
+                </GTMAnchorLink>
               }
             >
               {variant.shortDescription}

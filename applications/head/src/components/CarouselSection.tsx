@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
+import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import TwoPaneCarousel, {
   Slide as TwoPaneCarouselSlide
 } from "@bmi/two-pane-carousel";
@@ -10,6 +11,7 @@ import Section from "@bmi/section";
 import Button from "@bmi/button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Data as PromoData } from "../components/Promo";
+import withGTM from "../utils/google-tag-manager";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { LinkData, getCTA, getClickableActionFromUrl } from "./Link";
@@ -26,6 +28,8 @@ export type Data = {
   slides: Slide[];
   link: LinkData | null;
 };
+
+const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { label: "children" });
 
 const parseSlides = (
   slides: Slide[],
@@ -66,6 +70,16 @@ const CarouselSection = ({
             slides,
             countryCode,
             getMicroCopy("page.linkLabel")
+          )}
+          rollerSectionComponent={(props: ButtonBaseProps) => (
+            <GTMButton
+              gtm={{
+                id: "cta-click1",
+                label: props.children[0],
+                action: "Selector - Cards"
+              }}
+              {...props}
+            />
           )}
         />
       ) : (

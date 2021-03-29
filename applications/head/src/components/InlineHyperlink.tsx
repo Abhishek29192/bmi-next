@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
 import { Inline } from "@contentful/rich-text-types";
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
@@ -23,6 +24,8 @@ type Props = {
   children: React.ReactNode;
 };
 
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+
 const InlineHyperlink = ({ node, children }: Props) => {
   const { countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
@@ -36,7 +39,7 @@ const InlineHyperlink = ({ node, children }: Props) => {
   if (fields.__typename === "ContentfulLink") {
     const { linkedPage, url, asset, type, parameters } = fields;
     return (
-      <AnchorLink
+      <GTMAnchorLink
         action={getClickableActionFromUrl(
           linkedPage,
           url,
@@ -48,16 +51,21 @@ const InlineHyperlink = ({ node, children }: Props) => {
             open(parameters);
           }
         )}
+        gtm={{
+          id: "cta-click1",
+          label: children[0][1],
+          action: url
+        }}
       >
-        {children}
-      </AnchorLink>
+        {children}?
+      </GTMAnchorLink>
     );
   }
 
   if (fields.__typename === "ContentfulAsset") {
     const { file } = fields;
     return (
-      <AnchorLink
+      <GTMAnchorLink
         action={getClickableActionFromUrl(
           undefined,
           undefined,
@@ -65,22 +73,32 @@ const InlineHyperlink = ({ node, children }: Props) => {
           `https:${file.url}`,
           String(children)
         )}
+        gtm={{
+          id: "cta-click1",
+          label: children[0][1],
+          action: `https:${file.url}`
+        }}
       >
         {children}
-      </AnchorLink>
+      </GTMAnchorLink>
     );
   }
 
   return (
-    <AnchorLink
+    <GTMAnchorLink
       action={{
         model: "routerLink",
         to: `/${countryCode}/${fields.path}`.replace(/\/+/gi, "/"),
         linkComponent: Link
       }}
+      gtm={{
+        id: "cta-click1",
+        label: children[0][1],
+        action: `/${countryCode}/${fields.path}`.replace(/\/+/gi, "/")
+      }}
     >
       {children}
-    </AnchorLink>
+    </GTMAnchorLink>
   );
 };
 

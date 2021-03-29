@@ -1,6 +1,8 @@
 import React, { useState, useRef, useMemo } from "react";
 import { graphql } from "gatsby";
 import { sortBy } from "lodash";
+import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
+import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import Hero from "@bmi/hero";
 import Grid from "@bmi/grid";
 import Section from "@bmi/section";
@@ -42,6 +44,7 @@ import { devLog } from "../utils/devLog";
 import ProgressIndicator from "../components/ProgressIndicator";
 import Scrim from "../components/Scrim";
 import filterStyles from "../components/styles/Filters.module.scss";
+import withGTM from "../utils/google-tag-manager";
 
 const PAGE_SIZE = 24;
 
@@ -130,6 +133,11 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
+
+  const GTMCheckbox = withGTM<CheckboxProps>(Checkbox, {
+    label: "label"
+  });
+  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
   const getFilters = (
     documents: DocumentResultsData,
@@ -376,6 +384,28 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                             <Filters
                               filters={filters}
                               onChange={handleFiltersChange(resetList)}
+                              checkboxComponent={(props: CheckboxProps) => (
+                                <GTMCheckbox
+                                  gtm={{
+                                    id: "filter2",
+                                    action: "Selector – Filter"
+                                  }}
+                                  {...props}
+                                />
+                              )}
+                              accordionSummaryComponent={(
+                                props: AccordionSummaryProps
+                              ) => (
+                                <GTMAccordionSummary
+                                  gtm={{
+                                    id: "filter1",
+                                    // @ts-ignore
+                                    label: props.children?.props?.children,
+                                    action: "Selector – Filter"
+                                  }}
+                                  {...props}
+                                />
+                              )}
                             />
                           )}
                         </DownloadListContext.Consumer>

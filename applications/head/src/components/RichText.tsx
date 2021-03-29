@@ -9,9 +9,10 @@ import {
 } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
 import Typography from "@bmi/typography";
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { graphql } from "gatsby";
+import withGTM from "../utils/google-tag-manager";
 import EmbeddedBlock from "./EmbeddedBlock";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import InlineHyperlink from "./InlineHyperlink";
@@ -24,6 +25,8 @@ type Settings = {
   backgroundTheme?: "light" | "dark";
   underlineHeadings?: ("h2" | "h3" | "h4" | "h5" | "h6")[];
 };
+
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const getOptions = (settings: Settings): Options => {
   const { underlineHeadings = [] } = settings;
@@ -102,16 +105,21 @@ const getOptions = (settings: Settings): Options => {
         <InlineHyperlink node={node}>{children}</InlineHyperlink>
       ),
       [INLINES.HYPERLINK]: (node: Inline, children: React.ReactNode) => (
-        <AnchorLink
+        <GTMAnchorLink
           action={{
             model: "htmlLink",
             href: node.data.uri,
             target: "_blank",
             rel: "noopener noreferrer"
           }}
+          gtm={{
+            id: "cta-click1",
+            label: children[0][1],
+            action: node.data.uri
+          }}
         >
           {children}
-        </AnchorLink>
+        </GTMAnchorLink>
       )
     },
     renderMark: {
