@@ -15,7 +15,12 @@ export default (path: string): ApiResponse => {
     if (path) {
       setLoading(true);
       fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api${path}`)
-        .then((res) => res.json())
+        .then(async (res) => {
+          if (!res.ok) {
+            setError({ status: res.status, message: res.statusText });
+          }
+          return await res.json();
+        })
         .then((res) => setData(res))
         .catch((err) => setError(err))
         .finally(() => setLoading(false));

@@ -1,13 +1,13 @@
 import postgraphile from "postgraphile";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
-import confis from "../config";
+import config from "../config";
 import { CompanyWrapPlugin } from "./plugins";
 
 const { PG_SCHEMA, PG_USER, PASSWORD, HOST, DATABASE, PG_PORT } = process.env;
 
 const postGraphileOptions = {
-  ...confis.postgraphile,
+  ...config.postgraphile,
   appendPlugins: [pgSimplifyInflector, FederationPlugin, CompanyWrapPlugin],
   async additionalGraphQLContextFromRequest(req, res) {
     const user = {
@@ -22,7 +22,7 @@ const postGraphileOptions = {
   pgSettings: async ({ user }) => {
     const { role = "installer", id: userId = -1 } = user;
     return {
-      role,
+      role: role.toLowerCase(),
       "app.current_account": userId
     };
   }

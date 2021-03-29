@@ -293,8 +293,6 @@
           decodeURIComponent(escape(window.atob(hash || "@@config@@")))
         );
 
-        console.log("config", config);
-
         var leeway = config.internalOptions.leeway;
         if (leeway) {
           var convertedLeeway = parseInt(leeway);

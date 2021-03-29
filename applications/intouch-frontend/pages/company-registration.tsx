@@ -19,7 +19,11 @@ const CREATE_COMPANY = gql`
 
 const Company = () => {
   const [createCompany] = useMutation(CREATE_COMPANY, {
-    onCompleted: () => window.location.assign("/")
+    onCompleted: () => {
+      // Redirect to silent-auth in order to re-create the session as we need to remove
+      // the claim from the jwt token to stop showing the registration page to the user
+      window.location.assign("/api/silent-auth?returnTo=/");
+    }
   });
 
   const onSubmit = (event, values) => {
@@ -33,6 +37,8 @@ const Company = () => {
     });
   };
 
+  //TODO move statis string to translatoins when working on this page
+
   return (
     <Form onSubmit={onSubmit} rightAlignButton>
       <Grid
@@ -41,7 +47,7 @@ const Company = () => {
         justify="center"
         className={GridStyles.outerGrid}
       >
-        <Grid item xs={12} lg={4} xl={5}>
+        <Grid item xs={10} lg={4} xl={5}>
           <Form.Row>
             <TextField
               name="name"
