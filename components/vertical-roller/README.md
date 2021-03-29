@@ -14,6 +14,46 @@ import { AeroDek } from "@bmi/logo";
 const slides = [
   {
     title: "Approved Installers",
+    media: <img src={rooferGunImage} alt="Lorem ipsum" />,
+    description:
+      "Accredited BMI installers are masters of their craft and available all over Norway.",
+    cta: {
+      label: "Go to Approved Installers"
+    }
+  },
+  {
+    title: "Realiable Warranties",
+    brandIcon: AeroDek,
+    media: <img src={houseImage} alt="Lorem ipsum" />,
+    cta: {
+      label: "Go to Realiable Warranties"
+    }
+  },
+  {
+    title: "Best tiles ever",
+    media: <img src={tilesBlack} alt="Lorem ipsum" />
+  }
+];
+
+<Section backgroundColor="pearl" spacing="none">
+  <VerticalRoller title="H2 Heading" slides={slides} />
+</Section>;
+```
+
+### Deprecated `imageSource`
+
+This is going to be deprecated in `0.2.0`. Please use one of the examples above instead.
+
+```jsx
+import Section from "@bmi/section";
+import rooferGunImage from "./images/roofer-gun.png";
+import houseImage from "./images/house.png";
+import tilesBlack from "./images/demo-tiles-black.png";
+import { AeroDek } from "@bmi/logo";
+
+const slides = [
+  {
+    title: "Approved Installers",
     imageSource: rooferGunImage,
     description:
       "Accredited BMI installers are masters of their craft and available all over Norway.",
