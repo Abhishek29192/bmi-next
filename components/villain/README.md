@@ -16,7 +16,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
   <Section.Title>H2 Heading</Section.Title>
   <Villain
     title="H4 Heading"
-    imageSource={greyTiles}
+    media={<img src={greyTiles} alt="Lorem ipsum" />}
     cta={{ label: "Call to action" }}
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
@@ -24,7 +24,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
   </Villain>
   <Villain
     title="H4 Heading"
-    imageSource={greyRoofHouseImage}
+    media={<img src={greyRoofHouseImage} alt="Lorem ipsum" />}
     cta={{ label: "Call to action" }}
     isReversed
   >
@@ -34,7 +34,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
 
   <Villain
     title="With video"
-    imageSource={
+    media={
       <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
     }
     cta={{ label: "Call to action" }}
@@ -56,7 +56,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
 
 <Villain
   title="H2 Heading"
-  imageSource={greyRoofHouseImage}
+  media={<img src={greyRoofHouseImage} alt="Lorem ipsum" />}
   cta={{ label: "Call to action" }}
   isFullWidth
 >
@@ -75,7 +75,7 @@ import YoutubeVideo from "@bmi/youtube-video";
 
 <Villain
   title="H2 Heading"
-  imageSource={
+  media={
     <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
   }
   cta={{ label: "Call to action" }}
@@ -96,7 +96,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
 
 <Villain
   title="H2 Heading"
-  imageSource={greyRoofHouseImage}
+  media={<img src={greyRoofHouseImage} alt="Lorem ipsum" />}
   cta={{ label: "Call to action" }}
   isFullWidth
   isReversed
@@ -117,8 +117,33 @@ The Villain uses the `ColorPair` component and its functionality. Pass a differe
 import greyTiles from "./images/grey-tiles.png";
 import greyRoofHouseImage from "./images/grey-roof-house.png";
 
-<Villain title="H4 Heading" imageSource={greyTiles} theme="teal-400">
+<Villain
+  title="H4 Heading"
+  media={<img src={greyTiles} alt="Lorem ipsum" />}
+  theme="teal-400"
+>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit,
   finibus augue et, ultricies felis.
 </Villain>;
+```
+
+### Deprecated `imageSource`
+
+This is going to be deprecated in `0.2.0`. Please use one of the examples above instead.
+
+```jsx
+import Section from "@bmi/section";
+import greyTiles from "./images/grey-tiles.png";
+
+<Section>
+  <Section.Title>H2 Heading</Section.Title>
+  <Villain
+    title="H4 Heading"
+    imageSource={greyTiles}
+    cta={{ label: "Call to action" }}
+  >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
+    blandit, finibus augue et, ultricies felis.
+  </Villain>
+</Section>;
 ```

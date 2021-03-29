@@ -85,7 +85,7 @@ $villan-breakpoint-sm: 769px;
   }
 
   @media (min-width: $breakpoint-sm) {
-    .container {
+    .content {
       min-height: 320px;
     }
 
@@ -132,10 +132,14 @@ $villan-breakpoint-sm: 769px;
       }
 
       .image {
-        position: static;
+        position: relative;
         width: 100%;
         height: 100%;
         left: 0;
+      }
+
+      .media {
+        position: absolute;
       }
     }
   }
