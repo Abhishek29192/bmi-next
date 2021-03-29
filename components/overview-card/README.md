@@ -11,7 +11,7 @@ import { AeroDek as brandLogo } from "@bmi/logo";
 
 <OverviewCard
   title="Unde Mmnis Iste"
-  imageSource={demoHouseImage}
+  media={<img src={demoHouseImage} alt="Lorem ipsum" />}
   brandImageSource={brandLogo}
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
@@ -44,7 +44,7 @@ import demoHouseImage from "./images/demo-tiles.jpg";
 
 <OverviewCard
   title="Unde Mmnis Iste"
-  imageSource={demoHouseImage}
+  media={<img src={demoHouseImage} alt="Lorem ipsum" />}
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
 >
@@ -61,7 +61,7 @@ import { AeroDek as brandLogo } from "@bmi/logo";
 <OverviewCard
   title="Unde Mmnis Iste"
   titleVariant="h4"
-  imageSource={demoHouseImage}
+  media={<img src={demoHouseImage} alt="Lorem ipsum" />}
   brandImageSource={brandLogo}
   hasTitleUnderline
 >
@@ -79,7 +79,7 @@ import { AeroDek as brandLogo } from "@bmi/logo";
 <OverviewCard
   title="Unde Mmnis Iste"
   titleVariant="h6"
-  imageSource={demoHouseImage}
+  media={<img src={demoHouseImage} alt="Lorem ipsum" />}
   brandImageSource={brandLogo}
   footer={<Button variant="outlined">Go to this</Button>}
 >
@@ -99,7 +99,7 @@ import { AeroDek as brandLogo } from "@bmi/logo";
   titleVariant="h5"
   subtitle="Lorem ipsum sit dolor amet"
   subtitleVariant="h6"
-  imageSource={demoHouseImage}
+  media={<img src={demoHouseImage} alt="Lorem ipsum" />}
   brandImageSource={brandLogo}
   footer={<AnchorLink iconEnd>Go to this</AnchorLink>}
 >
@@ -116,7 +116,7 @@ import { AeroDek as brandLogo } from "@bmi/logo";
 
 <OverviewCard
   title="Unde Mmnis Iste"
-  imageSource={demoHouseImage}
+  media={<img src={demoHouseImage} alt="Lorem ipsum" />}
   brandImageSource={brandLogo}
   footer={<Button variant="outlined">Go to this</Button>}
   isFlat
@@ -133,9 +133,29 @@ import YoutubeVideo from "@bmi/youtube-video";
 
 <OverviewCard
   title="Unde Mmnis Iste"
-  imageSource={
+  media={
     <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
   }
+  hasTitleUnderline
+  footer={<Button variant="outlined">Go to this</Button>}
+>
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+</OverviewCard>;
+```
+
+### Deprecated `imageSource`
+
+This is going to be deprecated in `0.2.0`. Please use one of the examples above instead.
+
+```jsx
+import Button from "@bmi/button";
+import demoHouseImage from "./images/demo-tiles.jpg";
+import { AeroDek as brandLogo } from "@bmi/logo";
+
+<OverviewCard
+  title="Unde Mmnis Iste"
+  imageSource={demoHouseImage}
+  brandImageSource={brandLogo}
   hasTitleUnderline
   footer={<Button variant="outlined">Go to this</Button>}
 >
