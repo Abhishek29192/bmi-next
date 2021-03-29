@@ -8,12 +8,18 @@ const fieldName = "welcomeDialogBrands";
 
 module.exports.up = (migration) => {
   migration.editContentType(contentTypeName).editField(fieldName, {
-    validations: [{ in: newIcons }]
+    items: {
+      type: "Symbol",
+      validations: [{ in: newIcons }]
+    }
   });
 };
 
 module.exports.down = (migration) => {
   migration.editContentType(contentTypeName).editField(fieldName, {
-    validations: [{ in: previousIcons }]
+    items: {
+      type: "Symbol",
+      validations: [{ in: previousIcons }]
+    }
   });
 };
