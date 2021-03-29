@@ -29,13 +29,13 @@ const slides: Props["slides"] = [
     cta: {
       label: "Read the full story"
     },
-    imageSource
+    media: <img src={imageSource} alt="Lorem ipsum" />
   },
   {
     title: "H1 Heading",
     description:
       "Aliquip velit exercitation sunt eiusmod. Ipsum est quis dolore cupidatat nisi reprehenderit aliquip exercitation. Magna mollit Lorem est aliqua consequat officia cillum dolor.",
-    imageSource
+    media: <img src={imageSource} alt="Lorem ipsum" />
   },
   {
     title: "H1 Heading",
@@ -43,6 +43,7 @@ const slides: Props["slides"] = [
     cta: {
       label: "Read the full story"
     },
+    // TODO: This tests the deprecated imageSource
     imageSource
   }
 ];

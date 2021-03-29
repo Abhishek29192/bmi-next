@@ -7,6 +7,7 @@ import {
 import Grid from "@bmi/grid";
 import AnchorLink from "@bmi/anchor-link";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
+import Media from "@bmi/media";
 import Typography from "@bmi/typography";
 import SlideControls from "@bmi/slide-controls";
 import { Props } from "./types";
@@ -88,12 +89,15 @@ const TwoPaneCarousel = ({ slides }: Props) => {
         </Grid>
         <Grid item xs={12} sm={6} xl={8}>
           <Carousel initialPage={activePage} onPageChange={setActivePage}>
-            {slides.map(({ imageSource }, index) => (
+            {slides.map(({ imageSource, media }, index) => (
               <Carousel.Slide key={`$right-pane-${index}`}>
-                <div
-                  className={styles["image"]}
-                  style={{ backgroundImage: `url(${imageSource})` }}
-                />
+                {imageSource ? (
+                  <div
+                    className={styles["image"]}
+                    style={{ backgroundImage: `url(${imageSource})` }}
+                  />
+                ) : null}
+                <Media className={styles["image"]}>{media}</Media>
               </Carousel.Slide>
             ))}
           </Carousel>
