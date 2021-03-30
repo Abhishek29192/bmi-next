@@ -119,7 +119,7 @@ export const mapGalleryImages = (images) => {
       }),
       "url"
     ),
-    altText: images[0].name
+    altText: images[0].altText || images[0].name
   }));
 };
 

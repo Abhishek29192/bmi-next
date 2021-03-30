@@ -28,6 +28,7 @@ import Breadcrumbs, {
 } from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
+import { transformImagesSrc } from "../components/ImageGallerySection";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -142,6 +143,13 @@ type Props = {
   };
 };
 
+const transformImages = (images) => {
+  return images.map(({ mainSource, thumbnail, altText }) => ({
+    media: <img src={mainSource} alt={altText} />,
+    thumbnail
+  }));
+};
+
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
 
@@ -211,10 +219,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   name: product.name,
                   brandName: brandCode || "",
                   nobb: selfProduct.externalProductCode || null,
-                  images: mapGalleryImages([
-                    ...(selfProduct.images || []),
-                    ...(product.images || [])
-                  ]),
+                  images: transformImages(
+                    mapGalleryImages([
+                      ...(selfProduct.images || []),
+                      ...(product.images || [])
+                    ])
+                  ),
                   attributes: getProductAttributes(
                     productClassifications,
                     selfProduct,
