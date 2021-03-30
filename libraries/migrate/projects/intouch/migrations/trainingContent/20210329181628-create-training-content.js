@@ -22,10 +22,8 @@ module.exports.up = (migration) => {
   trainingContent
     .createField("lmsCtaLabel")
     .name("LMS CTA Label")
-    .type("Link")
-    .required(true)
-    .validations([{ linkContentType: ["imageSet"] }])
-    .linkType("Entry");
+    .type("Symbol")
+    .required(true);
 
   trainingContent
     .createField("customCtaLabel")
@@ -109,11 +107,7 @@ module.exports.up = (migration) => {
 
   trainingContent.changeFieldControl("pageHeading", "builtin", "singleLine");
   trainingContent.changeFieldControl("description", "builtin", "markdown");
-  trainingContent.changeFieldControl(
-    "lmsCtaLabel",
-    "builtin",
-    "entryLinkEditor"
-  );
+  trainingContent.changeFieldControl("lmsCtaLabel", "builtin", "singleLine");
   trainingContent.changeFieldControl("customCtaLabel", "builtin", "singleLine");
   trainingContent.changeFieldControl(
     "customCtaTarget",

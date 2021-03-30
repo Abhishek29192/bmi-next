@@ -33,12 +33,6 @@ module.exports.up = (migration) => {
     ]);
 
   evidenceCategory
-    .createField("locked")
-    .name("Locked")
-    .type("Boolean")
-    .required(true);
-
-  evidenceCategory
     .createField("ranking")
     .name("Ranking")
     .type("Integer")
@@ -56,7 +50,6 @@ module.exports.up = (migration) => {
     "builtin",
     "numberEditor"
   );
-  evidenceCategory.changeFieldControl("locked", "builtin", "boolean");
   evidenceCategory.changeFieldControl("ranking", "builtin", "numberEditor", {
     helpText: "The order in which it is listed amongst other categories"
   });

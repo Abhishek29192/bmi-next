@@ -6,16 +6,14 @@ module.exports.up = (migration) => {
   const guaranteeTemplate = migration
     .createContentType("guaranteeTemplate")
     .name("Guarantee Template")
-    .displayField("headingGuarantee")
+    .displayField("displayName")
     .description("A template for a type of Guarantee");
 
   guaranteeTemplate
-    .createField("guaranteeType")
-    .name("Guarantee Type")
-    .type("Link")
-    .required(true)
-    .validations([{ linkContentType: ["guaranteeType"] }])
-    .linkType("Entry");
+    .createField("displayName")
+    .name("Display Name")
+    .type("Symbol")
+    .required(true);
 
   guaranteeTemplate
     .createField("approvalMessage")
@@ -141,7 +139,7 @@ module.exports.up = (migration) => {
   guaranteeTemplate
     .createField("footer")
     .name("Footer")
-    .type("Symbol")
+    .type("Text")
     .required(true);
 
   guaranteeTemplate
@@ -183,11 +181,7 @@ module.exports.up = (migration) => {
     .type("Symbol")
     .required(true);
 
-  guaranteeTemplate.changeFieldControl(
-    "guaranteeType",
-    "builtin",
-    "entryLinkEditor"
-  );
+  guaranteeTemplate.changeFieldControl("displayName", "builtin", "singleLine");
   guaranteeTemplate.changeFieldControl(
     "approvalMessage",
     "builtin",
@@ -271,11 +265,11 @@ module.exports.up = (migration) => {
     "builtin",
     "singleLine"
   );
-  guaranteeTemplate.changeFieldControl("footer", "builtin", "singleLine");
+  guaranteeTemplate.changeFieldControl("footer", "builtin", "multipleLine");
   guaranteeTemplate.changeFieldControl(
     "maintenanceTemplate",
     "builtin",
-    "singleLine"
+    "assetLinkEditor"
   );
   guaranteeTemplate.changeFieldControl(
     "guaranteeScope",
@@ -283,7 +277,7 @@ module.exports.up = (migration) => {
     "singleLine"
   );
   guaranteeTemplate.changeFieldControl("terms", "builtin", "assetLinkEditor");
-  guaranteeTemplate.changeFieldControl("mailBody", "builtin", "singleLine");
+  guaranteeTemplate.changeFieldControl("mailBody", "builtin", "multipleLine");
   guaranteeTemplate.changeFieldControl(
     "filenamePrefix",
     "builtin",
