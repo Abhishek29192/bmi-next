@@ -8,10 +8,11 @@
   publish = "public/"
 
   # Default build command.
+  
   command = "node ./scripts/netlify-token-replacer.js && yarn build-contentful && yarn workspace @bmi/head run build --log-pages"
 
   # Global environment variables.
-  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true" }
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true" }
 
 [[plugins]]
   package = "../../libraries/netlify-plugin-filter-tag-event"
