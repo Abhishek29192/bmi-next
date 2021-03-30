@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
-import Video from "./Video";
+import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";
 import { SiteContext } from "./Site";
 import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import RichText from "./RichText";
+import { renderImage } from "./Image";
 
 export type Data = {
   __typename: "ContentfulSyndicateSection";
@@ -34,11 +35,9 @@ const SyndicateSection = ({
         ) : (
           subtitle
         ),
-        imageSource: typePromoData.featuredVideo ? (
-          <Video data={typePromoData.featuredVideo} />
-        ) : (
-          featuredMedia?.image?.resize.src
-        ),
+        media: typePromoData.featuredVideo
+          ? renderVideo(typePromoData.featuredVideo)
+          : renderImage(featuredMedia),
         cta: getCTA(typePromoData, countryCode, getMicroCopy("page.linkLabel"))
       };
     }

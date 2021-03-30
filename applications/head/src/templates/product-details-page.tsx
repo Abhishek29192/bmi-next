@@ -26,6 +26,8 @@ import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
+import { renderVideo } from "../components/Video";
+import { renderImage } from "../components/Image";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -268,7 +270,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           <Section.Title>{resources.pdpCardsTitle}</Section.Title>
           <Grid container spacing={3}>
             {resources.pdpCards.map(
-              ({ title, featuredImage, ...data }, index, cards) => {
+              (
+                { title, featuredVideo, featuredMedia, ...data },
+                index,
+                cards
+              ) => {
                 const cta = getCTA(data, countryCode);
                 return (
                   <Grid
@@ -281,7 +287,11 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   >
                     <CTACard
                       title={title}
-                      imageSource={featuredImage?.resized?.src}
+                      media={
+                        featuredVideo
+                          ? renderVideo(featuredVideo)
+                          : renderImage(featuredMedia)
+                      }
                       action={cta?.action}
                     />
                   </Grid>

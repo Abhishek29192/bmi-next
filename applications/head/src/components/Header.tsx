@@ -16,6 +16,7 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
   return [
     {
       label: promo.title,
+      // TODO: Use media here? 🤔
       image: promo.featuredMedia?.image?.resize.src
     },
     { label: promo.title, isHeading: true },

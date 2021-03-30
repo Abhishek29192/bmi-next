@@ -4,6 +4,8 @@ import Typography from "@bmi/typography";
 import PromoSection from "@bmi/promo-section";
 import { Data as PromoData } from "./Promo";
 import { getClickableActionFromUrl } from "./Link";
+import { renderVideo } from "./Video";
+import { renderImage } from "./Image";
 
 const ErrorFallback = ({
   countryCode,
@@ -20,10 +22,16 @@ const ErrorFallback = ({
       linkedPage: undefined,
       url: undefined
     },
-    featuredMedia = null
+    featuredMedia = null,
+    featuredVideo = null
   } = promo || {};
   return (
-    <PromoSection title={title} imageSource={featuredMedia?.image?.resize.src}>
+    <PromoSection
+      title={title}
+      media={
+        featuredVideo ? renderVideo(featuredVideo) : renderImage(featuredMedia)
+      }
+    >
       <Typography variant="body2" gutterBottom>
         {subtitle}
       </Typography>

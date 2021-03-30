@@ -16,7 +16,8 @@ import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
 import BrandLogo from "../components/BrandLogo";
-import Video from "../components/Video";
+import { renderVideo } from "../components/Video";
+import { renderImage } from "../components/Image";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
@@ -43,11 +44,9 @@ const getHeroItemsWithContext = (
       return {
         title,
         children: subtitle,
-        imageSource: featuredVideo ? (
-          <Video data={featuredVideo} />
-        ) : (
-          featuredMedia?.image?.resize.src
-        ),
+        media: featuredVideo
+          ? renderVideo(featuredVideo)
+          : renderImage(featuredMedia),
         CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
       };
     }
@@ -83,11 +82,9 @@ const BrandLandingPage = ({ data }: Props) => {
           const firstSlide: HeroItem = {
             title: <BrandLogo brandName={brandLogo} />,
             children: description?.description,
-            imageSource: featuredVideo ? (
-              <Video data={featuredVideo} />
-            ) : (
-              featuredMedia?.image?.resize.src
-            ),
+            imageSource: featuredVideo
+              ? renderVideo(featuredVideo)
+              : featuredMedia?.image?.resize.src,
             hasUnderline: false
           };
 

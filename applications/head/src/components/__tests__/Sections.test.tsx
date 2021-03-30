@@ -180,6 +180,12 @@ describe("Sections component", () => {
               caption: null,
               focalPoint: null,
               image: {
+                fluid: {
+                  aspectRatio: 1,
+                  src: "",
+                  srcSet: "",
+                  sizes: ""
+                },
                 resize: {
                   src: "//image-url"
                 }
@@ -206,16 +212,26 @@ describe("Sections component", () => {
         description: {
           description: "card section 1 description"
         },
-        images: [
+        medias: [
           {
-            title: "my test title",
-            mainSource: { src: "url" },
-            thumbnail: { src: "url" }
-          },
-          {
-            title: "my test title2",
-            mainSource: { src: "url2" },
-            thumbnail: { src: "url2" }
+            type: null,
+            altText: "Lorem ipsum",
+            caption: null,
+            focalPoint: null,
+            image: {
+              fluid: {
+                aspectRatio: 1,
+                src: "",
+                srcSet: "",
+                sizes: ""
+              },
+              resize: {
+                src: "link-to-page.png"
+              },
+              thumbnail: {
+                src: "link-to-thumbnal.png"
+              }
+            }
           }
         ]
       },

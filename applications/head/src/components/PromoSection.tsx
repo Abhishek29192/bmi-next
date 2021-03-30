@@ -4,7 +4,8 @@ import PromoSection from "@bmi/promo-section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
-import Video from "./Video";
+import { renderVideo } from "./Video";
+import { renderImage } from "./Image";
 import { getClickableActionFromUrl } from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText from "./RichText";
@@ -28,12 +29,8 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
   return (
     <PromoSection
       title={title}
-      imageSource={
-        featuredVideo ? (
-          <Video data={featuredVideo} />
-        ) : (
-          featuredMedia?.image?.resize.src
-        )
+      media={
+        featuredVideo ? renderVideo(featuredVideo) : renderImage(featuredMedia)
       }
       className={styles["PromoSection"]}
     >

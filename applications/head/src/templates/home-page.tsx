@@ -15,7 +15,8 @@ import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import WelcomeDialog from "../components/WelcomeDialog";
 import withGTM from "../utils/google-tag-manager";
-import Video from "../components/Video";
+import { renderVideo } from "../components/Video";
+import { renderImage } from "../components/Image";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -42,11 +43,9 @@ const getHeroItemsWithContext = (
       return {
         title,
         children: subtitle,
-        imageSource: featuredVideo ? (
-          <Video data={featuredVideo} />
-        ) : (
-          featuredMedia?.image?.resize.src
-        ),
+        media: featuredVideo
+          ? renderVideo(featuredVideo)
+          : renderImage(featuredMedia),
         CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
       };
     }

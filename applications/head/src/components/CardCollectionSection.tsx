@@ -10,7 +10,8 @@ import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
-import Video from "./Video";
+import { renderVideo } from "./Video";
+import { renderImage } from "./Image";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
@@ -63,14 +64,12 @@ const CardCollectionItem = ({
     <OverviewCard
       hasTitleUnderline
       title={title}
-      imageSource={
-        type !== "Text Card" ? (
-          featuredVideo ? (
-            <Video data={featuredVideo} />
-          ) : (
-            featuredMedia?.image?.resize.src
-          )
-        ) : undefined
+      media={
+        type !== "Text Card"
+          ? featuredVideo
+            ? renderVideo(featuredVideo)
+            : renderImage(featuredMedia)
+          : undefined
       }
       isFlat={type === "Story Card"}
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
