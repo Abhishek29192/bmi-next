@@ -52,6 +52,17 @@ const FiltersSidebar = ({
       </div>
       <Filters
         filters={filters}
+        microcopyProvider={{
+          "filterLabels.assetType": getMicroCopy("filterLabels.assetType"),
+          "filterLabels.productFamily": getMicroCopy(
+            "filterLabels.productFamily"
+          ),
+          "filterLabels.brand": getMicroCopy("filterLabels.brand"),
+          "filterLabels.colour": getMicroCopy("filterLabels.colour"),
+          "filterLabels.textureFamily": getMicroCopy(
+            "filterLabels.textureFamily"
+          )
+        }}
         onChange={onFiltersChange}
         checkboxComponent={(props: CheckboxProps) => (
           <GTMCheckbox

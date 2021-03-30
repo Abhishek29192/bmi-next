@@ -234,7 +234,7 @@ const getColorFilter = (
   const values = uniqBy(map(colorFilters, "value"), "code");
 
   return {
-    label,
+    label: "filterLabels.colour",
     name: "colour",
     value: [],
     options: values
@@ -285,7 +285,7 @@ const getTextureFilter = (
   const values = uniqBy(map(textures, "value"), "code");
 
   return {
-    label,
+    label: "filterLabels.textureFamily",
     name: "texturefamily",
     value: [],
     options: values
@@ -310,7 +310,7 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
     })
     .map(([categoryKey, category]) => {
       return {
-        label: category.name,
+        label: "pim." + category.name,
         name: categoryKey,
         value: [],
         options: category.values
