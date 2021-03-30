@@ -21,7 +21,8 @@
     "jwks-rsa": "^1.12.3",
     "cross-fetch": "^3.0.4",
     "graphql-tools": "^6.0.8",
-    "graphql-transform-federation": "^2.2.0"
+    "graphql-transform-federation": "^2.2.0",
+    "@google-cloud/storage": "^5.7.0"
   },
   "devDependencies": {
     "typescript": "^3.9.3",
