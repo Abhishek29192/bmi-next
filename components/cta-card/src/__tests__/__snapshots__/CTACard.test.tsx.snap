@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CtaCard component CtaCard with component as imageSource renders correctly 1`] = `
+exports[`CtaCard component renders correctly 1`] = `
 <button
   class="MuiButtonBase-root Card"
   tabindex="0"
@@ -35,13 +35,11 @@ exports[`CtaCard component CtaCard with component as imageSource renders correct
         </h5>
       </a>
     </section>
-    <div
-      class="image"
-    >
-      <div>
-        I am component
-      </div>
-    </div>
+    <img
+      alt="Lorem ipsum"
+      class="Media"
+      src="path-to-image"
+    />
   </div>
   <span
     class="MuiTouchRipple-root"
@@ -49,7 +47,7 @@ exports[`CtaCard component CtaCard with component as imageSource renders correct
 </button>
 `;
 
-exports[`CtaCard component renders correctly 1`] = `
+exports[`CtaCard component renders with deprecated imageSource 1`] = `
 <a
   aria-disabled="false"
   class="MuiButtonBase-root Card"

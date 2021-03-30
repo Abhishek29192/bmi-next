@@ -5,17 +5,44 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
+import Media, { AcceptedNode } from "@bmi/media";
 import styles from "./CTACard.module.scss";
 
 type Props = ButtonBaseProps & {
   buttonComponent?: React.ComponentType<any>; // TODO
-  imageSource: string | React.ReactNode;
+  /**
+   * @deprecated Use media instead.
+   */
+  imageSource?: string | React.ReactNode;
+  media?: React.ReactElement<AcceptedNode>;
   title: React.ReactNode;
+};
+
+const __DeprecatedImageSource = ({
+  imageSource
+}: Pick<Props, "imageSource">) => {
+  if (!imageSource) {
+    return null;
+  }
+
+  return (
+    <div
+      className={styles["image"]}
+      style={
+        typeof imageSource === "string"
+          ? { backgroundImage: `url(${imageSource})` }
+          : {}
+      }
+    >
+      {typeof imageSource !== "string" && imageSource}
+    </div>
+  );
 };
 
 const CTACard = ({
   buttonComponent: Button = ButtonBase,
   imageSource,
+  media,
   title,
   className,
   ...rest
@@ -35,16 +62,8 @@ const CTACard = ({
             </Typography>
           </Button>
         </section>
-        <div
-          className={styles["image"]}
-          style={
-            typeof imageSource === "string"
-              ? { backgroundImage: `url(${imageSource})` }
-              : {}
-          }
-        >
-          {typeof imageSource !== "string" && imageSource}
-        </div>
+        <__DeprecatedImageSource imageSource={imageSource} />
+        <Media>{media}</Media>
       </Card>
     </ButtonBase>
   );
