@@ -590,7 +590,7 @@ HTMLCollection [
                 class="ImageGallery"
               >
                 <div
-                  class="main-image-wrapper main-image-wrapper--cover"
+                  class="main-image-wrapper main-image-wrapper--cover main-image-wrapper--default"
                   style="background-image: url(url);"
                 >
                   <span

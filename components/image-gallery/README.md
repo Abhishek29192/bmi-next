@@ -110,3 +110,28 @@ const images = [
 
 <ImageGallery images={images} imageSize="cover" />;
 ```
+
+### with short layout variant
+
+```jsx
+import firstImageSource from "./images/demo-tiles.jpg";
+import secondImageSource from "./images/demo-tiles-black.png";
+import thirdImageSource from "./images/demo-house.png";
+
+const images = [
+  {
+    mainSource: firstImageSource,
+    altText: "Demo Tiles"
+  },
+  {
+    mainSource: secondImageSource,
+    altText: "Demo Tiles Black"
+  },
+  {
+    mainSource: thirdImageSource,
+    altText: "Demo house"
+  }
+];
+
+<ImageGallery images={images} layout="short" />;
+```
