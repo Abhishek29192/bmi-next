@@ -36,3 +36,8 @@
     Content-Security-Policy = "CONTENT_SECURITY_POLICY"
     Access-Control-Allow-Origin = "ACCESS_CONTROL_ALLOW_ORIGIN"
 
+
+# Placeholder for redirects - everything below this line gets replaced
+# Please ensure any other settings you wish to keep are above this line
+# *** REDIRECTS_START_HERE ***
+
