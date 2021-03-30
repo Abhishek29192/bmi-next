@@ -27,11 +27,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
       <Section.Title>{getMicroCopy("nba.title")}</Section.Title>
       <Grid container spacing={3}>
         {data.map(({ title, subtitle, ...rest }, index) => {
-          const { label, action } = getCTA(
-            rest,
-            countryCode,
-            getMicroCopy("page.linkLabel")
-          );
+          const cta = getCTA(rest, countryCode, getMicroCopy("page.linkLabel"));
 
           return (
             <Grid item xs={12} md={4} lg={3} key={`nba-${index}`}>
@@ -39,11 +35,13 @@ const NextBestActions = ({ data }: { data: Data }) => {
                 theme={indexToBackgroundMap[index]}
                 title={title}
                 footer={
-                  <div style={{ fontSize: "1rem" }}>
-                    <AnchorLink action={action} iconStart>
-                      {label}
-                    </AnchorLink>
-                  </div>
+                  cta ? (
+                    <div style={{ fontSize: "1rem" }}>
+                      <AnchorLink action={cta.action} iconStart>
+                        {cta.label}
+                      </AnchorLink>
+                    </div>
+                  ) : undefined
                 }
               >
                 {subtitle}
