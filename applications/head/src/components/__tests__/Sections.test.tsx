@@ -228,7 +228,9 @@ describe("Sections component", () => {
         label: "Find A Roofer",
         body: null,
         roofers: null,
-        position: 0
+        position: 0,
+        centre: null,
+        zoom: null
       }
     ];
 

@@ -758,6 +758,12 @@ type ContentfulServiceLocatorSection implements Node {
 
   "The roofers for this section."
   roofers: [ContentfulRoofer] @link(from: "roofers___NODE")
+
+  "The map centre for this section"
+  centre: Location
+
+  "The map zoom for this section."
+  zoom: Int
 }
 
 """
