@@ -77,7 +77,7 @@ const SimplePage = ({ data }: Props) => {
     children: subtitle,
     media: featuredVideo
       ? renderVideo(featuredVideo)
-      : renderImage(featuredMedia)
+      : renderImage(featuredMedia, { size: "cover" })
   };
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {

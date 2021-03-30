@@ -30,7 +30,9 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
     <PromoSection
       title={title}
       media={
-        featuredVideo ? renderVideo(featuredVideo) : renderImage(featuredMedia)
+        featuredVideo
+          ? renderVideo(featuredVideo)
+          : renderImage(featuredMedia, { position: "top left" })
       }
       className={styles["PromoSection"]}
     >

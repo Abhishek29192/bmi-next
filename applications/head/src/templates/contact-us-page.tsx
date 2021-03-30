@@ -60,7 +60,7 @@ const ContactUsPage = ({ data }: Props) => {
     children: subtitle,
     media: featuredVideo
       ? renderVideo(featuredVideo)
-      : renderImage(featuredMedia)
+      : renderImage(featuredMedia, { size: "cover" })
   };
   const pageData: PageData = {
     breadcrumbs,

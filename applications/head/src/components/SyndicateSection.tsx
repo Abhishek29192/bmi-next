@@ -37,7 +37,7 @@ const SyndicateSection = ({
         ),
         media: typePromoData.featuredVideo
           ? renderVideo(typePromoData.featuredVideo)
-          : renderImage(featuredMedia),
+          : renderImage(featuredMedia, { size: "cover" }),
         cta: getCTA(typePromoData, countryCode, getMicroCopy("page.linkLabel"))
       };
     }
