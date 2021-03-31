@@ -14,6 +14,17 @@ describe("CtaCard component", () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders with the clickable area around the heading", () => {
+    const { container } = render(
+      <CTACard
+        title="Call to Action Card"
+        clickableArea="heading"
+        media={<img src={demoHouseImage} alt="Lorem ipsum" />}
+        action={{ model: "htmlLink", href: "#" }}
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
   it("renders with deprecated imageSource", () => {
     const { container } = render(
       <CTACard

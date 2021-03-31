@@ -13,6 +13,20 @@ import demoHouseImage from "./images/demo-tiles.jpg";
 />;
 ```
 
+### Clickable Area
+
+By default, the full card is clickable area. If you want to override this (for example if something clickable is within the image area), you can add the property `clickableArea="heading"`.
+
+```jsx
+import demoHouseImage from "./images/demo-tiles.jpg";
+
+<CTACard
+  title="Call to Action Card"
+  clickableArea="heading"
+  media={<img src={demoHouseImage} alt="Lorem ipsum" />}
+/>;
+```
+
 ### With deprecated `imageSource`
 
 The property `imageSource` got deprecated. The correct implementation, as shown in the previous examples, is to use a React Node instead.

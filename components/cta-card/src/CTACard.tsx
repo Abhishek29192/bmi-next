@@ -16,6 +16,7 @@ type Props = ButtonBaseProps & {
   imageSource?: string | React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
   title: React.ReactNode;
+  clickableArea?: "full" | "heading";
 };
 
 const __DeprecatedImageSource = ({
@@ -45,27 +46,38 @@ const CTACard = ({
   media,
   title,
   className,
+  clickableArea = "full",
   ...rest
 }: Props) => {
-  const btnAction = typeof imageSource === "string" ? rest : null;
+  const ClickableArea = ({
+    className,
+    children
+  }: {
+    className?: string;
+    children?: React.ReactNode;
+  }) => (
+    <Button className={className} {...rest}>
+      {children}
+    </Button>
+  );
+
+  const WrapperElement = clickableArea === "full" ? ClickableArea : "div";
+  const HeadingElement =
+    clickableArea === "heading" ? ClickableArea : "section";
+
   return (
-    <ButtonBase
-      className={classnames(styles["Card"], className)}
-      {...btnAction}
-    >
+    <WrapperElement className={classnames(styles["Card"], className)}>
       <Card className={styles["body"]}>
-        <section className={styles["top-box"]}>
-          <Button {...rest} disableRipple>
-            <Typography variant="h5" className={styles["heading"]}>
-              {title}
-              <ArrowForwardIcon className={styles["icon"]} />
-            </Typography>
-          </Button>
-        </section>
+        <HeadingElement className={styles["top-box"]}>
+          <Typography variant="h5" className={styles["heading"]}>
+            {title}
+            <ArrowForwardIcon className={styles["icon"]} />
+          </Typography>
+        </HeadingElement>
         <__DeprecatedImageSource imageSource={imageSource} />
         <Media>{media}</Media>
       </Card>
-    </ButtonBase>
+    </WrapperElement>
   );
 };
 

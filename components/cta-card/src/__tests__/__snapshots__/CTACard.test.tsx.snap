@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CtaCard component renders correctly 1`] = `
-<button
+<a
+  aria-disabled="false"
   class="MuiButtonBase-root Card"
+  href="#"
   tabindex="0"
-  type="button"
 >
   <div
     class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
@@ -12,28 +13,21 @@ exports[`CtaCard component renders correctly 1`] = `
     <section
       class="top-box"
     >
-      <a
-        aria-disabled="false"
-        class="MuiButtonBase-root"
-        href="#"
-        tabindex="0"
+      <h5
+        class="MuiTypography-root heading Typography MuiTypography-h5"
       >
-        <h5
-          class="MuiTypography-root heading Typography MuiTypography-h5"
+        Call to Action Card
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Call to Action Card
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-            />
-          </svg>
-        </h5>
-      </a>
+          <path
+            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+          />
+        </svg>
+      </h5>
     </section>
     <img
       alt="Lorem ipsum"
@@ -44,7 +38,7 @@ exports[`CtaCard component renders correctly 1`] = `
   <span
     class="MuiTouchRipple-root"
   />
-</button>
+</a>
 `;
 
 exports[`CtaCard component renders with deprecated imageSource 1`] = `
@@ -60,28 +54,21 @@ exports[`CtaCard component renders with deprecated imageSource 1`] = `
     <section
       class="top-box"
     >
-      <a
-        aria-disabled="false"
-        class="MuiButtonBase-root"
-        href="#"
-        tabindex="0"
+      <h5
+        class="MuiTypography-root heading Typography MuiTypography-h5"
       >
-        <h5
-          class="MuiTypography-root heading Typography MuiTypography-h5"
+        Call to Action Card
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          Call to Action Card
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-            />
-          </svg>
-        </h5>
-      </a>
+          <path
+            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+          />
+        </svg>
+      </h5>
     </section>
     <div
       class="image"
@@ -92,4 +79,45 @@ exports[`CtaCard component renders with deprecated imageSource 1`] = `
     class="MuiTouchRipple-root"
   />
 </a>
+`;
+
+exports[`CtaCard component renders with the clickable area around the heading 1`] = `
+<div
+  class="Card"
+>
+  <div
+    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root top-box"
+      href="#"
+      tabindex="0"
+    >
+      <h5
+        class="MuiTypography-root heading Typography MuiTypography-h5"
+      >
+        Call to Action Card
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root icon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+          />
+        </svg>
+      </h5>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+    <img
+      alt="Lorem ipsum"
+      class="Media"
+      src="path-to-image"
+    />
+  </div>
+</div>
 `;
