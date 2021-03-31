@@ -16,17 +16,17 @@ const buildContent = () => {
     __dirname,
     "../redirects_" + process.env.SPACE_MARKET_CODE.toLowerCase() + ".toml"
   );
-  if (redirectsFile) {
+  if (fs.existsSync(redirectsFile)) {
     const fileOut = path.resolve(__dirname, "../netlify.toml");
-    const fileContentIn = fs.readFileSync(templateFile, "utf-8");
-    const fileContentIn2 = fs.readFileSync(redirectsFile, "utf-8");
+    const templateContent = fs.readFileSync(templateFile, "utf-8");
+    const redirectsContent = fs.readFileSync(redirectsFile, "utf-8");
     const redirectsMarker = "# *** REDIRECTS_START_HERE ***";
-    const settingsWithoutRedirects = fileContentIn.split(redirectsMarker)[0];
-
-    fs.writeFileSync(
-      fileOut,
-      settingsWithoutRedirects + redirectsMarker + "\n" + fileContentIn2
+    const newContent = templateContent.replace(
+      redirectsMarker,
+      redirectsContent
     );
+
+    fs.writeFileSync(fileOut, newContent);
   } else {
     console.warn("redirects file for selected market could not be found");
   }
