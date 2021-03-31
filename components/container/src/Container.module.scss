@@ -1,9 +1,15 @@
+@import "@bmi/styles";
+
 .Container {
   /* NOTE: handle iPhone safe area when in landscape mode */
   padding-left: env(safe-area-inset-left, 0);
   padding-right: env(safe-area-inset-right, 0);
 
+  @media (max-width: $breakpoint-md) {
+    overflow-x: hidden;
+  }
+
   &--full-width {
-    width: 100%;;
+    width: 100%;
   }
 }
