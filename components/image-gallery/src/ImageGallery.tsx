@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import classnames from "classnames";
 import Media from "@bmi/media";
+import Typography from "@bmi/typography";
+import Truncate from "@bmi/truncate";
 import DesktopThumbnails from "./_DesktopThumbnails";
 import MobileThumbnails from "./_MobileThumbnails";
 import { Image } from "./types";
@@ -71,6 +73,17 @@ const ImageGallery = ({
   return (
     <div className={styles["ImageGallery"]}>
       {renderMedia(images[activeImageIndex], imageSize, layout)}
+      {images[activeImageIndex].caption ? (
+        <div className={styles["caption"]}>
+          <Typography
+            variant="h6"
+            component="p"
+            className={styles["caption-text"]}
+          >
+            <Truncate lines="2">{images[activeImageIndex].caption}</Truncate>
+          </Typography>
+        </div>
+      ) : null}
       {images.length > 1 && (
         <Thumbnails
           images={images}
