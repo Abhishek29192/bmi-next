@@ -5,6 +5,7 @@ import CTACard from "@bmi/cta-card";
 import Container from "@bmi/container";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
+import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import styles from "./styles/OverlapCards.module.scss";
 import { Data as PromoData } from "./Promo";
@@ -51,21 +52,11 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
                     />
                   )}
                   media={
-                    featuredVideo ? (
-                      <img
-                        src={
-                          featuredVideo.previewMedia?.image?.resize?.src ||
-                          `https://i.ytimg.com/vi/${featuredVideo.youtubeId}/maxresdefault.jpg`
-                        }
-                        alt={
-                          featuredVideo.previewMedia?.altText ||
-                          featuredVideo.label
-                        }
-                      />
-                    ) : (
-                      renderImage(featuredMedia)
-                    )
+                    featuredVideo
+                      ? renderVideo(featuredVideo)
+                      : renderImage(featuredMedia)
                   }
+                  clickableArea={featuredVideo ? "heading" : "full"}
                   action={cta?.action}
                 />
               </Grid>

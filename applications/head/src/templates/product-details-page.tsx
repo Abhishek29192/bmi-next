@@ -28,7 +28,6 @@ import Breadcrumbs, {
 } from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { transformImagesSrc } from "../components/ImageGallerySection";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -302,6 +301,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                           ? renderVideo(featuredVideo)
                           : renderImage(featuredMedia)
                       }
+                      clickableArea={featuredVideo ? "heading" : "full"}
                       action={cta?.action}
                     />
                   </Grid>

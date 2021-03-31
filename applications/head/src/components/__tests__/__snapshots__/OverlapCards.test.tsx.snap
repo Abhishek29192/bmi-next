@@ -134,15 +134,15 @@ exports[`OverlapCards component renders correctly 1`] = `
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-5 MuiGrid-grid-lg-3"
         >
-          <a
-            class="MuiButtonBase-root Card"
-            href="/uk/some-page"
+          <div
+            class="Card"
           >
             <div
               class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
             >
-              <section
-                class="top-box"
+              <a
+                class="MuiButtonBase-root top-box"
+                href="/uk/some-page"
               >
                 <h5
                   class="MuiTypography-root heading Typography MuiTypography-h5"
@@ -159,17 +159,49 @@ exports[`OverlapCards component renders correctly 1`] = `
                     />
                   </svg>
                 </h5>
-              </section>
-              <img
-                alt="Lorem ipsum"
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+              <div
                 class="Media"
-                src="link-to-page.png"
-              />
+              >
+                <div
+                  class="YoutubeVideo"
+                  style="background-image: url(link-to-page.png);"
+                >
+                  <span
+                    class="AlternativeContent"
+                  >
+                    video label
+                  </span>
+                  <button
+                    class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained play-button"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M8 5v14l11-7z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
+          </div>
         </div>
       </div>
     </div>
