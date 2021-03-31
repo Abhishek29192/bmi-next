@@ -86,6 +86,7 @@ describe("Sections component", () => {
         villains: [
           {
             __typename: "ContentfulPromo",
+            id: "1234",
             title: "Villain 1",
             brandLogo: null,
             tags: null,
@@ -97,6 +98,7 @@ describe("Sections component", () => {
           },
           {
             __typename: "ContentfulPromo",
+            id: "3456",
             title: "Villain 2",
             brandLogo: null,
             tags: null,
@@ -197,6 +199,7 @@ describe("Sections component", () => {
       },
       {
         __typename: "ContentfulPromo",
+        id: "5678",
         title: "card section title 2",
         subtitle: null,
         body: null,

@@ -21,7 +21,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { VisualiserContext } from "./Visualiser";
 
-type Card = (PageInfoData | PromoData) & { id: string };
+type Card = PageInfoData | PromoData;
 
 export type Data = {
   __typename: "ContentfulCardCollectionSection";
@@ -296,31 +296,8 @@ export const query = graphql`
       ...LinkFragment
     }
     cards {
-      __typename
       ...PromoFragment
       ...PageInfoFragment
-      ... on ContentfulPromo {
-        id
-        tags {
-          title
-          type
-        }
-        # TODO: This is useless as it's coming from Promo and PageInfo fragments
-        featuredVideo {
-          ...VideoFragment
-        }
-      }
-      ... on ContentfulPage {
-        id
-        tags {
-          title
-          type
-        }
-        # TODO: This is useless as it's coming from Promo and PageInfo fragments
-        featuredVideo {
-          ...VideoFragment
-        }
-      }
     }
   }
 `;

@@ -11,6 +11,7 @@ export type Data = {
     | "ContentfulProductListerPage"
     | "ContentfulDocumentLibraryPage"
     | "ContentfulBrandLandingPage";
+  id: string;
   title: string;
   subtitle: string | null;
   brandLogo: string | null;
@@ -25,6 +26,7 @@ export type Data = {
 export const query = graphql`
   fragment PageInfoFragment on ContentfulPage {
     __typename
+    id
     title
     subtitle
     brandLogo
