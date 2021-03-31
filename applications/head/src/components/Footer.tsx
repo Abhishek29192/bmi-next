@@ -76,8 +76,16 @@ const BmiFooter = ({ mainNavigation, secondaryNavigation }: Props) => {
   return (
     <HidePrint>
       <Footer
-        buttonComponent={(props) => (
-          <GTMButton gtm={{ id: "nav-footer1" }} {...props} />
+        buttonComponent={(props: ButtonProps) => (
+          <GTMButton
+            gtm={{
+              id: "nav-footer1",
+              label: props.accessibilityLabel
+                ? props.accessibilityLabel
+                : undefined
+            }}
+            {...props}
+          />
         )}
         mainNavigation={main}
         secondaryNavigation={secondaryWithSitemap}

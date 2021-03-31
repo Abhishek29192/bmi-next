@@ -21,7 +21,7 @@ type Props = {
   ) => void;
 };
 
-const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
+const GTMButton = withGTM<ButtonProps>(Button);
 
 export const handleDownloadClick = async (
   list: Record<string, any>,
@@ -94,11 +94,16 @@ const DocumentResultsFooter = ({
             className={styles["clear-downloads"]}
           />
           <DownloadList.Button
-            component={(props) => (
+            component={(props: ButtonProps) => (
               <GTMButton
                 gtm={{
                   id: "download3-button1",
-                  action: Object.values(list).map(({ url }) => url)
+                  label: props.children[0],
+                  action: JSON.stringify(
+                    Object.values(list).map((item) =>
+                      Array.isArray(item) ? item[0].url : item.url
+                    )
+                  )
                 }}
                 {...props}
               />

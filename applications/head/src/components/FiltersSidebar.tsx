@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
 import Button from "@bmi/button";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import Typography from "@bmi/typography";
@@ -22,9 +23,8 @@ const FiltersSidebar = ({
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
 
-  const GTMCheckbox = withGTM<CheckboxProps>(Checkbox, {
-    label: "label"
-  });
+  const GTMCheckbox = withGTM<CheckboxProps>(Checkbox);
+  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
   return (
     <PerfectScrollbar
@@ -53,9 +53,29 @@ const FiltersSidebar = ({
       <Filters
         filters={filters}
         onChange={onFiltersChange}
-        checkboxComponent={(props: CheckboxProps) => (
-          <GTMCheckbox
-            gtm={{ id: "filter1", action: "Selector – Filter" }}
+        checkboxComponent={(props: CheckboxProps) => {
+          const label: string | React.ReactNode = props.label;
+
+          return (
+            <GTMCheckbox
+              gtm={{
+                id: "filter2",
+                // @ts-ignore
+                label: label.props ? label.props?.children[1] : label,
+                action: "Selector – Filter"
+              }}
+              {...props}
+            />
+          );
+        }}
+        accordionSummaryComponent={(props: AccordionSummaryProps) => (
+          <GTMAccordionSummary
+            gtm={{
+              id: "filter1",
+              // @ts-ignore
+              label: props.children?.props?.children,
+              action: "Selector – Filter"
+            }}
             {...props}
           />
         )}

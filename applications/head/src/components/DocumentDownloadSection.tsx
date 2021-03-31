@@ -71,7 +71,7 @@ const DocumentDownloadSection = ({
                     <GTMButton
                       gtm={{
                         id: "download1",
-                        label: filesize(details.size),
+                        label: "Download",
                         action: url
                       }}
                       action={getClickableActionFromUrl(
