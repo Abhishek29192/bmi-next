@@ -45,8 +45,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
                     <GTMButton
                       gtm={{
                         id: "cta-click1",
-                        // @ts-ignore
-                        label: props?.children?.props?.children[0]
+                        label: title
                       }}
                       {...props}
                     />
