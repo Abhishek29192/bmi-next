@@ -439,6 +439,16 @@ module.exports = {
             }
           }
         ]
+      : []),
+    ...(process.env.HUBSPOT_API_KEY
+      ? [
+          {
+            resolve: "gatsby-source-hubspot-forms",
+            options: {
+              apiKey: process.env.HUBSPOT_API_KEY
+            }
+          }
+        ]
       : [])
   ],
   flags: {

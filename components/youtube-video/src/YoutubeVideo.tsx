@@ -6,6 +6,8 @@ import Icon, { iconMap } from "@bmi/icon";
 import AlternativeContent from "@bmi/alternative-content";
 import useDimensions, { DimensionObject } from "@bmi/use-dimensions";
 import classnames from "classnames";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
 import styles from "./YoutubeVideo.module.scss";
 
 type Props = {
@@ -62,6 +64,12 @@ const DialogVideo = ({
   embedWidth,
   embedHeight
 }: Props) => {
+  // TODO: Create and use 'Container Dialog' when its done with ticket: https://bmigroup.atlassian.net/browse/DXB-1835
+  // had to use this as the design wants to show player as portait / full height on mobile
+  // and landscape/actual height of video when in all other resolution
+  const theme = useTheme();
+  const isSmallDevice = useMediaQuery(theme.breakpoints.only("xs"));
+
   const [isDialogOpen, setDialogOpen] = useState(false);
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
   const [ref, dimensions] = useDimensions();
@@ -70,10 +78,7 @@ const DialogVideo = ({
   // this is to fix safari full height issue with css properties!
   // this allows us keep player's height at max available height of container at all times
   if (dimensions.width && height && width > 0) {
-    calculatedHeight = Math.max(
-      (dimensions.width * height) / width,
-      calculatedHeight
-    );
+    calculatedHeight = (dimensions.width * height) / width;
   }
   return (
     <div
@@ -103,7 +108,7 @@ const DialogVideo = ({
               <ReactPlayer
                 url={videoUrl}
                 width="100%"
-                height={calculatedHeight}
+                height={isSmallDevice ? "" : calculatedHeight}
                 controls
                 playing
                 config={{
@@ -116,7 +121,6 @@ const DialogVideo = ({
             )}
           </div>
         </Dialog.Content>
-        <Dialog.Actions confirmLabel={null} />
       </Dialog>
     </div>
   );
