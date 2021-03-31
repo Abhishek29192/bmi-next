@@ -27,7 +27,8 @@ export type Data = {
 export const transformImagesSrc = (images?: GallerySectionImage[]): Image[] => {
   return (images || []).map((item) => ({
     media: renderImage(item),
-    thumbnail: item.image.thumbnail.src
+    thumbnail: item.image.thumbnail.src,
+    caption: item.caption?.caption || undefined
   }));
 };
 
