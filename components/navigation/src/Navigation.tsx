@@ -34,6 +34,7 @@ type NavigationProps = {
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
   languageLabel?: string;
+  sizes?: any;
 };
 
 const Navigation = ({
@@ -47,14 +48,20 @@ const Navigation = ({
   utilities,
   languageLabel,
   mainMenuTitleLabel,
-  mainMenuDefaultLabel
+  mainMenuDefaultLabel,
+  sizes
 }: NavigationProps) => {
   const [depth, setDepth] = React.useState<number>(0);
 
   React.useEffect(() => setDepth(initialDepth), [initialDepth]);
 
   return (
-    <nav className={styles["Navigation"]}>
+    <nav
+      className={classnames(
+        styles["Navigation"],
+        ...sizes.map((size) => styles[`Navigation--${size}`])
+      )}
+    >
       <NavigationList
         buttonComponent={buttonComponent}
         promoButtonComponent={promoButtonComponent}
