@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>In Touch Login</title>
+    <title data-i18n="intouch_title">In Touch Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <style>
@@ -13,14 +13,18 @@
       box-sizing: border-box;
     }
 
-    h1 {
-      font-size: 20px;
-    }
-
     body,
     html {
       height: 100%;
+      color: transparent;
+    }
+
+    body.translated {
       color: #3b3b3b;
+    }
+
+    h1 {
+      font-size: 20px;
     }
 
     .btn {
@@ -130,11 +134,13 @@
 
         <div id="signup-form" class="form signup-form">
           <div class="login-header">
-            <h1>WELCOME</h1>
+            <h1 data-i18n="signup_welcome">WELCOME</h1>
             <span class="divider"></span>
           </div>
           <form onsubmit="return false;" method="post">
-            <div class="text">Please select your registration type</div>
+            <div class="text" data-i18n="registration_type">
+              Please select your registration type:
+            </div>
             <div class="form-group type">
               <input
                 type="radio"
@@ -143,7 +149,9 @@
                 value="installer"
                 checked
               />
-              <label for="check-installer">Installer</label>
+              <label for="check-installer" data-i18n="installer"
+                >Installer</label
+              >
             </div>
             <div class="form-group type">
               <input
@@ -152,7 +160,7 @@
                 name="type"
                 value="company"
               />
-              <label for="check-company">Company</label>
+              <label for="check-company" data-i18n="company">Company</label>
             </div>
 
             <div class="form-group">
@@ -161,6 +169,7 @@
                 class="form-control"
                 id="signup-firstname"
                 placeholder="First Name"
+                data-i18n="first_name"
               />
             </div>
             <div class="form-group">
@@ -169,6 +178,7 @@
                 class="form-control"
                 id="signup-lastname"
                 placeholder="Last Name"
+                data-i18n="last_name"
               />
             </div>
             <div class="form-group">
@@ -178,6 +188,7 @@
                 autocomplete="email"
                 class="form-control"
                 placeholder="Enter your email"
+                data-i18n="enter_email"
               />
             </div>
             <div class="form-group">
@@ -187,10 +198,23 @@
                 autocomplete="password"
                 class="form-control"
                 placeholder="Enter your password"
+                data-i18n="enter_password"
               />
             </div>
-            <button type="button" id="btn-signup" class="btn">Sign Up</button>
-            <button type="button" id="btn-already-registered" class="btn-link">
+            <button
+              type="button"
+              id="btn-signup"
+              class="btn"
+              data-i18n="sign_up"
+            >
+              Sign Up
+            </button>
+            <button
+              type="button"
+              id="btn-already-registered"
+              class="btn-link"
+              data-i18n="already_registered"
+            >
               Already Registered?
             </button>
           </form>
@@ -198,7 +222,7 @@
 
         <div id="login-form" class="form login-form">
           <div class="login-header">
-            <h1>WELCOME</h1>
+            <h1 data-i18n="login_welcome">Welcome</h1>
             <span class="divider"></span>
           </div>
           <form onsubmit="return false;" method="post">
@@ -209,6 +233,7 @@
                 type="email"
                 id="login-email"
                 placeholder="Enter your email"
+                data-i18n="enter_email"
               />
             </div>
             <div class="form-group">
@@ -218,21 +243,33 @@
                 autocomplete="password"
                 id="login-password"
                 placeholder="Enter your password"
+                data-i18n="enter_password"
               />
             </div>
             <button
               type="submit"
               id="btn-login"
+              data-i18n="log_in"
               class="btn btn-primary btn-block"
             >
               Log In
             </button>
             <span class="forgot-password-link">
-              <button title="Forgot Password" id="link-reset" class="btn-link">
+              <button
+                title="Forgot Password"
+                id="link-reset"
+                class="btn-link"
+                data-i18n="forgot_password"
+              >
                 Forgot Password?
               </button>
             </span>
-            <button type="button" id="btn-not-registered" class="btn-link">
+            <button
+              type="button"
+              id="btn-not-registered"
+              class="btn-link"
+              data-i18n="not_registered"
+            >
               Not registered?
             </button>
             <!-- <hr />
@@ -248,11 +285,11 @@
 
         <div id="forgot-password" class="form forgot-password">
           <div class="login-header">
-            <h1>Request new password</h1>
+            <h1 data-i18n="new_password">Request new password</h1>
             <span class="divider"></span>
           </div>
           <form onsubmit="return false;" method="post">
-            <div class="text">
+            <div class="text" data-i18n="new_password_text">
               Please enter your email ddress and we will send you a link for a
               password reset
             </div>
@@ -262,12 +299,23 @@
                 class="form-control"
                 id="email"
                 placeholder="Enter your email"
+                data-i18n="enter_email"
               />
             </div>
-            <button type="button" id="btn-reset-password" class="btn">
+            <button
+              type="button"
+              id="btn-reset-password"
+              class="btn"
+              data-i18n="reset_password"
+            >
               Reset Password
             </button>
-            <button type="button" id="btn-back" class="btn-link">
+            <button
+              type="button"
+              id="btn-back"
+              class="btn-link"
+              data-i18n="back_to_login"
+            >
               Back to Login
             </button>
           </form>
@@ -288,6 +336,53 @@
     <script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
     <script>
       window.addEventListener("load", function () {
+        var translations = {
+          en: {
+            intouch_title: "In Touch - Login/Registration",
+            signup_welcome: "Welcome",
+            registration_type: "Please select your registration type:",
+            installer: "Installer",
+            company: "Company",
+            first_name: "First Name",
+            last_name: "Last Name",
+            enter_email: "Enter Email",
+            enter_password: "Enter Password",
+            sign_up: "Sign Up",
+            already_registered: "Already registered",
+            login_welcome: "Welcome",
+            log_in: "Log In",
+            forgot_password: "Forgot password?",
+            not_registered: "Not registered?",
+            new_password: "Request new password",
+            new_password_text:
+              "Please enter your email ddress and we will send you a link for a password reset",
+            reset_password: "Reset Password",
+            back_to_login: "Back to Log In"
+          },
+          it: {
+            intouch_title: "In Touch - Login/Registrazione",
+            signup_welcome: "Benvenuto",
+            registration_type: "Seleziona il tuo tipo di registrazione:",
+            installer: "Installatore",
+            company: "Azienda",
+            first_name: "Nome",
+            last_name: "Cognome",
+            enter_email: "Inserisci E-Mail",
+            enter_password: "Inserisci password",
+            sign_up: "Registrati",
+            already_registered: "Già registrato",
+            login_welcome: "Benvenuto",
+            log_in: "Login",
+            forgot_password: "Hai dimenticato la password?",
+            not_registered: "Non sei registrato?",
+            new_password: "Richiedi nuova password",
+            new_password_text:
+              "Inserisci il tuo indirizzo email e ti invieremo un link per la reimpostazione della password",
+            reset_password: "Reset password",
+            back_to_login: "Torna all'accesso"
+          }
+        };
+
         var hash = location.hash.substr(1);
         var config = JSON.parse(
           decodeURIComponent(escape(window.atob(hash || "@@config@@")))
@@ -315,6 +410,8 @@
           },
           config.internalOptions
         );
+
+        var language = config.extraParams.market;
 
         var webAuth = new auth0.WebAuth(params);
         var databaseConnection = "Username-Password-Authentication";
@@ -432,6 +529,20 @@
           errorMessage.style.display = "block";
         }
 
+        function translate(language) {
+          var elements = document.querySelectorAll("[data-i18n]");
+          var replaceText = (el) => {
+            var key = el.attributes["data-i18n"].value;
+            if (el.nodeName === "INPUT") {
+              el.placeholder = translations[language][key] || key;
+            } else {
+              el.innerText = translations[language][key] || key;
+            }
+          };
+          elements.forEach((el) => replaceText(el));
+        }
+
+        document.body.className += "translated";
         document.getElementById("btn-login").addEventListener("click", login);
         // document
         //   .getElementById("btn-google")
@@ -457,6 +568,8 @@
           .addEventListener("click", function () {
             showMode("login");
           });
+
+        translate(language);
       });
     </script>
   </body>
