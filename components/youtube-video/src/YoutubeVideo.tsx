@@ -99,7 +99,7 @@ const DialogVideo = ({
         maxWidth={"xl"}
         open={isDialogOpen}
         onCloseClick={() => setDialogOpen(false)}
-        className={styles["PlayerDialog"]}
+        className={styles["YoutubeVideo--dialog"]}
       >
         <Dialog.Title>{null}</Dialog.Title>
         <Dialog.Content className={styles["dialog-content"]}>
