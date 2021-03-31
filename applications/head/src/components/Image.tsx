@@ -2,26 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 // NOTE: The `withIEPolyfill` package exports objectFit/Position.
 import Img from "gatsby-image/withIEPolyfill";
-// TODO: This package gets deprecated in gatsby@3.x in favour of
-// gatsby-plugin-image. When we migrate to next gatsby version we have to
-// change this package too. For migration check https://www.gatsbyjs.com/docs/how-to/images-and-media/using-gatsby-plugin-image/#migrating
-import { GatsbyImageFluidProps } from "gatsby-image";
-
-// TODO: Move in its own file.
-type ContentfulAsset = GatsbyImageFluidProps & {
-  resize: {
-    src: string;
-  };
-  file?: {
-    fileName: string;
-    url: string;
-  };
-};
+import { Data as AssetData } from "./Asset";
 
 export type Data = {
   altText: string | null;
   type: "Decorative" | "Descriptive" | null;
-  image: ContentfulAsset;
+  image: AssetData;
   caption: {
     caption: string;
   } | null;
@@ -109,18 +95,7 @@ export const query = graphql`
     altText
     type
     image {
-      # srcSetBreakpoints
-      # quality
-      fluid {
-        ...GatsbyContentfulFluid
-      }
-      resize(width: 1000, toFormat: JPG, jpegProgressive: true, quality: 60) {
-        src
-      }
-      file {
-        fileName
-        url
-      }
+      ...AssetFragment
     }
     focalPoint {
       x
