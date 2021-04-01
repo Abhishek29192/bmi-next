@@ -43,7 +43,7 @@ exports[`Filters component renders disabled filters 1`] = `
           <h6
             class="MuiTypography-root Typography MuiTypography-h6"
           >
-            Label 1
+            MC: Label 1
           </h6>
         </div>
         <div
@@ -211,7 +211,7 @@ exports[`Filters component renders multiple filters 1`] = `
           <h6
             class="MuiTypography-root Typography MuiTypography-h6"
           >
-            Label 1
+            MC: Label 1
           </h6>
         </div>
         <div
@@ -368,7 +368,7 @@ exports[`Filters component renders multiple filters 1`] = `
           <h6
             class="MuiTypography-root Typography MuiTypography-h6"
           >
-            Label 2
+            MC: Label 2
           </h6>
         </div>
         <div
@@ -536,7 +536,7 @@ exports[`Filters component renders selected filters 1`] = `
           <h6
             class="MuiTypography-root Typography MuiTypography-h6"
           >
-            Label 1
+            MC: Label 1
           </h6>
         </div>
         <div
