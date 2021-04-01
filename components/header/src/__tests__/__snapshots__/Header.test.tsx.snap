@@ -681,7 +681,9 @@ exports[`Header component renders correctly 1`] = `
                         <span
                           class="icon-wrapper"
                         >
-                          <svg />
+                          <svg
+                            class="icon"
+                          />
                         </span>
                       </span>
                     </span>

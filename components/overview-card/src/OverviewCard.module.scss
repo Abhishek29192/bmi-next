@@ -15,10 +15,9 @@
   }
 
   .brand-logo {
-    background-color: $color-white;
+    fill: $color-white;
     padding: 5px;
     height: 50px;
-    fill: $color-slate;
     z-index: 2;
 
     &--negative {

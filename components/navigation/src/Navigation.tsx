@@ -196,7 +196,9 @@ const NavigationList = ({
                   component={Button}
                   active={value === key}
                   accessibilityLabel={label}
-                  startIcon={icon && <Icon source={icon} />}
+                  startIcon={
+                    icon && <Icon className={styles["icon"]} source={icon} />
+                  }
                   endIcon={<ChevronRight className={styles["chevronRight"]} />}
                   onClick={() => handleClick(key)}
                 >
@@ -251,13 +253,16 @@ const NavigationList = ({
                         action={action}
                         accessibilityLabel={label}
                         startIcon={
-                          icon && isLabelHidden && <Icon source={icon} />
+                          icon &&
+                          isLabelHidden && (
+                            <Icon className={styles["icon"]} source={icon} />
+                          )
                         }
                         endIcon={
                           icon &&
                           !isLabelHidden && (
                             <span className={styles["icon-wrapper"]}>
-                              <Icon source={icon} />
+                              <Icon className={styles["icon"]} source={icon} />
                             </span>
                           )
                         }

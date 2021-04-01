@@ -336,7 +336,7 @@ exports[`Header component renders correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root icon"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
