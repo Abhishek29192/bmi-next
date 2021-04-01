@@ -29,7 +29,7 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
   if (products.length === 0) {
     // TODO: Microcopy?
     return (
-      <Typography>test{getMicroCopy("plp.product.noResultsFound")}</Typography>
+      <Typography>{getMicroCopy("plp.product.noResultsFound")}</Typography>
     );
   }
 
