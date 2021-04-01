@@ -269,7 +269,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           <Grid container spacing={3}>
             {resources.pdpCards.map(
               ({ title, featuredImage, ...data }, index, cards) => {
-                const { action } = getCTA(data, countryCode);
+                const cta = getCTA(data, countryCode);
                 return (
                   <Grid
                     item
@@ -282,7 +282,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     <CTACard
                       title={title}
                       imageSource={featuredImage?.resized?.src}
-                      action={action}
+                      action={cta?.action}
                     />
                   </Grid>
                 );
