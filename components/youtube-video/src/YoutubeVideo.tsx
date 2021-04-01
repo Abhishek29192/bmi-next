@@ -1,6 +1,6 @@
 import React, { CSSProperties, useState } from "react";
 import Button from "@bmi/button";
-import Dialog from "@bmi/dialog";
+import ContainerDialog from "@bmi/container-dialog";
 import ReactPlayer from "react-player/youtube";
 import Icon, { iconMap } from "@bmi/icon";
 import AlternativeContent from "@bmi/alternative-content";
@@ -80,6 +80,7 @@ const DialogVideo = ({
   if (dimensions.width && height && width > 0) {
     calculatedHeight = (dimensions.width * height) / width;
   }
+
   return (
     <div
       className={classnames(styles["YoutubeVideo"], className)}
@@ -95,33 +96,29 @@ const DialogVideo = ({
       >
         <Icon source={iconMap.PlayArrow} />
       </Button>
-      <Dialog
+      <ContainerDialog
         maxWidth={"xl"}
         open={isDialogOpen}
         onCloseClick={() => setDialogOpen(false)}
-        className={styles["YoutubeVideo--dialog"]}
       >
-        <Dialog.Title>{null}</Dialog.Title>
-        <Dialog.Content className={styles["dialog-content"]}>
-          <div ref={ref} className={styles["video-container"]}>
-            {dimensions.width && (
-              <ReactPlayer
-                url={videoUrl}
-                width="100%"
-                height={isSmallDevice ? "" : calculatedHeight}
-                controls
-                playing
-                config={{
-                  playerVars: {
-                    ...sharedOptions,
-                    widgetid: 3
-                  }
-                }}
-              />
-            )}
-          </div>
-        </Dialog.Content>
-      </Dialog>
+        <div ref={ref} style={{ height: "100%", display: "flex" }}>
+          {dimensions.width && (
+            <ReactPlayer
+              url={videoUrl}
+              width="100%"
+              height={isSmallDevice ? "" : calculatedHeight}
+              controls
+              playing
+              config={{
+                playerVars: {
+                  ...sharedOptions,
+                  widgetid: 3
+                }
+              }}
+            />
+          )}
+        </div>
+      </ContainerDialog>
     </div>
   );
 };

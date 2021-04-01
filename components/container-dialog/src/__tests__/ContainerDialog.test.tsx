@@ -19,7 +19,7 @@ describe("ContainerDialog component", () => {
     const onCloseClick = jest.fn();
     const onBackdropClick = jest.fn();
 
-    const { container, getByLabelText, getByText } = render(
+    const { container, getByLabelText } = render(
       <ContainerDialog
         open
         onCloseClick={onCloseClick}
