@@ -129,6 +129,14 @@ const Input = ({
               }
             };
           }}
+          microcopyProvider={{
+            "upload.instructions.drop": getMicroCopy(
+              "upload.instructions.drop"
+            ),
+            "upload.instructions.browse": getMicroCopy(
+              "upload.instructions.browse"
+            )
+          }}
         />
       );
     case "select":

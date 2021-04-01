@@ -23,7 +23,9 @@ exports[`ProductDetailsCard component renders correctly with optional prop 1`] =
     <p
       class="MuiTypography-root Typography MuiTypography-body1"
     >
-      NOBB number: 
+      MC: productDetailsCard.externalRefLabel
+      :
+       
       <span
         class="bold-nobb"
       >
@@ -70,7 +72,9 @@ exports[`ProductDetailsCard component renders correctly without optional prop 1`
     <p
       class="MuiTypography-root Typography MuiTypography-body1"
     >
-      NOBB number: 
+      MC: productDetailsCard.externalRefLabel
+      :
+       
       <span
         class="bold-nobb"
       >

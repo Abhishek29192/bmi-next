@@ -303,7 +303,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   >
                     <Grid container spacing={3}>
                       {products.length === 0 && (
-                        <Typography>No results found</Typography>
+                        <Typography>
+                          {getMicroCopy("plp.product.noResultsFound")}
+                        </Typography>
                       )}
                       {flatten(
                         products.map((variant) => {

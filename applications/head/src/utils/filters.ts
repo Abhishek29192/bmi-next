@@ -111,7 +111,7 @@ export const getAssetTypeFilterFromDocuments = (
   return {
     // TODO: Microcopy for label
     // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
-    label: "Aktivatype",
+    label: "filterLabels.assetType",
     name: "contentfulAssetType",
     value: [],
     options: allValues.sort(sortAlphabeticallyBy("name")).map((assetType) => ({
@@ -131,7 +131,7 @@ const getBrandFilterFromProducts = (products: readonly Product[]) => {
   return {
     // TODO: Microcopy for label
     // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
-    label: "Merkevare",
+    label: "filterLabels.brand",
     name: "brand",
     value: [],
     options: allValues
@@ -153,7 +153,7 @@ export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
   return {
     // TODO: Microcopy for label
     // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
-    label: "Merkevare",
+    label: "filterLabels.brand",
     name: "brand",
     value: [],
     options: allValues
@@ -192,7 +192,7 @@ const getProductFamilyFilter = (
   return {
     // TODO: Microcopy for label
     // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
-    label: "Produktfamilie",
+    label: "filterLabels.productFamily",
     name: "productFamily",
     value: [],
     options: allFamilyCategories
@@ -234,7 +234,7 @@ const getColorFilter = (
   const values = uniqBy(map(colorFilters, "value"), "code");
 
   return {
-    label,
+    label: "filterLabels.colour",
     name: "colour",
     value: [],
     options: values
@@ -285,7 +285,7 @@ const getTextureFilter = (
   const values = uniqBy(map(textures, "value"), "code");
 
   return {
-    label,
+    label: "filterLabels.textureFamily",
     name: "texturefamily",
     value: [],
     options: values
@@ -310,7 +310,7 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
     })
     .map(([categoryKey, category]) => {
       return {
-        label: category.name,
+        label: "pim." + category.name,
         name: categoryKey,
         value: [],
         options: category.values

@@ -42,6 +42,7 @@ describe("Upload component", () => {
         uri={uri}
         mapBody={mapBody}
         mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -55,6 +56,7 @@ describe("Upload component", () => {
         mapBody={mapBody}
         mapValue={mapValue}
         getValidationError={(_) => "This error is always displayed"}
+        microcopyProvider={{ test: "test" }}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -68,6 +70,7 @@ describe("Upload component", () => {
         uri={uri}
         mapBody={mapBody}
         mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -82,6 +85,7 @@ describe("Upload component", () => {
         uri={uri}
         mapBody={mapBody}
         mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -96,6 +100,7 @@ describe("Upload component", () => {
         uri={uri}
         mapBody={mapBody}
         mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -123,6 +128,7 @@ describe("Upload component", () => {
         mapBody={mapBody}
         mapValue={mapValue}
         onChange={onChange}
+        microcopyProvider={{ test: "test" }}
       />
     );
     const input = getByTestId("onchange-mock-upload");
@@ -168,6 +174,7 @@ describe("Upload component", () => {
         mapBody={mapBody}
         mapValue={mapValue}
         onChange={onChange}
+        microcopyProvider={{ test: "test" }}
       />
     );
 
@@ -210,6 +217,7 @@ describe("Upload component", () => {
         uri={uri}
         mapBody={mapBody}
         mapValue={mapValue}
+        microcopyProvider={{ test: "test" }}
       />
     );
 

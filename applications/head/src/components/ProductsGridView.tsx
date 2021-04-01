@@ -28,7 +28,9 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
 
   if (products.length === 0) {
     // TODO: Microcopy?
-    return <Typography>No results found</Typography>;
+    return (
+      <Typography>test{getMicroCopy("plp.product.noResultsFound")}</Typography>
+    );
   }
 
   const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
