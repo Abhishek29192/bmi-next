@@ -13,6 +13,10 @@
   # Global environment variables.
   environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
 
+  # Ignore irrelevant changes. Should check the same directories as the build
+  # config in .gitlab-ci.yaml
+  ignore = "git diff --quiet HEAD^ HEAD -- applications/head components libraries"
+
 [[plugins]]
   package = "../../libraries/netlify-plugin-filter-tag-event"
 
