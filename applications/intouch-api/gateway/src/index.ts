@@ -4,7 +4,6 @@ dotenv.config();
 
 import { ApolloServer } from "apollo-server-express";
 import express from "express";
-import cors from "cors";
 
 import gatewayService from "./gateway";
 import auth from "./middleware/auth";
@@ -16,7 +15,6 @@ const { AUTH0_NAMESPACE, PORT = 4000 } = process.env;
     const gateway = await gatewayService();
     const app = express();
 
-    app.use(cors());
     app.use(auth);
     const server = new ApolloServer({
       gateway,
@@ -42,7 +40,6 @@ const { AUTH0_NAMESPACE, PORT = 4000 } = process.env;
     });
 
     server.applyMiddleware({ app });
-
     app.listen(PORT, () => {
       // eslint-disable-next-line no-console
       console.log(`🚀 Intouch API ready at ${PORT}`);

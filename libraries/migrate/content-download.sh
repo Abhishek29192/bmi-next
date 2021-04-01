@@ -7,7 +7,7 @@ echo "Downloading content from Contentful..."
 echo "Space id: $SPACE_ID"
 echo "Environment: $CONTENTFUL_ENVIRONMENT"
 
-EXPORT_DIR=libraries/migrate/$PROJECT_RELATIVE_PATH/mocks
+EXPORT_DIR=$PROJECT_RELATIVE_PATH/mocks
 FILE_NAME=content.json
 
 contentful space export \

@@ -223,7 +223,7 @@ exports.createPages = async ({ graphql, actions }) => {
         await createPage({
           // TODO: This removes the extra / for the homepage. The country code
           // could live in the page.path instead.
-          path: `/${site.countryCode}/${page.path}`.replace(/\/+/gi, "/"),
+          path: `/${site.countryCode}/${page.path}/`.replace(/\/+/gi, "/"),
           component,
           context: {
             pageId: page.id,
@@ -240,7 +240,7 @@ exports.createPages = async ({ graphql, actions }) => {
       const dataFilePath = "./.temp/microCopyKeys.json";
 
       await createPage({
-        path: `/${site.countryCode}/global-reources`,
+        path: `/${site.countryCode}/global-reources/`,
         component: path.resolve("./src/templates/_global-resources.tsx"),
         context: {
           siteId: site.id,
@@ -263,7 +263,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     await createPage({
-      path: `/${site.countryCode}/422`,
+      path: `/${site.countryCode}/422/`,
       component: path.resolve("./src/templates/general-error.tsx"),
       context: {
         siteId: site.id
@@ -271,7 +271,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     await createPage({
-      path: `/${site.countryCode}/sitemap`,
+      path: `/${site.countryCode}/sitemap/`,
       component: path.resolve("./src/templates/sitemap.tsx"),
       context: {
         siteId: site.id

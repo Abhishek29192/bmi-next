@@ -3,7 +3,9 @@ import { graphql } from "gatsby";
 import Grid from "@bmi/grid";
 import CTACard from "@bmi/cta-card";
 import Container from "@bmi/container";
+import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import Video, { Data as VideoData } from "../components/Video";
+import withGTM from "../utils/google-tag-manager";
 import styles from "./styles/OverlapCards.module.scss";
 import { Data as PromoData } from "./Promo";
 import { Data as PageInfoData } from "./PageInfo";
@@ -28,6 +30,8 @@ export type Data = [Card, Card, ...Card[]];
 const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
   const { countryCode } = useContext(SiteContext);
 
+  const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { action: "to" });
+
   return (
     <div className={styles["OverlapCards"]}>
       <Container>
@@ -38,6 +42,16 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
               <Grid item key={key} xs={12} sm={6} md={5} lg={3}>
                 <CTACard
                   title={title}
+                  buttonComponent={(props: ButtonBaseProps) => (
+                    <GTMButton
+                      gtm={{
+                        id: "cta-click1",
+                        // @ts-ignore
+                        label: props?.children?.props?.children[0]
+                      }}
+                      {...props}
+                    />
+                  )}
                   imageSource={
                     featuredVideo ? (
                       <Video

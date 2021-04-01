@@ -43,8 +43,22 @@
       box-shadow: none;
     }
 
+    .details-logo {
+      margin-bottom: .5rem;
+    }
+
     .details-title {
-      margin-bottom: 1rem;
+      margin-bottom: .5rem;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      .details-logo {
+        margin-bottom: 1rem;
+      }
+
+      .details-title {
+        margin-bottom: 1rem;
+      }
     }
   }
 

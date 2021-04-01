@@ -92,12 +92,7 @@ const Hero = ({
           >
             {heroes.map(
               (
-                {
-                  title,
-                  children,
-                  CTA: { label, ...linkProps } = {},
-                  hasUnderline = true
-                },
+                { title, children, CTA: linkProps = {}, hasUnderline = true },
                 index
               ) => {
                 return (
@@ -114,14 +109,14 @@ const Hero = ({
                         {title}
                       </Typography>
                       <div className={styles["text"]}>{children}</div>
-                      {label && (
+                      {linkProps?.label && (
                         <Button
                           className={styles["cta"]}
                           variant="outlined"
                           hasDarkBackground
                           {...linkProps}
                         >
-                          {label}
+                          {linkProps.label}
                         </Button>
                       )}
                     </div>

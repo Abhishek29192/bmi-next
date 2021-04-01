@@ -17,14 +17,29 @@
     &--cover {
       background-size: cover;
     }
+    &--short {
+      @media (min-width: $breakpoint-sm) {
+        height: 360px;
+        max-height: none;
+      }
 
-    @media (min-width: $breakpoint-sm) {
-      height: 360px;
-      max-height: none;
+      @media (min-width: $breakpoint-md) {
+        height: 440px;
+      }
     }
-
-    @media (min-width: $breakpoint-md) {
-      height: 440px;
+    &--default {
+      @media (min-width: $breakpoint-lg) {
+        height: 600px;
+        max-height: none;
+      }
+      @media (max-width: $breakpoint-lg) {
+        height: 500px;
+        max-height: none;
+        @media (max-width: $breakpoint-sm) {
+          height: calc(100vw - 32px);
+          max-height: 500px;
+        }
+      }
     }
   }
 

@@ -59,10 +59,10 @@ const Dialog = ({
       <Fade in={open}>
         <div
           className={classnames(
-            className,
             styles["Dialog"],
             styles[`Dialog--bg-${color}`],
-            styles[`Dialog--width-${maxWidth}`]
+            styles[`Dialog--width-${maxWidth}`],
+            className
           )}
         >
           <div className={styles["header"]}>

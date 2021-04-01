@@ -1,8 +1,9 @@
 import React from "react";
-import Accordion from "@bmi/accordion";
-import Button from "@bmi/button";
-import Clickable from "@bmi/clickable";
+import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
+import Button, { IconButtonProps } from "@bmi/button";
+import Clickable, { ClickableProps } from "@bmi/clickable";
 import Icon, { iconMap } from "@bmi/icon";
+import withGTM from "../utils/google-tag-manager";
 import AssetHeader from "./_AssetHeader";
 import { Data as AssetTypeData } from "./AssetType";
 import { Data as PIMDocumentData } from "./PIMDocument";
@@ -21,6 +22,10 @@ const MobileDocumentTechnicalTableResults = ({
   assetTypes,
   fileIconsMap
 }: Props) => {
+  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
+  const GTMClickable = withGTM<ClickableProps>(Clickable);
+  const GTMButton = withGTM<IconButtonProps>(Button);
+
   return (
     <div className={styles["accordion-div"]}>
       <Accordion>
@@ -30,7 +35,15 @@ const MobileDocumentTechnicalTableResults = ({
           }-${index}`;
           return (
             <Accordion.Item key={key}>
-              <Accordion.Summary>{productName}</Accordion.Summary>
+              <GTMAccordionSummary
+                gtm={{
+                  id: "selector-accordion1",
+                  label: productName,
+                  action: "Selector – Accordion"
+                }}
+              >
+                {productName}
+              </GTMAccordionSummary>
               {assetTypes.map((assetType, index) => {
                 const asset = assets.find(
                   ({ assetType: { id } }) => id === assetType.id
@@ -63,19 +76,25 @@ const MobileDocumentTechnicalTableResults = ({
                       </div>
                       <div className={styles["download-icon-container"]}>
                         {asset.__typename !== "PIMLinkDocument" ? (
-                          <Clickable
+                          <GTMClickable
                             model="download"
                             href={asset.url}
                             download={asset.title}
+                            gtm={{
+                              id: "download1",
+                              label: "Download",
+                              action: asset.url
+                            }}
                           >
                             <Icon
                               source={iconMap.Download}
                               className={styles["all-files-icon"]}
                             />
-                          </Clickable>
+                          </GTMClickable>
                         ) : (
-                          <Button
+                          <GTMButton
                             isIconButton
+                            accessibilityLabel="Download"
                             variant="text"
                             action={{
                               model: "htmlLink",
@@ -83,12 +102,17 @@ const MobileDocumentTechnicalTableResults = ({
                               target: "_blank",
                               rel: "noopener noreferrer"
                             }}
+                            gtm={{
+                              id: "download1",
+                              label: "Download",
+                              action: asset.url
+                            }}
                           >
                             <Icon
                               source={iconMap.Download}
                               className={styles["all-files-icon"]}
                             />
-                          </Button>
+                          </GTMButton>
                         )}
                       </div>
                     </Accordion.Details>

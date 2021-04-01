@@ -1,4 +1,4 @@
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
@@ -17,6 +17,7 @@ import {
   findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
 import ResultsPagination from "../components/ResultsPagination";
+import withGTM from "../utils/google-tag-manager";
 import {
   clearFilterValues,
   ProductFilter,
@@ -214,6 +215,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const pageData: PageData = { breadcrumbs, inputBanner, seo };
 
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
+    label: "children"
+  });
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -308,6 +313,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           const brandLogo = iconMap[brandLogoCode];
                           const mainImage = findMasterImageUrl(variant.images);
                           const product: Product = variant.baseProduct;
+                          const productUrl = getProductUrl(
+                            countryCode,
+                            pageContext.variantCodeToPathMap[variant.code]
+                          );
 
                           const uniqueClassifications = mapClassificationValues(
                             findUniqueVariantClassifications(
@@ -334,21 +343,20 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
                                 footer={
-                                  <AnchorLink
+                                  <GTMAnchorLink
                                     iconEnd
                                     action={{
                                       model: "routerLink",
                                       linkComponent: Link,
-                                      to: getProductUrl(
-                                        countryCode,
-                                        pageContext.variantCodeToPathMap[
-                                          variant.code
-                                        ]
-                                      )
+                                      to: productUrl
+                                    }}
+                                    gtm={{
+                                      id: "cta-click1",
+                                      action: productUrl
                                     }}
                                   >
                                     {getMicroCopy("plp.product.viewDetails")}
-                                  </AnchorLink>
+                                  </GTMAnchorLink>
                                 }
                               >
                                 {variant.shortDescription}

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import classnames from "classnames";
-import Button from "@bmi/button";
-import Clickable from "@bmi/clickable";
+import Button, { IconButtonProps } from "@bmi/button";
+import Clickable, { ClickableProps } from "@bmi/clickable";
 import Icon, { iconMap } from "@bmi/icon";
 import Table from "@bmi/table";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
+import withGTM from "../utils/google-tag-manager";
 import AssetHeader from "./_AssetHeader";
 import { SiteContext } from "./Site";
 import { Data as AssetTypeData } from "./AssetType";
@@ -26,6 +27,10 @@ const DesktopDocumentTechnicalTableResults = ({
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
   const { list } = useContext(DownloadListContext);
+
+  const GTMClickable = withGTM<ClickableProps>(Clickable);
+  const GTMButton = withGTM<IconButtonProps>(Button);
+
   return (
     <div className={styles["table-div"]}>
       <Table rowBgColorPattern="none">
@@ -94,19 +99,25 @@ const DesktopDocumentTechnicalTableResults = ({
                       className={styles["align-center"]}
                     >
                       {asset.__typename !== "PIMLinkDocument" ? (
-                        <Clickable
+                        <GTMClickable
                           model="download"
                           href={asset.url}
                           download={asset.title}
+                          gtm={{
+                            id: "download1",
+                            label: "Download",
+                            action: asset.url
+                          }}
                         >
                           <Icon
                             source={fileIconsMap[asset.format]}
                             className={styles["format-icon"]}
                           />
-                        </Clickable>
+                        </GTMClickable>
                       ) : (
-                        <Button
+                        <GTMButton
                           isIconButton
+                          accessibilityLabel="Download"
                           variant="text"
                           action={{
                             model: "htmlLink",
@@ -114,12 +125,17 @@ const DesktopDocumentTechnicalTableResults = ({
                             target: "_blank",
                             rel: "noopener noreferrer"
                           }}
+                          gtm={{
+                            id: "download1",
+                            label: "Download",
+                            action: asset.url
+                          }}
                         >
                           <Icon
                             source={iconMap.External}
                             className={styles["external-link-icon"]}
                           />
-                        </Button>
+                        </GTMButton>
                       )}
                     </Table.Cell>
                   );

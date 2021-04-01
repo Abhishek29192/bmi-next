@@ -1,0 +1,7 @@
+
+# Redirect root to /it.
+[[redirects]]
+  from = "/"
+  to = "/it"
+  status = 302
+  force = true

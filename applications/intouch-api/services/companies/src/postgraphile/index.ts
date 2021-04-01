@@ -1,3 +1,3 @@
-import postgraphileApollo from "./postgraphileApollo";
+import postgraphile from "./postgraphile";
 
-export { postgraphileApollo };
+export { postgraphile };

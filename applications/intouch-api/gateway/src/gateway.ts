@@ -25,23 +25,25 @@ const createGateway = async () => {
         return new RemoteGraphQLDataSource({
           url,
           willSendRequest({ request, context }) {
-            request.http.headers.set("authorization", context.authorization);
-            request.http.headers.set(
-              "x-docebo-user-token",
-              context["x-docebo-user-token"]
-            );
-            request.http.headers.set(
-              "x-authenticated-internal-user-id",
-              context["x-authenticated-internal-user-id"]
-            );
-            request.http.headers.set(
-              "x-authenticated-user-id",
-              context["x-authenticated-user-id"]
-            );
-            request.http.headers.set(
-              "x-authenticated-role",
-              context["x-authenticated-role"]
-            );
+            if (context.authorization) {
+              request.http.headers.set("authorization", context.authorization);
+              request.http.headers.set(
+                "x-docebo-user-token",
+                context["x-docebo-user-token"]
+              );
+              request.http.headers.set(
+                "x-authenticated-internal-user-id",
+                context["x-authenticated-internal-user-id"]
+              );
+              request.http.headers.set(
+                "x-authenticated-user-id",
+                context["x-authenticated-user-id"]
+              );
+              request.http.headers.set(
+                "x-authenticated-role",
+                context["x-authenticated-role"]
+              );
+            }
           }
         });
     },

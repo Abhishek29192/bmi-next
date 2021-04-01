@@ -1,6 +1,6 @@
 import React, { useContext, useState, useMemo } from "react";
 import { graphql } from "gatsby";
-import Button from "@bmi/button";
+import Button, { ButtonProps } from "@bmi/button";
 import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
@@ -67,6 +67,9 @@ const CardCollectionItem = ({
   const transformedCardLabel = label
     ? label.replace(/{{title}}/g, title)
     : link?.label || `Go to ${title}`;
+
+  const GTMButton = withGTM<ButtonProps>(Button);
+
   return (
     <OverviewCard
       hasTitleUnderline
@@ -84,7 +87,7 @@ const CardCollectionItem = ({
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
       footer={
         link ? (
-          <Button
+          <GTMButton
             variant="outlined"
             action={getClickableActionFromUrl(
               link.linkedPage,
@@ -98,9 +101,14 @@ const CardCollectionItem = ({
               }
             )}
             startIcon={<ArrowForwardIcon />}
+            gtm={{
+              id: "cta-click1",
+              label: transformedCardLabel,
+              action: link.linkedPage?.path || link.url
+            }}
           >
             {transformedCardLabel}
-          </Button>
+          </GTMButton>
         ) : undefined
       }
     >

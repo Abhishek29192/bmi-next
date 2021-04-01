@@ -14,9 +14,9 @@ CREATE OR REPLACE FUNCTION current_market ()
   RETURNS int
   AS $$
   SELECT
-    Market
+    market_id
   FROM
-    Account
+    account
   WHERE
     id = current_account ();
 
@@ -30,28 +30,29 @@ CREATE OR REPLACE FUNCTION current_company ()
   RETURNS int
   AS $$
   SELECT
-    Company
+    company_id
   FROM
-    CompanyMember
+    company_member
   WHERE
-    EndUser = current_account ();
+    account_id = current_account ()
 
 $$
 LANGUAGE sql
-STABLE;
+STABLE
+SECURITY DEFINER;
 
 -- Check if project are enabled
 CREATE OR REPLACE FUNCTION is_project_enabled ()
   RETURNS boolean
   AS $$
   SELECT
-    ProjectsEnabled
+    projects_enabled
   FROM
-    Market
-    JOIN Company ON Market.id = Company.market
+    market
+    JOIN company ON market.id = company.market_id
   WHERE
-    Market.ProjectsEnabled = TRUE
-    AND Company.Id = current_company ();
+    market.projects_enabled = TRUE
+    AND company.id = current_company ();
 
 $$
 LANGUAGE sql
@@ -62,11 +63,11 @@ CREATE OR REPLACE FUNCTION is_part_of_project ()
   RETURNS SETOF integer
   AS $$
   SELECT
-    Project
+    project_id
   FROM
-    ProjectMember
+    project_member
   WHERE
-    Member = current_account ();
+    account_id = current_account ();
 
 $$
 LANGUAGE sql

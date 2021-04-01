@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, createContext } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { ClickableAction } from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Card, { CardActions, CardContent } from "@bmi/card";
@@ -13,7 +13,7 @@ import {
   SelectTile,
   SelectWallColour
 } from "@bmi/icon";
-// import Logo, { BMI } from "@bmi/logo";
+import Logo, { BMI } from "@bmi/logo";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
@@ -437,7 +437,12 @@ const Visualiser = ({
               <Grid item xs={10} sm={6} md={5} lg={4}>
                 <Card square={true}>
                   <CardContent>
-                    {/* <Logo source={BMI} width="60" height="60" /> */}
+                    <Logo
+                      source={BMI}
+                      width="60"
+                      height="60"
+                      className={styles["details-logo"]}
+                    />
                     <Typography
                       variant="h5"
                       component="h3"

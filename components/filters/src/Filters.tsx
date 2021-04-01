@@ -23,13 +23,15 @@ export type Props = {
   microcopyProvider: Record<string, string>;
   onChange?: (filterName: string, filterValue: string, value: boolean) => void;
   checkboxComponent?: React.ComponentType<any>; // TODO
+  accordionSummaryComponent?: React.ComponentType<any>; // TODO
 };
 
 const Filters = ({
   filters,
   microcopyProvider,
   onChange,
-  checkboxComponent: Checkbox = DefaultCheckbox
+  checkboxComponent: Checkbox = DefaultCheckbox,
+  accordionSummaryComponent: AccordionSummary = Accordion.Summary
 }: Props) => {
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);

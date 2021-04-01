@@ -5,6 +5,7 @@ import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useQuery, QueryResult } from "@apollo/client";
+import auth0 from "../lib/auth0";
 import Layout from "../components/Layout";
 import { GET_TRAINING } from "../graphql";
 import { TrainingData, EnrollmentItems } from "../interfaces/training";
@@ -83,17 +84,17 @@ const trainingChildren = ({
   );
 };
 
-export const getStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "sidebar",
-        "footer",
-        "training-page"
-      ]))
-    }
-  };
-};
-
+export const getServerSideProps = auth0.withPageAuthRequired({
+  async getServerSideProps({ locale }) {
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer"
+        ]))
+      }
+    };
+  }
+});
 export default Training;
