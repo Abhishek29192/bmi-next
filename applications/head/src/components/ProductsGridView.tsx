@@ -27,9 +27,8 @@ const ProductsGridView = ({ products, pageContext }: Props) => {
   const { variantCodeToPathMap } = pageContext;
 
   if (products.length === 0) {
-    // TODO: Microcopy?
     return (
-      <Typography>test{getMicroCopy("plp.product.noResultsFound")}</Typography>
+      <Typography>{getMicroCopy("plp.product.noResultsFound")}</Typography>
     );
   }
 
