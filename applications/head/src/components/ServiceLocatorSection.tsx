@@ -219,7 +219,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setSelectedRoofer(roofer);
   };
 
-  const handlePlaceChange = (location: GoogleGeocoderResult) => {
+  const handlePlaceChange = (location?: GoogleGeocoderResult) => {
     // We want to clear the roofer whenever the place changes.
     setSelectedRoofer(null);
     setZoom(location ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
