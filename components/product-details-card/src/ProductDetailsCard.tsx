@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { ClickableAction } from "@bmi/clickable";
 import Typography from "@bmi/typography";
 import AnchorLink from "@bmi/anchor-link";
+import MicroCopy from "@bmi/micro-copy";
 import styles from "./ProductDetailsCard.module.scss";
 
 type Props = {
@@ -39,7 +40,8 @@ const ProductDetailsCard = ({
           {title}
         </Typography>
         <Typography>
-          NOBB number: <span className={styles["bold-nobb"]}>{nnob}</span>
+          <MicroCopy path="productDetailsCard.externalRefLabel" />:{" "}
+          <span className={styles["bold-nobb"]}>{nnob}</span>
         </Typography>
         <AnchorLink action={action} iconEnd className={styles["link"]}>
           {linkLabel}
