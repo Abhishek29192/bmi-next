@@ -58,7 +58,7 @@ const Filters = ({
               <Accordion.Summary>
                 <Typography variant="h6">
                   <MicroCopy.Provider values={microcopyProvider}>
-                    <MicroCopy path={filter.label} />
+                    <MicroCopy path={filter.label.toString()} />
                   </MicroCopy.Provider>
                 </Typography>
               </Accordion.Summary>
