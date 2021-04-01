@@ -21,7 +21,17 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
     }
   },
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config) => {
+    const resolveMockModule = (moduleName) => {
+      config.resolve.alias[moduleName] = path.resolve(
+        __dirname,
+        `mocks/${moduleName}.js`
+      );
+    };
+    resolveMockModule("fs");
+    resolveMockModule("@auth0/nextjs-auth0");
+    resolveMockModule("next-i18next/serverSideTranslations");
+
     config.module.rules.find(
       (rule) => rule.test && rule.test.test(".svg")
     ).exclude = /\.svg$/;
@@ -69,17 +79,6 @@ module.exports = {
       new TsconfigPathsPlugin({
         configFile: "./tsconfig.json"
       })
-    );
-
-    // prevents the Error: Module not found: Error: "Can't resolve fs"
-    // solution taken from https://github.com/storybookjs/storybook/issues/4082#issuecomment-417329791
-    config.resolve.alias.fs = path.resolve(__dirname, "mocks/fs.js");
-
-    // fix error: node_modules/next-i18next/dist/commonjs/serverSideTranslations.js 90:62-72
-    // Critical dependency: the request of a dependency is an expression
-    config.resolve.alias["next-i18next/serverSideTranslations"] = path.resolve(
-      __dirname,
-      "mocks/serverSideTranslations.js"
     );
 
     const bmiWebpackConfig = styles({ dev: true, exclude: { css: null } });
