@@ -37,7 +37,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
       <Container>
         <Grid spacing={3} container justify="center">
           {data.map(({ title, featuredImage, featuredVideo, ...rest }, key) => {
-            const { action } = getCTA(rest, countryCode);
+            const cta = getCTA(rest, countryCode);
             return (
               <Grid item key={key} xs={12} sm={6} md={5} lg={3}>
                 <CTACard
@@ -64,7 +64,7 @@ const IntegratedOverlapCards = ({ data }: { data?: Data }) => {
                       featuredImage?.resized?.src
                     )
                   }
-                  action={action}
+                  action={cta?.action}
                 />
               </Grid>
             );
