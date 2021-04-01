@@ -7,6 +7,8 @@ module.exports.up = (migration) => {
     .displayField("name")
     .description("");
 
+  marketContent.createField("name").name("Name").type("Symbol").required(true);
+
   marketContent
     .createField("partnerBrands")
     .name("Partner Brands")
@@ -15,17 +17,6 @@ module.exports.up = (migration) => {
     .items({
       type: "Link",
       validations: [{ linkContentType: ["partnerBrand"] }],
-      linkType: "Entry"
-    });
-
-  marketContent
-    .createField("benefits")
-    .name("Benefits")
-    .type("Array")
-    .required(true)
-    .items({
-      type: "Link",
-      validations: [{ linkContentType: ["benefit"] }],
       linkType: "Entry"
     });
 
@@ -39,14 +30,6 @@ module.exports.up = (migration) => {
       validations: [{ linkContentType: ["contactDetails"] }],
       linkType: "Entry"
     });
-
-  marketContent
-    .createField("heroImageHome")
-    .name("Hero Image Home")
-    .type("Link")
-    .required(true)
-    .validations([{ linkContentType: ["imageSet"] }])
-    .linkType("Entry");
 
   marketContent
     .createField("newsItemUrl")
@@ -63,25 +46,25 @@ module.exports.up = (migration) => {
       }
     ]);
 
-  marketContent.createField("name").name("Name").type("Symbol").required(true);
+  marketContent
+    .createField("live")
+    .name("Live")
+    .type("Symbol")
+    .required(true)
+    .validations([{ unique: true }, { in: ["ok"] }]);
 
+  marketContent.changeFieldControl("name", "builtin", "singleLine", {
+    helpText:
+      "The name of the entry shown when searching in the Contentful Web App. This field is needed to automatically perform content migrations from code."
+  });
   marketContent.changeFieldControl(
     "partnerBrands",
     "builtin",
     "entryCardsEditor"
   );
-  marketContent.changeFieldControl("benefits", "builtin", "entryLinksEditor");
   marketContent.changeFieldControl("contacts", "builtin", "entryCardsEditor");
-  marketContent.changeFieldControl(
-    "heroImageHome",
-    "builtin",
-    "entryLinkEditor"
-  );
   marketContent.changeFieldControl("newsItemUrl", "builtin", "urlEditor");
-  marketContent.changeFieldControl("name", "builtin", "singleLine", {
-    helpText:
-      "The name of the entry shown when searching in the Contentful Web App. This field is needed to automatically perform content migrations from code."
-  });
+  marketContent.changeFieldControl("live", "builtin", "dropdown");
 };
 
 module.exports.down = (migration) =>
