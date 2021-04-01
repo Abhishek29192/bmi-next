@@ -4,15 +4,17 @@ import Button from "@bmi/button";
 import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useQuery, QueryResult } from "@apollo/client";
+import { QueryResult } from "@apollo/client";
 import auth0 from "../lib/auth0";
 import Layout from "../components/Layout";
-import { GET_TRAINING } from "../graphql";
-import { TrainingData, EnrollmentItems } from "../interfaces/training";
+
+import { EnrollmentItems } from "../graphql/generated/schemas";
+import { TrainingsQuery } from "../graphql/generated/operations";
+import { useTrainingsQuery } from "../graphql/generated/hooks";
 
 const Training = () => {
   const { t } = useTranslation("training-page");
-  const queryResult = useQuery<TrainingData>(GET_TRAINING);
+  const queryResult = useTrainingsQuery();
 
   return (
     <Layout title={t("Training")}>
@@ -25,7 +27,7 @@ const TrainingDetail = ({
   data,
   loading,
   error
-}: QueryResult<TrainingData>) => {
+}: QueryResult<TrainingsQuery>) => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Oops... {error.message}</div>;
   const { t } = useTranslation("training-page");

@@ -45,6 +45,7 @@
     "@bmi/migrate": "0.0.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
+    "@graphql-codegen/cli": "^1.21.3",
     "@lhci/cli": "^0.7.0",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/gitlab": "^6.0.5",

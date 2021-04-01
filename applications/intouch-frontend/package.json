@@ -12,7 +12,8 @@
     "lint:fix": "yarn lint --fix",
     "coverage:jest": "jest --coverage",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@apollo/client": "^3.3.7",
@@ -35,6 +36,12 @@
     "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
     "@storybook/react": "^6.1.21",
-    "storybook-addon-next-router": "^2.0.4"
+    "storybook-addon-next-router": "^2.0.4",
+    "@graphql-codegen/typescript-operations": "^1.17.15",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.3",
+    "@graphql-codegen/typescript": "^1.21.1",
+    "@graphql-codegen/import-types-preset": "^1.18.1",
+    "graphql-codegen-apollo-next-ssr": "^1.5.0",
+    "@graphql-codegen/cli": "^1.21.3"
   }
 }
