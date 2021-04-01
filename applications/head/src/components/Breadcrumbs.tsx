@@ -31,6 +31,7 @@ const getBreadcrumbsItem = (
                 .slice(0, index + 1)
                 .map(({ slug }) => slug)
                 .join("/")
+                .concat("/")
             : null
       };
 
