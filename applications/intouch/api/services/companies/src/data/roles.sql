@@ -1,30 +1,77 @@
 -- https://www.postgresql.org/docs/9.1/sql-grant.html
-CREATE ROLE super_admin NOLOGIN INHERIT;
-CREATE ROLE market_admin NOLOGIN INHERIT;
-CREATE ROLE company_admin NOLOGIN INHERIT;
-CREATE ROLE installer NOLOGIN;
+-- GRANT UPDATE (name, market) ON company TO app_user_editor;
 
-GRANT installer TO company_admin;
-GRANT company_admin TO market_admin;
-GRANT market_admin TO super_admin;
+drop role super_admin;
+drop role market_admin;
+drop role company_admin;
+drop role installer;
 
--- Need to grant the new roles to postgres in order to let postgres to change users
-GRANT installer TO postgres;
-GRANT company_admin TO postgres;
-GRANT market_admin TO postgres;
-GRANT super_admin TO postgres;
+create role super_admin nologin inherit;
+create role market_admin nologin inherit;
+create role company_admin nologin inherit;
+create role installer nologin;
 
-GRANT USAGE ON SCHEMA public TO installer;
+grant installer to company_admin;
+grant company_admin to market_admin;
+grant market_admin to super_admin;
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO company_admin;
-ALTER DEFAULT PRIVILEGES FOR USER postgres IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO company_admin;
+-- need to grant the new roles to postgres in order to let postgres to change users
+grant installer to postgres;
+grant company_admin to postgres;
+grant market_admin to postgres;
+grant super_admin to postgres;
+
+grant usage on schema public to installer;
 
 
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO installer;
-GRANT UPDATE, DELETE ON public.company_member TO installer;
-GRANT INSERT, UPDATE, DELETE ON public.account TO installer;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO installer;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA public TO installer;
-ALTER DEFAULT PRIVILEGES FOR USER postgres IN SCHEMA public GRANT SELECT ON TABLES TO installer;
-ALTER DEFAULT PRIVILEGES FOR USER postgres IN SCHEMA public GRANT USAGE, SELECT ON SEQUENCES TO installer;
-ALTER DEFAULT PRIVILEGES FOR USER postgres IN SCHEMA public GRANT EXECUTE ON FUNCTIONS TO installer;
+
+-------------------------------
+-- Installer
+-------------------------------
+
+-- company
+grant select on company to installer;
+grant select on company to company_admin;
+grant insert on company to company_admin;
+grant update (owner_fullname, owner_email, owner_phone, registered_address_id, trading_address_id, business_type, tier, status, lms_group, name, tax_number, phone, coordinates, about_us, public_email, website, facebook,linked_in) on company to company_admin;
+
+-- company_member
+grant select on company_member to installer;
+
+-- company_member
+grant select, update, delete on company_member to installer;
+grant select, insert, delete on company_member to company_admin;
+grant update (account_id) on company_member to company_admin;
+
+
+-- account
+grant select, insert, update, delete on account to installer;
+
+
+-- address
+grant select on address to installer;
+grant insert, update, delete on address to company_admin;
+
+
+-- company_document
+grant select, insert, delete on company_document to company_admin;
+grant select, insert, delete on company_document to company_admin;
+
+
+
+
+
+
+
+-- Permission on sequences & functions
+grant select on all sequences in schema public to installer;
+grant execute on all functions in schema public to installer;
+
+
+-- Permission on all the squences created after not
+alter default privileges for user postgres in schema public grant select on sequences to installer;
+
+
+-- future tables/functions/entities
+-- alter default privileges for user postgres grant select on tables to installer;
+-- alter default privileges for user postgres grant execute on functions to installer;
