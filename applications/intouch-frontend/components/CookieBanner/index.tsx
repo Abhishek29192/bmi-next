@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/CookieBanner.module.scss";
+import styles from "./styles.module.scss";
 
 // WIP
 type Props = {

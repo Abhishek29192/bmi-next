@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Layout from "../components/Layout";
 import auth0 from "../lib/auth0";
+import { Layout } from "../components/Layout";
 
 const Projects = () => {
   const { t } = useTranslation("common");

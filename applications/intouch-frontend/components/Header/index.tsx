@@ -2,13 +2,13 @@ import React from "react";
 import Link from "next/link";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
-import { Notifications, Menu, Close } from "@material-ui/icons";
 import { BMI } from "@bmi/logo";
+import { Notifications, Menu, Close } from "@material-ui/icons";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import UserMenu from "./UserMenu";
-import NotificationsPanel from "./NotificationsPanel";
-import styles from "./styles/Header.module.scss";
+import UserMenu from "../UserMenu";
+import { NotificationsPanel } from "../NotificationsPanel";
+import styles from "./styles.module.scss";
 
 export type HeaderProps = {
   title: string;

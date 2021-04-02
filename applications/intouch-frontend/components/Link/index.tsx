@@ -1,15 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import Icon from "@bmi/icon";
-import styles from "./styles/Sidebar.module.scss";
+import styles from "../Sidebar/styles.module.scss";
 
-type Props = {
+export type SideBarLinkProps = {
   href?: string;
   icon: SVGImport;
   label: string;
 };
 
-const SelectedLink = ({ href, icon, label }: Props) => {
+export const SideBarLink = ({ href, icon, label }: SideBarLinkProps) => {
   return (
     <Link href={href}>
       <a className={styles.sidebarLink}>
@@ -19,5 +19,3 @@ const SelectedLink = ({ href, icon, label }: Props) => {
     </Link>
   );
 };
-
-export default SelectedLink;
