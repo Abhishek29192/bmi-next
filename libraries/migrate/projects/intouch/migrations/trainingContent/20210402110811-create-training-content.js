@@ -105,6 +105,13 @@ module.exports.up = (migration) => {
     .type("Text")
     .required(true);
 
+  trainingContent
+    .createField("live")
+    .name("Live")
+    .type("Symbol")
+    .required(true)
+    .validations([{ unique: true }, { in: ["ok"] }]);
+
   trainingContent.changeFieldControl("pageHeading", "builtin", "singleLine");
   trainingContent.changeFieldControl("description", "builtin", "markdown");
   trainingContent.changeFieldControl("lmsCtaLabel", "builtin", "singleLine");
@@ -137,6 +144,7 @@ module.exports.up = (migration) => {
     "singleLine"
   );
   trainingContent.changeFieldControl("step3Description", "builtin", "markdown");
+  trainingContent.changeFieldControl("live", "builtin", "dropdown");
 };
 
 module.exports.down = (migration) =>

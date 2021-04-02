@@ -36,8 +36,7 @@ module.exports.up = (migration) => {
   messageTemplate
     .createField("notificationBody")
     .name("Notification Body")
-    .type("Symbol")
-    .required(true);
+    .type("Symbol");
 
   messageTemplate.createField("emailBody").name("Email Body").type("Text");
 

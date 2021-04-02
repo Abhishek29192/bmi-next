@@ -15,8 +15,8 @@ module.exports.up = (migration) => {
     .validations([{ unique: true }]);
 
   contactDetails
-    .createField("jobTitle")
-    .name("Job Title")
+    .createField("subHeading")
+    .name("Sub-Heading")
     .type("Symbol")
     .required(true);
 
@@ -32,7 +32,7 @@ module.exports.up = (migration) => {
   contactDetails.createField("phoneNumber").name("Phone Number").type("Symbol");
 
   contactDetails.changeFieldControl("fullName", "builtin", "singleLine");
-  contactDetails.changeFieldControl("jobTitle", "builtin", "singleLine");
+  contactDetails.changeFieldControl("subHeading", "builtin", "singleLine");
   contactDetails.changeFieldControl("email", "builtin", "singleLine");
   contactDetails.changeFieldControl("phoneNumber", "builtin", "singleLine");
 };

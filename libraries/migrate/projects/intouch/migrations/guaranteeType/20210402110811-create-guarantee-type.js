@@ -9,15 +9,14 @@ module.exports.up = (migration) => {
   const guaranteeType = migration
     .createContentType("guaranteeType")
     .name("Guarantee Type")
-    .displayField("displayName")
+    .displayField("name")
     .description("A type of guarantee");
 
   guaranteeType
     .createField("displayName")
     .name("Display Name")
     .type("Symbol")
-    .required(true)
-    .validations([{ unique: true }]);
+    .required(true);
 
   guaranteeType
     .createField("technology")
@@ -84,12 +83,15 @@ module.exports.up = (migration) => {
     });
 
   guaranteeType
-    .createField("guaranteeTemplate")
-    .name("Guarantee Template")
-    .type("Link")
+    .createField("guaranteeTemplates")
+    .name("Guarantee Templates")
+    .type("Array")
     .required(true)
-    .validations([{ linkContentType: ["guaranteeTemplate"] }])
-    .linkType("Entry");
+    .items({
+      type: "Link",
+      validations: [{ linkContentType: ["guaranteeTemplate"] }],
+      linkType: "Entry"
+    });
 
   guaranteeType.changeFieldControl("displayName", "builtin", "singleLine");
   guaranteeType.changeFieldControl("technology", "builtin", "dropdown");
@@ -112,9 +114,9 @@ module.exports.up = (migration) => {
     "entryLinksEditor"
   );
   guaranteeType.changeFieldControl(
-    "guaranteeTemplate",
+    "guaranteeTemplates",
     "builtin",
-    "entryCardEditor"
+    "entryCardsEditor"
   );
 };
 

@@ -8,6 +8,12 @@ module.exports.up = (migration) => {
     .description("Ordered list of items to be rendered as a carousel.");
 
   carousel
+    .createField("name")
+    .name("Name")
+    .type("Symbol")
+    .validations([{ unique: true }]);
+
+  carousel
     .createField("list")
     .name("List")
     .type("Array")
@@ -18,25 +24,32 @@ module.exports.up = (migration) => {
       linkType: "Entry"
     });
 
-  carousel.createField("caption").name("Caption").type("Text");
+  carousel
+    .createField("role")
+    .name("Role")
+    .type("Symbol")
+    .required(true)
+    .validations([{ unique: true }, { in: ["TECHNICIAN", "EXECUTIVE"] }]);
 
   carousel
-    .createField("name")
-    .name("Name")
+    .createField("cta")
+    .name("CTA")
     .type("Symbol")
-    .validations([{ unique: true }]);
+    .required(true)
+    .validations([{ in: ["PROJECT", "TRAINING", "MERCHANDISE", "NONE"] }]);
 
+  carousel.changeFieldControl("name", "builtin", "singleLine", {
+    helpText:
+      "Display name to retrieve the entry when searching in the Contentful web app."
+  });
   carousel.changeFieldControl("list", "builtin", "entryCardsEditor", {
     helpText: "Enter the list of items in the order you want them to appear",
     bulkEditing: false,
     showLinkEntityAction: true,
     showCreateEntityAction: true
   });
-  carousel.changeFieldControl("caption", "builtin", "markdown");
-  carousel.changeFieldControl("name", "builtin", "singleLine", {
-    helpText:
-      "Display name to retrieve the entry when searching in the Contentful web app."
-  });
+  carousel.changeFieldControl("role", "builtin", "radio");
+  carousel.changeFieldControl("cta", "builtin", "radio");
 };
 
 module.exports.down = (migration) => migration.deleteContentType("carousel");

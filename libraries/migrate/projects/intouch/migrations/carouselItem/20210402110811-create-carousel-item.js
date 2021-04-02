@@ -1,5 +1,3 @@
-const audiences = require("../../variables/audiences/20210222125604");
-
 module.exports.description = "Create content model for Carousel Item";
 
 module.exports.up = (migration) => {
@@ -27,22 +25,12 @@ module.exports.up = (migration) => {
     ])
     .linkType("Entry");
 
-  carouselItem
-    .createField("audience")
-    .name("Audience")
-    .type("Symbol")
-    .required(true)
-    .validations([{ in: audiences }]);
-
   carouselItem.createField("body").name("Body").type("Text").required(true);
 
   carouselItem.changeFieldControl("header", "builtin", "singleLine", {
     helpText: "The header for the item"
   });
   carouselItem.changeFieldControl("imageSet", "builtin", "entryLinkEditor");
-  carouselItem.changeFieldControl("audience", "builtin", "dropdown", {
-    helpText: "Role"
-  });
   carouselItem.changeFieldControl("body", "builtin", "multipleLine", {
     helpText: "The body text for the item"
   });
