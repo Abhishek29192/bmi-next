@@ -1,11 +1,11 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@bmi/*": ["../../node_modules/@bmi/*/src"]
+      "@bmi/*": ["../../../node_modules/@bmi/*/src"]
     },
     "allowJs": false,
     "strict": false,

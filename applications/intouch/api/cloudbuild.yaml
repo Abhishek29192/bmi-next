@@ -7,7 +7,7 @@ steps:
         "build",
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-service-companies",
-        "./applications/intouch-api/services/companies",
+        "./applications/intouch/api/services/companies",
       ]
   - name: "gcr.io/cloud-builders/docker"
     args:
@@ -15,7 +15,7 @@ steps:
         "build",
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-service-training",
-        "./applications/intouch-api/services/training",
+        "./applications/intouch/api/services/training",
       ]
   - name: "gcr.io/cloud-builders/docker"
     args:
@@ -23,7 +23,7 @@ steps:
         "build",
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-gateway",
-        "./applications/intouch-api/gateway",
+        "./applications/intouch/api/gateway",
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"

@@ -5,8 +5,8 @@ include:
   - template: Security/Secret-Detection.gitlab-ci.yml
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/head/.gitlab-ci.yml"
-  - local: "/applications/intouch-frontend/.gitlab-ci.yml"
-  - local: "/applications/intouch-api/.gitlab-ci.yml"
+  - local: "/applications/intouch/frontend/.gitlab-ci.yml"
+  - local: "/applications/intouch/api/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/es-pim-products-ingest/.gitlab-ci.yml"
   - local: "/functions/gcp-apsis-integration/.gitlab-ci.yml"
