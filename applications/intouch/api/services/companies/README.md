@@ -6,9 +6,9 @@ Follow the instruction in the root of the repo
 
 ## Database
 
-- Create and import the database using this file [pg schema](https://gitlab.com/bmi-digital/dxb/-/blob/master/applications/intouch-api/services/companies/src/data/company.sql)
+- Create and import the database using this file [pg schema](https://gitlab.com/bmi-digital/dxb/-/blob/master/applications/intouch/api/services/companies/src/data/company.sql)
 
-- Create the roles using this file [pg roles](https://gitlab.com/bmi-digital/dxb/-/blob/master/applications/intouch-api/services/companies/src/data/roles.sql)
+- Create the roles using this file [pg roles](https://gitlab.com/bmi-digital/dxb/-/blob/master/applications/intouch/api/services/companies/src/data/roles.sql)
 
 ## GCP
 
