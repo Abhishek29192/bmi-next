@@ -21,6 +21,7 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
     }
   },
+  babel: async (options) => ({ ...options, babelrc: false, configFile: false }),
   webpackFinal: async (config) => {
     const resolveMockModule = (moduleName) => {
       config.resolve.alias[moduleName] = path.resolve(
@@ -36,13 +37,12 @@ module.exports = {
       (rule) => rule.test && rule.test.test(".svg")
     ).exclude = /\.svg$/;
 
-    config.module.rules.push({
-      test: /\.svg$/,
-      enforce: "pre",
-      loader: require.resolve("@svgr/webpack")
-    });
-
     config.module.rules.push(
+      {
+        test: /\.svg$/,
+        enforce: "pre",
+        loader: require.resolve("@svgr/webpack")
+      },
       {
         test: /\.ts(x?)$/,
         exclude: /node_modules/,
