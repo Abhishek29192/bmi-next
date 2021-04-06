@@ -4973,6 +4973,12 @@ type Mutation {
     """
     input: DeleteTierOffsetInput!
   ): DeleteTierOffsetPayload
+  publishMessage(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: PublishInput!
+  ): String
 }
 
 """An object with a globally unique `ID`."""
@@ -5904,6 +5910,10 @@ enum ProjectsOrderBy {
   SITE_ADDRESS_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
+}
+
+input PublishInput {
+  message: String
 }
 
 """The root query type which gives access points into the data universe."""

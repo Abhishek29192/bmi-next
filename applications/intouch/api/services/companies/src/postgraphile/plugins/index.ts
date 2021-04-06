@@ -1,11 +1,11 @@
-import AuthorWrapResolversPlugin from "./AuthorWrapResolversPlugin";
 import RemoveNodeAndQueryFieldsPlugin from "./RemoveNodeAndQueryFieldsPlugin";
 import StripNodeInterfacePlugin from "./StripNodeInterfacePlugin";
-import CompanyWrapPlugin from "./CompanyWrapPlugin";
+import WrapPlugin from "./WrapPlugin";
+import ExtendPlugin from "./ExtendPlugin";
 
 export {
-  AuthorWrapResolversPlugin,
   RemoveNodeAndQueryFieldsPlugin,
   StripNodeInterfacePlugin,
-  CompanyWrapPlugin
+  ExtendPlugin,
+  WrapPlugin
 };

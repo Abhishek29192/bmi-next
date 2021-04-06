@@ -17,8 +17,9 @@ const EtendSchemaPlugin = makeExtendSchemaPlugin((build) => ({
         const {
           input: { message }
         } = args;
+        const { pubSub } = context;
 
-        await publish(TOPICS.TRANSACTIONAL_EMAIL, {
+        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
           email: "email@email.com",
           message
         });

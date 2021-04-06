@@ -5,19 +5,29 @@ export const TOPICS = {
   TRANSACTIONAL_EMAIL: "transactional-email"
 };
 
-// Instantiates a client
-const pubsub = new PubSub({
-  projectId: process.env.GCP_PROJECT
-});
+export const getPubSubClient = () => {
+  let client;
+  if (!client) {
+    client = new PubSub({
+      projectId: process.env.GCP_PROJECT
+    });
+  }
 
-export const publish = async (topicName: string, payload: any) => {
+  return client;
+};
+
+export const publish = async (
+  pubSub: PubSub,
+  topicName: string,
+  payload: any
+) => {
   if (!topicName || !payload) {
     throw new Error(
       'Missing parameter(s); include "topic" and "message" properties in your request.'
     );
   }
 
-  const topic = pubsub.topic(topicName);
+  const topic = pubSub.topic(topicName);
 
   const messageBuffer = Buffer.from(
     JSON.stringify({
