@@ -1,27 +1,20 @@
 import React from "react";
 import { graphql } from "gatsby";
 import YoutubeVideo from "@bmi/youtube-video";
+import { Data as ImageData } from "./Image";
 
 export type Data = {
   title: string;
   label: string;
   subtitle: string | null;
   youtubeId: string;
-  previewImage: {
-    resize: {
-      src: string;
-    };
-    file: {
-      fileName: string;
-      url: string;
-    };
-  } | null;
+  previewMedia: ImageData | null;
   videoRatio: { width: number; height: number } | null;
   className: string | null;
 };
 
 const Video = ({ data }: { data: Data }) => {
-  const { label, youtubeId, previewImage, videoRatio, className } = data;
+  const { label, youtubeId, previewMedia, videoRatio, className } = data;
 
   return (
     <YoutubeVideo
@@ -29,7 +22,22 @@ const Video = ({ data }: { data: Data }) => {
       videoId={youtubeId}
       embedHeight={videoRatio?.height || 0}
       embedWidth={videoRatio?.width || 0}
-      previewImageSource={previewImage?.resize.src || undefined}
+      previewImageSource={previewMedia?.image?.resize.src || undefined}
+      className={className}
+    />
+  );
+};
+
+export const renderVideo = (data: Data) => {
+  const { label, youtubeId, previewMedia, videoRatio, className } = data;
+
+  return (
+    <YoutubeVideo
+      label={label}
+      videoId={youtubeId}
+      embedHeight={videoRatio?.height || 0}
+      embedWidth={videoRatio?.width || 0}
+      previewImageSource={previewMedia?.image?.resize.src || undefined}
       className={className}
     />
   );
@@ -41,15 +49,8 @@ export const query = graphql`
     label
     subtitle
     youtubeId
-    previewImage {
-      title
-      resize(width: 1000, toFormat: JPG, jpegProgressive: true, quality: 60) {
-        src
-      }
-      file {
-        fileName
-        url
-      }
+    previewMedia {
+      ...ImageFragment
     }
     videoRatio {
       width

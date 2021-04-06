@@ -45,7 +45,7 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
       <MasonryGrid>
         {columns &&
           columns.map(({ label, links }, index) => {
-            const linksWithActions = links
+            const linksWithActions = (links || [])
               .filter((link) => link.__typename === "ContentfulLink")
               .map((link: LinkData): {
                 action: ClickableAction | undefined;

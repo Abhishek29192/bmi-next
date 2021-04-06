@@ -32,9 +32,21 @@ describe("OverlapCards component", () => {
         __typename: "ContentfulSimplePage",
         title: "Call to action",
         path: "some-page",
-        featuredImage: {
-          resized: {
-            src: "link-to-page.png"
+        featuredMedia: {
+          type: null,
+          altText: "Lorem ipsum",
+          caption: null,
+          focalPoint: null,
+          image: {
+            fluid: {
+              aspectRatio: 1,
+              src: "",
+              srcSet: "",
+              sizes: ""
+            },
+            resize: {
+              src: "link-to-page.png"
+            }
           }
         },
         featuredVideo: null
@@ -43,9 +55,21 @@ describe("OverlapCards component", () => {
         __typename: "ContentfulSimplePage",
         title: "Call to action",
         path: "some-page",
-        featuredImage: {
-          resized: {
-            src: "link-to-page.png"
+        featuredMedia: {
+          type: null,
+          altText: "Lorem ipsum",
+          caption: null,
+          focalPoint: null,
+          image: {
+            fluid: {
+              aspectRatio: 1,
+              src: "",
+              srcSet: "",
+              sizes: ""
+            },
+            resize: {
+              src: "link-to-page.png"
+            }
           }
         },
         featuredVideo: null
@@ -54,9 +78,21 @@ describe("OverlapCards component", () => {
         __typename: "ContentfulSimplePage",
         title: "Card with Video",
         path: "some-page",
-        featuredImage: {
-          resized: {
-            src: "link-to-page.png"
+        featuredMedia: {
+          type: null,
+          altText: "Lorem ipsum",
+          caption: null,
+          focalPoint: null,
+          image: {
+            fluid: {
+              aspectRatio: 1,
+              src: "",
+              srcSet: "",
+              sizes: ""
+            },
+            resize: {
+              src: "link-to-page.png"
+            }
           }
         },
         featuredVideo: {
@@ -64,13 +100,21 @@ describe("OverlapCards component", () => {
           label: "video label",
           subtitle: "video subtitle",
           youtubeId: "TDNEwZbm_Nk",
-          previewImage: {
-            resize: {
-              src: "link-to-page.png"
-            },
-            file: {
-              fileName: "",
-              url: ""
+          previewMedia: {
+            type: null,
+            altText: "Lorem ipsum",
+            caption: null,
+            focalPoint: null,
+            image: {
+              fluid: {
+                aspectRatio: 1,
+                src: "",
+                srcSet: "",
+                sizes: ""
+              },
+              resize: {
+                src: "link-to-page.png"
+              }
             }
           },
           videoRatio: null,

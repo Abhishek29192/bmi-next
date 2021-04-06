@@ -119,7 +119,7 @@ export const mapGalleryImages = (images) => {
       }),
       "url"
     ),
-    altText: images[0].name
+    altText: images[0].altText || images[0].name
   }));
 };
 
@@ -752,9 +752,9 @@ export const findUniqueVariantClassifications = (
   };
 
   // Gather all classifications into a single classifications map
-  const allClassificationValues = Object.values(classifications).reduce<
-    AllClassificationsValues
-  >((allClassifications, classifications) => {
+  const allClassificationValues = Object.values(
+    classifications
+  ).reduce<AllClassificationsValues>((allClassifications, classifications) => {
     return mergeClassificationsValues(allClassifications, classifications);
   }, {});
 

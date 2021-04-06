@@ -4,9 +4,10 @@ exports[`OverviewCard component renders correctly 1`] = `
 <div
   class="OverviewCard"
 >
-  <div
-    class="header-picture"
-    style="background-image: url(path-to-image);"
+  <img
+    alt="Lorem ipsum"
+    class="header-picture Media"
+    src="path-to-image"
   />
   <div
     class="body"
@@ -77,9 +78,10 @@ exports[`OverviewCard component renders correctly with contain image 1`] = `
 <div
   class="OverviewCard"
 >
-  <div
-    class="header-picture header-picture--contain"
-    style="background-image: url(path-to-image);"
+  <img
+    alt="Lorem ipsum"
+    class="header-picture Media Media--contain"
+    src="path-to-image"
   />
   <div
     class="body"
@@ -114,6 +116,53 @@ exports[`OverviewCard component renders correctly without optional props 1`] = `
       class="children"
     >
       We do the things
+    </div>
+  </div>
+</div>
+`;
+
+exports[`OverviewCard component renders width deprecated imageSource 1`] = `
+<div
+  class="OverviewCard"
+>
+  <div
+    class="header-picture"
+    style="background-image: url(path-to-image);"
+  />
+  <div
+    class="body"
+  >
+    <svg
+      class="brand-logo brand-logo--negative"
+      preserveAspectRatio="xMinYMin"
+    />
+    <h4
+      class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children"
+    >
+      We do the things
+    </div>
+    <div
+      class="footer"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
     </div>
   </div>
 </div>

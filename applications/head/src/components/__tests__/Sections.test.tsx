@@ -86,23 +86,25 @@ describe("Sections component", () => {
         villains: [
           {
             __typename: "ContentfulPromo",
+            id: "1234",
             title: "Villain 1",
             brandLogo: null,
             tags: null,
             subtitle: null,
             body: null,
-            featuredImage: null,
+            featuredMedia: null,
             cta: null,
             featuredVideo: null
           },
           {
             __typename: "ContentfulPromo",
+            id: "3456",
             title: "Villain 2",
             brandLogo: null,
             tags: null,
             subtitle: null,
             body: null,
-            featuredImage: null,
+            featuredMedia: null,
             cta: null,
             featuredVideo: null
           }
@@ -137,7 +139,7 @@ describe("Sections component", () => {
             subtitle: "promo subtitle",
             body: null,
             tags: null,
-            featuredImage: null,
+            featuredMedia: null,
             featuredVideo: null,
             cta: {
               __typename: "ContentfulLink",
@@ -174,9 +176,21 @@ describe("Sections component", () => {
             title: "page title",
             brandLogo: null,
             subtitle: "page subtitle",
-            featuredImage: {
-              resized: {
-                src: "//image-url"
+            featuredMedia: {
+              type: null,
+              altText: "Lorem ipsum",
+              caption: null,
+              focalPoint: null,
+              image: {
+                fluid: {
+                  aspectRatio: 1,
+                  src: "",
+                  srcSet: "",
+                  sizes: ""
+                },
+                resize: {
+                  src: "//image-url"
+                }
               }
             },
             featuredVideo: null
@@ -185,12 +199,13 @@ describe("Sections component", () => {
       },
       {
         __typename: "ContentfulPromo",
+        id: "5678",
         title: "card section title 2",
         subtitle: null,
         body: null,
         brandLogo: null,
         tags: null,
-        featuredImage: null,
+        featuredMedia: null,
         cta: null,
         featuredVideo: null
       },
@@ -200,16 +215,26 @@ describe("Sections component", () => {
         description: {
           description: "card section 1 description"
         },
-        images: [
+        medias: [
           {
-            title: "my test title",
-            mainSource: { src: "url" },
-            thumbnail: { src: "url" }
-          },
-          {
-            title: "my test title2",
-            mainSource: { src: "url2" },
-            thumbnail: { src: "url2" }
+            type: null,
+            altText: "Lorem ipsum",
+            caption: null,
+            focalPoint: null,
+            image: {
+              fluid: {
+                aspectRatio: 1,
+                src: "",
+                srcSet: "",
+                sizes: ""
+              },
+              resize: {
+                src: "link-to-page.png"
+              },
+              thumbnail: {
+                src: "link-to-thumbnal.png"
+              }
+            }
           }
         ]
       },

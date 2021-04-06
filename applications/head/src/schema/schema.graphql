@@ -119,7 +119,7 @@ interface ContentfulPage @nodeInterface {
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
@@ -190,7 +190,7 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   heroType: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
   "The input banner for this page."
   inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
@@ -254,7 +254,7 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
@@ -321,7 +321,7 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
@@ -422,7 +422,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
@@ -448,7 +448,7 @@ type ContentfulPromo implements Node {
   title: String
 
   "The image for this promo."
-  featuredImage: ContentfulAsset @link(from: "featuredImage___NODE")
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
   "The Brand logo for this promo."
   brandLogo: String
@@ -726,7 +726,7 @@ type ContentfulImageGallerySection implements Node {
 
   "The images for this section."
   # TODO: Check if the @link is needed.
-  images: [ContentfulAsset] @link(from: "images___NODE")
+  medias: [ContentfulImage] @link(from: "medias___NODE")
 }
 
 """
@@ -1267,7 +1267,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   subtitle: String
 
   "The main image of this page. Can be used when referencing this page (unused)."
-  featuredImage: ContentfulAsset
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
@@ -1394,7 +1394,7 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   sections: [ContentfulSection] @link(from: "sections___NODE")
 
   "The main image of brand page. Can be used when referencing this page."
-  featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+  featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
@@ -1497,9 +1497,44 @@ type ContentfulVideo implements Node {
   "The youtube id for the video"
   youtubeId: String!
 
-  "The preview image for this document."
-  previewImage: ContentfulAsset @link(by: "id", from: "previewImage___NODE")
+  "The main image of this page. Can be used when referencing this page (unused)."
+  previewMedia: ContentfulImage @link(by: "id", from: "previewMedia___NODE")
 
   "The size for this video."
   videoRatio: VideoRatio
+}
+
+type contentfulImageCaptionTextNode implements Node {
+  caption: String
+}
+
+"""
+Represents a focal point with the percentage of x and y.
+"""
+type FocalPoint {
+  x: Int
+  y: Int
+}
+
+"""
+Represents a wrapper around the ContentfulAsset.
+"""
+type ContentfulImage implements Node {
+  id: ID!
+
+  "The type for this Image. Could be `Decorative` or `Descriptive`"
+  type: String
+
+  "The alternative text for this Image."
+  altText: String
+
+  "The actual Asset for this Image."
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+
+  "The caption for this Image."
+  caption: contentfulImageCaptionTextNode
+    @link(by: "id", from: "caption___NODE")
+
+  "The focal point for this Image."
+  focalPoint: FocalPoint
 }

@@ -18,13 +18,14 @@ const slides = [
   },
   {
     title: "Realiable Warranties",
-    imageSource: mockImage,
+    media: <img src={mockImage} alt="Lorem ipsum" />,
     cta: {
       label: "Go to Realiable Warranties"
     }
   },
   {
     title: "Best tiles ever",
+    // TODO: This tests the deprecated imageSource
     imageSource: mockImage
   }
 ];

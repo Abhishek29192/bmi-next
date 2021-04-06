@@ -143,7 +143,7 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                               class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
                               type=\\"button\\"
                             >
-@@ -104,15 +100,20 @@
+@@ -104,14 +100,19 @@
             >
               <span
                 class=\\"sliding-slot\\"
@@ -154,17 +154,16 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                 >
                   <span
                     class=\\"number number--active\\"
-                  >
++                 >
 +                   03
 +                 </span>
 +                 <span
 +                   class=\\"number\\"
-+                 >
+                  >
                     01
                   </span>
                 </span>
               </span>
-              <span
 @@ -160,11 +161,11 @@
             <div
               style=\\"overflow-x: hidden;\\"
@@ -177,7 +176,25 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                 <div
                   aria-hidden=\\"false\\"
                   class=\\"Carousel__slide--global\\"
-                  data-swipeable=\\"true\\""
+                  data-swipeable=\\"true\\"
+@@ -175,14 +176,13 @@
+                  >
+                    <div
+                      class=\\"slide\\"
+                      style=\\"width: 100%;\\"
+                    >
+-                     <img
+-                       alt=\\"Lorem ipsum\\"
+-                       class=\\"image Media\\"
+-                       src=\\"path-to-image\\"
++                     <div
++                       class=\\"image\\"
++                       style=\\"background-image: url(path-to-image);\\"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>"
 `;
 
 exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
@@ -360,9 +377,10 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
                     class="slide"
                     style="width: 100%;"
                   >
-                    <div
-                      class="image"
-                      style="background-image: url(path-to-image);"
+                    <img
+                      alt="Lorem ipsum"
+                      class="image Media"
+                      src="path-to-image"
                     />
                   </div>
                 </div>
@@ -454,9 +472,10 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
                   class="slide left-pane-slide"
                   style="width: 100%;"
                 >
-                  <div
-                    class="image"
-                    style="background-image: url(path-to-image);"
+                  <img
+                    alt="Lorem ipsum"
+                    class="image Media"
+                    src="path-to-image"
                   />
                   <div
                     class="text"

@@ -24,6 +24,26 @@ type Props = {
   isFlat?: boolean;
 };
 
+const LocationCard = ({ title, details, footNote, isFlat }: Props) => {
+  return (
+    <address
+      className={classnames(styles["LocationCard"], {
+        [styles["LocationCard--flat"]]: isFlat
+      })}
+    >
+      <Typography variant="h5">{title}</Typography>
+      <dl className={styles["list"]}>
+        {details.map((detail, index) => (
+          <LocationItem key={index} {...detail} />
+        ))}
+      </dl>
+      <div className={styles["foot-note"]}>{footNote}</div>
+    </address>
+  );
+};
+
+export default LocationCard;
+
 export const LocationItem = ({
   anchorComponent: AnchorLink = DefaultAnchorLink,
   text,
@@ -55,33 +75,3 @@ export const LocationItem = ({
     </>
   );
 };
-
-const LocationCard = ({
-  anchorComponent,
-  title,
-  details,
-  footNote,
-  isFlat
-}: Props) => {
-  return (
-    <address
-      className={classnames(styles["LocationCard"], {
-        [styles["LocationCard--flat"]]: isFlat
-      })}
-    >
-      <Typography variant="h5">{title}</Typography>
-      <dl className={styles["list"]}>
-        {details.map((detail, index) => (
-          <LocationItem
-            anchorComponent={anchorComponent}
-            key={index}
-            {...detail}
-          />
-        ))}
-      </dl>
-      <div className={styles["foot-note"]}>{footNote}</div>
-    </address>
-  );
-};
-
-export default LocationCard;

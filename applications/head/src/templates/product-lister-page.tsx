@@ -79,7 +79,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
     title,
     subtitle,
-    featuredImage,
     content,
     features,
     featuresLink,
@@ -90,8 +89,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const heroProps: HeroItem = {
     title,
-    children: subtitle,
-    imageSource: featuredImage?.resize.src
+    children: subtitle
   };
   const { countryCode } = data.contentfulSite;
   // TODO: Ignoring gatsby data for now as fetching with ES
@@ -339,7 +337,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 titleVariant="h5"
                                 subtitle={uniqueClassifications}
                                 subtitleVariant="h6"
-                                imageSource={mainImage}
+                                media={
+                                  <img
+                                    src={mainImage}
+                                    alt={`${uniqueClassifications} ${product.name}`}
+                                  />
+                                }
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
                                 footer={

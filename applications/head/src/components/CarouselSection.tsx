@@ -17,6 +17,8 @@ import { iconMap } from "./Icon";
 import { LinkData, getCTA, getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
+import { renderVideo } from "./Video";
+import { renderImage } from "./Image";
 import styles from "./styles/CarouselSection.module.scss";
 
 type Slide = PromoData | PageInfoData;
@@ -37,13 +39,22 @@ const parseSlides = (
   linkLabel: string
 ): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
   return slides.map((slide) => {
-    const { title, subtitle, brandLogo, featuredImage, ...rest } = slide;
+    const {
+      title,
+      subtitle,
+      brandLogo,
+      featuredVideo,
+      featuredMedia,
+      ...rest
+    } = slide;
     const cta = getCTA(rest, countryCode, linkLabel);
 
     return {
       title,
       brandIcon: brandLogo && iconMap[brandLogo],
-      imageSource: featuredImage ? featuredImage.resize.src : null,
+      media: featuredVideo
+        ? renderVideo(featuredVideo)
+        : renderImage(featuredMedia),
       description: subtitle || undefined,
       cta
     };

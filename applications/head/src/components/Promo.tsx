@@ -3,29 +3,25 @@ import { RichTextData } from "../components/RichText";
 import { LinkData } from "./Link";
 import { TagData } from "./Tag";
 import { Data as VideoData } from "./Video";
+import { Data as ImageData } from "./Image";
 
 export type Data = {
   __typename: "ContentfulPromo";
+  id: string;
   title: string;
   subtitle: string | null;
   body: RichTextData | null;
   brandLogo: string | null;
   tags: TagData[] | null;
-  featuredImage: {
-    resize: {
-      src: string;
-    };
-    file: {
-      fileName: string;
-      url: string;
-    };
-  };
+  featuredMedia: ImageData | null;
   cta: LinkData | null;
   featuredVideo: VideoData | null;
 };
 
 export const promoQuery = graphql`
   fragment PromoFragment on ContentfulPromo {
+    __typename
+    id
     title
     subtitle
     body {
@@ -36,14 +32,8 @@ export const promoQuery = graphql`
       title
       type
     }
-    featuredImage {
-      resize(width: 1000, toFormat: JPG, jpegProgressive: true, quality: 60) {
-        src
-      }
-      file {
-        fileName
-        url
-      }
+    featuredMedia {
+      ...ImageFragment
     }
     cta {
       ...LinkFragment

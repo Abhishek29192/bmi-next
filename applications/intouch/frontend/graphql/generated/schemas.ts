@@ -6590,9 +6590,7 @@ export type GuaranteeType = Entry & {
   maximumValidity?: Maybe<Scalars["Int"]>;
   tiersAvailable?: Maybe<Array<Maybe<Scalars["String"]>>>;
   ranking?: Maybe<Scalars["Int"]>;
-  evidenceCategoriesCollection?: Maybe<
-    GuaranteeTypeEvidenceCategoriesCollection
-  >;
+  evidenceCategoriesCollection?: Maybe<GuaranteeTypeEvidenceCategoriesCollection>;
   guaranteeTemplate?: Maybe<GuaranteeTemplate>;
 };
 

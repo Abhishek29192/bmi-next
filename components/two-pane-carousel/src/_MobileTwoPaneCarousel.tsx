@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AnchorLink from "@bmi/anchor-link";
+import Media from "@bmi/media";
 import SlideControls from "@bmi/slide-controls";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
 import Typography from "@bmi/typography";
@@ -44,16 +45,19 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
         onPageChange={setActivePage}
         hasOpacityAnimation
       >
-        {slides.map(({ description, cta, imageSource }, index) => {
+        {slides.map(({ description, cta, imageSource, media }, index) => {
           return (
             <Carousel.Slide
               key={`left-pane-${index}`}
               className={styles["left-pane-slide"]}
             >
-              <div
-                className={styles["image"]}
-                style={{ backgroundImage: `url(${imageSource})` }}
-              />
+              {imageSource ? (
+                <div
+                  className={styles["image"]}
+                  style={{ backgroundImage: `url(${imageSource})` }}
+                />
+              ) : null}
+              <Media className={styles["image"]}>{media}</Media>
               {(description || cta) && (
                 <div className={styles["text"]}>
                   {description}

@@ -7,6 +7,25 @@ describe("ImageGallery component", () => {
   it("renders correctly with default layout", () => {
     const images = [
       {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      },
+      {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      },
+      {
+        media: <img src={mockImage} alt="Lorem ipsum" />,
+        thumbnail: mockImage
+      }
+    ];
+
+    const { container } = render(<ImageGallery images={images} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders with deprecated imageSource", () => {
+    const images = [
+      {
         mainSource: mockImage,
         altText: "Demo Tiles",
         thumbnail: mockImage

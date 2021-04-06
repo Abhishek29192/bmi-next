@@ -8,6 +8,20 @@ describe("ProductDetailsCard component", () => {
   it("renders correctly with optional prop", () => {
     const { container } = render(
       <ProductDetailsCard
+        media={<img src={mockProduct} alt="Lorem ipsum" />}
+        brandLogo={mockLogo}
+        title="Sed ut perspiciatis"
+        nnob="09174907099"
+        action={{ model: "htmlLink", href: "/" }}
+        linkLabel="Sit voluptatem"
+      />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders deprecated imageSource", () => {
+    const { container } = render(
+      <ProductDetailsCard
         imageSource={mockProduct}
         brandLogo={mockLogo}
         title="Sed ut perspiciatis"
@@ -22,7 +36,7 @@ describe("ProductDetailsCard component", () => {
   it("renders correctly without optional prop", () => {
     const { container } = render(
       <ProductDetailsCard
-        imageSource={mockProduct}
+        media={<img src={mockProduct} alt="Lorem ipsum" />}
         brandLogo={mockLogo}
         title="Sed ut perspiciatis"
         nnob="09174907099"

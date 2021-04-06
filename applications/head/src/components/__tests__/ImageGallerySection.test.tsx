@@ -1,32 +1,39 @@
-import { transformImagesSrc } from "../ImageGallerySection";
+import React from "react";
+import { render } from "@testing-library/react";
+import ImageGallerySection, { Data } from "../ImageGallerySection";
 
 describe("ImageGallerySection component", () => {
-  it("transforms correctly graphql response into expected Image props", () => {
-    const givenData = [
-      {
-        title: "my test title",
-        mainSource: { src: "url" },
-        thumbnail: { src: "url" }
-      },
-      {
-        title: "my test title2",
-        mainSource: { src: "url2" },
-        thumbnail: { src: "url2" }
-      }
-    ];
-    const expectedData = [
-      {
-        mainSource: "url",
-        thumbnail: "url",
-        altText: "my test title"
-      },
-      {
-        mainSource: "url2",
-        thumbnail: "url2",
-        altText: "my test title2"
-      }
-    ];
+  it("renders correctly", () => {
+    const data: Data = {
+      __typename: "ContentfulImageGallerySection",
+      title: "Lorem ipsum",
+      description: null,
+      medias: [
+        {
+          type: null,
+          altText: "Lorem ipsum",
+          caption: null,
+          focalPoint: null,
+          image: {
+            fluid: {
+              aspectRatio: 1,
+              src: "",
+              srcSet: "",
+              sizes: ""
+            },
+            resize: {
+              src: "link-to-page.png"
+            },
+            thumbnail: {
+              src: "link-to-thumbnal.png"
+            }
+          }
+        }
+      ]
+    };
 
-    expect(transformImagesSrc(givenData)).toEqual(expectedData);
+    const { container } = render(<ImageGallerySection data={data} />);
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

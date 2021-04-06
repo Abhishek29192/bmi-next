@@ -8,6 +8,8 @@
     overflow: hidden;
     max-height: 360px;
     height: calc(100vw - (16px * 2));
+    object-fit: contain;
+    // TODO: Remove these when `mainSource` gets deprecated.
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
@@ -15,6 +17,8 @@
     -webkit-print-color-adjust: exact;
 
     &--cover {
+      object-fit: cover;
+      // TODO: Remove this when `mainSource` gets deprecated.
       background-size: cover;
     }
     &--short {
@@ -47,6 +51,39 @@
     display: block;
     text-indent: -9999px;
     overflow: hidden;
+  }
+
+  .caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+    .caption-text {
+      color: $color-white;
+      height: 48px;
+      margin: 16px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.75) 40%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      height: 100px;
+      z-index: 0;
+    }
   }
 
   .thumbnails {

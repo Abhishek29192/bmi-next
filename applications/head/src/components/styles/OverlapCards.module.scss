@@ -6,9 +6,4 @@
   @media (min-width: $breakpoint-sm) {
     margin-top: -112px;
   }
-  .videoCard {
-    &::after {
-      cursor: auto;
-    }
-  }
 }
