@@ -752,9 +752,9 @@ export const findUniqueVariantClassifications = (
   };
 
   // Gather all classifications into a single classifications map
-  const allClassificationValues = Object.values(classifications).reduce<
-    AllClassificationsValues
-  >((allClassifications, classifications) => {
+  const allClassificationValues = Object.values(
+    classifications
+  ).reduce<AllClassificationsValues>((allClassifications, classifications) => {
     return mergeClassificationsValues(allClassifications, classifications);
   }, {});
 

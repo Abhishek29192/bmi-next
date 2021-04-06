@@ -87,9 +87,10 @@ const Header = ({
       ? document.querySelector("body")
       : undefined;
   const [sizes, setSizes] = React.useState<HeaderSizes>([]);
-  const [showLanguageSelection, setShowLanguageSelection] = React.useState<
-    boolean
-  >(false);
+  const [
+    showLanguageSelection,
+    setShowLanguageSelection
+  ] = React.useState<boolean>(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<number | boolean>(false);
   const elementWidths = getElementWidths(navigation);
