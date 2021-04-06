@@ -8,18 +8,13 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 
 - First, follow the monoropo instructions (root directory README). You should have installed all the necessary dependencies.
 
-- Create self-signed certificate
-  `openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem`
+- open your `/etc/hosts` and add the following line: `127.0.0.1 intouch.local`
 
-- Move the cert.pem & key.pem in the folder `./development-certs`
+- run `yarn workspace @bmi/intouch-frontend dev` from the monorepo root directory
 
-- run `yarn workspace @bmi/intouch-frontend dev-https` from the monorepo root directory
+- visit [http://intouch.local:3000/](http://intouch.local:3000/)
 
-- visit [https://localhost:3000](https://localhost:3000)
-
-### Problems with self-signed certificate?
-
-If you are accessing the frontend on localhost, and you get an error on Chrome related to the https certificate try out [this solution](https://stackoverflow.com/questions/58802767/no-proceed-anyway-option-on-neterr-cert-invalid-in-chrome-on-macos/63539455#63539455).
+- visit [http://intouch.local:3000/api/graphql](http://intouch.local:3000/api/graphql) to work directly on the apollo federated server without need to use the auth0 token
 
 ## Workspaces
 

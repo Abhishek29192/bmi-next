@@ -7,6 +7,7 @@ import express from "express";
 
 import gatewayService from "./gateway";
 import auth from "./middleware/auth";
+import config from "./config";
 
 const { AUTH0_NAMESPACE, PORT = 4000 } = process.env;
 
@@ -18,10 +19,6 @@ const { AUTH0_NAMESPACE, PORT = 4000 } = process.env;
     app.use(auth);
     const server = new ApolloServer({
       gateway,
-      engine: false,
-      subscriptions: false,
-      introspection: true,
-      playground: true,
       context: ({ req }) => {
         const { user, headers } = req;
         const userUuid = user?.sub?.split("|")?.[1];
@@ -36,7 +33,8 @@ const { AUTH0_NAMESPACE, PORT = 4000 } = process.env;
           "x-authenticated-role": role,
           "x-authenticated-internal-user-id": internalUserId
         };
-      }
+      },
+      ...config.apolloServer
     });
 
     server.applyMiddleware({ app });
