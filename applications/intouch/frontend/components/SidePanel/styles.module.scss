@@ -1,7 +1,23 @@
 @import "@bmi/styles";
 
 .sidePanel {
-  width: 336px;
+  width: 320px;
   background-color: $color-white;
   height: 100%;
+  padding: 1.5rem;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  flex-shrink: 0;
+}
+
+.filterButtons {
+  margin: 1rem 0;
+}
+
+.results {
+  overflow: scroll;
+  margin: 1.5rem 0;
 }
