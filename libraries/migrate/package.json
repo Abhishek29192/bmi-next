@@ -21,6 +21,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-standard": "^4.0.1",
     "imurmurhash": "^0.1.4",
+    "ora": "^5.4.0",
     "require-dir": "^1.2.0"
   }
 }
