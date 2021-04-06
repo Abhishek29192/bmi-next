@@ -39,7 +39,7 @@ const combineVariantClassifications = (
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
   const mappedClassifications = mapProductClassifications(
     product,
-    "bmiNorwayClassificationCatalog/1.0"
+    "bmiClassificationCatalog/1.0"
   );
 
   return (product.variantOptions || []).map((variant) => {
@@ -105,7 +105,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         ({ code }) =>
           code ===
           // TODO: use env var for catalogue namespace!
-          `bmiNorwayClassificationCatalog/1.0/appearanceAttributes.colourfamily`
+          `bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily`
       )?.featureValues?.[0];
 
       colourfamilyCode = colourfamilyAppearance?.code;
@@ -116,7 +116,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ).find(
         ({ code }) =>
           code ===
-          `bmiNorwayClassificationCatalog/1.0/appearanceAttributes.texturefamily`
+          `bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily`
       )?.featureValues?.[0];
 
       texturefamilyCode = texturefamilyAppearance?.code;
