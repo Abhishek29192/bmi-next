@@ -107,7 +107,7 @@ module.exports.getApp = async (
 
     organisationApp = await (
       await fetch(
-        `${CONTENTFUL_API_URL}/organizations/${process.env.ORGANIZATION_ID}/app_definitions`,
+        `${CONTENTFUL_API_URL}/organizations/${organisationId}/app_definitions`,
         {
           method: "POST",
           headers: {
