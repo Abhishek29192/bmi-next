@@ -1,0 +1,20 @@
+@import "@bmi/styles";
+
+.main {
+  background-color: #f6f6f6;
+  padding: 0.5rem;
+  border-left: 4px solid $color-cyan-400;
+  font-size: 0.9em;
+
+  a {
+    text-decoration: underline;
+  }
+
+  + * {
+    margin-top: 0.75rem;
+  }
+}
+
+.isRead {
+  border-left: 4px solid transparent;
+}
