@@ -30,6 +30,31 @@ build_head:
   script:
     - yarn workspace @bmi/head check:ts
     - yarn workspace @bmi/head build
+  artifacts:
+    paths:
+      - applications/head/public
+
+deploy_head_preview:
+  stage: deploy
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - applications/head/**/*
+        - components/**/*
+        - libraries/**/*
+  needs:
+    - build_head
+  before_script:
+    - yarn config set cache-folder ~/.yarn
+    - apt-get update
+    - apt-get install -y jq
+  script:
+    - |
+      DEPLOY_RESULT=$(npx netlify deploy --dir applications/head/public --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
+      echo ${DEPLOY_RESULT}
+      curl --request POST --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" -H "Content-Type: application/json" \
+        -d "{\"body\":\"Deployed to: $(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')\"}" \
+        "https://gitlab.com/api/v4/projects/19163612/merge_requests/${CI_MERGE_REQUEST_IID}/notes"
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Triggered by Netlify when deploy is complete
