@@ -10,7 +10,7 @@
     "start": "node dist/index.js",
     "build": "tsc -p .",
     "gcp-build": "tsc -p .",
-    "test:watch": "../../../../node_modules/.bin/jest --testPathPattern=\"applications/intouch-api\" --watch"
+    "test:watch": "../../../../../node_modules/.bin/jest --testPathPattern=\"applications/intouch/api/services/companies\" --watch"
   },
   "dependencies": {
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",

@@ -9,6 +9,19 @@ $$
 LANGUAGE sql
 STABLE;
 
+
+
+-- Function to invite a new account to an organization
+CREATE OR REPLACE FUNCTION crate_user (email text, first_name text, last_name text)
+  RETURNS account
+  AS $$
+  INSERT INTO account ("email", "first_name", "last_name") VALUES (_email, _first_name, _last_name) RETURNING *;
+$$
+LANGUAGE sql
+VOLATILE
+SECURITY DEFINER;
+
+
 -- Get the current market
 CREATE OR REPLACE FUNCTION current_market ()
   RETURNS int
@@ -42,7 +55,7 @@ STABLE
 SECURITY DEFINER;
 
 -- Check if project are enabled
-CREATE OR REPLACE FUNCTION is_project_enabled ()
+CREATE OR REPLACE FUNCTION is_project_enabled_by_market ()
   RETURNS boolean
   AS $$
   SELECT
