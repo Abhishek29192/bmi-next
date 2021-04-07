@@ -4,11 +4,15 @@ exports[`ImageGallery component renders correctly with default layout 1`] = `
 <div
   class="ImageGallery"
 >
-  <img
-    alt="Lorem ipsum"
-    class="main-image-wrapper main-image-wrapper--default Media Media--contain"
-    src="path-to-image"
-  />
+  <div
+    class="image-wrapper"
+  >
+    <img
+      alt="Lorem ipsum"
+      class="main-image-wrapper main-image-wrapper--default Media Media--contain"
+      src="path-to-image"
+    />
+  </div>
   <div
     class="thumbnails"
   >
@@ -100,14 +104,18 @@ exports[`ImageGallery component renders correctly with short layout 1`] = `
   class="ImageGallery"
 >
   <div
-    class="main-image-wrapper main-image-wrapper--short"
-    style="background-image: url(path-to-image);"
+    class="image-wrapper"
   >
-    <span
-      class="accessibility-label"
+    <div
+      class="main-image-wrapper main-image-wrapper--short"
+      style="background-image: url(path-to-image);"
     >
-      Demo Tiles
-    </span>
+      <span
+        class="accessibility-label"
+      >
+        Demo Tiles
+      </span>
+    </div>
   </div>
   <div
     class="thumbnails"
@@ -208,14 +216,18 @@ exports[`ImageGallery component renders with deprecated imageSource 1`] = `
   class="ImageGallery"
 >
   <div
-    class="main-image-wrapper main-image-wrapper--default"
-    style="background-image: url(path-to-image);"
+    class="image-wrapper"
   >
-    <span
-      class="accessibility-label"
+    <div
+      class="main-image-wrapper main-image-wrapper--default"
+      style="background-image: url(path-to-image);"
     >
-      Demo Tiles
-    </span>
+      <span
+        class="accessibility-label"
+      >
+        Demo Tiles
+      </span>
+    </div>
   </div>
   <div
     class="thumbnails"
@@ -314,14 +326,18 @@ exports[`ImageGallery component renders without a thumbnail when one image is pa
   class="ImageGallery"
 >
   <div
-    class="main-image-wrapper main-image-wrapper--default"
-    style="background-image: url(path-to-image);"
+    class="image-wrapper"
   >
-    <span
-      class="accessibility-label"
+    <div
+      class="main-image-wrapper main-image-wrapper--default"
+      style="background-image: url(path-to-image);"
     >
-      Single image
-    </span>
+      <span
+        class="accessibility-label"
+      >
+        Single image
+      </span>
+    </div>
   </div>
 </div>
 `;

@@ -72,18 +72,20 @@ const ImageGallery = ({
 
   return (
     <div className={styles["ImageGallery"]}>
-      {renderMedia(images[activeImageIndex], imageSize, layout)}
-      {images[activeImageIndex].caption ? (
-        <div className={styles["caption"]}>
-          <Typography
-            variant="h6"
-            component="p"
-            className={styles["caption-text"]}
-          >
-            <Truncate lines="2">{images[activeImageIndex].caption}</Truncate>
-          </Typography>
-        </div>
-      ) : null}
+      <div className={styles["image-wrapper"]}>
+        {renderMedia(images[activeImageIndex], imageSize, layout)}
+        {images[activeImageIndex].caption ? (
+          <div className={styles["caption"]}>
+            <Typography
+              variant="h6"
+              component="p"
+              className={styles["caption-text"]}
+            >
+              <Truncate lines="2">{images[activeImageIndex].caption}</Truncate>
+            </Typography>
+          </div>
+        ) : null}
+      </div>
       {images.length > 1 && (
         <Thumbnails
           images={images}

@@ -4,6 +4,10 @@
   display: block;
   position: relative;
 
+  .image-wrapper {
+    position: relative;
+  }
+
   .main-image-wrapper {
     overflow: hidden;
     max-height: 360px;
