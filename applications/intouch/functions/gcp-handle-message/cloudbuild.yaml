@@ -1,0 +1,13 @@
+### Template for public HTTP functions ###
+
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - functions
+      - deploy
+      - pubsub-handle-message
+      - --source=gs://intouch-replatform-build-storage
+      - --runtime=nodejs10
+      - --entry-point=helloPubSub
+      - --region=europe-west2
+      - --trigger-topic=transactional-email

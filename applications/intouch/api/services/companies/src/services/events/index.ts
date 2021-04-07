@@ -5,17 +5,6 @@ export const TOPICS = {
   TRANSACTIONAL_EMAIL: "transactional-email"
 };
 
-export const getPubSubClient = () => {
-  let client;
-  if (!client) {
-    client = new PubSub({
-      projectId: process.env.GCP_PROJECT
-    });
-  }
-
-  return client;
-};
-
 export const publish = async (
   pubSub: PubSub,
   topicName: string,

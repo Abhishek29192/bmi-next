@@ -1,15 +1,17 @@
 import express, { NextFunction, Request, Response } from "express";
+import { PubSub } from "@google-cloud/pubsub";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-import { getPubSubClient } from "./services/events";
 import { postgraphile } from "./postgraphile";
 
 const PORT = process.env.PORT || 4001;
 
 async function main() {
-  const pubSub = getPubSubClient();
+  const pubSub = new PubSub({
+    projectId: process.env.GCP_PROJECT
+  });
 
   const app = express();
   app.use((req: Request, res: Response, next: NextFunction) => {
