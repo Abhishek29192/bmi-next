@@ -8,6 +8,7 @@ include:
   - local: "/applications/intouch/frontend/.gitlab-ci.yml"
   - local: "/applications/intouch/api/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml"
+  - local: "/applications/intouch/terraform/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/es-pim-products-ingest/.gitlab-ci.yml"
   - local: "/functions/gcp-apsis-integration/.gitlab-ci.yml"
