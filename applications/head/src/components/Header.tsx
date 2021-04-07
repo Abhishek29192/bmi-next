@@ -108,6 +108,8 @@ const parseNavigation = (
         action
       });
     }
+
+    return result;
   }, []);
 };
 
