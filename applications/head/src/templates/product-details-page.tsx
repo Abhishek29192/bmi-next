@@ -54,7 +54,7 @@ type Asset = {
 
 export type ClassificationFeatureValue = {
   value: string;
-  code?: string; // This doesn't exist on some Features... perhaps we can be more specific with the types
+  code: string | null; // This doesn't exist on some Features... perhaps we can be more specific with the types
 };
 
 type ClassificationFeatureUnit = {

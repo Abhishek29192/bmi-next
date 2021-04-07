@@ -1538,3 +1538,8 @@ type ContentfulImage implements Node {
   "The focal point for this Image."
   focalPoint: FocalPoint
 }
+
+type ProductsVariantOptionsClassificationsFeaturesFeatureValues implements Node {
+  value: String
+  code: String
+}
