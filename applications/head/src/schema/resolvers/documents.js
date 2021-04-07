@@ -46,21 +46,40 @@ const resolveDocumentsFromProducts = async (
     return [];
   }
 
+  const resources = await context.nodeModel.runQuery({
+    query: {
+      filter: {
+        site: {
+          elemMatch: {
+            countryCode: { eq: process.env.SPACE_MARKET_CODE }
+          }
+        }
+      }
+    },
+    type: "ContentfulResources",
+    firstOnly: true
+  });
+
   const documents = flatMap(products, (product) =>
     (product.assets || [])
       .filter((asset) => includes(pimAssetTypes, asset.assetType))
       .map((asset) => {
         const id = generateIdFromString(product.name + asset.name);
-        const { url, fileSize, realFileName, mime } = asset;
+        const { url, fileSize, realFileName, mime, name } = asset;
         const assetType = find(assetTypes, { pimCode: asset.assetType });
 
         if (!assetType || !url) {
           return;
         }
 
+        const title = {
+          "Product name + asset type": `${product.name} ${assetType.name}`,
+          "Document name": name || `${product.name} ${assetType.name}`
+        }[(resources && resources.productDocumentNameMap) || "Document name"];
+
         if (isPimLinkDocument(asset)) {
           const fieldData = {
-            title: `${product.name} ${assetType.name}`,
+            title,
             url,
             assetType___NODE: assetType.id,
             product___NODE: product.id
@@ -84,7 +103,7 @@ const resolveDocumentsFromProducts = async (
         }
 
         const fieldData = {
-          title: `${product.name} ${assetType.name}`,
+          title,
           url,
           assetType___NODE: assetType.id,
           fileSize,

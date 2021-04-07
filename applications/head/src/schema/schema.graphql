@@ -950,6 +950,9 @@ type ContentfulResources implements Node {
   welcomeDialogBody: ContentfulRichText
 
   welcomeDialogBrands: [String]
+
+  "Set PIM documents' names pattern."
+  productDocumentNameMap: String
 }
 
 """
