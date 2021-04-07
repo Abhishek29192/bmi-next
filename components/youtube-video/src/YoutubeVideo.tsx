@@ -68,7 +68,8 @@ const DialogVideo = ({
   // had to use this as the design wants to show player as portait / full height on mobile
   // and landscape/actual height of video when in all other resolution
   const theme = useTheme();
-  const isSmallDevice = useMediaQuery(theme.breakpoints.only("xs"));
+  const isMobileDevice = useMediaQuery(theme.breakpoints.only("xs"));
+  const isXLDevice = useMediaQuery(theme.breakpoints.only("xl"));
 
   const [isDialogOpen, setDialogOpen] = useState(false);
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
@@ -77,7 +78,7 @@ const DialogVideo = ({
   let calculatedHeight = dimensions.height;
   // this is to fix safari full height issue with css properties!
   // this allows us keep player's height at max available height of container at all times
-  if (dimensions.width && height && width > 0) {
+  if (dimensions.width && height > 0 && width > 0) {
     calculatedHeight = (dimensions.width * height) / width;
   }
 
@@ -106,7 +107,7 @@ const DialogVideo = ({
             <ReactPlayer
               url={videoUrl}
               width="100%"
-              height={isSmallDevice ? "" : calculatedHeight}
+              height={isMobileDevice || isXLDevice ? "" : calculatedHeight}
               controls
               playing
               config={{
