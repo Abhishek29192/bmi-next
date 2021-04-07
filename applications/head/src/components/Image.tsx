@@ -93,6 +93,9 @@ export const query = graphql`
   fragment ImageFragment on ContentfulImage {
     type
     altText
+    caption {
+      caption
+    }
     type
     image {
       ...AssetFragment
