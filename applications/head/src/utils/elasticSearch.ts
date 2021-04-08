@@ -6,6 +6,7 @@ const ES_AGGREGATION_NAMES = {
   materials: "materials",
   texturefamily: "texturefamily",
   productFamily: "allCategories",
+  productLine: "allCategories",
   brand: "allCategories",
   // Search page - Pages tab
   "page-type-tag": "tags",
@@ -69,6 +70,7 @@ const searchTerms = {
   category: "categories.code.keyword",
   // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
   productFamily: "allCategories.code.keyword",
+  productLine: "allCategories.code.keyword",
   brand: "allCategories.code.keyword",
   plpBaseCategory: "plpCategories.code.keyword"
 };
@@ -95,6 +97,7 @@ export const compileElasticSearchQuery = (
       "materials",
       "texturefamily",
       "productFamily",
+      "productLine",
       "brand"
     ].includes(filter.name)
       ? searchTerms[filter.name]
