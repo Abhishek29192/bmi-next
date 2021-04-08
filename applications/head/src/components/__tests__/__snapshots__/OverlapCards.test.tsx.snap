@@ -43,7 +43,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                 </h5>
               </section>
               <div
-                class="Media gatsby-image-wrapper"
+                class="image Media gatsby-image-wrapper"
                 style="overflow: hidden;"
               >
                 <div
@@ -102,7 +102,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                 </h5>
               </section>
               <div
-                class="Media gatsby-image-wrapper"
+                class="image Media gatsby-image-wrapper"
                 style="overflow: hidden;"
               >
                 <div
@@ -164,7 +164,7 @@ exports[`OverlapCards component renders correctly 1`] = `
                 />
               </a>
               <div
-                class="Media"
+                class="image Media"
               >
                 <div
                   class="YoutubeVideo"
