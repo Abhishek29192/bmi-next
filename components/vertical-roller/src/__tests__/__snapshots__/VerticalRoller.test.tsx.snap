@@ -191,7 +191,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
                       style="width: 100%;"
                     >
                       <div
-                        class="image"
+                        class="image image--with-image-source"
                         style="background-image: url(path-to-image);"
                       >
                         <svg
