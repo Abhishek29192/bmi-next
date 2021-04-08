@@ -202,7 +202,7 @@ const transformContentType = async (
     existingImages
   }
 ) => {
-  if (contentType.fields.find(({ id }) => id === fields.to)) {
+  if (!contentType || contentType.fields.find(({ id }) => id === fields.to)) {
     return;
   }
 
