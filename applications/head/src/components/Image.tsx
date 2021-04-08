@@ -44,24 +44,7 @@ const getPosition = ({
 };
 
 const Image = ({ data, size, position }: { data?: Data } & Options) => {
-  if (!data) {
-    return null;
-  }
-
-  return (
-    <Img
-      fluid={data.image.fluid}
-      alt={data.altText}
-      draggable={false}
-      style={{ position: undefined }}
-      objectFit={size || typeToObjectFitMap[data.type || "Decorative"]}
-      objectPosition={getPosition({
-        size,
-        position,
-        focalPoint: data.focalPoint
-      })}
-    />
-  );
+  return renderImage(data, { size, position });
 };
 
 export const renderImage = (data?: Data, options: Options = {}) => {
@@ -70,6 +53,23 @@ export const renderImage = (data?: Data, options: Options = {}) => {
   }
 
   const { size, position } = options;
+
+  if (!data.image.fluid) {
+    return (
+      <img
+        src={data.image?.file.url}
+        alt={data.altText}
+        style={{
+          objectFit: size || typeToObjectFitMap[data.type || "Decorative"],
+          objectPosition: getPosition({
+            size,
+            position,
+            focalPoint: data.focalPoint
+          })
+        }}
+      />
+    );
+  }
 
   return (
     <Img
