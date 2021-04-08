@@ -1,9 +1,3 @@
-@import "@bmi/styles";
-
 .content {
-  // NOTE: Only apply on touch devices where overflow hidden doesn't work on
-  // the body.
-  @media (hover: none) {
-    overflow-x: hidden;
-  }
+  overflow-x: hidden;
 }

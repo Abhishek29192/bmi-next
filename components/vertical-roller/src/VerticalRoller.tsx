@@ -7,6 +7,7 @@ import Media, { AcceptedNode } from "@bmi/media";
 import RollerSelector from "@bmi/roller-selector";
 import ArrowIcon from "@material-ui/icons/ArrowForward";
 import Grid from "@bmi/grid";
+import classnames from "classnames";
 import styles from "./VerticalRoller.module.scss";
 
 export type Slide = {
@@ -76,7 +77,7 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
                 (
                   {
                     imageSource,
-                    media,
+                    media = null,
                     brandIcon: BrandIcon,
                     description,
                     cta
@@ -86,10 +87,13 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
                   return (
                     <Carousel.Slide key={index} className={styles["slide"]}>
                       <div
-                        className={styles["image"]}
+                        className={classnames(styles["image"], {
+                          [styles["image--with-image-source"]]:
+                            imageSource && !media
+                        })}
                         style={
                           // TODO: Remove this when `imageSource` is full deprecated.
-                          imageSource
+                          imageSource && !media
                             ? { backgroundImage: `url(${imageSource})` }
                             : {}
                         }
