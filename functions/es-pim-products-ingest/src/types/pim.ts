@@ -60,7 +60,8 @@ export type Image = {
 type ClassificationCode =
   | "scoringWeightAttributes"
   | "appearanceAttributes"
-  | "measurements"; // TODO: there are more
+  | "measurements"
+  | "generalInformation"; // TODO: there are more
 type ClassificationFeatureCode = string; // Contains namespaces prefix, cannot enumerate
 export type FeatureValue = {
   value: string;

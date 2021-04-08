@@ -103,6 +103,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     // TODO: Perhaps refactor into objects
     let colourfamilyCode,
       colourfamilyValue,
+      materialsCode,
+      materialsValue,
       texturefamilyCode,
       texturefamilyValue,
       // Measurement doesn't need a code for filters at the moment
@@ -119,6 +121,17 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
 
       colourfamilyCode = colourfamilyAppearance?.code;
       colourfamilyValue = colourfamilyAppearance?.value;
+
+      const materialsGeneralInformation = (
+        appearanceClassifications.features || []
+      ).find(
+        ({ code }) =>
+          code ===
+          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`
+      )?.featureValues?.[0];
+
+      materialsCode = materialsGeneralInformation?.code;
+      materialsValue = materialsGeneralInformation?.value;
 
       const texturefamilyAppearance = (
         appearanceClassifications.features || []
@@ -164,6 +177,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       colourfamilyValue,
       texturefamilyCode,
       texturefamilyValue,
+      materialsCode,
+      materialsValue,
       measurementValue
     };
   });
