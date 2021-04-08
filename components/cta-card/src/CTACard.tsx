@@ -75,7 +75,7 @@ const CTACard = ({
           </Typography>
         </HeadingElement>
         <__DeprecatedImageSource imageSource={imageSource} />
-        <Media>{media}</Media>
+        <Media className={styles["image"]}>{media}</Media>
       </Card>
     </WrapperElement>
   );

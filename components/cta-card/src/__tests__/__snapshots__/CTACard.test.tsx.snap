@@ -31,7 +31,7 @@ exports[`CtaCard component renders correctly 1`] = `
     </section>
     <img
       alt="Lorem ipsum"
-      class="Media"
+      class="image Media"
       src="path-to-image"
     />
   </div>
@@ -115,7 +115,7 @@ exports[`CtaCard component renders with the clickable area around the heading 1`
     </a>
     <img
       alt="Lorem ipsum"
-      class="Media"
+      class="image Media"
       src="path-to-image"
     />
   </div>
