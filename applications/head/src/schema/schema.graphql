@@ -841,7 +841,7 @@ type ContentfulTeamMember implements Node {
   name: String
 
   "The picture for this member."
-  profilePicture: ContentfulAsset @link(from: "profilePicture___NODE")
+  profileImage: ContentfulImage @link(from: "profileImage___NODE")
 
   "The job title for this member."
   jobTitle: String
