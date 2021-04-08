@@ -297,6 +297,48 @@ const getTextureFilter = (
   };
 };
 
+// Gets the values of materialfamily classification for the Filters pane
+const getMaterialsFilter = (
+  classificationNamespace: string,
+  products: readonly Pick<Product, "code" | "classifications">[]
+) => {
+  const materials = products
+    .reduce((allMaterials, product) => {
+      const productClassifications = mapProductClassifications(
+        product,
+        classificationNamespace
+      );
+
+      return [
+        ...allMaterials,
+        ...Object.values(productClassifications).map((classifications) => {
+          return classifications.materials;
+        })
+      ];
+    }, [])
+    .filter(Boolean);
+
+  if (materials.length === 0) {
+    return;
+  }
+
+  // Assuming all texturefamily classifications have the same label
+  const label = materials[0]?.name;
+  const values = uniqBy(map(materials, "value"), "code");
+
+  return {
+    label: "filterLabels.materials",
+    name: "materials",
+    value: [],
+    options: values
+      .sort(sortAlphabeticallyBy("value"))
+      .map(({ code, value }) => ({
+        label: value,
+        value: code
+      }))
+  };
+};
+
 const getCategoryFilters = (productCategories: ProductCategoryTree) => {
   return Object.entries(productCategories)
     .sort((a, b) => {
@@ -342,6 +384,7 @@ export const getFilters = (
     showBrandFilter ? getBrandFilterFromProducts(products) : undefined,
     showProductFamilyFilter ? getProductFamilyFilter(products) : undefined,
     getColorFilter(pimClassificationNamespace, products),
+    getMaterialsFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),
     ...(showCategoryFilters ? getCategoryFilters(allCategories) : [])
   ].filter(Boolean);

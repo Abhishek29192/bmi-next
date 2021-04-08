@@ -59,6 +59,7 @@ const FiltersSidebar = ({
           ),
           "filterLabels.brand": getMicroCopy("filterLabels.brand"),
           "filterLabels.colour": getMicroCopy("filterLabels.colour"),
+          "filterLabels.materials": getMicroCopy("filterLabels.materials"),
           "filterLabels.textureFamily": getMicroCopy(
             "filterLabels.textureFamily"
           )
