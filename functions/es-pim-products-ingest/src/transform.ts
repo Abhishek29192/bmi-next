@@ -1,4 +1,5 @@
 import { pick } from "lodash";
+import { config } from "dotenv";
 import type {
   Product as PIMProduct,
   VariantOption as PIMVariant
@@ -13,6 +14,15 @@ import {
   mapProductClassifications,
   TransformedMeasurementValue
 } from "./CLONE";
+
+config({
+  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
+});
+
+const {
+  // TODO: Remove this fallback once the environment variable is correctly set.
+  PIM_CLASSIFICATION_CATALOGUE_NAMESPACE = "bmiNorwayClassificationCatalog/1.0"
+} = process.env;
 
 // Combines all the classification representing a variant, which includes the classifications from base product, which are overwritten by variant ones.
 const combineVariantClassifications = (
@@ -39,7 +49,7 @@ const combineVariantClassifications = (
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
   const mappedClassifications = mapProductClassifications(
     product,
-    "bmiNorwayClassificationCatalog/1.0"
+    PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
   );
 
   return (product.variantOptions || []).map((variant) => {
@@ -104,8 +114,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ).find(
         ({ code }) =>
           code ===
-          // TODO: use env var for catalogue namespace!
-          `bmiNorwayClassificationCatalog/1.0/appearanceAttributes.colourfamily`
+          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.colourfamily`
       )?.featureValues?.[0];
 
       colourfamilyCode = colourfamilyAppearance?.code;
@@ -116,7 +125,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ).find(
         ({ code }) =>
           code ===
-          `bmiNorwayClassificationCatalog/1.0/appearanceAttributes.texturefamily`
+          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.texturefamily`
       )?.featureValues?.[0];
 
       texturefamilyCode = texturefamilyAppearance?.code;
