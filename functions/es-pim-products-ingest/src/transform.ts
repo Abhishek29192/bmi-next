@@ -72,6 +72,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     const productFamilyCategories = (product.categories || []).filter(
       ({ categoryType }) => categoryType === "ProductFamily"
     );
+    const productLineCategories = (product.categories || []).filter(
+      ({ categoryType }) => categoryType === "ProductLine"
+    );
 
     const classifications = combineVariantClassifications(product, variant);
     const scoringWeightClassification = classifications.find(
@@ -164,7 +167,11 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
       allCategories: product.categories || [],
       // Used for main category filter on PLP, interested in only leaf Categories and ProductCategories
-      plpCategories: [...productLeafCategories, ...productFamilyCategories],
+      plpCategories: [
+        ...productLeafCategories,
+        ...productFamilyCategories,
+        ...productLineCategories
+      ],
       classifications,
       // Special because we want to use it for sorting, atm this seems easier
       scoringWeight,
