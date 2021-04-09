@@ -13,3 +13,8 @@ test_components:
   script:
     - yarn coverage:components
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - junit.xml

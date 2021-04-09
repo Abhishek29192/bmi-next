@@ -15,6 +15,11 @@ test_head:
   script:
     - yarn workspace @bmi/head coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - applications/head/junit.xml
 
 build_head:
   stage: build

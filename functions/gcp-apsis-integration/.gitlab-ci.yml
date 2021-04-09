@@ -13,6 +13,11 @@ test_gcp-apsis-integration:
   script:
     - yarn workspace @bmi/gcp-apsis-integration coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/gcp-apsis-integration/junit.xml
 
 build_gcp-apsis-integration:
   stage: build

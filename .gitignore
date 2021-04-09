@@ -35,3 +35,4 @@ builds/
 license_finder_output.html
 
 .yarn_cache
+**/junit.xml

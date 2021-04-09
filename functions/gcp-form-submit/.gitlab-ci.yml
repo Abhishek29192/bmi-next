@@ -13,6 +13,11 @@ test_gcp-form-submit:
   script:
     - yarn workspace @bmi/gcp-form-submit coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/gcp-form-submit/junit.xml
 
 build_gcp-form-submit:
   stage: build
