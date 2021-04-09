@@ -265,6 +265,10 @@ const buildModel = (records) => {
       case "constant":
         myEnum.addValue(record.Name, record.Description); // add the value to the current enum based on the current record. todo modify constructor to not require 4 arguments
         break;
+      case "ctd":
+        break;
+      case "ctdfield":
+        break;
       default:
         myTable.addColumn(
           record.Name,

@@ -1,3 +1,3 @@
-import GuaranteePdf from "./guarantee-pdf";
+import GuaranteePdf from "./GuaranteePdf";
 
 export { GuaranteePdf };

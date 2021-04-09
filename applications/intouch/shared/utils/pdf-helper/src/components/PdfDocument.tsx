@@ -1,10 +1,20 @@
 import React from "react";
 import { Document, Img } from "react-pdf-maker";
-import { GuaranteeType } from "../../../../types/GuaranteeType";
+import {
+  GuaranteeType,
+  GuaranteeData,
+  GuaranteeTemplate
+} from "../../../../types/GuaranteeType";
 import { Typography } from "./Typography";
 import { LessWidth } from "./LessWidth";
 
-export const PdfDocument = ({ data }: { data: GuaranteeType }) => (
+export const PdfDocument = ({
+  template,
+  data
+}: {
+  template: GuaranteeTemplate;
+  data: GuaranteeData;
+}) => (
   <Document
     images={{
       signature: ``
@@ -14,55 +24,61 @@ export const PdfDocument = ({ data }: { data: GuaranteeType }) => (
     }}
   >
     <Typography variant={"h1"} marginBottom={24}>
-      {data.displayName}
+      {data.guaranteeType.displayName}
     </Typography>
     <Typography headlineLevel={2} variant={"h4"} marginBottom={12}>
-      {data.name}
+      {data.guaranteeType.name}
     </Typography>
-    <Typography variant={"h4"} marginBottom={10}>
-      Guarantee Name: {data.guaranteeName}
+    <Typography variant={"h6"} marginBottom={10}>
+      {template.headingGuarantee}: {data.guaranteeName}
     </Typography>
-    <Typography variant={"h4"} marginBottom={10}>
-      Scope of Guarantee: {data.guaranteeScope}
+    <Typography variant={"h6"} marginBottom={10}>
+      {template.headingScope}: {data.guaranteeScope}
     </Typography>
-    <Typography variant={"h4"} marginBottom={10}>
-      Product Materials: {data.productMaterials}
-    </Typography>
-    <Typography variant={"h1"} marginBottom={20}>
-      Beneficiary and building particulars
-    </Typography>
-    <Typography variant={"h4"} marginBottom={10}>
-      Building owner: {data.buildingParticular.name}
-    </Typography>
-    <Typography variant={"h4"} marginBottom={10}>
-      Building Address: {data.buildingParticular.buildingAddress}
-    </Typography>
-    <Typography variant={"h4"} marginBottom={10}>
-      Building roof area: {data.buildingParticular.buildingRoofArea}
+    <Typography variant={"h6"} marginBottom={10}>
+      {template.headingProducts}: {data.productMaterials}
     </Typography>
     <Typography variant={"h1"} marginBottom={20}>
-      Installation particulars
+      {template.headingBeneficiary}
     </Typography>
-    <Typography variant={"h4"} marginTop={5} marginBottom={3}>
-      Name of product installer: {data.installationParticular.name}
+    <Typography variant={"h6"} marginBottom={10}>
+      {template.headingBuildingOwnerName}: {data.buildingParticular.name}
     </Typography>
-    <Typography variant={"h4"} marginBottom={3}>
-      BMI InTouch ID: {data.installationParticular.intouchId}
+    <Typography variant={"h6"} marginBottom={10}>
+      {template.headingBuildingAddress}:
+      {data.buildingParticular.buildingAddress}
     </Typography>
-    <Typography variant={"h4"} marginBottom={13}>
-      Guarantee start date : {data.installationParticular.guaranteeStartDate}
+    <Typography variant={"h6"} marginBottom={10}>
+      {template.headingRoofArea}: {data.buildingParticular.buildingRoofArea}
     </Typography>
-    <Typography variant={"h4"} marginBottom={13}>
-      Guarantee issue number :{data.installationParticular.guaranteeIssueNumber}
+    <Typography variant={"h1"} marginBottom={20}>
+      {template.headingContractor}
     </Typography>
-    <Typography variant={"h4"} marginBottom={13}>
-      Guarantee period: {data.installationParticular.guaranteePeriod}
+    <Typography variant={"h6"} marginTop={5} marginBottom={3}>
+      {template.headingContractorName}: {data.installationParticular.name}
     </Typography>
-    <Typography variant={"h4"} marginBottom={13}>
-      Guarantee expiry data: {data.installationParticular.guaranteeExpiryDate}
+    <Typography variant={"h6"} marginBottom={3}>
+      {template.headingContractorId}: {data.installationParticular.intouchId}
+    </Typography>
+    <Typography variant={"h6"} marginBottom={5}>
+      {template.headingStartDate} :
+      {data.installationParticular.guaranteeStartDate}
+    </Typography>
+    <Typography variant={"h6"} marginBottom={5}>
+      {template.headingGuaranteeId} :
+      {data.installationParticular.guaranteeIssueNumber}
+    </Typography>
+    <Typography variant={"h6"} marginBottom={5}>
+      {template.headingValidity}: {data.installationParticular.guaranteePeriod}
+    </Typography>
+    <Typography variant={"h6"} marginBottom={5}>
+      {template.headingExpiry}:{data.installationParticular.guaranteeExpiryDate}
+    </Typography>
+    <Typography variant={"h6"} marginBottom={5}>
+      {template.signatory}
     </Typography>
     <LessWidth>
-      <Img src={data.signature.image} width={20} height={20} />
+      <Img src={data.guaranteeType.signature.image} width={20} height={20} />
     </LessWidth>
   </Document>
 );
