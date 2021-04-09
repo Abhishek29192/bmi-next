@@ -19,8 +19,8 @@ DROP POLICY IF EXISTS policy_company_admin ON company;
 DROP POLICY IF EXISTS policy_company_installer ON company;
 CREATE POLICY policy_super_admin ON company FOR ALL TO super_admin USING (true) WITH CHECK (true);
 CREATE POLICY policy_market_admin ON company FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
-CREATE POLICY policy_company_admin ON company FOR ALL TO company_admin USING (current_company() = id) WITH CHECK (current_company() = id);
-CREATE POLICY policy_company_installer ON company FOR ALL TO installer USING (current_company() = id) WITH CHECK (current_company() = id);
+CREATE POLICY policy_company_admin ON company FOR ALL TO company_admin USING (current_company() = id);
+CREATE POLICY policy_company_installer ON company FOR ALL TO installer USING (current_company() = id);
 
 
 ALTER TABLE company_member ENABLE ROW LEVEL SECURITY;

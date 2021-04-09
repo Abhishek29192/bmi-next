@@ -12,6 +12,9 @@ const pool = new Pool({
   host: HOST,
   database: DATABASE
 });
+const PERMISSION_DENIED = (table) => `permission denied for table ${table}`;
+const RLS_ERROR = (table) =>
+  `new row violates row-level security policy for table "${table}"`;
 
 const INSTALLER_EMAIL = "installer@email.com";
 const COMAPNY_ADMIN_EMAIL = "company@email.com";
@@ -21,9 +24,6 @@ const ROLE_COMPANY_ADMIN = "company_admin";
 const ROLE_SUPER_ADMIN = "super_admin";
 
 const COMPANY_MEMBER = 4;
-
-const rlsError = (table) =>
-  `new row violates row-level security policy for table "${table}"`;
 
 const transaction = async (
   role: string,
@@ -44,8 +44,11 @@ const transaction = async (
 const ALL_COMPANIES = `SELECT * FROM company`;
 
 describe("Database permissions", () => {
+  let installer_id;
+  let company_admin_id;
+  let company_id;
   afterAll(async () => {
-    const { rows } = await transaction(
+    await transaction(
       ROLE_SUPER_ADMIN,
       null,
       "delete from account where email = $1 OR email = $2",
@@ -65,24 +68,26 @@ describe("Database permissions", () => {
         );
         expect(rows.length).toEqual(0);
       });
-      it("should be able to create an account", async () => {
+
+      it("should be able to create an account using the function create_user", async () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
           null,
-          "select * from create_user($1, $2)",
+          "select * from create_user($1, $2, $3)",
           [INSTALLER_EMAIL, "name", "surname"]
         );
-        expect(rows.length).toEqual(0);
+        expect(rows.length).toEqual(1);
+        expect(rows[0].email).toEqual(INSTALLER_EMAIL);
+        installer_id = rows[0].id;
       });
       it("shouldn't be able to see other accounts", async () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
-          null,
+          installer_id,
           "select id from account",
           []
         );
         expect(rows.length).toEqual(1);
-        expect(rows[0].email).toEqual(INSTALLER_EMAIL);
       });
     });
     describe("Company Admin", () => {
@@ -90,10 +95,20 @@ describe("Database permissions", () => {
         const { rows } = await transaction(
           ROLE_COMPANY_ADMIN,
           null,
-          "select * from create_user($1, $2)",
-          [INSTALLER_EMAIL, "name", "surname"]
+          "insert into account (market_id, email) VALUES ($1, $2)",
+          [1, COMAPNY_ADMIN_EMAIL]
         );
         expect(rows.length).toEqual(0);
+      });
+      it("should be able to create an account using the function create_user", async () => {
+        const { rows } = await transaction(
+          ROLE_COMPANY_ADMIN,
+          null,
+          "select * from create_user($1, $2, $3)",
+          [COMAPNY_ADMIN_EMAIL, "name", "surname"]
+        );
+        expect(rows.length).toEqual(1);
+        expect(rows[0].email).toEqual(COMAPNY_ADMIN_EMAIL);
       });
     });
   });
@@ -103,7 +118,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to see any company if not member", async () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
-          1,
+          installer_id,
           ALL_COMPANIES,
           []
         );
@@ -121,7 +136,7 @@ describe("Database permissions", () => {
     });
 
     describe("Company Admin", () => {
-      it("should'nt be able to see a company it is a member", async () => {
+      it("shouldn't be able to see a company if is a member", async () => {
         const USERID = 1;
         const { rows } = await transaction(
           ROLE_COMPANY_ADMIN,
@@ -131,13 +146,65 @@ describe("Database permissions", () => {
         );
         expect(rows.length).toEqual(0);
       });
-      it("should be able to see a company it is a member", async () => {
+      it("should be able to see a company if is a member", async () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
           COMPANY_MEMBER,
           ALL_COMPANIES,
           []
         );
+        expect(rows.length).toEqual(1);
+        company_admin_id = rows[0].id;
+      });
+      it("should be able to create a company", async () => {
+        const { rows } = await transaction(
+          ROLE_COMPANY_ADMIN,
+          COMPANY_MEMBER,
+          "insert into company (name, market_id) VALUES ($1, $2) RETURNING *",
+          ["My company name", 1]
+        );
+        expect(rows.length).toEqual(1);
+        company_id = rows[0].id;
+      });
+    });
+  });
+
+  describe("CompanyMemebr", () => {
+    describe("Installer", () => {
+      it("shouldn't be able to add himself in a company", async () => {
+        try {
+          await transaction(
+            ROLE_INSTALLER,
+            installer_id,
+            "insert into company_member (account_id, company_id, market_id) VALUES($1, $2, $3) RETURNING *",
+            [installer_id, 1, 1]
+          );
+        } catch (error) {
+          expect(error.message).toEqual(PERMISSION_DENIED("company_member"));
+        }
+      });
+    });
+    describe("Company Admin", () => {
+      it("shouldn't be able to add a user to a company where is not a member", async () => {
+        try {
+          await transaction(
+            ROLE_COMPANY_ADMIN,
+            company_admin_id,
+            "insert into company_member (account_id, company_id) VALUES($1, $2) RETURNING *",
+            [installer_id, 1]
+          );
+        } catch (error) {
+          expect(error.message).toEqual(RLS_ERROR("company_member"));
+        }
+      });
+      it("should be able to add a user to a company where is a member", async () => {
+        const { rows } = await transaction(
+          ROLE_COMPANY_ADMIN,
+          company_admin_id,
+          "insert into company_member (account_id, company_id, market_id) VALUES($1, $2, $3) RETURNING *",
+          [installer_id, company_id, 1]
+        );
+
         expect(rows.length).toEqual(1);
       });
     });

@@ -12,15 +12,22 @@ STABLE;
 
 
 -- Function to invite a new account to an organization
-CREATE OR REPLACE FUNCTION crate_user (email text, first_name text, last_name text)
+CREATE OR REPLACE FUNCTION create_user (email text, first_name text, last_name text, market_id int, role role)
   RETURNS account
   AS $$
-  INSERT INTO account ("email", "first_name", "last_name") VALUES (_email, _first_name, _last_name) RETURNING *;
+  DECLARE 
+    user_id serial;
+    company_id serial;
+    INSERT INTO account ("email", "first_name", "last_name") VALUES (email, first_name, last_name) RETURNING id INTO user_id;
+
+    IF role = 'COMPANY_ADMIN' THEN
+      INSERT INTO company ("status", "market_id") VALUES ("NEW", market_id) RETURNING id INTO company_id;
+      INSERT INTO company_member ("account_id", "market_id", "company_id") VALUES (user_id, company_id, market_id) RETURNING id INTO user_id;
+    END IF;
 $$
 LANGUAGE sql
 VOLATILE
 SECURITY DEFINER;
-
 
 -- Get the current market
 CREATE OR REPLACE FUNCTION current_market ()
