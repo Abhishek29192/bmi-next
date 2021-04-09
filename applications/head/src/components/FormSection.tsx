@@ -7,6 +7,8 @@ import Section from "@bmi/section";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload, { getFileSizeString } from "@bmi/upload";
+import RadioGroup from "@bmi/radio-group";
+import Typography from "@bmi/typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
@@ -31,6 +33,8 @@ const InputTypes = [
   "upload"
 ];
 
+type SourceType = "Contentful" | "HubSpot";
+
 type InputType = {
   label: string;
   name: string;
@@ -52,6 +56,8 @@ export type Data = {
   inputs: InputType[] | null;
   submitText: string | null;
   successRedirect: LinkData | null;
+  source: SourceType | null;
+  hubSpotFormGuid?: string | null;
 };
 
 const Input = ({
@@ -139,6 +145,19 @@ const Input = ({
           }}
         />
       );
+    case "radio":
+      return (
+        <div>
+          <Typography style={{ paddingBottom: "15px" }}>{label}</Typography>
+          <RadioGroup name={name}>
+            {options.split(/, |,/).map((option, $i) => (
+              <RadioGroup.Item key={$i} value={option}>
+                {option}
+              </RadioGroup.Item>
+            ))}
+          </RadioGroup>
+        </div>
+      );
     case "select":
       return (
         <Select isRequired={required} label={label} name={name}>
@@ -158,6 +177,20 @@ const Input = ({
         <Checkbox
           name={name}
           label={convertMarkdownLinksToAnchorLinks(label)}
+          isRequired={required}
+        />
+      );
+    case "hubspot-text":
+      return (
+        <Typography>
+          <span dangerouslySetInnerHTML={{ __html: label }}></span>
+        </Typography>
+      );
+    case "hubspot-checkbox":
+      return (
+        <Checkbox
+          name={name}
+          label={<span dangerouslySetInnerHTML={{ __html: label }}></span>}
           isRequired={required}
         />
       );
@@ -189,7 +222,9 @@ const FormSection = ({
     recipients,
     inputs,
     submitText,
-    successRedirect
+    successRedirect,
+    source,
+    hubSpotFormGuid
   },
   backgroundColor
 }: {
@@ -253,13 +288,60 @@ const FormSection = ({
     }
   };
 
+  const handleHubSpotSubmit = async (
+    event: FormEvent<HTMLFormElement>,
+    values: Record<string, InputValue>
+  ) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const valuesArray = Object.entries(values).map(([name, value]) => ({
+      name,
+      value
+    }));
+
+    const valuesWithoutLegaConsent = valuesArray.filter(
+      (field) => field.name.substring(0, 13) !== "LEGAL_CONSENT"
+    );
+
+    try {
+      await axios.post(
+        `${process.env.HUBSPOT_API_URL}${process.env.HUBSPOT_ID}/${hubSpotFormGuid}`,
+        {
+          fields: valuesWithoutLegaConsent,
+          context: {
+            pageUri: window.location.href
+          }
+        }
+      );
+
+      setIsSubmitting(false);
+      if (successRedirect) {
+        navigate(
+          successRedirect.url ||
+            `/${countryCode}/${successRedirect.linkedPage.path}`
+        );
+      } else {
+        navigate("/");
+      }
+    } catch (error) {
+      setIsSubmitting(false);
+      // @todo Handle error
+      console.error("Error", { error }); // eslint-disable-line
+    }
+  };
+
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && <RichText document={description} />}
       {inputs ? (
         <Form
-          onSubmit={handleSubmit}
+          onSubmit={
+            source === "HubSpot" && hubSpotFormGuid
+              ? handleHubSpotSubmit
+              : handleSubmit
+          }
           className={styles["Form"]}
           rightAlignButton
         >
@@ -329,5 +411,7 @@ export const query = graphql`
     successRedirect {
       ...LinkFragment
     }
+    source
+    hubSpotFormGuid
   }
 `;
