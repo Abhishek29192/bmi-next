@@ -2,7 +2,6 @@ import postgraphile from "postgraphile";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import config from "../config";
-
 import { ExtendPlugin, WrapPlugin } from "./plugins";
 
 const { PG_SCHEMA, PG_USER, PASSWORD, HOST, DATABASE, PG_PORT } = process.env;

@@ -1,6 +1,6 @@
 import { makeWrapResolversPlugin } from "graphile-utils";
 
-const WrapResolversPlugin = makeWrapResolversPlugin({
+const WrapPlugin = makeWrapResolversPlugin({
   Mutation: {
     createCompany: {
       requires: {
@@ -31,4 +31,4 @@ const WrapResolversPlugin = makeWrapResolversPlugin({
   }
 });
 
-export default WrapResolversPlugin;
+export default WrapPlugin;

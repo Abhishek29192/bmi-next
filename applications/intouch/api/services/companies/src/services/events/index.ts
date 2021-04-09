@@ -21,13 +21,14 @@ export const publish = async (
   const messageBuffer = Buffer.from(
     JSON.stringify({
       data: {
-        message: payload.message,
+        title: payload.title,
+        text: payload.text,
+        html: payload.html,
         email: payload.email
       }
     }),
     "utf8"
   );
 
-  // Publishes a message
   await topic.publish(messageBuffer);
 };

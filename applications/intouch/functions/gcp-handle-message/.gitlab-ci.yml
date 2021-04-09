@@ -1,22 +1,9 @@
 image: node:12
 
-# test_gcp-intouch-handle-message:
-#   stage: test
-#   rules:
-#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-#       changes:
-#         - applications/intouch/functions/gcp-handle-message/**/*
-#   needs: [install]
-#   before_script:
-#     - yarn config set cache-folder ~/.yarn
-#   script:
-#     - yarn workspace @bmi/gcp-intouch-handle-message coverage:jest
-#   coverage: /All\sfiles.*?\s+(\d+.\d+)/
-
 build_gcp-intouch-handle-message:
   stage: build
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/intouch/IRP-157-pubsub-system'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
   needs: [install]
@@ -31,7 +18,7 @@ build_gcp-intouch-handle-message:
 package_gcp-intouch-handle-message:
   stage: package
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/intouch/IRP-157-pubsub-system'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
   needs: [build_gcp-intouch-handle-message]
@@ -40,19 +27,19 @@ package_gcp-intouch-handle-message:
   before_script:
     - apt-get update
     - apt-get install -y zip unzip
-    - mkdir -p dist/functions
+    - mkdir -p dist/applications/intouch/functions
   script:
     - cd applications/intouch/functions/gcp-handle-message; zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip package.json dist/; cd $CI_PROJECT_DIR;
   artifacts:
     paths:
-      - $CI_PROJECT_DIR/dist/functions
+      - $CI_PROJECT_DIR/dist/applications/intouch/functions
 
 # Deploy to QA
 deploy_gcp-intouch-handle-message:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/intouch/IRP-157-pubsub-system'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/functions/gcp-handle-message/**/*
       allow_failure: true
@@ -61,13 +48,15 @@ deploy_gcp-intouch-handle-message:
     - package_gcp-intouch-handle-message
   before_script:
     - |
-      if [ "$CI_COMMIT_BRANCH" == "intouch/IRP-157-pubsub-system" ]; then
-        GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$GCP_INTOUCH_REPLATFORM_SERVICE_KEY
-        GCP_INTOUCH_REPLATFORM_PROJECT_ID=$GCP_INTOUCH_REPLATFORM_PROJECT_ID
-        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE_QA
-      fi
+      GCP_INTOUCH_REPLATFORM_SERVICE_KEY=$GCP_INTOUCH_REPLATFORM_SERVICE_KEY
+      GCP_INTOUCH_REPLATFORM_PROJECT_ID=$GCP_INTOUCH_REPLATFORM_PROJECT_ID
+      GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE
 
-      gcloud auth activate-service-account --key-file="$GCP_INTOUCH_REPLATFORM_SERVICE_KEY"
-      gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+      INTOUCH_SENDGRID_API_KEY_DEV=$INTOUCH_SENDGRID_API_KEY_DEV
+      INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM
   script:
-    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip gs://intouch-replatform-build-storage/
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud builds submit . --config=applications/intouch/functions/gcp-handle-message/cloudbuild.yaml --substitutions _GCP_INTOUCH_REPLATFORM_BUILD_STORAGE=$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE,_INTOUCH_SENDGRID_API_KEY_DEV=$INTOUCH_SENDGRID_API_KEY_DEV,_INTOUCH_MAIL_FROM=$INTOUCH_MAIL_FROM

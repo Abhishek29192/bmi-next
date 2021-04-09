@@ -1,33 +1,37 @@
 import { makeExtendSchemaPlugin, gql } from "graphile-utils";
 import { publish, TOPICS } from "../../services/events";
 
-const EtendSchemaPlugin = makeExtendSchemaPlugin((build) => ({
+const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => ({
   typeDefs: gql`
+    type Publish {
+      title: String
+      text: String
+      html: String
+      email: String
+    }
     input PublishInput {
-      message: String
+      title: String
+      text: String
+      html: String
+      email: String
     }
 
     extend type Mutation {
-      publishMessage(input: PublishInput!): String
+      publishMessage(input: PublishInput!): Publish
     }
   `,
   resolvers: {
     Mutation: {
       publishMessage: async (_query, args, context, resolveInfo) => {
-        const {
-          input: { message }
-        } = args;
+        const { input } = args;
         const { pubSub } = context;
 
-        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-          email: "email@email.com",
-          message
-        });
+        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, input);
 
-        return message;
+        return input;
       }
     }
   }
 }));
 
-export default EtendSchemaPlugin;
+export default ExtendSchemaPlugin;

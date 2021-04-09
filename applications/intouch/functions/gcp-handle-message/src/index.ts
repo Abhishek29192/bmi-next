@@ -1,13 +1,31 @@
+const sgMail = require("@sendgrid/mail");
+
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *
  * @param {!Object} event Event payload.
  * @param {!Object} context Metadata for the event.
  */
-export function helloPubSub(event, context) {
-  // eslint-disable-next-line no-undef
-  const message = Buffer.from(event.data, "base64").toString();
+export async function helloPubSub(event, context) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  // eslint-disable-next-line no-console
-  console.log(message);
+  let parsedPayload;
+
+  // eslint-disable-next-line no-undef
+  const payload = Buffer.from(event.data, "base64").toString();
+
+  try {
+    parsedPayload = JSON.parse(payload);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("Error: ", error);
+  }
+
+  await sgMail.send({
+    from: process.env.MAIL_FROM,
+    to: parsedPayload.data.email,
+    subject: parsedPayload.data.title,
+    text: parsedPayload.data.text,
+    html: parsedPayload.data.html
+  });
 }
