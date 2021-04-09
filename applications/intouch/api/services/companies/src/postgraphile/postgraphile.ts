@@ -2,13 +2,18 @@ import postgraphile from "postgraphile";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import config from "../config";
-import { CompanyWrapPlugin } from "./plugins";
+import { ExtendPlugin, WrapPlugin } from "./plugins";
 
 const { PG_SCHEMA, PG_USER, PASSWORD, HOST, DATABASE, PG_PORT } = process.env;
 
 const postGraphileOptions = {
   ...config.postgraphile,
-  appendPlugins: [pgSimplifyInflector, FederationPlugin, CompanyWrapPlugin],
+  appendPlugins: [
+    pgSimplifyInflector,
+    FederationPlugin,
+    ExtendPlugin,
+    WrapPlugin
+  ],
   async additionalGraphQLContextFromRequest(req, res) {
     const user = {
       id: req.headers["x-authenticated-internal-user-id"],
@@ -17,7 +22,7 @@ const postGraphileOptions = {
 
     req.user = user;
 
-    return { user: req.user };
+    return { user: req.user, pubSub: req.pubSub };
   },
   pgSettings: async ({ user }) => {
     const { role = "installer", id: userId = -1 } = user;
