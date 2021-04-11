@@ -428,12 +428,12 @@ module.exports = {
           }
         ]
       : []),
-    ...(process.env.HUBSPOT_ID
+    ...(process.env.GATSBY_HUBSPOT_ID
       ? [
           {
             resolve: "gatsby-plugin-hubspot",
             options: {
-              trackingCode: process.env.HUBSPOT_ID,
+              trackingCode: process.env.GATSBY_HUBSPOT_ID,
               respectDNT: true,
               productionOnly: false
             }
