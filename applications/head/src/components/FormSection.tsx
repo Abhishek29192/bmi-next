@@ -11,6 +11,8 @@ import RadioGroup from "@bmi/radio-group";
 import Typography from "@bmi/typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import InputBase from "@material-ui/core/InputBase";
+import { withFormControl } from "@bmi/form";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
@@ -102,6 +104,11 @@ const Input = ({
     }
   };
 
+  // @TODO: create a separate hidden-input component
+  const HiddenField = withFormControl((props) => (
+    <InputBase {...props} type="hidden" />
+  ));
+
   switch (type) {
     case "upload":
       return (
@@ -182,9 +189,12 @@ const Input = ({
       );
     case "hubspot-text":
       return (
-        <Typography>
-          <span dangerouslySetInnerHTML={{ __html: label }}></span>
-        </Typography>
+        <>
+          <Typography>
+            <span dangerouslySetInnerHTML={{ __html: label }}></span>
+          </Typography>
+          <HiddenField name={name} value={label} />
+        </>
       );
     case "hubspot-checkbox":
       return (
@@ -194,6 +204,8 @@ const Input = ({
           isRequired={required}
         />
       );
+    case "hubspot-hidden":
+      return <HiddenField name={name} value={label} />;
     case "textarea":
     case "text":
     default:
@@ -301,17 +313,62 @@ const FormSection = ({
     }));
 
     const valuesWithoutLegaConsent = valuesArray.filter(
-      (field) => field.name.substring(0, 13) !== "LEGAL_CONSENT"
+      (field) => field.name.substring(0, 9) !== "hs-legal-"
     );
+
+    const hsLegalFields = valuesArray
+      .filter((field) => field.name.substring(0, 9) === "hs-legal-")
+      .reduce((acc, cur) => {
+        return { ...acc, [cur.name]: cur.value };
+      }, {});
+
+    const hsPayload = {
+      fields: valuesWithoutLegaConsent,
+      context: {
+        pageUri: window.location.href
+      }
+    };
+
+    const getLegalOptions = (hsLegalFields) => {
+      if (hsLegalFields["hs-legal-isLegitimateInterest"]) {
+        return {
+          legitimateInterest: {
+            value: true,
+            subscriptionTypeId: hsLegalFields["hs-legal-communicationTypeId"],
+            legalBasis: "LEAD",
+            text: hsLegalFields["hs-legal-privacyPolicyText"]
+          }
+        };
+      }
+      if (hsLegalFields["hs-legal-communication"]) {
+        return {
+          consent: {
+            consentToProcess:
+              hsLegalFields["hs-legal-processingConsentType"] || true,
+            text: hsLegalFields["hs-legal-processingConsentText"],
+            communications: [
+              {
+                value: hsLegalFields["hs-legal-communication"],
+                subscriptionTypeId:
+                  hsLegalFields["hs-legal-communicationTypeId"],
+                text: hsLegalFields["hs-legal-communicationConsentText"]
+              }
+            ]
+          }
+        };
+      }
+    };
 
     try {
       await axios.post(
         `${process.env.GATSBY_HUBSPOT_API_URL}${process.env.GATSBY_HUBSPOT_ID}/${hubSpotFormGuid}`,
         {
-          fields: valuesWithoutLegaConsent,
-          context: {
-            pageUri: window.location.href
-          }
+          ...hsPayload,
+          ...(hsLegalFields
+            ? {
+                legalConsentOptions: getLegalOptions(hsLegalFields)
+              }
+            : {})
         }
       );
 

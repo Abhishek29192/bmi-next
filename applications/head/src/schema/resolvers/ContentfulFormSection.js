@@ -33,7 +33,7 @@ const hubSpotFieldtoBMIFieldMap = {
 };
 
 const mapFields = (type, name) => {
-  // hardocde extra validations
+  // hardcode extra validations
   switch (name) {
     case "mobilephone":
       return "phone";
@@ -46,6 +46,7 @@ const mapFields = (type, name) => {
   return hubSpotFieldtoBMIFieldMap[type] || "text";
 };
 
+// flatten select/radio options to string
 const transformOptions = (options) => {
   return options.map((item) => item.value).join(", ");
 };
@@ -55,6 +56,22 @@ const getLegalConsentOptions = (metaData) => {
     metaData.find(({ name }) => name === "legalConsentOptions") || null;
 
   return legalConsent && JSON.parse(legalConsent.value);
+};
+
+const createLegalCensentField = (legalConsentOptions, parentId, name, type) => {
+  const HubSpotId =
+    legalConsentOptions.communicationConsentCheckboxes[0].communicationTypeId;
+
+  return getNodeData(parentId, {
+    id: `HubSpot.Legal.${name}.${HubSpotId}`,
+    name: `hs-legal-${name}`,
+    // eslint-disable-next-line security/detect-object-injection
+    label: legalConsentOptions[name]
+      .toString()
+      .replace(/(<p[^>]+?>|<p>|<\/p>)/gim, ""),
+    type: "hubspot-" + type,
+    width: "full"
+  });
 };
 
 module.exports = {
@@ -90,75 +107,118 @@ module.exports = {
           hubSpotForm.metaData
         );
         if (legalConsentOptions) {
+          /**
+           * API: https://legacydocs.hubspot.com/docs/methods/forms/submit_form
+           * we have 2 Legal consent options
+           * - consent
+           * - legitimateInterest
+           */
+
+          // hidden
+          if (legalConsentOptions.isLegitimateInterest) {
+            // simplest option no checkboxes
+            fields.push(
+              createLegalCensentField(
+                legalConsentOptions,
+                source.id,
+                "isLegitimateInterest",
+                "hidden"
+              )
+            );
+          }
+
+          // hidden - save communication ID
+          if (legalConsentOptions.communicationConsentCheckboxes) {
+            fields.push(
+              getNodeData(source.id, {
+                id:
+                  "HubSpot.Legal.ID." +
+                  legalConsentOptions.communicationConsentCheckboxes[0]
+                    .communicationTypeId,
+                name: "hs-legal-communicationTypeId",
+                label:
+                  legalConsentOptions.communicationConsentCheckboxes[0]
+                    .communicationTypeId,
+                type: "hubspot-hidden"
+              })
+            );
+          }
+
+          // display 1 - text
           if (legalConsentOptions.communicationConsentText) {
             fields.push(
+              createLegalCensentField(
+                legalConsentOptions,
+                source.id,
+                "communicationConsentText",
+                "text"
+              )
+            );
+          }
+          // display 2 - checkbox 1
+          if (legalConsentOptions.isLegitimateInterest === false) {
+            fields.push(
               getNodeData(source.id, {
                 id:
-                  "communicationConsentText" +
+                  "LEGAL_CONSENT" +
                   legalConsentOptions.communicationConsentCheckboxes[0]
                     .communicationTypeId,
-                name: "communicationConsentText",
-                label: legalConsentOptions.communicationConsentText.replace(
+                name: "hs-legal-communication",
+                label: legalConsentOptions.communicationConsentCheckboxes[0].label.replace(
                   /(<p[^>]+?>|<p>|<\/p>)/gim,
                   ""
                 ),
-                type: "hubspot-text",
-                width: "full"
+                type: "hubspot-checkbox",
+                width: "full",
+                required:
+                  legalConsentOptions.communicationConsentCheckboxes[0].required
               })
             );
           }
-          fields.push(
-            getNodeData(source.id, {
-              id:
-                "LEGAL_CONSENT" +
-                legalConsentOptions.communicationConsentCheckboxes[0]
-                  .communicationTypeId,
-              name:
-                "LEGAL_CONSENT.subscription_type_" +
-                legalConsentOptions.communicationConsentCheckboxes[0]
-                  .communicationTypeId,
-              label: legalConsentOptions.communicationConsentCheckboxes[0].label.replace(
-                /(<p[^>]+?>|<p>|<\/p>)/gim,
-                ""
-              ),
-              type: "hubspot-checkbox",
-              width: "full",
-              required:
-                legalConsentOptions.communicationConsentCheckboxes[0].required
-            })
-          );
+
+          // display 3 - text - middle
           if (legalConsentOptions.processingConsentText) {
             fields.push(
-              getNodeData(source.id, {
-                id:
-                  "processingConsentText" +
-                  legalConsentOptions.communicationConsentCheckboxes[0]
-                    .communicationTypeId,
-                name: "processingConsentText",
-                label: legalConsentOptions.processingConsentText.replace(
-                  /(<p[^>]+?>|<p>|<\/p>)/gim,
-                  ""
-                ),
-                type: "hubspot-text",
-                width: "full"
-              })
+              createLegalCensentField(
+                legalConsentOptions,
+                source.id,
+                "processingConsentText",
+                "text"
+              )
             );
           }
-          if (legalConsentOptions.privacyPolicyText) {
+
+          // display 4 - checkbox - 2
+          if (
+            legalConsentOptions.processingConsentType === "REQUIRED_CHECKBOX"
+          ) {
             fields.push(
               getNodeData(source.id, {
                 id:
-                  "privacyPolicyText" +
+                  "HubSpot.Legal.processingConsentType." +
                   legalConsentOptions.communicationConsentCheckboxes[0]
                     .communicationTypeId,
-                name: "privacyPolicyText",
-                label: legalConsentOptions.privacyPolicyText.replace(
+                name: "hs-legal-processingConsentType",
+                label: legalConsentOptions.processingConsentCheckboxLabel.replace(
                   /(<p[^>]+?>|<p>|<\/p>)/gim,
                   ""
                 ),
-                type: "hubspot-text",
-                width: "full"
+                type: "hubspot-checkbox",
+                width: "full",
+                required: true
               })
+            );
+          }
+
+          // display 5 - text - last
+          if (legalConsentOptions.privacyPolicyText) {
+            fields.push(
+              createLegalCensentField(
+                legalConsentOptions,
+                source.id,
+                "privacyPolicyText",
+                "text"
+              )
             );
           }
         }
