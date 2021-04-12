@@ -94,11 +94,6 @@ exports[`Checkbox component renders error 1`] = `
       test-label-2
     </span>
   </label>
-  <p
-    class="MuiFormHelperText-root Mui-disabled Mui-error"
-  >
-    Feltet er obligatorisk
-  </p>
 </div>
 `;
 

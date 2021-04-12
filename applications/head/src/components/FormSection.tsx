@@ -104,6 +104,7 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{
             "Content-Type": "application/octet-stream"
@@ -133,7 +134,12 @@ const Input = ({
       );
     case "select":
       return (
-        <Select isRequired={required} label={label} name={name}>
+        <Select
+          isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          label={label}
+          name={name}
+        >
           <MenuItem value="none">None</MenuItem>
           {options.split(/, |,/).map((option, $i) => {
             const [select, value] = option.split(/= |=/);
@@ -151,6 +157,7 @@ const Input = ({
           name={name}
           label={convertMarkdownLinksToAnchorLinks(label)}
           isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
         />
       );
     case "textarea":
@@ -160,6 +167,7 @@ const Input = ({
         <TextField
           name={name}
           isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
           isTextArea={type === "textarea"}
           variant="outlined"
           label={label}
