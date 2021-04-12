@@ -21,7 +21,7 @@ config({
 
 const {
   // TODO: Remove this fallback once the environment variable is correctly set.
-  PIM_CLASSIFICATION_CATALOGUE_NAMESPACE = "bmiNorwayClassificationCatalog/1.0"
+  PIM_CLASSIFICATION_CATALOGUE_NAMESPACE = "bmiClassificationCatalog/1.0"
 } = process.env;
 
 // Combines all the classification representing a variant, which includes the classifications from base product, which are overwritten by variant ones.
