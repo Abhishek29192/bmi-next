@@ -12,7 +12,7 @@ import { renderImage } from "./Image";
 
 export type Data = {
   __typename: "ContentfulSyndicateSection";
-  title: string;
+  title: string | null;
   villains: (PromoData | PageInfoData)[];
   isReversed: boolean;
 };
@@ -49,7 +49,7 @@ const SyndicateSection = ({
     if (position === 0) {
       return (
         <Section backgroundColor="white">
-          <Section.Title>{title}</Section.Title>
+          {title && <Section.Title>{title}</Section.Title>}
           <Villain {...villainProperties} isReversed={isReversed} />
         </Section>
       );
@@ -60,7 +60,7 @@ const SyndicateSection = ({
 
   return (
     <Section backgroundColor="white">
-      <Section.Title>{title}</Section.Title>
+      {title && <Section.Title>{title}</Section.Title>}
       {villainsData.map((villainProperties: VillainProps, index) => (
         <Villain
           key={`${title}${index}`}

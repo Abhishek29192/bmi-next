@@ -14,7 +14,7 @@ import { getClickableActionFromUrl } from "./Link";
 
 export type Data = {
   __typename: "ContentfulDocumentDownloadSection";
-  title: string;
+  title: string | null;
   description: RichTextData | null;
   documents: DocumentData[];
 };
@@ -37,7 +37,7 @@ const DocumentDownloadSection = ({
 
   return (
     <Section backgroundColor="white">
-      <Section.Title>{title}</Section.Title>
+      {title && <Section.Title>{title}</Section.Title>}
       {description && (
         <div style={{ marginBottom: "40px" }}>
           <RichText document={description} />
