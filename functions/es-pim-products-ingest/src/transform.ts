@@ -101,6 +101,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ({ code }) => code === "appearanceAttributes"
     );
 
+    const generalInformationClassification = classifications.find(
+      ({ code }) => code === "generalInformation"
+    );
+
     // Codes used for matching against filter codes
     // Values used for matching against search strings (localised input)
     // TODO: Perhaps refactor into objects
@@ -125,17 +129,6 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       colourfamilyCode = colourfamilyAppearance?.code;
       colourfamilyValue = colourfamilyAppearance?.value;
 
-      const materialsGeneralInformation = (
-        appearanceClassifications.features || []
-      ).find(
-        ({ code }) =>
-          code ===
-          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`
-      )?.featureValues?.[0];
-
-      materialsCode = materialsGeneralInformation?.code;
-      materialsValue = materialsGeneralInformation?.value;
-
       const texturefamilyAppearance = (
         appearanceClassifications.features || []
       ).find(
@@ -146,6 +139,19 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
 
       texturefamilyCode = texturefamilyAppearance?.code;
       texturefamilyValue = texturefamilyAppearance?.value;
+    }
+
+    if (generalInformationClassification) {
+      const materialsGeneralInformation = (
+        generalInformationClassification.features || []
+      ).find(
+        ({ code }) =>
+          code ===
+          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`
+      )?.featureValues?.[0];
+
+      materialsCode = materialsGeneralInformation?.code;
+      materialsValue = materialsGeneralInformation?.value;
     }
 
     const measurementsClassification =
