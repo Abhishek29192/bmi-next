@@ -109,8 +109,6 @@ export const getAssetTypeFilterFromDocuments = (
   }
 
   return {
-    // TODO: Microcopy for label
-    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
     label: "filterLabels.assetType",
     name: "contentfulAssetType",
     value: [],
@@ -129,8 +127,6 @@ const getBrandFilterFromProducts = (products: readonly Product[]) => {
   }
 
   return {
-    // TODO: Microcopy for label
-    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
     label: "filterLabels.brand",
     name: "brand",
     value: [],
@@ -151,8 +147,6 @@ export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
   }
 
   return {
-    // TODO: Microcopy for label
-    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
     label: "filterLabels.brand",
     name: "brand",
     value: [],
@@ -190,12 +184,41 @@ const getProductFamilyFilter = (
   }
 
   return {
-    // TODO: Microcopy for label
-    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
     label: "filterLabels.productFamily",
     name: "productFamily",
     value: [],
     options: allFamilyCategories
+      .sort(sortAlphabeticallyBy("name"))
+      .map((category) => ({
+        label: category.name,
+        value: category.code
+      }))
+  };
+};
+
+const getProductLineFilter = (
+  products: readonly Pick<Product, "categories">[]
+) => {
+  const allProductLineCategories = uniqBy(
+    products.reduce<Category[]>((allCategories, product) => {
+      const productLineCategories = (product.categories || []).filter(
+        ({ categoryType }) => categoryType === "ProductLine"
+      );
+
+      return [...allCategories, ...productLineCategories];
+    }, []),
+    "code"
+  );
+
+  if (allProductLineCategories.length === 0) {
+    return;
+  }
+
+  return {
+    label: "filterLabels.productLine",
+    name: "productLine",
+    value: [],
+    options: allProductLineCategories
       .sort(sortAlphabeticallyBy("name"))
       .map((category) => ({
         label: category.name,
@@ -297,6 +320,48 @@ const getTextureFilter = (
   };
 };
 
+// Gets the values of materialfamily classification for the Filters pane
+const getMaterialsFilter = (
+  classificationNamespace: string,
+  products: readonly Pick<Product, "code" | "classifications">[]
+) => {
+  const materials = products
+    .reduce((allMaterials, product) => {
+      const productClassifications = mapProductClassifications(
+        product,
+        classificationNamespace
+      );
+
+      return [
+        ...allMaterials,
+        ...Object.values(productClassifications).map((classifications) => {
+          return classifications.materials;
+        })
+      ];
+    }, [])
+    .filter(Boolean);
+
+  if (materials.length === 0) {
+    return;
+  }
+
+  // Assuming all texturefamily classifications have the same label
+  const label = materials[0]?.name;
+  const values = uniqBy(map(materials, "value"), "code");
+
+  return {
+    label: "filterLabels.materials",
+    name: "materials",
+    value: [],
+    options: values
+      .sort(sortAlphabeticallyBy("value"))
+      .map(({ code, value }) => ({
+        label: value,
+        value: code
+      }))
+  };
+};
+
 const getCategoryFilters = (productCategories: ProductCategoryTree) => {
   return Object.entries(productCategories)
     .sort((a, b) => {
@@ -330,18 +395,23 @@ export const getFilters = (
   showBrandFilter?: boolean
 ) => {
   const allCategories = findAllCategories(products);
+
   let showProductFamilyFilter = true;
   let showCategoryFilters = true;
+  let showProductLineFilters = true;
 
   if (pageCategory) {
     showProductFamilyFilter = pageCategory.categoryType !== "ProductFamily";
     showCategoryFilters = pageCategory.categoryType !== "Category";
+    showProductLineFilters = pageCategory.categoryType !== "ProductLine";
   }
 
   return [
     showBrandFilter ? getBrandFilterFromProducts(products) : undefined,
     showProductFamilyFilter ? getProductFamilyFilter(products) : undefined,
+    showProductLineFilters ? getProductLineFilter(products) : undefined,
     getColorFilter(pimClassificationNamespace, products),
+    getMaterialsFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),
     ...(showCategoryFilters ? getCategoryFilters(allCategories) : [])
   ].filter(Boolean);

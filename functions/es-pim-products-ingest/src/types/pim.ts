@@ -21,7 +21,7 @@ type CategoryImage = {
   realFileName: string; // includes file extension
   url: string;
 };
-type CategoryType = "Brand" | "Category" | "ProductFamily"; // TODO: others?
+type CategoryType = "Brand" | "Category" | "ProductFamily" | "ProductLine";
 type Category = {
   categoryType: CategoryType;
   code: string;
@@ -60,7 +60,8 @@ export type Image = {
 type ClassificationCode =
   | "scoringWeightAttributes"
   | "appearanceAttributes"
-  | "measurements"; // TODO: there are more
+  | "measurements"
+  | "generalInformation"; // TODO: there are more
 type ClassificationFeatureCode = string; // Contains namespaces prefix, cannot enumerate
 export type FeatureValue = {
   value: string;

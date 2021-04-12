@@ -3,8 +3,10 @@ import { devLog } from "../utils/devLog";
 const ES_AGGREGATION_NAMES = {
   // TODO: Rename filter.name to colourfamily
   colour: "colourfamily",
+  materials: "materials",
   texturefamily: "texturefamily",
   productFamily: "allCategories",
+  productLine: "allCategories",
   brand: "allCategories",
   // Search page - Pages tab
   "page-type-tag": "tags",
@@ -63,10 +65,12 @@ export const disableFiltersFromAggregations = (filters, aggregations) => {
 // Filter.name => ES index mapping
 const searchTerms = {
   colour: "colourfamilyCode.keyword",
+  materials: "materialsCode.keyword",
   texturefamily: "texturefamilyCode.keyword",
   category: "categories.code.keyword",
   // TODO: MAY NEED TO SPLIT THIS INTO A SEPARATE THING, but seems to work
   productFamily: "allCategories.code.keyword",
+  productLine: "allCategories.code.keyword",
   brand: "allCategories.code.keyword",
   plpBaseCategory: "plpCategories.code.keyword"
 };
@@ -90,8 +94,10 @@ export const compileElasticSearchQuery = (
     // Handle these specific filters or fallback to "category".
     const searchTerm = [
       "colour",
+      "materials",
       "texturefamily",
       "productFamily",
+      "productLine",
       "brand"
     ].includes(filter.name)
       ? searchTerms[filter.name]
@@ -137,6 +143,12 @@ export const compileElasticSearchQuery = (
           field: "allCategories.code.keyword"
         }
       },
+      materials: {
+        terms: {
+          size: "100",
+          field: "materialsCode.keyword"
+        }
+      },
       texturefamily: {
         terms: {
           size: "100",
@@ -169,6 +181,7 @@ export const compileElasticSearchQuery = (
                     // known classification values
                     // TODO: a way of doing this generically?
                     "colourfamilyValue.keyword",
+                    "materialsValue.keyword",
                     "texturefamilyValue.keyword",
                     "measurementValue.keyword",
                     "categories.value.keyword",
