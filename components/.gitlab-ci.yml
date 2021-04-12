@@ -9,7 +9,7 @@ test_components:
         - jest/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn coverage:components
   coverage: /All\sfiles.*?\s+(\d+.\d+)/

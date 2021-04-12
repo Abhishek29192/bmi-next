@@ -9,7 +9,7 @@ test_gcp-form-submit:
         - jest/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-form-submit coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
@@ -22,7 +22,7 @@ build_gcp-form-submit:
         - functions/gcp-pim-form-submit/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-form-submit build
   artifacts:

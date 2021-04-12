@@ -30,7 +30,7 @@ test_intouch_frontend:
         - jest/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/intouch-frontend coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
