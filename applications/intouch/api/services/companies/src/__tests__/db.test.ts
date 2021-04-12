@@ -21,9 +21,8 @@ const COMAPNY_ADMIN_EMAIL = "company@email.com";
 
 const ROLE_INSTALLER = "installer";
 const ROLE_COMPANY_ADMIN = "company_admin";
-const ROLE_SUPER_ADMIN = "super_admin";
 
-const COMPANY_MEMBER = 4;
+const MARKET_ID = 1;
 
 const transaction = async (
   role: string,
@@ -47,13 +46,25 @@ describe("Database permissions", () => {
   let installer_id;
   let company_admin_id;
   let company_id;
+  let project_id;
+  let guarantee_id;
   afterAll(async () => {
-    await transaction(
-      ROLE_SUPER_ADMIN,
-      null,
-      "delete from account where email = $1 OR email = $2",
-      [INSTALLER_EMAIL, COMAPNY_ADMIN_EMAIL]
-    );
+    try {
+      await pool.query("delete from guarantee where id = $1", [guarantee_id]);
+      await pool.query("delete from project where id = $1", [project_id]);
+      await pool.query(
+        "delete from company_member where account_id = $1 OR account_id=$2",
+        [installer_id, company_admin_id]
+      );
+      await pool.query("delete from company where id = $1", [company_id]);
+      await pool.query("delete from account where email = $1 OR email = $2", [
+        INSTALLER_EMAIL,
+        COMAPNY_ADMIN_EMAIL
+      ]);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log("error", error.message);
+    }
     pool.end();
   });
 
@@ -73,8 +84,8 @@ describe("Database permissions", () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
           null,
-          "select * from create_user($1, $2, $3)",
-          [INSTALLER_EMAIL, "name", "surname"]
+          "select * from create_user($1, $2, $3, $4, $5)",
+          [INSTALLER_EMAIL, "name", "surname", 1, "INSTALLER"]
         );
         expect(rows.length).toEqual(1);
         expect(rows[0].email).toEqual(INSTALLER_EMAIL);
@@ -100,15 +111,36 @@ describe("Database permissions", () => {
         );
         expect(rows.length).toEqual(0);
       });
-      it("should be able to create an account using the function create_user", async () => {
+      it("should be able to create an account and a company using the function create_user", async () => {
         const { rows } = await transaction(
           ROLE_COMPANY_ADMIN,
           null,
-          "select * from create_user($1, $2, $3)",
-          [COMAPNY_ADMIN_EMAIL, "name", "surname"]
+          "select * from create_user($1, $2, $3, $4, $5)",
+          [COMAPNY_ADMIN_EMAIL, "name", "surname", 1, "COMPANY_ADMIN"]
         );
+
         expect(rows.length).toEqual(1);
         expect(rows[0].email).toEqual(COMAPNY_ADMIN_EMAIL);
+
+        company_admin_id = rows[0].id;
+
+        const { rows: companies } = await transaction(
+          ROLE_COMPANY_ADMIN,
+          rows[0].id,
+          "select * from company",
+          []
+        );
+        expect(companies.length).toEqual(1);
+
+        company_id = companies[0].id;
+
+        const { rows: companiesMembers } = await transaction(
+          ROLE_COMPANY_ADMIN,
+          rows[0].id,
+          "select * from company_member WHERE account_id = $1 AND company_id = $2",
+          [company_admin_id, company_id]
+        );
+        expect(companiesMembers.length).toEqual(1);
       });
     });
   });
@@ -124,10 +156,10 @@ describe("Database permissions", () => {
         );
         expect(rows.length).toEqual(0);
       });
-      it("should be able to see any company if member", async () => {
+      it("should be able to see a company if member", async () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
-          COMPANY_MEMBER,
+          company_admin_id,
           ALL_COMPANIES,
           []
         );
@@ -149,22 +181,11 @@ describe("Database permissions", () => {
       it("should be able to see a company if is a member", async () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
-          COMPANY_MEMBER,
+          company_admin_id,
           ALL_COMPANIES,
           []
         );
         expect(rows.length).toEqual(1);
-        company_admin_id = rows[0].id;
-      });
-      it("should be able to create a company", async () => {
-        const { rows } = await transaction(
-          ROLE_COMPANY_ADMIN,
-          COMPANY_MEMBER,
-          "insert into company (name, market_id) VALUES ($1, $2) RETURNING *",
-          ["My company name", 1]
-        );
-        expect(rows.length).toEqual(1);
-        company_id = rows[0].id;
       });
     });
   });
@@ -177,7 +198,7 @@ describe("Database permissions", () => {
             ROLE_INSTALLER,
             installer_id,
             "insert into company_member (account_id, company_id, market_id) VALUES($1, $2, $3) RETURNING *",
-            [installer_id, 1, 1]
+            [installer_id, 1, MARKET_ID]
           );
         } catch (error) {
           expect(error.message).toEqual(PERMISSION_DENIED("company_member"));
@@ -202,7 +223,7 @@ describe("Database permissions", () => {
           ROLE_COMPANY_ADMIN,
           company_admin_id,
           "insert into company_member (account_id, company_id, market_id) VALUES($1, $2, $3) RETURNING *",
-          [installer_id, company_id, 1]
+          [installer_id, company_id, MARKET_ID]
         );
 
         expect(rows.length).toEqual(1);
@@ -210,18 +231,82 @@ describe("Database permissions", () => {
     });
   });
 
-  // describe("Product", () => {
-  //   const ALL_PRODUCTS = `SELECT * FROM company`;
-  //   describe("Installer", () => {
-  //     it("should be able to the products of his market", async () => {
-  //       const { rows } = await transaction(
-  //         ROLE_INSTALLER,
-  //         COMPANY_MEMBER,
-  //         ALL_PRODUCTS,
-  //         []
-  //       );
-  //       expect(rows.length).toEqual(1);
-  //     });
-  //   });
-  // });
+  describe("Project", () => {
+    describe("Installer", () => {
+      it("shouldn't be able to any project", async () => {
+        const { rows } = await transaction(
+          ROLE_INSTALLER,
+          installer_id,
+          "select * from project",
+          []
+        );
+        expect(rows.length).toEqual(0);
+      });
+    });
+    describe("Company admin", () => {
+      it("should be able to add a project", async () => {
+        const { rows } = await transaction(
+          ROLE_COMPANY_ADMIN,
+          company_admin_id,
+          "insert into project (company_id, name) values ($1, $2) returning *",
+          [company_id, "Project name"]
+        );
+        expect(rows.length).toEqual(1);
+        project_id = rows[0].id;
+      });
+      it("shouldn't be able to add a project to another company", async () => {
+        try {
+          await transaction(
+            ROLE_COMPANY_ADMIN,
+            company_admin_id,
+            "insert into project (company_id, name) values ($1, $2) returning *",
+            [1, "Project name"]
+          );
+        } catch (error) {
+          expect(error.message).toEqual(RLS_ERROR("project"));
+        }
+      });
+    });
+  });
+
+  describe("Guarantee", () => {
+    describe("Installer", () => {
+      it("shouldn't be able to any guarantee", async () => {
+        try {
+          await transaction(
+            ROLE_INSTALLER,
+            installer_id,
+            "insert into guarantee (requestor_account_id) VALUES($1)",
+            [installer_id]
+          );
+        } catch (error) {
+          expect(error.message).toEqual(PERMISSION_DENIED("guarantee"));
+        }
+      });
+    });
+    describe("Company admin", () => {
+      it("should be able to add a guarantee", async () => {
+        const { rows } = await transaction(
+          ROLE_COMPANY_ADMIN,
+          company_admin_id,
+          "insert into guarantee (requestor_account_id, project_id) VALUES($1, $2) RETURNING *",
+          [company_admin_id, project_id]
+        );
+        expect(rows.length).toEqual(1);
+        guarantee_id = rows[0].id;
+      });
+      it("shouldn't be able to add a guarantee if included pdf", async () => {
+        try {
+          await transaction(
+            ROLE_COMPANY_ADMIN,
+            company_admin_id,
+            "insert into guarantee (requestor_account_id, pdf, project_id) VALUES($1, $2, $3) RETURNING *",
+            [company_admin_id, "my-pdf-url", project_id]
+          );
+        } catch (error) {
+          expect(error.message).toEqual(PERMISSION_DENIED("guarantee"));
+        }
+      });
+    });
+  });
 });

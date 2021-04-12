@@ -21,26 +21,30 @@ grant company_admin to postgres;
 grant market_admin to postgres;
 grant super_admin to postgres;
 
+-- Grant on schema
 grant usage on schema public to installer;
 
 
+-- market
+grant select on market to installer;
+grant select, update on market to market_admin;
+grant select, insert, update, delete on market to super_admin;
 
--------------------------------
--- Installer
--------------------------------
+
 
 -- company
 grant select on company to installer;
+grant select on project to installer;
+grant select on project_member to installer;
 grant select on company to company_admin;
 grant insert on company to company_admin;
 grant update (owner_fullname, owner_email, owner_phone, registered_address_id, trading_address_id, business_type, tier, status, lms_group, name, tax_number, phone, coordinates, about_us, public_email, website, facebook,linked_in) on company to company_admin;
 
 -- company_member
-grant select on company_member to installer;
-
--- company_member
-grant select, update, delete on company_member to installer;
+grant select, delete on company_member to installer;
 grant select, insert, delete on company_member to company_admin;
+grant select, insert, delete on project_member to company_admin;
+grant select, insert, update, delete on project to company_admin;
 grant update (account_id) on company_member to company_admin;
 
 
@@ -58,6 +62,18 @@ grant select, insert, delete on company_document to company_admin;
 grant select, insert, delete on company_document to company_admin;
 
 
+-- evidence_item
+grant select on evidence_item to installer;
+grant select, insert, update, delete on evidence_item to company_admin;
+
+
+-- guarantee
+grant select on guarantee to installer;
+grant select on guarantee to company_admin;
+grant insert (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_id, status, start_date, purchase_date) on guarantee to company_admin;
+grant update (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_id, status, start_date, purchase_date) on guarantee to company_admin;
+
+grant update (pdf, requestor_account_id, expiry, issue_number) on guarantee to market_admin;
 
 
 
