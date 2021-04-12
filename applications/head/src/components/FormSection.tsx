@@ -306,7 +306,7 @@ const FormSection = ({
 
     try {
       await axios.post(
-        `${process.env.HUBSPOT_API_URL}${process.env.HUBSPOT_ID}/${hubSpotFormGuid}`,
+        `${process.env.GATSBY_HUBSPOT_API_URL}${process.env.GATSBY_HUBSPOT_ID}/${hubSpotFormGuid}`,
         {
           fields: valuesWithoutLegaConsent,
           context: {

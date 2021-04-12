@@ -62,6 +62,10 @@ module.exports = {
     type: ["ContentfulFormInputs"],
     async resolve(source, args, context) {
       if (source.source === "HubSpot") {
+        if (!process.env.HUBSPOT_API_KEY) {
+          throw new Error("No Hubspot API key provided");
+        }
+
         const hubSpotForm = await context.nodeModel.getNodeById({
           id: source.hubSpotFormGuid,
           type: "HubspotForm"
