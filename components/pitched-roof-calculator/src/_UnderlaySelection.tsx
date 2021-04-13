@@ -3,9 +3,10 @@ import CardRadioGroup from "@bmi/card-radio-group";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import getPitchValues from "./helpers/getPitchValues";
 import underlays from "./samples/underlays";
+import { DimensionsValues } from "./types/roof";
 
 type UnderlaySelectionRowProps = {
-  dimensions: Record<string, string>;
+  dimensions: DimensionsValues;
   // TODO: Type when importing from Contentful
   selected?: any;
   options: ReadonlyArray<any>;
