@@ -2,11 +2,12 @@ import React from "react";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Card from "@bmi/card";
 import Typography from "@bmi/typography";
-import Button, { ClickableAction } from "@bmi/button";
+import DefaultButton, { ClickableAction } from "@bmi/button";
 import styles from "./BrandIntroCard.module.scss";
 
 type Props = {
   logoIcon: SVGImport;
+  buttonComponent?: React.ComponentType<any>; // TODO
   description: React.ReactNode;
   buttonLabel: React.ReactNode;
   action?: ClickableAction;
@@ -14,6 +15,7 @@ type Props = {
 
 const BrandIntroCard = ({
   logoIcon,
+  buttonComponent: Button = DefaultButton,
   description,
   buttonLabel,
   action

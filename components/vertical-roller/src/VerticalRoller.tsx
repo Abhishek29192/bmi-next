@@ -3,14 +3,20 @@ import Button, { ClickableAction } from "@bmi/button";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
 import SlideControls from "@bmi/slide-controls";
 import Typography from "@bmi/typography";
+import Media, { AcceptedNode } from "@bmi/media";
 import RollerSelector from "@bmi/roller-selector";
 import ArrowIcon from "@material-ui/icons/ArrowForward";
 import Grid from "@bmi/grid";
+import classnames from "classnames";
 import styles from "./VerticalRoller.module.scss";
 
 export type Slide = {
   title: React.ReactNode;
-  imageSource: string;
+  /**
+   * @deprecated Use `media` instead.
+   */
+  imageSource?: string;
+  media?: React.ReactElement<AcceptedNode>;
   brandIcon?: SVGImport;
   description?: React.ReactNode;
   cta?: {
@@ -22,9 +28,10 @@ export type Slide = {
 type Props = {
   title: React.ReactNode;
   slides: Slide[];
+  rollerSectionComponent?: React.ComponentType<any>; // TODO
 };
 
-const VerticalRoller = ({ title, slides }: Props) => {
+const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
   const [activePage, setActivePage] = useState<number>(0);
 
   return (
@@ -41,6 +48,7 @@ const VerticalRoller = ({ title, slides }: Props) => {
                   <RollerSelector
                     className={styles["selector"]}
                     key={`roller-selector-${index}`}
+                    component={rollerSectionComponent}
                     isSelected={
                       getPageFromAbsoluteIndex(activePage, slides.length) ===
                       index + 1
@@ -67,18 +75,33 @@ const VerticalRoller = ({ title, slides }: Props) => {
             <Carousel initialPage={activePage} onPageChange={setActivePage}>
               {slides.map(
                 (
-                  { imageSource, brandIcon: BrandIcon, description, cta },
+                  {
+                    imageSource,
+                    media = null,
+                    brandIcon: BrandIcon,
+                    description,
+                    cta
+                  },
                   index
                 ) => {
                   return (
                     <Carousel.Slide key={index} className={styles["slide"]}>
                       <div
-                        className={styles["image"]}
-                        style={{ backgroundImage: `url(${imageSource})` }}
+                        className={classnames(styles["image"], {
+                          [styles["image--with-image-source"]]:
+                            imageSource && !media
+                        })}
+                        style={
+                          // TODO: Remove this when `imageSource` is full deprecated.
+                          imageSource && !media
+                            ? { backgroundImage: `url(${imageSource})` }
+                            : {}
+                        }
                       >
                         {BrandIcon && (
                           <BrandIcon className={styles["brand-icon"]} />
                         )}
+                        <Media>{media}</Media>
                       </div>
                       {description && (
                         <Typography className={styles["description"]}>

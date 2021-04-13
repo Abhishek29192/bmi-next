@@ -119,7 +119,7 @@ export const mapGalleryImages = (images) => {
       }),
       "url"
     ),
-    altText: images[0].name
+    altText: images[0].altText || images[0].name
   }));
 };
 
@@ -186,15 +186,17 @@ export const mapProductClassifications = (
   const SCORE_WEIGHT = "scoringWeightAttributes";
   const APPEARANCE = "appearanceAttributes";
   const MEASUREMENTS = "measurements";
+  const GENERAL_INFORMATION = "generalInformation";
 
   const FEATURES = {
-    SCORE_WEIGHT: `${classificationNamepace}/scoringWeightAttributes.scoringweight`,
-    TEXTURE_FAMILY: `${classificationNamepace}/appearanceAttributes.texturefamily`,
-    COLOUR: `${classificationNamepace}/appearanceAttributes.colour`,
-    COLOUR_FAMILY: `${classificationNamepace}/appearanceAttributes.colourfamily`,
-    LENGTH: `${classificationNamepace}/measurements.length`,
-    WIDTH: `${classificationNamepace}/measurements.width`,
-    HEIGHT: `${classificationNamepace}/measurements.height`
+    SCORE_WEIGHT: `${classificationNamepace}/${SCORE_WEIGHT}.scoringweight`,
+    TEXTURE_FAMILY: `${classificationNamepace}/${APPEARANCE}.texturefamily`,
+    COLOUR: `${classificationNamepace}/${APPEARANCE}.colour`,
+    COLOUR_FAMILY: `${classificationNamepace}/${APPEARANCE}.colourfamily`,
+    LENGTH: `${classificationNamepace}/${MEASUREMENTS}.length`,
+    WIDTH: `${classificationNamepace}/${MEASUREMENTS}.width`,
+    HEIGHT: `${classificationNamepace}/${MEASUREMENTS}.height`,
+    MATERIALS: `${classificationNamepace}/${GENERAL_INFORMATION}.materials`
   };
 
   return Object.entries(allProducts).reduce((carry, [productCode, product]) => {
@@ -282,6 +284,17 @@ export const mapProductClassifications = (
                 }
               }
             };
+          }
+        });
+      }
+
+      if (code === GENERAL_INFORMATION) {
+        features.forEach(({ code, name, featureValues }) => {
+          if (code === FEATURES.MATERIALS) {
+            carryProp("materials", {
+              name,
+              value: featureValues ? featureValues[0] : "n/a"
+            });
           }
         });
       }
@@ -752,9 +765,9 @@ export const findUniqueVariantClassifications = (
   };
 
   // Gather all classifications into a single classifications map
-  const allClassificationValues = Object.values(classifications).reduce<
-    AllClassificationsValues
-  >((allClassifications, classifications) => {
+  const allClassificationValues = Object.values(
+    classifications
+  ).reduce<AllClassificationsValues>((allClassifications, classifications) => {
     return mergeClassificationsValues(allClassifications, classifications);
   }, {});
 

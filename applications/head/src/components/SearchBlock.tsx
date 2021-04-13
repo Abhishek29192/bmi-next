@@ -66,7 +66,7 @@ const SearchPageBlock = ({
             helperText={helperText}
             placeholder={placeholder}
             onChange={handleInputOnChange}
-            isSubmitDisabled={!isInputValueValid(query)}
+            isSubmitDisabled={!isInputValueValid(internalQueryState)}
           />
         </div>
         {!isLoading && !hasResults && searchPageSearchTips && (

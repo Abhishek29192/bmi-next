@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
+import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import TwoPaneCarousel, {
   Slide as TwoPaneCarouselSlide
 } from "@bmi/two-pane-carousel";
@@ -10,11 +11,14 @@ import Section from "@bmi/section";
 import Button from "@bmi/button";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Data as PromoData } from "../components/Promo";
+import withGTM from "../utils/google-tag-manager";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { LinkData, getCTA, getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
+import { renderVideo } from "./Video";
+import { renderImage } from "./Image";
 import styles from "./styles/CarouselSection.module.scss";
 
 type Slide = PromoData | PageInfoData;
@@ -27,19 +31,30 @@ export type Data = {
   link: LinkData | null;
 };
 
+const GTMButton = withGTM<ButtonBaseProps>(ButtonBase, { label: "children" });
+
 const parseSlides = (
   slides: Slide[],
   countryCode: string,
   linkLabel: string
 ): (TwoPaneCarouselSlide | VerticalRollerSlide)[] => {
   return slides.map((slide) => {
-    const { title, subtitle, brandLogo, featuredImage, ...rest } = slide;
+    const {
+      title,
+      subtitle,
+      brandLogo,
+      featuredVideo,
+      featuredMedia,
+      ...rest
+    } = slide;
     const cta = getCTA(rest, countryCode, linkLabel);
 
     return {
       title,
       brandIcon: brandLogo && iconMap[brandLogo],
-      imageSource: featuredImage ? featuredImage.resize.src : null,
+      media: featuredVideo
+        ? renderVideo(featuredVideo)
+        : renderImage(featuredMedia),
       description: subtitle || undefined,
       cta
     };
@@ -66,6 +81,16 @@ const CarouselSection = ({
             slides,
             countryCode,
             getMicroCopy("page.linkLabel")
+          )}
+          rollerSectionComponent={(props: ButtonBaseProps) => (
+            <GTMButton
+              gtm={{
+                id: "cta-click1",
+                label: props.children[0],
+                action: "Selector - Cards"
+              }}
+              {...props}
+            />
           )}
         />
       ) : (

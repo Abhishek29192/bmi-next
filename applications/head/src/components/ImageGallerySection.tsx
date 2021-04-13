@@ -6,15 +6,14 @@ import Typography from "@bmi/typography";
 import Section from "@bmi/section";
 import Grid from "@bmi/grid";
 import withGTM from "../utils/google-tag-manager";
+import { renderImage, Data as ImageData } from "./Image";
 import styles from "./styles/ImageGallerySection.module.scss";
 
-type GallerySectionImage = {
-  title: string;
-  mainSource: {
-    src: string;
-  };
-  thumbnail: {
-    src: string;
+type GallerySectionImage = Omit<ImageData, "image"> & {
+  image: ImageData["image"] & {
+    thumbnail: {
+      src: string;
+    };
   };
 };
 
@@ -22,19 +21,19 @@ export type Data = {
   __typename: "ContentfulImageGallerySection";
   title: string;
   description: null | { description: string };
-  images: GallerySectionImage[];
+  medias: GallerySectionImage[];
 };
 
-export const transformImagesSrc = (images: GallerySectionImage[]): Image[] => {
-  return images.map((item) => ({
-    mainSource: item.mainSource.src,
-    thumbnail: item.thumbnail.src,
-    altText: item.title
+export const transformImagesSrc = (images?: GallerySectionImage[]): Image[] => {
+  return (images || []).map((item) => ({
+    media: renderImage(item),
+    thumbnail: item.image.thumbnail.src,
+    caption: item.caption?.caption || undefined
   }));
 };
 
 const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
-  const { title, description, images } = data;
+  const { title, description, medias } = data;
 
   const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
     label: "altText",
@@ -59,7 +58,7 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
         </Grid>
         <Grid item xs={12}>
           <ImageGallery
-            images={transformImagesSrc(images)}
+            images={transformImagesSrc(medias)}
             imageSize="cover"
             thumbnailComponent={(props: ThumbnailProps) => (
               <GTMThumbnail gtm={{ id: "image-gallery1" }} {...props} />
@@ -79,13 +78,12 @@ export const query = graphql`
     description {
       description
     }
-    images {
-      title
-      mainSource: resize(width: 1440, quality: 75) {
-        src
-      }
-      thumbnail: resize(width: 80, height: 60) {
-        src
+    medias {
+      ...ImageFragment
+      image {
+        thumbnail: resize(width: 80, height: 60) {
+          src
+        }
       }
     }
   }

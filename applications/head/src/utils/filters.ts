@@ -109,9 +109,7 @@ export const getAssetTypeFilterFromDocuments = (
   }
 
   return {
-    // TODO: Microcopy for label
-    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
-    label: "Aktivatype",
+    label: "filterLabels.assetType",
     name: "contentfulAssetType",
     value: [],
     options: allValues.sort(sortAlphabeticallyBy("name")).map((assetType) => ({
@@ -129,9 +127,7 @@ const getBrandFilterFromProducts = (products: readonly Product[]) => {
   }
 
   return {
-    // TODO: Microcopy for label
-    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
-    label: "Merkevare",
+    label: "filterLabels.brand",
     name: "brand",
     value: [],
     options: allValues
@@ -151,9 +147,7 @@ export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
   }
 
   return {
-    // TODO: Microcopy for label
-    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
-    label: "Merkevare",
+    label: "filterLabels.brand",
     name: "brand",
     value: [],
     options: allValues
@@ -190,12 +184,41 @@ const getProductFamilyFilter = (
   }
 
   return {
-    // TODO: Microcopy for label
-    // Tracked by https://bmigroup.atlassian.net/browse/DXB-1670
-    label: "Produktfamilie",
+    label: "filterLabels.productFamily",
     name: "productFamily",
     value: [],
     options: allFamilyCategories
+      .sort(sortAlphabeticallyBy("name"))
+      .map((category) => ({
+        label: category.name,
+        value: category.code
+      }))
+  };
+};
+
+const getProductLineFilter = (
+  products: readonly Pick<Product, "categories">[]
+) => {
+  const allProductLineCategories = uniqBy(
+    products.reduce<Category[]>((allCategories, product) => {
+      const productLineCategories = (product.categories || []).filter(
+        ({ categoryType }) => categoryType === "ProductLine"
+      );
+
+      return [...allCategories, ...productLineCategories];
+    }, []),
+    "code"
+  );
+
+  if (allProductLineCategories.length === 0) {
+    return;
+  }
+
+  return {
+    label: "filterLabels.productLine",
+    name: "productLine",
+    value: [],
+    options: allProductLineCategories
       .sort(sortAlphabeticallyBy("name"))
       .map((category) => ({
         label: category.name,
@@ -234,7 +257,7 @@ const getColorFilter = (
   const values = uniqBy(map(colorFilters, "value"), "code");
 
   return {
-    label,
+    label: "filterLabels.colour",
     name: "colour",
     value: [],
     options: values
@@ -285,8 +308,50 @@ const getTextureFilter = (
   const values = uniqBy(map(textures, "value"), "code");
 
   return {
-    label,
+    label: "filterLabels.textureFamily",
     name: "texturefamily",
+    value: [],
+    options: values
+      .sort(sortAlphabeticallyBy("value"))
+      .map(({ code, value }) => ({
+        label: value,
+        value: code
+      }))
+  };
+};
+
+// Gets the values of materialfamily classification for the Filters pane
+const getMaterialsFilter = (
+  classificationNamespace: string,
+  products: readonly Pick<Product, "code" | "classifications">[]
+) => {
+  const materials = products
+    .reduce((allMaterials, product) => {
+      const productClassifications = mapProductClassifications(
+        product,
+        classificationNamespace
+      );
+
+      return [
+        ...allMaterials,
+        ...Object.values(productClassifications).map((classifications) => {
+          return classifications.materials;
+        })
+      ];
+    }, [])
+    .filter(Boolean);
+
+  if (materials.length === 0) {
+    return;
+  }
+
+  // Assuming all texturefamily classifications have the same label
+  const label = materials[0]?.name;
+  const values = uniqBy(map(materials, "value"), "code");
+
+  return {
+    label: "filterLabels.materials",
+    name: "materials",
     value: [],
     options: values
       .sort(sortAlphabeticallyBy("value"))
@@ -310,7 +375,7 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
     })
     .map(([categoryKey, category]) => {
       return {
-        label: category.name,
+        label: "pim." + category.name,
         name: categoryKey,
         value: [],
         options: category.values
@@ -330,18 +395,23 @@ export const getFilters = (
   showBrandFilter?: boolean
 ) => {
   const allCategories = findAllCategories(products);
+
   let showProductFamilyFilter = true;
   let showCategoryFilters = true;
+  let showProductLineFilters = true;
 
   if (pageCategory) {
     showProductFamilyFilter = pageCategory.categoryType !== "ProductFamily";
     showCategoryFilters = pageCategory.categoryType !== "Category";
+    showProductLineFilters = pageCategory.categoryType !== "ProductLine";
   }
 
   return [
     showBrandFilter ? getBrandFilterFromProducts(products) : undefined,
     showProductFamilyFilter ? getProductFamilyFilter(products) : undefined,
+    showProductLineFilters ? getProductLineFilter(products) : undefined,
     getColorFilter(pimClassificationNamespace, products),
+    getMaterialsFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),
     ...(showCategoryFilters ? getCategoryFilters(allCategories) : [])
   ].filter(Boolean);

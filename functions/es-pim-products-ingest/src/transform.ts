@@ -1,4 +1,5 @@
 import { pick } from "lodash";
+import { config } from "dotenv";
 import type {
   Product as PIMProduct,
   VariantOption as PIMVariant
@@ -13,6 +14,15 @@ import {
   mapProductClassifications,
   TransformedMeasurementValue
 } from "./CLONE";
+
+config({
+  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
+});
+
+const {
+  // TODO: Remove this fallback once the environment variable is correctly set.
+  PIM_CLASSIFICATION_CATALOGUE_NAMESPACE = "bmiClassificationCatalog/1.0"
+} = process.env;
 
 // Combines all the classification representing a variant, which includes the classifications from base product, which are overwritten by variant ones.
 const combineVariantClassifications = (
@@ -39,7 +49,7 @@ const combineVariantClassifications = (
 export const transformProduct = (product: PIMProduct): ESProduct[] => {
   const mappedClassifications = mapProductClassifications(
     product,
-    "bmiClassificationCatalog/1.0"
+    PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
   );
 
   return (product.variantOptions || []).map((variant) => {
@@ -61,6 +71,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     // TODO: save as individual Brand and ProductFamily?
     const productFamilyCategories = (product.categories || []).filter(
       ({ categoryType }) => categoryType === "ProductFamily"
+    );
+    const productLineCategories = (product.categories || []).filter(
+      ({ categoryType }) => categoryType === "ProductLine"
     );
 
     const classifications = combineVariantClassifications(product, variant);
@@ -88,11 +101,17 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ({ code }) => code === "appearanceAttributes"
     );
 
+    const generalInformationClassification = classifications.find(
+      ({ code }) => code === "generalInformation"
+    );
+
     // Codes used for matching against filter codes
     // Values used for matching against search strings (localised input)
     // TODO: Perhaps refactor into objects
     let colourfamilyCode,
       colourfamilyValue,
+      materialsCode,
+      materialsValue,
       texturefamilyCode,
       texturefamilyValue,
       // Measurement doesn't need a code for filters at the moment
@@ -104,8 +123,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ).find(
         ({ code }) =>
           code ===
-          // TODO: use env var for catalogue namespace!
-          `bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily`
+          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.colourfamily`
       )?.featureValues?.[0];
 
       colourfamilyCode = colourfamilyAppearance?.code;
@@ -116,11 +134,24 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ).find(
         ({ code }) =>
           code ===
-          `bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily`
+          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.texturefamily`
       )?.featureValues?.[0];
 
       texturefamilyCode = texturefamilyAppearance?.code;
       texturefamilyValue = texturefamilyAppearance?.value;
+    }
+
+    if (generalInformationClassification) {
+      const materialsGeneralInformation = (
+        generalInformationClassification.features || []
+      ).find(
+        ({ code }) =>
+          code ===
+          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`
+      )?.featureValues?.[0];
+
+      materialsCode = materialsGeneralInformation?.code;
+      materialsValue = materialsGeneralInformation?.value;
     }
 
     const measurementsClassification =
@@ -142,7 +173,11 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
       allCategories: product.categories || [],
       // Used for main category filter on PLP, interested in only leaf Categories and ProductCategories
-      plpCategories: [...productLeafCategories, ...productFamilyCategories],
+      plpCategories: [
+        ...productLeafCategories,
+        ...productFamilyCategories,
+        ...productLineCategories
+      ],
       classifications,
       // Special because we want to use it for sorting, atm this seems easier
       scoringWeight,
@@ -155,6 +190,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       colourfamilyValue,
       texturefamilyCode,
       texturefamilyValue,
+      materialsCode,
+      materialsValue,
       measurementValue
     };
   });

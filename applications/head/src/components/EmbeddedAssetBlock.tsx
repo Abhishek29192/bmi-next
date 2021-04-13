@@ -17,7 +17,9 @@ const contentTypeMap = {
   "image/jpg": "image",
   "image/jpeg": "image",
   "image/png": "image",
-  "image/webp": "image"
+  "image/webp": "image",
+  "image/gif": "image",
+  "image/svg+xml": "image"
 };
 
 const EmbeddedAssetBlock = ({

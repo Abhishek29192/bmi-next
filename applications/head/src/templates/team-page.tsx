@@ -4,6 +4,7 @@ import Tabs from "@bmi/tabs";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Hero from "@bmi/hero";
+import { Tab, TabProps } from "@material-ui/core";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
@@ -12,6 +13,7 @@ import Page, { Data as PageData } from "../components/Page";
 import { Data as PageInfoData } from "../components/PageInfo";
 import TeamList, { Data as TeamMemberData } from "../components/TeamList";
 import RichText, { RichTextData } from "../components/RichText";
+import withGTM from "../utils/google-tag-manager";
 
 type Data = PageInfoData &
   PageData & {
@@ -46,6 +48,10 @@ const TeamPage = ({ data }: Props) => {
     seo
   };
 
+  const GTMTab = withGTM<TabProps>(Tab, {
+    label: "label"
+  });
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <Hero
@@ -53,7 +59,16 @@ const TeamPage = ({ data }: Props) => {
         title={title}
         breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
       />
-      <Tabs theme="secondary" component={Container}>
+      <Tabs
+        theme="secondary"
+        component={Container}
+        tabComponent={(props: TabProps) => (
+          <GTMTab
+            gtm={{ id: "selector-tabs2", action: "Selector – Tabs" }}
+            {...props}
+          />
+        )}
+      >
         {teamCategories.map((category, index) => (
           <Tabs.TabPanel
             key={`category-tab-${index}`}

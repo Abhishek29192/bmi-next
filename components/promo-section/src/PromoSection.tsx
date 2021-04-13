@@ -1,13 +1,18 @@
 import React from "react";
 import Grid, { GridSize } from "@bmi/grid";
 import Typography from "@bmi/typography";
+import Media, { AcceptedNode } from "@bmi/media";
 import classnames from "classnames";
 import Section from "@bmi/section";
 import styles from "./PromoSection.module.scss";
 
 type Props = {
   title?: React.ReactNode;
-  imageSource: string | React.ReactNode;
+  /**
+   * @deprecated Use `media` instead.
+   */
+  imageSource?: string | React.ReactNode;
+  media?: React.ReactElement<AcceptedNode>;
   children: React.ReactNode;
   layout?: "half" | "two-thirds";
   isReversed?: boolean;
@@ -19,9 +24,31 @@ const layoutRowsMap: Record<Props["layout"], GridSize[]> = {
   "two-thirds": [8, 4]
 };
 
+const __DeprecatedImageSource = ({
+  imageSource
+}: Pick<Props, "imageSource">) => {
+  if (!imageSource) {
+    return null;
+  }
+
+  return (
+    <div
+      style={
+        typeof imageSource === "string"
+          ? { backgroundImage: `url(${imageSource})` }
+          : {}
+      }
+      className={styles["image"]}
+    >
+      {typeof imageSource !== "string" && imageSource}
+    </div>
+  );
+};
+
 const PromoSection = ({
   title,
   imageSource,
+  media,
   children,
   layout = "half",
   isReversed,
@@ -57,16 +84,8 @@ const PromoSection = ({
           </div>
         </Grid>
         <Grid item xs={12} sm={rows[1]}>
-          <div
-            style={
-              typeof imageSource === "string"
-                ? { backgroundImage: `url(${imageSource})` }
-                : {}
-            }
-            className={styles["image"]}
-          >
-            {typeof imageSource !== "string" && imageSource}
-          </div>
+          <__DeprecatedImageSource imageSource={imageSource} />
+          <Media className={styles["image"]}>{media}</Media>
         </Grid>
       </Grid>
     </Section>

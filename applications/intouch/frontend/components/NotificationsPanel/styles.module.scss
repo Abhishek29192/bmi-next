@@ -1,0 +1,29 @@
+.drawer {
+  width: 350px;
+  padding: 1rem;
+  padding-right: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0.25rem;
+}
+
+.container {
+  overflow: scroll;
+  padding-right: 1rem;
+}
+
+.containerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 90%;
+}

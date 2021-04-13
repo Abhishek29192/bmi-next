@@ -6,7 +6,10 @@ import PromoSection from "..";
 describe("PromoSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <PromoSection title="H2 Heading" imageSource={mockImage}>
+      <PromoSection
+        title="H2 Heading"
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+      >
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
         mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
         tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit
@@ -19,7 +22,7 @@ describe("PromoSection component", () => {
     const { container } = render(
       <PromoSection
         title="H2 Heading"
-        imageSource={mockImage}
+        media={<img src={mockImage} alt="Lorem ipsum" />}
         layout="two-thirds"
       >
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
@@ -32,7 +35,11 @@ describe("PromoSection component", () => {
   });
   it("renders reversed", () => {
     const { container } = render(
-      <PromoSection title="H2 Heading" imageSource={mockImage} isReversed>
+      <PromoSection
+        title="H2 Heading"
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        isReversed
+      >
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
         mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
         tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit
@@ -43,7 +50,18 @@ describe("PromoSection component", () => {
   });
   it("renders without a title", () => {
     const { container } = render(
-      <PromoSection imageSource={mockImage}>
+      <PromoSection media={<img src={mockImage} alt="Lorem ipsum" />}>
+        Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
+        mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
+        tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit
+        feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+      </PromoSection>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders deprecated imageSource", () => {
+    const { container } = render(
+      <PromoSection title="H2 Heading" imageSource={mockImage}>
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
         mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
         tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit

@@ -20,7 +20,7 @@ exports[`WelcomeDialog component Renders correctly When Title and rich text cont
       tabindex="0"
     />
     <div
-      class="WelcomeDialog Dialog Dialog--bg-white Dialog--width-md"
+      class="Dialog Dialog--bg-white Dialog--width-md WelcomeDialog"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
@@ -129,7 +129,7 @@ exports[`WelcomeDialog component Renders correctly When Title rich text and icon
       tabindex="0"
     />
     <div
-      class="WelcomeDialog Dialog Dialog--bg-white Dialog--width-md"
+      class="Dialog Dialog--bg-white Dialog--width-md WelcomeDialog"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >

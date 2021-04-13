@@ -5,6 +5,7 @@ const getUrlFromPath = (path) => {
     .filter(({ slug }) => slug)
     .map(({ slug }) => slug)
     .join("/")
+    .concat("/")
     .replace(/\/+/gi, "/")
     .replace("*", "")
     .replace('"', "");

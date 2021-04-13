@@ -12,6 +12,7 @@ test_gcp-form-submit:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-form-submit coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 build_gcp-form-submit:
   stage: build

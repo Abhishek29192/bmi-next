@@ -27,6 +27,11 @@ import {
 import classnames from "classnames";
 import React from "react";
 import styles from "./Header.module.scss";
+import {
+  getElementWidths,
+  getSize,
+  HeaderSizes
+} from "./utils/widthCalculations";
 
 type HeaderProps = {
   language?: LanguageSelectionItem;
@@ -81,12 +86,14 @@ const Header = ({
     typeof document !== "undefined"
       ? document.querySelector("body")
       : undefined;
-  const [size, setSize] = React.useState<"small" | "medium" | "large">("small");
-  const [showLanguageSelection, setShowLanguageSelection] = React.useState<
-    boolean
-  >(false);
+  const [sizes, setSizes] = React.useState<HeaderSizes>([]);
+  const [
+    showLanguageSelection,
+    setShowLanguageSelection
+  ] = React.useState<boolean>(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<number | boolean>(false);
+  const elementWidths = getElementWidths(navigation);
 
   const amendClassList = (classValue: string, method: "add" | "remove") => {
     if (!$body) {
@@ -136,11 +143,7 @@ const Header = ({
   };
 
   const handleResize = ({ currentTarget }) => {
-    setSize(
-      currentTarget.innerWidth < parseFloat(styles["breakpoint-sm"])
-        ? "small"
-        : "large"
-    );
+    setSizes(getSize(currentTarget.innerWidth, elementWidths));
   };
 
   React.useEffect(() => {
@@ -157,18 +160,26 @@ const Header = ({
   const query = params.get(QUERY_KEY);
 
   return (
-    <Paper className={styles.Header} component="header" elevation={3} square>
+    <Paper
+      className={classnames(
+        styles["Header"],
+        ...sizes.map((size) => styles[`Header--${size}`])
+      )}
+      component="header"
+      elevation={3}
+      square
+    >
       <nav
         aria-label="Utilities"
-        className={styles.UtilitiesBar}
+        className={styles["utilities-bar"]}
         role="navigation"
       >
         <Container>
           <ul>
             {utilities.map(({ label, action }, key) => (
-              <li key={`utilities-link-${key}`} className={styles.NavItem}>
+              <li key={`utilities-link-${key}`} className={styles["nav-item"]}>
                 <Button
-                  className={styles.UtilitiesButton}
+                  className={styles["utilities-button"]}
                   action={action}
                   variant="text"
                 >
@@ -177,14 +188,14 @@ const Header = ({
               </li>
             ))}
             {languages && (
-              <li className={styles.NavItem}>
+              <li className={styles["nav-item"]}>
                 <Button
                   className={classnames(
-                    styles.UtilitiesButton,
-                    styles.LanguageSelectionButton,
+                    styles["utilities-button"],
+                    styles["language-selection-button"],
                     {
                       [styles[
-                        "LanguageSelectionButton--active"
+                        "language-selection-button--active"
                       ]]: showLanguageSelection
                     }
                   )}
@@ -195,13 +206,13 @@ const Header = ({
                   {language.icon && (
                     <Icon
                       source={language.icon}
-                      className={styles.LanguageIcon}
+                      className={styles["language-icon"]}
                     />
                   )}
                   {language.code}
                   <span
-                    className={classnames(styles.downArrow, {
-                      [styles["downArrow--up"]]: showLanguageSelection
+                    className={classnames(styles["down-arrow"], {
+                      [styles["down-arrow--up"]]: showLanguageSelection
                     })}
                   >
                     ▾
@@ -214,13 +225,15 @@ const Header = ({
       </nav>
       {languages && (
         <Slide
-          direction={size === "small" ? "left" : "down"}
+          direction={!sizes.length ? "left" : "down"}
           in={showLanguageSelection}
         >
-          <div className={classnames(styles.Drawer, styles.LanguageDrawer)}>
+          <div
+            className={classnames(styles["drawer"], styles["language-drawer"])}
+          >
             <Button
               accessibilityLabel={closeLabel}
-              className={styles.CloseButton}
+              className={styles["close-button"]}
               isIconButton
               onClick={toggleLanguageSelection}
             >
@@ -232,19 +245,19 @@ const Header = ({
           </div>
         </Slide>
       )}
-      <div className={styles.NavigationBar}>
+      <div className={styles["navigation-bar"]}>
         <Container>
-          <div className={styles.NavigationBar__Left}>
+          <div className={styles["navigation-bar__left"]}>
             <Clickable
               {...logoAction}
-              className={styles.LogoLink}
+              className={styles["logo-link"]}
               aria-label={logoLabel}
             >
-              <Icon className={styles.Logo} source={BmiIcon} />
+              <Icon className={styles["logo"]} source={BmiIcon} />
             </Clickable>
             <nav
               aria-label="Navigation"
-              className={styles.Navigation}
+              className={styles["navigation"]}
               role="navigation"
             >
               <Tabs
@@ -257,8 +270,8 @@ const Header = ({
                   <Tab
                     aria-controls={`navigation-tabpanel-${key}`}
                     className={classnames(
-                      styles["NavItem"],
-                      activeNavLabel === label && styles["NavItem--selected"]
+                      styles["nav-item"],
+                      activeNavLabel === label && styles["nav-item--selected"]
                     )}
                     icon={<KeyboardArrowDown />}
                     id={`navigation-tab-${key}`}
@@ -269,14 +282,14 @@ const Header = ({
               </Tabs>
             </nav>
           </div>
-          <div className={styles.NavigationBar__Right}>
+          <div className={styles["navigation-bar__right"]}>
             {!isSearchDisabled && (
               <Button
                 accessibilityLabel={searchLabel}
-                className={classnames(styles["SearchButton"], {
-                  [styles["SearchButton--isOnSearchPage"]]: isOnSearchPage
+                className={classnames(styles["search-button"], {
+                  [styles["search-button--is-on-search-page"]]: isOnSearchPage
                 })}
-                variant={size === "small" ? "text" : "contained"}
+                variant={!sizes.length ? "text" : "contained"}
                 isIconButton
                 onClick={toggleSearch}
               >
@@ -285,7 +298,7 @@ const Header = ({
             )}
             <Button
               accessibilityLabel={openLabel}
-              className={styles["BurgerButton"]}
+              className={styles["burger-button"]}
               variant="text"
               isIconButton
               onClick={toggleMenu}
@@ -296,18 +309,15 @@ const Header = ({
         </Container>
       </div>
       <Backdrop
-        className={styles.Backdrop}
+        className={styles["backdrop"]}
         open={value !== false || showSearch || showLanguageSelection}
         onClick={hideAll}
       />
-      <Slide
-        direction={size === "small" ? "left" : "down"}
-        in={value !== false}
-      >
-        <div className={classnames(styles.Drawer, styles.NavDrawer)}>
+      <Slide direction={!sizes.length ? "left" : "down"} in={value !== false}>
+        <div className={classnames(styles["drawer"], styles["nav-drawer"])}>
           <Button
             accessibilityLabel={closeLabel}
-            className={styles.CloseButton}
+            className={styles["close-button"]}
             isIconButton
             onClick={toggleMenu}
           >
@@ -325,21 +335,24 @@ const Header = ({
             mainMenuTitleLabel={mainMenuTitleLabel}
             mainMenuDefaultLabel={mainMenuDefaultLabel}
             languageLabel={languageLabel}
+            sizes={sizes}
           />
         </div>
       </Slide>
       {!isSearchDisabled && (
-        <Slide direction={size === "small" ? "left" : "down"} in={showSearch}>
+        <Slide direction={!sizes.length ? "left" : "down"} in={showSearch}>
           <div
-            className={classnames(styles["SearchDrawerContainer"], {
-              [styles["SearchDrawerContainer--hidden"]]:
-                !showSearch && size === "small"
+            className={classnames(styles["search-drawer-container"], {
+              [styles["search-drawer-container--hidden"]]:
+                !showSearch && !sizes.length
             })}
           >
-            <div className={classnames(styles.Drawer, styles.SearchDrawer)}>
+            <div
+              className={classnames(styles["drawer"], styles["search-drawer"])}
+            >
               <Button
                 accessibilityLabel={closeLabel}
-                className={styles.CloseButton}
+                className={styles["close-button"]}
                 isIconButton
                 onClick={toggleSearch}
               >

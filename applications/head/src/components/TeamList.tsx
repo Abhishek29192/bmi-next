@@ -7,15 +7,12 @@ import Button from "@bmi/button";
 import { iconMap } from "./Icon";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
+import { Data as ImageData } from "./Image";
 
 export type Data = {
   name: string;
   jobTitle: string;
-  profilePicture: {
-    resize: {
-      src: string;
-    };
-  };
+  profileImage: ImageData | null;
   links: LinkData[];
 }[];
 
@@ -30,8 +27,8 @@ const TeamList = ({ data }: { data: Data }) => {
       <EqualHeights>
         <Grid container justify="center" spacing={3}>
           {data.slice(0, numberVisible).map((teamMember, index) => {
-            const { name, jobTitle, profilePicture, links } = teamMember;
-            const src = profilePicture.resize.src;
+            const { name, jobTitle, profileImage, links } = teamMember;
+            const src = profileImage?.image.resize.src;
 
             return (
               <Grid item xs={12} sm={6} lg={3} key={index}>
@@ -93,9 +90,11 @@ export const query = graphql`
   fragment TeamMemberFragment on ContentfulTeamMember {
     name
     jobTitle
-    profilePicture {
-      resize(width: 200, toFormat: WEBP, jpegProgressive: false) {
-        src
+    profileImage {
+      image {
+        resize(width: 200, toFormat: WEBP, jpegProgressive: false) {
+          src
+        }
       }
     }
     links {

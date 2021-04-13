@@ -427,6 +427,28 @@ module.exports = {
             }
           }
         ]
+      : []),
+    ...(process.env.GATSBY_HUBSPOT_ID
+      ? [
+          {
+            resolve: "gatsby-plugin-hubspot",
+            options: {
+              trackingCode: process.env.GATSBY_HUBSPOT_ID,
+              respectDNT: true,
+              productionOnly: false
+            }
+          }
+        ]
+      : []),
+    ...(process.env.HUBSPOT_API_KEY
+      ? [
+          {
+            resolve: "gatsby-source-hubspot-forms",
+            options: {
+              apiKey: process.env.HUBSPOT_API_KEY
+            }
+          }
+        ]
       : [])
   ],
   flags: {

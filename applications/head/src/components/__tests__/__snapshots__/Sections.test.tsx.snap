@@ -264,11 +264,7 @@ HTMLCollection [
               </div>
               <div
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
-              >
-                <div
-                  class="image"
-                />
-              </div>
+              />
             </div>
           </div>
           <div
@@ -295,11 +291,7 @@ HTMLCollection [
               </div>
               <div
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
-              >
-                <div
-                  class="image"
-                />
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -451,9 +443,29 @@ HTMLCollection [
                   class="OverviewCard"
                 >
                   <div
-                    class="header-picture"
-                    style="background-image: url(//image-url);"
-                  />
+                    class="header-picture Media gatsby-image-wrapper"
+                    style="overflow: hidden;"
+                  >
+                    <div
+                      aria-hidden="true"
+                      style="width: 100%; padding-bottom: 100%;"
+                    />
+                    <picture>
+                      
+                      <img
+                        alt="Lorem ipsum"
+                        draggable="false"
+                        loading="lazy"
+                        sizes=""
+                        src=""
+                        srcset=""
+                        style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 500ms; font-family: \\"object-fit: cover; object-position: center\\";"
+                      />
+                    </picture>
+                    <noscript>
+                      &lt;picture&gt;&lt;source srcset="" /&gt;&lt;img loading="lazy" src="" alt="Lorem ipsum" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
+                    </noscript>
+                  </div>
                   <div
                     class="body"
                   >
@@ -543,11 +555,7 @@ HTMLCollection [
             </div>
             <div
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
-            >
-              <div
-                class="image"
-              />
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -590,89 +598,31 @@ HTMLCollection [
                 class="ImageGallery"
               >
                 <div
-                  class="main-image-wrapper main-image-wrapper--cover"
-                  style="background-image: url(url);"
+                  class="image-wrapper"
                 >
-                  <span
-                    class="accessibility-label"
-                  >
-                    my test title
-                  </span>
-                </div>
-                <div
-                  class="thumbnails"
-                >
-                  <button
-                    class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root icon"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                      />
-                    </svg>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
                   <div
-                    class="scroller"
-                    style="margin-right: 0%;"
+                    class="main-image-wrapper main-image-wrapper--cover main-image-wrapper--default Media gatsby-image-wrapper"
+                    style="overflow: hidden;"
                   >
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      data-gtm="{\\"id\\":\\"image-gallery1\\",\\"label\\":\\"my test title\\",\\"action\\":\\"url\\"}"
-                      style="background-image: url(url);"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <span
-                        class="accessibility-text"
-                      >
-                        my test title
-                      </span>
-                    </button>
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                      data-gtm="{\\"id\\":\\"image-gallery1\\",\\"label\\":\\"my test title2\\",\\"action\\":\\"url2\\"}"
-                      style="background-image: url(url2);"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <span
-                        class="accessibility-text"
-                      >
-                        my test title2
-                      </span>
-                      <span
-                        class="MuiTouchRipple-root"
+                    <div
+                      aria-hidden="true"
+                      style="width: 100%; padding-bottom: 100%;"
+                    />
+                    <picture>
+                      
+                      <img
+                        alt="Lorem ipsum"
+                        draggable="false"
+                        loading="lazy"
+                        sizes=""
+                        src=""
+                        srcset=""
+                        style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 500ms; font-family: \\"object-fit: cover; object-position: center\\";"
                       />
-                    </button>
+                    </picture>
+                    <noscript>
+                      &lt;picture&gt;&lt;source srcset="" /&gt;&lt;img loading="lazy" src="" alt="Lorem ipsum" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
+                    </noscript>
                   </div>
                 </div>
               </div>

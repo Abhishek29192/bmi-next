@@ -1,4 +1,5 @@
 import { ClickableAction } from "@bmi/anchor-link";
+import { AcceptedNode } from "@bmi/media";
 
 export type Slide = {
   brandIcon?: SVGImport;
@@ -8,7 +9,11 @@ export type Slide = {
     label: React.ReactNode;
     action?: ClickableAction;
   };
-  imageSource: string;
+  /**
+   * @deprecated Use `media` instead.
+   */
+  imageSource?: string;
+  media?: React.ReactElement<AcceptedNode>;
 };
 
 export type Props = {

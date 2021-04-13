@@ -16,7 +16,8 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
   return [
     {
       label: promo.title,
-      image: promo.featuredImage?.resize.src
+      // TODO: Use media here? 🤔
+      image: promo.featuredMedia?.image?.resize.src
     },
     { label: promo.title, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
@@ -107,15 +108,16 @@ const parseNavigation = (
         action
       });
     }
+
+    return result;
   }, []);
 };
 
 const GTMSearchButton = withGTM<ButtonProps>(Button, {
-  label: "buttonText" as "buttonText"
+  label: "accessibilityLabel"
 });
 const GTMNavigationButton = withGTM<ButtonProps>(Button, {
-  label: "children",
-  action: "action"
+  label: "children"
 });
 const GTMNavigationTab = withGTM<TabProps>(Tab, {
   label: "label"
@@ -171,7 +173,14 @@ const Header = ({
             <GTMSearchButton gtm={{ id: "search1" }} {...props} />
           )}
           navigationButtonComponent={(props: ButtonProps) => (
-            <GTMNavigationButton gtm={{ id: "nav-main-menu" }} {...props} />
+            <GTMNavigationButton
+              gtm={{
+                id: "nav-main-menu",
+                // @ts-ignore This is getting messy
+                action: props.action ? props.action.to : undefined
+              }}
+              {...props}
+            />
           )}
           promoButtonComponent={(props: ButtonProps) => (
             <Button

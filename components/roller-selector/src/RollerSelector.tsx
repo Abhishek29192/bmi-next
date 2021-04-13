@@ -6,18 +6,20 @@ import styles from "./RollerSelector.module.scss";
 
 type Props = {
   children: React.ReactNode;
+  component?: React.ComponentType<any>; // TODO
   isSelected?: boolean;
 } & ButtonBaseProps;
 
 const RollerSelector = ({
   children,
+  component: Component = ButtonBase,
   isSelected,
   onClick,
   className,
   ...rest
 }: Props) => {
   return (
-    <ButtonBase
+    <Component
       onClick={onClick}
       className={classnames(className, styles["RollerSelector"], {
         [styles["RollerSelector--selected"]]: isSelected
@@ -26,7 +28,7 @@ const RollerSelector = ({
     >
       {children}
       <ArrowIcon className={styles["icon"]} />
-    </ButtonBase>
+    </Component>
   );
 };
 export default RollerSelector;

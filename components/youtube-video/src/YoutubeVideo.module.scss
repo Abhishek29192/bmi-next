@@ -35,18 +35,3 @@
     z-index: 2;
   }
 }
-
-.PlayerDialog {
-  height: calc(100vh - 20px);
-  .dialog-content {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin: 0px;
-    overflow: hidden;
-  }
-  .video-container {
-    height: 100%;
-  }
-}

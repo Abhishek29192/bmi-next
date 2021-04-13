@@ -1,6 +1,6 @@
 import React, { useContext, useState, useMemo } from "react";
 import { graphql } from "gatsby";
-import Button from "@bmi/button";
+import Button, { ButtonProps } from "@bmi/button";
 import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
@@ -10,7 +10,8 @@ import Carousel from "@bmi/carousel";
 import Grid from "@bmi/grid";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
-import Video from "./Video";
+import { renderVideo } from "./Video";
+import { renderImage } from "./Image";
 import { SiteContext } from "./Site";
 import { getClickableActionFromUrl, LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
@@ -20,18 +21,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { VisualiserContext } from "./Visualiser";
 
-type FeaturedImage = {
-  resized: {
-    src: string;
-  };
-};
-
-type Card = (
-  | Omit<PageInfoData, "featuredImage">
-  | Omit<PromoData, "featuredImage">
-) & { id: string } & {
-  featuredImage: FeaturedImage;
-};
+type Card = PageInfoData | PromoData;
 
 export type Data = {
   __typename: "ContentfulCardCollectionSection";
@@ -59,7 +49,7 @@ const CardCollectionItem = ({
     title,
     subtitle,
     link,
-    featuredImage,
+    featuredMedia,
     brandLogo,
     featuredVideo
   } = transformCard(card);
@@ -67,24 +57,25 @@ const CardCollectionItem = ({
   const transformedCardLabel = label
     ? label.replace(/{{title}}/g, title)
     : link?.label || `Go to ${title}`;
+
+  const GTMButton = withGTM<ButtonProps>(Button);
+
   return (
     <OverviewCard
       hasTitleUnderline
       title={title}
-      imageSource={
-        type !== "Text Card" ? (
-          featuredVideo ? (
-            <Video data={featuredVideo} />
-          ) : (
-            featuredImage?.resized.src
-          )
-        ) : undefined
+      media={
+        type !== "Text Card"
+          ? featuredVideo
+            ? renderVideo(featuredVideo)
+            : renderImage(featuredMedia)
+          : undefined
       }
       isFlat={type === "Story Card"}
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
       footer={
         link ? (
-          <Button
+          <GTMButton
             variant="outlined"
             action={getClickableActionFromUrl(
               link.linkedPage,
@@ -98,9 +89,14 @@ const CardCollectionItem = ({
               }
             )}
             startIcon={<ArrowForwardIcon />}
+            gtm={{
+              id: "cta-click1",
+              label: transformedCardLabel,
+              action: link.linkedPage?.path || link.url
+            }}
           >
             {transformedCardLabel}
-          </Button>
+          </GTMButton>
         ) : undefined
       }
     >
@@ -113,7 +109,7 @@ const CardCollectionItem = ({
 const transformCard = ({
   title,
   subtitle,
-  featuredImage,
+  featuredMedia,
   brandLogo,
   featuredVideo,
   ...rest
@@ -121,7 +117,7 @@ const transformCard = ({
   title: Card["title"];
   subtitle: Card["subtitle"];
   link: LinkData | null;
-  featuredImage: Card["featuredImage"];
+  featuredMedia: Card["featuredMedia"];
   brandLogo: Card["brandLogo"];
   featuredVideo: Card["featuredVideo"];
 } => {
@@ -137,7 +133,7 @@ const transformCard = ({
     };
   }
 
-  return { title, subtitle, link, featuredImage, brandLogo, featuredVideo };
+  return { title, subtitle, link, featuredMedia, brandLogo, featuredVideo };
 };
 
 const moveRestKeyLast = (arr) => {
@@ -300,39 +296,8 @@ export const query = graphql`
       ...LinkFragment
     }
     cards {
-      __typename
       ...PromoFragment
       ...PageInfoFragment
-      ... on ContentfulPromo {
-        id
-        tags {
-          title
-          type
-        }
-        featuredImage {
-          resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
-            src
-          }
-        }
-        featuredVideo {
-          ...VideoFragment
-        }
-      }
-      ... on ContentfulPage {
-        id
-        tags {
-          title
-          type
-        }
-        featuredImage {
-          resized: resize(width: 684, toFormat: WEBP, jpegProgressive: false) {
-            src
-          }
-        }
-        featuredVideo {
-          ...VideoFragment
-        }
-      }
     }
   }
 `;

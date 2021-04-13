@@ -9,25 +9,11 @@ import { Data as InputBannerData } from "./InputBanner";
 import { Data as NextBestActionsData } from "./NextBestActions";
 import { RichTextData } from "./RichText";
 
-type FeaturedImage = {
-  featuredImage: {
-    resized: {
-      src: string;
-    };
-  } | null;
-};
-
 export type Data = {
   microCopy: MicroCopyData[] | null;
   pdpSidebarItems: TitleWithContentData[] | null;
   pdpCardsTitle: string | null;
-  pdpCards:
-    | ((
-        | Omit<PromoData, "featuredImage">
-        | Omit<PageInfoData, "featuredImage">
-      ) &
-        FeaturedImage)[]
-    | null;
+  pdpCards: (PromoData | PageInfoData)[] | null;
   pdpExploreBar: ExploreBarData | null;
   pdpShareWidget: ShareWidgetSectionData | null;
   pdpInputBanner: InputBannerData | null;
@@ -55,30 +41,6 @@ export const query = graphql`
       ... on ContentfulPromoOrPage {
         ...PromoFragment
         ...PageInfoFragment
-
-        ... on ContentfulPromo {
-          featuredImage {
-            resized: resize(
-              width: 684
-              toFormat: WEBP
-              jpegProgressive: false
-            ) {
-              src
-            }
-          }
-        }
-
-        ... on ContentfulPage {
-          featuredImage {
-            resized: resize(
-              width: 684
-              toFormat: WEBP
-              jpegProgressive: false
-            ) {
-              src
-            }
-          }
-        }
       }
     }
     pdpExploreBar {

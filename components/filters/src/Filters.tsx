@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import DefaultCheckbox from "@bmi/checkbox";
 import Typography from "@bmi/typography";
+import MicroCopy from "@bmi/micro-copy";
 import Accordion from "@bmi/accordion";
 import styles from "./Filters.module.scss";
 
@@ -19,14 +20,18 @@ type Filter = {
 
 export type Props = {
   filters: ReadonlyArray<Filter>;
+  microcopyProvider: Record<string, string>;
   onChange?: (filterName: string, filterValue: string, value: boolean) => void;
   checkboxComponent?: React.ComponentType<any>; // TODO
+  accordionSummaryComponent?: React.ComponentType<any>; // TODO
 };
 
 const Filters = ({
   filters,
+  microcopyProvider,
   onChange,
-  checkboxComponent: Checkbox = DefaultCheckbox
+  checkboxComponent: Checkbox = DefaultCheckbox,
+  accordionSummaryComponent: AccordionSummary = Accordion.Summary
 }: Props) => {
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);
@@ -51,7 +56,11 @@ const Filters = ({
           return (
             <Accordion.Item key={filter.name}>
               <Accordion.Summary>
-                <Typography variant="h6">{filter.label}</Typography>
+                <Typography variant="h6">
+                  <MicroCopy.Provider values={microcopyProvider}>
+                    <MicroCopy path={filter.label.toString()} />
+                  </MicroCopy.Provider>
+                </Typography>
               </Accordion.Summary>
               <Accordion.Details>
                 <div className={styles["list"]}>

@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import { TagData } from "./Tag";
 import { Data as VideoData } from "./Video";
+import { Data as ImageData } from "./Image";
 
 export type Data = {
   __typename:
@@ -10,28 +11,22 @@ export type Data = {
     | "ContentfulProductListerPage"
     | "ContentfulDocumentLibraryPage"
     | "ContentfulBrandLandingPage";
+  id: string;
   title: string;
   subtitle: string | null;
   brandLogo: string | null;
   slug: string;
   path: string;
   tags: TagData[] | null;
-  featuredImage: {
-    title: string;
-    resize: {
-      src: string;
-    };
-    file: {
-      fileName: string;
-      url: string;
-    };
-  } | null;
+  // TODO: Move Video as option of Media.
+  featuredMedia: ImageData | null;
   featuredVideo: VideoData | null;
 };
 
 export const query = graphql`
   fragment PageInfoFragment on ContentfulPage {
     __typename
+    id
     title
     subtitle
     brandLogo
@@ -41,15 +36,8 @@ export const query = graphql`
       title
       type
     }
-    featuredImage {
-      title
-      resize(width: 1000, toFormat: JPG, jpegProgressive: true, quality: 60) {
-        src
-      }
-      file {
-        fileName
-        url
-      }
+    featuredMedia {
+      ...ImageFragment
     }
     featuredVideo {
       ...VideoFragment

@@ -19,7 +19,7 @@ exports[`TeamList component renders correctly 1`] = `
           >
             <img
               class="profile-picture"
-              src="link-to.jpg"
+              src="link-to-page.png"
             />
           </div>
           <div

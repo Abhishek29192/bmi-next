@@ -1,4 +1,4 @@
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Link, graphql } from "gatsby";
 import { flatten } from "lodash";
@@ -17,6 +17,7 @@ import {
   findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
 import ResultsPagination from "../components/ResultsPagination";
+import withGTM from "../utils/google-tag-manager";
 import {
   clearFilterValues,
   ProductFilter,
@@ -78,7 +79,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
     title,
     subtitle,
-    featuredImage,
     content,
     features,
     featuresLink,
@@ -89,8 +89,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const heroProps: HeroItem = {
     title,
-    children: subtitle,
-    imageSource: featuredImage?.resize.src
+    children: subtitle
   };
   const { countryCode } = data.contentfulSite;
   // TODO: Ignoring gatsby data for now as fetching with ES
@@ -214,6 +213,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const pageData: PageData = { breadcrumbs, inputBanner, seo };
 
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
+    label: "children"
+  });
+
   return (
     <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
       <SiteContext.Consumer>
@@ -298,7 +301,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                   >
                     <Grid container spacing={3}>
                       {products.length === 0 && (
-                        <Typography>No results found</Typography>
+                        <Typography>
+                          {getMicroCopy("plp.product.noResultsFound")}
+                        </Typography>
                       )}
                       {flatten(
                         products.map((variant) => {
@@ -306,6 +311,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           const brandLogo = iconMap[brandLogoCode];
                           const mainImage = findMasterImageUrl(variant.images);
                           const product: Product = variant.baseProduct;
+                          const productUrl = getProductUrl(
+                            countryCode,
+                            pageContext.variantCodeToPathMap[variant.code]
+                          );
 
                           const uniqueClassifications = mapClassificationValues(
                             findUniqueVariantClassifications(
@@ -328,25 +337,29 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 titleVariant="h5"
                                 subtitle={uniqueClassifications}
                                 subtitleVariant="h6"
-                                imageSource={mainImage}
+                                media={
+                                  <img
+                                    src={mainImage}
+                                    alt={`${uniqueClassifications} ${product.name}`}
+                                  />
+                                }
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
                                 footer={
-                                  <AnchorLink
+                                  <GTMAnchorLink
                                     iconEnd
                                     action={{
                                       model: "routerLink",
                                       linkComponent: Link,
-                                      to: getProductUrl(
-                                        countryCode,
-                                        pageContext.variantCodeToPathMap[
-                                          variant.code
-                                        ]
-                                      )
+                                      to: productUrl
+                                    }}
+                                    gtm={{
+                                      id: "cta-click1",
+                                      action: productUrl
                                     }}
                                   >
                                     {getMicroCopy("plp.product.viewDetails")}
-                                  </AnchorLink>
+                                  </GTMAnchorLink>
                                 }
                               >
                                 {variant.shortDescription}

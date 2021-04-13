@@ -1,6 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import LocationCard, { DetailProps } from "@bmi/location-card";
+import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 
 export type Data = {
@@ -63,14 +65,20 @@ export const getDetails = (
 };
 
 const IntegratedLocationCard = ({
+  anchorComponent,
   data,
   isFlat
 }: {
   data: Data;
   isFlat?: boolean;
+  anchorComponent?: React.ComponentType<any>; // TODO
 }) => {
   const { title, address, phoneNumber, email, otherInformation } = data;
   const details = getDetails(address, phoneNumber, email);
+
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
+    label: "children"
+  });
 
   return (
     <LocationCard
@@ -80,6 +88,16 @@ const IntegratedLocationCard = ({
         otherInformation ? <RichText document={otherInformation} /> : null
       }
       isFlat={isFlat}
+      anchorComponent={(props: AnchorLinkProps) => (
+        <GTMAnchorLink
+          gtm={{
+            id: "cta-click1",
+            // @ts-ignore
+            action: props?.action?.href
+          }}
+          {...props}
+        />
+      )}
     />
   );
 };

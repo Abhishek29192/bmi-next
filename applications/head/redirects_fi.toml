@@ -1,0 +1,7 @@
+
+# Redirect root to /fi.
+[[redirects]]
+  from = "/"
+  to = "/fi"
+  status = 302
+  force = true

@@ -1,7 +1,7 @@
 @import "@bmi/styles";
 
 .BrandLogo {
-  background: $color-white;
+  fill: $color-white;
   height: 70px;
   width: auto;
   @media (min-width: $breakpoint-xl) {

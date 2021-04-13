@@ -11,6 +11,21 @@ describe("OverviewCard component", () => {
       <OverviewCard
         title="Heading"
         titleVariant="h4"
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        brandImageSource={mockLogo}
+        hasTitleUnderline
+        footer={<Button variant="outlined">Go to this</Button>}
+      >
+        We do the things
+      </OverviewCard>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  it("renders width deprecated imageSource", () => {
+    const { container } = render(
+      <OverviewCard
+        title="Heading"
+        titleVariant="h4"
         imageSource={mockImage}
         brandImageSource={mockLogo}
         hasTitleUnderline
@@ -37,7 +52,11 @@ describe("OverviewCard component", () => {
   });
   it("renders correctly with contain image", () => {
     const { container } = render(
-      <OverviewCard title="Heading" imageSource={mockImage} imageSize="contain">
+      <OverviewCard
+        title="Heading"
+        media={<img src={mockImage} alt="Lorem ipsum" />}
+        imageSize="contain"
+      >
         We do the things
       </OverviewCard>
     );
