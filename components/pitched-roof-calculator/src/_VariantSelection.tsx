@@ -4,10 +4,11 @@ import FieldContainer from "./subcomponents/_FieldContainer";
 import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPitchValues";
 import getPitchValues from "./helpers/getPitchValues";
 import { RangeValue } from "./types";
+import { DimensionsValues } from "./types/roof";
 
 type VariantSelectionRowProps = {
   title: string;
-  dimensions: Record<string, string>;
+  dimensions: DimensionsValues;
   // TODO: Type when importing from Contentful
   select: (tile: object) => void;
   selected?: any;

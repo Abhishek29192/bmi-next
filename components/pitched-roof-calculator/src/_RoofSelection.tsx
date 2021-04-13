@@ -2,14 +2,13 @@ import React from "react";
 import CardRadioGroup from "@bmi/card-radio-group";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import roofs from "./calculation/roofs";
+import { Roof } from "./types/roof";
 
 type RoofSelectionRowProps = {
   title: string;
-
-  // TODO: Type when adding the calculation class
-  select: (roof: object) => void;
-  selected?: any;
-  options: ReadonlyArray<any>;
+  select: (roof: Roof) => void;
+  selected?: Roof;
+  options: ReadonlyArray<Roof>;
 };
 
 const RoofSelectionRow = ({
@@ -30,7 +29,7 @@ const RoofSelectionRow = ({
             key={roof.name}
             value={roof.name}
             title={roof.name}
-            illustratedImage={roof.selectionIllustration}
+            illustratedImage={roof.illustration}
             onClick={() => select(roof)}
           />
         ))}
