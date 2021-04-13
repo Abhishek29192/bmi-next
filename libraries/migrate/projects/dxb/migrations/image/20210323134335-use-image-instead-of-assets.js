@@ -255,7 +255,7 @@ const transformContentType = async (
     fields.to,
     "builtin",
     type === "Array" ? "entryCardsEditor" : "entryCardEditor",
-    fieldControl ? fieldControl.settings : undefined
+    (fieldControl && fieldControl.settings) || {}
   );
 
   editingContentType.moveField(fields.to).afterField(fields.from);
@@ -264,6 +264,7 @@ const transformContentType = async (
     contentType: contentType.sys.id,
     from: [fields.from],
     to: [fields.to],
+    shouldPublish: "preserve",
     transformEntryForLocale: async (fromFields, currentLocale) => {
       const fromField = fromFields[fields.from];
 

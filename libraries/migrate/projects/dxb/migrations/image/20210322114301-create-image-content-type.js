@@ -30,12 +30,7 @@ module.exports.up = async (
     .displayField("title")
     .description("Wrapper around the image Asset.");
 
-  image
-    .createField("title")
-    .name("Title")
-    .type("Symbol")
-    .required(true)
-    .validations([{ unique: true }]);
+  image.createField("title").name("Title").type("Symbol").required(true);
 
   image
     .createField("image")
