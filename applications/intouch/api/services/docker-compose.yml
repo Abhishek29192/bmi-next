@@ -5,8 +5,15 @@ services:
     ports:
       - "5432:5432"
     environment:
+      DATABASE_NAME: company
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
-      - ./companies/src/data/company.sql:/docker-entrypoint-initdb.d/init-db.sh
-      - ./companies/src/data/company.sql:/var/lib/postgresql/init-db.sql
+      - ./companies/src/data/init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      - ./companies/src/data/procedure.sql:/var/lib/postgresql/procedure.sql
+      - ./companies/src/data/company.sql:/var/lib/postgresql/company.sql
+      - ./companies/src/data/roles.sql:/var/lib/postgresql/roles.sql
+      - ./companies/src/data/rls.sql:/var/lib/postgresql/rls.sql
+      - dxb_company_db:/var/lib/postgresql/data
+volumes:
+  dxb_company_db: {}

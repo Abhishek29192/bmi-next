@@ -1,10 +1,10 @@
 -- https://www.postgresql.org/docs/9.1/sql-grant.html
 -- GRANT UPDATE (name, market) ON company TO app_user_editor;
 
-drop role super_admin;
-drop role market_admin;
-drop role company_admin;
-drop role installer;
+drop role if exists super_admin;
+drop role if exists market_admin;
+drop role if exists company_admin;
+drop role if exists installer;
 
 create role super_admin nologin inherit;
 create role market_admin nologin inherit;
