@@ -18,15 +18,36 @@
     padding-left: 1.5rem;
   }
 
-  li {
+  ul li {
     display: flex;
   }
 
-  li::before {
+  ul li::before {
     content: "◼︎";
     color: $color-cyan-400;
     margin-left: -1.5rem;
     margin-top: 1px;
     width: 1.5rem;
   }
+
+  ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    padding-inline-start: 20px;
+  }
+  li > ol {
+    list-style: lower-alpha;
+    padding-left: 1.5rem;
+  }
+
+  ol li::before {
+    margin-left: -1.5rem;
+    margin-top: 1px;
+    width: 1.5rem;
+  }
+
+  ol li p {
+    margin-left: 10px;
+  }
+
 }
