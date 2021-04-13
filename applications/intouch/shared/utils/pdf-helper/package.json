@@ -1,0 +1,27 @@
+{
+  "name": "@bmi/intouch-pdf-helper",
+  "license": "BMI-DXB",
+  "private": true,
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
+    "build": "tsc -p .",
+    "test": "node dist/utils/pdf-helper/src/test",
+    "merge": "node dist/utils/pdf-helper/src/merge-pdf"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "react-pdf-maker": "0.0.0",
+    "pdf-lib": "^1.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.20",
+    "concurrently": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "latest"
+  }
+}
