@@ -1,10 +1,19 @@
 import postgraphile from "postgraphile";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
+import { PoolConfig } from "pg";
 import config from "../config";
 import { ExtendPlugin, WrapPlugin } from "./plugins";
 
 const { PG_SCHEMA, PG_USER, PASSWORD, HOST, DATABASE, PG_PORT } = process.env;
+
+const dbConfig: PoolConfig = {
+  host: HOST,
+  port: parseInt(PG_PORT),
+  user: PG_USER,
+  database: DATABASE,
+  password: PASSWORD
+};
 
 const postGraphileOptions = {
   ...config.postgraphile,
@@ -33,8 +42,4 @@ const postGraphileOptions = {
   }
 };
 
-export default postgraphile(
-  `postgres://${PG_USER}:${PASSWORD}@${HOST}:${PG_PORT}/${DATABASE}`,
-  PG_SCHEMA,
-  postGraphileOptions
-);
+export default postgraphile(dbConfig, PG_SCHEMA, postGraphileOptions);
