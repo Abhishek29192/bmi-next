@@ -1,0 +1,16 @@
+# File: cloudbuild.yaml
+steps:
+  # build the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "eu.gcr.io/$PROJECT_ID/intouch-frontendv1",
+        "./applications/intouch/frontend",
+      ]
+  # push the container image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "eu.gcr.io/$PROJECT_ID/intouch-frontendv1"]
+
+logsBucket: "gs://intouch-replaform-bucket"

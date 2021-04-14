@@ -1,0 +1,44 @@
+plan_terraform:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+      changes:
+        - applications/intouch/terraform/*
+  image:
+    name: hashicorp/terraform:light
+    entrypoint:
+      - /usr/bin/env
+      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  before_script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > applications/intouch/terraform/gcloud-service-key.json
+    - export GOOGLE_APPLICATION_CREDENTIALS="applications/intouch/terraform/gcloud-service-key.json"
+    - terraform -chdir=applications/intouch/terraform init -reconfigure
+  script:
+    - cd applications/intouch/terraform
+    - terraform plan -out "planfile.tfplan"
+  artifacts:
+    paths:
+      - applications/intouch/terraform/*.tfplan
+      - terraform
+    expire_in: 1 week
+
+apply_terraform:
+  needs: [plan_terraform]
+  stage: deploy
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+      changes:
+        - applications/intouch/terraform/*
+      when: manual
+  image:
+    name: hashicorp/terraform:light
+    entrypoint:
+      - /usr/bin/env
+      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  before_script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > applications/intouch/terraform/gcloud-service-key.json
+    - export GOOGLE_APPLICATION_CREDENTIALS="applications/intouch/terraform/gcloud-service-key.json"
+    - terraform -chdir=applications/intouch/terraform init -reconfigure
+  script:
+    - cd applications/intouch/terraform
+    - terraform apply -auto-approve "planfile.tfplan"
