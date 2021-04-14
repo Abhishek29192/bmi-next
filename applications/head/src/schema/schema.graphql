@@ -592,6 +592,9 @@ type ContentfulFormSection implements Node {
 
   "The redirect page on submission success."
   successRedirect: ContentfulLink @link(from: "successRedirect___NODE")
+
+  "HubSpot form ID"
+  hubSpotFormGuid: String
 }
 
 """
