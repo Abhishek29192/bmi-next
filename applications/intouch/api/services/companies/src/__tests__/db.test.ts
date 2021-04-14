@@ -1,7 +1,10 @@
+import { resolve } from "path";
 import { config } from "dotenv";
 import { Pool } from "pg";
 
-config();
+config({
+  path: resolve(__dirname, "../../.env")
+});
 
 const { PG_USER, PASSWORD, HOST, DATABASE, PG_PORT } = process.env;
 
@@ -17,7 +20,7 @@ const RLS_ERROR = (table) =>
   `new row violates row-level security policy for table "${table}"`;
 
 const INSTALLER_EMAIL = "installer@email.com";
-const COMAPNY_ADMIN_EMAIL = "company@email.com";
+const COMPANY_ADMIN_EMAIL = "company@email.com";
 
 const ROLE_INSTALLER = "installer";
 const ROLE_COMPANY_ADMIN = "company_admin";
@@ -59,7 +62,7 @@ describe("Database permissions", () => {
       await pool.query("delete from company where id = $1", [company_id]);
       await pool.query("delete from account where email = $1 OR email = $2", [
         INSTALLER_EMAIL,
-        COMAPNY_ADMIN_EMAIL
+        COMPANY_ADMIN_EMAIL
       ]);
     } catch (error) {
       // eslint-disable-next-line no-console
@@ -111,7 +114,7 @@ describe("Database permissions", () => {
             ROLE_COMPANY_ADMIN,
             null,
             "insert into account (market_id, email) VALUES ($1, $2)",
-            [1, COMAPNY_ADMIN_EMAIL]
+            [1, COMPANY_ADMIN_EMAIL]
           );
         } catch (error) {
           expect(error.message).toEqual(RLS_ERROR("account"));
@@ -122,11 +125,11 @@ describe("Database permissions", () => {
           ROLE_COMPANY_ADMIN,
           null,
           "select * from create_user($1, $2, $3, $4, $5)",
-          [COMAPNY_ADMIN_EMAIL, "name", "surname", 1, "COMPANY_ADMIN"]
+          [COMPANY_ADMIN_EMAIL, "name", "surname", 1, "COMPANY_ADMIN"]
         );
 
         expect(rows.length).toEqual(1);
-        expect(rows[0].email).toEqual(COMAPNY_ADMIN_EMAIL);
+        expect(rows[0].email).toEqual(COMPANY_ADMIN_EMAIL);
 
         company_admin_id = rows[0].id;
 

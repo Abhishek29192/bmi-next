@@ -2,7 +2,7 @@ version: "3.1"
 services:
   companies-db:
     image: postgres
-    container_name: postres-copmany-db
+    container_name: postgres-company-db
     ports:
       - "5432:5432"
     environment:
@@ -14,6 +14,6 @@ services:
       - ./companies/src/data/company.sql:/var/lib/postgresql/company.sql
       - ./companies/src/data/roles.sql:/var/lib/postgresql/roles.sql
       - ./companies/src/data/rls.sql:/var/lib/postgresql/rls.sql
-      - dxb_company_db:/var/lib/postgresql/data
+      - intouch_company_db:/var/lib/postgresql/data
 volumes:
-  dxb_company_db: {}
+  intouch_company_db: {}
