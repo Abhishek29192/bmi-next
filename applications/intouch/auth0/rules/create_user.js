@@ -28,7 +28,7 @@ async function InternalUserIdRule(user, context, callback) {
 
   // to be changed with accountByEmail
   const ACCOUNT_BY_ID = `query {
-      allAccounts(condition: { email: "${email}" }) {
+    accounts(condition: { email: "${email}" }) {
         nodes {
           id
         }
@@ -119,11 +119,11 @@ async function InternalUserIdRule(user, context, callback) {
   const { data } = await fetchGateway(ACCOUNT_BY_ID, dataToken.access_token);
   if (
     data &&
-    data.allAccounts &&
-    data.allAccounts.nodes &&
-    data.allAccounts.nodes.length
+    data.accounts &&
+    data.accounts.nodes &&
+    data.accounts.nodes.length
   ) {
-    dbUserId = data.allAccounts.nodes[0].id;
+    dbUserId = data.accounts.nodes[0].id;
   } else {
     const { data } = await fetchGateway(CREATE_ACCOUNT, dataToken.access_token);
     dbUserId = data.createAccount.account.id;

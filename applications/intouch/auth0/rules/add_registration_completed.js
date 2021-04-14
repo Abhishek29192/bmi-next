@@ -26,7 +26,7 @@ async function CompanyRegistration(user, context, callback) {
 
   const COMPANY_USER = `
     query Query {
-      allCompanyMembers(condition: {
+      companyMembers(condition: {
         accountId: ${user.app_metadata.internal_user_id} 
       }) {
         totalCount
@@ -69,7 +69,7 @@ async function CompanyRegistration(user, context, callback) {
 
   const { data } = await fetchGateway(COMPANY_USER);
   const {
-    allCompanyMembers: { totalCount }
+    companyMembers: { totalCount }
   } = data;
 
   // If the user has alread a company set a flag in app_meta and go ahead
