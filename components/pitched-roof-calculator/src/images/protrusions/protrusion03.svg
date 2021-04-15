@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 300">
+  <g id="box">
+    <rect width="350" height="300" fill="none"/>
+  </g>
+  <g id="protrusion003">
+    <g id="fill">
+      <polygon points="267.472 143.588 189.623 112.787 109.378 66.576 267.472 143.588" fill="#2681b4"/>
+      <polygon points="109.378 66.345 109.378 237.948 189.623 112.787 109.378 66.345" fill="#45e0ff"/>
+      <polygon points="189.623 112.787 121.41 219.179 255.318 138.782 189.623 112.787" fill="#b5c7d4"/>
+    </g>
+    <g id="lines">
+      <polygon points="109.378 66.345 189.623 112.787 109.378 237.948 109.378 66.345" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+      <polyline points="109.378 66.345 267.472 143.588 189.623 112.787" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <line x1="122.00429" y1="218.00959" x2="255.31757" y2="138.78229" fill="none" stroke="#3f3f3f" stroke-miterlimit="10"/>
+  </g>
+</svg>

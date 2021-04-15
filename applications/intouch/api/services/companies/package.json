@@ -12,6 +12,7 @@
     "gcp-build": "tsc -p ."
   },
   "dependencies": {
+    "@google-cloud/pubsub": "^2.10.0",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",
     "apollo-server": "^2.19.2",

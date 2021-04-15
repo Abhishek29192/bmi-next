@@ -5,10 +5,11 @@ import tiles from "./samples/tiles";
 import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPitchValues";
 import getPitchValues from "./helpers/getPitchValues";
 import { RangeValue } from "./types";
+import { DimensionsValues } from "./types/roof";
 
 type TileSelectionRowProps = {
   title: string;
-  dimensions: Record<string, string>;
+  dimensions: DimensionsValues;
   // TODO: Type when importing from Contentful
   select: (tile: object) => void;
   selected?: any;

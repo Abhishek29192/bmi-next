@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 300">
+  <g id="box">
+    <rect width="350" height="300" fill="none"/>
+  </g>
+  <g id="protrusion002_dims" data-name="protrusion002 dims">
+    <g id="fill">
+      <polygon points="112.68 208.675 112.68 248.913 254.987 166.507 254.987 137.599 187.066 108.242 112.68 208.675" fill="#bacbd8"/>
+      <polygon points="112.68 216.883 112.68 248.913 97.778 227.426 112.68 216.883" fill="#fff"/>
+      <polygon points="82.528 222.459 109.378 237.948 189.623 112.787 83.015 51.087 82.528 222.459" fill="#45e0ff"/>
+      <polygon points="157.711 178.12 157.711 205.576 181.091 192.037 181.091 164.581 157.711 178.12" fill="#255d63"/>
+      <polygon points="185.986 161.796 185.986 189.251 209.367 175.712 209.367 148.257 185.986 161.796" fill="#255d63"/>
+      <polygon points="240.622 128.099 267.472 143.588 189.623 112.787 83.015 51.087 240.622 128.099" fill="#2580b4"/>
+    </g>
+    <g id="lines">
+      <polyline points="254.987 138.594 254.987 166.507 112.68 248.913 102.207 233.811" fill="none" stroke="#3f3f3f" stroke-miterlimit="10" stroke-width="2"/>
+      <line x1="112.68004" y1="248.58462" x2="112.68004" y2="232.55746" fill="none" stroke="#3f3f3f" stroke-miterlimit="10"/>
+      <polygon points="83.015 51.087 189.623 112.787 109.378 237.948 82.528 222.459 83.015 51.087" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+      <polyline points="83.015 51.087 240.622 128.099 267.472 143.588 189.623 112.787" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <line x1="195.69852" y1="109.21496" x2="240.78471" y2="83.17305" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="122.34378" y1="151.56634" x2="180.83105" y2="117.78732" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="88.98452" y1="47.72683" x2="134.02833" y2="21.64661" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="129.29034" y1="24.47449" x2="235.5209" y2="85.6835" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="139.20031" y1="264.64634" x2="117.20245" y2="251.93449" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="277.22678" y1="180.12232" x2="134.90845" y2="262.16661" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="281.48069" y1="182.50072" x2="259.75941" y2="169.94855" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <text transform="translate(210.80388 232.78004)" font-size="16" fill="#3b3b3b" font-family="'Effra Regular', Effra">A</text>
+    <text transform="translate(181.58217 50.65756)" font-size="16" fill="#3b3b3b" font-family="'Effra Regular', Effra">B</text>
+    <line x1="236.0119" y1="81.81323" x2="236.0119" y2="89.81323" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="134.90698" y1="258.17438" x2="134.90698" y2="266.17438" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="277.37808" y1="175.91866" x2="277.37808" y2="183.91866" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="129.40444" y1="20.32429" x2="129.40444" y2="28.32429" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="137.13864" y1="189.20368" x2="148.15254" y2="182.84481" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="122.50648" y1="144.76491" x2="132.8592" y2="150.74206" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <text transform="translate(119.99348 179.76741)" font-size="16" font-family="'Effra Regular', Effra">P</text>
+    <path d="M128.14034,148.25224a75.01542,75.01542,0,0,0,.58806,10.3609c1.64308,12.71737,6.54913,22.08109,13.68445,27.79159" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  </g>
+</svg>

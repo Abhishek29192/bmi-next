@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 350 300">
+  <defs>
+    <linearGradient id="linear-gradient" x1="68.70581" y1="218.82968" x2="109.88484" y2="147.50551" gradientUnits="userSpaceOnUse">
+      <stop offset="0.31641" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g id="box">
+    <rect width="350" height="300" fill="none"/>
+  </g>
+  <g id="roof029_dims_1" data-name="roof029 dims 1">
+    <g id="fill">
+      <polygon points="130.612 215.109 130.612 254.434 309.601 150.98 309.601 111.655 130.612 215.109" fill="#b4c5d3"/>
+      <polygon points="130.612 215.109 130.612 254.434 28.51 195.622 28.51 145.623 74.402 127.02 130.612 215.109" fill="url(#linear-gradient)"/>
+      <g id="window">
+        <polygon points="78.334 149.501 78.334 159.801 69.771 154.868 69.771 144.568 78.334 149.501" fill="#6d9faf"/>
+        <polygon points="88.824 155.557 88.824 165.857 80.261 160.924 80.261 150.625 88.824 155.557" fill="#6d9faf"/>
+        <polygon points="78.334 161.836 78.334 172.136 69.771 167.204 69.771 156.904 78.334 161.836" fill="#6d9faf"/>
+        <polygon points="88.824 167.893 88.824 178.192 80.261 173.26 80.261 162.96 88.824 167.893" fill="#6d9faf"/>
+      </g>
+      <polygon points="319.907 105.564 130.612 215.109 73.884 127.302 263.594 17.84 319.907 105.564" fill="#237cae"/>
+      <polygon points="263.594 17.84 73.884 127.302 18.084 149.875 207.64 40.322 263.594 17.84" fill="#47d6ff"/>
+      <polygon points="183.014 146.145 183.014 164.987 249.652 126.399 249.652 112.863 217.847 99.116 183.014 146.145" fill="#b4c5d3"/>
+      <polygon points="183.014 149.988 183.014 164.987 176.036 154.925 183.014 149.988" fill="#dae5f0"/>
+      <polygon points="168.895 152.599 181.468 159.852 219.044 101.244 169.123 72.352 168.895 152.599" fill="#46dfff"/>
+      <polygon points="204.1 131.837 204.1 144.694 215.049 138.354 215.049 125.497 204.1 131.837" fill="#255d63"/>
+      <polygon points="217.341 124.193 217.341 137.049 228.289 130.71 228.289 117.853 217.341 124.193" fill="#255d63"/>
+    </g>
+    <g id="lines">
+      <polyline points="228.605 197.794 130.612 254.434 28.51 195.622 28.51 145.623" fill="none" stroke="#3f3f3f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <line x1="295.19975" y1="159.30253" x2="239.32171" y2="191.60158" fill="none" stroke="#3f3f3f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <polyline points="309.601 111.655 309.601 150.98 305.559 153.317" fill="none" stroke="#3f3f3f" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <line x1="130.61203" y1="215.10921" x2="130.61203" y2="254.43364" fill="none" stroke="#3f3f3f" stroke-miterlimit="10"/>
+      <line x1="205.93709" y1="171.52077" x2="261.26113" y2="139.4996" fill="none" stroke="#002839" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <polyline points="271.131 133.793 319.907 105.564 263.594 17.84 207.64 40.322 18.084 149.875 73.884 127.302 130.612 215.109 193.561 178.678" fill="none" stroke="#002839" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <line x1="74.26885" y1="126.5958" x2="263.59437" y2="17.83989" fill="none" stroke="#002839" stroke-miterlimit="10"/>
+      <polyline points="249.652 113.329 249.652 126.399 183.014 164.987 178.11 157.915" fill="none" stroke="#3f3f3f" stroke-miterlimit="10"/>
+      <line x1="183.01429" y1="164.83303" x2="183.01429" y2="157.32811" fill="none" stroke="#3f3f3f" stroke-miterlimit="10"/>
+      <polygon points="242.925 108.414 255.497 115.667 219.044 101.244 169.123 72.352 242.925 108.414" fill="#206e9c"/>
+      <polygon points="169.123 72.352 219.044 101.244 181.468 159.852 168.895 152.599 169.123 72.352" fill="none" stroke="#002839" stroke-linejoin="round"/>
+      <polyline points="169.123 72.352 242.925 108.414 255.497 115.667 219.044 101.244" fill="none" stroke="#002839" stroke-linejoin="round"/>
+    </g>
+    <g id="dims">
+      <g>
+        <line x1="108.73366" y1="267.3969" x2="125.48365" y2="257.71546" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+        <line x1="7.28599" y1="208.94332" x2="23.99566" y2="199.22542" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+        <line x1="11.53773" y1="206.68087" x2="112.55232" y2="264.88441" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      </g>
+      <g>
+        <line x1="168.24493" y1="276.10177" x2="136.01005" y2="257.48013" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+        <line x1="347.20162" y1="172.89833" x2="315.00707" y2="154.24023" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+        <line x1="342.72161" y1="170.76767" x2="164.58235" y2="273.49917" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      </g>
+      <g opacity="0.5">
+        <g>
+          <line x1="183.01579" y1="152.36063" x2="183.01579" y2="150.36063" fill="none" stroke="#fff" stroke-linejoin="round"/>
+          <line x1="183.01579" y1="146.76418" x2="183.01579" y2="119.79078" fill="none" stroke="#fff" stroke-linejoin="round" stroke-dasharray="3.59645 3.59645"/>
+          <line x1="183.01579" y1="117.99255" x2="183.01579" y2="115.99255" fill="none" stroke="#fff" stroke-linejoin="round"/>
+        </g>
+      </g>
+      <text transform="translate(258.52529 232.62124)" font-size="16" fill="#3b3b3b" font-family="'Effra Regular', Effra">B</text>
+      <text transform="translate(53.28554 249.80776)" font-size="16" fill="#3b3b3b" font-family="'Effra Regular', Effra">A</text>
+      <line x1="343.06896" y1="167.05309" x2="343.06896" y2="173.97882" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="164.18688" y1="270.19296" x2="164.18688" y2="277.11869" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="112.87681" y1="261.64469" x2="112.87681" y2="268.57042" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="11.34119" y1="203.09339" x2="11.34119" y2="210.01912" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <text transform="translate(14.83486 124.64858)" font-size="16" fill="#3b3b3b" font-family="'Effra Regular', Effra">P1</text>
+      <line x1="68.60191" y1="124.86879" x2="4.65873" y2="87.94036" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="10.20409" y1="87.38894" x2="3.62267" y2="91.18872" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="23.75153" y1="144.8028" x2="22.0334" y2="152.20561" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <path d="M22.97457,148.48481C12.94475,129.02415,7.00489,108.01745,6.95,89.25248" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <text transform="translate(262.35348 102.51768)" font-size="16" fill="#fff" font-family="'Effra Regular', Effra">P2</text>
+      <line x1="266.57996" y1="77.74225" x2="259.99854" y2="73.94246" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="252.32815" y1="111.19246" x2="253.23789" y2="118.73738" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="249.89801" y1="204.04193" x2="188.0666" y2="168.33272" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="316.69965" y1="165.59124" x2="254.90856" y2="129.84557" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="312.67157" y1="163.7215" x2="246.47531" y2="201.82267" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <text transform="translate(280.86457 193.69712)" font-size="16" fill="#3b3b3b" font-family="'Effra Regular', Effra">C</text>
+      <line x1="313.01892" y1="160.00692" x2="313.01892" y2="166.93265" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="246.29189" y1="198.39404" x2="246.29189" y2="205.31977" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="152.51551" y1="139.0657" x2="179.91273" y2="123.23708" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="107.1825" y1="107.93953" x2="156.48077" y2="136.28464" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <text transform="translate(121.30546 135.37483)" font-size="16" fill="#fff" font-family="'Effra Regular', Effra">D</text>
+      <line x1="156.65866" y1="133.31349" x2="156.65866" y2="140.23922" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="107.23787" y1="104.49749" x2="107.23787" y2="111.42322" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      <line x1="133.76503" y1="92.79645" x2="186.1803" y2="122.94117" fill="none" stroke="#fff" stroke-linejoin="round" stroke-dasharray="4" opacity="0.5"/>
+    </g>
+    <path d="M252.7705,114.55c6.53514-12.73649,10.4088-26.46585,10.46336-38.7453" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="267.24643" y1="73.50639" x2="222.23729" y2="99.37517" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  </g>
+</svg>
