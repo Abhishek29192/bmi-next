@@ -375,7 +375,7 @@ const getCategoryFilters = (productCategories: ProductCategoryTree) => {
     })
     .map(([categoryKey, category]) => {
       return {
-        label: "pim." + category.name,
+        label: category.name,
         name: categoryKey,
         value: [],
         options: category.values

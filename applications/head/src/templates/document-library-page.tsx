@@ -383,17 +383,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
                           {({ resetList }) => (
                             <Filters
                               filters={filters}
-                              microcopyProvider={{
-                                "filterLabels.assetType": getMicroCopy(
-                                  "filterLabels.assetType"
-                                ),
-                                "filterLabels.productFamily": getMicroCopy(
-                                  "filterLabels.productFamily"
-                                ),
-                                "filterLabels.brand": getMicroCopy(
-                                  "filterLabels.brand"
-                                )
-                              }}
                               onChange={handleFiltersChange(resetList)}
                               checkboxComponent={(props: CheckboxProps) => (
                                 <GTMCheckbox

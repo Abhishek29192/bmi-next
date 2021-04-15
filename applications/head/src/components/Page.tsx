@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import BmiThemeProvider from "@bmi/theme-provider";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import BackToTop from "@bmi/back-to-top";
+import MicroCopy from "@bmi/micro-copy";
 import { graphql, navigate } from "gatsby";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Header from "../components/Header";
@@ -131,39 +132,49 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
           scriptGRecaptchaNet
         }}
       >
-        <GoogleReCaptchaProvider
-          reCaptchaKey={scriptGRecaptchaId}
-          useRecaptchaNet={scriptGRecaptchaNet}
-          language={countryCode}
+        <MicroCopy.Provider
+          values={resources?.microCopy.reduce(
+            (carry, { key, value }) => ({
+              ...carry,
+              [key]: value
+            }),
+            {}
+          )}
         >
-          <Header
-            navigationData={menuNavigation}
-            utilitiesData={menuUtilities}
-            countryCode={countryCode}
-            activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
-            isOnSearchPage={isSearchPage}
-          />
-          <ErrorBoundary
-            fallbackRender={() => (
-              <ErrorFallback
-                countryCode={countryCode}
-                promo={resources.errorGeneral}
-              />
-            )}
-            onError={() => navigate(`/${countryCode}/422`)}
+          <GoogleReCaptchaProvider
+            reCaptchaKey={scriptGRecaptchaId}
+            useRecaptchaNet={scriptGRecaptchaNet}
+            language={countryCode}
           >
-            <VisualiserProvider
-              contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+            <Header
+              navigationData={menuNavigation}
+              utilitiesData={menuUtilities}
+              countryCode={countryCode}
+              activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
+              isOnSearchPage={isSearchPage}
+            />
+            <ErrorBoundary
+              fallbackRender={() => (
+                <ErrorFallback
+                  countryCode={countryCode}
+                  promo={resources.errorGeneral}
+                />
+              )}
+              onError={() => navigate(`/${countryCode}/422`)}
             >
-              <div className={styles["content"]}>{children}</div>
-            </VisualiserProvider>
-            {inputBanner ? <InputBanner data={inputBanner} /> : null}
-          </ErrorBoundary>
-          <Footer
-            mainNavigation={footerMainNavigation}
-            secondaryNavigation={footerSecondaryNavigation}
-          />
-        </GoogleReCaptchaProvider>
+              <VisualiserProvider
+                contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+              >
+                <div className={styles["content"]}>{children}</div>
+              </VisualiserProvider>
+              {inputBanner ? <InputBanner data={inputBanner} /> : null}
+            </ErrorBoundary>
+            <Footer
+              mainNavigation={footerMainNavigation}
+              secondaryNavigation={footerSecondaryNavigation}
+            />
+          </GoogleReCaptchaProvider>
+        </MicroCopy.Provider>
       </SiteContext.Provider>
       <BackToTop accessibilityLabel="Back to the top" />
     </BmiThemeProvider>

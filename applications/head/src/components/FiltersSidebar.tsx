@@ -52,19 +52,6 @@ const FiltersSidebar = ({
       </div>
       <Filters
         filters={filters}
-        microcopyProvider={{
-          "filterLabels.assetType": getMicroCopy("filterLabels.assetType"),
-          "filterLabels.productFamily": getMicroCopy(
-            "filterLabels.productFamily"
-          ),
-          "filterLabels.productLine": getMicroCopy("filterLabels.productLine"),
-          "filterLabels.brand": getMicroCopy("filterLabels.brand"),
-          "filterLabels.colour": getMicroCopy("filterLabels.colour"),
-          "filterLabels.materials": getMicroCopy("filterLabels.materials"),
-          "filterLabels.textureFamily": getMicroCopy(
-            "filterLabels.textureFamily"
-          )
-        }}
         onChange={onFiltersChange}
         checkboxComponent={(props: CheckboxProps) => {
           const label: string | React.ReactNode = props.label;
