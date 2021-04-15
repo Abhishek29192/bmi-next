@@ -4,9 +4,7 @@ import Filters from "../";
 
 describe("Filters component", () => {
   it("renders correctly", () => {
-    const { container } = render(
-      <Filters filters={[]} microcopyProvider={{ test: "" }} />
-    );
+    const { container } = render(<Filters filters={[]} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -42,9 +40,7 @@ describe("Filters component", () => {
       }
     ];
 
-    const { container } = render(
-      <Filters filters={filters} microcopyProvider={{ test: "" }} />
-    );
+    const { container } = render(<Filters filters={filters} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -67,9 +63,7 @@ describe("Filters component", () => {
       }
     ];
 
-    const { container } = render(
-      <Filters filters={filters} microcopyProvider={{ test: "" }} />
-    );
+    const { container } = render(<Filters filters={filters} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -93,9 +87,7 @@ describe("Filters component", () => {
       }
     ];
 
-    const { container } = render(
-      <Filters filters={filters} microcopyProvider={{ test: "" }} />
-    );
+    const { container } = render(<Filters filters={filters} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
@@ -125,11 +117,7 @@ describe("Filters component", () => {
     const onChange = jest.fn();
 
     const { getByLabelText } = render(
-      <Filters
-        filters={filters}
-        microcopyProvider={{ test: "test" }}
-        onChange={onChange}
-      />
+      <Filters filters={filters} onChange={onChange} />
     );
     fireEvent.click(getByLabelText(filters[0].options[0].label));
     expect(onChange.mock.calls).toMatchSnapshot();
