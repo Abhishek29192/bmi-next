@@ -47,17 +47,17 @@ const Hr = ({
 
 const textStyles = {
   h1: {
-    fontSize: 22.5,
+    fontSize: 18.5,
     lineHeight: 1.33 /* roughly 30pt */,
     bold: true // TODO: look into increasing the font weight to 900
   },
   h4: {
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 1.625 /* 26pt */,
     bold: true
   },
   h5: {
-    fontSize: 12,
+    fontSize: 11,
     lineHeight: 1.65 /* roughly 19pt */,
     bold: true // TODO: Medium
   },

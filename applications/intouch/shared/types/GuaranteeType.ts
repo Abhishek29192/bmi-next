@@ -1,22 +1,59 @@
-export type GuaranteeData = {
-  guaranteeName: string;
-  guaranteeScope: string;
-  productMaterials: string;
-  buildingParticular: {
-    name: string;
-    buildingAddress: string;
-    buildingRoofArea: string;
-  };
-  installationParticular: {
-    name: string;
-    intouchId: string;
-    guaranteeStartDate: string;
-    guaranteeIssueNumber: string;
-    guaranteePeriod: string;
-    guaranteeExpiryDate: string;
-  };
+export type GuaranteeQuery = {
+  guarantee: Guarantee;
+};
 
+export type Guarantee = {
+  id: number;
+  status: string;
+  requestorAccount: RequestorAccount;
+  projectId: number;
+  project: Project;
+  startDate: string;
+  expiry: string;
+  issueNumber: string;
+  guaranteedProducts: GuaranteedProducts;
+  guaranteeTypeId: string;
   guaranteeType: GuaranteeType;
+};
+export type RequestorAccount = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+};
+
+export type Project = {
+  id: number;
+  name: string;
+  technology: string;
+  buildingOwnerFirstname: string;
+  buildingOwnerLastname: string;
+  buildingOwnerCompany: string;
+  buildingOwnerMail: string;
+  roofArea: number;
+  company: Company;
+  addresses: Addresses;
+};
+
+export type Company = {
+  id: number;
+  name: string;
+  referenceNumber: string;
+};
+export type Addresses = {
+  nodes: Address[];
+};
+
+export type Address = {
+  projectId: number;
+  companyId: any;
+  firstLine: string;
+  secondLine: string;
+  town: string;
+  country: string;
+  postcode: string;
+  addressType: string;
 };
 
 export type GuaranteeType = {
@@ -26,7 +63,7 @@ export type GuaranteeType = {
   technology: string;
   coverage: string;
   signature: Signature;
-  guaranteeTemplatesCollection: GuaranteeTemplate[];
+  guaranteeTemplatesCollection: GuaranteeTemplatesCollection;
 };
 
 export type Signature = {
@@ -44,6 +81,7 @@ export type GuaranteeTemplate = {
   logo: Logo;
   maintenanceTemplate: MaintenanceTemplate;
   terms: Terms;
+  guaranteeScope: string;
   signatory: string;
   headingGuarantee: string;
   headingScope: string;
@@ -79,4 +117,18 @@ export type Terms = {
   id: string;
   fileName: string;
   url: string;
+};
+
+export type GuaranteedProducts = {
+  nodes: GuaranteedProduct[];
+};
+export type GuaranteedProduct = {
+  productId: number;
+  product: Product;
+};
+
+export type Product = {
+  id: number;
+  name: String;
+  technology: String;
 };

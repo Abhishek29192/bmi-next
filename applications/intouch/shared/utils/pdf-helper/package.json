@@ -3,7 +3,7 @@
   "license": "BMI-DXB",
   "private": true,
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/utils/pdf-helper/src/index.js",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/index.js\"",

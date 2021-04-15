@@ -1,11 +1,12 @@
 import { PDFDocument as PdfLibDocument } from "pdf-lib";
 import * as React from "react";
 import { pdf } from "react-pdf-maker";
-import { GuaranteeData, GuaranteeTemplate } from "../../../types/GuaranteeType";
+import { Guarantee, GuaranteeTemplate } from "../../../types/GuaranteeType";
 import { GuaranteeFileType } from "../../../types/GuaranteeFileType";
 import { vfs } from "./vfs_fonts";
 import { PdfDocument } from "./components";
 import { buffer_encode, toArrayBuffer } from "./util/bufferUtil";
+import { base64_encode } from "./util/imageUtil";
 
 const fonts = {
   Roboto: {
@@ -14,12 +15,14 @@ const fonts = {
   }
 };
 export default class GuaranteePdf {
-  readonly guaranteeData: GuaranteeData;
-  constructor(guaranteeData: GuaranteeData) {
+  readonly guaranteeData: Guarantee;
+  constructor(guaranteeData: Guarantee) {
     this.guaranteeData = guaranteeData;
   }
 
   async create() {
+    await this.loadImages();
+
     return this.getGuaranteeTemplatesPdf();
   }
 
@@ -57,7 +60,7 @@ export default class GuaranteePdf {
 
   private getGuaranteeTemplatesPdf(): Promise<GuaranteeFileType>[] {
     const templates = this.guaranteeData.guaranteeType
-      .guaranteeTemplatesCollection;
+      .guaranteeTemplatesCollection.items;
 
     return templates.map(async (template) => {
       const guaranteePdf = await this.getGuaranteePdf(template);
@@ -81,4 +84,16 @@ export default class GuaranteePdf {
   private async getPdfFromUrl(url: string): Promise<ArrayBuffer> {
     return await buffer_encode(url);
   }
+
+  private loadImages = async () => {
+    this.guaranteeData.guaranteeType.signature.image = await base64_encode(
+      this.guaranteeData.guaranteeType.signature.url
+    );
+
+    for (const template of this.guaranteeData.guaranteeType
+      .guaranteeTemplatesCollection.items) {
+      template.logo.image = await base64_encode(template.logo.url);
+    }
+    return this.guaranteeData;
+  };
 }
