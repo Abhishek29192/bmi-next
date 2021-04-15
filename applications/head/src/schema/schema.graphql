@@ -773,6 +773,23 @@ type ContentfulServiceLocatorSection implements Node {
 }
 
 """
+Represents an inline video section.
+"""
+type ContentfulVideoSection implements Node {
+  "The internal nam for this section."
+  name: String
+
+  "The title for this section."
+  title: String
+
+  "The description for this section."
+  description: ContentfulRichText
+
+  "The video for this section."
+  video: ContentfulVideo @link(from: "video___NODE")
+}
+
+"""
 Represents the union of possible navigation entities.
 """
 union ContentfulNavigationEntity =
@@ -890,6 +907,7 @@ union ContentfulSection =
   | ContentfulImageGallerySection
   | ContentfulDocumentDownloadSection
   | ContentfulServiceLocatorSection
+  | ContentfulVideoSection
 
 """
 Represents a key value pair for UI strings.

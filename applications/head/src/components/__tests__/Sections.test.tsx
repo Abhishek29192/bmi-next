@@ -256,6 +256,24 @@ describe("Sections component", () => {
         position: 0,
         centre: null,
         zoom: null
+      },
+      {
+        __typename: "ContentfulVideoSection",
+        name: "Video section",
+        title: "Section title",
+        description: {
+          raw: contentMock,
+          references: []
+        },
+        video: {
+          title: "Video title",
+          label: "Video label",
+          youtubeId: "A-RfHC91Ewc",
+          subtitle: null,
+          previewMedia: null,
+          videoRatio: { width: 16, height: 9 },
+          className: null
+        }
       }
     ];
 
