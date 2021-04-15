@@ -1,13 +1,16 @@
-import React, { CSSProperties, useState } from "react";
+import AlternativeContent from "@bmi/alternative-content";
 import Button from "@bmi/button";
 import ContainerDialog from "@bmi/container-dialog";
-import ReactPlayer from "react-player/youtube";
 import Icon, { iconMap } from "@bmi/icon";
-import AlternativeContent from "@bmi/alternative-content";
+import Typography from "@bmi/typography";
 import useDimensions, { DimensionObject } from "@bmi/use-dimensions";
-import classnames from "classnames";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Fade from "@material-ui/core/Fade";
 import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import classnames from "classnames";
+import React, { CSSProperties, useState } from "react";
+import ReactPlayer from "react-player/youtube";
+import { getDefaultPreviewImageSource, getVideoURL } from "./utils";
 import styles from "./YoutubeVideo.module.scss";
 
 export type Props = {
@@ -59,7 +62,7 @@ const playerStyle: CSSProperties = {
 const DialogVideo = ({
   videoId,
   className,
-  previewImageSource = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+  previewImageSource = getDefaultPreviewImageSource(videoId),
   label,
   embedWidth,
   embedHeight
@@ -72,7 +75,6 @@ const DialogVideo = ({
   const isXLDevice = useMediaQuery(theme.breakpoints.only("xl"));
 
   const [isDialogOpen, setDialogOpen] = useState(false);
-  const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
   const [ref, dimensions] = useDimensions();
   const { width, height } = getSize(embedWidth, embedHeight, dimensions);
   let calculatedHeight = dimensions.height;
@@ -105,7 +107,7 @@ const DialogVideo = ({
         <div ref={ref} style={{ height: "100%", display: "flex" }}>
           {dimensions.width && (
             <ReactPlayer
-              url={videoUrl}
+              url={getVideoURL(videoId)}
               width="100%"
               height={isMobileDevice || isXLDevice ? "" : calculatedHeight}
               controls
@@ -130,7 +132,6 @@ const InPlaceVideo = ({
   embedHeight,
   embedWidth
 }: Props) => {
-  const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
   const [ref, dimensions] = useDimensions();
   const { width, height } = getSize(embedWidth, embedHeight, dimensions);
 
@@ -145,7 +146,7 @@ const InPlaceVideo = ({
     >
       {dimensions.width && (
         <ReactPlayer
-          url={videoUrl}
+          url={getVideoURL(videoId)}
           width={width}
           height={height}
           style={playerStyle}
@@ -165,17 +166,73 @@ const InPlaceVideo = ({
   );
 };
 
-export type Layout = "in-place" | "dialog";
+const InlineVideo = ({
+  videoId,
+  className,
+  previewImageSource = getDefaultPreviewImageSource(videoId),
+  subtitle,
+  label,
+  embedWidth = 16,
+  embedHeight = 9
+}: Props) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <div
+      className={classnames(
+        styles["YoutubeVideo"],
+        styles["YoutubeVideo--inline"],
+        className
+      )}
+      // @ts-ignore Does not recognise arbitrary css vars
+      style={{ "--aspect-ratio": embedHeight / embedWidth }}
+      onClick={() => setIsPlaying(true)}
+    >
+      <div>
+        <img
+          className={styles["preview-image"]}
+          src={previewImageSource}
+          alt={String(label)}
+        />
+        <div className={styles["overlay"]}>
+          <Button isIconButton className={styles["play-button"]}>
+            <Icon source={iconMap.PlayArrow} />
+          </Button>
+          <Typography className={styles["subtitle"]}>{subtitle}</Typography>
+        </div>
+      </div>
+      <Fade in={isPlaying} timeout={250} style={{ transitionDelay: "500ms" }}>
+        <ReactPlayer
+          url={getVideoURL(videoId)}
+          controls
+          playing={isPlaying}
+          config={{
+            playerVars: {
+              ...sharedOptions,
+              widgetid: 4
+            }
+          }}
+        />
+      </Fade>
+    </div>
+  );
+};
+
+export type Layout = "in-place" | "inline" | "dialog";
 
 const YoutubeVideo = ({
   layout = "dialog",
   ...props
 }: Props & { layout?: Layout }) => {
-  if (layout === "in-place") {
-    return <InPlaceVideo {...props} />;
+  switch (layout) {
+    case "in-place":
+      return <InPlaceVideo {...props} />;
+    case "inline":
+      return <InlineVideo {...props} />;
+    case "dialog":
+    default:
+      return <DialogVideo {...props} />;
   }
-
-  return <DialogVideo {...props} />;
 };
 
 export default YoutubeVideo;
