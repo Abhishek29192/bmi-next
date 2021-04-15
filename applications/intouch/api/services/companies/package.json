@@ -9,8 +9,7 @@
     "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
     "start": "node dist/index.js",
     "build": "tsc -p .",
-    "gcp-build": "tsc -p .",
-    "fill-db": "node scripts/index.js"
+    "gcp-build": "tsc -p ."
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.10.0",

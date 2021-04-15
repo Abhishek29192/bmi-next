@@ -52,4 +52,3 @@ Replace the `<Authorization Token>` with your access_token from Auth0.
 ## Some Gotcha's
 
 - The React version in this directory's `package.json` needs to be the same as the React version used by the DXB components.
-
