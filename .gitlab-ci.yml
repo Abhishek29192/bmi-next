@@ -26,6 +26,7 @@ include:
 
 code_quality:
   stage: test
+  needs: [install]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
@@ -33,10 +34,12 @@ sast:
   stage: test
 
 eslint-sast:
+  needs: [install]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 nodejs-scan-sast:
+  needs: [install]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 

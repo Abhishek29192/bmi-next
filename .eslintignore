@@ -4,6 +4,7 @@
 coverage/**
 coverage-ts/**
 **/public/**
+.yarn_cache
 
 # ESLint config files are JS source files nonetheless
 !**/.eslintrc.js
