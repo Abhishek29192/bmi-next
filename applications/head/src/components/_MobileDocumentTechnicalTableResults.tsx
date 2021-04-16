@@ -45,79 +45,77 @@ const MobileDocumentTechnicalTableResults = ({
                 {productName}
               </GTMAccordionSummary>
               {assetTypes.map((assetType, index) => {
-                const asset = assets.find(
+                const filteredAssets = assets.filter(
                   ({ assetType: { id } }) => id === assetType.id
                 );
 
-                if (asset) {
-                  return (
-                    <Accordion.Details
-                      key={`${productName}-asset-${asset.id}`}
-                      className={styles["accordion-details"]}
-                    >
-                      <div className={styles["icon-container"]}>
-                        {asset.__typename !== "PIMLinkDocument" ? (
+                return filteredAssets.map((asset) => (
+                  <Accordion.Details
+                    key={`${productName}-asset-${asset.id}`}
+                    className={styles["accordion-details"]}
+                  >
+                    <div className={styles["icon-container"]}>
+                      {asset.__typename !== "PIMLinkDocument" ? (
+                        <Icon
+                          source={fileIconsMap[asset.format]}
+                          className={styles["format-icon"]}
+                        />
+                      ) : (
+                        <Icon
+                          source={iconMap.External}
+                          className={styles["external-link-icon"]}
+                        />
+                      )}
+                    </div>
+                    <div className={styles["icon-container"]}>
+                      {assetType.code}
+                    </div>
+                    <div className={styles["info-icon-container"]}>
+                      <AssetHeader assetType={assetType} />
+                    </div>
+                    <div className={styles["download-icon-container"]}>
+                      {asset.__typename !== "PIMLinkDocument" ? (
+                        <GTMClickable
+                          model="download"
+                          href={asset.url}
+                          download={asset.title}
+                          gtm={{
+                            id: "download1",
+                            label: "Download",
+                            action: asset.url
+                          }}
+                        >
                           <Icon
-                            source={fileIconsMap[asset.format]}
-                            className={styles["format-icon"]}
+                            source={iconMap.Download}
+                            className={styles["all-files-icon"]}
                           />
-                        ) : (
+                        </GTMClickable>
+                      ) : (
+                        <GTMButton
+                          isIconButton
+                          accessibilityLabel="Download"
+                          variant="text"
+                          action={{
+                            model: "htmlLink",
+                            href: asset.url,
+                            target: "_blank",
+                            rel: "noopener noreferrer"
+                          }}
+                          gtm={{
+                            id: "download1",
+                            label: "Download",
+                            action: asset.url
+                          }}
+                        >
                           <Icon
-                            source={iconMap.External}
-                            className={styles["external-link-icon"]}
+                            source={iconMap.Download}
+                            className={styles["all-files-icon"]}
                           />
-                        )}
-                      </div>
-                      <div className={styles["icon-container"]}>
-                        {assetType.code}
-                      </div>
-                      <div className={styles["info-icon-container"]}>
-                        <AssetHeader assetType={assetType} />
-                      </div>
-                      <div className={styles["download-icon-container"]}>
-                        {asset.__typename !== "PIMLinkDocument" ? (
-                          <GTMClickable
-                            model="download"
-                            href={asset.url}
-                            download={asset.title}
-                            gtm={{
-                              id: "download1",
-                              label: "Download",
-                              action: asset.url
-                            }}
-                          >
-                            <Icon
-                              source={iconMap.Download}
-                              className={styles["all-files-icon"]}
-                            />
-                          </GTMClickable>
-                        ) : (
-                          <GTMButton
-                            isIconButton
-                            accessibilityLabel="Download"
-                            variant="text"
-                            action={{
-                              model: "htmlLink",
-                              href: asset.url,
-                              target: "_blank",
-                              rel: "noopener noreferrer"
-                            }}
-                            gtm={{
-                              id: "download1",
-                              label: "Download",
-                              action: asset.url
-                            }}
-                          >
-                            <Icon
-                              source={iconMap.Download}
-                              className={styles["all-files-icon"]}
-                            />
-                          </GTMButton>
-                        )}
-                      </div>
-                    </Accordion.Details>
-                  );
-                }
+                        </GTMButton>
+                      )}
+                    </div>
+                  </Accordion.Details>
+                ));
               })}
             </Accordion.Item>
           );

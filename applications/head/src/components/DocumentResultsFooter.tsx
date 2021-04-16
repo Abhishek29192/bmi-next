@@ -43,13 +43,13 @@ export const handleDownloadClick = async (
     }
 
     const documents = flatten(listValues).map(
-      ({ __typename, asset, extension, title, url }) => ({
+      ({ __typename, asset, extension, title, url }, index) => ({
         href:
           __typename === "ContentfulDocument" ? `https:${asset.file.url}` : url,
         name:
           __typename === "ContentfulDocument"
-            ? `${title}.${asset.file.fileName.split(".").pop()}`
-            : `${title}.${extension}`
+            ? `${title}-${index}.${asset.file.fileName.split(".").pop()}`
+            : `${title}-${index}.${extension}`
       })
     );
 

@@ -1,19 +1,8 @@
 import { graphql } from "gatsby";
-import { Category, Classification } from "../templates/product-details-page";
-import { Data as AssetTypeData } from "./AssetType";
+import { PIMDocumentBase } from "./PIMDocumentBase";
 
-export type Data = {
+export type Data = PIMDocumentBase & {
   __typename: "PIMLinkDocument";
-  id: string;
-  title: string;
-  product: {
-    code: string;
-    name: string;
-    categories: readonly Category[];
-    classifications: readonly Classification[];
-  };
-  url: string;
-  assetType: AssetTypeData;
 };
 
 export const query = graphql`
