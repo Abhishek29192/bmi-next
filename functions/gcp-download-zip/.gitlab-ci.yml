@@ -8,7 +8,7 @@ build_gcp-download-zip:
         - functions/gcp-download-zip/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-download-zip build
   artifacts:
@@ -24,7 +24,7 @@ test_gcp-download-zip:
         - jest/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-download-zip coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/

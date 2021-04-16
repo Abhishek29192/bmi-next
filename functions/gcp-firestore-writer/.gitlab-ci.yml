@@ -6,7 +6,7 @@ build_gcp-firestore-writer:
         - functions/gcp-firestore-writer/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-firestore-writer build
   artifacts:

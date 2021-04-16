@@ -8,7 +8,7 @@ build_gcp-intouch-handle-message:
         - applications/intouch/functions/gcp-handle-message/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-intouch-handle-message run build
   artifacts:

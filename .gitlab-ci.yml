@@ -44,10 +44,10 @@ cache:
     files:
       - yarn.lock
   policy: pull
-  untracked: true
+  untracked: false
   paths:
     - "**/node_modules"
-    - "~/.yarn"
+    - ".yarn_cache"
 
 stages:
   - install
@@ -65,17 +65,17 @@ install:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/dev-environment')) || $CI_COMMIT_TAG"
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn install --frozen-lockfile
   cache:
     key:
       files:
         - yarn.lock
-    untracked: true
+    untracked: false
     paths:
       - "**/node_modules"
-      - "~/.yarn"
+      - ".yarn_cache"
     policy: pull-push
 
 #  https://github.com/pivotal/LicenseFinder
@@ -89,7 +89,7 @@ license_finder:
   image: licensefinder/license_finder:latest
   before_script:
     - source ~/.bash_profile
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
     - curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get -y install nodejs
   script:
     - license_finder action_items --format html > license_finder_output.html
@@ -104,7 +104,7 @@ eslint:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn eslint "**/*.{js,ts,tsx}"
 
@@ -114,7 +114,7 @@ release:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'pre-production' || $CI_COMMIT_BRANCH == 'production')"
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - npx -p semantic-release@17.3.6 semantic-release
 
