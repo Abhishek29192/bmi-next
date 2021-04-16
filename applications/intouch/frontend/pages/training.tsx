@@ -42,7 +42,7 @@ const TrainingDetail = ({
     title: item.name || "",
     children: trainingChildren(item),
     imageSource: item.image_url || PLACEHOLDER_IMAGE,
-    CTA: {
+    cta: {
       label: t("My courses"),
       action: {
         model: "htmlLink",
