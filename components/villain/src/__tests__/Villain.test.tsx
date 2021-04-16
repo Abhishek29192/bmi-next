@@ -8,7 +8,7 @@ describe("Villain component", () => {
     const { container } = render(
       <Villain
         title="H2 Heading"
-        imageSource={testImage}
+        media={<img src={testImage} alt="Lorem ipsum" />}
         cta={{ label: "Call to action" }}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
@@ -23,7 +23,11 @@ describe("Villain component", () => {
   });
   it("renders reversed", () => {
     const { container } = render(
-      <Villain title="H2 Heading" imageSource={testImage} isReversed>
+      <Villain
+        title="H2 Heading"
+        media={<img src={testImage} alt="Lorem ipsum" />}
+        isReversed
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
         blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac
         nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue
@@ -38,7 +42,7 @@ describe("Villain component", () => {
     const { container } = render(
       <Villain
         title="H2 Heading"
-        imageSource={testImage}
+        media={<img src={testImage} alt="Lorem ipsum" />}
         cta={{ label: "Call to action" }}
         isFullWidth
       >
@@ -56,10 +60,28 @@ describe("Villain component", () => {
     const { container } = render(
       <Villain
         title="H2 Heading"
-        imageSource={testImage}
+        media={<img src={testImage} alt="Lorem ipsum" />}
         cta={{ label: "Call to action" }}
         isFullWidth
         isReversed
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
+        blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac
+        nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue
+        nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer
+        tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac
+        interdum nibh, quis dictum nulla.
+      </Villain>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders with deprecated imageSource", () => {
+    const { container } = render(
+      <Villain
+        title="H2 Heading"
+        imageSource={testImage}
+        cta={{ label: "Call to action" }}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
         blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac

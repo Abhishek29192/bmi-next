@@ -16,7 +16,7 @@ export type ClickableAction =
   | ({ model: "routerLink" } & RouterLink)
   | ({ model: "download" } & DownloadLink);
 
-type Props = {
+export type Props = {
   className?: string;
   onClick?: ClickFunction;
   children?: React.ReactNode;

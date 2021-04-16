@@ -7,8 +7,10 @@ import Form, { FormContext } from "@bmi/form";
 import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ErrorIcon from "@material-ui/icons/WarningOutlined";
+import Button, { ButtonProps } from "@bmi/button";
 import Typography from "@bmi/typography";
 import { devLog } from "../utils/devLog";
+import withGTM from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";
 import FormInputs, { Data as FormInputsData } from "./FormInputs";
 import RichText, { RichTextData } from "./RichText";
@@ -94,6 +96,8 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
     },
     [email]
   );
+
+  const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
     <>
@@ -189,6 +193,16 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
         description={description.description}
         inputLabel={inputLabel}
         inputCallToAction={submitButtonLabel}
+        buttonComponent={(props: ButtonProps) => (
+          <GTMButton
+            gtm={{
+              id: "cta-click1",
+              label: submitButtonLabel,
+              action: "Opens dialog"
+            }}
+            {...props}
+          />
+        )}
         onSubmit={(email) => {
           setEmail(email);
 

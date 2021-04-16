@@ -1,0 +1,46 @@
+{
+  "name": "@bmi/intouch-frontend",
+  "version": "0.0.0",
+  "private": true,
+  "license": "BMI-DXB",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "yarn lint --fix",
+    "coverage:jest": "jest --coverage",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook",
+    "codegen": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.7",
+    "@auth0/nextjs-auth0": "^1.2.0",
+    "@bmi/button": "0.0.0",
+    "@bmi/card": "0.0.0",
+    "@bmi/company-details": "0.0.0",
+    "@bmi/typography": "0.0.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6",
+    "next": "10.0.5",
+    "next-connect": "^0.10.1",
+    "next-fonts": "^1.5.1",
+    "next-i18next": "8.1.2",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.2.2",
+    "@storybook/addon-essentials": "^6.2.2",
+    "@storybook/addon-links": "^6.2.2",
+    "@storybook/react": "^6.2.2",
+    "storybook-addon-next-router": "^2.0.4",
+    "@graphql-codegen/typescript-operations": "^1.17.15",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.3",
+    "@graphql-codegen/typescript": "^1.21.1",
+    "@graphql-codegen/import-types-preset": "^1.18.1",
+    "graphql-codegen-apollo-next-ssr": "^1.5.0",
+    "@graphql-codegen/cli": "^1.21.3"
+  }
+}

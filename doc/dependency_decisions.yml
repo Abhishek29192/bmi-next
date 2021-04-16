@@ -167,3 +167,9 @@
     :why: Uses MIT but LicenseFinder isn't picking it up
     :versions: []
     :when: 2021-02-18 17:01:38.018397000 Z
+- - :approve
+  - axois
+  - :who: Benjamin Sproule
+    :why: Used by gatsby-source-hubspot-forms but was taken down for security reasons, so no license provide. Remove when gatsby-source-hubspot-forms is updated.
+    :versions: [0.0.1-security]
+    :when: 2021-03-29 10:50:24.257125000 Z

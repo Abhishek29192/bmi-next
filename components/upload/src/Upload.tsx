@@ -5,6 +5,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Accordion from "@bmi/accordion";
 import Icon from "@bmi/icon";
+import MicroCopy from "@bmi/micro-copy";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import classnames from "classnames";
 import { useTheme } from "@material-ui/core/styles";
@@ -30,6 +31,7 @@ export type Props = {
   mapValue?: (file: File, response: any) => any;
   fileValidation?: (file: File) => string;
   onUploadRequest?: FileProps["onRequest"];
+  microcopyProvider: Record<string, string>;
 };
 
 const Upload = ({
@@ -47,7 +49,8 @@ const Upload = ({
   mapValue,
   fileValidation,
   onChange,
-  onUploadRequest
+  onUploadRequest,
+  microcopyProvider
 }: Props) => {
   const [files, setFiles] = useState<readonly UploadFile[]>([]);
   const [dragCounter, setDragCounter] = useState(0);
@@ -162,11 +165,15 @@ const Upload = ({
                 >
                   <Icon className={styles["icon"]} source={CloudUploadIcon} />
                   <Typography className={styles["typography"]}>
-                    Drop files to upload or
+                    <MicroCopy.Provider values={microcopyProvider}>
+                      <MicroCopy path="upload.instructions.drop" />
+                    </MicroCopy.Provider>
                   </Typography>
                   {input}
                   <label htmlFor={id} className={styles["label"]}>
-                    browse
+                    <MicroCopy.Provider values={microcopyProvider}>
+                      <MicroCopy path="upload.instructions.browse" />
+                    </MicroCopy.Provider>
                   </label>
                   <Typography className={styles["instructions"]}>
                     {instructions}

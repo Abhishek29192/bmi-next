@@ -15,7 +15,8 @@ import ContactTopics, {
   Data as ContactTopicsData
 } from "../components/ContactTopics";
 import Locations, { Data as LocationsData } from "../components/Locations";
-import Video from "../components/Video";
+import { renderVideo } from "../components/Video";
+import { renderImage } from "../components/Image";
 
 type Data = PageInfoData &
   PageData & {
@@ -41,7 +42,7 @@ const ContactUsPage = ({ data }: Props) => {
   const {
     title,
     subtitle,
-    featuredImage,
+    featuredMedia,
     queriesTitle,
     queriesSubtitle,
     otherAreasTitle,
@@ -57,11 +58,9 @@ const ContactUsPage = ({ data }: Props) => {
   const heroProps: HeroItem = {
     title,
     children: subtitle,
-    imageSource: featuredVideo ? (
-      <Video data={featuredVideo} />
-    ) : (
-      featuredImage?.resize.src
-    )
+    media: featuredVideo
+      ? renderVideo(featuredVideo)
+      : renderImage(featuredMedia, { size: "cover" })
   };
   const pageData: PageData = {
     breadcrumbs,

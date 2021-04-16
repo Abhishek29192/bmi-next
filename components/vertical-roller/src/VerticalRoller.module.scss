@@ -85,19 +85,20 @@
     background-size: cover;
     background-repeat: no-repeat;
     margin-bottom: 32px;
-
-    &::before {
-      content: "";
-      width: 100%;
-      display: block;
-      padding-top: 100%;
+    &--with-image-source {
+      &::before {
+        content: "";
+        width: 100%;
+        display: block;
+        padding-top: 100%;
+      }
     }
-
     @media (min-width: $breakpoint-md) {
       height: 400px;
-
-      &::before {
-        content: none;
+      &--with-image-source {
+        &::before {
+          content: none;
+        }
       }
     }
   }
@@ -107,9 +108,10 @@
     top: 10px;
     left: 10px;
     background-color: $color-white;
-    fill: $color-slate;
+    fill: $color-white;
     padding: 5px;
     height: 50px;
+    z-index: 1;
   }
 
   .description {

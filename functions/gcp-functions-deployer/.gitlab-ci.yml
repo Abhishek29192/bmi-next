@@ -15,7 +15,7 @@ build_gcp-functions-deployer:
     paths:
       - functions/gcp-functions-deployer/dist
 
-test_cp-download-zip:
+test_gcp-functions-deployer:
   stage: test
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
@@ -27,6 +27,7 @@ test_cp-download-zip:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-functions-deployer coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 package_gcp-functions-deployer:
   stage: package

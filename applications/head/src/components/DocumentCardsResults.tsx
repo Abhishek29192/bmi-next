@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import Button from "@bmi/button";
+import Button, { ButtonProps } from "@bmi/button";
 import OverviewCard from "@bmi/overview-card";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Grid from "@bmi/grid";
+import withGTM from "../utils/google-tag-manager";
 import { Data as DocumentData } from "./Document";
 import RichText from "./RichText";
 import { SiteContext } from "./Site";
@@ -25,6 +26,8 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
     page * documentsPerPage
   );
 
+  const GTMButton = withGTM<ButtonProps>(Button);
+
   return (
     <Grid container spacing={3}>
       {paginatedDocuments.map(
@@ -37,16 +40,21 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
                 imageSource={image ? image.resize.src : undefined}
                 brandImageSource={iconMap[brand]}
                 footer={
-                  <Button
+                  <GTMButton
                     action={{
                       model: "download",
                       href: `https:${asset.file.url}`
                     }}
                     variant="outlined"
                     startIcon={<ArrowForwardIcon />}
+                    gtm={{
+                      id: "cta-click1",
+                      label: getMicroCopy("documentLibrary.card.download"),
+                      action: asset.file.url
+                    }}
                   >
                     {getMicroCopy("documentLibrary.card.download")}
-                  </Button>
+                  </GTMButton>
                 }
               >
                 {description && <RichText document={description} />}

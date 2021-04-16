@@ -7,8 +7,12 @@ import Section from "@bmi/section";
 import Select, { MenuItem } from "@bmi/select";
 import TextField from "@bmi/text-field";
 import Upload, { getFileSizeString } from "@bmi/upload";
+import RadioGroup from "@bmi/radio-group";
+import Typography from "@bmi/typography";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import InputBase from "@material-ui/core/InputBase";
+import { withFormControl } from "@bmi/form";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
@@ -31,6 +35,8 @@ const InputTypes = [
   "upload"
 ];
 
+type SourceType = "Contentful" | "HubSpot";
+
 type InputType = {
   label: string;
   name: string;
@@ -52,6 +58,8 @@ export type Data = {
   inputs: InputType[] | null;
   submitText: string | null;
   successRedirect: LinkData | null;
+  source: SourceType | null;
+  hubSpotFormGuid?: string | null;
 };
 
 const Input = ({
@@ -96,6 +104,11 @@ const Input = ({
     }
   };
 
+  // @TODO: create a separate hidden-input component
+  const HiddenField = withFormControl((props) => (
+    <InputBase {...props} type="hidden" />
+  ));
+
   switch (type) {
     case "upload":
       return (
@@ -129,7 +142,28 @@ const Input = ({
               }
             };
           }}
+          microcopyProvider={{
+            "upload.instructions.drop": getMicroCopy(
+              "upload.instructions.drop"
+            ),
+            "upload.instructions.browse": getMicroCopy(
+              "upload.instructions.browse"
+            )
+          }}
         />
+      );
+    case "radio":
+      return (
+        <div>
+          <Typography style={{ paddingBottom: "15px" }}>{label}</Typography>
+          <RadioGroup name={name}>
+            {options.split(/, |,/).map((option, $i) => (
+              <RadioGroup.Item key={$i} value={option}>
+                {option}
+              </RadioGroup.Item>
+            ))}
+          </RadioGroup>
+        </div>
       );
     case "select":
       return (
@@ -153,6 +187,25 @@ const Input = ({
           isRequired={required}
         />
       );
+    case "hubspot-text":
+      return (
+        <>
+          <Typography>
+            <span dangerouslySetInnerHTML={{ __html: label }}></span>
+          </Typography>
+          <HiddenField name={name} value={label} />
+        </>
+      );
+    case "hubspot-checkbox":
+      return (
+        <Checkbox
+          name={name}
+          label={<span dangerouslySetInnerHTML={{ __html: label }}></span>}
+          isRequired={required}
+        />
+      );
+    case "hubspot-hidden":
+      return <HiddenField name={name} value={label} />;
     case "textarea":
     case "text":
     default:
@@ -181,7 +234,9 @@ const FormSection = ({
     recipients,
     inputs,
     submitText,
-    successRedirect
+    successRedirect,
+    source,
+    hubSpotFormGuid
   },
   backgroundColor
 }: {
@@ -192,7 +247,7 @@ const FormSection = ({
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const GTMButton = withGTM<ButtonProps>(Button);
+  const GTMButton = withGTM<ButtonProps>(Button, { label: "children" });
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -245,13 +300,105 @@ const FormSection = ({
     }
   };
 
+  const handleHubSpotSubmit = async (
+    event: FormEvent<HTMLFormElement>,
+    values: Record<string, InputValue>
+  ) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+
+    const valuesArray = Object.entries(values).map(([name, value]) => ({
+      name,
+      value
+    }));
+
+    const valuesWithoutLegaConsent = valuesArray.filter(
+      (field) => field.name.substring(0, 9) !== "hs-legal-"
+    );
+
+    const hsLegalFields = valuesArray
+      .filter((field) => field.name.substring(0, 9) === "hs-legal-")
+      .reduce((acc, cur) => {
+        return { ...acc, [cur.name]: cur.value };
+      }, {});
+
+    const hsPayload = {
+      fields: valuesWithoutLegaConsent,
+      context: {
+        pageUri: window.location.href
+      }
+    };
+
+    const getLegalOptions = (hsLegalFields) => {
+      if (hsLegalFields["hs-legal-isLegitimateInterest"]) {
+        return {
+          legitimateInterest: {
+            value: true,
+            subscriptionTypeId: hsLegalFields["hs-legal-communicationTypeId"],
+            legalBasis: "LEAD",
+            text: hsLegalFields["hs-legal-privacyPolicyText"]
+          }
+        };
+      }
+      if (hsLegalFields["hs-legal-communication"]) {
+        return {
+          consent: {
+            consentToProcess:
+              hsLegalFields["hs-legal-processingConsentType"] || true,
+            text: hsLegalFields["hs-legal-processingConsentText"],
+            communications: [
+              {
+                value: hsLegalFields["hs-legal-communication"],
+                subscriptionTypeId:
+                  hsLegalFields["hs-legal-communicationTypeId"],
+                text: hsLegalFields["hs-legal-communicationConsentText"]
+              }
+            ]
+          }
+        };
+      }
+    };
+
+    try {
+      await axios.post(
+        `${process.env.GATSBY_HUBSPOT_API_URL}${process.env.GATSBY_HUBSPOT_ID}/${hubSpotFormGuid}`,
+        {
+          ...hsPayload,
+          ...(hsLegalFields
+            ? {
+                legalConsentOptions: getLegalOptions(hsLegalFields)
+              }
+            : {})
+        }
+      );
+
+      setIsSubmitting(false);
+      if (successRedirect) {
+        navigate(
+          successRedirect.url ||
+            `/${countryCode}/${successRedirect.linkedPage.path}`
+        );
+      } else {
+        navigate("/");
+      }
+    } catch (error) {
+      setIsSubmitting(false);
+      // @todo Handle error
+      console.error("Error", { error }); // eslint-disable-line
+    }
+  };
+
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && <RichText document={description} />}
       {inputs ? (
         <Form
-          onSubmit={handleSubmit}
+          onSubmit={
+            source === "HubSpot" && hubSpotFormGuid
+              ? handleHubSpotSubmit
+              : handleSubmit
+          }
           className={styles["Form"]}
           rightAlignButton
         >
@@ -264,8 +411,14 @@ const FormSection = ({
           </Grid>
           <Form.ButtonWrapper>
             <Form.SubmitButton
-              component={(props) => (
-                <GTMButton gtm={{ id: "form-button1" }} {...props} />
+              component={(props: ButtonProps) => (
+                <GTMButton
+                  gtm={{
+                    id: "form-button1",
+                    action: title
+                  }}
+                  {...props}
+                />
               )}
               endIcon={
                 isSubmitting ? (
@@ -315,5 +468,7 @@ export const query = graphql`
     successRedirect {
       ...LinkFragment
     }
+    source
+    hubSpotFormGuid
   }
 `;

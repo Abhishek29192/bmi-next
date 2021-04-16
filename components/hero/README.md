@@ -7,6 +7,8 @@ import Breadcrumbs from "@bmi/breadcrumbs";
 import Typography from "@bmi/typography";
 import imageSource from "./images/demo-tiles.jpg";
 
+const media = <img src={imageSource} alt="Just some tiles" />;
+
 const breadcrumbNode = (
   <Breadcrumbs isDarkThemed>
     <Breadcrumbs.Item linkComponent="a" href="/">
@@ -18,7 +20,7 @@ const breadcrumbNode = (
 
 <Hero
   breadcrumbs={breadcrumbNode}
-  imageSource={imageSource}
+  media={media}
   title="H1 Heading desktop dark BG"
   level={1}
 >
@@ -94,7 +96,7 @@ import thirdImageSource from "./images/demo-house.png";
       title: "H1 First heading dark background",
       children:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.",
-      imageSource: firstImageSource,
+      media: <img src={firstImageSource} alt="first image source" />,
       CTA: {
         label: "Call to Action Button"
       }
@@ -103,7 +105,7 @@ import thirdImageSource from "./images/demo-house.png";
       title: "H1 Second heading dark background",
       children:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
-      imageSource: secondImageSource,
+      media: <img src={secondImageSource} alt="second image source" />,
       CTA: {
         label: "Call to Action Button"
       }
@@ -112,7 +114,7 @@ import thirdImageSource from "./images/demo-house.png";
       title: "H1 Third heading dark background",
       children:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
-      imageSource: thirdImageSource,
+      media: <img src={thirdImageSource} alt="third image source" />,
       CTA: {
         label: "Call to Action Button"
       }
@@ -129,9 +131,41 @@ import thirdImageSource from "./images/demo-house.png";
 import YoutubeVideo from "@bmi/youtube-video";
 
 <Hero
-  imageSource={
+  media={
     <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
   }
+  title="H1 Heading desktop dark BG"
+  level={1}
+>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt
+  quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor
+  nisl, nec vestibulum odio molestie tincidunt.
+</Hero>;
+```
+
+### With Deprecated `imageSource`
+
+The property `imageSource` got deprecated, the correct implementation, as shown in the previous examples, is to use a React Node instead.
+
+However, this component still handles this property.
+
+```jsx
+import Breadcrumbs from "@bmi/breadcrumbs";
+import Typography from "@bmi/typography";
+import imageSource from "./images/demo-tiles.jpg";
+
+const breadcrumbNode = (
+  <Breadcrumbs isDarkThemed>
+    <Breadcrumbs.Item linkComponent="a" href="/">
+      Home
+    </Breadcrumbs.Item>
+    <Breadcrumbs.Item>Level 1 Page Name</Breadcrumbs.Item>
+  </Breadcrumbs>
+);
+
+<Hero
+  breadcrumbs={breadcrumbNode}
+  imageSource={imageSource}
   title="H1 Heading desktop dark BG"
   level={1}
 >

@@ -42,7 +42,6 @@ import styles from "./styles/ServiceLocatorSection.module.scss";
 type Roofer = RooferData & {
   distance?: number;
 };
-
 export type Data = {
   __typename: "ContentfulServiceLocatorSection";
   title: string;
@@ -50,21 +49,22 @@ export type Data = {
   body: RichTextData | null;
   roofers: Roofer[] | null;
   position: number;
+  centre: {
+    lat: number;
+    lon: number;
+  } | null;
+  zoom: number | null;
 };
 
 // TODO: Maybe calculate this from `range`?
 const PLACE_LEVEL_ZOOM = 8;
 
-// TODO: dynamically set center and boundaries based on market country
-// Tracked by: https://bmigroup.atlassian.net/browse/DXB-1561
-// Centre for Norway
-const initialMapCenter = {
+const DEFAULT_MAP_CENTRE = {
   lat: 60.47202399999999,
   lng: 8.468945999999999
 };
 
-// Zoom for norway
-const initialMapZoom = 5;
+const DEFAULT_LEVEL_ZOOM = 5;
 
 // TODO: Cast this properly.
 const initialActiveFilters = rooferTypes.reduce(
@@ -109,14 +109,23 @@ const IntegratedLinkCard = ({
 };
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
-  const { label, body, roofers, position } = data;
+  const {
+    label,
+    body,
+    roofers,
+    position,
+    centre: initialMapCentre,
+    zoom: initialMapZoom
+  } = data;
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<Roofer>(null);
   const [centre, setCentre] = useState<GoogleLatLngLiteral>();
-  const [zoom, setZoom] = useState<number>(5);
+  const [zoom, setZoom] = useState<number>(
+    initialMapZoom || DEFAULT_LEVEL_ZOOM
+  );
   const [activeSearchString, setActiveSearchString] = useState<string>("");
   const [activeFilters, updateActiveFilters] = useReducer(
     activeFilterReducer,
@@ -210,10 +219,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setSelectedRoofer(roofer);
   };
 
-  const handlePlaceChange = (location: GoogleGeocoderResult) => {
+  const handlePlaceChange = (location?: GoogleGeocoderResult) => {
     // We want to clear the roofer whenever the place changes.
     setSelectedRoofer(null);
-    setZoom(location ? PLACE_LEVEL_ZOOM : initialMapZoom);
+    setZoom(location ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
     setCentre(
       location
         ? {
@@ -230,7 +239,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const clearRooferAndResetMap = () => {
     setSelectedRoofer(null);
-    setZoom(centre ? PLACE_LEVEL_ZOOM : initialMapZoom);
+    setZoom(centre ? PLACE_LEVEL_ZOOM : initialMapZoom || DEFAULT_LEVEL_ZOOM);
     setCentre(centre || null);
   };
 
@@ -492,7 +501,14 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           >
             <div className={styles["map"]}>
               <GoogleMap
-                center={centre || initialMapCenter}
+                center={
+                  centre ||
+                  (initialMapCentre && {
+                    lat: initialMapCentre.lat,
+                    lng: initialMapCentre.lon
+                  }) ||
+                  DEFAULT_MAP_CENTRE
+                }
                 markers={markers}
                 onMarkerClick={handleMarkerClick}
                 zoom={zoom}
@@ -546,5 +562,10 @@ export const query = graphql`
     roofers {
       ...RooferFragment
     }
+    centre {
+      lat
+      lon
+    }
+    zoom
   }
 `;

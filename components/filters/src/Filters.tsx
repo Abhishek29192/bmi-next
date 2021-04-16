@@ -1,6 +1,7 @@
 import React from "react";
 import DefaultCheckbox from "@bmi/checkbox";
 import Typography from "@bmi/typography";
+import MicroCopy from "@bmi/micro-copy";
 import Accordion from "@bmi/accordion";
 import styles from "./Filters.module.scss";
 
@@ -11,7 +12,7 @@ type FilterOption = {
 };
 
 type Filter = {
-  label: React.ReactNode;
+  label: string;
   name: string;
   value?: ReadonlyArray<string>;
   options: ReadonlyArray<FilterOption>;
@@ -21,12 +22,14 @@ export type Props = {
   filters: ReadonlyArray<Filter>;
   onChange?: (filterName: string, filterValue: string, value: boolean) => void;
   checkboxComponent?: React.ComponentType<any>; // TODO
+  accordionSummaryComponent?: React.ComponentType<any>; // TODO
 };
 
 const Filters = ({
   filters,
   onChange,
-  checkboxComponent: Checkbox = DefaultCheckbox
+  checkboxComponent: Checkbox = DefaultCheckbox,
+  accordionSummaryComponent: AccordionSummary = Accordion.Summary
 }: Props) => {
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);
@@ -51,7 +54,9 @@ const Filters = ({
           return (
             <Accordion.Item key={filter.name}>
               <Accordion.Summary>
-                <Typography variant="h6">{filter.label}</Typography>
+                <Typography variant="h6">
+                  <MicroCopy path={filter.label} />
+                </Typography>
               </Accordion.Summary>
               <Accordion.Details>
                 <div className={styles["list"]}>

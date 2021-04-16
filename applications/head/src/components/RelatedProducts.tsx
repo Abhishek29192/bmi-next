@@ -5,7 +5,7 @@ import { Tab, TabProps } from "@material-ui/core";
 import { Add as AddIcon } from "@material-ui/icons";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
-import AnchorLink from "@bmi/anchor-link";
+import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
 import withGTM from "../utils/google-tag-manager";
@@ -85,6 +85,8 @@ const ProductListing = ({
     return null;
   }
 
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+
   return (
     <>
       <Grid container spacing={3}>
@@ -92,6 +94,7 @@ const ProductListing = ({
           const { _product: product } = variant;
           const brandLogoCode = findProductBrandLogoCode(product);
           const brandLogo = iconMap[brandLogoCode];
+          const productUrl = getProductUrl(countryCode, variant.path);
 
           const mainImage = findMasterImageUrl([
             ...(variant.images || []),
@@ -121,16 +124,21 @@ const ProductListing = ({
                 imageSource={mainImage}
                 brandImageSource={brandLogo}
                 footer={
-                  <AnchorLink
+                  <GTMAnchorLink
                     iconEnd
                     action={{
                       model: "routerLink",
                       linkComponent: Link,
-                      to: getProductUrl(countryCode, variant.path)
+                      to: productUrl
+                    }}
+                    gtm={{
+                      id: "cta-click1",
+                      label: getMicroCopy("pdp.relatedProducts.viewDetails"),
+                      action: productUrl
                     }}
                   >
                     {getMicroCopy("pdp.relatedProducts.viewDetails")}
-                  </AnchorLink>
+                  </GTMAnchorLink>
                 }
               >
                 {variant.externalProductCode !== null &&

@@ -57,6 +57,21 @@ const writeSql = (dataModel, service) => {
     output += table.getPostgresComment();
     output += "\n\n";
   });
+
+  tables.forEach((table) => {
+    output += table.getSequence();
+    output += "\n";
+  });
+  output += "\n";
+  output += dataModel.getDefaultFunctions();
+
+  dataModel.triggers
+    .filter((item) => item.service === service)
+    .forEach((dropdown) => {
+      output += dropdown.getPostgresCreate();
+    });
+  output += "\n\n";
+
   writeFile(`${service.toLowerCase()}.sql`, output);
 };
 

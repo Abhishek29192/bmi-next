@@ -13,7 +13,7 @@ const MicroCopy = ({ path, placeholders = {} }: Props) => {
     (carry, [key, value]) => {
       return carry.replaceAll(`{{${key}}}`, value);
     },
-    values[path] || `MC: ${path}`
+    values[path] || path
   );
 
   return <>{value}</>;

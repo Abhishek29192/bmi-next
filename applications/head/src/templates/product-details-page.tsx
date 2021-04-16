@@ -26,6 +26,8 @@ import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
+import { renderVideo } from "../components/Video";
+import { renderImage } from "../components/Image";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -52,7 +54,7 @@ type Asset = {
 
 export type ClassificationFeatureValue = {
   value: string;
-  code?: string; // This doesn't exist on some Features... perhaps we can be more specific with the types
+  code: string | null; // This doesn't exist on some Features... perhaps we can be more specific with the types
 };
 
 type ClassificationFeatureUnit = {
@@ -140,6 +142,13 @@ type Props = {
   };
 };
 
+const transformImages = (images) => {
+  return images.map(({ mainSource, thumbnail, altText }) => ({
+    media: <img src={mainSource} alt={altText} />,
+    thumbnail
+  }));
+};
+
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
 
@@ -209,10 +218,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   name: product.name,
                   brandName: brandCode || "",
                   nobb: selfProduct.externalProductCode || null,
-                  images: mapGalleryImages([
-                    ...(selfProduct.images || []),
-                    ...(product.images || [])
-                  ]),
+                  images: transformImages(
+                    mapGalleryImages([
+                      ...(selfProduct.images || []),
+                      ...(product.images || [])
+                    ])
+                  ),
                   attributes: getProductAttributes(
                     productClassifications,
                     selfProduct,
@@ -268,8 +279,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           <Section.Title>{resources.pdpCardsTitle}</Section.Title>
           <Grid container spacing={3}>
             {resources.pdpCards.map(
-              ({ title, featuredImage, ...data }, index, cards) => {
-                const { action } = getCTA(data, countryCode);
+              (
+                { title, featuredVideo, featuredMedia, ...data },
+                index,
+                cards
+              ) => {
+                const cta = getCTA(data, countryCode);
                 return (
                   <Grid
                     item
@@ -281,8 +296,13 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   >
                     <CTACard
                       title={title}
-                      imageSource={featuredImage?.resized?.src}
-                      action={action}
+                      media={
+                        featuredVideo
+                          ? renderVideo(featuredVideo)
+                          : renderImage(featuredMedia)
+                      }
+                      clickableArea={featuredVideo ? "heading" : "full"}
+                      action={cta?.action}
                     />
                   </Grid>
                 );

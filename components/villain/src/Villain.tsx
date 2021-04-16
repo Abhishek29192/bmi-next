@@ -12,13 +12,18 @@ import ColorPair, { Colors } from "@bmi/color-pair";
 import Grid from "@bmi/grid";
 import { SectionContext } from "@bmi/section";
 import Typography from "@bmi/typography";
+import Media, { AcceptedNode } from "@bmi/media";
 import classnames from "classnames";
 import styles from "./Villain.module.scss";
 
 export type Props = {
   children: React.ReactNode;
   title: React.ReactNode;
+  /**
+   * @deprecated Use `media` instead.
+   */
   imageSource?: string | React.ReactNode;
+  media?: React.ReactElement<AcceptedNode>;
   isFullWidth?: boolean;
   isReversed?: boolean;
   cta?: {
@@ -33,6 +38,7 @@ const FullSizeVillain = ({
   title,
   isReversed,
   imageSource,
+  media,
   cta,
   theme
 }: Omit<Props, "isFullWidth">) => {
@@ -66,16 +72,19 @@ const FullSizeVillain = ({
           )}
         </div>
       </Container>
-      <div
-        style={
-          typeof imageSource === "string"
-            ? { backgroundImage: `url(${imageSource})` }
-            : {}
-        }
-        className={styles["image"]}
-      >
-        {typeof imageSource !== "string" && imageSource}
-      </div>
+      {imageSource ? (
+        <div
+          style={
+            typeof imageSource === "string"
+              ? { backgroundImage: `url(${imageSource})` }
+              : {}
+          }
+          className={styles["image"]}
+        >
+          {typeof imageSource !== "string" && imageSource}
+        </div>
+      ) : null}
+      <Media className={styles["image"]}>{media}</Media>
     </ColorPair>
   );
 };
@@ -85,6 +94,7 @@ const ContainedVillain = ({
   title,
   isReversed,
   imageSource,
+  media,
   cta,
   theme
 }: Omit<Props, "isFullWidth">) => {
@@ -134,18 +144,24 @@ const ContainedVillain = ({
             </ColorPair>
           </Grid>
           <Grid item xs={12} sm={8}>
-            <div
-              style={
-                typeof imageSource === "string"
-                  ? { backgroundImage: `url(${imageSource})` }
-                  : {}
-              }
-              className={styles["image"]}
-            >
-              {typeof imageSource !== "string" &&
-                React.isValidElement(imageSource) &&
-                React.cloneElement(imageSource)}
-            </div>
+            {imageSource ? (
+              <div
+                style={
+                  typeof imageSource === "string"
+                    ? { backgroundImage: `url(${imageSource})` }
+                    : {}
+                }
+                className={styles["image"]}
+              >
+                {typeof imageSource !== "string" && imageSource}
+              </div>
+            ) : null}
+            {media ? (
+              // NOTE: This is necessary to maintain `imageSource`.
+              <div className={styles["image"]}>
+                <Media className={styles["media"]}>{media}</Media>
+              </div>
+            ) : null}
           </Grid>
         </Grid>
       </ThemeProvider>

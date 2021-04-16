@@ -12,6 +12,7 @@ test_gcp-upload-file:
     - yarn config set cache-folder ~/.yarn
   script:
     - yarn workspace @bmi/gcp-upload-file coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 build_gcp-upload-file:
   stage: build

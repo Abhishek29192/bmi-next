@@ -34,6 +34,7 @@ type NavigationProps = {
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
   languageLabel?: string;
+  sizes?: any;
 };
 
 const Navigation = ({
@@ -47,14 +48,20 @@ const Navigation = ({
   utilities,
   languageLabel,
   mainMenuTitleLabel,
-  mainMenuDefaultLabel
+  mainMenuDefaultLabel,
+  sizes
 }: NavigationProps) => {
   const [depth, setDepth] = React.useState<number>(0);
 
   React.useEffect(() => setDepth(initialDepth), [initialDepth]);
 
   return (
-    <nav className={styles["Navigation"]}>
+    <nav
+      className={classnames(
+        styles["Navigation"],
+        ...sizes.map((size) => styles[`Navigation--${size}`])
+      )}
+    >
       <NavigationList
         buttonComponent={buttonComponent}
         promoButtonComponent={promoButtonComponent}
@@ -189,7 +196,9 @@ const NavigationList = ({
                   component={Button}
                   active={value === key}
                   accessibilityLabel={label}
-                  startIcon={icon && <Icon source={icon} />}
+                  startIcon={
+                    icon && <Icon className={styles["icon"]} source={icon} />
+                  }
                   endIcon={<ChevronRight className={styles["chevronRight"]} />}
                   onClick={() => handleClick(key)}
                 >
@@ -244,13 +253,16 @@ const NavigationList = ({
                         action={action}
                         accessibilityLabel={label}
                         startIcon={
-                          icon && isLabelHidden && <Icon source={icon} />
+                          icon &&
+                          isLabelHidden && (
+                            <Icon className={styles["icon"]} source={icon} />
+                          )
                         }
                         endIcon={
                           icon &&
                           !isLabelHidden && (
                             <span className={styles["icon-wrapper"]}>
-                              <Icon source={icon} />
+                              <Icon className={styles["icon"]} source={icon} />
                             </span>
                           )
                         }

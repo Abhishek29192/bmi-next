@@ -6,6 +6,8 @@ import PromoSection from "@bmi/promo-section";
 import Page from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import { getClickableActionFromUrl } from "../components/Link";
+import { renderImage } from "../components/Image";
+import { renderVideo } from "../components/Video";
 
 type Data = {
   allContentfulSite: {
@@ -25,7 +27,8 @@ const FourOFour = ({ data }: { data: Data }) => {
       linkedPage: undefined,
       url: undefined
     },
-    featuredImage = null
+    featuredMedia = null,
+    featuredVideo = null
   } = errorFourOFour || {};
 
   return (
@@ -34,7 +37,14 @@ const FourOFour = ({ data }: { data: Data }) => {
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={siteData}
     >
-      <PromoSection title={title} imageSource={featuredImage?.file.url}>
+      <PromoSection
+        title={title}
+        media={
+          featuredVideo
+            ? renderVideo(featuredVideo)
+            : renderImage(featuredMedia)
+        }
+      >
         <Typography variant="body2" gutterBottom>
           {subtitle}
         </Typography>

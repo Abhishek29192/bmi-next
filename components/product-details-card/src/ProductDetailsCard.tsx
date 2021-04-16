@@ -1,12 +1,17 @@
 import React from "react";
-import classnames from "classnames";
 import { ClickableAction } from "@bmi/clickable";
+import Media, { AcceptedNode } from "@bmi/media";
 import Typography from "@bmi/typography";
 import AnchorLink from "@bmi/anchor-link";
+import MicroCopy from "@bmi/micro-copy";
 import styles from "./ProductDetailsCard.module.scss";
 
 type Props = {
-  imageSource: string;
+  /**
+   * @deprecated Use `media` instead.
+   */
+  imageSource?: string;
+  media?: React.ReactElement<AcceptedNode>;
   brandLogo: SVGImport;
   title: React.ReactNode;
   nnob: React.ReactNode;
@@ -14,8 +19,24 @@ type Props = {
   linkLabel: React.ReactNode;
 };
 
+const __DeprecatedImageSource = ({
+  imageSource
+}: Pick<Props, "imageSource">) => {
+  if (!imageSource) {
+    return null;
+  }
+
+  return (
+    <div
+      className={styles["header-picture"]}
+      style={{ backgroundImage: `url(${imageSource})` }}
+    />
+  );
+};
+
 const ProductDetailsCard = ({
   imageSource,
+  media,
   brandLogo,
   title,
   nnob,
@@ -26,10 +47,10 @@ const ProductDetailsCard = ({
 
   return (
     <div className={styles["OverviewCard"]}>
-      <div
-        className={styles["header-picture"]}
-        style={{ backgroundImage: `url(${imageSource})` }}
-      />
+      <__DeprecatedImageSource imageSource={imageSource} />
+      <Media className={styles["header-picture"]} size="contain">
+        {media}
+      </Media>
       <div className={styles["body"]}>
         <BrandLogo
           preserveAspectRatio="xMinYMin"
@@ -39,7 +60,8 @@ const ProductDetailsCard = ({
           {title}
         </Typography>
         <Typography>
-          NOBB number: <span className={styles["bold-nobb"]}>{nnob}</span>
+          <MicroCopy path="productDetailsCard.externalRefLabel" />:{" "}
+          <span className={styles["bold-nobb"]}>{nnob}</span>
         </Typography>
         <AnchorLink action={action} iconEnd className={styles["link"]}>
           {linkLabel}
