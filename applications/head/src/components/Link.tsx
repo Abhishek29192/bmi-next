@@ -87,9 +87,9 @@ export const getClickableActionFromUrl = (
 
 export const getCTA = (
   data:
-    | Pick<PromoData, "__typename" | "cta">
-    | Pick<PageInfoData, "__typename" | "path">
-    | Pick<SimplePageData, "__typename" | "cta">,
+    | Pick<PromoData, "cta">
+    | Pick<PageInfoData, "path">
+    | Pick<SimplePageData, "cta">,
   countryCode: string,
   linkLabel?: string
 ) => {

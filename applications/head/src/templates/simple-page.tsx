@@ -81,7 +81,7 @@ const SimplePage = ({ data }: Props) => {
     media: featuredVideo
       ? renderVideo(featuredVideo)
       : renderImage(featuredMedia, { size: "cover" }),
-    CTA:
+    cta:
       cta &&
       getCTA(
         data.contentfulSimplePage,

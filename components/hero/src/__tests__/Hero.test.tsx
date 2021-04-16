@@ -25,7 +25,7 @@ describe("Hero component", () => {
         media={<img src={imageSource} alt="Lorem ipsum" />}
         title="H1 Heading"
         level={1}
-        CTA={{ label: "CTA action" }}
+        cta={{ label: "CTA action" }}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
         tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus

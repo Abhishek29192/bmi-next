@@ -16,7 +16,7 @@ const Homepage = () => {
             children:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.",
             imageSource: "https://source.unsplash.com/random/1200x1200",
-            CTA: {
+            cta: {
               label: "Call to Action Button"
             }
           },
@@ -25,7 +25,7 @@ const Homepage = () => {
             children:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
             imageSource: "https://source.unsplash.com/random/1200x1200",
-            CTA: {
+            cta: {
               label: "Call to Action Button"
             }
           },
@@ -34,7 +34,7 @@ const Homepage = () => {
             children:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
             imageSource: "https://source.unsplash.com/random/1200x1200",
-            CTA: {
+            cta: {
               label: "Call to Action Button"
             }
           }
