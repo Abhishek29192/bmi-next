@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
-    "coverage:jest": "jest --coverage",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook",
     "codegen": "graphql-codegen --config codegen.yml"

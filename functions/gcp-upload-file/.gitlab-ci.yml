@@ -13,6 +13,11 @@ test_gcp-upload-file:
   script:
     - yarn workspace @bmi/gcp-upload-file coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/gcp-upload-file/junit.xml
 
 build_gcp-upload-file:
   stage: build
