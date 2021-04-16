@@ -6,7 +6,6 @@ import Icon, { iconMap } from "@bmi/icon";
 import Table from "@bmi/table";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
 import axios from "axios";
-import { flatten } from "lodash";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
@@ -69,6 +68,8 @@ const DesktopDocumentTechnicalTableResults = ({
           label: "Download",
           action: asset.url
         }}
+        className={styles["external-download-button"]}
+        disableTouchRipple={true}
       >
         <Icon
           source={iconMap.External}
@@ -125,6 +126,8 @@ const DesktopDocumentTechnicalTableResults = ({
             Object.values(assets).map((asset) => asset.url)
           )
         }}
+        disableTouchRipple={true}
+        className={styles["external-download-button"]}
       >
         <Icon source={iconMap.FileZIP} className={styles["format-icon"]} />
       </GTMButton>

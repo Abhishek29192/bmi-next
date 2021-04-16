@@ -88,7 +88,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               >
                 <button
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://localhost/pim-link-document-id\\\\\\",\\\\\\"http://localhost/pim-link-document-id\\\\\\"]\\"}"
                   tabindex="0"
                   type="button"
@@ -168,7 +168,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               >
                 <button
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://localhost/pim-link-document-id\\\\\\",\\\\\\"http://localhost/pim-link-document-id\\\\\\"]\\"}"
                   tabindex="0"
                   type="button"
@@ -430,7 +430,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 <a
                   aria-disabled="false"
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                   href="http://localhost/pim-link-document-id"
                   rel="noopener noreferrer"
@@ -527,7 +527,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 <a
                   aria-disabled="false"
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                   href="http://localhost/pim-link-document-id"
                   rel="noopener noreferrer"
@@ -765,7 +765,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                 <a
                   aria-disabled="false"
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                   href="http://localhost/pim-link-document-id"
                   rel="noopener noreferrer"
@@ -848,7 +848,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                 <a
                   aria-disabled="false"
                   aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
+                  class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text external-download-button"
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
                   href="http://localhost/pim-link-document-id"
                   rel="noopener noreferrer"

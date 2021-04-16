@@ -30,7 +30,8 @@ const fileIconsMap: Record<Format, React.ComponentType> = {
   "application/pdf": iconMap.FilePDF,
   "image/jpg": iconMap.FileJPG,
   "image/jpeg": iconMap.FileJPEG,
-  "image/png": iconMap.FilePNG
+  "image/png": iconMap.FilePNG,
+  "application/zip": iconMap.FileZIP
 };
 
 const GTMButton = withGTM<
