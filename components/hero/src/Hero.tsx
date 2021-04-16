@@ -212,7 +212,19 @@ const SingleHero = ({
               {title}
             </Typography>
             {levelProps.level === 1 && (
-              <div className={styles["text"]}>{levelProps.children}</div>
+              <>
+                <div className={styles["text"]}>{levelProps.children}</div>
+                {levelProps?.CTA?.label && (
+                  <Button
+                    className={styles["cta"]}
+                    variant="outlined"
+                    hasDarkBackground
+                    {...levelProps.CTA}
+                  >
+                    {levelProps.CTA.label}
+                  </Button>
+                )}
+              </>
             )}
           </div>
         </div>

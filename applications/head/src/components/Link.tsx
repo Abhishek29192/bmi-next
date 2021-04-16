@@ -1,6 +1,7 @@
 import { ClickableAction } from "@bmi/clickable";
 import { graphql, Link } from "gatsby";
 import { pushToDataLayer } from "../utils/google-tag-manager";
+import { Data as SimplePageData } from "../templates/simple-page";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as PromoData } from "./Promo";
@@ -87,11 +88,12 @@ export const getClickableActionFromUrl = (
 export const getCTA = (
   data:
     | Pick<PromoData, "__typename" | "cta">
-    | Pick<PageInfoData, "__typename" | "path">,
+    | Pick<PageInfoData, "__typename" | "path">
+    | Pick<SimplePageData, "__typename" | "cta">,
   countryCode: string,
   linkLabel?: string
 ) => {
-  if (data.__typename === "ContentfulPromo") {
+  if ("cta" in data) {
     if (!data.cta) {
       return null;
     }
@@ -111,6 +113,7 @@ export const getCTA = (
   }
 
   const { path } = data;
+  if (!path) return null;
 
   return {
     action: getClickableActionFromUrl(

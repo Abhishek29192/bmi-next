@@ -19,6 +19,22 @@ describe("Hero component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("renders level 1 with CTA", () => {
+    const { container } = render(
+      <Hero
+        media={<img src={imageSource} alt="Lorem ipsum" />}
+        title="H1 Heading"
+        level={1}
+        CTA={{ label: "CTA action" }}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
+        tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus
+        suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+      </Hero>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it("renders with deprecated imageSource", () => {
     const { container } = render(
       <Hero imageSource={imageSource} title="H1 Heading" level={1}>

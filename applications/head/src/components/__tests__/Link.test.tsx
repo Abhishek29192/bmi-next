@@ -54,5 +54,67 @@ describe("Icon component", () => {
         )
       ).toMatchSnapshot();
     });
+
+    it("returns a null object with page without path", () => {
+      expect(
+        getCTA(
+          {
+            __typename: "ContentfulContactUsPage",
+            path: null
+          },
+          "no",
+          "Go to Page"
+        )
+      ).toMatchSnapshot();
+    });
+
+    it("returns a null object with page with empty path", () => {
+      expect(
+        getCTA(
+          {
+            __typename: "ContentfulContactUsPage",
+            path: ""
+          },
+          "no",
+          "Go to Page"
+        )
+      ).toMatchSnapshot();
+    });
+
+    it("returns a cta object with a simple page cta", () => {
+      expect(
+        getCTA(
+          {
+            __typename: "ContentfulSimplePage",
+            cta: {
+              __typename: "ContentfulLink",
+              id: "string",
+              label: "string",
+              icon: null,
+              isLabelHidden: null,
+              url: "https://www.external.co.uk",
+              linkedPage: null,
+              type: "External",
+              parameters: null
+            }
+          },
+          "no",
+          "Go to Page"
+        )
+      ).toMatchSnapshot();
+    });
+
+    it("returns a null object when a simple page without cta", () => {
+      expect(
+        getCTA(
+          {
+            __typename: "ContentfulSimplePage",
+            cta: null
+          },
+          "no",
+          "Go to Page"
+        )
+      ).toMatchSnapshot();
+    });
   });
 });
