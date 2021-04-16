@@ -1,6 +1,7 @@
 image: node:12
 
 include:
+  - template: Code-Quality.gitlab-ci.yml
   - template: Security/SAST.gitlab-ci.yml
   - template: Security/Secret-Detection.gitlab-ci.yml
   - local: "/applications/frc-website/.gitlab-ci.yml"
@@ -22,6 +23,11 @@ include:
 
 .sast-analyzer:
   allow_failure: false
+
+code_quality:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 sast:
   stage: test
