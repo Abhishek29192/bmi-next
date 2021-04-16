@@ -7,14 +7,25 @@ require("dotenv").config({
 
 const { GOOGLE_YOUTUBE_API_KEY } = process.env;
 
-const youtube = google.youtube({
-  version: "v3",
-  auth: GOOGLE_YOUTUBE_API_KEY
-});
+const youtube = GOOGLE_YOUTUBE_API_KEY
+  ? google.youtube({
+      version: "v3",
+      auth: GOOGLE_YOUTUBE_API_KEY
+    })
+  : null;
 
 module.exports = {
   videoRatio: {
     async resolve(source) {
+      if (!youtube) {
+        if (process.env.NODE_ENV === "production") {
+          throw new Error(
+            "resolvers.ContentfulVideo: GOOGLE_YOUTUBE_API_KEY is missing."
+          );
+        }
+        return { height: 16, width: 9 };
+      }
+
       const { data } = await youtube.videos.list({
         part: ["player"],
         id: [source.youtubeId],
