@@ -3,6 +3,7 @@
 @types/**
 coverage/**
 coverage-ts/**
+**/public/**
 
 # ESLint config files are JS source files nonetheless
 !**/.eslintrc.js

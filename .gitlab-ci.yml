@@ -58,8 +58,8 @@ cache:
 stages:
   - install
   - audit
-  - build
   - test
+  - build
   - release
   - package
   - deploy
