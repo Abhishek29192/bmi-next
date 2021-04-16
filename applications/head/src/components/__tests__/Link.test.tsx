@@ -24,7 +24,6 @@ describe("Icon component", () => {
       expect(
         getCTA(
           {
-            __typename: "ContentfulPromo",
             cta: {
               __typename: "ContentfulLink",
               id: "string",
@@ -46,7 +45,6 @@ describe("Icon component", () => {
       expect(
         getCTA(
           {
-            __typename: "ContentfulContactUsPage",
             path: "/contact-us"
           },
           "no",
@@ -59,7 +57,6 @@ describe("Icon component", () => {
       expect(
         getCTA(
           {
-            __typename: "ContentfulContactUsPage",
             path: null
           },
           "no",
@@ -72,7 +69,6 @@ describe("Icon component", () => {
       expect(
         getCTA(
           {
-            __typename: "ContentfulContactUsPage",
             path: ""
           },
           "no",
@@ -85,7 +81,6 @@ describe("Icon component", () => {
       expect(
         getCTA(
           {
-            __typename: "ContentfulSimplePage",
             cta: {
               __typename: "ContentfulLink",
               id: "string",
@@ -108,7 +103,6 @@ describe("Icon component", () => {
       expect(
         getCTA(
           {
-            __typename: "ContentfulSimplePage",
             cta: null
           },
           "no",
