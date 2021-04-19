@@ -20,6 +20,7 @@ const {
   PIM_CLIENT_ID,
   PIM_CLIENT_SECRET,
   PIM_HOST,
+  PIM_CATALOG_NAME,
   SECRET_MAN_GCP_PROJECT_NAME
 } = process.env;
 
@@ -96,7 +97,7 @@ const fetchData = async (path = "/") => {
     redirect
   };
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`;
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}${path}`;
 
   // eslint-disable-next-line no-console
   console.log(`FETCH: ${fullPath}`);
