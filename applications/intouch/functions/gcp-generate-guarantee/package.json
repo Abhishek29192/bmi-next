@@ -1,22 +1,24 @@
 {
-  "name": "@bmi/gcp-intouch-generate-guarantee",
-  "license": "BMI-DXB",
+  "name": "@bmi/gcp-generate-guarantee",
   "version": "1.0.3",
+  "license": "BMI-DXB",
   "main": "dist/index.js",
   "private": true,
   "scripts": {
+    "build": "tsc -p .",
+    "build:pdf-library": "yarn workspace react-pdf-maker build",
+    "dev": "yarn build:pdf-library && tsc && concurrently \"tsc -w\" \"nodemon src/index.ts\"",
     "start": "node dist/index.js",
-    "dev": "tsc && concurrently \"tsc -w\" \"nodemon src/index.ts\"",
-    "build": "tsc -p ."
+    "test": "node dist/test"
   },
   "dependencies": {
+    "@bmi/intouch-shared-types": "0.0.0",
+    "@sendgrid/mail": "^7.4.2",
+    "pdf-lib": "^1.16.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
-    "pdf-lib": "^1.16.0",
-    "@sendgrid/mail": "^7.4.2",
-    "react-pdf-maker": "0.0.0",
-    "@bmi/intouch-shared-types": "^0.0.0"
+    "react-pdf-maker": "0.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.20",

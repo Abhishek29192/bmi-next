@@ -13,10 +13,10 @@
     "@bmi/button": "0.0.0",
     "@bmi/container": "0.0.0",
     "@bmi/icon": "0.0.0",
-    "@bmi/styles": "0.0.0",
     "@bmi/logo": "0.0.0",
-    "@material-ui/icons": "^4.9.1",
+    "@bmi/styles": "0.0.0",
     "@material-ui/core": "^4.10.1",
+    "@material-ui/icons": "^4.9.1",
     "classnames": "^2.2.6",
     "react": "^16.13.1"
   }

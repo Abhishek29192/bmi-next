@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "license": "BMI-DXB",
   "main": "cli.js",
-  "bin": {
-    "migrate": "./cli.js"
-  },
+  "bin": "./cli.js",
   "scripts": {
     "createRoles": "./createRoles.js",
     "content-download": "./content-download.sh",
