@@ -65,9 +65,9 @@ cache:
     - ".yarn_cache"
 
 variables:
-  FF_USE_FASTZIP: "false"
-  ARTIFACT_COMPRESSION_LEVEL: fast
-  CACHE_COMPRESSION_LEVEL: fast
+  FF_USE_FASTZIP: "true"
+  ARTIFACT_COMPRESSION_LEVEL: fastest
+  CACHE_COMPRESSION_LEVEL: fastest
   TRANSFER_METER_FREQUENCY: 5s
 
 stages:

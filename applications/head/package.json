@@ -21,7 +21,8 @@
     "check:ts": "tsc",
     "build": "gatsby build --prefix-paths",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "microcopy": "node ./scripts/get-microcopy.js"
+    "microcopy": "node ./scripts/get-microcopy.js",
+    "lighthouse": "yarn lhci autorun"
   },
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^1.2.4",

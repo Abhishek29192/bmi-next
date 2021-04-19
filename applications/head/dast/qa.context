@@ -4,7 +4,7 @@
         <name>Head QA</name>
         <desc/>
         <inscope>true</inscope>
-        <incregexes>https://bmi-dxb-head-qa.netlify.app.*</incregexes>
+        <incregexes>https://.*bmi-dxb-head-qa.netlify.app.*</incregexes>
         <tech>
             <include>Db</include>
             <include>Db.CouchDB</include>
