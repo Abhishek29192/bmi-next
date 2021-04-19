@@ -95,6 +95,7 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{
             "Content-Type": "application/octet-stream"
