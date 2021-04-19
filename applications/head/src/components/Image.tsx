@@ -1,13 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
-// NOTE: The `withIEPolyfill` package exports objectFit/Position.
-import Img from "gatsby-image/withIEPolyfill";
+import {
+  getImage,
+  GatsbyImage as Img,
+  IGatsbyImageData
+} from "gatsby-plugin-image";
+
 import { Data as AssetData } from "./Asset";
 
 export type Data = {
   altText: string | null;
   type: "Decorative" | "Descriptive" | null;
-  image: AssetData;
+  image: AssetData & {
+    gatsbyImageData: IGatsbyImageData;
+  };
   caption: {
     caption: string;
   } | null;
@@ -52,9 +58,10 @@ export const renderImage = (data?: Data, options: Options = {}) => {
     return null;
   }
 
+  const image = getImage(data.image.gatsbyImageData);
   const { size, position } = options;
 
-  if (!data.image.fluid) {
+  if (!image) {
     return (
       <img
         src={data.image?.file.url}
@@ -73,7 +80,7 @@ export const renderImage = (data?: Data, options: Options = {}) => {
 
   return (
     <Img
-      fluid={data.image.fluid}
+      image={image}
       alt={data.altText}
       draggable={false}
       style={{ position: undefined }}
@@ -99,6 +106,7 @@ export const query = graphql`
     type
     image {
       ...AssetFragment
+      gatsbyImageData(placeholder: BLURRED)
     }
     focalPoint {
       x
