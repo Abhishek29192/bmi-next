@@ -193,7 +193,8 @@ const SingleHero = ({
         styles["Hero"],
         {
           [styles["Hero--light"]]: levelProps.level === 3,
-          [styles["Hero--slim"]]: levelProps.level !== 1
+          [styles["Hero--slim"]]: levelProps.level !== 1,
+          [styles[`Hero--lvl-${levelProps.level}`]]: !!levelProps.level
         },
         className
       )}
