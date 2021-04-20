@@ -7,7 +7,6 @@ const path = require("path");
 const fs = require("fs");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
-const { withConfigs, styles } = require("@bmi/webpack");
 require("graphql-import-node");
 const jsonfile = require("jsonfile");
 const typeDefs = require("./src/schema/schema.graphql");
@@ -281,20 +280,15 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 
 exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig(
-    withConfigs(
-      {
-        resolve: {
-          plugins: [
-            new TsconfigPathsPlugin({
-              configFile: findUp.sync("tsconfig.json")
-            })
-          ]
-        }
-      },
-      [styles({ dev: process.env.NODE_ENV === "development" })]
-    )
-  );
+  actions.setWebpackConfig({
+    resolve: {
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: findUp.sync("tsconfig.json")
+        })
+      ]
+    }
+  });
 };
 
 exports.createSchemaCustomization = ({ actions }) => {

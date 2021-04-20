@@ -27,7 +27,7 @@ module.exports = {
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
     "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
-    "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
+    "\\.module\\.s?css$": require.resolve("./jest/src/CSSModuleImport.ts"),
     "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS.ts"),
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "\\.woff2$": require.resolve("./jest/src/FontImport.ts"),
