@@ -1,4 +1,3 @@
-import { pick } from "lodash";
 import { config } from "dotenv";
 import type {
   Product as PIMProduct,
@@ -14,6 +13,13 @@ import {
   mapProductClassifications,
   TransformedMeasurementValue
 } from "./CLONE";
+
+// Can't use lodash pick as it's not type-safe
+const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
+  const ret = {} as Pick<T, K>;
+  keys.forEach((key) => (ret[key] = obj[key]));
+  return ret;
+};
 
 config({
   path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
