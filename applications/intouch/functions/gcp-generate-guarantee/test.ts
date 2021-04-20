@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { resolve } from "path";
-import { getGuarantee } from "./dummyData";
-import GuaranteePdf from "./GuaranteePdf";
+import { getGuarantee } from "./mocks/data";
+import GuaranteePdf from "./src/GuaranteePdf";
 
 const start = async () => {
   const result = await getGuarantee();

@@ -1,0 +1,12 @@
+{
+  "name": "@bmi/intouch-shared-types",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "devDependencies": {
+    "typescript": "^3.9.5"
+  }
+}

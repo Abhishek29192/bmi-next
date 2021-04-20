@@ -9,7 +9,7 @@ directive @key(fields: _FieldSet!) on OBJECT | INTERFACE
 scalar _Any
 
 """A union of all federated types (those that use the @key directive)."""
-union _Entity = Account | Market | Company | Address | Project | Guarantee | System | SystemMember | Product | GuaranteedProduct | EvidenceItem | Note | ProjectMember | CompanyDocument | CompanyMember | TierOffset | Invitation | Notification | Companymember | ContactDetail | Contactdetail | Evidenceitem | Guaranteedproduct | Projectmember | Systemmember
+union _Entity = Account | Market | Company | Address | Project | Guarantee | System | SystemMember | Product | GuaranteedProduct | EvidenceItem | Note | ProjectMember | CompanyDocument | CompanyMember | Invitation | Notification | Companymember | ContactDetail | Contactdetail | Evidenceitem | Guaranteedproduct | Projectmember | Systemmember | TierOffset
 
 """
 Used to represent a set of fields. Grammatically, a field set is a
@@ -36,9 +36,6 @@ type Account implements Node {
 
   """Primary key"""
   id: Int!
-
-  """fk"""
-  createdBy: Int
 
   """ek"""
   status: AccountStatus
@@ -74,40 +71,8 @@ type Account implements Node {
   createdAt: Datetime!
   updatedAt: Datetime!
 
-  """Reads a single `Account` that is related to this `Account`."""
-  accountByCreatedBy: Account
-
   """Reads a single `Market` that is related to this `Account`."""
   market: Market
-
-  """Reads and enables pagination through a set of `Account`."""
-  accountsByCreatedBy(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `Account`."""
-    orderBy: [AccountsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: AccountCondition
-  ): AccountsConnection!
 
   """Reads and enables pagination through a set of `CompanyMember`."""
   companyMembers(
@@ -226,7 +191,7 @@ type Account implements Node {
   ): GuaranteesConnection!
 
   """Reads and enables pagination through a set of `Invitation`."""
-  invitations(
+  invitationsBySenderAccountId(
     """Only read the first `n` values of the set."""
     first: Int
 
@@ -349,9 +314,6 @@ input AccountCondition {
   """Checks for equality with the object’s `id` field."""
   id: Int
 
-  """Checks for equality with the object’s `createdBy` field."""
-  createdBy: Int
-
   """Checks for equality with the object’s `marketId` field."""
   marketId: Int
 }
@@ -360,9 +322,6 @@ input AccountCondition {
 input AccountInput {
   """Primary key"""
   id: Int
-
-  """fk"""
-  createdBy: Int
 
   """ek"""
   status: AccountStatus
@@ -405,9 +364,6 @@ Represents an update to a `Account`. Fields that are set will be updated.
 input AccountPatch {
   """Primary key"""
   id: Int
-
-  """fk"""
-  createdBy: Int
 
   """ek"""
   status: AccountStatus
@@ -475,8 +431,6 @@ enum AccountsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
-  CREATED_BY_ASC
-  CREATED_BY_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
   PRIMARY_KEY_ASC
@@ -1639,9 +1593,6 @@ type CreateAccountPayload {
   """
   query: Query
 
-  """Reads a single `Account` that is related to this `Account`."""
-  accountByCreatedBy: Account
-
   """Reads a single `Market` that is related to this `Account`."""
   market: Market
 
@@ -2148,7 +2099,7 @@ type CreateInvitationPayload {
   query: Query
 
   """Reads a single `Account` that is related to this `Invitation`."""
-  account: Account
+  senderAccount: Account
 
   """An edge for our `Invitation`. May be used by Relay 1."""
   invitationEdge(
@@ -2565,9 +2516,6 @@ type CreateTierOffsetPayload {
   """
   query: Query
 
-  """Reads a single `Market` that is related to this `TierOffset`."""
-  market: Market
-
   """An edge for our `TierOffset`. May be used by Relay 1."""
   tierOffsetEdge(
     """The method to use when ordering `TierOffset`."""
@@ -2626,9 +2574,6 @@ type DeleteAccountPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
-
-  """Reads a single `Account` that is related to this `Account`."""
-  accountByCreatedBy: Account
 
   """Reads a single `Market` that is related to this `Account`."""
   market: Market
@@ -3331,7 +3276,7 @@ type DeleteInvitationPayload {
   query: Query
 
   """Reads a single `Account` that is related to this `Invitation`."""
-  account: Account
+  senderAccount: Account
 
   """An edge for our `Invitation`. May be used by Relay 1."""
   invitationEdge(
@@ -3913,9 +3858,6 @@ type DeleteTierOffsetPayload {
   """
   query: Query
 
-  """Reads a single `Market` that is related to this `TierOffset`."""
-  market: Market
-
   """An edge for our `TierOffset`. May be used by Relay 1."""
   tierOffsetEdge(
     """The method to use when ordering `TierOffset`."""
@@ -4191,8 +4133,9 @@ type Guarantee implements Node {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is dependent on the StartDate, the
-  Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This is calculated when the request_status
+  becomes APPROVED. dependent on the StartDate, the Validity of the Product or
+  System and the ValidityOffset in this Tier.
   """
   expiry: Datetime
 
@@ -4330,7 +4273,7 @@ type Guaranteedproduct implements Node {
 }
 
 """
-A mapping of Products to Guarantees.  You can have more than one Product per Product Guarantee.
+A mapping of Products to Guarantees.  Needed because uou can have more than one Product per Product Guarantee.
 """
 type GuaranteedProduct implements Node {
   """
@@ -4553,8 +4496,9 @@ input GuaranteeInput {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is dependent on the StartDate, the
-  Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This is calculated when the request_status
+  becomes APPROVED. dependent on the StartDate, the Validity of the Product or
+  System and the ValidityOffset in this Tier.
   """
   expiry: Datetime
 
@@ -4611,8 +4555,9 @@ input GuaranteePatch {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is dependent on the StartDate, the
-  Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This is calculated when the request_status
+  becomes APPROVED. dependent on the StartDate, the Validity of the Product or
+  System and the ValidityOffset in this Tier.
   """
   expiry: Datetime
 
@@ -4714,13 +4659,13 @@ type Invitation implements Node {
   id: Int!
 
   """fk"""
-  accountId: Int
-
-  """ek"""
-  type: InvitationType
+  senderAccountId: Int
 
   """An email address"""
   invitee: String
+
+  """An optional note that can be included in the invitation by the sender"""
+  personalNote: String
 
   """if the invitation has been accepted"""
   accepted: Boolean
@@ -4734,7 +4679,7 @@ type Invitation implements Node {
   updatedAt: Datetime!
 
   """Reads a single `Account` that is related to this `Invitation`."""
-  account: Account
+  senderAccount: Account
 }
 
 """
@@ -4745,8 +4690,8 @@ input InvitationCondition {
   """Checks for equality with the object’s `id` field."""
   id: Int
 
-  """Checks for equality with the object’s `accountId` field."""
-  accountId: Int
+  """Checks for equality with the object’s `senderAccountId` field."""
+  senderAccountId: Int
 }
 
 """An input for mutations affecting `Invitation`"""
@@ -4755,13 +4700,13 @@ input InvitationInput {
   id: Int
 
   """fk"""
-  accountId: Int
-
-  """ek"""
-  type: InvitationType
+  senderAccountId: Int
 
   """An email address"""
   invitee: String
+
+  """An optional note that can be included in the invitation by the sender"""
+  personalNote: String
 
   """if the invitation has been accepted"""
   accepted: Boolean
@@ -4783,13 +4728,13 @@ input InvitationPatch {
   id: Int
 
   """fk"""
-  accountId: Int
-
-  """ek"""
-  type: InvitationType
+  senderAccountId: Int
 
   """An email address"""
   invitee: String
+
+  """An optional note that can be included in the invitation by the sender"""
+  personalNote: String
 
   """if the invitation has been accepted"""
   accepted: Boolean
@@ -4834,37 +4779,25 @@ enum InvitationsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
-  ACCOUNT_ID_ASC
-  ACCOUNT_ID_DESC
+  SENDER_ACCOUNT_ID_ASC
+  SENDER_ACCOUNT_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
 
-enum InvitationType {
-  JOIN_COMPANY
-  BECOME_ADMIN
-  BECOME_OWNER
-}
-
-enum Locale {
-  DA_DK
-  NO_NO
-  EN_MY
-  EN_IN
-  SV_SE
-  PT_PT
-  DE_AT
-  NL_NL
-  SK_SK
-  FR_BE
-  NL_BE
-  FR_FR
-  PL_PL
-  ES_ES
-  FI_FI
-  EN_US
-  EN_CA
-  FR_CA
+enum Language {
+  DA
+  NO
+  EN
+  SV
+  PT
+  DE
+  NL
+  SK
+  FR
+  PL
+  ES
+  FI
 }
 
 """A country that BMI operates in"""
@@ -4878,7 +4811,10 @@ type Market implements Node {
   id: Int!
 
   """ek"""
-  locale: Locale
+  language: Language
+
+  """the country code used for example as the subdomain"""
+  domain: String
 
   """The space in Contenful"""
   cmsSpaceId: String
@@ -5072,35 +5008,6 @@ type Market implements Node {
     """
     condition: SystemCondition
   ): SystemsConnection!
-
-  """Reads and enables pagination through a set of `TierOffset`."""
-  tierOffsets(
-    """Only read the first `n` values of the set."""
-    first: Int
-
-    """Only read the last `n` values of the set."""
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """Read all values in the set before (above) this cursor."""
-    before: Cursor
-
-    """Read all values in the set after (below) this cursor."""
-    after: Cursor
-
-    """The method to use when ordering `TierOffset`."""
-    orderBy: [TierOffsetsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: TierOffsetCondition
-  ): TierOffsetsConnection!
 }
 
 """
@@ -5117,7 +5024,10 @@ input MarketInput {
   id: Int
 
   """ek"""
-  locale: Locale
+  language: Language
+
+  """the country code used for example as the subdomain"""
+  domain: String
 
   """The space in Contenful"""
   cmsSpaceId: String
@@ -5176,7 +5086,10 @@ input MarketPatch {
   id: Int
 
   """ek"""
-  locale: Locale
+  language: Language
+
+  """the country code used for example as the subdomain"""
+  domain: String
 
   """The space in Contenful"""
   cmsSpaceId: String
@@ -6318,8 +6231,7 @@ interface Node {
 Usually a note added by someone at BMI who has been asked to approve a
 Guarantee.  It is likely to be either a short note of approval, saying something
 like, Approved, or Good Job, or a note of rejection, saying  something like, The
-photographs of the roof are not clear enough. Could also be a note inserted into
-an invite to join InTouch.
+photographs of the roof are not clear enough.
 """
 type Note implements Node {
   """
@@ -6600,8 +6512,8 @@ type Product implements Node {
   """Whether the product is avialable when being selected or not"""
   published: Boolean
 
-  """The numbe of years that this product can be guaranteed for"""
-  validity: Int
+  """The number of years that this product can be guaranteed for"""
+  maximumValidityYears: Int
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -6704,8 +6616,8 @@ input ProductInput {
   """Whether the product is avialable when being selected or not"""
   published: Boolean
 
-  """The numbe of years that this product can be guaranteed for"""
-  validity: Int
+  """The number of years that this product can be guaranteed for"""
+  maximumValidityYears: Int
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -6738,8 +6650,8 @@ input ProductPatch {
   """Whether the product is avialable when being selected or not"""
   published: Boolean
 
-  """The numbe of years that this product can be guaranteed for"""
-  validity: Int
+  """The number of years that this product can be guaranteed for"""
+  maximumValidityYears: Int
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -8359,7 +8271,12 @@ type System implements Node {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidity: Int
+  maximumValidityYears: Int
+
+  """
+  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  """
+  published: Boolean
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -8456,7 +8373,12 @@ input SystemInput {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidity: Int
+  maximumValidityYears: Int
+
+  """
+  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  """
+  published: Boolean
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -8679,7 +8601,12 @@ input SystemPatch {
   """
   The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
   """
-  maximumValidity: Int
+  maximumValidityYears: Int
+
+  """
+  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  """
+  published: Boolean
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -8752,18 +8679,12 @@ type TierOffset implements Node {
   """fk"""
   marketId: Int
 
-  """ek"""
-  tier: Tier
-
   """
   The number of years to reduce guarantee validities by in this Tier for this Market.  Must be 10 or less than 10.
   """
   validityOffset: Int
   createdAt: Datetime!
   updatedAt: Datetime!
-
-  """Reads a single `Market` that is related to this `TierOffset`."""
-  market: Market
 }
 
 """
@@ -8786,9 +8707,6 @@ input TierOffsetInput {
   """fk"""
   marketId: Int
 
-  """ek"""
-  tier: Tier
-
   """
   The number of years to reduce guarantee validities by in this Tier for this Market.  Must be 10 or less than 10.
   """
@@ -8806,9 +8724,6 @@ input TierOffsetPatch {
 
   """fk"""
   marketId: Int
-
-  """ek"""
-  tier: Tier
 
   """
   The number of years to reduce guarantee validities by in this Tier for this Market.  Must be 10 or less than 10.
@@ -8906,9 +8821,6 @@ type UpdateAccountPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
-
-  """Reads a single `Account` that is related to this `Account`."""
-  accountByCreatedBy: Account
 
   """Reads a single `Market` that is related to this `Account`."""
   market: Market
@@ -9728,7 +9640,7 @@ type UpdateInvitationPayload {
   query: Query
 
   """Reads a single `Account` that is related to this `Invitation`."""
-  account: Account
+  senderAccount: Account
 
   """An edge for our `Invitation`. May be used by Relay 1."""
   invitationEdge(
@@ -10408,9 +10320,6 @@ type UpdateTierOffsetPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
-
-  """Reads a single `Market` that is related to this `TierOffset`."""
-  market: Market
 
   """An edge for our `TierOffset`. May be used by Relay 1."""
   tierOffsetEdge(

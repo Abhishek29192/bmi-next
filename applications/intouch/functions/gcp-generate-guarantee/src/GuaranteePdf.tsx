@@ -1,8 +1,11 @@
 import { PDFDocument as PdfLibDocument } from "pdf-lib";
 import * as React from "react";
 import { pdf } from "react-pdf-maker";
-import { Guarantee, GuaranteeTemplate } from "../../../types/GuaranteeType";
-import { GuaranteeFileType } from "../../../types/GuaranteeFileType";
+import {
+  Guarantee,
+  GuaranteeTemplate,
+  GuaranteeFileType
+} from "@bmi/intouch-shared-types";
 import { vfs } from "./vfs_fonts";
 import { PdfDocument } from "./components";
 import { buffer_encode, toArrayBuffer } from "./util/bufferUtil";
