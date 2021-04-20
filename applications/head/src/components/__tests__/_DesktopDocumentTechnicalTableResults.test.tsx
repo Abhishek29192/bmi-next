@@ -9,6 +9,7 @@ import { Format } from "../types";
 import createAssetType from "../../test/AssetTypeHelper";
 import createPimDocument from "../../test/PimLinkDocumentHelper";
 import createPimLinkDocument from "../../test/PimLinkDocumentHelper";
+import fileIconsMap from "../FileIconsMap";
 
 describe("DesktopDocumentTechnicalTableResults component", () => {
   describe("Renders correctly", () => {
@@ -22,13 +23,6 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         ["product2", [createPimLinkDocument()]],
         ["product3", []]
       ];
-      const fileIconsMap: Record<Format, React.ComponentType> = {
-        "application/pdf": iconMap.FilePDF,
-        "application/zip": iconMap.FileZIP,
-        "image/jpg": iconMap.FileJPG,
-        "image/jpeg": iconMap.FileJPEG,
-        "image/png": iconMap.FilePNG
-      };
 
       const wrapper = render(
         <DesktopDocumentTechnicalTableResults
@@ -56,13 +50,6 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         ["product2", [createPimLinkDocument({ assetType: assetTypes[1] })]],
         ["product3", []]
       ];
-      const fileIconsMap: Record<Format, React.ComponentType> = {
-        "application/pdf": iconMap.FilePDF,
-        "application/zip": iconMap.FileZIP,
-        "image/jpg": iconMap.FileJPG,
-        "image/jpeg": iconMap.FileJPEG,
-        "image/png": iconMap.FilePNG
-      };
 
       const wrapper = render(
         <DesktopDocumentTechnicalTableResults
@@ -85,13 +72,6 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
         ["product2", [createPimLinkDocument(), createPimLinkDocument()]],
         ["product3", []]
       ];
-      const fileIconsMap: Record<Format, React.ComponentType> = {
-        "application/pdf": iconMap.FilePDF,
-        "application/zip": iconMap.FileZIP,
-        "image/jpg": iconMap.FileJPG,
-        "image/jpeg": iconMap.FileJPEG,
-        "image/png": iconMap.FilePNG
-      };
 
       const wrapper = render(
         <DesktopDocumentTechnicalTableResults

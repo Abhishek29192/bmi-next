@@ -14,6 +14,7 @@ const createPimDocument = (
   fileSize: 1,
   format: "application/pdf",
   extension: ".pdf",
+  realFileName: "pim-document-id.pdf",
   ...pimDocument
 });
 

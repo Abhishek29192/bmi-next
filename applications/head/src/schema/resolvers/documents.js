@@ -109,7 +109,8 @@ const resolveDocumentsFromProducts = async (
           fileSize,
           product___NODE: product.id,
           format: mime || getFormatFromFileName(realFileName),
-          extension: realFileName.split(".").pop()
+          extension: realFileName.split(".").pop(),
+          realFileName: realFileName
         };
 
         return {

@@ -2,13 +2,12 @@ import React, { useMemo } from "react";
 import { groupBy, uniqBy } from "lodash";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
-import { iconMap } from "@bmi/icon";
 import { Data as PIMDocumentData } from "./PIMDocument";
 import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
 import MobileDocumentTechnicalTableResults from "./_MobileDocumentTechnicalTableResults";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
-import { Format } from "./types";
+import fileIconsMap from "./FileIconsMap";
 
 type Props = {
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
@@ -16,16 +15,8 @@ type Props = {
   documentsPerPage: number;
 };
 
-const fileIconsMap: Record<Format, React.ComponentType> = {
-  "application/pdf": iconMap.FilePDF,
-  "application/zip": iconMap.FileZIP,
-  "image/jpg": iconMap.FileJPG,
-  "image/jpeg": iconMap.FileJPEG,
-  "image/png": iconMap.FilePNG
-};
-
 export const getCount = (documents: Props["documents"]): number => {
-  return Object.entries(groupBy(documents, "product.name")).length;
+  return Object.entries(groupBy(documents, "product.code")).length;
 };
 
 const DocumentTechnicalTableResults = ({
@@ -34,7 +25,7 @@ const DocumentTechnicalTableResults = ({
   documentsPerPage
 }: Props) => {
   const documentsByProduct = Object.entries(
-    groupBy(documents, "product.name")
+    groupBy(documents, "product.code")
   ).slice((page - 1) * documentsPerPage, page * documentsPerPage);
   const assetTypes = useMemo(
     () =>

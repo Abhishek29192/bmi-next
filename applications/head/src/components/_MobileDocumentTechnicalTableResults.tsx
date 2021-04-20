@@ -49,9 +49,9 @@ const MobileDocumentTechnicalTableResults = ({
                   ({ assetType: { id } }) => id === assetType.id
                 );
 
-                return filteredAssets.map((asset) => (
+                return filteredAssets.map((asset, assetIndex) => (
                   <Accordion.Details
-                    key={`${productName}-asset-${asset.id}-${index}`}
+                    key={`${productName}-asset-${asset.id}-${index}-${assetIndex}`}
                     className={styles["accordion-details"]}
                   >
                     <div className={styles["icon-container"]}>

@@ -92,19 +92,27 @@ const DesktopDocumentTechnicalTableResults = ({
           .toJSON()
           .replace(/-|:|T/g, "")
           .split(".");
+        let zipFileName = `BMI_${currentTime}.zip`;
+        if (assets.length > 0 && assets[0].product && assets[0].assetType) {
+          zipFileName = `${assets[0].product?.name} ${assets[0].assetType.name}.zip`;
+        }
         const token = await executeRecaptcha();
-        const documents = assets.map((asset, index) => ({
-          href: asset.url,
-          name: `${asset.title}-${index}${
-            asset["extension"] ? `.${asset["extension"]}` : ""
-          }`
-        }));
+        const documents = assets
+          .filter((asset) => asset.__typename === "PIMDocument")
+          .map((asset, index) => ({
+            href: asset.url,
+            name: asset["realFileName"]
+              ? asset["realFileName"]
+              : `${asset.title}-${index}${
+                  asset["extension"] ? `.${asset["extension"]}` : ""
+                }`
+          }));
         const response = await axios.post(
           process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
           { documents: documents },
           { responseType: "text", headers: { "X-Recaptcha-Token": token } }
         );
-        await downloadAs(response.data.url, `BMI_${currentTime}.zip`);
+        await downloadAs(response.data.url, zipFileName);
       } catch (error) {
         console.error("Download multiple documents", error); // eslint-disable-line
       }

@@ -6,6 +6,7 @@ export type Data = PIMDocumentBase & {
   fileSize: number;
   format: string;
   extension: string;
+  realFileName: string;
 };
 
 export const query = graphql`
@@ -45,5 +46,6 @@ export const query = graphql`
     fileSize
     format
     extension
+    realFileName
   }
 `;

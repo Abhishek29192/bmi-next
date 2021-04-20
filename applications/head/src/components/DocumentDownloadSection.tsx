@@ -6,6 +6,7 @@ import Table from "@bmi/table";
 import Button, { ButtonProps } from "@bmi/button";
 import Icon, { iconMap } from "@bmi/icon";
 import withGTM from "../utils/google-tag-manager";
+import fileIconsMap from "../components/FileIconsMap";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import { Data as DocumentData } from "./Document";
@@ -16,12 +17,6 @@ export type Data = {
   title: string;
   description: RichTextData | null;
   documents: DocumentData[];
-};
-
-const fileIconsMap = {
-  "application/pdf": iconMap.FilePDF,
-  "image/jpeg": iconMap.FileJPEG,
-  "image/png": iconMap.FilePNG
 };
 
 const iconStyle = {
