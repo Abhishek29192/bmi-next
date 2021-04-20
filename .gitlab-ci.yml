@@ -45,6 +45,7 @@ nodejs-scan-sast:
 
 # There is a secret_detection_default_branch job for master
 secret_detection:
+  needs: []
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
 
