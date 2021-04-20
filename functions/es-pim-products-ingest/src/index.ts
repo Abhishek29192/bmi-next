@@ -26,7 +26,8 @@ const {
   SECRET_MAN_GCP_PROJECT_NAME,
   ES_PASSWORD_SECRET,
   ES_CLOUD_ID,
-  ES_USERNAME
+  ES_USERNAME,
+  BATCH_SIZE = "250"
 } = process.env;
 
 config({
@@ -35,7 +36,7 @@ config({
 
 const secretManagerClient = new SecretManagerServiceClient();
 
-let esClientCache;
+let esClientCache: Client;
 const getEsClient = async () => {
   if (!esClientCache) {
     const esPasswordSecret = await secretManagerClient.accessSecretVersion({
@@ -81,17 +82,34 @@ const pingEsCluster = async () => {
   });
 };
 
+const buildEsProducts = (items: readonly PIMProduct[]) => {
+  return items.reduce(
+    (allProducts, product) => [...allProducts, ...transformProduct(product)],
+    []
+  );
+};
+
+const getChunks = (esProducts: readonly PIMProduct[]) => {
+  const chunkSize = parseInt(BATCH_SIZE);
+  // eslint-disable-next-line no-console
+  console.log(`Chunk size: ${chunkSize}`);
+
+  const chunksArray = [];
+  const totalProducts = esProducts.length;
+  for (var i = 0; i < totalProducts; i += chunkSize) {
+    const chunk = esProducts.slice(i, i + chunkSize);
+    chunksArray.push(chunk);
+  }
+
+  return chunksArray;
+};
+
 const getBulkOperations = (
   indexName: string,
   operation: ESOperation,
   items: readonly PIMProduct[]
 ) => {
-  const variants = items.reduce(
-    (allProducts, product) => [...allProducts, ...transformProduct(product)],
-    []
-  );
-
-  return variants.reduce(
+  return items.reduce(
     (allOps, item) => [
       ...allOps,
       { [operation]: { _index: indexName, _id: item.code } },
@@ -108,48 +126,81 @@ const setItemsInElasticSearch = async (
   // get ES client
   let client = await getEsClient();
 
-  const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
-  const body = getBulkOperations(index, "index", items);
-
-  const { body: bulkResponse } = await client.bulk({
-    index,
-    refresh: true,
-    body
-  });
-
-  // eslint-disable-next-line no-console
-  console.log(`[UPDATED][${bulkResponse.status}]`);
-
-  if (bulkResponse.errors) {
+  const esProducts = buildEsProducts(items);
+  if (!esProducts || esProducts.length == 0) {
     // eslint-disable-next-line no-console
-    console.error("ERROR", JSON.stringify(bulkResponse.errors, null, 2));
+    console.warn("ES Products not found. Ignoring the Update.");
+    return;
   }
 
+  const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
+
+  // Chunk the request to avoid exceeding ES bulk request limits.
+  const responsePromises = getChunks(esProducts)
+    .map((c) => getBulkOperations(index, "index", c))
+    .map(
+      async (body) =>
+        // Ideally the requests should be sent async. However when sending bulk inserts
+        // concurrently to ES, it seems to reject some requests.
+        // Leaving this synchronous as there is no noticeable difference in function
+        // execution time.
+        await client.bulk({
+          index,
+          refresh: true,
+          body
+        })
+    );
+
+  var responses = await Promise.all(responsePromises);
+  responses.forEach((r) => {
+    // eslint-disable-next-line no-console
+    console.log(`[UPDATED][${r.body.status}]`);
+    if (r.body.errors) {
+      // eslint-disable-next-line no-console
+      console.error("ERROR", JSON.stringify(r.body.errors, null, 2));
+    }
+  });
   const { body: count } = await client.count({ index });
   // eslint-disable-next-line no-console
   console.log("Total count:", count);
 };
 
 const deleteItemsFromElasticsearch = async (itemType, items) => {
-  const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
-  const body = getBulkOperations(index, "delete", items);
+  const esProducts = buildEsProducts(items);
+  if (!esProducts || esProducts.length == 0) {
+    // eslint-disable-next-line no-console
+    console.warn("ES Products not found. Ignoring the Delete.");
+    return;
+  }
 
-  // get ES client
+  const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
   let client = await getEsClient();
 
-  const { body: bulkResponse } = await client.bulk({
-    index,
-    refresh: true,
-    body
-  });
+  // Chunk the request to avoid exceeding ES bulk request limits.
+  const responsePromises = getChunks(esProducts)
+    .map((c) => getBulkOperations(index, "delete", c))
+    .map(
+      async (body) =>
+        // Ideally the requests should be sent async. However when sending bulk inserts
+        // concurrently to ES, it seems to reject some requests.
+        // Leaving this synchronous as there is no noticeable difference in function
+        // execution time.
+        await client.bulk({
+          index,
+          refresh: true,
+          body
+        })
+    );
 
-  // eslint-disable-next-line no-console
-  console.log(`[DELETED][${bulkResponse.status}]`);
-
-  if (bulkResponse.errors) {
+  var responses = await Promise.all(responsePromises);
+  responses.forEach((r) => {
     // eslint-disable-next-line no-console
-    console.log("[ERROR]", JSON.stringify(bulkResponse.errors, null, 2));
-  }
+    console.log(`[DELETED][${r.body.status}]`);
+    if (r.body.errors) {
+      // eslint-disable-next-line no-console
+      console.error("ERROR", JSON.stringify(r.body.errors, null, 2));
+    }
+  });
 
   const { body: count } = await client.count({ index });
   // eslint-disable-next-line no-console
@@ -189,10 +240,10 @@ export const handleMessage: ProductMessageFunction = async (event, context) => {
 
   switch (type) {
     case "UPDATED":
-      setItemsInElasticSearch(itemType, items);
+      await setItemsInElasticSearch(itemType, items);
       break;
     case "DELETED":
-      deleteItemsFromElasticsearch(itemType, items);
+      await deleteItemsFromElasticsearch(itemType, items);
       break;
     default:
       // eslint-disable-next-line no-console
