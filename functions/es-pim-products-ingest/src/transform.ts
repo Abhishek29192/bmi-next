@@ -44,8 +44,8 @@ const combineVariantClassifications = (
 
   const allClassificationsMap = new Map(
     [
-      ...baseClassifications,
-      ...variantClassifications
+      ...variantClassifications,
+      ...baseClassifications
     ].map((classification) => [classification.code, classification])
   );
 

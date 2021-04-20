@@ -1,5 +1,6 @@
 // THIS IS A CLONE OF EXTERNAL DEPENDENCIES I COULDN'T REQUIRE FROM HEAD ATM
 // POSSIBLY WITH SOME CHANGES
+// product-details-trasnforms.ts
 
 import { result, find } from "lodash";
 import { Product } from "./types/pim";
@@ -77,6 +78,7 @@ export const getColourThumbnailUrl = (images): string =>
     "url"
   );
 
+// product-details-page.tsx
 export type ClassificationFeatureValue = {
   value: string;
   code?: string; // This doesn't exist on some Features... perhaps we can be more specific with the types

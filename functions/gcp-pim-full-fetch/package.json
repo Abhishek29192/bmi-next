@@ -7,9 +7,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && functions-framework --source=dist --target=handleRequest --port=3001",
-    "predeploy": "tsc",
-    "deploy": "gcloud functions deploy test-red-button --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml"
+    "dev": "yarn build && functions-framework --source=dist --target=handleRequest --port=3001",
+    "deploy": "yarn build && gcloud functions deploy pim-full-fetch --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml"
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.8.0",

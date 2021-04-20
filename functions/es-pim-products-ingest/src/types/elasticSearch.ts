@@ -15,7 +15,17 @@ export type ProductVariant = {
   brandCode: string; // ???
   images: readonly Image[];
   categories: readonly Category[];
-  // classifications: readonly Classification[];
-  classifications: Classification[];
+  allCategories: readonly Category[];
+  plpCategories: readonly Category[];
+  classifications: readonly Classification[];
+  scoringWeight: string;
+  scoringWeightInt: number;
+  colourfamilyCode: string;
+  colourfamilyValue: string;
+  texturefamilyCode: string;
+  texturefamilyValue: string;
+  materialsCode: string;
+  materialsValue: string;
+  measurementValue: string;
   approvalStatus: ApprovalStatus;
 };

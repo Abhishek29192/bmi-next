@@ -2,7 +2,7 @@ type HTML = string;
 
 type AssetAssetType = "ASSEMBLY_INSTRUCTIONS"; // TODO: there are more
 
-type Asset = {
+export type Asset = {
   allowedToDownload: boolean;
   assetType: AssetAssetType;
   fileSize: number;
@@ -13,7 +13,7 @@ type Asset = {
   format?: string;
 };
 
-type CategoryImage = {
+export type CategoryImage = {
   allowedToDownload: boolean;
   fileSize: number;
   mime: "image/png";
@@ -21,8 +21,10 @@ type CategoryImage = {
   realFileName: string; // includes file extension
   url: string;
 };
+
 type CategoryType = "Brand" | "Category" | "ProductFamily" | "ProductLine";
-type Category = {
+
+export type Category = {
   categoryType: CategoryType;
   code: string;
   image?: CategoryImage;
@@ -62,11 +64,14 @@ type ClassificationCode =
   | "appearanceAttributes"
   | "measurements"
   | "generalInformation"; // TODO: there are more
+
 type ClassificationFeatureCode = string; // Contains namespaces prefix, cannot enumerate
+
 export type FeatureValue = {
   value: string;
   code?: string;
 };
+
 export type Feature = {
   code: ClassificationFeatureCode;
   featureValues: readonly FeatureValue[];
@@ -75,6 +80,7 @@ export type Feature = {
   };
   name: string;
 };
+
 export type Classification = {
   code: string; // ClassificationCode;
   features?: Feature[];
