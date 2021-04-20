@@ -86,7 +86,11 @@ const Header = ({
     typeof document !== "undefined"
       ? document.querySelector("body")
       : undefined;
-  const [sizes, setSizes] = React.useState<HeaderSizes>([]);
+  const [sizes, setSizes] = React.useState<HeaderSizes>([
+    "small",
+    "medium",
+    "large"
+  ]);
   const [
     showLanguageSelection,
     setShowLanguageSelection
