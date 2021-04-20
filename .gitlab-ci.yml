@@ -95,12 +95,11 @@ license_finder:
   stage: audit
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-  needs: [install]
+  needs: []
   image: licensefinder/license_finder:latest
   before_script:
     - source ~/.bash_profile
     - yarn config set cache-folder ${PWD}/.yarn_cache
-    - curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get -y install nodejs
   script:
     - license_finder action_items --format html > license_finder_output.html
   artifacts:
