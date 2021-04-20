@@ -27,7 +27,7 @@ export function computeDistanceBetween(
   start: LatLngLiteral,
   end: LatLngLiteral
 ) {
-  return start && google
+  return start && typeof google !== "undefined"
     ? google.maps.geometry.spherical.computeDistanceBetween(
         new google.maps.LatLng(start.lat, start.lng),
         new google.maps.LatLng(end.lat, end.lng)
