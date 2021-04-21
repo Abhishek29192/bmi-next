@@ -99,9 +99,6 @@ const renderThumbnailAttribute = (
 const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
   const key = `attribute-${index}`;
 
-  // eslint-disable-next-line no-console
-  console.log(attribute);
-
   if (!attribute.variants.length) {
     return null;
   }
