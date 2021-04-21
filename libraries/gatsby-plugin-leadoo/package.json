@@ -1,0 +1,19 @@
+{
+  "name": "@bmi/gatsby-plugin-leadoo",
+  "description": "Gatsby source plugin for including Leadoo",
+  "version": "0.0.0",
+  "private": true,
+  "license": "BMI-DXB",
+  "keywords": [
+    "leadoo",
+    "gatsby-plugin",
+    "gatsby"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "lint": "prettier --write gatsby-node.js"
+  },
+  "dependencies": {
+    "gatsby-cli": "^2.19.2"
+  }
+}
