@@ -81,7 +81,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product1
+                product-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
@@ -161,7 +161,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product2
+                product-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
@@ -422,7 +422,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product1
+                product-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
@@ -512,7 +512,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product2
+                product-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
@@ -757,7 +757,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product1
+                product-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"
@@ -840,7 +840,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
               <td
                 class="MuiTableCell-root MuiTableCell-body"
               >
-                product2
+                product-name
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body align-center"

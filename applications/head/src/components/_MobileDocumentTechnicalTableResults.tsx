@@ -42,7 +42,7 @@ const MobileDocumentTechnicalTableResults = ({
                   action: "Selector – Accordion"
                 }}
               >
-                {productName}
+                {assets.length > 0 ? assets[0].product.name : productName}
               </GTMAccordionSummary>
               {assetTypes.map((assetType, index) => {
                 const filteredAssets = assets.filter(

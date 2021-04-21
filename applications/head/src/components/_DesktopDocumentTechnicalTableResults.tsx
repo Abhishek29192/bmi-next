@@ -184,7 +184,9 @@ const DesktopDocumentTechnicalTableResults = ({
                   [styles["row--checked"]]: !!list[key]
                 })}
               >
-                <Table.Cell>{productName}</Table.Cell>
+                <Table.Cell>
+                  {assets.length > 0 ? assets[0].product.name : productName}
+                </Table.Cell>
                 {assetTypes.map((assetType, index) => {
                   const filteredAssets = assets.filter(
                     ({ assetType: { id } }) => id === assetType.id

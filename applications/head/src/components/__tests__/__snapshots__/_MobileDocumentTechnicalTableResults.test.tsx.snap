@@ -23,7 +23,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
             <div
               class="MuiAccordionSummary-content"
             >
-              product1
+              product-name
             </div>
             <div
               aria-disabled="false"
@@ -225,7 +225,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when mu
             <div
               class="MuiAccordionSummary-content"
             >
-              product2
+              product-name
             </div>
             <div
               aria-disabled="false"
@@ -499,7 +499,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
             <div
               class="MuiAccordionSummary-content"
             >
-              product1
+              product-name
             </div>
             <div
               aria-disabled="false"
@@ -629,7 +629,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when no
             <div
               class="MuiAccordionSummary-content"
             >
-              product2
+              product-name
             </div>
             <div
               aria-disabled="false"
@@ -831,7 +831,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
             <div
               class="MuiAccordionSummary-content"
             >
-              product1
+              product-name
             </div>
             <div
               aria-disabled="false"
@@ -961,7 +961,7 @@ exports[`MobileDocumentTechnicalTableResults component Renders correctly when on
             <div
               class="MuiAccordionSummary-content"
             >
-              product2
+              product-name
             </div>
             <div
               aria-disabled="false"

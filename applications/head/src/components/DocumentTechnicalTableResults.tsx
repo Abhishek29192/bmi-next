@@ -15,8 +15,13 @@ type Props = {
   documentsPerPage: number;
 };
 
+const groupDocuments = (
+  documents: (PIMDocumentData | PIMLinkDocumentData)[]
+): [string, (PIMDocumentData | PIMLinkDocumentData)[]][] =>
+  Object.entries(groupBy(documents, "product.code"));
+
 export const getCount = (documents: Props["documents"]): number => {
-  return Object.entries(groupBy(documents, "product.code")).length;
+  return groupDocuments(documents).length;
 };
 
 const DocumentTechnicalTableResults = ({
@@ -24,9 +29,10 @@ const DocumentTechnicalTableResults = ({
   page,
   documentsPerPage
 }: Props) => {
-  const documentsByProduct = Object.entries(
-    groupBy(documents, "product.code")
-  ).slice((page - 1) * documentsPerPage, page * documentsPerPage);
+  const documentsByProduct = groupDocuments(documents).slice(
+    (page - 1) * documentsPerPage,
+    page * documentsPerPage
+  );
   const assetTypes = useMemo(
     () =>
       uniqBy(
