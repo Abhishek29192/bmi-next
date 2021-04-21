@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Session } from "@auth0/nextjs-auth0";
 import auth0 from "../auth0";
 import { initializeApollo } from "../apolloClient";
 
@@ -35,9 +34,8 @@ const GET_COMPANY = gql`
 `;
 
 export default auth0.withPageAuthRequired({
-  async getServerSideProps({ locale, req, res }) {
-    const apolloClient = initializeApollo();
-    const { accessToken }: Session = await auth0.getSession(req, res);
+  async getServerSideProps({ locale, ...ctx }) {
+    const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
     const pageProps = {
       company: null,
@@ -53,15 +51,13 @@ export default auth0.withPageAuthRequired({
       data: { currentCompany }
     } = await apolloClient.query({
       query: GET_CURRENT_COMPANY,
-      variables: {},
-      context: { headers: { Authorization: `Bearer ${accessToken}` } }
+      variables: {}
     });
 
     if (currentCompany) {
       const { data } = await apolloClient.query({
         query: GET_COMPANY,
-        variables: { companyId: currentCompany },
-        context: { headers: { Authorization: `Bearer ${accessToken}` } }
+        variables: { companyId: currentCompany }
       });
       pageProps.company = data;
     }
