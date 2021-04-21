@@ -55,5 +55,3 @@ gl-code-quality-report.json
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
-
-zap_output.html
