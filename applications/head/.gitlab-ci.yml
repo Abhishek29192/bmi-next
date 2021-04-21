@@ -103,7 +103,8 @@ baseline_scan_head_preview:
     - |
       base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
-      zap-baseline.py -t "${base_url}/no/" -r zap_output.html -n applications/head/qa.context -U qa || exit 0
+      xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${base_url}" applications/head/dast/mr.context
+      zap-baseline.py -t "${base_url}/no/" -r zap_output.html -n applications/head/mr.context -U qa || exit 0
   artifacts:
     paths:
       - zap_output.html
