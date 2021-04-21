@@ -14,6 +14,7 @@ import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 import { Format } from "./types";
+import fileIconsMap from "./FileIconsMap";
 
 type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
 
@@ -24,13 +25,6 @@ type Props = {
   page: number;
   documentsPerPage: number;
   headers?: AvailableHeader[];
-};
-
-const fileIconsMap: Record<Format, React.ComponentType> = {
-  "application/pdf": iconMap.FilePDF,
-  "image/jpg": iconMap.FileJPG,
-  "image/jpeg": iconMap.FileJPEG,
-  "image/png": iconMap.FilePNG
 };
 
 const GTMButton = withGTM<

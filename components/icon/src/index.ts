@@ -16,6 +16,7 @@ import FileJPEG from "./svgs/FileJPEG.svg";
 import FileJPG from "./svgs/FileJPG.svg";
 import FilePDF from "./svgs/FilePDF.svg";
 import FilePNG from "./svgs/FilePNG.svg";
+import FileZIP from "./svgs/FileZIP.svg";
 import Cross from "./svgs/Cross.svg";
 import External from "./svgs/External.svg";
 import HardHatHead from "./svgs/HardHatHead.svg";
@@ -66,6 +67,7 @@ export const iconMap = {
   FileJPG,
   FilePDF,
   FilePNG,
+  FileZIP,
   Cross,
   External,
   HardHatHead,

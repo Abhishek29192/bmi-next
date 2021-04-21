@@ -5,6 +5,9 @@ import Clickable, { ClickableProps } from "@bmi/clickable";
 import Icon, { iconMap } from "@bmi/icon";
 import Table from "@bmi/table";
 import DownloadList, { DownloadListContext } from "@bmi/download-list";
+import axios from "axios";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import AssetHeader from "./_AssetHeader";
 import { SiteContext } from "./Site";
@@ -27,9 +30,117 @@ const DesktopDocumentTechnicalTableResults = ({
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
   const { list } = useContext(DownloadListContext);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const GTMClickable = withGTM<ClickableProps>(Clickable);
   const GTMButton = withGTM<IconButtonProps>(Button);
+
+  const singleDocument = (asset: PIMDocumentData | PIMLinkDocumentData) =>
+    asset.__typename !== "PIMLinkDocument" ? (
+      <GTMClickable
+        model="download"
+        href={asset.url}
+        download={asset.title}
+        gtm={{
+          id: "download1",
+          label: "Download",
+          action: asset.url
+        }}
+      >
+        <Icon
+          source={fileIconsMap[asset.format]}
+          className={styles["format-icon"]}
+        />
+      </GTMClickable>
+    ) : (
+      <GTMButton
+        isIconButton
+        accessibilityLabel="Download"
+        variant="text"
+        action={{
+          model: "htmlLink",
+          href: asset.url,
+          target: "_blank",
+          rel: "noopener noreferrer"
+        }}
+        gtm={{
+          id: "download1",
+          label: "Download",
+          action: asset.url
+        }}
+        className={styles["external-download-button"]}
+        disableTouchRipple={true}
+      >
+        <Icon
+          source={iconMap.External}
+          className={styles["external-link-icon"]}
+        />
+      </GTMButton>
+    );
+
+  const multipleDocuments = (
+    assets: (PIMDocumentData | PIMLinkDocumentData)[]
+  ) => {
+    const downloadMultipleFiles = async () => {
+      try {
+        if (!process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT) {
+          throw Error(
+            "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
+          );
+        }
+        const [currentTime] = new Date()
+          .toJSON()
+          .replace(/-|:|T/g, "")
+          .split(".");
+        let zipFileName = `BMI_${currentTime}.zip`;
+        if (assets.length > 0 && assets[0].product && assets[0].assetType) {
+          zipFileName = `${assets[0].product?.name} ${assets[0].assetType.name}.zip`;
+        }
+        const token = await executeRecaptcha();
+        const documents = assets
+          .filter((asset) => asset.__typename === "PIMDocument")
+          .map((asset, index) => ({
+            href: asset.url,
+            name: asset["realFileName"]
+              ? asset["realFileName"]
+              : `${asset.title}-${index}${
+                  asset["extension"] ? `.${asset["extension"]}` : ""
+                }`
+          }));
+        const response = await axios.post(
+          process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
+          { documents: documents },
+          { responseType: "text", headers: { "X-Recaptcha-Token": token } }
+        );
+        await downloadAs(response.data.url, zipFileName);
+      } catch (error) {
+        console.error("Download multiple documents", error); // eslint-disable-line
+      }
+    };
+
+    return (
+      <GTMButton
+        isIconButton
+        accessibilityLabel="Download"
+        variant="text"
+        action={{
+          model: "default",
+          onClick: downloadMultipleFiles
+        }}
+        gtm={{
+          id: "download1",
+          label: "Download",
+          action: JSON.stringify(
+            Object.values(assets).map((asset) => asset.url)
+          )
+        }}
+        disableTouchRipple={true}
+        className={styles["external-download-button"]}
+      >
+        <Icon source={iconMap.FileZIP} className={styles["format-icon"]} />
+      </GTMButton>
+    );
+  };
 
   return (
     <div className={styles["table-div"]}>
@@ -73,13 +184,15 @@ const DesktopDocumentTechnicalTableResults = ({
                   [styles["row--checked"]]: !!list[key]
                 })}
               >
-                <Table.Cell>{productName}</Table.Cell>
+                <Table.Cell>
+                  {assets.length > 0 ? assets[0].product.name : productName}
+                </Table.Cell>
                 {assetTypes.map((assetType, index) => {
-                  const asset = assets.find(
+                  const filteredAssets = assets.filter(
                     ({ assetType: { id } }) => id === assetType.id
                   );
 
-                  if (!asset) {
+                  if (!filteredAssets.length) {
                     return (
                       <Table.Cell
                         key={`${productName}-missing-asset-${index}`}
@@ -95,48 +208,12 @@ const DesktopDocumentTechnicalTableResults = ({
 
                   return (
                     <Table.Cell
-                      key={`${productName}-asset-${asset.id}`}
+                      key={`${productName}-asset-${assetType.id}`}
                       className={styles["align-center"]}
                     >
-                      {asset.__typename !== "PIMLinkDocument" ? (
-                        <GTMClickable
-                          model="download"
-                          href={asset.url}
-                          download={asset.title}
-                          gtm={{
-                            id: "download1",
-                            label: "Download",
-                            action: asset.url
-                          }}
-                        >
-                          <Icon
-                            source={fileIconsMap[asset.format]}
-                            className={styles["format-icon"]}
-                          />
-                        </GTMClickable>
-                      ) : (
-                        <GTMButton
-                          isIconButton
-                          accessibilityLabel="Download"
-                          variant="text"
-                          action={{
-                            model: "htmlLink",
-                            href: asset.url,
-                            target: "_blank",
-                            rel: "noopener noreferrer"
-                          }}
-                          gtm={{
-                            id: "download1",
-                            label: "Download",
-                            action: asset.url
-                          }}
-                        >
-                          <Icon
-                            source={iconMap.External}
-                            className={styles["external-link-icon"]}
-                          />
-                        </GTMButton>
-                      )}
+                      {filteredAssets.length === 1
+                        ? singleDocument(filteredAssets[0])
+                        : multipleDocuments(filteredAssets)}
                     </Table.Cell>
                   );
                 })}

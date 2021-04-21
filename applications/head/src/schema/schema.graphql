@@ -1225,6 +1225,9 @@ type PIMDocument implements Node {
 
   "The file extension for this document."
   extension: String
+
+  "The real filename for this document."
+  realFileName: String
 }
 
 """
