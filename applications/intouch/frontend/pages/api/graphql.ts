@@ -8,17 +8,16 @@ export const config = {
     externalResolver: true
   }
 };
-export default async function (
+
+const handler = async function (
   req: NextApiRequest,
   res: NextApiResponse,
   next: any
 ) {
   if (!req.headers.authorization) {
     try {
-      const tokenPayload = await auth0.getAccessToken(req, res, {
-        refresh: true
-      });
-      req.headers.authorization = `Bearer ${tokenPayload.accessToken}`;
+      const session = await auth0.getSession(req, res);
+      req.headers.authorization = `Bearer ${session.accessToken}`;
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log("Error: ", error);
@@ -39,4 +38,6 @@ export default async function (
     xfwd: true,
     logLevel: "debug"
   })(req as any, res as any, next);
-}
+};
+
+export default handler;

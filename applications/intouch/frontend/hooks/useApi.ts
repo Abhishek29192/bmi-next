@@ -6,7 +6,7 @@ type ApiResponse = {
   data: any;
 };
 
-export default (path: string): ApiResponse => {
+const useApi = (path: string): ApiResponse => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
@@ -33,3 +33,5 @@ export default (path: string): ApiResponse => {
     data
   };
 };
+
+export default useApi;

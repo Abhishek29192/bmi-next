@@ -8,7 +8,7 @@ const PROD_DOMAIN = [
 ];
 const LOCAL_DOMAIN = [
   {
-    domain: "intouch.local",
+    domain: "localhost",
     defaultLocale: "en"
   }
 ];
