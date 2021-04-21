@@ -99,6 +99,9 @@ const renderThumbnailAttribute = (
 const renderAttribute = ({ name, ...attribute }: Attribute, index: number) => {
   const key = `attribute-${index}`;
 
+  // eslint-disable-next-line no-console
+  console.log(attribute);
+
   if (!attribute.variants.length) {
     return null;
   }
@@ -162,7 +165,19 @@ const ProductOverviewPane = ({
         {name}
       </Typography>
       {nobb === null ? (
-        ""
+        <ul className={styles["attributes"]}>
+          {[
+            {
+              name: nobbLabel,
+              variants: []
+            },
+            ...attributes.map((attribute) =>
+              attribute.type === "thumbnails"
+                ? { ...attribute, component: thumbnailComponent }
+                : attribute
+            )
+          ].map(renderAttribute)}
+        </ul>
       ) : (
         <ul className={styles["attributes"]}>
           {[
