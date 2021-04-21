@@ -1,3 +1,4 @@
+import axios from "axios";
 import { RESTDataSource, RequestOptions } from "apollo-datasource-rest";
 
 import {
@@ -20,6 +21,28 @@ const {
   DOCEBO_API_PASSWORD
 } = process.env;
 
+const getTokenPayload = async (username) => {
+  const payload = {
+    iss: DOCEBO_API_CLIENT_ID,
+    sub: username,
+    aud: DOCEBO_API_URL.replace(/^https?:\/\//, ""),
+    iat: Date.now(),
+    exp: Date.now() + 30 * 60 * 1000
+  };
+  const jwtToken = await createToken(payload);
+  const body = {
+    grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    assertion: jwtToken
+  };
+
+  return body;
+};
+
+export const loginToDocebo = async (username) => {
+  const body = await getTokenPayload(username);
+  return axios.post(`${DOCEBO_API_URL}/oauth2/token`, body);
+};
+
 export default class Docebo extends RESTDataSource<ITokenInfo> {
   constructor() {
     super();
@@ -41,20 +64,10 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
   }
 
   async getTokenByJWTPayload(username: string) {
-    const payload = {
-      iss: DOCEBO_API_CLIENT_ID,
-      sub: username,
-      aud: this.baseURL.replace(/^https?:\/\//, ""),
-      iat: Date.now(),
-      exp: Date.now() + 30 * 60 * 1000
-    };
-    const jwtToken = await createToken(payload);
-    const body = {
-      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
-      assertion: jwtToken
-    };
+    const body = await getTokenPayload(username);
     return this.post(`/oauth2/token`, body);
   }
+
   async getSSOUrl(path: string = "/learn/mycourses") {
     return `${this.baseURL}${path};type=oauth2_response;access_token=${this.context.token};expires_in=3600;token_type=Bearer;scope=api`;
   }

@@ -1,5 +1,5 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import nextConnect from "next-connect";
 import auth0 from "../../lib/auth0";
 
 export const config = {
@@ -8,29 +8,35 @@ export const config = {
     externalResolver: true
   }
 };
-
-const proxyOptions = {
-  target: process.env.GRAPHQL_URL,
-  changeOrigin: true,
-  proxyTimeout: 5000,
-  secure: false,
-  headers: {
-    Connection: "keep-alive"
-  },
-  pathRewrite: {
-    "^/api/graphql": ""
+export default async function (
+  req: NextApiRequest,
+  res: NextApiResponse,
+  next: any
+) {
+  if (!req.headers.authorization) {
+    try {
+      const tokenPayload = await auth0.getAccessToken(req, res, {
+        refresh: true
+      });
+      req.headers.authorization = `Bearer ${tokenPayload.accessToken}`;
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log("Error: ", error);
+    }
   }
-};
 
-const handler = nextConnect();
-
-handler.use(async (req, res, next) => {
-  const session = await auth0.getSession(req, res);
-  if (session) {
-    req.headers.authorization = `Bearer ${session.accessToken}`;
-  }
-  return next();
-});
-handler.use(createProxyMiddleware(proxyOptions));
-
-export default handler;
+  createProxyMiddleware({
+    target: process.env.GRAPHQL_URL,
+    changeOrigin: true,
+    proxyTimeout: 5000,
+    secure: false,
+    headers: {
+      Connection: "keep-alive"
+    },
+    pathRewrite: {
+      "^/api/graphql": ""
+    },
+    xfwd: true,
+    logLevel: "debug"
+  })(req as any, res as any, next);
+}
