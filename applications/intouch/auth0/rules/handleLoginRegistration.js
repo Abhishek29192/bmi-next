@@ -1,4 +1,4 @@
-async function InternalUserIdRule(user, context, callback) {
+async function handleLoginRegistration(user, context, callback) {
   if (!user.email_verified) {
     return callback(
       new UnauthorizedError("Please verify your email before logging in.")
@@ -22,7 +22,7 @@ async function InternalUserIdRule(user, context, callback) {
   } = configuration;
 
   const { user_metadata, email } = user;
-  const { firstname, lastname, type } = user_metadata;
+  const { firstname, lastname, type, market } = user_metadata;
   const user_role =
     type === "company" ? rolesMap.company_admin : rolesMap.installer;
 
@@ -41,7 +41,8 @@ async function InternalUserIdRule(user, context, callback) {
           email: "${email}",
           firstName: "${firstname}",
           lastName: "${lastname}",
-          role: ${user_role}
+          role: ${user_role},
+          market: ${market}
       } } ) { 
         account { id } 
       }
@@ -103,7 +104,8 @@ async function InternalUserIdRule(user, context, callback) {
       ...context.accessToken,
       [`${namespace}/internal_user_id`]: user.app_metadata.internal_user_id,
       [`${namespace}/docebo_token`]: tokenByJwtPayload.access_token,
-      [`${namespace}/role`]: user.app_metadata.role
+      [`${namespace}/role`]: user.app_metadata.role,
+      [`${namespace}/email`]: user.email
     };
   };
 

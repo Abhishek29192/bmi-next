@@ -3,31 +3,12 @@ import Hero, { HeroItem } from "@bmi/hero";
 import Button from "@bmi/button";
 import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { QueryResult } from "@apollo/client";
-import auth0 from "../lib/auth0";
 import { Layout } from "../components/Layout";
 import { EnrollmentItems } from "../graphql/generated/schemas";
-import { TrainingsQuery } from "../graphql/generated/operations";
-import { useTrainingsQuery } from "../graphql/generated/hooks";
+import serverSiderProps from "../lib/serverSideProps/training";
 
-const Training = () => {
-  const { t } = useTranslation("training-page");
-  const queryResult = useTrainingsQuery();
-
-  return (
-    <Layout title={t("Training")}>
-      <TrainingDetail {...queryResult} />
-    </Layout>
-  );
-};
-
-const TrainingDetail = ({
-  data,
-  loading,
-  error
-}: QueryResult<TrainingsQuery>) => {
-  if (loading) return <div>Loading...</div>;
+const Training = ({ trainingData }: any) => {
+  const { error, data } = trainingData;
   if (error) return <div>Oops... {error.message}</div>;
   const { t } = useTranslation("training-page");
   const {
@@ -53,7 +34,9 @@ const TrainingDetail = ({
     }
   }));
   return (
-    <Hero level={0} hasSpaceBottom autoPlayInterval={10000} heroes={heroes} />
+    <Layout title={t("Training")}>
+      <Hero level={0} hasSpaceBottom autoPlayInterval={10000} heroes={heroes} />{" "}
+    </Layout>
   );
 };
 const trainingChildren = ({
@@ -85,17 +68,6 @@ const trainingChildren = ({
   );
 };
 
-export const getServerSideProps = auth0.withPageAuthRequired({
-  async getServerSideProps({ locale }) {
-    return {
-      props: {
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "footer"
-        ]))
-      }
-    };
-  }
-});
+export const getServerSideProps = serverSiderProps;
+
 export default Training;
