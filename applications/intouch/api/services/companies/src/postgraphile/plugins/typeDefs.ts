@@ -59,7 +59,7 @@ export default gql`
     signature: ContentfulSignature
     guaranteeTemplatesCollection: GuaranteeTemplatesCollection
   }
-  type PublisOutput {
+  type PublishOutput {
     messageId: String
   }
   extend type Guarantee {
@@ -75,6 +75,6 @@ export default gql`
 
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
-    createGuaranteePdf(id: Int!): PublisOutput
+    createGuaranteePdf(id: Int!): PublishOutput
   }
 `;

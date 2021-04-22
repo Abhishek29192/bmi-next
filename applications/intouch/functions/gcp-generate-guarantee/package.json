@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/gcp-generate-guarantee",
+  "name": "@bmi/gcp-intouch-generate-guarantee",
   "license": "BMI-DXB",
   "version": "1.0.3",
   "main": "dist/index.js",

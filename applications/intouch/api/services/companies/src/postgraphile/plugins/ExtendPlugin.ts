@@ -42,9 +42,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           });
           const messageId = await publish(pubSub, TOPICS.GUARANTEE_PDF, data);
 
-          return {
-            messageId: messageId
-          };
+          return { messageId };
         }
       }
     }

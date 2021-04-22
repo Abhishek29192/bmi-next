@@ -6130,7 +6130,7 @@ type Mutation {
     """
     input: PublishInput!
   ): Publish
-  createGuaranteePdf(id: Int!): PublisOutput
+  createGuaranteePdf(id: Int!): PublishOutput
 }
 
 """An object with a globally unique `ID`."""
@@ -7181,7 +7181,7 @@ input PublishInput {
   email: String
 }
 
-type PublisOutput {
+type PublishOutput {
   messageId: String
 }
 

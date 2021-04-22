@@ -5,7 +5,7 @@ steps:
     args:
       - functions
       - deploy
-      - pubsub-generate-guarantee	
+      - pubsub-generate-guarantee
       - --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-generate-guarantee.zip
       - --runtime=nodejs10
       - --entry-point=sendGuaranteePdf

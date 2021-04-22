@@ -3,7 +3,7 @@ image: node:12
 build_gcp-intouch-generate-guarantee:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/dev-environment')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/functions/gcp-generate-guarantee/**/*
   needs: [install]
@@ -18,7 +18,7 @@ build_gcp-intouch-generate-guarantee:
 package_gcp-intouch-generate-guarantee:
   stage: package
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/functions/gcp-generate-guarantee/**/*
   needs: [build_gcp-intouch-generate-guarantee]
@@ -28,8 +28,12 @@ package_gcp-intouch-generate-guarantee:
     - apt-get update
     - apt-get install -y zip unzip
     - mkdir -p dist/applications/intouch/functions
+    - NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
   script:
-    - cd applications/intouch/functions/gcp-generate-guarantee; zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-generate-guarantee.zip .npmrc .yarnrc package.json dist/; cd $CI_PROJECT_DIR;
+    - cd applications/intouch/functions/gcp-generate-guarantee
+    - echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_READ_TOKEN}">.npmrc
+    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-generate-guarantee.zip .npmrc .yarnrc package.json dist/
+    - cd $CI_PROJECT_DIR
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/applications/intouch/functions
@@ -39,9 +43,9 @@ deploy_gcp-intouch-generate-guarantee:
   image: gcr.io/google.com/cloudsdktool/cloud-sdk
   stage: deploy
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
-        - applications/intouch/functions/ggcp-generate-guarantee/**/*
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
       allow_failure: true
   needs: [package_gcp-intouch-generate-guarantee]
   dependencies:

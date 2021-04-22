@@ -23,9 +23,9 @@ export async function helloPubSub(event, context) {
 
   await sgMail.send({
     from: process.env.MAIL_FROM,
-    to: parsedPayload.data.email,
-    subject: parsedPayload.data.title,
-    text: parsedPayload.data.text,
-    html: parsedPayload.data.html
+    to: parsedPayload.email,
+    subject: parsedPayload.title,
+    text: parsedPayload.text,
+    html: parsedPayload.html
   });
 }
