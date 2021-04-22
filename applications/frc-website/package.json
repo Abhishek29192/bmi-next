@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build && gatsby serve",
-    "check:ts": "tsc --noEmit",
+    "check:ts": "tsc",
     "build": "gatsby build --prefix-paths"
   },
   "dependencies": {
