@@ -12,7 +12,7 @@ STABLE;
 
 
 -- Function to invite a new account to an organization
-CREATE OR REPLACE FUNCTION create_user (email text, first_name text, last_name text, market_id int, role role)
+CREATE OR REPLACE FUNCTION create_account (email text, first_name text, last_name text, market_id int, role role)
   RETURNS account
   AS $$
   DECLARE 
