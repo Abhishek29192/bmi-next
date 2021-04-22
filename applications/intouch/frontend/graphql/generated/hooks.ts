@@ -117,6 +117,9 @@ export const GetCompanyDocument = gql`
       phone
       website
       aboutUs
+      publicEmail
+      phone
+      website
     }
   }
 `;

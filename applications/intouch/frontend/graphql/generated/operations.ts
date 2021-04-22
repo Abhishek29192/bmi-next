@@ -31,7 +31,7 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
     { readonly __typename?: "Company" } & Pick<
       SchemaTypes.Company,
-      "name" | "phone" | "website" | "aboutUs"
+      "name" | "phone" | "website" | "aboutUs" | "publicEmail"
     >
   >;
 };
