@@ -459,103 +459,18 @@
  force=true
 
 [[redirects]]
- from="/it/professionisti/faq/requisiti-per-la-realizzazione-di-un-tetto"
- to="/it/professionisti/faq-professionisti/requisiti-per-la-realizzazione-di-un-tetto"
- force=true
-
-[[redirects]]
- from="/it/professionisti/faq/come-acquistare-garanzie-e-assistenza-post-vendita"
- to="/it/professionisti/faq-professionisti/come-acquistare-garanzie-e-assistenza-post-vendita"
- force=true
-
-[[redirects]]
- from="/it/professionisti/faq/come-impermeabilizzare-il-tetto-e-le-coperture"
- to="/it/professionisti/faq-professionisti/come-impermeabilizzare-il-tetto-e-le-coperture"
- force=true
-
-[[redirects]]
- from="/it/professionisti/faq/come-isolare-il-tetto-e-le-coperture"
- to="/it/professionisti/faq-professionisti/come-isolare-il-tetto-e-le-coperture"
- force=true
-
-[[redirects]]
- from="/it/professionisti/faq/come-realizzare-manto-di-copertura"
- to="/it/professionisti/faq-professionisti/come-realizzare-manto-di-copertura"
- force=true
-
-[[redirects]]
- from="/it/professionisti/faq/sistema-solare-termico-risparmio-energetico"
- to="/it/professionisti/faq-professionisti/sistema-solare-termico-risparmio-energetico"
- force=true
-
-[[redirects]]
- from="/it/professionisti/faq/sistemi-di-sicurezza-e-anticaduta"
- to="/it/professionisti/faq-professionisti/sistemi-di-sicurezza-e-anticaduta"
- force=true
-
-[[redirects]]
- from="/it/professionisti/faq/come-progettare-tetto-ventilato"
- to="/it/professionisti/faq-professionisti/come-progettare-tetto-ventilato"
- force=true
-
-[[redirects]]
  from="/it/professionisti/faq:slug"
  to="/it/professionisti/faq-professionisti:slug"
  force=true
 
 [[redirects]]
- from="/it/privati/disegnare-un-progetto"
- to="/it/privati/disegnare-un-progetto-privati"
- force=true
-
-[[redirects]]
- from="/it/privati/faq/garanzie"
- to="/it/privati/privati-faq/garanzie"
- force=true
-
-[[redirects]]
- from="/it/privati/faq/sicurezza-e-anticaduta"
- to="/it/privati/privati-faq/sicurezza-e-anticaduta"
- force=true
-
-[[redirects]]
- from="/it/privati/faq/ristrutturare-il-tetto"
- to="/it/privati/privati-faq/ristrutturare-il-tetto"
- force=true
-
-[[redirects]]
- from="/it/privati/faq/ventilazione-impermeabilita-isolamento"
- to="/it/privati/privati-faq/ventilazione-impermeabilita-isolamento"
- force=true
-
-[[redirects]]
- from="/it/privati/faq/installare-fotovoltaico-sul-tetto"
- to="/it/privati/privati-faq/installare-fotovoltaico-sul-tetto"
- force=true
-
-[[redirects]]
- from="/it/privati/faq/sistema-tetto"
- to="/it/privati/privati-faq/sistema-tetto"
- force=true
-
-[[redirects]]
- from="/it/privati/faq/tegole-minerali"
- to="/it/privati/privati-faq/tegole-minerali"
- force=true
-
-[[redirects]]
- from="/it/privati/faq/pannelli"
- to="/it/privati/privati-faq/pannelli"
+ from="/it/privati/faq:slug"
+ to="/it/privati/privati-faq:slug"
  force=true
 
 [[redirects]]
  from="/it/privati/informazioni-sulle-garanzie"
  to="/it/privati/informazioni-sulle-garanzie-privati"
- force=true
-
-[[redirects]]
- from="/it/privati/faq:slug"
- to="/it/privati/privati-faq:slug"
  force=true
 
 [[redirects]]
