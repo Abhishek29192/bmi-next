@@ -2,8 +2,9 @@ import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { resolve } from "path";
 import { getGuarantee } from "./mocks/data";
 import GuaranteePdf from "./src/GuaranteePdf";
+import { sendGuaranteePdf } from "./";
 
-const start = async () => {
+export const pdfCreate = async () => {
   const result = await getGuarantee();
   const guaranteePdf = new GuaranteePdf(result);
 
@@ -20,4 +21,11 @@ const start = async () => {
   });
 };
 
-start();
+export const sendMail = async () => {
+  const result = await getGuarantee();
+  const event = {
+    data: Buffer.from(JSON.stringify(result)).toString("base64")
+  };
+
+  sendGuaranteePdf(event, null);
+};
