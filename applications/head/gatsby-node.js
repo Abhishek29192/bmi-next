@@ -279,7 +279,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 };
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
   actions.setWebpackConfig({
     resolve: {
       plugins: [
@@ -289,6 +289,18 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       ]
     }
   });
+  // NOTE: This ignores the order conflict warnings caused by the CSS Modules
+  // only when building production.
+  if (stage === "build-javascript") {
+    const config = getConfig();
+    const miniCssExtractPlugin = config.plugins.find(
+      (plugin) => plugin.constructor.name === "MiniCssExtractPlugin"
+    );
+    if (miniCssExtractPlugin) {
+      miniCssExtractPlugin.options.ignoreOrder = true;
+    }
+    actions.replaceWebpackConfig(config);
+  }
 };
 
 exports.createSchemaCustomization = ({ actions }) => {
