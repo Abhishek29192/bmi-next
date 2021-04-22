@@ -1,17 +1,53 @@
-import * as SchemaTypes from "./schemas";
+import type * as SchemaTypes from "@bmi/intouch-api-types";
 
-export type TrainingsQueryVariables = SchemaTypes.Exact<{
+export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.CreateCompanyInput;
+}>;
+
+export type CreateCompanyMutation = { readonly __typename?: "Mutation" } & {
+  readonly createCompany?: SchemaTypes.Maybe<
+    { readonly __typename?: "CreateCompanyPayload" } & {
+      readonly company?: SchemaTypes.Maybe<
+        { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "name">
+      >;
+    }
+  >;
+};
+
+export type GetCurrentCompanyQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
 
-export type TrainingsQuery = { __typename?: "Query" } & {
-  training?: SchemaTypes.Maybe<
-    { __typename?: "TrainingInfo" } & Pick<
+export type GetCurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
+  SchemaTypes.Query,
+  "currentCompany"
+>;
+
+export type GetCompanyQueryVariables = SchemaTypes.Exact<{
+  companyId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type GetCompanyQuery = { readonly __typename?: "Query" } & {
+  readonly company?: SchemaTypes.Maybe<
+    { readonly __typename?: "Company" } & Pick<
+      SchemaTypes.Company,
+      "name" | "phone" | "website" | "aboutUs"
+    >
+  >;
+};
+
+export type TrainingQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type TrainingQuery = { readonly __typename?: "Query" } & {
+  readonly training?: SchemaTypes.Maybe<
+    { readonly __typename?: "TrainingInfo" } & Pick<
       SchemaTypes.TrainingInfo,
       "name" | "url"
     > & {
-        user?: SchemaTypes.Maybe<
-          { __typename?: "TrainingUser" } & Pick<
+        readonly user?: SchemaTypes.Maybe<
+          { readonly __typename?: "TrainingUser" } & Pick<
             SchemaTypes.TrainingUser,
             | "id"
             | "email"
@@ -20,8 +56,8 @@ export type TrainingsQuery = { __typename?: "Query" } & {
             | "firstname"
             | "lastname"
           > & {
-              enrollment?: SchemaTypes.Maybe<
-                { __typename?: "Enrollment" } & Pick<
+              readonly enrollment?: SchemaTypes.Maybe<
+                { readonly __typename?: "Enrollment" } & Pick<
                   SchemaTypes.Enrollment,
                   | "count"
                   | "has_more_data"
@@ -30,10 +66,10 @@ export type TrainingsQuery = { __typename?: "Query" } & {
                   | "total_page_count"
                   | "total_count"
                 > & {
-                    items?: SchemaTypes.Maybe<
-                      Array<
+                    readonly items?: SchemaTypes.Maybe<
+                      ReadonlyArray<
                         SchemaTypes.Maybe<
-                          { __typename?: "EnrollmentItems" } & Pick<
+                          { readonly __typename?: "EnrollmentItems" } & Pick<
                             SchemaTypes.EnrollmentItems,
                             | "id"
                             | "name"

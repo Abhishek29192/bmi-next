@@ -3,37 +3,36 @@ overwrite: true
 schema:
   - http://localhost:4000/graphql:
       headers:
-        Authorization: "<Authorization Token>"
+        Authorization: "Bearer ${AUTH0_ACCESS_TOKEN}"
 # Format files
 hooks:
   afterAllFileWrite:
-    - prettier --write           
-#documents: Array of paths or glob patterns for files which export GraphQL documents using a gql tag or a plain string;    
-documents: './graphql/*.ts'     
+    - prettier --write
+# documents: Array of paths or glob patterns for files which export GraphQL documents using a gql tag or a plain string;
+documents:
+  - "./**/*.(ts|tsx|graphql)"
+  - "!./graphql/generated/*"
 generates:
-  
-  # Create Schemas  
-  ./graphql/generated/schemas.ts: 
-    plugins:
-      - typescript
-
-   # Create operations based on queries
+  # Create operations based on queries
   ./graphql/generated/operations.ts:
     preset: import-types
     presetConfig:
-      typesPath: ./schemas
-      importTypesNamespace: SchemaTypes  
+      typesPath: "@bmi/intouch-api-types"
+      importTypesNamespace: SchemaTypes
     plugins:
       - typescript-operations
+    config:
+      immutableTypes: true
+      useTypeImports: true
 
   # Create react-apollo hooks
   ./graphql/generated/hooks.ts:
     preset: import-types
     presetConfig:
       typesPath: ./operations
-      importTypesNamespace: OperationTypes    
+      importTypesNamespace: OperationTypes
     plugins:
-      - typescript-react-apollo     
+      - typescript-react-apollo
 
   # Create next-ssr
   ./graphql/generated/page.tsx:
@@ -44,6 +43,6 @@ generates:
     preset: import-types
     presetConfig:
       typesPath: ./operations
-      importTypesNamespace: OperationTypes      
+      importTypesNamespace: OperationTypes
     plugins:
       - graphql-codegen-apollo-next-ssr

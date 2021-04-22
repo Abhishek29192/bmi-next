@@ -3,14 +3,66 @@ import Hero, { HeroItem } from "@bmi/hero";
 import Button from "@bmi/button";
 import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { gql } from "@apollo/client";
+import type { EnrollmentItems } from "@bmi/intouch-api-types";
+import { initializeApollo } from "../lib/apolloClient";
+import { TrainingQuery } from "../graphql/generated/operations";
+import { getServerPageTraining } from "../graphql/generated/page";
+import auth0 from "../lib/auth0";
 import { Layout } from "../components/Layout";
-import { EnrollmentItems } from "../graphql/generated/schemas";
-import serverSiderProps from "../lib/serverSideProps/training";
 
-const Training = ({ trainingData }: any) => {
-  const { error, data } = trainingData;
-  if (error) return <div>Oops... {error.message}</div>;
+// export doesn't matter for codegen
+export const pageQuery = gql`
+  query training {
+    training {
+      name
+      url
+      user {
+        id
+        email
+        user_level
+        username
+        firstname
+        lastname
+        enrollment {
+          count
+          has_more_data
+          current_page
+          current_page_size
+          total_page_count
+          total_count
+          items {
+            id
+            name
+            description
+            status
+            image_url
+            url
+            type
+            level
+          }
+        }
+      }
+    }
+  }
+`;
+
+type PageProps = {
+  trainingData: {
+    data: TrainingQuery;
+    error?: {
+      message: string;
+    };
+  };
+};
+
+const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
+  const { error, data } = trainingData;
+
+  if (error) return <div>Oops... {error.message}</div>;
+
   const {
     training: {
       url,
@@ -33,12 +85,14 @@ const Training = ({ trainingData }: any) => {
       }
     }
   }));
+
   return (
     <Layout title={t("Training")}>
       <Hero level={0} hasSpaceBottom autoPlayInterval={10000} heroes={heroes} />{" "}
     </Layout>
   );
 };
+
 const trainingChildren = ({
   description,
   type,
@@ -68,6 +122,36 @@ const trainingChildren = ({
   );
 };
 
-export const getServerSideProps = serverSiderProps;
+export const getServerSideProps = auth0.withPageAuthRequired({
+  async getServerSideProps(ctx) {
+    const apolloClient = await initializeApollo(null, ctx);
 
-export default Training;
+    let trainingData = {};
+
+    try {
+      const pageQuery = await getServerPageTraining({}, apolloClient);
+      trainingData = pageQuery.props;
+    } catch (error) {
+      trainingData = {
+        data: null,
+        error: {
+          message: error.message
+        }
+      };
+    }
+
+    return {
+      props: {
+        trainingData,
+        ...(await serverSideTranslations(ctx.locale, [
+          "common",
+          "sidebar",
+          "footer",
+          "company-page"
+        ]))
+      }
+    };
+  }
+});
+
+export default TrainingPage;
