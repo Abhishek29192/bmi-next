@@ -1,8 +1,15 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, {
+  useMemo,
+  useState,
+  useEffect,
+  ReactNode,
+  useRef,
+  RefObject
+} from "react";
 import { ClickableAction } from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Card, { CardActions, CardContent } from "@bmi/card";
-import Dialog from "@bmi/dialog";
+import ContainerDialog from "@bmi/container-dialog";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import {
@@ -14,8 +21,9 @@ import {
 import Logo, { BMI } from "@bmi/logo";
 import ToggleCard from "@bmi/toggle-card";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import SvgIcon from "@material-ui/core/SvgIcon";
+import { Popover, SvgIcon } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ShareIcon from "@material-ui/icons/Share";
 import classnames from "classnames";
 import {
   TileViewer,
@@ -43,10 +51,10 @@ export type Parameters = {
 type Props = {
   contentSource: string;
   open: boolean;
-  title?: string;
-  onChange?: (params: Partial<Parameters & { isOpen: boolean }>) => void;
   onClose: () => any;
   getProductLinkAction?: (variantCode: string) => any;
+  onChange?: (params: Partial<Parameters & { isOpen: boolean }>) => void;
+  shareWidget?: React.ReactNode;
 } & Parameters;
 
 type TileProps =
@@ -198,7 +206,7 @@ const TileSectorDialog = ({
   };
 
   return (
-    <Dialog
+    <ContainerDialog
       open={open}
       onCloseClick={() => onCloseClick(false)}
       onBackdropClick={() => onCloseClick(false)}
@@ -208,34 +216,34 @@ const TileSectorDialog = ({
         styles["Visualiser"],
         styles["Visualiser--secondary"]
       )}
+      containerClassName={styles["container"]}
       backdropProps={{ invisible: true }}
+      allowOverflow
     >
-      <Dialog.Content>
-        <Typography
-          variant="h4"
-          component="h2"
-          align="center"
-          className={styles["group-title"]}
-        >
-          Velg produkt
-        </Typography>
-        <Typography gutterBottom>
-          Denne tjenesten skal kun brukes som veiledning. Faktiske
-          produktoverflater- og farger kan variere fra de som vises.
-        </Typography>
+      <Typography
+        variant="h4"
+        component="h2"
+        align="center"
+        className={styles["group-title"]}
+      >
+        Velg produkt
+      </Typography>
+      <Typography gutterBottom>
+        Denne tjenesten skal kun brukes som veiledning. Faktiske
+        produktoverflater- og farger kan variere fra de som vises.
+      </Typography>
 
-        {Object.keys(productPropsGroupedByMaterial).map((key) => (
-          <SelectionOptions
-            contentSource={contentSource}
-            defaultValue={defaultTileIdentifier}
-            key={`material-group-${key}`}
-            title={MATERIAL_NAME_MAP[key]}
-            products={productPropsGroupedByMaterial[key]}
-            onClick={onClick}
-          />
-        ))}
-      </Dialog.Content>
-    </Dialog>
+      {Object.keys(productPropsGroupedByMaterial).map((key) => (
+        <SelectionOptions
+          contentSource={contentSource}
+          defaultValue={defaultTileIdentifier}
+          key={`material-group-${key}`}
+          title={MATERIAL_NAME_MAP[key]}
+          products={productPropsGroupedByMaterial[key]}
+          onClick={onClick}
+        />
+      ))}
+    </ContainerDialog>
   );
 };
 
@@ -255,7 +263,7 @@ const SidingsSelectorDialog = ({
   onConfirmClick: (sidingId: number) => void;
 }) => {
   return (
-    <Dialog
+    <ContainerDialog
       open={open}
       onCloseClick={() => onCloseClick(false)}
       onBackdropClick={() => onCloseClick(false)}
@@ -265,42 +273,93 @@ const SidingsSelectorDialog = ({
         styles["Visualiser"],
         styles["Visualiser--secondary"]
       )}
+      containerClassName={styles["container"]}
       backdropProps={{ invisible: true }}
+      allowOverflow
     >
-      <Dialog.Content>
-        <Typography
-          variant="h4"
-          component="h2"
-          align="center"
-          className={styles["group-title"]}
-        >
-          Velg farge på vegg
-        </Typography>
-        <Grid container spacing={2}>
-          {sidings.map(({ id, name, diffuseMapRef }) => (
-            <Grid key={id} item xs={6} md={4} lg={2}>
-              <ToggleCard
-                component="button"
-                title={name}
-                imageSource={getRef(diffuseMapRef, {
-                  url: true,
-                  size: "original",
-                  contentSource
-                })}
-                onClick={() => {
-                  onConfirmClick(id);
-                  onCloseClick(false);
-                }}
-                className={classnames({
-                  [styles["active-selection-option"]]: activeSiding.id === id
-                })}
-                aria-label={activeSiding.id === id ? "Valgt" : undefined}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      </Dialog.Content>
-    </Dialog>
+      <Typography
+        variant="h4"
+        component="h2"
+        align="center"
+        className={styles["group-title"]}
+      >
+        Velg farge på vegg
+      </Typography>
+      <Grid container spacing={2}>
+        {sidings.map(({ id, name, diffuseMapRef }) => (
+          <Grid key={id} item xs={6} md={4} lg={2}>
+            <ToggleCard
+              component="button"
+              title={name}
+              imageSource={getRef(diffuseMapRef, {
+                url: true,
+                size: "original",
+                contentSource
+              })}
+              onClick={() => {
+                onConfirmClick(id);
+                onCloseClick(false);
+              }}
+              className={classnames({
+                [styles["active-selection-option"]]: activeSiding.id === id
+              })}
+              aria-label={activeSiding.id === id ? "Valgt" : undefined}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </ContainerDialog>
+  );
+};
+
+const SharePopover = ({
+  shareWidget,
+  anchorRef
+}: {
+  shareWidget: ReactNode;
+  anchorRef: RefObject<HTMLDivElement>;
+}) => {
+  const [anchorElement, setAnchorElement] = useState(null);
+
+  const handlePopoverClick = () => {
+    setAnchorElement(anchorRef.current);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorElement(null);
+  };
+
+  return (
+    <div>
+      <Button
+        isIconButton
+        className={styles["share-button"]}
+        variant="text"
+        accessibilityLabel={"Lukk"}
+        aria-describedby="share-popover"
+        onClick={handlePopoverClick}
+      >
+        <ShareIcon />
+      </Button>
+      <Popover
+        id="share-popover"
+        className={styles["Visualiser-popover"]}
+        open={Boolean(anchorElement)}
+        anchorEl={anchorElement}
+        onClose={handlePopoverClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right"
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right"
+        }}
+        PaperProps={{ square: true, elevation: 1 }}
+      >
+        {shareWidget}
+      </Popover>
+    </div>
   );
 };
 
@@ -312,13 +371,13 @@ const viewerComponentMap = {
 const Visualiser = ({
   contentSource,
   open,
-  title,
   tileId,
   colourId,
   sidingId,
   viewMode,
   tiles,
   sidings,
+  shareWidget,
   onClose,
   getProductLinkAction,
   onChange
@@ -330,6 +389,7 @@ const Visualiser = ({
   const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [mode, setMode] = useState(viewMode);
+  const header = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMode(viewMode);
@@ -392,103 +452,106 @@ const Visualiser = ({
   const Viewer = viewerComponentMap[mode || "tile"];
 
   return (
-    <Dialog
+    <ContainerDialog
       open={open}
       onCloseClick={handleOnClose}
       onBackdropClick={handleOnClose}
       maxWidth="xl"
       className={styles["Visualiser"]}
+      containerClassName={styles["content"]}
     >
-      {title && <Dialog.Title hasUnderline>{title}</Dialog.Title>}
-      <Dialog.Content className={styles["content"]}>
-        <div className={styles["container"]}>
-          {isLoading && (
-            <div className={styles["progress-container"]}>
-              <CircularProgress />
-            </div>
-          )}
-          <div className={styles["details"]}>
-            <Grid container>
-              <Grid item xs={10} sm={6} md={5} lg={4}>
-                <Card square={true}>
-                  <CardContent>
-                    <Logo
-                      source={BMI}
-                      width="60"
-                      height="60"
-                      className={styles["details-logo"]}
-                    />
-                    <Typography
-                      variant="h5"
-                      component="h3"
-                      className={styles["details-title"]}
-                    >
-                      {activeTile.name}
-                    </Typography>
-                    <Typography>{activeColour.name}</Typography>
-                  </CardContent>
-                  {activeColour.variantCode && (
-                    <CardActions>
-                      <Button
-                        action={
-                          getProductLinkAction
-                            ? getProductLinkAction(activeColour.variantCode)
-                            : undefined
-                        }
-                        variant="outlined"
-                        endIcon={<ArrowForwardIcon />}
-                      >
-                        Les mer om produktet
-                      </Button>
-                    </CardActions>
-                  )}
-                </Card>
-              </Grid>
-            </Grid>
+      {shareWidget && (
+        <ContainerDialog.Header ref={header}>
+          <SharePopover shareWidget={shareWidget} anchorRef={header} />
+        </ContainerDialog.Header>
+      )}
+      <div
+        className={classnames(styles["container"], styles["container--viewer"])}
+      >
+        {isLoading && (
+          <div className={styles["progress-container"]}>
+            <CircularProgress />
           </div>
-          {mode && (
-            <Viewer
-              tile={activeTile}
-              colour={activeColour}
-              options={{ contentSource }}
-              siding={activeSiding}
-              setIsLoading={(isLoading) => setIsLoading(isLoading)}
-            />
-          )}
-          <TileSectorDialog
-            open={isTileSelectorOpen}
-            onCloseClick={setIsTileSelectorOpen}
-            activeTile={activeTile}
-            activeColour={activeColour}
-            tiles={tiles}
-            onConfirmClick={setActiveProduct}
-            contentSource={contentSource}
-          />
-          <SidingsSelectorDialog
-            open={isSidingsSelectorOpen}
-            onCloseClick={setIsSidingsSelectorOpen}
-            activeSiding={activeSiding}
-            sidings={sidings}
-            onConfirmClick={setActiveSidingId}
-            contentSource={contentSource}
-          />
-          <Actions
-            toggleTileSelector={() =>
-              setIsTileSelectorOpen(
-                (wasTileSelectorOpen) => !wasTileSelectorOpen
-              )
-            }
-            toggleSidingsSelector={() =>
-              setIsSidingsSelectorOpen(
-                (wasSidingsSelectorOpen) => !wasSidingsSelectorOpen
-              )
-            }
-            viewMode={mode}
-            setViewMode={setMode}
-          />
+        )}
+        <div className={styles["details"]}>
+          <Grid container>
+            <Grid item xs={10} sm={6} md={5} lg={4}>
+              <Card square={true}>
+                <CardContent>
+                  <Logo
+                    source={BMI}
+                    width="60"
+                    height="60"
+                    className={styles["details-logo"]}
+                  />
+                  <Typography
+                    variant="h5"
+                    component="h3"
+                    className={styles["details-title"]}
+                  >
+                    {activeTile.name}
+                  </Typography>
+                  <Typography>{activeColour.name}</Typography>
+                </CardContent>
+                {activeColour.variantCode && (
+                  <CardActions>
+                    <Button
+                      action={
+                        getProductLinkAction
+                          ? getProductLinkAction(activeColour.variantCode)
+                          : undefined
+                      }
+                      variant="outlined"
+                      endIcon={<ArrowForwardIcon />}
+                    >
+                      Les mer om produktet
+                    </Button>
+                  </CardActions>
+                )}
+              </Card>
+            </Grid>
+          </Grid>
         </div>
-      </Dialog.Content>
-    </Dialog>
+        {mode && (
+          <Viewer
+            tile={activeTile}
+            colour={activeColour}
+            options={{ contentSource }}
+            siding={activeSiding}
+            setIsLoading={(isLoading) => setIsLoading(isLoading)}
+          />
+        )}
+        <TileSectorDialog
+          open={isTileSelectorOpen}
+          onCloseClick={setIsTileSelectorOpen}
+          activeTile={activeTile}
+          activeColour={activeColour}
+          tiles={tiles}
+          onConfirmClick={setActiveProduct}
+          contentSource={contentSource}
+        />
+        <SidingsSelectorDialog
+          open={isSidingsSelectorOpen}
+          onCloseClick={setIsSidingsSelectorOpen}
+          activeSiding={activeSiding}
+          sidings={sidings}
+          onConfirmClick={setActiveSidingId}
+          contentSource={contentSource}
+        />
+        <Actions
+          toggleTileSelector={() =>
+            setIsTileSelectorOpen((wasTileSelectorOpen) => !wasTileSelectorOpen)
+          }
+          toggleSidingsSelector={() =>
+            setIsSidingsSelectorOpen(
+              (wasSidingsSelectorOpen) => !wasSidingsSelectorOpen
+            )
+          }
+          viewMode={mode}
+          setViewMode={setMode}
+        />
+      </div>
+    </ContainerDialog>
   );
 };
 
