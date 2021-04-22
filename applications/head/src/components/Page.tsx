@@ -75,13 +75,12 @@ const Page = ({
           name="viewport"
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
-
         {seo?.metaDescription && (
           <meta name="description" content={seo.metaDescription} />
         )}
-
         {headScripts && <script>{headScripts.headScripts}</script>}
-        {scriptOnetrust && (
+
+        {!process.env.GATSBY_PREVIEW && scriptOnetrust && (
           <script
             src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
             type="text/javascript"
@@ -89,18 +88,18 @@ const Page = ({
             data-domain-script={scriptOnetrust}
           ></script>
         )}
-        {scriptOnetrust && (
+        {!process.env.GATSBY_PREVIEW && scriptOnetrust && (
           <script type="text/javascript">
             {`function OptanonWrapper() {}`}
           </script>
         )}
-        {scriptGA && (
+        {!process.env.GATSBY_PREVIEW && scriptGA && (
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${scriptGA}`}
           ></script>
         )}
-        {scriptGA && (
+        {!process.env.GATSBY_PREVIEW && scriptGA && (
           <script>
             {`<!-- Global site tag (gtag.js) - Google Analytics -->
             window.dataLayer = window.dataLayer || []; 
@@ -109,7 +108,7 @@ const Page = ({
           </script>
         )}
 
-        {scriptHotJar && (
+        {!process.env.GATSBY_PREVIEW && scriptHotJar && (
           <script>
             {`<!-- Hotjar Tracking Code for https://www.bmigroup.com/no -->
               (function(h,o,t,j,a,r){
@@ -122,7 +121,7 @@ const Page = ({
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
           </script>
         )}
-        {scriptGOptLoad && (
+        {!process.env.GATSBY_PREVIEW && scriptGOptLoad && (
           <script
             async
             src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
