@@ -499,8 +499,8 @@
  force=true
 
 [[redirects]]
- from="/it/professionisti/faq"
- to="/it/professionisti/faq-Professionisti"
+ from="/it/professionisti/faq:slug"
+ to="/it/professionisti/faq-professionisti:slug"
  force=true
 
 [[redirects]]
@@ -554,38 +554,8 @@
  force=true
 
 [[redirects]]
- from="/it/privati/faq"
- to="/it/privati/privati-faq"
- force=true
-
-[[redirects]]
- from="/it/download/schede-tecniche#q="
- to="/it/download/schede-tecniche"
- force=true
-
-[[redirects]]
- from="/it/download/catalogo#q="
- to="/it/download/catalogo"
- force=true
-
-[[redirects]]
- from="/it/download/manuale-di-posa#q=="
- to="/it/download/manuale-di-posa"
- force=true
-
-[[redirects]]
- from="/it/download/dop-declaration-of-performance#q="
- to="/it/download/dop-declaration-of-performance"
- force=true
-
-[[redirects]]
- from="/it/vivi-il-tuo-tetto/come-progettare-casa-di-qualita"
- to="/it//vivi-il-tuo-tetto/come-progettare-casa-di-qualita"
- force=true
-
-[[redirects]]
- from="/it/vivi-il-tuo-tetto/funzioni-del-tetto"
- to="/it//vivi-il-tuo-tetto/funzioni-del-tetto"
+ from="/it/privati/faq:slug"
+ to="/it/privati/privati-faq:slug"
  force=true
 
 [[redirects]]
