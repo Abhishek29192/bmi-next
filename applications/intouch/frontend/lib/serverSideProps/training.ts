@@ -1,23 +1,31 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { Session } from "@auth0/nextjs-auth0";
 import auth0 from "../auth0";
 import { initializeApollo } from "../apolloClient";
 import { TrainingsDocument } from "../../graphql/generated/hooks";
 
 export default auth0.withPageAuthRequired({
-  async getServerSideProps({ locale, req, res }) {
-    const apolloClient = initializeApollo();
-    const { accessToken }: Session = await auth0.getSession(req, res);
+  async getServerSideProps({ locale, ...ctx }) {
+    const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
-    const { data } = await apolloClient.query({
-      query: TrainingsDocument,
-      variables: {},
-      context: { headers: { Authorization: `Bearer ${accessToken}` } }
-    });
+    let trainingData = {};
+
+    try {
+      const { data } = await apolloClient.query({
+        query: TrainingsDocument,
+        variables: {}
+      });
+      trainingData = data;
+    } catch (error) {
+      trainingData = {
+        error: {
+          message: "Unauthorized"
+        }
+      };
+    }
 
     return {
       props: {
-        trainingData: data,
+        trainingData,
         ...(await serverSideTranslations(locale, [
           "common",
           "sidebar",

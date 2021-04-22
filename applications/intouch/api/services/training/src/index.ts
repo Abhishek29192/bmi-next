@@ -36,10 +36,15 @@ async function main() {
         );
       }
 
-      if (!cache.get(`${userInfo}_token`) && user[`${NAMESPACE}/email`]) {
-        const { data } = await loginToDocebo(user[`${NAMESPACE}/email`]);
-        doceboToken = data?.access_token;
-        cache.set(`${userInfo}_token`, doceboToken);
+      if (!cache.get(`${userInfo}_token`)) {
+        try {
+          const { data } = await loginToDocebo(user[`${NAMESPACE}/email`]);
+          doceboToken = data?.access_token;
+          cache.set(`${userInfo}_token`, doceboToken);
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log("Error: ", error.message);
+        }
       } else {
         doceboToken = cache.get(`${userInfo}_token`);
       }
