@@ -44,6 +44,7 @@ type Props = {
   contentSource: string;
   open: boolean;
   title?: string;
+  onChange?: (params: Partial<Parameters & { isOpen: boolean }>) => void;
   onClose: () => any;
   getProductLinkAction?: (variantCode: string) => any;
 } & Parameters;
@@ -315,11 +316,12 @@ const Visualiser = ({
   tileId,
   colourId,
   sidingId,
-  viewMode = "tile",
+  viewMode,
   tiles,
   sidings,
   onClose,
-  getProductLinkAction
+  getProductLinkAction,
+  onChange
 }: Props) => {
   const [activeTileId, setActiveTileId] = useState(tileId);
   const [activeColourId, setActiveColourId] = useState(colourId);
@@ -345,14 +347,17 @@ const Visualiser = ({
     setActiveColourId(colourId);
   }, [colourId]);
 
+  useEffect(() => {
+    onChange({
+      colourId: activeColourId,
+      sidingId: activeSidingId,
+      tileId: activeTileId,
+      viewMode: mode,
+      isOpen: open
+    });
+  }, [activeTileId, activeColourId, activeSidingId, mode, open]);
+
   const handleOnClose = () => {
-    setIsLoading(true);
-    setActiveTileId(tileId);
-    setActiveColourId(colourId);
-    setActiveSidingId(sidingId);
-    setIsTileSelectorOpen(false);
-    setIsSidingsSelectorOpen(false);
-    setMode(viewMode);
     onClose();
   };
 
@@ -384,7 +389,7 @@ const Visualiser = ({
     setActiveColourId(colourId);
   };
 
-  const Viewer = viewerComponentMap[mode];
+  const Viewer = viewerComponentMap[mode || "tile"];
 
   return (
     <Dialog
