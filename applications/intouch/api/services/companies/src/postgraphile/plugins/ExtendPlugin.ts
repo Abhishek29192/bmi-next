@@ -1,37 +1,50 @@
-import { makeExtendSchemaPlugin, gql } from "graphile-utils";
+import { makeExtendSchemaPlugin } from "graphile-utils";
 import { publish, TOPICS } from "../../services/events";
+import { getGuarantee } from "../../services/contentful";
+import { guaranteeResolver } from "../../services/company/customResolvers";
+import typeDefs from "./typeDefs";
 
-const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => ({
-  typeDefs: gql`
-    type Publish {
-      title: String
-      text: String
-      html: String
-      email: String
-    }
-    input PublishInput {
-      title: String
-      text: String
-      html: String
-      email: String
-    }
+const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
+  const {
+    graphql: { graphql }
+  } = build;
 
-    extend type Mutation {
-      publishMessage(input: PublishInput!): Publish
-    }
-  `,
-  resolvers: {
-    Mutation: {
-      publishMessage: async (_query, args, context, resolveInfo) => {
-        const { input } = args;
-        const { pubSub } = context;
+  return {
+    typeDefs,
+    resolvers: {
+      Guarantee: {
+        guaranteeType: async (_query, args, context) => {
+          const { guaranteeTypeId } = _query;
+          const {
+            data: { guaranteeType }
+          } = await getGuarantee(guaranteeTypeId);
 
-        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, input);
+          return guaranteeType;
+        }
+      },
 
-        return input;
+      Mutation: {
+        publishMessage: async (_query, args, context, resolveInfo) => {
+          const { input } = args;
+          const { pubSub } = context;
+
+          await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, input);
+
+          return input;
+        },
+        createGuaranteePdf: async (_query, args, context, resolverInfo) => {
+          const data = await guaranteeResolver({
+            graphql,
+            args,
+            context,
+            resolverInfo
+          });
+          //TODO: Send guarantee data to google function(create file and send mail)
+          return data;
+        }
       }
     }
-  }
-}));
+  };
+});
 
 export default ExtendSchemaPlugin;
