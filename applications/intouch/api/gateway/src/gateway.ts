@@ -28,22 +28,11 @@ const createGateway = async () => {
             if (context.authorization) {
               request.http.headers.set("authorization", context.authorization);
               request.http.headers.set(
-                "x-docebo-user-token",
-                context["x-docebo-user-token"]
-              );
-              request.http.headers.set(
-                "x-authenticated-internal-user-id",
-                context["x-authenticated-internal-user-id"]
-              );
-              request.http.headers.set(
-                "x-authenticated-user-id",
-                context["x-authenticated-user-id"]
-              );
-              request.http.headers.set(
-                "x-authenticated-role",
-                context["x-authenticated-role"]
+                "x-apigateway-api-userinfo",
+                context["x-apigateway-api-userinfo"]
               );
             }
+            request.http.headers.set("x-request-id", context["x-request-id"]);
           }
         });
     },

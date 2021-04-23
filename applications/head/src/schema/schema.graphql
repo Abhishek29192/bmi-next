@@ -224,6 +224,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
 
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+
+  "The CTA link for this page."
+  cta: ContentfulLink @link(from: "cta___NODE")
 }
 
 """
@@ -953,6 +956,9 @@ type ContentfulResources implements Node {
   welcomeDialogBody: ContentfulRichText
 
   welcomeDialogBrands: [String]
+
+  "Set PIM documents' names pattern."
+  productDocumentNameMap: String
 }
 
 """
@@ -1219,6 +1225,9 @@ type PIMDocument implements Node {
 
   "The file extension for this document."
   extension: String
+
+  "The real filename for this document."
+  realFileName: String
 }
 
 """

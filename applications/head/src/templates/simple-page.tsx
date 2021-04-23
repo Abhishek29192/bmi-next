@@ -27,8 +27,9 @@ import ShareWidgetSection, {
 } from "../components/ShareWidgetSection";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
+import { getCTA, LinkData } from "../components/Link";
 
-type Data = PageInfoData &
+export type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulSimplePage";
     leadBlock: LeadBlockSectionData | null;
@@ -46,6 +47,7 @@ type Data = PageInfoData &
       | null;
     parentPage: PageInfoData | null;
     breadcrumbs: BreadcrumbsData;
+    cta: LinkData | null;
   };
 
 type Props = {
@@ -69,7 +71,8 @@ const SimplePage = ({ data }: Props) => {
     heroType,
     breadcrumbs,
     seo,
-    featuredVideo
+    featuredVideo,
+    cta
   } = data.contentfulSimplePage;
 
   const heroProps: HeroItem = {
@@ -77,7 +80,14 @@ const SimplePage = ({ data }: Props) => {
     children: subtitle,
     media: featuredVideo
       ? renderVideo(featuredVideo)
-      : renderImage(featuredMedia, { size: "cover" })
+      : renderImage(featuredMedia, { size: "cover" }),
+    cta:
+      cta &&
+      getCTA(
+        data.contentfulSimplePage,
+        data.contentfulSite.countryCode,
+        cta.label
+      )
   };
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {
@@ -151,6 +161,9 @@ export const pageQuery = graphql`
       ...PageFragment
       ...BreadcrumbsFragment
       heroType
+      cta {
+        ...LinkFragment
+      }
       leadBlock {
         ...LeadBlockSectionFragment
       }

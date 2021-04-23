@@ -18,9 +18,9 @@
     "clean": "gatsby clean",
     "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build --prefix-paths && gatsby serve",
-    "check:ts": "tsc --noEmit",
+    "check:ts": "tsc",
     "build": "gatsby build --prefix-paths",
-    "coverage:jest": "jest --coverage",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "microcopy": "node ./scripts/get-microcopy.js"
   },
   "dependencies": {

@@ -162,7 +162,19 @@ const ProductOverviewPane = ({
         {name}
       </Typography>
       {nobb === null ? (
-        ""
+        <ul className={styles["attributes"]}>
+          {[
+            {
+              name: nobbLabel,
+              variants: []
+            },
+            ...attributes.map((attribute) =>
+              attribute.type === "thumbnails"
+                ? { ...attribute, component: thumbnailComponent }
+                : attribute
+            )
+          ].map(renderAttribute)}
+        </ul>
       ) : (
         <ul className={styles["attributes"]}>
           {[

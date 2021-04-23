@@ -2,7 +2,11 @@ import { Client } from "@elastic/elasticsearch";
 import { config } from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { transformProduct } from "./transform";
-import { Operation as ESOperation } from "./types/elasticSearch";
+import {
+  Operation as ESOperation,
+  Operation,
+  ProductVariant
+} from "./types/elasticSearch";
 import { Product as PIMProduct } from "./types/pim";
 
 type ProductMessage = {
@@ -26,7 +30,8 @@ const {
   SECRET_MAN_GCP_PROJECT_NAME,
   ES_PASSWORD_SECRET,
   ES_CLOUD_ID,
-  ES_USERNAME
+  ES_USERNAME,
+  BATCH_SIZE = "250"
 } = process.env;
 
 config({
@@ -35,7 +40,7 @@ config({
 
 const secretManagerClient = new SecretManagerServiceClient();
 
-let esClientCache;
+let esClientCache: Client;
 const getEsClient = async () => {
   if (!esClientCache) {
     const esPasswordSecret = await secretManagerClient.accessSecretVersion({
@@ -61,106 +66,99 @@ const getEsClient = async () => {
   return esClientCache;
 };
 
-const parseErrorMeta = (meta) => {
-  const { error, status } = meta.body;
-  return `[${status}]: ${JSON.stringify(error)}`;
-};
-
-// ping ES cluster
 const pingEsCluster = async () => {
   // get ES client
-  let client = await getEsClient();
-  client.ping(function (error) {
+  const client = await getEsClient();
+  client.ping((error) => {
     if (error) {
       // eslint-disable-next-line no-console
       console.error("Elasticsearch cluster is down!");
     } else {
       // eslint-disable-next-line no-console
-      console.log("Elasticsearch is connected");
+      console.info("Elasticsearch is connected");
     }
   });
 };
 
-const getBulkOperations = (
-  indexName: string,
-  operation: ESOperation,
-  items: readonly PIMProduct[]
-) => {
-  const variants = items.reduce(
+const buildEsProducts = (items: readonly PIMProduct[]) => {
+  return items.reduce(
     (allProducts, product) => [...allProducts, ...transformProduct(product)],
     []
   );
+};
 
+const getChunks = (esProducts: readonly ProductVariant[]) => {
+  const chunkSize = parseInt(BATCH_SIZE);
+  // eslint-disable-next-line no-console
+  console.info(`Chunk size: ${chunkSize}`);
+
+  const chunksArray = [];
+  const totalProducts = esProducts.length;
+  for (var i = 0; i < totalProducts; i += chunkSize) {
+    const chunk = esProducts.slice(i, i + chunkSize);
+    chunksArray.push(chunk);
+  }
+
+  return chunksArray;
+};
+
+const getBulkOperations = (
+  indexName: string,
+  variants: readonly ProductVariant[],
+  action?: ESOperation
+) => {
   return variants.reduce(
     (allOps, item) => [
       ...allOps,
-      { [operation]: { _index: indexName, _id: item.code } },
+      {
+        [action || item.approvalStatus === "approved" ? "index" : "delete"]: {
+          _index: indexName,
+          _id: item.code
+        }
+      },
       item
     ],
     []
   );
 };
 
-const setItemsInElasticSearch = async (
-  itemType,
-  items: readonly PIMProduct[]
+const updateElasticSearch = async (
+  itemType: string,
+  esProducts: readonly ProductVariant[],
+  action?: Operation
 ) => {
-  // get ES client
-  let client = await getEsClient();
-
   const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
-  const body = getBulkOperations(index, "index", items);
+  const client = await getEsClient();
+  // Chunk the request to avoid exceeding ES bulk request limits.
+  const responsePromises = getChunks(esProducts)
+    .map((c) => getBulkOperations(index, c, action))
+    .map((body) =>
+      client.bulk({
+        index,
+        refresh: true,
+        body
+      })
+    );
 
-  const { body: bulkResponse } = await client.bulk({
-    index,
-    refresh: true,
-    body
-  });
-
-  // eslint-disable-next-line no-console
-  console.log(`[UPDATED][${bulkResponse.status}]`);
-
-  if (bulkResponse.errors) {
+  var responses = await Promise.all(responsePromises);
+  responses.forEach((response) => {
     // eslint-disable-next-line no-console
-    console.error("ERROR", JSON.stringify(bulkResponse.errors, null, 2));
-  }
-
+    console.info(`Response status: [${response.body.status}]`);
+    if (response.body.errors) {
+      // eslint-disable-next-line no-console
+      console.error("ERROR", JSON.stringify(response.body.errors, null, 2));
+    }
+  });
   const { body: count } = await client.count({ index });
   // eslint-disable-next-line no-console
-  console.log("Total count:", count);
-};
-
-const deleteItemsFromElasticsearch = async (itemType, items) => {
-  const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
-  const body = getBulkOperations(index, "delete", items);
-
-  // get ES client
-  let client = await getEsClient();
-
-  const { body: bulkResponse } = await client.bulk({
-    index,
-    refresh: true,
-    body
-  });
-
-  // eslint-disable-next-line no-console
-  console.log(`[DELETED][${bulkResponse.status}]`);
-
-  if (bulkResponse.errors) {
-    // eslint-disable-next-line no-console
-    console.log("[ERROR]", JSON.stringify(bulkResponse.errors, null, 2));
-  }
-
-  const { body: count } = await client.count({ index });
-  // eslint-disable-next-line no-console
-  console.log("Total count:", count);
+  console.info("Total count:", count);
 };
 
 export const handleMessage: ProductMessageFunction = async (event, context) => {
   // eslint-disable-next-line no-console
-  console.log("event", event);
+  console.info("event", event);
   // eslint-disable-next-line no-console
-  console.log("context", context);
+  console.info("context", context);
 
   await pingEsCluster();
 
@@ -169,33 +167,39 @@ export const handleMessage: ProductMessageFunction = async (event, context) => {
     ? event.data
       ? JSON.parse(Buffer.from(event.data, "base64").toString())
       : {}
-    : context.message
-    ? context.message.data
-    : {};
+    : context.message?.data || {};
 
   const { type, itemType, items } = message;
   if (!items) {
     // eslint-disable-next-line no-console
-    console.log("[ERROR]: NO Items received");
+    console.warn("No items received");
     return;
   }
 
   // eslint-disable-next-line no-console
-  console.log("Received message", {
+  console.info("Received message", {
     type,
     itemType,
     itemsCount: (items || []).length
   });
 
+  const esProducts: ProductVariant[] = buildEsProducts(items);
+
+  if (!esProducts || esProducts.length == 0) {
+    // eslint-disable-next-line no-console
+    console.warn(`ES Products not found. Ignoring the ${type}.`);
+    return;
+  }
+
   switch (type) {
     case "UPDATED":
-      setItemsInElasticSearch(itemType, items);
+      await updateElasticSearch(itemType, esProducts);
       break;
     case "DELETED":
-      deleteItemsFromElasticsearch(itemType, items);
+      await updateElasticSearch(itemType, esProducts, "delete");
       break;
     default:
       // eslint-disable-next-line no-console
-      console.error(`[ERROR]: Undercognised message type [${type}]`);
+      console.error(`[ERROR]: Unrecognised message type [${type}]`);
   }
 };

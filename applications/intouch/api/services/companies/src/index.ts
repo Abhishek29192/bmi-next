@@ -1,23 +1,20 @@
-import express, { NextFunction, Request, Response } from "express";
-import { PubSub } from "@google-cloud/pubsub";
+import express from "express";
+
 import dotenv from "dotenv";
 
 dotenv.config();
 
 import { postgraphile } from "./postgraphile";
+import parseUserInfo from "./middleware/parseUserInfo";
+import pubsub from "./middleware/pubsub";
 
 const PORT = process.env.PORT || 4001;
 
 async function main() {
-  const pubSub = new PubSub({
-    projectId: process.env.GCP_PROJECT
-  });
-
   const app = express();
-  app.use((req: Request, res: Response, next: NextFunction) => {
-    req.pubSub = pubSub;
-    return next();
-  });
+
+  app.use(pubsub);
+  app.use(parseUserInfo);
   app.use(postgraphile);
   app.listen(PORT, () => {
     // eslint-disable-next-line no-console

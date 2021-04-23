@@ -13,14 +13,19 @@ import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 type Props = Omit<AutocompleteProps, "options"> & {
   onPlaceChange?: (place: GeocoderResult) => void;
+  controlledValue?: any;
 };
 
-const GoogleAutocomplete = ({ onPlaceChange, ...props }: Props) => {
+const GoogleAutocomplete = ({
+  onPlaceChange,
+  controlledValue = "",
+  ...props
+}: Props) => {
   const google = useContext<Google>(GoogleApi);
   const debouncer = useRef<NodeJS.Timeout>();
   const googleAutocomplete = useRef<AutocompleteService>();
   const googleGeocoder = useRef<Geocoder>();
-  const [value, setValue] = useState<any>("");
+  const [value, setValue] = useState<any>(controlledValue);
   const [inputValue, setInputValue] = useState<string>("");
   const [options, setOptions] = useState<(AutocompletePrediction | string)[]>(
     []
@@ -68,12 +73,29 @@ const GoogleAutocomplete = ({ onPlaceChange, ...props }: Props) => {
   }, [value, inputValue]);
 
   useEffect(() => {
-    if (value && value.place_id) {
+    if (value?.place_id) {
       getGeocode({ placeId: value.place_id }, (result) => {
         onPlaceChange && onPlaceChange(result[0]);
       });
     }
   }, [value]);
+
+  useEffect(() => {
+    if (controlledValue) {
+      getGeocode(controlledValue, (result) => {
+        if (JSON.stringify(result[0]) !== JSON.stringify(value)) {
+          const newValue = {
+            ...result[0],
+            structured_formatting: {
+              main_text: result[0]?.formatted_address
+            },
+            description: result[0]?.formatted_address
+          };
+          setValue(newValue);
+        }
+      });
+    }
+  }, [controlledValue]);
 
   return google ? (
     <Autocomplete
@@ -81,7 +103,7 @@ const GoogleAutocomplete = ({ onPlaceChange, ...props }: Props) => {
         typeof option === "string" ? option : option.description
       }
       options={options}
-      value={value}
+      value={value || null}
       onChange={(_, value) => {
         setOptions(value ? [value, ...options] : options);
         setValue(value);

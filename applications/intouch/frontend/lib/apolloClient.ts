@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,12 +7,16 @@ import {
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { ApolloLink } from "@apollo/client/link/core";
+import { setContext } from "@apollo/client/link/context";
 
-const { NEXT_PUBLIC_BASE_URL } = process.env;
+import auth0 from "./auth0";
 
 let apolloClient;
+const { NEXT_PUBLIC_BASE_URL } = process.env;
 
-const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
+const createApolloClient = async (
+  ctx
+): Promise<ApolloClient<NormalizedCacheObject>> => {
   const isBrowser = typeof window !== "undefined";
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -28,25 +31,43 @@ const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
     if (networkError) console.log(`[Network error]: ${networkError}`);
   });
 
+  let accessToken;
+  if (ctx) {
+    const session = await auth0.getSession(ctx.req, ctx.res);
+    accessToken = `Bearer ${session.accessToken}`;
+  }
+
   const httpLink = new HttpLink({
     uri: `${NEXT_PUBLIC_BASE_URL}/api/graphql`,
     credentials: "same-origin"
   });
 
+  const authLink = setContext((req, { headers }) => {
+    return {
+      headers: {
+        ...headers,
+        authorization: accessToken || ""
+      }
+    };
+  });
+
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser,
-    link: ApolloLink.from([errorLink, httpLink]),
-    cache: new InMemoryCache()
+    link: ApolloLink.from([errorLink, authLink, httpLink]),
+    cache: new InMemoryCache(),
+    credentials: "include",
+    headers: {
+      authorization: `Bearer ${accessToken}`
+    }
   });
 };
 
-export default createApolloClient();
-
 export const initializeApollo = (
-  initialState = null
+  initialState = null,
+  ctx
 ): ApolloClient<NormalizedCacheObject> => {
-  const _apolloClient = apolloClient ?? createApolloClient();
+  const _apolloClient = apolloClient ?? createApolloClient(ctx);
 
   // If your page has Next.js data fetching methods that use Apollo Client,
   // the initial state gets hydrated here
@@ -67,7 +88,10 @@ export const initializeApollo = (
   return _apolloClient;
 };
 
-export const useApollo = (initialState) => {
-  const store = useMemo(() => initializeApollo(initialState), [initialState]);
+export const useApollo = (initialState, ctx = null) => {
+  const store = useMemo(() => initializeApollo(initialState, ctx), [
+    initialState,
+    ctx
+  ]);
   return store;
 };

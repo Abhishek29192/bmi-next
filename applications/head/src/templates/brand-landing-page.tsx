@@ -47,7 +47,7 @@ const getHeroItemsWithContext = (
         media: featuredVideo
           ? renderVideo(featuredVideo)
           : renderImage(featuredMedia, { size: "cover" }),
-        CTA: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
+        cta: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
       };
     }
   );

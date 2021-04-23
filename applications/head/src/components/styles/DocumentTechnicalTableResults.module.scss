@@ -84,6 +84,11 @@
     width: 24px;
     height: 24px;
   }
+  .external-download-button {
+    &:hover {
+      background-color: unset;
+    }
+  }
 
   .all-files-header {
     width: 92px;

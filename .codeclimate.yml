@@ -1,0 +1,25 @@
+---
+version: "2"
+plugins:
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - javascript
+  eslint:
+    enabled: true
+    channel: "eslint-7"
+  fixme:
+    enabled: true
+exclude_patterns:
+  - .gitlab/
+  - .vscode/
+  - .yarn_cache/
+  - doc/
+  - "**/node_modules/"
+  - scripts/
+  - "**/*.d.ts"
+  - "**/*.min.js"
+  - "**/*.min.css"
+  - "**/__tests__/"
+  - "**/__mocks__/"

@@ -11,6 +11,8 @@ import UnderlaySelection from "./_UnderlaySelection";
 import Guttering from "./_Guttering";
 import { calculateArea } from "./calculation/calculate";
 import Results from "./_Results";
+import protrusionTypes from "./calculation/protrusions";
+import { DimensionsValues, Measurements, Roof } from "./types/roof";
 
 const PitchedRoofCalculator = ({ isDebugging }: any) => {
   const [open, setOpen] = useState(false);
@@ -24,8 +26,8 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
     | "guttering"
     | "your-solution-contains"
   >("select-roof");
-  const [roof, setRoof] = useState(null);
-  const [dimensions, setDimensions] = useState({});
+  const [roof, setRoof] = useState<Roof | null>(null);
+  const [dimensions, setDimensions] = useState<DimensionsValues>({});
   const [tile, setTile] = useState(null);
   const [variant, setVariant] = useState(null);
   const [tileOptions, setTileOptions] = useState<any>({});
@@ -67,10 +69,32 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
     setSelected(next);
   };
 
-  const measurements = useMemo(() => {
+  const measurements: Measurements = useMemo(() => {
     if (!roof || !dimensions) return null;
-    const { faces, lines } = roof.getMeasurements(dimensions);
-    return { faces, lines, area: calculateArea(faces) };
+    let { faces, lines } = roof.getMeasurements(dimensions);
+
+    if (Array.isArray(dimensions.protrusions)) {
+      for (const { type, ...protrusionDimensions } of dimensions.protrusions) {
+        if (protrusionTypes[type].getMeasurements) {
+          const { faces: pFaces, lines: pLines } = protrusionTypes[
+            type
+          ].getMeasurements({
+            ...protrusionDimensions,
+            roofPitch: dimensions[roof.roofPitchField] // Says on what face of the roof the protrusion is
+          });
+          faces.push(...pFaces);
+          Object.keys(lines).forEach((line) =>
+            lines[line].push(...pLines[line])
+          );
+        }
+      }
+    }
+
+    return {
+      faces,
+      lines,
+      area: calculateArea(faces)
+    };
   }, [roof, dimensions]);
 
   return (
@@ -200,6 +224,8 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
             }
             backLabel="Go back"
             backButtonOnClick={() => setSelected("guttering")}
+            linkLabel="Start over"
+            linkOnClick={() => setSelected("select-roof")}
           >
             <Results
               {...{

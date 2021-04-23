@@ -22,6 +22,14 @@ import serverSiderProps, { CompanyData } from "../lib/serverSideProps/company";
 const getCompanyData = (
   companyData: CompanyData
 ): { name: string; aboutus: string; details: any } => {
+  if (!companyData) {
+    return {
+      name: "Company not found",
+      aboutus: "company.aboutUs",
+      details: []
+    };
+  }
+
   const company = companyData.company;
   const details = [
     {
@@ -79,10 +87,6 @@ const getCompanyData = (
 
 const Company = ({ company }: any) => {
   const { t } = useTranslation("company-page");
-
-  if (!company) {
-    return <p>No company found</p>;
-  }
 
   const { name, aboutus, details } = getCompanyData(company);
   return (

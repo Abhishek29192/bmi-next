@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import { PostGraphileOptions } from "postgraphile";
 
-export default process.env.NODE_ENV !== "production"
-  ? {
-      postgraphile: {
+const postgraphile =
+  process.env.NODE_ENV !== "production"
+    ? ({
         subscriptions: false,
         watchPg: true,
         dynamicJson: true,
@@ -17,10 +17,8 @@ export default process.env.NODE_ENV !== "production"
         enhanceGraphiql: true,
         enableQueryBatching: true,
         legacyRelations: "omit"
-      } as PostGraphileOptions<Request, Response>
-    }
-  : {
-      postgraphile: {
+      } as PostGraphileOptions<Request, Response>)
+    : ({
         subscriptions: false,
         retryOnInitFail: true,
         dynamicJson: true,
@@ -30,7 +28,18 @@ export default process.env.NODE_ENV !== "production"
         extendedErrors: ["errcode"],
         graphiql: false,
         enableQueryBatching: true,
-        disableQueryLog: true, // our default logging has performance issues, but do make sure you have a logging system in place!
+        disableQueryLog: true,
         legacyRelations: "omit"
-      } as PostGraphileOptions<Request, Response>
-    };
+      } as PostGraphileOptions<Request, Response>);
+
+const roles: Record<RolesKey, RolesValues> = {
+  SUPER_ADMIN: "super_admin",
+  MARKET_ADMIN: "market_admin",
+  INSTALLER: "installer",
+  COMPANY_ADMIN: "company_admin"
+};
+
+export default {
+  postgraphile,
+  roles
+};

@@ -1,0 +1,50 @@
+@import "@bmi/styles";
+
+.main {
+  padding-top: 1.5rem;
+  background-color: $color-white;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+
+  &:before {
+    content: "";
+    background-color: $color-pearl;
+    width: 100%;
+    height: 105px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jobtitle {
+  color: $color-slate;
+  margin-top: 0.25rem !important;
+}
+
+.icons {
+  margin-top: 0.5rem;
+}
+
+.details {
+  margin-top: 1rem;
+  padding: 0 1.5rem;
+  width: 100%;
+  background-color: $color-pearl;
+}
+
+.buttonHolder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}

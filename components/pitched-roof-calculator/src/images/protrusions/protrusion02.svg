@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 300">
+  <g id="box">
+    <rect width="350" height="300" fill="none"/>
+  </g>
+  <g id="protrusion002">
+    <g id="fill">
+      <polygon points="112.68 208.675 112.68 248.913 254.987 166.507 254.987 137.599 187.066 108.242 112.68 208.675" fill="#bacbd8"/>
+      <polygon points="112.68 216.883 112.68 248.913 97.778 227.426 112.68 216.883" fill="#fff"/>
+      <polygon points="82.528 222.459 109.378 237.948 189.623 112.787 83.015 51.087 82.528 222.459" fill="#45e0ff"/>
+      <polygon points="157.711 178.12 157.711 205.576 181.091 192.037 181.091 164.581 157.711 178.12" fill="#255d63"/>
+      <polygon points="185.986 161.796 185.986 189.251 209.367 175.712 209.367 148.257 185.986 161.796" fill="#255d63"/>
+      <polygon points="240.622 128.099 267.472 143.588 189.623 112.787 83.015 51.087 240.622 128.099" fill="#2580b4"/>
+    </g>
+    <g id="lines">
+      <polyline points="254.987 138.594 254.987 166.507 112.68 248.913 102.207 233.811" fill="none" stroke="#3f3f3f" stroke-miterlimit="10" stroke-width="2"/>
+      <line x1="112.68004" y1="248.58462" x2="112.68004" y2="232.55746" fill="none" stroke="#3f3f3f" stroke-miterlimit="10"/>
+      <polygon points="83.015 51.087 189.623 112.787 109.378 237.948 82.528 222.459 83.015 51.087" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+      <polyline points="83.015 51.087 240.622 128.099 267.472 143.588 189.623 112.787" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

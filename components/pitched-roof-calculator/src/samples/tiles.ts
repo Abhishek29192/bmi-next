@@ -60,7 +60,7 @@ const ZandaArktis = {
   ],
   width: 33.2,
   height: 42,
-  brokenBond: false,
+  brokenBond: true,
   variants: [
     {
       code: "175200122_Zanda_Protector_main_tile_black",
@@ -80,7 +80,7 @@ const ZandaArktis = {
         name: "Zanda_Protector_ridge tile black",
         externalProductCode: "46035761",
         image: demoImage,
-        length: 42
+        length: 33.33
       },
       ridgeOptions: [
         {
@@ -88,24 +88,119 @@ const ZandaArktis = {
           name: "Zanda_Protector_ridge tile black",
           externalProductCode: "46035761",
           image: demoImage,
-          length: 42
+          length: 33.33
         },
         {
           code: "249702122_Zanda_Protector_SAMPLE_RIDGE_METAL_FLUSH",
           name: "Zanda_Protector_ridge sample metal flush black",
           externalProductCode: "46035001",
           image: demoImage,
-          length: 42
+          length: 33.33
         }
       ],
       vergeOptions: [
         {
+          type: "METAL_FLUSH",
           name: "Verge Metal Flush",
           left: {
-            image: demoFormattedImage
+            code: "849702122_Zanda_Protector_verge_metal_flush_black_left",
+            name: "Zanda_Protector_verge metal flush black left",
+            externalProductCode: "86035761",
+            image: demoImage,
+            length: 10
+          },
+          right: {
+            code: "849702122_Zanda_Protector_verge_metal_flush_black_right",
+            name: "Zanda_Protector_verge metal flush black right",
+            externalProductCode: "86035762",
+            image: demoImage,
+            length: 10
+          },
+          leftStart: {
+            code:
+              "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
+            name: "Zanda_Protector_verge metal flush black left start",
+            externalProductCode: "86035763",
+            image: demoImage,
+            length: 10
+          },
+          rightStart: {
+            code:
+              "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
+            name: "Zanda_Protector_verge metal flush black right start",
+            externalProductCode: "86035764",
+            image: demoImage,
+            length: 10
+          }
+        },
+        {
+          type: "TILE",
+          name: "Verge Tile",
+          left: {
+            code: "849702122_Zanda_Protector_verge_tile_black_left",
+            name: "Zanda_Protector_verge tile black left",
+            externalProductCode: "87035761",
+            image: demoFormattedImage,
+            width: 30
+          },
+          right: {
+            code: "849702122_Zanda_Protector_verge_tile_black_right",
+            name: "Zanda_Protector_verge tile black right",
+            externalProductCode: "87035762",
+            image: demoFormattedImage,
+            width: 30
+          },
+          halfLeft: {
+            code: "849702122_Zanda_Protector_verge_half_tile_black_left",
+            name: "Zanda_Protector_verge half tile black left",
+            externalProductCode: "87035763",
+            image: demoFormattedImage,
+            width: 15
+          },
+          halfRight: {
+            code: "849702122_Zanda_Protector_verge_half_tile_black_right",
+            name: "Zanda_Protector_verge half tile black right",
+            externalProductCode: "87035764",
+            image: demoFormattedImage,
+            width: 15
           }
         }
       ],
+      valleyMetalFlushStart: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_black_start",
+        name: "Zanda_Protector_valley metal flush black start",
+        externalProductCode: "66035761",
+        image: demoImage,
+        length: 19
+      },
+      valleyMetalFlush: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_black",
+        name: "Zanda_Protector_valley metal flush black",
+        externalProductCode: "66035762",
+        image: demoImage,
+        length: 19
+      },
+      valleyMetalFlushEnd: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_black_end",
+        name: "Zanda_Protector_valley metal flush black end",
+        externalProductCode: "66035763",
+        image: demoImage,
+        length: 19
+      },
+      valleyMetalFlushTop: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_black_top",
+        name: "Zanda_Protector_valley metal flush black top",
+        externalProductCode: "66035764",
+        image: demoImage,
+        length: 19
+      },
+      valleyMetalFlushDormerStart: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_black_dormer_start",
+        name: "Zanda_Protector_valley metal flush black dormer start",
+        externalProductCode: "66035765",
+        image: demoImage,
+        length: 19
+      },
       accessories: [
         {
           code: "Other",
@@ -228,7 +323,7 @@ const ZandaArktis = {
       ],
       width: 33.2,
       height: 42,
-      brokenBond: false
+      brokenBond: true
     },
     {
       code: "175200224_Zanda_Protector_main_tile_grey",
@@ -248,7 +343,7 @@ const ZandaArktis = {
         name: "Zanda_Protector_ridge tile grey",
         externalProductCode: "66035761",
         image: demoImage,
-        length: 42
+        length: 33.33
       },
       ridgeOptions: [
         {
@@ -256,24 +351,52 @@ const ZandaArktis = {
           name: "Zanda_Protector_ridge tile grey",
           externalProductCode: "4603511112",
           image: demoImage,
-          length: 42
+          length: 33.33
         },
         {
           code: "249702122_Zanda_Protector_SAMPLE_RIDGE_METAL_FLUSH",
           name: "Zanda_Protector_ridge sample metal flush grey",
           externalProductCode: "4603511111",
           image: demoImage,
-          length: 42
+          length: 33.33
         }
       ],
-      vergeOptions: [
-        {
-          name: "Verge Metal Flush",
-          left: {
-            image: demoFormattedImage
-          }
-        }
-      ],
+      vergeOptions: [],
+      valleyMetalFlushStart: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_grey_start",
+        name: "Zanda_Protector_valley metal flush grey start",
+        externalProductCode: "66035761",
+        image: demoImage,
+        length: 19
+      },
+      valleyMetalFlush: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_grey",
+        name: "Zanda_Protector_valley metal flush grey",
+        externalProductCode: "66035762",
+        image: demoImage,
+        length: 19
+      },
+      valleyMetalFlushEnd: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_grey_end",
+        name: "Zanda_Protector_valley metal flush grey end",
+        externalProductCode: "66035763",
+        image: demoImage,
+        length: 19
+      },
+      valleyMetalFlushTop: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_grey_top",
+        name: "Zanda_Protector_valley metal flush grey top",
+        externalProductCode: "66035764",
+        image: demoImage,
+        length: 19
+      },
+      valleyMetalFlushDormerStart: {
+        code: "669702122_Zanda_Protector_valley_metal_flush_grey_dormer_start",
+        name: "Zanda_Protector_valley metal flush grey dormer start",
+        externalProductCode: "66035765",
+        image: demoImage,
+        length: 19
+      },
       accessories: [
         {
           code: "Other",
@@ -396,7 +519,7 @@ const ZandaArktis = {
       ],
       width: 33.2,
       height: 42,
-      brokenBond: false
+      brokenBond: true
     }
   ]
 };

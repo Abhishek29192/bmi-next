@@ -5,6 +5,8 @@ import FieldContainer from "./subcomponents/_FieldContainer";
 import { battenCalc, surface } from "./calculation/calculate";
 import underlays from "./samples/underlays";
 import { guttering as gutteringList, hooks } from "./samples/guttering";
+import { VergeOption, LengthBasedProduct } from "./types";
+import { Measurements } from "./types/roof";
 
 const getRemoveRow = (setRows) => (externalProductCode) =>
   setRows((rows) =>
@@ -19,6 +21,32 @@ const tableLabels = {
   remove: "Remove"
 };
 
+const getReduceDivideAndCeil = (by, subtractBeforeDivision = 0) => (acc, v) =>
+  acc + Math.ceil((v.length - subtractBeforeDivision) / by);
+
+const getLengthOrZero = (
+  lengthBasedProduct: LengthBasedProduct,
+  shouldReturn = true
+) => (shouldReturn ? lengthBasedProduct && lengthBasedProduct.length : 0);
+
+const getProductItemFromSchema = ({
+  name,
+  packSize = "-",
+  quantity = 0,
+  ...rest
+}: {
+  image: string;
+  name: string;
+  externalProductCode: string;
+  packSize?: string;
+  quantity?: number;
+}) => ({
+  ...rest,
+  description: name,
+  packSize,
+  quantity
+});
+
 const Results = ({
   isDebugging,
   measurements: { faces, lines, area },
@@ -26,38 +54,168 @@ const Results = ({
   tileOptions,
   underlay,
   guttering
-}: any) => {
+}: {
+  isDebugging?: boolean;
+  measurements: Measurements;
+  variant: any;
+  tileOptions: any;
+  underlay: any;
+  guttering: any;
+}) => {
   const [tileRows, setTileRows] = useState(() => {
-    const facesBattens = faces.map((face) =>
-      battenCalc(face.vertices, [face.pitch], variant)
-    );
-    const faceTiles = facesBattens.map((battens) =>
-      surface(battens, variant, variant.halfTile)
+    let vergeOption: VergeOption;
+
+    if (tileOptions.verge && tileOptions.verge !== "none") {
+      vergeOption = variant.vergeOptions.find(
+        ({ name }) => name === tileOptions.verge
+      );
+    }
+
+    const facesBattens = faces.map((face) => ({
+      battens: battenCalc(face.vertices, [face.pitch], variant),
+      sides: face.sides,
+      subtract: face.subtract
+    }));
+    const faceTiles = facesBattens.map(({ battens, sides, subtract }) =>
+      surface(
+        battens,
+        sides,
+        variant,
+        variant.halfTile,
+        vergeOption && vergeOption.type === "TILE" ? vergeOption : undefined,
+        subtract
+      )
     );
 
-    return [
+    const result = [
       {
-        image: variant.image,
-        description: variant.name,
-        externalProductCode: variant.externalProductCode,
-        packSize: "-",
+        ...getProductItemFromSchema(variant),
         quantity: faceTiles.reduce((acc, { quantity }) => acc + quantity, 0)
       },
       ...(variant.halfTile
         ? [
             {
-              image: variant.halfTile.image,
-              description: variant.halfTile.name,
-              externalProductCode: variant.halfTile.externalProductCode,
-              packSize: "-",
+              ...getProductItemFromSchema(variant.halfTile),
               quantity: faceTiles.reduce(
                 (acc, { half: { quantity } }) => acc + quantity,
                 0
               )
             }
           ]
+        : []),
+      ...(vergeOption && vergeOption.type === "TILE"
+        ? [
+            {
+              ...getProductItemFromSchema(vergeOption.left),
+              quantity: faceTiles.reduce(
+                (acc, { cloakedVerge: { left } }) => acc + left,
+                0
+              )
+            },
+            {
+              ...getProductItemFromSchema(vergeOption.right),
+              quantity: faceTiles.reduce(
+                (acc, { cloakedVerge: { right } }) => acc + right,
+                0
+              )
+            },
+            {
+              ...getProductItemFromSchema(vergeOption.halfLeft),
+              quantity: faceTiles.reduce(
+                (acc, { cloakedVerge: { halfLeft } }) => acc + halfLeft,
+                0
+              )
+            },
+            {
+              ...getProductItemFromSchema(vergeOption.halfRight),
+              quantity: faceTiles.reduce(
+                (acc, { cloakedVerge: { halfRight } }) => acc + halfRight,
+                0
+              )
+            }
+          ]
         : [])
-    ];
+    ].filter((v) => v && !!v.quantity);
+
+    if (vergeOption && vergeOption.type === "METAL_FLUSH") {
+      const left = lines.leftVerge.reduce(
+        getReduceDivideAndCeil(
+          vergeOption.left.length,
+          vergeOption.leftStart.length
+        ),
+        0
+      );
+      const right = lines.rightVerge.reduce(
+        getReduceDivideAndCeil(
+          vergeOption.right.length,
+          vergeOption.rightStart.length
+        ),
+        0
+      );
+      const leftStart = lines.leftVerge.length;
+      const rightStart = lines.rightVerge.length;
+
+      result.push(
+        {
+          ...getProductItemFromSchema(vergeOption.left),
+          quantity: left
+        },
+        {
+          ...getProductItemFromSchema(vergeOption.right),
+          quantity: right
+        },
+        {
+          ...getProductItemFromSchema(vergeOption.leftStart),
+          quantity: leftStart
+        },
+        {
+          ...getProductItemFromSchema(vergeOption.rightStart),
+          quantity: rightStart
+        }
+      );
+    }
+
+    const valley = [
+      variant.valleyMetalFlushStart && {
+        ...getProductItemFromSchema(variant.valleyMetalFlushStart),
+        quantity: lines.valley.filter(({ start }) => !!start).length
+      },
+      variant.valleyMetalFlushEnd && {
+        ...getProductItemFromSchema(variant.valleyMetalFlushEnd),
+        quantity: lines.valley.filter(({ end }) => !!end).length
+      },
+      variant.valleyMetalFlushTop && {
+        ...getProductItemFromSchema(variant.valleyMetalFlushTop),
+        quantity: lines.valley.filter(({ top }) => !!top).length / 2
+      },
+      variant.valleyMetalFlushDormerStart && {
+        ...getProductItemFromSchema(variant.valleyMetalFlushDormerStart),
+        quantity: lines.valley.filter(({ dormerStart }) => !!dormerStart).length
+      },
+      variant.valleyMetalFlush && {
+        ...getProductItemFromSchema(variant.valleyMetalFlush),
+        quantity: lines.valley.reduce(
+          (acc, { length, start, end, top, dormerStart }) =>
+            acc +
+            Math.ceil(
+              (length -
+                (getLengthOrZero(variant.valleyMetalFlushStart, start) +
+                  getLengthOrZero(variant.valleyMetalFlushEnd, end) +
+                  getLengthOrZero(variant.valleyMetalFlushTop, top) +
+                  getLengthOrZero(
+                    variant.valleyMetalFlushDormerStart,
+                    dormerStart
+                  ))) /
+                variant.valleyMetalFlush.length
+            ),
+          0
+        )
+      }
+    ].filter((v) => v && !!v.quantity);
+
+    result.push(...valley);
+
+    return result.filter(({ quantity }) => quantity > 0);
   });
 
   const { ridge, ridgeTiles, hipTiles } = useMemo(() => {
@@ -68,34 +226,34 @@ const Results = ({
       : variant.ridgeOptions[0];
 
     const ridgeTiles = lines.ridge.reduce(
-      (acc, v) => acc + Math.ceil(v / ridge.length),
+      (acc, v) => acc + Math.ceil(v.length / ridge.length),
       0
     );
 
     const hipTiles = lines.hip.reduce(
-      (acc, v) => acc + Math.ceil(v / variant.hip.length),
+      (acc, v) => acc + Math.ceil(v.length / variant.hip.length),
       0
     );
 
     return { ridge, ridgeTiles, hipTiles };
   }, []);
 
-  const [fixingRows, setFixingRows] = useState(() => [
-    {
-      image: ridge.image,
-      description: ridge.name,
-      externalProductCode: ridge.externalProductCode,
-      packSize: "-",
-      quantity: ridgeTiles
-    },
-    {
-      image: variant.hip.image,
-      description: variant.hip.name,
-      externalProductCode: variant.hip.externalProductCode,
-      packSize: "-",
-      quantity: hipTiles
-    }
-  ]);
+  const [fixingRows, setFixingRows] = useState(() =>
+    [
+      {
+        ...getProductItemFromSchema(ridge),
+        quantity: ridgeTiles + (variant.hip.code === ridge.code ? hipTiles : 0)
+      },
+      ...(variant.hip.code !== ridge.code
+        ? [
+            {
+              ...getProductItemFromSchema(variant.hip),
+              quantity: hipTiles
+            }
+          ]
+        : [])
+    ].filter(({ quantity }) => quantity > 0)
+  );
 
   const [ventilationRows, setVentilationRows] = useState(() => [
     ...variant.ventilationHoodOptions
@@ -105,7 +263,7 @@ const Results = ({
 
   const [accessoryRows, setAccessoryRows] = useState(() => {
     const calculateForEaves = (length) =>
-      lines.eave.reduce((acc, v) => acc + Math.ceil(v / length), 0);
+      lines.eave.reduce((acc, v) => acc + Math.ceil(v.length / length), 0);
 
     const eaveAccessoriesQuantity = calculateForEaves(1000);
 
@@ -124,17 +282,11 @@ const Results = ({
       );
       gutterProducts = [
         {
-          image: gutteringVariant.image,
-          description: gutteringVariant.name,
-          externalProductCode: gutteringVariant.externalProductCode,
-          packSize: "-",
+          ...getProductItemFromSchema(gutteringVariant),
           quantity: calculateForEaves(gutteringVariant.length)
         },
         {
-          image: hook.image,
-          description: hook.name,
-          externalProductCode: hook.externalProductCode,
-          packSize: "-",
+          ...getProductItemFromSchema(hook),
           quantity: calculateForEaves(hook.length)
         },
         { ...gutteringVariant.downpipe, quantity: guttering.downPipes },
@@ -164,13 +316,22 @@ const Results = ({
     let longScrews = 0;
 
     if (variant.longScrew) {
-      const hipMeters = lines.hip.reduce((acc, v) => acc + v, 0) / 100;
-      const ridgeMeters = lines.ridge.reduce((acc, v) => acc + v, 0) / 100;
-      const eaveMeters = lines.eave.reduce((acc, v) => acc + v, 0) / 100;
-      const vergeMeters = lines.verge.reduce((acc, v) => acc + v, 0) / 100;
+      const hipMeters = lines.hip.reduce((acc, v) => acc + v.length, 0) / 100;
+      const ridgeMeters =
+        lines.ridge.reduce((acc, v) => acc + v.length, 0) / 100;
+      const eaveMeters = lines.eave.reduce((acc, v) => acc + v.length, 0) / 100;
+      const leftVergeMeters =
+        lines.leftVerge.reduce((acc, v) => acc + v.length, 0) / 100;
+      const rightVergeMeters =
+        lines.rightVerge.reduce((acc, v) => acc + v.length, 0) / 100;
 
       longScrews = Math.ceil(
-        (hipMeters + ridgeMeters + eaveMeters + vergeMeters) * 3.2
+        (hipMeters +
+          ridgeMeters +
+          eaveMeters +
+          leftVergeMeters +
+          rightVergeMeters) *
+          3.2
       );
 
       calculatedAccessories.push({
@@ -204,20 +365,9 @@ const Results = ({
       (u) => u.externalProductCode === underlay.underlay
     );
 
-    const mapAccessory = (a) => ({
-      image: a.image,
-      description: a.name,
-      externalProductCode: a.externalProductCode,
-      packSize: a.packSize || "-",
-      quantity: a.quantity || 0
-    });
-
     return [
       {
-        image: selectedUnderlay.image,
-        description: selectedUnderlay.name,
-        externalProductCode: selectedUnderlay.externalProductCode,
-        packSize: "-",
+        ...getProductItemFromSchema(selectedUnderlay),
         quantity: Math.ceil(
           area /
             (selectedUnderlay.length *
@@ -226,10 +376,10 @@ const Results = ({
       },
       ...gutterProducts,
       ...(variant.eaveAccessories || []).map((a) =>
-        mapAccessory({ ...a, quantity: eaveAccessoriesQuantity })
+        getProductItemFromSchema({ ...a, quantity: eaveAccessoriesQuantity })
       ),
       ...calculatedAccessories,
-      ...(variant.accessories || []).map(mapAccessory)
+      ...(variant.accessories || []).map(getProductItemFromSchema)
     ];
   });
 
@@ -283,7 +433,8 @@ const Results = ({
             {Object.keys(lines).map((l) =>
               lines[l].length ? (
                 <li key={l}>
-                  <b>{l}:</b> {lines[l].map((v) => v.toFixed(2)).join(" | ")}
+                  <b>{l}:</b>{" "}
+                  {lines[l].map((v) => v.length.toFixed(2)).join(" | ")}
                 </li>
               ) : null
             )}

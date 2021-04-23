@@ -7,6 +7,10 @@ import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import createAssetFileCountMap, {
+  generateFileNamebyTitle,
+  AssetUniqueFileCountMap
+} from "./DocumentFileUtils";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
 
@@ -41,16 +45,28 @@ export const handleDownloadClick = async (
         "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
       );
     }
-
-    const documents = flatten(listValues).map(
-      ({ __typename, asset, extension, title, url }) => ({
-        href:
-          __typename === "ContentfulDocument" ? `https:${asset.file.url}` : url,
-        name:
-          __typename === "ContentfulDocument"
-            ? `${title}.${asset.file.fileName.split(".").pop()}`
-            : `${title}.${extension}`
-      })
+    const assets = flatten(listValues);
+    const assetFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
+      assets
+    );
+    const documents = assets.map(
+      ({ __typename, asset, extension, title, url }, index) => {
+        return {
+          href:
+            __typename === "ContentfulDocument"
+              ? `https:${asset.file.url}`
+              : url,
+          name:
+            __typename === "ContentfulDocument"
+              ? `${title}.${asset.file.fileName.split(".").pop()}`
+              : generateFileNamebyTitle(
+                  assetFileCountMap,
+                  title,
+                  extension,
+                  index
+                )
+        };
+      }
     );
 
     const response = await axios.post(

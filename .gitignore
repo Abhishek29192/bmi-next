@@ -33,3 +33,12 @@ dump.json
 builds/
 
 license_finder_output.html
+
+.yarn_cache
+**/junit.xml
+
+# Added in by GitLab CI code_quality job if ran locally
+.csslintrc
+.rubocop.yml
+coffeelint.json
+gl-code-quality-report.json

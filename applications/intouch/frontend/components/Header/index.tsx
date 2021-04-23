@@ -61,7 +61,7 @@ export const Header = ({ title }: HeaderProps) => {
           </div>
 
           <div className={styles.lowerHeaderNav}>
-            <IconButton onClick={toggle}>
+            <IconButton onClick={toggle} id="notifications-panel-toggle">
               <Icon source={Notifications} color="primary" />
             </IconButton>
             <UserMenu />

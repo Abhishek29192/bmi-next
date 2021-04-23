@@ -9,10 +9,15 @@ test_gcp-upload-file:
         - jest/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-upload-file coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/gcp-upload-file/junit.xml
 
 build_gcp-upload-file:
   stage: build
@@ -22,7 +27,7 @@ build_gcp-upload-file:
         - functions/gcp-upload-file/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-upload-file build
   artifacts:
