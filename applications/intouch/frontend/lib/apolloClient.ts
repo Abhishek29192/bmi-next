@@ -14,9 +14,7 @@ import auth0 from "./auth0";
 let apolloClient;
 const { NEXT_PUBLIC_BASE_URL } = process.env;
 
-const createApolloClient = async (
-  ctx
-): Promise<ApolloClient<NormalizedCacheObject>> => {
+const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   const isBrowser = typeof window !== "undefined";
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -33,7 +31,7 @@ const createApolloClient = async (
 
   let accessToken;
   if (ctx) {
-    const session = await auth0.getSession(ctx.req, ctx.res);
+    const session = auth0.getSession(ctx.req, ctx.res);
     accessToken = `Bearer ${session.accessToken}`;
   }
 

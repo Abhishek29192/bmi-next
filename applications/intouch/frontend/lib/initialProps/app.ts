@@ -1,34 +1,10 @@
-import React from "react";
 import axios from "axios";
-import { AppProps } from "next/app";
-import { appWithTranslation } from "next-i18next";
-import { ApolloProvider } from "@apollo/client";
-import { UserProvider } from "@auth0/nextjs-auth0";
-import { useApollo } from "../lib/apolloClient";
-import auth0 from "../lib/auth0";
+import auth0 from "../auth0";
 
-import "../styles/globals.css";
+const USER_UNAUTHORIZED = "unauthorized (user is blocked)";
 
-const App = ({ Component, pageProps, ...rest }: AppProps) => {
-  const apolloClient = useApollo(pageProps?.initialApolloState);
-  return (
-    <ApolloProvider client={apolloClient}>
-      <Component {...pageProps} apolloClient={apolloClient} {...rest} />
-    </ApolloProvider>
-  );
-};
-
-const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
-  return (
-    <UserProvider>
-      <App Component={Component} pageProps={pageProps} {...rest} />
-    </UserProvider>
-  );
-};
-
-AuthApp.getInitialProps = async ({ ctx, Component }) => {
+const initialProps = async ({ ctx, Component }) => {
   const { req, res, pathname } = ctx;
-  const USER_UNAUTHORIZED = "unauthorized (user is blocked)";
 
   if (pathname.includes("/api/auth")) {
     return {};
@@ -81,4 +57,4 @@ AuthApp.getInitialProps = async ({ ctx, Component }) => {
   return {};
 };
 
-export default appWithTranslation(AuthApp);
+export default initialProps;

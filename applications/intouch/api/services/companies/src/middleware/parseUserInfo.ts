@@ -14,8 +14,13 @@ export default (req, res, next) => {
   }
 
   req.user = {
-    id: user[`${NAMESPACE}/internal_user_id`],
-    role: user[`${NAMESPACE}/role`]
+    id: user[`${NAMESPACE}/intouch_user_id`],
+    role: user[`${NAMESPACE}/intouch_role`],
+    email: user[`${NAMESPACE}/email`],
+    // Just to have a copy of the auth0 parsed user
+    auth0: {
+      ...user
+    }
   };
 
   return next();

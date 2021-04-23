@@ -3,6 +3,7 @@ declare module Express {
     pubSub: any;
     user: {
       id: string;
+      email: string;
       role: RolesKey;
     };
   }

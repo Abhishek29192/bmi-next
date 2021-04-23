@@ -6,10 +6,11 @@ import Form from "@bmi/form";
 import Grid from "@bmi/grid";
 import auth0 from "../lib/auth0";
 import GridStyles from "../styles/Grid.module.scss";
+import { initializeApollo } from "../lib/apolloClient";
 
 const CREATE_COMPANY = gql`
-  mutation createCompany($input: CreateCompanyInput!) {
-    createCompany(input: $input) {
+  mutation updateCompany($input: UpdateCompanyInput!) {
+    updateCompany(input: $input) {
       company {
         name
       }
@@ -17,7 +18,13 @@ const CREATE_COMPANY = gql`
   }
 `;
 
-const Company = () => {
+const GET_CURRENT_COMPANY = gql`
+  query currentCompany {
+    currentCompany
+  }
+`;
+
+const Company = ({ currentCompany }: any) => {
   const [createCompany] = useMutation(CREATE_COMPANY, {
     onCompleted: () => {
       // Redirect to silent-auth in order to re-create the session as we need to remove
@@ -31,7 +38,8 @@ const Company = () => {
     createCompany({
       variables: {
         input: {
-          company: values
+          patch: values,
+          id: currentCompany
         }
       }
     });
@@ -68,9 +76,18 @@ const Company = () => {
 };
 
 export const getServerSideProps = auth0.withPageAuthRequired({
-  async getServerSideProps({ locale }) {
+  async getServerSideProps({ locale, ...ctx }) {
+    const apolloClient = await initializeApollo(null, { ...ctx, locale });
+    const {
+      data: { currentCompany }
+    } = await apolloClient.query({
+      query: GET_CURRENT_COMPANY,
+      variables: {}
+    });
+
     return {
       props: {
+        currentCompany,
         ...(await serverSideTranslations(locale, ["common"]))
       }
     };

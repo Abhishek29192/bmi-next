@@ -1,9 +1,20 @@
 -- Get the current account
-CREATE OR REPLACE FUNCTION current_account ()
+CREATE OR REPLACE FUNCTION current_account_id ()
   RETURNS int
   AS $$
   SELECT
-    nullif (current_setting('app.current_account', TRUE), '')::int;
+    nullif (current_setting('app.current_account_id', TRUE), '')::int;
+
+$$
+LANGUAGE sql
+STABLE;
+
+-- Get the current account
+CREATE OR REPLACE FUNCTION current_account_email ()
+  RETURNS text
+  AS $$
+  SELECT
+    nullif (current_setting('app.current_account_email', TRUE), '')::text;
 
 $$
 LANGUAGE sql
@@ -44,7 +55,7 @@ CREATE OR REPLACE FUNCTION current_market ()
   FROM
     account
   WHERE
-    id = current_account ();
+    id = current_account_id ();
 
 $$
 LANGUAGE sql
@@ -60,7 +71,7 @@ CREATE OR REPLACE FUNCTION current_company ()
   FROM
     company_member
   WHERE
-    account_id = current_account ()
+    account_id = current_account_id ()
 
 $$
 LANGUAGE sql
@@ -95,7 +106,7 @@ CREATE OR REPLACE FUNCTION is_part_of_project ()
   FROM
     project_member
   WHERE
-    account_id = current_account ();
+    account_id = current_account_id ();
 
 $$
 LANGUAGE sql
