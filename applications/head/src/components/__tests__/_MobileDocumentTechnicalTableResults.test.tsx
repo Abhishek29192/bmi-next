@@ -1,11 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { iconMap } from "@bmi/icon";
 import MobileDocumentTechnicalTableResults from "../_MobileDocumentTechnicalTableResults";
 import { Data as AssetTypeData } from "../AssetType";
 import { Data as PIMDocumentData } from "../PIMDocument";
 import { Data as PIMLinkDocumentData } from "../PIMLinkDocument";
-import { Format } from "../types";
 import createAssetType from "../../test/AssetTypeHelper";
 import createPimDocument from "../../test/PimLinkDocumentHelper";
 import createPimLinkDocument from "../../test/PimLinkDocumentHelper";
