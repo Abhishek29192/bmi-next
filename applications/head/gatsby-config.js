@@ -154,18 +154,22 @@ const queries = [
   }
 ].filter(Boolean);
 
-const elasticSearchPlugin = {
-  resolve: `@bmi/gatsby-plugin-elasticsearch`,
-  options: {
-    node: process.env.GATSBY_ES_ENDPOINT,
-    auth: {
-      username: process.env.ES_ADMIN_USERNAME,
-      password: process.env.ES_ADMIN_PASSWORD
-    },
-    queries,
-    chunkSize: 100
-  }
-};
+const elasticSearchPlugin = process.env.GATSBY_PREVIEW
+  ? []
+  : [
+      {
+        resolve: `@bmi/gatsby-plugin-elasticsearch`,
+        options: {
+          node: process.env.GATSBY_ES_ENDPOINT,
+          auth: {
+            username: process.env.ES_ADMIN_USERNAME,
+            password: process.env.ES_ADMIN_PASSWORD
+          },
+          queries,
+          chunkSize: 100
+        }
+      }
+    ];
 
 module.exports = {
   siteMetadata: {
@@ -354,8 +358,7 @@ module.exports = {
         ]
       }
     },
-    // TODO: Disabled while in WIP on other things
-    elasticSearchPlugin,
+    ...elasticSearchPlugin,
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {
@@ -427,7 +430,7 @@ module.exports = {
           }))
       }
     },
-    ...(process.env.GOOGLE_TAGMANAGER_ID
+    ...(process.env.GOOGLE_TAGMANAGER_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
             resolve: "gatsby-plugin-google-tagmanager",
@@ -442,7 +445,7 @@ module.exports = {
           }
         ]
       : []),
-    ...(process.env.GATSBY_HUBSPOT_ID
+    ...(process.env.GATSBY_HUBSPOT_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
             resolve: "gatsby-plugin-hubspot",
