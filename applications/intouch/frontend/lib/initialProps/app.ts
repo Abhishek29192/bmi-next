@@ -1,5 +1,5 @@
 import axios from "axios";
-import auth0 from "../auth0";
+import { getSession } from "@auth0/nextjs-auth0";
 
 const USER_UNAUTHORIZED = "unauthorized (user is blocked)";
 
@@ -15,7 +15,7 @@ const initialProps = async ({ ctx, Component }) => {
     const { AUTH0_NAMESPACE, NEXT_PUBLIC_BASE_URL } = process.env;
     try {
       // Get the current session
-      const session = await auth0.getSession(req, res);
+      const session = await getSession(req, res);
       if (session) {
         // Check if the session is valid
         await axios.get(`${NEXT_PUBLIC_BASE_URL}/api/auth/me`, {
@@ -40,7 +40,7 @@ const initialProps = async ({ ctx, Component }) => {
       // If Unauthorized user redirect to the logout
       if (
         error?.response?.status === 401 ||
-        error?.response.data === USER_UNAUTHORIZED
+        error?.response?.data === USER_UNAUTHORIZED
       ) {
         res.writeHead(302, { Location: "/api/auth/logout" });
         res.end();

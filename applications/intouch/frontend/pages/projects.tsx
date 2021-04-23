@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import auth0 from "../lib/auth0";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { Layout } from "../components/Layout";
 
 const Projects = () => {
@@ -12,7 +12,7 @@ const Projects = () => {
   );
 };
 
-export const getServerSideProps = auth0.withPageAuthRequired({
+export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps({ locale }) {
     return {
       props: {

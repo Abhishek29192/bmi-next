@@ -1,4 +1,4 @@
-import auth0 from "../../lib/auth0";
+import auth0 from "@auth0/nextjs-auth0";
 
 // This endpoint fetch the user profile in auth0, we use this endpoint to refetch the user info, useful to check if the user it's been blocked/deleted on each page load
 export default async function checkProfile(req, res) {

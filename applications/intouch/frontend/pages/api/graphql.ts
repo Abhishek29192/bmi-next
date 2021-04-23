@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import auth0 from "../../lib/auth0";
+import auth0 from "@auth0/nextjs-auth0";
 
 export const config = {
   api: {

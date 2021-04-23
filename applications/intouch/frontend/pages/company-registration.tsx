@@ -4,7 +4,7 @@ import { useMutation, gql } from "@apollo/client";
 import TextField from "@bmi/text-field";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
-import auth0 from "../lib/auth0";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import GridStyles from "../styles/Grid.module.scss";
 import { initializeApollo } from "../lib/apolloClient";
 
@@ -75,7 +75,7 @@ const Company = ({ currentCompany }: any) => {
   );
 };
 
-export const getServerSideProps = auth0.withPageAuthRequired({
+export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps({ locale, ...ctx }) {
     const apolloClient = await initializeApollo(null, { ...ctx, locale });
     const {

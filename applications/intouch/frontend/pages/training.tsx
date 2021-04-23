@@ -5,11 +5,11 @@ import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import type { EnrollmentItems } from "@bmi/intouch-api-types";
 import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
 import { getServerPageTraining } from "../graphql/generated/page";
-import auth0 from "../lib/auth0";
 import { Layout } from "../components/Layout";
 
 // export doesn't matter for codegen
@@ -122,7 +122,7 @@ const trainingChildren = ({
   );
 };
 
-export const getServerSideProps = auth0.withPageAuthRequired({
+export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const apolloClient = await initializeApollo(null, ctx);
 

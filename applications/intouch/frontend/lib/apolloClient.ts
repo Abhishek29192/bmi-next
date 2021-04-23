@@ -9,7 +9,7 @@ import { onError } from "@apollo/client/link/error";
 import { ApolloLink } from "@apollo/client/link/core";
 import { setContext } from "@apollo/client/link/context";
 
-import auth0 from "./auth0";
+import { getSession } from "@auth0/nextjs-auth0";
 
 let apolloClient;
 const { NEXT_PUBLIC_BASE_URL } = process.env;
@@ -31,7 +31,7 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
 
   let accessToken;
   if (ctx) {
-    const session = auth0.getSession(ctx.req, ctx.res);
+    const session = getSession(ctx.req, ctx.res);
     accessToken = `Bearer ${session.accessToken}`;
   }
 

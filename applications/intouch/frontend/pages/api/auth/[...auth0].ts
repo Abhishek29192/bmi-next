@@ -1,4 +1,10 @@
-import auth0 from "../../../lib/auth0";
+import {
+  handleAuth,
+  handleLogin,
+  handleCallback,
+  handleProfile,
+  handleLogout
+} from "@auth0/nextjs-auth0";
 import { createAccount } from "../../../lib/account";
 
 const afterCallback = async (req, res, session, state) => {
@@ -17,10 +23,10 @@ const afterCallback = async (req, res, session, state) => {
   return session;
 };
 
-export default auth0.handleAuth({
+export default handleAuth({
   async login(req, res) {
     try {
-      await auth0.handleLogin(req, res, {
+      await handleLogin(req, res, {
         authorizationParams: {
           market: req.query.market || "en"
         }
@@ -31,14 +37,14 @@ export default auth0.handleAuth({
   },
   async callback(req, res) {
     try {
-      await auth0.handleCallback(req, res, { afterCallback });
+      await handleCallback(req, res, { afterCallback });
     } catch (error) {
       res.status(error.status || 500).end(error.message);
     }
   },
   async profile(req, res) {
     try {
-      await auth0.handleProfile(req, res, {
+      await handleProfile(req, res, {
         refetch: true
       });
     } catch (error) {
@@ -48,7 +54,7 @@ export default auth0.handleAuth({
   },
   async logout(req, res) {
     try {
-      await auth0.handleLogout(req, res);
+      await handleLogout(req, res);
     } catch (error) {
       res.status(error.status || 500).end(error.message);
     }

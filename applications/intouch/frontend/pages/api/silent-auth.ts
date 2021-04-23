@@ -1,5 +1,5 @@
 import { LoginOptions } from "@auth0/nextjs-auth0";
-import auth0 from "../../lib/auth0";
+import auth0 from "@auth0/nextjs-auth0";
 
 const getLoginState = (req, loginOptions) => {
   return { prompt: "none" };

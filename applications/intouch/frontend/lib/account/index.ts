@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const mutationCreateAccount = `mutation CreateAccount($input: CreateAccountInput!) {
+export const mutationCreateAccount = `mutation CreateAccount($input: CreateAccountInput!) {
   createAccount(input: $input) {
     account {
       id

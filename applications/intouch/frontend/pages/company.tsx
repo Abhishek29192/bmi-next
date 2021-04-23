@@ -2,7 +2,7 @@ import React from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -20,7 +20,6 @@ import { InfoPair } from "../components/InfoPair";
 import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
 
-import auth0 from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { GetCompanyQuery } from "../graphql/generated/operations";
 import {
@@ -281,7 +280,7 @@ export const GET_COMPANY = gql`
   }
 `;
 
-export const getServerSideProps = auth0.withPageAuthRequired({
+export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const apolloClient = await initializeApollo(null, ctx);
 
