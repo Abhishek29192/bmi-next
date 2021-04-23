@@ -33,11 +33,14 @@ import React, {
   useState
 } from "react";
 import { camelCase } from "lodash";
+import { intersectionWith } from "lodash";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { Data as RooferData, RooferType, rooferTypes } from "./Roofer";
 import { SiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
+
+export const QUERY_KEY = "chip";
 
 type Roofer = RooferData & {
   distance?: number;
@@ -74,10 +77,10 @@ const initialActiveFilters = rooferTypes.reduce(
 
 const activeFilterReducer = (
   state: Record<RooferType, boolean>,
-  filter: RooferType
+  filter: { name: RooferType; state?: boolean }
 ) => ({
   ...state,
-  [filter]: !state[filter]
+  [filter.name]: filter.state ? filter.state : !state[filter.name]
 });
 
 const IntegratedLinkCard = ({
@@ -119,6 +122,58 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   } = data;
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
+
+  const params = new URLSearchParams(
+    typeof window !== `undefined` ? window.location.search : ""
+  );
+  const queryString = useMemo(() => params.get(QUERY_KEY), [params]);
+
+  useEffect(() => {
+    // DXB-1914 :: AC3 no parameters in query : do nothing
+    if (!queryString) {
+      return;
+    }
+    const allQueries = queryString.split(",");
+    // find all the valid entries that matches roofer types
+    const validRoofers: RooferType[] = intersectionWith(
+      rooferTypes,
+      allQueries,
+      (a, b) => a.toLowerCase() === b.toLowerCase()
+    );
+    /*     console.log("------ validRoofers ----");
+    console.log(validRoofers);
+    console.log(allQueries);
+    console.log("------ validRoofers ----"); */
+
+    /*     if (validRoofers.length === 0) {
+      return;
+    } */
+
+    // DXB-1914 :: AC2: first filter ALL roofers so no/results are displayed
+    // i.e there is no matching roofer from query string
+    // first un-select all roofer type
+    rooferTypes.forEach((rooferType) =>
+      updateActiveFilters({ name: rooferType, state: false })
+    );
+
+    // DXB-1914 :: AC2 : selecte only the chips that are valid roofertypes
+    //then select the valid ones
+    validRoofers.forEach((rooferType: RooferType) => {
+      updateActiveFilters({ name: rooferType, state: true });
+    });
+
+    /*
+    // Construct URLSearchParams object instance from current URL querystring.
+      // var queryParams = new URLSearchParams(window.location.search);
+      
+      // Set new or modify existing parameter value. 
+      // queryParams.set("myParam", "myValue");
+      
+      // Replace current querystring with the new one.
+      // history.replaceState(null, null, "?"+queryParams.toString());
+    */
+  }, [queryString]);
+
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<Roofer>(null);
@@ -131,6 +186,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     activeFilterReducer,
     initialActiveFilters
   );
+
   const [userPosition, setUserPosition] = useState<
     | undefined
     | {
@@ -443,7 +499,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   <Chip
                     key={index}
                     type="selectable"
-                    onClick={() => updateActiveFilters(rooferType)}
+                    onClick={() => updateActiveFilters({ name: rooferType })}
                     isSelected={activeFilters[rooferType]}
                   >
                     {getMicroCopy(
