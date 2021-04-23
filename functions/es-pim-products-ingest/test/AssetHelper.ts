@@ -1,4 +1,4 @@
-import { Asset } from "../src/types/pim";
+import { Asset } from "../../../libraries/es-model/src/pim";
 
 const createAsset = (asset?: Partial<Asset>): Asset => ({
   allowedToDownload: true,

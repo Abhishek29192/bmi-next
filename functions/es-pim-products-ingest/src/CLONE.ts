@@ -3,7 +3,7 @@
 // product-details-trasnforms.ts
 
 import { result, find } from "lodash";
-import { Product } from "./types/pim";
+import { Product } from "../../../libraries/es-model/src/pim";
 
 export type Category = {
   parentCategoryCode: string;

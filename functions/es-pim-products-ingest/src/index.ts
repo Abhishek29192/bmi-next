@@ -9,7 +9,7 @@ import {
 import { Product as PIMProduct } from "@bmi/es-model/src/pim";
 import { transformProduct } from "./transform";
 
-type ProductMessage = {
+export type ProductMessage = {
   type: string;
   itemType: string;
   items: ReadonlyArray<PIMProduct>;
@@ -46,7 +46,7 @@ const getEsClient = async () => {
     const esPasswordSecret = await secretManagerClient.accessSecretVersion({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
-    const esPassword = esPasswordSecret[0].payload.data.toString();
+    const esPassword = esPasswordSecret[0]?.payload?.data?.toString();
 
     esClientCache = new Client({
       cloud: {

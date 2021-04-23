@@ -10,30 +10,30 @@ type Category = {
 };
 
 export type ProductVariant = {
-  // description: string;
-  // externalProductCode: string;
-  // isSampleOrderAllowed: boolean;
-  // longDescription: string;
-  // productBenefits: string;
-  shortDescription: string;
-  // summary: string;
-  // name: string;
-  code: string;
-  baseProduct: Product;
-  brandCode: string;
-  images: readonly Image[];
-  // categories: readonly Category[];
-  // allCategories: readonly Category[];
-  // plpCategories: readonly Category[];
-  // classifications: readonly Classification[];
-  // scoringWeight: string;
-  // scoringWeightInt: number;
-  // colourfamilyCode: string;
-  // colourfamilyValue: string;
-  // texturefamilyCode: string;
-  // texturefamilyValue: string;
-  // materialsCode: string;
-  // materialsValue: string;
-  // measurementValue: string;
-  // approvalStatus: ApprovalStatus;
+  description: string;
+  externalProductCode: string;
+  isSampleOrderAllowed: boolean;
+  longDescription: string;
+  productBenefits: string;
+  shortDescription: string; // Needed
+  summary: string;
+  name: string;
+  code: string; // Needed
+  baseProduct: Product; // Needed
+  brandCode: string; // Needed
+  images: readonly Image[]; // Needed
+  categories: readonly Category[];
+  allCategories: readonly Category[];
+  plpCategories: readonly Category[];
+  classifications: readonly Classification[];
+  scoringWeight: string;
+  scoringWeightInt: number;
+  colourfamilyCode: string;
+  colourfamilyValue: string;
+  texturefamilyCode: string;
+  texturefamilyValue: string;
+  materialsCode: string;
+  materialsValue: string;
+  measurementValue: string;
+  approvalStatus: ApprovalStatus;
 };

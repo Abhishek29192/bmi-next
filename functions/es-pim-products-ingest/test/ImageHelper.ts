@@ -1,4 +1,4 @@
-import { Image } from "../src/types/pim";
+import { Image } from "../../../libraries/es-model/src/pim";
 
 const createImage = (image?: Partial<Image>): Image => ({
   allowedToDownload: true,
