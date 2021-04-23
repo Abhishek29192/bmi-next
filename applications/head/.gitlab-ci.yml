@@ -87,14 +87,16 @@ deploy_head_preview:
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Triggered by Netlify when deploy is complete
+# Disabled until it can be fixed
 baseline_scan_head_preview:
   stage: dynamic_security
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
-      changes:
-        - applications/head/**/*
-        - components/**/*
-        - libraries/**/*
+    # - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+    #   changes:
+    #     - applications/head/**/*
+    #     - components/**/*
+    #     - libraries/**/*
+    - when: never
   needs:
     - deploy_head_preview
   image: owasp/zap2docker-stable:latest
@@ -112,7 +114,6 @@ baseline_scan_head_preview:
 # https://www.zaproxy.org/docs/docker/full-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true
-# When happy with how this works, change to use zap-full-scan.py
 full_scan_head_qa:
   stage: dynamic_security
   rules:
