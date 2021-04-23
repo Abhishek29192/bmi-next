@@ -14,7 +14,7 @@ export type ProductVariant = {
   externalProductCode: string;
   isSampleOrderAllowed: boolean;
   longDescription: string;
-  productBenefits: string;
+  productBenefits?: string[];
   shortDescription: string; // Needed
   summary: string;
   name: string;
