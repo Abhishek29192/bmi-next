@@ -38,7 +38,11 @@ export default function withGTM<P>(
     };
 
     const handleClick = (...args) => {
-      pushToDataLayer(dataGtm);
+      // NOTE: Even if window.dataLayer doesn't exist in PREVIEW environment,
+      // it's better to add an extra independent check here.
+      if (!process.env.GATSBY_PREVIEW) {
+        pushToDataLayer(dataGtm);
+      }
       // @ts-ignore TS does not realise P could include `onClick`
       props.onClick && props.onClick(...args);
     };
