@@ -201,12 +201,14 @@ exports.createPages = async ({ graphql, actions }) => {
     // TODO: This is temporary until we'll have the path inside ES.
     const variantCodeToPathMap = {};
 
-    await createProductPages(
-      site.id,
-      site.countryCode,
-      { graphql, actions },
-      variantCodeToPathMap
-    );
+    if (!process.env.GATSBY_PREVIEW) {
+      await createProductPages(
+        site.id,
+        site.countryCode,
+        { graphql, actions },
+        variantCodeToPathMap
+      );
+    }
 
     await Promise.all(
       ([site.homePage, ...site.pages] || []).map(async (page) => {
@@ -269,13 +271,15 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
 
-    await createPage({
-      path: `/${site.countryCode}/sitemap/`,
-      component: path.resolve("./src/templates/sitemap.tsx"),
-      context: {
-        siteId: site.id
-      }
-    });
+    if (!process.env.GATSBY_PREVIEW) {
+      await createPage({
+        path: `/${site.countryCode}/sitemap/`,
+        component: path.resolve("./src/templates/sitemap.tsx"),
+        context: {
+          siteId: site.id
+        }
+      });
+    }
   }
 };
 
