@@ -120,7 +120,7 @@ async function* getProducts() {
 
   while (currentPage < totalPageCount) {
     const messageResponse = await fetchData(
-      `/export/products?currentPage=${currentPage}&status=APPROVED`
+      `/export/products?currentPage=${currentPage}`
     );
 
     // eslint-disable-next-line no-console

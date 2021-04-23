@@ -1,4 +1,4 @@
-import type { Product, Image, ApprovalStatus, Classification } from "./pim";
+import type { Product, Image } from "./pim";
 
 export type Operation = "index" | "delete" | "create" | "update";
 
@@ -16,6 +16,5 @@ export type ProductVariant = {
   images: readonly Image[];
   categories: readonly Category[];
   // classifications: readonly Classification[];
-  classifications: Classification[];
-  approvalStatus: ApprovalStatus;
+  classifications: any;
 };

@@ -2,11 +2,7 @@ import { Client } from "@elastic/elasticsearch";
 import { config } from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { transformProduct } from "./transform";
-import {
-  Operation as ESOperation,
-  Operation,
-  ProductVariant
-} from "./types/elasticSearch";
+import { Operation as ESOperation } from "./types/elasticSearch";
 import { Product as PIMProduct } from "./types/pim";
 
 type ProductMessage = {
@@ -66,16 +62,22 @@ const getEsClient = async () => {
   return esClientCache;
 };
 
+const parseErrorMeta = (meta) => {
+  const { error, status } = meta.body;
+  return `[${status}]: ${JSON.stringify(error)}`;
+};
+
+// ping ES cluster
 const pingEsCluster = async () => {
   // get ES client
-  const client = await getEsClient();
-  client.ping((error) => {
+  let client = await getEsClient();
+  client.ping(function (error) {
     if (error) {
       // eslint-disable-next-line no-console
       console.error("Elasticsearch cluster is down!");
     } else {
       // eslint-disable-next-line no-console
-      console.info("Elasticsearch is connected");
+      console.log("Elasticsearch is connected");
     }
   });
 };
@@ -87,10 +89,10 @@ const buildEsProducts = (items: readonly PIMProduct[]) => {
   );
 };
 
-const getChunks = (esProducts: readonly ProductVariant[]) => {
+const getChunks = (esProducts: readonly PIMProduct[]) => {
   const chunkSize = parseInt(BATCH_SIZE);
   // eslint-disable-next-line no-console
-  console.info(`Chunk size: ${chunkSize}`);
+  console.log(`Chunk size: ${chunkSize}`);
 
   const chunksArray = [];
   const totalProducts = esProducts.length;
@@ -104,61 +106,112 @@ const getChunks = (esProducts: readonly ProductVariant[]) => {
 
 const getBulkOperations = (
   indexName: string,
-  variants: readonly ProductVariant[],
-  action?: ESOperation
+  operation: ESOperation,
+  items: readonly PIMProduct[]
 ) => {
-  return variants.reduce(
+  return items.reduce(
     (allOps, item) => [
       ...allOps,
-      {
-        [action || item.approvalStatus === "approved" ? "index" : "delete"]: {
-          _index: indexName,
-          _id: item.code
-        }
-      },
+      { [operation]: { _index: indexName, _id: item.code } },
       item
     ],
     []
   );
 };
 
-const updateElasticSearch = async (
-  itemType: string,
-  esProducts: readonly ProductVariant[],
-  action?: Operation
+const setItemsInElasticSearch = async (
+  itemType,
+  items: readonly PIMProduct[]
 ) => {
+  // get ES client
+  let client = await getEsClient();
+
+  const esProducts = buildEsProducts(items);
+  if (!esProducts || esProducts.length == 0) {
+    // eslint-disable-next-line no-console
+    console.warn("ES Products not found. Ignoring the Update.");
+    return;
+  }
+
   const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
-  const client = await getEsClient();
+
   // Chunk the request to avoid exceeding ES bulk request limits.
   const responsePromises = getChunks(esProducts)
-    .map((c) => getBulkOperations(index, c, action))
-    .map((body) =>
-      client.bulk({
-        index,
-        refresh: true,
-        body
-      })
+    .map((c) => getBulkOperations(index, "index", c))
+    .map(
+      async (body) =>
+        // Ideally the requests should be sent async. However when sending bulk inserts
+        // concurrently to ES, it seems to reject some requests.
+        // Leaving this synchronous as there is no noticeable difference in function
+        // execution time.
+        await client.bulk({
+          index,
+          refresh: true,
+          body
+        })
     );
 
   var responses = await Promise.all(responsePromises);
-  responses.forEach((response) => {
+  responses.forEach((r) => {
     // eslint-disable-next-line no-console
-    console.info(`Response status: [${response.body.status}]`);
-    if (response.body.errors) {
+    console.log(`[UPDATED][${r.body.status}]`);
+    if (r.body.errors) {
       // eslint-disable-next-line no-console
-      console.error("ERROR", JSON.stringify(response.body.errors, null, 2));
+      console.error("ERROR", JSON.stringify(r.body.errors, null, 2));
     }
   });
   const { body: count } = await client.count({ index });
   // eslint-disable-next-line no-console
-  console.info("Total count:", count);
+  console.log("Total count:", count);
+};
+
+const deleteItemsFromElasticsearch = async (itemType, items) => {
+  const esProducts = buildEsProducts(items);
+  if (!esProducts || esProducts.length == 0) {
+    // eslint-disable-next-line no-console
+    console.warn("ES Products not found. Ignoring the Delete.");
+    return;
+  }
+
+  const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
+  let client = await getEsClient();
+
+  // Chunk the request to avoid exceeding ES bulk request limits.
+  const responsePromises = getChunks(esProducts)
+    .map((c) => getBulkOperations(index, "delete", c))
+    .map(
+      async (body) =>
+        // Ideally the requests should be sent async. However when sending bulk inserts
+        // concurrently to ES, it seems to reject some requests.
+        // Leaving this synchronous as there is no noticeable difference in function
+        // execution time.
+        await client.bulk({
+          index,
+          refresh: true,
+          body
+        })
+    );
+
+  var responses = await Promise.all(responsePromises);
+  responses.forEach((r) => {
+    // eslint-disable-next-line no-console
+    console.log(`[DELETED][${r.body.status}]`);
+    if (r.body.errors) {
+      // eslint-disable-next-line no-console
+      console.error("ERROR", JSON.stringify(r.body.errors, null, 2));
+    }
+  });
+
+  const { body: count } = await client.count({ index });
+  // eslint-disable-next-line no-console
+  console.log("Total count:", count);
 };
 
 export const handleMessage: ProductMessageFunction = async (event, context) => {
   // eslint-disable-next-line no-console
-  console.info("event", event);
+  console.log("event", event);
   // eslint-disable-next-line no-console
-  console.info("context", context);
+  console.log("context", context);
 
   await pingEsCluster();
 
@@ -167,39 +220,33 @@ export const handleMessage: ProductMessageFunction = async (event, context) => {
     ? event.data
       ? JSON.parse(Buffer.from(event.data, "base64").toString())
       : {}
-    : context.message?.data || {};
+    : context.message
+    ? context.message.data
+    : {};
 
   const { type, itemType, items } = message;
   if (!items) {
     // eslint-disable-next-line no-console
-    console.warn("No items received");
+    console.log("[ERROR]: NO Items received");
     return;
   }
 
   // eslint-disable-next-line no-console
-  console.info("Received message", {
+  console.log("Received message", {
     type,
     itemType,
     itemsCount: (items || []).length
   });
 
-  const esProducts: ProductVariant[] = buildEsProducts(items);
-
-  if (!esProducts || esProducts.length == 0) {
-    // eslint-disable-next-line no-console
-    console.warn(`ES Products not found. Ignoring the ${type}.`);
-    return;
-  }
-
   switch (type) {
     case "UPDATED":
-      await updateElasticSearch(itemType, esProducts);
+      await setItemsInElasticSearch(itemType, items);
       break;
     case "DELETED":
-      await updateElasticSearch(itemType, esProducts, "delete");
+      await deleteItemsFromElasticsearch(itemType, items);
       break;
     default:
       // eslint-disable-next-line no-console
-      console.error(`[ERROR]: Unrecognised message type [${type}]`);
+      console.error(`[ERROR]: Undercognised message type [${type}]`);
   }
 };
