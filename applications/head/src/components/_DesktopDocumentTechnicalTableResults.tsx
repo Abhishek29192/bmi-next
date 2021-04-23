@@ -16,6 +16,11 @@ import { Data as PIMDocumentData } from "./PIMDocument";
 import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import { Format } from "./types";
+import createAssetFileCountMap, {
+  generateFileNamebyTitle,
+  generateFilenameByRealFileName,
+  AssetUniqueFileCountMap
+} from "./DocumentFileUtils";
 
 interface Props {
   documentsByProduct: [string, (PIMDocumentData | PIMLinkDocumentData)[]][];
@@ -96,17 +101,27 @@ const DesktopDocumentTechnicalTableResults = ({
         if (assets.length > 0 && assets[0].product && assets[0].assetType) {
           zipFileName = `${assets[0].product?.name} ${assets[0].assetType.name}.zip`;
         }
+
         const token = await executeRecaptcha();
-        const documents = assets
-          .filter((asset) => asset.__typename === "PIMDocument")
-          .map((asset, index) => ({
-            href: asset.url,
-            name: asset["realFileName"]
-              ? asset["realFileName"]
-              : `${asset.title}-${index}${
-                  asset["extension"] ? `.${asset["extension"]}` : ""
-                }`
-          }));
+        const pimDocumentAssets: PIMDocumentData[] = assets.filter(
+          (asset): asset is PIMDocumentData =>
+            asset.__typename === "PIMDocument"
+        );
+        const assetFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
+          pimDocumentAssets
+        );
+        const documents = pimDocumentAssets.map((asset, index) => ({
+          href: asset.url,
+          name:
+            asset.realFileName && asset.realFileName !== ""
+              ? generateFilenameByRealFileName(assetFileCountMap, asset, index)
+              : generateFileNamebyTitle(
+                  assetFileCountMap,
+                  asset.title,
+                  asset.extension,
+                  index
+                )
+        }));
         const response = await axios.post(
           process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
           { documents: documents },

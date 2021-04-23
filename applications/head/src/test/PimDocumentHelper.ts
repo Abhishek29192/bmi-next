@@ -13,7 +13,7 @@ const createPimDocument = (
   assetType: createAssetType(),
   fileSize: 1,
   format: "application/pdf",
-  extension: ".pdf",
+  extension: "pdf",
   realFileName: "pim-document-id.pdf",
   ...pimDocument
 });
