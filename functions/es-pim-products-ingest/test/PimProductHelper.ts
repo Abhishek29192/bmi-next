@@ -1,4 +1,4 @@
-import { Product } from "../src/types/pim";
+import { Product } from "@bmi/es-model/src/pim";
 import createAsset from "./AssetHelper";
 import createCategory from "./CategoryHelper";
 import {

@@ -8,64 +8,14 @@ import {
 import createVariantOption from "../../test/VariantOptionHelper";
 import createPimProduct from "../../test/PimProductHelper";
 import { transformProduct } from "../transform";
-import { ProductVariant } from "../types/elasticSearch";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
 describe("transformProduct", () => {
   it("should transform full product with single variant to a single ES product", () => {
     const product = createPimProduct();
-    const expectedScoringWeight = product.classifications.find(
-      (classification) => classification.code === "scoringWeightAttributes"
-    ).features[0].featureValues[0].value;
-    const expectedColour = product.classifications
-      .find((classification) => classification.code === "appearanceAttributes")
-      .features.find(
-        (feature) =>
-          feature.code ===
-          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.colourfamily`
-      ).featureValues[0];
-    const expectedTexture = product.classifications
-      .find((classification) => classification.code === "appearanceAttributes")
-      .features.find(
-        (feature) =>
-          feature.code ===
-          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.texturefamily`
-      ).featureValues[0];
-    const expectedMaterial = product.classifications
-      .find((classification) => classification.code === "generalInformation")
-      .features.find(
-        (feature) =>
-          feature.code ===
-          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`
-      ).featureValues[0];
 
-    const expectedEsProduct: ProductVariant = {
-      code: product.variantOptions[0].code,
-      baseProduct: product,
-      brandCode: product.categories.find(
-        (category) => category.parentCategoryCode === "BMI_Brands"
-      ).code,
-      images: product.images,
-      categories: [],
-      allCategories: [],
-      plpCategories: [],
-      classifications: [
-        ...product.classifications,
-        ...product.variantOptions.flatMap((variant) => variant.classifications)
-      ],
-      scoringWeight: expectedScoringWeight,
-      scoringWeightInt: Number.parseInt(expectedScoringWeight),
-      colourfamilyCode: expectedColour.code,
-      colourfamilyValue: expectedColour.value,
-      texturefamilyCode: expectedTexture.code,
-      texturefamilyValue: expectedTexture.value,
-      materialsCode: expectedMaterial.code,
-      materialsValue: expectedMaterial.value,
-      measurementValue: "",
-      approvalStatus: product.approvalStatus
-    };
-    expect(transformProduct(product)).toEqual([expectedEsProduct]);
+    expect(transformProduct(product)).toMatchSnapshot();
   });
 
   it("should ignore variant scoringWeightAttributes", () => {

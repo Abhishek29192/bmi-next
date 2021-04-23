@@ -1,4 +1,4 @@
-import { Classification, Feature, FeatureValue } from "../src/types/pim";
+import { Classification, Feature, FeatureValue } from "@bmi/es-model/src/pim";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 

@@ -2,8 +2,8 @@ import { config } from "dotenv";
 import type {
   Product as PIMProduct,
   VariantOption as PIMVariant
-} from "./types/pim";
-import type { ProductVariant as ESProduct } from "./types/elasticSearch";
+} from "@bmi/es-model/src/pim";
+import type { ProductVariant as ESProduct } from "@bmi/es-model";
 import {
   findProductBrandLogoCode,
   getFullCategoriesPaths,
@@ -58,30 +58,30 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
   );
 
+  // Only "Category" categories which are used for filters
+  const productLeafCategories = getFullCategoriesPaths(
+    product.categories || []
+  ).map((categoryBranch) => {
+    const parent = getGroupCategory(categoryBranch);
+    const leaf = getLeafCategory(categoryBranch);
+
+    return {
+      parentCategoryCode: parent.code,
+      code: leaf.code
+    };
+  });
+
+  // Any category that is not "category" type
+  // Keeping this because there are Brand and ProductFamily categories which are important
+  // TODO: save as individual Brand and ProductFamily?
+  const productFamilyCategories = (product.categories || []).filter(
+    ({ categoryType }) => categoryType === "ProductFamily"
+  );
+  const productLineCategories = (product.categories || []).filter(
+    ({ categoryType }) => categoryType === "ProductLine"
+  );
+
   return (product.variantOptions || []).map((variant) => {
-    // Only "Category" categories which are used for filters
-    const productLeafCategories = getFullCategoriesPaths(
-      product.categories || []
-    ).map((categoryBranch) => {
-      const parent = getGroupCategory(categoryBranch);
-      const leaf = getLeafCategory(categoryBranch);
-
-      return {
-        parentCategoryCode: parent.code,
-        code: leaf.code
-      };
-    });
-
-    // Any category that is not "category" type
-    // Keeping this because there are Brand and ProductFamily categories which are important
-    // TODO: save as individual Brand and ProductFamily?
-    const productFamilyCategories = (product.categories || []).filter(
-      ({ categoryType }) => categoryType === "ProductFamily"
-    );
-    const productLineCategories = (product.categories || []).filter(
-      ({ categoryType }) => categoryType === "ProductLine"
-    );
-
     const classifications = combineVariantClassifications(product, variant);
     const scoringWeightClassification = classifications.find(
       ({ code }) => code === "scoringWeightAttributes"

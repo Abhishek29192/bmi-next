@@ -1,13 +1,13 @@
 import { Client } from "@elastic/elasticsearch";
 import { config } from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import { transformProduct } from "./transform";
 import {
   Operation as ESOperation,
   Operation,
   ProductVariant
-} from "./types/elasticSearch";
-import { Product as PIMProduct } from "./types/pim";
+} from "@bmi/es-model";
+import { Product as PIMProduct } from "@bmi/es-model/src/pim";
+import { transformProduct } from "./transform";
 
 type ProductMessage = {
   type: string;

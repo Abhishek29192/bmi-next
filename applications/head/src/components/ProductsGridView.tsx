@@ -1,4 +1,5 @@
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import { ProductVariant } from "@bmi/es-model";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
@@ -14,11 +15,8 @@ import {
 } from "../utils/product-details-transforms";
 import { SiteContext } from "./Site";
 
-// TODO: This is the transformed indexed data
-type ESProductResult = any;
-
 type Props = {
-  products: ReadonlyArray<ESProductResult>;
+  products: ReadonlyArray<ProductVariant>;
   pageContext: any; // TODO:
 };
 

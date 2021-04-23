@@ -1,4 +1,4 @@
-import { Category, CategoryImage } from "../src/types/pim";
+import { Category, CategoryImage } from "@bmi/es-model/src/pim";
 
 export const createCategoryImage = (
   categoryImage?: Partial<CategoryImage>
