@@ -66,26 +66,24 @@ module.exports = {
     async resolve(source, args, context) {
       const fullPath = await resolvePathFromFamily(source, args, context);
 
-      return (source.variantOptions || [])
-        .filter((variant) => variant.approvalStatus === "approved")
-        .map((variant) => {
-          const id = generateIdFromString(variant.code, false);
-          const breadcrumbs = fullPath.concat({
-            id,
-            label: source.name,
-            slug: getSlug(
-              [source.name, ...getSlugAttributes(variant), id].join("/")
-            )
-          });
-          const path = `p/${getUrlFromPath(breadcrumbs)}`;
-
-          return {
-            ...variant,
-            id,
-            path,
-            breadcrumbs
-          };
+      return (source.variantOptions || []).map((variant) => {
+        const id = generateIdFromString(variant.code, false);
+        const breadcrumbs = fullPath.concat({
+          id,
+          label: source.name,
+          slug: getSlug(
+            [source.name, ...getSlugAttributes(variant), id].join("/")
+          )
         });
+        const path = `p/${getUrlFromPath(breadcrumbs)}`;
+
+        return {
+          ...variant,
+          id,
+          path,
+          breadcrumbs
+        };
+      });
     }
   },
   documents: {
