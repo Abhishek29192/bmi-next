@@ -1,8 +1,9 @@
-import {
+import createClassification, {
   createAppearanceAttributesClassification,
   createFeature,
   createFeatureValue,
   createGeneralInformationClassification,
+  createMeasurementsClassification,
   createScoringWeightAttributesClassification
 } from "../../test/ClassificationHelper";
 import createVariantOption from "../../test/VariantOptionHelper";
@@ -128,6 +129,41 @@ describe("transformProduct", () => {
     expect(actualGeneralInformation).toEqual(expectedGeneralInformation);
   });
 
+  it("should override product measurements classification with variant", () => {
+    const product = createPimProduct({
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createMeasurementsClassification({
+              features: [
+                createFeature({
+                  code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`,
+                  featureValues: [createFeatureValue({ value: "clay" })]
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const actualGeneralInformation = transformProduct(
+      product
+    )[0].classifications.filter(
+      (classification) => classification.code === "generalInformation"
+    );
+    const expectedGeneralInformation = product.classifications.filter(
+      (classification) => classification.code === "generalInformation"
+    );
+    expect(expectedGeneralInformation).not.toEqual(
+      product.variantOptions.filter((variant) =>
+        variant.classifications.filter(
+          (classification) => classification.code === "generalInformation"
+        )
+      )
+    );
+    expect(actualGeneralInformation).toEqual(expectedGeneralInformation);
+  });
+
   it("should override product approvalStatus with variant", () => {
     const product = createPimProduct({
       variantOptions: [
@@ -140,5 +176,79 @@ describe("transformProduct", () => {
     const expectedApprovalStatus = product.variantOptions[0].approvalStatus;
     expect(expectedApprovalStatus).not.toEqual(product.approvalStatus);
     expect(actualApprovalStatus).toEqual(expectedApprovalStatus);
+  });
+
+  it("should handle no classifications", () => {
+    const product = createPimProduct({
+      classifications: undefined,
+      variantOptions: [
+        createVariantOption({
+          classifications: undefined
+        })
+      ]
+    });
+    expect(transformProduct(product)).toMatchSnapshot();
+  });
+
+  it("should handle appearance attributes classifications with no features", () => {
+    const product = createPimProduct({
+      classifications: [
+        createAppearanceAttributesClassification({ features: undefined })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createAppearanceAttributesClassification({
+              features: undefined
+            })
+          ]
+        })
+      ]
+    });
+    expect(transformProduct(product)).toMatchSnapshot();
+  });
+
+  it("should handle general information classifications with no features", () => {
+    const product = createPimProduct({
+      classifications: [
+        createGeneralInformationClassification({ features: undefined })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createGeneralInformationClassification({
+              features: undefined
+            })
+          ]
+        })
+      ]
+    });
+    expect(transformProduct(product)).toMatchSnapshot();
+  });
+
+  it("should handle no categories", () => {
+    const product = createPimProduct({
+      categories: undefined
+    });
+    expect(transformProduct(product)).toMatchSnapshot();
+  });
+
+  it("should handle no images", () => {
+    const product = createPimProduct({
+      images: undefined,
+      variantOptions: [
+        createVariantOption({
+          images: undefined
+        })
+      ]
+    });
+    expect(transformProduct(product)).toMatchSnapshot();
+  });
+
+  it("should return an empty array if there are no variants", () => {
+    const product = createPimProduct({
+      variantOptions: undefined
+    });
+    expect(transformProduct(product)).toStrictEqual([]);
   });
 });

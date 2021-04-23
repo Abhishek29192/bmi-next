@@ -1,5 +1,4 @@
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
-import { ProductVariant } from "@bmi/es-model";
 import Grid from "@bmi/grid";
 import OverviewCard from "@bmi/overview-card";
 import Typography from "@bmi/typography";
@@ -16,7 +15,7 @@ import {
 import { SiteContext } from "./Site";
 
 type Props = {
-  products: ReadonlyArray<ProductVariant>;
+  products: ReadonlyArray<any>;
   pageContext: any; // TODO:
 };
 

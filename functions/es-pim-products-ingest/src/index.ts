@@ -111,7 +111,7 @@ const getBulkOperations = (
     (allOps, item) => [
       ...allOps,
       {
-        [action || item.approvalStatus === "approved" ? "index" : "delete"]: {
+        [action || (item.approvalStatus === "approved" ? "index" : "delete")]: {
           _index: indexName,
           _id: item.code
         }
@@ -180,12 +180,12 @@ export const handleMessage: ProductMessageFunction = async (event, context) => {
   console.info("Received message", {
     type,
     itemType,
-    itemsCount: (items || []).length
+    itemsCount: items.length
   });
 
   const esProducts: ProductVariant[] = buildEsProducts(items);
 
-  if (!esProducts || esProducts.length == 0) {
+  if (esProducts.length === 0) {
     // eslint-disable-next-line no-console
     console.warn(`ES Products not found. Ignoring the ${type}.`);
     return;

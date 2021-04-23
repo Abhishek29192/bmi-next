@@ -72,12 +72,16 @@ export type FeatureValue = {
   code?: string;
 };
 
+export type FeatureUnit = {
+  name: string;
+  symbol: string;
+  unitType: string;
+};
+
 export type Feature = {
   code: ClassificationFeatureCode;
   featureValues: readonly FeatureValue[];
-  featureUnit?: {
-    symbol: string;
-  };
+  featureUnit?: FeatureUnit;
   name: string;
 };
 

@@ -1,4 +1,9 @@
-import { Classification, Feature, FeatureValue } from "@bmi/es-model/src/pim";
+import {
+  Classification,
+  Feature,
+  FeatureUnit,
+  FeatureValue
+} from "@bmi/es-model/src/pim";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
@@ -10,11 +15,22 @@ export const createFeatureValue = (
   ...featureValue
 });
 
+export const createFeatureUnit = (
+  featureUnit?: Partial<FeatureUnit>
+): FeatureUnit => ({
+  name: "name",
+  symbol: "symbol",
+  unitType: "unit-type",
+  ...featureUnit
+});
+
 export const createFeature = (feature?: Partial<Feature>): Feature => ({
   code: "classification-feature-code",
   featureValues: [createFeatureValue()],
   featureUnit: {
-    symbol: "symbol"
+    name: "unit-name",
+    symbol: "symbol",
+    unitType: "unit-type"
   },
   name: "name",
   ...feature
@@ -61,6 +77,43 @@ export const createGeneralInformationClassification = (
       })
     ],
     code: "generalInformation"
+  });
+
+export const createMeasurementsClassification = (
+  classification?: Partial<Classification>
+): Classification =>
+  createClassification({
+    ...classification,
+    features: [
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
+        featureValues: [createFeatureValue({ value: "10" })],
+        featureUnit: createFeatureUnit({
+          name: "millimeter",
+          symbol: "mm",
+          unitType: "space"
+        })
+      }),
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.width`,
+        featureValues: [createFeatureValue({ value: "20" })],
+        featureUnit: createFeatureUnit({
+          name: "millimeter",
+          symbol: "mm",
+          unitType: "space"
+        })
+      }),
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
+        featureValues: [createFeatureValue({ value: "30" })],
+        featureUnit: createFeatureUnit({
+          name: "millimeter",
+          symbol: "mm",
+          unitType: "space"
+        })
+      })
+    ],
+    code: "measurements"
   });
 
 const createClassification = (

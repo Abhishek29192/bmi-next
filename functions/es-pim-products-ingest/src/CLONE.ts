@@ -184,7 +184,7 @@ export const mapProductClassifications = (
       }
 
       if (code === APPEARANCE) {
-        features.forEach(({ code, name, featureValues }) => {
+        features?.forEach(({ code, name, featureValues }) => {
           if (code === FEATURES.TEXTURE_FAMILY) {
             carryProp("texturefamily", {
               name,
@@ -217,7 +217,7 @@ export const mapProductClassifications = (
       }
 
       if (code === MEASUREMENTS) {
-        features.forEach(({ code, name, featureValues, featureUnit }) => {
+        features?.forEach(({ code, name, featureValues, featureUnit }) => {
           if (
             [FEATURES.LENGTH, FEATURES.WIDTH, FEATURES.HEIGHT].includes(code)
           ) {

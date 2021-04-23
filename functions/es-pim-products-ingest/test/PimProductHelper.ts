@@ -4,6 +4,7 @@ import createCategory from "./CategoryHelper";
 import {
   createAppearanceAttributesClassification,
   createGeneralInformationClassification,
+  createMeasurementsClassification,
   createScoringWeightAttributesClassification
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
@@ -25,7 +26,8 @@ const createPimProduct = (product?: Partial<Product>): Product => ({
   classifications: [
     createScoringWeightAttributesClassification(),
     createAppearanceAttributesClassification(),
-    createGeneralInformationClassification()
+    createGeneralInformationClassification(),
+    createMeasurementsClassification()
   ],
   images: [createImage()],
   isSampleOrderAllowed: true,
