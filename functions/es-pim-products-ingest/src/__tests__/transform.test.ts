@@ -1,13 +1,13 @@
-import createClassification, {
+import {
   createAppearanceAttributesClassification,
   createFeature,
   createFeatureValue,
   createGeneralInformationClassification,
   createMeasurementsClassification,
   createScoringWeightAttributesClassification
-} from "../../test/ClassificationHelper";
-import createVariantOption from "../../test/VariantOptionHelper";
-import createPimProduct from "../../test/PimProductHelper";
+} from "../../__tests__/ClassificationHelper";
+import createVariantOption from "../../__tests__/VariantOptionHelper";
+import createPimProduct from "../../__tests__/PimProductHelper";
 import { transformProduct } from "../transform";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
@@ -190,7 +190,7 @@ describe("transformProduct", () => {
     expect(transformProduct(product)).toMatchSnapshot();
   });
 
-  it("should handle appearance attributes classifications with no features", () => {
+  it("should handle appearanceAttributes classifications with no features", () => {
     const product = createPimProduct({
       classifications: [
         createAppearanceAttributesClassification({ features: undefined })
@@ -208,7 +208,7 @@ describe("transformProduct", () => {
     expect(transformProduct(product)).toMatchSnapshot();
   });
 
-  it("should handle general information classifications with no features", () => {
+  it("should handle generalInformation classifications with no features", () => {
     const product = createPimProduct({
       classifications: [
         createGeneralInformationClassification({ features: undefined })

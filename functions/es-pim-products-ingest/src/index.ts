@@ -34,10 +34,6 @@ const {
   BATCH_SIZE = "250"
 } = process.env;
 
-config({
-  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
-});
-
 const secretManagerClient = new SecretManagerServiceClient();
 
 let esClientCache: Client;
@@ -163,11 +159,9 @@ export const handleMessage: ProductMessageFunction = async (event, context) => {
   await pingEsCluster();
 
   // For some reason event is undefined when triggering locally
-  const message: ProductMessage = event
-    ? event.data
-      ? JSON.parse(Buffer.from(event.data, "base64").toString())
-      : {}
-    : context.message?.data || {};
+  const message: ProductMessage = event.data
+    ? JSON.parse(Buffer.from(event.data, "base64").toString())
+    : {};
 
   const { type, itemType, items } = message;
   if (!items) {

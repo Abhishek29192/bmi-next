@@ -21,10 +21,6 @@ const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
   return ret;
 };
 
-config({
-  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
-});
-
 const {
   // TODO: Remove this fallback once the environment variable is correctly set.
   PIM_CLASSIFICATION_CATALOGUE_NAMESPACE = "bmiClassificationCatalog/1.0"

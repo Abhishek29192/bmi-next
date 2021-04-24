@@ -3,9 +3,9 @@ import { Product } from "@bmi/es-model/src/pim";
 import { RequestParams } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
-import createProductVariant from "../../test/ProductVariantHelper";
+import createProductVariant from "../../__tests__/ProductVariantHelper";
 import { ProductMessage } from "..";
-import createPimProduct from "../../test/PimProductHelper";
+import createPimProduct from "../../__tests__/PimProductHelper";
 
 const {
   ES_INDEX_PREFIX,
@@ -79,7 +79,7 @@ describe("handleMessage", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
-    expect(ping).toBeCalledTimes(0);
+    expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
@@ -93,7 +93,7 @@ describe("handleMessage", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
-    expect(ping).toBeCalledTimes(0);
+    expect(ping).toBeCalled();
     expect(transformProduct).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);
@@ -101,6 +101,9 @@ describe("handleMessage", () => {
 
   it("should do nothing if ES cluster is not available", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args({});
+    });
 
     await handleMessage(createEvent(), createContext());
 
@@ -115,6 +118,9 @@ describe("handleMessage", () => {
 
   it("should do nothing if event data is empty", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
 
     await handleMessage(createEvent(), createContext());
 
@@ -129,6 +135,9 @@ describe("handleMessage", () => {
 
   it("should do nothing if transform returns empty array", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     transformProduct.mockReturnValue([]);
 
     const message = {
@@ -149,6 +158,9 @@ describe("handleMessage", () => {
 
   it("should do nothing if transform returns transformed products but type is invalid", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     transformProduct.mockReturnValue([createProductVariant()]);
 
     const message = {
@@ -169,6 +181,9 @@ describe("handleMessage", () => {
 
   it("should perform a bulk update for approved variants on updated message", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     const productVariant = createProductVariant();
     transformProduct.mockReturnValue([productVariant]);
     const message = {
@@ -211,6 +226,9 @@ describe("handleMessage", () => {
 
   it("should perform a bulk delete for check variants on updated message", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     const productVariant = createProductVariant({ approvalStatus: "check" });
     transformProduct.mockReturnValue([productVariant]);
     const message = {
@@ -253,6 +271,9 @@ describe("handleMessage", () => {
 
   it("should perform a bulk delete for unapproved variants on updated message", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     const productVariant = createProductVariant({
       approvalStatus: "unapproved"
     });
@@ -297,6 +318,9 @@ describe("handleMessage", () => {
 
   it("should perform a bulk delete for approved variants on delete message", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     const productVariant = createProductVariant();
     transformProduct.mockReturnValue([productVariant]);
     const message = {
@@ -339,6 +363,9 @@ describe("handleMessage", () => {
 
   it("should perform a bulk delete for check variants on deleted message", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     const productVariant = createProductVariant({ approvalStatus: "check" });
     transformProduct.mockReturnValue([productVariant]);
     const message = {
@@ -381,6 +408,9 @@ describe("handleMessage", () => {
 
   it("should perform a bulk delete for unapproved variants on deleted message", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     const productVariant = createProductVariant({
       approvalStatus: "unapproved"
     });
@@ -425,6 +455,9 @@ describe("handleMessage", () => {
 
   it("should handle errors being returned", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     const productVariant = createProductVariant();
     transformProduct.mockReturnValue([productVariant]);
     const message = {
@@ -472,6 +505,10 @@ describe("handleMessage", () => {
   });
 
   it("shouldn't create the ES client if it has already created it before", async () => {
+    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    ping.mockImplementation((args) => {
+      args();
+    });
     const productVariant = createProductVariant();
     transformProduct.mockReturnValue([productVariant]);
     const message = {
