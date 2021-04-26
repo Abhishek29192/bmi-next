@@ -477,7 +477,8 @@ module.exports = {
             }
           }
         ]
-      : [])
+      : []),
+    `gatsby-plugin-gatsby-cloud`
   ],
   flags: {
     DEV_SSR: false
