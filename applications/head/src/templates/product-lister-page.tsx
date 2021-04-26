@@ -173,6 +173,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       return;
     }
 
+    if (process.env.GATSBY_PREVIEW) {
+      alert("You cannot search on the preview environment.");
+      return;
+    }
+
     setIsLoading(true);
 
     const query = compileElasticSearchQuery(
