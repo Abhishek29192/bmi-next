@@ -1,4 +1,3 @@
-import { config } from "dotenv";
 import type {
   Product as PIMProduct,
   VariantOption as PIMVariant

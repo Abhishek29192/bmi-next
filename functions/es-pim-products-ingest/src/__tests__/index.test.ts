@@ -10,10 +10,7 @@ import createPimProduct from "../../__tests__/PimProductHelper";
 const {
   ES_INDEX_PREFIX,
   SECRET_MAN_GCP_PROJECT_NAME,
-  ES_PASSWORD_SECRET,
-  ES_CLOUD_ID,
-  ES_USERNAME,
-  BATCH_SIZE = "250"
+  ES_PASSWORD_SECRET
 } = process.env;
 
 const esPassword = "es-password";

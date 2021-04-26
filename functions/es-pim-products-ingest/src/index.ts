@@ -1,11 +1,6 @@
-import { Client, RequestParams } from "@elastic/elasticsearch";
-import { config } from "dotenv";
+import { Client } from "@elastic/elasticsearch";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import {
-  Operation as ESOperation,
-  Operation,
-  ProductVariant
-} from "@bmi/es-model";
+import { Operation, ProductVariant } from "@bmi/es-model";
 import { Product as PIMProduct } from "@bmi/es-model/src/pim";
 import { transformProduct } from "./transform";
 
@@ -103,7 +98,7 @@ const getChunks = (
 const getBulkOperations = (
   indexName: string,
   variants: readonly ProductVariant[],
-  action?: ESOperation
+  action?: Operation
 ) => {
   return variants.reduce(
     (allOps, item) => [
