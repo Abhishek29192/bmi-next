@@ -34,3 +34,6 @@ process.env.GCP_CLOUD_BUILD_TRIGGER_URL = "https://google.com";
 process.env.TRIGGER_SECRET = "seceret_key";
 process.env.TRIGGER_API_KEY_SECRET = "api_secret_key";
 process.env.GCP_PROJECT_NAME = "dxb-gcp-project";
+
+process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE =
+  "bmiClassificationCatalog/1.0";
