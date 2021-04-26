@@ -14,8 +14,11 @@ import {
 } from "../utils/product-details-transforms";
 import { SiteContext } from "./Site";
 
+// TODO: This is the transformed indexed data
+type ESProductResult = any;
+
 type Props = {
-  products: ReadonlyArray<any>;
+  products: ReadonlyArray<ESProductResult>;
   pageContext: any; // TODO:
 };
 
