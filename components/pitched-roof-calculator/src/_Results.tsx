@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
 import QuantityTable from "@bmi/quantity-table";
 import Typography from "@bmi/typography";
+import Button from "@bmi/button";
+import PDFIcon from "@material-ui/icons/PictureAsPdf";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { battenCalc } from "./calculation/calculate";
 import underlays from "./samples/underlays";
@@ -37,7 +39,7 @@ const Results = ({
   underlay: any;
   guttering: any;
 }) => {
-  const { faces, lines } = measurements;
+  const { faces, lines, area } = measurements;
 
   const results = useMemo(() => {
     let vergeOption: VergeOption;
@@ -154,6 +156,18 @@ const Results = ({
           />
         </FieldContainer>
       ) : null}
+      <Button
+        startIcon={<PDFIcon />}
+        style={{ marginBottom: 30 }}
+        onClick={async () => {
+          (await import("./PDF")).default({
+            results,
+            area: (area / 10000).toFixed(2)
+          });
+        }}
+      >
+        Download as PDF
+      </Button>
       {isDebugging ? (
         <FieldContainer>
           <Typography variant="h3">Measurements</Typography>
