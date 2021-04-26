@@ -1,4 +1,5 @@
-import { VergeTileOption } from "../types";
+import { MainTileVariant, VergeTileOption } from "../types";
+import { FaceWithBattens } from "../types/roof";
 
 type RangeValue = {
   start: number;
@@ -152,13 +153,11 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
 };
 
 export const surface = (
-  battens,
-  sides,
-  tile,
-  half?,
-  cloakedVerge?: VergeTileOption,
-  subtract?
+  { battens, sides, subtract }: FaceWithBattens,
+  tile: MainTileVariant,
+  cloakedVerge?: VergeTileOption
 ) => {
+  const { halfTile: half } = tile;
   const [left, right] = sides;
   // Count the number of main tiles and half tiles
   let count = 0;

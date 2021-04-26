@@ -32,6 +32,10 @@ export type Face = {
   subtract?: boolean;
 };
 
+export type FaceWithBattens = Face & {
+  battens: any[];
+};
+
 export type Line = { length: number };
 
 export type ValleyLine = Line & {
@@ -41,16 +45,18 @@ export type ValleyLine = Line & {
   dormerStart?: boolean;
 };
 
+export type LinesMap = {
+  hip: Line[];
+  ridge: Line[];
+  eave: Line[];
+  leftVerge: Line[];
+  rightVerge: Line[];
+  valley: ValleyLine[];
+};
+
 export type Measurements = {
   faces: Face[];
-  lines: {
-    hip: Line[];
-    ridge: Line[];
-    eave: Line[];
-    leftVerge: Line[];
-    rightVerge: Line[];
-    valley: ValleyLine[];
-  };
+  lines: LinesMap;
   area?: number;
 };
 
