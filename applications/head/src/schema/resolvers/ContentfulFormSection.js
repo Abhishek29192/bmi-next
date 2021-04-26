@@ -89,9 +89,7 @@ module.exports = {
         });
 
         if (!hubSpotForm) {
-          throw new Error(
-            `HubSpot GUID not found: ${source.hubSpotFormGuid}.\nPlease check entry ${source.contentful_id} in Contentful.`
-          );
+          return [];
         }
 
         const fields = hubSpotForm.formFieldGroups
