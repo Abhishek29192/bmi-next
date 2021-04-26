@@ -1,4 +1,4 @@
-import { Client } from "@elastic/elasticsearch";
+import { Client, RequestParams } from "@elastic/elasticsearch";
 import { config } from "dotenv";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import {
@@ -83,7 +83,9 @@ const buildEsProducts = (items: readonly PIMProduct[]) => {
   );
 };
 
-const getChunks = (esProducts: readonly ProductVariant[]) => {
+const getChunks = (
+  esProducts: readonly ProductVariant[]
+): ProductVariant[][] => {
   const chunkSize = parseInt(BATCH_SIZE);
   // eslint-disable-next-line no-console
   console.info(`Chunk size: ${chunkSize}`);
@@ -126,25 +128,27 @@ const updateElasticSearch = async (
   const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
   const client = await getEsClient();
   // Chunk the request to avoid exceeding ES bulk request limits.
-  const responsePromises = getChunks(esProducts)
-    .map((c) => getBulkOperations(index, c, action))
-    .map((body) =>
-      client.bulk({
-        index,
-        refresh: true,
-        body
-      })
-    );
+  const bulkOperations = getChunks(esProducts).map((c) =>
+    getBulkOperations(index, c, action)
+  );
+  // Having to do this synchronously as we are seeing errors and ES dropping
+  // (partially or fully) requests and need to make sure this is working before
+  // we make it asynchronous again.
+  for (let bulkOperation of bulkOperations) {
+    const response = await client.bulk({
+      index,
+      refresh: true,
+      body: bulkOperation
+    });
 
-  var responses = await Promise.all(responsePromises);
-  responses.forEach((response) => {
     // eslint-disable-next-line no-console
     console.info(`Response status: [${response.body.status}]`);
     if (response.body.errors) {
       // eslint-disable-next-line no-console
       console.error("ERROR", JSON.stringify(response.body.errors, null, 2));
     }
-  });
+  }
+
   const { body: count } = await client.count({ index });
   // eslint-disable-next-line no-console
   console.info("Total count:", count);

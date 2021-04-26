@@ -85,20 +85,6 @@ describe("handleMessage", () => {
     expect(count).toBeCalledTimes(0);
   });
 
-  it("should do nothing if ES_CLOUD_ID is not set", async () => {
-    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
-
-    await handleMessage(createEvent(), createContext());
-
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
-    });
-    expect(ping).toBeCalled();
-    expect(transformProduct).toBeCalledTimes(0);
-    expect(bulk).toBeCalledTimes(0);
-    expect(count).toBeCalledTimes(0);
-  });
-
   it("should do nothing if ES cluster is not available", async () => {
     accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
     ping.mockImplementation((args) => {
