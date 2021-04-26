@@ -31,9 +31,17 @@ type Props = {
   pageData: Data;
   siteData: SiteData;
   isSearchPage?: boolean;
+  variantCodeToPathMap?: Record<string, string>;
 };
 
-const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
+const Page = ({
+  title,
+  children,
+  pageData,
+  siteData,
+  isSearchPage,
+  variantCodeToPathMap
+}: Props) => {
   const {
     node_locale,
     countryCode,
@@ -164,6 +172,7 @@ const Page = ({ title, children, pageData, siteData, isSearchPage }: Props) => {
             >
               <VisualiserProvider
                 contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+                variantCodeToPathMap={variantCodeToPathMap}
               >
                 <div className={styles["content"]}>{children}</div>
               </VisualiserProvider>

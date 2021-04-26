@@ -36,9 +36,12 @@ type Props = {
     contentfulContactUsPage: Data;
     contentfulSite: SiteData;
   };
+  pageContext: {
+    variantCodeToPathMap: Record<string, string>;
+  };
 };
 
-const ContactUsPage = ({ data }: Props) => {
+const ContactUsPage = ({ data, pageContext }: Props) => {
   const {
     title,
     subtitle,
@@ -69,7 +72,12 @@ const ContactUsPage = ({ data }: Props) => {
   };
 
   return (
-    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+    <Page
+      title={title}
+      pageData={pageData}
+      siteData={data.contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       <Hero
         level={1}
         {...heroProps}

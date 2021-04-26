@@ -240,6 +240,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={contentfulSite}
       isSearchPage
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >
       {tabIsLoading ? (
         <Scrim theme="light">

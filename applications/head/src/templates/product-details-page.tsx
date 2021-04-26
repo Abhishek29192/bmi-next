@@ -132,6 +132,7 @@ type Props = {
     countryCode: string;
     relatedProductCodes: ReadonlyArray<string>;
     pimClassificationCatalogueNamespace: string;
+    variantCodeToPathMap: Record<string, string>;
   };
   data: {
     product: Product;
@@ -203,7 +204,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   };
 
   return (
-    <Page title={product.name} pageData={pageData} siteData={contentfulSite}>
+    <Page
+      title={product.name}
+      pageData={pageData}
+      siteData={contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       {breadcrumbs && (
         <Section backgroundColor="pearl" isSlim>
           <Breadcrumbs data={breadcrumbs} />
