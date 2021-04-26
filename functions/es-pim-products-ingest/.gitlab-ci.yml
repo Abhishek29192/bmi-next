@@ -1,3 +1,22 @@
+test_es-pim-products-ingest:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - functions/es-pim-products-ingest/**/*
+        - jest/**/*
+  needs: [install]
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/es-pim-products-ingest coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/es-pim-products-ingest/junit.xml
+
 build_es-pim-products-ingest:
   stage: build
   rules:
