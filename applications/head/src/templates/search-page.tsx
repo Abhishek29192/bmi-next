@@ -4,7 +4,7 @@ import Section from "@bmi/section";
 import Tabs from "@bmi/tabs";
 import { QUERY_KEY } from "@bmi/search";
 import { graphql } from "gatsby";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, FormEvent } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
@@ -47,6 +47,14 @@ type Props = {
   };
 };
 
+const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  if (process.env.GATSBY_PREVIEW) {
+    e.preventDefault();
+    alert("You cannot search on the preview environment.");
+    return;
+  }
+};
+
 const SearchPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, allContentfulAssetType, productFilters } = data;
   const params = new URLSearchParams(
@@ -57,7 +65,13 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
   const defaultTitle = getMicroCopy("searchPage.title");
 
-  const queryString = useMemo(() => params.get(QUERY_KEY), [params]);
+  const queryString = useMemo(() => {
+    if (process.env.GATSBY_PREVIEW) {
+      return null;
+    }
+
+    return params.get(QUERY_KEY);
+  }, [params]);
   const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
   const [tabsLoading, setTabsLoading] = useState({});
   const [areTabsResolved, setAreTabsResolved] = useState(false);
@@ -267,6 +281,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           query={areTabsResolved ? queryString : ""}
           searchPageSearchTips={resources.searchPageSearchTips}
           searchPageSidebarItems={resources.searchPageSidebarItems}
+          handleSubmit={handleSubmit}
         />
       </Section>
       {pageHasResults ? (
