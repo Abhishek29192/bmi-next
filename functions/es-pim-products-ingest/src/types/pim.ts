@@ -81,10 +81,8 @@ export type Classification = {
   name: string;
 };
 
-export type ApprovalStatus = "approved" | "check" | "unapproved";
-
 export type VariantOption = {
-  approvalStatus: ApprovalStatus;
+  approvalStatus: string; // "approved";
   classifications?: readonly Classification[];
   code: string;
   externalProductCode: string; // NOBB
@@ -92,11 +90,10 @@ export type VariantOption = {
   isSampleOrderAllowed: boolean;
   longDescription: HTML;
   shortDescription: string;
-  productBenefits?: string[];
 };
 
 export type Product = {
-  approvalStatus: ApprovalStatus;
+  approvalStatus: string;
   code: string;
   externalProductCode: string | null; // Technically ?: but doing this to match head types
   description: HTML;
