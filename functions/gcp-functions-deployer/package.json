@@ -8,7 +8,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=deploy --port=9801 --signature-type=event",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=deploy --port=9801 --signature-type=event",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
