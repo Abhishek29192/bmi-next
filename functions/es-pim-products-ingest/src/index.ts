@@ -26,7 +26,7 @@ const {
   ES_PASSWORD_SECRET,
   ES_CLOUD_ID,
   ES_USERNAME,
-  BATCH_SIZE = "250"
+  BATCH_SIZE = "300"
 } = process.env;
 
 const secretManagerClient = new SecretManagerServiceClient();
