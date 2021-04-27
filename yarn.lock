@@ -1483,6 +1483,19 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@bmi-digital/intouch-shared-types@^0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/intouch-shared-types/-/intouch-shared-types-0.0.0.tgz#a63165811594e5f623c38e46ab751dccbf4a775f"
+  integrity sha512-COnGSZdwf9pSokk1RJOmK90r9u+j00zYqaPogfzD/veZ5yjDu21voP22Bx3UfTs5KcGhgbcfJLwA1LDHkyQubw==
+
+"@bmi-digital/react-pdf-maker@0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/react-pdf-maker/-/react-pdf-maker-0.0.0.tgz#3b09e060081122df47f6e03b81c0b500275d2718"
+  integrity sha512-+KuInTQVIxjy4u+SK032zwpg1+gdX6ftdU2OcRKQHRJYuNO4NB4BRQcC8QKbqz4EV+o1ROi5AKQ6scB0R7EzJg==
+  dependencies:
+    pdfmake "^0.1.68"
+    react-is "^16.13.1"
+
 "@bugsnag/browser@^7.9.2":
   version "7.9.2"
   resolved "https://registry.yarnpkg.com/@bugsnag/browser/-/browser-7.9.2.tgz#3200ebad36f0d8387b6fb66d05311c61e9f86cd5"

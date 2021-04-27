@@ -33,14 +33,16 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return input;
         },
         createGuaranteePdf: async (_query, args, context, resolverInfo) => {
+          const { pubSub } = context;
           const data = await guaranteeResolver({
             graphql,
             args,
             context,
             resolverInfo
           });
-          //TODO: Send guarantee data to google function(create file and send mail)
-          return data;
+          const messageId = await publish(pubSub, TOPICS.GUARANTEE_PDF, data);
+
+          return { messageId };
         }
       }
     }

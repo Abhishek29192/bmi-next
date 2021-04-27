@@ -9,6 +9,7 @@ include:
   - local: "/applications/intouch/frontend/.gitlab-ci.yml"
   - local: "/applications/intouch/api/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml"
+  - local: "/applications/intouch/functions/gcp-generate-guarantee/.gitlab-ci.yml"
   - local: "/applications/intouch/terraform/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/es-pim-products-ingest/.gitlab-ci.yml"
@@ -83,6 +84,7 @@ install:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_AUTH_READ_TOKEN}'>.npmrc
     - yarn install --frozen-lockfile --check-files
   cache:
     key:
