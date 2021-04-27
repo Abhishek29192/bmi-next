@@ -30,6 +30,9 @@ const validateTileForPitchValues = (
     validateRangesAgainstPitchValues(ranges, pitchValues)
   );
 
+const byName = ({ name: firstTile }, { name: secondTile }) =>
+  firstTile.localeCompare(secondTile);
+
 const TileSelectionRow = ({
   title,
   options,
@@ -46,9 +49,7 @@ const TileSelectionRow = ({
         Boolean(tile.variants.length) &&
         validateTileForPitchValues(tile, pitchValues)
     )
-    .sort(({ name: firstTile }, { name: secondTile }) =>
-      firstTile.localeCompare(secondTile)
-    );
+    .sort(byName);
 
   if (!filteredOptions.length) {
     return null;
@@ -62,7 +63,7 @@ const TileSelectionRow = ({
             key={tile.code}
             value={tile.code}
             title={tile.name}
-            imageSource={tile.image}
+            imageSource={tile.variants.slice().sort(byName)[0].image}
             onClick={() => select(tile)}
           >
             <CardRadioGroup.Item.Paragraph>
