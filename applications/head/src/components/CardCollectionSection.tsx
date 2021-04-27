@@ -1,5 +1,6 @@
 import React, { useContext, useState, useMemo } from "react";
 import { graphql } from "gatsby";
+import AnchorLink from "@bmi/anchor-link";
 import Button, { ButtonProps } from "@bmi/button";
 import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
@@ -153,9 +154,7 @@ const CardCollectionSection = ({
     [cards]
   );
   const groupKeys = moveRestKeyLast(Object.keys(cardsByTag));
-  const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>(
-    groupKeys.length ? { [groupKeys[0]]: true } : {}
-  );
+  const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
@@ -184,34 +183,44 @@ const CardCollectionSection = ({
               {getMicroCopy("cardCollection.groupTitle")}
             </Typography>
             <div className={styles["group-chips"]}>
-              {groupKeys.map((tagTitle, index) => {
-                const label =
-                  tagTitle === "undefined"
-                    ? getMicroCopy("cardCollection.restLabel")
-                    : tagTitle;
+              <div className={styles["chips"]}>
+                {groupKeys.map((tagTitle, index) => {
+                  const label =
+                    tagTitle === "undefined"
+                      ? getMicroCopy("cardCollection.restLabel")
+                      : tagTitle;
 
-                return (
-                  <GTMChip
-                    key={`${tagTitle}-${index}`}
-                    type="selectable"
-                    isSelected={activeGroups[tagTitle]}
-                    theme={cardType === "Story Card" ? "pearl" : "white"}
-                    gtm={{
-                      id: "selector-cards1",
-                      label,
-                      action: "Selector – Cards Filter"
-                    }}
-                    onClick={() => {
-                      setActiveGroups((activeGroups) => ({
-                        ...activeGroups,
-                        [tagTitle]: !activeGroups[tagTitle]
-                      }));
-                    }}
-                  >
-                    {label}
-                  </GTMChip>
-                );
-              })}
+                  return (
+                    <GTMChip
+                      key={`${tagTitle}-${index}`}
+                      type="selectable"
+                      isSelected={activeGroups[tagTitle]}
+                      theme={cardType === "Story Card" ? "pearl" : "white"}
+                      gtm={{
+                        id: "selector-cards1",
+                        label,
+                        action: "Selector – Cards Filter"
+                      }}
+                      onClick={() => {
+                        setActiveGroups((activeGroups) => ({
+                          ...activeGroups,
+                          [tagTitle]: !activeGroups[tagTitle]
+                        }));
+                      }}
+                    >
+                      {label}
+                    </GTMChip>
+                  );
+                })}
+              </div>
+              <AnchorLink
+                className={styles["clear-all"]}
+                onClick={() => {
+                  setActiveGroups({});
+                }}
+              >
+                {getMicroCopy("global.clearAll")}
+              </AnchorLink>
             </div>
           </>
         )}
