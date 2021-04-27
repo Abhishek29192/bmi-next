@@ -836,7 +836,7 @@ HTMLCollection [
                   class="chips"
                 >
                   <div
-                    class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                    class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                     role="button"
                     tabindex="0"
                   >
@@ -850,7 +850,7 @@ HTMLCollection [
                     />
                   </div>
                   <div
-                    class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                    class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                     role="button"
                     tabindex="0"
                   >

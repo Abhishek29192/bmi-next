@@ -42,7 +42,7 @@ import styles from "./styles/ServiceLocatorSection.module.scss";
 
 export const QUERY_KEY = "chip";
 
-type Roofer = RooferData & {
+export type Roofer = RooferData & {
   distance?: number;
 };
 export type Data = {
@@ -71,7 +71,7 @@ const DEFAULT_LEVEL_ZOOM = 5;
 
 // TODO: Cast this properly.
 const initialActiveFilters = rooferTypes.reduce(
-  (carry, key) => ({ ...carry, [key]: true }),
+  (carry, key) => ({ ...carry, [key]: false }),
   {}
 ) as Record<RooferType, boolean>;
 
@@ -126,53 +126,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
-  const queryString = useMemo(() => params.get(QUERY_KEY), [params]);
-
-  useEffect(() => {
-    // DXB-1914 :: AC3 no parameters in query : do nothing
-    if (!queryString) {
-      return;
-    }
-    const allQueries = queryString.split(",");
-    // find all the valid entries that matches roofer types
-    const validRoofers: RooferType[] = intersectionWith(
-      rooferTypes,
-      allQueries,
-      (a, b) => a.toLowerCase() === b.toLowerCase()
-    );
-    /*     console.log("------ validRoofers ----");
-    console.log(validRoofers);
-    console.log(allQueries);
-    console.log("------ validRoofers ----"); */
-
-    /*     if (validRoofers.length === 0) {
-      return;
-    } */
-
-    // DXB-1914 :: AC2: first filter ALL roofers so no/results are displayed
-    // i.e there is no matching roofer from query string
-    // first un-select all roofer type
-    rooferTypes.forEach((rooferType) =>
-      updateActiveFilters({ name: rooferType, state: false })
-    );
-
-    // DXB-1914 :: AC2 : selecte only the chips that are valid roofertypes
-    //then select the valid ones
-    validRoofers.forEach((rooferType: RooferType) => {
-      updateActiveFilters({ name: rooferType, state: true });
-    });
-
-    /*
-    // Construct URLSearchParams object instance from current URL querystring.
-      // var queryParams = new URLSearchParams(window.location.search);
-      
-      // Set new or modify existing parameter value. 
-      // queryParams.set("myParam", "myValue");
-      
-      // Replace current querystring with the new one.
-      // history.replaceState(null, null, "?"+queryParams.toString());
-    */
-  }, [queryString]);
+  const userQueryString = useMemo(() => params.get(QUERY_KEY), [params]);
+  const [isUserAction, setUserAction] = useState(false);
 
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
@@ -186,6 +141,52 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     activeFilterReducer,
     initialActiveFilters
   );
+
+  useEffect(() => {
+    // DXB-1914 :: AC3 no parameters in query
+    if (!userQueryString) {
+      return;
+    }
+    const allQueries = userQueryString.split(",");
+    // find all the valid entries that matches roofer types
+    const validRoofers: RooferType[] = intersectionWith(
+      rooferTypes,
+      allQueries,
+      (a, b) => a.toLowerCase() === b.toLowerCase()
+    );
+
+    //then select the valid ones
+    validRoofers.forEach((rooferType: RooferType) => {
+      updateActiveFilters({ name: rooferType, state: true });
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!userQueryString) {
+      const isEveryChipSelected = Object.keys(activeFilters).every(
+        (key) => activeFilters[key] === true
+      );
+      if (isEveryChipSelected) {
+        return;
+      }
+    }
+
+    if (typeof window !== `undefined`) {
+      const filteredChips: string[] = Object.keys(activeFilters).filter(
+        (key) => activeFilters[key]
+      );
+      if (filteredChips.length > 0) {
+        var queryParams = new URLSearchParams(window.location.search);
+        queryParams.set(QUERY_KEY, filteredChips.join(","));
+        history.replaceState(null, null, "?" + queryParams.toString());
+      }
+      if (filteredChips.length === 0 && isUserAction) {
+        // Remove the query if there are no selected chips
+        // otherwise url will look like `/?chip=`
+        history.replaceState(null, null, window.location.pathname);
+      }
+    }
+  }, [activeFilters]);
 
   const [userPosition, setUserPosition] = useState<
     | undefined
@@ -207,8 +208,22 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialise();
   }, []);
 
-  const typeFilter = (type: Roofer["type"]) =>
-    type?.length ? type.some((filter) => activeFilters[filter]) : true;
+  const typeFilter = (type: Roofer["type"]): boolean => {
+    // user has not selected any chip(s) to filter hence show all roofers
+    // i.e initial load or user has de-selected ALL chips
+    if (
+      Object.keys(activeFilters).every((key) => activeFilters[key] === false)
+    ) {
+      return true;
+    }
+
+    // user has selcted the filter chip the roofer must have type and it must match
+    if (Object.keys(activeFilters).some((key) => activeFilters[key] === true)) {
+      return type && type.some((filter) => activeFilters[filter]);
+    }
+    // roofer's type is null hence return true
+    return type?.length ? type.some((filter) => activeFilters[filter]) : true;
+  };
 
   const nameFilter = (name: Roofer["name"]) =>
     name.includes(activeSearchString);
@@ -225,7 +240,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             lat: location.lat,
             lng: location.lon
           });
-
           if (
             typeFilter(type) &&
             nameFilter(name) &&
@@ -399,7 +413,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 <b>
                   {roofer.type
                     .map((type) =>
-                      getMicroCopy(`findARoofer.filters.${camelCase(type)}`)
+                      getMicroCopy(
+                        `findARoofer.filters.${camelCase(type)}`
+                      ).replace(" roof", "")
                     )
                     .join(" | ")}
                 </b>
@@ -499,7 +515,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                   <Chip
                     key={index}
                     type="selectable"
-                    onClick={() => updateActiveFilters({ name: rooferType })}
+                    onClick={() => {
+                      setUserAction(true);
+                      updateActiveFilters({ name: rooferType });
+                    }}
                     isSelected={activeFilters[rooferType]}
                   >
                     {getMicroCopy(
