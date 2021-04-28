@@ -3,9 +3,9 @@ import { Product } from "@bmi/es-model/src/pim";
 import { RequestParams } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
-import createProductVariant from "../../__tests__/ProductVariantHelper";
 import { ProductMessage } from "..";
-import createPimProduct from "../../__tests__/PimProductHelper";
+import createProductVariant from "./helpers/ProductVariantHelper";
+import createPimProduct from "./helpers/PimProductHelper";
 
 const {
   ES_INDEX_PREFIX,
