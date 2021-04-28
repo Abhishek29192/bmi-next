@@ -5,11 +5,17 @@ import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import classnames from "classnames";
 import styles from "./ToggleCard.module.scss";
 
-export type Props = ButtonBaseProps<"div"> & {
+export type Props = {
   title?: React.ReactNode;
   imageSource?: string;
   illustratedImage?: SVGImport;
-};
+} & (
+  | ({ component: "div" } & Omit<ButtonBaseProps<"div">, "component">)
+  | ({ component?: "button" } & Omit<
+      ButtonBaseProps<"button">,
+      "component" | "type"
+    >)
+);
 
 const ToggleCard = ({
   title,
@@ -18,6 +24,7 @@ const ToggleCard = ({
   disabled,
   className,
   children,
+  component = "div",
   ...rest
 }: Props) => {
   const Illustration = illustratedImage;
@@ -25,7 +32,7 @@ const ToggleCard = ({
 
   return (
     <ButtonBase
-      component={"div"}
+      component={component}
       disabled={disabled}
       className={classnames(
         styles["ToggleCard"],
