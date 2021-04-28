@@ -32,15 +32,14 @@ import React, {
   useRef,
   useState
 } from "react";
-import { camelCase } from "lodash";
-import { intersectionWith } from "lodash";
+import { camelCase, intersectionWith } from "lodash";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { Data as RooferData, RooferType, rooferTypes } from "./Roofer";
 import { SiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
-export const QUERY_KEY = "chip";
+export const QUERY_CHIP_FILTER_KEY = "chip";
 
 export type Roofer = RooferData & {
   distance?: number;
@@ -126,7 +125,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
-  const userQueryString = useMemo(() => params.get(QUERY_KEY), [params]);
+  const userQueryString = useMemo(() => params.get(QUERY_CHIP_FILTER_KEY), [
+    params
+  ]);
   const [isUserAction, setUserAction] = useState(false);
 
   const { getMicroCopy, countryCode } = useContext(SiteContext);
@@ -143,7 +144,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   );
 
   useEffect(() => {
-    // DXB-1914 :: AC3 no parameters in query
     if (!userQueryString) {
       return;
     }
@@ -177,7 +177,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
       );
       if (filteredChips.length > 0) {
         var queryParams = new URLSearchParams(window.location.search);
-        queryParams.set(QUERY_KEY, filteredChips.join(","));
+        queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
         history.replaceState(null, null, "?" + queryParams.toString());
       }
       if (filteredChips.length === 0 && isUserAction) {
