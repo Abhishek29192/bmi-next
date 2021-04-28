@@ -22,9 +22,10 @@ export const createAccount = async (
   try {
     // Check if the user already exists
     const { rows } = await pgClient.query(SELECT_ACCOUNT, [email]);
+    const userExists = rows.length > 0;
 
     // If it exists update name, surname, role of the user with email args.input.email
-    if (rows.length) {
+    if (userExists) {
       const { rows: updatedRows } = await pgClient.query(UPDATE_ACCOUNT, [
         firstName,
         lastName,
@@ -48,9 +49,9 @@ export const createAccount = async (
       intouch_role: account_role
     };
 
-    // If the user is a company_admin then add a glag in auth0 to let him complete the registration of a company
+    // If the user is a company_admin then add a flag in auth0 to let him complete the registration of a company
     // we check rows.length === 0 because if the user already exist rows will be > 0 and the company will be already in the db (imported data)
-    if (account_role === "COMPANY_ADMIN" && rows.length === 0) {
+    if (account_role === "COMPANY_ADMIN" && !userExists) {
       app_metadata.registration_to_complete = true;
     } else if (account_role === "COMPANY_ADMIN") {
       app_metadata.registration_to_complete = false;

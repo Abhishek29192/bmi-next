@@ -31,13 +31,13 @@ describe("App", () => {
     jest.resetModules();
   });
 
-  it("Shuold proceed if auth api", async () => {
-    props.ctx.pathname = "/api/auth/callnack";
+  it("Should proceed if auth api", async () => {
+    props.ctx.pathname = "/api/auth/callback";
     const resultProps = await initialProps(props);
     expect(resultProps).toEqual({});
   });
 
-  it("Shuold proceed if registration_to_complete = false and valid session", async () => {
+  it("Should proceed if registration_to_complete = false and valid session", async () => {
     (getSession as jest.Mock).mockImplementationOnce(() => ({
       user: {
         [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: false
@@ -51,7 +51,7 @@ describe("App", () => {
     expect(resultProps).toEqual({});
   });
 
-  it("Shuold redirect if registration_to_complete = true", async () => {
+  it("Should redirect if registration_to_complete = true", async () => {
     axios.get = jest.fn().mockResolvedValueOnce({ data: {} });
     (getSession as jest.Mock).mockImplementationOnce(() => ({
       user: {
@@ -66,7 +66,7 @@ describe("App", () => {
     });
   });
 
-  it("Shuold redirect to logout if invalid session", async () => {
+  it("Should redirect to logout if invalid session", async () => {
     axios.get = jest.fn().mockRejectedValueOnce({ response: { status: 401 } });
     (getSession as jest.Mock).mockImplementationOnce(() => ({
       user: {
@@ -81,7 +81,7 @@ describe("App", () => {
     });
   });
 
-  it("Shuold redirect to logout if user is blocked", async () => {
+  it("Should redirect to logout if user is blocked", async () => {
     axios.get = jest.fn().mockRejectedValueOnce({
       response: { data: "unauthorized (user is blocked)" }
     });

@@ -1,5 +1,5 @@
 import { LoginOptions } from "@auth0/nextjs-auth0";
-import auth0 from "@auth0/nextjs-auth0";
+import { handleLogin } from "@auth0/nextjs-auth0";
 
 const getLoginState = (req, loginOptions) => {
   return { prompt: "none" };
@@ -22,7 +22,7 @@ export default async function silentAuth(req, res) {
   }
 
   try {
-    await auth0.handleLogin(req, res, loginOption);
+    await handleLogin(req, res, loginOption);
   } catch (error) {
     res.status(error.status || 500).end(error.message);
   }
