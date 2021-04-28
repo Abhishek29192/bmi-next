@@ -1,8 +1,8 @@
-import { ProductVariant } from "@bmi/es-model/src";
-import { Product } from "@bmi/es-model/src/pim";
 import { RequestParams } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
+import { ProductVariant } from "../es-model";
+import { Product } from "../pim";
 import { ProductMessage } from "..";
 import createProductVariant from "./helpers/ProductVariantHelper";
 import createPimProduct from "./helpers/PimProductHelper";

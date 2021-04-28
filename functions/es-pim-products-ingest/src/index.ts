@@ -1,7 +1,7 @@
 import { Client } from "@elastic/elasticsearch";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import { Operation, ProductVariant } from "@bmi/es-model";
-import { Product as PIMProduct } from "@bmi/es-model/src/pim";
+import { Operation, ProductVariant } from "./es-model";
+import { Product as PIMProduct } from "./pim";
 import { transformProduct } from "./transform";
 
 export type ProductMessage = {
@@ -130,6 +130,9 @@ const updateElasticSearch = async (
   // (partially or fully) requests and need to make sure this is working before
   // we make it asynchronous again.
   for (let bulkOperation of bulkOperations) {
+    // eslint-disable-next-line no-console
+    console.debug(JSON.stringify(bulkOperation));
+
     const response = await client.bulk({
       index,
       refresh: true,
