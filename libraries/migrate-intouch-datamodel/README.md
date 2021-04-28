@@ -21,14 +21,14 @@ In the following examples, you may need a `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SEC
 
 - Click `Create`, and `Ok` on the following screen
 - Click the `Download` icon next to your newly created OAuth2 Client Id
-- Update .env file
+- Update `.env` file with `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`
+- get the `GOOGLE_SPREADSHEET_ID` from the developer team, and update the `.env`
 
 ## Run
 
-After following the quickstart setup instructions, run the sample:
+After following the quickstart setup instructions, run `yarn start` to get the token to access the spreadsheet.
 
-`yarn start`
+To update the Database:
 
-To update Database
-
-`yarn migrate`
+- create `config.json` file (see `config.json.example`)
+- run `yarn migrate`
