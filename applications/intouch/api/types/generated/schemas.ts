@@ -71,11 +71,11 @@ export type Account = Node & {
   /** Reads a single `Account` that is related to this `Account`. */
   accountByCreatedBy?: Maybe<Account>;
   /** Reads a single `Market` that is related to this `Account`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads and enables pagination through a set of `Account`. */
   accountsByCreatedBy: AccountsConnection;
   /** Reads and enables pagination through a set of `CompanyMember`. */
-  companyMembersByAccountId: CompanyMembersConnection;
+  companyMembers: CompanyMembersConnection;
   /** Reads and enables pagination through a set of `Guarantee`. */
   guaranteesByRequestorAccountId: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Guarantee`. */
@@ -83,13 +83,13 @@ export type Account = Node & {
   /** Reads and enables pagination through a set of `Guarantee`. */
   guaranteesByReviewerAccountId: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Invitation`. */
-  invitationsByAccountId: InvitationsConnection;
+  invitations: InvitationsConnection;
   /** Reads and enables pagination through a set of `Note`. */
-  notesByAuthorId: NotesConnection;
+  authoredNotes: NotesConnection;
   /** Reads and enables pagination through a set of `Notification`. */
-  notificationsByAccountId: NotificationsConnection;
+  notifications: NotificationsConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
-  projectMembersByAccountId: ProjectMembersConnection;
+  projectMembers: ProjectMembersConnection;
 };
 
 /** An InTouch account */
@@ -104,7 +104,7 @@ export type AccountAccountsByCreatedByArgs = {
 };
 
 /** An InTouch account */
-export type AccountCompanyMembersByAccountIdArgs = {
+export type AccountCompanyMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -148,7 +148,7 @@ export type AccountGuaranteesByReviewerAccountIdArgs = {
 };
 
 /** An InTouch account */
-export type AccountInvitationsByAccountIdArgs = {
+export type AccountInvitationsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -159,7 +159,7 @@ export type AccountInvitationsByAccountIdArgs = {
 };
 
 /** An InTouch account */
-export type AccountNotesByAuthorIdArgs = {
+export type AccountAuthoredNotesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -170,7 +170,7 @@ export type AccountNotesByAuthorIdArgs = {
 };
 
 /** An InTouch account */
-export type AccountNotificationsByAccountIdArgs = {
+export type AccountNotificationsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -181,7 +181,7 @@ export type AccountNotificationsByAccountIdArgs = {
 };
 
 /** An InTouch account */
-export type AccountProjectMembersByAccountIdArgs = {
+export type AccountProjectMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -197,30 +197,10 @@ export type AccountCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `createdBy` field. */
   createdBy?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `status` field. */
-  status?: Maybe<AccountStatus>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `role` field. */
-  role?: Maybe<Role>;
   /** Checks for equality with the object’s `email` field. */
   email?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `phone` field. */
-  phone?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `firstName` field. */
-  firstName?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `lastName` field. */
-  lastName?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `created` field. */
-  created?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `doceboId` field. */
-  doceboId?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `photo` field. */
-  photo?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Account` */
@@ -287,7 +267,7 @@ export type AccountPatch = {
 export type AccountsConnection = {
   __typename?: "AccountsConnection";
   /** A list of `Account` objects. */
-  nodes: Array<Maybe<Account>>;
+  nodes: Array<Account>;
   /** A list of edges which contains the `Account` and cursor to aid in pagination. */
   edges: Array<AccountsEdge>;
   /** Information to aid in pagination. */
@@ -302,7 +282,7 @@ export type AccountsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Account` at the end of the edge. */
-  node?: Maybe<Account>;
+  node: Account;
 };
 
 /** Methods to use when ordering `Account`. */
@@ -312,30 +292,10 @@ export enum AccountsOrderBy {
   IdDesc = "ID_DESC",
   CreatedByAsc = "CREATED_BY_ASC",
   CreatedByDesc = "CREATED_BY_DESC",
-  StatusAsc = "STATUS_ASC",
-  StatusDesc = "STATUS_DESC",
   MarketIdAsc = "MARKET_ID_ASC",
   MarketIdDesc = "MARKET_ID_DESC",
-  RoleAsc = "ROLE_ASC",
-  RoleDesc = "ROLE_DESC",
   EmailAsc = "EMAIL_ASC",
   EmailDesc = "EMAIL_DESC",
-  PhoneAsc = "PHONE_ASC",
-  PhoneDesc = "PHONE_DESC",
-  FirstNameAsc = "FIRST_NAME_ASC",
-  FirstNameDesc = "FIRST_NAME_DESC",
-  LastNameAsc = "LAST_NAME_ASC",
-  LastNameDesc = "LAST_NAME_DESC",
-  CreatedAsc = "CREATED_ASC",
-  CreatedDesc = "CREATED_DESC",
-  DoceboIdAsc = "DOCEBO_ID_ASC",
-  DoceboIdDesc = "DOCEBO_ID_DESC",
-  PhotoAsc = "PHOTO_ASC",
-  PhotoDesc = "PHOTO_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -454,27 +414,13 @@ export type AddressProjectsBySiteAddressIdArgs = {
 export type AddressCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `firstLine` field. */
-  firstLine?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `secondLine` field. */
-  secondLine?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `town` field. */
-  town?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `country` field. */
-  country?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `postcode` field. */
-  postcode?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** A connection to a list of `Address` values. */
 export type AddressesConnection = {
   __typename?: "AddressesConnection";
   /** A list of `Address` objects. */
-  nodes: Array<Maybe<Address>>;
+  nodes: Array<Address>;
   /** A list of edges which contains the `Address` and cursor to aid in pagination. */
   edges: Array<AddressesEdge>;
   /** Information to aid in pagination. */
@@ -489,7 +435,7 @@ export type AddressesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Address` at the end of the edge. */
-  node?: Maybe<Address>;
+  node: Address;
 };
 
 /** Methods to use when ordering `Address`. */
@@ -497,20 +443,6 @@ export enum AddressesOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  FirstLineAsc = "FIRST_LINE_ASC",
-  FirstLineDesc = "FIRST_LINE_DESC",
-  SecondLineAsc = "SECOND_LINE_ASC",
-  SecondLineDesc = "SECOND_LINE_DESC",
-  TownAsc = "TOWN_ASC",
-  TownDesc = "TOWN_DESC",
-  CountryAsc = "COUNTRY_ASC",
-  CountryDesc = "COUNTRY_DESC",
-  PostcodeAsc = "POSTCODE_ASC",
-  PostcodeDesc = "POSTCODE_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -561,6 +493,7 @@ export type AdminMenuItems = {
 export type Asset = {
   __typename?: "Asset";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   title?: Maybe<Scalars["String"]>;
   description?: Maybe<Scalars["String"]>;
   contentType?: Maybe<Scalars["String"]>;
@@ -592,6 +525,7 @@ export type AssetCollection = {
 
 export type AssetFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   title_exists?: Maybe<Scalars["Boolean"]>;
   title?: Maybe<Scalars["String"]>;
   title_not?: Maybe<Scalars["String"]>;
@@ -661,10 +595,12 @@ export type AssetFilter = {
 export type AssetLinkingCollections = {
   __typename?: "AssetLinkingCollections";
   entryCollection?: Maybe<EntryCollection>;
-  guaranteeTemplateCollection?: Maybe<GuaranteeTemplateCollection>;
+  carouselItemCollection?: Maybe<CarouselItemCollection>;
   guaranteeTypeCollection?: Maybe<GuaranteeTypeCollection>;
+  trainingContentCollection?: Maybe<TrainingContentCollection>;
+  partnerBrandCollection?: Maybe<PartnerBrandCollection>;
+  guaranteeTemplateCollection?: Maybe<GuaranteeTemplateCollection>;
   mediaToolCollection?: Maybe<MediaToolCollection>;
-  imageSetCollection?: Maybe<ImageSetCollection>;
 };
 
 export type AssetLinkingCollectionsEntryCollectionArgs = {
@@ -674,7 +610,7 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export type AssetLinkingCollectionsGuaranteeTemplateCollectionArgs = {
+export type AssetLinkingCollectionsCarouselItemCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -688,14 +624,28 @@ export type AssetLinkingCollectionsGuaranteeTypeCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export type AssetLinkingCollectionsMediaToolCollectionArgs = {
+export type AssetLinkingCollectionsTrainingContentCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
   locale?: Maybe<Scalars["String"]>;
 };
 
-export type AssetLinkingCollectionsImageSetCollectionArgs = {
+export type AssetLinkingCollectionsPartnerBrandCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type AssetLinkingCollectionsGuaranteeTemplateCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type AssetLinkingCollectionsMediaToolCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -753,127 +703,6 @@ export type BackgroundImage = {
   url?: Maybe<Scalars["String"]>;
   aspect_ratio?: Maybe<Scalars["String"]>;
 };
-
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/benefit) */
-export type Benefit = Entry & {
-  __typename?: "Benefit";
-  sys: Sys;
-  linkedFrom?: Maybe<BenefitLinkingCollections>;
-  name?: Maybe<Scalars["String"]>;
-  tier?: Maybe<Scalars["String"]>;
-  description?: Maybe<BenefitDescription>;
-};
-
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/benefit) */
-export type BenefitLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars["String"]>>>;
-};
-
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/benefit) */
-export type BenefitNameArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/benefit) */
-export type BenefitTierArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/benefit) */
-export type BenefitDescriptionArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type BenefitCollection = {
-  __typename?: "BenefitCollection";
-  total: Scalars["Int"];
-  skip: Scalars["Int"];
-  limit: Scalars["Int"];
-  items: Array<Maybe<Benefit>>;
-};
-
-export type BenefitDescription = {
-  __typename?: "BenefitDescription";
-  json: Scalars["JSON"];
-  links: BenefitDescriptionLinks;
-};
-
-export type BenefitDescriptionAssets = {
-  __typename?: "BenefitDescriptionAssets";
-  hyperlink: Array<Maybe<Asset>>;
-  block: Array<Maybe<Asset>>;
-};
-
-export type BenefitDescriptionEntries = {
-  __typename?: "BenefitDescriptionEntries";
-  inline: Array<Maybe<Entry>>;
-  hyperlink: Array<Maybe<Entry>>;
-  block: Array<Maybe<Entry>>;
-};
-
-export type BenefitDescriptionLinks = {
-  __typename?: "BenefitDescriptionLinks";
-  entries: BenefitDescriptionEntries;
-  assets: BenefitDescriptionAssets;
-};
-
-export type BenefitFilter = {
-  sys?: Maybe<SysFilter>;
-  name_exists?: Maybe<Scalars["Boolean"]>;
-  name?: Maybe<Scalars["String"]>;
-  name_not?: Maybe<Scalars["String"]>;
-  name_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  name_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  name_contains?: Maybe<Scalars["String"]>;
-  name_not_contains?: Maybe<Scalars["String"]>;
-  tier_exists?: Maybe<Scalars["Boolean"]>;
-  tier?: Maybe<Scalars["String"]>;
-  tier_not?: Maybe<Scalars["String"]>;
-  tier_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  tier_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  tier_contains?: Maybe<Scalars["String"]>;
-  tier_not_contains?: Maybe<Scalars["String"]>;
-  description_exists?: Maybe<Scalars["Boolean"]>;
-  description_contains?: Maybe<Scalars["String"]>;
-  description_not_contains?: Maybe<Scalars["String"]>;
-  OR?: Maybe<Array<Maybe<BenefitFilter>>>;
-  AND?: Maybe<Array<Maybe<BenefitFilter>>>;
-};
-
-export type BenefitLinkingCollections = {
-  __typename?: "BenefitLinkingCollections";
-  entryCollection?: Maybe<EntryCollection>;
-  marketContentCollection?: Maybe<MarketContentCollection>;
-};
-
-export type BenefitLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type BenefitLinkingCollectionsMarketContentCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export enum BenefitOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  TierAsc = "tier_ASC",
-  TierDesc = "tier_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
 
 export type Branch = {
   __typename?: "Branch";
@@ -960,15 +789,21 @@ export enum BusinessType {
 export type Carousel = Entry & {
   __typename?: "Carousel";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<CarouselLinkingCollections>;
-  listCollection?: Maybe<CarouselListCollection>;
-  caption?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
+  listCollection?: Maybe<CarouselListCollection>;
+  audienceRole?: Maybe<Scalars["String"]>;
 };
 
 /** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
 export type CarouselLinkedFromArgs = {
   allowedLocales?: Maybe<Array<Maybe<Scalars["String"]>>>;
+};
+
+/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
+export type CarouselNameArgs = {
+  locale?: Maybe<Scalars["String"]>;
 };
 
 /** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
@@ -980,12 +815,7 @@ export type CarouselListCollectionArgs = {
 };
 
 /** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
-export type CarouselCaptionArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
-export type CarouselNameArgs = {
+export type CarouselAudienceRoleArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -999,14 +829,7 @@ export type CarouselCollection = {
 
 export type CarouselFilter = {
   sys?: Maybe<SysFilter>;
-  listCollection_exists?: Maybe<Scalars["Boolean"]>;
-  caption_exists?: Maybe<Scalars["Boolean"]>;
-  caption?: Maybe<Scalars["String"]>;
-  caption_not?: Maybe<Scalars["String"]>;
-  caption_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  caption_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  caption_contains?: Maybe<Scalars["String"]>;
-  caption_not_contains?: Maybe<Scalars["String"]>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   name_exists?: Maybe<Scalars["Boolean"]>;
   name?: Maybe<Scalars["String"]>;
   name_not?: Maybe<Scalars["String"]>;
@@ -1014,6 +837,14 @@ export type CarouselFilter = {
   name_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   name_contains?: Maybe<Scalars["String"]>;
   name_not_contains?: Maybe<Scalars["String"]>;
+  listCollection_exists?: Maybe<Scalars["Boolean"]>;
+  audienceRole_exists?: Maybe<Scalars["Boolean"]>;
+  audienceRole?: Maybe<Scalars["String"]>;
+  audienceRole_not?: Maybe<Scalars["String"]>;
+  audienceRole_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  audienceRole_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  audienceRole_contains?: Maybe<Scalars["String"]>;
+  audienceRole_not_contains?: Maybe<Scalars["String"]>;
   OR?: Maybe<Array<Maybe<CarouselFilter>>>;
   AND?: Maybe<Array<Maybe<CarouselFilter>>>;
 };
@@ -1027,11 +858,13 @@ export type CarouselFilter = {
 export type CarouselItem = Entry & {
   __typename?: "CarouselItem";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<CarouselItemLinkingCollections>;
   header?: Maybe<Scalars["String"]>;
-  imageSet?: Maybe<ImageSet>;
-  audience?: Maybe<Scalars["String"]>;
+  image?: Maybe<Asset>;
   body?: Maybe<Scalars["String"]>;
+  cta?: Maybe<Scalars["String"]>;
+  audienceTiers?: Maybe<Array<Maybe<Scalars["String"]>>>;
 };
 
 /**
@@ -1060,18 +893,8 @@ export type CarouselItemHeaderArgs = {
  * carousel (probably redundant).  This entity is for content you see in the big
  * one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem)
  */
-export type CarouselItemImageSetArgs = {
+export type CarouselItemImageArgs = {
   preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/**
- * Content that appears in the main carousel.  Note that there are two other minor
- * carousels in InTouch, the Benefits Carousel and the Company Administrators
- * carousel (probably redundant).  This entity is for content you see in the big
- * one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem)
- */
-export type CarouselItemAudienceArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -1085,6 +908,26 @@ export type CarouselItemBodyArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
+/**
+ * Content that appears in the main carousel.  Note that there are two other minor
+ * carousels in InTouch, the Benefits Carousel and the Company Administrators
+ * carousel (probably redundant).  This entity is for content you see in the big
+ * one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem)
+ */
+export type CarouselItemCtaArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/**
+ * Content that appears in the main carousel.  Note that there are two other minor
+ * carousels in InTouch, the Benefits Carousel and the Company Administrators
+ * carousel (probably redundant).  This entity is for content you see in the big
+ * one which contains promotional messages that do not link anywhere. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carouselItem)
+ */
+export type CarouselItemAudienceTiersArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
 export type CarouselItemCollection = {
   __typename?: "CarouselItemCollection";
   total: Scalars["Int"];
@@ -1094,8 +937,8 @@ export type CarouselItemCollection = {
 };
 
 export type CarouselItemFilter = {
-  imageSet?: Maybe<CfImageSetNestedFilter>;
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   header_exists?: Maybe<Scalars["Boolean"]>;
   header?: Maybe<Scalars["String"]>;
   header_not?: Maybe<Scalars["String"]>;
@@ -1103,14 +946,7 @@ export type CarouselItemFilter = {
   header_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   header_contains?: Maybe<Scalars["String"]>;
   header_not_contains?: Maybe<Scalars["String"]>;
-  imageSet_exists?: Maybe<Scalars["Boolean"]>;
-  audience_exists?: Maybe<Scalars["Boolean"]>;
-  audience?: Maybe<Scalars["String"]>;
-  audience_not?: Maybe<Scalars["String"]>;
-  audience_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  audience_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  audience_contains?: Maybe<Scalars["String"]>;
-  audience_not_contains?: Maybe<Scalars["String"]>;
+  image_exists?: Maybe<Scalars["Boolean"]>;
   body_exists?: Maybe<Scalars["Boolean"]>;
   body?: Maybe<Scalars["String"]>;
   body_not?: Maybe<Scalars["String"]>;
@@ -1118,6 +954,17 @@ export type CarouselItemFilter = {
   body_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   body_contains?: Maybe<Scalars["String"]>;
   body_not_contains?: Maybe<Scalars["String"]>;
+  cta_exists?: Maybe<Scalars["Boolean"]>;
+  cta?: Maybe<Scalars["String"]>;
+  cta_not?: Maybe<Scalars["String"]>;
+  cta_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  cta_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  cta_contains?: Maybe<Scalars["String"]>;
+  cta_not_contains?: Maybe<Scalars["String"]>;
+  audienceTiers_exists?: Maybe<Scalars["Boolean"]>;
+  audienceTiers_contains_all?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  audienceTiers_contains_some?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  audienceTiers_contains_none?: Maybe<Array<Maybe<Scalars["String"]>>>;
   OR?: Maybe<Array<Maybe<CarouselItemFilter>>>;
   AND?: Maybe<Array<Maybe<CarouselItemFilter>>>;
 };
@@ -1145,8 +992,8 @@ export type CarouselItemLinkingCollectionsCarouselCollectionArgs = {
 export enum CarouselItemOrder {
   HeaderAsc = "header_ASC",
   HeaderDesc = "header_DESC",
-  AudienceAsc = "audience_ASC",
-  AudienceDesc = "audience_DESC",
+  CtaAsc = "cta_ASC",
+  CtaDesc = "cta_DESC",
   SysIdAsc = "sys_id_ASC",
   SysIdDesc = "sys_id_DESC",
   SysPublishedAtAsc = "sys_publishedAt_ASC",
@@ -1180,6 +1027,8 @@ export type CarouselListCollection = {
 export enum CarouselOrder {
   NameAsc = "name_ASC",
   NameDesc = "name_DESC",
+  AudienceRoleAsc = "audienceRole_ASC",
+  AudienceRoleDesc = "audienceRole_DESC",
   SysIdAsc = "sys_id_ASC",
   SysIdDesc = "sys_id_DESC",
   SysPublishedAtAsc = "sys_publishedAt_ASC",
@@ -1345,190 +1194,33 @@ export type CertificationReportData = {
   items?: Maybe<Array<Maybe<CertificationReport>>>;
 };
 
-export type CfGuaranteeTemplateNestedFilter = {
+export type CfContentArticleNestedFilter = {
   sys?: Maybe<SysFilter>;
-  displayName_exists?: Maybe<Scalars["Boolean"]>;
-  displayName?: Maybe<Scalars["String"]>;
-  displayName_not?: Maybe<Scalars["String"]>;
-  displayName_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  displayName_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  displayName_contains?: Maybe<Scalars["String"]>;
-  displayName_not_contains?: Maybe<Scalars["String"]>;
-  approvalMessage_exists?: Maybe<Scalars["Boolean"]>;
-  rejectionMessage_exists?: Maybe<Scalars["Boolean"]>;
-  logo_exists?: Maybe<Scalars["Boolean"]>;
-  signatory_exists?: Maybe<Scalars["Boolean"]>;
-  signatory?: Maybe<Scalars["String"]>;
-  signatory_not?: Maybe<Scalars["String"]>;
-  signatory_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  signatory_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  signatory_contains?: Maybe<Scalars["String"]>;
-  signatory_not_contains?: Maybe<Scalars["String"]>;
-  headingGuarantee_exists?: Maybe<Scalars["Boolean"]>;
-  headingGuarantee?: Maybe<Scalars["String"]>;
-  headingGuarantee_not?: Maybe<Scalars["String"]>;
-  headingGuarantee_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingGuarantee_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingGuarantee_contains?: Maybe<Scalars["String"]>;
-  headingGuarantee_not_contains?: Maybe<Scalars["String"]>;
-  headingScope_exists?: Maybe<Scalars["Boolean"]>;
-  headingScope?: Maybe<Scalars["String"]>;
-  headingScope_not?: Maybe<Scalars["String"]>;
-  headingScope_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingScope_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingScope_contains?: Maybe<Scalars["String"]>;
-  headingScope_not_contains?: Maybe<Scalars["String"]>;
-  headingProducts_exists?: Maybe<Scalars["Boolean"]>;
-  headingProducts?: Maybe<Scalars["String"]>;
-  headingProducts_not?: Maybe<Scalars["String"]>;
-  headingProducts_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingProducts_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingProducts_contains?: Maybe<Scalars["String"]>;
-  headingProducts_not_contains?: Maybe<Scalars["String"]>;
-  headingBeneficiary_exists?: Maybe<Scalars["Boolean"]>;
-  headingBeneficiary?: Maybe<Scalars["String"]>;
-  headingBeneficiary_not?: Maybe<Scalars["String"]>;
-  headingBeneficiary_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingBeneficiary_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingBeneficiary_contains?: Maybe<Scalars["String"]>;
-  headingBeneficiary_not_contains?: Maybe<Scalars["String"]>;
-  headingBuildingOwnerName_exists?: Maybe<Scalars["Boolean"]>;
-  headingBuildingOwnerName?: Maybe<Scalars["String"]>;
-  headingBuildingOwnerName_not?: Maybe<Scalars["String"]>;
-  headingBuildingOwnerName_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingBuildingOwnerName_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingBuildingOwnerName_contains?: Maybe<Scalars["String"]>;
-  headingBuildingOwnerName_not_contains?: Maybe<Scalars["String"]>;
-  headingBuildingAddress_exists?: Maybe<Scalars["Boolean"]>;
-  headingBuildingAddress?: Maybe<Scalars["String"]>;
-  headingBuildingAddress_not?: Maybe<Scalars["String"]>;
-  headingBuildingAddress_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingBuildingAddress_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingBuildingAddress_contains?: Maybe<Scalars["String"]>;
-  headingBuildingAddress_not_contains?: Maybe<Scalars["String"]>;
-  headingRoofArea_exists?: Maybe<Scalars["Boolean"]>;
-  headingRoofArea?: Maybe<Scalars["String"]>;
-  headingRoofArea_not?: Maybe<Scalars["String"]>;
-  headingRoofArea_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingRoofArea_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingRoofArea_contains?: Maybe<Scalars["String"]>;
-  headingRoofArea_not_contains?: Maybe<Scalars["String"]>;
-  headingRoofType_exists?: Maybe<Scalars["Boolean"]>;
-  headingRoofType?: Maybe<Scalars["String"]>;
-  headingRoofType_not?: Maybe<Scalars["String"]>;
-  headingRoofType_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingRoofType_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingRoofType_contains?: Maybe<Scalars["String"]>;
-  headingRoofType_not_contains?: Maybe<Scalars["String"]>;
-  headingContractor_exists?: Maybe<Scalars["Boolean"]>;
-  headingContractor?: Maybe<Scalars["String"]>;
-  headingContractor_not?: Maybe<Scalars["String"]>;
-  headingContractor_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingContractor_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingContractor_contains?: Maybe<Scalars["String"]>;
-  headingContractor_not_contains?: Maybe<Scalars["String"]>;
-  headingContractorName_exists?: Maybe<Scalars["Boolean"]>;
-  headingContractorName?: Maybe<Scalars["String"]>;
-  headingContractorName_not?: Maybe<Scalars["String"]>;
-  headingContractorName_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingContractorName_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingContractorName_contains?: Maybe<Scalars["String"]>;
-  headingContractorName_not_contains?: Maybe<Scalars["String"]>;
-  headingContractorId_exists?: Maybe<Scalars["Boolean"]>;
-  headingContractorId?: Maybe<Scalars["String"]>;
-  headingContractorId_not?: Maybe<Scalars["String"]>;
-  headingContractorId_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingContractorId_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingContractorId_contains?: Maybe<Scalars["String"]>;
-  headingContractorId_not_contains?: Maybe<Scalars["String"]>;
-  headingStartDate_exists?: Maybe<Scalars["Boolean"]>;
-  headingStartDate?: Maybe<Scalars["String"]>;
-  headingStartDate_not?: Maybe<Scalars["String"]>;
-  headingStartDate_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingStartDate_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingStartDate_contains?: Maybe<Scalars["String"]>;
-  headingStartDate_not_contains?: Maybe<Scalars["String"]>;
-  headingGuaranteeId_exists?: Maybe<Scalars["Boolean"]>;
-  headingGuaranteeId?: Maybe<Scalars["String"]>;
-  headingGuaranteeId_not?: Maybe<Scalars["String"]>;
-  headingGuaranteeId_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingGuaranteeId_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingGuaranteeId_contains?: Maybe<Scalars["String"]>;
-  headingGuaranteeId_not_contains?: Maybe<Scalars["String"]>;
-  headingValidity_exists?: Maybe<Scalars["Boolean"]>;
-  headingValidity?: Maybe<Scalars["String"]>;
-  headingValidity_not?: Maybe<Scalars["String"]>;
-  headingValidity_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingValidity_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingValidity_contains?: Maybe<Scalars["String"]>;
-  headingValidity_not_contains?: Maybe<Scalars["String"]>;
-  headingExpiry_exists?: Maybe<Scalars["Boolean"]>;
-  headingExpiry?: Maybe<Scalars["String"]>;
-  headingExpiry_not?: Maybe<Scalars["String"]>;
-  headingExpiry_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingExpiry_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  headingExpiry_contains?: Maybe<Scalars["String"]>;
-  headingExpiry_not_contains?: Maybe<Scalars["String"]>;
-  footer_exists?: Maybe<Scalars["Boolean"]>;
-  footer?: Maybe<Scalars["String"]>;
-  footer_not?: Maybe<Scalars["String"]>;
-  footer_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  footer_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  footer_contains?: Maybe<Scalars["String"]>;
-  footer_not_contains?: Maybe<Scalars["String"]>;
-  maintenanceTemplate_exists?: Maybe<Scalars["Boolean"]>;
-  guaranteeScope_exists?: Maybe<Scalars["Boolean"]>;
-  guaranteeScope?: Maybe<Scalars["String"]>;
-  guaranteeScope_not?: Maybe<Scalars["String"]>;
-  guaranteeScope_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  guaranteeScope_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  guaranteeScope_contains?: Maybe<Scalars["String"]>;
-  guaranteeScope_not_contains?: Maybe<Scalars["String"]>;
-  terms_exists?: Maybe<Scalars["Boolean"]>;
-  mailBody_exists?: Maybe<Scalars["Boolean"]>;
-  mailBody?: Maybe<Scalars["String"]>;
-  mailBody_not?: Maybe<Scalars["String"]>;
-  mailBody_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  mailBody_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  mailBody_contains?: Maybe<Scalars["String"]>;
-  mailBody_not_contains?: Maybe<Scalars["String"]>;
-  filenamePrefix_exists?: Maybe<Scalars["Boolean"]>;
-  filenamePrefix?: Maybe<Scalars["String"]>;
-  filenamePrefix_not?: Maybe<Scalars["String"]>;
-  filenamePrefix_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  filenamePrefix_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  filenamePrefix_contains?: Maybe<Scalars["String"]>;
-  filenamePrefix_not_contains?: Maybe<Scalars["String"]>;
-  OR?: Maybe<Array<Maybe<CfGuaranteeTemplateNestedFilter>>>;
-  AND?: Maybe<Array<Maybe<CfGuaranteeTemplateNestedFilter>>>;
-};
-
-export type CfImageSetNestedFilter = {
-  sys?: Maybe<SysFilter>;
-  name_exists?: Maybe<Scalars["Boolean"]>;
-  name?: Maybe<Scalars["String"]>;
-  name_not?: Maybe<Scalars["String"]>;
-  name_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  name_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  name_contains?: Maybe<Scalars["String"]>;
-  name_not_contains?: Maybe<Scalars["String"]>;
-  altText_exists?: Maybe<Scalars["Boolean"]>;
-  altText?: Maybe<Scalars["String"]>;
-  altText_not?: Maybe<Scalars["String"]>;
-  altText_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  altText_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  altText_contains?: Maybe<Scalars["String"]>;
-  altText_not_contains?: Maybe<Scalars["String"]>;
-  desktopImage_exists?: Maybe<Scalars["Boolean"]>;
-  wideImage_exists?: Maybe<Scalars["Boolean"]>;
-  tabletImage_exists?: Maybe<Scalars["Boolean"]>;
-  mobileImage_exists?: Maybe<Scalars["Boolean"]>;
-  OR?: Maybe<Array<Maybe<CfImageSetNestedFilter>>>;
-  AND?: Maybe<Array<Maybe<CfImageSetNestedFilter>>>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  title_exists?: Maybe<Scalars["Boolean"]>;
+  title?: Maybe<Scalars["String"]>;
+  title_not?: Maybe<Scalars["String"]>;
+  title_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  title_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  title_contains?: Maybe<Scalars["String"]>;
+  title_not_contains?: Maybe<Scalars["String"]>;
+  relativePath_exists?: Maybe<Scalars["Boolean"]>;
+  relativePath?: Maybe<Scalars["String"]>;
+  relativePath_not?: Maybe<Scalars["String"]>;
+  relativePath_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  relativePath_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  relativePath_contains?: Maybe<Scalars["String"]>;
+  relativePath_not_contains?: Maybe<Scalars["String"]>;
+  body_exists?: Maybe<Scalars["Boolean"]>;
+  body_contains?: Maybe<Scalars["String"]>;
+  body_not_contains?: Maybe<Scalars["String"]>;
+  OR?: Maybe<Array<Maybe<CfContentArticleNestedFilter>>>;
+  AND?: Maybe<Array<Maybe<CfContentArticleNestedFilter>>>;
 };
 
 export type CfMessageTemplateNestedFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   event_exists?: Maybe<Scalars["Boolean"]>;
   event?: Maybe<Scalars["String"]>;
   event_not?: Maybe<Scalars["String"]>;
@@ -1581,7 +1273,7 @@ export type Colors = {
 export type CompaniesConnection = {
   __typename?: "CompaniesConnection";
   /** A list of `Company` objects. */
-  nodes: Array<Maybe<Company>>;
+  nodes: Array<Company>;
   /** A list of edges which contains the `Company` and cursor to aid in pagination. */
   edges: Array<CompaniesEdge>;
   /** Information to aid in pagination. */
@@ -1596,7 +1288,7 @@ export type CompaniesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Company` at the end of the edge. */
-  node?: Maybe<Company>;
+  node: Company;
 };
 
 /** Methods to use when ordering `Company`. */
@@ -1606,52 +1298,10 @@ export enum CompaniesOrderBy {
   IdDesc = "ID_DESC",
   MarketIdAsc = "MARKET_ID_ASC",
   MarketIdDesc = "MARKET_ID_DESC",
-  OwnerFullnameAsc = "OWNER_FULLNAME_ASC",
-  OwnerFullnameDesc = "OWNER_FULLNAME_DESC",
-  OwnerEmailAsc = "OWNER_EMAIL_ASC",
-  OwnerEmailDesc = "OWNER_EMAIL_DESC",
-  OwnerPhoneAsc = "OWNER_PHONE_ASC",
-  OwnerPhoneDesc = "OWNER_PHONE_DESC",
   RegisteredAddressIdAsc = "REGISTERED_ADDRESS_ID_ASC",
   RegisteredAddressIdDesc = "REGISTERED_ADDRESS_ID_DESC",
   TradingAddressIdAsc = "TRADING_ADDRESS_ID_ASC",
   TradingAddressIdDesc = "TRADING_ADDRESS_ID_DESC",
-  BusinessTypeAsc = "BUSINESS_TYPE_ASC",
-  BusinessTypeDesc = "BUSINESS_TYPE_DESC",
-  TierAsc = "TIER_ASC",
-  TierDesc = "TIER_DESC",
-  StatusAsc = "STATUS_ASC",
-  StatusDesc = "STATUS_DESC",
-  RegisteredByAsc = "REGISTERED_BY_ASC",
-  RegisteredByDesc = "REGISTERED_BY_DESC",
-  RegisteredDateAsc = "REGISTERED_DATE_ASC",
-  RegisteredDateDesc = "REGISTERED_DATE_DESC",
-  LmsGroupAsc = "LMS_GROUP_ASC",
-  LmsGroupDesc = "LMS_GROUP_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  TaxNumberAsc = "TAX_NUMBER_ASC",
-  TaxNumberDesc = "TAX_NUMBER_DESC",
-  PhoneAsc = "PHONE_ASC",
-  PhoneDesc = "PHONE_DESC",
-  CoordinatesAsc = "COORDINATES_ASC",
-  CoordinatesDesc = "COORDINATES_DESC",
-  AboutUsAsc = "ABOUT_US_ASC",
-  AboutUsDesc = "ABOUT_US_DESC",
-  PublicEmailAsc = "PUBLIC_EMAIL_ASC",
-  PublicEmailDesc = "PUBLIC_EMAIL_DESC",
-  WebsiteAsc = "WEBSITE_ASC",
-  WebsiteDesc = "WEBSITE_DESC",
-  FacebookAsc = "FACEBOOK_ASC",
-  FacebookDesc = "FACEBOOK_DESC",
-  LinkedInAsc = "LINKED_IN_ASC",
-  LinkedInDesc = "LINKED_IN_DESC",
-  ReferenceNumberAsc = "REFERENCE_NUMBER_ASC",
-  ReferenceNumberDesc = "REFERENCE_NUMBER_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -1713,21 +1363,21 @@ export type Company = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `Company`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads a single `Address` that is related to this `Company`. */
-  addressByRegisteredAddressId?: Maybe<Address>;
+  registeredAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Company`. */
-  addressByTradingAddressId?: Maybe<Address>;
+  tradingAddress?: Maybe<Address>;
   /** Reads and enables pagination through a set of `CompanyDocument`. */
-  companyDocumentsByCompanyId: CompanyDocumentsConnection;
+  companyDocuments: CompanyDocumentsConnection;
   /** Reads and enables pagination through a set of `CompanyMember`. */
-  companyMembersByCompanyId: CompanyMembersConnection;
+  companyMembers: CompanyMembersConnection;
   /** Reads and enables pagination through a set of `Project`. */
-  projectsByCompanyId: ProjectsConnection;
+  projects: ProjectsConnection;
 };
 
 /** A company that has been registered in InTouch */
-export type CompanyCompanyDocumentsByCompanyIdArgs = {
+export type CompanyCompanyDocumentsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -1738,7 +1388,7 @@ export type CompanyCompanyDocumentsByCompanyIdArgs = {
 };
 
 /** A company that has been registered in InTouch */
-export type CompanyCompanyMembersByCompanyIdArgs = {
+export type CompanyCompanyMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -1749,7 +1399,7 @@ export type CompanyCompanyMembersByCompanyIdArgs = {
 };
 
 /** A company that has been registered in InTouch */
-export type CompanyProjectsByCompanyIdArgs = {
+export type CompanyProjectsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -1765,52 +1415,10 @@ export type CompanyCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `ownerFullname` field. */
-  ownerFullname?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `ownerEmail` field. */
-  ownerEmail?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `ownerPhone` field. */
-  ownerPhone?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `registeredAddressId` field. */
   registeredAddressId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `tradingAddressId` field. */
   tradingAddressId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `businessType` field. */
-  businessType?: Maybe<BusinessType>;
-  /** Checks for equality with the object’s `tier` field. */
-  tier?: Maybe<Tier>;
-  /** Checks for equality with the object’s `status` field. */
-  status?: Maybe<CompanyStatus>;
-  /** Checks for equality with the object’s `registeredBy` field. */
-  registeredBy?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `registeredDate` field. */
-  registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `lmsGroup` field. */
-  lmsGroup?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `taxNumber` field. */
-  taxNumber?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `phone` field. */
-  phone?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `coordinates` field. */
-  coordinates?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `aboutUs` field. */
-  aboutUs?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `publicEmail` field. */
-  publicEmail?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `website` field. */
-  website?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `facebook` field. */
-  facebook?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `linkedIn` field. */
-  linkedIn?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `referenceNumber` field. */
-  referenceNumber?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** A document uploaded by the Company to InTouch that appears on their Company Profile, for example an insurance certificate */
@@ -1844,7 +1452,7 @@ export type CompanyDocument = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
 };
 
 /**
@@ -1854,12 +1462,6 @@ export type CompanyDocument = Node & {
 export type CompanydocumentCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `company` field. */
-  company?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `document` field. */
-  document?: Maybe<Scalars["String"]>;
 };
 
 /**
@@ -1871,14 +1473,6 @@ export type CompanyDocumentCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `document` field. */
-  document?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Companydocument` */
@@ -1937,7 +1531,7 @@ export type CompanyDocumentPatch = {
 export type CompanydocumentsConnection = {
   __typename?: "CompanydocumentsConnection";
   /** A list of `Companydocument` objects. */
-  nodes: Array<Maybe<Companydocument>>;
+  nodes: Array<Companydocument>;
   /** A list of edges which contains the `Companydocument` and cursor to aid in pagination. */
   edges: Array<CompanydocumentsEdge>;
   /** Information to aid in pagination. */
@@ -1950,7 +1544,7 @@ export type CompanydocumentsConnection = {
 export type CompanyDocumentsConnection = {
   __typename?: "CompanyDocumentsConnection";
   /** A list of `CompanyDocument` objects. */
-  nodes: Array<Maybe<CompanyDocument>>;
+  nodes: Array<CompanyDocument>;
   /** A list of edges which contains the `CompanyDocument` and cursor to aid in pagination. */
   edges: Array<CompanyDocumentsEdge>;
   /** Information to aid in pagination. */
@@ -1965,7 +1559,7 @@ export type CompanydocumentsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Companydocument` at the end of the edge. */
-  node?: Maybe<Companydocument>;
+  node: Companydocument;
 };
 
 /** A `CompanyDocument` edge in the connection. */
@@ -1974,7 +1568,7 @@ export type CompanyDocumentsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `CompanyDocument` at the end of the edge. */
-  node?: Maybe<CompanyDocument>;
+  node: CompanyDocument;
 };
 
 /** Methods to use when ordering `Companydocument`. */
@@ -1982,12 +1576,6 @@ export enum CompanydocumentsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  CompanyAsc = "COMPANY_ASC",
-  CompanyDesc = "COMPANY_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  DocumentAsc = "DOCUMENT_ASC",
-  DocumentDesc = "DOCUMENT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -1999,14 +1587,6 @@ export enum CompanyDocumentsOrderBy {
   IdDesc = "ID_DESC",
   CompanyIdAsc = "COMPANY_ID_ASC",
   CompanyIdDesc = "COMPANY_ID_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  DocumentAsc = "DOCUMENT_ASC",
-  DocumentDesc = "DOCUMENT_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -2095,11 +1675,11 @@ export type CompanyMember = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `CompanyMember`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads a single `Account` that is related to this `CompanyMember`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** Reads a single `Company` that is related to this `CompanyMember`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
 };
 
 /**
@@ -2109,10 +1689,6 @@ export type CompanyMember = Node & {
 export type CompanymemberCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `member` field. */
-  member?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `company` field. */
-  company?: Maybe<Scalars["Int"]>;
 };
 
 /**
@@ -2128,10 +1704,6 @@ export type CompanyMemberCondition = {
   accountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Companymember` */
@@ -2186,7 +1758,7 @@ export type CompanyMemberPatch = {
 export type CompanymembersConnection = {
   __typename?: "CompanymembersConnection";
   /** A list of `Companymember` objects. */
-  nodes: Array<Maybe<Companymember>>;
+  nodes: Array<Companymember>;
   /** A list of edges which contains the `Companymember` and cursor to aid in pagination. */
   edges: Array<CompanymembersEdge>;
   /** Information to aid in pagination. */
@@ -2199,7 +1771,7 @@ export type CompanymembersConnection = {
 export type CompanyMembersConnection = {
   __typename?: "CompanyMembersConnection";
   /** A list of `CompanyMember` objects. */
-  nodes: Array<Maybe<CompanyMember>>;
+  nodes: Array<CompanyMember>;
   /** A list of edges which contains the `CompanyMember` and cursor to aid in pagination. */
   edges: Array<CompanyMembersEdge>;
   /** Information to aid in pagination. */
@@ -2214,7 +1786,7 @@ export type CompanymembersEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Companymember` at the end of the edge. */
-  node?: Maybe<Companymember>;
+  node: Companymember;
 };
 
 /** A `CompanyMember` edge in the connection. */
@@ -2223,7 +1795,7 @@ export type CompanyMembersEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `CompanyMember` at the end of the edge. */
-  node?: Maybe<CompanyMember>;
+  node: CompanyMember;
 };
 
 /** A connection between a user and a company */
@@ -2246,10 +1818,6 @@ export type Companymembership = Node & {
 export type CompanymembershipCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `enduser` field. */
-  enduser?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `company` field. */
-  company?: Maybe<Scalars["Int"]>;
 };
 
 /** An input for mutations affecting `Companymembership` */
@@ -2276,7 +1844,7 @@ export type CompanymembershipPatch = {
 export type CompanymembershipsConnection = {
   __typename?: "CompanymembershipsConnection";
   /** A list of `Companymembership` objects. */
-  nodes: Array<Maybe<Companymembership>>;
+  nodes: Array<Companymembership>;
   /** A list of edges which contains the `Companymembership` and cursor to aid in pagination. */
   edges: Array<CompanymembershipsEdge>;
   /** Information to aid in pagination. */
@@ -2291,7 +1859,7 @@ export type CompanymembershipsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Companymembership` at the end of the edge. */
-  node?: Maybe<Companymembership>;
+  node: Companymembership;
 };
 
 /** Methods to use when ordering `Companymembership`. */
@@ -2299,10 +1867,6 @@ export enum CompanymembershipsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  EnduserAsc = "ENDUSER_ASC",
-  EnduserDesc = "ENDUSER_DESC",
-  CompanyAsc = "COMPANY_ASC",
-  CompanyDesc = "COMPANY_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -2312,10 +1876,6 @@ export enum CompanymembersOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  MemberAsc = "MEMBER_ASC",
-  MemberDesc = "MEMBER_DESC",
-  CompanyAsc = "COMPANY_ASC",
-  CompanyDesc = "COMPANY_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -2331,10 +1891,6 @@ export enum CompanyMembersOrderBy {
   AccountIdDesc = "ACCOUNT_ID_DESC",
   CompanyIdAsc = "COMPANY_ID_ASC",
   CompanyIdDesc = "COMPANY_ID_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -2420,10 +1976,6 @@ export type Contactdetail = Node & {
 export type ContactdetailCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `market` field. */
-  market?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `details` field. */
-  details?: Maybe<Scalars["String"]>;
 };
 
 /** An input for mutations affecting `Contactdetail` */
@@ -2450,9 +2002,10 @@ export type ContactdetailPatch = {
 export type ContactDetails = Entry & {
   __typename?: "ContactDetails";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<ContactDetailsLinkingCollections>;
   fullName?: Maybe<Scalars["String"]>;
-  jobTitle?: Maybe<Scalars["String"]>;
+  subHeading?: Maybe<Scalars["String"]>;
   email?: Maybe<Scalars["String"]>;
   phoneNumber?: Maybe<Scalars["String"]>;
 };
@@ -2468,7 +2021,7 @@ export type ContactDetailsFullNameArgs = {
 };
 
 /** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
-export type ContactDetailsJobTitleArgs = {
+export type ContactDetailsSubHeadingArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -2494,7 +2047,7 @@ export type ContactDetailsCollection = {
 export type ContactdetailsConnection = {
   __typename?: "ContactdetailsConnection";
   /** A list of `Contactdetail` objects. */
-  nodes: Array<Maybe<Contactdetail>>;
+  nodes: Array<Contactdetail>;
   /** A list of edges which contains the `Contactdetail` and cursor to aid in pagination. */
   edges: Array<ContactdetailsEdge>;
   /** Information to aid in pagination. */
@@ -2509,11 +2062,12 @@ export type ContactdetailsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Contactdetail` at the end of the edge. */
-  node?: Maybe<Contactdetail>;
+  node: Contactdetail;
 };
 
 export type ContactDetailsFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   fullName_exists?: Maybe<Scalars["Boolean"]>;
   fullName?: Maybe<Scalars["String"]>;
   fullName_not?: Maybe<Scalars["String"]>;
@@ -2521,13 +2075,13 @@ export type ContactDetailsFilter = {
   fullName_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   fullName_contains?: Maybe<Scalars["String"]>;
   fullName_not_contains?: Maybe<Scalars["String"]>;
-  jobTitle_exists?: Maybe<Scalars["Boolean"]>;
-  jobTitle?: Maybe<Scalars["String"]>;
-  jobTitle_not?: Maybe<Scalars["String"]>;
-  jobTitle_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  jobTitle_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  jobTitle_contains?: Maybe<Scalars["String"]>;
-  jobTitle_not_contains?: Maybe<Scalars["String"]>;
+  subHeading_exists?: Maybe<Scalars["Boolean"]>;
+  subHeading?: Maybe<Scalars["String"]>;
+  subHeading_not?: Maybe<Scalars["String"]>;
+  subHeading_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  subHeading_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  subHeading_contains?: Maybe<Scalars["String"]>;
+  subHeading_not_contains?: Maybe<Scalars["String"]>;
   email_exists?: Maybe<Scalars["Boolean"]>;
   email?: Maybe<Scalars["String"]>;
   email_not?: Maybe<Scalars["String"]>;
@@ -2569,8 +2123,8 @@ export type ContactDetailsLinkingCollectionsMarketContentCollectionArgs = {
 export enum ContactDetailsOrder {
   FullNameAsc = "fullName_ASC",
   FullNameDesc = "fullName_DESC",
-  JobTitleAsc = "jobTitle_ASC",
-  JobTitleDesc = "jobTitle_DESC",
+  SubHeadingAsc = "subHeading_ASC",
+  SubHeadingDesc = "subHeading_DESC",
   EmailAsc = "email_ASC",
   EmailDesc = "email_DESC",
   PhoneNumberAsc = "phoneNumber_ASC",
@@ -2590,10 +2144,6 @@ export enum ContactdetailsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  MarketAsc = "MARKET_ASC",
-  MarketDesc = "MARKET_DESC",
-  DetailsAsc = "DETAILS_ASC",
-  DetailsDesc = "DETAILS_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -2606,6 +2156,7 @@ export enum ContactdetailsOrderBy {
 export type ContentArticle = Entry & {
   __typename?: "ContentArticle";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<ContentArticleLinkingCollections>;
   title?: Maybe<Scalars["String"]>;
   relativePath?: Maybe<Scalars["String"]>;
@@ -2683,6 +2234,7 @@ export type ContentArticleCollection = {
 
 export type ContentArticleFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   title_exists?: Maybe<Scalars["Boolean"]>;
   title?: Maybe<Scalars["String"]>;
   title_not?: Maybe<Scalars["String"]>;
@@ -2707,9 +2259,17 @@ export type ContentArticleFilter = {
 export type ContentArticleLinkingCollections = {
   __typename?: "ContentArticleLinkingCollections";
   entryCollection?: Maybe<EntryCollection>;
+  marketContentCollection?: Maybe<MarketContentCollection>;
 };
 
 export type ContentArticleLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type ContentArticleLinkingCollectionsMarketContentCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -2730,6 +2290,32 @@ export enum ContentArticleOrder {
   SysPublishedVersionAsc = "sys_publishedVersion_ASC",
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
+
+export type ContentfulMetadata = {
+  __typename?: "ContentfulMetadata";
+  tags: Array<Maybe<ContentfulTag>>;
+};
+
+export type ContentfulMetadataFilter = {
+  tags_exists?: Maybe<Scalars["Boolean"]>;
+  tags?: Maybe<ContentfulMetadataTagsFilter>;
+};
+
+export type ContentfulMetadataTagsFilter = {
+  id_contains_all?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  id_contains_some?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  id_contains_none?: Maybe<Array<Maybe<Scalars["String"]>>>;
+};
+
+/**
+ * Represents a tag entity for finding and organizing content easily.
+ *     Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
+ */
+export type ContentfulTag = {
+  __typename?: "ContentfulTag";
+  id?: Maybe<Scalars["String"]>;
+  name?: Maybe<Scalars["String"]>;
+};
 
 export type Course = {
   __typename?: "Course";
@@ -2928,7 +2514,7 @@ export type CreateAccountPayload = {
   /** Reads a single `Account` that is related to this `Account`. */
   accountByCreatedBy?: Maybe<Account>;
   /** Reads a single `Market` that is related to this `Account`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `Account`. May be used by Relay 1. */
   accountEdge?: Maybe<AccountsEdge>;
 };
@@ -3026,7 +2612,7 @@ export type CreateCompanyDocumentPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** An edge for our `CompanyDocument`. May be used by Relay 1. */
   companyDocumentEdge?: Maybe<CompanyDocumentsEdge>;
 };
@@ -3103,11 +2689,11 @@ export type CreateCompanyMemberPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `CompanyMember`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads a single `Account` that is related to this `CompanyMember`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** Reads a single `Company` that is related to this `CompanyMember`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** An edge for our `CompanyMember`. May be used by Relay 1. */
   companyMemberEdge?: Maybe<CompanyMembersEdge>;
 };
@@ -3162,11 +2748,11 @@ export type CreateCompanyPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Company`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads a single `Address` that is related to this `Company`. */
-  addressByRegisteredAddressId?: Maybe<Address>;
+  registeredAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Company`. */
-  addressByTradingAddressId?: Maybe<Address>;
+  tradingAddress?: Maybe<Address>;
   /** An edge for our `Company`. May be used by Relay 1. */
   companyEdge?: Maybe<CompaniesEdge>;
 };
@@ -3264,7 +2850,7 @@ export type CreateEvidenceItemPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
-  guaranteeByGuaranteeId?: Maybe<Guarantee>;
+  guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
   evidenceItemEdge?: Maybe<EvidenceItemsEdge>;
 };
@@ -3330,9 +2916,9 @@ export type CreateGuaranteedProductPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Product` that is related to this `GuaranteedProduct`. */
-  productByProductId?: Maybe<Product>;
+  product?: Maybe<Product>;
   /** Reads a single `Guarantee` that is related to this `GuaranteedProduct`. */
-  guaranteeByGuaranteeId?: Maybe<Guarantee>;
+  guarantee?: Maybe<Guarantee>;
   /** An edge for our `GuaranteedProduct`. May be used by Relay 1. */
   guaranteedProductEdge?: Maybe<GuaranteedProductsEdge>;
 };
@@ -3366,15 +2952,15 @@ export type CreateGuaranteePayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByRequestorAccountId?: Maybe<Account>;
+  requestorAccount?: Maybe<Account>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByResponsibleInstallerAccountId?: Maybe<Account>;
+  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
-  systemBySystemId?: Maybe<System>;
+  system?: Maybe<System>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByReviewerAccountId?: Maybe<Account>;
+  reviewerAccount?: Maybe<Account>;
   /** An edge for our `Guarantee`. May be used by Relay 1. */
   guaranteeEdge?: Maybe<GuaranteesEdge>;
 };
@@ -3408,7 +2994,7 @@ export type CreateInvitationPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Invitation`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `Invitation`. May be used by Relay 1. */
   invitationEdge?: Maybe<InvitationsEdge>;
 };
@@ -3506,9 +3092,9 @@ export type CreateNotePayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Note`. */
-  accountByAuthorId?: Maybe<Account>;
+  author?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Note`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** An edge for our `Note`. May be used by Relay 1. */
   noteEdge?: Maybe<NotesEdge>;
 };
@@ -3542,7 +3128,7 @@ export type CreateNotificationPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Notification`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `Notification`. May be used by Relay 1. */
   notificationEdge?: Maybe<NotificationsEdge>;
 };
@@ -3576,7 +3162,7 @@ export type CreateProductPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Product`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `Product`. May be used by Relay 1. */
   productEdge?: Maybe<ProductsEdge>;
 };
@@ -3653,9 +3239,9 @@ export type CreateProjectMemberPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Project` that is related to this `ProjectMember`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** Reads a single `Account` that is related to this `ProjectMember`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `ProjectMember`. May be used by Relay 1. */
   projectMemberEdge?: Maybe<ProjectMembersEdge>;
 };
@@ -3678,11 +3264,11 @@ export type CreateProjectPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `Project`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** Reads a single `Address` that is related to this `Project`. */
-  addressByBuildingOwnerAddressId?: Maybe<Address>;
+  buildingOwnerAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Project`. */
-  addressBySiteAddressId?: Maybe<Address>;
+  siteAddress?: Maybe<Address>;
   /** An edge for our `Project`. May be used by Relay 1. */
   projectEdge?: Maybe<ProjectsEdge>;
 };
@@ -3759,9 +3345,9 @@ export type CreateSystemMemberPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `System` that is related to this `SystemMember`. */
-  systemBySystemId?: Maybe<System>;
+  system?: Maybe<System>;
   /** Reads a single `Product` that is related to this `SystemMember`. */
-  productByProductId?: Maybe<Product>;
+  product?: Maybe<Product>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -3784,7 +3370,7 @@ export type CreateSystemPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `System`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `System`. May be used by Relay 1. */
   systemEdge?: Maybe<SystemsEdge>;
 };
@@ -3818,7 +3404,7 @@ export type CreateTierOffsetPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `TierOffset`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `TierOffset`. May be used by Relay 1. */
   tierOffsetEdge?: Maybe<TierOffsetsEdge>;
 };
@@ -3846,15 +3432,15 @@ export type Dates = {
   attendance_status?: Maybe<Scalars["String"]>;
 };
 
-/** All input for the `deleteAccountById` mutation. */
-export type DeleteAccountByIdInput = {
+/** All input for the `deleteAccountByNodeId` mutation. */
+export type DeleteAccountByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Account` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteAccount` mutation. */
@@ -3864,8 +3450,8 @@ export type DeleteAccountInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Account` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Account` mutation. */
@@ -3878,13 +3464,13 @@ export type DeleteAccountPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Account` that was deleted by this mutation. */
   account?: Maybe<Account>;
-  deletedAccountId?: Maybe<Scalars["ID"]>;
+  deletedAccountNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Account`. */
   accountByCreatedBy?: Maybe<Account>;
   /** Reads a single `Market` that is related to this `Account`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `Account`. May be used by Relay 1. */
   accountEdge?: Maybe<AccountsEdge>;
 };
@@ -3894,15 +3480,15 @@ export type DeleteAccountPayloadAccountEdgeArgs = {
   orderBy?: Maybe<Array<AccountsOrderBy>>;
 };
 
-/** All input for the `deleteAddressById` mutation. */
-export type DeleteAddressByIdInput = {
+/** All input for the `deleteAddressByNodeId` mutation. */
+export type DeleteAddressByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Address` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteAddress` mutation. */
@@ -3912,8 +3498,8 @@ export type DeleteAddressInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Address` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Address` mutation. */
@@ -3926,7 +3512,7 @@ export type DeleteAddressPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Address` that was deleted by this mutation. */
   address?: Maybe<Address>;
-  deletedAddressId?: Maybe<Scalars["ID"]>;
+  deletedAddressNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Address`. May be used by Relay 1. */
@@ -3938,41 +3524,19 @@ export type DeleteAddressPayloadAddressEdgeArgs = {
   orderBy?: Maybe<Array<AddressesOrderBy>>;
 };
 
-/** All input for the `deleteCompanyById` mutation. */
-export type DeleteCompanyByIdInput = {
+/** All input for the `deleteCompanyByNodeId` mutation. */
+export type DeleteCompanyByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Company` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteCompanydocumentById` mutation. */
-export type DeleteCompanydocumentByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteCompanyDocumentById` mutation. */
-export type DeleteCompanyDocumentByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteCompanydocument` mutation. */
-export type DeleteCompanydocumentInput = {
+/** All input for the `deleteCompanydocumentByNodeId` mutation. */
+export type DeleteCompanydocumentByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -3982,8 +3546,8 @@ export type DeleteCompanydocumentInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteCompanyDocument` mutation. */
-export type DeleteCompanyDocumentInput = {
+/** All input for the `deleteCompanyDocumentByNodeId` mutation. */
+export type DeleteCompanyDocumentByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -3991,6 +3555,28 @@ export type DeleteCompanyDocumentInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `CompanyDocument` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCompanydocument` mutation. */
+export type DeleteCompanydocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** All input for the `deleteCompanyDocument` mutation. */
+export type DeleteCompanyDocumentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Companydocument` mutation. */
@@ -4003,7 +3589,7 @@ export type DeleteCompanydocumentPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Companydocument` that was deleted by this mutation. */
   companydocument?: Maybe<Companydocument>;
-  deletedCompanydocumentId?: Maybe<Scalars["ID"]>;
+  deletedCompanydocumentNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Companydocument`. May be used by Relay 1. */
@@ -4025,11 +3611,11 @@ export type DeleteCompanyDocumentPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `CompanyDocument` that was deleted by this mutation. */
   companyDocument?: Maybe<CompanyDocument>;
-  deletedCompanyDocumentId?: Maybe<Scalars["ID"]>;
+  deletedCompanyDocumentNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** An edge for our `CompanyDocument`. May be used by Relay 1. */
   companyDocumentEdge?: Maybe<CompanyDocumentsEdge>;
 };
@@ -4046,34 +3632,12 @@ export type DeleteCompanyInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Company` to be deleted. */
-  nodeId: Scalars["ID"];
-};
-
-/** All input for the `deleteCompanymemberById` mutation. */
-export type DeleteCompanymemberByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
   /** Primary key */
   id: Scalars["Int"];
 };
 
-/** All input for the `deleteCompanyMemberById` mutation. */
-export type DeleteCompanyMemberByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteCompanymember` mutation. */
-export type DeleteCompanymemberInput = {
+/** All input for the `deleteCompanymemberByNodeId` mutation. */
+export type DeleteCompanymemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4083,8 +3647,8 @@ export type DeleteCompanymemberInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteCompanyMember` mutation. */
-export type DeleteCompanyMemberInput = {
+/** All input for the `deleteCompanyMemberByNodeId` mutation. */
+export type DeleteCompanyMemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4092,6 +3656,28 @@ export type DeleteCompanyMemberInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `CompanyMember` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCompanymember` mutation. */
+export type DeleteCompanymemberInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** All input for the `deleteCompanyMember` mutation. */
+export type DeleteCompanyMemberInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Companymember` mutation. */
@@ -4104,7 +3690,7 @@ export type DeleteCompanymemberPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Companymember` that was deleted by this mutation. */
   companymember?: Maybe<Companymember>;
-  deletedCompanymemberId?: Maybe<Scalars["ID"]>;
+  deletedCompanymemberNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Companymember`. May be used by Relay 1. */
@@ -4126,15 +3712,15 @@ export type DeleteCompanyMemberPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `CompanyMember` that was deleted by this mutation. */
   companyMember?: Maybe<CompanyMember>;
-  deletedCompanyMemberId?: Maybe<Scalars["ID"]>;
+  deletedCompanyMemberNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `CompanyMember`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads a single `Account` that is related to this `CompanyMember`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** Reads a single `Company` that is related to this `CompanyMember`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** An edge for our `CompanyMember`. May be used by Relay 1. */
   companyMemberEdge?: Maybe<CompanyMembersEdge>;
 };
@@ -4144,15 +3730,15 @@ export type DeleteCompanyMemberPayloadCompanyMemberEdgeArgs = {
   orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
 };
 
-/** All input for the `deleteCompanymembershipById` mutation. */
-export type DeleteCompanymembershipByIdInput = {
+/** All input for the `deleteCompanymembershipByNodeId` mutation. */
+export type DeleteCompanymembershipByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Companymembership` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteCompanymembership` mutation. */
@@ -4162,8 +3748,8 @@ export type DeleteCompanymembershipInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Companymembership` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Companymembership` mutation. */
@@ -4176,7 +3762,7 @@ export type DeleteCompanymembershipPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Companymembership` that was deleted by this mutation. */
   companymembership?: Maybe<Companymembership>;
-  deletedCompanymembershipId?: Maybe<Scalars["ID"]>;
+  deletedCompanymembershipNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Companymembership`. May be used by Relay 1. */
@@ -4198,15 +3784,15 @@ export type DeleteCompanyPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Company` that was deleted by this mutation. */
   company?: Maybe<Company>;
-  deletedCompanyId?: Maybe<Scalars["ID"]>;
+  deletedCompanyNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Company`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads a single `Address` that is related to this `Company`. */
-  addressByRegisteredAddressId?: Maybe<Address>;
+  registeredAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Company`. */
-  addressByTradingAddressId?: Maybe<Address>;
+  tradingAddress?: Maybe<Address>;
   /** An edge for our `Company`. May be used by Relay 1. */
   companyEdge?: Maybe<CompaniesEdge>;
 };
@@ -4216,15 +3802,15 @@ export type DeleteCompanyPayloadCompanyEdgeArgs = {
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
 };
 
-/** All input for the `deleteContactdetailById` mutation. */
-export type DeleteContactdetailByIdInput = {
+/** All input for the `deleteContactdetailByNodeId` mutation. */
+export type DeleteContactdetailByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Contactdetail` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteContactdetail` mutation. */
@@ -4234,8 +3820,8 @@ export type DeleteContactdetailInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Contactdetail` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Contactdetail` mutation. */
@@ -4248,7 +3834,7 @@ export type DeleteContactdetailPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Contactdetail` that was deleted by this mutation. */
   contactdetail?: Maybe<Contactdetail>;
-  deletedContactdetailId?: Maybe<Scalars["ID"]>;
+  deletedContactdetailNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Contactdetail`. May be used by Relay 1. */
@@ -4260,30 +3846,8 @@ export type DeleteContactdetailPayloadContactdetailEdgeArgs = {
   orderBy?: Maybe<Array<ContactdetailsOrderBy>>;
 };
 
-/** All input for the `deleteEvidenceitemById` mutation. */
-export type DeleteEvidenceitemByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteEvidenceItemById` mutation. */
-export type DeleteEvidenceItemByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteEvidenceitem` mutation. */
-export type DeleteEvidenceitemInput = {
+/** All input for the `deleteEvidenceitemByNodeId` mutation. */
+export type DeleteEvidenceitemByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4293,8 +3857,8 @@ export type DeleteEvidenceitemInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteEvidenceItem` mutation. */
-export type DeleteEvidenceItemInput = {
+/** All input for the `deleteEvidenceItemByNodeId` mutation. */
+export type DeleteEvidenceItemByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4302,6 +3866,28 @@ export type DeleteEvidenceItemInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `EvidenceItem` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteEvidenceitem` mutation. */
+export type DeleteEvidenceitemInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** All input for the `deleteEvidenceItem` mutation. */
+export type DeleteEvidenceItemInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Evidenceitem` mutation. */
@@ -4314,7 +3900,7 @@ export type DeleteEvidenceitemPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Evidenceitem` that was deleted by this mutation. */
   evidenceitem?: Maybe<Evidenceitem>;
-  deletedEvidenceitemId?: Maybe<Scalars["ID"]>;
+  deletedEvidenceitemNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Evidenceitem`. May be used by Relay 1. */
@@ -4336,11 +3922,11 @@ export type DeleteEvidenceItemPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `EvidenceItem` that was deleted by this mutation. */
   evidenceItem?: Maybe<EvidenceItem>;
-  deletedEvidenceItemId?: Maybe<Scalars["ID"]>;
+  deletedEvidenceItemNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
-  guaranteeByGuaranteeId?: Maybe<Guarantee>;
+  guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
   evidenceItemEdge?: Maybe<EvidenceItemsEdge>;
 };
@@ -4350,41 +3936,19 @@ export type DeleteEvidenceItemPayloadEvidenceItemEdgeArgs = {
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
 };
 
-/** All input for the `deleteGuaranteeById` mutation. */
-export type DeleteGuaranteeByIdInput = {
+/** All input for the `deleteGuaranteeByNodeId` mutation. */
+export type DeleteGuaranteeByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key - starts at 6100 */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Guarantee` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteGuaranteedproductById` mutation. */
-export type DeleteGuaranteedproductByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteGuaranteedProductById` mutation. */
-export type DeleteGuaranteedProductByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteGuaranteedproduct` mutation. */
-export type DeleteGuaranteedproductInput = {
+/** All input for the `deleteGuaranteedproductByNodeId` mutation. */
+export type DeleteGuaranteedproductByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4394,8 +3958,8 @@ export type DeleteGuaranteedproductInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteGuaranteedProduct` mutation. */
-export type DeleteGuaranteedProductInput = {
+/** All input for the `deleteGuaranteedProductByNodeId` mutation. */
+export type DeleteGuaranteedProductByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4403,6 +3967,28 @@ export type DeleteGuaranteedProductInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `GuaranteedProduct` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteGuaranteedproduct` mutation. */
+export type DeleteGuaranteedproductInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** All input for the `deleteGuaranteedProduct` mutation. */
+export type DeleteGuaranteedProductInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Guaranteedproduct` mutation. */
@@ -4415,7 +4001,7 @@ export type DeleteGuaranteedproductPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Guaranteedproduct` that was deleted by this mutation. */
   guaranteedproduct?: Maybe<Guaranteedproduct>;
-  deletedGuaranteedproductId?: Maybe<Scalars["ID"]>;
+  deletedGuaranteedproductNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Guaranteedproduct`. May be used by Relay 1. */
@@ -4437,13 +4023,13 @@ export type DeleteGuaranteedProductPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `GuaranteedProduct` that was deleted by this mutation. */
   guaranteedProduct?: Maybe<GuaranteedProduct>;
-  deletedGuaranteedProductId?: Maybe<Scalars["ID"]>;
+  deletedGuaranteedProductNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Product` that is related to this `GuaranteedProduct`. */
-  productByProductId?: Maybe<Product>;
+  product?: Maybe<Product>;
   /** Reads a single `Guarantee` that is related to this `GuaranteedProduct`. */
-  guaranteeByGuaranteeId?: Maybe<Guarantee>;
+  guarantee?: Maybe<Guarantee>;
   /** An edge for our `GuaranteedProduct`. May be used by Relay 1. */
   guaranteedProductEdge?: Maybe<GuaranteedProductsEdge>;
 };
@@ -4460,8 +4046,8 @@ export type DeleteGuaranteeInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Guarantee` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key - starts at 6100 */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Guarantee` mutation. */
@@ -4474,19 +4060,19 @@ export type DeleteGuaranteePayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Guarantee` that was deleted by this mutation. */
   guarantee?: Maybe<Guarantee>;
-  deletedGuaranteeId?: Maybe<Scalars["ID"]>;
+  deletedGuaranteeNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByRequestorAccountId?: Maybe<Account>;
+  requestorAccount?: Maybe<Account>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByResponsibleInstallerAccountId?: Maybe<Account>;
+  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
-  systemBySystemId?: Maybe<System>;
+  system?: Maybe<System>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByReviewerAccountId?: Maybe<Account>;
+  reviewerAccount?: Maybe<Account>;
   /** An edge for our `Guarantee`. May be used by Relay 1. */
   guaranteeEdge?: Maybe<GuaranteesEdge>;
 };
@@ -4496,15 +4082,15 @@ export type DeleteGuaranteePayloadGuaranteeEdgeArgs = {
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
 };
 
-/** All input for the `deleteInvitationById` mutation. */
-export type DeleteInvitationByIdInput = {
+/** All input for the `deleteInvitationByNodeId` mutation. */
+export type DeleteInvitationByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Invitation` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteInvitation` mutation. */
@@ -4514,8 +4100,8 @@ export type DeleteInvitationInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Invitation` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Invitation` mutation. */
@@ -4528,11 +4114,11 @@ export type DeleteInvitationPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Invitation` that was deleted by this mutation. */
   invitation?: Maybe<Invitation>;
-  deletedInvitationId?: Maybe<Scalars["ID"]>;
+  deletedInvitationNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Invitation`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `Invitation`. May be used by Relay 1. */
   invitationEdge?: Maybe<InvitationsEdge>;
 };
@@ -4542,15 +4128,15 @@ export type DeleteInvitationPayloadInvitationEdgeArgs = {
   orderBy?: Maybe<Array<InvitationsOrderBy>>;
 };
 
-/** All input for the `deleteMarketById` mutation. */
-export type DeleteMarketByIdInput = {
+/** All input for the `deleteMarketByNodeId` mutation. */
+export type DeleteMarketByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Market` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteMarket` mutation. */
@@ -4560,8 +4146,8 @@ export type DeleteMarketInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Market` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Market` mutation. */
@@ -4574,7 +4160,7 @@ export type DeleteMarketPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Market` that was deleted by this mutation. */
   market?: Maybe<Market>;
-  deletedMarketId?: Maybe<Scalars["ID"]>;
+  deletedMarketNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Market`. May be used by Relay 1. */
@@ -4586,15 +4172,15 @@ export type DeleteMarketPayloadMarketEdgeArgs = {
   orderBy?: Maybe<Array<MarketsOrderBy>>;
 };
 
-/** All input for the `deleteMessageById` mutation. */
-export type DeleteMessageByIdInput = {
+/** All input for the `deleteMessageByNodeId` mutation. */
+export type DeleteMessageByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Message` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteMessage` mutation. */
@@ -4604,8 +4190,8 @@ export type DeleteMessageInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Message` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Message` mutation. */
@@ -4618,7 +4204,7 @@ export type DeleteMessagePayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Message` that was deleted by this mutation. */
   message?: Maybe<Message>;
-  deletedMessageId?: Maybe<Scalars["ID"]>;
+  deletedMessageNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Message`. May be used by Relay 1. */
@@ -4630,15 +4216,15 @@ export type DeleteMessagePayloadMessageEdgeArgs = {
   orderBy?: Maybe<Array<MessagesOrderBy>>;
 };
 
-/** All input for the `deleteNoteById` mutation. */
-export type DeleteNoteByIdInput = {
+/** All input for the `deleteNoteByNodeId` mutation. */
+export type DeleteNoteByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Note` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteNote` mutation. */
@@ -4648,8 +4234,8 @@ export type DeleteNoteInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Note` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Note` mutation. */
@@ -4662,13 +4248,13 @@ export type DeleteNotePayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Note` that was deleted by this mutation. */
   note?: Maybe<Note>;
-  deletedNoteId?: Maybe<Scalars["ID"]>;
+  deletedNoteNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Note`. */
-  accountByAuthorId?: Maybe<Account>;
+  author?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Note`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** An edge for our `Note`. May be used by Relay 1. */
   noteEdge?: Maybe<NotesEdge>;
 };
@@ -4678,15 +4264,15 @@ export type DeleteNotePayloadNoteEdgeArgs = {
   orderBy?: Maybe<Array<NotesOrderBy>>;
 };
 
-/** All input for the `deleteNotificationById` mutation. */
-export type DeleteNotificationByIdInput = {
+/** All input for the `deleteNotificationByNodeId` mutation. */
+export type DeleteNotificationByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Notification` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteNotification` mutation. */
@@ -4696,8 +4282,8 @@ export type DeleteNotificationInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Notification` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Notification` mutation. */
@@ -4710,11 +4296,11 @@ export type DeleteNotificationPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Notification` that was deleted by this mutation. */
   notification?: Maybe<Notification>;
-  deletedNotificationId?: Maybe<Scalars["ID"]>;
+  deletedNotificationNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Notification`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `Notification`. May be used by Relay 1. */
   notificationEdge?: Maybe<NotificationsEdge>;
 };
@@ -4724,15 +4310,15 @@ export type DeleteNotificationPayloadNotificationEdgeArgs = {
   orderBy?: Maybe<Array<NotificationsOrderBy>>;
 };
 
-/** All input for the `deleteProductById` mutation. */
-export type DeleteProductByIdInput = {
+/** All input for the `deleteProductByNodeId` mutation. */
+export type DeleteProductByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `Product` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteProduct` mutation. */
@@ -4742,8 +4328,8 @@ export type DeleteProductInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Product` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Product` mutation. */
@@ -4756,11 +4342,11 @@ export type DeleteProductPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Product` that was deleted by this mutation. */
   product?: Maybe<Product>;
-  deletedProductId?: Maybe<Scalars["ID"]>;
+  deletedProductNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Product`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `Product`. May be used by Relay 1. */
   productEdge?: Maybe<ProductsEdge>;
 };
@@ -4770,19 +4356,8 @@ export type DeleteProductPayloadProductEdgeArgs = {
   orderBy?: Maybe<Array<ProductsOrderBy>>;
 };
 
-/** All input for the `deleteProjectById` mutation. */
-export type DeleteProjectByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteProject` mutation. */
-export type DeleteProjectInput = {
+/** All input for the `deleteProjectByNodeId` mutation. */
+export type DeleteProjectByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4792,8 +4367,8 @@ export type DeleteProjectInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteProjectmemberById` mutation. */
-export type DeleteProjectmemberByIdInput = {
+/** All input for the `deleteProject` mutation. */
+export type DeleteProjectInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4803,19 +4378,8 @@ export type DeleteProjectmemberByIdInput = {
   id: Scalars["Int"];
 };
 
-/** All input for the `deleteProjectMemberById` mutation. */
-export type DeleteProjectMemberByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteProjectmember` mutation. */
-export type DeleteProjectmemberInput = {
+/** All input for the `deleteProjectmemberByNodeId` mutation. */
+export type DeleteProjectmemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4825,8 +4389,8 @@ export type DeleteProjectmemberInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteProjectMember` mutation. */
-export type DeleteProjectMemberInput = {
+/** All input for the `deleteProjectMemberByNodeId` mutation. */
+export type DeleteProjectMemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4834,6 +4398,28 @@ export type DeleteProjectMemberInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `ProjectMember` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteProjectmember` mutation. */
+export type DeleteProjectmemberInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** All input for the `deleteProjectMember` mutation. */
+export type DeleteProjectMemberInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Projectmember` mutation. */
@@ -4846,7 +4432,7 @@ export type DeleteProjectmemberPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Projectmember` that was deleted by this mutation. */
   projectmember?: Maybe<Projectmember>;
-  deletedProjectmemberId?: Maybe<Scalars["ID"]>;
+  deletedProjectmemberNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Projectmember`. May be used by Relay 1. */
@@ -4868,13 +4454,13 @@ export type DeleteProjectMemberPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `ProjectMember` that was deleted by this mutation. */
   projectMember?: Maybe<ProjectMember>;
-  deletedProjectMemberId?: Maybe<Scalars["ID"]>;
+  deletedProjectMemberNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Project` that is related to this `ProjectMember`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** Reads a single `Account` that is related to this `ProjectMember`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `ProjectMember`. May be used by Relay 1. */
   projectMemberEdge?: Maybe<ProjectMembersEdge>;
 };
@@ -4894,15 +4480,15 @@ export type DeleteProjectPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Project` that was deleted by this mutation. */
   project?: Maybe<Project>;
-  deletedProjectId?: Maybe<Scalars["ID"]>;
+  deletedProjectNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `Project`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** Reads a single `Address` that is related to this `Project`. */
-  addressByBuildingOwnerAddressId?: Maybe<Address>;
+  buildingOwnerAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Project`. */
-  addressBySiteAddressId?: Maybe<Address>;
+  siteAddress?: Maybe<Address>;
   /** An edge for our `Project`. May be used by Relay 1. */
   projectEdge?: Maybe<ProjectsEdge>;
 };
@@ -4912,19 +4498,8 @@ export type DeleteProjectPayloadProjectEdgeArgs = {
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
 };
 
-/** All input for the `deleteSystemById` mutation. */
-export type DeleteSystemByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteSystem` mutation. */
-export type DeleteSystemInput = {
+/** All input for the `deleteSystemByNodeId` mutation. */
+export type DeleteSystemByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4934,8 +4509,8 @@ export type DeleteSystemInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteSystemmemberById` mutation. */
-export type DeleteSystemmemberByIdInput = {
+/** All input for the `deleteSystem` mutation. */
+export type DeleteSystemInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4945,19 +4520,8 @@ export type DeleteSystemmemberByIdInput = {
   id: Scalars["Int"];
 };
 
-/** All input for the `deleteSystemMemberById` mutation. */
-export type DeleteSystemMemberByIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** All input for the `deleteSystemmember` mutation. */
-export type DeleteSystemmemberInput = {
+/** All input for the `deleteSystemmemberByNodeId` mutation. */
+export type DeleteSystemmemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4967,8 +4531,8 @@ export type DeleteSystemmemberInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteSystemMember` mutation. */
-export type DeleteSystemMemberInput = {
+/** All input for the `deleteSystemMemberByNodeId` mutation. */
+export type DeleteSystemMemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -4976,6 +4540,28 @@ export type DeleteSystemMemberInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `SystemMember` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteSystemmember` mutation. */
+export type DeleteSystemmemberInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** All input for the `deleteSystemMember` mutation. */
+export type DeleteSystemMemberInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `Systemmember` mutation. */
@@ -4988,7 +4574,7 @@ export type DeleteSystemmemberPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `Systemmember` that was deleted by this mutation. */
   systemmember?: Maybe<Systemmember>;
-  deletedSystemmemberId?: Maybe<Scalars["ID"]>;
+  deletedSystemmemberNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** An edge for our `Systemmember`. May be used by Relay 1. */
@@ -5010,13 +4596,13 @@ export type DeleteSystemMemberPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `SystemMember` that was deleted by this mutation. */
   systemMember?: Maybe<SystemMember>;
-  deletedSystemMemberId?: Maybe<Scalars["ID"]>;
+  deletedSystemMemberNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `System` that is related to this `SystemMember`. */
-  systemBySystemId?: Maybe<System>;
+  system?: Maybe<System>;
   /** Reads a single `Product` that is related to this `SystemMember`. */
-  productByProductId?: Maybe<Product>;
+  product?: Maybe<Product>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -5036,11 +4622,11 @@ export type DeleteSystemPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `System` that was deleted by this mutation. */
   system?: Maybe<System>;
-  deletedSystemId?: Maybe<Scalars["ID"]>;
+  deletedSystemNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `System`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `System`. May be used by Relay 1. */
   systemEdge?: Maybe<SystemsEdge>;
 };
@@ -5050,15 +4636,15 @@ export type DeleteSystemPayloadSystemEdgeArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
 };
 
-/** All input for the `deleteTierOffsetById` mutation. */
-export type DeleteTierOffsetByIdInput = {
+/** All input for the `deleteTierOffsetByNodeId` mutation. */
+export type DeleteTierOffsetByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
+  /** The globally unique `ID` which will identify a single `TierOffset` to be deleted. */
+  nodeId: Scalars["ID"];
 };
 
 /** All input for the `deleteTierOffset` mutation. */
@@ -5068,8 +4654,8 @@ export type DeleteTierOffsetInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `TierOffset` to be deleted. */
-  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our delete `TierOffset` mutation. */
@@ -5082,11 +4668,11 @@ export type DeleteTierOffsetPayload = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The `TierOffset` that was deleted by this mutation. */
   tierOffset?: Maybe<TierOffset>;
-  deletedTierOffsetId?: Maybe<Scalars["ID"]>;
+  deletedTierOffsetNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `TierOffset`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `TierOffset`. May be used by Relay 1. */
   tierOffsetEdge?: Maybe<TierOffsetsEdge>;
 };
@@ -5230,6 +4816,7 @@ export type EnterStatus = {
 
 export type Entry = {
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
 };
 
 export type EntryCollection = {
@@ -5240,15 +4827,33 @@ export type EntryCollection = {
   items: Array<Maybe<Entry>>;
 };
 
+export type EntryFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  OR?: Maybe<Array<Maybe<EntryFilter>>>;
+  AND?: Maybe<Array<Maybe<EntryFilter>>>;
+};
+
+export enum EntryOrder {
+  SysIdAsc = "sys_id_ASC",
+  SysIdDesc = "sys_id_DESC",
+  SysPublishedAtAsc = "sys_publishedAt_ASC",
+  SysPublishedAtDesc = "sys_publishedAt_DESC",
+  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
+  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
+  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
+  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
+}
+
 /** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategory = Entry & {
   __typename?: "EvidenceCategory";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<EvidenceCategoryLinkingCollections>;
   name?: Maybe<Scalars["String"]>;
   description?: Maybe<EvidenceCategoryDescription>;
   minimumUploads?: Maybe<Scalars["Int"]>;
-  ranking?: Maybe<Scalars["Int"]>;
 };
 
 /** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
@@ -5268,11 +4873,6 @@ export type EvidenceCategoryDescriptionArgs = {
 
 /** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategoryMinimumUploadsArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
-export type EvidenceCategoryRankingArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -5311,6 +4911,7 @@ export type EvidenceCategoryDescriptionLinks = {
 
 export type EvidenceCategoryFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   name_exists?: Maybe<Scalars["Boolean"]>;
   name?: Maybe<Scalars["String"]>;
   name_not?: Maybe<Scalars["String"]>;
@@ -5330,15 +4931,6 @@ export type EvidenceCategoryFilter = {
   minimumUploads_gte?: Maybe<Scalars["Int"]>;
   minimumUploads_lt?: Maybe<Scalars["Int"]>;
   minimumUploads_lte?: Maybe<Scalars["Int"]>;
-  ranking_exists?: Maybe<Scalars["Boolean"]>;
-  ranking?: Maybe<Scalars["Int"]>;
-  ranking_not?: Maybe<Scalars["Int"]>;
-  ranking_in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
-  ranking_not_in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
-  ranking_gt?: Maybe<Scalars["Int"]>;
-  ranking_gte?: Maybe<Scalars["Int"]>;
-  ranking_lt?: Maybe<Scalars["Int"]>;
-  ranking_lte?: Maybe<Scalars["Int"]>;
   OR?: Maybe<Array<Maybe<EvidenceCategoryFilter>>>;
   AND?: Maybe<Array<Maybe<EvidenceCategoryFilter>>>;
 };
@@ -5368,8 +4960,6 @@ export enum EvidenceCategoryOrder {
   NameDesc = "name_DESC",
   MinimumUploadsAsc = "minimumUploads_ASC",
   MinimumUploadsDesc = "minimumUploads_DESC",
-  RankingAsc = "ranking_ASC",
-  RankingDesc = "ranking_DESC",
   SysIdAsc = "sys_id_ASC",
   SysIdDesc = "sys_id_DESC",
   SysPublishedAtAsc = "sys_publishedAt_ASC",
@@ -5415,7 +5005,7 @@ export type EvidenceItem = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
-  guaranteeByGuaranteeId?: Maybe<Guarantee>;
+  guarantee?: Maybe<Guarantee>;
 };
 
 /**
@@ -5425,14 +5015,6 @@ export type EvidenceItem = Node & {
 export type EvidenceitemCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `category` field. */
-  category?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `request` field. */
-  request?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `attachment` field. */
-  attachment?: Maybe<Scalars["String"]>;
 };
 
 /**
@@ -5442,18 +5024,8 @@ export type EvidenceitemCondition = {
 export type EvidenceItemCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `evidenceCategoryId` field. */
-  evidenceCategoryId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `guaranteeId` field. */
   guaranteeId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `attachment` field. */
-  attachment?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Evidenceitem` */
@@ -5520,7 +5092,7 @@ export type EvidenceItemPatch = {
 export type EvidenceitemsConnection = {
   __typename?: "EvidenceitemsConnection";
   /** A list of `Evidenceitem` objects. */
-  nodes: Array<Maybe<Evidenceitem>>;
+  nodes: Array<Evidenceitem>;
   /** A list of edges which contains the `Evidenceitem` and cursor to aid in pagination. */
   edges: Array<EvidenceitemsEdge>;
   /** Information to aid in pagination. */
@@ -5533,7 +5105,7 @@ export type EvidenceitemsConnection = {
 export type EvidenceItemsConnection = {
   __typename?: "EvidenceItemsConnection";
   /** A list of `EvidenceItem` objects. */
-  nodes: Array<Maybe<EvidenceItem>>;
+  nodes: Array<EvidenceItem>;
   /** A list of edges which contains the `EvidenceItem` and cursor to aid in pagination. */
   edges: Array<EvidenceItemsEdge>;
   /** Information to aid in pagination. */
@@ -5548,7 +5120,7 @@ export type EvidenceitemsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Evidenceitem` at the end of the edge. */
-  node?: Maybe<Evidenceitem>;
+  node: Evidenceitem;
 };
 
 /** A `EvidenceItem` edge in the connection. */
@@ -5557,7 +5129,7 @@ export type EvidenceItemsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `EvidenceItem` at the end of the edge. */
-  node?: Maybe<EvidenceItem>;
+  node: EvidenceItem;
 };
 
 /** Methods to use when ordering `Evidenceitem`. */
@@ -5565,14 +5137,6 @@ export enum EvidenceitemsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  CategoryAsc = "CATEGORY_ASC",
-  CategoryDesc = "CATEGORY_DESC",
-  RequestAsc = "REQUEST_ASC",
-  RequestDesc = "REQUEST_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  AttachmentAsc = "ATTACHMENT_ASC",
-  AttachmentDesc = "ATTACHMENT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -5582,119 +5146,10 @@ export enum EvidenceItemsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  EvidenceCategoryIdAsc = "EVIDENCE_CATEGORY_ID_ASC",
-  EvidenceCategoryIdDesc = "EVIDENCE_CATEGORY_ID_DESC",
   GuaranteeIdAsc = "GUARANTEE_ID_ASC",
   GuaranteeIdDesc = "GUARANTEE_ID_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  AttachmentAsc = "ATTACHMENT_ASC",
-  AttachmentDesc = "ATTACHMENT_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
-
-/**
- * A hyperlink. There are up to two external links that are configurable by the
- * Markets. In Italy this is used for the merits programme.  In Denmark they use it
- * to direct people back to the BMI country website.  The links only appear on the
- * homepage. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/externalLink)
- */
-export type ExternalLink = Entry & {
-  __typename?: "ExternalLink";
-  sys: Sys;
-  linkedFrom?: Maybe<ExternalLinkLinkingCollections>;
-  url?: Maybe<Scalars["String"]>;
-  displayText?: Maybe<Scalars["String"]>;
-};
-
-/**
- * A hyperlink. There are up to two external links that are configurable by the
- * Markets. In Italy this is used for the merits programme.  In Denmark they use it
- * to direct people back to the BMI country website.  The links only appear on the
- * homepage. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/externalLink)
- */
-export type ExternalLinkLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars["String"]>>>;
-};
-
-/**
- * A hyperlink. There are up to two external links that are configurable by the
- * Markets. In Italy this is used for the merits programme.  In Denmark they use it
- * to direct people back to the BMI country website.  The links only appear on the
- * homepage. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/externalLink)
- */
-export type ExternalLinkUrlArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/**
- * A hyperlink. There are up to two external links that are configurable by the
- * Markets. In Italy this is used for the merits programme.  In Denmark they use it
- * to direct people back to the BMI country website.  The links only appear on the
- * homepage. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/externalLink)
- */
-export type ExternalLinkDisplayTextArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type ExternalLinkCollection = {
-  __typename?: "ExternalLinkCollection";
-  total: Scalars["Int"];
-  skip: Scalars["Int"];
-  limit: Scalars["Int"];
-  items: Array<Maybe<ExternalLink>>;
-};
-
-export type ExternalLinkFilter = {
-  sys?: Maybe<SysFilter>;
-  url_exists?: Maybe<Scalars["Boolean"]>;
-  url?: Maybe<Scalars["String"]>;
-  url_not?: Maybe<Scalars["String"]>;
-  url_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  url_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  url_contains?: Maybe<Scalars["String"]>;
-  url_not_contains?: Maybe<Scalars["String"]>;
-  displayText_exists?: Maybe<Scalars["Boolean"]>;
-  displayText?: Maybe<Scalars["String"]>;
-  displayText_not?: Maybe<Scalars["String"]>;
-  displayText_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  displayText_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  displayText_contains?: Maybe<Scalars["String"]>;
-  displayText_not_contains?: Maybe<Scalars["String"]>;
-  OR?: Maybe<Array<Maybe<ExternalLinkFilter>>>;
-  AND?: Maybe<Array<Maybe<ExternalLinkFilter>>>;
-};
-
-export type ExternalLinkLinkingCollections = {
-  __typename?: "ExternalLinkLinkingCollections";
-  entryCollection?: Maybe<EntryCollection>;
-};
-
-export type ExternalLinkLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export enum ExternalLinkOrder {
-  UrlAsc = "url_ASC",
-  UrlDesc = "url_DESC",
-  DisplayTextAsc = "displayText_ASC",
-  DisplayTextDesc = "displayText_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
 export type First = {
@@ -5774,23 +5229,23 @@ export type Guarantee = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByRequestorAccountId?: Maybe<Account>;
+  requestorAccount?: Maybe<Account>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByResponsibleInstallerAccountId?: Maybe<Account>;
+  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
-  systemBySystemId?: Maybe<System>;
+  system?: Maybe<System>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByReviewerAccountId?: Maybe<Account>;
+  reviewerAccount?: Maybe<Account>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
-  evidenceItemsByGuaranteeId: EvidenceItemsConnection;
+  evidenceItems: EvidenceItemsConnection;
   /** Reads and enables pagination through a set of `GuaranteedProduct`. */
-  guaranteedProductsByGuaranteeId: GuaranteedProductsConnection;
+  guaranteedProducts: GuaranteedProductsConnection;
 };
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
-export type GuaranteeEvidenceItemsByGuaranteeIdArgs = {
+export type GuaranteeEvidenceItemsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -5801,7 +5256,7 @@ export type GuaranteeEvidenceItemsByGuaranteeIdArgs = {
 };
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
-export type GuaranteeGuaranteedProductsByGuaranteeIdArgs = {
+export type GuaranteeGuaranteedProductsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -5818,34 +5273,16 @@ export type GuaranteeGuaranteedProductsByGuaranteeIdArgs = {
 export type GuaranteeCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `pdf` field. */
-  pdf?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `requestorAccountId` field. */
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `responsibleInstallerAccountId` field. */
   responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `projectId` field. */
   projectId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `guaranteeTypeId` field. */
-  guaranteeTypeId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `systemId` field. */
   systemId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `reviewerAccountId` field. */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `status` field. */
-  status?: Maybe<RequestStatus>;
-  /** Checks for equality with the object’s `startDate` field. */
-  startDate?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `expiry` field. */
-  expiry?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `issueNumber` field. */
-  issueNumber?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `purchaseDate` field. */
-  purchaseDate?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** A mapping of Products to Guarantees.  You can have more than one Product per Product Guarantee. */
@@ -5875,9 +5312,9 @@ export type GuaranteedProduct = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Product` that is related to this `GuaranteedProduct`. */
-  productByProductId?: Maybe<Product>;
+  product?: Maybe<Product>;
   /** Reads a single `Guarantee` that is related to this `GuaranteedProduct`. */
-  guaranteeByGuaranteeId?: Maybe<Guarantee>;
+  guarantee?: Maybe<Guarantee>;
 };
 
 /**
@@ -5887,10 +5324,6 @@ export type GuaranteedProduct = Node & {
 export type GuaranteedproductCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `product` field. */
-  product?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `guarantee` field. */
-  guarantee?: Maybe<Scalars["Int"]>;
 };
 
 /**
@@ -5904,10 +5337,6 @@ export type GuaranteedProductCondition = {
   productId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `guaranteeId` field. */
   guaranteeId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Guaranteedproduct` */
@@ -5958,7 +5387,7 @@ export type GuaranteedProductPatch = {
 export type GuaranteedproductsConnection = {
   __typename?: "GuaranteedproductsConnection";
   /** A list of `Guaranteedproduct` objects. */
-  nodes: Array<Maybe<Guaranteedproduct>>;
+  nodes: Array<Guaranteedproduct>;
   /** A list of edges which contains the `Guaranteedproduct` and cursor to aid in pagination. */
   edges: Array<GuaranteedproductsEdge>;
   /** Information to aid in pagination. */
@@ -5971,7 +5400,7 @@ export type GuaranteedproductsConnection = {
 export type GuaranteedProductsConnection = {
   __typename?: "GuaranteedProductsConnection";
   /** A list of `GuaranteedProduct` objects. */
-  nodes: Array<Maybe<GuaranteedProduct>>;
+  nodes: Array<GuaranteedProduct>;
   /** A list of edges which contains the `GuaranteedProduct` and cursor to aid in pagination. */
   edges: Array<GuaranteedProductsEdge>;
   /** Information to aid in pagination. */
@@ -5986,7 +5415,7 @@ export type GuaranteedproductsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Guaranteedproduct` at the end of the edge. */
-  node?: Maybe<Guaranteedproduct>;
+  node: Guaranteedproduct;
 };
 
 /** A `GuaranteedProduct` edge in the connection. */
@@ -5995,7 +5424,7 @@ export type GuaranteedProductsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `GuaranteedProduct` at the end of the edge. */
-  node?: Maybe<GuaranteedProduct>;
+  node: GuaranteedProduct;
 };
 
 /** Methods to use when ordering `Guaranteedproduct`. */
@@ -6003,10 +5432,6 @@ export enum GuaranteedproductsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  ProductAsc = "PRODUCT_ASC",
-  ProductDesc = "PRODUCT_DESC",
-  GuaranteeAsc = "GUARANTEE_ASC",
-  GuaranteeDesc = "GUARANTEE_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -6020,10 +5445,6 @@ export enum GuaranteedProductsOrderBy {
   ProductIdDesc = "PRODUCT_ID_DESC",
   GuaranteeIdAsc = "GUARANTEE_ID_ASC",
   GuaranteeIdDesc = "GUARANTEE_ID_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -6112,7 +5533,7 @@ export type GuaranteePatch = {
 export type GuaranteesConnection = {
   __typename?: "GuaranteesConnection";
   /** A list of `Guarantee` objects. */
-  nodes: Array<Maybe<Guarantee>>;
+  nodes: Array<Guarantee>;
   /** A list of edges which contains the `Guarantee` and cursor to aid in pagination. */
   edges: Array<GuaranteesEdge>;
   /** Information to aid in pagination. */
@@ -6127,7 +5548,7 @@ export type GuaranteesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Guarantee` at the end of the edge. */
-  node?: Maybe<Guarantee>;
+  node: Guarantee;
 };
 
 /** Methods to use when ordering `Guarantee`. */
@@ -6135,34 +5556,16 @@ export enum GuaranteesOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  PdfAsc = "PDF_ASC",
-  PdfDesc = "PDF_DESC",
   RequestorAccountIdAsc = "REQUESTOR_ACCOUNT_ID_ASC",
   RequestorAccountIdDesc = "REQUESTOR_ACCOUNT_ID_DESC",
   ResponsibleInstallerAccountIdAsc = "RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC",
   ResponsibleInstallerAccountIdDesc = "RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC",
   ProjectIdAsc = "PROJECT_ID_ASC",
   ProjectIdDesc = "PROJECT_ID_DESC",
-  GuaranteeTypeIdAsc = "GUARANTEE_TYPE_ID_ASC",
-  GuaranteeTypeIdDesc = "GUARANTEE_TYPE_ID_DESC",
   SystemIdAsc = "SYSTEM_ID_ASC",
   SystemIdDesc = "SYSTEM_ID_DESC",
   ReviewerAccountIdAsc = "REVIEWER_ACCOUNT_ID_ASC",
   ReviewerAccountIdDesc = "REVIEWER_ACCOUNT_ID_DESC",
-  StatusAsc = "STATUS_ASC",
-  StatusDesc = "STATUS_DESC",
-  StartDateAsc = "START_DATE_ASC",
-  StartDateDesc = "START_DATE_DESC",
-  ExpiryAsc = "EXPIRY_ASC",
-  ExpiryDesc = "EXPIRY_DESC",
-  IssueNumberAsc = "ISSUE_NUMBER_ASC",
-  IssueNumberDesc = "ISSUE_NUMBER_DESC",
-  PurchaseDateAsc = "PURCHASE_DATE_ASC",
-  PurchaseDateDesc = "PURCHASE_DATE_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -6171,6 +5574,7 @@ export enum GuaranteesOrderBy {
 export type GuaranteeTemplate = Entry & {
   __typename?: "GuaranteeTemplate";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<GuaranteeTemplateLinkingCollections>;
   displayName?: Maybe<Scalars["String"]>;
   approvalMessage?: Maybe<MessageTemplate>;
@@ -6352,6 +5756,7 @@ export type GuaranteeTemplateFilter = {
   approvalMessage?: Maybe<CfMessageTemplateNestedFilter>;
   rejectionMessage?: Maybe<CfMessageTemplateNestedFilter>;
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   displayName_exists?: Maybe<Scalars["Boolean"]>;
   displayName?: Maybe<Scalars["String"]>;
   displayName_not?: Maybe<Scalars["String"]>;
@@ -6581,17 +5986,18 @@ export enum GuaranteeTemplateOrder {
 export type GuaranteeType = Entry & {
   __typename?: "GuaranteeType";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<GuaranteeTypeLinkingCollections>;
   displayName?: Maybe<Scalars["String"]>;
   technology?: Maybe<Scalars["String"]>;
   coverage?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
   signature?: Maybe<Asset>;
-  maximumValidity?: Maybe<Scalars["Int"]>;
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
   tiersAvailable?: Maybe<Array<Maybe<Scalars["String"]>>>;
   ranking?: Maybe<Scalars["Int"]>;
   evidenceCategoriesCollection?: Maybe<GuaranteeTypeEvidenceCategoriesCollection>;
-  guaranteeTemplate?: Maybe<GuaranteeTemplate>;
+  guaranteeTemplatesCollection?: Maybe<GuaranteeTypeGuaranteeTemplatesCollection>;
 };
 
 /** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
@@ -6626,7 +6032,7 @@ export type GuaranteeTypeSignatureArgs = {
 };
 
 /** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
-export type GuaranteeTypeMaximumValidityArgs = {
+export type GuaranteeTypeMaximumValidityYearsArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -6649,7 +6055,9 @@ export type GuaranteeTypeEvidenceCategoriesCollectionArgs = {
 };
 
 /** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
-export type GuaranteeTypeGuaranteeTemplateArgs = {
+export type GuaranteeTypeGuaranteeTemplatesCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
   locale?: Maybe<Scalars["String"]>;
 };
@@ -6671,8 +6079,8 @@ export type GuaranteeTypeEvidenceCategoriesCollection = {
 };
 
 export type GuaranteeTypeFilter = {
-  guaranteeTemplate?: Maybe<CfGuaranteeTemplateNestedFilter>;
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   displayName_exists?: Maybe<Scalars["Boolean"]>;
   displayName?: Maybe<Scalars["String"]>;
   displayName_not?: Maybe<Scalars["String"]>;
@@ -6702,15 +6110,15 @@ export type GuaranteeTypeFilter = {
   name_contains?: Maybe<Scalars["String"]>;
   name_not_contains?: Maybe<Scalars["String"]>;
   signature_exists?: Maybe<Scalars["Boolean"]>;
-  maximumValidity_exists?: Maybe<Scalars["Boolean"]>;
-  maximumValidity?: Maybe<Scalars["Int"]>;
-  maximumValidity_not?: Maybe<Scalars["Int"]>;
-  maximumValidity_in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
-  maximumValidity_not_in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
-  maximumValidity_gt?: Maybe<Scalars["Int"]>;
-  maximumValidity_gte?: Maybe<Scalars["Int"]>;
-  maximumValidity_lt?: Maybe<Scalars["Int"]>;
-  maximumValidity_lte?: Maybe<Scalars["Int"]>;
+  maximumValidityYears_exists?: Maybe<Scalars["Boolean"]>;
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  maximumValidityYears_not?: Maybe<Scalars["Int"]>;
+  maximumValidityYears_in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
+  maximumValidityYears_not_in?: Maybe<Array<Maybe<Scalars["Int"]>>>;
+  maximumValidityYears_gt?: Maybe<Scalars["Int"]>;
+  maximumValidityYears_gte?: Maybe<Scalars["Int"]>;
+  maximumValidityYears_lt?: Maybe<Scalars["Int"]>;
+  maximumValidityYears_lte?: Maybe<Scalars["Int"]>;
   tiersAvailable_exists?: Maybe<Scalars["Boolean"]>;
   tiersAvailable_contains_all?: Maybe<Array<Maybe<Scalars["String"]>>>;
   tiersAvailable_contains_some?: Maybe<Array<Maybe<Scalars["String"]>>>;
@@ -6725,9 +6133,17 @@ export type GuaranteeTypeFilter = {
   ranking_lt?: Maybe<Scalars["Int"]>;
   ranking_lte?: Maybe<Scalars["Int"]>;
   evidenceCategoriesCollection_exists?: Maybe<Scalars["Boolean"]>;
-  guaranteeTemplate_exists?: Maybe<Scalars["Boolean"]>;
+  guaranteeTemplatesCollection_exists?: Maybe<Scalars["Boolean"]>;
   OR?: Maybe<Array<Maybe<GuaranteeTypeFilter>>>;
   AND?: Maybe<Array<Maybe<GuaranteeTypeFilter>>>;
+};
+
+export type GuaranteeTypeGuaranteeTemplatesCollection = {
+  __typename?: "GuaranteeTypeGuaranteeTemplatesCollection";
+  total: Scalars["Int"];
+  skip: Scalars["Int"];
+  limit: Scalars["Int"];
+  items: Array<Maybe<GuaranteeTemplate>>;
 };
 
 export type GuaranteeTypeLinkingCollections = {
@@ -6751,8 +6167,8 @@ export enum GuaranteeTypeOrder {
   CoverageDesc = "coverage_DESC",
   NameAsc = "name_ASC",
   NameDesc = "name_DESC",
-  MaximumValidityAsc = "maximumValidity_ASC",
-  MaximumValidityDesc = "maximumValidity_DESC",
+  MaximumValidityYearsAsc = "maximumValidityYears_ASC",
+  MaximumValidityYearsDesc = "maximumValidityYears_DESC",
   RankingAsc = "ranking_ASC",
   RankingDesc = "ranking_DESC",
   SysIdAsc = "sys_id_ASC",
@@ -6838,149 +6254,6 @@ export enum ImageResizeStrategy {
   Thumb = "THUMB"
 }
 
-/** A set of images for use on different resolutions [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/imageSet) */
-export type ImageSet = Entry & {
-  __typename?: "ImageSet";
-  sys: Sys;
-  linkedFrom?: Maybe<ImageSetLinkingCollections>;
-  name?: Maybe<Scalars["String"]>;
-  altText?: Maybe<Scalars["String"]>;
-  desktopImage?: Maybe<Asset>;
-  wideImage?: Maybe<Asset>;
-  tabletImage?: Maybe<Asset>;
-  mobileImage?: Maybe<Asset>;
-};
-
-/** A set of images for use on different resolutions [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/imageSet) */
-export type ImageSetLinkedFromArgs = {
-  allowedLocales?: Maybe<Array<Maybe<Scalars["String"]>>>;
-};
-
-/** A set of images for use on different resolutions [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/imageSet) */
-export type ImageSetNameArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A set of images for use on different resolutions [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/imageSet) */
-export type ImageSetAltTextArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A set of images for use on different resolutions [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/imageSet) */
-export type ImageSetDesktopImageArgs = {
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A set of images for use on different resolutions [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/imageSet) */
-export type ImageSetWideImageArgs = {
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A set of images for use on different resolutions [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/imageSet) */
-export type ImageSetTabletImageArgs = {
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** A set of images for use on different resolutions [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/imageSet) */
-export type ImageSetMobileImageArgs = {
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type ImageSetCollection = {
-  __typename?: "ImageSetCollection";
-  total: Scalars["Int"];
-  skip: Scalars["Int"];
-  limit: Scalars["Int"];
-  items: Array<Maybe<ImageSet>>;
-};
-
-export type ImageSetFilter = {
-  sys?: Maybe<SysFilter>;
-  name_exists?: Maybe<Scalars["Boolean"]>;
-  name?: Maybe<Scalars["String"]>;
-  name_not?: Maybe<Scalars["String"]>;
-  name_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  name_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  name_contains?: Maybe<Scalars["String"]>;
-  name_not_contains?: Maybe<Scalars["String"]>;
-  altText_exists?: Maybe<Scalars["Boolean"]>;
-  altText?: Maybe<Scalars["String"]>;
-  altText_not?: Maybe<Scalars["String"]>;
-  altText_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  altText_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  altText_contains?: Maybe<Scalars["String"]>;
-  altText_not_contains?: Maybe<Scalars["String"]>;
-  desktopImage_exists?: Maybe<Scalars["Boolean"]>;
-  wideImage_exists?: Maybe<Scalars["Boolean"]>;
-  tabletImage_exists?: Maybe<Scalars["Boolean"]>;
-  mobileImage_exists?: Maybe<Scalars["Boolean"]>;
-  OR?: Maybe<Array<Maybe<ImageSetFilter>>>;
-  AND?: Maybe<Array<Maybe<ImageSetFilter>>>;
-};
-
-export type ImageSetLinkingCollections = {
-  __typename?: "ImageSetLinkingCollections";
-  entryCollection?: Maybe<EntryCollection>;
-  trainingContentCollection?: Maybe<TrainingContentCollection>;
-  carouselItemCollection?: Maybe<CarouselItemCollection>;
-  partnerBrandCollection?: Maybe<PartnerBrandCollection>;
-  marketContentCollection?: Maybe<MarketContentCollection>;
-};
-
-export type ImageSetLinkingCollectionsEntryCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type ImageSetLinkingCollectionsTrainingContentCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type ImageSetLinkingCollectionsCarouselItemCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type ImageSetLinkingCollectionsPartnerBrandCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type ImageSetLinkingCollectionsMarketContentCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export enum ImageSetOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  AltTextAsc = "altText_ASC",
-  AltTextDesc = "altText_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
-
 export type ImageTransformOptions = {
   /** Desired width in pixels. Defaults to the original image width. */
   width?: Maybe<Scalars["Dimension"]>;
@@ -7042,7 +6315,7 @@ export type Invitation = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Account` that is related to this `Invitation`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
 };
 
 /**
@@ -7054,20 +6327,6 @@ export type InvitationCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `accountId` field. */
   accountId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `type` field. */
-  type?: Maybe<InvitationType>;
-  /** Checks for equality with the object’s `invitee` field. */
-  invitee?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `accepted` field. */
-  accepted?: Maybe<Scalars["Boolean"]>;
-  /** Checks for equality with the object’s `generated` field. */
-  generated?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `expires` field. */
-  expires?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Invitation` */
@@ -7114,7 +6373,7 @@ export type InvitationPatch = {
 export type InvitationsConnection = {
   __typename?: "InvitationsConnection";
   /** A list of `Invitation` objects. */
-  nodes: Array<Maybe<Invitation>>;
+  nodes: Array<Invitation>;
   /** A list of edges which contains the `Invitation` and cursor to aid in pagination. */
   edges: Array<InvitationsEdge>;
   /** Information to aid in pagination. */
@@ -7129,7 +6388,7 @@ export type InvitationsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Invitation` at the end of the edge. */
-  node?: Maybe<Invitation>;
+  node: Invitation;
 };
 
 /** Methods to use when ordering `Invitation`. */
@@ -7139,20 +6398,6 @@ export enum InvitationsOrderBy {
   IdDesc = "ID_DESC",
   AccountIdAsc = "ACCOUNT_ID_ASC",
   AccountIdDesc = "ACCOUNT_ID_DESC",
-  TypeAsc = "TYPE_ASC",
-  TypeDesc = "TYPE_DESC",
-  InviteeAsc = "INVITEE_ASC",
-  InviteeDesc = "INVITEE_DESC",
-  AcceptedAsc = "ACCEPTED_ASC",
-  AcceptedDesc = "ACCEPTED_DESC",
-  GeneratedAsc = "GENERATED_ASC",
-  GeneratedDesc = "GENERATED_DESC",
-  ExpiresAsc = "EXPIRES_ASC",
-  ExpiresDesc = "EXPIRES_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -7295,21 +6540,21 @@ export type Market = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads and enables pagination through a set of `Account`. */
-  accountsByMarketId: AccountsConnection;
+  accounts: AccountsConnection;
   /** Reads and enables pagination through a set of `Company`. */
-  companiesByMarketId: CompaniesConnection;
+  companies: CompaniesConnection;
   /** Reads and enables pagination through a set of `CompanyMember`. */
-  companyMembersByMarketId: CompanyMembersConnection;
+  companyMembers: CompanyMembersConnection;
   /** Reads and enables pagination through a set of `Product`. */
-  productsByMarketId: ProductsConnection;
+  products: ProductsConnection;
   /** Reads and enables pagination through a set of `System`. */
-  systemsByMarketId: SystemsConnection;
+  systems: SystemsConnection;
   /** Reads and enables pagination through a set of `TierOffset`. */
-  tierOffsetsByMarketId: TierOffsetsConnection;
+  tierOffsets: TierOffsetsConnection;
 };
 
 /** A country that BMI operates in */
-export type MarketAccountsByMarketIdArgs = {
+export type MarketAccountsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -7320,7 +6565,7 @@ export type MarketAccountsByMarketIdArgs = {
 };
 
 /** A country that BMI operates in */
-export type MarketCompaniesByMarketIdArgs = {
+export type MarketCompaniesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -7331,7 +6576,7 @@ export type MarketCompaniesByMarketIdArgs = {
 };
 
 /** A country that BMI operates in */
-export type MarketCompanyMembersByMarketIdArgs = {
+export type MarketCompanyMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -7342,7 +6587,7 @@ export type MarketCompanyMembersByMarketIdArgs = {
 };
 
 /** A country that BMI operates in */
-export type MarketProductsByMarketIdArgs = {
+export type MarketProductsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -7353,7 +6598,7 @@ export type MarketProductsByMarketIdArgs = {
 };
 
 /** A country that BMI operates in */
-export type MarketSystemsByMarketIdArgs = {
+export type MarketSystemsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -7364,7 +6609,7 @@ export type MarketSystemsByMarketIdArgs = {
 };
 
 /** A country that BMI operates in */
-export type MarketTierOffsetsByMarketIdArgs = {
+export type MarketTierOffsetsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -7378,47 +6623,26 @@ export type MarketTierOffsetsByMarketIdArgs = {
 export type MarketCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `locale` field. */
-  locale?: Maybe<Locale>;
-  /** Checks for equality with the object’s `cmsSpaceId` field. */
-  cmsSpaceId?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `sendName` field. */
-  sendName?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `sendMailbox` field. */
-  sendMailbox?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `lmsBranch` field. */
-  lmsBranch?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `lmsOwnerBranch` field. */
-  lmsOwnerBranch?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `projectsEnabled` field. */
-  projectsEnabled?: Maybe<Scalars["Boolean"]>;
-  /** Checks for equality with the object’s `news` field. */
-  news?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `live` field. */
-  live?: Maybe<Scalars["Boolean"]>;
-  /** Checks for equality with the object’s `gtag` field. */
-  gtag?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `geoMiddle` field. */
-  geoMiddle?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
 export type MarketContent = Entry & {
   __typename?: "MarketContent";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<MarketContentLinkingCollections>;
-  partnerBrandsCollection?: Maybe<MarketContentPartnerBrandsCollection>;
-  benefitsCollection?: Maybe<MarketContentBenefitsCollection>;
-  contactsCollection?: Maybe<MarketContentContactsCollection>;
-  heroImageHome?: Maybe<ImageSet>;
-  newsItemUrl?: Maybe<Scalars["String"]>;
   name?: Maybe<Scalars["String"]>;
+  partnerBrandsCollection?: Maybe<MarketContentPartnerBrandsCollection>;
+  contactsCollection?: Maybe<MarketContentContactsCollection>;
+  mediaLibraryRootCollection?: Maybe<MarketContentMediaLibraryRootCollection>;
+  newsItemHeading?: Maybe<Scalars["String"]>;
+  newsItemUrl?: Maybe<Scalars["String"]>;
+  newsItemCta?: Maybe<Scalars["String"]>;
+  footerLinksCollection?: Maybe<MarketContentFooterLinksCollection>;
+  contactUsPage?: Maybe<ContentArticle>;
+  externalLinkLabel?: Maybe<Scalars["String"]>;
+  externalLinkUrl?: Maybe<Scalars["String"]>;
+  live?: Maybe<Scalars["String"]>;
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
@@ -7427,15 +6651,12 @@ export type MarketContentLinkedFromArgs = {
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
-export type MarketContentPartnerBrandsCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
+export type MarketContentNameArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
-export type MarketContentBenefitsCollectionArgs = {
+export type MarketContentPartnerBrandsCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -7451,8 +6672,15 @@ export type MarketContentContactsCollectionArgs = {
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
-export type MarketContentHeroImageHomeArgs = {
+export type MarketContentMediaLibraryRootCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+export type MarketContentNewsItemHeadingArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -7462,16 +6690,37 @@ export type MarketContentNewsItemUrlArgs = {
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
-export type MarketContentNameArgs = {
+export type MarketContentNewsItemCtaArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export type MarketContentBenefitsCollection = {
-  __typename?: "MarketContentBenefitsCollection";
-  total: Scalars["Int"];
-  skip: Scalars["Int"];
-  limit: Scalars["Int"];
-  items: Array<Maybe<Benefit>>;
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+export type MarketContentFooterLinksCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+export type MarketContentContactUsPageArgs = {
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+export type MarketContentExternalLinkLabelArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+export type MarketContentExternalLinkUrlArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
+export type MarketContentLiveArgs = {
+  locale?: Maybe<Scalars["String"]>;
 };
 
 export type MarketContentCollection = {
@@ -7491,19 +6740,9 @@ export type MarketContentContactsCollection = {
 };
 
 export type MarketContentFilter = {
-  heroImageHome?: Maybe<CfImageSetNestedFilter>;
+  contactUsPage?: Maybe<CfContentArticleNestedFilter>;
   sys?: Maybe<SysFilter>;
-  partnerBrandsCollection_exists?: Maybe<Scalars["Boolean"]>;
-  benefitsCollection_exists?: Maybe<Scalars["Boolean"]>;
-  contactsCollection_exists?: Maybe<Scalars["Boolean"]>;
-  heroImageHome_exists?: Maybe<Scalars["Boolean"]>;
-  newsItemUrl_exists?: Maybe<Scalars["Boolean"]>;
-  newsItemUrl?: Maybe<Scalars["String"]>;
-  newsItemUrl_not?: Maybe<Scalars["String"]>;
-  newsItemUrl_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  newsItemUrl_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  newsItemUrl_contains?: Maybe<Scalars["String"]>;
-  newsItemUrl_not_contains?: Maybe<Scalars["String"]>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   name_exists?: Maybe<Scalars["Boolean"]>;
   name?: Maybe<Scalars["String"]>;
   name_not?: Maybe<Scalars["String"]>;
@@ -7511,8 +6750,63 @@ export type MarketContentFilter = {
   name_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   name_contains?: Maybe<Scalars["String"]>;
   name_not_contains?: Maybe<Scalars["String"]>;
+  partnerBrandsCollection_exists?: Maybe<Scalars["Boolean"]>;
+  contactsCollection_exists?: Maybe<Scalars["Boolean"]>;
+  mediaLibraryRootCollection_exists?: Maybe<Scalars["Boolean"]>;
+  newsItemHeading_exists?: Maybe<Scalars["Boolean"]>;
+  newsItemHeading?: Maybe<Scalars["String"]>;
+  newsItemHeading_not?: Maybe<Scalars["String"]>;
+  newsItemHeading_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  newsItemHeading_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  newsItemHeading_contains?: Maybe<Scalars["String"]>;
+  newsItemHeading_not_contains?: Maybe<Scalars["String"]>;
+  newsItemUrl_exists?: Maybe<Scalars["Boolean"]>;
+  newsItemUrl?: Maybe<Scalars["String"]>;
+  newsItemUrl_not?: Maybe<Scalars["String"]>;
+  newsItemUrl_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  newsItemUrl_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  newsItemUrl_contains?: Maybe<Scalars["String"]>;
+  newsItemUrl_not_contains?: Maybe<Scalars["String"]>;
+  newsItemCta_exists?: Maybe<Scalars["Boolean"]>;
+  newsItemCta?: Maybe<Scalars["String"]>;
+  newsItemCta_not?: Maybe<Scalars["String"]>;
+  newsItemCta_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  newsItemCta_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  newsItemCta_contains?: Maybe<Scalars["String"]>;
+  newsItemCta_not_contains?: Maybe<Scalars["String"]>;
+  footerLinksCollection_exists?: Maybe<Scalars["Boolean"]>;
+  contactUsPage_exists?: Maybe<Scalars["Boolean"]>;
+  externalLinkLabel_exists?: Maybe<Scalars["Boolean"]>;
+  externalLinkLabel?: Maybe<Scalars["String"]>;
+  externalLinkLabel_not?: Maybe<Scalars["String"]>;
+  externalLinkLabel_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  externalLinkLabel_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  externalLinkLabel_contains?: Maybe<Scalars["String"]>;
+  externalLinkLabel_not_contains?: Maybe<Scalars["String"]>;
+  externalLinkUrl_exists?: Maybe<Scalars["Boolean"]>;
+  externalLinkUrl?: Maybe<Scalars["String"]>;
+  externalLinkUrl_not?: Maybe<Scalars["String"]>;
+  externalLinkUrl_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  externalLinkUrl_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  externalLinkUrl_contains?: Maybe<Scalars["String"]>;
+  externalLinkUrl_not_contains?: Maybe<Scalars["String"]>;
+  live_exists?: Maybe<Scalars["Boolean"]>;
+  live?: Maybe<Scalars["String"]>;
+  live_not?: Maybe<Scalars["String"]>;
+  live_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  live_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  live_contains?: Maybe<Scalars["String"]>;
+  live_not_contains?: Maybe<Scalars["String"]>;
   OR?: Maybe<Array<Maybe<MarketContentFilter>>>;
   AND?: Maybe<Array<Maybe<MarketContentFilter>>>;
+};
+
+export type MarketContentFooterLinksCollection = {
+  __typename?: "MarketContentFooterLinksCollection";
+  total: Scalars["Int"];
+  skip: Scalars["Int"];
+  limit: Scalars["Int"];
+  items: Array<Maybe<ContentArticle>>;
 };
 
 export type MarketContentLinkingCollections = {
@@ -7527,11 +6821,29 @@ export type MarketContentLinkingCollectionsEntryCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
+export type MarketContentMediaLibraryRootCollection = {
+  __typename?: "MarketContentMediaLibraryRootCollection";
+  total: Scalars["Int"];
+  skip: Scalars["Int"];
+  limit: Scalars["Int"];
+  items: Array<Maybe<MediaFolder>>;
+};
+
 export enum MarketContentOrder {
-  NewsItemUrlAsc = "newsItemUrl_ASC",
-  NewsItemUrlDesc = "newsItemUrl_DESC",
   NameAsc = "name_ASC",
   NameDesc = "name_DESC",
+  NewsItemHeadingAsc = "newsItemHeading_ASC",
+  NewsItemHeadingDesc = "newsItemHeading_DESC",
+  NewsItemUrlAsc = "newsItemUrl_ASC",
+  NewsItemUrlDesc = "newsItemUrl_DESC",
+  NewsItemCtaAsc = "newsItemCta_ASC",
+  NewsItemCtaDesc = "newsItemCta_DESC",
+  ExternalLinkLabelAsc = "externalLinkLabel_ASC",
+  ExternalLinkLabelDesc = "externalLinkLabel_DESC",
+  ExternalLinkUrlAsc = "externalLinkUrl_ASC",
+  ExternalLinkUrlDesc = "externalLinkUrl_DESC",
+  LiveAsc = "live_ASC",
+  LiveDesc = "live_DESC",
   SysIdAsc = "sys_id_ASC",
   SysIdDesc = "sys_id_DESC",
   SysPublishedAtAsc = "sys_publishedAt_ASC",
@@ -7626,7 +6938,7 @@ export type MarketPatch = {
 export type MarketsConnection = {
   __typename?: "MarketsConnection";
   /** A list of `Market` objects. */
-  nodes: Array<Maybe<Market>>;
+  nodes: Array<Market>;
   /** A list of edges which contains the `Market` and cursor to aid in pagination. */
   edges: Array<MarketsEdge>;
   /** Information to aid in pagination. */
@@ -7641,7 +6953,7 @@ export type MarketsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Market` at the end of the edge. */
-  node?: Maybe<Market>;
+  node: Market;
 };
 
 /** Methods to use when ordering `Market`. */
@@ -7649,34 +6961,6 @@ export enum MarketsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  LocaleAsc = "LOCALE_ASC",
-  LocaleDesc = "LOCALE_DESC",
-  CmsSpaceIdAsc = "CMS_SPACE_ID_ASC",
-  CmsSpaceIdDesc = "CMS_SPACE_ID_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  SendNameAsc = "SEND_NAME_ASC",
-  SendNameDesc = "SEND_NAME_DESC",
-  SendMailboxAsc = "SEND_MAILBOX_ASC",
-  SendMailboxDesc = "SEND_MAILBOX_DESC",
-  LmsBranchAsc = "LMS_BRANCH_ASC",
-  LmsBranchDesc = "LMS_BRANCH_DESC",
-  LmsOwnerBranchAsc = "LMS_OWNER_BRANCH_ASC",
-  LmsOwnerBranchDesc = "LMS_OWNER_BRANCH_DESC",
-  ProjectsEnabledAsc = "PROJECTS_ENABLED_ASC",
-  ProjectsEnabledDesc = "PROJECTS_ENABLED_DESC",
-  NewsAsc = "NEWS_ASC",
-  NewsDesc = "NEWS_DESC",
-  LiveAsc = "LIVE_ASC",
-  LiveDesc = "LIVE_DESC",
-  GtagAsc = "GTAG_ASC",
-  GtagDesc = "GTAG_DESC",
-  GeoMiddleAsc = "GEO_MIDDLE_ASC",
-  GeoMiddleDesc = "GEO_MIDDLE_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -7685,6 +6969,7 @@ export enum MarketsOrderBy {
 export type MediaFolder = Entry & {
   __typename?: "MediaFolder";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<MediaFolderLinkingCollections>;
   name?: Maybe<Scalars["String"]>;
   childrenCollection?: Maybe<MediaFolderChildrenCollection>;
@@ -7728,6 +7013,7 @@ export type MediaFolderCollection = {
 
 export type MediaFolderFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   name_exists?: Maybe<Scalars["Boolean"]>;
   name?: Maybe<Scalars["String"]>;
   name_not?: Maybe<Scalars["String"]>;
@@ -7743,10 +7029,18 @@ export type MediaFolderFilter = {
 export type MediaFolderLinkingCollections = {
   __typename?: "MediaFolderLinkingCollections";
   entryCollection?: Maybe<EntryCollection>;
+  marketContentCollection?: Maybe<MarketContentCollection>;
   mediaFolderCollection?: Maybe<MediaFolderCollection>;
 };
 
 export type MediaFolderLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type MediaFolderLinkingCollectionsMarketContentCollectionArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   preview?: Maybe<Scalars["Boolean"]>;
@@ -7777,6 +7071,7 @@ export enum MediaFolderOrder {
 export type MediaTool = Entry & {
   __typename?: "MediaTool";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<MediaToolLinkingCollections>;
   name?: Maybe<Scalars["String"]>;
   thumbnail?: Maybe<Asset>;
@@ -7827,6 +7122,7 @@ export type MediaToolCollection = {
 
 export type MediaToolFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   name_exists?: Maybe<Scalars["Boolean"]>;
   name?: Maybe<Scalars["String"]>;
   name_not?: Maybe<Scalars["String"]>;
@@ -7934,16 +7230,6 @@ export type Message = Node & {
 export type MessageCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `recipient` field. */
-  recipient?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `senddate` field. */
-  senddate?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `attachment` field. */
-  attachment?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `unread` field. */
-  unread?: Maybe<Scalars["Boolean"]>;
-  /** Checks for equality with the object’s `body` field. */
-  body?: Maybe<Scalars["String"]>;
 };
 
 /** An input for mutations affecting `Message` */
@@ -7982,7 +7268,7 @@ export type MessagePatch = {
 export type MessagesConnection = {
   __typename?: "MessagesConnection";
   /** A list of `Message` objects. */
-  nodes: Array<Maybe<Message>>;
+  nodes: Array<Message>;
   /** A list of edges which contains the `Message` and cursor to aid in pagination. */
   edges: Array<MessagesEdge>;
   /** Information to aid in pagination. */
@@ -7997,7 +7283,7 @@ export type MessagesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Message` at the end of the edge. */
-  node?: Maybe<Message>;
+  node: Message;
 };
 
 /** Methods to use when ordering `Message`. */
@@ -8005,16 +7291,6 @@ export enum MessagesOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  RecipientAsc = "RECIPIENT_ASC",
-  RecipientDesc = "RECIPIENT_DESC",
-  SenddateAsc = "SENDDATE_ASC",
-  SenddateDesc = "SENDDATE_DESC",
-  AttachmentAsc = "ATTACHMENT_ASC",
-  AttachmentDesc = "ATTACHMENT_DESC",
-  UnreadAsc = "UNREAD_ASC",
-  UnreadDesc = "UNREAD_DESC",
-  BodyAsc = "BODY_ASC",
-  BodyDesc = "BODY_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -8023,6 +7299,7 @@ export enum MessagesOrderBy {
 export type MessageTemplate = Entry & {
   __typename?: "MessageTemplate";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<MessageTemplateLinkingCollections>;
   event?: Maybe<Scalars["String"]>;
   format?: Maybe<Array<Maybe<Scalars["String"]>>>;
@@ -8071,6 +7348,7 @@ export type MessageTemplateCollection = {
 
 export type MessageTemplateFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   event_exists?: Maybe<Scalars["Boolean"]>;
   event?: Maybe<Scalars["String"]>;
   event_not?: Maybe<Scalars["String"]>;
@@ -8148,6 +7426,7 @@ export enum MessageTemplateOrder {
 export type Migration = Entry & {
   __typename?: "Migration";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<MigrationLinkingCollections>;
   state?: Maybe<Scalars["JSON"]>;
   contentTypeId?: Maybe<Scalars["String"]>;
@@ -8178,6 +7457,7 @@ export type MigrationCollection = {
 
 export type MigrationFilter = {
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   contentTypeId_exists?: Maybe<Scalars["Boolean"]>;
   contentTypeId?: Maybe<Scalars["String"]>;
   contentTypeId_not?: Maybe<Scalars["String"]>;
@@ -8279,221 +7559,222 @@ export type Mutation = {
   /** Creates a single `TierOffset`. */
   createTierOffset?: Maybe<CreateTierOffsetPayload>;
   /** Updates a single `Account` using its globally unique id and a patch. */
-  updateAccount?: Maybe<UpdateAccountPayload>;
+  updateAccountByNodeId?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
-  updateAccountById?: Maybe<UpdateAccountPayload>;
+  updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Address` using its globally unique id and a patch. */
-  updateAddress?: Maybe<UpdateAddressPayload>;
+  updateAddressByNodeId?: Maybe<UpdateAddressPayload>;
   /** Updates a single `Address` using a unique key and a patch. */
-  updateAddressById?: Maybe<UpdateAddressPayload>;
+  updateAddress?: Maybe<UpdateAddressPayload>;
   /** Updates a single `Company` using its globally unique id and a patch. */
-  updateCompany?: Maybe<UpdateCompanyPayload>;
+  updateCompanyByNodeId?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `Company` using a unique key and a patch. */
-  updateCompanyById?: Maybe<UpdateCompanyPayload>;
+  updateCompany?: Maybe<UpdateCompanyPayload>;
   /** Updates a single `CompanyDocument` using its globally unique id and a patch. */
-  updateCompanyDocument?: Maybe<UpdateCompanyDocumentPayload>;
+  updateCompanyDocumentByNodeId?: Maybe<UpdateCompanyDocumentPayload>;
   /** Updates a single `CompanyDocument` using a unique key and a patch. */
-  updateCompanyDocumentById?: Maybe<UpdateCompanyDocumentPayload>;
+  updateCompanyDocument?: Maybe<UpdateCompanyDocumentPayload>;
   /** Updates a single `CompanyMember` using its globally unique id and a patch. */
-  updateCompanyMember?: Maybe<UpdateCompanyMemberPayload>;
+  updateCompanyMemberByNodeId?: Maybe<UpdateCompanyMemberPayload>;
   /** Updates a single `CompanyMember` using a unique key and a patch. */
-  updateCompanyMemberById?: Maybe<UpdateCompanyMemberPayload>;
+  updateCompanyMember?: Maybe<UpdateCompanyMemberPayload>;
   /** Updates a single `Companydocument` using its globally unique id and a patch. */
-  updateCompanydocument?: Maybe<UpdateCompanydocumentPayload>;
+  updateCompanydocumentByNodeId?: Maybe<UpdateCompanydocumentPayload>;
   /** Updates a single `Companydocument` using a unique key and a patch. */
-  updateCompanydocumentById?: Maybe<UpdateCompanydocumentPayload>;
+  updateCompanydocument?: Maybe<UpdateCompanydocumentPayload>;
   /** Updates a single `Companymember` using its globally unique id and a patch. */
-  updateCompanymember?: Maybe<UpdateCompanymemberPayload>;
+  updateCompanymemberByNodeId?: Maybe<UpdateCompanymemberPayload>;
   /** Updates a single `Companymember` using a unique key and a patch. */
-  updateCompanymemberById?: Maybe<UpdateCompanymemberPayload>;
+  updateCompanymember?: Maybe<UpdateCompanymemberPayload>;
   /** Updates a single `Companymembership` using its globally unique id and a patch. */
-  updateCompanymembership?: Maybe<UpdateCompanymembershipPayload>;
+  updateCompanymembershipByNodeId?: Maybe<UpdateCompanymembershipPayload>;
   /** Updates a single `Companymembership` using a unique key and a patch. */
-  updateCompanymembershipById?: Maybe<UpdateCompanymembershipPayload>;
+  updateCompanymembership?: Maybe<UpdateCompanymembershipPayload>;
   /** Updates a single `Contactdetail` using its globally unique id and a patch. */
-  updateContactdetail?: Maybe<UpdateContactdetailPayload>;
+  updateContactdetailByNodeId?: Maybe<UpdateContactdetailPayload>;
   /** Updates a single `Contactdetail` using a unique key and a patch. */
-  updateContactdetailById?: Maybe<UpdateContactdetailPayload>;
+  updateContactdetail?: Maybe<UpdateContactdetailPayload>;
   /** Updates a single `EvidenceItem` using its globally unique id and a patch. */
-  updateEvidenceItem?: Maybe<UpdateEvidenceItemPayload>;
+  updateEvidenceItemByNodeId?: Maybe<UpdateEvidenceItemPayload>;
   /** Updates a single `EvidenceItem` using a unique key and a patch. */
-  updateEvidenceItemById?: Maybe<UpdateEvidenceItemPayload>;
+  updateEvidenceItem?: Maybe<UpdateEvidenceItemPayload>;
   /** Updates a single `Evidenceitem` using its globally unique id and a patch. */
-  updateEvidenceitem?: Maybe<UpdateEvidenceitemPayload>;
+  updateEvidenceitemByNodeId?: Maybe<UpdateEvidenceitemPayload>;
   /** Updates a single `Evidenceitem` using a unique key and a patch. */
-  updateEvidenceitemById?: Maybe<UpdateEvidenceitemPayload>;
+  updateEvidenceitem?: Maybe<UpdateEvidenceitemPayload>;
   /** Updates a single `Guarantee` using its globally unique id and a patch. */
-  updateGuarantee?: Maybe<UpdateGuaranteePayload>;
+  updateGuaranteeByNodeId?: Maybe<UpdateGuaranteePayload>;
   /** Updates a single `Guarantee` using a unique key and a patch. */
-  updateGuaranteeById?: Maybe<UpdateGuaranteePayload>;
+  updateGuarantee?: Maybe<UpdateGuaranteePayload>;
   /** Updates a single `GuaranteedProduct` using its globally unique id and a patch. */
-  updateGuaranteedProduct?: Maybe<UpdateGuaranteedProductPayload>;
+  updateGuaranteedProductByNodeId?: Maybe<UpdateGuaranteedProductPayload>;
   /** Updates a single `GuaranteedProduct` using a unique key and a patch. */
-  updateGuaranteedProductById?: Maybe<UpdateGuaranteedProductPayload>;
+  updateGuaranteedProduct?: Maybe<UpdateGuaranteedProductPayload>;
   /** Updates a single `Guaranteedproduct` using its globally unique id and a patch. */
-  updateGuaranteedproduct?: Maybe<UpdateGuaranteedproductPayload>;
+  updateGuaranteedproductByNodeId?: Maybe<UpdateGuaranteedproductPayload>;
   /** Updates a single `Guaranteedproduct` using a unique key and a patch. */
-  updateGuaranteedproductById?: Maybe<UpdateGuaranteedproductPayload>;
+  updateGuaranteedproduct?: Maybe<UpdateGuaranteedproductPayload>;
   /** Updates a single `Invitation` using its globally unique id and a patch. */
-  updateInvitation?: Maybe<UpdateInvitationPayload>;
+  updateInvitationByNodeId?: Maybe<UpdateInvitationPayload>;
   /** Updates a single `Invitation` using a unique key and a patch. */
-  updateInvitationById?: Maybe<UpdateInvitationPayload>;
+  updateInvitation?: Maybe<UpdateInvitationPayload>;
   /** Updates a single `Market` using its globally unique id and a patch. */
-  updateMarket?: Maybe<UpdateMarketPayload>;
+  updateMarketByNodeId?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Market` using a unique key and a patch. */
-  updateMarketById?: Maybe<UpdateMarketPayload>;
+  updateMarket?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Message` using its globally unique id and a patch. */
-  updateMessage?: Maybe<UpdateMessagePayload>;
+  updateMessageByNodeId?: Maybe<UpdateMessagePayload>;
   /** Updates a single `Message` using a unique key and a patch. */
-  updateMessageById?: Maybe<UpdateMessagePayload>;
+  updateMessage?: Maybe<UpdateMessagePayload>;
   /** Updates a single `Note` using its globally unique id and a patch. */
-  updateNote?: Maybe<UpdateNotePayload>;
+  updateNoteByNodeId?: Maybe<UpdateNotePayload>;
   /** Updates a single `Note` using a unique key and a patch. */
-  updateNoteById?: Maybe<UpdateNotePayload>;
+  updateNote?: Maybe<UpdateNotePayload>;
   /** Updates a single `Notification` using its globally unique id and a patch. */
-  updateNotification?: Maybe<UpdateNotificationPayload>;
+  updateNotificationByNodeId?: Maybe<UpdateNotificationPayload>;
   /** Updates a single `Notification` using a unique key and a patch. */
-  updateNotificationById?: Maybe<UpdateNotificationPayload>;
+  updateNotification?: Maybe<UpdateNotificationPayload>;
   /** Updates a single `Product` using its globally unique id and a patch. */
-  updateProduct?: Maybe<UpdateProductPayload>;
+  updateProductByNodeId?: Maybe<UpdateProductPayload>;
   /** Updates a single `Product` using a unique key and a patch. */
-  updateProductById?: Maybe<UpdateProductPayload>;
+  updateProduct?: Maybe<UpdateProductPayload>;
   /** Updates a single `Project` using its globally unique id and a patch. */
-  updateProject?: Maybe<UpdateProjectPayload>;
+  updateProjectByNodeId?: Maybe<UpdateProjectPayload>;
   /** Updates a single `Project` using a unique key and a patch. */
-  updateProjectById?: Maybe<UpdateProjectPayload>;
+  updateProject?: Maybe<UpdateProjectPayload>;
   /** Updates a single `ProjectMember` using its globally unique id and a patch. */
-  updateProjectMember?: Maybe<UpdateProjectMemberPayload>;
+  updateProjectMemberByNodeId?: Maybe<UpdateProjectMemberPayload>;
   /** Updates a single `ProjectMember` using a unique key and a patch. */
-  updateProjectMemberById?: Maybe<UpdateProjectMemberPayload>;
+  updateProjectMember?: Maybe<UpdateProjectMemberPayload>;
   /** Updates a single `Projectmember` using its globally unique id and a patch. */
-  updateProjectmember?: Maybe<UpdateProjectmemberPayload>;
+  updateProjectmemberByNodeId?: Maybe<UpdateProjectmemberPayload>;
   /** Updates a single `Projectmember` using a unique key and a patch. */
-  updateProjectmemberById?: Maybe<UpdateProjectmemberPayload>;
+  updateProjectmember?: Maybe<UpdateProjectmemberPayload>;
   /** Updates a single `System` using its globally unique id and a patch. */
-  updateSystem?: Maybe<UpdateSystemPayload>;
+  updateSystemByNodeId?: Maybe<UpdateSystemPayload>;
   /** Updates a single `System` using a unique key and a patch. */
-  updateSystemById?: Maybe<UpdateSystemPayload>;
+  updateSystem?: Maybe<UpdateSystemPayload>;
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
-  updateSystemMember?: Maybe<UpdateSystemMemberPayload>;
+  updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
   /** Updates a single `SystemMember` using a unique key and a patch. */
-  updateSystemMemberById?: Maybe<UpdateSystemMemberPayload>;
+  updateSystemMember?: Maybe<UpdateSystemMemberPayload>;
   /** Updates a single `Systemmember` using its globally unique id and a patch. */
-  updateSystemmember?: Maybe<UpdateSystemmemberPayload>;
+  updateSystemmemberByNodeId?: Maybe<UpdateSystemmemberPayload>;
   /** Updates a single `Systemmember` using a unique key and a patch. */
-  updateSystemmemberById?: Maybe<UpdateSystemmemberPayload>;
+  updateSystemmember?: Maybe<UpdateSystemmemberPayload>;
   /** Updates a single `TierOffset` using its globally unique id and a patch. */
-  updateTierOffset?: Maybe<UpdateTierOffsetPayload>;
+  updateTierOffsetByNodeId?: Maybe<UpdateTierOffsetPayload>;
   /** Updates a single `TierOffset` using a unique key and a patch. */
-  updateTierOffsetById?: Maybe<UpdateTierOffsetPayload>;
+  updateTierOffset?: Maybe<UpdateTierOffsetPayload>;
   /** Deletes a single `Account` using its globally unique id. */
-  deleteAccount?: Maybe<DeleteAccountPayload>;
+  deleteAccountByNodeId?: Maybe<DeleteAccountPayload>;
   /** Deletes a single `Account` using a unique key. */
-  deleteAccountById?: Maybe<DeleteAccountPayload>;
+  deleteAccount?: Maybe<DeleteAccountPayload>;
   /** Deletes a single `Address` using its globally unique id. */
-  deleteAddress?: Maybe<DeleteAddressPayload>;
+  deleteAddressByNodeId?: Maybe<DeleteAddressPayload>;
   /** Deletes a single `Address` using a unique key. */
-  deleteAddressById?: Maybe<DeleteAddressPayload>;
+  deleteAddress?: Maybe<DeleteAddressPayload>;
   /** Deletes a single `Company` using its globally unique id. */
-  deleteCompany?: Maybe<DeleteCompanyPayload>;
+  deleteCompanyByNodeId?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `Company` using a unique key. */
-  deleteCompanyById?: Maybe<DeleteCompanyPayload>;
+  deleteCompany?: Maybe<DeleteCompanyPayload>;
   /** Deletes a single `CompanyDocument` using its globally unique id. */
-  deleteCompanyDocument?: Maybe<DeleteCompanyDocumentPayload>;
+  deleteCompanyDocumentByNodeId?: Maybe<DeleteCompanyDocumentPayload>;
   /** Deletes a single `CompanyDocument` using a unique key. */
-  deleteCompanyDocumentById?: Maybe<DeleteCompanyDocumentPayload>;
+  deleteCompanyDocument?: Maybe<DeleteCompanyDocumentPayload>;
   /** Deletes a single `CompanyMember` using its globally unique id. */
-  deleteCompanyMember?: Maybe<DeleteCompanyMemberPayload>;
+  deleteCompanyMemberByNodeId?: Maybe<DeleteCompanyMemberPayload>;
   /** Deletes a single `CompanyMember` using a unique key. */
-  deleteCompanyMemberById?: Maybe<DeleteCompanyMemberPayload>;
+  deleteCompanyMember?: Maybe<DeleteCompanyMemberPayload>;
   /** Deletes a single `Companydocument` using its globally unique id. */
-  deleteCompanydocument?: Maybe<DeleteCompanydocumentPayload>;
+  deleteCompanydocumentByNodeId?: Maybe<DeleteCompanydocumentPayload>;
   /** Deletes a single `Companydocument` using a unique key. */
-  deleteCompanydocumentById?: Maybe<DeleteCompanydocumentPayload>;
+  deleteCompanydocument?: Maybe<DeleteCompanydocumentPayload>;
   /** Deletes a single `Companymember` using its globally unique id. */
-  deleteCompanymember?: Maybe<DeleteCompanymemberPayload>;
+  deleteCompanymemberByNodeId?: Maybe<DeleteCompanymemberPayload>;
   /** Deletes a single `Companymember` using a unique key. */
-  deleteCompanymemberById?: Maybe<DeleteCompanymemberPayload>;
+  deleteCompanymember?: Maybe<DeleteCompanymemberPayload>;
   /** Deletes a single `Companymembership` using its globally unique id. */
-  deleteCompanymembership?: Maybe<DeleteCompanymembershipPayload>;
+  deleteCompanymembershipByNodeId?: Maybe<DeleteCompanymembershipPayload>;
   /** Deletes a single `Companymembership` using a unique key. */
-  deleteCompanymembershipById?: Maybe<DeleteCompanymembershipPayload>;
+  deleteCompanymembership?: Maybe<DeleteCompanymembershipPayload>;
   /** Deletes a single `Contactdetail` using its globally unique id. */
-  deleteContactdetail?: Maybe<DeleteContactdetailPayload>;
+  deleteContactdetailByNodeId?: Maybe<DeleteContactdetailPayload>;
   /** Deletes a single `Contactdetail` using a unique key. */
-  deleteContactdetailById?: Maybe<DeleteContactdetailPayload>;
+  deleteContactdetail?: Maybe<DeleteContactdetailPayload>;
   /** Deletes a single `EvidenceItem` using its globally unique id. */
-  deleteEvidenceItem?: Maybe<DeleteEvidenceItemPayload>;
+  deleteEvidenceItemByNodeId?: Maybe<DeleteEvidenceItemPayload>;
   /** Deletes a single `EvidenceItem` using a unique key. */
-  deleteEvidenceItemById?: Maybe<DeleteEvidenceItemPayload>;
+  deleteEvidenceItem?: Maybe<DeleteEvidenceItemPayload>;
   /** Deletes a single `Evidenceitem` using its globally unique id. */
-  deleteEvidenceitem?: Maybe<DeleteEvidenceitemPayload>;
+  deleteEvidenceitemByNodeId?: Maybe<DeleteEvidenceitemPayload>;
   /** Deletes a single `Evidenceitem` using a unique key. */
-  deleteEvidenceitemById?: Maybe<DeleteEvidenceitemPayload>;
+  deleteEvidenceitem?: Maybe<DeleteEvidenceitemPayload>;
   /** Deletes a single `Guarantee` using its globally unique id. */
-  deleteGuarantee?: Maybe<DeleteGuaranteePayload>;
+  deleteGuaranteeByNodeId?: Maybe<DeleteGuaranteePayload>;
   /** Deletes a single `Guarantee` using a unique key. */
-  deleteGuaranteeById?: Maybe<DeleteGuaranteePayload>;
+  deleteGuarantee?: Maybe<DeleteGuaranteePayload>;
   /** Deletes a single `GuaranteedProduct` using its globally unique id. */
-  deleteGuaranteedProduct?: Maybe<DeleteGuaranteedProductPayload>;
+  deleteGuaranteedProductByNodeId?: Maybe<DeleteGuaranteedProductPayload>;
   /** Deletes a single `GuaranteedProduct` using a unique key. */
-  deleteGuaranteedProductById?: Maybe<DeleteGuaranteedProductPayload>;
+  deleteGuaranteedProduct?: Maybe<DeleteGuaranteedProductPayload>;
   /** Deletes a single `Guaranteedproduct` using its globally unique id. */
-  deleteGuaranteedproduct?: Maybe<DeleteGuaranteedproductPayload>;
+  deleteGuaranteedproductByNodeId?: Maybe<DeleteGuaranteedproductPayload>;
   /** Deletes a single `Guaranteedproduct` using a unique key. */
-  deleteGuaranteedproductById?: Maybe<DeleteGuaranteedproductPayload>;
+  deleteGuaranteedproduct?: Maybe<DeleteGuaranteedproductPayload>;
   /** Deletes a single `Invitation` using its globally unique id. */
-  deleteInvitation?: Maybe<DeleteInvitationPayload>;
+  deleteInvitationByNodeId?: Maybe<DeleteInvitationPayload>;
   /** Deletes a single `Invitation` using a unique key. */
-  deleteInvitationById?: Maybe<DeleteInvitationPayload>;
+  deleteInvitation?: Maybe<DeleteInvitationPayload>;
   /** Deletes a single `Market` using its globally unique id. */
-  deleteMarket?: Maybe<DeleteMarketPayload>;
+  deleteMarketByNodeId?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Market` using a unique key. */
-  deleteMarketById?: Maybe<DeleteMarketPayload>;
+  deleteMarket?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Message` using its globally unique id. */
-  deleteMessage?: Maybe<DeleteMessagePayload>;
+  deleteMessageByNodeId?: Maybe<DeleteMessagePayload>;
   /** Deletes a single `Message` using a unique key. */
-  deleteMessageById?: Maybe<DeleteMessagePayload>;
+  deleteMessage?: Maybe<DeleteMessagePayload>;
   /** Deletes a single `Note` using its globally unique id. */
-  deleteNote?: Maybe<DeleteNotePayload>;
+  deleteNoteByNodeId?: Maybe<DeleteNotePayload>;
   /** Deletes a single `Note` using a unique key. */
-  deleteNoteById?: Maybe<DeleteNotePayload>;
+  deleteNote?: Maybe<DeleteNotePayload>;
   /** Deletes a single `Notification` using its globally unique id. */
-  deleteNotification?: Maybe<DeleteNotificationPayload>;
+  deleteNotificationByNodeId?: Maybe<DeleteNotificationPayload>;
   /** Deletes a single `Notification` using a unique key. */
-  deleteNotificationById?: Maybe<DeleteNotificationPayload>;
+  deleteNotification?: Maybe<DeleteNotificationPayload>;
   /** Deletes a single `Product` using its globally unique id. */
-  deleteProduct?: Maybe<DeleteProductPayload>;
+  deleteProductByNodeId?: Maybe<DeleteProductPayload>;
   /** Deletes a single `Product` using a unique key. */
-  deleteProductById?: Maybe<DeleteProductPayload>;
+  deleteProduct?: Maybe<DeleteProductPayload>;
   /** Deletes a single `Project` using its globally unique id. */
-  deleteProject?: Maybe<DeleteProjectPayload>;
+  deleteProjectByNodeId?: Maybe<DeleteProjectPayload>;
   /** Deletes a single `Project` using a unique key. */
-  deleteProjectById?: Maybe<DeleteProjectPayload>;
+  deleteProject?: Maybe<DeleteProjectPayload>;
   /** Deletes a single `ProjectMember` using its globally unique id. */
-  deleteProjectMember?: Maybe<DeleteProjectMemberPayload>;
+  deleteProjectMemberByNodeId?: Maybe<DeleteProjectMemberPayload>;
   /** Deletes a single `ProjectMember` using a unique key. */
-  deleteProjectMemberById?: Maybe<DeleteProjectMemberPayload>;
+  deleteProjectMember?: Maybe<DeleteProjectMemberPayload>;
   /** Deletes a single `Projectmember` using its globally unique id. */
-  deleteProjectmember?: Maybe<DeleteProjectmemberPayload>;
+  deleteProjectmemberByNodeId?: Maybe<DeleteProjectmemberPayload>;
   /** Deletes a single `Projectmember` using a unique key. */
-  deleteProjectmemberById?: Maybe<DeleteProjectmemberPayload>;
+  deleteProjectmember?: Maybe<DeleteProjectmemberPayload>;
   /** Deletes a single `System` using its globally unique id. */
-  deleteSystem?: Maybe<DeleteSystemPayload>;
+  deleteSystemByNodeId?: Maybe<DeleteSystemPayload>;
   /** Deletes a single `System` using a unique key. */
-  deleteSystemById?: Maybe<DeleteSystemPayload>;
+  deleteSystem?: Maybe<DeleteSystemPayload>;
   /** Deletes a single `SystemMember` using its globally unique id. */
-  deleteSystemMember?: Maybe<DeleteSystemMemberPayload>;
+  deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using a unique key. */
-  deleteSystemMemberById?: Maybe<DeleteSystemMemberPayload>;
+  deleteSystemMember?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `Systemmember` using its globally unique id. */
-  deleteSystemmember?: Maybe<DeleteSystemmemberPayload>;
+  deleteSystemmemberByNodeId?: Maybe<DeleteSystemmemberPayload>;
   /** Deletes a single `Systemmember` using a unique key. */
-  deleteSystemmemberById?: Maybe<DeleteSystemmemberPayload>;
+  deleteSystemmember?: Maybe<DeleteSystemmemberPayload>;
   /** Deletes a single `TierOffset` using its globally unique id. */
-  deleteTierOffset?: Maybe<DeleteTierOffsetPayload>;
+  deleteTierOffsetByNodeId?: Maybe<DeleteTierOffsetPayload>;
   /** Deletes a single `TierOffset` using a unique key. */
-  deleteTierOffsetById?: Maybe<DeleteTierOffsetPayload>;
+  deleteTierOffset?: Maybe<DeleteTierOffsetPayload>;
+  publishMessage?: Maybe<Publish>;
   createUser?: Maybe<UserCreateResponse>;
   createSSOUrl?: Maybe<Scalars["String"]>;
   createGroup?: Maybe<GroupCreateResponse>;
@@ -8607,436 +7888,440 @@ export type MutationCreateTierOffsetArgs = {
   input: CreateTierOffsetInput;
 };
 
+export type MutationUpdateAccountByNodeIdArgs = {
+  input: UpdateAccountByNodeIdInput;
+};
+
 export type MutationUpdateAccountArgs = {
   input: UpdateAccountInput;
 };
 
-export type MutationUpdateAccountByIdArgs = {
-  input: UpdateAccountByIdInput;
+export type MutationUpdateAddressByNodeIdArgs = {
+  input: UpdateAddressByNodeIdInput;
 };
 
 export type MutationUpdateAddressArgs = {
   input: UpdateAddressInput;
 };
 
-export type MutationUpdateAddressByIdArgs = {
-  input: UpdateAddressByIdInput;
+export type MutationUpdateCompanyByNodeIdArgs = {
+  input: UpdateCompanyByNodeIdInput;
 };
 
 export type MutationUpdateCompanyArgs = {
   input: UpdateCompanyInput;
 };
 
-export type MutationUpdateCompanyByIdArgs = {
-  input: UpdateCompanyByIdInput;
+export type MutationUpdateCompanyDocumentByNodeIdArgs = {
+  input: UpdateCompanyDocumentByNodeIdInput;
 };
 
 export type MutationUpdateCompanyDocumentArgs = {
   input: UpdateCompanyDocumentInput;
 };
 
-export type MutationUpdateCompanyDocumentByIdArgs = {
-  input: UpdateCompanyDocumentByIdInput;
+export type MutationUpdateCompanyMemberByNodeIdArgs = {
+  input: UpdateCompanyMemberByNodeIdInput;
 };
 
 export type MutationUpdateCompanyMemberArgs = {
   input: UpdateCompanyMemberInput;
 };
 
-export type MutationUpdateCompanyMemberByIdArgs = {
-  input: UpdateCompanyMemberByIdInput;
+export type MutationUpdateCompanydocumentByNodeIdArgs = {
+  input: UpdateCompanydocumentByNodeIdInput;
 };
 
 export type MutationUpdateCompanydocumentArgs = {
   input: UpdateCompanydocumentInput;
 };
 
-export type MutationUpdateCompanydocumentByIdArgs = {
-  input: UpdateCompanydocumentByIdInput;
+export type MutationUpdateCompanymemberByNodeIdArgs = {
+  input: UpdateCompanymemberByNodeIdInput;
 };
 
 export type MutationUpdateCompanymemberArgs = {
   input: UpdateCompanymemberInput;
 };
 
-export type MutationUpdateCompanymemberByIdArgs = {
-  input: UpdateCompanymemberByIdInput;
+export type MutationUpdateCompanymembershipByNodeIdArgs = {
+  input: UpdateCompanymembershipByNodeIdInput;
 };
 
 export type MutationUpdateCompanymembershipArgs = {
   input: UpdateCompanymembershipInput;
 };
 
-export type MutationUpdateCompanymembershipByIdArgs = {
-  input: UpdateCompanymembershipByIdInput;
+export type MutationUpdateContactdetailByNodeIdArgs = {
+  input: UpdateContactdetailByNodeIdInput;
 };
 
 export type MutationUpdateContactdetailArgs = {
   input: UpdateContactdetailInput;
 };
 
-export type MutationUpdateContactdetailByIdArgs = {
-  input: UpdateContactdetailByIdInput;
+export type MutationUpdateEvidenceItemByNodeIdArgs = {
+  input: UpdateEvidenceItemByNodeIdInput;
 };
 
 export type MutationUpdateEvidenceItemArgs = {
   input: UpdateEvidenceItemInput;
 };
 
-export type MutationUpdateEvidenceItemByIdArgs = {
-  input: UpdateEvidenceItemByIdInput;
+export type MutationUpdateEvidenceitemByNodeIdArgs = {
+  input: UpdateEvidenceitemByNodeIdInput;
 };
 
 export type MutationUpdateEvidenceitemArgs = {
   input: UpdateEvidenceitemInput;
 };
 
-export type MutationUpdateEvidenceitemByIdArgs = {
-  input: UpdateEvidenceitemByIdInput;
+export type MutationUpdateGuaranteeByNodeIdArgs = {
+  input: UpdateGuaranteeByNodeIdInput;
 };
 
 export type MutationUpdateGuaranteeArgs = {
   input: UpdateGuaranteeInput;
 };
 
-export type MutationUpdateGuaranteeByIdArgs = {
-  input: UpdateGuaranteeByIdInput;
+export type MutationUpdateGuaranteedProductByNodeIdArgs = {
+  input: UpdateGuaranteedProductByNodeIdInput;
 };
 
 export type MutationUpdateGuaranteedProductArgs = {
   input: UpdateGuaranteedProductInput;
 };
 
-export type MutationUpdateGuaranteedProductByIdArgs = {
-  input: UpdateGuaranteedProductByIdInput;
+export type MutationUpdateGuaranteedproductByNodeIdArgs = {
+  input: UpdateGuaranteedproductByNodeIdInput;
 };
 
 export type MutationUpdateGuaranteedproductArgs = {
   input: UpdateGuaranteedproductInput;
 };
 
-export type MutationUpdateGuaranteedproductByIdArgs = {
-  input: UpdateGuaranteedproductByIdInput;
+export type MutationUpdateInvitationByNodeIdArgs = {
+  input: UpdateInvitationByNodeIdInput;
 };
 
 export type MutationUpdateInvitationArgs = {
   input: UpdateInvitationInput;
 };
 
-export type MutationUpdateInvitationByIdArgs = {
-  input: UpdateInvitationByIdInput;
+export type MutationUpdateMarketByNodeIdArgs = {
+  input: UpdateMarketByNodeIdInput;
 };
 
 export type MutationUpdateMarketArgs = {
   input: UpdateMarketInput;
 };
 
-export type MutationUpdateMarketByIdArgs = {
-  input: UpdateMarketByIdInput;
+export type MutationUpdateMessageByNodeIdArgs = {
+  input: UpdateMessageByNodeIdInput;
 };
 
 export type MutationUpdateMessageArgs = {
   input: UpdateMessageInput;
 };
 
-export type MutationUpdateMessageByIdArgs = {
-  input: UpdateMessageByIdInput;
+export type MutationUpdateNoteByNodeIdArgs = {
+  input: UpdateNoteByNodeIdInput;
 };
 
 export type MutationUpdateNoteArgs = {
   input: UpdateNoteInput;
 };
 
-export type MutationUpdateNoteByIdArgs = {
-  input: UpdateNoteByIdInput;
+export type MutationUpdateNotificationByNodeIdArgs = {
+  input: UpdateNotificationByNodeIdInput;
 };
 
 export type MutationUpdateNotificationArgs = {
   input: UpdateNotificationInput;
 };
 
-export type MutationUpdateNotificationByIdArgs = {
-  input: UpdateNotificationByIdInput;
+export type MutationUpdateProductByNodeIdArgs = {
+  input: UpdateProductByNodeIdInput;
 };
 
 export type MutationUpdateProductArgs = {
   input: UpdateProductInput;
 };
 
-export type MutationUpdateProductByIdArgs = {
-  input: UpdateProductByIdInput;
+export type MutationUpdateProjectByNodeIdArgs = {
+  input: UpdateProjectByNodeIdInput;
 };
 
 export type MutationUpdateProjectArgs = {
   input: UpdateProjectInput;
 };
 
-export type MutationUpdateProjectByIdArgs = {
-  input: UpdateProjectByIdInput;
+export type MutationUpdateProjectMemberByNodeIdArgs = {
+  input: UpdateProjectMemberByNodeIdInput;
 };
 
 export type MutationUpdateProjectMemberArgs = {
   input: UpdateProjectMemberInput;
 };
 
-export type MutationUpdateProjectMemberByIdArgs = {
-  input: UpdateProjectMemberByIdInput;
+export type MutationUpdateProjectmemberByNodeIdArgs = {
+  input: UpdateProjectmemberByNodeIdInput;
 };
 
 export type MutationUpdateProjectmemberArgs = {
   input: UpdateProjectmemberInput;
 };
 
-export type MutationUpdateProjectmemberByIdArgs = {
-  input: UpdateProjectmemberByIdInput;
+export type MutationUpdateSystemByNodeIdArgs = {
+  input: UpdateSystemByNodeIdInput;
 };
 
 export type MutationUpdateSystemArgs = {
   input: UpdateSystemInput;
 };
 
-export type MutationUpdateSystemByIdArgs = {
-  input: UpdateSystemByIdInput;
+export type MutationUpdateSystemMemberByNodeIdArgs = {
+  input: UpdateSystemMemberByNodeIdInput;
 };
 
 export type MutationUpdateSystemMemberArgs = {
   input: UpdateSystemMemberInput;
 };
 
-export type MutationUpdateSystemMemberByIdArgs = {
-  input: UpdateSystemMemberByIdInput;
+export type MutationUpdateSystemmemberByNodeIdArgs = {
+  input: UpdateSystemmemberByNodeIdInput;
 };
 
 export type MutationUpdateSystemmemberArgs = {
   input: UpdateSystemmemberInput;
 };
 
-export type MutationUpdateSystemmemberByIdArgs = {
-  input: UpdateSystemmemberByIdInput;
+export type MutationUpdateTierOffsetByNodeIdArgs = {
+  input: UpdateTierOffsetByNodeIdInput;
 };
 
 export type MutationUpdateTierOffsetArgs = {
   input: UpdateTierOffsetInput;
 };
 
-export type MutationUpdateTierOffsetByIdArgs = {
-  input: UpdateTierOffsetByIdInput;
+export type MutationDeleteAccountByNodeIdArgs = {
+  input: DeleteAccountByNodeIdInput;
 };
 
 export type MutationDeleteAccountArgs = {
   input: DeleteAccountInput;
 };
 
-export type MutationDeleteAccountByIdArgs = {
-  input: DeleteAccountByIdInput;
+export type MutationDeleteAddressByNodeIdArgs = {
+  input: DeleteAddressByNodeIdInput;
 };
 
 export type MutationDeleteAddressArgs = {
   input: DeleteAddressInput;
 };
 
-export type MutationDeleteAddressByIdArgs = {
-  input: DeleteAddressByIdInput;
+export type MutationDeleteCompanyByNodeIdArgs = {
+  input: DeleteCompanyByNodeIdInput;
 };
 
 export type MutationDeleteCompanyArgs = {
   input: DeleteCompanyInput;
 };
 
-export type MutationDeleteCompanyByIdArgs = {
-  input: DeleteCompanyByIdInput;
+export type MutationDeleteCompanyDocumentByNodeIdArgs = {
+  input: DeleteCompanyDocumentByNodeIdInput;
 };
 
 export type MutationDeleteCompanyDocumentArgs = {
   input: DeleteCompanyDocumentInput;
 };
 
-export type MutationDeleteCompanyDocumentByIdArgs = {
-  input: DeleteCompanyDocumentByIdInput;
+export type MutationDeleteCompanyMemberByNodeIdArgs = {
+  input: DeleteCompanyMemberByNodeIdInput;
 };
 
 export type MutationDeleteCompanyMemberArgs = {
   input: DeleteCompanyMemberInput;
 };
 
-export type MutationDeleteCompanyMemberByIdArgs = {
-  input: DeleteCompanyMemberByIdInput;
+export type MutationDeleteCompanydocumentByNodeIdArgs = {
+  input: DeleteCompanydocumentByNodeIdInput;
 };
 
 export type MutationDeleteCompanydocumentArgs = {
   input: DeleteCompanydocumentInput;
 };
 
-export type MutationDeleteCompanydocumentByIdArgs = {
-  input: DeleteCompanydocumentByIdInput;
+export type MutationDeleteCompanymemberByNodeIdArgs = {
+  input: DeleteCompanymemberByNodeIdInput;
 };
 
 export type MutationDeleteCompanymemberArgs = {
   input: DeleteCompanymemberInput;
 };
 
-export type MutationDeleteCompanymemberByIdArgs = {
-  input: DeleteCompanymemberByIdInput;
+export type MutationDeleteCompanymembershipByNodeIdArgs = {
+  input: DeleteCompanymembershipByNodeIdInput;
 };
 
 export type MutationDeleteCompanymembershipArgs = {
   input: DeleteCompanymembershipInput;
 };
 
-export type MutationDeleteCompanymembershipByIdArgs = {
-  input: DeleteCompanymembershipByIdInput;
+export type MutationDeleteContactdetailByNodeIdArgs = {
+  input: DeleteContactdetailByNodeIdInput;
 };
 
 export type MutationDeleteContactdetailArgs = {
   input: DeleteContactdetailInput;
 };
 
-export type MutationDeleteContactdetailByIdArgs = {
-  input: DeleteContactdetailByIdInput;
+export type MutationDeleteEvidenceItemByNodeIdArgs = {
+  input: DeleteEvidenceItemByNodeIdInput;
 };
 
 export type MutationDeleteEvidenceItemArgs = {
   input: DeleteEvidenceItemInput;
 };
 
-export type MutationDeleteEvidenceItemByIdArgs = {
-  input: DeleteEvidenceItemByIdInput;
+export type MutationDeleteEvidenceitemByNodeIdArgs = {
+  input: DeleteEvidenceitemByNodeIdInput;
 };
 
 export type MutationDeleteEvidenceitemArgs = {
   input: DeleteEvidenceitemInput;
 };
 
-export type MutationDeleteEvidenceitemByIdArgs = {
-  input: DeleteEvidenceitemByIdInput;
+export type MutationDeleteGuaranteeByNodeIdArgs = {
+  input: DeleteGuaranteeByNodeIdInput;
 };
 
 export type MutationDeleteGuaranteeArgs = {
   input: DeleteGuaranteeInput;
 };
 
-export type MutationDeleteGuaranteeByIdArgs = {
-  input: DeleteGuaranteeByIdInput;
+export type MutationDeleteGuaranteedProductByNodeIdArgs = {
+  input: DeleteGuaranteedProductByNodeIdInput;
 };
 
 export type MutationDeleteGuaranteedProductArgs = {
   input: DeleteGuaranteedProductInput;
 };
 
-export type MutationDeleteGuaranteedProductByIdArgs = {
-  input: DeleteGuaranteedProductByIdInput;
+export type MutationDeleteGuaranteedproductByNodeIdArgs = {
+  input: DeleteGuaranteedproductByNodeIdInput;
 };
 
 export type MutationDeleteGuaranteedproductArgs = {
   input: DeleteGuaranteedproductInput;
 };
 
-export type MutationDeleteGuaranteedproductByIdArgs = {
-  input: DeleteGuaranteedproductByIdInput;
+export type MutationDeleteInvitationByNodeIdArgs = {
+  input: DeleteInvitationByNodeIdInput;
 };
 
 export type MutationDeleteInvitationArgs = {
   input: DeleteInvitationInput;
 };
 
-export type MutationDeleteInvitationByIdArgs = {
-  input: DeleteInvitationByIdInput;
+export type MutationDeleteMarketByNodeIdArgs = {
+  input: DeleteMarketByNodeIdInput;
 };
 
 export type MutationDeleteMarketArgs = {
   input: DeleteMarketInput;
 };
 
-export type MutationDeleteMarketByIdArgs = {
-  input: DeleteMarketByIdInput;
+export type MutationDeleteMessageByNodeIdArgs = {
+  input: DeleteMessageByNodeIdInput;
 };
 
 export type MutationDeleteMessageArgs = {
   input: DeleteMessageInput;
 };
 
-export type MutationDeleteMessageByIdArgs = {
-  input: DeleteMessageByIdInput;
+export type MutationDeleteNoteByNodeIdArgs = {
+  input: DeleteNoteByNodeIdInput;
 };
 
 export type MutationDeleteNoteArgs = {
   input: DeleteNoteInput;
 };
 
-export type MutationDeleteNoteByIdArgs = {
-  input: DeleteNoteByIdInput;
+export type MutationDeleteNotificationByNodeIdArgs = {
+  input: DeleteNotificationByNodeIdInput;
 };
 
 export type MutationDeleteNotificationArgs = {
   input: DeleteNotificationInput;
 };
 
-export type MutationDeleteNotificationByIdArgs = {
-  input: DeleteNotificationByIdInput;
+export type MutationDeleteProductByNodeIdArgs = {
+  input: DeleteProductByNodeIdInput;
 };
 
 export type MutationDeleteProductArgs = {
   input: DeleteProductInput;
 };
 
-export type MutationDeleteProductByIdArgs = {
-  input: DeleteProductByIdInput;
+export type MutationDeleteProjectByNodeIdArgs = {
+  input: DeleteProjectByNodeIdInput;
 };
 
 export type MutationDeleteProjectArgs = {
   input: DeleteProjectInput;
 };
 
-export type MutationDeleteProjectByIdArgs = {
-  input: DeleteProjectByIdInput;
+export type MutationDeleteProjectMemberByNodeIdArgs = {
+  input: DeleteProjectMemberByNodeIdInput;
 };
 
 export type MutationDeleteProjectMemberArgs = {
   input: DeleteProjectMemberInput;
 };
 
-export type MutationDeleteProjectMemberByIdArgs = {
-  input: DeleteProjectMemberByIdInput;
+export type MutationDeleteProjectmemberByNodeIdArgs = {
+  input: DeleteProjectmemberByNodeIdInput;
 };
 
 export type MutationDeleteProjectmemberArgs = {
   input: DeleteProjectmemberInput;
 };
 
-export type MutationDeleteProjectmemberByIdArgs = {
-  input: DeleteProjectmemberByIdInput;
+export type MutationDeleteSystemByNodeIdArgs = {
+  input: DeleteSystemByNodeIdInput;
 };
 
 export type MutationDeleteSystemArgs = {
   input: DeleteSystemInput;
 };
 
-export type MutationDeleteSystemByIdArgs = {
-  input: DeleteSystemByIdInput;
+export type MutationDeleteSystemMemberByNodeIdArgs = {
+  input: DeleteSystemMemberByNodeIdInput;
 };
 
 export type MutationDeleteSystemMemberArgs = {
   input: DeleteSystemMemberInput;
 };
 
-export type MutationDeleteSystemMemberByIdArgs = {
-  input: DeleteSystemMemberByIdInput;
+export type MutationDeleteSystemmemberByNodeIdArgs = {
+  input: DeleteSystemmemberByNodeIdInput;
 };
 
 export type MutationDeleteSystemmemberArgs = {
   input: DeleteSystemmemberInput;
 };
 
-export type MutationDeleteSystemmemberByIdArgs = {
-  input: DeleteSystemmemberByIdInput;
+export type MutationDeleteTierOffsetByNodeIdArgs = {
+  input: DeleteTierOffsetByNodeIdInput;
 };
 
 export type MutationDeleteTierOffsetArgs = {
   input: DeleteTierOffsetInput;
 };
 
-export type MutationDeleteTierOffsetByIdArgs = {
-  input: DeleteTierOffsetByIdInput;
+export type MutationPublishMessageArgs = {
+  input: PublishInput;
 };
 
 export type MutationCreateUserArgs = {
@@ -9087,9 +8372,9 @@ export type Note = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Account` that is related to this `Note`. */
-  accountByAuthorId?: Maybe<Account>;
+  author?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Note`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
 };
 
 /** A condition to be used against `Note` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -9100,12 +8385,6 @@ export type NoteCondition = {
   authorId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `projectId` field. */
   projectId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `body` field. */
-  body?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Note` */
@@ -9140,7 +8419,7 @@ export type NotePatch = {
 export type NotesConnection = {
   __typename?: "NotesConnection";
   /** A list of `Note` objects. */
-  nodes: Array<Maybe<Note>>;
+  nodes: Array<Note>;
   /** A list of edges which contains the `Note` and cursor to aid in pagination. */
   edges: Array<NotesEdge>;
   /** Information to aid in pagination. */
@@ -9155,7 +8434,7 @@ export type NotesEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Note` at the end of the edge. */
-  node?: Maybe<Note>;
+  node: Note;
 };
 
 /** Methods to use when ordering `Note`. */
@@ -9167,12 +8446,6 @@ export enum NotesOrderBy {
   AuthorIdDesc = "AUTHOR_ID_DESC",
   ProjectIdAsc = "PROJECT_ID_ASC",
   ProjectIdDesc = "PROJECT_ID_DESC",
-  BodyAsc = "BODY_ASC",
-  BodyDesc = "BODY_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -9195,7 +8468,7 @@ export type Notification = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Account` that is related to this `Notification`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
 };
 
 export type NotificationBalloon = {
@@ -9213,16 +8486,6 @@ export type NotificationCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `accountId` field. */
   accountId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `sendDate` field. */
-  sendDate?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `unread` field. */
-  unread?: Maybe<Scalars["Boolean"]>;
-  /** Checks for equality with the object’s `body` field. */
-  body?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Notification` */
@@ -9261,7 +8524,7 @@ export type NotificationPatch = {
 export type NotificationsConnection = {
   __typename?: "NotificationsConnection";
   /** A list of `Notification` objects. */
-  nodes: Array<Maybe<Notification>>;
+  nodes: Array<Notification>;
   /** A list of edges which contains the `Notification` and cursor to aid in pagination. */
   edges: Array<NotificationsEdge>;
   /** Information to aid in pagination. */
@@ -9276,7 +8539,7 @@ export type NotificationsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Notification` at the end of the edge. */
-  node?: Maybe<Notification>;
+  node: Notification;
 };
 
 /** Methods to use when ordering `Notification`. */
@@ -9286,16 +8549,6 @@ export enum NotificationsOrderBy {
   IdDesc = "ID_DESC",
   AccountIdAsc = "ACCOUNT_ID_ASC",
   AccountIdDesc = "ACCOUNT_ID_DESC",
-  SendDateAsc = "SEND_DATE_ASC",
-  SendDateDesc = "SEND_DATE_DESC",
-  UnreadAsc = "UNREAD_ASC",
-  UnreadDesc = "UNREAD_DESC",
-  BodyAsc = "BODY_ASC",
-  BodyDesc = "BODY_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -9352,11 +8605,14 @@ export type Params = {
 export type PartnerBrand = Entry & {
   __typename?: "PartnerBrand";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<PartnerBrandLinkingCollections>;
   name?: Maybe<Scalars["String"]>;
-  image?: Maybe<ImageSet>;
+  image?: Maybe<Asset>;
+  logo?: Maybe<Asset>;
   description?: Maybe<PartnerBrandDescription>;
   shortDescription?: Maybe<Scalars["String"]>;
+  websiteUrl?: Maybe<Scalars["String"]>;
 };
 
 /** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
@@ -9376,12 +8632,23 @@ export type PartnerBrandImageArgs = {
 };
 
 /** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
+export type PartnerBrandLogoArgs = {
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandDescriptionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
 /** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
 export type PartnerBrandShortDescriptionArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
+export type PartnerBrandWebsiteUrlArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -9419,8 +8686,8 @@ export type PartnerBrandDescriptionLinks = {
 };
 
 export type PartnerBrandFilter = {
-  image?: Maybe<CfImageSetNestedFilter>;
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   name_exists?: Maybe<Scalars["Boolean"]>;
   name?: Maybe<Scalars["String"]>;
   name_not?: Maybe<Scalars["String"]>;
@@ -9429,6 +8696,7 @@ export type PartnerBrandFilter = {
   name_contains?: Maybe<Scalars["String"]>;
   name_not_contains?: Maybe<Scalars["String"]>;
   image_exists?: Maybe<Scalars["Boolean"]>;
+  logo_exists?: Maybe<Scalars["Boolean"]>;
   description_exists?: Maybe<Scalars["Boolean"]>;
   description_contains?: Maybe<Scalars["String"]>;
   description_not_contains?: Maybe<Scalars["String"]>;
@@ -9439,6 +8707,13 @@ export type PartnerBrandFilter = {
   shortDescription_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   shortDescription_contains?: Maybe<Scalars["String"]>;
   shortDescription_not_contains?: Maybe<Scalars["String"]>;
+  websiteUrl_exists?: Maybe<Scalars["Boolean"]>;
+  websiteUrl?: Maybe<Scalars["String"]>;
+  websiteUrl_not?: Maybe<Scalars["String"]>;
+  websiteUrl_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  websiteUrl_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  websiteUrl_contains?: Maybe<Scalars["String"]>;
+  websiteUrl_not_contains?: Maybe<Scalars["String"]>;
   OR?: Maybe<Array<Maybe<PartnerBrandFilter>>>;
   AND?: Maybe<Array<Maybe<PartnerBrandFilter>>>;
 };
@@ -9466,6 +8741,8 @@ export type PartnerBrandLinkingCollectionsMarketContentCollectionArgs = {
 export enum PartnerBrandOrder {
   NameAsc = "name_ASC",
   NameDesc = "name_DESC",
+  WebsiteUrlAsc = "websiteUrl_ASC",
+  WebsiteUrlDesc = "websiteUrl_DESC",
   SysIdAsc = "sys_id_ASC",
   SysIdDesc = "sys_id_DESC",
   SysPublishedAtAsc = "sys_publishedAt_ASC",
@@ -9533,15 +8810,15 @@ export type Product = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `Product`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads and enables pagination through a set of `GuaranteedProduct`. */
-  guaranteedProductsByProductId: GuaranteedProductsConnection;
+  guaranteedProducts: GuaranteedProductsConnection;
   /** Reads and enables pagination through a set of `SystemMember`. */
-  systemMembersByProductId: SystemMembersConnection;
+  systemMembers: SystemMembersConnection;
 };
 
 /** A product made by BMI */
-export type ProductGuaranteedProductsByProductIdArgs = {
+export type ProductGuaranteedProductsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -9552,7 +8829,7 @@ export type ProductGuaranteedProductsByProductIdArgs = {
 };
 
 /** A product made by BMI */
-export type ProductSystemMembersByProductIdArgs = {
+export type ProductSystemMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -9568,24 +8845,6 @@ export type ProductCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `technology` field. */
-  technology?: Maybe<Technology>;
-  /** Checks for equality with the object’s `brand` field. */
-  brand?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `description` field. */
-  description?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `family` field. */
-  family?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `published` field. */
-  published?: Maybe<Scalars["Boolean"]>;
-  /** Checks for equality with the object’s `validity` field. */
-  validity?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Product` */
@@ -9640,7 +8899,7 @@ export type ProductPatch = {
 export type ProductsConnection = {
   __typename?: "ProductsConnection";
   /** A list of `Product` objects. */
-  nodes: Array<Maybe<Product>>;
+  nodes: Array<Product>;
   /** A list of edges which contains the `Product` and cursor to aid in pagination. */
   edges: Array<ProductsEdge>;
   /** Information to aid in pagination. */
@@ -9655,7 +8914,7 @@ export type ProductsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Product` at the end of the edge. */
-  node?: Maybe<Product>;
+  node: Product;
 };
 
 /** Methods to use when ordering `Product`. */
@@ -9665,24 +8924,6 @@ export enum ProductsOrderBy {
   IdDesc = "ID_DESC",
   MarketIdAsc = "MARKET_ID_ASC",
   MarketIdDesc = "MARKET_ID_DESC",
-  TechnologyAsc = "TECHNOLOGY_ASC",
-  TechnologyDesc = "TECHNOLOGY_DESC",
-  BrandAsc = "BRAND_ASC",
-  BrandDesc = "BRAND_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  DescriptionAsc = "DESCRIPTION_ASC",
-  DescriptionDesc = "DESCRIPTION_DESC",
-  FamilyAsc = "FAMILY_ASC",
-  FamilyDesc = "FAMILY_DESC",
-  PublishedAsc = "PUBLISHED_ASC",
-  PublishedDesc = "PUBLISHED_DESC",
-  ValidityAsc = "VALIDITY_ASC",
-  ValidityDesc = "VALIDITY_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -9729,21 +8970,21 @@ export type Project = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `Project`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** Reads a single `Address` that is related to this `Project`. */
-  addressByBuildingOwnerAddressId?: Maybe<Address>;
+  buildingOwnerAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Project`. */
-  addressBySiteAddressId?: Maybe<Address>;
+  siteAddress?: Maybe<Address>;
   /** Reads and enables pagination through a set of `Guarantee`. */
-  guaranteesByProjectId: GuaranteesConnection;
+  guarantees: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Note`. */
-  notesByProjectId: NotesConnection;
+  notes: NotesConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
-  projectMembersByProjectId: ProjectMembersConnection;
+  projectMembers: ProjectMembersConnection;
 };
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
-export type ProjectGuaranteesByProjectIdArgs = {
+export type ProjectGuaranteesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -9754,7 +8995,7 @@ export type ProjectGuaranteesByProjectIdArgs = {
 };
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
-export type ProjectNotesByProjectIdArgs = {
+export type ProjectNotesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -9765,7 +9006,7 @@ export type ProjectNotesByProjectIdArgs = {
 };
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
-export type ProjectProjectMembersByProjectIdArgs = {
+export type ProjectProjectMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -9785,32 +9026,6 @@ export type ProjectCondition = {
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `siteAddressId` field. */
   siteAddressId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `technology` field. */
-  technology?: Maybe<Technology>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `description` field. */
-  description?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `hidden` field. */
-  hidden?: Maybe<Scalars["Boolean"]>;
-  /** Checks for equality with the object’s `roofArea` field. */
-  roofArea?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `buildingOwnerMail` field. */
-  buildingOwnerMail?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `buildingOwnerFirstname` field. */
-  buildingOwnerFirstname?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `buildingOwnerLastname` field. */
-  buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `buildingOwnerCompany` field. */
-  buildingOwnerCompany?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `startDate` field. */
-  startDate?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `endDate` field. */
-  endDate?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Project` */
@@ -9890,9 +9105,9 @@ export type ProjectMember = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Project` that is related to this `ProjectMember`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** Reads a single `Account` that is related to this `ProjectMember`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
 };
 
 /**
@@ -9902,14 +9117,6 @@ export type ProjectMember = Node & {
 export type ProjectmemberCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `project` field. */
-  project?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `member` field. */
-  member?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `added` field. */
-  added?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `removed` field. */
-  removed?: Maybe<Scalars["String"]>;
 };
 
 /**
@@ -9923,10 +9130,6 @@ export type ProjectMemberCondition = {
   projectId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `accountId` field. */
   accountId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Projectmember` */
@@ -9981,7 +9184,7 @@ export type ProjectMemberPatch = {
 export type ProjectmembersConnection = {
   __typename?: "ProjectmembersConnection";
   /** A list of `Projectmember` objects. */
-  nodes: Array<Maybe<Projectmember>>;
+  nodes: Array<Projectmember>;
   /** A list of edges which contains the `Projectmember` and cursor to aid in pagination. */
   edges: Array<ProjectmembersEdge>;
   /** Information to aid in pagination. */
@@ -9994,7 +9197,7 @@ export type ProjectmembersConnection = {
 export type ProjectMembersConnection = {
   __typename?: "ProjectMembersConnection";
   /** A list of `ProjectMember` objects. */
-  nodes: Array<Maybe<ProjectMember>>;
+  nodes: Array<ProjectMember>;
   /** A list of edges which contains the `ProjectMember` and cursor to aid in pagination. */
   edges: Array<ProjectMembersEdge>;
   /** Information to aid in pagination. */
@@ -10009,7 +9212,7 @@ export type ProjectmembersEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Projectmember` at the end of the edge. */
-  node?: Maybe<Projectmember>;
+  node: Projectmember;
 };
 
 /** A `ProjectMember` edge in the connection. */
@@ -10018,7 +9221,7 @@ export type ProjectMembersEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `ProjectMember` at the end of the edge. */
-  node?: Maybe<ProjectMember>;
+  node: ProjectMember;
 };
 
 /** Methods to use when ordering `Projectmember`. */
@@ -10026,14 +9229,6 @@ export enum ProjectmembersOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  ProjectAsc = "PROJECT_ASC",
-  ProjectDesc = "PROJECT_DESC",
-  MemberAsc = "MEMBER_ASC",
-  MemberDesc = "MEMBER_DESC",
-  AddedAsc = "ADDED_ASC",
-  AddedDesc = "ADDED_DESC",
-  RemovedAsc = "REMOVED_ASC",
-  RemovedDesc = "REMOVED_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -10047,10 +9242,6 @@ export enum ProjectMembersOrderBy {
   ProjectIdDesc = "PROJECT_ID_DESC",
   AccountIdAsc = "ACCOUNT_ID_ASC",
   AccountIdDesc = "ACCOUNT_ID_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -10099,7 +9290,7 @@ export type ProjectPatch = {
 export type ProjectsConnection = {
   __typename?: "ProjectsConnection";
   /** A list of `Project` objects. */
-  nodes: Array<Maybe<Project>>;
+  nodes: Array<Project>;
   /** A list of edges which contains the `Project` and cursor to aid in pagination. */
   edges: Array<ProjectsEdge>;
   /** Information to aid in pagination. */
@@ -10114,7 +9305,7 @@ export type ProjectsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Project` at the end of the edge. */
-  node?: Maybe<Project>;
+  node: Project;
 };
 
 /** Methods to use when ordering `Project`. */
@@ -10128,35 +9319,24 @@ export enum ProjectsOrderBy {
   BuildingOwnerAddressIdDesc = "BUILDING_OWNER_ADDRESS_ID_DESC",
   SiteAddressIdAsc = "SITE_ADDRESS_ID_ASC",
   SiteAddressIdDesc = "SITE_ADDRESS_ID_DESC",
-  TechnologyAsc = "TECHNOLOGY_ASC",
-  TechnologyDesc = "TECHNOLOGY_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  DescriptionAsc = "DESCRIPTION_ASC",
-  DescriptionDesc = "DESCRIPTION_DESC",
-  HiddenAsc = "HIDDEN_ASC",
-  HiddenDesc = "HIDDEN_DESC",
-  RoofAreaAsc = "ROOF_AREA_ASC",
-  RoofAreaDesc = "ROOF_AREA_DESC",
-  BuildingOwnerMailAsc = "BUILDING_OWNER_MAIL_ASC",
-  BuildingOwnerMailDesc = "BUILDING_OWNER_MAIL_DESC",
-  BuildingOwnerFirstnameAsc = "BUILDING_OWNER_FIRSTNAME_ASC",
-  BuildingOwnerFirstnameDesc = "BUILDING_OWNER_FIRSTNAME_DESC",
-  BuildingOwnerLastnameAsc = "BUILDING_OWNER_LASTNAME_ASC",
-  BuildingOwnerLastnameDesc = "BUILDING_OWNER_LASTNAME_DESC",
-  BuildingOwnerCompanyAsc = "BUILDING_OWNER_COMPANY_ASC",
-  BuildingOwnerCompanyDesc = "BUILDING_OWNER_COMPANY_DESC",
-  StartDateAsc = "START_DATE_ASC",
-  StartDateDesc = "START_DATE_DESC",
-  EndDateAsc = "END_DATE_ASC",
-  EndDateDesc = "END_DATE_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
+
+export type Publish = {
+  __typename?: "Publish";
+  title?: Maybe<Scalars["String"]>;
+  text?: Maybe<Scalars["String"]>;
+  html?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+};
+
+export type PublishInput = {
+  title?: Maybe<Scalars["String"]>;
+  text?: Maybe<Scalars["String"]>;
+  html?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+};
 
 export type PuManageSubscriptionPermission = {
   __typename?: "PuManageSubscriptionPermission";
@@ -10183,146 +9363,145 @@ export type Query = {
   /** Fetches an object given its globally unique `ID`. */
   node?: Maybe<Node>;
   /** Reads and enables pagination through a set of `Account`. */
-  allAccounts?: Maybe<AccountsConnection>;
+  accounts?: Maybe<AccountsConnection>;
   /** Reads and enables pagination through a set of `Address`. */
-  allAddresses?: Maybe<AddressesConnection>;
+  addresses?: Maybe<AddressesConnection>;
   /** Reads and enables pagination through a set of `Company`. */
-  allCompanies?: Maybe<CompaniesConnection>;
+  companies?: Maybe<CompaniesConnection>;
   /** Reads and enables pagination through a set of `CompanyDocument`. */
-  allCompanyDocuments?: Maybe<CompanyDocumentsConnection>;
+  companyDocuments?: Maybe<CompanyDocumentsConnection>;
   /** Reads and enables pagination through a set of `CompanyMember`. */
-  allCompanyMembers?: Maybe<CompanyMembersConnection>;
+  companyMembers?: Maybe<CompanyMembersConnection>;
   /** Reads and enables pagination through a set of `Companydocument`. */
-  allCompanydocuments?: Maybe<CompanydocumentsConnection>;
+  companydocuments?: Maybe<CompanydocumentsConnection>;
   /** Reads and enables pagination through a set of `Companymember`. */
-  allCompanymembers?: Maybe<CompanymembersConnection>;
+  companymembers?: Maybe<CompanymembersConnection>;
   /** Reads and enables pagination through a set of `Companymembership`. */
-  allCompanymemberships?: Maybe<CompanymembershipsConnection>;
+  companymemberships?: Maybe<CompanymembershipsConnection>;
   /** Reads and enables pagination through a set of `Contactdetail`. */
-  allContactdetails?: Maybe<ContactdetailsConnection>;
+  contactdetails?: Maybe<ContactdetailsConnection>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
-  allEvidenceItems?: Maybe<EvidenceItemsConnection>;
+  evidenceItems?: Maybe<EvidenceItemsConnection>;
   /** Reads and enables pagination through a set of `Evidenceitem`. */
-  allEvidenceitems?: Maybe<EvidenceitemsConnection>;
+  evidenceitems?: Maybe<EvidenceitemsConnection>;
   /** Reads and enables pagination through a set of `Guarantee`. */
-  allGuarantees?: Maybe<GuaranteesConnection>;
+  guarantees?: Maybe<GuaranteesConnection>;
   /** Reads and enables pagination through a set of `GuaranteedProduct`. */
-  allGuaranteedProducts?: Maybe<GuaranteedProductsConnection>;
+  guaranteedProducts?: Maybe<GuaranteedProductsConnection>;
   /** Reads and enables pagination through a set of `Guaranteedproduct`. */
-  allGuaranteedproducts?: Maybe<GuaranteedproductsConnection>;
+  guaranteedproducts?: Maybe<GuaranteedproductsConnection>;
   /** Reads and enables pagination through a set of `Invitation`. */
-  allInvitations?: Maybe<InvitationsConnection>;
+  invitations?: Maybe<InvitationsConnection>;
   /** Reads and enables pagination through a set of `Market`. */
-  allMarkets?: Maybe<MarketsConnection>;
+  markets?: Maybe<MarketsConnection>;
   /** Reads and enables pagination through a set of `Message`. */
-  allMessages?: Maybe<MessagesConnection>;
+  messages?: Maybe<MessagesConnection>;
   /** Reads and enables pagination through a set of `Note`. */
-  allNotes?: Maybe<NotesConnection>;
+  notes?: Maybe<NotesConnection>;
   /** Reads and enables pagination through a set of `Notification`. */
-  allNotifications?: Maybe<NotificationsConnection>;
+  notifications?: Maybe<NotificationsConnection>;
   /** Reads and enables pagination through a set of `Product`. */
-  allProducts?: Maybe<ProductsConnection>;
+  products?: Maybe<ProductsConnection>;
   /** Reads and enables pagination through a set of `Project`. */
-  allProjects?: Maybe<ProjectsConnection>;
+  projects?: Maybe<ProjectsConnection>;
   /** Reads and enables pagination through a set of `ProjectMember`. */
-  allProjectMembers?: Maybe<ProjectMembersConnection>;
+  projectMembers?: Maybe<ProjectMembersConnection>;
   /** Reads and enables pagination through a set of `Projectmember`. */
-  allProjectmembers?: Maybe<ProjectmembersConnection>;
+  projectmembers?: Maybe<ProjectmembersConnection>;
   /** Reads and enables pagination through a set of `System`. */
-  allSystems?: Maybe<SystemsConnection>;
+  systems?: Maybe<SystemsConnection>;
   /** Reads and enables pagination through a set of `SystemMember`. */
-  allSystemMembers?: Maybe<SystemMembersConnection>;
+  systemMembers?: Maybe<SystemMembersConnection>;
   /** Reads and enables pagination through a set of `Systemmember`. */
-  allSystemmembers?: Maybe<SystemmembersConnection>;
+  systemmembers?: Maybe<SystemmembersConnection>;
   /** Reads and enables pagination through a set of `TierOffset`. */
-  allTierOffsets?: Maybe<TierOffsetsConnection>;
-  accountById?: Maybe<Account>;
-  addressById?: Maybe<Address>;
-  companyById?: Maybe<Company>;
-  companyDocumentById?: Maybe<CompanyDocument>;
-  companyMemberById?: Maybe<CompanyMember>;
-  companydocumentById?: Maybe<Companydocument>;
-  companymemberById?: Maybe<Companymember>;
-  companymembershipById?: Maybe<Companymembership>;
-  contactdetailById?: Maybe<Contactdetail>;
-  evidenceItemById?: Maybe<EvidenceItem>;
-  evidenceitemById?: Maybe<Evidenceitem>;
-  guaranteeById?: Maybe<Guarantee>;
-  guaranteedProductById?: Maybe<GuaranteedProduct>;
-  guaranteedproductById?: Maybe<Guaranteedproduct>;
-  invitationById?: Maybe<Invitation>;
-  marketById?: Maybe<Market>;
-  messageById?: Maybe<Message>;
-  noteById?: Maybe<Note>;
-  notificationById?: Maybe<Notification>;
-  productById?: Maybe<Product>;
-  projectById?: Maybe<Project>;
-  projectMemberById?: Maybe<ProjectMember>;
-  projectmemberById?: Maybe<Projectmember>;
-  systemById?: Maybe<System>;
-  systemMemberById?: Maybe<SystemMember>;
-  systemmemberById?: Maybe<Systemmember>;
-  tierOffsetById?: Maybe<TierOffset>;
+  tierOffsets?: Maybe<TierOffsetsConnection>;
+  account?: Maybe<Account>;
+  address?: Maybe<Address>;
+  company?: Maybe<Company>;
+  companyDocument?: Maybe<CompanyDocument>;
+  companyMember?: Maybe<CompanyMember>;
+  companydocument?: Maybe<Companydocument>;
+  companymember?: Maybe<Companymember>;
+  companymembership?: Maybe<Companymembership>;
+  contactdetail?: Maybe<Contactdetail>;
+  evidenceItem?: Maybe<EvidenceItem>;
+  evidenceitem?: Maybe<Evidenceitem>;
+  guarantee?: Maybe<Guarantee>;
+  guaranteedProduct?: Maybe<GuaranteedProduct>;
+  guaranteedproduct?: Maybe<Guaranteedproduct>;
+  invitation?: Maybe<Invitation>;
+  market?: Maybe<Market>;
+  message?: Maybe<Message>;
+  note?: Maybe<Note>;
+  notification?: Maybe<Notification>;
+  product?: Maybe<Product>;
+  project?: Maybe<Project>;
+  projectMember?: Maybe<ProjectMember>;
+  projectmember?: Maybe<Projectmember>;
+  system?: Maybe<System>;
+  systemMember?: Maybe<SystemMember>;
+  systemmember?: Maybe<Systemmember>;
+  tierOffset?: Maybe<TierOffset>;
   currentAccount?: Maybe<Scalars["Int"]>;
   currentCompany?: Maybe<Scalars["Int"]>;
   currentMarket?: Maybe<Scalars["Int"]>;
   isPartOfProject?: Maybe<IsPartOfProjectConnection>;
   isProjectEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reads a single `Account` using its globally unique `ID`. */
-  account?: Maybe<Account>;
+  accountByNodeId?: Maybe<Account>;
   /** Reads a single `Address` using its globally unique `ID`. */
-  address?: Maybe<Address>;
+  addressByNodeId?: Maybe<Address>;
   /** Reads a single `Company` using its globally unique `ID`. */
-  company?: Maybe<Company>;
+  companyByNodeId?: Maybe<Company>;
   /** Reads a single `CompanyDocument` using its globally unique `ID`. */
-  companyDocument?: Maybe<CompanyDocument>;
+  companyDocumentByNodeId?: Maybe<CompanyDocument>;
   /** Reads a single `CompanyMember` using its globally unique `ID`. */
-  companyMember?: Maybe<CompanyMember>;
+  companyMemberByNodeId?: Maybe<CompanyMember>;
   /** Reads a single `Companydocument` using its globally unique `ID`. */
-  companydocument?: Maybe<Companydocument>;
+  companydocumentByNodeId?: Maybe<Companydocument>;
   /** Reads a single `Companymember` using its globally unique `ID`. */
-  companymember?: Maybe<Companymember>;
+  companymemberByNodeId?: Maybe<Companymember>;
   /** Reads a single `Companymembership` using its globally unique `ID`. */
-  companymembership?: Maybe<Companymembership>;
+  companymembershipByNodeId?: Maybe<Companymembership>;
   /** Reads a single `Contactdetail` using its globally unique `ID`. */
-  contactdetail?: Maybe<Contactdetail>;
+  contactdetailByNodeId?: Maybe<Contactdetail>;
   /** Reads a single `EvidenceItem` using its globally unique `ID`. */
-  evidenceItem?: Maybe<EvidenceItem>;
+  evidenceItemByNodeId?: Maybe<EvidenceItem>;
   /** Reads a single `Evidenceitem` using its globally unique `ID`. */
-  evidenceitem?: Maybe<Evidenceitem>;
+  evidenceitemByNodeId?: Maybe<Evidenceitem>;
   /** Reads a single `Guarantee` using its globally unique `ID`. */
-  guarantee?: Maybe<Guarantee>;
+  guaranteeByNodeId?: Maybe<Guarantee>;
   /** Reads a single `GuaranteedProduct` using its globally unique `ID`. */
-  guaranteedProduct?: Maybe<GuaranteedProduct>;
+  guaranteedProductByNodeId?: Maybe<GuaranteedProduct>;
   /** Reads a single `Guaranteedproduct` using its globally unique `ID`. */
-  guaranteedproduct?: Maybe<Guaranteedproduct>;
+  guaranteedproductByNodeId?: Maybe<Guaranteedproduct>;
   /** Reads a single `Invitation` using its globally unique `ID`. */
-  invitation?: Maybe<Invitation>;
+  invitationByNodeId?: Maybe<Invitation>;
   /** Reads a single `Market` using its globally unique `ID`. */
-  market?: Maybe<Market>;
+  marketByNodeId?: Maybe<Market>;
   /** Reads a single `Message` using its globally unique `ID`. */
-  message?: Maybe<Message>;
+  messageByNodeId?: Maybe<Message>;
   /** Reads a single `Note` using its globally unique `ID`. */
-  note?: Maybe<Note>;
+  noteByNodeId?: Maybe<Note>;
   /** Reads a single `Notification` using its globally unique `ID`. */
-  notification?: Maybe<Notification>;
+  notificationByNodeId?: Maybe<Notification>;
   /** Reads a single `Product` using its globally unique `ID`. */
-  product?: Maybe<Product>;
+  productByNodeId?: Maybe<Product>;
   /** Reads a single `Project` using its globally unique `ID`. */
-  project?: Maybe<Project>;
+  projectByNodeId?: Maybe<Project>;
   /** Reads a single `ProjectMember` using its globally unique `ID`. */
-  projectMember?: Maybe<ProjectMember>;
+  projectMemberByNodeId?: Maybe<ProjectMember>;
   /** Reads a single `Projectmember` using its globally unique `ID`. */
-  projectmember?: Maybe<Projectmember>;
+  projectmemberByNodeId?: Maybe<Projectmember>;
   /** Reads a single `System` using its globally unique `ID`. */
-  system?: Maybe<System>;
+  systemByNodeId?: Maybe<System>;
   /** Reads a single `SystemMember` using its globally unique `ID`. */
-  systemMember?: Maybe<SystemMember>;
+  systemMemberByNodeId?: Maybe<SystemMember>;
   /** Reads a single `Systemmember` using its globally unique `ID`. */
-  systemmember?: Maybe<Systemmember>;
+  systemmemberByNodeId?: Maybe<Systemmember>;
   /** Reads a single `TierOffset` using its globally unique `ID`. */
-  tierOffset?: Maybe<TierOffset>;
-  me?: Maybe<User>;
+  tierOffsetByNodeId?: Maybe<TierOffset>;
   checkUserValidatiy?: Maybe<UserValidatiy>;
   token?: Maybe<TokenInfo>;
   tokenByJwtPayload?: Maybe<TokenInfo>;
@@ -10338,47 +9517,44 @@ export type Query = {
   certificationsReport?: Maybe<CertificationReportData>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
-  guaranteeTemplate?: Maybe<GuaranteeTemplate>;
-  guaranteeTemplateCollection?: Maybe<GuaranteeTemplateCollection>;
-  trainingContent?: Maybe<TrainingContent>;
-  trainingContentCollection?: Maybe<TrainingContentCollection>;
-  guaranteeType?: Maybe<GuaranteeType>;
-  guaranteeTypeCollection?: Maybe<GuaranteeTypeCollection>;
-  carouselItem?: Maybe<CarouselItem>;
-  carouselItemCollection?: Maybe<CarouselItemCollection>;
-  carousel?: Maybe<Carousel>;
-  carouselCollection?: Maybe<CarouselCollection>;
   messageTemplate?: Maybe<MessageTemplate>;
   messageTemplateCollection?: Maybe<MessageTemplateCollection>;
   evidenceCategory?: Maybe<EvidenceCategory>;
   evidenceCategoryCollection?: Maybe<EvidenceCategoryCollection>;
+  marketContent?: Maybe<MarketContent>;
+  marketContentCollection?: Maybe<MarketContentCollection>;
+  carouselItem?: Maybe<CarouselItem>;
+  carouselItemCollection?: Maybe<CarouselItemCollection>;
+  guaranteeType?: Maybe<GuaranteeType>;
+  guaranteeTypeCollection?: Maybe<GuaranteeTypeCollection>;
+  tierBenefit?: Maybe<TierBenefit>;
+  tierBenefitCollection?: Maybe<TierBenefitCollection>;
+  trainingContent?: Maybe<TrainingContent>;
+  trainingContentCollection?: Maybe<TrainingContentCollection>;
+  carousel?: Maybe<Carousel>;
+  carouselCollection?: Maybe<CarouselCollection>;
   partnerBrand?: Maybe<PartnerBrand>;
   partnerBrandCollection?: Maybe<PartnerBrandCollection>;
+  contactDetails?: Maybe<ContactDetails>;
+  contactDetailsCollection?: Maybe<ContactDetailsCollection>;
+  guaranteeTemplate?: Maybe<GuaranteeTemplate>;
+  guaranteeTemplateCollection?: Maybe<GuaranteeTemplateCollection>;
   mediaTool?: Maybe<MediaTool>;
   mediaToolCollection?: Maybe<MediaToolCollection>;
   mediaFolder?: Maybe<MediaFolder>;
   mediaFolderCollection?: Maybe<MediaFolderCollection>;
-  marketContent?: Maybe<MarketContent>;
-  marketContentCollection?: Maybe<MarketContentCollection>;
-  imageSet?: Maybe<ImageSet>;
-  imageSetCollection?: Maybe<ImageSetCollection>;
-  externalLink?: Maybe<ExternalLink>;
-  externalLinkCollection?: Maybe<ExternalLinkCollection>;
   contentArticle?: Maybe<ContentArticle>;
   contentArticleCollection?: Maybe<ContentArticleCollection>;
-  contactDetails?: Maybe<ContactDetails>;
-  contactDetailsCollection?: Maybe<ContactDetailsCollection>;
-  benefit?: Maybe<Benefit>;
-  benefitCollection?: Maybe<BenefitCollection>;
   migration?: Maybe<Migration>;
   migrationCollection?: Maybe<MigrationCollection>;
+  entryCollection?: Maybe<EntryCollection>;
 };
 
 export type QueryNodeArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryAllAccountsArgs = {
+export type QueryAccountsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10388,7 +9564,7 @@ export type QueryAllAccountsArgs = {
   condition?: Maybe<AccountCondition>;
 };
 
-export type QueryAllAddressesArgs = {
+export type QueryAddressesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10398,7 +9574,7 @@ export type QueryAllAddressesArgs = {
   condition?: Maybe<AddressCondition>;
 };
 
-export type QueryAllCompaniesArgs = {
+export type QueryCompaniesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10408,7 +9584,7 @@ export type QueryAllCompaniesArgs = {
   condition?: Maybe<CompanyCondition>;
 };
 
-export type QueryAllCompanyDocumentsArgs = {
+export type QueryCompanyDocumentsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10418,7 +9594,7 @@ export type QueryAllCompanyDocumentsArgs = {
   condition?: Maybe<CompanyDocumentCondition>;
 };
 
-export type QueryAllCompanyMembersArgs = {
+export type QueryCompanyMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10428,7 +9604,7 @@ export type QueryAllCompanyMembersArgs = {
   condition?: Maybe<CompanyMemberCondition>;
 };
 
-export type QueryAllCompanydocumentsArgs = {
+export type QueryCompanydocumentsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10438,7 +9614,7 @@ export type QueryAllCompanydocumentsArgs = {
   condition?: Maybe<CompanydocumentCondition>;
 };
 
-export type QueryAllCompanymembersArgs = {
+export type QueryCompanymembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10448,7 +9624,7 @@ export type QueryAllCompanymembersArgs = {
   condition?: Maybe<CompanymemberCondition>;
 };
 
-export type QueryAllCompanymembershipsArgs = {
+export type QueryCompanymembershipsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10458,7 +9634,7 @@ export type QueryAllCompanymembershipsArgs = {
   condition?: Maybe<CompanymembershipCondition>;
 };
 
-export type QueryAllContactdetailsArgs = {
+export type QueryContactdetailsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10468,7 +9644,7 @@ export type QueryAllContactdetailsArgs = {
   condition?: Maybe<ContactdetailCondition>;
 };
 
-export type QueryAllEvidenceItemsArgs = {
+export type QueryEvidenceItemsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10478,7 +9654,7 @@ export type QueryAllEvidenceItemsArgs = {
   condition?: Maybe<EvidenceItemCondition>;
 };
 
-export type QueryAllEvidenceitemsArgs = {
+export type QueryEvidenceitemsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10488,7 +9664,7 @@ export type QueryAllEvidenceitemsArgs = {
   condition?: Maybe<EvidenceitemCondition>;
 };
 
-export type QueryAllGuaranteesArgs = {
+export type QueryGuaranteesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10498,7 +9674,7 @@ export type QueryAllGuaranteesArgs = {
   condition?: Maybe<GuaranteeCondition>;
 };
 
-export type QueryAllGuaranteedProductsArgs = {
+export type QueryGuaranteedProductsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10508,7 +9684,7 @@ export type QueryAllGuaranteedProductsArgs = {
   condition?: Maybe<GuaranteedProductCondition>;
 };
 
-export type QueryAllGuaranteedproductsArgs = {
+export type QueryGuaranteedproductsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10518,7 +9694,7 @@ export type QueryAllGuaranteedproductsArgs = {
   condition?: Maybe<GuaranteedproductCondition>;
 };
 
-export type QueryAllInvitationsArgs = {
+export type QueryInvitationsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10528,7 +9704,7 @@ export type QueryAllInvitationsArgs = {
   condition?: Maybe<InvitationCondition>;
 };
 
-export type QueryAllMarketsArgs = {
+export type QueryMarketsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10538,7 +9714,7 @@ export type QueryAllMarketsArgs = {
   condition?: Maybe<MarketCondition>;
 };
 
-export type QueryAllMessagesArgs = {
+export type QueryMessagesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10548,7 +9724,7 @@ export type QueryAllMessagesArgs = {
   condition?: Maybe<MessageCondition>;
 };
 
-export type QueryAllNotesArgs = {
+export type QueryNotesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10558,7 +9734,7 @@ export type QueryAllNotesArgs = {
   condition?: Maybe<NoteCondition>;
 };
 
-export type QueryAllNotificationsArgs = {
+export type QueryNotificationsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10568,7 +9744,7 @@ export type QueryAllNotificationsArgs = {
   condition?: Maybe<NotificationCondition>;
 };
 
-export type QueryAllProductsArgs = {
+export type QueryProductsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10578,7 +9754,7 @@ export type QueryAllProductsArgs = {
   condition?: Maybe<ProductCondition>;
 };
 
-export type QueryAllProjectsArgs = {
+export type QueryProjectsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10588,7 +9764,7 @@ export type QueryAllProjectsArgs = {
   condition?: Maybe<ProjectCondition>;
 };
 
-export type QueryAllProjectMembersArgs = {
+export type QueryProjectMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10598,7 +9774,7 @@ export type QueryAllProjectMembersArgs = {
   condition?: Maybe<ProjectMemberCondition>;
 };
 
-export type QueryAllProjectmembersArgs = {
+export type QueryProjectmembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10608,7 +9784,7 @@ export type QueryAllProjectmembersArgs = {
   condition?: Maybe<ProjectmemberCondition>;
 };
 
-export type QueryAllSystemsArgs = {
+export type QuerySystemsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10618,7 +9794,7 @@ export type QueryAllSystemsArgs = {
   condition?: Maybe<SystemCondition>;
 };
 
-export type QueryAllSystemMembersArgs = {
+export type QuerySystemMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10628,7 +9804,7 @@ export type QueryAllSystemMembersArgs = {
   condition?: Maybe<SystemMemberCondition>;
 };
 
-export type QueryAllSystemmembersArgs = {
+export type QuerySystemmembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10638,7 +9814,7 @@ export type QueryAllSystemmembersArgs = {
   condition?: Maybe<SystemmemberCondition>;
 };
 
-export type QueryAllTierOffsetsArgs = {
+export type QueryTierOffsetsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -10648,111 +9824,111 @@ export type QueryAllTierOffsetsArgs = {
   condition?: Maybe<TierOffsetCondition>;
 };
 
-export type QueryAccountByIdArgs = {
+export type QueryAccountArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryAddressByIdArgs = {
+export type QueryAddressArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryCompanyByIdArgs = {
+export type QueryCompanyArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryCompanyDocumentByIdArgs = {
+export type QueryCompanyDocumentArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryCompanyMemberByIdArgs = {
+export type QueryCompanyMemberArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryCompanydocumentByIdArgs = {
+export type QueryCompanydocumentArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryCompanymemberByIdArgs = {
+export type QueryCompanymemberArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryCompanymembershipByIdArgs = {
+export type QueryCompanymembershipArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryContactdetailByIdArgs = {
+export type QueryContactdetailArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryEvidenceItemByIdArgs = {
+export type QueryEvidenceItemArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryEvidenceitemByIdArgs = {
+export type QueryEvidenceitemArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryGuaranteeByIdArgs = {
+export type QueryGuaranteeArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryGuaranteedProductByIdArgs = {
+export type QueryGuaranteedProductArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryGuaranteedproductByIdArgs = {
+export type QueryGuaranteedproductArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryInvitationByIdArgs = {
+export type QueryInvitationArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryMarketByIdArgs = {
+export type QueryMarketArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryMessageByIdArgs = {
+export type QueryMessageArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryNoteByIdArgs = {
+export type QueryNoteArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryNotificationByIdArgs = {
+export type QueryNotificationArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryProductByIdArgs = {
+export type QueryProductArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryProjectByIdArgs = {
+export type QueryProjectArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryProjectMemberByIdArgs = {
+export type QueryProjectMemberArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryProjectmemberByIdArgs = {
+export type QueryProjectmemberArgs = {
   id: Scalars["Int"];
 };
 
-export type QuerySystemByIdArgs = {
+export type QuerySystemArgs = {
   id: Scalars["Int"];
 };
 
-export type QuerySystemMemberByIdArgs = {
+export type QuerySystemMemberArgs = {
   id: Scalars["Int"];
 };
 
-export type QuerySystemmemberByIdArgs = {
+export type QuerySystemmemberArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryTierOffsetByIdArgs = {
+export type QueryTierOffsetArgs = {
   id: Scalars["Int"];
 };
 
@@ -10764,111 +9940,111 @@ export type QueryIsPartOfProjectArgs = {
   after?: Maybe<Scalars["Cursor"]>;
 };
 
-export type QueryAccountArgs = {
+export type QueryAccountByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryAddressArgs = {
+export type QueryAddressByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryCompanyArgs = {
+export type QueryCompanyByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryCompanyDocumentArgs = {
+export type QueryCompanyDocumentByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryCompanyMemberArgs = {
+export type QueryCompanyMemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryCompanydocumentArgs = {
+export type QueryCompanydocumentByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryCompanymemberArgs = {
+export type QueryCompanymemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryCompanymembershipArgs = {
+export type QueryCompanymembershipByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryContactdetailArgs = {
+export type QueryContactdetailByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryEvidenceItemArgs = {
+export type QueryEvidenceItemByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryEvidenceitemArgs = {
+export type QueryEvidenceitemByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryGuaranteeArgs = {
+export type QueryGuaranteeByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryGuaranteedProductArgs = {
+export type QueryGuaranteedProductByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryGuaranteedproductArgs = {
+export type QueryGuaranteedproductByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryInvitationArgs = {
+export type QueryInvitationByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryMarketArgs = {
+export type QueryMarketByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryMessageArgs = {
+export type QueryMessageByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryNoteArgs = {
+export type QueryNoteByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryNotificationArgs = {
+export type QueryNotificationByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryProductArgs = {
+export type QueryProductByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryProjectArgs = {
+export type QueryProjectByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryProjectMemberArgs = {
+export type QueryProjectMemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryProjectmemberArgs = {
+export type QueryProjectmemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QuerySystemArgs = {
+export type QuerySystemByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QuerySystemMemberArgs = {
+export type QuerySystemMemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QuerySystemmemberArgs = {
+export type QuerySystemmemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryTierOffsetArgs = {
+export type QueryTierOffsetByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
@@ -10925,81 +10101,6 @@ export type QueryAssetCollectionArgs = {
   order?: Maybe<Array<Maybe<AssetOrder>>>;
 };
 
-export type QueryGuaranteeTemplateArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryGuaranteeTemplateCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<GuaranteeTemplateFilter>;
-  order?: Maybe<Array<Maybe<GuaranteeTemplateOrder>>>;
-};
-
-export type QueryTrainingContentArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryTrainingContentCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<TrainingContentFilter>;
-  order?: Maybe<Array<Maybe<TrainingContentOrder>>>;
-};
-
-export type QueryGuaranteeTypeArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryGuaranteeTypeCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<GuaranteeTypeFilter>;
-  order?: Maybe<Array<Maybe<GuaranteeTypeOrder>>>;
-};
-
-export type QueryCarouselItemArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryCarouselItemCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<CarouselItemFilter>;
-  order?: Maybe<Array<Maybe<CarouselItemOrder>>>;
-};
-
-export type QueryCarouselArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryCarouselCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<CarouselFilter>;
-  order?: Maybe<Array<Maybe<CarouselOrder>>>;
-};
-
 export type QueryMessageTemplateArgs = {
   id: Scalars["String"];
   preview?: Maybe<Scalars["Boolean"]>;
@@ -11030,6 +10131,96 @@ export type QueryEvidenceCategoryCollectionArgs = {
   order?: Maybe<Array<Maybe<EvidenceCategoryOrder>>>;
 };
 
+export type QueryMarketContentArgs = {
+  id: Scalars["String"];
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type QueryMarketContentCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<MarketContentFilter>;
+  order?: Maybe<Array<Maybe<MarketContentOrder>>>;
+};
+
+export type QueryCarouselItemArgs = {
+  id: Scalars["String"];
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type QueryCarouselItemCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<CarouselItemFilter>;
+  order?: Maybe<Array<Maybe<CarouselItemOrder>>>;
+};
+
+export type QueryGuaranteeTypeArgs = {
+  id: Scalars["String"];
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type QueryGuaranteeTypeCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<GuaranteeTypeFilter>;
+  order?: Maybe<Array<Maybe<GuaranteeTypeOrder>>>;
+};
+
+export type QueryTierBenefitArgs = {
+  id: Scalars["String"];
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type QueryTierBenefitCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<TierBenefitFilter>;
+  order?: Maybe<Array<Maybe<TierBenefitOrder>>>;
+};
+
+export type QueryTrainingContentArgs = {
+  id: Scalars["String"];
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type QueryTrainingContentCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<TrainingContentFilter>;
+  order?: Maybe<Array<Maybe<TrainingContentOrder>>>;
+};
+
+export type QueryCarouselArgs = {
+  id: Scalars["String"];
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type QueryCarouselCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<CarouselFilter>;
+  order?: Maybe<Array<Maybe<CarouselOrder>>>;
+};
+
 export type QueryPartnerBrandArgs = {
   id: Scalars["String"];
   preview?: Maybe<Scalars["Boolean"]>;
@@ -11043,6 +10234,36 @@ export type QueryPartnerBrandCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
   where?: Maybe<PartnerBrandFilter>;
   order?: Maybe<Array<Maybe<PartnerBrandOrder>>>;
+};
+
+export type QueryContactDetailsArgs = {
+  id: Scalars["String"];
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type QueryContactDetailsCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<ContactDetailsFilter>;
+  order?: Maybe<Array<Maybe<ContactDetailsOrder>>>;
+};
+
+export type QueryGuaranteeTemplateArgs = {
+  id: Scalars["String"];
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type QueryGuaranteeTemplateCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<GuaranteeTemplateFilter>;
+  order?: Maybe<Array<Maybe<GuaranteeTemplateOrder>>>;
 };
 
 export type QueryMediaToolArgs = {
@@ -11075,51 +10296,6 @@ export type QueryMediaFolderCollectionArgs = {
   order?: Maybe<Array<Maybe<MediaFolderOrder>>>;
 };
 
-export type QueryMarketContentArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryMarketContentCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<MarketContentFilter>;
-  order?: Maybe<Array<Maybe<MarketContentOrder>>>;
-};
-
-export type QueryImageSetArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryImageSetCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<ImageSetFilter>;
-  order?: Maybe<Array<Maybe<ImageSetOrder>>>;
-};
-
-export type QueryExternalLinkArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryExternalLinkCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<ExternalLinkFilter>;
-  order?: Maybe<Array<Maybe<ExternalLinkOrder>>>;
-};
-
 export type QueryContentArticleArgs = {
   id: Scalars["String"];
   preview?: Maybe<Scalars["Boolean"]>;
@@ -11135,36 +10311,6 @@ export type QueryContentArticleCollectionArgs = {
   order?: Maybe<Array<Maybe<ContentArticleOrder>>>;
 };
 
-export type QueryContactDetailsArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryContactDetailsCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<ContactDetailsFilter>;
-  order?: Maybe<Array<Maybe<ContactDetailsOrder>>>;
-};
-
-export type QueryBenefitArgs = {
-  id: Scalars["String"];
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-};
-
-export type QueryBenefitCollectionArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  preview?: Maybe<Scalars["Boolean"]>;
-  locale?: Maybe<Scalars["String"]>;
-  where?: Maybe<BenefitFilter>;
-  order?: Maybe<Array<Maybe<BenefitOrder>>>;
-};
-
 export type QueryMigrationArgs = {
   id: Scalars["String"];
   preview?: Maybe<Scalars["Boolean"]>;
@@ -11178,6 +10324,15 @@ export type QueryMigrationCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
   where?: Maybe<MigrationFilter>;
   order?: Maybe<Array<Maybe<MigrationOrder>>>;
+};
+
+export type QueryEntryCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+  where?: Maybe<EntryFilter>;
+  order?: Maybe<Array<Maybe<EntryOrder>>>;
 };
 
 export enum RequestStatus {
@@ -11359,15 +10514,15 @@ export type System = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `System`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads and enables pagination through a set of `Guarantee`. */
-  guaranteesBySystemId: GuaranteesConnection;
+  guarantees: GuaranteesConnection;
   /** Reads and enables pagination through a set of `SystemMember`. */
-  systemMembersBySystemId: SystemMembersConnection;
+  systemMembers: SystemMembersConnection;
 };
 
 /** A collection of products that can be guaranteed as a system */
-export type SystemGuaranteesBySystemIdArgs = {
+export type SystemGuaranteesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -11378,7 +10533,7 @@ export type SystemGuaranteesBySystemIdArgs = {
 };
 
 /** A collection of products that can be guaranteed as a system */
-export type SystemSystemMembersBySystemIdArgs = {
+export type SystemSystemMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -11394,18 +10549,6 @@ export type SystemCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `technology` field. */
-  technology?: Maybe<Technology>;
-  /** Checks for equality with the object’s `name` field. */
-  name?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `description` field. */
-  description?: Maybe<Scalars["String"]>;
-  /** Checks for equality with the object’s `maximumValidity` field. */
-  maximumValidity?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `System` */
@@ -11453,9 +10596,9 @@ export type SystemMember = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `System` that is related to this `SystemMember`. */
-  systemBySystemId?: Maybe<System>;
+  system?: Maybe<System>;
   /** Reads a single `Product` that is related to this `SystemMember`. */
-  productByProductId?: Maybe<Product>;
+  product?: Maybe<Product>;
 };
 
 /**
@@ -11465,10 +10608,6 @@ export type SystemMember = Node & {
 export type SystemmemberCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `system` field. */
-  system?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `product` field. */
-  product?: Maybe<Scalars["Int"]>;
 };
 
 /**
@@ -11482,10 +10621,6 @@ export type SystemMemberCondition = {
   systemId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `productId` field. */
   productId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `Systemmember` */
@@ -11536,7 +10671,7 @@ export type SystemMemberPatch = {
 export type SystemmembersConnection = {
   __typename?: "SystemmembersConnection";
   /** A list of `Systemmember` objects. */
-  nodes: Array<Maybe<Systemmember>>;
+  nodes: Array<Systemmember>;
   /** A list of edges which contains the `Systemmember` and cursor to aid in pagination. */
   edges: Array<SystemmembersEdge>;
   /** Information to aid in pagination. */
@@ -11549,7 +10684,7 @@ export type SystemmembersConnection = {
 export type SystemMembersConnection = {
   __typename?: "SystemMembersConnection";
   /** A list of `SystemMember` objects. */
-  nodes: Array<Maybe<SystemMember>>;
+  nodes: Array<SystemMember>;
   /** A list of edges which contains the `SystemMember` and cursor to aid in pagination. */
   edges: Array<SystemMembersEdge>;
   /** Information to aid in pagination. */
@@ -11564,7 +10699,7 @@ export type SystemmembersEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `Systemmember` at the end of the edge. */
-  node?: Maybe<Systemmember>;
+  node: Systemmember;
 };
 
 /** A `SystemMember` edge in the connection. */
@@ -11573,7 +10708,7 @@ export type SystemMembersEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `SystemMember` at the end of the edge. */
-  node?: Maybe<SystemMember>;
+  node: SystemMember;
 };
 
 /** Methods to use when ordering `Systemmember`. */
@@ -11581,10 +10716,6 @@ export enum SystemmembersOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  SystemAsc = "SYSTEM_ASC",
-  SystemDesc = "SYSTEM_DESC",
-  ProductAsc = "PRODUCT_ASC",
-  ProductDesc = "PRODUCT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -11598,10 +10729,6 @@ export enum SystemMembersOrderBy {
   SystemIdDesc = "SYSTEM_ID_DESC",
   ProductIdAsc = "PRODUCT_ID_ASC",
   ProductIdDesc = "PRODUCT_ID_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -11628,7 +10755,7 @@ export type SystemPatch = {
 export type SystemsConnection = {
   __typename?: "SystemsConnection";
   /** A list of `System` objects. */
-  nodes: Array<Maybe<System>>;
+  nodes: Array<System>;
   /** A list of edges which contains the `System` and cursor to aid in pagination. */
   edges: Array<SystemsEdge>;
   /** Information to aid in pagination. */
@@ -11643,7 +10770,7 @@ export type SystemsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `System` at the end of the edge. */
-  node?: Maybe<System>;
+  node: System;
 };
 
 /** Methods to use when ordering `System`. */
@@ -11653,18 +10780,6 @@ export enum SystemsOrderBy {
   IdDesc = "ID_DESC",
   MarketIdAsc = "MARKET_ID_ASC",
   MarketIdDesc = "MARKET_ID_DESC",
-  TechnologyAsc = "TECHNOLOGY_ASC",
-  TechnologyDesc = "TECHNOLOGY_DESC",
-  NameAsc = "NAME_ASC",
-  NameDesc = "NAME_DESC",
-  DescriptionAsc = "DESCRIPTION_ASC",
-  DescriptionDesc = "DESCRIPTION_DESC",
-  MaximumValidityAsc = "MAXIMUM_VALIDITY_ASC",
-  MaximumValidityDesc = "MAXIMUM_VALIDITY_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -11680,6 +10795,134 @@ export enum Tier {
   T2 = "T2",
   T3 = "T3",
   T4 = "T4"
+}
+
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+export type TierBenefit = Entry & {
+  __typename?: "TierBenefit";
+  sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<TierBenefitLinkingCollections>;
+  name?: Maybe<Scalars["String"]>;
+  tier?: Maybe<Scalars["String"]>;
+  description?: Maybe<TierBenefitDescription>;
+  shortDescription?: Maybe<Scalars["String"]>;
+};
+
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+export type TierBenefitLinkedFromArgs = {
+  allowedLocales?: Maybe<Array<Maybe<Scalars["String"]>>>;
+};
+
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+export type TierBenefitNameArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+export type TierBenefitTierArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+export type TierBenefitDescriptionArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+/** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
+export type TierBenefitShortDescriptionArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export type TierBenefitCollection = {
+  __typename?: "TierBenefitCollection";
+  total: Scalars["Int"];
+  skip: Scalars["Int"];
+  limit: Scalars["Int"];
+  items: Array<Maybe<TierBenefit>>;
+};
+
+export type TierBenefitDescription = {
+  __typename?: "TierBenefitDescription";
+  json: Scalars["JSON"];
+  links: TierBenefitDescriptionLinks;
+};
+
+export type TierBenefitDescriptionAssets = {
+  __typename?: "TierBenefitDescriptionAssets";
+  hyperlink: Array<Maybe<Asset>>;
+  block: Array<Maybe<Asset>>;
+};
+
+export type TierBenefitDescriptionEntries = {
+  __typename?: "TierBenefitDescriptionEntries";
+  inline: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  block: Array<Maybe<Entry>>;
+};
+
+export type TierBenefitDescriptionLinks = {
+  __typename?: "TierBenefitDescriptionLinks";
+  entries: TierBenefitDescriptionEntries;
+  assets: TierBenefitDescriptionAssets;
+};
+
+export type TierBenefitFilter = {
+  sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
+  name_exists?: Maybe<Scalars["Boolean"]>;
+  name?: Maybe<Scalars["String"]>;
+  name_not?: Maybe<Scalars["String"]>;
+  name_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  name_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  name_contains?: Maybe<Scalars["String"]>;
+  name_not_contains?: Maybe<Scalars["String"]>;
+  tier_exists?: Maybe<Scalars["Boolean"]>;
+  tier?: Maybe<Scalars["String"]>;
+  tier_not?: Maybe<Scalars["String"]>;
+  tier_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  tier_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  tier_contains?: Maybe<Scalars["String"]>;
+  tier_not_contains?: Maybe<Scalars["String"]>;
+  description_exists?: Maybe<Scalars["Boolean"]>;
+  description_contains?: Maybe<Scalars["String"]>;
+  description_not_contains?: Maybe<Scalars["String"]>;
+  shortDescription_exists?: Maybe<Scalars["Boolean"]>;
+  shortDescription?: Maybe<Scalars["String"]>;
+  shortDescription_not?: Maybe<Scalars["String"]>;
+  shortDescription_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  shortDescription_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  shortDescription_contains?: Maybe<Scalars["String"]>;
+  shortDescription_not_contains?: Maybe<Scalars["String"]>;
+  OR?: Maybe<Array<Maybe<TierBenefitFilter>>>;
+  AND?: Maybe<Array<Maybe<TierBenefitFilter>>>;
+};
+
+export type TierBenefitLinkingCollections = {
+  __typename?: "TierBenefitLinkingCollections";
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+export type TierBenefitLinkingCollectionsEntryCollectionArgs = {
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+  preview?: Maybe<Scalars["Boolean"]>;
+  locale?: Maybe<Scalars["String"]>;
+};
+
+export enum TierBenefitOrder {
+  NameAsc = "name_ASC",
+  NameDesc = "name_DESC",
+  TierAsc = "tier_ASC",
+  TierDesc = "tier_DESC",
+  SysIdAsc = "sys_id_ASC",
+  SysIdDesc = "sys_id_DESC",
+  SysPublishedAtAsc = "sys_publishedAt_ASC",
+  SysPublishedAtDesc = "sys_publishedAt_DESC",
+  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
+  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
+  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
+  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
 /**
@@ -11703,7 +10946,7 @@ export type TierOffset = Node & {
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `TierOffset`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
 };
 
 /**
@@ -11715,14 +10958,6 @@ export type TierOffsetCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `tier` field. */
-  tier?: Maybe<Tier>;
-  /** Checks for equality with the object’s `validityOffset` field. */
-  validityOffset?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `createdAt` field. */
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  /** Checks for equality with the object’s `updatedAt` field. */
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** An input for mutations affecting `TierOffset` */
@@ -11757,7 +10992,7 @@ export type TierOffsetPatch = {
 export type TierOffsetsConnection = {
   __typename?: "TierOffsetsConnection";
   /** A list of `TierOffset` objects. */
-  nodes: Array<Maybe<TierOffset>>;
+  nodes: Array<TierOffset>;
   /** A list of edges which contains the `TierOffset` and cursor to aid in pagination. */
   edges: Array<TierOffsetsEdge>;
   /** Information to aid in pagination. */
@@ -11772,7 +11007,7 @@ export type TierOffsetsEdge = {
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
   /** The `TierOffset` at the end of the edge. */
-  node?: Maybe<TierOffset>;
+  node: TierOffset;
 };
 
 /** Methods to use when ordering `TierOffset`. */
@@ -11782,14 +11017,6 @@ export enum TierOffsetsOrderBy {
   IdDesc = "ID_DESC",
   MarketIdAsc = "MARKET_ID_ASC",
   MarketIdDesc = "MARKET_ID_DESC",
-  TierAsc = "TIER_ASC",
-  TierDesc = "TIER_DESC",
-  ValidityOffsetAsc = "VALIDITY_OFFSET_ASC",
-  ValidityOffsetDesc = "VALIDITY_OFFSET_DESC",
-  CreatedAtAsc = "CREATED_AT_ASC",
-  CreatedAtDesc = "CREATED_AT_DESC",
-  UpdatedAtAsc = "UPDATED_AT_ASC",
-  UpdatedAtDesc = "UPDATED_AT_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -11807,13 +11034,12 @@ export type TokenInfo = {
 export type TrainingContent = Entry & {
   __typename?: "TrainingContent";
   sys: Sys;
+  contentfulMetadata: ContentfulMetadata;
   linkedFrom?: Maybe<TrainingContentLinkingCollections>;
   pageHeading?: Maybe<Scalars["String"]>;
   description?: Maybe<Scalars["String"]>;
   lmsCtaLabel?: Maybe<Scalars["String"]>;
-  customCtaLabel?: Maybe<Scalars["String"]>;
-  customCtaTarget?: Maybe<Scalars["String"]>;
-  image?: Maybe<ImageSet>;
+  image?: Maybe<Asset>;
   pageSubHeading?: Maybe<Scalars["String"]>;
   step1Heading?: Maybe<Scalars["String"]>;
   step1SubHeading?: Maybe<Scalars["String"]>;
@@ -11824,6 +11050,7 @@ export type TrainingContent = Entry & {
   step3Heading?: Maybe<Scalars["String"]>;
   step3SubHeading?: Maybe<Scalars["String"]>;
   step3Description?: Maybe<Scalars["String"]>;
+  live?: Maybe<Scalars["String"]>;
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
@@ -11843,16 +11070,6 @@ export type TrainingContentDescriptionArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
 export type TrainingContentLmsCtaLabelArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
-export type TrainingContentCustomCtaLabelArgs = {
-  locale?: Maybe<Scalars["String"]>;
-};
-
-/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
-export type TrainingContentCustomCtaTargetArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
@@ -11912,6 +11129,11 @@ export type TrainingContentStep3DescriptionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
+/** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
+export type TrainingContentLiveArgs = {
+  locale?: Maybe<Scalars["String"]>;
+};
+
 export type TrainingContentCollection = {
   __typename?: "TrainingContentCollection";
   total: Scalars["Int"];
@@ -11921,8 +11143,8 @@ export type TrainingContentCollection = {
 };
 
 export type TrainingContentFilter = {
-  image?: Maybe<CfImageSetNestedFilter>;
   sys?: Maybe<SysFilter>;
+  contentfulMetadata?: Maybe<ContentfulMetadataFilter>;
   pageHeading_exists?: Maybe<Scalars["Boolean"]>;
   pageHeading?: Maybe<Scalars["String"]>;
   pageHeading_not?: Maybe<Scalars["String"]>;
@@ -11944,20 +11166,6 @@ export type TrainingContentFilter = {
   lmsCtaLabel_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   lmsCtaLabel_contains?: Maybe<Scalars["String"]>;
   lmsCtaLabel_not_contains?: Maybe<Scalars["String"]>;
-  customCtaLabel_exists?: Maybe<Scalars["Boolean"]>;
-  customCtaLabel?: Maybe<Scalars["String"]>;
-  customCtaLabel_not?: Maybe<Scalars["String"]>;
-  customCtaLabel_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  customCtaLabel_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  customCtaLabel_contains?: Maybe<Scalars["String"]>;
-  customCtaLabel_not_contains?: Maybe<Scalars["String"]>;
-  customCtaTarget_exists?: Maybe<Scalars["Boolean"]>;
-  customCtaTarget?: Maybe<Scalars["String"]>;
-  customCtaTarget_not?: Maybe<Scalars["String"]>;
-  customCtaTarget_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  customCtaTarget_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  customCtaTarget_contains?: Maybe<Scalars["String"]>;
-  customCtaTarget_not_contains?: Maybe<Scalars["String"]>;
   image_exists?: Maybe<Scalars["Boolean"]>;
   pageSubHeading_exists?: Maybe<Scalars["Boolean"]>;
   pageSubHeading?: Maybe<Scalars["String"]>;
@@ -12029,6 +11237,13 @@ export type TrainingContentFilter = {
   step3Description_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
   step3Description_contains?: Maybe<Scalars["String"]>;
   step3Description_not_contains?: Maybe<Scalars["String"]>;
+  live_exists?: Maybe<Scalars["Boolean"]>;
+  live?: Maybe<Scalars["String"]>;
+  live_not?: Maybe<Scalars["String"]>;
+  live_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  live_not_in?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  live_contains?: Maybe<Scalars["String"]>;
+  live_not_contains?: Maybe<Scalars["String"]>;
   OR?: Maybe<Array<Maybe<TrainingContentFilter>>>;
   AND?: Maybe<Array<Maybe<TrainingContentFilter>>>;
 };
@@ -12050,10 +11265,6 @@ export enum TrainingContentOrder {
   PageHeadingDesc = "pageHeading_DESC",
   LmsCtaLabelAsc = "lmsCtaLabel_ASC",
   LmsCtaLabelDesc = "lmsCtaLabel_DESC",
-  CustomCtaLabelAsc = "customCtaLabel_ASC",
-  CustomCtaLabelDesc = "customCtaLabel_DESC",
-  CustomCtaTargetAsc = "customCtaTarget_ASC",
-  CustomCtaTargetDesc = "customCtaTarget_DESC",
   PageSubHeadingAsc = "pageSubHeading_ASC",
   PageSubHeadingDesc = "pageSubHeading_DESC",
   Step1HeadingAsc = "step1Heading_ASC",
@@ -12068,6 +11279,8 @@ export enum TrainingContentOrder {
   Step3HeadingDesc = "step3Heading_DESC",
   Step3SubHeadingAsc = "step3SubHeading_ASC",
   Step3SubHeadingDesc = "step3SubHeading_DESC",
+  LiveAsc = "live_ASC",
+  LiveDesc = "live_DESC",
   SysIdAsc = "sys_id_ASC",
   SysIdDesc = "sys_id_DESC",
   SysPublishedAtAsc = "sys_publishedAt_ASC",
@@ -12124,17 +11337,17 @@ export type Tree = {
   tags?: Maybe<Array<Maybe<Scalars["String"]>>>;
 };
 
-/** All input for the `updateAccountById` mutation. */
-export type UpdateAccountByIdInput = {
+/** All input for the `updateAccountByNodeId` mutation. */
+export type UpdateAccountByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Account` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Account` being updated. */
-  accountPatch: AccountPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: AccountPatch;
 };
 
 /** All input for the `updateAccount` mutation. */
@@ -12144,10 +11357,10 @@ export type UpdateAccountInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Account` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Account` being updated. */
-  accountPatch: AccountPatch;
+  patch: AccountPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Account` mutation. */
@@ -12165,7 +11378,7 @@ export type UpdateAccountPayload = {
   /** Reads a single `Account` that is related to this `Account`. */
   accountByCreatedBy?: Maybe<Account>;
   /** Reads a single `Market` that is related to this `Account`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `Account`. May be used by Relay 1. */
   accountEdge?: Maybe<AccountsEdge>;
 };
@@ -12175,17 +11388,17 @@ export type UpdateAccountPayloadAccountEdgeArgs = {
   orderBy?: Maybe<Array<AccountsOrderBy>>;
 };
 
-/** All input for the `updateAddressById` mutation. */
-export type UpdateAddressByIdInput = {
+/** All input for the `updateAddressByNodeId` mutation. */
+export type UpdateAddressByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Address` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Address` being updated. */
-  addressPatch: AddressPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: AddressPatch;
 };
 
 /** All input for the `updateAddress` mutation. */
@@ -12195,10 +11408,10 @@ export type UpdateAddressInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Address` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Address` being updated. */
-  addressPatch: AddressPatch;
+  patch: AddressPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Address` mutation. */
@@ -12222,43 +11435,43 @@ export type UpdateAddressPayloadAddressEdgeArgs = {
   orderBy?: Maybe<Array<AddressesOrderBy>>;
 };
 
-/** All input for the `updateCompanyById` mutation. */
-export type UpdateCompanyByIdInput = {
+/** All input for the `updateCompanyByNodeId` mutation. */
+export type UpdateCompanyByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Company` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Company` being updated. */
-  companyPatch: CompanyPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: CompanyPatch;
 };
 
-/** All input for the `updateCompanydocumentById` mutation. */
-export type UpdateCompanydocumentByIdInput = {
+/** All input for the `updateCompanydocumentByNodeId` mutation. */
+export type UpdateCompanydocumentByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Companydocument` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Companydocument` being updated. */
-  companydocumentPatch: CompanydocumentPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: CompanydocumentPatch;
 };
 
-/** All input for the `updateCompanyDocumentById` mutation. */
-export type UpdateCompanyDocumentByIdInput = {
+/** All input for the `updateCompanyDocumentByNodeId` mutation. */
+export type UpdateCompanyDocumentByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CompanyDocument` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `CompanyDocument` being updated. */
-  companyDocumentPatch: CompanyDocumentPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: CompanyDocumentPatch;
 };
 
 /** All input for the `updateCompanydocument` mutation. */
@@ -12268,10 +11481,10 @@ export type UpdateCompanydocumentInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Companydocument` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Companydocument` being updated. */
-  companydocumentPatch: CompanydocumentPatch;
+  patch: CompanydocumentPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** All input for the `updateCompanyDocument` mutation. */
@@ -12281,10 +11494,10 @@ export type UpdateCompanyDocumentInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `CompanyDocument` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `CompanyDocument` being updated. */
-  companyDocumentPatch: CompanyDocumentPatch;
+  patch: CompanyDocumentPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Companydocument` mutation. */
@@ -12321,7 +11534,7 @@ export type UpdateCompanyDocumentPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `CompanyDocument`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** An edge for our `CompanyDocument`. May be used by Relay 1. */
   companyDocumentEdge?: Maybe<CompanyDocumentsEdge>;
 };
@@ -12338,36 +11551,36 @@ export type UpdateCompanyInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Company` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Company` being updated. */
-  companyPatch: CompanyPatch;
+  patch: CompanyPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
-/** All input for the `updateCompanymemberById` mutation. */
-export type UpdateCompanymemberByIdInput = {
+/** All input for the `updateCompanymemberByNodeId` mutation. */
+export type UpdateCompanymemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Companymember` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Companymember` being updated. */
-  companymemberPatch: CompanymemberPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: CompanymemberPatch;
 };
 
-/** All input for the `updateCompanyMemberById` mutation. */
-export type UpdateCompanyMemberByIdInput = {
+/** All input for the `updateCompanyMemberByNodeId` mutation. */
+export type UpdateCompanyMemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CompanyMember` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `CompanyMember` being updated. */
-  companyMemberPatch: CompanyMemberPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: CompanyMemberPatch;
 };
 
 /** All input for the `updateCompanymember` mutation. */
@@ -12377,10 +11590,10 @@ export type UpdateCompanymemberInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Companymember` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Companymember` being updated. */
-  companymemberPatch: CompanymemberPatch;
+  patch: CompanymemberPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** All input for the `updateCompanyMember` mutation. */
@@ -12390,10 +11603,10 @@ export type UpdateCompanyMemberInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `CompanyMember` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `CompanyMember` being updated. */
-  companyMemberPatch: CompanyMemberPatch;
+  patch: CompanyMemberPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Companymember` mutation. */
@@ -12430,11 +11643,11 @@ export type UpdateCompanyMemberPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `CompanyMember`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads a single `Account` that is related to this `CompanyMember`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** Reads a single `Company` that is related to this `CompanyMember`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** An edge for our `CompanyMember`. May be used by Relay 1. */
   companyMemberEdge?: Maybe<CompanyMembersEdge>;
 };
@@ -12444,17 +11657,17 @@ export type UpdateCompanyMemberPayloadCompanyMemberEdgeArgs = {
   orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
 };
 
-/** All input for the `updateCompanymembershipById` mutation. */
-export type UpdateCompanymembershipByIdInput = {
+/** All input for the `updateCompanymembershipByNodeId` mutation. */
+export type UpdateCompanymembershipByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Companymembership` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Companymembership` being updated. */
-  companymembershipPatch: CompanymembershipPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: CompanymembershipPatch;
 };
 
 /** All input for the `updateCompanymembership` mutation. */
@@ -12464,10 +11677,10 @@ export type UpdateCompanymembershipInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Companymembership` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Companymembership` being updated. */
-  companymembershipPatch: CompanymembershipPatch;
+  patch: CompanymembershipPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Companymembership` mutation. */
@@ -12504,11 +11717,11 @@ export type UpdateCompanyPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Company`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** Reads a single `Address` that is related to this `Company`. */
-  addressByRegisteredAddressId?: Maybe<Address>;
+  registeredAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Company`. */
-  addressByTradingAddressId?: Maybe<Address>;
+  tradingAddress?: Maybe<Address>;
   /** An edge for our `Company`. May be used by Relay 1. */
   companyEdge?: Maybe<CompaniesEdge>;
 };
@@ -12518,17 +11731,17 @@ export type UpdateCompanyPayloadCompanyEdgeArgs = {
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
 };
 
-/** All input for the `updateContactdetailById` mutation. */
-export type UpdateContactdetailByIdInput = {
+/** All input for the `updateContactdetailByNodeId` mutation. */
+export type UpdateContactdetailByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Contactdetail` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Contactdetail` being updated. */
-  contactdetailPatch: ContactdetailPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: ContactdetailPatch;
 };
 
 /** All input for the `updateContactdetail` mutation. */
@@ -12538,10 +11751,10 @@ export type UpdateContactdetailInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Contactdetail` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Contactdetail` being updated. */
-  contactdetailPatch: ContactdetailPatch;
+  patch: ContactdetailPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Contactdetail` mutation. */
@@ -12565,30 +11778,30 @@ export type UpdateContactdetailPayloadContactdetailEdgeArgs = {
   orderBy?: Maybe<Array<ContactdetailsOrderBy>>;
 };
 
-/** All input for the `updateEvidenceitemById` mutation. */
-export type UpdateEvidenceitemByIdInput = {
+/** All input for the `updateEvidenceitemByNodeId` mutation. */
+export type UpdateEvidenceitemByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Evidenceitem` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Evidenceitem` being updated. */
-  evidenceitemPatch: EvidenceitemPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: EvidenceitemPatch;
 };
 
-/** All input for the `updateEvidenceItemById` mutation. */
-export type UpdateEvidenceItemByIdInput = {
+/** All input for the `updateEvidenceItemByNodeId` mutation. */
+export type UpdateEvidenceItemByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `EvidenceItem` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `EvidenceItem` being updated. */
-  evidenceItemPatch: EvidenceItemPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: EvidenceItemPatch;
 };
 
 /** All input for the `updateEvidenceitem` mutation. */
@@ -12598,10 +11811,10 @@ export type UpdateEvidenceitemInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Evidenceitem` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Evidenceitem` being updated. */
-  evidenceitemPatch: EvidenceitemPatch;
+  patch: EvidenceitemPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** All input for the `updateEvidenceItem` mutation. */
@@ -12611,10 +11824,10 @@ export type UpdateEvidenceItemInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `EvidenceItem` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `EvidenceItem` being updated. */
-  evidenceItemPatch: EvidenceItemPatch;
+  patch: EvidenceItemPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Evidenceitem` mutation. */
@@ -12651,7 +11864,7 @@ export type UpdateEvidenceItemPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
-  guaranteeByGuaranteeId?: Maybe<Guarantee>;
+  guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
   evidenceItemEdge?: Maybe<EvidenceItemsEdge>;
 };
@@ -12661,43 +11874,43 @@ export type UpdateEvidenceItemPayloadEvidenceItemEdgeArgs = {
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
 };
 
-/** All input for the `updateGuaranteeById` mutation. */
-export type UpdateGuaranteeByIdInput = {
+/** All input for the `updateGuaranteeByNodeId` mutation. */
+export type UpdateGuaranteeByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Guarantee` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Guarantee` being updated. */
-  guaranteePatch: GuaranteePatch;
-  /** Primary key - starts at 6100 */
-  id: Scalars["Int"];
+  patch: GuaranteePatch;
 };
 
-/** All input for the `updateGuaranteedproductById` mutation. */
-export type UpdateGuaranteedproductByIdInput = {
+/** All input for the `updateGuaranteedproductByNodeId` mutation. */
+export type UpdateGuaranteedproductByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Guaranteedproduct` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Guaranteedproduct` being updated. */
-  guaranteedproductPatch: GuaranteedproductPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: GuaranteedproductPatch;
 };
 
-/** All input for the `updateGuaranteedProductById` mutation. */
-export type UpdateGuaranteedProductByIdInput = {
+/** All input for the `updateGuaranteedProductByNodeId` mutation. */
+export type UpdateGuaranteedProductByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `GuaranteedProduct` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `GuaranteedProduct` being updated. */
-  guaranteedProductPatch: GuaranteedProductPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: GuaranteedProductPatch;
 };
 
 /** All input for the `updateGuaranteedproduct` mutation. */
@@ -12707,10 +11920,10 @@ export type UpdateGuaranteedproductInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Guaranteedproduct` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Guaranteedproduct` being updated. */
-  guaranteedproductPatch: GuaranteedproductPatch;
+  patch: GuaranteedproductPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** All input for the `updateGuaranteedProduct` mutation. */
@@ -12720,10 +11933,10 @@ export type UpdateGuaranteedProductInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `GuaranteedProduct` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `GuaranteedProduct` being updated. */
-  guaranteedProductPatch: GuaranteedProductPatch;
+  patch: GuaranteedProductPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Guaranteedproduct` mutation. */
@@ -12760,9 +11973,9 @@ export type UpdateGuaranteedProductPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Product` that is related to this `GuaranteedProduct`. */
-  productByProductId?: Maybe<Product>;
+  product?: Maybe<Product>;
   /** Reads a single `Guarantee` that is related to this `GuaranteedProduct`. */
-  guaranteeByGuaranteeId?: Maybe<Guarantee>;
+  guarantee?: Maybe<Guarantee>;
   /** An edge for our `GuaranteedProduct`. May be used by Relay 1. */
   guaranteedProductEdge?: Maybe<GuaranteedProductsEdge>;
 };
@@ -12779,10 +11992,10 @@ export type UpdateGuaranteeInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Guarantee` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Guarantee` being updated. */
-  guaranteePatch: GuaranteePatch;
+  patch: GuaranteePatch;
+  /** Primary key - starts at 6100 */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Guarantee` mutation. */
@@ -12798,15 +12011,15 @@ export type UpdateGuaranteePayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByRequestorAccountId?: Maybe<Account>;
+  requestorAccount?: Maybe<Account>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByResponsibleInstallerAccountId?: Maybe<Account>;
+  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
-  systemBySystemId?: Maybe<System>;
+  system?: Maybe<System>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
-  accountByReviewerAccountId?: Maybe<Account>;
+  reviewerAccount?: Maybe<Account>;
   /** An edge for our `Guarantee`. May be used by Relay 1. */
   guaranteeEdge?: Maybe<GuaranteesEdge>;
 };
@@ -12816,17 +12029,17 @@ export type UpdateGuaranteePayloadGuaranteeEdgeArgs = {
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
 };
 
-/** All input for the `updateInvitationById` mutation. */
-export type UpdateInvitationByIdInput = {
+/** All input for the `updateInvitationByNodeId` mutation. */
+export type UpdateInvitationByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Invitation` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Invitation` being updated. */
-  invitationPatch: InvitationPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: InvitationPatch;
 };
 
 /** All input for the `updateInvitation` mutation. */
@@ -12836,10 +12049,10 @@ export type UpdateInvitationInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Invitation` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Invitation` being updated. */
-  invitationPatch: InvitationPatch;
+  patch: InvitationPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Invitation` mutation. */
@@ -12855,7 +12068,7 @@ export type UpdateInvitationPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Invitation`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `Invitation`. May be used by Relay 1. */
   invitationEdge?: Maybe<InvitationsEdge>;
 };
@@ -12865,17 +12078,17 @@ export type UpdateInvitationPayloadInvitationEdgeArgs = {
   orderBy?: Maybe<Array<InvitationsOrderBy>>;
 };
 
-/** All input for the `updateMarketById` mutation. */
-export type UpdateMarketByIdInput = {
+/** All input for the `updateMarketByNodeId` mutation. */
+export type UpdateMarketByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Market` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Market` being updated. */
-  marketPatch: MarketPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: MarketPatch;
 };
 
 /** All input for the `updateMarket` mutation. */
@@ -12885,10 +12098,10 @@ export type UpdateMarketInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Market` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Market` being updated. */
-  marketPatch: MarketPatch;
+  patch: MarketPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Market` mutation. */
@@ -12912,17 +12125,17 @@ export type UpdateMarketPayloadMarketEdgeArgs = {
   orderBy?: Maybe<Array<MarketsOrderBy>>;
 };
 
-/** All input for the `updateMessageById` mutation. */
-export type UpdateMessageByIdInput = {
+/** All input for the `updateMessageByNodeId` mutation. */
+export type UpdateMessageByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Message` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Message` being updated. */
-  messagePatch: MessagePatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: MessagePatch;
 };
 
 /** All input for the `updateMessage` mutation. */
@@ -12932,10 +12145,10 @@ export type UpdateMessageInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Message` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Message` being updated. */
-  messagePatch: MessagePatch;
+  patch: MessagePatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Message` mutation. */
@@ -12959,17 +12172,17 @@ export type UpdateMessagePayloadMessageEdgeArgs = {
   orderBy?: Maybe<Array<MessagesOrderBy>>;
 };
 
-/** All input for the `updateNoteById` mutation. */
-export type UpdateNoteByIdInput = {
+/** All input for the `updateNoteByNodeId` mutation. */
+export type UpdateNoteByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Note` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Note` being updated. */
-  notePatch: NotePatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: NotePatch;
 };
 
 /** All input for the `updateNote` mutation. */
@@ -12979,10 +12192,10 @@ export type UpdateNoteInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Note` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Note` being updated. */
-  notePatch: NotePatch;
+  patch: NotePatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Note` mutation. */
@@ -12998,9 +12211,9 @@ export type UpdateNotePayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Note`. */
-  accountByAuthorId?: Maybe<Account>;
+  author?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Note`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** An edge for our `Note`. May be used by Relay 1. */
   noteEdge?: Maybe<NotesEdge>;
 };
@@ -13010,17 +12223,17 @@ export type UpdateNotePayloadNoteEdgeArgs = {
   orderBy?: Maybe<Array<NotesOrderBy>>;
 };
 
-/** All input for the `updateNotificationById` mutation. */
-export type UpdateNotificationByIdInput = {
+/** All input for the `updateNotificationByNodeId` mutation. */
+export type UpdateNotificationByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Notification` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Notification` being updated. */
-  notificationPatch: NotificationPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: NotificationPatch;
 };
 
 /** All input for the `updateNotification` mutation. */
@@ -13030,10 +12243,10 @@ export type UpdateNotificationInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Notification` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Notification` being updated. */
-  notificationPatch: NotificationPatch;
+  patch: NotificationPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Notification` mutation. */
@@ -13049,7 +12262,7 @@ export type UpdateNotificationPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Notification`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `Notification`. May be used by Relay 1. */
   notificationEdge?: Maybe<NotificationsEdge>;
 };
@@ -13059,17 +12272,17 @@ export type UpdateNotificationPayloadNotificationEdgeArgs = {
   orderBy?: Maybe<Array<NotificationsOrderBy>>;
 };
 
-/** All input for the `updateProductById` mutation. */
-export type UpdateProductByIdInput = {
+/** All input for the `updateProductByNodeId` mutation. */
+export type UpdateProductByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Product` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Product` being updated. */
-  productPatch: ProductPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: ProductPatch;
 };
 
 /** All input for the `updateProduct` mutation. */
@@ -13079,10 +12292,10 @@ export type UpdateProductInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Product` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Product` being updated. */
-  productPatch: ProductPatch;
+  patch: ProductPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Product` mutation. */
@@ -13098,7 +12311,7 @@ export type UpdateProductPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Product`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `Product`. May be used by Relay 1. */
   productEdge?: Maybe<ProductsEdge>;
 };
@@ -13108,17 +12321,17 @@ export type UpdateProductPayloadProductEdgeArgs = {
   orderBy?: Maybe<Array<ProductsOrderBy>>;
 };
 
-/** All input for the `updateProjectById` mutation. */
-export type UpdateProjectByIdInput = {
+/** All input for the `updateProjectByNodeId` mutation. */
+export type UpdateProjectByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Project` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Project` being updated. */
-  projectPatch: ProjectPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: ProjectPatch;
 };
 
 /** All input for the `updateProject` mutation. */
@@ -13128,36 +12341,36 @@ export type UpdateProjectInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Project` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Project` being updated. */
-  projectPatch: ProjectPatch;
+  patch: ProjectPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
-/** All input for the `updateProjectmemberById` mutation. */
-export type UpdateProjectmemberByIdInput = {
+/** All input for the `updateProjectmemberByNodeId` mutation. */
+export type UpdateProjectmemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Projectmember` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Projectmember` being updated. */
-  projectmemberPatch: ProjectmemberPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: ProjectmemberPatch;
 };
 
-/** All input for the `updateProjectMemberById` mutation. */
-export type UpdateProjectMemberByIdInput = {
+/** All input for the `updateProjectMemberByNodeId` mutation. */
+export type UpdateProjectMemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `ProjectMember` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `ProjectMember` being updated. */
-  projectMemberPatch: ProjectMemberPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: ProjectMemberPatch;
 };
 
 /** All input for the `updateProjectmember` mutation. */
@@ -13167,10 +12380,10 @@ export type UpdateProjectmemberInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Projectmember` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Projectmember` being updated. */
-  projectmemberPatch: ProjectmemberPatch;
+  patch: ProjectmemberPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** All input for the `updateProjectMember` mutation. */
@@ -13180,10 +12393,10 @@ export type UpdateProjectMemberInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `ProjectMember` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `ProjectMember` being updated. */
-  projectMemberPatch: ProjectMemberPatch;
+  patch: ProjectMemberPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Projectmember` mutation. */
@@ -13220,9 +12433,9 @@ export type UpdateProjectMemberPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Project` that is related to this `ProjectMember`. */
-  projectByProjectId?: Maybe<Project>;
+  project?: Maybe<Project>;
   /** Reads a single `Account` that is related to this `ProjectMember`. */
-  accountByAccountId?: Maybe<Account>;
+  account?: Maybe<Account>;
   /** An edge for our `ProjectMember`. May be used by Relay 1. */
   projectMemberEdge?: Maybe<ProjectMembersEdge>;
 };
@@ -13245,11 +12458,11 @@ export type UpdateProjectPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `Project`. */
-  companyByCompanyId?: Maybe<Company>;
+  company?: Maybe<Company>;
   /** Reads a single `Address` that is related to this `Project`. */
-  addressByBuildingOwnerAddressId?: Maybe<Address>;
+  buildingOwnerAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Project`. */
-  addressBySiteAddressId?: Maybe<Address>;
+  siteAddress?: Maybe<Address>;
   /** An edge for our `Project`. May be used by Relay 1. */
   projectEdge?: Maybe<ProjectsEdge>;
 };
@@ -13259,17 +12472,17 @@ export type UpdateProjectPayloadProjectEdgeArgs = {
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
 };
 
-/** All input for the `updateSystemById` mutation. */
-export type UpdateSystemByIdInput = {
+/** All input for the `updateSystemByNodeId` mutation. */
+export type UpdateSystemByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `System` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `System` being updated. */
-  systemPatch: SystemPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: SystemPatch;
 };
 
 /** All input for the `updateSystem` mutation. */
@@ -13279,36 +12492,36 @@ export type UpdateSystemInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `System` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `System` being updated. */
-  systemPatch: SystemPatch;
+  patch: SystemPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
-/** All input for the `updateSystemmemberById` mutation. */
-export type UpdateSystemmemberByIdInput = {
+/** All input for the `updateSystemmemberByNodeId` mutation. */
+export type UpdateSystemmemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Systemmember` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Systemmember` being updated. */
-  systemmemberPatch: SystemmemberPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: SystemmemberPatch;
 };
 
-/** All input for the `updateSystemMemberById` mutation. */
-export type UpdateSystemMemberByIdInput = {
+/** All input for the `updateSystemMemberByNodeId` mutation. */
+export type UpdateSystemMemberByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `SystemMember` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `SystemMember` being updated. */
-  systemMemberPatch: SystemMemberPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: SystemMemberPatch;
 };
 
 /** All input for the `updateSystemmember` mutation. */
@@ -13318,10 +12531,10 @@ export type UpdateSystemmemberInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `Systemmember` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `Systemmember` being updated. */
-  systemmemberPatch: SystemmemberPatch;
+  patch: SystemmemberPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** All input for the `updateSystemMember` mutation. */
@@ -13331,10 +12544,10 @@ export type UpdateSystemMemberInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `SystemMember` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `SystemMember` being updated. */
-  systemMemberPatch: SystemMemberPatch;
+  patch: SystemMemberPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `Systemmember` mutation. */
@@ -13371,9 +12584,9 @@ export type UpdateSystemMemberPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `System` that is related to this `SystemMember`. */
-  systemBySystemId?: Maybe<System>;
+  system?: Maybe<System>;
   /** Reads a single `Product` that is related to this `SystemMember`. */
-  productByProductId?: Maybe<Product>;
+  product?: Maybe<Product>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -13396,7 +12609,7 @@ export type UpdateSystemPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `System`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `System`. May be used by Relay 1. */
   systemEdge?: Maybe<SystemsEdge>;
 };
@@ -13406,17 +12619,17 @@ export type UpdateSystemPayloadSystemEdgeArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
 };
 
-/** All input for the `updateTierOffsetById` mutation. */
-export type UpdateTierOffsetByIdInput = {
+/** All input for the `updateTierOffsetByNodeId` mutation. */
+export type UpdateTierOffsetByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `TierOffset` to be updated. */
+  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `TierOffset` being updated. */
-  tierOffsetPatch: TierOffsetPatch;
-  /** Primary key */
-  id: Scalars["Int"];
+  patch: TierOffsetPatch;
 };
 
 /** All input for the `updateTierOffset` mutation. */
@@ -13426,10 +12639,10 @@ export type UpdateTierOffsetInput = {
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `TierOffset` to be updated. */
-  nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `TierOffset` being updated. */
-  tierOffsetPatch: TierOffsetPatch;
+  patch: TierOffsetPatch;
+  /** Primary key */
+  id: Scalars["Int"];
 };
 
 /** The output of our update `TierOffset` mutation. */
@@ -13445,7 +12658,7 @@ export type UpdateTierOffsetPayload = {
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `TierOffset`. */
-  marketByMarketId?: Maybe<Market>;
+  market?: Maybe<Market>;
   /** An edge for our `TierOffset`. May be used by Relay 1. */
   tierOffsetEdge?: Maybe<TierOffsetsEdge>;
 };
@@ -13453,14 +12666,6 @@ export type UpdateTierOffsetPayload = {
 /** The output of our update `TierOffset` mutation. */
 export type UpdateTierOffsetPayloadTierOffsetEdgeArgs = {
   orderBy?: Maybe<Array<TierOffsetsOrderBy>>;
-};
-
-export type User = {
-  __typename?: "User";
-  nodeId: Scalars["ID"];
-  id: Scalars["Int"];
-  name?: Maybe<Scalars["String"]>;
-  username?: Maybe<Scalars["String"]>;
 };
 
 export type UserCreateInput = {

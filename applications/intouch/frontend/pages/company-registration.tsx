@@ -8,7 +8,7 @@ import auth0 from "../lib/auth0";
 import GridStyles from "../styles/Grid.module.scss";
 
 const CREATE_COMPANY = gql`
-  mutation($input: CreateCompanyInput!) {
+  mutation createCompany($input: CreateCompanyInput!) {
     createCompany(input: $input) {
       company {
         name
