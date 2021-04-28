@@ -45,6 +45,10 @@ resource "google_cloud_run_service" "default" {
           name  = "NEXT_PUBLIC_DOMAIN"
           value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
         }
+        env {
+          name = "AUTH0_BASE_URL"
+          value = "https://tf-frontend-rfwslk3zjq-nw.a.run.app"
+        }
       }
     }
   }

@@ -7,7 +7,9 @@ steps:
         "build",
         "-t",
         "eu.gcr.io/$PROJECT_ID/intouch-frontendv1",
-        "./applications/intouch/frontend",
+        ".",
+        "-f applications/intouch/frontend/."
+
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"

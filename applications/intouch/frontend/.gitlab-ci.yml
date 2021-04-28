@@ -1,7 +1,7 @@
 build_intouch_frontend:
   stage: build
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -21,7 +21,7 @@ build_intouch_frontend:
 test_intouch_frontend:
   stage: test
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -44,7 +44,7 @@ push_to_registry:
   services:
     - docker:dind
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -62,7 +62,7 @@ deploy_to_cloudrun:
   services:
     - docker:dind
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
