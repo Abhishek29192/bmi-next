@@ -5,8 +5,6 @@ import Card, { CardActions, CardContent } from "@bmi/card";
 import Dialog from "@bmi/dialog";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
-import CardInput from "@bmi/card-input";
-import CardRadioGroup from "@bmi/card-radio-group";
 import {
   TileColour,
   SelectRoof,
@@ -14,6 +12,7 @@ import {
   SelectWallColour
 } from "@bmi/icon";
 import Logo, { BMI } from "@bmi/logo";
+import ToggleCard from "@bmi/toggle-card";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
@@ -123,58 +122,49 @@ const Actions = ({
   );
 };
 
-const SelectionGroup = ({
-  title,
+const SelectionOptions = ({
+  contentSource,
   defaultValue,
   products,
-  select,
-  groupName,
-  contentSource
+  title,
+  onClick
 }: {
-  title: string;
+  contentSource: string;
   defaultValue: string;
   products: TileProps[];
-  select: (value: string) => void;
-  groupName: string;
-  contentSource: string;
+  title: string;
+  onClick: (tileId: number, colourId: number) => any;
 }) => {
-  const isGroupItemSelected = useMemo(
-    () =>
-      products.some(({ id, colour }) => defaultValue === `${id}-${colour.id}`),
-    [defaultValue]
-  );
-
   return (
-    <div>
+    <div className={styles["select-options"]}>
       <Typography variant="h5" component="h3" className={styles["group-title"]}>
         {title}
       </Typography>
-      <CardRadioGroup
-        name={groupName}
-        defaultValue={defaultValue}
-        onChange={(value) => select(value)}
-        clean={!!isGroupItemSelected}
-      >
-        {products.map(({ colour, id, name }) => {
-          const identifier = `${id}-${colour.id}`;
-
-          return (
-            <CardInput
-              key={identifier}
-              name="tileType"
-              value={identifier}
+      <Grid container spacing={2}>
+        {products.map(({ colour, id, name }) => (
+          <Grid key={`${id}-${colour.id}`} item xs={6} md={4} lg={2}>
+            <ToggleCard
+              component="button"
               title={name}
               imageSource={getRef(colour.previewRef, {
                 url: true,
                 size: "128",
                 contentSource
               })}
+              onClick={() => onClick(id, colour.id)}
+              className={classnames({
+                [styles["active-selection-option"]]:
+                  defaultValue === `${id}-${colour.id}`
+              })}
+              aria-label={
+                defaultValue === `${id}-${colour.id}` ? "Valgt" : undefined
+              }
             >
-              <CardInput.Paragraph>{colour.name}</CardInput.Paragraph>
-            </CardInput>
-          );
-        })}
-      </CardRadioGroup>
+              <ToggleCard.Paragraph>{colour.name}</ToggleCard.Paragraph>
+            </ToggleCard>
+          </Grid>
+        ))}
+      </Grid>
     </div>
   );
 };
@@ -188,9 +178,6 @@ const TileSectorDialog = ({
   onConfirmClick,
   tiles
 }: TileSectorDialogProps) => {
-  const [selectedTileId, setSelectedTileId] = useState(activeTile.id);
-  const [selectedColourId, setSelectedColourId] = useState(activeColour.id);
-
   const productProps = useMemo(
     () =>
       tiles.flatMap(({ colours, ...rest }) =>
@@ -201,13 +188,11 @@ const TileSectorDialog = ({
 
   const productPropsGroupedByMaterial = groupBy(productProps, "material");
 
-  const defaultTileIdentifier = `${selectedTileId}-${selectedColourId}`;
+  const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
 
-  const select = (value) => {
-    const [tileId, colourId] = value.split("-").map(Number);
-
-    setSelectedTileId(tileId);
-    setSelectedColourId(colourId);
+  const onClick = (tileId, colourId) => {
+    onConfirmClick(tileId, colourId);
+    onCloseClick(false);
   };
 
   return (
@@ -238,24 +223,16 @@ const TileSectorDialog = ({
         </Typography>
 
         {Object.keys(productPropsGroupedByMaterial).map((key) => (
-          <SelectionGroup
+          <SelectionOptions
+            contentSource={contentSource}
+            defaultValue={defaultTileIdentifier}
             key={`material-group-${key}`}
             title={MATERIAL_NAME_MAP[key]}
             products={productPropsGroupedByMaterial[key]}
-            defaultValue={defaultTileIdentifier}
-            select={select}
-            groupName={`tiles-${key}`}
-            contentSource={contentSource}
+            onClick={onClick}
           />
         ))}
       </Dialog.Content>
-      <Dialog.Actions
-        confirmLabel={"Velg produkt"}
-        onConfirmClick={() => {
-          onConfirmClick(selectedTileId, selectedColourId);
-          onCloseClick(false);
-        }}
-      />
     </Dialog>
   );
 };
@@ -275,10 +252,6 @@ const SidingsSelectorDialog = ({
   contentSource: string;
   onConfirmClick: (sidingId: number) => void;
 }) => {
-  const [sidingId, setSidingId] = useState(activeSiding.id);
-
-  const select = (sidingId) => setSidingId(sidingId);
-
   return (
     <Dialog
       open={open}
@@ -301,35 +274,30 @@ const SidingsSelectorDialog = ({
         >
           Velg farge på vegg
         </Typography>
-        <CardRadioGroup
-          name="sidings"
-          defaultValue={sidingId}
-          onChange={(value) => select(value)}
-        >
-          {sidings.map(({ id, name, diffuseMapRef }) => {
-            return (
-              <CardInput
-                key={`siding-${id}`}
-                name="tileType"
-                value={id}
+        <Grid container spacing={2}>
+          {sidings.map(({ id, name, diffuseMapRef }) => (
+            <Grid key={id} item xs={6} md={4} lg={2}>
+              <ToggleCard
+                component="button"
                 title={name}
                 imageSource={getRef(diffuseMapRef, {
                   url: true,
                   size: "original",
                   contentSource
                 })}
+                onClick={() => {
+                  onConfirmClick(id);
+                  onCloseClick(false);
+                }}
+                className={classnames({
+                  [styles["active-selection-option"]]: activeSiding.id === id
+                })}
+                aria-label={activeSiding.id === id ? "Valgt" : undefined}
               />
-            );
-          })}
-        </CardRadioGroup>
+            </Grid>
+          ))}
+        </Grid>
       </Dialog.Content>
-      <Dialog.Actions
-        confirmLabel={"Velg farge på vegg"}
-        onConfirmClick={() => {
-          onConfirmClick(sidingId);
-          onCloseClick(false);
-        }}
-      />
     </Dialog>
   );
 };
