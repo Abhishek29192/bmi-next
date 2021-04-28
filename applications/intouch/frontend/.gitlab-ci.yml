@@ -1,44 +1,43 @@
-build_intouch_frontend:
-  stage: build
-  rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
-      changes:
-        - applications/intouch/frontend/**/*
-        - components/**/*
-        - libraries/**/*
-  variables:
-    NEXT_PUBLIC_BASE_URL: "https://frontend-rfwslk3zjq-nw.a.run.app"
-    AUTH0_NAMESPACE: "https://intouch"
-    AUTH0_AUDIENCE: "https://dev-api.intouch.dev"
-    AUTH0_SECRET: $INTOUCH_AUTH0_SECRET
-    AUTH0_ISSUER_BASE_URL: "https://intouch-dev.eu.auth0.com"
-    AUTH0_CLIENT_ID: $INTOUCH_AUTH0_CLIENT_ID
-    AUTH0_CLIENT_SECRET: $INTOUCH_AUTH0_CLIENT_SECRET
-    GRAPHQL_URL: "https://gateway-rfwslk3zjq-nw.a.run.app/graphql"
-  script:
-    - yarn workspace @bmi/intouch-frontend build
+# build_intouch_frontend:
+#   stage: build
+#   rules:
+#     - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
+#       changes:
+#         - applications/intouch/frontend/**/*
+#         - components/**/*
+#         - libraries/**/*
+#   variables:
+#     NEXT_PUBLIC_BASE_URL: "https://frontend-rfwslk3zjq-nw.a.run.app"
+#     AUTH0_NAMESPACE: "https://intouch"
+#     AUTH0_AUDIENCE: "https://dev-api.intouch.dev"
+#     AUTH0_SECRET: $INTOUCH_AUTH0_SECRET
+#     AUTH0_ISSUER_BASE_URL: "https://intouch-dev.eu.auth0.com"
+#     AUTH0_CLIENT_ID: $INTOUCH_AUTH0_CLIENT_ID
+#     AUTH0_CLIENT_SECRET: $INTOUCH_AUTH0_CLIENT_SECRET
+#     GRAPHQL_URL: "https://gateway-rfwslk3zjq-nw.a.run.app/graphql"
+#   script:
+#     - yarn workspace @bmi/intouch-frontend build
 
-test_intouch_frontend:
-  stage: test
-  rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
-      changes:
-        - applications/intouch/frontend/**/*
-        - components/**/*
-        - libraries/**/*
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/intouch-frontend coverage:jest
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
-  artifacts:
-    when: always
-    reports:
-      junit:
-        - applications/intouch/frontend/junit.xml
+# test_intouch_frontend:
+#   stage: test
+#   rules:
+#     - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
+#       changes:
+#         - applications/intouch/frontend/**/*
+#         - components/**/*
+#         - libraries/**/*
+#   before_script:
+#     - yarn config set cache-folder ${PWD}/.yarn_cache
+#   script:
+#     - yarn workspace @bmi/intouch-frontend coverage:jest
+#   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+#   artifacts:
+#     when: always
+#     reports:
+#       junit:
+#         - applications/intouch/frontend/junit.xml
 
 push_to_registry:
-  needs: [test_intouch_frontend]
   image: google/cloud-sdk
   stage: deploy
   services:
@@ -71,4 +70,4 @@ deploy_to_cloudrun:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud run deploy tf-frontend --image=eu.gcr.io/automated-style-303709/tf-frontend --platform=managed --region=europe-west2 --project=automated-style-303709
+    - gcloud run deploy tf-frontend --image=eu.gcr.io/automated-style-303709/intouch-frontend --platform=managed --region=europe-west2 --project=automated-style-303709

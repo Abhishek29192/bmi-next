@@ -35,8 +35,9 @@ export const initialProps = async ({ ctx, Component }) => {
 
   // Run the check only server side
   if (req) {
-    const { AUTH0_NAMESPACE, NEXT_PUBLIC_BASE_URL } = process.env;
     try {
+      const { AUTH0_NAMESPACE, NEXT_PUBLIC_BASE_URL } = process.env;
+
       // Get the current session
       const session = await getSession(req, res);
       if (session) {

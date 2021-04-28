@@ -13,41 +13,46 @@ resource "google_cloud_run_service" "default" {
     }
     spec {
       containers {
-        image = "eu.gcr.io/automated-style-303709/tf-frontend"
+        image = "eu.gcr.io/automated-style-303709/intouch-frontend"
         ports {
           container_port = 3000
         }
         env {
-          name  = "NEXT_PUBLIC_APOLLO_CLIENT_URL"
-          value = "https://gateway-rfwslk3zjq-nw.a.run.app"
+          name  = "NEXT_PUBLIC_BASE_URL"
+          value = "https://tf-frontend-rfwslk3zjq-nw.a.run.app"
         }
         env {
-          name  = "NEXT_PUBLIC_AUTH_DOMAIN"
-          value = "intouch-dev.eu.auth0.com"
+          name  = "AUTH0_BASE_URL"
+          value = "https://tf-frontend-rfwslk3zjq-nw.a.run.app"
         }
         env {
-          name  = "NEXT_PUBLIC_AUTH_CLIENTID"
-          value = "4VTPIsmaL2Mx8LBr4mVSBs0RIQBOOgmF"
-        }
-        env {
-          name  = "NEXT_PUBLIC_AUTH_REDIRECTURI"
-          value = "https://localhost:3000"
-        }
-        env {
-          name  = "NEXT_PUBLIC_AUTH_AUDIENCE"
-          value = "https://dev-api.intouch.dev"
-        }
-        env {
-          name  = "NEXT_PUBLIC_AUTH_NAMESPACE"
+          name  = "AUTH0_NAMESPACE"
           value = "https://intouch"
         }
         env {
-          name  = "NEXT_PUBLIC_DOMAIN"
-          value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
+          name  = "AUTH0_AUDIENCE"
+          value = "https://dev-api.intouch.dev"
         }
         env {
-          name = "AUTH0_BASE_URL"
-          value = "https://tf-frontend-rfwslk3zjq-nw.a.run.app"
+          name  = "AUTH0_ISSUER_BASE_URL"
+          value = "https://intouch-dev.eu.auth0.com"
+        }
+        env {
+          name  = "AUTH0_CLIENT_ID"
+          value = "W4gH2YagDOBdMpEUESoC4xZhsZbc3W1S"
+        }
+
+        env {
+          name  = "GRAPHQL_URL"
+          value = "https://gateway-rfwslk3zjq-nw.a.run.app/graphql"
+        }
+        env {
+          name  = "AUTH0_CLIENT_SECRET"
+          value = "secret:automated-style-303709/AUTH0_CLIENT_SECRET"
+        }
+        env {
+          name  = "AUTH0_SECRET"
+          value = "secret:automated-style-303709/AUTH0_SECRET"
         }
       }
     }
