@@ -218,6 +218,7 @@ const CardCollectionSection = ({
                 onClick={() => {
                   setActiveGroups({});
                 }}
+                isDisabled={!Object.keys(activeGroups).length}
               >
                 {getMicroCopy("global.clearAll")}
               </AnchorLink>
