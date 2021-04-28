@@ -16,6 +16,8 @@ import EffraBold from "./fonts/Effra_Bd.ttf";
 import { ResultsObject } from "./types";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
+const MARGIN_LEFT = 25;
+const MARGIN_RIGHT = 25;
 
 const Hr = ({
   width,
@@ -117,6 +119,60 @@ const Typography = ({
   ) : (
     text
   );
+};
+
+type AlertProps = {
+  title?: string;
+  type?: "warn" | "default";
+  color?: string;
+  fillColor?: string;
+  children?: React.ReactNode;
+  [rest: string]: any;
+};
+
+const alertStyles = {
+  warn: { color: "#3B3B3B", fillColor: "#FFC72C" },
+  default: { color: "#3B3B3B", fillColor: "#F0F0F0" }
+};
+
+const Alert = ({
+  title,
+  children,
+  type = "default",
+  color,
+  fillColor,
+  ...rest
+}: AlertProps): any => {
+  const cellProps = {
+    color: alertStyles[type].color,
+    fillColor: alertStyles[type].fillColor
+  };
+
+  return {
+    table: {
+      widths: [PAGE_WIDTH],
+      body: [
+        title && [
+          {
+            text: title,
+            bold: true,
+            margin: [MARGIN_LEFT, 15, MARGIN_RIGHT, children ? 5 : 15],
+            ...cellProps
+          }
+        ],
+        children && [
+          {
+            text: children,
+            margin: [MARGIN_LEFT, title ? 0 : 15, MARGIN_RIGHT, 15],
+            ...cellProps
+          }
+        ]
+      ].filter(Boolean)
+    },
+    marginLeft: -MARGIN_LEFT,
+    layout: "noBorders",
+    ...rest
+  };
 };
 
 type ResultsTableTemplateProps = {
@@ -297,9 +353,9 @@ const PdfDocument = ({ results, area }: PdfDocumentProps) => (
     pageSize={"A4"} // Full list is in the type
     pageOrientation={"portrait"} // or "landscape"
     pageMargins={[
-      25 /* Left */,
+      MARGIN_LEFT,
       35 /* header */ + 35 /* header margin */,
-      25 /* Right */,
+      MARGIN_RIGHT,
       35 /* Bottom (should include footer space) */
     ]}
     header={<Header />}
@@ -364,6 +420,14 @@ const PdfDocument = ({ results, area }: PdfDocumentProps) => (
         <ResultsTable>{results.accessories.map(mapResultsRow)}</ResultsTable>
       </>
     ) : null}
+    <Alert type="warn" title="Quantities updated" marginTop={40}>
+      You’ve selected additional quantities to our calculated estimate. We are
+      just letting you know this. If you’d like to revert to our original
+      calculation click here.
+    </Alert>
+    <Alert title="Need to know">
+      We’ve added a wastage contingency of: 0% into this material calculation.
+    </Alert>
   </Document>
 );
 
