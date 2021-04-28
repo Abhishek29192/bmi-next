@@ -15,8 +15,8 @@
     "react-is": "^16.13.1",
     "pdf-lib": "^1.16.0",
     "@sendgrid/mail": "^7.4.2",
-    "@bmi-digital/react-pdf-maker": "0.0.0",
-    "@bmi-digital/intouch-shared-types": "^0.0.0"
+    "react-pdf-maker": "0.0.0",
+    "@bmi/intouch-shared-types": "^0.0.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.20",

@@ -1,11 +1,11 @@
 import { PDFDocument as PdfLibDocument } from "pdf-lib";
 import * as React from "react";
-import { pdf } from "@bmi-digital/react-pdf-maker";
+import { pdf } from "react-pdf-maker";
 import {
   Guarantee,
   GuaranteeTemplate,
   GuaranteeFileType
-} from "@bmi-digital/intouch-shared-types";
+} from "@bmi/intouch-shared-types";
 import { vfs } from "./vfs_fonts";
 import { PdfDocument } from "./components";
 import { buffer_encode, toArrayBuffer } from "./util/bufferUtil";
