@@ -10,6 +10,12 @@
     "gatsby"
   ],
   "main": "index.js",
+  "files": [
+    "default-options.js",
+    "gatsby-browser.js",
+    "gatsby-ssr.js",
+    "index.js"
+  ],
   "scripts": {
     "lint": "prettier --write gatsby-node.js"
   },

@@ -1,11 +1,11 @@
-"use-strict";
+"use strict";
 
-import React from "react";
-import { isDefined, oneline } from "./utils";
-import defaultOptions from "./default-options";
+const React = require("react");
+const { isDefined } = require("./utils");
+const { defaultOptions } = require("./default-options");
 
-export function onRenderBody({ setPostBodyComponents }, pluginOptions) {
-  const { productionOnly, respectDNT, trackingCode } = Object.assign(
+exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
+  const { productionOnly, companyCode } = Object.assign(
     {},
     defaultOptions,
     pluginOptions
@@ -13,30 +13,29 @@ export function onRenderBody({ setPostBodyComponents }, pluginOptions) {
 
   if (
     (productionOnly && process.env.NODE_ENV !== "production") ||
-    !isDefined(trackingCode)
+    !isDefined(companyCode)
   ) {
     return;
   }
 
-  setPostBodyComponents([
+  setHeadComponents([
+    // Tracking
     <script
       type="text/javascript"
-      id="leadoo-chat-bot"
-      key={`gatsby-plugin-leadoo`}
+      id="leadoo-tracking"
+      key={`gatsby-plugin-leadoo-tracking`}
       async
       defer
-      src={`//bot.leadoo.com/bot/dynamic/chat.js?company=${trackingCode}`}
-      dangerouslySetInnerHTML={{
-        __html: oneline`
-        var _hsq = window._hsq = window._hsq || [];
-        _hsq.push(['setPath', window.location.pathname + window.location.search + window.location.hash]);
-        if (window.doNotTrack || navigator.doNotTrack || navigator.msDoNotTrack || 'msTrackingProtectionEnabled' in window.external) {
-            if (window.doNotTrack == "1" || navigator.doNotTrack == "yes" || navigator.doNotTrack == "1" || navigator.msDoNotTrack == "1" || window.external.msTrackingProtectionEnabled()) {
-                _hsq.push(['doNotTrack']);
-            }
-        }
-        `
-      }}
+      src={`//bot.leadoo.com/i/al/lanlt.js?code=${companyCode}`}
+    />,
+    // ChatBot
+    <script
+      type="text/javascript"
+      id="leadoo-chatbot"
+      key={`gatsby-plugin-leadoo-chatbot`}
+      async
+      defer
+      src={`//bot.leadoo.com/bot/dynamic/chat.js?company=${companyCode}&mode=spa`}
     />
   ]);
-}
+};

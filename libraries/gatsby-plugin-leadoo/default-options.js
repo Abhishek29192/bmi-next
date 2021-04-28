@@ -1,5 +1,5 @@
-"use-strict";
+"use strict";
 
-export default {
+exports.defaultOptions = {
   productionOnly: true
 };
