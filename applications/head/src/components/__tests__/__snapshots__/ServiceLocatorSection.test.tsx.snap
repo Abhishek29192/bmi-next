@@ -169,36 +169,7 @@ exports[`ServiceLocatorSection component renders correctly with NO roofer 1`] = 
             </h6>
             <div
               class="chips"
-            >
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.pitchedRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.flatRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -521,36 +492,7 @@ exports[`ServiceLocatorSection component renders multiple roofers with No roofer
             </h6>
             <div
               class="chips"
-            >
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.pitchedRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.flatRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -2104,20 +2046,6 @@ exports[`ServiceLocatorSection component renders multiple roofers with single ro
                   class="MuiTouchRipple-root"
                 />
               </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.flatRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -2893,36 +2821,7 @@ exports[`ServiceLocatorSection component renders single roofer with No roofer ty
             </h6>
             <div
               class="chips"
-            >
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.pitchedRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.flatRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -3454,20 +3353,6 @@ exports[`ServiceLocatorSection component renders single roofer with multiple roo
                   class="MuiChip-label"
                 >
                   MC: findARoofer.filters.pitchedRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.flatRoof
                 </span>
                 <span
                   class="MuiTouchRipple-root"
@@ -4025,20 +3910,6 @@ exports[`ServiceLocatorSection component renders single roofer with single roofe
                   class="MuiChip-label"
                 >
                   MC: findARoofer.filters.pitchedRoof
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </div>
-              <div
-                class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-                role="button"
-                tabindex="0"
-              >
-                <span
-                  class="MuiChip-label"
-                >
-                  MC: findARoofer.filters.flatRoof
                 </span>
                 <span
                   class="MuiTouchRipple-root"
