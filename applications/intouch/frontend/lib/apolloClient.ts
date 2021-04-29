@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { v4 } from "uuid";
 import {
   ApolloClient,
   InMemoryCache,
@@ -19,14 +20,16 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors)
-      graphQLErrors.forEach(({ message, locations, path }) =>
+      graphQLErrors.forEach(({ message, locations, path }) => {
         // eslint-disable-next-line no-console
         console.log(
           `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-        )
-      );
-    // eslint-disable-next-line no-console
-    if (networkError) console.log(`[Network error]: ${networkError}`);
+        );
+      });
+    if (networkError) {
+      // eslint-disable-next-line no-console
+      console.log(`[Network error]: ${networkError}`);
+    }
   });
 
   let accessToken;
@@ -44,7 +47,8 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
     return {
       headers: {
         ...headers,
-        authorization: accessToken || ""
+        authorization: accessToken || "",
+        "x-request-id": v4()
       }
     };
   });

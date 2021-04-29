@@ -1,13 +1,27 @@
 import jwt from "express-jwt";
 import jwksRsa from "jwks-rsa";
 
-const { AUTH0_AUDIENCE, AUTH0_DOMAIN } = process.env;
+const { AUTH0_AUDIENCE, AUTH0_DOMAIN, NODE_ENV } = process.env;
+
+const isDev = NODE_ENV === "development";
+
+const isIntrospectionInDev = ({ method, body }) => {
+  if (isDev && method === "POST" && body.operationName === "IntrospectionQuery")
+    return true;
+};
+
+const isPlayground = ({ url }) => {
+  if (url === "/playground") return true;
+};
+
+const isOptionCors = ({ method }) => {
+  if (method === "OPTIONS") return true;
+};
 
 const checkJwt = (req, res, next) => {
-  const { method } = req;
-
-  // Skip options requests
-  if (method === "OPTIONS") return next();
+  if (isOptionCors(req) || isIntrospectionInDev(req) || isPlayground(req)) {
+    return next();
+  }
 
   return jwt({
     secret: jwksRsa.expressJwtSecret({

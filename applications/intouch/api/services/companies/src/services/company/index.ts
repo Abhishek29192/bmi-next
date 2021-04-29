@@ -16,7 +16,7 @@ export const updateCompany = async (
 
     const { access_token } = await getAccessToken();
 
-    await updateUser(access_token, user.auth0.sub, {
+    await updateUser(access_token, user.sub, {
       app_metadata: {
         registration_to_complete: false
       }

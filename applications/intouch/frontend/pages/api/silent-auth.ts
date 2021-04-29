@@ -1,9 +1,4 @@
-import { LoginOptions } from "@auth0/nextjs-auth0";
-import { handleLogin } from "@auth0/nextjs-auth0";
-
-const getLoginState = (req, loginOptions) => {
-  return { prompt: "none" };
-};
+import { LoginOptions, handleLogin } from "@auth0/nextjs-auth0";
 
 // This api endpoint let us do a silent login, if the user has a valid session in auth0 but not in our application we can login him without adding any credential
 // This is also usefull to get the last state of the user
@@ -14,7 +9,7 @@ export default async function silentAuth(req, res) {
     authorizationParams: {
       prompt: "none"
     },
-    getLoginState
+    getLoginState: () => ({ prompt: "none" })
   };
 
   if (returnTo) {

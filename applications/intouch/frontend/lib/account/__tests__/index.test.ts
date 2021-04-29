@@ -1,10 +1,14 @@
 import axios from "axios";
+import uuid from "uuid";
 import { createAccount, mutationCreateAccount } from "../";
 
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 process.env.GRAPHQL_URL = "GRAPHQL_URL";
 
 jest.mock("axios");
+jest.mock("uuid", () => ({
+  v4: () => "uuid"
+}));
 
 describe("Account", () => {
   const session = {
@@ -35,7 +39,8 @@ describe("Account", () => {
       },
       {
         headers: {
-          authorization: `Bearer ${session.accessToken}`
+          authorization: `Bearer ${session.accessToken}`,
+          "x-request-id": "uuid"
         }
       }
     );

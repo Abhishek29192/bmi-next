@@ -57,12 +57,14 @@ export const createAccount = async (
       app_metadata.registration_to_complete = false;
     }
 
-    await updateUser(access_token, user.auth0.sub, {
+    await updateUser(access_token, user.sub, {
       app_metadata
     });
 
     return result;
   } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log("Error creating new user", e);
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
     throw e;
   } finally {

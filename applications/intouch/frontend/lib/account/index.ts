@@ -1,4 +1,5 @@
 import axios from "axios";
+import { v4 } from "uuid";
 
 export const mutationCreateAccount = `mutation CreateAccount($input: CreateAccountInput!) {
   createAccount(input: $input) {
@@ -30,7 +31,8 @@ export const createAccount = async (session) => {
 
   const { data } = await axios.post(process.env.GRAPHQL_URL, body, {
     headers: {
-      authorization: `Bearer ${session.accessToken}`
+      authorization: `Bearer ${session.accessToken}`,
+      "x-request-id": v4()
     }
   });
 

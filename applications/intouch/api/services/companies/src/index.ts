@@ -13,8 +13,9 @@ const PORT = process.env.PORT || 4001;
 async function main() {
   const app = express();
 
-  app.use(pubsub);
+  app.use(express.json());
   app.use(parseUserInfo);
+  app.use(pubsub);
   app.use(postgraphile);
   app.listen(PORT, () => {
     // eslint-disable-next-line no-console

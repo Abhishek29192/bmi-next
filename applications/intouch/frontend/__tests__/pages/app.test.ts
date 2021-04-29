@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getSession } from "@auth0/nextjs-auth0";
-import initialProps from "../app";
+import { initialProps } from "../../pages/_app";
 
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 

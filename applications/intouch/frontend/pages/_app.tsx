@@ -3,9 +3,8 @@ import axios from "axios";
 import { AppProps } from "next/app";
 import { appWithTranslation } from "next-i18next";
 import { ApolloProvider } from "@apollo/client";
-import { UserProvider } from "@auth0/nextjs-auth0";
+import { UserProvider, getSession } from "@auth0/nextjs-auth0";
 import { useApollo } from "../lib/apolloClient";
-import auth0 from "../lib/auth0";
 
 import "../styles/globals.css";
 
@@ -26,7 +25,7 @@ const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
   );
 };
 
-AuthApp.getInitialProps = async ({ ctx, Component }) => {
+export const initialProps = async ({ ctx, Component }) => {
   const { req, res, pathname } = ctx;
   const USER_UNAUTHORIZED = "unauthorized (user is blocked)";
 
@@ -39,7 +38,7 @@ AuthApp.getInitialProps = async ({ ctx, Component }) => {
     const { AUTH0_NAMESPACE, NEXT_PUBLIC_BASE_URL } = process.env;
     try {
       // Get the current session
-      const session = await auth0.getSession(req, res);
+      const session = await getSession(req, res);
       if (session) {
         // Check if the session is valid
         await axios.get(`${NEXT_PUBLIC_BASE_URL}/api/auth/me`, {
@@ -80,5 +79,7 @@ AuthApp.getInitialProps = async ({ ctx, Component }) => {
 
   return {};
 };
+
+AuthApp.getInitialProps = initialProps;
 
 export default appWithTranslation(AuthApp);

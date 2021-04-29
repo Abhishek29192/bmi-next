@@ -8,7 +8,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import GridStyles from "../styles/Grid.module.scss";
 import { initializeApollo } from "../lib/apolloClient";
 
-const CREATE_COMPANY = gql`
+const UPDATE_COMPANY = gql`
   mutation updateCompany($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
       company {
@@ -25,7 +25,10 @@ const GET_CURRENT_COMPANY = gql`
 `;
 
 const Company = ({ currentCompany }: any) => {
-  const [createCompany] = useMutation(CREATE_COMPANY, {
+  // The company is created when we create the user in the db
+  // through an sql procedure (create_account) here we just
+  // need to update it with the new values
+  const [createCompany] = useMutation(UPDATE_COMPANY, {
     onCompleted: () => {
       // Redirect to silent-auth in order to re-create the session as we need to remove
       // the claim from the jwt token to stop showing the registration page to the user
