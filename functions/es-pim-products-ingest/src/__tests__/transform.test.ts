@@ -1,3 +1,4 @@
+import { transformProduct } from "../transform";
 import {
   createAppearanceAttributesClassification,
   createFeature,
@@ -5,10 +6,9 @@ import {
   createGeneralInformationClassification,
   createMeasurementsClassification,
   createScoringWeightAttributesClassification
-} from "../../__tests__/ClassificationHelper";
-import createVariantOption from "../../__tests__/VariantOptionHelper";
-import createPimProduct from "../../__tests__/PimProductHelper";
-import { transformProduct } from "../transform";
+} from "./helpers/ClassificationHelper";
+import createVariantOption from "./helpers/VariantOptionHelper";
+import createPimProduct from "./helpers/PimProductHelper";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 

@@ -1,4 +1,4 @@
-import { ProductVariant } from "@bmi/es-model/src";
+import { ProductVariant } from "../../es-model";
 import createCategory from "./CategoryHelper";
 import createClassification from "./ClassificationHelper";
 import createImage from "./ImageHelper";

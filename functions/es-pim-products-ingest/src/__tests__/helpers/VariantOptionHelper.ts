@@ -1,4 +1,4 @@
-import { VariantOption } from "@bmi/es-model/src/pim";
+import { VariantOption } from "../../pim";
 import createClassification from "./ClassificationHelper";
 import createImage from "./ImageHelper";
 

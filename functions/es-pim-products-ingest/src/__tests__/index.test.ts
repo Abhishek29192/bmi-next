@@ -1,11 +1,11 @@
-import { ProductVariant } from "@bmi/es-model/src";
-import { Product } from "@bmi/es-model/src/pim";
 import { RequestParams } from "@elastic/elasticsearch";
 import { protos } from "@google-cloud/secret-manager";
 import mockConsole from "jest-mock-console";
-import createProductVariant from "../../__tests__/ProductVariantHelper";
+import { ProductVariant } from "../es-model";
+import { Product } from "../pim";
 import { ProductMessage } from "..";
-import createPimProduct from "../../__tests__/PimProductHelper";
+import createProductVariant from "./helpers/ProductVariantHelper";
+import createPimProduct from "./helpers/PimProductHelper";
 
 const {
   ES_INDEX_PREFIX,
@@ -244,10 +244,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -291,10 +288,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -336,10 +330,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -381,10 +372,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -428,10 +416,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
