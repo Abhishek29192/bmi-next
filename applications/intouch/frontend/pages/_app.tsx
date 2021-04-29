@@ -1,25 +1,15 @@
 import React from "react";
-import Router from "next/router";
+import axios from "axios";
 import { AppProps } from "next/app";
 import { appWithTranslation } from "next-i18next";
 import { ApolloProvider } from "@apollo/client";
-import { UserProvider } from "@auth0/nextjs-auth0";
+import { UserProvider, getSession } from "@auth0/nextjs-auth0";
 import { useApollo } from "../lib/apolloClient";
-import auth0 from "../lib/auth0";
-import useApi from "../hooks/useApi";
 
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
   const apolloClient = useApollo(pageProps?.initialApolloState);
-
-  const { error } = useApi("/profile");
-  if (error?.status === 401) {
-    window.location.assign(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/logout`
-    );
-  }
-
   return (
     <ApolloProvider client={apolloClient}>
       <Component {...pageProps} apolloClient={apolloClient} {...rest} />
@@ -35,28 +25,50 @@ const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
   );
 };
 
-AuthApp.getInitialProps = async ({ ctx, Component }) => {
+export const initialProps = async ({ ctx, Component }) => {
   const { req, res, pathname } = ctx;
+  const USER_UNAUTHORIZED = "unauthorized (user is blocked)";
 
-  // Lets api work normally
-  if (pathname.indexOf("/api") !== -1) {
+  if (pathname.includes("/api/auth")) {
     return {};
   }
 
-  // Check if the user is a company_admin and if he has a company
-  const session = await auth0.getSession(req, res);
+  // Run the check only server side
+  if (req) {
+    const { AUTH0_NAMESPACE, NEXT_PUBLIC_BASE_URL } = process.env;
+    try {
+      // Get the current session
+      const session = await getSession(req, res);
+      if (session) {
+        // Check if the session is valid
+        await axios.get(`${NEXT_PUBLIC_BASE_URL}/api/auth/me`, {
+          headers: {
+            cookie: req?.headers?.cookie
+          }
+        });
 
-  if (session) {
-    ctx.session = session;
-    const { user } = session;
-    const regCompleted = user[`${process.env.AUTH0_NAMESPACE}/reg_to_complete`];
-    if (pathname !== "/company-registration" && regCompleted) {
-      if (res) {
-        res.writeHead(302, { Location: "/company-registration" });
-        res.end();
-      } else {
-        Router.replace("/company-registration");
+        // Check if the user is a company admin and if it has already registered the company
+        const { user } = session;
+        const regCompleted =
+          user[`${AUTH0_NAMESPACE}/registration_to_complete`];
+
+        // If company not registered then redirect him to the company registration
+        if (pathname !== "/company-registration" && regCompleted) {
+          res.writeHead(302, { Location: "/company-registration" });
+          res.end();
+          return {};
+        }
       }
+    } catch (error) {
+      // If Unauthorized user redirect to the logout
+      if (
+        error?.response?.status === 401 ||
+        error?.response.data === USER_UNAUTHORIZED
+      ) {
+        res.writeHead(302, { Location: "/api/auth/logout" });
+        res.end();
+      }
+
       return {};
     }
   }
@@ -67,5 +79,7 @@ AuthApp.getInitialProps = async ({ ctx, Component }) => {
 
   return {};
 };
+
+AuthApp.getInitialProps = initialProps;
 
 export default appWithTranslation(AuthApp);

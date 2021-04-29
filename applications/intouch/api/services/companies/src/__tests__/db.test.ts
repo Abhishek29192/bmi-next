@@ -35,7 +35,7 @@ const transaction = async (
 ) => {
   await pool.query("BEGIN");
   if (accountUuid) {
-    await pool.query(`SET LOCAL app.current_account TO '${accountUuid}'`);
+    await pool.query(`SET LOCAL app.current_account_id TO '${accountUuid}'`);
   }
   await pool.query(`SET LOCAL ROLE TO '${role}'`);
   const res = await pool.query(query, params);
@@ -86,11 +86,11 @@ describe("Database permissions", () => {
         }
       });
 
-      it("should be able to create an account using the function create_user", async () => {
+      it("should be able to create an account using the function create_account", async () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
           null,
-          "select * from create_user($1, $2, $3, $4, $5)",
+          "select * from create_account($1, $2, $3, $4, $5)",
           [INSTALLER_EMAIL, "name", "surname", 1, "INSTALLER"]
         );
         expect(rows.length).toEqual(1);
@@ -101,7 +101,7 @@ describe("Database permissions", () => {
         const { rows } = await transaction(
           ROLE_INSTALLER,
           installer_id,
-          "select id from account",
+          "select * from account",
           []
         );
         expect(rows.length).toEqual(1);
@@ -120,11 +120,11 @@ describe("Database permissions", () => {
           expect(error.message).toEqual(RLS_ERROR("account"));
         }
       });
-      it("should be able to create an account and a company using the function create_user", async () => {
+      it("should be able to create an account and a company using the function create_account", async () => {
         const { rows } = await transaction(
           ROLE_COMPANY_ADMIN,
           null,
-          "select * from create_user($1, $2, $3, $4, $5)",
+          "select * from create_account($1, $2, $3, $4, $5)",
           [COMPANY_ADMIN_EMAIL, "name", "surname", 1, "COMPANY_ADMIN"]
         );
 

@@ -3,9 +3,10 @@ import postGraphileOpts from "../postGraphileOpts";
 describe("Postgraphile", () => {
   it("the context should have the user object", async () => {
     const req: any = {
-      headers: {
-        "x-authenticated-internal-user-id": "123",
-        "x-authenticated-role": "installer"
+      user: {
+        id: "123",
+        role: "installer",
+        email: "email"
       }
     };
     const context = await postGraphileOpts.additionalGraphQLContextFromRequest(
@@ -16,7 +17,8 @@ describe("Postgraphile", () => {
     expect(context).toEqual({
       user: {
         id: "123",
-        role: "installer"
+        role: "installer",
+        email: "email"
       }
     });
   });
@@ -25,7 +27,8 @@ describe("Postgraphile", () => {
     const req: any = {
       user: {
         id: "123",
-        role: "installer"
+        role: "installer",
+        email: "email"
       }
     };
     const pgSettings =
@@ -34,7 +37,8 @@ describe("Postgraphile", () => {
         : postGraphileOpts.pgSettings;
 
     expect(pgSettings).toEqual({
-      "app.current_account": "123",
+      "app.current_account_id": "123",
+      "app.current_account_email": "email",
       role: "installer"
     });
   });

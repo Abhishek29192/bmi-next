@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { v4 } from "uuid";
 import {
   ApolloClient,
   InMemoryCache,
@@ -9,31 +10,31 @@ import { onError } from "@apollo/client/link/error";
 import { ApolloLink } from "@apollo/client/link/core";
 import { setContext } from "@apollo/client/link/context";
 
-import auth0 from "./auth0";
+import { getSession } from "@auth0/nextjs-auth0";
 
 let apolloClient;
 const { NEXT_PUBLIC_BASE_URL } = process.env;
 
-const createApolloClient = async (
-  ctx
-): Promise<ApolloClient<NormalizedCacheObject>> => {
+const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   const isBrowser = typeof window !== "undefined";
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors)
-      graphQLErrors.forEach(({ message, locations, path }) =>
+      graphQLErrors.forEach(({ message, locations, path }) => {
         // eslint-disable-next-line no-console
         console.log(
           `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
-        )
-      );
-    // eslint-disable-next-line no-console
-    if (networkError) console.log(`[Network error]: ${networkError}`);
+        );
+      });
+    if (networkError) {
+      // eslint-disable-next-line no-console
+      console.log(`[Network error]: ${networkError}`);
+    }
   });
 
   let accessToken;
   if (ctx) {
-    const session = await auth0.getSession(ctx.req, ctx.res);
+    const session = getSession(ctx.req, ctx.res);
     accessToken = `Bearer ${session.accessToken}`;
   }
 
@@ -46,7 +47,8 @@ const createApolloClient = async (
     return {
       headers: {
         ...headers,
-        authorization: accessToken || ""
+        authorization: accessToken || "",
+        "x-request-id": v4()
       }
     };
   });
