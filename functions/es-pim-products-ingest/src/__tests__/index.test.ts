@@ -244,10 +244,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -291,10 +288,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -336,10 +330,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -381,10 +372,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
@@ -428,10 +416,7 @@ describe("handleMessage", () => {
     expect(bulk).toBeCalledWith({
       index: index,
       refresh: true,
-      body: [
-        { delete: { _index: index, _id: productVariant.code } },
-        productVariant
-      ]
+      body: [{ delete: { _index: index, _id: productVariant.code } }]
     });
     expect(count).toBeCalledWith({ index });
   });
