@@ -87,7 +87,7 @@ const VentilationHoodOptions = ({
         name="ventilation"
         defaultValue={selected}
         isRequired
-        showNone
+        noneLabel="None"
       >
         {options.map(({ description, image, externalProductCode }) => (
           <CardCheckboxGroup.Item
