@@ -179,7 +179,7 @@ exports[`Page component renders correctly 1`] = `
   />
   <div
     class="drawer nav-drawer"
-    style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
+    style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
   >
     <button
       aria-label="MC: global.close"
@@ -265,7 +265,7 @@ exports[`Page component renders correctly 1`] = `
   </div>
   <div
     class="search-drawer-container"
-    style="visibility: hidden; webkit-transform: translateY(-NaNpx); transform: translateY(-NaNpx);"
+    style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
   >
     <div
       class="drawer search-drawer"
