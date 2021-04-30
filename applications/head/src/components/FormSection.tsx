@@ -1,3 +1,4 @@
+import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
 import Button, { ButtonProps } from "@bmi/button";
 import Checkbox from "@bmi/checkbox";
 import Form from "@bmi/form";
@@ -396,6 +397,22 @@ const FormSection = ({
     }
   };
 
+  if (source === "HubSpot" && hubSpotFormGuid) {
+    useHubspotForm({
+      portalId: process.env.GATSBY_HUBSPOT_ID,
+      formId: hubSpotFormGuid,
+      target: "#bmi-hubspot-form"
+    });
+
+    return (
+      <Section backgroundColor={backgroundColor}>
+        {showTitle && <Section.Title>{title}</Section.Title>}
+        {description && <RichText document={description} />}
+        <div id="bmi-hubspot-form"></div>
+      </Section>
+    );
+  }
+
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
@@ -403,6 +420,7 @@ const FormSection = ({
       {inputs ? (
         <Form
           onSubmit={
+            // TODO Handle/remove after HubSpot mapping has been decided
             source === "HubSpot" && hubSpotFormGuid
               ? handleHubSpotSubmit
               : handleSubmit
