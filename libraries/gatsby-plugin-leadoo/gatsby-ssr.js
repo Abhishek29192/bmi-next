@@ -1,7 +1,6 @@
 "use strict";
 
 const React = require("react");
-const { isDefined } = require("./utils");
 const { defaultOptions } = require("./default-options");
 
 exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
@@ -13,7 +12,7 @@ exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
 
   if (
     (productionOnly && process.env.NODE_ENV !== "production") ||
-    !isDefined(companyCode)
+    !companyCode
   ) {
     return;
   }
