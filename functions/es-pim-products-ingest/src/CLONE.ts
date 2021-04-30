@@ -3,7 +3,7 @@
 // product-details-trasnforms.ts
 
 import { result, find } from "lodash";
-import { Product } from "@bmi/es-model/src/pim";
+import { Product } from "./pim";
 
 export type Category = {
   parentCategoryCode: string;

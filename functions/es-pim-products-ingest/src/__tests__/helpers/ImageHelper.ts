@@ -1,4 +1,4 @@
-import { Image } from "@bmi/es-model/src/pim";
+import { Image } from "../../pim";
 
 const createImage = (image?: Partial<Image>): Image => ({
   allowedToDownload: true,

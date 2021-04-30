@@ -1,7 +1,7 @@
 import { Client } from "@elastic/elasticsearch";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import { Operation, ProductVariant } from "@bmi/es-model";
-import { Product as PIMProduct } from "@bmi/es-model/src/pim";
+import { Operation, ProductVariant } from "./es-model";
+import { Product as PIMProduct } from "./pim";
 import { transformProduct } from "./transform";
 
 export type ProductMessage = {
@@ -26,7 +26,7 @@ const {
   ES_PASSWORD_SECRET,
   ES_CLOUD_ID,
   ES_USERNAME,
-  BATCH_SIZE = "250"
+  BATCH_SIZE = "300"
 } = process.env;
 
 const secretManagerClient = new SecretManagerServiceClient();
@@ -94,25 +94,58 @@ const getChunks = (
 
   return chunksArray;
 };
+const getIndexOperation = (indexName: string, variant: ProductVariant) => {
+  return [
+    {
+      index: { _index: indexName, _id: variant.code }
+    },
+    variant
+  ];
+};
+
+const getDeleteOperation = (indexName: string, variant: ProductVariant) => {
+  return [
+    {
+      delete: { _index: indexName, _id: variant.code }
+    }
+  ];
+};
 
 const getBulkOperations = (
   indexName: string,
   variants: readonly ProductVariant[],
   action?: Operation
 ) => {
-  return variants.reduce(
-    (allOps, item) => [
-      ...allOps,
-      {
-        [action || (item.approvalStatus === "approved" ? "index" : "delete")]: {
-          _index: indexName,
-          _id: item.code
-        }
-      },
-      item
-    ],
-    []
-  );
+  if (!action) {
+    return variants.reduce(
+      (allOps, item) => [
+        ...allOps,
+        ...(item.approvalStatus === "approved"
+          ? getIndexOperation(indexName, item)
+          : getDeleteOperation(indexName, item))
+      ],
+      []
+    );
+  }
+
+  switch (action) {
+    case "delete":
+      return variants.reduce(
+        (allOps, item) => [...allOps, ...getDeleteOperation(indexName, item)],
+        []
+      );
+    case "create":
+    case "index":
+    case "update":
+      return variants.reduce(
+        (allOps, item) => [...allOps, ...getIndexOperation(indexName, item)],
+        []
+      );
+    default:
+      // eslint-disable-next-line no-console
+      console.error("Unexpected 'action' received");
+      return null;
+  }
 };
 
 const updateElasticSearch = async (

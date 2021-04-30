@@ -1,8 +1,5 @@
-import type {
-  Product as PIMProduct,
-  VariantOption as PIMVariant
-} from "@bmi/es-model/src/pim";
-import type { ProductVariant as ESProduct } from "@bmi/es-model";
+import type { Product as PIMProduct, VariantOption as PIMVariant } from "./pim";
+import type { ProductVariant as ESProduct } from "./es-model";
 import {
   findProductBrandLogoCode,
   getFullCategoriesPaths,

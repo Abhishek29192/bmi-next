@@ -1,4 +1,4 @@
-import { Asset } from "@bmi/es-model/src/pim";
+import { Asset } from "../../pim";
 
 const createAsset = (asset?: Partial<Asset>): Asset => ({
   allowedToDownload: true,
