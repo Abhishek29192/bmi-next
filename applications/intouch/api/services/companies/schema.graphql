@@ -9,7 +9,7 @@ directive @key(fields: _FieldSet!) on OBJECT | INTERFACE
 scalar _Any
 
 """A union of all federated types (those that use the @key directive)."""
-union _Entity = Account | Market | Company | Address | Project | Guarantee | System | SystemMember | Product | GuaranteedProduct | EvidenceItem | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Notification | Certification
+union _Entity = Account | Market | Company | Address | Project | Guarantee | System | SystemMember | Product | GuaranteedProduct | EvidenceItem | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Certification | Notification
 
 """
 Used to represent a set of fields. Grammatically, a field set is a
@@ -64,7 +64,10 @@ type Account implements Node {
   created: Datetime
 
   """User account in Docebo"""
-  doceboId: String
+  doceboUserId: Int
+
+  """Username in Docebo.  Needed to generate the SSO link"""
+  doceboUsername: String
 
   """File reference or the file itself. A profile picture of the user"""
   photo: String
@@ -73,6 +76,35 @@ type Account implements Node {
 
   """Reads a single `Market` that is related to this `Account`."""
   market: Market
+
+  """Reads and enables pagination through a set of `Certification`."""
+  certificationsByDoceboUserId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Certification`."""
+    orderBy: [CertificationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CertificationCondition
+  ): CertificationsConnection!
 
   """Reads and enables pagination through a set of `CompanyMember`."""
   companyMembers(
@@ -305,7 +337,6 @@ type Account implements Node {
     """
     condition: ProjectMemberCondition
   ): ProjectMembersConnection!
-  certifications: [Certification]
 }
 
 """
@@ -317,6 +348,9 @@ input AccountCondition {
 
   """Checks for equality with the object’s `marketId` field."""
   marketId: Int
+
+  """Checks for equality with the object’s `doceboUserId` field."""
+  doceboUserId: Int
 }
 
 """
@@ -353,7 +387,10 @@ input AccountPatch {
   created: Datetime
 
   """User account in Docebo"""
-  doceboId: String
+  doceboUserId: Int
+
+  """Username in Docebo.  Needed to generate the SSO link"""
+  doceboUsername: String
 
   """File reference or the file itself. A profile picture of the user"""
   photo: String
@@ -394,6 +431,8 @@ enum AccountsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  DOCEBO_USER_ID_ASC
+  DOCEBO_USER_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -580,7 +619,7 @@ enum BusinessType {
   CORP_DEVELOPER
 }
 
-"""Certification"""
+"""A company that has been registered in InTouch"""
 type Certification implements Node {
   """
   A globally unique identifier. Can be used in various places throughout the system to identify this single value.
@@ -590,13 +629,10 @@ type Certification implements Node {
   """Primary key"""
   id: Int!
 
-  """Docebo user Id"""
-  userId: String
+  """fk"""
+  doceboUserId: Int
 
-  """Docebo user Id"""
-  userName: String
-
-  """Docebo Certification Code"""
+  """technology"""
   technology: String
 
   """The name of the certification according to Docebo"""
@@ -606,6 +642,9 @@ type Certification implements Node {
   expiryDate: Datetime
   createdAt: Datetime!
   updatedAt: Datetime!
+
+  """Reads a single `Account` that is related to this `Certification`."""
+  doceboUser: Account
 }
 
 """
@@ -615,6 +654,9 @@ tested for equality and combined with a logical ‘and.’
 input CertificationCondition {
   """Checks for equality with the object’s `id` field."""
   id: Int
+
+  """Checks for equality with the object’s `doceboUserId` field."""
+  doceboUserId: Int
 }
 
 """An input for mutations affecting `Certification`"""
@@ -622,13 +664,10 @@ input CertificationInput {
   """Primary key"""
   id: Int
 
-  """Docebo user Id"""
-  userId: String
+  """fk"""
+  doceboUserId: Int
 
-  """Docebo user Id"""
-  userName: String
-
-  """Docebo Certification Code"""
+  """technology"""
   technology: String
 
   """The name of the certification according to Docebo"""
@@ -647,13 +686,10 @@ input CertificationPatch {
   """Primary key"""
   id: Int
 
-  """Docebo user Id"""
-  userId: String
+  """fk"""
+  doceboUserId: Int
 
-  """Docebo user Id"""
-  userName: String
-
-  """Docebo Certification Code"""
+  """technology"""
   technology: String
 
   """The name of the certification according to Docebo"""
@@ -696,6 +732,8 @@ enum CertificationsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  DOCEBO_USER_ID_ASC
+  DOCEBO_USER_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1539,44 +1577,6 @@ type ContentfulTerms {
   url: String
 }
 
-"""All input for the `createAccount` mutation."""
-input CreateAccountInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-  email: String
-  firstName: String
-  lastName: String
-  marketId: Int
-  role: Role
-}
-
-"""The output of our `createAccount` mutation."""
-type CreateAccountPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-  account: Account
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """Reads a single `Market` that is related to this `Account`."""
-  market: Market
-
-  """An edge for our `Account`. May be used by Relay 1."""
-  accountEdge(
-    """The method to use when ordering `Account`."""
-    orderBy: [AccountsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): AccountsEdge
-}
-
 """All input for the create `Address` mutation."""
 input CreateAddressInput {
   """
@@ -1645,6 +1645,9 @@ type CreateCertificationPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
+
+  """Reads a single `Account` that is related to this `Certification`."""
+  doceboUser: Account
 
   """An edge for our `Certification`. May be used by Relay 1."""
   certificationEdge(
@@ -2302,6 +2305,18 @@ A point in time as described by the [ISO
 """
 scalar Datetime
 
+"""All input for the `deleteAccountByDoceboUserId` mutation."""
+input DeleteAccountByDoceboUserIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """User account in Docebo"""
+  doceboUserId: Int!
+}
+
 """All input for the `deleteAccountByNodeId` mutation."""
 input DeleteAccountByNodeIdInput {
   """
@@ -2453,6 +2468,9 @@ type DeleteCertificationPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
+
+  """Reads a single `Account` that is related to this `Certification`."""
+  doceboUser: Account
 
   """An edge for our `Certification`. May be used by Relay 1."""
   certificationEdge(
@@ -4647,6 +4665,14 @@ type Mutation {
     input: UpdateAccountInput!
   ): UpdateAccountPayload
 
+  """Updates a single `Account` using a unique key and a patch."""
+  updateAccountByDoceboUserId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountByDoceboUserIdInput!
+  ): UpdateAccountPayload
+
   """Updates a single `Address` using its globally unique id and a patch."""
   updateAddressByNodeId(
     """
@@ -4971,6 +4997,14 @@ type Mutation {
     input: DeleteAccountInput!
   ): DeleteAccountPayload
 
+  """Deletes a single `Account` using a unique key."""
+  deleteAccountByDoceboUserId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAccountByDoceboUserIdInput!
+  ): DeleteAccountPayload
+
   """Deletes a single `Address` using its globally unique id."""
   deleteAddressByNodeId(
     """
@@ -5258,12 +5292,6 @@ type Mutation {
     """
     input: DeleteSystemMemberInput!
   ): DeleteSystemMemberPayload
-  createAccount(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateAccountInput!
-  ): CreateAccountPayload
   publishMessage(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -6811,6 +6839,7 @@ type Query implements Node {
     condition: SystemMemberCondition
   ): SystemMembersConnection
   account(id: Int!): Account
+  accountByDoceboUserId(doceboUserId: Int!): Account
   address(id: Int!): Address
   certification(id: Int!): Certification
   company(id: Int!): Company
@@ -7353,6 +7382,23 @@ enum Tier {
   T4
 }
 
+"""All input for the `updateAccountByDoceboUserId` mutation."""
+input UpdateAccountByDoceboUserIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Account` being updated.
+  """
+  patch: AccountPatch!
+
+  """User account in Docebo"""
+  doceboUserId: Int!
+}
+
 """All input for the `updateAccountByNodeId` mutation."""
 input UpdateAccountByNodeIdInput {
   """
@@ -7531,6 +7577,9 @@ type UpdateCertificationPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
+
+  """Reads a single `Account` that is related to this `Certification`."""
+  doceboUser: Account
 
   """An edge for our `Certification`. May be used by Relay 1."""
   certificationEdge(

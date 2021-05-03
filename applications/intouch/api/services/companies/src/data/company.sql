@@ -110,7 +110,8 @@ phone text,
 first_name text,
 last_name text,
 created timestamp,
-docebo_id text,
+docebo_user_id int,
+docebo_username text,
 photo text,
 created_at timestamp NOT NULL DEFAULT now(),
 updated_at timestamp NOT NULL DEFAULT now()
@@ -134,8 +135,7 @@ updated_at timestamp NOT NULL DEFAULT now()
 DROP TABLE IF EXISTS certification CASCADE;
 CREATE TABLE certification (
 id SERIAL PRIMARY KEY,
-user_id text,
-user_name text,
+docebo_user_id int,
 technology text,
 name text,
 expiry_date timestamp,
@@ -360,66 +360,67 @@ updated_at timestamp NOT NULL DEFAULT now()
 
 
 TRUNCATE TABLE account RESTART IDENTITY;
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('1','ACTIVE',1,'SUPER_ADMIN','millyes0@jiathis.com','34144','Mike','Illyes','2020-06-12 10:19:47','42507-498','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('2','ACTIVE',1,'MARKET_ADMIN','fmcevoy1@yellowbook.com','324234','Franny','McEvoy','2020-02-05 00:23:27','59779-981','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('3','ACTIVE',2,'MARKET_ADMIN','ocastanaga2@bigcartel.com','33332','Ogdon','Castanaga','2020-09-23 17:50:40','65197-300','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('4','ACTIVE',2,'COMPANY_ADMIN','jharkin3@cdbaby.com','23566','Jessey','Harkin','2020-04-01 02:21:47','58165-032','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('5','ACTIVE',2,'COMPANY_ADMIN','kpohls4@photobucket.com','6644664','Kort','Pohls','2020-02-20 01:18:43','42747-235','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('6','ACTIVE',1,'COMPANY_ADMIN','tmoores5@cyberchimps.com','32322','Templeton','Moores','2020-07-29 10:17:22','54868-5935','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('7','ACTIVE',2,'COMPANY_ADMIN','jkemson6@cyberchimps.com','34144','Jonathan','Kemson','2020-10-12 04:35:35','0169-7010','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('8','ACTIVE',1,'COMPANY_ADMIN','rghio7@si.edu','324234','Reine','Ghio','2020-12-04 21:18:47','34645-2325','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('9','SUSPENDED',2,'COMPANY_ADMIN','qwinsiowiecki8@dropbox.com','33332','Quintilla','Winsiowiecki','2020-06-17 23:27:45','68084-166','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('10','ACTIVE',2,'INSTALLER','vcumberland9@zimbio.com','23566','Verna','Cumberland','2020-09-04 11:32:48','60512-6025','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('11','ACTIVE',1,'INSTALLER','tbisphama@theguardian.com','6644664','Torrence','Bispham','2020-08-09 22:56:17','47682-406','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('12','ACTIVE',1,'INSTALLER','gshawcroftb@europa.eu','32322','Gibbie','Shawcroft','2020-11-24 23:13:49','0143-9723','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('13','ACTIVE',1,'INSTALLER','bhaironc@who.int','34144','Bobbi','Hairon','2020-09-08 18:34:46','24385-549','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('14','ACTIVE',1,'INSTALLER','adeclercd@delicious.com','324234','Arlene','de Clerc','2020-06-11 19:38:17','47335-834','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('15','ACTIVE',2,'INSTALLER','jkopische@ted.com','33332','Juditha','Kopisch','2020-06-27 09:12:20','36987-2008','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('16','ACTIVE',2,'INSTALLER','ccammf@a8.net','23566','Claiborne','Camm','2020-04-22 00:12:02','63402-712','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('17','NEW',2,'INSTALLER','jshanksterg@smh.com.au','6644664','Johnathon','Shankster','2020-02-19 19:54:49','65044-3518','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('18','SUSPENDED',2,'INSTALLER','odooheyh@goodreads.com','32322','Otto','Doohey','2020-08-16 20:47:27','48433-320','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('19','ACTIVE',2,'INSTALLER','ashorlandi@imgur.com','34144','Anselma','Shorland','2020-11-10 05:29:49','47781-266','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('20','ACTIVE',2,'INSTALLER','mcopsj@odnoklassniki.ru','324234','Mauricio','Cops','2020-08-26 16:30:41','63629-2796','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('21','ACTIVE',2,'INSTALLER','mrobinettk@nba.com','33332','Mateo','Robinett','2020-10-01 21:01:06','0677-1979','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('22','ACTIVE',2,'INSTALLER','chatherleighl@foxnews.com','23566','Cookie','Hatherleigh','2020-07-01 09:26:58','0268-6196','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('23','ACTIVE',2,'INSTALLER','dpallisterm@toplist.cz','6644664','Dieter','Pallister','2020-01-27 02:38:03','0409-2308','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('24','ACTIVE',2,'INSTALLER','sleafn@theguardian.com','34144','Susette','Leaf','2020-10-13 23:58:03','0378-7155','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('25','ACTIVE',2,'INSTALLER','bpepallo@cmu.edu','324234','Brandyn','Pepall','2021-01-22 08:13:05','62175-446','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('26','NEW',2,'INSTALLER','jlathep@amazon.de','33332','Jenn','Lathe','2020-08-10 03:35:07','63323-763','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('27','SUSPENDED',2,'INSTALLER','lplacideq@ftc.gov','23566','Luigi','Placide','2020-03-28 05:19:50','68382-117','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('28','ACTIVE',2,'INSTALLER','kstedallr@walmart.com','6644664','Konstantine','Stedall','2020-05-21 20:08:10','57896-396','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('29','ACTIVE',2,'INSTALLER','drockwells@technorati.com','32322','Dennis','Rockwell','2020-02-19 00:12:10','11523-7350','https://thispersondoesnotexist.com/image');
-INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_id,photo)
-VALUES ('30','ACTIVE',2,'INSTALLER','ddanzigt@w3.org','22222','Dalila','Danzig','2020-02-09 10:30:04','41250-424','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('1','ACTIVE',1,'SUPER_ADMIN','kim@digital-detox.co.uk','34144','Kim','Nobay','2020-06-12 10:19:47',13970,'kim@digital-detox.co.uk','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('2','ACTIVE',1,'MARKET_ADMIN','chris.phippen@bmigroup.com','324234','Chris','Phippen','2020-02-05 00:23:27',13194,'chris.phippen@bmigroup.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('3','ACTIVE',2,'MARKET_ADMIN','umit.karaogul@bmigroup.com       ','33332','Umit','Karaogul','2020-09-23 17:50:40',13718,'umit.karaogul@bmigroup.com       ','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('4','ACTIVE',2,'COMPANY_ADMIN','francesco.moro@bmigroup.com','23566','Jessey','Harkin','2020-04-01 02:21:47',13717,'francesco.moro@bmigroup.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('5','ACTIVE',2,'COMPANY_ADMIN','chris.phippen+98@bmigroup.com       ','6644664','Kort','Pohls','2020-02-20 01:18:43',13270,'chris.phippen+98@bmigroup.com       ','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('6','ACTIVE',1,'COMPANY_ADMIN','chris.phippen+66@bmigroup.com','32322','Templeton','Moores','2020-07-29 10:17:22',13524,'chris.phippen+66@bmigroup.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('7','ACTIVE',2,'COMPANY_ADMIN','jkemson6@cyberchimps.com','34144','Jonathan','Kemson','2020-10-12 04:35:35',13525,'jkemson6@cyberchimps.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('8','ACTIVE',1,'COMPANY_ADMIN','rghio7@si.edu','324234','Reine','Ghio','2020-12-04 21:18:47',13526,'rghio7@si.edu','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('9','SUSPENDED',2,'COMPANY_ADMIN','qwinsiowiecki8@dropbox.com','33332','Quintilla','Winsiowiecki','2020-06-17 23:27:45',13527,'qwinsiowiecki8@dropbox.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('10','ACTIVE',2,'INSTALLER','vcumberland9@zimbio.com','23566','Verna','Cumberland','2020-09-04 11:32:48',13529,'vcumberland9@zimbio.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('11','ACTIVE',1,'INSTALLER','tbisphama@theguardian.com','6644664','Torrence','Bispham','2020-08-09 22:56:17',13541,'tbisphama@theguardian.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('12','ACTIVE',1,'INSTALLER','gshawcroftb@europa.eu','32322','Gibbie','Shawcroft','2020-11-24 23:13:49',13542,'gshawcroftb@europa.eu','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('13','ACTIVE',1,'INSTALLER','bhaironc@who.int','34144','Bobbi','Hairon','2020-09-08 18:34:46',13543,'bhaironc@who.int','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('14','ACTIVE',1,'INSTALLER','adeclercd@delicious.com','324234','Arlene','de Clerc','2020-06-11 19:38:17',13544,'adeclercd@delicious.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('15','ACTIVE',2,'INSTALLER','jkopische@ted.com','33332','Juditha','Kopisch','2020-06-27 09:12:20',13545,'jkopische@ted.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('16','ACTIVE',2,'INSTALLER','ccammf@a8.net','23566','Claiborne','Camm','2020-04-22 00:12:02',13546,'ccammf@a8.net','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('17','NEW',2,'INSTALLER','jshanksterg@smh.com.au','6644664','Johnathon','Shankster','2020-02-19 19:54:49',13547,'jshanksterg@smh.com.au','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('18','SUSPENDED',2,'INSTALLER','odooheyh@goodreads.com','32322','Otto','Doohey','2020-08-16 20:47:27',13548,'odooheyh@goodreads.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('19','ACTIVE',2,'INSTALLER','ashorlandi@imgur.com','34144','Anselma','Shorland','2020-11-10 05:29:49',13549,'ashorlandi@imgur.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('20','ACTIVE',2,'INSTALLER','mcopsj@odnoklassniki.ru','324234','Mauricio','Cops','2020-08-26 16:30:41',13550,'mcopsj@odnoklassniki.ru','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('21','ACTIVE',2,'INSTALLER','mrobinettk@nba.com','33332','Mateo','Robinett','2020-10-01 21:01:06',13551,'mrobinettk@nba.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('22','ACTIVE',2,'INSTALLER','chatherleighl@foxnews.com','23566','Cookie','Hatherleigh','2020-07-01 09:26:58',13552,'chatherleighl@foxnews.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('23','ACTIVE',2,'INSTALLER','dpallisterm@toplist.cz','6644664','Dieter','Pallister','2020-01-27 02:38:03',13553,'dpallisterm@toplist.cz','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('24','ACTIVE',2,'INSTALLER','sleafn@theguardian.com','34144','Susette','Leaf','2020-10-13 23:58:03',13554,'sleafn@theguardian.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('25','ACTIVE',2,'INSTALLER','bpepallo@cmu.edu','324234','Brandyn','Pepall','2021-01-22 08:13:05',13555,'bpepallo@cmu.edu','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('26','NEW',2,'INSTALLER','jlathep@amazon.de','33332','Jenn','Lathe','2020-08-10 03:35:07',13556,'jlathep@amazon.de','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('27','SUSPENDED',2,'INSTALLER','lplacideq@ftc.gov','23566','Luigi','Placide','2020-03-28 05:19:50',13557,'lplacideq@ftc.gov','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('28','ACTIVE',2,'INSTALLER','kstedallr@walmart.com','6644664','Konstantine','Stedall','2020-05-21 20:08:10',13558,'kstedallr@walmart.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('29','ACTIVE',2,'INSTALLER','drockwells@technorati.com','32322','Dennis','Rockwell','2020-02-19 00:12:10',13559,'drockwells@technorati.com','https://thispersondoesnotexist.com/image');
+INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
+VALUES ('30','ACTIVE',2,'INSTALLER','ddanzigt@w3.org','22222','Dalila','Danzig','2020-02-09 10:30:04',13561,'ddanzigt@w3.org','https://thispersondoesnotexist.com/image');
+
 
 TRUNCATE TABLE address RESTART IDENTITY;
 INSERT INTO address(id,project_id,company_id,address_type,first_line,second_line,town,country,postcode)
@@ -555,17 +556,19 @@ VALUES ('65',29,null,null,'7 Dakota Pass','Sommers','Camingawan','Philippines','
 INSERT INTO address(id,project_id,company_id,address_type,first_line,second_line,town,country,postcode)
 VALUES ('66',30,null,null,'39 Hintze Street','Farwell','Soubré','Ivory Coast','E49');
 
+
 TRUNCATE TABLE certification RESTART IDENTITY;
-INSERT INTO certification(id,user_id,user_name,technology,name,expiry_date)
-VALUES ('1','4',null,'FLAT','Pancake Master Certified','2022-12-18 12:00:00');
-INSERT INTO certification(id,user_id,user_name,technology,name,expiry_date)
-VALUES ('2','5',null,'FLAT','Pancake Master Certified','2023-12-18 12:00:00');
-INSERT INTO certification(id,user_id,user_name,technology,name,expiry_date)
-VALUES ('3','6',null,'FLAT','Pancake Master Certified','2023-11-18 12:00:00');
-INSERT INTO certification(id,user_id,user_name,technology,name,expiry_date)
-VALUES ('4','7',null,'PITCHED','Slope Style Specialist','2021-10-18 12:00:00');
-INSERT INTO certification(id,user_id,user_name,technology,name,expiry_date)
-VALUES ('5','8',null,'PITCHED','Slope Style Specialist 2000','2020-12-18 12:00:00');
+INSERT INTO certification(id,docebo_user_id,technology,name,expiry_date)
+VALUES ('1',13970,'FLAT','Pancake Master Certified','2022-12-18 12:00:00');
+INSERT INTO certification(id,docebo_user_id,technology,name,expiry_date)
+VALUES ('2',13194,'FLAT','Pancake Master Certified','2023-12-18 12:00:00');
+INSERT INTO certification(id,docebo_user_id,technology,name,expiry_date)
+VALUES ('3',13718,'FLAT','Pancake Master Certified','2023-11-18 12:00:00');
+INSERT INTO certification(id,docebo_user_id,technology,name,expiry_date)
+VALUES ('4',13970,'PITCHED','Slope Style Specialist','2021-10-18 12:00:00');
+INSERT INTO certification(id,docebo_user_id,technology,name,expiry_date)
+VALUES ('5',13970,'PITCHED','Slope Style Specialist 2000','2020-12-18 12:00:00');
+
 
 TRUNCATE TABLE company RESTART IDENTITY;
 INSERT INTO company(id,market_id,owner_fullname,owner_email,owner_phone,business_type,tier,status,registered_by,registered_date,docebo_group_id,name,tax_number,phone,coordinates,about_us,public_email,website,facebook,linked_in,reference_number,logo)
@@ -575,6 +578,7 @@ VALUES ('2',2,'Harry Webb','harry@test.com','234234','CONTRACTOR','T4','ACTIVE',
 INSERT INTO company(id,market_id,owner_fullname,owner_email,owner_phone,business_type,tier,status,registered_by,registered_date,docebo_group_id,name,tax_number,phone,coordinates,about_us,public_email,website,facebook,linked_in,reference_number,logo)
 VALUES ('3',1,'Robert Zimmerman','bob@test.com','345345','CONTRACTOR','T1','ACTIVE','dhechlin2@amazon.com','2020-9-20 12:00:00','Goldenrod','Beahan, Little and Reynolds','49738-530','843-584-2619','(10.6971494,-72.2598689)','Multi-tiered holistic productivity','https://utexas.edu','liacovielli2@discovery.com','https://www.facebook.com/Sony/','https://in.linkedin.com/company/sony','0179-0110','https://favpng.com/png_view/lotus-wikimedia-commons-clip-art-png/10vQG4nP');
 
+
 TRUNCATE TABLE company_document RESTART IDENTITY;
 INSERT INTO company_document(id,company_id,document)
 VALUES ('1',1,'http://www.africau.edu/images/default/sample.pdf');
@@ -582,6 +586,7 @@ INSERT INTO company_document(id,company_id,document)
 VALUES ('2',1,'http://www.africau.edu/images/default/sample.pdf');
 INSERT INTO company_document(id,company_id,document)
 VALUES ('3',2,'http://www.africau.edu/images/default/sample.pdf');
+
 
 TRUNCATE TABLE company_member RESTART IDENTITY;
 INSERT INTO company_member(id,market_id,account_id,company_id)
@@ -619,6 +624,7 @@ VALUES ('16',1,6,3);
 INSERT INTO company_member(id,market_id,account_id,company_id)
 VALUES ('17',2,7,2);
 
+
 TRUNCATE TABLE company_operation RESTART IDENTITY;
 INSERT INTO company_operation(id,company,operation)
 VALUES ('1',2,'PITCHED');
@@ -626,6 +632,7 @@ INSERT INTO company_operation(id,company,operation)
 VALUES ('2',2,'FLAT');
 INSERT INTO company_operation(id,company,operation)
 VALUES ('3',3,'FLAT');
+
 
 TRUNCATE TABLE evidence_item RESTART IDENTITY;
 INSERT INTO evidence_item(id,evidence_category_id,guarantee_id,name,attachment)
@@ -649,6 +656,7 @@ VALUES ('9','7j0FaWCBSVanXJqaZrDyvP',3,'prague-czech-republic-august-172019-600w
 INSERT INTO evidence_item(id,evidence_category_id,guarantee_id,name,attachment)
 VALUES ('10','7j0FaWCBSVanXJqaZrDyvP',3,'dancing-friends-600w-717409222.jpg','https://image.shutterstock.com/image-photo/dancing-friends-600w-717409222.jpg');
 
+
 TRUNCATE TABLE guarantee RESTART IDENTITY;
 INSERT INTO guarantee(id,pdf,requestor_account_id,responsible_installer_account_id,project_id,guarantee_type_id,system_id,reviewer_account_id,guarantee_template_id,status,start_date,expiry_date,issue_number)
 VALUES ('1','http://www.africau.edu/images/default/sample.pdf',5,null,1,'7uSy0NeVTgPiJbOiVYW4DX',null,null,'4cDQT8Au0RrtmzKAdZbAcx','APPROVED','2020-12-18 12:00:00','2050-12-18 12:00:00','61715-062');
@@ -656,6 +664,7 @@ INSERT INTO guarantee(id,pdf,requestor_account_id,responsible_installer_account_
 VALUES ('2','http://www.africau.edu/images/default/sample.pdf',6,null,3,'54S9J770q5T2jPYxptah89',1,null,'71k4T9LgthbOricwbUvQey','APPROVED','2020-12-18 12:00:00','2050-12-18 12:00:00','54868-5770');
 INSERT INTO guarantee(id,pdf,requestor_account_id,responsible_installer_account_id,project_id,guarantee_type_id,system_id,reviewer_account_id,guarantee_template_id,status,start_date,expiry_date,issue_number)
 VALUES ('3','null',7,7,2,'2weKEYQ8xXZ56FM0ZtiGXO',2,3,'3N6SohZMuQrKc3U99skZ9N','SUBMITTED','2020-12-18 12:00:00','2020-12-18 12:00:00','36987-1846');
+
 
 TRUNCATE TABLE guaranteed_product RESTART IDENTITY;
 INSERT INTO guaranteed_product(id,product_id,guarantee_id)
@@ -665,6 +674,7 @@ VALUES ('2',2,1);
 INSERT INTO guaranteed_product(id,product_id,guarantee_id)
 VALUES ('3',3,1);
 
+
 TRUNCATE TABLE invitation RESTART IDENTITY;
 INSERT INTO invitation(id,sender_account_id,company_id,status,invitee,personal_note)
 VALUES ('1',5,3,'NEW','kim@digital-detox.co.uk','hey come and join us');
@@ -673,17 +683,20 @@ VALUES ('2',5,3,'NEW','sam@digital-detox.co.uk','do you wanna be in my gang?');
 INSERT INTO invitation(id,sender_account_id,company_id,status,invitee,personal_note)
 VALUES ('3',5,3,'NEW','donovan@digital-detox.co.uk','this is that website i told you about');
 
+
 TRUNCATE TABLE market RESTART IDENTITY;
 INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle)
 VALUES ('1','en','tra','opay6t6wwmup','Transatlantia','BMI Intouch Mapleland','transatlantia@intouch.bmigroup.com','tbc2','tbc2','tbc2','tbc2',TRUE,'tbc1','27.9139,-82.7157');
 INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle)
 VALUES ('2','en','mp','opay6t6wwmup','Mapleland','BMI Intouch Mapleland','mapleland@intouch.bmigroup.com','tbc2','tbc2','tbc2','tbc2',TRUE,'tbc1','42.7684,-78.8871');
 
+
 TRUNCATE TABLE note RESTART IDENTITY;
 INSERT INTO note(id,author_id,project_id,body)
 VALUES ('1',3,7,'That roof looks a bit like Sydney Opera house');
 INSERT INTO note(id,author_id,project_id,body)
 VALUES ('2',3,8,'My favourite roof is St Pauls Cathedral');
+
 
 TRUNCATE TABLE notification RESTART IDENTITY;
 INSERT INTO notification(id,account_id,send_date,unread,body)
@@ -747,6 +760,7 @@ VALUES ('29',25,'2021-01-09 08:44:13',FALSE,'Dear user 25 luctus et ultrices pos
 INSERT INTO notification(id,account_id,send_date,unread,body)
 VALUES ('30',6,'2020-10-12 13:41:46',TRUE,'Dear user 6 quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis yours truly BMI');
 
+
 TRUNCATE TABLE product RESTART IDENTITY;
 INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
 VALUES ('1',1,'PITCHED','123','Braas','BMI Braas Otcom Professional-1XL-1','Lorem ipsum per ardua ad astra cum initiae mendo notoriatum roofus dufus texas inclinados','Asoka',TRUE,24);
@@ -808,6 +822,7 @@ INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,famil
 VALUES ('29',2,'FLAT','151','Coverland','BMI Coverland Greenlam Professional-29XL-2','Lorem ipsum per ardua ad astra cum initiae mendo notoriatum roofus dufus texas inclinados','Ronstring',TRUE,29);
 INSERT INTO product(id,market_id,technology,bmi_ref,brand,name,description,family,published,maximum_validity_years)
 VALUES ('30',2,'PITCHED','152','Schiedel','BMI Schiedel Temp Professional-30XL-2','Lorem ipsum per ardua ad astra cum initiae mendo notoriatum roofus dufus texas inclinados','Quo Lux',FALSE,26);
+
 
 TRUNCATE TABLE project RESTART IDENTITY;
 INSERT INTO project(id,company_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
@@ -871,6 +886,7 @@ VALUES ('29',1,'FLAT','958 Carioca Road','Lorem ipsum per ardua ad astra cum ini
 INSERT INTO project(id,company_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
 VALUES ('30',1,'PITCHED','0221 Lotheville Avenue','Lorem ipsum per ardua ad astra cum initiae mendo notoriatum roofus dufus texas inclinados',TRUE,107,'sastlest@ehow.com','Susi','Astles','Bluejam','2020-09-14 09:38:28','2021-01-31 23:15:04');
 
+
 TRUNCATE TABLE project_member RESTART IDENTITY;
 INSERT INTO project_member(id,project_id,account_id)
 VALUES ('1',1,21);
@@ -909,6 +925,7 @@ VALUES ('17',1,28);
 INSERT INTO project_member(id,project_id,account_id)
 VALUES ('18',1,29);
 
+
 TRUNCATE TABLE system RESTART IDENTITY;
 INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
 VALUES ('1',2,'FLAT','234','BMI Tarantula System X11 for Professionals','Uses BMI specific technology, the BMI Tarantula System X11 for Professionals system is best in class, intended for those who value Managed actuating parallelism',31,TRUE);
@@ -922,6 +939,7 @@ INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_vali
 VALUES ('5',2,'PITCHED','238','BMI Striped skunk System X25 for Professionals','Uses BMI specific technology, the BMI Striped skunk System X25 for Professionals system is best in class, intended for those who value Multi-lateral motivating artificial intelligence',35,TRUE);
 INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
 VALUES ('6',2,'PITCHED','239','BMI Striped dolphin System X26 for Professionals','Uses BMI specific technology, the BMI Striped dolphin System X26 for Professionals system is best in class, intended for those who value Front-line mobile capacity',35,FALSE);
+
 
 TRUNCATE TABLE system_member RESTART IDENTITY;
 INSERT INTO system_member(id,system_id,product_id)
@@ -964,6 +982,9 @@ INSERT INTO system_member(id,system_id,product_id)
 VALUES ('19',6,12);
 INSERT INTO system_member(id,system_id,product_id)
 VALUES ('20',6,13);
+
+ALTER TABLE account ADD UNIQUE (docebo_user_id);
+
 ALTER TABLE account ADD FOREIGN KEY (market_id) REFERENCES market(Id);
 CREATE INDEX ON account (market_id);
 
@@ -972,6 +993,9 @@ CREATE INDEX ON address (project_id);
 
 ALTER TABLE address ADD FOREIGN KEY (company_id) REFERENCES company(Id);
 CREATE INDEX ON address (company_id);
+
+ALTER TABLE certification ADD FOREIGN KEY (docebo_user_id) REFERENCES account(docebo_user_id);
+CREATE INDEX ON certification (docebo_user_id);
 
 ALTER TABLE company ADD FOREIGN KEY (market_id) REFERENCES market(Id);
 CREATE INDEX ON company (market_id);
@@ -1061,7 +1085,8 @@ COMMENT ON COLUMN account.phone IS 'A phone number that can optionally be provid
 COMMENT ON COLUMN account.first_name IS 'First name';
 COMMENT ON COLUMN account.last_name IS 'Last name';
 COMMENT ON COLUMN account.created IS 'When the account was created';
-COMMENT ON COLUMN account.docebo_id IS 'User account in Docebo';
+COMMENT ON COLUMN account.docebo_user_id IS 'User account in Docebo';
+COMMENT ON COLUMN account.docebo_username IS 'Username in Docebo.  Needed to generate the SSO link';
 COMMENT ON COLUMN account.photo IS 'File reference or the file itself. A profile picture of the user';
 
 COMMENT ON TABLE address IS 'A generic address';
@@ -1075,11 +1100,10 @@ COMMENT ON COLUMN address.town IS 'The postal town';
 COMMENT ON COLUMN address.country IS 'The country for this address';
 COMMENT ON COLUMN address.postcode IS 'The postcode for this address';
 
-COMMENT ON TABLE certification IS 'Certification';
+COMMENT ON TABLE certification IS 'A company that has been registered in InTouch';
 COMMENT ON COLUMN certification.id IS 'Primary key';
-COMMENT ON COLUMN certification.user_id IS 'Docebo user Id';
-COMMENT ON COLUMN certification.user_name IS 'Docebo user Id';
-COMMENT ON COLUMN certification.technology IS 'Docebo Certification Code';
+COMMENT ON COLUMN certification.docebo_user_id IS 'fk';
+COMMENT ON COLUMN certification.technology IS 'technology';
 COMMENT ON COLUMN certification.name IS 'The name of the certification according to Docebo';
 COMMENT ON COLUMN certification.expiry_date IS 'The last day that this certification is valid';
 
@@ -1353,3 +1377,4 @@ CREATE TRIGGER set_system_updated_at
 BEFORE UPDATE ON system 
 FOR EACH ROW 
 EXECUTE PROCEDURE update_modified_column();
+

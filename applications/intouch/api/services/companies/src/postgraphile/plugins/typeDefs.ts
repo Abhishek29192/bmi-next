@@ -65,9 +65,6 @@ export default gql`
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
   }
-  extend type Account {
-    certifications: [Certification]
-  }
 
   input PublishInput {
     title: String
