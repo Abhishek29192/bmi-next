@@ -6,6 +6,7 @@ import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
   const {
+    pgSql: sql,
     graphql: { graphql }
   } = build;
 
@@ -20,6 +21,19 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           } = await getGuarantee(guaranteeTypeId);
 
           return guaranteeType;
+        }
+      },
+      Account: {
+        certifications: async (_query, args, context, resolveInfo) => {
+          const { doceboId } = _query;
+          return await resolveInfo.graphile.selectGraphQLResultFromTable(
+            sql.fragment`public.certification`,
+            (tableAlias, queryBuilder) => {
+              queryBuilder.where(
+                sql.fragment`${tableAlias}.user_id = ${sql.value(doceboId)}`
+              );
+            }
+          );
         }
       },
 
