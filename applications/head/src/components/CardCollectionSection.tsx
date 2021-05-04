@@ -155,6 +155,7 @@ const CardCollectionSection = ({
   );
   const groupKeys = moveRestKeyLast(Object.keys(cardsByTag));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
+  const [showMoreIterator, setShowMoreIterator] = useState(1);
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
@@ -167,6 +168,13 @@ const CardCollectionSection = ({
   );
   const iteratableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;
+
+  const cardsPerLoad = 8;
+  const numberOfCardsToShow = cardsPerLoad * showMoreIterator;
+
+  const handleShowMoreClick = () => {
+    setShowMoreIterator((prevValue) => prevValue + 1);
+  };
 
   const GTMChip = withGTM<ChipProps>(Chip);
 
@@ -252,7 +260,7 @@ const CardCollectionSection = ({
           </Carousel>
         ) : (
           <Grid container>
-            {iteratableCards.map((card, i) => {
+            {iteratableCards.slice(0, numberOfCardsToShow).map((card, i) => {
               const { id } = card;
               return (
                 <Grid item key={`${id}-${i}`} xs={12} md={6} xl={3}>
@@ -264,6 +272,13 @@ const CardCollectionSection = ({
                 </Grid>
               );
             })}
+            {iteratableCards.length > numberOfCardsToShow && (
+              <Grid item xs={12} className={styles["show-more-block"]}>
+                <Button variant="outlined" onClick={handleShowMoreClick}>
+                  {getMicroCopy("global.showMore")}
+                </Button>
+              </Grid>
+            )}
           </Grid>
         )}
         {link && (
