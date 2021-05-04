@@ -16,6 +16,7 @@ type Props = {
   areaLabelledby?: string;
   areaDescribedby?: string;
   children: React.ReactNode;
+  allowOverflow?: boolean;
   className?: string;
 };
 
@@ -29,6 +30,7 @@ const ContainerDialog = ({
   areaLabelledby,
   areaDescribedby,
   children,
+  allowOverflow,
   className
 }: Props) => {
   return (
@@ -45,6 +47,9 @@ const ContainerDialog = ({
             styles["ContainerDialog"],
             styles[`ContainerDialog--bg-${color}`],
             styles[`ContainerDialog--width-${maxWidth}`],
+            {
+              [styles[`ContainerDialog--allowOverflow`]]: allowOverflow
+            },
             className
           )}
         >
