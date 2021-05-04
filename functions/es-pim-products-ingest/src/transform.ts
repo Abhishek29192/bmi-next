@@ -1,10 +1,5 @@
-import { pick } from "lodash";
-import { config } from "dotenv";
-import type {
-  Product as PIMProduct,
-  VariantOption as PIMVariant
-} from "./types/pim";
-import type { ProductVariant as ESProduct } from "./types/elasticSearch";
+import type { Product as PIMProduct, VariantOption as PIMVariant } from "./pim";
+import type { ProductVariant as ESProduct } from "./es-model";
 import {
   findProductBrandLogoCode,
   getFullCategoriesPaths,
@@ -15,9 +10,12 @@ import {
   TransformedMeasurementValue
 } from "./CLONE";
 
-config({
-  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
-});
+// Can't use lodash pick as it's not type-safe
+const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
+  const ret = {} as Pick<T, K>;
+  keys.forEach((key) => (ret[key] = obj[key]));
+  return ret;
+};
 
 const {
   // TODO: Remove this fallback once the environment variable is correctly set.
@@ -38,8 +36,8 @@ const combineVariantClassifications = (
 
   const allClassificationsMap = new Map(
     [
-      ...baseClassifications,
-      ...variantClassifications
+      ...variantClassifications,
+      ...baseClassifications
     ].map((classification) => [classification.code, classification])
   );
 
@@ -52,30 +50,30 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
   );
 
+  // Only "Category" categories which are used for filters
+  const productLeafCategories = getFullCategoriesPaths(
+    product.categories || []
+  ).map((categoryBranch) => {
+    const parent = getGroupCategory(categoryBranch);
+    const leaf = getLeafCategory(categoryBranch);
+
+    return {
+      parentCategoryCode: parent.code,
+      code: leaf.code
+    };
+  });
+
+  // Any category that is not "category" type
+  // Keeping this because there are Brand and ProductFamily categories which are important
+  // TODO: save as individual Brand and ProductFamily?
+  const productFamilyCategories = (product.categories || []).filter(
+    ({ categoryType }) => categoryType === "ProductFamily"
+  );
+  const productLineCategories = (product.categories || []).filter(
+    ({ categoryType }) => categoryType === "ProductLine"
+  );
+
   return (product.variantOptions || []).map((variant) => {
-    // Only "Category" categories which are used for filters
-    const productLeafCategories = getFullCategoriesPaths(
-      product.categories || []
-    ).map((categoryBranch) => {
-      const parent = getGroupCategory(categoryBranch);
-      const leaf = getLeafCategory(categoryBranch);
-
-      return {
-        parentCategoryCode: parent.code,
-        code: leaf.code
-      };
-    });
-
-    // Any category that is not "category" type
-    // Keeping this because there are Brand and ProductFamily categories which are important
-    // TODO: save as individual Brand and ProductFamily?
-    const productFamilyCategories = (product.categories || []).filter(
-      ({ categoryType }) => categoryType === "ProductFamily"
-    );
-    const productLineCategories = (product.categories || []).filter(
-      ({ categoryType }) => categoryType === "ProductLine"
-    );
-
     const classifications = combineVariantClassifications(product, variant);
     const scoringWeightClassification = classifications.find(
       ({ code }) => code === "scoringWeightAttributes"

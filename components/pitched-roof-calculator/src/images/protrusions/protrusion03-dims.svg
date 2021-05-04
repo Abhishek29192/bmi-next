@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 300">
+  <g id="box">
+    <rect width="350" height="300" fill="none"/>
+  </g>
+  <g id="protrusion003_dims" data-name="protrusion003 dims">
+    <g id="fill">
+      <polygon points="249.429 129.946 171.581 99.145 91.335 52.934 249.429 129.946" fill="#2681b4"/>
+      <polygon points="91.335 52.703 91.335 224.306 171.581 99.145 91.335 52.703" fill="#45e0ff"/>
+      <polygon points="171.581 99.145 103.368 205.537 237.275 125.14 171.581 99.145" fill="#b5c7d4"/>
+    </g>
+    <g id="lines">
+      <polygon points="91.335 52.703 171.581 99.145 91.335 224.306 91.335 52.703" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+      <polyline points="91.335 52.703 249.429 129.946 171.581 99.145" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <line x1="103.96218" y1="204.36749" x2="237.27547" y2="125.14019" fill="none" stroke="#3f3f3f" stroke-miterlimit="10"/>
+    <line x1="132.37691" y1="248.68158" x2="95.09905" y2="227.14782" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="289.28948" y1="153.25366" x2="128.08733" y2="246.20054" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="293.54339" y1="155.63207" x2="256.54211" y2="134.25799" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <text transform="translate(213.75799 212.09555)" font-size="16" fill="#3b3b3b" font-family="'Effra Regular', Effra">A</text>
+    <line x1="128.08359" y1="242.20962" x2="128.08359" y2="250.20962" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="289.44078" y1="149.05" x2="289.44078" y2="157.05" fill="none" stroke="#3b3b3b" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="105.27728" y1="131.0855" x2="115.21395" y2="137.73136" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <text transform="translate(101.64616 167.30268)" font-size="16" font-family="'Effra Regular', Effra">P</text>
+    <path d="M110.216,134.53393a75.27052,75.27052,0,0,0,.584,10.69716c1.62852,12.60468,6.46243,21.91489,13.49529,27.63893" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="160.91972" y1="105.30917" x2="103.50907" y2="138.33199" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+    <line x1="124.11852" y1="166.89498" x2="124.6199" y2="178.83875" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="1.5"/>
+  </g>
+</svg>

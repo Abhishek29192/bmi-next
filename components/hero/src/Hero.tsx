@@ -21,7 +21,7 @@ export type HeroItem = {
   media?: React.ReactElement<AcceptedNode>;
   /** Only required for level 1 */
   children: React.ReactNode;
-  CTA?: {
+  cta?: {
     label: React.ReactNode;
     action?: ClickableAction;
   };
@@ -115,7 +115,7 @@ const Hero = ({
           >
             {heroes.map(
               (
-                { title, children, CTA: linkProps = {}, hasUnderline = true },
+                { title, children, cta: linkProps = {}, hasUnderline = true },
                 index
               ) => {
                 return (
@@ -193,7 +193,8 @@ const SingleHero = ({
         styles["Hero"],
         {
           [styles["Hero--light"]]: levelProps.level === 3,
-          [styles["Hero--slim"]]: levelProps.level !== 1
+          [styles["Hero--slim"]]: levelProps.level !== 1,
+          [styles[`Hero--lvl-${levelProps.level}`]]: !!levelProps.level
         },
         className
       )}
@@ -212,7 +213,19 @@ const SingleHero = ({
               {title}
             </Typography>
             {levelProps.level === 1 && (
-              <div className={styles["text"]}>{levelProps.children}</div>
+              <>
+                <div className={styles["text"]}>{levelProps.children}</div>
+                {levelProps?.cta?.label && (
+                  <Button
+                    className={styles["cta"]}
+                    variant="outlined"
+                    hasDarkBackground
+                    {...levelProps.cta}
+                  >
+                    {levelProps.cta.label}
+                  </Button>
+                )}
+              </>
             )}
           </div>
         </div>

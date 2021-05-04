@@ -9,10 +9,10 @@
     "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
     "start": "node dist/index.js",
     "build": "tsc -p .",
-    "gcp-build": "tsc -p .",
-    "fill-db": "node scripts/index.js"
+    "gcp-build": "tsc -p ."
   },
   "dependencies": {
+    "@google-cloud/pubsub": "^2.10.0",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",
     "apollo-server": "^2.19.2",
@@ -26,7 +26,8 @@
     "jwks-rsa": "^1.12.3",
     "pg": "^8.5.1",
     "postgraphile": "^4.11.0",
-    "postgraphile-apollo-server": "0.1.1"
+    "postgraphile-apollo-server": "0.1.1",
+    "@bmi/intouch-shared-types": "^0.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",

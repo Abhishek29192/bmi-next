@@ -1,3 +1,4 @@
+import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
 import Button, { ButtonProps } from "@bmi/button";
 import Checkbox from "@bmi/checkbox";
 import Form from "@bmi/form";
@@ -117,6 +118,7 @@ const Input = ({
           name={name}
           buttonLabel={label}
           isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
           uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
           headers={{
             "Content-Type": "application/octet-stream"
@@ -167,7 +169,12 @@ const Input = ({
       );
     case "select":
       return (
-        <Select isRequired={required} label={label} name={name}>
+        <Select
+          isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
+          label={label}
+          name={name}
+        >
           <MenuItem value="none">None</MenuItem>
           {options.split(/, |,/).map((option, $i) => {
             const [select, value] = option.split(/= |=/);
@@ -185,6 +192,7 @@ const Input = ({
           name={name}
           label={convertMarkdownLinksToAnchorLinks(label)}
           isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
         />
       );
     case "hubspot-text":
@@ -213,6 +221,7 @@ const Input = ({
         <TextField
           name={name}
           isRequired={required}
+          fieldIsRequiredError={getMicroCopy("upload.fieldIsRequired")}
           isTextArea={type === "textarea"}
           variant="outlined"
           label={label}
@@ -388,6 +397,22 @@ const FormSection = ({
     }
   };
 
+  if (source === "HubSpot" && hubSpotFormGuid) {
+    useHubspotForm({
+      portalId: process.env.GATSBY_HUBSPOT_ID,
+      formId: hubSpotFormGuid,
+      target: "#bmi-hubspot-form"
+    });
+
+    return (
+      <Section backgroundColor={backgroundColor}>
+        {showTitle && <Section.Title>{title}</Section.Title>}
+        {description && <RichText document={description} />}
+        <div id="bmi-hubspot-form"></div>
+      </Section>
+    );
+  }
+
   return (
     <Section backgroundColor={backgroundColor}>
       {showTitle && <Section.Title>{title}</Section.Title>}
@@ -395,6 +420,7 @@ const FormSection = ({
       {inputs ? (
         <Form
           onSubmit={
+            // TODO Handle/remove after HubSpot mapping has been decided
             source === "HubSpot" && hubSpotFormGuid
               ? handleHubSpotSubmit
               : handleSubmit

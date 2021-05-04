@@ -9,10 +9,15 @@ test_gcp-apsis-integration:
         - jest/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-apsis-integration coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/gcp-apsis-integration/junit.xml
 
 build_gcp-apsis-integration:
   stage: build
@@ -22,7 +27,7 @@ build_gcp-apsis-integration:
         - functions/gcp-apsis-integration/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-apsis-integration build
   artifacts:

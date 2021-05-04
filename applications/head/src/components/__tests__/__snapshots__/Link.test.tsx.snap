@@ -14,6 +14,20 @@ Object {
 }
 `;
 
+exports[`Icon component getCTA function returns a cta object with a simple page cta 1`] = `
+Object {
+  "action": Object {
+    "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}",
+    "href": "https://www.external.co.uk",
+    "model": "htmlLink",
+    "onClick": [Function],
+    "rel": "noopener noreferrer",
+    "target": "_blank",
+  },
+  "label": "string",
+}
+`;
+
 exports[`Icon component getCTA function returns a cta object with page 1`] = `
 Object {
   "action": Object {
@@ -26,6 +40,12 @@ Object {
   "label": "Go to Page",
 }
 `;
+
+exports[`Icon component getCTA function returns a null object when a simple page without cta 1`] = `null`;
+
+exports[`Icon component getCTA function returns a null object with page with empty path 1`] = `null`;
+
+exports[`Icon component getCTA function returns a null object with page without path 1`] = `null`;
 
 exports[`Icon component getClickableActionFromUrl function returns a Link router to page path 1`] = `
 Object {

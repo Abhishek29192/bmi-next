@@ -1,8 +1,9 @@
 // THIS IS A CLONE OF EXTERNAL DEPENDENCIES I COULDN'T REQUIRE FROM HEAD ATM
 // POSSIBLY WITH SOME CHANGES
+// product-details-trasnforms.ts
 
 import { result, find } from "lodash";
-import { Product } from "./types/pim";
+import { Product } from "./pim";
 
 export type Category = {
   parentCategoryCode: string;
@@ -77,6 +78,7 @@ export const getColourThumbnailUrl = (images): string =>
     "url"
   );
 
+// product-details-page.tsx
 export type ClassificationFeatureValue = {
   value: string;
   code?: string; // This doesn't exist on some Features... perhaps we can be more specific with the types
@@ -182,7 +184,7 @@ export const mapProductClassifications = (
       }
 
       if (code === APPEARANCE) {
-        features.forEach(({ code, name, featureValues }) => {
+        features?.forEach(({ code, name, featureValues }) => {
           if (code === FEATURES.TEXTURE_FAMILY) {
             carryProp("texturefamily", {
               name,
@@ -215,7 +217,7 @@ export const mapProductClassifications = (
       }
 
       if (code === MEASUREMENTS) {
-        features.forEach(({ code, name, featureValues, featureUnit }) => {
+        features?.forEach(({ code, name, featureValues, featureUnit }) => {
           if (
             [FEATURES.LENGTH, FEATURES.WIDTH, FEATURES.HEIGHT].includes(code)
           ) {

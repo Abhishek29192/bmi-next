@@ -1,3 +1,5 @@
+import { VergeTileOption } from "../types";
+
 type RangeValue = {
   start: number;
   end: number;
@@ -55,8 +57,10 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
 
   // Find the adjusted even spacing and check that this is within min gauge
   const spacing = remainingSpace / battenCount;
+
   if (spacing < mainTileVariant.minBattenGauge) {
-    throw new Error("Tiles are at less than min gauge");
+    // eslint-disable-next-line no-console
+    console.error("Tiles are at less than min gauge"); // Temporary alert until Error page is built.
   }
 
   // Place battens at this even spacing up to the top of the roof
@@ -147,18 +151,92 @@ export const battenCalc = (vertices, pitchSet: number[], mainTileVariant) => {
   return allBattens;
 };
 
-export const surface = (battens, tile, half?) => {
+export const surface = (
+  battens,
+  sides,
+  tile,
+  half?,
+  cloakedVerge?: VergeTileOption,
+  subtract?
+) => {
+  const [left, right] = sides;
   // Count the number of main tiles and half tiles
   let count = 0;
   let halfcount = 0;
+  let leftVergeCount = 0;
+  let rightVergeCount = 0;
+  let halfLeftVergeCount = 0;
+  let halfRightVergeCount = 0;
   // Count tiles per each batten using tile covering width
   for (const batten of battens) {
-    if (half && !batten.subtract) {
-      // If the product contains a half tile specification we round UP to the nearest half
-      let row = Math.ceil(2 * (batten.width / tile.width));
+    // If the product contains a half tile specification we round UP to the nearest half
+    let row = Math.ceil(2 * (batten.width / tile.width));
+    if (cloakedVerge && !subtract) {
+      if (tile.brokenBond) {
+        if (row % 2 === 0) {
+          if (batten.index % 2 == 0) {
+            if (left === "VERGE") {
+              halfLeftVergeCount++;
+            } else {
+              halfcount++;
+            }
+            if (right === "VERGE") {
+              halfRightVergeCount++;
+            } else {
+              halfcount++;
+            }
+            row -= 2;
+          } else {
+            if (left === "VERGE") {
+              leftVergeCount++;
+              row -= 2;
+            }
+            if (right === "VERGE") {
+              rightVergeCount++;
+              row -= 2;
+            }
+          }
+        } else {
+          if (batten.index % 2 == 0) {
+            if (left === "VERGE") {
+              leftVergeCount++;
+            } else {
+              count++;
+            }
+            if (right === "VERGE") {
+              halfRightVergeCount++;
+            } else {
+              halfcount++;
+            }
+          } else {
+            if (right === "VERGE") {
+              rightVergeCount++;
+            } else {
+              count++;
+            }
+            if (left === "VERGE") {
+              halfLeftVergeCount++;
+            } else {
+              halfcount++;
+            }
+          }
+          row -= 3;
+        }
+      } else {
+        if (left === "VERGE") {
+          leftVergeCount++;
+          row -= 2;
+        }
+        if (right === "VERGE") {
+          rightVergeCount++;
+          row -= 2;
+        }
+      }
+    }
+    if (half && !subtract) {
       if (row % 2 === 0) {
         // No decimal part - check if broken bond
-        if (tile.brokenbond && batten.index % 2 == 0) {
+        if (tile.brokenBond && !cloakedVerge && batten.index % 2 == 0) {
           // Replace one full width tile with two half tiles
           count += row / 2 - 1;
           halfcount += 2;
@@ -172,23 +250,26 @@ export const surface = (battens, tile, half?) => {
         halfcount += 1;
       }
     } else {
-      // No half tile means round UP to the nearest tile
-      if (batten.subtract) {
+      if (subtract) {
+        // When subtracting we round DOWN to avoid missing spaces
         count -= Math.floor(batten.width / tile.width);
       } else {
+        // No half tile means round UP to the nearest tile
         count += Math.ceil(batten.width / tile.width);
       }
     }
   }
   let result = {
     quantity: count,
-    half: undefined
-  };
-  if (half) {
-    result.half = {
-      name: half.name,
+    half: {
       quantity: halfcount
-    };
-  }
+    },
+    cloakedVerge: {
+      left: leftVergeCount,
+      right: rightVergeCount,
+      halfLeft: halfLeftVergeCount,
+      halfRight: halfRightVergeCount
+    }
+  };
   return result;
 };

@@ -115,8 +115,11 @@ $hero-breakpoint-sm: 769px;
 
   @media (min-width: $breakpoint-sm) {
     flex-direction: row;
-    height: 450px;
+    height: auto;
 
+    &--lvl-1 {
+      min-height: 450px;
+    }
     &--slim {
       height: auto;
     }

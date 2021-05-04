@@ -1,12 +1,11 @@
 build_intouch_frontend:
   stage: build
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
         - libraries/**/*
-  needs: [install]
   variables:
     NEXT_PUBLIC_BASE_URL: "https://frontend-rfwslk3zjq-nw.a.run.app"
     AUTH0_NAMESPACE: "https://intouch"
@@ -22,22 +21,54 @@ build_intouch_frontend:
 test_intouch_frontend:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
         - libraries/**/*
-        - jest/**/*
-  needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/intouch-frontend coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - applications/intouch/frontend/junit.xml
 
-deploy_intouch_frontend_dev:
+push_to_registry:
+  needs: [test_intouch_frontend]
+  image: google/cloud-sdk
   stage: deploy
+  services:
+    - docker:dind
   rules:
     - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+      changes:
+        - applications/intouch/frontend/**/*
+        - components/**/*
+        - libraries/**/*
   script:
-    - echo "should deploy InTouch Frontend to dev environment"
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.yaml
+
+deploy_to_cloudrun:
+  needs: [push_to_registry]
+  image: google/cloud-sdk
+  stage: .post
+  services:
+    - docker:dind
+  rules:
+    - if: "$CI_COMMIT_BRANCH == 'intouch/dev-environment'"
+      changes:
+        - applications/intouch/frontend/**/*
+        - components/**/*
+        - libraries/**/*
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud run deploy tf-frontend --image=eu.gcr.io/automated-style-303709/tf-frontend --platform=managed --region=europe-west2 --project=automated-style-303709

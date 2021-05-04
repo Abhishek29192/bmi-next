@@ -13,6 +13,7 @@ const {
   TRANSITIONAL_TOPIC_NAME,
   PIM_CLIENT_ID,
   PIM_HOST,
+  PIM_CATALOG_NAME,
   GCP_PROJECT_ID,
   BUILD_TRIGGER_ENDPOINT
 } = process.env;
@@ -99,7 +100,7 @@ const fetchData = async (path = "/", accessToken) => {
   };
 
   const response = await fetch(
-    `${PIM_HOST}/bmiwebservices/v2/norwayBmi${path}`,
+    `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}${path}`,
     options
   );
 

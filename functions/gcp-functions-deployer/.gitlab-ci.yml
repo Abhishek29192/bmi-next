@@ -8,7 +8,7 @@ build_gcp-functions-deployer:
         - functions/gcp-functions-deployer/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-functions-deployer build
   artifacts:
@@ -24,10 +24,15 @@ test_gcp-functions-deployer:
         - jest/**/*
   needs: [install]
   before_script:
-    - yarn config set cache-folder ~/.yarn
+    - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/gcp-functions-deployer coverage:jest
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/gcp-functions-deployer/junit.xml
 
 package_gcp-functions-deployer:
   stage: package

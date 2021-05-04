@@ -1,3 +1,3 @@
-import Docebo from "./docebo";
+import Docebo, { loginToDocebo } from "./docebo";
 
-export { Docebo };
+export { Docebo, loginToDocebo };

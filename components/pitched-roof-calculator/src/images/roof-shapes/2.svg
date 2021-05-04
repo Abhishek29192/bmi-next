@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 350 300">
+  <defs>
+    <linearGradient id="linear-gradient" x1="244.34634" y1="223.4804" x2="217.41862" y2="176.84022" gradientUnits="userSpaceOnUse">
+      <stop offset="0.63086" stop-color="#b8c9d5" stop-opacity="0"/>
+      <stop offset="1" stop-color="#b8c9d5" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="61.2199" y1="246.436" x2="114.49915" y2="154.15364" gradientUnits="userSpaceOnUse">
+      <stop offset="0.31641" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="288.62472" y1="246.58847" x2="245.93858" y2="172.65392" gradientUnits="userSpaceOnUse">
+      <stop offset="0.50195" stop-color="#b8c9d5" stop-opacity="0"/>
+      <stop offset="1" stop-color="#b8c9d5" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="216.20683" y1="276.59564" x2="216.20683" y2="179.6564" xlink:href="#linear-gradient-2"/>
+    <linearGradient id="linear-gradient-5" x1="328.73145" y1="138.31836" x2="328.73145" y2="112.57373" gradientUnits="userSpaceOnUse">
+      <stop offset="0.11719" stop-opacity="0"/>
+      <stop offset="1" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-6" x1="309.2124" y1="189.18945" x2="309.2124" y2="163.44482" xlink:href="#linear-gradient-5"/>
+    <linearGradient id="linear-gradient-7" x1="236.64453" y1="239.76611" x2="236.64453" y2="214.021" xlink:href="#linear-gradient-5"/>
+    <linearGradient id="linear-gradient-8" x1="194.22314" y1="216.2832" x2="194.22314" y2="190.53857" xlink:href="#linear-gradient-5"/>
+    <linearGradient id="linear-gradient-9" x1="21.39893" y1="187.12842" x2="21.39893" y2="149.7124" xlink:href="#linear-gradient-5"/>
+    <linearGradient id="linear-gradient-10" x1="133.0332" y1="251.42969" x2="133.0332" y2="225.68506" xlink:href="#linear-gradient-5"/>
+  </defs>
+  <g id="box">
+    <rect width="350" height="300" fill="none"/>
+  </g>
+  <g id="roof002">
+    <g id="fill">
+      <polygon points="133.033 225.685 133.033 287.747 328.732 174.636 328.732 112.574 133.033 225.685" fill="url(#linear-gradient)"/>
+      <polygon points="133.033 225.685 133.033 287.747 21.399 223.445 21.399 149.712 71.576 129.372 133.033 225.685" fill="url(#linear-gradient-2)"/>
+      <polygon points="236.651 209.588 236.651 276.596 309.222 234.571 309.222 162.236 275.461 155.609 236.651 209.588" fill="url(#linear-gradient-3)"/>
+      <polygon points="237.521 209.588 237.521 276.596 194.893 251.992 194.893 179.656 237.521 209.588" fill="url(#linear-gradient-4)"/>
+      <g id="window">
+        <polygon points="75.875 153.952 75.875 165.213 66.513 159.82 66.513 148.559 75.875 153.952" fill="#6d9faf"/>
+        <polygon points="87.344 160.574 87.344 171.835 77.981 166.442 77.981 155.18 87.344 160.574" fill="#6d9faf"/>
+        <polygon points="75.875 167.439 75.875 178.7 66.513 173.307 66.513 162.046 75.875 167.439" fill="#6d9faf"/>
+        <polygon points="87.344 174.061 87.344 185.322 77.981 179.929 77.981 168.668 87.344 174.061" fill="#6d9faf"/>
+      </g>
+      <polygon points="340 105.914 133.033 225.685 71.009 129.681 278.43 10 340 105.914" fill="#2176a8"/>
+      <polygon points="278.43 10 71.009 129.681 10 154.361 217.252 34.581 278.43 10" fill="#47d5ff"/>
+      <polygon points="204.979 116.377 279.827 140.736 320.64 164.18 278.5 158.611 204.979 116.377" fill="#2682b5"/>
+      <polygon points="204.979 116.377 194.421 190.16 236.607 213.235 278.5 158.611 204.979 116.377" fill="#47e2ff"/>
+    </g>
+    <g id="lines">
+      <rect x="328.23145" y="112.57373" width="1" height="25.74463" fill="url(#linear-gradient-5)"/>
+      <rect x="308.7124" y="163.44482" width="1" height="25.74463" fill="url(#linear-gradient-6)"/>
+      <rect x="236.14453" y="214.021" width="1" height="25.74512" fill="url(#linear-gradient-7)"/>
+      <rect x="193.72314" y="190.53857" width="1" height="25.74463" fill="url(#linear-gradient-8)"/>
+      <rect x="20.89893" y="149.7124" width="1" height="37.41602" fill="url(#linear-gradient-9)"/>
+      <rect x="132.5332" y="225.68506" width="1" height="25.74463" fill="url(#linear-gradient-10)"/>
+      <line x1="71.43028" y1="128.90864" x2="278.42995" y2="10" fill="none" stroke="#002839" stroke-miterlimit="10"/>
+      <line x1="278.49983" y1="158.61054" x2="204.97918" y2="116.37743" fill="none" stroke="#002839" stroke-miterlimit="10"/>
+      <polygon points="194.421 190.16 133.033 225.685 71.009 129.681 10 154.361 217.252 34.581 278.43 10 340 105.914 279.827 140.736 320.64 164.18 278.5 158.611 236.607 213.235 194.421 190.16" fill="none" stroke="#002839" stroke-linejoin="round" stroke-width="2"/>
+      <polyline points="279.827 140.736 204.979 116.377 194.421 190.16" fill="none" stroke="#002839" stroke-miterlimit="10"/>
+    </g>
+  </g>
+</svg>

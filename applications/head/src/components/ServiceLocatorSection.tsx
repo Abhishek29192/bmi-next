@@ -131,6 +131,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     activeFilterReducer,
     initialActiveFilters
   );
+  const [userPosition, setUserPosition] = useState<
+    | undefined
+    | {
+        location: GoogleLatLngLiteral;
+      }
+  >();
 
   const initialise = async () => {
     await loadGoogleApi(process.env.GATSBY_GOOGLE_API_KEY, [
@@ -412,13 +418,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               onPlaceChange={handlePlaceChange}
               freeSolo
               startAdornmentIcon="LocationOn"
+              controlledValue={userPosition}
             />
             <GeolocationButton
               onPosition={({ coords }) => {
-                setZoom(coords.accuracy / 10);
-                setCentre({
-                  lat: coords.latitude,
-                  lng: coords.longitude
+                setUserPosition({
+                  location: {
+                    lat: coords.latitude,
+                    lng: coords.longitude
+                  }
                 });
               }}
             >

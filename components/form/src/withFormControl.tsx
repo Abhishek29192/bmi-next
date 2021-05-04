@@ -5,6 +5,7 @@ export type InputValue = string | number | boolean | File[] | string[];
 
 export type Props = {
   isRequired?: boolean;
+  fieldIsRequiredError?: string;
   // TODO: pass all values so that validation could depend on other fields
   getValidationError?: (val: InputValue) => false | string;
   defaultValue?: InputValue;
@@ -18,6 +19,7 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     isRequired,
     onChange,
     name,
+    fieldIsRequiredError,
     getValidationError,
     value,
     defaultValue = typeof value === "undefined" ? "" : undefined,
@@ -27,8 +29,7 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
 
     const getError = (val: InputValue) => {
       if (isRequired && !val) {
-        // TODO: This should come from some sort of Form context.
-        return "Feltet er obligatorisk";
+        return fieldIsRequiredError;
       }
       if (getValidationError && getValidationError(val)) {
         return getValidationError(val) || null;
