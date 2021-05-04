@@ -4,9 +4,9 @@ import MobileDocumentTechnicalTableResults from "../_MobileDocumentTechnicalTabl
 import { Data as AssetTypeData } from "../AssetType";
 import { Data as PIMDocumentData } from "../PIMDocument";
 import { Data as PIMLinkDocumentData } from "../PIMLinkDocument";
-import createAssetType from "../../test/AssetTypeHelper";
-import createPimDocument from "../../test/PimLinkDocumentHelper";
-import createPimLinkDocument from "../../test/PimLinkDocumentHelper";
+import createAssetType from "../../__tests__/AssetTypeHelper";
+import createPimDocument from "../../__tests__/PimLinkDocumentHelper";
+import createPimLinkDocument from "../../__tests__/PimLinkDocumentHelper";
 import fileIconsMap from "../FileIconsMap";
 
 describe("MobileDocumentTechnicalTableResults component", () => {

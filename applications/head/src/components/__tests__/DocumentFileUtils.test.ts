@@ -4,7 +4,7 @@ import createAssetFileCountMap, {
   generateFileNamebyTitle
 } from "../DocumentFileUtils";
 import { Data as PIMDocumentData } from "../PIMDocument";
-import createPimDocument from "../../test/PimDocumentHelper";
+import createPimDocument from "../../__tests__/PimDocumentHelper";
 
 const createAssetsWithRealFileNames = (
   realFileNames: string[]

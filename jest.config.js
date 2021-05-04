@@ -23,7 +23,7 @@ module.exports = {
     "<rootDir>/applications",
     "<rootDir>/functions"
   ],
-  testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
+  testMatch: ["**/__tests__/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
     "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
