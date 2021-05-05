@@ -3,6 +3,7 @@ import CardRadioGroup from "@bmi/card-radio-group";
 import Grid from "@bmi/grid";
 import { FormContext } from "@bmi/form";
 import NumericInput from "@bmi/up-down-simple-numeric-input";
+import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { guttering, hooks } from "./samples/guttering";
 
@@ -13,12 +14,14 @@ type GutteringSelectionProps = {
 };
 
 const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
+  const copy = useContext(MicroCopyContext);
+
   if (!options.length) {
     return null;
   }
 
   return (
-    <FieldContainer title={"Choose a gutter material"}>
+    <FieldContainer title={getMicroCopy(copy, "guttering.gutter.title")}>
       <CardRadioGroup name="guttering" defaultValue={selected} isRequired>
         {options.map(({ name, image }) => (
           <CardRadioGroup.Item
@@ -43,12 +46,14 @@ const GutteringVariantSelection = ({
   selected,
   options
 }: GutteringVariantSelectionProps) => {
+  const copy = useContext(MicroCopyContext);
+
   if (!options.length) {
     return null;
   }
 
   return (
-    <FieldContainer title={"Select the colour"}>
+    <FieldContainer title={getMicroCopy(copy, "guttering.gutterVariant.title")}>
       <CardRadioGroup
         name="gutteringVariant"
         defaultValue={selected}
@@ -81,12 +86,14 @@ const GutteringHookSelection = ({
   selected,
   options
 }: GutteringHookSelectionProps) => {
+  const copy = useContext(MicroCopyContext);
+
   if (!options.length) {
     return null;
   }
 
   return (
-    <FieldContainer title={"Select a gutter hook type"}>
+    <FieldContainer title={getMicroCopy(copy, "guttering.gutterHook.title")}>
       <CardRadioGroup name="gutteringHook" defaultValue={selected} isRequired>
         {options.map(({ name, image, externalProductCode }) => (
           <CardRadioGroup.Item
@@ -113,27 +120,33 @@ type DownPipeSelectionProps = {
 const DownPipeSelection = ({
   downPipes,
   downPipeConnectors
-}: DownPipeSelectionProps) => (
-  <>
-    <FieldContainer title={"Add down pipe (3m lengths)"}>
-      <Grid container>
-        <Grid item xs={12} md={3}>
-          <NumericInput name="downPipes" defaultValue={downPipes} />
+}: DownPipeSelectionProps) => {
+  const copy = useContext(MicroCopyContext);
+
+  return (
+    <>
+      <FieldContainer title={getMicroCopy(copy, "guttering.downPipe.title")}>
+        <Grid container>
+          <Grid item xs={12} md={3}>
+            <NumericInput name="downPipes" defaultValue={downPipes} />
+          </Grid>
         </Grid>
-      </Grid>
-    </FieldContainer>
-    <FieldContainer title={"How many downpipes connectors?"}>
-      <Grid container>
-        <Grid item xs={12} md={3}>
-          <NumericInput
-            name="downPipeConnectors"
-            defaultValue={downPipeConnectors}
-          />
+      </FieldContainer>
+      <FieldContainer
+        title={getMicroCopy(copy, "guttering.downPipeConnectors.title")}
+      >
+        <Grid container>
+          <Grid item xs={12} md={3}>
+            <NumericInput
+              name="downPipeConnectors"
+              defaultValue={downPipeConnectors}
+            />
+          </Grid>
         </Grid>
-      </Grid>
-    </FieldContainer>
-  </>
-);
+      </FieldContainer>
+    </>
+  );
+};
 
 type GutteringProps = {
   selections: {

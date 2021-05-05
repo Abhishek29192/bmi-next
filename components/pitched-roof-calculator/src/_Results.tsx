@@ -1,8 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import QuantityTable from "@bmi/quantity-table";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import PDFIcon from "@material-ui/icons/PictureAsPdf";
+import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { battenCalc } from "./calculation/calculate";
 import underlays from "./samples/underlays";
@@ -15,14 +16,6 @@ const getRemoveRow = (setRows) => (externalProductCode) =>
   setRows((rows) =>
     rows.filter((row) => row.externalProductCode !== externalProductCode)
   );
-
-const tableLabels = {
-  title: "Product",
-  packSize: "Pack size",
-  externalProductCode: "Nobb no",
-  quantity: "Quantity",
-  remove: "Remove"
-};
 
 const Results = ({
   isDebugging,
@@ -39,6 +32,8 @@ const Results = ({
   underlay: any;
   guttering: any;
 }) => {
+  const copy = useContext(MicroCopyContext);
+
   const { faces, lines, area } = measurements;
 
   const results = useMemo(() => {
@@ -104,10 +99,24 @@ const Results = ({
   const [ventilationRows, setVentilationRows] = useState(results.ventilation);
   const [accessoryRows, setAccessoryRows] = useState(results.accessories);
 
+  const tableLabels = useMemo(
+    () => ({
+      title: getMicroCopy(copy, "results.table.title"),
+      packSize: getMicroCopy(copy, "results.table.packSize"),
+      externalProductCode: getMicroCopy(
+        copy,
+        "results.table.externalProductCode"
+      ),
+      quantity: getMicroCopy(copy, "results.table.quantity"),
+      remove: getMicroCopy(copy, "results.table.remove")
+    }),
+    []
+  );
+
   return (
     <>
       {tileRows.length ? (
-        <FieldContainer title={"Tiles"}>
+        <FieldContainer title={getMicroCopy(copy, "results.categories.tiles")}>
           <QuantityTable
             onDelete={getRemoveRow(setTileRows)}
             onChangeQuantity={() => {}}
@@ -117,7 +126,9 @@ const Results = ({
         </FieldContainer>
       ) : null}
       {fixingRows.length ? (
-        <FieldContainer title={"Fixings"}>
+        <FieldContainer
+          title={getMicroCopy(copy, "results.categories.fixings")}
+        >
           <QuantityTable
             onDelete={getRemoveRow(setFixingRows)}
             onChangeQuantity={() => {}}
@@ -127,7 +138,9 @@ const Results = ({
         </FieldContainer>
       ) : null}
       {sealingRows.length ? (
-        <FieldContainer title={"Sealing"}>
+        <FieldContainer
+          title={getMicroCopy(copy, "results.categories.sealing")}
+        >
           <QuantityTable
             onDelete={getRemoveRow(setSealingRows)}
             onChangeQuantity={() => {}}
@@ -137,7 +150,9 @@ const Results = ({
         </FieldContainer>
       ) : null}
       {ventilationRows.length ? (
-        <FieldContainer title={"Ventilation"}>
+        <FieldContainer
+          title={getMicroCopy(copy, "results.categories.ventilation")}
+        >
           <QuantityTable
             onDelete={getRemoveRow(setVentilationRows)}
             onChangeQuantity={() => {}}
@@ -147,7 +162,9 @@ const Results = ({
         </FieldContainer>
       ) : null}
       {accessoryRows.length ? (
-        <FieldContainer title={"Accessories"}>
+        <FieldContainer
+          title={getMicroCopy(copy, "results.categories.accessories")}
+        >
           <QuantityTable
             onDelete={getRemoveRow(setAccessoryRows)}
             onChangeQuantity={() => {}}
@@ -162,15 +179,18 @@ const Results = ({
         onClick={async () => {
           (await import("./PDF")).default({
             results,
-            area: (area / 10000).toFixed(2)
+            area: (area / 10000).toFixed(2),
+            getMicroCopy: (...params) => getMicroCopy(copy, ...params)
           });
         }}
       >
-        Download as PDF
+        {getMicroCopy(copy, "results.downloadPdfLabel")}
       </Button>
       {isDebugging ? (
         <FieldContainer>
-          <Typography variant="h3">Measurements</Typography>
+          <Typography variant="h3">
+            Measurements (showing because debugging mode is ON)
+          </Typography>
           <Typography variant="h4">Lines</Typography>
           <ul>
             {Object.keys(lines).map((l) =>

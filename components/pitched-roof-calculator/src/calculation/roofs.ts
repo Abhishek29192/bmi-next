@@ -21,7 +21,7 @@ import Roof10DimensionsIllustration from "../images/roof-dimensions/10.svg";
 import { DimensionsFieldsValues, Roof } from "../types/roof";
 
 const roof1: Roof = {
-  name: "Roof 1",
+  name: "1",
   type: "gable",
   illustration: Roof1Illustration,
   dimensionsIllustration: Roof1DimensionsIllustration,
@@ -99,7 +99,7 @@ const roof1: Roof = {
 };
 
 const roof2: Roof = {
-  name: "Roof 2",
+  name: "2",
   type: "gable",
   illustration: Roof2Illustration,
   dimensionsIllustration: Roof2DimensionsIllustration,
@@ -284,7 +284,7 @@ const roof2: Roof = {
 };
 
 const roof3: Roof = {
-  name: "Roof 3",
+  name: "3",
   type: "gable",
   illustration: Roof3Illustration,
   dimensionsIllustration: Roof3DimensionsIllustration,
@@ -468,7 +468,7 @@ const roof3: Roof = {
 };
 
 const roof4: Roof = {
-  name: "Roof 4",
+  name: "4",
   type: "gable",
   illustration: Roof4Illustration,
   dimensionsIllustration: Roof4DimensionsIllustration,
@@ -612,7 +612,7 @@ const roof4: Roof = {
 };
 
 const roof5: Roof = {
-  name: "Roof 5",
+  name: "5",
   type: "gable",
   illustration: Roof5Illustration,
   dimensionsIllustration: Roof5DimensionsIllustration,
@@ -755,7 +755,7 @@ const roof5: Roof = {
 };
 
 const roof6: Roof = {
-  name: "Roof 6",
+  name: "6",
   type: "gable",
   illustration: Roof6Illustration,
   dimensionsIllustration: Roof6DimensionsIllustration,
@@ -919,7 +919,7 @@ const roof6: Roof = {
 };
 
 const roof7: Roof = {
-  name: "Roof 7",
+  name: "7",
   type: "hipped",
   illustration: Roof7Illustration,
   dimensionsIllustration: Roof7DimensionsIllustration,
@@ -1027,7 +1027,7 @@ const roof7: Roof = {
 };
 
 const roof8: Roof = {
-  name: "Roof 8",
+  name: "8",
   type: "hipped",
   illustration: Roof8Illustration,
   dimensionsIllustration: Roof8DimensionsIllustration,
@@ -1229,7 +1229,7 @@ const roof8: Roof = {
 };
 
 const roof9: Roof = {
-  name: "Roof 9",
+  name: "9",
   type: "hipped",
   illustration: Roof9Illustration,
   dimensionsIllustration: Roof9DimensionsIllustration,
@@ -1450,7 +1450,7 @@ const roof9: Roof = {
 };
 
 const roof10: Roof = {
-  name: "Roof 10",
+  name: "10",
   type: "sloped",
   illustration: Roof10Illustration,
   dimensionsIllustration: Roof10DimensionsIllustration,

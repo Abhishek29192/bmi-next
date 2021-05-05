@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import Button from "@bmi/button";
 import CalculatorModal from "@bmi/calculator-modal";
 import CalculatorStepper from "@bmi/calculator-stepper";
+import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import RoofSelection from "./_RoofSelection";
 import RoofDimensions from "./_RoofDimensions";
 import TileSelection from "./_TileSelection";
@@ -14,7 +15,12 @@ import Results from "./_Results";
 import protrusionTypes from "./calculation/protrusions";
 import { DimensionsValues, Measurements, Roof } from "./types/roof";
 
-const PitchedRoofCalculator = ({ isDebugging }: any) => {
+type PitchedRoofCalculatorProps = {
+  isDebugging?: boolean;
+};
+
+const PitchedRoofCalculator = ({ isDebugging }: PitchedRoofCalculatorProps) => {
+  const copy = useContext(MicroCopyContext);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<
     | "select-roof"
@@ -106,7 +112,7 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
           setOpen(true);
         }}
       >
-        Open modal
+        {getMicroCopy(copy, "roofSelection.title")}
       </Button>
       <CalculatorModal
         pearl={selected !== "your-solution-contains"}
@@ -116,18 +122,18 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
         <CalculatorStepper selected={selected}>
           <CalculatorStepper.Step
             key="select-roof"
-            title="Choose your roof type"
-            subtitle="Get started by letting us know the roof shape that most closely resembles your roof"
+            title={getMicroCopy(copy, "roofSelection.title")}
+            subtitle={getMicroCopy(copy, "roofSelection.subtitle")}
           >
             <RoofSelection select={selectRoof} selected={roof} />
           </CalculatorStepper.Step>
           <CalculatorStepper.Step
             key="enter-dimensions"
-            title="Enter dimensions"
-            subtitle="Enter these measurements, to help us find the total area of the roof"
-            nextLabel="Proceed to select tile options"
+            title={getMicroCopy(copy, "roofDimensions.title")}
+            subtitle={getMicroCopy(copy, "roofDimensions.subtitle")}
+            nextLabel={getMicroCopy(copy, "roofDimensions.nextLabel")}
             nextButtonOnClick={saveDimensions}
-            backLabel="Go back"
+            backLabel={getMicroCopy(copy, "roofDimensions.backLabel")}
             backButtonOnClick={() => setSelected("select-roof")}
           >
             {roof ? (
@@ -136,9 +142,9 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
           </CalculatorStepper.Step>
           <CalculatorStepper.Step
             key="select-tile"
-            title="Select a tile"
-            subtitle="You can now choose from different roofing tiles. In the next step you can select the tile colour."
-            backLabel="Go back"
+            title={getMicroCopy(copy, "tileSelection.title")}
+            subtitle={getMicroCopy(copy, "tileSelection.subtitle")}
+            backLabel={getMicroCopy(copy, "tileSelection.backLabel")}
             backButtonOnClick={() => setSelected("enter-dimensions")}
           >
             <TileSelection
@@ -149,9 +155,9 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
           </CalculatorStepper.Step>
           <CalculatorStepper.Step
             key="select-variant"
-            title="Select your tile colour"
-            subtitle="These are the tile colour options available for the chosen product range."
-            backLabel="Go back"
+            title={getMicroCopy(copy, "variantSelection.title")}
+            subtitle={getMicroCopy(copy, "variantSelection.subtitle")}
+            backLabel={getMicroCopy(copy, "variantSelection.backLabel")}
             backButtonOnClick={() => setSelected("select-tile")}
           >
             {tile ? (
@@ -165,13 +171,13 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
           </CalculatorStepper.Step>
           <CalculatorStepper.Step
             key="tile-options"
-            title="Tile options and accessories"
-            subtitle="Here you can choose more tile options and accessories."
-            nextLabel="Proceed to select underlay"
+            title={getMicroCopy(copy, "tileOptions.title")}
+            subtitle={getMicroCopy(copy, "tileOptions.subtitle")}
+            nextLabel={getMicroCopy(copy, "tileOptions.nextLabel")}
             nextButtonOnClick={(e, values) =>
               saveAndMove(e, values, setTileOptions, "select-underlay")
             }
-            backLabel="Go back"
+            backLabel={getMicroCopy(copy, "tileOptions.backLabel")}
             backButtonOnClick={() => setSelected("select-variant")}
           >
             {variant ? (
@@ -180,51 +186,52 @@ const PitchedRoofCalculator = ({ isDebugging }: any) => {
           </CalculatorStepper.Step>
           <CalculatorStepper.Step
             key="select-underlay"
-            title="Now, select the underlay"
-            subtitle="These are the available options for your tile product selection. You can remove your underlay later, if required."
-            nextLabel="Calculate products"
+            title={getMicroCopy(copy, "underlaySelection.title")}
+            subtitle={getMicroCopy(copy, "underlaySelection.subtitle")}
+            nextLabel={getMicroCopy(copy, "underlaySelection.nextLabel")}
             nextButtonOnClick={(e, values) =>
               saveAndMove(e, values, setUnderlay, "guttering")
             }
-            backLabel="Go back"
+            backLabel={getMicroCopy(copy, "underlaySelection.backLabel")}
             backButtonOnClick={() => setSelected("tile-options")}
           >
-            {tile ? (
-              <UnderlaySelection
-                selected={underlay["underlay"]}
-                dimensions={dimensions}
-              />
-            ) : null}
+            <UnderlaySelection
+              selected={underlay["underlay"]}
+              dimensions={dimensions}
+            />
           </CalculatorStepper.Step>
           <CalculatorStepper.Step
             key="guttering"
-            title="Now, choose your guttering options"
-            subtitle="Choose the available guttering option. Skip this step if you don’t want to add guttering to the estimation."
-            nextLabel="Calculate products"
+            title={getMicroCopy(copy, "guttering.title")}
+            subtitle={getMicroCopy(copy, "guttering.subtitle")}
+            nextLabel={getMicroCopy(copy, "guttering.nextLabel")}
             nextButtonOnClick={(e, values) =>
               saveAndMove(e, values, setGuttering, "your-solution-contains")
             }
-            backLabel="Go back"
+            backLabel={getMicroCopy(copy, "guttering.backLabel")}
             backButtonOnClick={() => setSelected("select-underlay")}
-            linkLabel="Skip guttering and calculate products"
+            linkLabel={getMicroCopy(copy, "guttering.skipLabel")}
             linkOnClick={() => setSelected("your-solution-contains")}
           >
             <Guttering selections={guttering} />
           </CalculatorStepper.Step>
           <CalculatorStepper.Step
             key="your-solution-contains"
-            title="Your solution contains"
-            subtitle="Disclaimer: We strive to be within 5-10% accurate. We've also added a wastage contingency of: 0% into this material calculation"
+            title={getMicroCopy(copy, "results.title")}
+            subtitle={getMicroCopy(copy, "results.subtitle", {
+              contingency: "0"
+            })}
             paragraph={
               <span>
-                For the total measured area for your roof:{" "}
-                {((measurements || { area: 0 }).area / 10000).toFixed(2)}m
+                {`${getMicroCopy(copy, "results.areaLabel")}: ${(
+                  (measurements || { area: 0 }).area / 10000
+                ).toFixed(2)}m`}
                 <sup>2</sup>
               </span>
             }
-            backLabel="Go back"
+            backLabel={getMicroCopy(copy, "results.backLabel")}
             backButtonOnClick={() => setSelected("guttering")}
-            linkLabel="Start over"
+            linkLabel={getMicroCopy(copy, "results.startOverLabel")}
             linkOnClick={() => setSelected("select-roof")}
           >
             <Results
