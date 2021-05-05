@@ -45,11 +45,11 @@
     }
 
     .details-logo {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
 
     .details-title {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
 
     @media (min-width: $breakpoint-md) {
@@ -97,5 +97,10 @@
     :global(canvas:focus) {
       outline: none;
     }
+  }
+
+  .active-selection-option {
+    padding: 0px;
+    border: 2px solid $color-cyan-400;
   }
 }

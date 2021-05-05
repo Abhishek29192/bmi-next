@@ -90,6 +90,10 @@
     }
   }
 
+  &[type="button"]:focus {
+    outline: 1px solid $color-cyan-400;
+  }
+
   &--disabled {
     .body {
       box-shadow: elevation(1);
