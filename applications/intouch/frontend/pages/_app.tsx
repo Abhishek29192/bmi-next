@@ -63,7 +63,7 @@ export const initialProps = async ({ ctx, Component }) => {
       // If Unauthorized user redirect to the logout
       if (
         error?.response?.status === 401 ||
-        error?.response.data === USER_UNAUTHORIZED
+        error?.response?.data === USER_UNAUTHORIZED
       ) {
         res.writeHead(302, { Location: "/api/auth/logout" });
         res.end();
