@@ -13,12 +13,7 @@ SET search_path = ${PG_SCHEMA};
 `;
 const updateDb = ({ poolConfig, data }) => {
   const newQuery = fullQuery + data;
-
-  const config = {
-    ...poolConfig,
-    ssl: { rejectUnauthorized: false }
-  };
-  const pool = new Pool(config);
+  const pool = new Pool(poolConfig);
   pool.query(newQuery, (err, res) => {
     if (err) console.error("Pool:", err, res);
     pool.end();

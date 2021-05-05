@@ -1,9 +1,9 @@
 {
   "company": {
+    "host": "0.0.0.0",
     "user": "postgres",
-    "host": "{YOUR_PUBLIC_IP_ADDRESS}",
     "database": "postgres",
-    "password": "companies-db",
+    "password": "postgres",
     "port": 5432
   }
 }
