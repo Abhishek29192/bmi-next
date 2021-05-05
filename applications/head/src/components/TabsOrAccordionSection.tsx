@@ -13,7 +13,7 @@ const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
 export type Data = {
   __typename: "ContentfulTabsOrAccordionSection";
-  title: string;
+  title: string | null;
   description: null | { description: string };
   items: readonly TitleWithContentData[];
   type: "Accordion" | "Tabs";
@@ -93,7 +93,7 @@ const TabsOrAccordionSection = ({ data }: { data: Data }) => {
 
   return (
     <Section backgroundColor={backgroundColor}>
-      <Section.Title>{title}</Section.Title>
+      {title && <Section.Title>{title}</Section.Title>}
       {description && (
         <Typography variant="body1">{description.description}</Typography>
       )}

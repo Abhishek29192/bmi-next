@@ -19,7 +19,7 @@ type GallerySectionImage = Omit<ImageData, "image"> & {
 
 export type Data = {
   __typename: "ContentfulImageGallerySection";
-  title: string;
+  title: string | null;
   description: null | { description: string };
   medias: GallerySectionImage[];
 };
@@ -47,9 +47,11 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
     >
       <Grid container>
         <Grid item xs={12} lg={8}>
-          <Typography variant="h1" hasUnderline>
-            {title}
-          </Typography>
+          {title && (
+            <Typography variant="h1" hasUnderline>
+              {title}
+            </Typography>
+          )}
           {description && (
             <Typography className={styles["description"]}>
               {description.description}

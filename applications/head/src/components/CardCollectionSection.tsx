@@ -26,7 +26,7 @@ type Card = PageInfoData | PromoData;
 
 export type Data = {
   __typename: "ContentfulCardCollectionSection";
-  title: string;
+  title: string | null;
   description: RichTextData | null;
   cardType: "Highlight Card" | "Story Card" | "Text Card";
   cardLabel: string | null;
@@ -181,9 +181,11 @@ const CardCollectionSection = ({
   return (
     <div className={styles["CardCollectionSection"]}>
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
-        <Typography className={styles["title"]} variant="h2" hasUnderline>
-          {title}
-        </Typography>
+        {title && (
+          <Typography className={styles["title"]} variant="h2" hasUnderline>
+            {title}
+          </Typography>
+        )}
         {description && <RichText document={description} />}
         {shouldDisplayGroups && (
           <>

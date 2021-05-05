@@ -85,7 +85,8 @@ const Sections = ({
         const { title } = section;
 
         return (
-          Component && (
+          Component &&
+          title && (
             <TableOfContent.Anchor title={title} key={`section-${index}`}>
               <Component
                 // @ts-ignore
