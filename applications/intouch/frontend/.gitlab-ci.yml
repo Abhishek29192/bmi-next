@@ -1,7 +1,8 @@
+# TODO: integrate unit test in the pipeline
 # build_intouch_frontend:
 #   stage: build
 #   rules:
-#     - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
+#     - if: "$CI_COMMIT_BRANCH == 'master'"
 #       changes:
 #         - applications/intouch/frontend/**/*
 #         - components/**/*
@@ -21,7 +22,7 @@
 # test_intouch_frontend:
 #   stage: test
 #   rules:
-#     - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
+#     - if: "$CI_COMMIT_BRANCH == 'master'"
 #       changes:
 #         - applications/intouch/frontend/**/*
 #         - components/**/*
@@ -43,7 +44,7 @@ push_to_registry:
   services:
     - docker:dind
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -61,7 +62,7 @@ deploy_to_cloudrun:
   services:
     - docker:dind
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*

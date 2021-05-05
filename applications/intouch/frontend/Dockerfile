@@ -20,6 +20,8 @@ COPY ./applications/intouch/api/types ./applications/intouch/api/types
 RUN yarn install --non-interactive --cache-folder ./ycache && \
   rm -rf ./ycache
 
+# TODO change to real env
+ENV NEXT_PUBLIC_BASE_URL=https://tf-frontend-rfwslk3zjq-nw.a.run.app
 RUN yarn workspace @bmi/intouch-frontend run build
 
 FROM node:12-alpine
@@ -49,4 +51,4 @@ RUN ls -l && \
 WORKDIR /usr/src/app/applications/intouch/frontend
 
 EXPOSE 3000
-CMD ["sh", "secret-fetch.sh"]
+CMD ["npm", "start"]

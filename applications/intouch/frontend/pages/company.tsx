@@ -2,7 +2,6 @@ import React from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -20,6 +19,7 @@ import { InfoPair } from "../components/InfoPair";
 import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
 
+import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { GetCompanyQuery } from "../graphql/generated/operations";
 import {
@@ -280,40 +280,43 @@ export const GET_COMPANY = gql`
   }
 `;
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const apolloClient = await initializeApollo(null, ctx);
+export const getServerSideProps = async (ctx) => {
+  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+  return auth0.withPageAuthRequired({
+    async getServerSideProps({ locale, ...ctx }) {
+      const apolloClient = await initializeApollo(null, ctx);
 
-    const pageProps = {
-      company: null,
-      ...(await serverSideTranslations(ctx.locale, [
-        "common",
-        "sidebar",
-        "footer",
-        "company-page"
-      ]))
-    };
+      const pageProps = {
+        company: null,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer",
+          "company-page"
+        ]))
+      };
 
-    const {
-      props: {
-        data: { currentCompany }
-      }
-    } = await getServerPageGetCurrentCompany({}, apolloClient);
-
-    if (currentCompany) {
       const {
         props: {
-          data: { company }
+          data: { currentCompany }
         }
-      } = await getServerPageGetCompany(
-        { variables: { companyId: currentCompany } },
-        apolloClient
-      );
-      pageProps.company = company;
-    }
+      } = await getServerPageGetCurrentCompany({}, apolloClient);
 
-    return { props: pageProps };
-  }
-});
+      if (currentCompany) {
+        const {
+          props: {
+            data: { company }
+          }
+        } = await getServerPageGetCompany(
+          { variables: { companyId: currentCompany } },
+          apolloClient
+        );
+        pageProps.company = company;
+      }
+
+      return { props: pageProps };
+    }
+  })(ctx);
+};
 
 export default CompanyPage;

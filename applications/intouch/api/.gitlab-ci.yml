@@ -4,7 +4,7 @@ deploy_intouch_api_gateway_dev:
   services:
     - docker:dind
   rules:
-    - if: "$CI_COMMIT_BRANCH == 'intouch/tf-front-pipeline'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
