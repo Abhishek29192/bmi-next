@@ -10,6 +10,7 @@ import { getFieldTypes, Type } from "./helpers/fieldTypes";
 import styles from "./_Protrusions.module.scss";
 import inputStyles from "./subcomponents/_InputTextField.module.scss";
 import protrusionTypes from "./calculation/protrusions";
+import { AnalyticsContext } from "./helpers/analytics";
 
 type SelectProtrusionProps = {
   id: string;
@@ -22,6 +23,8 @@ const SelectProtrusion = ({
   updateField,
   defaultValue
 }: SelectProtrusionProps) => {
+  const pushEvent = useContext(AnalyticsContext);
+
   const [selected, setSelected] = useState(defaultValue);
 
   const handleOnChange = (e) => {
@@ -43,7 +46,14 @@ const SelectProtrusion = ({
               name={`select-protrusion-${id}`}
               value={type}
               illustratedImage={illustration}
-              onChange={handleOnChange}
+              onChange={(e) => {
+                pushEvent({
+                  id: "rc-dimensions-protrusions-type",
+                  label: type,
+                  action: "selected"
+                });
+                handleOnChange(e);
+              }}
               checked={selected === type}
             />
           </Grid>
@@ -133,6 +143,7 @@ const ProtrusionDimensions = ({
   values
 }: ProtrusionDimensionsProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   const {
     fields,
@@ -161,11 +172,37 @@ const ProtrusionDimensions = ({
             ))}
             <Grid item xs={12}>
               {onAddAnother ? (
-                <Button variant="text" onClick={onAddAnother}>
+                <Button
+                  variant="text"
+                  onClick={() => {
+                    pushEvent({
+                      id: "rc-dimensions-protrusions",
+                      label: getMicroCopy(
+                        copy,
+                        "roofDimensions.protrusions.addAnother"
+                      ),
+                      action: "selected"
+                    });
+                    onAddAnother();
+                  }}
+                >
                   {getMicroCopy(copy, "roofDimensions.protrusions.addAnother")}
                 </Button>
               ) : null}
-              <Button variant="text" onClick={onRemove}>
+              <Button
+                variant="text"
+                onClick={() => {
+                  pushEvent({
+                    id: "rc-dimensions-protrusions",
+                    label: getMicroCopy(
+                      copy,
+                      "roofDimensions.protrusions.remove"
+                    ),
+                    action: "removed"
+                  });
+                  onRemove();
+                }}
+              >
                 {getMicroCopy(copy, "roofDimensions.protrusions.remove")}
               </Button>
             </Grid>
@@ -200,6 +237,7 @@ const Protrusion = ({
   values
 }: ProtrusionProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   const updateSelection = (value?: string, error?: string) =>
     onUpdate(() => ({
@@ -237,7 +275,17 @@ const Protrusion = ({
           }}
         />
       ) : (
-        <Button variant="text" onClick={onRemove}>
+        <Button
+          variant="text"
+          onClick={() => {
+            pushEvent({
+              id: "rc-dimensions-protrusions",
+              label: getMicroCopy(copy, "roofDimensions.protrusions.remove"),
+              action: "removed"
+            });
+            onRemove();
+          }}
+        >
           {getMicroCopy(copy, "roofDimensions.protrusions.remove")}
         </Button>
       )}
@@ -254,6 +302,7 @@ const Protrusions = ({
   defaultValue?: ReadonlyArray<ProtrusionItem["values"]>;
 }) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   const [protrusions, setProtrusions] = useState(
     defaultValue.map((values) => ({
@@ -325,7 +374,14 @@ const Protrusions = ({
           variant="outlined"
           disabled={!!protrusions.length}
           accessibilityLabel={"Add protrusions"}
-          onClick={addProtrusion}
+          onClick={() => {
+            pushEvent({
+              id: "rc-dimensions-protrusions",
+              label: getMicroCopy(copy, "roofDimensions.protrusions.add"),
+              action: "selected"
+            });
+            addProtrusion();
+          }}
         >
           {getMicroCopy(copy, "roofDimensions.protrusions.add")}
         </Button>

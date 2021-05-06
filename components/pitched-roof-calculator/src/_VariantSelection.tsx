@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import CardRadioGroup from "@bmi/card-radio-group";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPitchValues";
 import getPitchValues from "./helpers/getPitchValues";
 import { RangeValue } from "./types";
 import { DimensionsValues } from "./types/roof";
+import { AnalyticsContext } from "./helpers/analytics";
 
 type VariantSelectionRowProps = {
   title: string;
@@ -47,6 +48,8 @@ const VariantSelectionRow = ({
   dimensions,
   tile
 }: VariantSelectionRowProps) => {
+  const pushEvent = useContext(AnalyticsContext);
+
   const pitchValues = getPitchValues(dimensions);
 
   const filteredOptions = options
@@ -74,7 +77,14 @@ const VariantSelectionRow = ({
             value={tile.externalProductCode}
             title={tile.color}
             imageSource={tile.image}
-            onClick={() => select(tile)}
+            onClick={() => {
+              pushEvent({
+                id: "rc-select-tile-colour",
+                label: tile.color,
+                action: "selected"
+              });
+              select(tile);
+            }}
           >
             <CardRadioGroup.Item.Paragraph>
               Nobb: {tile.externalProductCode}

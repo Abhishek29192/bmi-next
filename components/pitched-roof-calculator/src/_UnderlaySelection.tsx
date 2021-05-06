@@ -6,6 +6,7 @@ import FieldContainer from "./subcomponents/_FieldContainer";
 import getPitchValues from "./helpers/getPitchValues";
 import underlays from "./samples/underlays";
 import { DimensionsValues } from "./types/roof";
+import { AnalyticsContext } from "./helpers/analytics";
 
 type UnderlaySelectionRowProps = {
   // TODO: Type when importing from Contentful
@@ -22,6 +23,8 @@ const UnderlaySelectionRow = ({
   options,
   selected
 }: UnderlaySelectionRowProps) => {
+  const pushEvent = useContext(AnalyticsContext);
+
   if (!options.length) {
     return null;
   }
@@ -40,6 +43,13 @@ const UnderlaySelectionRow = ({
             value={underlay.externalProductCode}
             title={underlay.name}
             imageSource={underlay.image}
+            onClick={() => {
+              pushEvent({
+                id: "rc-select-underlay",
+                label: underlay.name,
+                action: "selected"
+              });
+            }}
           >
             <CardRadioGroup.Item.Paragraph>
               {underlay.description}
