@@ -18,6 +18,7 @@ type Props = {
   children: React.ReactNode;
   allowOverflow?: boolean;
   className?: string;
+  containerClassName?: string;
 };
 
 const ContainerDialog = ({
@@ -31,7 +32,8 @@ const ContainerDialog = ({
   areaDescribedby,
   children,
   allowOverflow,
-  className
+  className,
+  containerClassName
 }: Props) => {
   return (
     <Modal
@@ -64,7 +66,7 @@ const ContainerDialog = ({
               <CloseIcon />
             </Button>
           </div>
-          <div className={classnames(className, styles["content"])}>
+          <div className={classnames(containerClassName, styles["content"])}>
             {children}
           </div>
         </div>
