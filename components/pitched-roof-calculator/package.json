@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@bmi/button": "^0.0.0",
-    "@bmi/calculator-modal": "^0.0.0",
     "@bmi/calculator-stepper": "^0.0.0",
     "@bmi/card-checkbox-group": "^0.0.0",
     "@bmi/card-radio-group": "^0.0.0",
+    "@bmi/container-dialog": "^0.0.0",
     "@bmi/grid": "^0.0.0",
     "@bmi/micro-copy": "^0.0.0",
     "@bmi/styles": "^0.0.0",

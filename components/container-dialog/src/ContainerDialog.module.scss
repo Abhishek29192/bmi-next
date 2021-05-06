@@ -84,4 +84,10 @@
   @media (min-width: $breakpoint-xl) {
     height: 100%;
   }
+
+  &--allowOverflow {
+    .content {
+      overflow: auto;
+    }
+  }
 }

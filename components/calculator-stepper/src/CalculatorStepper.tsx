@@ -26,7 +26,7 @@ const CalculatorStepper = ({ selected, children }: Props) => {
     return isStepElement(item) && (item.key + "").substr(2) === selected;
   });
 
-  return <div className={classnames(styles["stepper"])}>{current}</div>;
+  return <div className={styles["CalculatorStepper"]}>{current}</div>;
 };
 
 type StepProps = {
@@ -102,10 +102,7 @@ const Step = ({
   const hasButtons = backLabel || nextLabel || linkLabel;
 
   return (
-    <Form
-      onSubmit={nextButtonOnClick}
-      className={classnames(styles["CalculatorStepper"])}
-    >
+    <Form onSubmit={nextButtonOnClick}>
       <Typography variant="h4" className={classnames(styles["step-title"])}>
         {title}
       </Typography>
