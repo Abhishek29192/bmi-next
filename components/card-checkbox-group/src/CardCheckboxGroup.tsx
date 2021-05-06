@@ -11,7 +11,7 @@ export type Props = {
   children: React.ReactNode;
   defaultValue?: string[];
   onChange?: (value: string[]) => void;
-  showNone?: boolean;
+  noneLabel?: string;
 };
 
 const CardCheckboxInput = (props: CardInputProps) => (
@@ -37,7 +37,7 @@ const CardCheckboxGroup = ({
   defaultValue,
   onChange,
   children,
-  showNone
+  noneLabel
 }: Props) => {
   const [selected, setSelected] = useState<Record<string, boolean> | null>(() =>
     defaultValue ? toBooleanObject(defaultValue) : null
@@ -102,11 +102,11 @@ const CardCheckboxGroup = ({
     <div className={classnames(styles["CardCheckboxGroup"], className)}>
       <Grid container spacing={2}>
         {items}
-        {showNone ? (
+        {noneLabel ? (
           <Grid item xs={6} md={4} lg={2}>
             <CardCheckboxInput
               value="none"
-              title="None"
+              title={noneLabel}
               checked={selected && !Object.keys(selected).length}
               onClick={() => {
                 setSelected({});

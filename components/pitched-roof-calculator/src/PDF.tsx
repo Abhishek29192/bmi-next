@@ -16,6 +16,8 @@ import EffraBold from "./fonts/Effra_Bd.ttf";
 import { ResultsObject } from "./types";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
+const MARGIN_LEFT = 25;
+const MARGIN_RIGHT = 25;
 
 const Hr = ({
   width,
@@ -119,6 +121,60 @@ const Typography = ({
   );
 };
 
+type AlertProps = {
+  title?: string;
+  type?: "warn" | "default";
+  color?: string;
+  fillColor?: string;
+  children?: React.ReactNode;
+  [rest: string]: any;
+};
+
+const alertStyles = {
+  warn: { color: "#3B3B3B", fillColor: "#FFC72C" },
+  default: { color: "#3B3B3B", fillColor: "#F0F0F0" }
+};
+
+const Alert = ({
+  title,
+  children,
+  type = "default",
+  color,
+  fillColor,
+  ...rest
+}: AlertProps): any => {
+  const cellProps = {
+    color: alertStyles[type].color,
+    fillColor: alertStyles[type].fillColor
+  };
+
+  return {
+    table: {
+      widths: [PAGE_WIDTH],
+      body: [
+        title && [
+          {
+            text: title,
+            bold: true,
+            margin: [MARGIN_LEFT, 15, MARGIN_RIGHT, children ? 5 : 15],
+            ...cellProps
+          }
+        ],
+        children && [
+          {
+            text: children,
+            margin: [MARGIN_LEFT, title ? 0 : 15, MARGIN_RIGHT, 15],
+            ...cellProps
+          }
+        ]
+      ].filter(Boolean)
+    },
+    marginLeft: -MARGIN_LEFT,
+    layout: "noBorders",
+    ...rest
+  };
+};
+
 type ResultsTableTemplateProps = {
   children: React.ReactNode;
   layout?: object;
@@ -204,19 +260,37 @@ ResultsTableTemplate.Cell = ResultsTableTemplateCell;
 
 ResultsTableTemplate.Row = Table.Row;
 
+type GetMicroCopy = (
+  path: string,
+  placeholders?: Record<string, string>
+) => string;
+
 type ResultsTableProps = {
+  getMicroCopy: GetMicroCopy;
   children: React.ReactNode;
   [rest: string]: any;
 };
 
-const ResultsTable = ({ children, ...rest }: ResultsTableProps) => (
+const ResultsTable = ({
+  getMicroCopy,
+  children,
+  ...rest
+}: ResultsTableProps) => (
   <ResultsTableTemplate widths={[80, 180, 110, 70, 65]} {...rest}>
     <ResultsTableTemplate.Row>
-      <ResultsTableTemplate.Cell header>#</ResultsTableTemplate.Cell>
-      <ResultsTableTemplate.Cell header>Product</ResultsTableTemplate.Cell>
-      <ResultsTableTemplate.Cell header>Pack size</ResultsTableTemplate.Cell>
-      <ResultsTableTemplate.Cell header>Nobb no.</ResultsTableTemplate.Cell>
-      <ResultsTableTemplate.Cell header>Quantity</ResultsTableTemplate.Cell>
+      <ResultsTableTemplate.Cell header> </ResultsTableTemplate.Cell>
+      <ResultsTableTemplate.Cell header>
+        {getMicroCopy("results.table.title")}
+      </ResultsTableTemplate.Cell>
+      <ResultsTableTemplate.Cell header>
+        {getMicroCopy("results.table.packSize")}
+      </ResultsTableTemplate.Cell>
+      <ResultsTableTemplate.Cell header>
+        {getMicroCopy("results.table.externalProductCode")}
+      </ResultsTableTemplate.Cell>
+      <ResultsTableTemplate.Cell header>
+        {getMicroCopy("results.table.quantity")}
+      </ResultsTableTemplate.Cell>
     </ResultsTableTemplate.Row>
     {children}
   </ResultsTableTemplate>
@@ -273,6 +347,7 @@ const Header = () => (
 type PdfDocumentProps = {
   results: ResultsObject;
   area: string;
+  getMicroCopy: GetMicroCopy;
 };
 
 const mapResultsRow = ({
@@ -292,14 +367,14 @@ const mapResultsRow = ({
   </ResultsTableTemplate.Row>
 );
 
-const PdfDocument = ({ results, area }: PdfDocumentProps) => (
+const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
   <Document
     pageSize={"A4"} // Full list is in the type
     pageOrientation={"portrait"} // or "landscape"
     pageMargins={[
-      25 /* Left */,
+      MARGIN_LEFT,
       35 /* header */ + 35 /* header margin */,
-      25 /* Right */,
+      MARGIN_RIGHT,
       35 /* Bottom (should include footer space) */
     ]}
     header={<Header />}
@@ -318,52 +393,73 @@ const PdfDocument = ({ results, area }: PdfDocumentProps) => (
     }}
   >
     <Typography variant="h2" hasUnderline={false} center>
-      Your solution contains
+      {getMicroCopy("results.title")}
     </Typography>
     <Typography variant="body2" center>
-      For the total measured area for your roof: {area}m
+      {`${getMicroCopy("results.areaLabel")}: ${area}m`}
       <Typography sup>2</Typography>
     </Typography>
     <Typography variant="body1" center margin={[100, 0, 100, 0]}>
-      Disclaimer: We strive to be within 7% accurate. We’ve also added a wastage
-      contingency of: 0% into this material calculation.
+      {getMicroCopy("results.subtitle", {
+        contingency: "0"
+      })}
     </Typography>
     <Typography variant="h5" margin={[0, 25, 0, 10]}>
-      Tiles
+      {getMicroCopy("results.categories.tiles")}
     </Typography>
-    <ResultsTable>{results.tiles.map(mapResultsRow)}</ResultsTable>
+    <ResultsTable {...{ getMicroCopy }}>
+      {results.tiles.map(mapResultsRow)}
+    </ResultsTable>
     {results.fixings.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          Fixings
+          {getMicroCopy("results.categories.fixings")}
         </Typography>
-        <ResultsTable>{results.fixings.map(mapResultsRow)}</ResultsTable>
+        <ResultsTable {...{ getMicroCopy }}>
+          {results.fixings.map(mapResultsRow)}
+        </ResultsTable>
       </>
     ) : null}
     {results.sealing.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          Sealing
+          {getMicroCopy("results.categories.sealing")}
         </Typography>
-        <ResultsTable>{results.sealing.map(mapResultsRow)}</ResultsTable>
+        <ResultsTable {...{ getMicroCopy }}>
+          {results.sealing.map(mapResultsRow)}
+        </ResultsTable>
       </>
     ) : null}
     {results.ventilation.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          Ventilation
+          {getMicroCopy("results.categories.ventilation")}
         </Typography>
-        <ResultsTable>{results.ventilation.map(mapResultsRow)}</ResultsTable>
+        <ResultsTable {...{ getMicroCopy }}>
+          {results.ventilation.map(mapResultsRow)}
+        </ResultsTable>
       </>
     ) : null}
     {results.accessories.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          Accessories
+          {getMicroCopy("results.categories.accessories")}
         </Typography>
-        <ResultsTable>{results.accessories.map(mapResultsRow)}</ResultsTable>
+        <ResultsTable {...{ getMicroCopy }}>
+          {results.accessories.map(mapResultsRow)}
+        </ResultsTable>
       </>
     ) : null}
+    <Alert
+      type="warn"
+      title={getMicroCopy("results.alerts.quantities.title")}
+      marginTop={40}
+    >
+      {getMicroCopy("results.alerts.quantities.text")}
+    </Alert>
+    <Alert title={getMicroCopy("results.alerts.needToKnow.title")}>
+      {getMicroCopy("results.alerts.needToKnow.text")}
+    </Alert>
   </Document>
 );
 

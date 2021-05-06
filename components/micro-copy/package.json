@@ -10,6 +10,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "escape-string-regexp": "^4.0.0",
     "react": "^16.13.1"
   }
 }

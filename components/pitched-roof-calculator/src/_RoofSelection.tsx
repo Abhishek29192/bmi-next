@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import CardRadioGroup from "@bmi/card-radio-group";
+import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import roofs from "./calculation/roofs";
-import { Roof } from "./types/roof";
+import { Roof, RoofType } from "./types/roof";
 
 type RoofSelectionRowProps = {
   title: string;
@@ -17,6 +18,8 @@ const RoofSelectionRow = ({
   select,
   selected
 }: RoofSelectionRowProps) => {
+  const copy = useContext(MicroCopyContext);
+
   if (!options.length) {
     return null;
   }
@@ -28,7 +31,9 @@ const RoofSelectionRow = ({
           <CardRadioGroup.Item
             key={roof.name}
             value={roof.name}
-            title={roof.name}
+            title={getMicroCopy(copy, "roofSelection.roof", {
+              name: roof.name
+            })}
             illustratedImage={roof.illustration}
             onClick={() => select(roof)}
           />
@@ -38,39 +43,24 @@ const RoofSelectionRow = ({
   );
 };
 
-type RoofCategory = {
-  name: string;
-  type: string;
-};
-
-const categories: RoofCategory[] = [
-  {
-    name: "Gable roofs",
-    type: "gable"
-  },
-  {
-    name: "Hipped roofs",
-    type: "hipped"
-  },
-  {
-    name: "Sloped roofs",
-    type: "sloped"
-  }
-];
+const categories: RoofType[] = ["gable", "hipped", "sloped"];
 
 type RoofSelecionProps = Pick<RoofSelectionRowProps, "select" | "selected">;
 
-const RoofSelection = ({ select, selected }: RoofSelecionProps) => (
-  <div>
-    {categories.map(({ name, type }) => (
-      <RoofSelectionRow
-        key={type}
-        title={name}
-        options={roofs.filter((roof) => roof.type === type)}
-        {...{ select, selected }}
-      />
-    ))}
-  </div>
-);
+const RoofSelection = ({ select, selected }: RoofSelecionProps) => {
+  const copy = useContext(MicroCopyContext);
+  return (
+    <div>
+      {categories.map((type) => (
+        <RoofSelectionRow
+          key={type}
+          title={getMicroCopy(copy, `roofSelection.${type}`)}
+          options={roofs.filter((roof) => roof.type === type)}
+          {...{ select, selected }}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default RoofSelection;

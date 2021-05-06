@@ -1,3 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MicroCopy component renders correctly 1`] = `Lorem Ipsum`;
+exports[`MicroCopy component does not replace placeholders unless passed 1`] = `
+<div>
+  Only firstKey should be replaced:
+   
+  
+          Lorem firstKey replaced;
+          Another occurrence: firstKey replaced;
+          A second key: {{secondKey}};
+</div>
+`;
+
+exports[`MicroCopy component renders correctly without replacement 1`] = `
+<div>
+  Without placeholders (but they are passed):
+   
+  Lorem firstKey
+  With placeholders (but they are not passed):
+   
+  
+          Lorem {{firstKey}};
+          Another occurrence: {{firstKey}};
+          A second key: {{secondKey}};
+  not.existing
+</div>
+`;
+
+exports[`MicroCopy component replaces all occurrences 1`] = `
+<div>
+  
+          Lorem firstKey replaced;
+          Another occurrence: firstKey replaced;
+          A second key: second key replaced;
+</div>
+`;
