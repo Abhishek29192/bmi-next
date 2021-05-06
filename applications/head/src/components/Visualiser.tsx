@@ -10,6 +10,9 @@ import { navigate, useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import { getProductUrl } from "../utils/product-details-transforms";
 import { SiteContext } from "./Site";
+import ShareWidgetSection, {
+  Data as ShareWidgetSectionData
+} from "./ShareWidgetSection";
 
 type Context = {
   isOpen: boolean;
@@ -34,6 +37,7 @@ type Props = {
   children: React.ReactNode;
   contentSource?: string;
   variantCodeToPathMap: Record<string, string>;
+  shareWidgetData?: ShareWidgetSectionData;
 };
 
 const mapParameters = (params: any): Partial<Parameters> => {
@@ -49,7 +53,8 @@ const mapParameters = (params: any): Partial<Parameters> => {
 const VisualiserProvider = ({
   children,
   contentSource,
-  variantCodeToPathMap = {}
+  variantCodeToPathMap = {},
+  shareWidgetData
 }: Props) => {
   const location = useLocation();
   const parsedQueryParameters = mapParameters(
@@ -117,6 +122,11 @@ const VisualiserProvider = ({
         getProductLinkAction={getProductLinkAction}
         {...parsedQueryParameters}
         {...parameters}
+        shareWidget={
+          shareWidgetData ? (
+            <ShareWidgetSection data={shareWidgetData} hasNoPadding={true} />
+          ) : undefined
+        }
       />
     </VisualiserContext.Provider>
   );

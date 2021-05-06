@@ -173,6 +173,7 @@ const Page = ({
               <VisualiserProvider
                 contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
                 variantCodeToPathMap={variantCodeToPathMap}
+                shareWidgetData={resources?.visualiserShareWidget}
               >
                 <div className={styles["content"]}>{children}</div>
               </VisualiserProvider>
