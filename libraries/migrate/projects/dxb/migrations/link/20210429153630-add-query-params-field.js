@@ -9,7 +9,7 @@ module.exports.up = async (migration) => {
 
   link.changeFieldControl("queryParams", "Symbol", "singleLine", {
     helpText:
-      "Provide query parameters to internal linked page. e.g. chip=Pitched+roof,Flat+roof&Param2=example1,example2"
+      "Parameter to be appended to the internal link, separate multiple strings by a comma e.g. chip=Pitched+roof,Flat+roof"
   });
 
   link.moveField("queryParams").afterField("linkedPage");
