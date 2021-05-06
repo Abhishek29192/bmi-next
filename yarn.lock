@@ -2025,7 +2025,7 @@
     lodash.snakecase "^4.1.1"
     p-defer "^3.0.0"
 
-"@google-cloud/secret-manager@^3.4.0":
+"@google-cloud/secret-manager@^3.4.0", "@google-cloud/secret-manager@^3.6.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@google-cloud/secret-manager/-/secret-manager-3.6.0.tgz#408510554d2dd72b30449a85d6030069c85d2c04"
   integrity sha512-1lSYKYJ57PekYvUV2FLt7wtI4toDhMKrbHxMH5kA5X9XLfECasgm/PZo+EbmJ/uIxtz5i2qzQID/NczLrZNG+w==
@@ -10609,7 +10609,7 @@ cross-fetch@3.1.1:
   dependencies:
     node-fetch "2.6.1"
 
-cross-fetch@^3.0.4, cross-fetch@^3.0.6:
+cross-fetch@^3.0.4, cross-fetch@^3.0.6, cross-fetch@^3.1.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.4.tgz#9723f3a3a247bf8b89039f3a380a9244e8fa2f39"
   integrity sha512-1eAtFWdIubi6T4XPy6ei9iUFoKpUkIF971QLN8lIvvvwueI65+Nw5haMNKUwfJxabqlIIDODJKGrQ66gxC0PbQ==

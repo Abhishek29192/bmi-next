@@ -5,8 +5,8 @@ import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import type { EnrollmentItems } from "@bmi/intouch-api-types";
+import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
 import { getServerPageTraining } from "../graphql/generated/page";
@@ -122,36 +122,39 @@ const trainingChildren = ({
   );
 };
 
-export const getServerSideProps = withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    const apolloClient = await initializeApollo(null, ctx);
+export const getServerSideProps = async (ctx) => {
+  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+  return auth0.withPageAuthRequired({
+    async getServerSideProps({ locale, ...ctx }) {
+      const apolloClient = await initializeApollo(null, ctx);
 
-    let trainingData = {};
+      let trainingData = {};
 
-    try {
-      const pageQuery = await getServerPageTraining({}, apolloClient);
-      trainingData = pageQuery.props;
-    } catch (error) {
-      trainingData = {
-        data: null,
-        error: {
-          message: error.message
+      try {
+        const pageQuery = await getServerPageTraining({}, apolloClient);
+        trainingData = pageQuery.props;
+      } catch (error) {
+        trainingData = {
+          data: null,
+          error: {
+            message: error.message
+          }
+        };
+      }
+
+      return {
+        props: {
+          trainingData,
+          ...(await serverSideTranslations(locale, [
+            "common",
+            "sidebar",
+            "footer",
+            "company-page"
+          ]))
         }
       };
     }
-
-    return {
-      props: {
-        trainingData,
-        ...(await serverSideTranslations(ctx.locale, [
-          "common",
-          "sidebar",
-          "footer",
-          "company-page"
-        ]))
-      }
-    };
-  }
-});
+  })(ctx);
+};
 
 export default TrainingPage;

@@ -23,6 +23,7 @@
     "@bmi/company-details": "0.0.0",
     "@bmi/intouch-api-types": "0.0.0",
     "@bmi/typography": "0.0.0",
+    "@google-cloud/secret-manager": "^3.6.0",
     "@next/bundle-analyzer": "^10.1.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -47,5 +48,8 @@
     "@storybook/react": "^6.2.8",
     "graphql-codegen-apollo-next-ssr": "^1.6.0",
     "storybook-addon-next-router": "^2.0.4"
+  },
+  "browser": {
+    "@google-cloud/secret-manager": false
   }
 }
