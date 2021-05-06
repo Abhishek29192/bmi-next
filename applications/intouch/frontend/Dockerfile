@@ -37,9 +37,6 @@ COPY ./applications/intouch/shared ./applications/intouch/shared
 COPY ./applications/intouch/frontend ./applications/intouch/frontend
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 
-RUN ls -l /usr/src/app && \
-  chmod +x ./applications/intouch/frontend/secret-fetch.sh 
-
 RUN ls -l /usr/src/app/applications/intouch/frontend
 
 COPY --from=build /usr/src/app/applications/intouch/frontend/.next ./applications/intouch/frontend/.next
