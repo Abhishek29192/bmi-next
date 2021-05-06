@@ -22,7 +22,6 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return guaranteeType;
         }
       },
-
       Mutation: {
         publishMessage: async (_query, args, context, resolveInfo) => {
           const { input } = args;
