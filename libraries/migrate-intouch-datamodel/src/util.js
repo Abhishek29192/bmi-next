@@ -43,6 +43,11 @@ const writeSql = (dataModel, service) => {
     output += table.getPostgresInsert();
   });
 
+  tables.forEach((table) => {
+    output += table.getConstraints();
+  });
+  output += "\n\n";
+
   const references = dataModel.references.filter((item) => {
     const sourceTables = tables.filter((x) => x.name === item.source);
     const refTables = tables.filter((x) => x.name === item.target);
@@ -70,7 +75,12 @@ const writeSql = (dataModel, service) => {
     .forEach((dropdown) => {
       output += dropdown.getPostgresCreate();
     });
-  output += "\n\n";
+  //output += "\n\n";
+
+  dataModel.indices.forEach((index) => {
+    output += index.getPostgresCreate();
+    output += "\n\n";
+  });
 
   writeFile(`${service.toLowerCase()}.sql`, output);
 };
