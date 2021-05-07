@@ -3,6 +3,8 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
 import { SiteContext } from "../Site";
+import { rooferTypes } from "../../components/Roofer";
+import createRoofer from "../../__tests__/RooferHelper";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -253,6 +255,27 @@ describe("Sections component", () => {
         label: "Find A Roofer",
         body: null,
         roofers: null,
+        position: 0,
+        centre: null,
+        zoom: null
+      },
+      {
+        __typename: "ContentfulServiceLocatorSection",
+        title: "Service Locator - with roofers",
+        label: "Find A Roofer",
+        body: null,
+        roofers: [
+          createRoofer({
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [rooferTypes[0], rooferTypes[1]]
+          }),
+          createRoofer({
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [rooferTypes[0], rooferTypes[1]]
+          })
+        ],
         position: 0,
         centre: null,
         zoom: null

@@ -1,7 +1,12 @@
 "use strict";
 
 const getUrlFromPath = (path) => {
-  return path
+  const queryParams = path
+    .filter(({ queryParams }) => queryParams)
+    .map(({ queryParams }) => queryParams.replace("?", ""))
+    .join("&");
+
+  const finalUrl = path
     .filter(({ slug }) => slug)
     .map(({ slug }) => slug)
     .join("/")
@@ -9,6 +14,8 @@ const getUrlFromPath = (path) => {
     .replace(/\/+/gi, "/")
     .replace("*", "")
     .replace('"', "");
+
+  return queryParams !== "" ? `${finalUrl}?${queryParams}` : finalUrl;
 };
 
 const getPath = async (page, context) => {
@@ -53,7 +60,8 @@ const getPath = async (page, context) => {
     return {
       id,
       slug,
-      label: link.label || title
+      label: link.label || title,
+      queryParams: link.queryParams || ""
     };
   };
 

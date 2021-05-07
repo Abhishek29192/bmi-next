@@ -119,6 +119,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     centre: initialMapCentre,
     zoom: initialMapZoom
   } = data;
+
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
 
@@ -128,6 +129,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const userQueryString = useMemo(() => params.get(QUERY_CHIP_FILTER_KEY), [
     params
   ]);
+  const [uniqueRoofTypeByData, setUniqueRoofTypeByData] = useState([]);
   const [isUserAction, setUserAction] = useState(false);
 
   const { getMicroCopy, countryCode } = useContext(SiteContext);
@@ -144,22 +146,36 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   );
 
   useEffect(() => {
+    if (!roofers) {
+      return;
+    }
+    const uniqueRooferTypes: RooferType[] = Array.from(
+      new Set(roofers.flatMap((roofer) => roofer.type))
+    ).filter((x) => x !== null);
+
+    setUniqueRoofTypeByData(uniqueRooferTypes);
+
     if (!userQueryString) {
       return;
     }
+
     const allQueries = userQueryString.split(",");
-    // find all the valid entries that matches roofer types
-    const validRoofers: RooferType[] = intersectionWith(
-      rooferTypes,
+
+    const matchingRooferTypes: RooferType[] = intersectionWith(
+      uniqueRooferTypes,
       allQueries,
       (a, b) => a.toLowerCase() === b.toLowerCase()
     );
-
-    //then select the valid ones
-    validRoofers.forEach((rooferType: RooferType) => {
+    matchingRooferTypes.forEach((rooferType: RooferType) => {
       updateActiveFilters({ name: rooferType, state: true });
     });
-  }, []);
+
+    // there were no matching queries in querystring
+    // hence remove all querystring from user and make the url '/find-a-roofer/' again
+    if (typeof window !== `undefined` && matchingRooferTypes.length === 0) {
+      history.replaceState(null, null, window.location.pathname);
+    }
+  }, [roofers]);
 
   useEffect(() => {
     if (!userQueryString) {
@@ -511,7 +527,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 {getMicroCopy("findARoofer.filtersLabel")}
               </Typography>
               <div className={styles["chips"]}>
-                {rooferTypes.map((rooferType, index) => (
+                {uniqueRoofTypeByData.map((rooferType, index) => (
                   <Chip
                     key={index}
                     type="selectable"
