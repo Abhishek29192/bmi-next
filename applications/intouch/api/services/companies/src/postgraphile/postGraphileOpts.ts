@@ -18,18 +18,18 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
   additionalGraphQLContextFromRequest: async (req: Request, res: Response) => ({
     user: req.user
   }),
-  pgSettings: async ({ user = {} }) => {
+  pgSettings: async ({ user }) => {
     let role: RolesValues;
     const { roles } = config;
-    if (Object.prototype.hasOwnProperty.call(roles, user.role)) {
-      role = roles[user.role];
+    if (Object.prototype.hasOwnProperty.call(roles, user?.role)) {
+      role = roles[user?.role];
     } else {
       role = "installer";
     }
 
     return {
-      "app.current_account_id": user.id,
-      "app.current_account_email": user.email,
+      "app.current_account_id": user?.id,
+      "app.current_account_email": user?.email,
       role
     };
   }
