@@ -146,5 +146,44 @@ describe("ServiceLocatorSection component", () => {
       const { container } = render(<ServiceLocatorSection data={data} />);
       expect(container.firstChild).toMatchSnapshot();
     });
+
+    it("with ALL roofer type", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        roofers: [
+          createRoofer({
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [
+              rooferTypes[0],
+              rooferTypes[1],
+              rooferTypes[2],
+              rooferTypes[3],
+              rooferTypes[4]
+            ]
+          }),
+          createRoofer({
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [
+              rooferTypes[0],
+              rooferTypes[1],
+              rooferTypes[2],
+              rooferTypes[3],
+              rooferTypes[4]
+            ]
+          })
+        ]
+      };
+
+      const { container } = render(<ServiceLocatorSection data={data} />);
+      expect(container.firstChild).toMatchSnapshot();
+    });
   });
 });

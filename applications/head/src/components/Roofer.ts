@@ -1,6 +1,12 @@
 import { graphql } from "gatsby";
 
-export const rooferTypes = ["Pitched roof", "Flat roof"] as const;
+export const rooferTypes = [
+  "Pitched roof",
+  "Flat roof",
+  "Pitched roof bitumen",
+  "Pitched roof tiles",
+  "Roof coaters"
+] as const;
 
 export type RooferType = typeof rooferTypes[number];
 
