@@ -1356,13 +1356,23 @@
  force=true
 
 [[redirects]]
- from="/it/professionisti/faq:slug"
- to="/it/professionisti/faq-professionisti:slug"
+ from="/it/professionisti/faq/:slug"
+ to="/it/professionisti/faq-professionisti/:slug"
  force=true
 
 [[redirects]]
- from="/it/privati/faq:slug"
- to="/it/privati/privati-faq:slug"
+ from="/it/privati/faq/:slug"
+ to="/it/privati/privati-faq/:slug"
+ force=true
+
+[[redirects]]
+ from="/it/professionisti/faq"
+ to="/it/professionisti/faq-professionisti"
+ force=true
+
+[[redirects]]
+ from="/it/privati/faq"
+ to="/it/privati/privati-faq"
  force=true
 
 [[redirects]]
@@ -1371,8 +1381,8 @@
  force=true
 
 [[redirects]]
- from="/it/professionisti/bmi-academy"
- to="/it/bmi-academy"
+ from="/it/bmi-academy"
+ to="/it/professionisti/bmi-academy"
  force=true
 
 
