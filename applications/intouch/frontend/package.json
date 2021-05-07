@@ -4,16 +4,16 @@
   "private": true,
   "license": "BMI-DXB",
   "scripts": {
+    "build": "next build",
+    "build-storybook": "build-storybook",
+    "codegen": "graphql-codegen -r dotenv/config --config codegen.yml",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "next dev",
     "dev:debug": "NODE_OPTIONS='--inspect' next dev",
-    "build": "next build",
-    "start": "next start",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook",
-    "codegen": "graphql-codegen -r dotenv/config --config codegen.yml"
+    "start": "next start",
+    "storybook": "start-storybook -p 6006 -s ./public"
   },
   "dependencies": {
     "@apollo/client": "^3.3.15",

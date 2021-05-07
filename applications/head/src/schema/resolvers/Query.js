@@ -43,7 +43,7 @@ module.exports = {
         type: "Products"
       });
 
-      if (!(products && products.length)) {
+      if (!products.length) {
         return [];
       }
 

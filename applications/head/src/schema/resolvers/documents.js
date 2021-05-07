@@ -42,7 +42,7 @@ const resolveDocumentsFromProducts = async (
     type: "Products"
   });
 
-  if (!products) {
+  if (!products.length) {
     return [];
   }
 
@@ -149,7 +149,7 @@ const resolveDocumentsFromContentful = async (assetTypes, { context }) => {
     type: "ContentfulDocument"
   });
 
-  return documents || [];
+  return documents;
 };
 
 module.exports = {

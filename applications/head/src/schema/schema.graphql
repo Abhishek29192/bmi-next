@@ -1,7 +1,7 @@
 """
 Represents an interface for inputs.
 """
-interface ContentfulFormInputs {
+interface ContentfulFormInputs implements Node {
   id: ID!
 
   "The name for this input."
@@ -94,7 +94,7 @@ type contentfulInputBannerAdditionalInputsJsonNode implements ContentfulFormInpu
 """
 Represents common properties across pages.
 """
-interface ContentfulPage @nodeInterface {
+interface ContentfulPage implements Node {
   id: ID!
 
   "Contentful content entry ID."
@@ -129,9 +129,6 @@ interface ContentfulPage @nodeInterface {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
-
-  "The parent page of this page."
-  parentPage: LinkedPage @link(from: "parentPage___NODE")
 
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
