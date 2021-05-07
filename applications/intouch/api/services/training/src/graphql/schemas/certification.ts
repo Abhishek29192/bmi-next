@@ -2,7 +2,7 @@ import { gql } from "apollo-server";
 
 export default gql`
   extend type Query {
-    certifications(options: PageQueryOptions): CertificationData
+    trainingCertification(options: PageQueryOptions): CertificationData
   }
   type CertificationInfo {
     id_cert: Int
