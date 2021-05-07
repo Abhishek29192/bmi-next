@@ -178,6 +178,8 @@ const CardCollectionSection = ({
 
   const GTMChip = withGTM<ChipProps>(Chip);
 
+  const activeGroupValues = Object.values(activeGroups);
+
   return (
     <div className={styles["CardCollectionSection"]}>
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
@@ -228,7 +230,9 @@ const CardCollectionSection = ({
                 onClick={() => {
                   setActiveGroups({});
                 }}
-                isDisabled={!Object.keys(activeGroups).length}
+                isDisabled={
+                  !activeGroupValues.length || !activeGroupValues.some(Boolean)
+                }
               >
                 {getMicroCopy("global.clearAll")}
               </AnchorLink>
