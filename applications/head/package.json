@@ -43,6 +43,7 @@
     "@bmi/form": "0.0.0",
     "@bmi/gatsby-plugin-elasticsearch": "0.0.0",
     "@bmi/gatsby-plugin-firestore": "0.0.0",
+    "@bmi/gatsby-plugin-leadoo": "0.0.0",
     "@bmi/geolocation-button": "0.0.0",
     "@bmi/google-api": "0.0.0",
     "@bmi/google-autocomplete": "0.0.0",

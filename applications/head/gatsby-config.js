@@ -463,6 +463,17 @@ module.exports = {
             }
           }
         ]
+      : []),
+    ...(process.env.GATSBY_LEADOO_ID
+      ? [
+          {
+            resolve: "@bmi/gatsby-plugin-leadoo",
+            options: {
+              companyCode: process.env.GATSBY_LEADOO_ID,
+              productionOnly: false
+            }
+          }
+        ]
       : [])
   ],
   flags: {
