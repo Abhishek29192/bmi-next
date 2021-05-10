@@ -21,6 +21,7 @@ include:
   - local: "/functions/gcp-pim-full-fetch/.gitlab-ci.yml"
   - local: "/functions/gcp-pim-message-handler/.gitlab-ci.yml"
   - local: "/functions/gcp-upload-file/.gitlab-ci.yml"
+  - remote: "https://gitlab.com/dependabot-gitlab/dependabot-standalone/-/raw/master/.gitlab-ci.yml"
 
 .sast-analyzer:
   allow_failure: false
@@ -136,18 +137,5 @@ release:
     - npx -p semantic-release@17.3.6 semantic-release
 
 # Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
-dependabot_gitlab:
-  image:
-    name: docker.io/andrcuns/dependabot-gitlab:latest
-    entrypoint: [""]
-  rules:
-    - if: "$WHICH_SCHEDULE == 'dependabot_gitlab'"
-  variables:
-    GIT_STRATEGY: none
-    PACKAGE_MANAGER: npm
-    RAILS_ENV: production
-    SETTINGS__STANDALONE: "true"
-  before_script:
-    - cd /home/dependabot
-  script:
-    - bundle exec rake "dependabot:update[$PROJECT_PATH,$PACKAGE_MANAGER,$DIRECTORY]"
+.dependabot-gitlab:
+  cache: {}
