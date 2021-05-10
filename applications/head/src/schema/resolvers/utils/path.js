@@ -132,7 +132,7 @@ const resolvePath = async (source, args, context) => {
     const parentPage = await context.nodeModel.getNodeById({
       id: parentPage___NODE
     });
-    const path = await getPath(parentPage, context);
+    const path = await resolvePath(parentPage, undefined, context);
     const pageItem = { id, label, slug };
 
     if (!path || !path.length) {
