@@ -7,6 +7,7 @@ test_components:
       changes:
         - components/**/*
         - jest/**/*
+        - package.json
   needs: [install]
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
@@ -25,6 +26,7 @@ build_styleguide:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - components/**/*
+        - package.json
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
