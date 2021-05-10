@@ -1386,6 +1386,134 @@
  force=true
 
 
+[[redirects]]
+ from="/it/sxa/file/download*"
+ to="/it/download"
+ force=true
+
+
+
+
+[[redirects]]
+ from="/it/vivi-il-tuo-tetto/rifacimento-tetto-detrazione-opportunita-2020"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/coppo-di-francia/ardesia/protector/1658654384/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/coppo-di-francia/ardesia/protector/1658654384/"
+ to="/it/prodotti-e-soluzioni/copertura-a-falda/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/tegal-innotech/testa-di-moro-striato/elegance/2607329952/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/coppo-di-grecia/coppo-antico/antichizzata/3206856652/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/coppo-di-grecia/coppo-antico/antichizzata/3206856652/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/doppia-romana/argilla/protector/2041587953/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/doppia-romana/argilla/protector/2041587953/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/coppo-titan/granito-plus/liscia/2221983705/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/coppo-titan/granito-plus/liscia/2221983705/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/coppo-del-borgo/roccantica-fiammato/prestige/1758095586/"
+ force=true
+
+[[redirects]]
+ from="/it/vivi-il-tuo-tetto/rifacimento-tetto-detrazione-opportunita-2020"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/coppo-domus/rodi/1524685033/"
+ force=true
+
+[[redirects]]
+ from="/it/vivi-il-tuo-tetto/rifacimento-tetto-castello-principi-acaja"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/vario-5-marsigliese/argilla-naturale/liscia/2207650283/"
+ force=true
+
+[[redirects]]
+ from="/it/professionisti/bmi-roofpro"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/tegola-per-aerazione/doppia-romana-striato-rosso/granulata-plus/3298351050/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/tegola-per-aerazione/striato-rosso/granulata-plus/3298351050/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/quattrovie-in-cemento/striato-cotto/liscia/1247906230/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/quattrovie-in-cemento/striato-cotto/liscia/1247906230/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/fermaneve/coppostop-argilla-naturale/liscia/501437760/"
+ force=true
+
+[[redirects]]
+ from="/it/vivi-il-tuo-tetto/rifacimento-tetto-detrazione-opportunita-2020"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/doppia-romana/argilla/protector/2041587953/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/doppia-romana/argilla/protector/2041587953/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/coppo-di-francia/ardesia/protector/1658654384/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/kit-vitasafe/1512006567/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/schermi-e-membrane/vapotech/vapotech-160/423708271/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/vapotech/2550715648/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/schermi-e-membrane/divoroll-universal/3280834953/"
+ force=true
+
+[[redirects]]
+ from="/it/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/accessori-e-componenti/lana-di-roccia-per-coperture/30-kpa-sp:-40-mm/2430155343/"
+ force=true
+
+[[redirects]]
+ from="/it/contact-us-icon-test/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/tegola-paraneve-con-nasello-in-cls/doppia-romana-striato-rosso/granulata-plus/657845801/"
+ force=true
+
+[[redirects]]
+ from="/page-data/it/qualunque-sia-il-tetto-per-te-bmi-se-ne-prende-cura/page-data.json"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/accessori-e-componenti/t-system/spessore-120/1341670481/"
+ force=true
+
+[[redirects]]
+ from="/it/prodotti-e-soluzioni/coperture-piane/everguard"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/accessori-e-componenti/pir-energy-320/spessore-80/3003399335/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/coppo-di-francia/ardesia/protector/1658654384/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/vario-5-marsigliese/antica/liscia/2583215022/"
+ force=true
+
+[[redirects]]
+ from="/it/prodotti-e-soluzioni/coperture-a-falde/tegole-e-coppi-braas"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/tegole-in-cemento/coppo-di-francia/reflex-grigio-perla/elegance/288959362/"
+ force=true
+
+[[redirects]]
+ from="/it/sxa/file/download/?site=italy&id=142c87b3ec572ada15287564c3d10f74"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/accessori-e-componenti/unitherm-evolution/spessore-100/4134879732/"
+ force=true
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/doppia-romana/argilla/protector/2041587953/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/schermi-e-membrane/divoroll-tech-2s/426366641/"
+ force=true
+
+
+[[redirects]]
+ from="/it/p/prodotti-e-soluzioni/copertura-a-falda/tutti-i-prodotti/coppo-di-francia/ardesia/protector/1658654384/"
+ to="/it/p/prodotti-e-soluzioni/copertura-a-falda/accessori-e-componenti/kit-vitasafe/1512006567/"
+ force=true
 
 
 
