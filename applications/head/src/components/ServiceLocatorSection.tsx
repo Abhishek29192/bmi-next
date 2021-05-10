@@ -522,28 +522,30 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             </GeolocationButton>
           </Grid>
           <Grid item xs={12} md={6} lg={8}>
-            <div className={styles["filters"]}>
-              <Typography variant="h6">
-                {getMicroCopy("findARoofer.filtersLabel")}
-              </Typography>
-              <div className={styles["chips"]}>
-                {uniqueRoofTypeByData.map((rooferType, index) => (
-                  <Chip
-                    key={index}
-                    type="selectable"
-                    onClick={() => {
-                      setUserAction(true);
-                      updateActiveFilters({ name: rooferType });
-                    }}
-                    isSelected={activeFilters[rooferType]}
-                  >
-                    {getMicroCopy(
-                      `findARoofer.filters.${camelCase(rooferType)}`
-                    )}
-                  </Chip>
-                ))}
+            {uniqueRoofTypeByData.length > 1 && (
+              <div className={styles["filters"]}>
+                <Typography variant="h6">
+                  {getMicroCopy("findARoofer.filtersLabel")}
+                </Typography>
+                <div className={styles["chips"]}>
+                  {uniqueRoofTypeByData.map((rooferType, index) => (
+                    <Chip
+                      key={index}
+                      type="selectable"
+                      onClick={() => {
+                        setUserAction(true);
+                        updateActiveFilters({ name: rooferType });
+                      }}
+                      isSelected={activeFilters[rooferType]}
+                    >
+                      {getMicroCopy(
+                        `findARoofer.filters.${camelCase(rooferType)}`
+                      )}
+                    </Chip>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </Grid>
         </Grid>
         <Tabs
