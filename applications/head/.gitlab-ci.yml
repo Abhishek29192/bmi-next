@@ -84,7 +84,7 @@ baseline_scan_head:
   image: owasp/zap2docker-stable:latest
   stage: dynamic_security
   rules:
-    - if: '$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == "head"'
+    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head'"
   script:
     - zap-baseline.py -t ${SITE_URL_FROM_NETLIFY} || exit 0
 
@@ -95,7 +95,7 @@ baseline_scan_head:
 full_scan_head:
   stage: dynamic_security
   rules:
-    - if: '$WHICH_SCHEDULE == "full_scan_head"'
+    - if: "$WHICH_SCHEDULE == 'full_scan_head'"
   image: owasp/zap2docker-stable:latest
   script:
     - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
@@ -105,7 +105,7 @@ full_scan_head:
 lighthouseci_build_scan_head:
   stage: lighthouse_scan
   rules:
-    - if: '$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == "head"'
+    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head'"
   image: cypress/browsers:node14.15.0-chrome86-ff82
   script:
     - cd applications/head
@@ -123,7 +123,7 @@ lighthouseci_scan_head:
   variables:
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"
   rules:
-    - if: '$WHICH_SCHEDULE == "lighthouseci_scan_head"'
+    - if: "$WHICH_SCHEDULE == 'lighthouseci_scan_head'"
   image: cypress/browsers:node14.15.0-chrome86-ff82
   script:
     - cd applications/head

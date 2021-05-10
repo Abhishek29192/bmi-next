@@ -141,7 +141,7 @@ dependabot_gitlab:
     name: docker.io/andrcuns/dependabot-gitlab:latest
     entrypoint: [""]
   rules:
-    - if: '$WHICH_SCHEDULE == "dependabot_gitlab"'
+    - if: "$WHICH_SCHEDULE == 'dependabot_gitlab'"
   variables:
     GIT_STRATEGY: none
     PACKAGE_MANAGER: npm
