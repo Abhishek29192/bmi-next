@@ -869,20 +869,7 @@ HTMLCollection [
             </div>
             <div
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-8"
-            >
-              <div
-                class="filters"
-              >
-                <h6
-                  class="MuiTypography-root Typography MuiTypography-h6"
-                >
-                  findARoofer.filtersLabel
-                </h6>
-                <div
-                  class="chips"
-                />
-              </div>
-            </div>
+            />
           </div>
           <div
             class="Tabs Tabs--secondary Tabs--visible-until-md tabs"
