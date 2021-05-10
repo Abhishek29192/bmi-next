@@ -3,9 +3,9 @@ import { graphql } from "gatsby";
 export const rooferTypes = [
   "Pitched roof",
   "Flat roof",
-  "Pitched roof bitumen",
-  "Pitched roof tiles",
-  "Roof coaters"
+  "Pitched roof - Bitumen roofs",
+  "Pitched roof - Tile roofs",
+  "Pitched roof - Roof coaters"
 ] as const;
 
 export type RooferType = typeof rooferTypes[number];

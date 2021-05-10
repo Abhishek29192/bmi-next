@@ -529,7 +529,7 @@ exports[`ServiceLocatorSection component renders multiple roofers with ALL roofe
                 <span
                   class="MuiChip-label"
                 >
-                  MC: findARoofer.filters.pitchedRoofBitumen
+                  MC: findARoofer.filters.pitchedRoofBitumenRoofs
                 </span>
                 <span
                   class="MuiTouchRipple-root"
@@ -543,7 +543,7 @@ exports[`ServiceLocatorSection component renders multiple roofers with ALL roofe
                 <span
                   class="MuiChip-label"
                 >
-                  MC: findARoofer.filters.pitchedRoofTiles
+                  MC: findARoofer.filters.pitchedRoofTileRoofs
                 </span>
                 <span
                   class="MuiTouchRipple-root"
@@ -557,7 +557,7 @@ exports[`ServiceLocatorSection component renders multiple roofers with ALL roofe
                 <span
                   class="MuiChip-label"
                 >
-                  MC: findARoofer.filters.roofCoaters
+                  MC: findARoofer.filters.pitchedRoofRoofCoaters
                 </span>
                 <span
                   class="MuiTouchRipple-root"
@@ -818,7 +818,7 @@ exports[`ServiceLocatorSection component renders multiple roofers with ALL roofe
                                 class="description"
                               >
                                 <b>
-                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumen | MC: findARoofer.filters.pitchedRoofTiles | MC: findARoofer.filters.roofCoaters
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters
                                 </b>
                               </dd>
                             </div>
@@ -1051,7 +1051,7 @@ exports[`ServiceLocatorSection component renders multiple roofers with ALL roofe
                                 class="description"
                               >
                                 <b>
-                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumen | MC: findARoofer.filters.pitchedRoofTiles | MC: findARoofer.filters.roofCoaters
+                                  MC: findARoofer.filters.pitchedRoof | MC: findARoofer.filters.flatRoof | MC: findARoofer.filters.pitchedRoofBitumenRoofs | MC: findARoofer.filters.pitchedRoofTileRoofs | MC: findARoofer.filters.pitchedRoofRoofCoaters
                                 </b>
                               </dd>
                             </div>
