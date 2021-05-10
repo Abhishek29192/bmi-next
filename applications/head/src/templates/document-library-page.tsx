@@ -74,6 +74,7 @@ type Props = {
     siteId: string;
     categoryCode: string;
     pimClassificationCatalogueNamespace: string;
+    variantCodeToPathMap: Record<string, string>;
   };
   data: {
     contentfulDocumentLibraryPage: Data;
@@ -323,7 +324,12 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   };
 
   return (
-    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+    <Page
+      title={title}
+      pageData={pageData}
+      siteData={data.contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       {isLoading ? (
         <Scrim theme="light">
           <ProgressIndicator theme="light" />

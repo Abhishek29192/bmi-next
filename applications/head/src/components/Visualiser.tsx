@@ -1,11 +1,13 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import Visualiser, {
   Parameters,
   tilesSetData,
   sidingsSetData
 } from "@bmi/visualiser";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { devLog } from "../utils/devLog";
+import { getProductUrl } from "../utils/product-details-transforms";
+import { SiteContext } from "./Site";
 
 type Context = {
   isOpen: boolean;
@@ -29,6 +31,7 @@ export const VisualiserContext = createContext<Context>({
 type Props = {
   children: React.ReactNode;
   contentSource?: string;
+  variantCodeToPathMap: Record<string, string>;
 };
 
 const mapParameters = (params: any): Partial<Parameters> => {
@@ -41,9 +44,14 @@ const mapParameters = (params: any): Partial<Parameters> => {
   return { tileId, colourId, sidingId, viewMode };
 };
 
-const VisualiserProvider = ({ children, contentSource }: Props) => {
+const VisualiserProvider = ({
+  children,
+  contentSource,
+  variantCodeToPathMap = {}
+}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
+  const { countryCode } = useContext(SiteContext);
 
   if (!contentSource) {
     return (
@@ -58,6 +66,12 @@ const VisualiserProvider = ({ children, contentSource }: Props) => {
     setIsOpen(true);
   };
 
+  const getProductLinkAction = (variantCode: string) => ({
+    model: "routerLink",
+    linkComponent: Link,
+    to: getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+  });
+
   return (
     <VisualiserContext.Provider value={{ isOpen, open }}>
       {children}
@@ -68,6 +82,7 @@ const VisualiserProvider = ({ children, contentSource }: Props) => {
         onClose={() => setIsOpen(false)}
         tiles={tilesSetData}
         sidings={sidingsSetData}
+        getProductLinkAction={getProductLinkAction}
         {...parameters}
       />
     </VisualiserContext.Provider>

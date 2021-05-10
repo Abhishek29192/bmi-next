@@ -218,7 +218,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   });
 
   return (
-    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+    <Page
+      title={title}
+      pageData={pageData}
+      siteData={data.contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       <SiteContext.Consumer>
         {({ getMicroCopy }) => {
           return (

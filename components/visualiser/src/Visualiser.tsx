@@ -45,6 +45,7 @@ type Props = {
   open: boolean;
   title?: string;
   onClose: () => any;
+  getProductLinkAction?: (variantCode: string) => any;
 } & Parameters;
 
 type TileProps =
@@ -317,7 +318,8 @@ const Visualiser = ({
   viewMode = "tile",
   tiles,
   sidings,
-  onClose
+  onClose,
+  getProductLinkAction
 }: Props) => {
   const [activeTileId, setActiveTileId] = useState(tileId);
   const [activeColourId, setActiveColourId] = useState(colourId);
@@ -420,14 +422,18 @@ const Visualiser = ({
                     </Typography>
                     <Typography>{activeColour.name}</Typography>
                   </CardContent>
-                  {activeTile.productLink && (
+                  {activeColour.variantCode && (
                     <CardActions>
                       <Button
-                        action={activeTile.productLink.action}
+                        action={
+                          getProductLinkAction
+                            ? getProductLinkAction(activeColour.variantCode)
+                            : undefined
+                        }
                         variant="outlined"
                         endIcon={<ArrowForwardIcon />}
                       >
-                        {activeTile.productLink.label}
+                        Les mer om produktet
                       </Button>
                     </CardActions>
                   )}
