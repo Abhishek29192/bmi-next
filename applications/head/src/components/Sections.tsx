@@ -87,18 +87,25 @@ const Sections = ({
         const Component = sectionsMap[section.__typename];
         const { title } = section;
 
-        return (
-          Component &&
-          title && (
-            <TableOfContent.Anchor title={title} key={`section-${index}`}>
-              <Component
-                // @ts-ignore
-                data={section}
-                position={startIndex + index}
-                theme={pageTypenameToThemeMap[pageTypename] || {}}
-              />
-            </TableOfContent.Anchor>
-          )
+        if (!Component) {
+          return;
+        }
+
+        const sectionComponent = (
+          <Component
+            // @ts-ignore
+            data={section}
+            position={startIndex + index}
+            theme={pageTypenameToThemeMap[pageTypename] || {}}
+          />
+        );
+
+        return title ? (
+          <TableOfContent.Anchor title={title} key={`section-${index}`}>
+            {sectionComponent}
+          </TableOfContent.Anchor>
+        ) : (
+          sectionComponent
         );
       })}
     </>
