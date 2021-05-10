@@ -35,27 +35,29 @@ export const iconMap = {
 export type IconName = keyof typeof iconMap;
 
 type BodyProps = {
-  bodyTitle?: string;
-  bodyList?: readonly TitleWithContentData[];
+  bodyTitle: string | null;
+  bodyList: readonly TitleWithContentData[] | null;
 };
 
 type FooterProps = {
-  footerTitle?: string;
-  footerList?: readonly (TitleWithContentData | ContactDetailsData)[];
+  footerTitle: string | null;
+  footerList: readonly (TitleWithContentData | ContactDetailsData)[] | null;
 };
 
 export type Data = {
-  icon?: IconName | null;
-  title?: string;
+  icon: IconName;
+  title: string;
 } & BodyProps &
   FooterProps;
 
 const Body = ({ bodyTitle, bodyList }: BodyProps) => {
   return (
     <>
-      <Typography component="h4" variant="h6">
-        {bodyTitle}
-      </Typography>
+      {bodyTitle && (
+        <Typography component="h4" variant="h6">
+          {bodyTitle}
+        </Typography>
+      )}
       {bodyList && (
         <IconList>
           {bodyList.map(({ title, content }, index) => (
@@ -82,10 +84,11 @@ const BorderedItem = () => {
 const Footer = ({ footerTitle, footerList }: FooterProps) => {
   return (
     <div>
-      <Typography variant="h6" style={{ marginBottom: "42px" }}>
-        {footerTitle}
-      </Typography>
-
+      {footerTitle && (
+        <Typography variant="h6" style={{ marginBottom: "42px" }}>
+          {footerTitle}
+        </Typography>
+      )}
       {footerList && (
         <Grid container spacing={3}>
           {footerList.map((item, index) => {
@@ -129,10 +132,19 @@ const ContactTopics = ({ topics }: { topics: Data[] }) => {
     return {
       icon: iconMap[item.icon],
       title: item.title,
-      body: <Body bodyTitle={item.bodyTitle} bodyList={item.bodyList} />,
-      footer: (
-        <Footer footerTitle={item.footerTitle} footerList={item.footerList} />
-      )
+      ...(item.bodyTitle || item.bodyList
+        ? { body: <Body bodyTitle={item.bodyTitle} bodyList={item.bodyList} /> }
+        : []),
+      ...(item.footerTitle || item.footerList
+        ? {
+            footer: (
+              <Footer
+                footerTitle={item.footerTitle}
+                footerList={item.footerList}
+              />
+            )
+          }
+        : [])
     };
   });
 
