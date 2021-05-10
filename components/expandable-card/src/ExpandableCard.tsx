@@ -18,7 +18,7 @@ import listStyles from "./ExpandableCardList.module.scss";
 type CardItem = {
   icon: SVGImport;
   title: React.ReactNode;
-  body: React.ReactNode;
+  body?: React.ReactNode;
   footer?: React.ReactNode;
   closeLabel?: string;
   isExpanded?: boolean;
