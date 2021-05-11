@@ -85,6 +85,7 @@ baseline_scan_head:
   stage: dynamic_security
   rules:
     - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head'"
+  cache: {}
   script:
     - zap-baseline.py -t ${SITE_URL_FROM_NETLIFY} || exit 0
 
@@ -97,6 +98,7 @@ full_scan_head:
   rules:
     - if: "$WHICH_SCHEDULE == 'full_scan_head'"
   image: owasp/zap2docker-stable:latest
+  cache: {}
   script:
     - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
 

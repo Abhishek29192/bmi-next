@@ -106,6 +106,7 @@ license_finder:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: []
   image: licensefinder/license_finder:latest
+  cache: {}
   before_script:
     - source ~/.bash_profile
     - yarn config set cache-folder ${PWD}/.yarn_cache
