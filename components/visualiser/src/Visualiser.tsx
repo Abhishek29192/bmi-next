@@ -595,7 +595,7 @@ const Visualiser = ({
               label: "Farge på vegg"
             });
           }}
-          viewMode={viewMode}
+          viewMode={state.viewMode}
           setViewMode={setState}
           onEventClick={handleOnEventClick}
         />
