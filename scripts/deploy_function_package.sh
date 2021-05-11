@@ -7,10 +7,10 @@ fi
 
 # Pushes the function source zip package into GCP storage for each GCP project. 
 # i.e DXB production could have many GCP projects by region.
-cat $1 | jq -c '.[]' | while read i; do
-      PROJECT_ID=$(echo $i | jq '.PROJECT_ID')
-      SERVICE_KEY=$(echo $i | jq '.SERVICE_KEY')
-      BUILD_STORAGE=$(echo $i | jq '.BUILD_STORAGE')
+cat $1 | jq -c '.[]' | while read -r i; do
+      PROJECT_ID=$(echo $i | jq -r '.PROJECT_ID')
+      SERVICE_KEY=$(echo $i | jq -r '.SERVICE_KEY')
+      BUILD_STORAGE=$(echo $i | jq -r '.BUILD_STORAGE')
 
       echo "$SERVICE_KEY" > "$(pwd)/$PROJECT_ID.json"
       gcloud auth activate-service-account --key-file="$(pwd)/$PROJECT_ID.json"
