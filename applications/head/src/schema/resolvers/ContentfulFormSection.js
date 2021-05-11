@@ -89,6 +89,9 @@ module.exports = {
         });
 
         if (!hubSpotForm) {
+          console.warn(
+            `HubSpot GUID not found: ${source.hubSpotFormGuid}.\nPlease check entry ${source.contentful_id} in Contentful.`
+          );
           return [];
         }
 
