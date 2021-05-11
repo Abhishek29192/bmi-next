@@ -41,6 +41,19 @@ module.exports = {
           injectFirst: true
         }
       }
+    },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+            exportLocalsConvention: "asIs",
+            localIdentName: "[name]__[local]--[hash:base64:5]"
+          }
+        }
+      }
     }
   ]
 };
