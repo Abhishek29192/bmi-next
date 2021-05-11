@@ -5,7 +5,7 @@ import { Data as AssetTypeData } from "../AssetType";
 import { Data as PIMDocumentData } from "../PIMDocument";
 import { Data as PIMLinkDocumentData } from "../PIMLinkDocument";
 import createAssetType from "../../__tests__/AssetTypeHelper";
-import createPimDocument from "../../__tests__/PimLinkDocumentHelper";
+import createPimDocument from "../../__tests__/PimDocumentHelper";
 import createPimLinkDocument from "../../__tests__/PimLinkDocumentHelper";
 import fileIconsMap from "../FileIconsMap";
 
