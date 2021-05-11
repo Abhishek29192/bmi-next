@@ -974,6 +974,10 @@ type ContentfulResources implements Node {
 
   "Set PIM documents' names pattern."
   productDocumentNameMap: String
+
+  "The share widget for the visualiser for these resources."
+  visualiserShareWidget: ContentfulShareWidgetSection
+    @link(from: "visualiserShareWidget___NODE")
 }
 
 """
