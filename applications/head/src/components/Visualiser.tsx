@@ -5,8 +5,8 @@ import Visualiser, {
   tilesSetData,
   sidingsSetData
 } from "@bmi/visualiser";
-import { Link, graphql } from "gatsby";
-import { navigate, useLocation } from "@reach/router";
+import { navigate, graphql } from "gatsby";
+import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import { getProductUrl } from "../utils/product-details-transforms";
 import { pushToDataLayer } from "../utils/google-tag-manager";
@@ -19,6 +19,14 @@ type Context = {
   isOpen: boolean;
   open?: (params?: object) => void;
 };
+
+const GtmEventsMap = {
+  "product-selector": "visualiser1-product-selector",
+  "product-link": "visualiser1-product-link",
+  "wall-selector": "visualiser1-wall-selector",
+  "bottom-menu": "visualiser1-bottom-menu"
+};
+
 export const VisualiserContext = createContext<Context>({
   isOpen: false,
   open: () => {
@@ -81,23 +89,30 @@ const VisualiserProvider = ({
     setIsOpen(true);
   };
 
-  const getProductLinkAction = (variantCode: string) => ({
-    model: "routerLink",
-    linkComponent: Link,
-    to: getProductUrl(countryCode, variantCodeToPathMap[variantCode])
-  });
-
   const handleOnChange = ({
     isOpen,
     ...params
   }: Partial<Parameters & { isOpen: boolean }>) => {
-    navigate(
+    navigateWithParams(
       isOpen ? calculatePathFromData(params) : calculatePathFromData({})
     );
   };
 
-  const handleOnEventClick = ({ id, label, ...data }) => {
-    pushToDataLayer({ id, label, action: calculatePathFromData(data) });
+  const handleOnClick = ({ type, label, data, ...params }) => {
+    const productPath =
+      data && data.variantCode
+        ? getProductUrl(countryCode, variantCodeToPathMap[data.variantCode])
+        : undefined;
+
+    pushToDataLayer({
+      id: GtmEventsMap[type],
+      label,
+      action: productPath ? productPath : calculatePathFromData(params)
+    });
+
+    if (productPath) {
+      navigate(productPath);
+    }
   };
 
   const calculatePathFromData = (params: Partial<Parameters>) => {
@@ -124,7 +139,6 @@ const VisualiserProvider = ({
         onClose={() => setIsOpen(false)}
         tiles={tilesSetData}
         sidings={sidingsSetData}
-        getProductLinkAction={getProductLinkAction}
         {...parsedQueryParameters}
         {...parameters}
         shareWidget={
@@ -132,7 +146,7 @@ const VisualiserProvider = ({
             <ShareWidgetSection data={shareWidgetData} hasNoPadding={true} />
           ) : undefined
         }
-        onEventClick={handleOnEventClick}
+        onClick={handleOnClick}
       />
     </VisualiserContext.Provider>
   );
