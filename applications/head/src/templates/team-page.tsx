@@ -38,13 +38,8 @@ type Props = {
 };
 
 const TeamPage = ({ data, pageContext }: Props) => {
-  const {
-    title,
-    teamCategories,
-    inputBanner,
-    breadcrumbs,
-    seo
-  } = data.contentfulTeamPage;
+  const { title, teamCategories, inputBanner, breadcrumbs, seo } =
+    data.contentfulTeamPage;
   const pageData: PageData = {
     breadcrumbs,
     inputBanner,

@@ -90,9 +90,9 @@ export const initializeApollo = (
 };
 
 export const useApollo = (initialState, ctx = null) => {
-  const store = useMemo(() => initializeApollo(initialState, ctx), [
-    initialState,
-    ctx
-  ]);
+  const store = useMemo(
+    () => initializeApollo(initialState, ctx),
+    [initialState, ctx]
+  );
   return store;
 };

@@ -60,9 +60,8 @@ const DownloadListCheckbox = ({
   maxLimitReachedLabel = "Max download limit reached",
   ...rest
 }: DownloadListCheckboxProps) => {
-  const { list, updateList, remainingSize, isLoading } = useContext(
-    DownloadListContext
-  );
+  const { list, updateList, remainingSize, isLoading } =
+    useContext(DownloadListContext);
   const maxLimitIsReached: boolean = fileSize > remainingSize;
 
   return (
@@ -101,9 +100,8 @@ const DownloadListButton = ({
   onClick,
   ...rest
 }: DownloadListButtonProps) => {
-  const { list, count, resetList, isLoading, setIsLoading } = useContext(
-    DownloadListContext
-  );
+  const { list, count, resetList, isLoading, setIsLoading } =
+    useContext(DownloadListContext);
 
   const Button = component || DefaultButton;
 

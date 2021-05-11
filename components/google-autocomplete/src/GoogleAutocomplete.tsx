@@ -32,24 +32,26 @@ const GoogleAutocomplete = ({
   );
 
   const getPlacePredictions = useMemo(
-    () => (
-      request: AutocompletionRequest,
-      callback: (result: AutocompletePrediction[]) => void
-    ) =>
-      googleAutocomplete.current
-        ? googleAutocomplete.current.getPlacePredictions(request, callback)
-        : undefined,
+    () =>
+      (
+        request: AutocompletionRequest,
+        callback: (result: AutocompletePrediction[]) => void
+      ) =>
+        googleAutocomplete.current
+          ? googleAutocomplete.current.getPlacePredictions(request, callback)
+          : undefined,
     []
   );
 
   const getGeocode = useMemo(
-    () => (
-      request: GeocoderRequest,
-      callback: (results: GeocoderResult[]) => void
-    ) =>
-      googleGeocoder.current
-        ? googleGeocoder.current.geocode(request, callback)
-        : undefined,
+    () =>
+      (
+        request: GeocoderRequest,
+        callback: (results: GeocoderResult[]) => void
+      ) =>
+        googleGeocoder.current
+          ? googleGeocoder.current.geocode(request, callback)
+          : undefined,
     []
   );
 

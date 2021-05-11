@@ -5,11 +5,8 @@ const { join } = require("path");
 const contentful = require("contentful-management");
 require("./env");
 
-const {
-  MANAGEMENT_ACCESS_TOKEN,
-  PROJECT_RELATIVE_PATH,
-  SPACE_ID
-} = process.env;
+const { MANAGEMENT_ACCESS_TOKEN, PROJECT_RELATIVE_PATH, SPACE_ID } =
+  process.env;
 
 const client = contentful.createClient({
   accessToken: MANAGEMENT_ACCESS_TOKEN

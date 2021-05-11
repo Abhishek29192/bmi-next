@@ -53,9 +53,8 @@ export const handleDownloadClick = async (
       );
     }
     const assets = flatten(listValues);
-    const assetFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-      assets
-    );
+    const assetFileCountMap: AssetUniqueFileCountMap =
+      createAssetFileCountMap(assets);
     const documents = assets.map(
       ({ __typename, asset, extension, title, url }, index) => {
         return {

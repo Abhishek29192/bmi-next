@@ -62,8 +62,8 @@ export default class GuaranteePdf {
   }
 
   private getGuaranteeTemplatesPdf(): Promise<GuaranteeFileType>[] {
-    const templates = this.guaranteeData.guaranteeType
-      .guaranteeTemplatesCollection.items;
+    const templates =
+      this.guaranteeData.guaranteeType.guaranteeTemplatesCollection.items;
 
     return templates.map(async (template) => {
       const guaranteePdf = await this.getGuaranteePdf(template);

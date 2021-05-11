@@ -179,9 +179,8 @@ export const getPageFromAbsoluteIndex = (
 };
 
 const CarouselSlide = ({ children, className }: SlideProps) => {
-  const { slidesPerPage, totalSlides, currentBreakpoint } = useContext(
-    CarouselContext
-  );
+  const { slidesPerPage, totalSlides, currentBreakpoint } =
+    useContext(CarouselContext);
 
   const breakpointToSlidesMap = {
     xl: 3,
@@ -217,9 +216,12 @@ const CarouselControls = ({
   SlideControlsProps,
   "current" | "total" | "onNextClick" | "onPrevClick"
 >) => {
-  const { activePage, setActivePage, total, scroll = "infinite" } = useContext(
-    CarouselContext
-  );
+  const {
+    activePage,
+    setActivePage,
+    total,
+    scroll = "infinite"
+  } = useContext(CarouselContext);
 
   if (type === "slide") {
     // TODO: Handle finite scroll.

@@ -19,7 +19,8 @@ async function handleTokenClaims(user, context, callback) {
     if (app_metadata.registration_to_complete === true) {
       context.idToken = {
         ...context.idToken,
-        [`${namespace}/registration_to_complete`]: app_metadata.registration_to_complete
+        [`${namespace}/registration_to_complete`]:
+          app_metadata.registration_to_complete
       };
     }
 

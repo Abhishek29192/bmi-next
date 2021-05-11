@@ -46,14 +46,8 @@ const CardCollectionItem = ({
 }) => {
   const { countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
-  const {
-    title,
-    subtitle,
-    link,
-    featuredMedia,
-    brandLogo,
-    featuredVideo
-  } = transformCard(card);
+  const { title, subtitle, link, featuredMedia, brandLogo, featuredVideo } =
+    transformCard(card);
 
   const transformedCardLabel = label
     ? label.replace(/{{title}}/g, title)

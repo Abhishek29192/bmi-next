@@ -134,10 +134,8 @@ const ProtrusionDimensions = ({
 }: ProtrusionDimensionsProps) => {
   const copy = useContext(MicroCopyContext);
 
-  const {
-    fields,
-    dimensionsIllustration: DimensionsIllustration
-  } = protrusionTypes[protrusionType];
+  const { fields, dimensionsIllustration: DimensionsIllustration } =
+    protrusionTypes[protrusionType];
 
   return (
     <FieldContainer title={"Enter protrusion dimensions"}>
@@ -207,14 +205,12 @@ const Protrusion = ({
       errors: { type: error }
     }));
 
-  const createUpdateField = (name: string) => (
-    value?: string,
-    error?: string
-  ) =>
-    onUpdate(({ values, errors }) => ({
-      values: { ...values, [name]: value },
-      errors: { ...errors, [name]: error }
-    }));
+  const createUpdateField =
+    (name: string) => (value?: string, error?: string) =>
+      onUpdate(({ values, errors }) => ({
+        values: { ...values, [name]: value },
+        errors: { ...errors, [name]: error }
+      }));
 
   const { type } = values;
 

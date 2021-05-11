@@ -207,13 +207,8 @@ const transformContentType = async (
   }
 
   const editingContentType = migration.editContentType(contentType.sys.id);
-  const {
-    name,
-    type,
-    required,
-    localized,
-    validations
-  } = contentType.fields.find(({ id }) => id === fields.from);
+  const { name, type, required, localized, validations } =
+    contentType.fields.find(({ id }) => id === fields.from);
   const newField = editingContentType
     .createField(fields.to)
     .name(name)

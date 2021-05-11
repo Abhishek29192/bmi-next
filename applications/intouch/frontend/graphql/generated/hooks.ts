@@ -1,7 +1,7 @@
-import * as OperationTypes from "./operations";
-
 import { gql } from "@apollo/client";
 import * as Apollo from "@apollo/client";
+import * as OperationTypes from "./operations";
+
 const defaultOptions = {};
 
 export const CreateCompanyDocument = gql`
@@ -50,7 +50,8 @@ export function useCreateCompanyMutation(
 export type CreateCompanyMutationHookResult = ReturnType<
   typeof useCreateCompanyMutation
 >;
-export type CreateCompanyMutationResult = Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
+export type CreateCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
 export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateCompanyMutation,
   OperationTypes.CreateCompanyMutationVariables

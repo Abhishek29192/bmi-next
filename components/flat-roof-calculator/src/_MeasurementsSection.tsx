@@ -24,35 +24,31 @@ const numberValidator = (value) => {
   }
 };
 
-const getPositiveMinimumValueValidator = (
-  fieldName,
-  minValue,
-  unit,
-  zeroMessage?
-) => (value) => {
-  if (typeof value !== "string") {
-    throw new Error("This validator only take string values");
-  }
+const getPositiveMinimumValueValidator =
+  (fieldName, minValue, unit, zeroMessage?) => (value) => {
+    if (typeof value !== "string") {
+      throw new Error("This validator only take string values");
+    }
 
-  if (value === "") {
-    // Ignore since we're checking for required separately
-    return false;
-  }
+    if (value === "") {
+      // Ignore since we're checking for required separately
+      return false;
+    }
 
-  if (!isNumber(value)) {
-    return "This field must have a positive number";
-  }
+    if (!isNumber(value)) {
+      return "This field must have a positive number";
+    }
 
-  const number = parseFloat(value);
+    const number = parseFloat(value);
 
-  if (number === 0 && zeroMessage) {
-    return zeroMessage;
-  }
+    if (number === 0 && zeroMessage) {
+      return zeroMessage;
+    }
 
-  if (number < minValue) {
-    return `Minimum ${fieldName} is ${minValue}${unit}`;
-  }
-};
+    if (number < minValue) {
+      return `Minimum ${fieldName} is ${minValue}${unit}`;
+    }
+  };
 
 const convertDefault = (value?: number) =>
   typeof value === "undefined" ? "" : "" + value;

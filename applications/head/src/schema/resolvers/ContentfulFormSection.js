@@ -171,10 +171,11 @@ module.exports = {
                   legalConsentOptions.communicationConsentCheckboxes[0]
                     .communicationTypeId,
                 name: "hs-legal-communication",
-                label: legalConsentOptions.communicationConsentCheckboxes[0].label.replace(
-                  /(<p[^>]+?>|<p>|<\/p>)/gim,
-                  ""
-                ),
+                label:
+                  legalConsentOptions.communicationConsentCheckboxes[0].label.replace(
+                    /(<p[^>]+?>|<p>|<\/p>)/gim,
+                    ""
+                  ),
                 type: "hubspot-checkbox",
                 width: "full",
                 required:
@@ -206,10 +207,11 @@ module.exports = {
                   legalConsentOptions.communicationConsentCheckboxes[0]
                     .communicationTypeId,
                 name: "hs-legal-processingConsentType",
-                label: legalConsentOptions.processingConsentCheckboxLabel.replace(
-                  /(<p[^>]+?>|<p>|<\/p>)/gim,
-                  ""
-                ),
+                label:
+                  legalConsentOptions.processingConsentCheckboxLabel.replace(
+                    /(<p[^>]+?>|<p>|<\/p>)/gim,
+                    ""
+                  ),
                 type: "hubspot-checkbox",
                 width: "full",
                 required: true
