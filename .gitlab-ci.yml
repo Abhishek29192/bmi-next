@@ -25,31 +25,34 @@ include:
 
 .sast-analyzer:
   allow_failure: false
-
-code_quality:
-  stage: test
-  needs: [install]
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-
-sast:
-  stage: test
+  needs: []
+  cache: {}
 
 eslint-sast:
-  needs: [install]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 nodejs-scan-sast:
-  needs: [install]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
-# There is a secret_detection_default_branch job for master
+# Shouldn't need cache, but the codeclimate checks fail due to a potential version issue
+code_quality:
+  stage: test
+  needs: []
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+
 secret_detection:
   needs: []
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
+  cach: {}
+
+# Used for the default branch, which we have setup as `master`
+secret_detection_default_branch:
+  needs: []
+  cach: {}
 
 cache:
   key:
@@ -121,7 +124,8 @@ eslint:
   stage: test
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
