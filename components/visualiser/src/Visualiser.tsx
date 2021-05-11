@@ -4,7 +4,8 @@ import React, {
   useEffect,
   ReactNode,
   useRef,
-  RefObject
+  RefObject,
+  useCallback
 } from "react";
 import { ClickableAction } from "@bmi/anchor-link";
 import Button from "@bmi/button";
@@ -55,6 +56,9 @@ type Props = {
   getProductLinkAction?: (variantCode: string) => any;
   onChange?: (params: Partial<Parameters & { isOpen: boolean }>) => void;
   shareWidget?: React.ReactNode;
+  onEventClick: (
+    params: Partial<Parameters> & { id: string; label: string }
+  ) => void;
 } & Parameters;
 
 type TileProps =
@@ -74,7 +78,8 @@ type TileSectorDialogProps = {
   contentSource: string;
   open: boolean;
   onCloseClick: (isTileSelectorOpen: boolean) => void;
-  onConfirmClick: (tileId: string, colourId: string) => void;
+  onConfirmClick: (data: { tileId: string; colourId: string }) => void;
+  onEventClick: (event: { id: string; label: string }) => void;
   tiles: any;
 };
 
@@ -82,12 +87,14 @@ const Actions = ({
   toggleTileSelector,
   toggleSidingsSelector,
   setViewMode,
-  viewMode
+  viewMode,
+  onEventClick
 }: {
   toggleTileSelector: (isTileSelectorOpen: boolean) => void;
   toggleSidingsSelector: (isSidingsSelectorOpen: boolean) => void;
-  setViewMode: (viewMode: Props["viewMode"]) => void;
+  setViewMode: (data: { viewMode: Props["viewMode"] }) => void;
   viewMode: Props["viewMode"];
+  onEventClick: (event: { id: string; label: string }) => void;
 }) => {
   return (
     <nav className={styles["actions"]}>
@@ -113,7 +120,13 @@ const Actions = ({
           hasDarkBackground
           variant="text"
           startIcon={<SvgIcon component={SelectRoof} />}
-          onClick={() => setViewMode("roof")}
+          onClick={() => {
+            setViewMode({ viewMode: "roof" });
+            onEventClick({
+              id: "visualiser1-bottom-menu",
+              label: "Vis produktet på en bolig"
+            });
+          }}
         >
           Vis produktet på en bolig
         </Button>
@@ -123,7 +136,13 @@ const Actions = ({
           hasDarkBackground
           variant="text"
           startIcon={<SvgIcon component={SelectTile} />}
-          onClick={() => setViewMode("tile")}
+          onClick={() => {
+            setViewMode({ viewMode: "tile" });
+            onEventClick({
+              id: "visualiser1-bottom-menu",
+              label: "Kun produktet"
+            });
+          }}
         >
           Kun produktet
         </Button>
@@ -143,7 +162,7 @@ const SelectionOptions = ({
   defaultValue: string;
   products: TileProps[];
   title: string;
-  onClick: (tileId: number, colourId: number) => any;
+  onClick: (tileId: number, colourId: number, label: string) => any;
 }) => {
   return (
     <div className={styles["select-options"]}>
@@ -161,7 +180,7 @@ const SelectionOptions = ({
                 size: "128",
                 contentSource
               })}
-              onClick={() => onClick(id, colour.id)}
+              onClick={() => onClick(id, colour.id, `${name} + ${colour.name}`)}
               className={classnames({
                 [styles["active-selection-option"]]:
                   defaultValue === `${id}-${colour.id}`
@@ -186,6 +205,7 @@ const TileSectorDialog = ({
   open,
   onCloseClick,
   onConfirmClick,
+  onEventClick,
   tiles
 }: TileSectorDialogProps) => {
   const productProps = useMemo(
@@ -200,9 +220,10 @@ const TileSectorDialog = ({
 
   const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
 
-  const onClick = (tileId, colourId) => {
-    onConfirmClick(tileId, colourId);
+  const onClick = (tileId, colourId, label) => {
+    onConfirmClick({ tileId, colourId });
     onCloseClick(false);
+    onEventClick({ id: "visualiser1-product-selector", label });
   };
 
   return (
@@ -253,14 +274,16 @@ const SidingsSelectorDialog = ({
   activeSiding,
   sidings,
   contentSource,
-  onConfirmClick
+  onConfirmClick,
+  onEventClick
 }: {
   open: boolean;
   onCloseClick: (isSidingsSelectorOpen: boolean) => void;
   activeSiding: SidingProps;
   sidings: SidingProps[];
   contentSource: string;
-  onConfirmClick: (sidingId: number) => void;
+  onConfirmClick: (data: { sidingId: number }) => void;
+  onEventClick: (event: { id: string; label: string }) => void;
 }) => {
   return (
     <ContainerDialog
@@ -297,8 +320,9 @@ const SidingsSelectorDialog = ({
                 contentSource
               })}
               onClick={() => {
-                onConfirmClick(id);
+                onConfirmClick({ sidingId: id });
                 onCloseClick(false);
+                onEventClick({ id: "visualiser1-wall-selector", label: name });
               }}
               className={classnames({
                 [styles["active-selection-option"]]: activeSiding.id === id
@@ -380,76 +404,88 @@ const Visualiser = ({
   shareWidget,
   onClose,
   getProductLinkAction,
-  onChange
+  onChange,
+  onEventClick
 }: Props) => {
-  const [activeTileId, setActiveTileId] = useState(tileId);
-  const [activeColourId, setActiveColourId] = useState(colourId);
-  const [activeSidingId, setActiveSidingId] = useState(sidingId);
   const [isTileSelectorOpen, setIsTileSelectorOpen] = useState(false);
   const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [mode, setMode] = useState(viewMode);
   const header = useRef<HTMLDivElement>(null);
+  const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
+
+  const stateRef = React.useRef(state);
+  const setState = useCallback(
+    (data) => {
+      stateRef.current = { ...state, ...data };
+      _setState((previousState) => {
+        return { ...previousState, ...data };
+      });
+    },
+    [state]
+  );
 
   useEffect(() => {
-    setMode(viewMode);
-  }, [viewMode]);
+    setState({ tileId, colourId, sidingId, viewMode });
+  }, [tileId, colourId, sidingId, viewMode]);
 
   useEffect(() => {
-    setActiveTileId(tileId);
-  }, [tileId]);
+    if (onChange) {
+      const { tileId, colourId, sidingId, viewMode } = state;
 
-  useEffect(() => {
-    setActiveSidingId(sidingId);
-  }, [sidingId]);
-
-  useEffect(() => {
-    setActiveColourId(colourId);
-  }, [colourId]);
-
-  useEffect(() => {
-    onChange({
-      colourId: activeColourId,
-      sidingId: activeSidingId,
-      tileId: activeTileId,
-      viewMode: mode,
-      isOpen: open
-    });
-  }, [activeTileId, activeColourId, activeSidingId, mode, open]);
+      onChange({
+        colourId,
+        sidingId,
+        tileId,
+        viewMode,
+        isOpen: open
+      });
+    }
+  }, [state, open]);
 
   const handleOnClose = () => {
     onClose();
   };
 
+  const handleOnEventClick = useCallback(
+    ({ id, label }) => {
+      const { tileId, colourId, sidingId, viewMode } = stateRef.current;
+
+      onEventClick({
+        colourId,
+        sidingId,
+        tileId,
+        viewMode,
+        id,
+        label
+      });
+    },
+    [stateRef]
+  );
+
   const activeTile = useMemo(() => {
     return (
-      tiles.find(({ id }) => id === activeTileId) ||
+      tiles.find(({ id }) => id === state.tileId) ||
       tiles.find(({ id }) => id === tileId) ||
       tiles[0]
     );
-  }, [tiles, activeTileId, tileId]);
+  }, [tiles, state.tileId]);
 
   const activeColour = useMemo(
     () =>
-      activeTile.colours.find(({ id }) => id === activeColourId) ||
+      activeTile.colours.find(({ id }) => id === state.colourId) ||
       activeTile.colours[0],
-    [activeTile, activeColourId]
+    [activeTile, state.colourId]
   );
 
   const activeSiding = useMemo(
     () =>
-      sidings.find(({ id }) => id === activeSidingId) ||
+      sidings.find(({ id }) => id === state.sidingId) ||
       sidings.find(({ id }) => id === sidingId) ||
       sidings[0],
-    [activeSidingId, sidings, sidingId]
+    [sidings, sidingId, state.sidingId]
   );
 
-  const setActiveProduct = (tileId, colourId) => {
-    setActiveTileId(tileId);
-    setActiveColourId(colourId);
-  };
-
-  const Viewer = viewerComponentMap[mode || "tile"];
+  const Viewer = viewerComponentMap[state.viewMode || "tile"];
 
   return (
     <ContainerDialog
@@ -512,7 +548,7 @@ const Visualiser = ({
             </Grid>
           </Grid>
         </div>
-        {mode && (
+        {viewMode && (
           <Viewer
             tile={activeTile}
             colour={activeColour}
@@ -527,28 +563,41 @@ const Visualiser = ({
           activeTile={activeTile}
           activeColour={activeColour}
           tiles={tiles}
-          onConfirmClick={setActiveProduct}
+          onConfirmClick={setState}
           contentSource={contentSource}
+          onEventClick={handleOnEventClick}
         />
         <SidingsSelectorDialog
           open={isSidingsSelectorOpen}
           onCloseClick={setIsSidingsSelectorOpen}
           activeSiding={activeSiding}
           sidings={sidings}
-          onConfirmClick={setActiveSidingId}
+          onConfirmClick={setState}
           contentSource={contentSource}
+          onEventClick={handleOnEventClick}
         />
         <Actions
-          toggleTileSelector={() =>
-            setIsTileSelectorOpen((wasTileSelectorOpen) => !wasTileSelectorOpen)
-          }
-          toggleSidingsSelector={() =>
+          toggleTileSelector={() => {
+            setIsTileSelectorOpen(
+              (wasTileSelectorOpen) => !wasTileSelectorOpen
+            );
+            handleOnEventClick({
+              id: "visualiser1-bottom-menu",
+              label: "Velg produkt"
+            });
+          }}
+          toggleSidingsSelector={() => {
             setIsSidingsSelectorOpen(
               (wasSidingsSelectorOpen) => !wasSidingsSelectorOpen
-            )
-          }
-          viewMode={mode}
-          setViewMode={setMode}
+            );
+            handleOnEventClick({
+              id: "visualiser1-bottom-menu",
+              label: "Farge på vegg"
+            });
+          }}
+          viewMode={viewMode}
+          setViewMode={setState}
+          onEventClick={handleOnEventClick}
         />
       </div>
     </ContainerDialog>

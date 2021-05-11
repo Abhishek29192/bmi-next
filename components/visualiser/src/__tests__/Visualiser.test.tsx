@@ -11,6 +11,7 @@ describe("Visualiser component", () => {
         tiles={tilesSetData}
         sidings={sidingsSetData}
         onClose={() => console.log("close")}
+        onEventClick={(params) => console.log(params)}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
