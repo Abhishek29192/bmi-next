@@ -83,6 +83,11 @@ const DialogVideo = ({
   if (dimensions.width && height > 0 && width > 0) {
     calculatedHeight = (dimensions.width * height) / width;
   }
+  // use fallback height if it can't get height from dimensions (that part may need further investigation)
+  // but this one works well in all screen sizes
+  if (calculatedHeight == 0 && height == 0) {
+    calculatedHeight = window.innerHeight - 120;
+  }
 
   return (
     <div
