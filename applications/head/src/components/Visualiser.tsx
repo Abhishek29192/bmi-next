@@ -9,6 +9,7 @@ import { Link, graphql } from "gatsby";
 import { navigate, useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import { getProductUrl } from "../utils/product-details-transforms";
+import { pushToDataLayer } from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
@@ -95,6 +96,10 @@ const VisualiserProvider = ({
     );
   };
 
+  const handleOnEventClick = ({ id, label, ...data }) => {
+    pushToDataLayer({ id, label, action: calculatePathFromData(data) });
+  };
+
   const calculatePathFromData = (params: Partial<Parameters>) => {
     const { tileId, colourId, sidingId, viewMode, ...rest } = queryString.parse(
       location.search
@@ -127,6 +132,7 @@ const VisualiserProvider = ({
             <ShareWidgetSection data={shareWidgetData} hasNoPadding={true} />
           ) : undefined
         }
+        onEventClick={handleOnEventClick}
       />
     </VisualiserContext.Provider>
   );
