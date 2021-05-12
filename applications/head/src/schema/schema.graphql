@@ -277,6 +277,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The contact details for the locations section."
   locations: [ContentfulContactDetails] @link(from: "locations___NODE")
 
+  "The iframe content"
+  iframe: ContentfulIframe @link(from: "iframe___NODE")
+
   "The topics for this page."
   contentTopics: [ContentfulContactTopic] @link(from: "contentTopics___NODE")
 
@@ -1576,4 +1579,20 @@ type ContentfulImage implements Node {
 type ProductsVariantOptionsClassificationsFeaturesFeatureValues implements Node {
   value: String
   code: String
+}
+
+type ContentfulIframe implements Node {
+  id: ID!
+
+  "The title for video"
+  name: String
+
+  "The label for the video"
+  title: String
+
+  "URL for iframe source"
+  url: String!
+
+  "iframe height"
+  height: String!
 }
