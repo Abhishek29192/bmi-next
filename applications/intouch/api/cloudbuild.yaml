@@ -69,12 +69,12 @@ steps:
         "--platform",
         "managed",
         "--allow-unauthenticated",
-        "--set-env-vars=DOCEBO_API_URL=https://bmigroup-academy.docebosaas.com",
-        "--set-env-vars=DOCEBO_API_CLIENT_ID=",
+        "--set-env-vars=DOCEBO_API_URL=${_DOCEBO_API_URL}",
+        "--set-env-vars=DOCEBO_API_CLIENT_ID=${_DOCEBO_API_CLIENT_ID}",
         "--set-env-vars=DOCEBO_API_CLIENT_SECRET=",
         "--set-env-vars=DOCEBO_API_USERNAME=",
         "--set-env-vars=DOCEBO_API_PASSWORD=",
-        "--set-env-vars=DOCEBO_API_JWT_PASSPHRASE="
+        "--set-env-vars=DOCEBO_API_JWT_PASSPHRASE=${_DOCEBO_API_JWT_PASSPHRASE}"
       ]
   - name: "gcr.io/cloud-builders/gcloud"
     args:
