@@ -32,6 +32,7 @@ import SyndicateSection, {
   Data as SyndicateSectionData
 } from "./SyndicateSection";
 import VideoSection, { Data as VideoSectionData } from "./VideoSection";
+import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 
 export type Data = (
   | FormSectionData
@@ -45,6 +46,7 @@ export type Data = (
   | DocumentDownloadSectionData
   | ServiceLocatorSectionData
   | VideoSectionData
+  | IframeSectionData
 )[];
 
 const sectionsMap = {
@@ -58,7 +60,8 @@ const sectionsMap = {
   ContentfulImageGallerySection: ImageGallerySection,
   ContentfulDocumentDownloadSection: DocumentDownloadSection,
   ContentfulServiceLocatorSection: ServiceLocatorSection,
-  ContentfulVideoSection: VideoSection
+  ContentfulVideoSection: VideoSection,
+  ContentfulIframe: IframeSection
 };
 
 // TODO: This should be exported by the card collection.
@@ -128,5 +131,6 @@ export const query = graphql`
     ...DocumentDownloadSectionFragment
     ...ServiceLocatorSectionFragment
     ...VideoSectionFragment
+    ...IframeSectionFragment
   }
 `;

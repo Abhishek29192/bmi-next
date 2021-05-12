@@ -908,6 +908,7 @@ union ContentfulSection =
   | ContentfulDocumentDownloadSection
   | ContentfulServiceLocatorSection
   | ContentfulVideoSection
+  | ContentfulIframe
 
 """
 Represents a key value pair for UI strings.
