@@ -10,6 +10,9 @@ import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
+import IframeSection, {
+  Data as IframeSectionData
+} from "../components/IframeSection";
 import { Data as PageInfoData } from "../components/PageInfo";
 import ContactTopics, {
   Data as ContactTopicsData
@@ -28,6 +31,7 @@ type Data = PageInfoData &
     contentTopics: ContactTopicsData[];
     locationsTitle: string | null;
     locations: LocationsData | null;
+    iframe: IframeSectionData | null;
     breadcrumbs: BreadcrumbsData;
   };
 
@@ -54,6 +58,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     inputBanner,
     locationsTitle,
     locations,
+    iframe,
     breadcrumbs,
     seo,
     featuredVideo
@@ -92,6 +97,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
           {contentTopics && <ContactTopics topics={contentTopics} />}
         </div>
       </Section>
+      {iframe && <IframeSection data={iframe} />}
       {locations && (
         <Section backgroundColor="white">
           <Section.Title>{locationsTitle}</Section.Title>
@@ -136,6 +142,9 @@ export const pageQuery = graphql`
       locationsTitle
       locations {
         ...LocationsFragment
+      }
+      iframe {
+        ...IframeSectionFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
