@@ -1,7 +1,7 @@
-import { gql } from "@apollo/client";
-import * as Apollo from "@apollo/client";
 import * as OperationTypes from "./operations";
 
+import { gql } from "@apollo/client";
+import * as Apollo from "@apollo/client";
 const defaultOptions = {};
 
 export const UpdateCompanyDocument = gql`
