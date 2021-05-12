@@ -258,6 +258,10 @@ export const query = graphql`
                 label
                 links {
                   __typename
+                  ... on ContentfulNavigationItem {
+                    type
+                    value
+                  }
                   ... on ContentfulLink {
                     ...LinkFragment
                   }
@@ -267,6 +271,11 @@ export const query = graphql`
                     }
                     label
                     links {
+                      __typename
+                      ... on ContentfulNavigationItem {
+                        type
+                        value
+                      }
                       ... on ContentfulLink {
                         ...LinkFragment
                       }
