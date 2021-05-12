@@ -1,10 +1,10 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
-export type UpdateCompanyMutationVariables = SchemaTypes.Exact<{
+export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
 }>;
 
-export type UpdateCompanyMutation = { readonly __typename?: "Mutation" } & {
+export type CreateCompanyMutation = { readonly __typename?: "Mutation" } & {
   readonly updateCompany?: SchemaTypes.Maybe<
     { readonly __typename?: "UpdateCompanyPayload" } & {
       readonly company?: SchemaTypes.Maybe<

@@ -8,8 +8,8 @@ import GridStyles from "../styles/Grid.module.scss";
 import { initializeApollo } from "../lib/apolloClient";
 import { getAuth0Instance } from "../lib/auth0";
 
-const UPDATE_COMPANY = gql`
-  mutation updateCompany($input: UpdateCompanyInput!) {
+const CREATE_COMPANY = gql`
+  mutation createCompany($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
       company {
         name
@@ -28,7 +28,7 @@ const Company = ({ currentCompany }: any) => {
   // The company is created when we create the user in the db
   // through an sql procedure (create_account) here we just
   // need to update it with the new values
-  const [createCompany] = useMutation(UPDATE_COMPANY, {
+  const [createCompany] = useMutation(CREATE_COMPANY, {
     onCompleted: () => {
       // Redirect to silent-auth in order to re-create the session as we need to remove
       // the claim from the jwt token to stop showing the registration page to the user
