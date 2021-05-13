@@ -14,6 +14,7 @@ import GuaranteeProduct from "./svgs/GuaranteeProduct.svg";
 import GuaranteeSolution from "./svgs/GuaranteeSolution.svg";
 import GuaranteeSystem from "./svgs/GuaranteeSystem.svg";
 import Icopal from "./svgs/Icopal.svg";
+import IcopalKatto from "./svgs/IcopalKatto.svg";
 import Monarflex from "./svgs/Monarflex.svg";
 import Monarplan from "./svgs/Monarplan.svg";
 import Monier from "./svgs/Monier.svg";
@@ -54,6 +55,7 @@ export {
   GuaranteeSolution,
   GuaranteeSystem,
   Icopal,
+  IcopalKatto,
   Monarflex,
   Monarplan,
   Monier,
@@ -95,6 +97,7 @@ export const iconMap = {
   GuaranteeSolution,
   GuaranteeSystem,
   Icopal,
+  IcopalKatto,
   Monarflex,
   Monarplan,
   Monier,
