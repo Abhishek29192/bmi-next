@@ -194,6 +194,15 @@ const createSubscription = async (
   return data;
 };
 
+const validateEmail = (email: string): boolean => {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+};
+
+const validateGDPR = (gdpr_1: boolean, gdpr_2: boolean) => {
+  return gdpr_1 && gdpr_2;
+};
+
 export const optInEmailMarketing: HttpFunction = async (request, response) => {
   let subscriptionId = "";
   response.set("Access-Control-Allow-Origin", "*");
@@ -212,6 +221,10 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
       const {
         body: { email, gdpr_1, gdpr_2, name }
       } = request;
+
+      if (!validateEmail(email) || !validateGDPR(gdpr_1, gdpr_2)) {
+        return response.status(400).send(Error("Invalid input received."));
+      }
 
       const recaptchaToken =
         // eslint-disable-next-line security/detect-object-injection

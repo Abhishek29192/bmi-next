@@ -284,6 +284,86 @@ describe("Making a POST request", () => {
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
   });
 
+  it("returns status code 400 when the email address format is invalid", async () => {
+    const req = mockRequest({
+      email: "invalid_email",
+      gdpr_1: true,
+      gdpr_2: true
+    });
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: false,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    await optInEmailMarketing(req, res);
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Invalid input received."));
+  });
+
+  it("returns status code 400 when the gdpr_1 is false", async () => {
+    const req = mockRequest({
+      email: "test@test.com",
+      gdpr_1: false,
+      gdpr_2: true
+    });
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: false,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    await optInEmailMarketing(req, res);
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Invalid input received."));
+  });
+
+  it("returns status code 400 when the gdpr_2 is false", async () => {
+    const req = mockRequest({
+      email: "test@test.com",
+      gdpr_1: true,
+      gdpr_2: false
+    });
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: false,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    await optInEmailMarketing(req, res);
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Invalid input received."));
+  });
+
+  it("returns status code 400 when both gdpr fields are false", async () => {
+    const req = mockRequest({
+      email: "test@test.com",
+      gdpr_1: false,
+      gdpr_2: false
+    });
+    const res = mockResponse();
+
+    fetchMock.mockResponse(
+      JSON.stringify({
+        success: false,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    );
+
+    await optInEmailMarketing(req, res);
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Invalid input received."));
+  });
+
   it("returns status code 500 when an error is returned from Secret Manager", async () => {
     const req = mockRequest();
     const res = mockResponse();
