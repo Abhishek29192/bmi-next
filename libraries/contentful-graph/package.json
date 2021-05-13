@@ -1,0 +1,13 @@
+{
+  "name": "@bmi/contentful-graph",
+  "version": "0.0.0",
+  "private": true,
+  "license": "BMI-DXB",
+  "main": "./index.js",
+  "bin": "./index.js",
+  "dependencies": {
+    "contentful-graph": "^1.6.2",
+    "dotenv-cli": "^4.0.0",
+    "node-graphviz": "^0.1.0"
+  }
+}
