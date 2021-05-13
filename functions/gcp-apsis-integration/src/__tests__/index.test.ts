@@ -992,6 +992,132 @@ describe("Making a POST request", () => {
     );
     expect(accessSecretVersion).toBeCalledTimes(2);
   });
+
+  it("sends first name attribute to apsis profile if name is posted in payload", async () => {
+    const payloadName = "My Name";
+    const payloadEmail = "test@test.com";
+    const oAuthToken = "some_token";
+    const req = mockRequest({
+      email: payloadEmail,
+      gdpr_1: true,
+      gdpr_2: true,
+      name: payloadName
+    });
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+
+    mockResponses(
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
+      {
+        url: oAuthEndpoint,
+        body: JSON.stringify({
+          access_token: oAuthToken
+        }),
+        status: 200
+      },
+      {
+        url: getCreateProfileEndpoint(payloadEmail),
+        body: "",
+        status: 200
+      },
+      {
+        url: getCreateConsentEndpoint(payloadEmail),
+        body: "",
+        status: 200
+      },
+      {
+        url: getCreateSubscriptionEndpoint(payloadEmail),
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" }),
+        status: 200
+      }
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(fetchMock).toBeCalledWith(
+      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/test%40test.com/sections/usercreated.sections.fulq3a5aou/attributes",
+      {
+        body:
+          '{"9820534":"test@test.com","312460234":true,"312461234":true,"312462234":"My Name"}',
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${oAuthToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "PATCH"
+      }
+    );
+  });
+  it("It does not send first name attribute to apsis profile if name is not posted in payload", async () => {
+    const payloadEmail = "test@test.com";
+    const oAuthToken = "some_token";
+    const req = mockRequest({
+      email: payloadEmail,
+      gdpr_1: true,
+      gdpr_2: true
+    });
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+
+    mockResponses(
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
+      {
+        url: oAuthEndpoint,
+        body: JSON.stringify({
+          access_token: oAuthToken
+        }),
+        status: 200
+      },
+      {
+        url: getCreateProfileEndpoint(payloadEmail),
+        body: "",
+        status: 200
+      },
+      {
+        url: getCreateConsentEndpoint(payloadEmail),
+        body: "",
+        status: 200
+      },
+      {
+        url: getCreateSubscriptionEndpoint(payloadEmail),
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" }),
+        status: 200
+      }
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(fetchMock).toBeCalledWith(
+      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/test%40test.com/sections/usercreated.sections.fulq3a5aou/attributes",
+      {
+        body: '{"9820534":"test@test.com","312460234":true,"312461234":true}',
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${oAuthToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "PATCH"
+      }
+    );
+  });
 });
 
 interface MockedResponse {
