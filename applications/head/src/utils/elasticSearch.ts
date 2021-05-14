@@ -125,7 +125,7 @@ export const compileElasticSearchQuery = (
     size: pageSize,
     from: page * pageSize,
     // NOTE: scoringWeightInt is a number (long) in the index, no ".keyword" field
-    sort: [{ scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
+    sort: ["_score", { scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
     aggs: {
       categories: {
         terms: {
@@ -171,16 +171,19 @@ export const compileElasticSearchQuery = (
             ? {
                 multi_match: {
                   query: searchQuery,
+                  // when caret boosting multi_match queries, "cross_fields" seems to work the best for us currently
+                  type: "cross_fields",
                   fields: [
                     "externalProductCode",
-                    "name",
+                    "name^5", // carefuly tuned - please keep this value unless very sure it needs changing
                     "summary",
                     "description",
                     "longDescription",
                     "shortDescription",
+                    "colourfamilyValue^6", // carefuly tuned - please keep this value unless very sure it needs changing
                     // known classification values
                     // TODO: a way of doing this generically?
-                    "colourfamilyValue.keyword",
+                    "colourfamilyValue.keyword", // this doesn't have any effect when caret boosting
                     "materialsValue.keyword",
                     "texturefamilyValue.keyword",
                     "measurementValue.keyword",
