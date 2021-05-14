@@ -1,5 +1,4 @@
 import React from "react";
-import { DetailProps } from "@bmi/company-details";
 import { UserCard } from ".";
 
 export default {
@@ -7,7 +6,7 @@ export default {
   component: UserCard
 };
 
-const mikeHaroldDetails: DetailProps[] = [
+const mikeHaroldDetails = [
   {
     type: "phone",
     text: "67 97 90 99",
@@ -22,7 +21,7 @@ const mikeHaroldDetails: DetailProps[] = [
   }
 ];
 
-const lisaSimpsonDetails: DetailProps[] = [
+const lisaSimpsonDetails = [
   {
     type: "phone",
     text: "07790 848483",
