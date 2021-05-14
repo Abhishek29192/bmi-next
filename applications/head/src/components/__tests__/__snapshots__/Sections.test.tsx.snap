@@ -323,7 +323,7 @@ HTMLCollection [
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
                   class="OverviewCard OverviewCard--flat"
@@ -437,7 +437,7 @@ HTMLCollection [
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
                   class="OverviewCard"
