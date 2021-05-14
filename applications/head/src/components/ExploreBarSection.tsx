@@ -2,7 +2,7 @@ import ExploreBar from "@bmi/explore-bar";
 import Section from "@bmi/section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { SiteContext } from "./Site";
 
 export type Data = {

@@ -29,7 +29,10 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import { iconMap } from "../components/Icon";
 import RichText, { RichTextData } from "../components/RichText";
 import { Data as PageInfoData } from "../components/PageInfo";
-import { LinkData, getClickableActionFromUrl } from "../components/Link";
+import {
+  Data as LinkData,
+  getClickableActionFromUrl
+} from "../components/Link";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import Breadcrumbs, {

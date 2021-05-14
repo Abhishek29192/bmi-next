@@ -21,7 +21,8 @@ describe("Page component", () => {
           url: "link-to-page",
           linkedPage: null,
           type: "External",
-          parameters: null
+          parameters: null,
+          dialogContent: null
         }
       ]
     };

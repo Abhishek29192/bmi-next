@@ -33,7 +33,8 @@ describe("Icon component", () => {
               url: "https://www.external.co.uk",
               linkedPage: null,
               type: "External",
-              parameters: null
+              parameters: null,
+              dialogContent: null
             }
           },
           "no",
@@ -90,7 +91,8 @@ describe("Icon component", () => {
               url: "https://www.external.co.uk",
               linkedPage: null,
               type: "External",
-              parameters: null
+              parameters: null,
+              dialogContent: null
             }
           },
           "no",

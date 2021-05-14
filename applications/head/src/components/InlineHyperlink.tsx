@@ -57,7 +57,7 @@ const InlineHyperlink = ({ node, children }: Props) => {
           action: url
         }}
       >
-        {children}?
+        {children}
       </GTMAnchorLink>
     );
   }
@@ -120,6 +120,30 @@ export const query = graphql`
       __typename
       contentful_id
       ...LinkFragment
+    }
+    ... on ContentfulAsset {
+      __typename
+      contentful_id
+      file {
+        url
+      }
+    }
+  }
+  fragment InlineHyperlinkFragmentNonRecursive on ContentfulRichTextReference {
+    ... on ContentfulHomePage {
+      __typename
+      contentful_id
+      path
+    }
+    ... on ContentfulPage {
+      __typename
+      contentful_id
+      path
+    }
+    ... on ContentfulLink {
+      __typename
+      contentful_id
+      ...LinkFragmentNonRecursive
     }
     ... on ContentfulAsset {
       __typename

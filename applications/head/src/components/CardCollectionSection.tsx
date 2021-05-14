@@ -14,7 +14,7 @@ import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import { SiteContext } from "./Site";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/CardCollectionSection.module.scss";

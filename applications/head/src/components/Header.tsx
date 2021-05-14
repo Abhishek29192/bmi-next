@@ -7,7 +7,12 @@ import HidePrint from "@bmi/hide-print";
 import { Tab, TabProps } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { LinkData, NavigationData, NavigationItem, getCTA } from "./Link";
+import {
+  Data as LinkData,
+  NavigationData,
+  NavigationItem,
+  getCTA
+} from "./Link";
 import { SiteContext } from "./Site";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {

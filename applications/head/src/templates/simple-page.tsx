@@ -27,7 +27,7 @@ import ShareWidgetSection, {
 } from "../components/ShareWidgetSection";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { getCTA, LinkData } from "../components/Link";
+import { getCTA, Data as LinkData } from "../components/Link";
 
 export type Data = PageInfoData &
   PageData & {

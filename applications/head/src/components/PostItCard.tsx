@@ -4,7 +4,7 @@ import PostItCard from "@bmi/post-it-card";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import AnchorLink from "@bmi/anchor-link";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { SiteContext } from "./Site";
 
 export type Props = {

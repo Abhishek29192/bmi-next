@@ -7,7 +7,7 @@ import TableOfContent from "@bmi/table-of-content";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
 import RichText, { RichTextData } from "./RichText";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import { getClickableActionFromUrl, Data as LinkData } from "./Link";
 
 export type Data = {
   __typename: "ContentfulLeadBlockSection";

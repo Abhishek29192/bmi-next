@@ -33,7 +33,7 @@ import TitleWithContentSection, {
 import VideoSection, { Data as VideoSectionData } from "./VideoSection";
 import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 
-export type Data = (
+export type SectionData =
   | ExploreBarSectionData
   | FormSectionData
   | TabsOrAccordionSectionData
@@ -46,10 +46,11 @@ export type Data = (
   | DocumentDownloadSectionData
   | ServiceLocatorSectionData
   | VideoSectionData
-  | IframeSectionData
-)[];
+  | IframeSectionData;
 
-const sectionsMap = {
+export type Data = SectionData[];
+
+export const sectionsMap = {
   ContentfulFormSection: FormSection,
   ContentfulTabsOrAccordionSection: TabsOrAccordionSection,
   ContentfulSyndicateSection: SyndicateSection,
@@ -88,7 +89,7 @@ const Sections = ({
   return (
     <>
       {data.map((section, index) => {
-        const Component = sectionsMap[section.__typename];
+        const Component: React.ElementType = sectionsMap[section.__typename];
         const title =
           // TODO: Nav could do with a refactor to align title/label/name fields.
           section.__typename === "ContentfulNavigation"
@@ -101,7 +102,6 @@ const Sections = ({
 
         const sectionComponent = (
           <Component
-            // @ts-ignore
             data={section}
             position={startIndex + index}
             theme={pageTypenameToThemeMap[pageTypename] || {}}
@@ -138,5 +138,9 @@ export const query = graphql`
     ...ServiceLocatorSectionFragment
     ...VideoSectionFragment
     ...IframeSectionFragment
+  }
+  fragment DialogSectionsFragment on ContentfulSection {
+    __typename
+    ...FormSectionFragmentNonRecursive
   }
 `;
