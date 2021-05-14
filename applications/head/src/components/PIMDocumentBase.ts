@@ -1,5 +1,5 @@
-import { Product } from "../templates/product-details-page";
 import { Data as AssetTypeData } from "./AssetType";
+import { Product } from "./ProductBaseTypes";
 
 export type PIMDocumentProduct = Pick<
   Product,

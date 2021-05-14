@@ -1,4 +1,4 @@
-import { Classification } from "../templates/product-details-page";
+import { Classification } from "../components/ProductBaseTypes";
 
 const createClassification = (
   classification?: Partial<Classification>

@@ -18,7 +18,7 @@ import {
   groupProductsByCategory,
   findUniqueVariantClassifications
 } from "../utils/product-details-transforms";
-import { Product, VariantOption } from "../templates/product-details-page"; // Hmmmmmm
+import { Product, VariantOption } from "../components/ProductBaseTypes"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
 import { SiteContext } from "./Site";
 

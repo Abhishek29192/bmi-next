@@ -3,7 +3,6 @@ import LeadBlock from "@bmi/lead-block";
 import Icon from "@bmi/icon";
 import IconList from "@bmi/icon-list";
 import Tabs from "@bmi/tabs";
-import Table from "@bmi/table";
 import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
 import { Tab, TabProps } from "@material-ui/core";
@@ -18,6 +17,8 @@ import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
+import { Classification } from "./ProductBaseTypes";
+import ProductTechnicalSpec from "./ProductTechnicalSpec";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
 
@@ -29,10 +30,6 @@ type GuaranteesAndAwardsAsset = {
 type Props = {
   description?: string;
   keyFeatures?: readonly string[];
-  technicalSpecifications?: {
-    name: string;
-    value: string;
-  }[];
   sidebarItems?: {
     title: React.ReactNode;
     content: RichTextData;
@@ -40,6 +37,8 @@ type Props = {
   guaranteesAndWarranties?: GuaranteesAndAwardsAsset[];
   awardsAndCertificates?: GuaranteesAndAwardsAsset[];
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
+  validClassifications: Classification[];
+  classificationNamespace: string;
 };
 
 const DOCUMENTS_PER_PAGE = 24;
@@ -49,11 +48,12 @@ const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
 const ProductLeadBlock = ({
   description,
   keyFeatures,
-  technicalSpecifications,
   sidebarItems,
   guaranteesAndWarranties,
   awardsAndCertificates,
-  documents
+  documents,
+  validClassifications,
+  classificationNamespace
 }: Props) => {
   const { getMicroCopy } = useContext(SiteContext);
   const [page, setPage] = useState(1);
@@ -174,20 +174,10 @@ const ProductLeadBlock = ({
         >
           <LeadBlock>
             <LeadBlock.Content>
-              {technicalSpecifications && technicalSpecifications.length ? (
-                <Table hasNoBorder>
-                  <Table.Body>
-                    {technicalSpecifications.map(({ name, value }, index) => (
-                      <Table.Row key={`technical-specification-${index}`}>
-                        <Table.Cell>{name}</Table.Cell>
-                        <Table.Cell>{value}</Table.Cell>
-                      </Table.Row>
-                    ))}
-                  </Table.Body>
-                </Table>
-              ) : (
-                "No technical specifications found for this product."
-              )}
+              <ProductTechnicalSpec
+                classificationNamespace={classificationNamespace}
+                classifications={validClassifications}
+              />
             </LeadBlock.Content>
             {sidebarItems && sidebarItems.length > 1 && (
               <LeadBlock.Card theme="blue-900">
