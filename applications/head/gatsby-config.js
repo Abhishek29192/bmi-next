@@ -471,7 +471,7 @@ module.exports = {
           }
         ]
       : []),
-    ...(process.env.GATSBY_LEADOO_ID
+    ...(process.env.GATSBY_LEADOO_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
             resolve: "@bmi/gatsby-plugin-leadoo",
