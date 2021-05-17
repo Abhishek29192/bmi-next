@@ -271,6 +271,16 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
 
+    if (process.env.GATSBY_PREVIEW) {
+      await createPage({
+        path: `/previewer/`,
+        component: path.resolve("./src/templates/previewer.tsx"),
+        context: {
+          siteId: site.id
+        }
+      });
+    }
+
     if (!process.env.GATSBY_PREVIEW) {
       await createPage({
         path: `/${site.countryCode}/sitemap/`,
