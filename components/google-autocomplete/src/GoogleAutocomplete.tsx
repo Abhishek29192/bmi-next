@@ -68,7 +68,7 @@ const GoogleAutocomplete = ({
     }
 
     getPlacePredictions({ input: inputValue }, (results) => {
-      setOptions([...(value ? [value] : []), ...results]);
+      setOptions(results);
     });
   }, [value, inputValue]);
 
@@ -102,23 +102,24 @@ const GoogleAutocomplete = ({
       getOptionLabel={(option: AutocompletePrediction) =>
         typeof option === "string" ? option : option.description
       }
-      options={options}
+      options={options || []}
       value={value || null}
       onChange={(_, value) => {
-        setOptions(value ? [value, ...options] : options);
         setValue(value);
       }}
       onInputChange={(_, inputValue) => {
         clearTimeout(debouncer.current);
         debouncer.current = setTimeout(() => setInputValue(inputValue), 500);
       }}
-      renderOption={({ structured_formatting }: AutocompletePrediction) => (
-        <Autocomplete.Option
-          text={structured_formatting.main_text}
-          secondaryText={structured_formatting.secondary_text}
-          matches={structured_formatting.main_text_matched_substrings}
-        />
-      )}
+      renderOption={({ structured_formatting }: AutocompletePrediction) =>
+        structured_formatting && (
+          <Autocomplete.Option
+            text={structured_formatting.main_text}
+            secondaryText={structured_formatting.secondary_text}
+            matches={structured_formatting.main_text_matched_substrings}
+          />
+        )
+      }
       {...props}
     />
   ) : (
