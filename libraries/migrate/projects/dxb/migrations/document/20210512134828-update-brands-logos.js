@@ -3,8 +3,8 @@ const newIcons = require("../../variables/icons/20210512134828").brands;
 
 module.exports.description = "Update brand logos to latest available";
 
-const contentTypeName = "page";
-const fieldName = "brandLogo";
+const contentTypeName = "document";
+const fieldName = "brand";
 
 module.exports.up = (migration) => {
   migration.editContentType(contentTypeName).editField(fieldName, {
