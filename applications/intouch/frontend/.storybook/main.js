@@ -1,6 +1,6 @@
 const path = require("path");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
-const { withConfigs, styles } = require("@bmi/webpack");
+const { withConfigs, styles } = require("../webpack-config");
 
 module.exports = {
   stories: ["../components/**/*.stories.@(js|jsx|ts|tsx)"],

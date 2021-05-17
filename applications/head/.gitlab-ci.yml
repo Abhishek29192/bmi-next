@@ -9,6 +9,7 @@ test_head:
         - components/**/*
         - libraries/**/*
         - jest/**/*
+        - package.json
   needs: [install]
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
@@ -29,6 +30,7 @@ build_head:
         - applications/head/**/*
         - components/**/*
         - libraries/**/*
+        - package.json
   needs: [install]
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
