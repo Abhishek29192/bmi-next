@@ -396,12 +396,14 @@ module.exports = {
         sitemapSize: 50000
       }
     },
-    {
-      resolve: "gatsby-plugin-sitemap",
-      options: {
-        output: `/${process.env.SPACE_MARKET_CODE}/images.xml`,
-        sitemapSize: 50000,
-        query: `
+    ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
+      ? [
+          {
+            resolve: "gatsby-plugin-sitemap",
+            options: {
+              output: `/${process.env.SPACE_MARKET_CODE}/images.xml`,
+              sitemapSize: 50000,
+              query: `
         {
           site {
             siteMetadata {
@@ -421,15 +423,17 @@ module.exports = {
             }
           }
         }`,
-        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
-        serialize: ({ allContentfulAsset }) =>
-          allContentfulAsset.nodes.map((node) => ({
-            url: `https:${node.file.url}`,
-            changefreq: "daily",
-            priority: 0.7
-          }))
-      }
-    },
+              resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+              serialize: ({ allContentfulAsset }) =>
+                allContentfulAsset.nodes.map((node) => ({
+                  url: `https:${node.file.url}`,
+                  changefreq: "daily",
+                  priority: 0.7
+                }))
+            }
+          }
+        ]
+      : []),
     ...(process.env.GOOGLE_TAGMANAGER_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
