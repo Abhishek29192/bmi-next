@@ -1,5 +1,5 @@
-const previousIcons = require("../../variables/icons/20201111103444").brands;
-const newIcons = require("../../variables/icons/20210324110455").brands;
+const previousIcons = require("../../variables/icons/20210324110455").brands;
+const newIcons = require("../../variables/icons/20210512134828").brands;
 
 module.exports.description = "Update brand logos to latest available";
 
