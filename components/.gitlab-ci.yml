@@ -8,6 +8,7 @@ test_components:
         - components/**/*
         - jest/**/*
         - package.json
+        - "**/package.json"
   needs: [install]
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
@@ -27,6 +28,7 @@ build_styleguide:
       changes:
         - components/**/*
         - package.json
+        - "**/package.json"
   needs: [install]
   before_script:
     - yarn config set cache-folder ~/.yarn
