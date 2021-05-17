@@ -5,8 +5,6 @@ import {
   ThemeProvider
 } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { ClickableAction } from "@bmi/clickable";
-import Button from "@bmi/button";
 import Container from "@bmi/container";
 import ColorPair, { Colors } from "@bmi/color-pair";
 import Grid from "@bmi/grid";
@@ -26,10 +24,7 @@ export type Props = {
   media?: React.ReactElement<AcceptedNode>;
   isFullWidth?: boolean;
   isReversed?: boolean;
-  cta?: {
-    label: React.ReactNode;
-    action?: ClickableAction;
-  };
+  cta?: React.ReactNode;
   theme?: Colors;
 };
 
@@ -65,11 +60,10 @@ const FullSizeVillain = ({
             {title}
           </Typography>
           <div className={styles["text"]}>{children}</div>
-          {cta && (
-            <Button className={styles["cta"]} action={cta.action}>
-              {cta.label}
-            </Button>
-          )}
+          {React.isValidElement(cta) &&
+            React.cloneElement(cta, {
+              className: classnames(styles["cta"], cta.props.className)
+            })}
         </div>
       </Container>
       {imageSource ? (
@@ -136,11 +130,10 @@ const ContainedVillain = ({
                 {title}
               </Typography>
               <div className={styles["text"]}>{children}</div>
-              {cta && (
-                <Button className={styles["cta"]} action={cta.action}>
-                  {cta.label}
-                </Button>
-              )}
+              {React.isValidElement(cta) &&
+                React.cloneElement(cta, {
+                  className: classnames(styles["cta"], cta.props.className)
+                })}
             </ColorPair>
           </Grid>
           <Grid item xs={12} sm={8}>

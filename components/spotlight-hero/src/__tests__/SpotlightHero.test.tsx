@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Breadcrumbs from "@bmi/breadcrumbs";
+import Button from "@bmi/button";
 import Typography from "@bmi/typography";
 import SpotlightHero from "../";
 import imageSource from "./images/demo-house.png";
@@ -63,7 +64,7 @@ describe("SpotlightHero component", () => {
         breadcrumbs={breadcrumbNode}
         title="H1 Heading desktop"
         media={<img src={imageSource} alt="Lorem ipsum" />}
-        cta={{ label: "CTA action" }}
+        cta={<Button label="CTA action">CTA action</Button>}
       >
         <Typography>
           Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu

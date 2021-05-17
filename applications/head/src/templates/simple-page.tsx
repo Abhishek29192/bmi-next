@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Button from "@bmi/button";
 import Hero, { HeroItem } from "@bmi/hero";
 import Section from "@bmi/section";
 import SpotlightHero from "@bmi/spotlight-hero";
@@ -27,7 +28,7 @@ import ShareWidgetSection, {
 } from "../components/ShareWidgetSection";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { getCTA, Data as LinkData } from "../components/Link";
+import Link, { Data as LinkData } from "../components/Link";
 
 export type Data = PageInfoData &
   PageData & {
@@ -77,20 +78,17 @@ const SimplePage = ({ data, pageContext }: Props) => {
     featuredVideo,
     cta
   } = data.contentfulSimplePage;
-
   const heroProps: HeroItem = {
     title,
     children: subtitle,
     media: featuredVideo
       ? renderVideo(featuredVideo)
       : renderImage(featuredMedia, { size: "cover" }),
-    cta:
-      cta &&
-      getCTA(
-        data.contentfulSimplePage,
-        data.contentfulSite.countryCode,
-        cta.label
-      )
+    cta: cta && (
+      <Link component={Button} data={cta}>
+        {cta.label}
+      </Link>
+    )
   };
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {

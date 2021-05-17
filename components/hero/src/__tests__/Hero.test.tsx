@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@bmi/button";
 import { render } from "@testing-library/react";
 import imageSource from "mock-image.jpg";
 import Hero from "../";
@@ -25,7 +26,7 @@ describe("Hero component", () => {
         media={<img src={imageSource} alt="Lorem ipsum" />}
         title="H1 Heading"
         level={1}
-        cta={{ label: "CTA action" }}
+        cta={<Button label="CTA action">CTA action</Button>}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
         tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus

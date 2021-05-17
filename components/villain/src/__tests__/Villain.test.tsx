@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@bmi/button";
 import { render } from "@testing-library/react";
 import testImage from "test-image.png";
 import Villain from "../";
@@ -9,7 +10,7 @@ describe("Villain component", () => {
       <Villain
         title="H2 Heading"
         media={<img src={testImage} alt="Lorem ipsum" />}
-        cta={{ label: "Call to action" }}
+        cta={<Button>Call to action</Button>}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
         blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac
@@ -43,7 +44,7 @@ describe("Villain component", () => {
       <Villain
         title="H2 Heading"
         media={<img src={testImage} alt="Lorem ipsum" />}
-        cta={{ label: "Call to action" }}
+        cta={<Button>Call to action</Button>}
         isFullWidth
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
@@ -61,7 +62,7 @@ describe("Villain component", () => {
       <Villain
         title="H2 Heading"
         media={<img src={testImage} alt="Lorem ipsum" />}
-        cta={{ label: "Call to action" }}
+        cta={<Button>Call to action</Button>}
         isFullWidth
         isReversed
       >
@@ -81,7 +82,7 @@ describe("Villain component", () => {
       <Villain
         title="H2 Heading"
         imageSource={testImage}
-        cta={{ label: "Call to action" }}
+        cta={<Button>Call to action</Button>}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
         blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac

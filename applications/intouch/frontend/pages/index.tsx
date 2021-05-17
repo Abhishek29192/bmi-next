@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@bmi/button";
 import Hero from "@bmi/hero";
 import { getAuth0Instance } from "../lib/auth0";
 import { Layout } from "../components/Layout";
@@ -22,27 +23,33 @@ const Homepage = () => {
             children:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.",
             imageSource: "https://source.unsplash.com/random/1200x1200",
-            cta: {
-              label: "Call to Action Button"
-            }
+            cta: (
+              <Button label="Call to action button">
+                Call to action button
+              </Button>
+            )
           },
           {
             title: "H1 Second heading dark background",
             children:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
             imageSource: "https://source.unsplash.com/random/1200x1200",
-            cta: {
-              label: "Call to Action Button"
-            }
+            cta: (
+              <Button label="Call to action button">
+                Call to action button
+              </Button>
+            )
           },
           {
             title: "H1 Third heading dark background",
             children:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
             imageSource: "https://source.unsplash.com/random/1200x1200",
-            cta: {
-              label: "Call to Action Button"
-            }
+            cta: (
+              <Button label="Call to action button">
+                Call to action button
+              </Button>
+            )
           }
         ]}
       />
