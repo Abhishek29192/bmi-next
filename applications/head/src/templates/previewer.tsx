@@ -13,11 +13,15 @@ type Data = {
 };
 
 const Previewer = ({ data }: { data: Data }) => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
   if (!data.contentfulSite) {
     return <p>No Sites found for the given country code.</p>;
   }
 
-  const { slug } = queryString.parse(location.search, {});
+  const { slug } = queryString.parse(window.location.search, {});
 
   if (!slug) {
     return (
