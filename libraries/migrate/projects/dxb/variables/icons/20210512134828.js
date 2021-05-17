@@ -31,4 +31,3 @@ const brands = [
 module.exports = [...brands];
 
 module.exports.brands = brands;
-
