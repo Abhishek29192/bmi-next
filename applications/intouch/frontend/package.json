@@ -3,14 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "license": "BMI-DXB",
-  "workspaces": {
-    "nohoist": [
-      "**/webpack",
-      "**/webpack/**",
-      "**/mini-css-extract-plugin",
-      "**/mini-css-extract-plugin/**"
-    ]
-  },
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
