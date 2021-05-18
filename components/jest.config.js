@@ -8,10 +8,10 @@ module.exports = {
   roots: ["<rootDir>/components"],
   coverageThreshold: {
     global: {
-      statements: "19",
-      branches: "7",
-      functions: "9",
-      lines: "35"
+      statements: "23",
+      branches: "11",
+      functions: "15",
+      lines: "48"
     }
   }
 };
