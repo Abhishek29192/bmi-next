@@ -434,9 +434,8 @@ const Visualiser = ({
   onClick
 }: Props) => {
   const [isTileSelectorOpen, setIsTileSelectorOpen] = useState<boolean>(false);
-  const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] = useState<boolean>(
-    false
-  );
+  const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] =
+    useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const header = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
