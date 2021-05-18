@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { postgraphile } from "./postgraphile";
+import docebo from "./middleware/docebo";
 
 const PORT = process.env.PORT || 4003;
 
@@ -11,6 +12,7 @@ async function main() {
   const app = express();
 
   app.use(express.json());
+  app.use("*", docebo);
   app.use(postgraphile);
   app.listen(PORT, () => {
     // eslint-disable-next-line no-console
