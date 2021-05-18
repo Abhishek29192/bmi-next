@@ -373,17 +373,17 @@ VALUES ('5','ACTIVE',2,'COMPANY_ADMIN','chris.phippen+98@bmigroup.com       ','6
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
 VALUES ('6','ACTIVE',1,'COMPANY_ADMIN','chris.phippen+66@bmigroup.com','32322','Templeton','Moores','2020-07-29 10:17:22',13524,'chris.phippen+66@bmigroup.com','https://thispersondoesnotexist.com/image');
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
-VALUES ('7','ACTIVE',2,'COMPANY_ADMIN','jkemson6@cyberchimps.com','34144','Jonathan','Kemson','2020-10-12 04:35:35',13525,'jkemson6@cyberchimps.com','https://thispersondoesnotexist.com/image');
+VALUES ('7','ACTIVE',2,'COMPANY_ADMIN','chris.phippen+567@bmigroup.com','34144','Jonathan','Kemson','2020-10-12 04:35:35',13651,'chris.phippen+567@bmigroup.com','https://thispersondoesnotexist.com/image');
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
-VALUES ('8','ACTIVE',1,'COMPANY_ADMIN','rghio7@si.edu','324234','Reine','Ghio','2020-12-04 21:18:47',13526,'rghio7@si.edu','https://thispersondoesnotexist.com/image');
+VALUES ('8','ACTIVE',1,'COMPANY_ADMIN','chris.phippen+18@bmigroup.com       ','324234','Reine','Ghio','2020-12-04 21:18:47',13509,'chris.phippen+18@bmigroup.com','https://thispersondoesnotexist.com/image');
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
-VALUES ('9','SUSPENDED',2,'COMPANY_ADMIN','qwinsiowiecki8@dropbox.com','33332','Quintilla','Winsiowiecki','2020-06-17 23:27:45',13527,'qwinsiowiecki8@dropbox.com','https://thispersondoesnotexist.com/image');
+VALUES ('9','SUSPENDED',2,'COMPANY_ADMIN','chris.phippen+17@bmigroup.com       ','33332','Quintilla','Winsiowiecki','2020-06-17 23:27:45',13403,'chris.phippen+17@bmigroup.com       ','https://thispersondoesnotexist.com/image');
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
-VALUES ('10','ACTIVE',2,'INSTALLER','vcumberland9@zimbio.com','23566','Verna','Cumberland','2020-09-04 11:32:48',13529,'vcumberland9@zimbio.com','https://thispersondoesnotexist.com/image');
+VALUES ('10','ACTIVE',2,'INSTALLER','chris.phippen+102@bmigroup.com','23566','Verna','Cumberland','2020-09-04 11:32:48',13887,'chris.phippen+102@bmigroup.com','https://thispersondoesnotexist.com/image');
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
-VALUES ('11','ACTIVE',1,'INSTALLER','tbisphama@theguardian.com','6644664','Torrence','Bispham','2020-08-09 22:56:17',13541,'tbisphama@theguardian.com','https://thispersondoesnotexist.com/image');
+VALUES ('11','ACTIVE',1,'INSTALLER','chris.phippen+101@bmigroup.com','6644664','Torrence','Bispham','2020-08-09 22:56:17',13273,'chris.phippen+101@bmigroup.com','https://thispersondoesnotexist.com/image');
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
-VALUES ('12','ACTIVE',1,'INSTALLER','gshawcroftb@europa.eu','32322','Gibbie','Shawcroft','2020-11-24 23:13:49',13542,'gshawcroftb@europa.eu','https://thispersondoesnotexist.com/image');
+VALUES ('12','ACTIVE',1,'INSTALLER','chris.phippen+1@bmigroup.com','32322','Gibbie','Shawcroft','2020-11-24 23:13:49',13542,'chris.phippen+1@bmigroup.com','https://thispersondoesnotexist.com/image');
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
 VALUES ('13','ACTIVE',1,'INSTALLER','bhaironc@who.int','34144','Bobbi','Hairon','2020-09-08 18:34:46',13543,'bhaironc@who.int','https://thispersondoesnotexist.com/image');
 INSERT INTO account(id,status,market_id,role,email,phone,first_name,last_name,created,docebo_user_id,docebo_username,photo)
@@ -985,94 +985,94 @@ VALUES ('20',6,13);
 
 ALTER TABLE account ADD UNIQUE (docebo_user_id);
 
-ALTER TABLE account ADD FOREIGN KEY (market_id) REFERENCES market(Id);
+ALTER TABLE account ADD FOREIGN KEY (market_id) REFERENCES market(id);
 CREATE INDEX ON account (market_id);
 
-ALTER TABLE address ADD FOREIGN KEY (project_id) REFERENCES project(Id);
+ALTER TABLE address ADD FOREIGN KEY (project_id) REFERENCES project(id);
 CREATE INDEX ON address (project_id);
 
-ALTER TABLE address ADD FOREIGN KEY (company_id) REFERENCES company(Id);
+ALTER TABLE address ADD FOREIGN KEY (company_id) REFERENCES company(id);
 CREATE INDEX ON address (company_id);
 
 ALTER TABLE certification ADD FOREIGN KEY (docebo_user_id) REFERENCES account(docebo_user_id);
 CREATE INDEX ON certification (docebo_user_id);
 
-ALTER TABLE company ADD FOREIGN KEY (market_id) REFERENCES market(Id);
+ALTER TABLE company ADD FOREIGN KEY (market_id) REFERENCES market(id);
 CREATE INDEX ON company (market_id);
 
-ALTER TABLE company_document ADD FOREIGN KEY (company_id) REFERENCES company(Id);
+ALTER TABLE company_document ADD FOREIGN KEY (company_id) REFERENCES company(id);
 CREATE INDEX ON company_document (company_id);
 
-ALTER TABLE company_member ADD FOREIGN KEY (market_id) REFERENCES market(Id);
+ALTER TABLE company_member ADD FOREIGN KEY (market_id) REFERENCES market(id);
 CREATE INDEX ON company_member (market_id);
 
-ALTER TABLE company_member ADD FOREIGN KEY (account_id) REFERENCES account(Id);
+ALTER TABLE company_member ADD FOREIGN KEY (account_id) REFERENCES account(id);
 CREATE INDEX ON company_member (account_id);
 
-ALTER TABLE company_member ADD FOREIGN KEY (company_id) REFERENCES company(Id);
+ALTER TABLE company_member ADD FOREIGN KEY (company_id) REFERENCES company(id);
 CREATE INDEX ON company_member (company_id);
 
-ALTER TABLE company_operation ADD FOREIGN KEY (company) REFERENCES company(Id);
+ALTER TABLE company_operation ADD FOREIGN KEY (company) REFERENCES company(id);
 CREATE INDEX ON company_operation (company);
 
-ALTER TABLE evidence_item ADD FOREIGN KEY (guarantee_id) REFERENCES guarantee(Id);
+ALTER TABLE evidence_item ADD FOREIGN KEY (guarantee_id) REFERENCES guarantee(id);
 CREATE INDEX ON evidence_item (guarantee_id);
 
-ALTER TABLE guarantee ADD FOREIGN KEY (requestor_account_id) REFERENCES account(Id);
+ALTER TABLE guarantee ADD FOREIGN KEY (requestor_account_id) REFERENCES account(id);
 CREATE INDEX ON guarantee (requestor_account_id);
 
-ALTER TABLE guarantee ADD FOREIGN KEY (responsible_installer_account_id) REFERENCES account(Id);
+ALTER TABLE guarantee ADD FOREIGN KEY (responsible_installer_account_id) REFERENCES account(id);
 CREATE INDEX ON guarantee (responsible_installer_account_id);
 
-ALTER TABLE guarantee ADD FOREIGN KEY (project_id) REFERENCES project(Id);
+ALTER TABLE guarantee ADD FOREIGN KEY (project_id) REFERENCES project(id);
 CREATE INDEX ON guarantee (project_id);
 
-ALTER TABLE guarantee ADD FOREIGN KEY (system_id) REFERENCES system(Id);
+ALTER TABLE guarantee ADD FOREIGN KEY (system_id) REFERENCES system(id);
 CREATE INDEX ON guarantee (system_id);
 
-ALTER TABLE guarantee ADD FOREIGN KEY (reviewer_account_id) REFERENCES account(Id);
+ALTER TABLE guarantee ADD FOREIGN KEY (reviewer_account_id) REFERENCES account(id);
 CREATE INDEX ON guarantee (reviewer_account_id);
 
-ALTER TABLE guaranteed_product ADD FOREIGN KEY (product_id) REFERENCES product(Id);
+ALTER TABLE guaranteed_product ADD FOREIGN KEY (product_id) REFERENCES product(id);
 CREATE INDEX ON guaranteed_product (product_id);
 
-ALTER TABLE guaranteed_product ADD FOREIGN KEY (guarantee_id) REFERENCES guarantee(Id);
+ALTER TABLE guaranteed_product ADD FOREIGN KEY (guarantee_id) REFERENCES guarantee(id);
 CREATE INDEX ON guaranteed_product (guarantee_id);
 
-ALTER TABLE invitation ADD FOREIGN KEY (sender_account_id) REFERENCES account(Id);
+ALTER TABLE invitation ADD FOREIGN KEY (sender_account_id) REFERENCES account(id);
 CREATE INDEX ON invitation (sender_account_id);
 
-ALTER TABLE invitation ADD FOREIGN KEY (company_id) REFERENCES company(Id);
+ALTER TABLE invitation ADD FOREIGN KEY (company_id) REFERENCES company(id);
 CREATE INDEX ON invitation (company_id);
 
-ALTER TABLE note ADD FOREIGN KEY (author_id) REFERENCES account(Id);
+ALTER TABLE note ADD FOREIGN KEY (author_id) REFERENCES account(id);
 CREATE INDEX ON note (author_id);
 
-ALTER TABLE note ADD FOREIGN KEY (project_id) REFERENCES project(Id);
+ALTER TABLE note ADD FOREIGN KEY (project_id) REFERENCES project(id);
 CREATE INDEX ON note (project_id);
 
-ALTER TABLE notification ADD FOREIGN KEY (account_id) REFERENCES account(Id);
+ALTER TABLE notification ADD FOREIGN KEY (account_id) REFERENCES account(id);
 CREATE INDEX ON notification (account_id);
 
-ALTER TABLE product ADD FOREIGN KEY (market_id) REFERENCES market(Id);
+ALTER TABLE product ADD FOREIGN KEY (market_id) REFERENCES market(id);
 CREATE INDEX ON product (market_id);
 
-ALTER TABLE project ADD FOREIGN KEY (company_id) REFERENCES company(Id);
+ALTER TABLE project ADD FOREIGN KEY (company_id) REFERENCES company(id);
 CREATE INDEX ON project (company_id);
 
-ALTER TABLE project_member ADD FOREIGN KEY (project_id) REFERENCES project(Id);
+ALTER TABLE project_member ADD FOREIGN KEY (project_id) REFERENCES project(id);
 CREATE INDEX ON project_member (project_id);
 
-ALTER TABLE project_member ADD FOREIGN KEY (account_id) REFERENCES account(Id);
+ALTER TABLE project_member ADD FOREIGN KEY (account_id) REFERENCES account(id);
 CREATE INDEX ON project_member (account_id);
 
-ALTER TABLE system ADD FOREIGN KEY (market_id) REFERENCES market(Id);
+ALTER TABLE system ADD FOREIGN KEY (market_id) REFERENCES market(id);
 CREATE INDEX ON system (market_id);
 
-ALTER TABLE system_member ADD FOREIGN KEY (system_id) REFERENCES system(Id);
+ALTER TABLE system_member ADD FOREIGN KEY (system_id) REFERENCES system(id);
 CREATE INDEX ON system_member (system_id);
 
-ALTER TABLE system_member ADD FOREIGN KEY (product_id) REFERENCES product(Id);
+ALTER TABLE system_member ADD FOREIGN KEY (product_id) REFERENCES product(id);
 CREATE INDEX ON system_member (product_id);
 
 COMMENT ON TABLE account IS 'An InTouch account';

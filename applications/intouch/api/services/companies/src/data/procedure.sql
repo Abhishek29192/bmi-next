@@ -30,7 +30,7 @@ CREATE OR REPLACE FUNCTION create_account (email text, first_name text, last_nam
     _user account%rowtype;
     company_id int;
   BEGIN
-    INSERT INTO account ("email", "first_name", "last_name", "role") VALUES (email, first_name, last_name, role) RETURNING * INTO _user;
+    INSERT INTO account ("email", "first_name", "last_name", "market_id", "role") VALUES (email, first_name, last_name, market_id, role) RETURNING * INTO _user;
 
     IF role = 'COMPANY_ADMIN' THEN
       INSERT INTO company ("status", "market_id") VALUES ('NEW', market_id) RETURNING id INTO company_id;
@@ -95,7 +95,8 @@ CREATE OR REPLACE FUNCTION is_project_enabled_by_market ()
 
 $$
 LANGUAGE sql
-STABLE;
+STABLE
+SECURITY DEFINER;
 
 -- Check if project are enabled
 CREATE OR REPLACE FUNCTION is_part_of_project ()
@@ -110,4 +111,6 @@ CREATE OR REPLACE FUNCTION is_part_of_project ()
 
 $$
 LANGUAGE sql
-STABLE;
+STABLE
+SECURITY DEFINER;
+
