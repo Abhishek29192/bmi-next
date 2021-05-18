@@ -32,13 +32,6 @@ module.exports.up = (migration) => {
       { range: { min: 1 }, message: "At least 1 upload is necessary" }
     ]);
 
-  evidenceCategory
-    .createField("ranking")
-    .name("Ranking")
-    .type("Integer")
-    .required(true)
-    .validations([{ unique: true }, { range: { min: 1 } }]);
-
   evidenceCategory.changeFieldControl("name", "builtin", "singleLine");
   evidenceCategory.changeFieldControl(
     "description",
@@ -50,9 +43,6 @@ module.exports.up = (migration) => {
     "builtin",
     "numberEditor"
   );
-  evidenceCategory.changeFieldControl("ranking", "builtin", "numberEditor", {
-    helpText: "The order in which it is listed amongst other categories"
-  });
 };
 
 module.exports.down = (migration) =>

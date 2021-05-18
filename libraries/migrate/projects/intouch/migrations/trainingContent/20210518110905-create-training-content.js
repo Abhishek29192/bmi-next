@@ -1,3 +1,5 @@
+const { MAX_FILE_SIZES } = require("../../variables/mediaSizes/20210222125604");
+
 module.exports.description = "Create content model for Training Content";
 
 module.exports.up = (migration) => {
@@ -26,24 +28,15 @@ module.exports.up = (migration) => {
     .required(true);
 
   trainingContent
-    .createField("customCtaLabel")
-    .name("Custom CTA Label")
-    .type("Symbol")
-    .required(true);
-
-  trainingContent
-    .createField("customCtaTarget")
-    .name("Custom CTA Target")
-    .type("Symbol")
-    .required(true);
-
-  trainingContent
     .createField("image")
     .name("Image")
     .type("Link")
     .required(true)
-    .validations([{ linkContentType: ["imageSet"] }])
-    .linkType("Entry");
+    .validations([
+      { linkMimetypeGroup: ["image"] },
+      { assetFileSize: { max: MAX_FILE_SIZES.IMAGE } }
+    ])
+    .linkType("Asset");
 
   trainingContent
     .createField("pageSubHeading")
@@ -115,13 +108,7 @@ module.exports.up = (migration) => {
   trainingContent.changeFieldControl("pageHeading", "builtin", "singleLine");
   trainingContent.changeFieldControl("description", "builtin", "markdown");
   trainingContent.changeFieldControl("lmsCtaLabel", "builtin", "singleLine");
-  trainingContent.changeFieldControl("customCtaLabel", "builtin", "singleLine");
-  trainingContent.changeFieldControl(
-    "customCtaTarget",
-    "builtin",
-    "singleLine"
-  );
-  trainingContent.changeFieldControl("image", "builtin", "entryLinkEditor");
+  trainingContent.changeFieldControl("image", "builtin", "assetLinkEditor");
   trainingContent.changeFieldControl("pageSubHeading", "builtin", "singleLine");
   trainingContent.changeFieldControl("step1Heading", "builtin", "singleLine");
   trainingContent.changeFieldControl(

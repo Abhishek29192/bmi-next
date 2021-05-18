@@ -1,7 +1,7 @@
 const guaranteeCoverage = require("../../variables/guaranteeCoverage/20210222125604");
+const { MAX_FILE_SIZES } = require("../../variables/mediaSizes/20210222125604");
 const technologies = require("../../variables/technologies/20210222125604");
 const tiers = require("../../variables/tiers/20210222125604");
-const { MAX_FILE_SIZES } = require("../../variables/mediaSizes/20210222125604");
 
 module.exports.description = "Create content model for Guarantee Type";
 
@@ -51,8 +51,8 @@ module.exports.up = (migration) => {
     .linkType("Asset");
 
   guaranteeType
-    .createField("maximumValidity")
-    .name("MaximumValidity")
+    .createField("maximumValidityYears")
+    .name("Maximum Validity Years")
     .type("Integer")
     .required(true)
     .validations([{ range: { min: 1 } }]);
@@ -99,7 +99,7 @@ module.exports.up = (migration) => {
   guaranteeType.changeFieldControl("name", "builtin", "singleLine");
   guaranteeType.changeFieldControl("signature", "builtin", "assetLinkEditor");
   guaranteeType.changeFieldControl(
-    "maximumValidity",
+    "maximumValidityYears",
     "builtin",
     "numberEditor"
   );
