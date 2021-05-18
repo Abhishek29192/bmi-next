@@ -68,9 +68,12 @@ const AccordionItem = ({
   setExpanded,
   ...props
 }: AccordionItemProps) => {
-  const handleChange = (event, expandedState) => {
+  const handleChange = (
+    event: React.ChangeEvent<{}>,
+    expandedState: boolean
+  ) => {
     if (setExpanded) {
-      setExpanded(expandedState ? itemKey : 0);
+      setExpanded(expandedState ? itemKey || 0 : 0);
     }
     if (onChange) {
       onChange(event, expandedState);
