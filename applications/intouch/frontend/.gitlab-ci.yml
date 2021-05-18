@@ -9,6 +9,7 @@ build_intouch_frontend:
         - components/**/*
         - libraries/**/*
         - package.json
+        - "**/package.json"
   needs: [install]
   variables:
     NEXT_PUBLIC_BASE_URL: "https://frontend-rfwslk3zjq-nw.a.run.app"
