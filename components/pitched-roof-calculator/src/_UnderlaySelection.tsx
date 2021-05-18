@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import Typography from "@bmi/typography";
 import CardRadioGroup from "@bmi/card-radio-group";
+import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import getPitchValues from "./helpers/getPitchValues";
 import underlays from "./samples/underlays";
 import { DimensionsValues } from "./types/roof";
 
 type UnderlaySelectionRowProps = {
-  dimensions: DimensionsValues;
   // TODO: Type when importing from Contentful
   selected?: any;
   options: ReadonlyArray<any>;
@@ -19,27 +20,21 @@ const validateUnderlayForPitchValues = (
 
 const UnderlaySelectionRow = ({
   options,
-  selected,
-  dimensions
+  selected
 }: UnderlaySelectionRowProps) => {
-  const pitchValues = getPitchValues(dimensions);
-
-  const filteredOptions = options
-    .filter((underlay) =>
-      validateUnderlayForPitchValues(underlay.minSupportedPitch, pitchValues)
-    )
-    .sort(({ name: firstTile }, { name: secondTile }) =>
-      firstTile.localeCompare(secondTile)
-    );
-
-  if (!filteredOptions.length) {
+  if (!options.length) {
     return null;
   }
 
   return (
     <FieldContainer>
-      <CardRadioGroup name="underlay" defaultValue={selected} isRequired>
-        {filteredOptions.map((underlay) => (
+      <CardRadioGroup
+        name="underlay"
+        defaultValue={selected}
+        isRequired
+        fieldIsRequiredError /* just needs to be truthy since it's not displayed anywhere */
+      >
+        {options.map((underlay) => (
           <CardRadioGroup.Item
             key={underlay.externalProductCode}
             value={underlay.externalProductCode}
@@ -59,18 +54,37 @@ const UnderlaySelectionRow = ({
   );
 };
 
-type UnderlaySelectionProps = Pick<
-  UnderlaySelectionRowProps,
-  "dimensions" | "selected"
->;
+type UnderlaySelectionProps = Pick<UnderlaySelectionRowProps, "selected"> & {
+  dimensions: DimensionsValues;
+};
 
 const UnderlaySelection = ({
   dimensions,
   selected
-}: UnderlaySelectionProps) => (
-  <div>
-    <UnderlaySelectionRow options={underlays} {...{ selected, dimensions }} />
-  </div>
-);
+}: UnderlaySelectionProps) => {
+  const copy = useContext(MicroCopyContext);
+
+  const pitchValues = getPitchValues(dimensions);
+
+  const filteredOptions = underlays
+    .filter((underlay) =>
+      validateUnderlayForPitchValues(underlay.minSupportedPitch, pitchValues)
+    )
+    .sort(({ name: firstUnderlay }, { name: secondUnderlay }) =>
+      firstUnderlay.localeCompare(secondUnderlay)
+    );
+
+  return (
+    <div>
+      {filteredOptions.length ? (
+        <UnderlaySelectionRow options={filteredOptions} {...{ selected }} />
+      ) : (
+        <Typography variant="h4">
+          {getMicroCopy(copy, "underlaySelection.empty")}
+        </Typography>
+      )}
+    </div>
+  );
+};
 
 export default UnderlaySelection;

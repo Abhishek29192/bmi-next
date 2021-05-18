@@ -1,9 +1,9 @@
 "use strict";
 
 const path = require("path");
-const { withConfigs, styles } = require("@bmi/webpack");
 const withFonts = require("next-fonts");
 const { i18n } = require("./next-i18next.config");
+const { withConfigs, styles } = require("./webpack-config");
 
 module.exports = withFonts({
   i18n,

@@ -12,7 +12,7 @@ import { getClickableActionFromUrl, NavigationData, LinkData } from "./Link";
 
 export type Data = {
   __typename: "ContentfulLinkColumnsSection";
-  title: string;
+  title: string | null;
   columns: NavigationData[];
 };
 
@@ -41,7 +41,7 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
 
   return (
     <Section backgroundColor="pearl">
-      <Section.Title>{title}</Section.Title>
+      {title && <Section.Title>{title}</Section.Title>}
       <MasonryGrid>
         {columns &&
           columns.map(({ label, links }, index) => {

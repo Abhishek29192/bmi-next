@@ -1,11 +1,11 @@
 import demoImage from "../images/demo-product.jpg";
 import demoFormattedImage from "../images/demo-product-format.jpg";
+import { MainTile } from "../types";
 
-const ZandaArktis = {
+const ZandaArktis: MainTile = {
   code: "Zanda_Protector_main_tile",
   name: "Zanda Protector main tile",
   category: "concrete",
-  image: demoImage,
   minBattenGauge: 31,
   maxBattenGauge: [
     {
@@ -117,16 +117,14 @@ const ZandaArktis = {
             length: 10
           },
           leftStart: {
-            code:
-              "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
+            code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
             name: "Zanda_Protector_verge metal flush black left start",
             externalProductCode: "86035763",
             image: demoImage,
             length: 10
           },
           rightStart: {
-            code:
-              "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
+            code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
             name: "Zanda_Protector_verge metal flush black right start",
             externalProductCode: "86035764",
             image: demoImage,
@@ -205,68 +203,86 @@ const ZandaArktis = {
         {
           code: "Other",
           name: "Other accesories example",
-          externalProductCode: 5555550,
-          packSize: null,
-          image: demoImage
+          externalProductCode: "5555550",
+          packSize: undefined,
+          image: demoImage,
+          category: "accessories"
         }
       ],
       eaveAccessories: [
         {
           code: "Fuglelist_ventilert",
           name: "Fuglelist ventilert",
-          externalProductCode: 5555551,
-          packSize: null,
-          image: demoImage
+          externalProductCode: "5555551",
+          packSize: undefined,
+          image: demoImage,
+          category: "accessories"
         }
       ],
       clip: {
+        code: "clip",
         image: demoFormattedImage,
-        description: "Clips",
-        externalProductCode: 113456781,
-        packSize: "-"
+        name: "Clips",
+        externalProductCode: "113456781",
+        packSize: undefined,
+        category: "accessories"
       },
       ridgeAndHipScrew: {
+        code: "ridgeAndHipScrew",
         image: demoFormattedImage,
-        description: "Ridge and Hip Screw",
-        externalProductCode: 113456782,
-        packSize: "-"
+        name: "Ridge and Hip Screw",
+        externalProductCode: "113456782",
+        packSize: undefined,
+        category: "accessories"
       },
       longScrew: {
+        code: "longScrew",
         image: demoFormattedImage,
-        description: "Long Screw",
-        externalProductCode: 113456783,
-        packSize: "-"
+        name: "Long Screw",
+        externalProductCode: "113456783",
+        packSize: undefined,
+        category: "accessories"
       },
       screw: {
+        code: "screw",
         image: demoFormattedImage,
-        description: "Screw",
-        externalProductCode: 113456784,
-        packSize: "-"
+        name: "Screw",
+        externalProductCode: "113456784",
+        packSize: undefined,
+        category: "accessories"
       },
       stormBracket: {
+        code: "stormBracket",
         image: demoFormattedImage,
-        description: "Storm Bracket",
-        externalProductCode: 113456785,
-        packSize: "-"
+        name: "Storm Bracket",
+        externalProductCode: "113456785",
+        packSize: undefined,
+        category: "accessories"
       },
       finishingKit: {
+        code: "finishingKit",
         image: demoFormattedImage,
-        description: "Finishing Kit",
-        externalProductCode: 113456786,
-        packSize: "-"
+        name: "Finishing Kit",
+        externalProductCode: "113456786",
+        packSize: undefined,
+        category: "accessories"
       },
       ventilationHoodOptions: [
         {
+          code: "vho1",
           image: demoFormattedImage,
-          description: "Ventilation Hood 1",
-          externalProductCode: 100456781,
-          packSize: "-"
+          name: "Ventilation Hood 1",
+          externalProductCode: "100456781",
+          packSize: undefined,
+          category: "ventilation"
         },
         {
+          code: "vho2",
           image: demoFormattedImage,
-          description: "Ventilation Hood 2",
-          externalProductCode: 100456782,
-          packSize: "-"
+          name: "Ventilation Hood 2",
+          externalProductCode: "100456782",
+          packSize: undefined,
+          category: "ventilation"
         }
       ],
       minBattenGauge: 31,
@@ -401,68 +417,86 @@ const ZandaArktis = {
         {
           code: "Other",
           name: "Other accesories example",
-          externalProductCode: 5555550,
-          packSize: null,
-          image: demoImage
+          externalProductCode: "5555550",
+          packSize: undefined,
+          image: demoImage,
+          category: "accessories"
         }
       ],
       eaveAccessories: [
         {
           code: "Fuglelist_ventilert",
           name: "Fuglelist ventilert",
-          externalProductCode: 5555551,
-          packSize: null,
-          image: demoImage
+          externalProductCode: "5555551",
+          packSize: undefined,
+          image: demoImage,
+          category: "accessories"
         }
       ],
       clip: {
+        code: "clip",
         image: demoFormattedImage,
-        description: "Clips",
-        externalProductCode: 113456781,
-        packSize: "-"
+        name: "Clips",
+        externalProductCode: "113456781",
+        packSize: undefined,
+        category: "accessories"
       },
       ridgeAndHipScrew: {
+        code: "ridgeAndHipScrew",
         image: demoFormattedImage,
-        description: "Ridge and Hip Screw",
-        externalProductCode: 113456782,
-        packSize: "-"
+        name: "Ridge and Hip Screw",
+        externalProductCode: "113456782",
+        packSize: undefined,
+        category: "accessories"
       },
       longScrew: {
+        code: "longScrew",
         image: demoFormattedImage,
-        description: "Long Screw",
-        externalProductCode: 113456783,
-        packSize: "-"
+        name: "Long Screw",
+        externalProductCode: "113456783",
+        packSize: undefined,
+        category: "accessories"
       },
       screw: {
+        code: "screw",
         image: demoFormattedImage,
-        description: "Screw",
-        externalProductCode: 113456784,
-        packSize: "-"
+        name: "Screw",
+        externalProductCode: "113456784",
+        packSize: undefined,
+        category: "accessories"
       },
       stormBracket: {
+        code: "stormBracket",
         image: demoFormattedImage,
-        description: "Storm Bracket",
-        externalProductCode: 113456785,
-        packSize: "-"
+        name: "Storm Bracket",
+        externalProductCode: "113456785",
+        packSize: undefined,
+        category: "accessories"
       },
       finishingKit: {
+        code: "finishingKit",
         image: demoFormattedImage,
-        description: "Finishing Kit",
-        externalProductCode: 113456786,
-        packSize: "-"
+        name: "Finishing Kit",
+        externalProductCode: "113456786",
+        packSize: undefined,
+        category: "accessories"
       },
       ventilationHoodOptions: [
         {
+          code: "vho1",
           image: demoFormattedImage,
-          description: "Ventilation Hood 1",
-          externalProductCode: 100456781,
-          packSize: "-"
+          name: "Ventilation Hood 1",
+          externalProductCode: "100456781",
+          packSize: undefined,
+          category: "ventilation"
         },
         {
+          code: "vho1",
           image: demoFormattedImage,
-          description: "Ventilation Hood 2",
-          externalProductCode: 100456782,
-          packSize: "-"
+          name: "Ventilation Hood 2",
+          externalProductCode: "100456782",
+          packSize: undefined,
+          category: "ventilation"
         }
       ],
       minBattenGauge: 31,

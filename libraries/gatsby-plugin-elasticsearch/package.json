@@ -12,6 +12,7 @@
   "description": "A gatsby plugin to push to ElasticSearch based on a certain query",
   "dependencies": {
     "@elastic/elasticsearch": "^7.5.0",
+    "gatsby-cli": "^3.3.0",
     "lodash.chunk": "^4.2.0"
   },
   "scripts": {

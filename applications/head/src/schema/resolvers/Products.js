@@ -54,7 +54,7 @@ const resolvePathFromFamily = async (source, args, context) => {
     type: "ContentfulProductListerPage"
   });
 
-  if (!parentFamilies || !parentFamilies.length) {
+  if (!parentFamilies.length) {
     return [];
   }
 

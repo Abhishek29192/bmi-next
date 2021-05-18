@@ -4,12 +4,13 @@ import { useMutation, gql } from "@apollo/client";
 import TextField from "@bmi/text-field";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
-import auth0 from "../lib/auth0";
 import GridStyles from "../styles/Grid.module.scss";
+import { initializeApollo } from "../lib/apolloClient";
+import { getAuth0Instance } from "../lib/auth0";
 
-const CREATE_COMPANY = gql`
-  mutation($input: CreateCompanyInput!) {
-    createCompany(input: $input) {
+const UPDATE_COMPANY = gql`
+  mutation updateCompany($input: UpdateCompanyInput!) {
+    updateCompany(input: $input) {
       company {
         name
       }
@@ -17,8 +18,17 @@ const CREATE_COMPANY = gql`
   }
 `;
 
-const Company = () => {
-  const [createCompany] = useMutation(CREATE_COMPANY, {
+const GET_CURRENT_COMPANY = gql`
+  query currentCompany {
+    currentCompany
+  }
+`;
+
+const Company = ({ currentCompany }: any) => {
+  // The company is created when we create the user in the db
+  // through an sql procedure (create_account) here we just
+  // need to update it with the new values
+  const [createCompany] = useMutation(UPDATE_COMPANY, {
     onCompleted: () => {
       // Redirect to silent-auth in order to re-create the session as we need to remove
       // the claim from the jwt token to stop showing the registration page to the user
@@ -31,7 +41,8 @@ const Company = () => {
     createCompany({
       variables: {
         input: {
-          company: values
+          patch: values,
+          id: currentCompany
         }
       }
     });
@@ -67,14 +78,26 @@ const Company = () => {
   );
 };
 
-export const getServerSideProps = auth0.withPageAuthRequired({
-  async getServerSideProps({ locale }) {
-    return {
-      props: {
-        ...(await serverSideTranslations(locale, ["common"]))
-      }
-    };
-  }
-});
+export const getServerSideProps = async (ctx) => {
+  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+  return auth0.withPageAuthRequired({
+    async getServerSideProps({ locale, ...ctx }) {
+      const apolloClient = await initializeApollo(null, { ...ctx, locale });
+      const {
+        data: { currentCompany }
+      } = await apolloClient.query({
+        query: GET_CURRENT_COMPANY,
+        variables: {}
+      });
+
+      return {
+        props: {
+          currentCompany,
+          ...(await serverSideTranslations(locale, ["common"]))
+        }
+      };
+    }
+  })(ctx);
+};
 
 export default Company;

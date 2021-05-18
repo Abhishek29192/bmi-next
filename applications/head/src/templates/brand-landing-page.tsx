@@ -33,6 +33,9 @@ type Props = {
     contentfulBrandLandingPage: BrandLandingPageData;
     contentfulSite: SiteData;
   };
+  pageContext: {
+    variantCodeToPathMap: Record<string, string>;
+  };
 };
 
 const getHeroItemsWithContext = (
@@ -53,7 +56,7 @@ const getHeroItemsWithContext = (
   );
 };
 
-const BrandLandingPage = ({ data }: Props) => {
+const BrandLandingPage = ({ data, pageContext }: Props) => {
   const {
     title,
     description,
@@ -74,7 +77,12 @@ const BrandLandingPage = ({ data }: Props) => {
   };
 
   return (
-    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+    <Page
+      title={title}
+      pageData={pageData}
+      siteData={data.contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       <SiteContext.Consumer>
         {(context) => {
           // const { getMicroCopy } = context;

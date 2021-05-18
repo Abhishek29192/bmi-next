@@ -4,7 +4,7 @@ import { RichTextData } from "../components/RichText";
 
 export type Data = {
   __typename: "ContentfulTitleWithContent";
-  title: string;
+  title: string | null;
   content: RichTextData | null;
 };
 

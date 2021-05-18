@@ -32,14 +32,16 @@ import React, {
   useRef,
   useState
 } from "react";
-import { camelCase } from "lodash";
+import { camelCase, intersectionWith } from "lodash";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { Data as RooferData, RooferType, rooferTypes } from "./Roofer";
 import { SiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
-type Roofer = RooferData & {
+export const QUERY_CHIP_FILTER_KEY = "chip";
+
+export type Roofer = RooferData & {
   distance?: number;
 };
 export type Data = {
@@ -68,16 +70,16 @@ const DEFAULT_LEVEL_ZOOM = 5;
 
 // TODO: Cast this properly.
 const initialActiveFilters = rooferTypes.reduce(
-  (carry, key) => ({ ...carry, [key]: true }),
+  (carry, key) => ({ ...carry, [key]: false }),
   {}
 ) as Record<RooferType, boolean>;
 
 const activeFilterReducer = (
   state: Record<RooferType, boolean>,
-  filter: RooferType
+  filter: { name: RooferType; state?: boolean }
 ) => ({
   ...state,
-  [filter]: !state[filter]
+  [filter.name]: filter.state ? filter.state : !state[filter.name]
 });
 
 const IntegratedLinkCard = ({
@@ -86,9 +88,8 @@ const IntegratedLinkCard = ({
   ...rest
 }: LinkCardProps) => {
   const linkCardElement = useRef<HTMLElement>(null);
-  const [hasCardExpansionCompleted, setCardExpansionCompleted] = useState(
-    false
-  );
+  const [hasCardExpansionCompleted, setCardExpansionCompleted] =
+    useState(false);
 
   if (isOpen && linkCardElement.current && hasCardExpansionCompleted) {
     linkCardElement.current.parentElement.scrollTo({
@@ -117,8 +118,20 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     centre: initialMapCentre,
     zoom: initialMapZoom
   } = data;
+
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
+
+  const params = new URLSearchParams(
+    typeof window !== `undefined` ? window.location.search : ""
+  );
+  const userQueryString = useMemo(
+    () => params.get(QUERY_CHIP_FILTER_KEY),
+    [params]
+  );
+  const [uniqueRoofTypeByData, setUniqueRoofTypeByData] = useState([]);
+  const [isUserAction, setUserAction] = useState(false);
+
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<Roofer>(null);
@@ -131,12 +144,73 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     activeFilterReducer,
     initialActiveFilters
   );
-  const [userPosition, setUserPosition] = useState<
-    | undefined
-    | {
-        location: GoogleLatLngLiteral;
+
+  useEffect(() => {
+    if (!roofers) {
+      return;
+    }
+    const uniqueRooferTypes: RooferType[] = Array.from(
+      new Set(roofers.flatMap((roofer) => roofer.type))
+    ).filter((x) => x !== null);
+
+    setUniqueRoofTypeByData(uniqueRooferTypes);
+
+    if (!userQueryString) {
+      return;
+    }
+
+    const allQueries = userQueryString.split(",");
+
+    const matchingRooferTypes: RooferType[] = intersectionWith(
+      uniqueRooferTypes,
+      allQueries,
+      (a, b) => a.toLowerCase() === b.toLowerCase()
+    );
+    matchingRooferTypes.forEach((rooferType: RooferType) => {
+      updateActiveFilters({ name: rooferType, state: true });
+    });
+
+    // there were no matching queries in querystring
+    // hence remove all querystring from user and make the url '/find-a-roofer/' again
+    if (typeof window !== `undefined` && matchingRooferTypes.length === 0) {
+      history.replaceState(null, null, window.location.pathname);
+    }
+  }, [roofers]);
+
+  useEffect(() => {
+    if (!userQueryString) {
+      const isEveryChipSelected = Object.keys(activeFilters).every(
+        (key) => activeFilters[key] === true
+      );
+      if (isEveryChipSelected) {
+        return;
       }
-  >();
+    }
+
+    if (typeof window !== `undefined`) {
+      const filteredChips: string[] = Object.keys(activeFilters).filter(
+        (key) => activeFilters[key]
+      );
+      if (filteredChips.length > 0) {
+        var queryParams = new URLSearchParams(window.location.search);
+        queryParams.set(QUERY_CHIP_FILTER_KEY, filteredChips.join(","));
+        history.replaceState(null, null, "?" + queryParams.toString());
+      }
+      if (filteredChips.length === 0 && isUserAction) {
+        // Remove the query if there are no selected chips
+        // otherwise url will look like `/?chip=`
+        history.replaceState(null, null, window.location.pathname);
+      }
+    }
+  }, [activeFilters]);
+
+  const [userPosition, setUserPosition] =
+    useState<
+      | undefined
+      | {
+          location: GoogleLatLngLiteral;
+        }
+    >();
 
   const initialise = async () => {
     await loadGoogleApi(process.env.GATSBY_GOOGLE_API_KEY, [
@@ -151,8 +225,22 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialise();
   }, []);
 
-  const typeFilter = (type: Roofer["type"]) =>
-    type?.length ? type.some((filter) => activeFilters[filter]) : true;
+  const typeFilter = (type: Roofer["type"]): boolean => {
+    // user has not selected any chip(s) to filter hence show all roofers
+    // i.e initial load or user has de-selected ALL chips
+    if (
+      Object.keys(activeFilters).every((key) => activeFilters[key] === false)
+    ) {
+      return true;
+    }
+
+    // user has selcted the filter chip the roofer must have type and it must match
+    if (Object.keys(activeFilters).some((key) => activeFilters[key] === true)) {
+      return type && type.some((filter) => activeFilters[filter]);
+    }
+    // roofer's type is null hence return true
+    return type?.length ? type.some((filter) => activeFilters[filter]) : true;
+  };
 
   const nameFilter = (name: Roofer["name"]) =>
     name.includes(activeSearchString);
@@ -169,7 +257,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             lat: location.lat,
             lng: location.lon
           });
-
           if (
             typeFilter(type) &&
             nameFilter(name) &&
@@ -343,7 +430,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
                 <b>
                   {roofer.type
                     .map((type) =>
-                      getMicroCopy(`findARoofer.filters.${camelCase(type)}`)
+                      getMicroCopy(
+                        `findARoofer.filters.${camelCase(type)}`
+                      ).replace(" roof", "")
                     )
                     .join(" | ")}
                 </b>
@@ -434,25 +523,30 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             </GeolocationButton>
           </Grid>
           <Grid item xs={12} md={6} lg={8}>
-            <div className={styles["filters"]}>
-              <Typography variant="h6">
-                {getMicroCopy("findARoofer.filtersLabel")}
-              </Typography>
-              <div className={styles["chips"]}>
-                {rooferTypes.map((rooferType, index) => (
-                  <Chip
-                    key={index}
-                    type="selectable"
-                    onClick={() => updateActiveFilters(rooferType)}
-                    isSelected={activeFilters[rooferType]}
-                  >
-                    {getMicroCopy(
-                      `findARoofer.filters.${camelCase(rooferType)}`
-                    )}
-                  </Chip>
-                ))}
+            {uniqueRoofTypeByData.length > 1 && (
+              <div className={styles["filters"]}>
+                <Typography variant="h6">
+                  {getMicroCopy("findARoofer.filtersLabel")}
+                </Typography>
+                <div className={styles["chips"]}>
+                  {uniqueRoofTypeByData.map((rooferType, index) => (
+                    <Chip
+                      key={index}
+                      type="selectable"
+                      onClick={() => {
+                        setUserAction(true);
+                        updateActiveFilters({ name: rooferType });
+                      }}
+                      isSelected={activeFilters[rooferType]}
+                    >
+                      {getMicroCopy(
+                        `findARoofer.filters.${camelCase(rooferType)}`
+                      )}
+                    </Chip>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </Grid>
         </Grid>
         <Tabs

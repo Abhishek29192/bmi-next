@@ -1,4 +1,6 @@
-export const createCompany = async (
+import { updateUser, getAccessToken } from "../auth0";
+
+export const updateCompany = async (
   resolve,
   source,
   args,
@@ -12,10 +14,13 @@ export const createCompany = async (
   try {
     const result = await resolve(source, args, context, resolveInfo);
 
-    await pgClient.query(
-      "INSERT INTO company_member (account_id, company_id) VALUES($1,$2) RETURNING id",
-      [user.id, result.data.$company_id]
-    );
+    const { access_token } = await getAccessToken();
+
+    await updateUser(access_token, user.sub, {
+      app_metadata: {
+        registration_to_complete: false
+      }
+    });
 
     return result;
   } catch (e) {

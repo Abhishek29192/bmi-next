@@ -1,7 +1,7 @@
 test_es-pim-products-ingest:
   stage: test
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - functions/es-pim-products-ingest/**/*
         - jest/**/*
@@ -68,25 +68,19 @@ deploy_es-pim-products-ingest:
   before_script:
     - |
       if [ "$CI_COMMIT_BRANCH" == "master" ]; then
-        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_QA
-        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_QA
-        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_QA
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_QA
       fi
           
       if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
-        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_PREPROD
-        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_PREPROD
-        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_PREPROD
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PREPROD
       fi
 
       if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
-        GCP_DXB_SERVICE_KEY=$GCP_DXB_SERVICE_KEY_PROD
-        GCP_DXB_PROJECT_ID=$GCP_DXB_PROJECT_ID_PROD
-        GCP_DXB_BUILD_STORAGE=$GCP_DXB_BUILD_STORAGE_PROD
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PROD
       fi
 
-      gcloud auth activate-service-account --key-file="$GCP_DXB_SERVICE_KEY"
-      gcloud config set project $GCP_DXB_PROJECT_ID
+      apt-get update
+      apt-get install -y jq
   script:
-    - gsutil cp $CI_PROJECT_DIR/dist/functions/es-pim-products-ingest.zip gs://$GCP_DXB_BUILD_STORAGE/sources/
+    - ./scripts/deploy_function_package.sh $GCP_FUNCTIONS_CI es-pim-products-ingest
   interruptible: false

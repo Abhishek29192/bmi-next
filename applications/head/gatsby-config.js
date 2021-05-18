@@ -154,18 +154,22 @@ const queries = [
   }
 ].filter(Boolean);
 
-const elasticSearchPlugin = {
-  resolve: `@bmi/gatsby-plugin-elasticsearch`,
-  options: {
-    node: process.env.GATSBY_ES_ENDPOINT,
-    auth: {
-      username: process.env.ES_ADMIN_USERNAME,
-      password: process.env.ES_ADMIN_PASSWORD
-    },
-    queries,
-    chunkSize: 100
-  }
-};
+const elasticSearchPlugin = process.env.GATSBY_PREVIEW
+  ? []
+  : [
+      {
+        resolve: `@bmi/gatsby-plugin-elasticsearch`,
+        options: {
+          node: process.env.GATSBY_ES_ENDPOINT,
+          auth: {
+            username: process.env.ES_ADMIN_USERNAME,
+            password: process.env.ES_ADMIN_PASSWORD
+          },
+          queries,
+          chunkSize: 100
+        }
+      }
+    ];
 
 module.exports = {
   siteMetadata: {
@@ -354,8 +358,7 @@ module.exports = {
         ]
       }
     },
-    // TODO: Disabled while in WIP on other things
-    elasticSearchPlugin,
+    ...elasticSearchPlugin,
     {
       resolve: `gatsby-plugin-material-ui`,
       options: {
@@ -364,6 +367,20 @@ module.exports = {
         }
       }
     },
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+            exportLocalsConvention: "asIs",
+            localIdentName: "[name]__[local]--[hash:base64:5]"
+          }
+        }
+      }
+    },
+    `gatsby-plugin-image`,
     // `gatsby-plugin-offline`,
     `gatsby-plugin-remove-serviceworker`,
     {
@@ -379,12 +396,14 @@ module.exports = {
         sitemapSize: 50000
       }
     },
-    {
-      resolve: "gatsby-plugin-sitemap",
-      options: {
-        output: `/${process.env.SPACE_MARKET_CODE}/images.xml`,
-        sitemapSize: 50000,
-        query: `
+    ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
+      ? [
+          {
+            resolve: "gatsby-plugin-sitemap",
+            options: {
+              output: `/${process.env.SPACE_MARKET_CODE}/images.xml`,
+              sitemapSize: 50000,
+              query: `
         {
           site {
             siteMetadata {
@@ -404,16 +423,18 @@ module.exports = {
             }
           }
         }`,
-        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
-        serialize: ({ allContentfulAsset }) =>
-          allContentfulAsset.nodes.map((node) => ({
-            url: `https:${node.file.url}`,
-            changefreq: "daily",
-            priority: 0.7
-          }))
-      }
-    },
-    ...(process.env.GOOGLE_TAGMANAGER_ID
+              resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+              serialize: ({ allContentfulAsset }) =>
+                allContentfulAsset.nodes.map((node) => ({
+                  url: `https:${node.file.url}`,
+                  changefreq: "daily",
+                  priority: 0.7
+                }))
+            }
+          }
+        ]
+      : []),
+    ...(process.env.GOOGLE_TAGMANAGER_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
             resolve: "gatsby-plugin-google-tagmanager",
@@ -428,7 +449,7 @@ module.exports = {
           }
         ]
       : []),
-    ...(process.env.GATSBY_HUBSPOT_ID
+    ...(process.env.GATSBY_HUBSPOT_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
             resolve: "gatsby-plugin-hubspot",
@@ -449,7 +470,19 @@ module.exports = {
             }
           }
         ]
-      : [])
+      : []),
+    ...(process.env.GATSBY_LEADOO_ID && !process.env.GATSBY_PREVIEW
+      ? [
+          {
+            resolve: "@bmi/gatsby-plugin-leadoo",
+            options: {
+              companyCode: process.env.GATSBY_LEADOO_ID,
+              productionOnly: false
+            }
+          }
+        ]
+      : []),
+    `gatsby-plugin-gatsby-cloud`
   ],
   flags: {
     DEV_SSR: false

@@ -23,4 +23,14 @@ describe("YoutubeVideo component", () => {
     const { container } = render(<YoutubeVideo layout="in-place" {...props} />);
     expect(container.firstChild).toMatchSnapshot();
   });
+  it("renders inline layout correctly", () => {
+    const props = {
+      label: "test inline video",
+      videoId: "A-RfHC91Ewc",
+      embedWidth: 1280,
+      embedHeight: 720
+    };
+    const { container } = render(<YoutubeVideo layout="inline" {...props} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

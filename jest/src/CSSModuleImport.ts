@@ -6,13 +6,15 @@ const CSSModuleImport = new Proxy(
         return false;
       }
 
-      if (key.toString().includes("breakpoint")) {
+      if (key.toString().startsWith("breakpoint")) {
         return "1024px";
       }
 
-      if (key.toString().includes("color")) {
+      if (key.toString().startsWith("color")) {
         return "#000000";
       }
+
+      return key;
     }
   }
 );

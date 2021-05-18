@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 export type SidePanelProps = {
   searchLabel?: string;
-  filters?: object;
+  filters?: any;
   children: React.ReactNode | React.ReactNode[];
 };
 

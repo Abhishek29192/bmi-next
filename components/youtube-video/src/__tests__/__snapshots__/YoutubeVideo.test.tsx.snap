@@ -41,3 +41,57 @@ exports[`YoutubeVideo component renders in in-place layout correctly 1`] = `
   class="YoutubeVideo YoutubeVideo--in-place"
 />
 `;
+
+exports[`YoutubeVideo component renders inline layout correctly 1`] = `
+<div
+  class="YoutubeVideo YoutubeVideo--inline"
+  style="--aspect-ratio: 0.5625;"
+>
+  <div>
+    <img
+      alt="test inline video"
+      class="preview-image"
+      src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+    />
+    <div
+      class="overlay"
+    >
+      <button
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained play-button"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <p
+        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+      />
+    </div>
+  </div>
+  <div
+    style="opacity: 0; visibility: hidden; transition-delay: 500ms; width: 640px; height: 360px;"
+  >
+    <div
+      style="width: 100%; height: 100%;"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;

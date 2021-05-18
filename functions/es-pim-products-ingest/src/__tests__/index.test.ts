@@ -7,11 +7,8 @@ import { ProductMessage } from "..";
 import createProductVariant from "./helpers/ProductVariantHelper";
 import createPimProduct from "./helpers/PimProductHelper";
 
-const {
-  ES_INDEX_PREFIX,
-  SECRET_MAN_GCP_PROJECT_NAME,
-  ES_PASSWORD_SECRET
-} = process.env;
+const { ES_INDEX_PREFIX, SECRET_MAN_GCP_PROJECT_NAME, ES_PASSWORD_SECRET } =
+  process.env;
 
 const esPassword = "es-password";
 

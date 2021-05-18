@@ -1,6 +1,7 @@
 import React from "react";
+import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
-
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -17,12 +18,19 @@ import { Layout } from "../components/Layout";
 import { InfoPair } from "../components/InfoPair";
 import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
-import serverSiderProps, { CompanyData } from "../lib/serverSideProps/company";
+
+import { getAuth0Instance } from "../lib/auth0";
+import { initializeApollo } from "../lib/apolloClient";
+import { GetCompanyQuery } from "../graphql/generated/operations";
+import {
+  getServerPageGetCompany,
+  getServerPageGetCurrentCompany
+} from "../graphql/generated/page";
 
 const getCompanyData = (
-  companyData: CompanyData
+  company: GetCompanyQuery["company"]
 ): { name: string; aboutus: string; details: any } => {
-  if (!companyData) {
+  if (!company) {
     return {
       name: "Company not found",
       aboutus: "company.aboutUs",
@@ -30,7 +38,6 @@ const getCompanyData = (
     };
   }
 
-  const company = companyData.company;
   const details = [
     {
       type: "cta",
@@ -49,11 +56,11 @@ const getCompanyData = (
     },
     {
       type: "email",
-      text: company.privateemail,
+      text: company.publicEmail,
 
       action: {
         model: "htmlLink" as "htmlLink",
-        href: `mailto:${company.privateemail}`
+        href: `mailto:${company.publicEmail}`
       },
 
       label: "Email"
@@ -78,6 +85,7 @@ const getCompanyData = (
       level: "expert"
     }
   ];
+
   return {
     name: company.name,
     aboutus: "company.aboutUs",
@@ -85,7 +93,11 @@ const getCompanyData = (
   };
 };
 
-const Company = ({ company }: any) => {
+export type PageProps = {
+  company: GetCompanyQuery["company"];
+};
+
+const CompanyPage = ({ company }: PageProps) => {
   const { t } = useTranslation("company-page");
 
   const { name, aboutus, details } = getCompanyData(company);
@@ -248,6 +260,63 @@ const Company = ({ company }: any) => {
   );
 };
 
-export const getServerSideProps = serverSiderProps;
+export const GET_CURRENT_COMPANY = gql`
+  query GetCurrentCompany {
+    currentCompany
+  }
+`;
 
-export default Company;
+export const GET_COMPANY = gql`
+  query GetCompany($companyId: Int!) {
+    company(id: $companyId) {
+      name
+      phone
+      website
+      aboutUs
+      publicEmail
+      phone
+      website
+    }
+  }
+`;
+
+export const getServerSideProps = async (ctx) => {
+  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+  return auth0.withPageAuthRequired({
+    async getServerSideProps({ locale, ...ctx }) {
+      const apolloClient = await initializeApollo(null, ctx);
+
+      const pageProps = {
+        company: null,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer",
+          "company-page"
+        ]))
+      };
+
+      const {
+        props: {
+          data: { currentCompany }
+        }
+      } = await getServerPageGetCurrentCompany({}, apolloClient);
+
+      if (currentCompany) {
+        const {
+          props: {
+            data: { company }
+          }
+        } = await getServerPageGetCompany(
+          { variables: { companyId: currentCompany } },
+          apolloClient
+        );
+        pageProps.company = company;
+      }
+
+      return { props: pageProps };
+    }
+  })(ctx);
+};
+
+export default CompanyPage;

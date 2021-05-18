@@ -39,6 +39,13 @@ export const handleDownloadClick = async (
     return () => {};
   }
 
+  if (process.env.GATSBY_PREVIEW) {
+    alert("You cannot download documents on the preview enviornment.");
+    callback();
+
+    return () => {};
+  }
+
   try {
     if (!process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT) {
       throw Error(
@@ -46,9 +53,8 @@ export const handleDownloadClick = async (
       );
     }
     const assets = flatten(listValues);
-    const assetFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-      assets
-    );
+    const assetFileCountMap: AssetUniqueFileCountMap =
+      createAssetFileCountMap(assets);
     const documents = assets.map(
       ({ __typename, asset, extension, title, url }, index) => {
         return {

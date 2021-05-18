@@ -42,3 +42,16 @@ license_finder_output.html
 .rubocop.yml
 coffeelint.json
 gl-code-quality-report.json
+
+#NPM config
+.npmrc*
+!.npmrc.example
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

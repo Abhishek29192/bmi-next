@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import auth0 from "../../lib/auth0";
+import { getAuth0Instance } from "../../lib/auth0";
 
 export const config = {
   api: {
@@ -16,7 +16,8 @@ const handler = async function (
 ) {
   if (!req.headers.authorization) {
     try {
-      const session = await auth0.getSession(req, res);
+      const auth0 = await getAuth0Instance(req, res);
+      const session = await auth0.getAccessToken(req, res, { refresh: true });
       req.headers.authorization = `Bearer ${session.accessToken}`;
     } catch (error) {
       // eslint-disable-next-line no-console

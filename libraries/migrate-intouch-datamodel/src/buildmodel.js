@@ -15,6 +15,7 @@ class DataModel {
     this.references = [];
     this.services = [];
     this.triggers = [];
+    this.indices = [];
   }
 
   addTable(table) {
@@ -35,6 +36,10 @@ class DataModel {
 
   addTrigger(trigger) {
     this.triggers.push(trigger);
+  }
+
+  addIndex(index) {
+    this.indices.push(index);
   }
 
   getDefaultFunctions() {
@@ -60,10 +65,11 @@ class Value {
 }
 
 class Attribute extends Value {
-  constructor(name, description, type, mockValues) {
+  constructor(name, description, type, mockValues, constraint) {
     super(name, description);
     this.type = type;
     this.mockValues = mockValues.split(";");
+    this.constraint = constraint;
   }
 }
 
@@ -92,8 +98,14 @@ class Table extends Thing {
     ];
   }
 
-  addColumn(name, description, type, mockValues) {
-    let attribute = new Attribute(name, description, type, mockValues);
+  addColumn(name, description, type, mockValues, constraint) {
+    let attribute = new Attribute(
+      name,
+      description,
+      type,
+      mockValues,
+      constraint
+    );
     this.properties.push(attribute);
   }
 
@@ -148,10 +160,20 @@ ${this.properties
         .join();
       sqlString += `INSERT INTO ${this.name}(${columns})\nVALUES (${values});\n`;
     }
-    return sqlString;
+    return `${sqlString}\n`;
   }
   getSequence() {
     return `SELECT SETVAL('${this.name}_id_seq', (select MAX(ID) from ${this.name}));`;
+  }
+
+  getConstraints() {
+    return this.properties
+      .filter((p) => p.constraint)
+      .map(
+        (property) =>
+          `ALTER TABLE ${this.name} ADD ${property.constraint} (${property.name});`
+      )
+      .join("\n\n");
   }
 }
 
@@ -181,15 +203,17 @@ ${this.properties
 }
 
 class Reference {
-  constructor(source, referenceField, target, service) {
+  constructor(source, referenceField, target, reference, service) {
     this.source = source;
     this.referenceField = referenceField;
     this.target = target;
+    this.reference = reference;
     this.service = service;
   }
 
   getPostgresCreate() {
-    return `ALTER TABLE ${this.source} ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target}(Id);
+    const refColumn = this.reference || "id";
+    return `ALTER TABLE ${this.source} ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target}(${refColumn});
 CREATE INDEX ON ${this.source} (${this.referenceField});`;
   }
 }
@@ -210,6 +234,18 @@ EXECUTE PROCEDURE update_modified_column();
   }
 }
 
+class Index {
+  constructor(table, columnName, indexType) {
+    this.table = table;
+    this.columnName = columnName;
+    this.indexType = indexType;
+  }
+
+  getPostgresCreate() {
+    return `CREATE INDEX  ${this.table}_${this.columnName}_idx ON ${this.table} USING ${this.indexType}(${this.columnName});\n`;
+  }
+}
+
 const buildModel = (records) => {
   let myDataModel = new DataModel();
 
@@ -219,6 +255,7 @@ const buildModel = (records) => {
   let myEnum = new Enum();
   let myReference = new Reference();
   let trigger = new Trigger();
+  let myIndex = new Index();
 
   records.forEach((record) => {
     switch (record.Type) {
@@ -245,12 +282,18 @@ const buildModel = (records) => {
           myTable.name,
           record.Name,
           record.Description,
+          record.Reference,
           record.Service
         );
         myDataModel.addReference(myReference); // create a reference and add it to the list of references
         myTable.addColumn(record.Name, "fk", "int", record.Mocks); // add the new attribute to the current table
         break;
       case "ek":
+        if (record.Index) {
+          // if the column needs indexing, add the Index to the list of indices in the datamodel
+          myIndex = new Index(myTable.name, record.Name, record.Index);
+          myDataModel.addIndex(myIndex);
+        }
         myTable.addColumn(record.Name, "ek", record.Description, record.Mocks); // add the new attribute to the current table. The description column in the csv in this case contains a type rather than a description
         break;
       case "enum":
@@ -270,11 +313,17 @@ const buildModel = (records) => {
       case "ctdfield":
         break;
       default:
+        if (record.Index) {
+          // if the column needs indexing, add the Index to the list of indices in the datamodel
+          myIndex = new Index(myTable.name, record.Name, record.Index);
+          myDataModel.addIndex(myIndex);
+        }
         myTable.addColumn(
           record.Name,
           record.Description,
           record.Type,
-          record.Mocks
+          record.Mocks,
+          record.Constraint
         ); // add the new field to the current table based on the current record
         break;
     }

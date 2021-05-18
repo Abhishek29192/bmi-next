@@ -107,9 +107,8 @@ const DesktopDocumentTechnicalTableResults = ({
           (asset): asset is PIMDocumentData =>
             asset.__typename === "PIMDocument"
         );
-        const assetFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-          pimDocumentAssets
-        );
+        const assetFileCountMap: AssetUniqueFileCountMap =
+          createAssetFileCountMap(pimDocumentAssets);
         const documents = pimDocumentAssets.map((asset, index) => ({
           href: asset.url,
           name:
@@ -192,6 +191,9 @@ const DesktopDocumentTechnicalTableResults = ({
             const key = `${
               assets.find(({ product }) => product.code)?.product.code
             }-${index}`;
+            const hasOnlyExternalAssets = assets.every(
+              (asset) => asset.__typename === "PIMLinkDocument"
+            );
             return (
               <Table.Row
                 key={key}
@@ -233,24 +235,26 @@ const DesktopDocumentTechnicalTableResults = ({
                   );
                 })}
                 <Table.Cell className={styles["align-center"]}>
-                  <DownloadList.Checkbox
-                    name={key}
-                    maxLimitReachedLabel={getMicroCopy(
-                      "documents.download.maxReached"
-                    )}
-                    ariaLabel={`${getMicroCopy(
-                      "documentLibrary.download"
-                    )} ${productName}`}
-                    value={assets.filter(
-                      ({ __typename }) => __typename !== "PIMLinkDocument"
-                    )}
-                    fileSize={assets.reduce((acc, curr) => {
-                      if (curr.__typename === "PIMLinkDocument") {
-                        return 0;
-                      }
-                      return acc + (curr.fileSize || 0);
-                    }, 0)}
-                  />
+                  {!hasOnlyExternalAssets && (
+                    <DownloadList.Checkbox
+                      name={key}
+                      maxLimitReachedLabel={getMicroCopy(
+                        "documents.download.maxReached"
+                      )}
+                      ariaLabel={`${getMicroCopy(
+                        "documentLibrary.download"
+                      )} ${productName}`}
+                      value={assets.filter(
+                        ({ __typename }) => __typename !== "PIMLinkDocument"
+                      )}
+                      fileSize={assets.reduce((acc, curr) => {
+                        if (curr.__typename === "PIMLinkDocument") {
+                          return 0;
+                        }
+                        return acc + (curr.fileSize || 0);
+                      }, 0)}
+                    />
+                  )}
                 </Table.Cell>
               </Table.Row>
             );

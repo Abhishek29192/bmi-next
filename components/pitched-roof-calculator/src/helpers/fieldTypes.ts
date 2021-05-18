@@ -5,38 +5,50 @@ const isPositiveNumber = (value: string) => /^([0-9])+(\.[0-9]+)?$/.test(value);
   https://bmigroup.atlassian.net/browse/WEBT-202
  */
 
-const numberValidator = (value, errorMessage) => {
+type ErrorType = "fieldRequired" | "positiveNumberOnly" | "range";
+
+type GetErrorMessage = (
+  errorType: ErrorType,
+  placeholders?: Record<string, string>
+) => string;
+
+const numberValidator = (value, errorMessage?: GetErrorMessage) => {
   if (typeof value !== "string") {
     throw new Error("This validator only takes string values");
   }
 
   if (value === "") {
-    return errorMessage || "This field is required";
+    return errorMessage
+      ? errorMessage("fieldRequired")
+      : "This field is required";
   }
 
   if (!isPositiveNumber(value)) {
-    return errorMessage || "This field must have a positive number";
+    return errorMessage
+      ? errorMessage("positiveNumberOnly")
+      : "This field must have a positive number";
   }
 };
 
 type RangeValidatorCreator = (
   min: number,
   max: number,
-  errorMessage?: string
+  getErrorMessage?: GetErrorMessage
 ) => (value: string) => string | undefined;
 
-const rangeValidator: RangeValidatorCreator = (min, max, errorMessage) => (
-  value
-) => {
-  const error = numberValidator(value, errorMessage);
-  if (error) return error;
+const rangeValidator: RangeValidatorCreator =
+  (min, max, getErrorMessage) => (value) => {
+    const error = numberValidator(value, getErrorMessage);
+    if (error) return error;
 
-  const number = parseFloat(value);
+    const number = parseFloat(value);
 
-  if (number < min || number > max) {
-    return errorMessage || `This number must be between ${min} and ${max}`;
-  }
-};
+    if (number < min || number > max) {
+      return getErrorMessage
+        ? getErrorMessage("range", { min: min.toString(), max: max.toString() })
+        : `This number must be between ${min} and ${max}`;
+    }
+  };
 
 export type Type = "LENGTH" | "PROTRUSION_LENGTH" | "PITCH";
 
@@ -46,22 +58,36 @@ type TypeProps = {
   helperText?: string;
 };
 
-export const types: {
+export const getFieldTypes = (
+  getMicroCopy: (path: string, placeholders: Record<string, string>) => string
+): {
   [key in Type]: TypeProps;
-} = {
+} => ({
   LENGTH: {
     unit: "m",
-    validator: rangeValidator(2, 200, "Min 2m and max 200m"),
-    helperText: "Min 2m and max 200m"
+    validator: rangeValidator(2, 200, (path, placeholders) =>
+      path === "range"
+        ? getMicroCopy("lengthRange", placeholders)
+        : getMicroCopy(path, placeholders)
+    ),
+    helperText: getMicroCopy("lengthRange", { min: "2", max: "200" })
   },
   PROTRUSION_LENGTH: {
     unit: "m",
-    validator: rangeValidator(0.5, 200, "Min 0.5m and max 200m"),
-    helperText: "Min 0.5m and max 200m"
+    validator: rangeValidator(0.5, 200, (path, placeholders) =>
+      path === "range"
+        ? getMicroCopy("lengthRange", placeholders)
+        : getMicroCopy(path, placeholders)
+    ),
+    helperText: getMicroCopy("lengthRange", { min: "0.5", max: "200" })
   },
   PITCH: {
     unit: "deg",
-    validator: rangeValidator(6, 85, "Min 6 and max 85 deg"),
-    helperText: "Min 6 and max 85 deg"
+    validator: rangeValidator(6, 85, (path, placeholders) =>
+      path === "range"
+        ? getMicroCopy("pitchRange", placeholders)
+        : getMicroCopy(path, placeholders)
+    ),
+    helperText: getMicroCopy("pitchRange", { min: "6", max: "85" })
   }
-};
+});

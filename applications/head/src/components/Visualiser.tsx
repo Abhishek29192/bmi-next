@@ -1,11 +1,19 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
+import queryString from "query-string";
 import Visualiser, {
   Parameters,
   tilesSetData,
   sidingsSetData
 } from "@bmi/visualiser";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
+import { navigate, useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
+import { getProductUrl } from "../utils/product-details-transforms";
+import { pushToDataLayer } from "../utils/google-tag-manager";
+import { SiteContext } from "./Site";
+import ShareWidgetSection, {
+  Data as ShareWidgetSectionData
+} from "./ShareWidgetSection";
 
 type Context = {
   isOpen: boolean;
@@ -29,6 +37,8 @@ export const VisualiserContext = createContext<Context>({
 type Props = {
   children: React.ReactNode;
   contentSource?: string;
+  variantCodeToPathMap: Record<string, string>;
+  shareWidgetData?: ShareWidgetSectionData;
 };
 
 const mapParameters = (params: any): Partial<Parameters> => {
@@ -41,9 +51,22 @@ const mapParameters = (params: any): Partial<Parameters> => {
   return { tileId, colourId, sidingId, viewMode };
 };
 
-const VisualiserProvider = ({ children, contentSource }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+const VisualiserProvider = ({
+  children,
+  contentSource,
+  variantCodeToPathMap = {},
+  shareWidgetData
+}: Props) => {
+  const location = useLocation();
+  const parsedQueryParameters = mapParameters(
+    queryString.parse(location.search, { parseNumbers: true })
+  );
+
+  const [isOpen, setIsOpen] = useState(
+    Object.values(parsedQueryParameters).some(Boolean)
+  );
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
+  const { countryCode } = useContext(SiteContext);
 
   if (!contentSource) {
     return (
@@ -58,6 +81,38 @@ const VisualiserProvider = ({ children, contentSource }: Props) => {
     setIsOpen(true);
   };
 
+  const getProductLinkAction = (variantCode: string) => ({
+    model: "routerLink",
+    linkComponent: Link,
+    to: getProductUrl(countryCode, variantCodeToPathMap[variantCode])
+  });
+
+  const handleOnChange = ({
+    isOpen,
+    ...params
+  }: Partial<Parameters & { isOpen: boolean }>) => {
+    navigate(
+      isOpen ? calculatePathFromData(params) : calculatePathFromData({})
+    );
+  };
+
+  const handleOnEventClick = ({ id, label, ...data }) => {
+    pushToDataLayer({ id, label, action: calculatePathFromData(data) });
+  };
+
+  const calculatePathFromData = (params: Partial<Parameters>) => {
+    const { tileId, colourId, sidingId, viewMode, ...rest } = queryString.parse(
+      location.search
+    );
+
+    const query = queryString.stringify(
+      { ...rest, ...params },
+      { skipNull: true }
+    );
+
+    return location.pathname + (query ? `?${query}` : "");
+  };
+
   return (
     <VisualiserContext.Provider value={{ isOpen, open }}>
       {children}
@@ -65,10 +120,19 @@ const VisualiserProvider = ({ children, contentSource }: Props) => {
       <Visualiser
         open={isOpen}
         contentSource={contentSource}
+        onChange={(params) => handleOnChange(params)}
         onClose={() => setIsOpen(false)}
         tiles={tilesSetData}
         sidings={sidingsSetData}
+        getProductLinkAction={getProductLinkAction}
+        {...parsedQueryParameters}
         {...parameters}
+        shareWidget={
+          shareWidgetData ? (
+            <ShareWidgetSection data={shareWidgetData} hasNoPadding={true} />
+          ) : undefined
+        }
+        onEventClick={handleOnEventClick}
       />
     </VisualiserContext.Provider>
   );

@@ -208,3 +208,15 @@
       CLI)
     :versions: []
     :when: 2021-04-07 20:05:58.930504000 Z
+- - :approve
+  - qrcode-terminal
+  - :who: Alessandro Canessa
+    :why: Apache 2 licensed, but license_finder can't recognise it (required by @semantic-version/npm)
+    :versions: []
+    :when: 2021-04-22 09:20:14.039100000 Z
+- - :permit
+  - Artistic-2.0
+  - :who: Alessandro Canessa
+    :why: Acceptable license
+    :versions: []
+    :when: 2021-04-22 09:22:21.621375000 Z

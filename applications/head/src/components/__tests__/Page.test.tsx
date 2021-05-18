@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { LocationProvider } from "@reach/router";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
 import Page, { Data } from "../Page";
@@ -48,9 +49,11 @@ describe("Page component", () => {
     };
 
     const { container } = render(
-      <Page title="Lorem ipsum" pageData={pageData} siteData={siteData}>
-        Lorem ipsum
-      </Page>
+      <LocationProvider>
+        <Page title="Lorem ipsum" pageData={pageData} siteData={siteData}>
+          Lorem ipsum
+        </Page>
+      </LocationProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });

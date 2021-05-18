@@ -141,8 +141,12 @@ const RichText = ({
   document,
   ...rest
 }: {
-  document: RichTextData;
+  document?: RichTextData;
 } & Settings) => {
+  if (!document) {
+    return null;
+  }
+
   return (
     <div className={styles["RichText"]}>
       {renderRichText(document, getOptions(rest))}

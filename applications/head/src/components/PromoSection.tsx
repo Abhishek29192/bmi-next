@@ -20,11 +20,12 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
   const { open } = useContext(VisualiserContext);
   const { title, subtitle, body, featuredMedia, cta, featuredVideo } = data;
 
-  const GTMButton = withGTM<
-    ButtonProps & {
-      action?: ClickableAction;
-    }
-  >(Button);
+  const GTMButton =
+    withGTM<
+      ButtonProps & {
+        action?: ClickableAction;
+      }
+    >(Button);
 
   return (
     <PromoSection

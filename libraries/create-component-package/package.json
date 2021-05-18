@@ -6,6 +6,5 @@
   "main": "./index",
   "bin": {
     "create-component": "./index.js"
-  },
-  "dependencies": {}
+  }
 }

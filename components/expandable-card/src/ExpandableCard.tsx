@@ -120,9 +120,8 @@ const ExpandableCard = ({
   }>({});
   const [, setForceRerender] = useState(false);
   const cardElement = useRef<HTMLElement>(null);
-  const [animationStatus, setAnimationStatus] = useState<AnimationStatus>(
-    "END"
-  );
+  const [animationStatus, setAnimationStatus] =
+    useState<AnimationStatus>("END");
   const handleTransitionEnd = useCallback(
     (propertyName: string) => {
       if (propertyName === "height") {

@@ -114,10 +114,10 @@ Array [
 
 exports[`CalculatorStepper component ignores footer when there are no buttons 1`] = `
 <div
-  class="stepper"
+  class="CalculatorStepper"
 >
   <form
-    class="Form CalculatorStepper"
+    class="Form"
   >
     <h4
       class="MuiTypography-root step-title Typography MuiTypography-h4"
@@ -150,10 +150,10 @@ exports[`CalculatorStepper component ignores footer when there are no buttons 1`
 
 exports[`CalculatorStepper component renders correctly 1`] = `
 <div
-  class="stepper"
+  class="CalculatorStepper"
 >
   <form
-    class="Form CalculatorStepper"
+    class="Form"
   >
     <h4
       class="MuiTypography-root step-title Typography MuiTypography-h4"

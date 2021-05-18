@@ -7,7 +7,6 @@ const path = require("path");
 const fs = require("fs");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
-const { withConfigs, styles } = require("@bmi/webpack");
 require("graphql-import-node");
 const jsonfile = require("jsonfile");
 const typeDefs = require("./src/schema/schema.graphql");
@@ -202,12 +201,14 @@ exports.createPages = async ({ graphql, actions }) => {
     // TODO: This is temporary until we'll have the path inside ES.
     const variantCodeToPathMap = {};
 
-    await createProductPages(
-      site.id,
-      site.countryCode,
-      { graphql, actions },
-      variantCodeToPathMap
-    );
+    if (!process.env.GATSBY_PREVIEW) {
+      await createProductPages(
+        site.id,
+        site.countryCode,
+        { graphql, actions },
+        variantCodeToPathMap
+      );
+    }
 
     await Promise.all(
       ([site.homePage, ...site.pages] || []).map(async (page) => {
@@ -270,31 +271,50 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
 
-    await createPage({
-      path: `/${site.countryCode}/sitemap/`,
-      component: path.resolve("./src/templates/sitemap.tsx"),
-      context: {
-        siteId: site.id
-      }
-    });
+    if (process.env.GATSBY_PREVIEW) {
+      await createPage({
+        path: `/previewer/`,
+        component: path.resolve("./src/templates/previewer.tsx"),
+        context: {
+          siteId: site.id
+        }
+      });
+    }
+
+    if (!process.env.GATSBY_PREVIEW) {
+      await createPage({
+        path: `/${site.countryCode}/sitemap/`,
+        component: path.resolve("./src/templates/sitemap.tsx"),
+        context: {
+          siteId: site.id
+        }
+      });
+    }
   }
 };
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig(
-    withConfigs(
-      {
-        resolve: {
-          plugins: [
-            new TsconfigPathsPlugin({
-              configFile: findUp.sync("tsconfig.json")
-            })
-          ]
-        }
-      },
-      [styles({ dev: process.env.NODE_ENV === "development" })]
-    )
-  );
+exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: findUp.sync("tsconfig.json")
+        })
+      ]
+    }
+  });
+  // NOTE: This ignores the order conflict warnings caused by the CSS Modules
+  // only when building production.
+  if (stage === "build-javascript") {
+    const config = getConfig();
+    const miniCssExtractPlugin = config.plugins.find(
+      (plugin) => plugin.constructor.name === "MiniCssExtractPlugin"
+    );
+    if (miniCssExtractPlugin) {
+      miniCssExtractPlugin.options.ignoreOrder = true;
+    }
+    actions.replaceWebpackConfig(config);
+  }
 };
 
 exports.createSchemaCustomization = ({ actions }) => {

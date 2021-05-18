@@ -14,26 +14,17 @@ export type Data = {
 };
 
 const Video = ({ data }: { data: Data }) => {
-  const { label, youtubeId, previewMedia, videoRatio, className } = data;
-
-  return (
-    <YoutubeVideo
-      label={label}
-      videoId={youtubeId}
-      embedHeight={videoRatio?.height || 0}
-      embedWidth={videoRatio?.width || 0}
-      previewImageSource={previewMedia?.image?.resize.src || undefined}
-      className={className}
-    />
-  );
+  return renderVideo(data);
 };
 
 export const renderVideo = (data: Data) => {
-  const { label, youtubeId, previewMedia, videoRatio, className } = data;
+  const { label, subtitle, youtubeId, previewMedia, videoRatio, className } =
+    data;
 
   return (
     <YoutubeVideo
       label={label}
+      subtitle={subtitle}
       videoId={youtubeId}
       embedHeight={videoRatio?.height || 0}
       embedWidth={videoRatio?.width || 0}

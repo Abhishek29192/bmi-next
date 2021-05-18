@@ -3,6 +3,8 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
 import { SiteContext } from "../Site";
+import { rooferTypes } from "../../components/Roofer";
+import createRoofer from "../../__tests__/RooferHelper";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -182,14 +184,34 @@ describe("Sections component", () => {
               caption: null,
               focalPoint: null,
               image: {
-                fluid: {
-                  aspectRatio: 1,
-                  src: "",
-                  srcSet: "",
-                  sizes: ""
+                gatsbyImageData: {
+                  images: {
+                    sources: [
+                      {
+                        srcSet:
+                          "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+                        sizes: "(min-width: 948px) 948px, 100vw",
+                        type: "image/webp"
+                      }
+                    ],
+                    fallback: {
+                      src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+                      srcSet:
+                        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
+                      sizes: "(min-width: 948px) 948px, 100vw"
+                    }
+                  },
+                  layout: "constrained",
+                  backgroundColor: "#484848",
+                  width: 948,
+                  height: 720
                 },
                 resize: {
-                  src: "//image-url"
+                  src: "//images.asset.jpg"
+                },
+                file: {
+                  fileName: "Lorem ipsum",
+                  url: "//images.asset.jpg"
                 }
               }
             },
@@ -222,17 +244,37 @@ describe("Sections component", () => {
             caption: null,
             focalPoint: null,
             image: {
-              fluid: {
-                aspectRatio: 1,
-                src: "",
-                srcSet: "",
-                sizes: ""
+              thumbnail: {
+                src: "//images.asset.jpg"
+              },
+              gatsbyImageData: {
+                images: {
+                  sources: [
+                    {
+                      srcSet:
+                        "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=webp 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=webp 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=webp 948w",
+                      sizes: "(min-width: 948px) 948px, 100vw",
+                      type: "image/webp"
+                    }
+                  ],
+                  fallback: {
+                    src: "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png",
+                    srcSet:
+                      "//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=237&h=180&q=50&fm=png 237w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=474&h=360&q=50&fm=png 474w,\n//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png 948w",
+                    sizes: "(min-width: 948px) 948px, 100vw"
+                  }
+                },
+                layout: "constrained",
+                backgroundColor: "#484848",
+                width: 948,
+                height: 720
               },
               resize: {
-                src: "link-to-page.png"
+                src: "//images.asset.jpg"
               },
-              thumbnail: {
-                src: "link-to-thumbnal.png"
+              file: {
+                fileName: "Lorem ipsum",
+                url: "//images.asset.jpg"
               }
             }
           }
@@ -256,6 +298,45 @@ describe("Sections component", () => {
         position: 0,
         centre: null,
         zoom: null
+      },
+      {
+        __typename: "ContentfulServiceLocatorSection",
+        title: "Service Locator - with roofers",
+        label: "Find A Roofer",
+        body: null,
+        roofers: [
+          createRoofer({
+            id: "roofer_1",
+            name: "roofer 1",
+            type: [rooferTypes[0], rooferTypes[1]]
+          }),
+          createRoofer({
+            id: "roofer_2",
+            name: "roofer 2",
+            type: [rooferTypes[0], rooferTypes[1]]
+          })
+        ],
+        position: 0,
+        centre: null,
+        zoom: null
+      },
+      {
+        __typename: "ContentfulVideoSection",
+        name: "Video section",
+        title: "Section title",
+        description: {
+          raw: contentMock,
+          references: []
+        },
+        video: {
+          title: "Video title",
+          label: "Video label",
+          youtubeId: "A-RfHC91Ewc",
+          subtitle: null,
+          previewMedia: null,
+          videoRatio: { width: 16, height: 9 },
+          className: null
+        }
       }
     ];
 

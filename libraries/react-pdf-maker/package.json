@@ -9,7 +9,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "pdfmake": "^0.1.68",
+    "pdfmake": "^0.1.71",
     "react-is": "^16.13.1"
   },
   "devDependencies": {

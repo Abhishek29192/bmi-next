@@ -23,6 +23,10 @@ module.exports = {
 
       const { width, height } = image.file.details.image;
 
+      if (!focalPoint) {
+        return null;
+      }
+
       return {
         x: getFocalPoint(width, focalPoint.x),
         y: getFocalPoint(height, focalPoint.y)

@@ -64,7 +64,7 @@ import demoFormattedImage from "./images/demo-product-format.jpg";
 import demoImage from "./images/demo-product.jpg";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 
-<CardCheckboxGroup name="tileType3" showNone>
+<CardCheckboxGroup name="tileType3" noneLabel="None">
   <CardCheckboxGroup.Item
     value="Zanda Arktis"
     title="Zanda Arktis"

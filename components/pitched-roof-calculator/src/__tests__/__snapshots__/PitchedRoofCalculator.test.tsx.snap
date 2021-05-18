@@ -9,7 +9,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
   <span
     class="MuiButton-label"
   >
-    Open modal
+    roofSelection.title
   </span>
   <span
     class="MuiTouchRipple-root"

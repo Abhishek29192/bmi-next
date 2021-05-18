@@ -8,9 +8,12 @@ type Props = {
   data: {
     contentfulSite: SiteData;
   };
+  pageContext: {
+    variantCodeToPathMap: Record<string, string>;
+  };
 };
 
-const GeneralError = ({ data }: Props) => {
+const GeneralError = ({ data, pageContext }: Props) => {
   const siteData = data.contentfulSite;
   const { errorGeneral } = siteData.resources;
   return (
@@ -18,6 +21,7 @@ const GeneralError = ({ data }: Props) => {
       title={errorGeneral.title}
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={siteData}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >
       <ErrorFallback countryCode={siteData.countryCode} promo={errorGeneral} />
     </Page>

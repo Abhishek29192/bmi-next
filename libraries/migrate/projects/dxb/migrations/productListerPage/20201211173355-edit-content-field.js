@@ -40,9 +40,10 @@ module.exports.down = async (migration, { makeRequest }) => {
     "content"
   );
 
-  const previousEnabledNodes = enabledNodeTypesValidation.enabledNodeTypes.filter(
-    (node) => node !== "embedded-asset-block"
-  );
+  const previousEnabledNodes =
+    enabledNodeTypesValidation.enabledNodeTypes.filter(
+      (node) => node !== "embedded-asset-block"
+    );
 
   productListerPage.editField("content").validations([
     {

@@ -38,7 +38,9 @@ export const UserCard = ({
         </div>
         <Button variant="text">{t("Remove as company owner")}</Button>
         <div className={styles.details}>
-          <CompanyDetails details={details} />
+          <CompanyDetails details={details}>
+            <></>
+          </CompanyDetails>
         </div>
         <div className={styles.buttonHolder}>
           <Button>{t("Remove from company")}</Button>

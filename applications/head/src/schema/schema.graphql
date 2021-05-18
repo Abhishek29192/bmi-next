@@ -1,7 +1,7 @@
 """
 Represents an interface for inputs.
 """
-interface ContentfulFormInputs {
+interface ContentfulFormInputs implements Node {
   id: ID!
 
   "The name for this input."
@@ -94,7 +94,7 @@ type contentfulInputBannerAdditionalInputsJsonNode implements ContentfulFormInpu
 """
 Represents common properties across pages.
 """
-interface ContentfulPage @nodeInterface {
+interface ContentfulPage implements Node {
   id: ID!
 
   "Contentful content entry ID."
@@ -129,9 +129,6 @@ interface ContentfulPage @nodeInterface {
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
-
-  "The parent page of this page."
-  parentPage: LinkedPage @link(from: "parentPage___NODE")
 
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
@@ -279,6 +276,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
 
   "The contact details for the locations section."
   locations: [ContentfulContactDetails] @link(from: "locations___NODE")
+
+  "The iframe content"
+  iframe: ContentfulIframe @link(from: "iframe___NODE")
 
   "The topics for this page."
   contentTopics: [ContentfulContactTopic] @link(from: "contentTopics___NODE")
@@ -773,6 +773,23 @@ type ContentfulServiceLocatorSection implements Node {
 }
 
 """
+Represents an inline video section.
+"""
+type ContentfulVideoSection implements Node {
+  "The internal nam for this section."
+  name: String
+
+  "The title for this section."
+  title: String
+
+  "The description for this section."
+  description: ContentfulRichText
+
+  "The video for this section."
+  video: ContentfulVideo @link(from: "video___NODE")
+}
+
+"""
 Represents the union of possible navigation entities.
 """
 union ContentfulNavigationEntity =
@@ -890,6 +907,8 @@ union ContentfulSection =
   | ContentfulImageGallerySection
   | ContentfulDocumentDownloadSection
   | ContentfulServiceLocatorSection
+  | ContentfulVideoSection
+  | ContentfulIframe
 
 """
 Represents a key value pair for UI strings.
@@ -959,6 +978,10 @@ type ContentfulResources implements Node {
 
   "Set PIM documents' names pattern."
   productDocumentNameMap: String
+
+  "The share widget for the visualiser for these resources."
+  visualiserShareWidget: ContentfulShareWidgetSection
+    @link(from: "visualiserShareWidget___NODE")
 }
 
 """
@@ -1122,6 +1145,9 @@ type ContentfulLink implements Node {
   "The parameters used for a webtools type of link."
   parameters: contentfulLinkParametersJsonNode
     @link(by: "id", from: "parameters___NODE")
+
+  "The query parameters for internal linked pages."
+  queryParams: String
 }
 
 """
@@ -1554,4 +1580,20 @@ type ContentfulImage implements Node {
 type ProductsVariantOptionsClassificationsFeaturesFeatureValues implements Node {
   value: String
   code: String
+}
+
+type ContentfulIframe implements Node {
+  id: ID!
+
+  "The title for video"
+  name: String
+
+  "The label for the video"
+  title: String
+
+  "URL for iframe source"
+  url: String!
+
+  "iframe height"
+  height: String!
 }

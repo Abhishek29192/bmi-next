@@ -5,9 +5,11 @@ steps:
     args:
       [
         "build",
+        ".",
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-service-companies",
-        "./applications/intouch/api/services/companies",
+        "-f",
+        "./applications/intouch/api/services/companies/dockerfile"
       ]
   - name: "gcr.io/cloud-builders/docker"
     args:
@@ -15,7 +17,7 @@ steps:
         "build",
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-service-training",
-        "./applications/intouch/api/services/training",
+        "./applications/intouch/api/services/training"
       ]
   - name: "gcr.io/cloud-builders/docker"
     args:
@@ -23,7 +25,7 @@ steps:
         "build",
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-gateway",
-        "./applications/intouch/api/gateway",
+        "./applications/intouch/api/gateway"
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
@@ -52,7 +54,7 @@ steps:
         "--set-env-vars=PASSWORD=intouch-db",
         "--set-env-vars=HOST=/cloudsql/automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=DATABASE=companies-db",
-        "--set-env-vars=PG_PORT=5432",
+        "--set-env-vars=PG_PORT=5432"
       ]
   - name: "gcr.io/cloud-builders/gcloud"
     args:
@@ -67,12 +69,12 @@ steps:
         "--platform",
         "managed",
         "--allow-unauthenticated",
-        "--set-env-vars=DOCEBO_API_URL=https://bmigroup-academy.docebosaas.com",
-        "--set-env-vars=DOCEBO_API_CLIENT_ID=",
+        "--set-env-vars=DOCEBO_API_URL=${_DOCEBO_API_URL}",
+        "--set-env-vars=DOCEBO_API_CLIENT_ID=${_DOCEBO_API_CLIENT_ID}",
         "--set-env-vars=DOCEBO_API_CLIENT_SECRET=",
         "--set-env-vars=DOCEBO_API_USERNAME=",
         "--set-env-vars=DOCEBO_API_PASSWORD=",
-        "--set-env-vars=DOCEBO_API_JWT_PASSPHRASE=",
+        "--set-env-vars=DOCEBO_API_JWT_PASSPHRASE=${_DOCEBO_API_JWT_PASSPHRASE}"
       ]
   - name: "gcr.io/cloud-builders/gcloud"
     args:
@@ -95,6 +97,9 @@ steps:
         "--set-env-vars=CONTENTFUL_API_HOST=https://graphql.contentful.com/content/v1",
         "--set-env-vars=CONTENTFUL_SPACE_ID=${_CONTENTFUL_SPACE_ID}",
         "--set-env-vars=CONTENTFUL_ENVIRONMENT=${_CONTENTFUL_ENVIRONMENT}",
-        "--set-env-vars=CONTENTFUL_TOKEN=${_CONTENTFUL_TOKEN}",
+        "--set-env-vars=CONTENTFUL_TOKEN=${_CONTENTFUL_TOKEN}"
       ]
+
+timeout: 1200s
+
 logsBucket: "gs://intouch-replaform-bucket"

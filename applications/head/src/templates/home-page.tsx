@@ -32,6 +32,9 @@ type Props = {
     contentfulHomePage: HomepageData;
     contentfulSite: SiteData;
   };
+  pageContext: {
+    variantCodeToPathMap: Record<string, string>;
+  };
 };
 
 const getHeroItemsWithContext = (
@@ -45,14 +48,14 @@ const getHeroItemsWithContext = (
         children: subtitle,
         media: featuredVideo
           ? renderVideo(featuredVideo)
-          : renderImage(featuredMedia),
+          : renderImage(featuredMedia, { size: "cover" }),
         cta: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
       };
     }
   );
 };
 
-const HomePage = ({ data }: Props) => {
+const HomePage = ({ data, pageContext }: Props) => {
   const {
     __typename,
     title,
@@ -73,7 +76,12 @@ const HomePage = ({ data }: Props) => {
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
-    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+    <Page
+      title={title}
+      pageData={pageData}
+      siteData={data.contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       <SiteContext.Consumer>
         {(context) => {
           const { countryCode, getMicroCopy } = context;

@@ -9,9 +9,12 @@ type Props = {
   data: {
     contentfulSite: SiteData;
   };
+  pageContext: {
+    variantCodeToPathMap: Record<string, string>;
+  };
 };
 
-const Sitemap = ({ data }: Props) => {
+const Sitemap = ({ data, pageContext }: Props) => {
   const siteData = data.contentfulSite;
   const {
     footerMainNavigation,
@@ -27,6 +30,7 @@ const Sitemap = ({ data }: Props) => {
       title={getMicroCopy("global.sitemap")}
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={siteData}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >
       {menuNavigation && <SitemapSection data={menuNavigation} />}
       {menuUtilities && <SitemapSection data={menuUtilities} />}
