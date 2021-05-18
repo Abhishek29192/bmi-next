@@ -2,8 +2,14 @@ import React from "react";
 import Hero from "@bmi/hero";
 import { getAuth0Instance } from "../lib/auth0";
 import { Layout } from "../components/Layout";
+import logger from "../lib/logger";
 
 const Homepage = () => {
+  logger({
+    severity: "INFO",
+    message: "Home page loaded"
+  });
+
   return (
     <Layout title="JS Roofers">
       <Hero

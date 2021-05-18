@@ -7,12 +7,14 @@ export const updateCompany = async (
   context,
   resolveInfo
 ) => {
+  let result;
   const { pgClient, user } = context;
+  const logger = context.logger("service:company");
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    const result = await resolve(source, args, context, resolveInfo);
+    result = await resolve(source, args, context, resolveInfo);
 
     const { access_token } = await getAccessToken();
 
@@ -21,6 +23,10 @@ export const updateCompany = async (
         registration_to_complete: false
       }
     });
+
+    logger.info(
+      `Company ${result.data.$company_id} created by user ${user.id}`
+    );
 
     return result;
   } catch (e) {

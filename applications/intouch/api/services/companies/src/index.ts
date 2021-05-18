@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+import { WinstonLogger } from "@bmi/logger";
+
 import { postgraphile } from "./postgraphile";
 import parseUserInfo from "./middleware/parseUserInfo";
 import pubsub from "./middleware/pubsub";
@@ -14,9 +16,22 @@ async function main() {
   const app = express();
 
   app.use(express.json());
+  app.use(WinstonLogger);
+
+  // Parse header to get current user info
   app.use(parseUserInfo);
+
+  // Init GCP PubSub service
   app.use(pubsub);
+
+  // Init postgraphile
   app.use(postgraphile);
+
+  app.use((err, req, res, next) => {
+    req.logger("index").error(err.stack);
+    return res.send(err);
+  });
+
   app.listen(PORT, () => {
     // eslint-disable-next-line no-console
     console.log(`🚀 Companies service started at http://localhost:${PORT}`);

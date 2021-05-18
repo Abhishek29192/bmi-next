@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ES5", "ES6", "ESNext", "DOM", "ES2019"],
+    "moduleResolution": "node",
+    "declaration": true,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "target": "es6",
+    "inlineSourceMap": true,
+    "baseUrl": ".",
+    "rootDirs": ["src"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types",
+      "../../node_modules/@types",
+      "../../@types"
+    ]
+  },
+  "exclude": ["**/dist/**"]
+}
