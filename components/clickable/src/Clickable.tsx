@@ -3,10 +3,10 @@ import React, { forwardRef, MouseEvent } from "react";
 type ClickFunction = (
   event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
 ) => void;
-type Default = { onClick?: ClickFunction };
-type DownloadLink = { href: string; download?: string | boolean };
-type HtmlLink = { href: string; target?: string; rel?: string };
-type RouterLink = { to: string; linkComponent: React.ElementType };
+export type Default = { onClick?: ClickFunction };
+export type DownloadLink = { href: string; download?: string | boolean };
+export type HtmlLink = { href: string; target?: string; rel?: string };
+export type RouterLink = { to: string; linkComponent: React.ElementType };
 
 export type ClickableAction =
   | ({ model?: "default" } & Default)

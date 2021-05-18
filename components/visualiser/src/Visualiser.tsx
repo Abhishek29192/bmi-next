@@ -5,7 +5,8 @@ import React, {
   ReactNode,
   useRef,
   RefObject,
-  useCallback
+  useCallback,
+  Dispatch
 } from "react";
 import { ClickableAction } from "@bmi/anchor-link";
 import Button from "@bmi/button";
@@ -53,11 +54,14 @@ type Props = {
   contentSource: string;
   open: boolean;
   onClose: () => any;
-  getProductLinkAction?: (variantCode: string) => any;
   onChange?: (params: Partial<Parameters & { isOpen: boolean }>) => void;
   shareWidget?: React.ReactNode;
-  onEventClick: (
-    params: Partial<Parameters> & { id: string; label: string }
+  onClick: (
+    params: Partial<Parameters> & {
+      type: string;
+      label: string;
+      data?: Record<string, any>;
+    }
   ) => void;
 } & Parameters;
 
@@ -78,8 +82,11 @@ type TileSectorDialogProps = {
   contentSource: string;
   open: boolean;
   onCloseClick: (isTileSelectorOpen: boolean) => void;
-  onConfirmClick: (data: { tileId: string; colourId: string }) => void;
-  onEventClick: (event: { id: string; label: string }) => void;
+  onButtonClick: (data: {
+    tileId: number;
+    colourId: number;
+    label: string;
+  }) => void;
   tiles: any;
 };
 
@@ -88,13 +95,15 @@ const Actions = ({
   toggleSidingsSelector,
   setViewMode,
   viewMode,
-  onEventClick
+  onButtonClick
 }: {
-  toggleTileSelector: (isTileSelectorOpen: boolean) => void;
-  toggleSidingsSelector: (isSidingsSelectorOpen: boolean) => void;
+  toggleTileSelector: Dispatch<(previousTileSelectorOpen: boolean) => boolean>;
+  toggleSidingsSelector: Dispatch<
+    (previousSidingsSelectorOpen: boolean) => boolean
+  >;
   setViewMode: (data: { viewMode: Props["viewMode"] }) => void;
   viewMode: Props["viewMode"];
-  onEventClick: (event: { id: string; label: string }) => void;
+  onButtonClick: (data: { type: string; label: string }) => void;
 }) => {
   return (
     <nav className={styles["actions"]}>
@@ -102,7 +111,15 @@ const Actions = ({
         hasDarkBackground
         variant="text"
         startIcon={<SvgIcon component={TileColour} />}
-        onClick={toggleTileSelector}
+        onClick={() => {
+          toggleTileSelector(
+            (previousTileSelectorOpen) => !previousTileSelectorOpen
+          );
+          onButtonClick({
+            type: "bottom-menu",
+            label: "Velg produkt"
+          });
+        }}
       >
         Velg produkt
       </Button>
@@ -111,7 +128,15 @@ const Actions = ({
         variant="text"
         startIcon={<SvgIcon component={SelectWallColour} />}
         disabled={viewMode !== "roof"}
-        onClick={toggleSidingsSelector}
+        onClick={() => {
+          toggleSidingsSelector(
+            (previousSidingsSelectorOpen) => !previousSidingsSelectorOpen
+          );
+          onButtonClick({
+            type: "bottom-menu",
+            label: "Farge på vegg"
+          });
+        }}
       >
         Farge på vegg
       </Button>
@@ -122,8 +147,8 @@ const Actions = ({
           startIcon={<SvgIcon component={SelectRoof} />}
           onClick={() => {
             setViewMode({ viewMode: "roof" });
-            onEventClick({
-              id: "visualiser1-bottom-menu",
+            onButtonClick({
+              type: "bottom-menu",
               label: "Vis produktet på en bolig"
             });
           }}
@@ -138,8 +163,8 @@ const Actions = ({
           startIcon={<SvgIcon component={SelectTile} />}
           onClick={() => {
             setViewMode({ viewMode: "tile" });
-            onEventClick({
-              id: "visualiser1-bottom-menu",
+            onButtonClick({
+              type: "bottom-menu",
               label: "Kun produktet"
             });
           }}
@@ -162,7 +187,7 @@ const SelectionOptions = ({
   defaultValue: string;
   products: TileProps[];
   title: string;
-  onClick: (tileId: number, colourId: number, label: string) => any;
+  onClick: (data: { tileId: number; colourId: number; label: string }) => any;
 }) => {
   return (
     <div className={styles["select-options"]}>
@@ -180,7 +205,13 @@ const SelectionOptions = ({
                 size: "128",
                 contentSource
               })}
-              onClick={() => onClick(id, colour.id, `${name} + ${colour.name}`)}
+              onClick={() =>
+                onClick({
+                  tileId: id,
+                  colourId: colour.id,
+                  label: `${name} + ${colour.name}`
+                })
+              }
               className={classnames({
                 [styles["active-selection-option"]]:
                   defaultValue === `${id}-${colour.id}`
@@ -204,8 +235,7 @@ const TileSectorDialog = ({
   contentSource,
   open,
   onCloseClick,
-  onConfirmClick,
-  onEventClick,
+  onButtonClick,
   tiles
 }: TileSectorDialogProps) => {
   const productProps = useMemo(
@@ -219,12 +249,6 @@ const TileSectorDialog = ({
   const productPropsGroupedByMaterial = groupBy(productProps, "material");
 
   const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
-
-  const onClick = (tileId, colourId, label) => {
-    onConfirmClick({ tileId, colourId });
-    onCloseClick(false);
-    onEventClick({ id: "visualiser1-product-selector", label });
-  };
 
   return (
     <ContainerDialog
@@ -261,7 +285,7 @@ const TileSectorDialog = ({
           key={`material-group-${key}`}
           title={MATERIAL_NAME_MAP[key]}
           products={productPropsGroupedByMaterial[key]}
-          onClick={onClick}
+          onClick={onButtonClick}
         />
       ))}
     </ContainerDialog>
@@ -275,7 +299,7 @@ const SidingsSelectorDialog = ({
   sidings,
   contentSource,
   onConfirmClick,
-  onEventClick
+  onClick
 }: {
   open: boolean;
   onCloseClick: (isSidingsSelectorOpen: boolean) => void;
@@ -283,7 +307,7 @@ const SidingsSelectorDialog = ({
   sidings: SidingProps[];
   contentSource: string;
   onConfirmClick: (data: { sidingId: number }) => void;
-  onEventClick: (event: { id: string; label: string }) => void;
+  onClick: (event: { type: string; label: string }) => void;
 }) => {
   return (
     <ContainerDialog
@@ -322,7 +346,10 @@ const SidingsSelectorDialog = ({
               onClick={() => {
                 onConfirmClick({ sidingId: id });
                 onCloseClick(false);
-                onEventClick({ id: "visualiser1-wall-selector", label: name });
+                onClick({
+                  type: "wall-selector",
+                  label: name
+                });
               }}
               className={classnames({
                 [styles["active-selection-option"]]: activeSiding.id === id
@@ -403,13 +430,14 @@ const Visualiser = ({
   sidings,
   shareWidget,
   onClose,
-  getProductLinkAction,
   onChange,
-  onEventClick
+  onClick
 }: Props) => {
-  const [isTileSelectorOpen, setIsTileSelectorOpen] = useState(false);
-  const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isTileSelectorOpen, setIsTileSelectorOpen] = useState<boolean>(false);
+  const [isSidingsSelectorOpen, setIsSidingsSelectorOpen] = useState<boolean>(
+    false
+  );
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const header = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
 
@@ -446,17 +474,18 @@ const Visualiser = ({
     onClose();
   };
 
-  const handleOnEventClick = useCallback(
-    ({ id, label }) => {
+  const handleOnClick = useCallback(
+    ({ type, label, data }) => {
       const { tileId, colourId, sidingId, viewMode } = stateRef.current;
 
-      onEventClick({
+      onClick({
         colourId,
         sidingId,
         tileId,
         viewMode,
-        id,
-        label
+        type,
+        label,
+        data
       });
     },
     [stateRef]
@@ -470,12 +499,12 @@ const Visualiser = ({
     );
   }, [tiles, state.tileId]);
 
-  const activeColour = useMemo(
-    () =>
+  const activeColour = useMemo(() => {
+    return (
       activeTile.colours.find(({ id }) => id === state.colourId) ||
-      activeTile.colours[0],
-    [activeTile, state.colourId]
-  );
+      activeTile.colours[0]
+    );
+  }, [activeTile, state.colourId]);
 
   const activeSiding = useMemo(
     () =>
@@ -532,13 +561,15 @@ const Visualiser = ({
                 {activeColour.variantCode && (
                   <CardActions>
                     <Button
-                      action={
-                        getProductLinkAction
-                          ? getProductLinkAction(activeColour.variantCode)
-                          : undefined
-                      }
                       variant="outlined"
                       endIcon={<ArrowForwardIcon />}
+                      onClick={() =>
+                        handleOnClick({
+                          type: "product-link",
+                          label: "Les mer om produktet",
+                          data: { variantCode: activeColour.variantCode }
+                        })
+                      }
                     >
                       Les mer om produktet
                     </Button>
@@ -563,9 +594,12 @@ const Visualiser = ({
           activeTile={activeTile}
           activeColour={activeColour}
           tiles={tiles}
-          onConfirmClick={setState}
           contentSource={contentSource}
-          onEventClick={handleOnEventClick}
+          onButtonClick={({ tileId, colourId, label }) => {
+            setIsTileSelectorOpen(false);
+            setState({ tileId, colourId });
+            handleOnClick({ type: "product-selector", label });
+          }}
         />
         <SidingsSelectorDialog
           open={isSidingsSelectorOpen}
@@ -574,30 +608,14 @@ const Visualiser = ({
           sidings={sidings}
           onConfirmClick={setState}
           contentSource={contentSource}
-          onEventClick={handleOnEventClick}
+          onClick={handleOnClick}
         />
         <Actions
-          toggleTileSelector={() => {
-            setIsTileSelectorOpen(
-              (wasTileSelectorOpen) => !wasTileSelectorOpen
-            );
-            handleOnEventClick({
-              id: "visualiser1-bottom-menu",
-              label: "Velg produkt"
-            });
-          }}
-          toggleSidingsSelector={() => {
-            setIsSidingsSelectorOpen(
-              (wasSidingsSelectorOpen) => !wasSidingsSelectorOpen
-            );
-            handleOnEventClick({
-              id: "visualiser1-bottom-menu",
-              label: "Farge på vegg"
-            });
-          }}
+          toggleTileSelector={setIsTileSelectorOpen}
+          toggleSidingsSelector={setIsSidingsSelectorOpen}
           viewMode={state.viewMode}
           setViewMode={setState}
-          onEventClick={handleOnEventClick}
+          onButtonClick={handleOnClick}
         />
       </div>
     </ContainerDialog>
