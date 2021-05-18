@@ -6,21 +6,9 @@ include:
   - template: Security/Secret-Detection.gitlab-ci.yml
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/head/.gitlab-ci.yml"
-  - local: "/applications/intouch/frontend/.gitlab-ci.yml"
-  - local: "/applications/intouch/api/.gitlab-ci.yml"
-  - local: "/applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml"
-  - local: "/applications/intouch/functions/gcp-generate-guarantee/.gitlab-ci.yml"
-  - local: "/applications/intouch/terraform/.gitlab-ci.yml"
+  - local: "/applications/intouch/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
-  - local: "/functions/es-pim-products-ingest/.gitlab-ci.yml"
-  - local: "/functions/gcp-apsis-integration/.gitlab-ci.yml"
-  - local: "/functions/gcp-download-zip/.gitlab-ci.yml"
-  - local: "/functions/gcp-functions-deployer/.gitlab-ci.yml"
-  - local: "/functions/gcp-firestore-writer/.gitlab-ci.yml"
-  - local: "/functions/gcp-form-submit/.gitlab-ci.yml"
-  - local: "/functions/gcp-pim-full-fetch/.gitlab-ci.yml"
-  - local: "/functions/gcp-pim-message-handler/.gitlab-ci.yml"
-  - local: "/functions/gcp-upload-file/.gitlab-ci.yml"
+  - local: "/functions/.gitlab-ci.yml"
   - remote: "https://gitlab.com/dependabot-gitlab/dependabot-standalone/-/raw/master/.gitlab-ci.yml"
 
 .sast-analyzer:
