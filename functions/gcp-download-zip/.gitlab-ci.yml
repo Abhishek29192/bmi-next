@@ -46,7 +46,8 @@ test_mr_coverage_gcp-download-zip:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-download-zip coverage:jest --changed-since=master --coverageThreshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
+    - git fetch origin master
+    - yarn workspace @bmi/gcp-download-zip coverage:jest --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
   coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 package_gcp-download-zip:
