@@ -39,7 +39,8 @@ nodejs-scan-sast:
 # Shouldn't need cache, but the codeclimate checks fail due to a potential version issue
 code_quality:
   stage: test
-  needs: []
+  needs:
+    - install
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
