@@ -45,8 +45,8 @@ const AlertBanner = ({
     <ColorPair
       theme={seveirtyToThemeMap[severity]}
       className={classnames(styles["Alert"], {
-        [styles["Alert--sticky"]]: stickyPosition !== undefined,
-        [styles[`Alert--${severity}`]]: ["error", "success"].includes(severity)
+        [styles["Alert--sticky"]!]: stickyPosition !== undefined,
+        [styles[`Alert--${severity}`]!]: ["error", "success"].includes(severity)
       })}
       style={{
         top: stickyPosition && `${stickyPosition}px`
