@@ -9,7 +9,8 @@ test_components:
         - jest/**/*
         - package.json
         - "**/package.json"
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -21,6 +22,22 @@ test_components:
       junit:
         - junit.xml
 
+test_mr_coverage_components:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - components/**/*
+        - jest/**/*
+        - package.json
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn coverage:components --changed-since=master --coverageThreshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+
 build_styleguide:
   stage: build
   rules:
@@ -29,7 +46,8 @@ build_styleguide:
         - components/**/*
         - package.json
         - "**/package.json"
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ~/.yarn
   script:

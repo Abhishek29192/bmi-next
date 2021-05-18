@@ -1,5 +1,3 @@
-image: node:12
-
 test_gcp-apsis-integration:
   stage: test
   rules:
@@ -7,7 +5,8 @@ test_gcp-apsis-integration:
       changes:
         - functions/gcp-apsis-integration/**/*
         - jest/**/*
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -19,13 +18,29 @@ test_gcp-apsis-integration:
       junit:
         - functions/gcp-apsis-integration/junit.xml
 
+test_mr_coverage_gcp-apsis-integration:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - functions/gcp-apsis-integration/**/*
+        - jest/**/*
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/gcp-apsis-integration coverage:jest --changed-since=master --coverageThreshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+
 build_gcp-apsis-integration:
   stage: build
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
       changes:
         - functions/gcp-apsis-integration/**/*
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -40,7 +55,8 @@ package_gcp-apsis-integration:
     - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
       changes:
         - functions/gcp-apsis-integration/**/*
-  needs: [build_gcp-apsis-integration]
+  needs:
+    - build_gcp-apsis-integration
   dependencies:
     - build_gcp-apsis-integration
   before_script:
@@ -62,7 +78,8 @@ deploy_gcp-apsis-integration:
       changes:
         - functions/gcp-apsis-integration/**/*
       allow_failure: true
-  needs: [package_gcp-apsis-integration]
+  needs:
+    - package_gcp-apsis-integration
   dependencies:
     - package_gcp-apsis-integration
   before_script:
