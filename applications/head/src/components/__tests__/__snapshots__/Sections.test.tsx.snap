@@ -1967,5 +1967,51 @@ HTMLCollection [
       </div>
     </div>
   </div>,
+  <div
+    id="Explore"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <nav
+            aria-labelledby="explore-bar"
+            class="ExploreBar"
+          >
+            <h2
+              class="MuiTypography-root heading Typography MuiTypography-h6"
+              id="explore-bar"
+            >
+              Explore
+            </h2>
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button link MuiButton-outlinedPrimary"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"link-to-page\\",\\"label\\":\\"string\\"}"
+              href="link-to-page"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                string
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
