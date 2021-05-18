@@ -1,3 +1,5 @@
+const { roles } = require("../../variables/roles/20210421085849");
+
 module.exports.description = "Create content model for Carousel";
 
 module.exports.up = (migration) => {
@@ -25,18 +27,11 @@ module.exports.up = (migration) => {
     });
 
   carousel
-    .createField("role")
-    .name("Role")
+    .createField("audienceRole")
+    .name("Audience Role")
     .type("Symbol")
     .required(true)
-    .validations([{ unique: true }, { in: ["TECHNICIAN", "EXECUTIVE"] }]);
-
-  carousel
-    .createField("cta")
-    .name("CTA")
-    .type("Symbol")
-    .required(true)
-    .validations([{ in: ["PROJECT", "TRAINING", "MERCHANDISE", "NONE"] }]);
+    .validations([{ unique: true }, { in: roles }]);
 
   carousel.changeFieldControl("name", "builtin", "singleLine", {
     helpText:
@@ -48,8 +43,7 @@ module.exports.up = (migration) => {
     showLinkEntityAction: true,
     showCreateEntityAction: true
   });
-  carousel.changeFieldControl("role", "builtin", "radio");
-  carousel.changeFieldControl("cta", "builtin", "radio");
+  carousel.changeFieldControl("audienceRole", "builtin", "radio");
 };
 
 module.exports.down = (migration) => migration.deleteContentType("carousel");

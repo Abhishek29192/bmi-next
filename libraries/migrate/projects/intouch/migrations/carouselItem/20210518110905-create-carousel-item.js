@@ -1,3 +1,6 @@
+const { MAX_FILE_SIZES } = require("../../variables/mediaSizes/20210222125604");
+const tiers = require("../../variables/tiers/20210222125604");
+
 module.exports.description = "Create content model for Carousel Item";
 
 module.exports.up = (migration) => {
@@ -16,24 +19,41 @@ module.exports.up = (migration) => {
     .required(true);
 
   carouselItem
-    .createField("imageSet")
-    .name("Image Set")
+    .createField("image")
+    .name("Image")
     .type("Link")
     .required(true)
     .validations([
-      { linkContentType: ["imageSet"], message: "Must point to an Image Set" }
+      { linkMimetypeGroup: ["image"] },
+      { assetFileSize: { max: MAX_FILE_SIZES.IMAGE } }
     ])
-    .linkType("Entry");
+    .linkType("Asset");
 
   carouselItem.createField("body").name("Body").type("Text").required(true);
+
+  carouselItem
+    .createField("cta")
+    .name("CTA")
+    .type("Symbol")
+    .required(true)
+    .validations([{ in: ["PROJECT", "TRAINING", "MERCHANDISE", "NONE"] }]);
+
+  carouselItem
+    .createField("audienceTiers")
+    .name("Audience Tiers")
+    .type("Array")
+    .required(true)
+    .items({ type: "Symbol", validations: [{ in: tiers }] });
 
   carouselItem.changeFieldControl("header", "builtin", "singleLine", {
     helpText: "The header for the item"
   });
-  carouselItem.changeFieldControl("imageSet", "builtin", "entryLinkEditor");
+  carouselItem.changeFieldControl("image", "builtin", "assetLinkEditor");
   carouselItem.changeFieldControl("body", "builtin", "multipleLine", {
     helpText: "The body text for the item"
   });
+  carouselItem.changeFieldControl("cta", "builtin", "radio");
+  carouselItem.changeFieldControl("audienceTiers", "builtin", "checkbox");
 };
 
 module.exports.down = (migration) =>

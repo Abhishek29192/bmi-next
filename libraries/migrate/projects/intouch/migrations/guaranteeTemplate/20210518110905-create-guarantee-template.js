@@ -181,6 +181,24 @@ module.exports.up = (migration) => {
     .type("Symbol")
     .required(true);
 
+  guaranteeTemplate
+    .createField("lockupLine1")
+    .name("Lockup Line 1")
+    .type("Symbol")
+    .required(true);
+
+  guaranteeTemplate
+    .createField("lockupLine2")
+    .name("Lockup Line 2")
+    .type("Symbol")
+    .required(true);
+
+  guaranteeTemplate
+    .createField("roofType")
+    .name("Roof Type")
+    .type("Symbol")
+    .required(true);
+
   guaranteeTemplate.changeFieldControl("displayName", "builtin", "singleLine");
   guaranteeTemplate.changeFieldControl(
     "approvalMessage",
@@ -283,6 +301,9 @@ module.exports.up = (migration) => {
     "builtin",
     "singleLine"
   );
+  guaranteeTemplate.changeFieldControl("lockupLine1", "builtin", "singleLine");
+  guaranteeTemplate.changeFieldControl("lockupLine2", "builtin", "singleLine");
+  guaranteeTemplate.changeFieldControl("roofType", "builtin", "singleLine");
 };
 
 module.exports.down = (migration) =>
