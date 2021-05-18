@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreBarSection component renders correctly 1`] = `
+<div
+  class="Section"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <nav
+        aria-labelledby="explore-bar"
+        class="ExploreBar"
+      >
+        <h2
+          class="MuiTypography-root heading Typography MuiTypography-h6"
+          id="explore-bar"
+        >
+          Lorem ipsum
+        </h2>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button link MuiButton-outlinedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            String
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button link MuiButton-outlinedPrimary"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Another string
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </nav>
+    </div>
+  </div>
+</div>
+`;
