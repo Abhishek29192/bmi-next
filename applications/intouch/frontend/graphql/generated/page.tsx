@@ -1,11 +1,11 @@
-import * as OperationTypes from "./operations";
-
 import gql from "graphql-tag";
 import { NextRouter, useRouter } from "next/router";
 import { QueryHookOptions, useQuery } from "@apollo/client";
 import * as Apollo from "@apollo/client";
 import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
+import * as OperationTypes from "./operations";
+
 export const CreateCompanyDocument = gql`
   mutation createCompany($input: CreateCompanyInput!) {
     createCompany(input: $input) {

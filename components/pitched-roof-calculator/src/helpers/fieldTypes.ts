@@ -36,20 +36,19 @@ type RangeValidatorCreator = (
   getErrorMessage?: GetErrorMessage
 ) => (value: string) => string | undefined;
 
-const rangeValidator: RangeValidatorCreator = (min, max, getErrorMessage) => (
-  value
-) => {
-  const error = numberValidator(value, getErrorMessage);
-  if (error) return error;
+const rangeValidator: RangeValidatorCreator =
+  (min, max, getErrorMessage) => (value) => {
+    const error = numberValidator(value, getErrorMessage);
+    if (error) return error;
 
-  const number = parseFloat(value);
+    const number = parseFloat(value);
 
-  if (number < min || number > max) {
-    return getErrorMessage
-      ? getErrorMessage("range", { min: min.toString(), max: max.toString() })
-      : `This number must be between ${min} and ${max}`;
-  }
-};
+    if (number < min || number > max) {
+      return getErrorMessage
+        ? getErrorMessage("range", { min: min.toString(), max: max.toString() })
+        : `This number must be between ${min} and ${max}`;
+    }
+  };
 
 export type Type = "LENGTH" | "PROTRUSION_LENGTH" | "PITCH";
 

@@ -149,9 +149,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -175,9 +173,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -206,9 +202,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -237,9 +231,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -273,9 +265,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
       { method: "POST" }
     );
@@ -306,9 +296,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -350,9 +338,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -414,9 +400,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -495,9 +479,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -528,8 +510,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
       {
-        body:
-          '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
+        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
         headers: {
           Accept: "application/json",
           Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
@@ -594,9 +575,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -627,8 +606,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
       {
-        body:
-          '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
+        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${oAuthToken}`,
@@ -640,8 +618,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
       {
-        body:
-          '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
+        body: '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${oAuthToken}`,
@@ -709,9 +686,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -742,8 +717,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
       {
-        body:
-          '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
+        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${oAuthToken}`,
@@ -755,8 +729,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
       {
-        body:
-          '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
+        body: '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
         headers: {
           Accept: "application/json",
           Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
@@ -821,9 +794,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -854,8 +825,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
       {
-        body:
-          '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
+        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${oAuthToken}`,
@@ -867,8 +837,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
       {
-        body:
-          '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
+        body: '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
         headers: {
           Accept: "application/json",
           Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
@@ -934,9 +903,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(
-      fetchMock
-    ).toBeCalledWith(
+    expect(fetchMock).toBeCalledWith(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -967,8 +934,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
       {
-        body:
-          '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
+        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${oAuthToken}`,
@@ -980,8 +946,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
       {
-        body:
-          '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
+        body: '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
         headers: {
           Accept: "application/json",
           Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",

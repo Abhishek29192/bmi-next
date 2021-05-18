@@ -107,9 +107,8 @@ const DesktopDocumentTechnicalTableResults = ({
           (asset): asset is PIMDocumentData =>
             asset.__typename === "PIMDocument"
         );
-        const assetFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-          pimDocumentAssets
-        );
+        const assetFileCountMap: AssetUniqueFileCountMap =
+          createAssetFileCountMap(pimDocumentAssets);
         const documents = pimDocumentAssets.map((asset, index) => ({
           href: asset.url,
           name:

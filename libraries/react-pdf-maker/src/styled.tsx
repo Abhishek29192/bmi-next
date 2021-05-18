@@ -11,8 +11,7 @@ const calculateStyle = (style, props) => {
 };
 
 // eslint-disable-next-line react/display-name
-const styled = (Component) => (style) => (props) => (
-  <Component {...calculateStyle(style, props)} {...props} />
-);
+const styled = (Component) => (style) => (props) =>
+  <Component {...calculateStyle(style, props)} {...props} />;
 
 export default styled;

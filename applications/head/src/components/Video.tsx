@@ -18,14 +18,8 @@ const Video = ({ data }: { data: Data }) => {
 };
 
 export const renderVideo = (data: Data) => {
-  const {
-    label,
-    subtitle,
-    youtubeId,
-    previewMedia,
-    videoRatio,
-    className
-  } = data;
+  const { label, subtitle, youtubeId, previewMedia, videoRatio, className } =
+    data;
 
   return (
     <YoutubeVideo

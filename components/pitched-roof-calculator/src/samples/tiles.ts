@@ -117,16 +117,14 @@ const ZandaArktis: MainTile = {
             length: 10
           },
           leftStart: {
-            code:
-              "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
+            code: "849702122_Zanda_Protector_verge_metal_flush_black_left_start",
             name: "Zanda_Protector_verge metal flush black left start",
             externalProductCode: "86035763",
             image: demoImage,
             length: 10
           },
           rightStart: {
-            code:
-              "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
+            code: "849702122_Zanda_Protector_verge_metal_flush_black_right_start",
             name: "Zanda_Protector_verge metal flush black right start",
             externalProductCode: "86035764",
             image: demoImage,

@@ -29,9 +29,8 @@ describe("DocumentFileUtils Tests", () => {
   describe("createAssetFileCountMap Tests", () => {
     describe("When Assets are empty", () => {
       it("returns empty unique File Count Map", () => {
-        const resultFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-          []
-        );
+        const resultFileCountMap: AssetUniqueFileCountMap =
+          createAssetFileCountMap([]);
         expect(resultFileCountMap).toEqual({
           uniqueFileMap: {},
           fileIndexCount: []
@@ -48,9 +47,8 @@ describe("DocumentFileUtils Tests", () => {
             "file3.pdf",
             "file4.pdf"
           ]);
-          const resultFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-            assets
-          );
+          const resultFileCountMap: AssetUniqueFileCountMap =
+            createAssetFileCountMap(assets);
           expect(resultFileCountMap).toEqual({
             uniqueFileMap: {
               "file1.pdf": 1,
@@ -71,9 +69,8 @@ describe("DocumentFileUtils Tests", () => {
             "file2.pdf",
             "file2.pdf"
           ]);
-          const resultFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-            assets
-          );
+          const resultFileCountMap: AssetUniqueFileCountMap =
+            createAssetFileCountMap(assets);
           expect(resultFileCountMap).toEqual({
             uniqueFileMap: { "file1.pdf": 2, "file2.pdf": 2 },
             fileIndexCount: [1, 2, 1, 2]
@@ -91,9 +88,8 @@ describe("DocumentFileUtils Tests", () => {
             "file-title3",
             "file-title4"
           ]);
-          const resultFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-            assets
-          );
+          const resultFileCountMap: AssetUniqueFileCountMap =
+            createAssetFileCountMap(assets);
           expect(resultFileCountMap).toEqual({
             uniqueFileMap: {
               "file-title1.pdf": 1,
@@ -114,9 +110,8 @@ describe("DocumentFileUtils Tests", () => {
             "file-title1",
             "file-title2"
           ]);
-          const resultFileCountMap: AssetUniqueFileCountMap = createAssetFileCountMap(
-            assets
-          );
+          const resultFileCountMap: AssetUniqueFileCountMap =
+            createAssetFileCountMap(assets);
           expect(resultFileCountMap).toEqual({
             uniqueFileMap: {
               "file-title1.pdf": 2,

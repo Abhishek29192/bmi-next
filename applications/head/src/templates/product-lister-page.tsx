@@ -111,9 +111,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     });
   };
 
-  const resolvedFilters = useMemo(() => resolveFilters(data.productFilters), [
-    data.productFilters
-  ]);
+  const resolvedFilters = useMemo(
+    () => resolveFilters(data.productFilters),
+    [data.productFilters]
+  );
   const [filters, setFilters] = useState(resolvedFilters);
 
   const [page, setPage] = useState(0);

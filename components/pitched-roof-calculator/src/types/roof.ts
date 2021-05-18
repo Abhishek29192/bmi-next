@@ -15,11 +15,10 @@ export type DimensionsFieldsValues<Fields extends string> = {
   [F in Fields]: string;
 };
 
-export type ProtrusionDimensionsFieldsValues<
-  Fields extends string
-> = DimensionsFieldsValues<Fields> & {
-  roofPitch: string;
-};
+export type ProtrusionDimensionsFieldsValues<Fields extends string> =
+  DimensionsFieldsValues<Fields> & {
+    roofPitch: string;
+  };
 
 export type Point = { x: number; y: number };
 

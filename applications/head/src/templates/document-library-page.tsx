@@ -281,35 +281,33 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   };
 
   // Largely similar to product-lister-page.tsx
-  const handleFiltersChange = (resetDownloadList) => async (
-    filterName,
-    filterValue,
-    checked
-  ) => {
-    const addToArray = (array, value) => [...array, value];
-    const removeFromArray = (array, value) => array.filter((v) => v !== value);
-    const getNewValue = (filter, checked, value) => {
-      return checked
-        ? addToArray(filter.value || [], filterValue)
-        : removeFromArray(filter.value || [], filterValue);
-    };
-
-    let newFilters = filters.map((filter) => {
-      return {
-        ...filter,
-        value:
-          filter.name === filterName
-            ? getNewValue(filter, checked, filterValue)
-            : filter.value
+  const handleFiltersChange =
+    (resetDownloadList) => async (filterName, filterValue, checked) => {
+      const addToArray = (array, value) => [...array, value];
+      const removeFromArray = (array, value) =>
+        array.filter((v) => v !== value);
+      const getNewValue = (filter, checked, value) => {
+        return checked
+          ? addToArray(filter.value || [], filterValue)
+          : removeFromArray(filter.value || [], filterValue);
       };
-    });
 
-    // NOTE: If filters change, we reset pagination to first page
-    await fakeSearch(initialDocuments, newFilters, 1);
+      let newFilters = filters.map((filter) => {
+        return {
+          ...filter,
+          value:
+            filter.name === filterName
+              ? getNewValue(filter, checked, filterValue)
+              : filter.value
+        };
+      });
 
-    resetDownloadList();
-    setFilters(newFilters);
-  };
+      // NOTE: If filters change, we reset pagination to first page
+      await fakeSearch(initialDocuments, newFilters, 1);
+
+      resetDownloadList();
+      setFilters(newFilters);
+    };
 
   const clearFilters = () => {
     // TODO: util function to "reset filters object"?

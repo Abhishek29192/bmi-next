@@ -219,21 +219,18 @@ const SearchTabPanelDocuments = (props: Props) => {
     setFilters(newFilters);
   };
 
-  const handleFiltersChange = (resetDownloadList) => (
-    filterName,
-    filterValue,
-    checked
-  ) => {
-    const newFilters = updateFilterValue(
-      filters,
-      filterName,
-      filterValue,
-      checked
-    );
+  const handleFiltersChange =
+    (resetDownloadList) => (filterName, filterValue, checked) => {
+      const newFilters = updateFilterValue(
+        filters,
+        filterName,
+        filterValue,
+        checked
+      );
 
-    resetDownloadList();
-    onFiltersChange(newFilters);
-  };
+      resetDownloadList();
+      onFiltersChange(newFilters);
+    };
 
   const clearFilters = () => {
     const newFilters = clearFilterValues(filters);

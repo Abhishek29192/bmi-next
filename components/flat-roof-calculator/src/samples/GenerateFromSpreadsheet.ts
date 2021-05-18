@@ -27,15 +27,17 @@ const mapRows = (data, cb, isValid = isNonEmptyFirstCell) => {
   return result;
 };
 
-const oneOf = (...options) => (value) => {
-  if (!options.includes(value + "")) {
-    throw new Error(
-      `Value must be one of ${options.map((i) => i + "").join(", ")}`
-    );
-  }
+const oneOf =
+  (...options) =>
+  (value) => {
+    if (!options.includes(value + "")) {
+      throw new Error(
+        `Value must be one of ${options.map((i) => i + "").join(", ")}`
+      );
+    }
 
-  return value + "";
-};
+    return value + "";
+  };
 
 const oneOfAndMap = (map) => {
   const check = oneOf(...Object.keys(map));

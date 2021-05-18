@@ -25,16 +25,17 @@ type PitchedRoofCalculatorProps = {
 const PitchedRoofCalculator = ({ isDebugging }: PitchedRoofCalculatorProps) => {
   const copy = useContext(MicroCopyContext);
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<
-    | "select-roof"
-    | "enter-dimensions"
-    | "select-tile"
-    | "select-variant"
-    | "tile-options"
-    | "select-underlay"
-    | "guttering"
-    | "your-solution-contains"
-  >("select-roof");
+  const [selected, setSelected] =
+    useState<
+      | "select-roof"
+      | "enter-dimensions"
+      | "select-tile"
+      | "select-variant"
+      | "tile-options"
+      | "select-underlay"
+      | "guttering"
+      | "your-solution-contains"
+    >("select-roof");
   const [roof, setRoof] = useState<Roof | null>(null);
   const [dimensions, setDimensions] = useState<DimensionsValues>({});
   const [tile, setTile] = useState(null);

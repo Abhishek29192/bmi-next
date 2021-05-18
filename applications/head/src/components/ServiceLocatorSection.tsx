@@ -88,9 +88,8 @@ const IntegratedLinkCard = ({
   ...rest
 }: LinkCardProps) => {
   const linkCardElement = useRef<HTMLElement>(null);
-  const [hasCardExpansionCompleted, setCardExpansionCompleted] = useState(
-    false
-  );
+  const [hasCardExpansionCompleted, setCardExpansionCompleted] =
+    useState(false);
 
   if (isOpen && linkCardElement.current && hasCardExpansionCompleted) {
     linkCardElement.current.parentElement.scrollTo({
@@ -126,9 +125,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
-  const userQueryString = useMemo(() => params.get(QUERY_CHIP_FILTER_KEY), [
-    params
-  ]);
+  const userQueryString = useMemo(
+    () => params.get(QUERY_CHIP_FILTER_KEY),
+    [params]
+  );
   const [uniqueRoofTypeByData, setUniqueRoofTypeByData] = useState([]);
   const [isUserAction, setUserAction] = useState(false);
 
@@ -204,12 +204,13 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     }
   }, [activeFilters]);
 
-  const [userPosition, setUserPosition] = useState<
-    | undefined
-    | {
-        location: GoogleLatLngLiteral;
-      }
-  >();
+  const [userPosition, setUserPosition] =
+    useState<
+      | undefined
+      | {
+          location: GoogleLatLngLiteral;
+        }
+    >();
 
   const initialise = async () => {
     await loadGoogleApi(process.env.GATSBY_GOOGLE_API_KEY, [
