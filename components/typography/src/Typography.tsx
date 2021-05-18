@@ -20,12 +20,24 @@ export type Props = Omit<TypographyProps, "variant"> & {
     | "card";
 };
 
-const variantMap = {
-  default: "body1",
-  lead: "body2",
-  hero: "body2",
-  body3: "body2",
-  card: "body2"
+const getTypographyVariant = (
+  variant?: Props["variant"]
+): TypographyProps["variant"] => {
+  if (!variant) {
+    return undefined;
+  }
+
+  switch (variant) {
+    case "default":
+      return "body1";
+    case "lead":
+    case "hero":
+    case "body3":
+    case "card":
+      return "body2";
+    default:
+      return variant;
+  }
 };
 
 const Typography = ({
@@ -37,11 +49,11 @@ const Typography = ({
   ...props
 }: Props) => (
   <MaterialTypography
-    variant={variantMap[variant] || variant}
+    variant={getTypographyVariant(variant)}
     className={classnames(className, styles["Typography"], {
-      [styles["Typography--underline"]]:
-        hasUnderline && ["h1", "h2", "h3", "h4"].includes(variant),
-      [styles["body3"]]: variant === "body3" || variant === "card",
+      [styles["Typography--underline"]!]:
+        hasUnderline && variant && ["h1", "h2", "h3", "h4"].includes(variant),
+      [styles["body3"]!]: variant === "body3" || variant === "card",
       "no-clamp": noClamp
     })}
     {...props}
