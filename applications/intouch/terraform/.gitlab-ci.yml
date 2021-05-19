@@ -27,7 +27,7 @@ apply_terraform:
   needs: [plan_terraform]
   stage: deploy
   rules:
-        - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/terraform/*
         - applications/intouch/terraform/**/*
