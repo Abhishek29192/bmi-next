@@ -1,4 +1,4 @@
-import { Guarantee, GuaranteeType } from "@bmi/intouch-shared-types";
+import { Guarantee, GuaranteeType } from "@bmi/intouch-api-types";
 import { base64_encode } from "../src/util/imageUtil";
 
 const guaranteeTypeData: GuaranteeType = {

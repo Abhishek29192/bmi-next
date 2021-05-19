@@ -1,7 +1,3 @@
-export type GuaranteeQuery = {
-  guarantee: Guarantee;
-};
-
 export type Guarantee = {
   id: number;
   status: string;

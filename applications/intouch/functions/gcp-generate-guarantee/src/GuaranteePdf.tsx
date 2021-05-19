@@ -1,11 +1,7 @@
 import { PDFDocument as PdfLibDocument } from "pdf-lib";
 import * as React from "react";
 import { pdf } from "react-pdf-maker";
-import {
-  Guarantee,
-  GuaranteeTemplate,
-  GuaranteeFileType
-} from "@bmi/intouch-shared-types";
+import { Guarantee, GuaranteeTemplate } from "@bmi/intouch-api-types";
 import { vfs } from "./vfs_fonts";
 import { PdfDocument } from "./components";
 import { buffer_encode, toArrayBuffer } from "./util/bufferUtil";
@@ -17,6 +13,12 @@ const fonts = {
     bold: "Roboto-Regular.ttf"
   }
 };
+
+export type GuaranteeFileType = {
+  name: string;
+  data: Uint8Array;
+};
+
 export default class GuaranteePdf {
   readonly guaranteeData: Guarantee;
   constructor(guaranteeData: Guarantee) {

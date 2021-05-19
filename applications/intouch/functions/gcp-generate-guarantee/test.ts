@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { resolve } from "path";
-import { getGuarantee } from "./mocks/data";
+import { getGuarantee } from "./mocks";
 import GuaranteePdf from "./src/GuaranteePdf";
 import { sendGuaranteePdf } from "./";
 
