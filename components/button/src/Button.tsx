@@ -48,9 +48,10 @@ const Button = ({
         styles["IconButton"],
         styles[`IconButton--${size || "medium"}`],
         {
-          [styles[`IconButton--${variant}`]]: variant,
-          [styles["IconButton--disabled"]]: disabled,
-          [styles["IconButton--dark-background"]]: hasDarkBackground
+          // TODO: Handle variant being undefined
+          [styles[`IconButton--${variant}`]!]: variant,
+          [styles["IconButton--disabled"]!]: disabled,
+          [styles["IconButton--dark-background"]!]: hasDarkBackground
         },
         className
       )}
@@ -60,10 +61,10 @@ const Button = ({
     >
       {children}
     </MaterialIconButton>
-  ) : (
+  ) : component ? (
     <MaterialButton
       className={classnames(styles["Button"], className, {
-        [styles["Button--dark-background"]]: hasDarkBackground
+        [styles["Button--dark-background"]!]: hasDarkBackground
       })}
       variant={variant}
       color={color}
@@ -74,6 +75,9 @@ const Button = ({
     >
       {children}
     </MaterialButton>
+  ) : (
+    // TODO: What should we really do here?
+    <></>
   );
 };
 
