@@ -25,5 +25,10 @@
       "../../../../../@types"
     ]
   },
+  "references": [
+    {
+      "path": "../../../../../node_modules/@bmi/logger"
+    }
+  ],
   "exclude": ["**/dist/**"]
 }
