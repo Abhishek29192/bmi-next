@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "license": "BMI-DXB",
-  "description": "BMI InTouch Traininh GraphQL API",
+  "description": "BMI InTouch Training GraphQL API",
   "private": true,
   "scripts": {
     "start": "node dist/index.js",
