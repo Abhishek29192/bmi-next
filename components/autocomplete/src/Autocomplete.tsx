@@ -4,7 +4,8 @@ import Icon, { iconMap, IconName } from "@bmi/icon";
 import Typography from "@bmi/typography";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import MuiAutocomplete, {
-  AutocompleteProps
+  AutocompleteProps,
+  AutocompleteRenderInputParams
 } from "@material-ui/lab/Autocomplete";
 import parse from "autosuggest-highlight/parse";
 import React from "react";
@@ -36,7 +37,7 @@ const Autocomplete = ({
   startAdornmentIcon,
   ...props
 }: Props) => {
-  const mapParams = (params) => {
+  const mapParams = (params: AutocompleteRenderInputParams) => {
     if (!startAdornmentIcon) {
       return params;
     }
