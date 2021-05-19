@@ -8,9 +8,11 @@ import filesize from "filesize";
 import { get } from "lodash";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
+import {
+  PIMDocumentData,
+  PIMLinkDocumentData
+} from "../components/types/PIMDocumentBase";
 import { Data as DocumentData } from "./Document";
-import { Data as PIMDocumentData } from "./PIMDocument";
-import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import { SiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
 import { Format } from "./types";

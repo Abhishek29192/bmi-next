@@ -2,7 +2,7 @@ import React from "react";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
 import { getValidFeatures } from "../utils/product-details-transforms";
-import { Classification } from "./ProductBaseTypes";
+import { Classification } from "./types/ProductBaseTypes";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import styles from "./styles/ProductTechnicalSpec.module.scss";
 

@@ -11,13 +11,12 @@ import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { SiteContext } from "./Site";
-import { Data as PIMDocumentData } from "./PIMDocument";
-import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
-import { Classification } from "./ProductBaseTypes";
+import { Classification } from "./types/ProductBaseTypes";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 
 const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;

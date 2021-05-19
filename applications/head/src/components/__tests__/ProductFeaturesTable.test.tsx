@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import ProductFeaturesTable from "../ProductFeaturesTable";
-import { ClassificationFeature } from "../ProductBaseTypes";
+import { ClassificationFeature } from "../types/ProductBaseTypes";
 
 describe("ProductFeaturesTable component", () => {
   describe("Renders correctly", () => {

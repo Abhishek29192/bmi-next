@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import ProductTechnicalSpec from "../ProductTechnicalSpec";
-import { Classification } from "../ProductBaseTypes";
+import { Classification } from "../types/ProductBaseTypes";
 
 describe("ProductTechnicalSpec component", () => {
   describe("Renders correctly", () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "@bmi/table";
-import { ClassificationFeature } from "./ProductBaseTypes";
+import { ClassificationFeature } from "./types/ProductBaseTypes";
 
 type featureTableProps = {
   features: ClassificationFeature[];

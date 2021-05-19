@@ -1,6 +1,6 @@
-import { Data as BreadcrumbsData } from "../components/Breadcrumbs";
-import { Data as PIMDocumentData } from "../components/PIMDocument";
-import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
+import { BreadcrumbItem } from "./BreadcrumbTypeBase";
+import { PIMDocumentData } from "./PIMDocumentBase";
+import { PIMLinkDocumentData } from "./PIMDocumentBase";
 
 export type ClassificationFeatureValue = {
   value: string;
@@ -89,6 +89,6 @@ export type VariantOption = {
   approvalStatus: string;
   shortDescription: string;
   longDescription: string;
-  breadcrumbs: BreadcrumbsData;
+  breadcrumbs: BreadcrumbItem[];
   path: string;
 };

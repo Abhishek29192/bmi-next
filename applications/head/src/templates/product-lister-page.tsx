@@ -42,7 +42,7 @@ import {
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
-import { Product } from "../components/ProductBaseTypes";
+import { Product } from "../components/types/ProductBaseTypes";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;

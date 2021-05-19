@@ -3,12 +3,7 @@ import { graphql } from "gatsby";
 import Breadcrumbs, { Props as BreadcrumbsProps } from "@bmi/breadcrumbs";
 import { SiteContext } from "../components/Site";
 import { getClickableActionFromUrl } from "./Link";
-
-type BreadcrumbItem = {
-  id: string;
-  label: string;
-  slug: string | null;
-};
+import { BreadcrumbItem } from "./types/BreadcrumbTypeBase";
 
 export type Data = BreadcrumbItem[];
 

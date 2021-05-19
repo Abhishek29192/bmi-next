@@ -24,7 +24,7 @@ import ExploreBar from "../components/ExploreBar";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { Product } from "../components/ProductBaseTypes";
+import { Product } from "../components/types/ProductBaseTypes";
 
 export type Data = PageData & {
   productData: ProductOverviewData;

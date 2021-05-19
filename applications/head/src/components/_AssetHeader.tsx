@@ -6,10 +6,12 @@ import Tooltip from "@bmi/tooltip";
 import AnchorLink from "@bmi/anchor-link";
 import Dialog from "@bmi/dialog";
 import Button from "@bmi/button";
+import {
+  PIMDocumentData,
+  PIMLinkDocumentData
+} from "../components/types/PIMDocumentBase";
 import RichText from "./RichText";
 import { SiteContext } from "./Site";
-import { Data as PIMDocumentData } from "./PIMDocument";
-import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 
 const AssetHeader = ({

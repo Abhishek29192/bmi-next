@@ -1,13 +1,4 @@
 import { graphql } from "gatsby";
-import { PIMDocumentBase } from "./PIMDocumentBase";
-
-export type Data = PIMDocumentBase & {
-  __typename: "PIMDocument";
-  fileSize: number;
-  format: string;
-  extension: string;
-  realFileName: string;
-};
 
 export const query = graphql`
   fragment PIMDocumentFragment on PIMDocument {

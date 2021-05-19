@@ -1,4 +1,4 @@
-import { Category } from "../components/ProductBaseTypes";
+import { Category } from "../components/types/ProductBaseTypes";
 
 const createCategory = (category?: Partial<Category>): Category => ({
   name: "category-name",

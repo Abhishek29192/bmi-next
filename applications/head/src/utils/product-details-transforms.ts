@@ -5,7 +5,7 @@ import {
   ClassificationFeatureValue,
   Product,
   VariantOption
-} from "../components/ProductBaseTypes";
+} from "../components/types/ProductBaseTypes";
 
 export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
 
