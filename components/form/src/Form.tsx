@@ -48,7 +48,7 @@ const Form = ({
     setErrors((prev) => ({ ...prev, ...fieldErrors }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     setHasBeenSubmitted(true);
     if (onSubmit) {
       onSubmit(event, values);
@@ -67,7 +67,7 @@ const Form = ({
       <form
         onSubmit={handleSubmit}
         className={classnames(styles["Form"], className, {
-          [styles["Form--rightAlignButton"]]: rightAlignButton
+          [styles["Form--rightAlignButton"]!]: rightAlignButton
         })}
         {...formProps}
       >

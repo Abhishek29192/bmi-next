@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, ElementType } from "react";
 import { FormContext } from "./";
 
 export type InputValue = string | number | boolean | File[] | string[];
@@ -14,7 +14,7 @@ export type Props = {
   name: string;
 };
 
-const withFormControl = <P extends {}>(WrappedComponent) => {
+const withFormControl = <P extends {}>(WrappedComponent: ElementType<any>) => {
   const FormControl = ({
     isRequired,
     onChange,
@@ -22,14 +22,14 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     fieldIsRequiredError,
     getValidationError,
     value,
-    defaultValue = typeof value === "undefined" ? "" : undefined,
+    defaultValue = "",
     ...props
   }: Omit<P, "onChange" | "defaultValue" | "value" | "onBlur"> & Props) => {
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
     const getError = (val: InputValue) => {
       if (isRequired && !val) {
-        return fieldIsRequiredError;
+        return fieldIsRequiredError || null;
       }
       if (getValidationError && getValidationError(val)) {
         return getValidationError(val) || null;
@@ -38,9 +38,10 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     };
 
     useEffect(() => {
+      const errorMessage = getError(value || defaultValue);
       updateFormState(
         { [name]: value || defaultValue },
-        { [name]: getError(value || defaultValue) }
+        errorMessage ? { [name]: errorMessage } : {}
       );
     }, []);
 
@@ -52,7 +53,10 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     const handleChange = (val: InputValue) => {
       const errorMessage = getError(val);
       setError(errorMessage);
-      updateFormState({ [name]: val }, { [name]: errorMessage });
+      updateFormState(
+        { [name]: val },
+        errorMessage ? { [name]: errorMessage } : {}
+      );
       if (onChange) {
         onChange(val);
       }
