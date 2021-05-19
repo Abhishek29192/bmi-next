@@ -74,9 +74,9 @@ export const TextField = ({
       variant={variant === "hybrid" ? "filled" : "outlined"}
       className={classnames(
         styles["TextField"],
-        { [styles["TextField--leftAdornment"]]: leftAdornment },
+        { [styles["TextField--leftAdornment"]!]: leftAdornment },
         {
-          [styles["TextField--error"]]: error
+          [styles["TextField--error"]!]: error
         },
         className
       )}
