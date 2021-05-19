@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "license": "BMI-DXB",
+  "description": "BMI InTouch Training GraphQL API",
   "private": true,
   "scripts": {
     "start": "node dist/index.js",
@@ -10,15 +11,19 @@
     "build": "tsc -p ."
   },
   "dependencies": {
-    "@apollo/federation": "^0.21.0",
+    "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
+    "@graphile/federation": "^0.0.3",
+    "apollo-server": "^2.19.2",
     "@types/jsonwebtoken": "^8.5.0",
     "apollo-datasource-rest": "^0.10.0",
-    "apollo-server": "^2.19.2",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
+    "graphile-utils": "^4.10.0",
     "graphql": "^15.5.0",
-    "jsonwebtoken": "^8.5.1",
-    "lru-cache": "^6.0.0"
+    "pg": "^8.5.1",
+    "postgraphile": "^4.11.0",
+    "postgraphile-apollo-server": "0.1.1",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
