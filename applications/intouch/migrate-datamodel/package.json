@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/migrate-intouch-datamodel",
+  "name": "@bmi/intouch-migrate-datamodel",
   "version": "1.0.0",
   "main": "src/index.js",
   "license": "BMI-DXB",

@@ -1,0 +1,9 @@
+{
+  "company": {
+    "host": "0.0.0.0",
+    "user": "postgres",
+    "database": "postgres",
+    "password": "postgres",
+    "port": 5432
+  }
+}
