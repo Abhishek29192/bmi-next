@@ -337,6 +337,23 @@ describe("Sections component", () => {
           videoRatio: { width: 16, height: 9 },
           className: null
         }
+      },
+      {
+        __typename: "ContentfulNavigation",
+        label: "Explore",
+        links: [
+          {
+            __typename: "ContentfulLink",
+            id: "string",
+            label: "string",
+            icon: null,
+            isLabelHidden: false,
+            url: "link-to-page",
+            linkedPage: null,
+            type: "Internal",
+            parameters: null
+          }
+        ]
       }
     ];
 

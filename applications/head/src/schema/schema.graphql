@@ -757,7 +757,7 @@ type ContentfulServiceLocatorSection implements Node {
   title: String
 
   "The label for this section."
-  label: String!
+  label: String
 
   "The body for this section."
   body: ContentfulRichText
@@ -900,6 +900,7 @@ union ContentfulSection =
     ContentfulCardCollectionSection
   | ContentfulCarouselSection
   | ContentfulFormSection
+  | ContentfulNavigation
   | ContentfulTabsOrAccordionSection
   | ContentfulSyndicateSection
   | ContentfulTitleWithContent

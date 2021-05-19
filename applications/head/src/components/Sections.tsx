@@ -1,40 +1,40 @@
-import React from "react";
-import { graphql } from "gatsby";
 import TableOfContent from "@bmi/table-of-content";
-import FormSection, {
-  Data as FormSectionData
-} from "../components/FormSection";
-import TabsOrAccordionSection, {
-  Data as TabsOrAccordionSectionData
-} from "../components/TabsOrAccordionSection";
-import CarouselSection, {
-  Data as CarouselSectionData
-} from "../components/CarouselSection";
+import { graphql } from "gatsby";
+import React from "react";
 import CardCollectionSection, {
   Data as CardCollectionSectionData
-} from "../components/CardCollectionSection";
-import TitleWithContentSection, {
-  Data as TitleWithContentData
-} from "../components/TitleWithContentSection";
-import PromoSection, {
-  Data as PromoSectionData
-} from "../components/PromoSection";
-import ImageGallerySection, {
-  Data as ImageGallerySectionData
-} from "../components/ImageGallerySection";
+} from "./CardCollectionSection";
+import CarouselSection, {
+  Data as CarouselSectionData
+} from "./CarouselSection";
 import DocumentDownloadSection, {
   Data as DocumentDownloadSectionData
-} from "../components/DocumentDownloadSection";
+} from "./DocumentDownloadSection";
+import ExploreBarSection, {
+  Data as ExploreBarSectionData
+} from "./ExploreBarSection";
+import FormSection, { Data as FormSectionData } from "./FormSection";
+import ImageGallerySection, {
+  Data as ImageGallerySectionData
+} from "./ImageGallerySection";
+import PromoSection, { Data as PromoSectionData } from "./PromoSection";
 import ServiceLocatorSection, {
   Data as ServiceLocatorSectionData
-} from "../components/ServiceLocatorSection";
+} from "./ServiceLocatorSection";
 import SyndicateSection, {
   Data as SyndicateSectionData
 } from "./SyndicateSection";
+import TabsOrAccordionSection, {
+  Data as TabsOrAccordionSectionData
+} from "./TabsOrAccordionSection";
+import TitleWithContentSection, {
+  Data as TitleWithContentData
+} from "./TitleWithContentSection";
 import VideoSection, { Data as VideoSectionData } from "./VideoSection";
 import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 
 export type Data = (
+  | ExploreBarSectionData
   | FormSectionData
   | TabsOrAccordionSectionData
   | SyndicateSectionData
@@ -55,6 +55,7 @@ const sectionsMap = {
   ContentfulSyndicateSection: SyndicateSection,
   ContentfulCarouselSection: CarouselSection,
   ContentfulCardCollectionSection: CardCollectionSection,
+  ContentfulNavigation: ExploreBarSection,
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulPromo: PromoSection,
   ContentfulImageGallerySection: ImageGallerySection,
@@ -88,7 +89,11 @@ const Sections = ({
     <>
       {data.map((section, index) => {
         const Component = sectionsMap[section.__typename];
-        const { title } = section;
+        const title =
+          // TODO: Nav could do with a refactor to align title/label/name fields.
+          section.__typename === "ContentfulNavigation"
+            ? section.label
+            : section.title;
 
         if (!Component) {
           return;
@@ -120,6 +125,7 @@ export default Sections;
 export const query = graphql`
   fragment SectionsFragment on ContentfulSection {
     __typename
+    ...ExploreBarSectionFragment
     ...FormSectionFragment
     ...TabsOrAccordionSectionFragment
     ...SyndicateSectionFragment
