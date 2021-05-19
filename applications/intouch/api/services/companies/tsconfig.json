@@ -15,6 +15,9 @@
     "inlineSourceMap": true,
     "baseUrl": ".",
     "rootDirs": ["src"],
+    "paths": {
+      "@bmi/*": ["../../../../../node_modules/@bmi/*/src"]
+    },
     "typeRoots": [
       "./node_modules/@types",
       "./@types",

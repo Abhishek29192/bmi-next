@@ -14,10 +14,10 @@
     "target": "ES2019",
     "inlineSourceMap": true,
     "baseUrl": ".",
-    "rootDirs": ["./"]
-  },
-  "paths": {
-    "apollo-server": ["./node_modules/apollo-server/src"]
+    "rootDirs": ["./"],
+    "paths": {
+      "@bmi/*": ["../../../../node_modules/@bmi/*/src"]
+    }
   },
   "exclude": ["**/dist/**"]
 }
