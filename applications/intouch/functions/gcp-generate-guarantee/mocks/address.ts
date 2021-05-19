@@ -1,5 +1,5 @@
-import { Address } from "@bmi/intouch-api-types";
-import { emptyNodes } from "../utils/graphileNodes";
+import { Address, AddressType } from "@bmi/intouch-api-types";
+import { emptyNodes } from "./utils/graphileNodes";
 
 const mockAddressBoilerplate = {
   createdAt: Date.now(),
@@ -29,6 +29,7 @@ export const mockSiteAddress: Address = {
   town: "Losino-Petrovskiy",
   country: "Russia",
   postcode: "19570-005",
+  addressType: AddressType.Site,
   ...mockAddressBoilerplate
 };
 

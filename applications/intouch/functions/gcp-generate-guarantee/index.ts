@@ -1,6 +1,6 @@
 import { MailService } from "@sendgrid/mail";
 import { Guarantee } from "@bmi/intouch-api-types";
-import GuaranteePdf from "./src/GuaranteePdf";
+import GuaranteePdfGenerator from "./src/GuaranteePdf";
 
 const { SENDGRID_API_KEY, SENDGRID_FROM_MAIL } = process.env;
 
@@ -9,12 +9,12 @@ const getSendGridClient = async () => {
   sendGridClient.setApiKey(SENDGRID_API_KEY);
   return sendGridClient;
 };
-export const sendGuaranteePdf = async (postEvent: any, context: any) => {
+export const sendGuaranteePdf = async (postEvent: any) => {
   const payload: Guarantee = JSON.parse(
     Buffer.from(postEvent.data, "base64").toString()
   );
 
-  const guaranteePdf = new GuaranteePdf(payload);
+  const guaranteePdf = new GuaranteePdfGenerator(payload);
   const pdfs = await guaranteePdf.create();
 
   const attachments = await Promise.all(

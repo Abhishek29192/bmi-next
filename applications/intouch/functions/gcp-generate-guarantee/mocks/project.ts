@@ -1,6 +1,7 @@
 import { Project } from "@bmi/intouch-api-types";
-import { mockSiteAddress } from "../address/data";
-import { emptyNodes, singlePageInfo } from "../utils/graphileNodes";
+import { mockSiteAddress } from "./address";
+import { mockCompany } from "./company";
+import { emptyNodes, singlePageInfo } from "./utils/graphileNodes";
 
 export const mockProject: Project = {
   id: 2,
@@ -8,9 +9,14 @@ export const mockProject: Project = {
   name: "Lehner-Gislason",
   createdAt: Date.now(),
   updatedAt: Date.now(),
+  company: mockCompany,
   guarantees: emptyNodes,
   projectMembers: emptyNodes,
   notes: emptyNodes,
+  buildingOwnerFirstname: "Herion",
+  buildingOwnerLastname: "Buildmaster",
+  buildingOwnerMail: "owner@building.com",
+  roofArea: 50,
   addresses: {
     edges: [],
     nodes: [mockSiteAddress],

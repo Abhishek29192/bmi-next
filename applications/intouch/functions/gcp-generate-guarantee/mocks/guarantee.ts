@@ -1,13 +1,11 @@
 import { Guarantee, RequestStatus } from "@bmi/intouch-api-types";
-import { mockGuaranteeType } from "../guaranteeType/data";
-import { mockGuaranteedProducts } from "../product/data";
-import { mockProject } from "../project/data";
-import { emptyNodes, singlePageInfo } from "../utils/graphileNodes";
-
-const mockGuaranteeId = 1;
+import { mockGuaranteeType } from "./guaranteeType";
+import { mockGuaranteedProducts } from "./product";
+import { mockProject } from "./project";
+import { emptyNodes, singlePageInfo } from "./utils/graphileNodes";
 
 export const mockGuarantee: Guarantee = {
-  id: mockGuaranteeId,
+  id: 1,
   status: RequestStatus.Approved,
   nodeId: "WyJndWFyYW50ZWVzIiwxXQ==",
   pdf: "http://www.africau.edu/images/default/sample.pdf",

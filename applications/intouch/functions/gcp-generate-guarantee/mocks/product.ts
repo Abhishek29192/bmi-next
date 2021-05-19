@@ -1,5 +1,5 @@
 import { GuaranteedProduct, Product, Technology } from "@bmi/intouch-api-types";
-import { emptyNodes } from "../utils/graphileNodes";
+import { emptyNodes } from "./utils/graphileNodes";
 
 const mockProductBoilerplate = {
   createdAt: Date.now(),

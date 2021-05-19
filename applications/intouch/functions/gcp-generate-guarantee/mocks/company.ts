@@ -1,7 +1,7 @@
 import { Company } from "@bmi/intouch-api-types";
-import { mockCompanyAddress } from "../address/data";
-import { mockProject } from "../project/data";
-import { emptyNodes, singlePageInfo } from "../utils/graphileNodes";
+import { mockCompanyAddress } from "./address";
+import { mockProject } from "./project";
+import { emptyNodes, singlePageInfo } from "./utils/graphileNodes";
 
 export const mockCompany: Company = {
   id: 2,

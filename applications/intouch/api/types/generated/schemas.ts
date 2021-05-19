@@ -2025,27 +2025,108 @@ export enum ContentArticleOrder {
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
-export type ContentfulGuaranteeType = {
-  __typename?: "ContentfulGuaranteeType";
-  name?: Maybe<Scalars["String"]>;
-  displayName?: Maybe<Scalars["String"]>;
-  technology?: Maybe<Scalars["String"]>;
-  coverage?: Maybe<Scalars["String"]>;
-  signature?: Maybe<ContentfulSignature>;
-  guaranteeTemplatesCollection?: Maybe<GuaranteeTemplatesCollection>;
-};
-
-export type ContentfulLogo = {
-  __typename?: "ContentfulLogo";
+export type ContentfulAsset = {
+  __typename?: "ContentfulAsset";
   title?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-};
-
-export type ContentfulMaintenanceTemplate = {
-  __typename?: "ContentfulMaintenanceTemplate";
+  description?: Maybe<Scalars["String"]>;
+  contentType?: Maybe<Scalars["String"]>;
   fileName?: Maybe<Scalars["String"]>;
   url?: Maybe<Scalars["String"]>;
 };
+
+export type ContentfulEvidenceCategory = {
+  __typename?: "ContentfulEvidenceCategory";
+  name?: Maybe<Scalars["String"]>;
+  description?: Maybe<Scalars["String"]>;
+  minimumUploads?: Maybe<Scalars["Int"]>;
+};
+
+export enum ContentfulGuaranteeCoverageType {
+  Product = "PRODUCT",
+  System = "SYSTEM",
+  Solution = "SOLUTION"
+}
+
+export type ContentfulGuaranteeTemplate = {
+  __typename?: "ContentfulGuaranteeTemplate";
+  approvalMessage?: Maybe<ContentfulMessage>;
+  rejectionMessage?: Maybe<ContentfulMessage>;
+  terms?: Maybe<ContentfulAsset>;
+  maintenanceTemplate?: Maybe<ContentfulAsset>;
+  logo?: Maybe<ContentfulAsset>;
+  guaranteeScope?: Maybe<Scalars["String"]>;
+  signatory?: Maybe<Scalars["String"]>;
+  headingGuarantee?: Maybe<Scalars["String"]>;
+  headingScope?: Maybe<Scalars["String"]>;
+  headingProducts?: Maybe<Scalars["String"]>;
+  headingBeneficiary?: Maybe<Scalars["String"]>;
+  headingBuildingOwnerName?: Maybe<Scalars["String"]>;
+  headingBuildingAddress?: Maybe<Scalars["String"]>;
+  headingRoofArea?: Maybe<Scalars["String"]>;
+  headingRoofType?: Maybe<Scalars["String"]>;
+  headingContractor?: Maybe<Scalars["String"]>;
+  headingContractorName?: Maybe<Scalars["String"]>;
+  headingContractorId?: Maybe<Scalars["String"]>;
+  headingStartDate?: Maybe<Scalars["String"]>;
+  headingGuaranteeId?: Maybe<Scalars["String"]>;
+  headingValidity?: Maybe<Scalars["String"]>;
+  headingExpiry?: Maybe<Scalars["String"]>;
+  footer?: Maybe<Scalars["String"]>;
+  mailBody?: Maybe<Scalars["String"]>;
+  filenamePrefix?: Maybe<Scalars["String"]>;
+  lockupLine1?: Maybe<Scalars["String"]>;
+  lockupLine2?: Maybe<Scalars["String"]>;
+  roofType?: Maybe<Scalars["String"]>;
+};
+
+export type ContentfulGuaranteeTemplatesCollection = {
+  __typename?: "ContentfulGuaranteeTemplatesCollection";
+  items?: Maybe<Array<Maybe<ContentfulGuaranteeTemplate>>>;
+};
+
+export type ContentfulGuaranteeType = {
+  __typename?: "ContentfulGuaranteeType";
+  displayName?: Maybe<Scalars["String"]>;
+  technology?: Maybe<ContentfulTechnologyType>;
+  coverage?: Maybe<ContentfulGuaranteeCoverageType>;
+  name?: Maybe<Scalars["String"]>;
+  signature?: Maybe<ContentfulAsset>;
+  maximumValidityYears?: Maybe<Scalars["Int"]>;
+  tiersAvailable?: Maybe<ContentfulTiers>;
+  ranking?: Maybe<Scalars["Int"]>;
+  evidenceCategories?: Maybe<ContentfulEvidenceCategory>;
+  guaranteeTemplatesCollection?: Maybe<ContentfulGuaranteeTemplatesCollection>;
+};
+
+export type ContentfulMessage = {
+  __typename?: "ContentfulMessage";
+  event?: Maybe<ContentfulMessageEventType>;
+  format?: Maybe<ContentfulMessageFormat>;
+  subject?: Maybe<Scalars["String"]>;
+  notificationBody?: Maybe<Scalars["String"]>;
+  emailBody?: Maybe<Scalars["String"]>;
+};
+
+export enum ContentfulMessageEventType {
+  MemberInvited = "MEMBER_INVITED",
+  NewuserInvited = "NEWUSER_INVITED",
+  ProfileReminder = "PROFILE_REMINDER",
+  AdminInvited = "ADMIN_INVITED",
+  RoleAssigned = "ROLE_ASSIGNED",
+  OwnerInvited = "OWNER_INVITED",
+  RegistrationCongrats = "REGISTRATION_CONGRATS",
+  RegistrationActivated = "REGISTRATION_ACTIVATED",
+  TeamJoined = "TEAM_JOINED",
+  CertificationExpired = "CERTIFICATION_EXPIRED",
+  TierAssigned = "TIER_ASSIGNED",
+  RequestRejected = "REQUEST_REJECTED",
+  RequestApproved = "REQUEST_APPROVED"
+}
+
+export enum ContentfulMessageFormat {
+  Email = "EMAIL",
+  Notification = "NOTIFICATION"
+}
 
 export type ContentfulMetadata = {
   __typename?: "ContentfulMetadata";
@@ -2063,12 +2144,6 @@ export type ContentfulMetadataTagsFilter = {
   id_contains_none?: Maybe<Array<Maybe<Scalars["String"]>>>;
 };
 
-export type ContentfulSignature = {
-  __typename?: "ContentfulSignature";
-  fileName?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-};
-
 /**
  * Represents a tag entity for finding and organizing content easily.
  *     Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags
@@ -2079,11 +2154,18 @@ export type ContentfulTag = {
   name?: Maybe<Scalars["String"]>;
 };
 
-export type ContentfulTerms = {
-  __typename?: "ContentfulTerms";
-  fileName?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-};
+export enum ContentfulTechnologyType {
+  Flat = "FLAT",
+  Pitched = "PITCHED",
+  Other = "OTHER"
+}
+
+export enum ContentfulTiers {
+  T1 = "T1",
+  T2 = "T2",
+  T3 = "T3",
+  T4 = "T4"
+}
 
 export type Course = {
   __typename?: "Course";
@@ -4835,31 +4917,6 @@ export type GuaranteeTemplateFilter = {
   AND?: Maybe<Array<Maybe<GuaranteeTemplateFilter>>>;
 };
 
-export type GuaranteeTemplateItems = {
-  __typename?: "GuaranteeTemplateItems";
-  guaranteeScope?: Maybe<Scalars["String"]>;
-  signatory?: Maybe<Scalars["String"]>;
-  headingGuarantee?: Maybe<Scalars["String"]>;
-  headingScope?: Maybe<Scalars["String"]>;
-  headingProducts?: Maybe<Scalars["String"]>;
-  headingBeneficiary?: Maybe<Scalars["String"]>;
-  headingBuildingOwnerName?: Maybe<Scalars["String"]>;
-  headingBuildingAddress?: Maybe<Scalars["String"]>;
-  headingRoofArea?: Maybe<Scalars["String"]>;
-  headingRoofType?: Maybe<Scalars["String"]>;
-  headingContractor?: Maybe<Scalars["String"]>;
-  headingContractorName?: Maybe<Scalars["String"]>;
-  headingContractorId?: Maybe<Scalars["String"]>;
-  headingStartDate?: Maybe<Scalars["String"]>;
-  headingGuaranteeId?: Maybe<Scalars["String"]>;
-  headingValidity?: Maybe<Scalars["String"]>;
-  headingExpiry?: Maybe<Scalars["String"]>;
-  footer?: Maybe<Scalars["String"]>;
-  terms?: Maybe<ContentfulTerms>;
-  maintenanceTemplate?: Maybe<ContentfulMaintenanceTemplate>;
-  logo?: Maybe<ContentfulLogo>;
-};
-
 export type GuaranteeTemplateLinkingCollections = {
   __typename?: "GuaranteeTemplateLinkingCollections";
   entryCollection?: Maybe<EntryCollection>;
@@ -4934,11 +4991,6 @@ export enum GuaranteeTemplateOrder {
   SysPublishedVersionAsc = "sys_publishedVersion_ASC",
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
-
-export type GuaranteeTemplatesCollection = {
-  __typename?: "GuaranteeTemplatesCollection";
-  items?: Maybe<Array<Maybe<GuaranteeTemplateItems>>>;
-};
 
 /** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeType = Entry & {
