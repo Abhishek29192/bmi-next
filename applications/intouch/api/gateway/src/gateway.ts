@@ -27,12 +27,16 @@ const createGateway = async () => {
           willSendRequest({ request, context }) {
             if (context.authorization) {
               request.http.headers.set("authorization", context.authorization);
+            }
+            if (context["x-apigateway-api-userinfo"]) {
               request.http.headers.set(
                 "x-apigateway-api-userinfo",
                 context["x-apigateway-api-userinfo"]
               );
             }
-            request.http.headers.set("x-request-id", context["x-request-id"]);
+            if (context["x-request-id"]) {
+              request.http.headers.set("x-request-id", context["x-request-id"]);
+            }
           }
         });
     },
