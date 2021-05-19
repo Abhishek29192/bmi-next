@@ -4,7 +4,7 @@
   $navigation-margin: 50px;
   $navigation-top-spacing: 1rem;
   // Breakpoint overrides
-  $breakpoint-sm: 800px;
+  $breakpoint-sm: 1030px;
 
   height: 100%;
   margin: auto;
@@ -210,7 +210,7 @@
 
 .NavigationListButton {
   // Breakpoint overrides
-  $breakpoint-sm: 800px;
+  $breakpoint-sm: 1030px;
 
   color: $color-slate;
   font-size: 1rem;
