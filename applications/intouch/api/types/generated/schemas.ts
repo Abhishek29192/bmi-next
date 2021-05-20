@@ -270,37 +270,6 @@ export enum AccountsOrderBy {
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
 
-export type ActiveLanguages = {
-  __typename?: "ActiveLanguages";
-  code?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  browsercode?: Maybe<Scalars["String"]>;
-  is_rtl?: Maybe<Scalars["Boolean"]>;
-  show_create_user_button?: Maybe<Scalars["Boolean"]>;
-  authenticatorapp_pair_date?: Maybe<Scalars["String"]>;
-  has_esignature_courses_to_sign?: Maybe<Scalars["Boolean"]>;
-  is_impersonated?: Maybe<Scalars["Boolean"]>;
-  branding_elements?: Maybe<BrandingElements>;
-  oauth_clients?: Maybe<Array<Maybe<OauthClients>>>;
-  pre_populated_fields?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  pu_manage_subscription_permission?: Maybe<
-    Array<Maybe<PuManageSubscriptionPermission>>
-  >;
-  pu_manage_user_permissions?: Maybe<Array<Maybe<PuManageUserPermissions>>>;
-};
-
-export type AdditionalFields = {
-  __typename?: "AdditionalFields";
-  id?: Maybe<Scalars["String"]>;
-  title?: Maybe<Scalars["String"]>;
-  type?: Maybe<Scalars["String"]>;
-  mandatory?: Maybe<Scalars["Boolean"]>;
-  invisible_to_user?: Maybe<Scalars["Boolean"]>;
-  settings?: Maybe<Scalars["String"]>;
-  sequence?: Maybe<Scalars["Int"]>;
-  enabled?: Maybe<Scalars["Boolean"]>;
-};
-
 /** A generic address */
 export type Address = Node & {
   __typename?: "Address";
@@ -431,12 +400,6 @@ export enum AddressesOrderBy {
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
-
-export type AdminMenuItems = {
-  __typename?: "AdminMenuItems";
-  plugin_menu?: Maybe<PluginMenu>;
-  main_menu?: Maybe<MainMenu>;
-};
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type Asset = {
@@ -623,109 +586,6 @@ export enum AssetOrder {
   SysPublishedVersionAsc = "sys_publishedVersion_ASC",
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
-
-export type AvailableSeats = {
-  __typename?: "AvailableSeats";
-  allow_overbooking?: Maybe<Scalars["Int"]>;
-  level?: Maybe<Scalars["Int"]>;
-  can_enter?: Maybe<Scalars["Boolean"]>;
-  affiliate_price?: Maybe<Scalars["String"]>;
-  enrollment_policy?: Maybe<Scalars["Int"]>;
-  max_attempts?: Maybe<Scalars["Int"]>;
-  waiting_list?: Maybe<Scalars["Int"]>;
-  has_esignature_enabled?: Maybe<Scalars["Boolean"]>;
-  esignature_status?: Maybe<Scalars["String"]>;
-  esignature_title?: Maybe<Scalars["String"]>;
-  esignature_description?: Maybe<Scalars["String"]>;
-  min_session_to_pass?: Maybe<Scalars["Int"]>;
-  max_session_to_pass?: Maybe<Scalars["Int"]>;
-  has_session_completion_rule?: Maybe<Scalars["Boolean"]>;
-  ics_url?: Maybe<Scalars["String"]>;
-  category?: Maybe<Array<Maybe<CourseCategory>>>;
-  tree?: Maybe<Array<Maybe<Tree>>>;
-  sessions?: Maybe<Array<Maybe<CourseSessions>>>;
-  social_settings?: Maybe<SocialSettings>;
-};
-
-export type BackgroundImage = {
-  __typename?: "BackgroundImage";
-  url?: Maybe<Scalars["String"]>;
-  aspect_ratio?: Maybe<Scalars["String"]>;
-};
-
-export type Branch = {
-  __typename?: "Branch";
-  id?: Maybe<Scalars["String"]>;
-  code?: Maybe<Scalars["String"]>;
-  title?: Maybe<Scalars["String"]>;
-  lev?: Maybe<Scalars["String"]>;
-  iLeft?: Maybe<Scalars["String"]>;
-  iRight?: Maybe<Scalars["String"]>;
-  parent_code?: Maybe<Scalars["String"]>;
-  parent_id?: Maybe<Scalars["String"]>;
-  selection_status?: Maybe<Scalars["Int"]>;
-  selectable?: Maybe<Scalars["Int"]>;
-  has_children?: Maybe<Scalars["Boolean"]>;
-  can_manage?: Maybe<Scalars["Boolean"]>;
-  icon?: Maybe<Scalars["String"]>;
-  color?: Maybe<Scalars["String"]>;
-  tooltip?: Maybe<Scalars["String"]>;
-  actions?: Maybe<Array<Maybe<Scalars["String"]>>>;
-};
-
-export type BranchData = {
-  __typename?: "BranchData";
-  count?: Maybe<Scalars["Int"]>;
-  has_more_data?: Maybe<Scalars["Boolean"]>;
-  cursor?: Maybe<Scalars["String"]>;
-  current_page?: Maybe<Scalars["Int"]>;
-  current_page_size?: Maybe<Scalars["Int"]>;
-  total_page_count?: Maybe<Scalars["Int"]>;
-  total_count?: Maybe<Scalars["Int"]>;
-  items?: Maybe<Array<Maybe<Branch>>>;
-};
-
-export type BranchExtraData = {
-  __typename?: "BranchExtraData";
-  id?: Maybe<Scalars["Int"]>;
-  code?: Maybe<Scalars["String"]>;
-  title?: Maybe<Scalars["String"]>;
-  id_parent?: Maybe<Scalars["Int"]>;
-  title_parent?: Maybe<Scalars["String"]>;
-  lev?: Maybe<Scalars["Int"]>;
-  iLeft?: Maybe<Scalars["Int"]>;
-  iRight?: Maybe<Scalars["Int"]>;
-  is_root?: Maybe<Scalars["Boolean"]>;
-  root_node_id?: Maybe<Scalars["Int"]>;
-};
-
-export type BranchType = {
-  __typename?: "BranchType";
-  extra_data?: Maybe<BranchExtraData>;
-  data?: Maybe<BranchData>;
-};
-
-export type Branches = {
-  __typename?: "Branches";
-  id?: Maybe<Scalars["Int"]>;
-  iLeft?: Maybe<Scalars["Int"]>;
-  iRight?: Maybe<Scalars["Int"]>;
-};
-
-export type Branding = {
-  __typename?: "Branding";
-  header?: Maybe<Header>;
-  footer?: Maybe<Footer>;
-};
-
-export type BrandingElements = {
-  __typename?: "BrandingElements";
-  white_label?: Maybe<WhiteLabel>;
-  styles?: Maybe<Styles>;
-  signin?: Maybe<Signin>;
-  header?: Maybe<Header>;
-  colors?: Maybe<Colors>;
-};
 
 export enum BusinessType {
   Contractor = "CONTRACTOR",
@@ -953,117 +813,6 @@ export enum CarouselOrder {
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
-export type CatalogSettings = {
-  __typename?: "CatalogSettings";
-  catalog_type?: Maybe<Scalars["String"]>;
-  on_catalogue_empty?: Maybe<Scalars["Boolean"]>;
-  catalog_external?: Maybe<Scalars["Boolean"]>;
-  catalog_use_categories_tree?: Maybe<Scalars["Boolean"]>;
-  show_course_details_dedicated_page?: Maybe<Scalars["Boolean"]>;
-  catalog_external_selected_catalogs?: Maybe<Scalars["String"]>;
-};
-
-export type Catalogue = {
-  __typename?: "Catalogue";
-  catalogue_id?: Maybe<Scalars["Int"]>;
-  catalogue_name?: Maybe<Scalars["String"]>;
-  catalogue_description?: Maybe<Scalars["String"]>;
-  catalogue_code?: Maybe<Scalars["String"]>;
-  catalogue_sort_attr?: Maybe<Scalars["String"]>;
-  catalogue_sort_dir?: Maybe<Scalars["String"]>;
-  number_items?: Maybe<Scalars["Int"]>;
-  items_count?: Maybe<Scalars["Int"]>;
-  sub_items?: Maybe<Array<Maybe<CatalogueSubItem>>>;
-};
-
-export type CatalogueData = {
-  __typename?: "CatalogueData";
-  count?: Maybe<Scalars["Int"]>;
-  cursor?: Maybe<Scalars["String"]>;
-  has_more_data?: Maybe<Scalars["Boolean"]>;
-  current_page?: Maybe<Scalars["Int"]>;
-  current_page_size?: Maybe<Scalars["Int"]>;
-  total_page_count?: Maybe<Scalars["Int"]>;
-  total_count?: Maybe<Scalars["Int"]>;
-  sort?: Maybe<Array<Maybe<Sort>>>;
-  items?: Maybe<Array<Maybe<Catalogue>>>;
-};
-
-export type CatalogueSubItem = {
-  __typename?: "CatalogueSubItem";
-  item_id?: Maybe<Scalars["Int"]>;
-  item_type?: Maybe<Scalars["String"]>;
-  item_code?: Maybe<Scalars["String"]>;
-  item_name?: Maybe<Scalars["String"]>;
-  item_slug?: Maybe<Scalars["String"]>;
-  item_description?: Maybe<Scalars["String"]>;
-  item_category?: Maybe<Scalars["Int"]>;
-  item_language?: Maybe<Scalars["String"]>;
-  item_language_label?: Maybe<Scalars["String"]>;
-  item_thumbnail?: Maybe<Scalars["String"]>;
-  number_of_courses?: Maybe<Scalars["Int"]>;
-  item_price?: Maybe<Scalars["Int"]>;
-  item_rating_option?: Maybe<Scalars["String"]>;
-  item_rating?: Maybe<Scalars["Int"]>;
-  is_new?: Maybe<Scalars["Int"]>;
-  item_visibility?: Maybe<Scalars["Int"]>;
-  item_policy?: Maybe<Scalars["Int"]>;
-  item_can_enroll?: Maybe<Scalars["Int"]>;
-  is_opened?: Maybe<Scalars["Int"]>;
-  access_status?: Maybe<Scalars["Int"]>;
-  price_status?: Maybe<Scalars["Int"]>;
-  shopify_product_meaningful_id?: Maybe<Scalars["String"]>;
-  id_partner?: Maybe<Scalars["Int"]>;
-  affiliate_price?: Maybe<Scalars["Int"]>;
-  is_affiliate?: Maybe<Scalars["Boolean"]>;
-  can_enter?: Maybe<Scalars["Boolean"]>;
-  can_enter_reason?: Maybe<Scalars["String"]>;
-  expiration_date?: Maybe<Scalars["String"]>;
-};
-
-export type Category = {
-  __typename?: "Category";
-  id?: Maybe<Scalars["Int"]>;
-  title?: Maybe<Scalars["String"]>;
-  title_parent?: Maybe<Scalars["String"]>;
-  has_child?: Maybe<Scalars["Int"]>;
-  lev?: Maybe<Scalars["Int"]>;
-  iLeft?: Maybe<Scalars["Int"]>;
-  iRight?: Maybe<Scalars["Int"]>;
-  icon?: Maybe<Scalars["String"]>;
-};
-
-export type CategoryData = {
-  __typename?: "CategoryData";
-  count?: Maybe<Scalars["Int"]>;
-  has_more_data?: Maybe<Scalars["Boolean"]>;
-  current_page?: Maybe<Scalars["Int"]>;
-  current_page_size?: Maybe<Scalars["Int"]>;
-  total_page_count?: Maybe<Scalars["Int"]>;
-  total_count?: Maybe<Scalars["Int"]>;
-  sort?: Maybe<Array<Maybe<Sort>>>;
-  items?: Maybe<Array<Maybe<Category>>>;
-};
-
-export type CategoryExtraData = {
-  __typename?: "CategoryExtraData";
-  id?: Maybe<Scalars["Int"]>;
-  title?: Maybe<Scalars["String"]>;
-  title_parent?: Maybe<Scalars["String"]>;
-  id_parent?: Maybe<Scalars["Int"]>;
-  lev?: Maybe<Scalars["Int"]>;
-  iLeft?: Maybe<Scalars["Int"]>;
-  iRight?: Maybe<Scalars["Int"]>;
-  is_root?: Maybe<Scalars["Boolean"]>;
-  root_node_id?: Maybe<Scalars["Int"]>;
-};
-
-export type CategoryType = {
-  __typename?: "CategoryType";
-  extra_data?: Maybe<CategoryExtraData>;
-  data?: Maybe<CategoryData>;
-};
-
 /** A company that has been registered in InTouch */
 export type Certification = Node & {
   __typename?: "Certification";
@@ -1094,30 +843,6 @@ export type CertificationCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `doceboUserId` field. */
   doceboUserId?: Maybe<Scalars["Int"]>;
-};
-
-export type CertificationData = {
-  __typename?: "CertificationData";
-  count?: Maybe<Scalars["Int"]>;
-  cursor?: Maybe<Scalars["String"]>;
-  has_more_data?: Maybe<Scalars["Boolean"]>;
-  current_page?: Maybe<Scalars["Int"]>;
-  current_page_size?: Maybe<Scalars["Int"]>;
-  total_page_count?: Maybe<Scalars["Int"]>;
-  total_count?: Maybe<Scalars["Int"]>;
-  sort?: Maybe<Array<Maybe<Sort>>>;
-  items?: Maybe<Array<Maybe<CertificationInfo>>>;
-};
-
-export type CertificationInfo = {
-  __typename?: "CertificationInfo";
-  id_cert?: Maybe<Scalars["Int"]>;
-  title?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  duration?: Maybe<Scalars["String"]>;
-  allow_same_item?: Maybe<Scalars["Boolean"]>;
-  duration_unit?: Maybe<Scalars["String"]>;
-  code?: Maybe<Scalars["String"]>;
 };
 
 /** An input for mutations affecting `Certification` */
@@ -1152,26 +877,6 @@ export type CertificationPatch = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-export type CertificationReport = {
-  __typename?: "CertificationReport";
-  user_idUser?: Maybe<Scalars["String"]>;
-  user_userid?: Maybe<Scalars["String"]>;
-  user_email?: Maybe<Scalars["String"]>;
-  certification_title?: Maybe<Scalars["String"]>;
-  certification_code?: Maybe<Scalars["String"]>;
-  certification_description?: Maybe<Scalars["String"]>;
-  certification_expiration?: Maybe<Scalars["String"]>;
-  enrollment_issued_on?: Maybe<Scalars["String"]>;
-  enrollment_to_renew_in?: Maybe<Scalars["String"]>;
-  enrollment_activity_name?: Maybe<Scalars["String"]>;
-  enrollment_activity_type?: Maybe<Scalars["String"]>;
-};
-
-export type CertificationReportData = {
-  __typename?: "CertificationReportData";
-  items?: Maybe<Array<Maybe<CertificationReport>>>;
-};
-
 /** A connection to a list of `Certification` values. */
 export type CertificationsConnection = {
   __typename?: "CertificationsConnection";
@@ -1204,18 +909,6 @@ export enum CertificationsOrderBy {
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
-
-export type Colors = {
-  __typename?: "Colors";
-  mainColor?: Maybe<Scalars["String"]>;
-  actionColor?: Maybe<Scalars["String"]>;
-  warningColor?: Maybe<Scalars["String"]>;
-  errorColor?: Maybe<Scalars["String"]>;
-  mainTextColor?: Maybe<Scalars["String"]>;
-  secondaryColor?: Maybe<Scalars["String"]>;
-  bordersColor?: Maybe<Scalars["String"]>;
-  backgroundColor?: Maybe<Scalars["String"]>;
-};
 
 /** A connection to a list of `Company` values. */
 export type CompaniesConnection = {
@@ -2167,176 +1860,323 @@ export enum ContentfulTiers {
   T4 = "T4"
 }
 
+/** A training course that BMI offers in Docebo */
 export type Course = {
   __typename?: "Course";
-  id?: Maybe<Scalars["Int"]>;
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
+  /** Docebo CourseId */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** technology */
+  technology?: Maybe<Scalars["String"]>;
+  /** A short name for the Course taken from Docebo */
   name?: Maybe<Scalars["String"]>;
-  code?: Maybe<Scalars["String"]>;
-  uidCourse?: Maybe<Scalars["String"]>;
-  provider?: Maybe<Scalars["Int"]>;
-  slug_name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  credits?: Maybe<Scalars["Int"]>;
-  lang_code?: Maybe<Scalars["String"]>;
-  type?: Maybe<Scalars["String"]>;
-  status?: Maybe<Scalars["String"]>;
-  is_published?: Maybe<Scalars["Boolean"]>;
-  can_self_unenroll?: Maybe<Scalars["Boolean"]>;
-  can_self_enroll?: Maybe<Scalars["Boolean"]>;
-  can_session_change?: Maybe<Scalars["Boolean"]>;
-  certificate_url?: Maybe<Scalars["String"]>;
-  has_overview?: Maybe<Scalars["Boolean"]>;
-  show_toc?: Maybe<Scalars["Boolean"]>;
-  show_lightbox_nav?: Maybe<Scalars["Boolean"]>;
-  level?: Maybe<Scalars["String"]>;
-  shopify_product_meaningful_id?: Maybe<Scalars["String"]>;
-  in_soft_deadline?: Maybe<Scalars["Boolean"]>;
-  demo_file_type?: Maybe<Scalars["String"]>;
-  can_manage_course?: Maybe<Scalars["Boolean"]>;
-  is_affiliate?: Maybe<Scalars["Boolean"]>;
-  partner_fileds?: Maybe<Scalars["String"]>;
-  max_attempts_reached?: Maybe<Scalars["Boolean"]>;
-  on_sale?: Maybe<Scalars["Boolean"]>;
-  rating_option?: Maybe<Scalars["String"]>;
-  can_rate?: Maybe<Scalars["Boolean"]>;
-  current_rating?: Maybe<Scalars["Int"]>;
-  has_autoplay?: Maybe<Scalars["Boolean"]>;
-  deadline?: Maybe<Scalars["String"]>;
-  completion_date?: Maybe<Scalars["String"]>;
-  last_played_object?: Maybe<Scalars["Int"]>;
-  last_completed_object?: Maybe<Scalars["Int"]>;
-  thumbnail?: Maybe<Scalars["String"]>;
-  demo_file?: Maybe<Scalars["String"]>;
-  deeplink?: Maybe<Scalars["String"]>;
-  final_score?: Maybe<Scalars["Int"]>;
-  available_seats?: Maybe<Array<Maybe<AvailableSeats>>>;
-  chapter_sequence?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  permissions?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  course_thumbnail?: Maybe<CourseThumbnail>;
-  additional_fields?: Maybe<Array<Maybe<CourseAdditionalFields>>>;
-  background_image?: Maybe<BackgroundImage>;
-  instructors?: Maybe<Array<Maybe<Instructors>>>;
-  learningplans?: Maybe<Array<Maybe<Learningplans>>>;
-  enrolled?: Maybe<Enrolled>;
-  self_unenrollment_settings?: Maybe<SelfUnenrollmentSettings>;
-  partner_data?: Maybe<PartnerData>;
-  enter_status?: Maybe<EnterStatus>;
-};
-
-export type CourseAdditionalFields = {
-  __typename?: "CourseAdditionalFields";
-  id?: Maybe<Scalars["Int"]>;
-  title?: Maybe<Scalars["String"]>;
-  type?: Maybe<Scalars["String"]>;
-  visible_to_user?: Maybe<Scalars["String"]>;
-  settings?: Maybe<Scalars["String"]>;
-  value?: Maybe<Scalars["String"]>;
-};
-
-export type CourseCategory = {
-  __typename?: "CourseCategory";
-  id?: Maybe<Scalars["Int"]>;
-  name?: Maybe<Scalars["String"]>;
-};
-
-export type CourseDates = {
-  __typename?: "CourseDates";
-  date?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  start_hour?: Maybe<Scalars["String"]>;
-  end_hour?: Maybe<Scalars["String"]>;
-  id_location?: Maybe<Scalars["Int"]>;
-  id_classroom?: Maybe<Scalars["Int"]>;
-  classroom_name?: Maybe<Scalars["String"]>;
-  webinar_tool?: Maybe<Scalars["String"]>;
-  timezone?: Maybe<Scalars["String"]>;
-  gmt?: Maybe<Scalars["String"]>;
-  duration?: Maybe<Scalars["Int"]>;
-  effective_duration?: Maybe<Scalars["Int"]>;
-  id_date?: Maybe<Scalars["Int"]>;
-  collaboration_tool?: Maybe<Scalars["String"]>;
-  is_instructor?: Maybe<Scalars["Boolean"]>;
-  instructors?: Maybe<Array<Maybe<Instructors>>>;
-};
-
-export type CourseSessions = {
-  __typename?: "CourseSessions";
-  id_session?: Maybe<Scalars["Int"]>;
-  uid_session?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  slug_name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  start_date?: Maybe<Scalars["String"]>;
-  end_date?: Maybe<Scalars["String"]>;
-  last_subscription_date?: Maybe<Scalars["String"]>;
-  min_enroll?: Maybe<Scalars["Int"]>;
-  max_enroll?: Maybe<Scalars["Int"]>;
-  is_instructor?: Maybe<Scalars["Boolean"]>;
-  additional_fields?: Maybe<Array<Maybe<CourseAdditionalFields>>>;
-  locations?: Maybe<Array<Maybe<Locations>>>;
-  dates?: Maybe<Array<Maybe<CourseDates>>>;
-  instructors?: Maybe<Array<Maybe<Instructors>>>;
-  enrolled?: Maybe<Array<Maybe<Enrolled>>>;
-};
-
-export type CourseThumbnail = {
-  __typename?: "CourseThumbnail";
-  id?: Maybe<Scalars["Int"]>;
-  name?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-  used_by?: Maybe<Scalars["Int"]>;
-  actions?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  params?: Maybe<Params>;
-};
-
-export type Courses = {
-  __typename?: "Courses";
-  id_course?: Maybe<Scalars["Int"]>;
-  name?: Maybe<Scalars["String"]>;
-  uidCourse?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  date_last_updated?: Maybe<Scalars["String"]>;
-  course_type?: Maybe<Scalars["String"]>;
-  selling?: Maybe<Scalars["Boolean"]>;
-  code?: Maybe<Scalars["String"]>;
-  slug_name?: Maybe<Scalars["String"]>;
+  /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  duration?: Maybe<Scalars["Int"]>;
-  language?: Maybe<Scalars["String"]>;
-  language_label?: Maybe<Scalars["String"]>;
-  price?: Maybe<Scalars["String"]>;
-  is_new?: Maybe<Scalars["String"]>;
-  is_opened?: Maybe<Scalars["String"]>;
-  rating_option?: Maybe<Scalars["String"]>;
-  current_rating?: Maybe<Scalars["Int"]>;
-  credits?: Maybe<Scalars["Int"]>;
-  img_url?: Maybe<Scalars["String"]>;
-  can_rate?: Maybe<Scalars["Boolean"]>;
-  can_self_unenroll?: Maybe<Scalars["Boolean"]>;
-  start_date?: Maybe<Scalars["String"]>;
-  end_date?: Maybe<Scalars["String"]>;
-  enrollment_policy?: Maybe<Scalars["Int"]>;
-  max_attempts?: Maybe<Scalars["Int"]>;
-  is_affiliate?: Maybe<Scalars["Boolean"]>;
-  partner_fileds?: Maybe<Scalars["String"]>;
-  affiliate_price?: Maybe<Scalars["String"]>;
-  partner_data?: Maybe<PartnerData>;
-  available_seats?: Maybe<AvailableSeats>;
-  category?: Maybe<CourseCategory>;
+  /** Promoted courses a listed higher than others */
+  promoted?: Maybe<Scalars["Boolean"]>;
+  /** Some text from Docebo indicating whether it is a webinar, classroom etc */
+  trainingType?: Maybe<Scalars["String"]>;
+  /** Text description from Docebo */
+  description?: Maybe<Scalars["String"]>;
+  createdAt: Scalars["Datetime"];
+  updatedAt: Scalars["Datetime"];
+  /** Reads and enables pagination through a set of `CourseCatalog`. */
+  courseCatalogs: CourseCatalogsConnection;
+  /** Reads and enables pagination through a set of `CourseEnrollment`. */
+  courseEnrollments: CourseEnrollmentsConnection;
 };
 
-export type CoursesData = {
-  __typename?: "CoursesData";
-  count?: Maybe<Scalars["Int"]>;
-  has_more_data?: Maybe<Scalars["Boolean"]>;
-  current_page?: Maybe<Scalars["Int"]>;
-  current_page_size?: Maybe<Scalars["Int"]>;
-  total_page_count?: Maybe<Scalars["Int"]>;
-  total_count?: Maybe<Scalars["Int"]>;
-  sort?: Maybe<Array<Maybe<Sort>>>;
-  items?: Maybe<Array<Maybe<Courses>>>;
+/** A training course that BMI offers in Docebo */
+export type CourseCourseCatalogsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
+  condition?: Maybe<CourseCatalogCondition>;
 };
+
+/** A training course that BMI offers in Docebo */
+export type CourseCourseEnrollmentsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CourseEnrollmentsOrderBy>>;
+  condition?: Maybe<CourseEnrollmentCondition>;
+};
+
+/** Course Catalog */
+export type CourseCatalog = {
+  __typename?: "CourseCatalog";
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
+  /** fk */
+  catalogId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  courseId?: Maybe<Scalars["Int"]>;
+  createdAt: Scalars["Datetime"];
+  updatedAt: Scalars["Datetime"];
+  /** Reads a single `Course` that is related to this `CourseCatalog`. */
+  course?: Maybe<Course>;
+};
+
+/**
+ * A condition to be used against `CourseCatalog` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type CourseCatalogCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `courseId` field. */
+  courseId?: Maybe<Scalars["Int"]>;
+};
+
+/** An input for mutations affecting `CourseCatalog` */
+export type CourseCatalogInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  catalogId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  courseId?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** Represents an update to a `CourseCatalog`. Fields that are set will be updated. */
+export type CourseCatalogPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  catalogId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  courseId?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** A connection to a list of `CourseCatalog` values. */
+export type CourseCatalogsConnection = {
+  __typename?: "CourseCatalogsConnection";
+  /** A list of `CourseCatalog` objects. */
+  nodes: Array<CourseCatalog>;
+  /** A list of edges which contains the `CourseCatalog` and cursor to aid in pagination. */
+  edges: Array<CourseCatalogsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `CourseCatalog` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `CourseCatalog` edge in the connection. */
+export type CourseCatalogsEdge = {
+  __typename?: "CourseCatalogsEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `CourseCatalog` at the end of the edge. */
+  node: CourseCatalog;
+};
+
+/** Methods to use when ordering `CourseCatalog`. */
+export enum CourseCatalogsOrderBy {
+  Natural = "NATURAL",
+  IdAsc = "ID_ASC",
+  IdDesc = "ID_DESC",
+  CourseIdAsc = "COURSE_ID_ASC",
+  CourseIdDesc = "COURSE_ID_DESC",
+  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
+  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
+}
+
+/** A condition to be used against `Course` object types. All fields are tested for equality and combined with a logical ‘and.’ */
+export type CourseCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `courseId` field. */
+  courseId?: Maybe<Scalars["Int"]>;
+};
+
+/** Course Enrollments */
+export type CourseEnrollment = {
+  __typename?: "CourseEnrollment";
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
+  /** fk */
+  userId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** status */
+  status?: Maybe<Scalars["String"]>;
+  /** url */
+  url?: Maybe<Scalars["String"]>;
+  createdAt: Scalars["Datetime"];
+  updatedAt: Scalars["Datetime"];
+  /** Reads a single `Course` that is related to this `CourseEnrollment`. */
+  course?: Maybe<Course>;
+};
+
+/**
+ * A condition to be used against `CourseEnrollment` object types. All fields are
+ * tested for equality and combined with a logical ‘and.’
+ */
+export type CourseEnrollmentCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `courseId` field. */
+  courseId?: Maybe<Scalars["Int"]>;
+};
+
+/** An input for mutations affecting `CourseEnrollment` */
+export type CourseEnrollmentInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  userId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** status */
+  status?: Maybe<Scalars["String"]>;
+  /** url */
+  url?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** Represents an update to a `CourseEnrollment`. Fields that are set will be updated. */
+export type CourseEnrollmentPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** fk */
+  userId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** status */
+  status?: Maybe<Scalars["String"]>;
+  /** url */
+  url?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** A connection to a list of `CourseEnrollment` values. */
+export type CourseEnrollmentsConnection = {
+  __typename?: "CourseEnrollmentsConnection";
+  /** A list of `CourseEnrollment` objects. */
+  nodes: Array<CourseEnrollment>;
+  /** A list of edges which contains the `CourseEnrollment` and cursor to aid in pagination. */
+  edges: Array<CourseEnrollmentsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `CourseEnrollment` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `CourseEnrollment` edge in the connection. */
+export type CourseEnrollmentsEdge = {
+  __typename?: "CourseEnrollmentsEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `CourseEnrollment` at the end of the edge. */
+  node: CourseEnrollment;
+};
+
+/** Methods to use when ordering `CourseEnrollment`. */
+export enum CourseEnrollmentsOrderBy {
+  Natural = "NATURAL",
+  IdAsc = "ID_ASC",
+  IdDesc = "ID_DESC",
+  CourseIdAsc = "COURSE_ID_ASC",
+  CourseIdDesc = "COURSE_ID_DESC",
+  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
+  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
+}
+
+/** An input for mutations affecting `Course` */
+export type CourseInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** Docebo CourseId */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** technology */
+  technology?: Maybe<Scalars["String"]>;
+  /** A short name for the Course taken from Docebo */
+  name?: Maybe<Scalars["String"]>;
+  /** A reference to the image */
+  image?: Maybe<Scalars["String"]>;
+  /** Promoted courses a listed higher than others */
+  promoted?: Maybe<Scalars["Boolean"]>;
+  /** Some text from Docebo indicating whether it is a webinar, classroom etc */
+  trainingType?: Maybe<Scalars["String"]>;
+  /** Text description from Docebo */
+  description?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** Represents an update to a `Course`. Fields that are set will be updated. */
+export type CoursePatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** Docebo CourseId */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** technology */
+  technology?: Maybe<Scalars["String"]>;
+  /** A short name for the Course taken from Docebo */
+  name?: Maybe<Scalars["String"]>;
+  /** A reference to the image */
+  image?: Maybe<Scalars["String"]>;
+  /** Promoted courses a listed higher than others */
+  promoted?: Maybe<Scalars["Boolean"]>;
+  /** Some text from Docebo indicating whether it is a webinar, classroom etc */
+  trainingType?: Maybe<Scalars["String"]>;
+  /** Text description from Docebo */
+  description?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** A connection to a list of `Course` values. */
+export type CoursesConnection = {
+  __typename?: "CoursesConnection";
+  /** A list of `Course` objects. */
+  nodes: Array<Course>;
+  /** A list of edges which contains the `Course` and cursor to aid in pagination. */
+  edges: Array<CoursesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `Course` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `Course` edge in the connection. */
+export type CoursesEdge = {
+  __typename?: "CoursesEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `Course` at the end of the edge. */
+  node: Course;
+};
+
+/** Methods to use when ordering `Course`. */
+export enum CoursesOrderBy {
+  Natural = "NATURAL",
+  IdAsc = "ID_ASC",
+  IdDesc = "ID_DESC",
+  CourseIdAsc = "COURSE_ID_ASC",
+  CourseIdDesc = "COURSE_ID_DESC",
+  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
+  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
+}
 
 /** All input for the `createAccount` mutation. */
 export type CreateAccountInput = {
@@ -2582,6 +2422,106 @@ export type CreateCompanyPayload = {
 /** The output of our create `Company` mutation. */
 export type CreateCompanyPayloadCompanyEdgeArgs = {
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
+};
+
+/** All input for the create `CourseCatalog` mutation. */
+export type CreateCourseCatalogInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseCatalog` to be created by this mutation. */
+  courseCatalog: CourseCatalogInput;
+};
+
+/** The output of our create `CourseCatalog` mutation. */
+export type CreateCourseCatalogPayload = {
+  __typename?: "CreateCourseCatalogPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseCatalog` that was created by this mutation. */
+  courseCatalog?: Maybe<CourseCatalog>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Course` that is related to this `CourseCatalog`. */
+  course?: Maybe<Course>;
+  /** An edge for our `CourseCatalog`. May be used by Relay 1. */
+  courseCatalogEdge?: Maybe<CourseCatalogsEdge>;
+};
+
+/** The output of our create `CourseCatalog` mutation. */
+export type CreateCourseCatalogPayloadCourseCatalogEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
+};
+
+/** All input for the create `CourseEnrollment` mutation. */
+export type CreateCourseEnrollmentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseEnrollment` to be created by this mutation. */
+  courseEnrollment: CourseEnrollmentInput;
+};
+
+/** The output of our create `CourseEnrollment` mutation. */
+export type CreateCourseEnrollmentPayload = {
+  __typename?: "CreateCourseEnrollmentPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseEnrollment` that was created by this mutation. */
+  courseEnrollment?: Maybe<CourseEnrollment>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Course` that is related to this `CourseEnrollment`. */
+  course?: Maybe<Course>;
+  /** An edge for our `CourseEnrollment`. May be used by Relay 1. */
+  courseEnrollmentEdge?: Maybe<CourseEnrollmentsEdge>;
+};
+
+/** The output of our create `CourseEnrollment` mutation. */
+export type CreateCourseEnrollmentPayloadCourseEnrollmentEdgeArgs = {
+  orderBy?: Maybe<Array<CourseEnrollmentsOrderBy>>;
+};
+
+/** All input for the create `Course` mutation. */
+export type CreateCourseInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `Course` to be created by this mutation. */
+  course: CourseInput;
+};
+
+/** The output of our create `Course` mutation. */
+export type CreateCoursePayload = {
+  __typename?: "CreateCoursePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `Course` that was created by this mutation. */
+  course?: Maybe<Course>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Course`. May be used by Relay 1. */
+  courseEdge?: Maybe<CoursesEdge>;
+};
+
+/** The output of our create `Course` mutation. */
+export type CreateCoursePayloadCourseEdgeArgs = {
+  orderBy?: Maybe<Array<CoursesOrderBy>>;
 };
 
 /** All input for the create `EvidenceItem` mutation. */
@@ -3008,24 +2948,6 @@ export type CreateSystemPayloadSystemEdgeArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
 };
 
-export type CurrencySettings = {
-  __typename?: "CurrencySettings";
-  currency?: Maybe<Scalars["String"]>;
-  currency_symbol?: Maybe<Scalars["String"]>;
-};
-
-export type Dates = {
-  __typename?: "Dates";
-  date?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  time_begin?: Maybe<Scalars["String"]>;
-  time_end?: Maybe<Scalars["String"]>;
-  timezone?: Maybe<Scalars["String"]>;
-  id_location?: Maybe<Scalars["Int"]>;
-  id_classroom?: Maybe<Scalars["Int"]>;
-  attendance_status?: Maybe<Scalars["String"]>;
-};
-
 /** All input for the `deleteAccountByDoceboUserId` mutation. */
 export type DeleteAccountByDoceboUserIdInput = {
   /**
@@ -3363,6 +3285,153 @@ export type DeleteCompanyPayload = {
 /** The output of our delete `Company` mutation. */
 export type DeleteCompanyPayloadCompanyEdgeArgs = {
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
+};
+
+/** All input for the `deleteCourseByCourseId` mutation. */
+export type DeleteCourseByCourseIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Docebo CourseId */
+  courseId: Scalars["Int"];
+};
+
+/** All input for the `deleteCourseByNodeId` mutation. */
+export type DeleteCourseByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Course` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCourseCatalogByNodeId` mutation. */
+export type DeleteCourseCatalogByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseCatalog` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCourseCatalog` mutation. */
+export type DeleteCourseCatalogInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `CourseCatalog` mutation. */
+export type DeleteCourseCatalogPayload = {
+  __typename?: "DeleteCourseCatalogPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseCatalog` that was deleted by this mutation. */
+  courseCatalog?: Maybe<CourseCatalog>;
+  deletedCourseCatalogNodeId?: Maybe<Scalars["ID"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Course` that is related to this `CourseCatalog`. */
+  course?: Maybe<Course>;
+  /** An edge for our `CourseCatalog`. May be used by Relay 1. */
+  courseCatalogEdge?: Maybe<CourseCatalogsEdge>;
+};
+
+/** The output of our delete `CourseCatalog` mutation. */
+export type DeleteCourseCatalogPayloadCourseCatalogEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
+};
+
+/** All input for the `deleteCourseEnrollmentByNodeId` mutation. */
+export type DeleteCourseEnrollmentByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseEnrollment` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCourseEnrollment` mutation. */
+export type DeleteCourseEnrollmentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `CourseEnrollment` mutation. */
+export type DeleteCourseEnrollmentPayload = {
+  __typename?: "DeleteCourseEnrollmentPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseEnrollment` that was deleted by this mutation. */
+  courseEnrollment?: Maybe<CourseEnrollment>;
+  deletedCourseEnrollmentNodeId?: Maybe<Scalars["ID"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Course` that is related to this `CourseEnrollment`. */
+  course?: Maybe<Course>;
+  /** An edge for our `CourseEnrollment`. May be used by Relay 1. */
+  courseEnrollmentEdge?: Maybe<CourseEnrollmentsEdge>;
+};
+
+/** The output of our delete `CourseEnrollment` mutation. */
+export type DeleteCourseEnrollmentPayloadCourseEnrollmentEdgeArgs = {
+  orderBy?: Maybe<Array<CourseEnrollmentsOrderBy>>;
+};
+
+/** All input for the `deleteCourse` mutation. */
+export type DeleteCourseInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `Course` mutation. */
+export type DeleteCoursePayload = {
+  __typename?: "DeleteCoursePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `Course` that was deleted by this mutation. */
+  course?: Maybe<Course>;
+  deletedCourseNodeId?: Maybe<Scalars["ID"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Course`. May be used by Relay 1. */
+  courseEdge?: Maybe<CoursesEdge>;
+};
+
+/** The output of our delete `Course` mutation. */
+export type DeleteCoursePayloadCourseEdgeArgs = {
+  orderBy?: Maybe<Array<CoursesOrderBy>>;
 };
 
 /** All input for the `deleteEvidenceItemByNodeId` mutation. */
@@ -3933,138 +4002,6 @@ export type DeleteSystemPayloadSystemEdgeArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
 };
 
-export type Enrolled = {
-  __typename?: "Enrolled";
-  is_enrolled?: Maybe<Scalars["Boolean"]>;
-  count_enrolled?: Maybe<Scalars["Boolean"]>;
-  count_instructor?: Maybe<Scalars["Int"]>;
-  count_instructor_waitlist?: Maybe<Scalars["Int"]>;
-  count_tutor?: Maybe<Scalars["Int"]>;
-  count_tutor_waitlist?: Maybe<Scalars["Int"]>;
-  count_learner?: Maybe<Scalars["Int"]>;
-  count_learner_waitlist?: Maybe<Scalars["Int"]>;
-  waiting_list?: Maybe<Scalars["Boolean"]>;
-  status?: Maybe<Scalars["String"]>;
-  evaluation_type?: Maybe<Scalars["String"]>;
-};
-
-export type EnrolledSessions = {
-  __typename?: "EnrolledSessions";
-  id?: Maybe<Scalars["Int"]>;
-  name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  other_info?: Maybe<Scalars["String"]>;
-  date_begin?: Maybe<Scalars["String"]>;
-  date_end?: Maybe<Scalars["String"]>;
-  min_enrollments?: Maybe<Scalars["Int"]>;
-  max_enrollments?: Maybe<Scalars["Int"]>;
-  score_base?: Maybe<Scalars["Int"]>;
-  tool?: Maybe<Scalars["String"]>;
-  status?: Maybe<Scalars["String"]>;
-  dates?: Maybe<Array<Maybe<Dates>>>;
-};
-
-export type Enrollment = {
-  __typename?: "Enrollment";
-  count?: Maybe<Scalars["Int"]>;
-  has_more_data?: Maybe<Scalars["Boolean"]>;
-  cursor?: Maybe<Scalars["String"]>;
-  current_page?: Maybe<Scalars["Int"]>;
-  current_page_size?: Maybe<Scalars["Int"]>;
-  total_page_count?: Maybe<Scalars["Int"]>;
-  total_count?: Maybe<Scalars["Int"]>;
-  actions?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  sort?: Maybe<Array<Maybe<Sort>>>;
-  items?: Maybe<Array<Maybe<EnrollmentItems>>>;
-};
-
-export type EnrollmentItems = {
-  __typename?: "EnrollmentItems";
-  id?: Maybe<Scalars["Int"]>;
-  user_id?: Maybe<Scalars["Int"]>;
-  subscribed_by?: Maybe<Scalars["Int"]>;
-  date_last_updated?: Maybe<Scalars["String"]>;
-  username?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  slug?: Maybe<Scalars["String"]>;
-  complete_percent?: Maybe<Scalars["Int"]>;
-  description?: Maybe<Scalars["String"]>;
-  type?: Maybe<Scalars["String"]>;
-  status?: Maybe<Scalars["String"]>;
-  location_name?: Maybe<Scalars["String"]>;
-  webinar_tool?: Maybe<Scalars["String"]>;
-  session_date_begin?: Maybe<Scalars["String"]>;
-  session_time_begin?: Maybe<Scalars["String"]>;
-  session_timezone?: Maybe<Scalars["String"]>;
-  lang_code?: Maybe<Scalars["String"]>;
-  code?: Maybe<Scalars["String"]>;
-  uidCourse?: Maybe<Scalars["String"]>;
-  course_begin_date?: Maybe<Scalars["String"]>;
-  enroll_begin_date?: Maybe<Scalars["String"]>;
-  enroll_date_of_enrollment?: Maybe<Scalars["String"]>;
-  enroll_end_date?: Maybe<Scalars["String"]>;
-  course_complete_date?: Maybe<Scalars["String"]>;
-  total_time?: Maybe<Scalars["Int"]>;
-  score?: Maybe<Scalars["Int"]>;
-  image_url?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-  rating_option?: Maybe<Scalars["String"]>;
-  rating?: Maybe<Scalars["Int"]>;
-  is_new?: Maybe<Scalars["Boolean"]>;
-  can_enter?: Maybe<Scalars["Boolean"]>;
-  can_enter_reason?: Maybe<Scalars["String"]>;
-  duration?: Maybe<Scalars["Int"]>;
-  level?: Maybe<Scalars["String"]>;
-  courses_count?: Maybe<Scalars["Int"]>;
-  soft_deadline?: Maybe<Scalars["Boolean"]>;
-  course_end_date?: Maybe<Scalars["String"]>;
-  hidden?: Maybe<Scalars["Boolean"]>;
-  outdated?: Maybe<Outdated>;
-  enrolled_sessions?: Maybe<Array<Maybe<EnrolledSessions>>>;
-  subscription?: Maybe<Array<Maybe<EnrollmentSubscription>>>;
-  course?: Maybe<Course>;
-};
-
-export type EnrollmentReport = {
-  __typename?: "EnrollmentReport";
-  username?: Maybe<Scalars["String"]>;
-  fullname?: Maybe<Scalars["String"]>;
-  course_name?: Maybe<Scalars["String"]>;
-  course_code?: Maybe<Scalars["String"]>;
-  course_type?: Maybe<Scalars["String"]>;
-  enrollment_date?: Maybe<Scalars["String"]>;
-  completion_date?: Maybe<Scalars["String"]>;
-  status?: Maybe<Scalars["String"]>;
-  score?: Maybe<Scalars["Int"]>;
-  session_time?: Maybe<Scalars["Int"]>;
-  credits?: Maybe<Scalars["Int"]>;
-};
-
-export type EnrollmentReportData = {
-  __typename?: "EnrollmentReportData";
-  count?: Maybe<Scalars["Int"]>;
-  has_more_data?: Maybe<Scalars["Boolean"]>;
-  cursor?: Maybe<Scalars["String"]>;
-  current_page?: Maybe<Scalars["Int"]>;
-  current_page_size?: Maybe<Scalars["Int"]>;
-  total_page_count?: Maybe<Scalars["Int"]>;
-  total_count?: Maybe<Scalars["Int"]>;
-  items?: Maybe<Array<Maybe<EnrollmentReport>>>;
-};
-
-export type EnrollmentSubscription = {
-  __typename?: "EnrollmentSubscription";
-  subscribed?: Maybe<Scalars["Boolean"]>;
-  is_active?: Maybe<Scalars["Boolean"]>;
-};
-
-export type EnterStatus = {
-  __typename?: "EnterStatus";
-  status?: Maybe<Scalars["String"]>;
-  price?: Maybe<Scalars["Int"]>;
-  sessions?: Maybe<Array<Maybe<CourseSessions>>>;
-};
-
 export type Entry = {
   sys: Sys;
   contentfulMetadata: ContentfulMetadata;
@@ -4317,41 +4254,6 @@ export enum EvidenceItemsOrderBy {
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
-
-export type First = {
-  __typename?: "First";
-  href?: Maybe<Scalars["String"]>;
-};
-
-export type Footer = {
-  __typename?: "Footer";
-  footer_type?: Maybe<Scalars["String"]>;
-  iframe_height?: Maybe<Scalars["Int"]>;
-  iframe_url?: Maybe<Scalars["Boolean"]>;
-  custom_html?: Maybe<Scalars["Boolean"]>;
-};
-
-export type Goto = {
-  __typename?: "Goto";
-  href?: Maybe<Scalars["String"]>;
-};
-
-export type GroupCreateInput = {
-  name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  assign_rules?: Maybe<Scalars["Int"]>;
-  rules_logic?: Maybe<Scalars["String"]>;
-  assign_existing_users?: Maybe<Scalars["Boolean"]>;
-  rules_list?: Maybe<Array<Maybe<RulesList>>>;
-  id_users?: Maybe<Array<Maybe<Scalars["Int"]>>>;
-};
-
-export type GroupCreateResponse = {
-  __typename?: "GroupCreateResponse";
-  success?: Maybe<Scalars["Boolean"]>;
-  id_group?: Maybe<Scalars["Int"]>;
-  user_added?: Maybe<Scalars["Boolean"]>;
-};
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
 export type Guarantee = Node & {
@@ -5323,15 +5225,6 @@ export enum GuaranteesOrderBy {
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
 
-export type Header = {
-  __typename?: "Header";
-  iframe_active?: Maybe<Scalars["Boolean"]>;
-  iframe_url?: Maybe<Scalars["String"]>;
-  iframe_height?: Maybe<Scalars["Int"]>;
-  header_message_active?: Maybe<Scalars["Boolean"]>;
-  header_message?: Maybe<Scalars["String"]>;
-};
-
 export enum ImageFormat {
   /** JPG image format. */
   Jpg = "JPG",
@@ -5424,15 +5317,6 @@ export type ImageTransformOptions = {
   backgroundColor?: Maybe<Scalars["HexColor"]>;
   /** Desired image format. Defaults to the original image format. */
   format?: Maybe<ImageFormat>;
-};
-
-export type Instructors = {
-  __typename?: "Instructors";
-  username?: Maybe<Scalars["String"]>;
-  instructor_id?: Maybe<Scalars["Int"]>;
-  firstname?: Maybe<Scalars["String"]>;
-  lastname?: Maybe<Scalars["String"]>;
-  avatar_url?: Maybe<Scalars["String"]>;
 };
 
 /** An invitation to join InTouch */
@@ -5570,15 +5454,6 @@ export type IsPartOfProjectEdge = {
   node?: Maybe<Scalars["Int"]>;
 };
 
-export type Items = {
-  __typename?: "Items";
-  label?: Maybe<Scalars["String"]>;
-  link?: Maybe<Scalars["String"]>;
-  is_new?: Maybe<Scalars["Boolean"]>;
-  notification_balloon?: Maybe<Array<Maybe<NotificationBalloon>>>;
-  notification_tooltip?: Maybe<Array<Maybe<NotificationTooltip>>>;
-};
-
 export enum Language {
   Da = "DA",
   No = "NO",
@@ -5593,50 +5468,6 @@ export enum Language {
   Es = "ES",
   Fi = "FI"
 }
-
-export type Last = {
-  __typename?: "Last";
-  href?: Maybe<Scalars["String"]>;
-};
-
-export type Learningplans = {
-  __typename?: "Learningplans";
-  id?: Maybe<Scalars["Int"]>;
-};
-
-export type Links = {
-  __typename?: "Links";
-  last?: Maybe<Last>;
-  first?: Maybe<First>;
-  goto?: Maybe<Goto>;
-  self?: Maybe<Self>;
-};
-
-export type Locations = {
-  __typename?: "Locations";
-  id_location?: Maybe<Scalars["Int"]>;
-  name?: Maybe<Scalars["String"]>;
-  address?: Maybe<Scalars["String"]>;
-  id_country?: Maybe<Scalars["Int"]>;
-  name_country?: Maybe<Scalars["String"]>;
-  telephone?: Maybe<Scalars["String"]>;
-  email?: Maybe<Scalars["String"]>;
-  reaching_info?: Maybe<Scalars["String"]>;
-  accommodation?: Maybe<Scalars["String"]>;
-  iso_code_country?: Maybe<Scalars["String"]>;
-  id_zone?: Maybe<Scalars["Int"]>;
-  other_info?: Maybe<Scalars["String"]>;
-};
-
-export type MainMenu = {
-  __typename?: "MainMenu";
-  label?: Maybe<Scalars["String"]>;
-  items?: Maybe<Array<Maybe<Items>>>;
-};
-
-export type Manager = {
-  manager_type_id?: Maybe<Scalars["Int"]>;
-};
 
 /** A country that BMI operates in */
 export type Market = Node & {
@@ -6323,28 +6154,6 @@ export enum MediaToolOrder {
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
-export type MenuItems = {
-  __typename?: "MenuItems";
-  icon?: Maybe<Scalars["String"]>;
-  label?: Maybe<Scalars["String"]>;
-  route?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-  target?: Maybe<Scalars["String"]>;
-  is_new?: Maybe<Scalars["String"]>;
-  count?: Maybe<Scalars["Int"]>;
-};
-
-export type MenuItemsMobile = {
-  __typename?: "MenuItemsMobile";
-  icon?: Maybe<Scalars["String"]>;
-  label?: Maybe<Scalars["String"]>;
-  route?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-  target?: Maybe<Scalars["String"]>;
-  is_new?: Maybe<Scalars["String"]>;
-  count?: Maybe<Scalars["Int"]>;
-};
-
 /** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplate = Entry & {
   __typename?: "MessageTemplate";
@@ -6544,14 +6353,6 @@ export enum MigrationOrder {
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
-export type MultidomainNodeData = {
-  __typename?: "MultidomainNodeData";
-  id?: Maybe<Scalars["Int"]>;
-  iLeft?: Maybe<Scalars["Int"]>;
-  iRight?: Maybe<Scalars["Int"]>;
-  can_manage?: Maybe<Scalars["Boolean"]>;
-};
-
 export type Mutation = {
   __typename?: "Mutation";
   /** Creates a single `Address`. */
@@ -6749,9 +6550,41 @@ export type Mutation = {
   createAccount?: Maybe<CreateAccountPayload>;
   publishMessage?: Maybe<Publish>;
   createGuaranteePdf?: Maybe<PublishOutput>;
-  createUser?: Maybe<UserCreateResponse>;
-  createSSOUrl?: Maybe<Scalars["String"]>;
-  createGroup?: Maybe<GroupCreateResponse>;
+  /** Creates a single `Course`. */
+  createCourse?: Maybe<CreateCoursePayload>;
+  /** Creates a single `CourseCatalog`. */
+  createCourseCatalog?: Maybe<CreateCourseCatalogPayload>;
+  /** Creates a single `CourseEnrollment`. */
+  createCourseEnrollment?: Maybe<CreateCourseEnrollmentPayload>;
+  /** Updates a single `Course` using its globally unique id and a patch. */
+  updateCourseByNodeId?: Maybe<UpdateCoursePayload>;
+  /** Updates a single `Course` using a unique key and a patch. */
+  updateCourse?: Maybe<UpdateCoursePayload>;
+  /** Updates a single `Course` using a unique key and a patch. */
+  updateCourseByCourseId?: Maybe<UpdateCoursePayload>;
+  /** Updates a single `CourseCatalog` using its globally unique id and a patch. */
+  updateCourseCatalogByNodeId?: Maybe<UpdateCourseCatalogPayload>;
+  /** Updates a single `CourseCatalog` using a unique key and a patch. */
+  updateCourseCatalog?: Maybe<UpdateCourseCatalogPayload>;
+  /** Updates a single `CourseEnrollment` using its globally unique id and a patch. */
+  updateCourseEnrollmentByNodeId?: Maybe<UpdateCourseEnrollmentPayload>;
+  /** Updates a single `CourseEnrollment` using a unique key and a patch. */
+  updateCourseEnrollment?: Maybe<UpdateCourseEnrollmentPayload>;
+  /** Deletes a single `Course` using its globally unique id. */
+  deleteCourseByNodeId?: Maybe<DeleteCoursePayload>;
+  /** Deletes a single `Course` using a unique key. */
+  deleteCourse?: Maybe<DeleteCoursePayload>;
+  /** Deletes a single `Course` using a unique key. */
+  deleteCourseByCourseId?: Maybe<DeleteCoursePayload>;
+  /** Deletes a single `CourseCatalog` using its globally unique id. */
+  deleteCourseCatalogByNodeId?: Maybe<DeleteCourseCatalogPayload>;
+  /** Deletes a single `CourseCatalog` using a unique key. */
+  deleteCourseCatalog?: Maybe<DeleteCourseCatalogPayload>;
+  /** Deletes a single `CourseEnrollment` using its globally unique id. */
+  deleteCourseEnrollmentByNodeId?: Maybe<DeleteCourseEnrollmentPayload>;
+  /** Deletes a single `CourseEnrollment` using a unique key. */
+  deleteCourseEnrollment?: Maybe<DeleteCourseEnrollmentPayload>;
+  createSSOUrl?: Maybe<SsoUrlOutput>;
 };
 
 export type MutationCreateAddressArgs = {
@@ -7150,24 +6983,77 @@ export type MutationCreateGuaranteePdfArgs = {
   id: Scalars["Int"];
 };
 
-export type MutationCreateUserArgs = {
-  userCreateInput?: Maybe<UserCreateInput>;
+export type MutationCreateCourseArgs = {
+  input: CreateCourseInput;
+};
+
+export type MutationCreateCourseCatalogArgs = {
+  input: CreateCourseCatalogInput;
+};
+
+export type MutationCreateCourseEnrollmentArgs = {
+  input: CreateCourseEnrollmentInput;
+};
+
+export type MutationUpdateCourseByNodeIdArgs = {
+  input: UpdateCourseByNodeIdInput;
+};
+
+export type MutationUpdateCourseArgs = {
+  input: UpdateCourseInput;
+};
+
+export type MutationUpdateCourseByCourseIdArgs = {
+  input: UpdateCourseByCourseIdInput;
+};
+
+export type MutationUpdateCourseCatalogByNodeIdArgs = {
+  input: UpdateCourseCatalogByNodeIdInput;
+};
+
+export type MutationUpdateCourseCatalogArgs = {
+  input: UpdateCourseCatalogInput;
+};
+
+export type MutationUpdateCourseEnrollmentByNodeIdArgs = {
+  input: UpdateCourseEnrollmentByNodeIdInput;
+};
+
+export type MutationUpdateCourseEnrollmentArgs = {
+  input: UpdateCourseEnrollmentInput;
+};
+
+export type MutationDeleteCourseByNodeIdArgs = {
+  input: DeleteCourseByNodeIdInput;
+};
+
+export type MutationDeleteCourseArgs = {
+  input: DeleteCourseInput;
+};
+
+export type MutationDeleteCourseByCourseIdArgs = {
+  input: DeleteCourseByCourseIdInput;
+};
+
+export type MutationDeleteCourseCatalogByNodeIdArgs = {
+  input: DeleteCourseCatalogByNodeIdInput;
+};
+
+export type MutationDeleteCourseCatalogArgs = {
+  input: DeleteCourseCatalogInput;
+};
+
+export type MutationDeleteCourseEnrollmentByNodeIdArgs = {
+  input: DeleteCourseEnrollmentByNodeIdInput;
+};
+
+export type MutationDeleteCourseEnrollmentArgs = {
+  input: DeleteCourseEnrollmentInput;
 };
 
 export type MutationCreateSsoUrlArgs = {
   username: Scalars["String"];
   path?: Maybe<Scalars["String"]>;
-};
-
-export type MutationCreateGroupArgs = {
-  groupCreateInput?: Maybe<GroupCreateInput>;
-};
-
-export type Networks = {
-  __typename?: "Networks";
-  type?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
 };
 
 /** An object with a globally unique `ID`. */
@@ -7296,12 +7182,6 @@ export type Notification = Node & {
   account?: Maybe<Account>;
 };
 
-export type NotificationBalloon = {
-  __typename?: "NotificationBalloon";
-  title?: Maybe<Scalars["String"]>;
-  content?: Maybe<Scalars["String"]>;
-};
-
 /**
  * A condition to be used against `Notification` object types. All fields are
  * tested for equality and combined with a logical ‘and.’
@@ -7345,13 +7225,6 @@ export type NotificationPatch = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-export type NotificationTooltip = {
-  __typename?: "NotificationTooltip";
-  type?: Maybe<Scalars["String"]>;
-  icon?: Maybe<Scalars["String"]>;
-  message?: Maybe<Scalars["String"]>;
-};
-
 /** A connection to a list of `Notification` values. */
 export type NotificationsConnection = {
   __typename?: "NotificationsConnection";
@@ -7385,23 +7258,11 @@ export enum NotificationsOrderBy {
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
 
-export type OauthClients = {
-  __typename?: "OauthClients";
-  client_id?: Maybe<Scalars["String"]>;
-  client_name?: Maybe<Scalars["String"]>;
-};
-
 export enum Operation {
   Flat = "FLAT",
   Pitched = "PITCHED",
   Solar = "SOLAR"
 }
-
-export type Outdated = {
-  __typename?: "Outdated";
-  total_users?: Maybe<Scalars["Int"]>;
-  already_marked?: Maybe<Scalars["Boolean"]>;
-};
 
 /** Information about pagination in a connection. */
 export type PageInfo = {
@@ -7414,22 +7275,6 @@ export type PageInfo = {
   startCursor?: Maybe<Scalars["Cursor"]>;
   /** When paginating forwards, the cursor to continue. */
   endCursor?: Maybe<Scalars["Cursor"]>;
-};
-
-export type PageQueryOptions = {
-  paginate?: Maybe<PaginateOptions>;
-};
-
-export type PaginateOptions = {
-  page?: Maybe<Scalars["Int"]>;
-  page_size?: Maybe<Scalars["Int"]>;
-};
-
-export type Params = {
-  __typename?: "Params";
-  width?: Maybe<Scalars["Int"]>;
-  height?: Maybe<Scalars["Int"]>;
-  filesize?: Maybe<Scalars["Int"]>;
 };
 
 /** MarketAdmin could change these every 6 months [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/partnerBrand) */
@@ -7583,37 +7428,6 @@ export enum PartnerBrandOrder {
   SysPublishedVersionAsc = "sys_publishedVersion_ASC",
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
-
-export type PartnerData = {
-  __typename?: "PartnerData";
-  id?: Maybe<Scalars["Int"]>;
-  referral_id?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  logo?: Maybe<Scalars["String"]>;
-  city?: Maybe<Scalars["String"]>;
-  country?: Maybe<Scalars["String"]>;
-  state?: Maybe<Scalars["String"]>;
-  address?: Maybe<Scalars["String"]>;
-  phone?: Maybe<Scalars["String"]>;
-  email?: Maybe<Scalars["String"]>;
-  website?: Maybe<Scalars["String"]>;
-  discount?: Maybe<Scalars["String"]>;
-  affiliate_code?: Maybe<Scalars["String"]>;
-  enable_affiliate?: Maybe<Scalars["String"]>;
-  catalog_visible?: Maybe<Scalars["String"]>;
-  course_visible?: Maybe<Scalars["String"]>;
-  active?: Maybe<Scalars["String"]>;
-  updated_at?: Maybe<Scalars["String"]>;
-  updated_by?: Maybe<Scalars["String"]>;
-  logo_full_path?: Maybe<Scalars["String"]>;
-};
-
-export type PluginMenu = {
-  __typename?: "PluginMenu";
-  label?: Maybe<Scalars["String"]>;
-  items?: Maybe<Array<Maybe<Items>>>;
-};
 
 export type Point = {
   __typename?: "Point";
@@ -8077,19 +7891,6 @@ export enum ProjectsOrderBy {
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
 
-export type PuManageSubscriptionPermission = {
-  __typename?: "PuManageSubscriptionPermission";
-  can_create_bundle?: Maybe<Scalars["Boolean"]>;
-};
-
-export type PuManageUserPermissions = {
-  __typename?: "PuManageUserPermissions";
-  can_create?: Maybe<Scalars["Boolean"]>;
-  can_view?: Maybe<Scalars["Boolean"]>;
-  can_update?: Maybe<Scalars["Boolean"]>;
-  can_delete?: Maybe<Scalars["Boolean"]>;
-};
-
 export type Publish = {
   __typename?: "Publish";
   title?: Maybe<Scalars["String"]>;
@@ -8223,19 +8024,24 @@ export type Query = {
   systemByNodeId?: Maybe<System>;
   /** Reads a single `SystemMember` using its globally unique `ID`. */
   systemMemberByNodeId?: Maybe<SystemMember>;
-  checkUserValidatiy?: Maybe<UserValidatiy>;
-  token?: Maybe<TokenInfo>;
-  tokenByJwtPayload?: Maybe<TokenInfo>;
-  session?: Maybe<Session>;
+  /** Reads and enables pagination through a set of `Course`. */
+  courses?: Maybe<CoursesConnection>;
+  /** Reads and enables pagination through a set of `CourseCatalog`. */
+  courseCatalogs?: Maybe<CourseCatalogsConnection>;
+  /** Reads and enables pagination through a set of `CourseEnrollment`. */
+  courseEnrollments?: Maybe<CourseEnrollmentsConnection>;
   course?: Maybe<Course>;
-  courses?: Maybe<CoursesData>;
-  branches?: Maybe<BranchType>;
-  training?: Maybe<TrainingInfo>;
-  trainingCertification?: Maybe<CertificationData>;
-  catalogues?: Maybe<CatalogueData>;
-  categories?: Maybe<CategoryType>;
-  enrollmentsReport?: Maybe<EnrollmentReportData>;
-  certificationsReport?: Maybe<CertificationReportData>;
+  courseByCourseId?: Maybe<Course>;
+  courseCatalog?: Maybe<CourseCatalog>;
+  courseEnrollment?: Maybe<CourseEnrollment>;
+  /** Reads a single `Course` using its globally unique `ID`. */
+  courseByNodeId?: Maybe<Course>;
+  /** Reads a single `CourseCatalog` using its globally unique `ID`. */
+  courseCatalogByNodeId?: Maybe<CourseCatalog>;
+  /** Reads a single `CourseEnrollment` using its globally unique `ID`. */
+  courseEnrollmentByNodeId?: Maybe<CourseEnrollment>;
+  token?: Maybe<Token>;
+  tokenByUsername?: Maybe<Token>;
   asset?: Maybe<Asset>;
   assetCollection?: Maybe<AssetCollection>;
   guaranteeTemplate?: Maybe<GuaranteeTemplate>;
@@ -8629,42 +8435,66 @@ export type QuerySystemMemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryCheckUserValidatiyArgs = {
-  username?: Maybe<Scalars["String"]>;
-  email?: Maybe<Scalars["String"]>;
+export type QueryCoursesArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CoursesOrderBy>>;
+  condition?: Maybe<CourseCondition>;
 };
 
-export type QueryTokenByJwtPayloadArgs = {
-  username: Scalars["String"];
+export type QueryCourseCatalogsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
+  condition?: Maybe<CourseCatalogCondition>;
+};
+
+export type QueryCourseEnrollmentsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CourseEnrollmentsOrderBy>>;
+  condition?: Maybe<CourseEnrollmentCondition>;
 };
 
 export type QueryCourseArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryCoursesArgs = {
-  options?: Maybe<PageQueryOptions>;
+export type QueryCourseByCourseIdArgs = {
+  courseId: Scalars["Int"];
 };
 
-export type QueryBranchesArgs = {
-  options?: Maybe<PageQueryOptions>;
+export type QueryCourseCatalogArgs = {
+  id: Scalars["Int"];
 };
 
-export type QueryTrainingCertificationArgs = {
-  options?: Maybe<PageQueryOptions>;
+export type QueryCourseEnrollmentArgs = {
+  id: Scalars["Int"];
 };
 
-export type QueryCataloguesArgs = {
-  options?: Maybe<PageQueryOptions>;
+export type QueryCourseByNodeIdArgs = {
+  nodeId: Scalars["ID"];
 };
 
-export type QueryCategoriesArgs = {
-  options?: Maybe<PageQueryOptions>;
+export type QueryCourseCatalogByNodeIdArgs = {
+  nodeId: Scalars["ID"];
 };
 
-export type QueryEnrollmentsReportArgs = {
-  branchId: Scalars["Int"];
-  options?: Maybe<PageQueryOptions>;
+export type QueryCourseEnrollmentByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+export type QueryTokenByUsernameArgs = {
+  username: Scalars["String"];
 };
 
 export type QueryAssetArgs = {
@@ -8931,101 +8761,9 @@ export enum Role {
   CompanyAdmin = "COMPANY_ADMIN"
 }
 
-export type RulesList = {
-  condition_value?: Maybe<Scalars["String"]>;
-  condition_type?: Maybe<Scalars["String"]>;
-  id_field_common?: Maybe<Scalars["Int"]>;
-};
-
-export type SsoUrl = {
-  __typename?: "SSOUrl";
-  link?: Maybe<Scalars["String"]>;
-};
-
-export type SelectOrgchart = {
-  branch_id?: Maybe<Scalars["String"]>;
-};
-
-export type Self = {
-  __typename?: "Self";
-  href?: Maybe<Scalars["String"]>;
-};
-
-export type SelfUnenrollmentSettings = {
-  __typename?: "SelfUnenrollmentSettings";
-  self_unenrollment_settings?: Maybe<Scalars["Boolean"]>;
-  allow_self_unenrollment_from_session?: Maybe<Scalars["Boolean"]>;
-  allow_self_unenrollment_from_completed_course?: Maybe<Scalars["Boolean"]>;
-  allow_change_session?: Maybe<Scalars["Boolean"]>;
-};
-
-export type Session = {
-  __typename?: "Session";
-  id?: Maybe<Scalars["Int"]>;
-  username?: Maybe<Scalars["String"]>;
-  firstname?: Maybe<Scalars["String"]>;
-  lastname?: Maybe<Scalars["String"]>;
-  email?: Maybe<Scalars["String"]>;
-  user_level?: Maybe<Scalars["String"]>;
-  language?: Maybe<Scalars["String"]>;
-  dateformat_locale?: Maybe<Scalars["String"]>;
-  timezone?: Maybe<Scalars["String"]>;
-  avatar_url?: Maybe<Scalars["String"]>;
-  has_unfilled_fields?: Maybe<Scalars["Boolean"]>;
-  multidomain_id?: Maybe<Scalars["Int"]>;
-  home_route?: Maybe<Scalars["String"]>;
-  no_suggestion_modals?: Maybe<Scalars["Boolean"]>;
-  force_change?: Maybe<Scalars["Boolean"]>;
-  is_non_whitelabeled_user?: Maybe<Scalars["Boolean"]>;
-  switched_to_new_pages?: Maybe<Scalars["Boolean"]>;
-  lms_pages_enable_date?: Maybe<Scalars["String"]>;
-  lms_pages_switcher_show?: Maybe<Scalars["String"]>;
-  redirect_on_logout?: Maybe<Scalars["Boolean"]>;
-  is_erp_admin?: Maybe<Scalars["Boolean"]>;
-  need_policy_accept?: Maybe<Scalars["Boolean"]>;
-  need_terms_and_conditions_accept?: Maybe<Scalars["Boolean"]>;
-  is_instructor?: Maybe<Scalars["Boolean"]>;
-  cant_have_direct_manager?: Maybe<Scalars["Boolean"]>;
-  is_aoi_profiled?: Maybe<Scalars["Boolean"]>;
-  active_languages?: Maybe<Array<Maybe<ActiveLanguages>>>;
-  currency_settings?: Maybe<CurrencySettings>;
-  catalog_settings?: Maybe<CatalogSettings>;
-  branding?: Maybe<Branding>;
-  admin_menu_items?: Maybe<AdminMenuItems>;
-  menu_items_mobile?: Maybe<Array<Maybe<MenuItemsMobile>>>;
-  skills?: Maybe<Skills>;
-  menu_items?: Maybe<Array<Maybe<MenuItems>>>;
-  available_multidomains?: Maybe<Array<Maybe<Scalars["Int"]>>>;
-  multidomain_node_data?: Maybe<MultidomainNodeData>;
-};
-
-export type Signin = {
-  __typename?: "Signin";
-  background_type?: Maybe<Scalars["String"]>;
-  background_value?: Maybe<Scalars["String"]>;
-  background_fallback_image?: Maybe<Scalars["String"]>;
-};
-
-export type Skills = {
-  __typename?: "Skills";
-  admin_welcome_dialog_enabled?: Maybe<Scalars["Boolean"]>;
-  user_welcome_dialog_enabled?: Maybe<Scalars["Boolean"]>;
-};
-
-export type SocialSettings = {
-  __typename?: "SocialSettings";
-  networks?: Maybe<Array<Maybe<Networks>>>;
-};
-
-export type Sort = {
-  __typename?: "Sort";
-  sort_attr?: Maybe<Scalars["String"]>;
-  sort_dir?: Maybe<Scalars["String"]>;
-};
-
-export type Styles = {
-  __typename?: "Styles";
-  custom_css?: Maybe<Scalars["String"]>;
+export type SsoUrlOutput = {
+  __typename?: "SSOUrlOutput";
+  url?: Maybe<Scalars["String"]>;
 };
 
 export type Sys = {
@@ -9445,13 +9183,9 @@ export enum TierBenefitOrder {
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
-export type TokenInfo = {
-  __typename?: "TokenInfo";
+export type Token = {
+  __typename?: "Token";
   access_token?: Maybe<Scalars["String"]>;
-  expires_in?: Maybe<Scalars["Int"]>;
-  token_type?: Maybe<Scalars["String"]>;
-  scope?: Maybe<Scalars["String"]>;
-  refresh_token: Scalars["String"];
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/trainingContent) */
@@ -9714,52 +9448,6 @@ export enum TrainingContentOrder {
   SysPublishedVersionAsc = "sys_publishedVersion_ASC",
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
-
-export type TrainingInfo = {
-  __typename?: "TrainingInfo";
-  name?: Maybe<Scalars["String"]>;
-  url?: Maybe<Scalars["String"]>;
-  user?: Maybe<TrainingUser>;
-};
-
-export type TrainingUser = {
-  __typename?: "TrainingUser";
-  id?: Maybe<Scalars["Int"]>;
-  username?: Maybe<Scalars["String"]>;
-  firstname?: Maybe<Scalars["String"]>;
-  lastname?: Maybe<Scalars["String"]>;
-  email?: Maybe<Scalars["String"]>;
-  user_level?: Maybe<Scalars["String"]>;
-  userInfo?: Maybe<UserInfo>;
-  enrollment?: Maybe<Enrollment>;
-};
-
-export type TrainingUserEnrollmentArgs = {
-  options?: Maybe<PageQueryOptions>;
-};
-
-export type Tree = {
-  __typename?: "Tree";
-  id?: Maybe<Scalars["String"]>;
-  resource_id?: Maybe<Scalars["String"]>;
-  name?: Maybe<Scalars["String"]>;
-  id_scorm_item?: Maybe<Scalars["String"]>;
-  id_aicc_item?: Maybe<Scalars["String"]>;
-  slug_name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
-  type?: Maybe<Scalars["String"]>;
-  thumbnail?: Maybe<Scalars["String"]>;
-  duration?: Maybe<Scalars["Int"]>;
-  status?: Maybe<Scalars["String"]>;
-  locked?: Maybe<Scalars["String"]>;
-  is_folder?: Maybe<Scalars["Boolean"]>;
-  short_description?: Maybe<Scalars["String"]>;
-  mobile_unsupported?: Maybe<Scalars["Boolean"]>;
-  params?: Maybe<Scalars["String"]>;
-  params_inherited?: Maybe<Scalars["String"]>;
-  is_end_object?: Maybe<Scalars["Boolean"]>;
-  tags?: Maybe<Array<Maybe<Scalars["String"]>>>;
-};
 
 /** All input for the `updateAccountByDoceboUserId` mutation. */
 export type UpdateAccountByDoceboUserIdInput = {
@@ -10121,6 +9809,164 @@ export type UpdateCompanyPayload = {
 /** The output of our update `Company` mutation. */
 export type UpdateCompanyPayloadCompanyEdgeArgs = {
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
+};
+
+/** All input for the `updateCourseByCourseId` mutation. */
+export type UpdateCourseByCourseIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Course` being updated. */
+  patch: CoursePatch;
+  /** Docebo CourseId */
+  courseId: Scalars["Int"];
+};
+
+/** All input for the `updateCourseByNodeId` mutation. */
+export type UpdateCourseByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `Course` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `Course` being updated. */
+  patch: CoursePatch;
+};
+
+/** All input for the `updateCourseCatalogByNodeId` mutation. */
+export type UpdateCourseCatalogByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseCatalog` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `CourseCatalog` being updated. */
+  patch: CourseCatalogPatch;
+};
+
+/** All input for the `updateCourseCatalog` mutation. */
+export type UpdateCourseCatalogInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseCatalog` being updated. */
+  patch: CourseCatalogPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our update `CourseCatalog` mutation. */
+export type UpdateCourseCatalogPayload = {
+  __typename?: "UpdateCourseCatalogPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseCatalog` that was updated by this mutation. */
+  courseCatalog?: Maybe<CourseCatalog>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Course` that is related to this `CourseCatalog`. */
+  course?: Maybe<Course>;
+  /** An edge for our `CourseCatalog`. May be used by Relay 1. */
+  courseCatalogEdge?: Maybe<CourseCatalogsEdge>;
+};
+
+/** The output of our update `CourseCatalog` mutation. */
+export type UpdateCourseCatalogPayloadCourseCatalogEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
+};
+
+/** All input for the `updateCourseEnrollmentByNodeId` mutation. */
+export type UpdateCourseEnrollmentByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseEnrollment` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `CourseEnrollment` being updated. */
+  patch: CourseEnrollmentPatch;
+};
+
+/** All input for the `updateCourseEnrollment` mutation. */
+export type UpdateCourseEnrollmentInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseEnrollment` being updated. */
+  patch: CourseEnrollmentPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our update `CourseEnrollment` mutation. */
+export type UpdateCourseEnrollmentPayload = {
+  __typename?: "UpdateCourseEnrollmentPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseEnrollment` that was updated by this mutation. */
+  courseEnrollment?: Maybe<CourseEnrollment>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Course` that is related to this `CourseEnrollment`. */
+  course?: Maybe<Course>;
+  /** An edge for our `CourseEnrollment`. May be used by Relay 1. */
+  courseEnrollmentEdge?: Maybe<CourseEnrollmentsEdge>;
+};
+
+/** The output of our update `CourseEnrollment` mutation. */
+export type UpdateCourseEnrollmentPayloadCourseEnrollmentEdgeArgs = {
+  orderBy?: Maybe<Array<CourseEnrollmentsOrderBy>>;
+};
+
+/** All input for the `updateCourse` mutation. */
+export type UpdateCourseInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Course` being updated. */
+  patch: CoursePatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our update `Course` mutation. */
+export type UpdateCoursePayload = {
+  __typename?: "UpdateCoursePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `Course` that was updated by this mutation. */
+  course?: Maybe<Course>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `Course`. May be used by Relay 1. */
+  courseEdge?: Maybe<CoursesEdge>;
+};
+
+/** The output of our update `Course` mutation. */
+export type UpdateCoursePayloadCourseEdgeArgs = {
+  orderBy?: Maybe<Array<CoursesOrderBy>>;
 };
 
 /** All input for the `updateEvidenceItemByNodeId` mutation. */
@@ -10725,94 +10571,6 @@ export type UpdateSystemPayload = {
 /** The output of our update `System` mutation. */
 export type UpdateSystemPayloadSystemEdgeArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
-};
-
-export type UserCreateInput = {
-  userid?: Maybe<Scalars["String"]>;
-  email?: Maybe<Scalars["String"]>;
-  password?: Maybe<Scalars["String"]>;
-  privacy?: Maybe<Scalars["String"]>;
-  firstname?: Maybe<Scalars["String"]>;
-  lastname?: Maybe<Scalars["String"]>;
-  force_change?: Maybe<Scalars["Int"]>;
-  level?: Maybe<Scalars["Int"]>;
-  language?: Maybe<Scalars["String"]>;
-  expiration?: Maybe<Scalars["String"]>;
-  email_validation_status?: Maybe<Scalars["Int"]>;
-  valid?: Maybe<Scalars["Int"]>;
-  date_format?: Maybe<Scalars["String"]>;
-  timezone?: Maybe<Scalars["String"]>;
-  role?: Maybe<Scalars["Int"]>;
-  send_notification_email?: Maybe<Scalars["Boolean"]>;
-  can_manage_subordinates?: Maybe<Scalars["Boolean"]>;
-  select_orgchart?: Maybe<SelectOrgchart>;
-};
-
-export type UserCreateResponse = {
-  __typename?: "UserCreateResponse";
-  success?: Maybe<Scalars["Boolean"]>;
-  user_id?: Maybe<Scalars["Int"]>;
-  message?: Maybe<Array<Maybe<UserMessage>>>;
-};
-
-export type UserData = {
-  __typename?: "UserData";
-  user_id?: Maybe<Scalars["String"]>;
-  username?: Maybe<Scalars["String"]>;
-  first_name?: Maybe<Scalars["String"]>;
-  last_name?: Maybe<Scalars["String"]>;
-  email?: Maybe<Scalars["String"]>;
-  uuid?: Maybe<Scalars["String"]>;
-  lang_code?: Maybe<Scalars["String"]>;
-  force_change?: Maybe<Scalars["String"]>;
-  expiration?: Maybe<Scalars["String"]>;
-  email_validation_status?: Maybe<Scalars["String"]>;
-  valid?: Maybe<Scalars["String"]>;
-  avatar?: Maybe<Scalars["String"]>;
-  can_manage_subordinates?: Maybe<Scalars["Boolean"]>;
-  is_saml_provision?: Maybe<Scalars["String"]>;
-  language?: Maybe<Scalars["String"]>;
-  level?: Maybe<Scalars["String"]>;
-  date_format?: Maybe<Scalars["String"]>;
-  timezone?: Maybe<Scalars["String"]>;
-  manager_first_name?: Maybe<Scalars["String"]>;
-  manager_last_name?: Maybe<Scalars["String"]>;
-  manager_username?: Maybe<Scalars["String"]>;
-  manager_id?: Maybe<Scalars["String"]>;
-  role_id?: Maybe<Scalars["String"]>;
-  role_title?: Maybe<Scalars["String"]>;
-  role?: Maybe<Scalars["String"]>;
-  cant_have_direct_manager?: Maybe<Scalars["Boolean"]>;
-  subordinates?: Maybe<Array<Maybe<Scalars["String"]>>>;
-};
-
-export type UserInfo = {
-  __typename?: "UserInfo";
-  saml_settings?: Maybe<Array<Maybe<Scalars["String"]>>>;
-  branches?: Maybe<Array<Maybe<Branches>>>;
-  additional_fields?: Maybe<Array<Maybe<AdditionalFields>>>;
-  user_data?: Maybe<UserData>;
-};
-
-export type UserMessage = {
-  __typename?: "UserMessage";
-  id?: Maybe<Scalars["String"]>;
-  message?: Maybe<Scalars["String"]>;
-};
-
-export type UserValidatiy = {
-  __typename?: "UserValidatiy";
-  success?: Maybe<Scalars["Boolean"]>;
-};
-
-export type WhiteLabel = {
-  __typename?: "WhiteLabel";
-  whitelabel_naming?: Maybe<Scalars["Int"]>;
-  whitelabel_disable_naming?: Maybe<Scalars["Int"]>;
-  whitelabel_naming_text?: Maybe<Scalars["String"]>;
-  whitelabel_naming_site_enable?: Maybe<Scalars["Int"]>;
-  whitelabel_naming_site?: Maybe<Scalars["String"]>;
-  whitelabel_menu_userid?: Maybe<Scalars["Int"]>;
 };
 
 export type CfContentArticleNestedFilter = {
