@@ -85,12 +85,8 @@ module.exports.down = (migration, { makeRequest }) => {
         return;
       }
 
-      const {
-        title,
-        description,
-        inputLabel,
-        submitButtonLabel
-      } = inputBannerRequest.items[0].fields;
+      const { title, description, inputLabel, submitButtonLabel } =
+        inputBannerRequest.items[0].fields;
 
       return {
         signUpTitle: title[currentLocale],

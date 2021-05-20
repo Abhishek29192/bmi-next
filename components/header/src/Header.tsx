@@ -91,10 +91,8 @@ const Header = ({
     "medium",
     "large"
   ]);
-  const [
-    showLanguageSelection,
-    setShowLanguageSelection
-  ] = React.useState<boolean>(false);
+  const [showLanguageSelection, setShowLanguageSelection] =
+    React.useState<boolean>(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<number | boolean>(false);
   const elementWidths = getElementWidths(navigation);
@@ -198,9 +196,8 @@ const Header = ({
                     styles["utilities-button"],
                     styles["language-selection-button"],
                     {
-                      [styles[
-                        "language-selection-button--active"
-                      ]]: showLanguageSelection
+                      [styles["language-selection-button--active"]]:
+                        showLanguageSelection
                     }
                   )}
                   onClick={toggleLanguageSelection}

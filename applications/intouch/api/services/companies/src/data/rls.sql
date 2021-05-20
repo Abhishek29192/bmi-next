@@ -21,8 +21,8 @@ CREATE POLICY policy_market_admin ON account FOR ALL TO market_admin USING (curr
 CREATE POLICY policy_company_admin ON account FOR ALL TO company_admin 
      USING (EXISTS(SELECT account_id FROM company_member WHERE account_id = id AND company_id = current_company())) 
 WITH CHECK (EXISTS(SELECT account_id FROM company_member WHERE account_id = id AND company_id = current_company()));
-CREATE POLICY policy_installer_select ON account FOR SELECT TO installer USING (current_account() = id);
-CREATE POLICY policy_installer_update ON account FOR UPDATE TO installer USING (current_account() = id);
+CREATE POLICY policy_installer_select ON account FOR SELECT TO installer USING (current_account_id() = id OR current_account_email() = email);
+CREATE POLICY policy_installer_update ON account FOR UPDATE TO installer USING (current_account_id() = id OR current_account_email() = email);
 
 
 ALTER TABLE company ENABLE ROW LEVEL SECURITY;
@@ -46,10 +46,10 @@ CREATE POLICY policy_super_admin ON company_member FOR ALL TO super_admin USING 
 CREATE POLICY policy_market_admin ON company_member FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
 CREATE POLICY policy_company_admin ON company_member FOR ALL TO company_admin USING (current_company() = company_id) WITH CHECK (current_company() = company_id);
 CREATE POLICY policy_installer_select ON company_member FOR SELECT TO installer USING (
-  current_account() = account_id
+  current_account_id() = account_id
 );
 CREATE POLICY policy_installer_delete ON company_member FOR DELETE TO installer USING (
-  current_account() = account_id
+  current_account_id() = account_id
 );
 
 
@@ -89,19 +89,21 @@ DROP POLICY IF EXISTS policy_super_admin ON notification;
 DROP POLICY IF EXISTS policy_market_admin ON notification;
 DROP POLICY IF EXISTS policy_company_admin ON notification;
 DROP POLICY IF EXISTS policy_installer ON notification;
-CREATE POLICY policy_super_admin ON notification FOR ALL TO super_admin USING (current_account() = account_id) WITH CHECK (current_account() = account_id);
-CREATE POLICY policy_market_admin ON notification FOR ALL TO market_admin USING (current_account() = account_id) WITH CHECK (current_account() = account_id);
-CREATE POLICY policy_company_admin ON notification FOR ALL TO company_admin USING (current_account() = account_id) WITH CHECK (current_account() = account_id);
-CREATE POLICY policy_installer ON notification FOR ALL TO installer USING (current_account() = account_id) WITH CHECK (current_account() = account_id);
+CREATE POLICY policy_super_admin ON notification FOR ALL TO super_admin USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
+CREATE POLICY policy_market_admin ON notification FOR ALL TO market_admin USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
+CREATE POLICY policy_company_admin ON notification FOR ALL TO company_admin USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
+CREATE POLICY policy_installer ON notification FOR ALL TO installer USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
 
-ALTER TABLE invitation ENABLE ROW LEVEL SECURITY;
-DROP POLICY IF EXISTS policy_super_admin ON invitation;
-DROP POLICY IF EXISTS policy_market_admin ON invitation;
-DROP POLICY IF EXISTS policy_company_admin ON invitation;
-DROP POLICY IF EXISTS policy_installer_select ON invitation;
-DROP POLICY IF EXISTS policy_installer_update ON invitation;
-CREATE POLICY policy_super_admin ON invitation FOR ALL TO super_admin USING (true) WITH CHECK (true);
-CREATE POLICY policy_market_admin ON invitation FOR ALL TO market_admin USING (current_account() = account_id) WITH CHECK (current_account() = account_id);
-CREATE POLICY policy_company_admin ON invitation FOR ALL TO company_admin USING (current_account() = account_id) WITH CHECK (current_account() = account_id);
-CREATE POLICY policy_installer_select ON invitation FOR SELECT TO installer USING (current_account() = account_id);
-CREATE POLICY policy_installer_update ON invitation FOR UPDATE TO installer USING (current_account() = account_id) WITH CHECK (current_account() = account_id);
+
+-- TODO: create all RLS, there is already a pr for this
+-- ALTER TABLE invitation ENABLE ROW LEVEL SECURITY;
+-- DROP POLICY IF EXISTS policy_super_admin ON invitation;
+-- DROP POLICY IF EXISTS policy_market_admin ON invitation;
+-- DROP POLICY IF EXISTS policy_company_admin ON invitation;
+-- DROP POLICY IF EXISTS policy_installer_select ON invitation;
+-- DROP POLICY IF EXISTS policy_installer_update ON invitation;
+-- CREATE POLICY policy_super_admin ON invitation FOR ALL TO super_admin USING (true) WITH CHECK (true);
+-- CREATE POLICY policy_market_admin ON invitation FOR ALL TO market_admin USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
+-- CREATE POLICY policy_company_admin ON invitation FOR ALL TO company_admin USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
+-- CREATE POLICY policy_installer_select ON invitation FOR SELECT TO installer USING (current_account_id() = account_id);
+-- CREATE POLICY policy_installer_update ON invitation FOR UPDATE TO installer USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);

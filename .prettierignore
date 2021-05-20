@@ -3,3 +3,4 @@ libraries/visualiser-library/**/TileSlice/**
 libraries/visualiser-library/**/ThreeJs/**
 libraries/visualiser-library/**/ThreeJsUtils/**
 
+.yarn/**

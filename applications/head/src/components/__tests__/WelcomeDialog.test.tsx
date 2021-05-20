@@ -8,8 +8,7 @@ describe("WelcomeDialog component", () => {
       const data: Data = {
         welcomeDialogTitle: null,
         welcomeDialogBody: {
-          raw:
-            '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
         welcomeDialogBrands: []
@@ -37,8 +36,7 @@ describe("WelcomeDialog component", () => {
       const data: Data = {
         welcomeDialogTitle: "Dialog Title",
         welcomeDialogBody: {
-          raw:
-            '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
         welcomeDialogBrands: []
@@ -60,8 +58,7 @@ describe("WelcomeDialog component", () => {
       const data: Data = {
         welcomeDialogTitle: "Dialog Title",
         welcomeDialogBody: {
-          raw:
-            '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
         welcomeDialogBrands: ["Icopal", "Monier", "Monarplan"]

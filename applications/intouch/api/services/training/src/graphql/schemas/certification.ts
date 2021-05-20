@@ -2,9 +2,9 @@ import { gql } from "apollo-server";
 
 export default gql`
   extend type Query {
-    certifications(options: PageQueryOptions): CertificationData
+    trainingCertification(options: PageQueryOptions): CertificationData
   }
-  type Certification {
+  type CertificationInfo {
     id_cert: Int
     title: String
     description: String
@@ -23,6 +23,6 @@ export default gql`
     total_page_count: Int
     total_count: Int
     sort: [Sort]
-    items: [Certification]
+    items: [CertificationInfo]
   }
 `;

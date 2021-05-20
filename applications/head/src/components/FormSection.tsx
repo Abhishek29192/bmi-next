@@ -263,6 +263,12 @@ const FormSection = ({
     values: Record<string, InputValue>
   ) => {
     event.preventDefault();
+
+    if (process.env.GATSBY_PREVIEW) {
+      alert("You cannot submit a form on a preview environment.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     // @todo: This needs to be less reliant on string patterns
@@ -314,6 +320,12 @@ const FormSection = ({
     values: Record<string, InputValue>
   ) => {
     event.preventDefault();
+
+    if (process.env.GATSBY_PREVIEW) {
+      alert("You cannot submit a form on a preview environment.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const valuesArray = Object.entries(values).map(([name, value]) => ({

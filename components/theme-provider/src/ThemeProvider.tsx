@@ -4,7 +4,7 @@ import {
   ThemeProvider as MaterialThemeProvider
 } from "@material-ui/core";
 import React from "react";
-import variables from "@bmi/styles";
+import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
 const theme = createMuiTheme({

@@ -5,21 +5,10 @@ import { ApolloProvider } from "@apollo/client";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import { useApollo } from "../lib/apolloClient";
 
-import initialProps from "../lib/initialProps/app";
-import useApi from "../hooks/useApi";
-
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
   const apolloClient = useApollo(pageProps?.initialApolloState);
-
-  const { error } = useApi("/profile");
-  if (error?.status === 401) {
-    window.location.assign(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/logout`
-    );
-  }
-
   return (
     <ApolloProvider client={apolloClient}>
       <Component {...pageProps} apolloClient={apolloClient} {...rest} />
@@ -33,6 +22,13 @@ const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
       <App Component={Component} pageProps={pageProps} {...rest} />
     </UserProvider>
   );
+};
+
+export const initialProps = async ({ ctx, Component }) => {
+  if (Component.getServerSideProps) {
+    Object.assign({}, await Component.getServerSideProps(ctx));
+  }
+  return {};
 };
 
 AuthApp.getInitialProps = initialProps;

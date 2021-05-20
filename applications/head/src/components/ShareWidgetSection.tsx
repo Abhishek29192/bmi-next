@@ -21,7 +21,10 @@ export type Data = {
   twitter: boolean | null;
 };
 
-const GTMButton = withGTM<ButtonProps>(Button, { label: "accessibilityLabel" });
+const GTMButton = withGTM<ButtonProps>(Button, {
+  label: "accessibilityLabel",
+  action: "data-channel"
+});
 
 const ShareWidgetSection = ({
   data: {

@@ -7,11 +7,8 @@ const { join } = require("path");
 require("./env");
 
 const main = async ([command = "--help", ...options]) => {
-  const {
-    SPACE_ID,
-    MANAGEMENT_ACCESS_TOKEN,
-    PROJECT_RELATIVE_PATH
-  } = process.env;
+  const { SPACE_ID, MANAGEMENT_ACCESS_TOKEN, PROJECT_RELATIVE_PATH } =
+    process.env;
 
   try {
     if (!SPACE_ID || !MANAGEMENT_ACCESS_TOKEN || !PROJECT_RELATIVE_PATH)

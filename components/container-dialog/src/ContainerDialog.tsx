@@ -1,4 +1,4 @@
-import React from "react";
+import React, { isValidElement, RefObject, useMemo } from "react";
 import Modal, { ModalProps } from "@material-ui/core/Modal";
 import classnames from "classnames";
 import Button from "@bmi/button";
@@ -16,7 +16,9 @@ type Props = {
   areaLabelledby?: string;
   areaDescribedby?: string;
   children: React.ReactNode;
+  allowOverflow?: boolean;
   className?: string;
+  containerClassName?: string;
 };
 
 const ContainerDialog = ({
@@ -29,8 +31,30 @@ const ContainerDialog = ({
   areaLabelledby,
   areaDescribedby,
   children,
-  className
+  allowOverflow,
+  className,
+  containerClassName
 }: Props) => {
+  const [header, content] = useMemo(() => {
+    const deconstructedChildren = React.Children.toArray(children).reduce(
+      (carry, child) => {
+        if (isValidElement<HeaderProps>(child) && child.type === Header) {
+          return [
+            React.cloneElement(child, {
+              onCloseClick
+            }),
+            carry[1]
+          ];
+        }
+
+        return [carry[0], carry[1].concat(child)];
+      },
+      [null, []]
+    );
+
+    return [deconstructedChildren[0], deconstructedChildren[1]];
+  }, [children]);
+
   return (
     <Modal
       open={open}
@@ -45,27 +69,48 @@ const ContainerDialog = ({
             styles["ContainerDialog"],
             styles[`ContainerDialog--bg-${color}`],
             styles[`ContainerDialog--width-${maxWidth}`],
+            {
+              [styles[`ContainerDialog--allowOverflow`]]: allowOverflow
+            },
             className
           )}
         >
-          <div className={styles["header"]}>
-            <Button
-              isIconButton
-              variant="text"
-              className={styles["iconButton"]}
-              onClick={onCloseClick}
-              accessibilityLabel={"Close"}
-            >
-              <CloseIcon />
-            </Button>
-          </div>
-          <div className={classnames(className, styles["content"])}>
-            {children}
+          {header ? header : <Header onCloseClick={onCloseClick} />}
+          <div className={classnames(containerClassName, styles["content"])}>
+            {content}
           </div>
         </div>
       </Fade>
     </Modal>
   );
 };
+
+type HeaderProps = {
+  onCloseClick?: () => any;
+  children?: React.ReactNode;
+};
+
+const Header = React.forwardRef(
+  ({ onCloseClick, children }: HeaderProps, ref: RefObject<HTMLDivElement>) => {
+    return (
+      <div className={styles["header"]} ref={ref}>
+        {children}
+        <Button
+          isIconButton
+          variant="text"
+          className={styles["iconButton"]}
+          onClick={onCloseClick}
+          accessibilityLabel={"Close"} // TODO: localise
+        >
+          <CloseIcon />
+        </Button>
+      </div>
+    );
+  }
+);
+
+Header.displayName = "Header";
+
+ContainerDialog.Header = Header;
 
 export default ContainerDialog;

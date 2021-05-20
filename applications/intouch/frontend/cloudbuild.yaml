@@ -5,12 +5,18 @@ steps:
     args:
       [
         "build",
+        ".",
         "-t",
-        "eu.gcr.io/$PROJECT_ID/intouch-frontendv1",
-        "./applications/intouch/frontend",
+        "eu.gcr.io/$PROJECT_ID/intouch-frontend",
+        "-f",
+        "applications/intouch/frontend/Dockerfile"
       ]
+    env:
+      - "NEXT_PUBLIC_BASE_URL=https://tf-frontend-rfwslk3zjq-nw.a.run.app"
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "eu.gcr.io/$PROJECT_ID/intouch-frontendv1"]
+    args: ["push", "eu.gcr.io/$PROJECT_ID/intouch-frontend"]
+
+timeout: 1200s
 
 logsBucket: "gs://intouch-replaform-bucket"

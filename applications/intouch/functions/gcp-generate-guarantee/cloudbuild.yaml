@@ -1,0 +1,14 @@
+### Template for public HTTP functions ###
+
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - functions
+      - deploy
+      - pubsub-generate-guarantee
+      - --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-generate-guarantee.zip
+      - --runtime=nodejs10
+      - --entry-point=sendGuaranteePdf
+      - --region=europe-west2
+      - --trigger-topic=guarantee-pdf
+      - --set-env-vars=SENDGRID_API_KEY=${_INTOUCH_SENDGRID_API_KEY_DEV},MAIL_FROM=${_INTOUCH_MAIL_FROM}

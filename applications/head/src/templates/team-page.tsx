@@ -32,16 +32,14 @@ type Props = {
     contentfulTeamPage: Data;
     contentfulSite: SiteData;
   };
+  pageContext: {
+    variantCodeToPathMap: Record<string, string>;
+  };
 };
 
-const TeamPage = ({ data }: Props) => {
-  const {
-    title,
-    teamCategories,
-    inputBanner,
-    breadcrumbs,
-    seo
-  } = data.contentfulTeamPage;
+const TeamPage = ({ data, pageContext }: Props) => {
+  const { title, teamCategories, inputBanner, breadcrumbs, seo } =
+    data.contentfulTeamPage;
   const pageData: PageData = {
     breadcrumbs,
     inputBanner,
@@ -53,7 +51,12 @@ const TeamPage = ({ data }: Props) => {
   });
 
   return (
-    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+    <Page
+      title={title}
+      pageData={pageData}
+      siteData={data.contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       <Hero
         level={2}
         title={title}

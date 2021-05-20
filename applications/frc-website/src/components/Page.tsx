@@ -23,8 +23,7 @@ const Page = ({ title, children }: Props) => {
               label: "Third party privacy notice",
               action: {
                 model: "htmlLink",
-                href:
-                  "https://www.bmigroup.com/legal/third-party-privacy-notice"
+                href: "https://www.bmigroup.com/legal/third-party-privacy-notice"
               }
             },
             {

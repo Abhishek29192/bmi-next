@@ -1,13 +1,12 @@
-import { Buffer } from "buffer";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-import { ApolloServer } from "apollo-server-express";
 import express from "express";
+import { ApolloServer } from "apollo-server-express";
+import expressPlayground from "graphql-playground-middleware-express";
 
 import gatewayService from "./gateway";
-import auth from "./middleware/auth";
 import config from "./config";
 
 const { PORT = 4000 } = process.env;
@@ -17,25 +16,40 @@ const { PORT = 4000 } = process.env;
     const gateway = await gatewayService();
     const app = express();
 
-    app.use(auth);
+    app.use(express.json());
+    if (process.env.NODE_ENV === "development") {
+      app.get("/playground", expressPlayground({ endpoint: "/graphql" }));
+    }
     const server = new ApolloServer({
       gateway,
+      playground: false,
       context: ({ req }) => {
-        const { user, headers } = req;
+        const { headers } = req;
 
-        // Using the approch used by gcp api gateway: https://cloud.google.com/api-gateway/docs/authenticate-service-account
+        /**
+         * https://cloud.google.com/api-gateway/docs/authenticate-service-account
+         *
+         * The Api gateway return an header called x-apigateway-api-userinfo with
+         * with a string in base64 with the content of the jwt token
+         *
+         * x-request-id is a random uuid usefull to track the request through all
+         * the different services
+         * */
         return {
-          authorization: headers.authorization,
           "x-request-id": headers["x-request-id"],
-          "x-apigateway-api-userinfo": Buffer.from(
-            JSON.stringify(user)
-          ).toString("base64")
+          "x-apigateway-api-userinfo": headers["x-apigateway-api-userinfo"]
         };
       },
       ...config.apolloServer
     });
 
     server.applyMiddleware({ app });
+    app.use((err, req, res, next) => {
+      // TODO: better error handling and logging
+      return res.status(err.status).send({
+        error: "Something went wrong"
+      });
+    });
     app.listen(PORT, () => {
       // eslint-disable-next-line no-console
       console.log(`🚀 Intouch API ready at ${PORT}`);

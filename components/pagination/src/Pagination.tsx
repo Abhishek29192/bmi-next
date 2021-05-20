@@ -13,9 +13,8 @@ import styles from "./Pagination.module.scss";
 const MAX_ITEM_COUNT = 11;
 
 const Pagination = (props: { page: number } & PaginationProps) => {
-  const [maxAvailablePageSpaces, setMaxAvailablePageSpaces] = useState(
-    MAX_ITEM_COUNT
-  );
+  const [maxAvailablePageSpaces, setMaxAvailablePageSpaces] =
+    useState(MAX_ITEM_COUNT);
 
   const [ref, dimensions] = useDimensions();
 

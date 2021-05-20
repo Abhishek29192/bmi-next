@@ -1,5 +1,6 @@
 import React, { useContext, useState, useMemo } from "react";
 import { graphql } from "gatsby";
+import AnchorLink from "@bmi/anchor-link";
 import Button, { ButtonProps } from "@bmi/button";
 import Section from "@bmi/section";
 import OverviewCard from "@bmi/overview-card";
@@ -25,7 +26,7 @@ type Card = PageInfoData | PromoData;
 
 export type Data = {
   __typename: "ContentfulCardCollectionSection";
-  title: string;
+  title: string | null;
   description: RichTextData | null;
   cardType: "Highlight Card" | "Story Card" | "Text Card";
   cardLabel: string | null;
@@ -45,14 +46,8 @@ const CardCollectionItem = ({
 }) => {
   const { countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
-  const {
-    title,
-    subtitle,
-    link,
-    featuredMedia,
-    brandLogo,
-    featuredVideo
-  } = transformCard(card);
+  const { title, subtitle, link, featuredMedia, brandLogo, featuredVideo } =
+    transformCard(card);
 
   const transformedCardLabel = label
     ? label.replace(/{{title}}/g, title)
@@ -153,9 +148,8 @@ const CardCollectionSection = ({
     [cards]
   );
   const groupKeys = moveRestKeyLast(Object.keys(cardsByTag));
-  const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>(
-    groupKeys.length ? { [groupKeys[0]]: true } : {}
-  );
+  const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
+  const [showMoreIterator, setShowMoreIterator] = useState(1);
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
@@ -169,14 +163,25 @@ const CardCollectionSection = ({
   const iteratableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;
 
+  const cardsPerLoad = 8;
+  const numberOfCardsToShow = cardsPerLoad * showMoreIterator;
+
+  const handleShowMoreClick = () => {
+    setShowMoreIterator((prevValue) => prevValue + 1);
+  };
+
   const GTMChip = withGTM<ChipProps>(Chip);
+
+  const activeGroupValues = Object.values(activeGroups);
 
   return (
     <div className={styles["CardCollectionSection"]}>
       <Section backgroundColor={cardType === "Story Card" ? "white" : "pearl"}>
-        <Typography className={styles["title"]} variant="h2" hasUnderline>
-          {title}
-        </Typography>
+        {title && (
+          <Typography className={styles["title"]} variant="h2" hasUnderline>
+            {title}
+          </Typography>
+        )}
         {description && <RichText document={description} />}
         {shouldDisplayGroups && (
           <>
@@ -184,34 +189,47 @@ const CardCollectionSection = ({
               {getMicroCopy("cardCollection.groupTitle")}
             </Typography>
             <div className={styles["group-chips"]}>
-              {groupKeys.map((tagTitle, index) => {
-                const label =
-                  tagTitle === "undefined"
-                    ? getMicroCopy("cardCollection.restLabel")
-                    : tagTitle;
+              <div className={styles["chips"]}>
+                {groupKeys.map((tagTitle, index) => {
+                  const label =
+                    tagTitle === "undefined"
+                      ? getMicroCopy("cardCollection.restLabel")
+                      : tagTitle;
 
-                return (
-                  <GTMChip
-                    key={`${tagTitle}-${index}`}
-                    type="selectable"
-                    isSelected={activeGroups[tagTitle]}
-                    theme={cardType === "Story Card" ? "pearl" : "white"}
-                    gtm={{
-                      id: "selector-cards1",
-                      label,
-                      action: "Selector – Cards Filter"
-                    }}
-                    onClick={() => {
-                      setActiveGroups((activeGroups) => ({
-                        ...activeGroups,
-                        [tagTitle]: !activeGroups[tagTitle]
-                      }));
-                    }}
-                  >
-                    {label}
-                  </GTMChip>
-                );
-              })}
+                  return (
+                    <GTMChip
+                      key={`${tagTitle}-${index}`}
+                      type="selectable"
+                      isSelected={activeGroups[tagTitle]}
+                      theme={cardType === "Story Card" ? "pearl" : "white"}
+                      gtm={{
+                        id: "selector-cards1",
+                        label,
+                        action: "Selector – Cards Filter"
+                      }}
+                      onClick={() => {
+                        setActiveGroups((activeGroups) => ({
+                          ...activeGroups,
+                          [tagTitle]: !activeGroups[tagTitle]
+                        }));
+                      }}
+                    >
+                      {label}
+                    </GTMChip>
+                  );
+                })}
+              </div>
+              <AnchorLink
+                className={styles["clear-all"]}
+                onClick={() => {
+                  setActiveGroups({});
+                }}
+                isDisabled={
+                  !activeGroupValues.length || !activeGroupValues.some(Boolean)
+                }
+              >
+                {getMicroCopy("global.clearAll")}
+              </AnchorLink>
             </div>
           </>
         )}
@@ -243,7 +261,7 @@ const CardCollectionSection = ({
           </Carousel>
         ) : (
           <Grid container>
-            {iteratableCards.map((card, i) => {
+            {iteratableCards.slice(0, numberOfCardsToShow).map((card, i) => {
               const { id } = card;
               return (
                 <Grid item key={`${id}-${i}`} xs={12} md={6} xl={3}>
@@ -255,6 +273,13 @@ const CardCollectionSection = ({
                 </Grid>
               );
             })}
+            {iteratableCards.length > numberOfCardsToShow && (
+              <Grid item xs={12} className={styles["show-more-block"]}>
+                <Button variant="outlined" onClick={handleShowMoreClick}>
+                  {getMicroCopy("global.showMore")}
+                </Button>
+              </Grid>
+            )}
           </Grid>
         )}
         {link && (

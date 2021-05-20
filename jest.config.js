@@ -23,11 +23,11 @@ module.exports = {
     "<rootDir>/applications",
     "<rootDir>/functions"
   ],
-  testMatch: ["**/__tests__/*.+(ts|tsx|js)"],
+  testMatch: ["**/__tests__/*.+(test).(ts|tsx|js)"],
   testPathIgnorePatterns: ["node_modules", "dist"],
   moduleNameMapper: {
     "\\.(jpg|png)$": require.resolve("./jest/src/ImageImport.ts"),
-    "\\.module\\.s?css$": require.resolve("identity-obj-proxy"),
+    "\\.module\\.s?css$": require.resolve("./jest/src/CSSModuleImport.ts"),
     "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS.ts"),
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "\\.woff2$": require.resolve("./jest/src/FontImport.ts"),

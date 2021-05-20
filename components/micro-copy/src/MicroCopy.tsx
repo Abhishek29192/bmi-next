@@ -1,6 +1,17 @@
 import React, { createContext, useContext } from "react";
+import escapeStringRegexp from "escape-string-regexp";
 
-const MicroCopyContext = createContext<Record<string, string>>({});
+export const MicroCopyContext = createContext<Record<string, string>>({});
+
+export const getMicroCopy = (
+  values: Record<string, string>,
+  path: string,
+  placeholders: Record<string, string> = {}
+): string =>
+  Object.entries(placeholders).reduce((carry, [key, value]) => {
+    const toReplace = `{{${key}}}`;
+    return carry.replace(new RegExp(escapeStringRegexp(toReplace), "g"), value);
+  }, values[path] || path);
 
 type Props = {
   path: string;
@@ -9,12 +20,7 @@ type Props = {
 
 const MicroCopy = ({ path, placeholders = {} }: Props) => {
   const values = useContext(MicroCopyContext);
-  const value: string = Object.entries(placeholders).reduce(
-    (carry, [key, value]) => {
-      return carry.replaceAll(`{{${key}}}`, value);
-    },
-    values[path] || path
-  );
+  const value: string = getMicroCopy(values, path, placeholders);
 
   return <>{value}</>;
 };

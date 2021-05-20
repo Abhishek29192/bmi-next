@@ -4,15 +4,11 @@ import {
   GraphQLTypeResolver,
   Source
 } from "graphql";
-import {
-  ExecutionResult,
-  ExecutionResultDataDefault
-} from "graphql/execution/execute";
-import Maybe from "graphql/tsutils/Maybe";
+import { ExecutionResult, Maybe } from "@graphql-tools/utils";
 import { GuaranteeQuery } from "@bmi/intouch-shared-types";
 
 type guaranteeResolverParams = {
-  graphql: <TData = ExecutionResultDataDefault>(
+  graphql: <TData = ExecutionResult["data"]>(
     schema: GraphQLSchema,
     source: Source | string,
     rootValue?: any,

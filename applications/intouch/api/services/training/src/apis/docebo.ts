@@ -73,12 +73,8 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
   }
 
   async createSSOUrl(username: string, path: string = "/learn/mycourses") {
-    const {
-      access_token,
-      expires_in,
-      token_type,
-      scope
-    } = await this.getTokenByJWTPayload(username);
+    const { access_token, expires_in, token_type, scope } =
+      await this.getTokenByJWTPayload(username);
     return `${this.baseURL}${path};type=oauth2_response;access_token=${access_token};expires_in=${expires_in};token_type=${token_type};scope=${scope}`;
   }
 

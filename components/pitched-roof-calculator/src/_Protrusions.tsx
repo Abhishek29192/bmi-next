@@ -4,8 +4,9 @@ import Button from "@bmi/button";
 import { TextField } from "@bmi/text-field";
 import { FormContext } from "@bmi/form";
 import CardInput from "@bmi/card-input";
+import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
-import { types, Type } from "./helpers/fieldTypes";
+import { getFieldTypes, Type } from "./helpers/fieldTypes";
 import styles from "./_Protrusions.module.scss";
 import inputStyles from "./subcomponents/_InputTextField.module.scss";
 import protrusionTypes from "./calculation/protrusions";
@@ -67,7 +68,10 @@ const Input = ({
   defaultValue = "",
   ...rest
 }: InputProps) => {
-  const { helperText, unit, validator } = types[type];
+  const copy = useContext(MicroCopyContext);
+  const { helperText, unit, validator } = getFieldTypes((path, placeholders) =>
+    getMicroCopy(copy, "validation.errors." + path, placeholders)
+  )[type];
 
   const [error, setError] = useState(() => validator(defaultValue));
   const [isBlurred, setIsBlurred] = useState(false);
@@ -128,10 +132,10 @@ const ProtrusionDimensions = ({
   type: protrusionType,
   values
 }: ProtrusionDimensionsProps) => {
-  const {
-    fields,
-    dimensionsIllustration: DimensionsIllustration
-  } = protrusionTypes[protrusionType];
+  const copy = useContext(MicroCopyContext);
+
+  const { fields, dimensionsIllustration: DimensionsIllustration } =
+    protrusionTypes[protrusionType];
 
   return (
     <FieldContainer title={"Enter protrusion dimensions"}>
@@ -156,11 +160,11 @@ const ProtrusionDimensions = ({
             <Grid item xs={12}>
               {onAddAnother ? (
                 <Button variant="text" onClick={onAddAnother}>
-                  Add another
+                  {getMicroCopy(copy, "roofDimensions.protrusions.addAnother")}
                 </Button>
               ) : null}
               <Button variant="text" onClick={onRemove}>
-                Remove
+                {getMicroCopy(copy, "roofDimensions.protrusions.remove")}
               </Button>
             </Grid>
           </Grid>
@@ -193,20 +197,20 @@ const Protrusion = ({
   onRemove,
   values
 }: ProtrusionProps) => {
+  const copy = useContext(MicroCopyContext);
+
   const updateSelection = (value?: string, error?: string) =>
     onUpdate(() => ({
       values: { type: value }, // Note that we are resetting other fields
       errors: { type: error }
     }));
 
-  const createUpdateField = (name: string) => (
-    value?: string,
-    error?: string
-  ) =>
-    onUpdate(({ values, errors }) => ({
-      values: { ...values, [name]: value },
-      errors: { ...errors, [name]: error }
-    }));
+  const createUpdateField =
+    (name: string) => (value?: string, error?: string) =>
+      onUpdate(({ values, errors }) => ({
+        values: { ...values, [name]: value },
+        errors: { ...errors, [name]: error }
+      }));
 
   const { type } = values;
 
@@ -230,7 +234,7 @@ const Protrusion = ({
         />
       ) : (
         <Button variant="text" onClick={onRemove}>
-          Remove
+          {getMicroCopy(copy, "roofDimensions.protrusions.remove")}
         </Button>
       )}
     </div>
@@ -245,6 +249,8 @@ const Protrusions = ({
 }: {
   defaultValue?: ReadonlyArray<ProtrusionItem["values"]>;
 }) => {
+  const copy = useContext(MicroCopyContext);
+
   const [protrusions, setProtrusions] = useState(
     defaultValue.map((values) => ({
       id: getNextId(),
@@ -308,14 +314,16 @@ const Protrusions = ({
 
   return (
     <div className={styles["Protrusions"]}>
-      <FieldContainer title={"Are there any protrusions?"}>
+      <FieldContainer
+        title={getMicroCopy(copy, "roofDimensions.protrusions.title")}
+      >
         <Button
           variant="outlined"
           disabled={!!protrusions.length}
           accessibilityLabel={"Add protrusions"}
           onClick={addProtrusion}
         >
-          Add protrusions
+          {getMicroCopy(copy, "roofDimensions.protrusions.add")}
         </Button>
       </FieldContainer>
       {protrusionsElements}

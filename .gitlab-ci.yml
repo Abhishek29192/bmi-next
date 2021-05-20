@@ -9,6 +9,7 @@ include:
   - local: "/applications/intouch/frontend/.gitlab-ci.yml"
   - local: "/applications/intouch/api/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml"
+  - local: "/applications/intouch/functions/gcp-generate-guarantee/.gitlab-ci.yml"
   - local: "/applications/intouch/terraform/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/es-pim-products-ingest/.gitlab-ci.yml"
@@ -20,34 +21,38 @@ include:
   - local: "/functions/gcp-pim-full-fetch/.gitlab-ci.yml"
   - local: "/functions/gcp-pim-message-handler/.gitlab-ci.yml"
   - local: "/functions/gcp-upload-file/.gitlab-ci.yml"
+  - remote: "https://gitlab.com/dependabot-gitlab/dependabot-standalone/-/raw/master/.gitlab-ci.yml"
 
 .sast-analyzer:
   allow_failure: false
-
-code_quality:
-  stage: test
-  needs: [install]
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-
-sast:
-  stage: test
+  needs: []
+  cache: {}
 
 eslint-sast:
-  needs: [install]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 nodejs-scan-sast:
-  needs: [install]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
-# There is a secret_detection_default_branch job for master
+# Shouldn't need cache, but the codeclimate checks fail due to a potential version issue
+code_quality:
+  stage: test
+  needs: []
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+
 secret_detection:
   needs: []
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+  cache: {}
+
+# Used for the default branch, but with our more complex rules, we don't want to run this (as schedules will pick this up)
+secret_detection_default_branch:
+  rules:
+    - when: never
 
 cache:
   key:
@@ -79,10 +84,11 @@ stages:
 install:
   stage: install
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/dev-environment')) || $CI_COMMIT_TAG"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_AUTH_READ_TOKEN}'>.npmrc
     - yarn install --frozen-lockfile --check-files
   cache:
     key:
@@ -103,6 +109,7 @@ license_finder:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   needs: []
   image: licensefinder/license_finder:latest
+  cache: {}
   before_script:
     - source ~/.bash_profile
     - yarn config set cache-folder ${PWD}/.yarn_cache
@@ -117,7 +124,8 @@ eslint:
   stage: test
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -134,18 +142,5 @@ release:
     - npx -p semantic-release@17.3.6 semantic-release
 
 # Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
-dependabot_gitlab:
-  image:
-    name: docker.io/andrcuns/dependabot-gitlab:latest
-    entrypoint: [""]
-  rules:
-    - if: '$WHICH_SCHEDULE == "dependabot_gitlab"'
-  variables:
-    GIT_STRATEGY: none
-    PACKAGE_MANAGER: npm
-    RAILS_ENV: production
-    SETTINGS__STANDALONE: "true"
-  before_script:
-    - cd /home/dependabot
-  script:
-    - bundle exec rake "dependabot:update[$PROJECT_PATH,$PACKAGE_MANAGER,$DIRECTORY]"
+.dependabot-gitlab:
+  cache: {}

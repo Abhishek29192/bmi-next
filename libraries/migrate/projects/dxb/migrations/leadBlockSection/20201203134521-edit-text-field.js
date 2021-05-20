@@ -41,9 +41,10 @@ module.exports.down = async (migration, { makeRequest }) => {
     "text"
   );
 
-  const previousEnabledNodes = enabledNodeTypesValidation.enabledNodeTypes.filter(
-    (node) => node !== "heading-5"
-  );
+  const previousEnabledNodes =
+    enabledNodeTypesValidation.enabledNodeTypes.filter(
+      (node) => node !== "heading-5"
+    );
 
   leadBlockSection.editField("text").validations([
     {

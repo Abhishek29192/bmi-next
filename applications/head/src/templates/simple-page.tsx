@@ -55,9 +55,12 @@ type Props = {
     contentfulSimplePage: Data;
     contentfulSite: SiteData;
   };
+  pageContext: {
+    variantCodeToPathMap: Record<string, string>;
+  };
 };
 
-const SimplePage = ({ data }: Props) => {
+const SimplePage = ({ data, pageContext }: Props) => {
   const {
     title,
     subtitle,
@@ -115,7 +118,12 @@ const SimplePage = ({ data }: Props) => {
   };
 
   return (
-    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+    <Page
+      title={title}
+      pageData={pageData}
+      siteData={data.contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       {heroType === "Spotlight" ? (
         <SpotlightHero {...heroProps} breadcrumbs={breadcrumbsNode} />
       ) : (

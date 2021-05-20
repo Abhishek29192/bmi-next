@@ -13,6 +13,17 @@ Monorepo for BMI-DXB website that includes a component library and an API gatewa
 | Node       | >= 10 < 15 |
 | Git        | >= 2.18    |
 | Yarn       | >= 1.20    |
+|            |            |
+
+#### **.npmrc**
+
+Add NPM_TOKEN to .npmrc file.
+
+You can generate one of these from your NPM account at [`https://www.npmjs.com/settings/<username>/tokens`](https://www.npmjs.com/settings/<username>/tokens) .
+
+```
+//registry.npmjs.org/:_authToken=<NPM_TOKEN>
+```
 
 ### Install
 

@@ -88,9 +88,8 @@ const UpDownSimpleNumericInput = ({
   const ComponentWithButtonsOnEitherSide = (
     <div
       className={classnames(styles["UpDownSimpleNumericInput"], {
-        [styles[
-          `UpDownSimpleNumericInput--locked-${lockBreakpoint}`
-        ]]: lockBreakpoint
+        [styles[`UpDownSimpleNumericInput--locked-${lockBreakpoint}`]]:
+          lockBreakpoint
       })}
     >
       {DownButton}
@@ -102,9 +101,8 @@ const UpDownSimpleNumericInput = ({
   const ComponentWithButtonsOnTheRight = (
     <div
       className={classnames(styles["UpDownSimpleNumericInput"], {
-        [styles[
-          `UpDownSimpleNumericInput--locked-${lockBreakpoint}`
-        ]]: lockBreakpoint
+        [styles[`UpDownSimpleNumericInput--locked-${lockBreakpoint}`]]:
+          lockBreakpoint
       })}
     >
       {InputComponent}

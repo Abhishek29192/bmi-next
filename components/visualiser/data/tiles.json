@@ -34,7 +34,8 @@
           "id": 8,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "133000634_Zanda_Arktis_main_tile_antique_red"
         },
         {
           "tileId": 2,
@@ -49,7 +50,8 @@
           "id": 9,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "133000133_Zanda_Arktis_main_tile_black"
         },
         {
           "tileId": 2,
@@ -64,7 +66,8 @@
           "id": 10,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "133000533_Zanda_Arktis_main_tile_red"
         },
         {
           "tileId": 2,
@@ -79,7 +82,8 @@
           "id": 11,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "133000633_Zanda_Arktis_main_tile_clayred"
         },
         {
           "tileId": 2,
@@ -94,7 +98,8 @@
           "id": 12,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "133000233_Zanda_Arktis_main_tile_grey"
         },
         {
           "tileId": 2,
@@ -109,7 +114,8 @@
           "id": 13,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "133000234_Zanda_Arktis_main_tile_antique_grey"
         }
       ],
       "revisionId": null,
@@ -150,7 +156,8 @@
           "id": 14,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "175200624_Zanda_Protector_main_tile_clayred"
         },
         {
           "tileId": 3,
@@ -165,7 +172,8 @@
           "id": 15,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "175200522_Zanda_Protector_main_tile_red"
         },
         {
           "tileId": 3,
@@ -180,7 +188,8 @@
           "id": 16,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "175200224_Zanda_Protector_main_tile_grey"
         },
         {
           "tileId": 3,
@@ -195,7 +204,8 @@
           "id": 17,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "175200122_Zanda_Protector_main_tile_black"
         }
       ],
       "revisionId": null,
@@ -236,7 +246,8 @@
           "id": 18,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "174000512_Zanda_Classic_main_tile_red"
         },
         {
           "tileId": 4,
@@ -251,7 +262,8 @@
           "id": 19,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "174000615_Zanda_Classic_main_tile_clayred"
         },
         {
           "tileId": 4,
@@ -266,7 +278,8 @@
           "id": 20,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "174000112_Zanda_Classic_main_tile_black"
         },
         {
           "tileId": 4,
@@ -281,7 +294,8 @@
           "id": 21,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "174000226_Zanda_Classic_main_tile_dark_grey"
         }
       ],
       "revisionId": null,
@@ -322,7 +336,8 @@
           "id": 22,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "172020501_Zanda_Vestland_main_tile_clayred"
         },
         {
           "tileId": 5,
@@ -337,7 +352,8 @@
           "id": 23,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "172020607_Zanda_Vestland_main_tile_antique"
         },
         {
           "tileId": 5,
@@ -352,7 +368,8 @@
           "id": 24,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "172020101_Zanda_Vestland_main_tile_black"
         }
       ],
       "revisionId": null,
@@ -393,7 +410,8 @@
           "id": 25,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "143000511_Zanda_Minster_main_tile_red"
         },
         {
           "tileId": 6,
@@ -408,7 +426,8 @@
           "id": 26,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "143000214_Zanda_Minster_main_tile_light_grey"
         },
         {
           "tileId": 6,
@@ -423,7 +442,8 @@
           "id": 27,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "143000211_Zanda_Minster_main_tile_dark_grey"
         },
         {
           "tileId": 6,
@@ -438,7 +458,8 @@
           "id": 28,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "143000208_Zanda_Minster_main_tile_dark_slate"
         }
       ],
       "revisionId": null,
@@ -479,7 +500,8 @@
           "id": 29,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "136500112_Zanda_Evo_maintile_black"
         },
         {
           "tileId": 7,
@@ -494,7 +516,8 @@
           "id": 30,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "136500217_Zanda_Evo_maintile_dark_grey"
         }
       ],
       "revisionId": null,
@@ -535,7 +558,8 @@
           "id": 31,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "197001255_Turmalin_main_tile_glazed_crystal_grey"
         },
         {
           "tileId": 8,
@@ -550,7 +574,8 @@
           "id": 32,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "197001157_Turmalin_main_tile_glazed_black"
         },
         {
           "tileId": 8,
@@ -565,7 +590,8 @@
           "id": 40,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "197001251_Turmalin_main_tile_glazed_grey"
         },
         {
           "tileId": 8,
@@ -580,7 +606,8 @@
           "id": 41,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "197001141_Turmalin_main_tile_engobed_black"
         },
         {
           "tileId": 8,
@@ -595,7 +622,8 @@
           "id": 42,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "197001242_Turmalin_main_tile_engobed_grey"
         },
         {
           "tileId": 8,
@@ -610,7 +638,8 @@
           "id": 43,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "197001604_Turmalin_main_tile_uncoated_red"
         }
       ],
       "revisionId": null,
@@ -651,7 +680,8 @@
           "id": 33,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190131408_KDN_main_tile_glazed_jet_black"
         },
         {
           "tileId": 9,
@@ -666,7 +696,8 @@
           "id": 44,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190012431_KDN_main_tile_glazed_silver_black"
         },
         {
           "tileId": 9,
@@ -681,7 +712,8 @@
           "id": 45,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190012407_KDN_main_tile_glazed_light_brown"
         },
         {
           "tileId": 9,
@@ -696,7 +728,8 @@
           "id": 46,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190012406_KDN_main_tile_glazed_dark_brown"
         },
         {
           "tileId": 9,
@@ -711,7 +744,8 @@
           "id": 47,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190012430_KDN_main_tile_glazed_wine_red"
         },
         {
           "tileId": 9,
@@ -726,7 +760,8 @@
           "id": 48,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190012433_KDN_main_tile_glazed_purple"
         },
         {
           "tileId": 9,
@@ -741,7 +776,8 @@
           "id": 49,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190012618_KDN_main_tile_engobed_autumn_red"
         },
         {
           "tileId": 9,
@@ -756,7 +792,8 @@
           "id": 50,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190012116_KDN_main_tile_uncoated_natural"
         }
       ],
       "revisionId": null,
@@ -797,7 +834,8 @@
           "id": 51,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "184000151_Hollander_V_main_tile_glazed_black"
         },
         {
           "tileId": 10,
@@ -812,7 +850,8 @@
           "id": 52,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "184000154_Hollander_V_main_tile_glazed_black_matt"
         },
         {
           "tileId": 10,
@@ -827,7 +866,8 @@
           "id": 53,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "184000142_Hollander_V_main_tile_engobed_black"
         },
         {
           "tileId": 10,
@@ -842,7 +882,8 @@
           "id": 54,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "184000241_Hollander_V_main_tile_engobed_grey"
         },
         {
           "tileId": 10,
@@ -857,7 +898,8 @@
           "id": 55,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "184000603_Hollander_V_main_tile_uncoated_red"
         },
         {
           "tileId": 10,
@@ -872,7 +914,8 @@
           "id": 75,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": null
         }
       ],
       "revisionId": null,
@@ -913,7 +956,8 @@
           "id": 56,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190230608_Nortegl_main_tile_glazed_black"
         },
         {
           "tileId": 11,
@@ -928,7 +972,8 @@
           "id": 57,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190001611_Nortegl_main_tile_engobed_autumn_red"
         },
         {
           "tileId": 11,
@@ -943,7 +988,8 @@
           "id": 58,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190001608_Nortegl_main_tile_engobed_black"
         },
         {
           "tileId": 11,
@@ -958,7 +1004,8 @@
           "id": 59,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "190001101_Nortegl_main_tile_uncoated_clay"
         }
       ],
       "revisionId": null,
@@ -999,7 +1046,8 @@
           "id": 60,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "112012143_Nova_main_tile_glazed_black"
         },
         {
           "tileId": 12,
@@ -1014,7 +1062,8 @@
           "id": 61,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "112012141_Nova_main_tile_engobed_black"
         },
         {
           "tileId": 12,
@@ -1029,7 +1078,8 @@
           "id": 62,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "112012604_Nova_main_tile_uncoated_clay"
         }
       ],
       "revisionId": null,
@@ -1070,7 +1120,8 @@
           "id": 63,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "101000102_Dantegl_main_tile_uncoated_red"
         }
       ],
       "revisionId": null,
@@ -1111,7 +1162,8 @@
           "id": 34,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "000400_AeroDek_Tradition_Plus_tile_black"
         },
         {
           "tileId": 14,
@@ -1126,7 +1178,8 @@
           "id": 35,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "001470_AeroDek_Tradition_Plus_tile_antique_grey"
         },
         {
           "tileId": 14,
@@ -1141,7 +1194,8 @@
           "id": 36,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "210018_AeroDek_Tradition_Plus_tile_antique_red"
         },
         {
           "tileId": 14,
@@ -1156,7 +1210,8 @@
           "id": 37,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "080101_AeroDek_Tradition_Plus_tile_clayred"
         }
       ],
       "revisionId": null,
@@ -1197,7 +1252,8 @@
           "id": 38,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "002222_AeroDek_Robust_Plus_tile_pepperstone"
         },
         {
           "tileId": 15,
@@ -1212,7 +1268,8 @@
           "id": 39,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "200450_AeroDek_Robust_Plus_tile_antique_grey"
         }
       ],
       "revisionId": null,
@@ -1253,7 +1310,8 @@
           "id": 66,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "200020_AeroDek_Unique_Plus_tile_black"
         },
         {
           "tileId": 17,
@@ -1268,7 +1326,8 @@
           "id": 67,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "200762_AeroDek_Unique_Plus_tile_black_matt"
         },
         {
           "tileId": 17,
@@ -1283,7 +1342,8 @@
           "id": 68,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "200502_AeroDek_Unique_Plus_tile_graphite_matt"
         },
         {
           "tileId": 17,
@@ -1298,7 +1358,8 @@
           "id": 69,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "200458_AeroDek_Unique_Plus_tile_clayred_matt"
         }
       ],
       "revisionId": null,
@@ -1339,7 +1400,8 @@
           "id": 70,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "201022_AeroDek_Tradition_Tile_Black"
         },
         {
           "tileId": 18,
@@ -1354,7 +1416,8 @@
           "id": 71,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "201023_Aerodek_Tradition_antique_grey"
         },
         {
           "tileId": 18,
@@ -1369,7 +1432,8 @@
           "id": 72,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "210019_AeroDek_Tradition_antique_red"
         }
       ],
       "revisionId": null,
@@ -1410,7 +1474,8 @@
           "id": 76,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "200531_Quadro_tile_graphite_matt"
         },
         {
           "tileId": 19,
@@ -1425,7 +1490,8 @@
           "id": 77,
           "revisionId": null,
           "isDraft": false,
-          "type": "TileColour"
+          "type": "TileColour",
+          "variantCode": "200800_Quadro_tile_black_matt"
         }
       ],
       "revisionId": null,

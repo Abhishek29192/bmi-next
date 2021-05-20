@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "@bmi/hero";
-import auth0 from "../lib/auth0";
+import { getAuth0Instance } from "../lib/auth0";
 import { Layout } from "../components/Layout";
 
 const Homepage = () => {
@@ -44,10 +44,13 @@ const Homepage = () => {
   );
 };
 
-export const getServerSideProps = auth0.withPageAuthRequired({
-  async getServerSideProps(ctx) {
-    return { props: {} };
-  }
-});
+export const getServerSideProps = async (ctx) => {
+  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+  return auth0.withPageAuthRequired({
+    async getServerSideProps(ctx) {
+      return { props: {} };
+    }
+  })(ctx);
+};
 
 export default Homepage;

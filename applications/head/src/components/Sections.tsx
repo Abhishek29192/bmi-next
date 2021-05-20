@@ -31,6 +31,8 @@ import ServiceLocatorSection, {
 import SyndicateSection, {
   Data as SyndicateSectionData
 } from "./SyndicateSection";
+import VideoSection, { Data as VideoSectionData } from "./VideoSection";
+import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 
 export type Data = (
   | FormSectionData
@@ -43,6 +45,8 @@ export type Data = (
   | ImageGallerySectionData
   | DocumentDownloadSectionData
   | ServiceLocatorSectionData
+  | VideoSectionData
+  | IframeSectionData
 )[];
 
 const sectionsMap = {
@@ -55,7 +59,9 @@ const sectionsMap = {
   ContentfulPromo: PromoSection,
   ContentfulImageGallerySection: ImageGallerySection,
   ContentfulDocumentDownloadSection: DocumentDownloadSection,
-  ContentfulServiceLocatorSection: ServiceLocatorSection
+  ContentfulServiceLocatorSection: ServiceLocatorSection,
+  ContentfulVideoSection: VideoSection,
+  ContentfulIframe: IframeSection
 };
 
 // TODO: This should be exported by the card collection.
@@ -84,17 +90,25 @@ const Sections = ({
         const Component = sectionsMap[section.__typename];
         const { title } = section;
 
-        return (
-          Component && (
-            <TableOfContent.Anchor title={title} key={`section-${index}`}>
-              <Component
-                // @ts-ignore
-                data={section}
-                position={startIndex + index}
-                theme={pageTypenameToThemeMap[pageTypename] || {}}
-              />
-            </TableOfContent.Anchor>
-          )
+        if (!Component) {
+          return;
+        }
+
+        const sectionComponent = (
+          <Component
+            // @ts-ignore
+            data={section}
+            position={startIndex + index}
+            theme={pageTypenameToThemeMap[pageTypename] || {}}
+          />
+        );
+
+        return title ? (
+          <TableOfContent.Anchor title={title} key={`section-${index}`}>
+            {sectionComponent}
+          </TableOfContent.Anchor>
+        ) : (
+          sectionComponent
         );
       })}
     </>
@@ -116,5 +130,7 @@ export const query = graphql`
     ...ImageGallerySectionFragment
     ...DocumentDownloadSectionFragment
     ...ServiceLocatorSectionFragment
+    ...VideoSectionFragment
+    ...IframeSectionFragment
   }
 `;

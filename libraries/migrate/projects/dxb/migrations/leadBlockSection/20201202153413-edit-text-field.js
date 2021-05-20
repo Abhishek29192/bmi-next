@@ -39,9 +39,10 @@ module.exports.down = async (migration, { makeRequest }) => {
     "text"
   );
 
-  const previousEnabledNodes = enabledNodeTypesValidation.enabledNodeTypes.filter(
-    (node) => node !== "embedded-asset-block"
-  );
+  const previousEnabledNodes =
+    enabledNodeTypesValidation.enabledNodeTypes.filter(
+      (node) => node !== "embedded-asset-block"
+    );
 
   leadBlockSection.editField("text").validations([
     {

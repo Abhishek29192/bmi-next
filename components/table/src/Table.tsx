@@ -28,9 +28,10 @@ type TableProps = {
   rowBgColorPattern?: "even" | "odd" | "none";
 } & MuiTableProps;
 
-function parseTable(
-  children: React.ReactNode
-): { headerRow: React.ReactNode[]; bodyRows: React.ReactNode[][] } {
+function parseTable(children: React.ReactNode): {
+  headerRow: React.ReactNode[];
+  bodyRows: React.ReactNode[][];
+} {
   const childElements = React.Children.toArray(children).filter(isValidElement);
 
   const header = childElements.find((child) => child.type === TableHead);
@@ -74,9 +75,8 @@ const Table = ({
   const [containerRef, containerDimensions] = useDimensions();
   const [normalTableRef, normalTableDimensions] = useDimensions();
   const [mediumTableRef, mediumTableDimensions] = useDimensions();
-  const [tableSize, setTableSize] = useState<"normal" | "medium" | "small">(
-    "normal"
-  );
+  const [tableSize, setTableSize] =
+    useState<"normal" | "medium" | "small">("normal");
 
   const header = useMemo(
     () =>
@@ -155,9 +155,10 @@ const MediumTable = React.forwardRef(function MediumTable(
   { hasNoBorder, children, theme, ...rest }: TableProps,
   ref
 ) {
-  const { headerRow, bodyRows } = useMemo(() => parseTable(children), [
-    children
-  ]);
+  const { headerRow, bodyRows } = useMemo(
+    () => parseTable(children),
+    [children]
+  );
 
   return (
     <MuiTable
@@ -193,9 +194,10 @@ const SmallTable = ({
   children,
   rowBgColorPattern
 }: TableProps) => {
-  const { headerRow, bodyRows } = useMemo(() => parseTable(children), [
-    children
-  ]);
+  const { headerRow, bodyRows } = useMemo(
+    () => parseTable(children),
+    [children]
+  );
 
   const ListComponent = headerRow.length ? "dl" : "ul";
   const ItemComponent = headerRow.length ? "dd" : "li";

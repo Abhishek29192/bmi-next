@@ -111,9 +111,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     });
   };
 
-  const resolvedFilters = useMemo(() => resolveFilters(data.productFilters), [
-    data.productFilters
-  ]);
+  const resolvedFilters = useMemo(
+    () => resolveFilters(data.productFilters),
+    [data.productFilters]
+  );
   const [filters, setFilters] = useState(resolvedFilters);
 
   const [page, setPage] = useState(0);
@@ -173,6 +174,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       return;
     }
 
+    if (process.env.GATSBY_PREVIEW) {
+      alert("You cannot search on the preview environment.");
+      return;
+    }
+
     setIsLoading(true);
 
     const query = compileElasticSearchQuery(
@@ -218,7 +224,12 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   });
 
   return (
-    <Page title={title} pageData={pageData} siteData={data.contentfulSite}>
+    <Page
+      title={title}
+      pageData={pageData}
+      siteData={data.contentfulSite}
+      variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+    >
       <SiteContext.Consumer>
         {({ getMicroCopy }) => {
           return (
