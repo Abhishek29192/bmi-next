@@ -44,16 +44,25 @@ type Props = {
   children: React.ReactNode;
 };
 
-const typeToIconMap: Record<DetailTypeWithIcons, SVGImport> = {
-  address: LocationOn,
-  phone: Phone,
-  email: Mail,
-  distance: Directions,
-  website: Public
+const typeToIconMap = (type: DetailProps["type"]): SVGImport | undefined => {
+  switch (type) {
+    case "address":
+      return LocationOn;
+    case "phone":
+      return Phone;
+    case "email":
+      return Mail;
+    case "distance":
+      return Directions;
+    case "website":
+      return Public;
+    default:
+      return undefined;
+  }
 };
 
 const DetailsItem = (props: DetailProps) => {
-  const icon = typeToIconMap[props.type];
+  const icon = typeToIconMap(props.type);
 
   if (props.type === "cta") {
     const { action, label } = props;
