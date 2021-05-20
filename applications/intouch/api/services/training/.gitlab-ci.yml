@@ -8,7 +8,6 @@ deploy_intouch_api_training_dev:
       changes:
         # execute on master, but only if changing intouch api
         - applications/intouch/api/**/*
-        - applications/intouch/shared/**/*
   script:
     - cd applications/intouch/api/services/training; echo $INTOUCH_DOCEBO_PRIVATE_KEY > jwtRS256.key; cd $CI_PROJECT_DIR;
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts

@@ -5,7 +5,6 @@ build_intouch_frontend:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*
-        - applications/intouch/shared/**/*
         - components/**/*
         - libraries/**/*
         - package.json
@@ -53,7 +52,6 @@ push_intouch_frontend_dev_to_registry:
       changes:
         # execute on master, but only if changing intouch frontend (i.e. not all other monorepo changes)
         - applications/intouch/frontend/**/*
-        - applications/intouch/shared/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
@@ -71,7 +69,6 @@ deploy_intouch_frontend_dev_to_cloudrun:
       changes:
         # execute on master, but only if changing intouch frontend (i.e. not all other monorepo changes)
         - applications/intouch/frontend/**/*
-        - applications/intouch/shared/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
