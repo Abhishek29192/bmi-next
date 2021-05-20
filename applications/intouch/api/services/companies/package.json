@@ -9,7 +9,7 @@
     "dev": "tsc -b && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema\"",
     "prettify-schema": "onchange \"schema.graphql\" -- prettier --write schema.graphql",
     "start": "node dist/index.js",
-    "build": "tsc",
+    "build": "tsc -b",
     "gcp-build": "tsc"
   },
   "dependencies": {

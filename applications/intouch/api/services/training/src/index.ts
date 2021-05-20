@@ -16,7 +16,6 @@ async function main() {
   app.use(express.json());
   app.use(WinstonLogger);
   app.use(parseUserInfo);
-  
   app.use("*", docebo);
   app.use(postgraphile);
   app.listen(PORT, () => {

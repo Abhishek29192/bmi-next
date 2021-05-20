@@ -8,7 +8,7 @@ export const config = {
 };
 
 export default async (req, res) => {
-  if (req.method === "OPTION") {
+  if (req.method === "OPTIONS") {
     return;
   }
 

@@ -61,7 +61,12 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
 
-  if (error) return <div>Oops... {error.message}</div>;
+  if (error)
+    return (
+      <Layout title={t("Training")}>
+        <div>Oops... {error.message}</div>
+      </Layout>
+    );
 
   const {
     training: {
