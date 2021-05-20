@@ -29,12 +29,16 @@ export const createAccount = async (session) => {
     }
   };
 
-  const { data } = await axios.post(process.env.GRAPHQL_URL, body, {
-    headers: {
-      authorization: `Bearer ${session.accessToken}`,
-      "x-request-id": v4()
+  const { data } = await axios.post(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/graphql`,
+    body,
+    {
+      headers: {
+        authorization: `Bearer ${session.accessToken}`,
+        "x-request-id": v4()
+      }
     }
-  });
+  );
 
   return data;
 };
