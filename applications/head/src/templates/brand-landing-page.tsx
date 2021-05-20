@@ -102,13 +102,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
               breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
-            >
-              {/* NOTE: This is disabled until search gets implemented. */}
-              {/* <Search
-                label={getMicroCopy("search.label")}
-                placeholder={getMicroCopy("search.placeholder")}
-              /> */}
-            </Hero>
+            ></Hero>
           );
         }}
       </SiteContext.Consumer>
