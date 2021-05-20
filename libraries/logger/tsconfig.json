@@ -3,32 +3,24 @@
     "outDir": "dist",
     "module": "commonjs",
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
     "lib": ["ES5", "ES6", "ESNext", "DOM", "ES2019"],
     "moduleResolution": "node",
+    "composite": true,
     "declaration": true,
     "esModuleInterop": true,
     "noEmit": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "target": "ES2019",
+    "target": "es6",
     "inlineSourceMap": true,
     "baseUrl": ".",
-    "rootDirs": ["src"],
-    "paths": {
-      "@bmi/*": ["../../../../../node_modules/@bmi/*/src"]
-    },
+    "rootDir": "src",
     "typeRoots": [
       "./node_modules/@types",
       "./@types",
-      "../../../../../node_modules/@types",
-      "../../../../../@types"
+      "../../node_modules/@types",
+      "../../@types"
     ]
   },
-  "references": [
-    {
-      "path": "../../../../../libraries/logger"
-    }
-  ],
   "exclude": ["**/dist/**"]
 }

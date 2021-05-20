@@ -10,8 +10,6 @@ const postgraphile =
         setofFunctionsContainNulls: false,
         ignoreRBAC: false,
         ignoreIndexes: false,
-        showErrorStack: "json",
-        extendedErrors: ["hint", "detail", "errcode"],
         exportGqlSchemaPath: "schema.graphql",
         graphiql: true,
         enhanceGraphiql: true,

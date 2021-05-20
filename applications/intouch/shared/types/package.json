@@ -4,7 +4,7 @@
   "license": "BMI-DXB",
   "private": true,
   "scripts": {
-    "build": "tsc -p ."
+    "build": "tsc"
   },
   "devDependencies": {
     "typescript": "^3.9.5"

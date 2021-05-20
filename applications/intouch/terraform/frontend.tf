@@ -47,12 +47,8 @@ resource "google_cloud_run_service" "default" {
           value = "https://intouchapip-9dmxs7t9.nw.gateway.dev/graphql"
         }
         env {
-          name  = "AUTH0_CLIENT_SECRET"
-          value = "secret:automated-style-303709/AUTH0_CLIENT_SECRET"
-        }
-        env {
-          name  = "AUTH0_SECRET"
-          value = "secret:automated-style-303709/AUTH0_SECRET"
+          name  = "GCP_SECRET_PROJECT"
+          value = "734962646925"
         }
       }
     }

@@ -16,5 +16,18 @@ services:
       - ./companies/src/data/rls.sql:/var/lib/postgresql/rls.sql
       - ./companies/src/data/indexes.sql:/var/lib/postgresql/indexes.sql
       - intouch_company_db:/var/lib/postgresql/data
+  training-db:
+    image: postgres
+    container_name: postgres-training-db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./training/src/data/training.sql:/docker-entrypoint-initdb.d/training.sql
+      - intouch_training_db:/var/lib/postgresql/data
+
 volumes:
   intouch_company_db: {}
+  intouch_training_db: {}
