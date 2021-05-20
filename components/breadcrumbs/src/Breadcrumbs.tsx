@@ -29,7 +29,7 @@ const BreadcrumbsItem = ({
     <Button
       hasDarkBackground={isDarkThemed}
       className={classnames(styles["button"], {
-        [styles["link"]]: action
+        [styles["link"]!]: action
       })}
       variant="text"
       disabled={!action}
@@ -77,7 +77,12 @@ const truncateChildren = (children: React.ReactNodeArray) =>
       ]
     : children;
 
-const Breadcrumbs = ({ isDarkThemed, className, children, ...rest }: Props) => {
+const Breadcrumbs = ({
+  isDarkThemed = false,
+  className,
+  children,
+  ...rest
+}: Props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const activeLinkList = removeDeadLinks(children);
@@ -87,7 +92,7 @@ const Breadcrumbs = ({ isDarkThemed, className, children, ...rest }: Props) => {
       <MaterialBreadcrumbs
         {...rest}
         className={classnames(styles["Breadcrumbs"], className, {
-          [styles["Breadcrumbs--dark-themed"]]: isDarkThemed
+          [styles["Breadcrumbs--dark-themed"]!]: isDarkThemed
         })}
         aria-label="breadcrumbs"
         itemsBeforeCollapse={1}
