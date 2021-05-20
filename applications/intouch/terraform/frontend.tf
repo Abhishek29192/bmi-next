@@ -44,7 +44,7 @@ resource "google_cloud_run_service" "default" {
 
         env {
           name  = "GRAPHQL_URL"
-          value = "https://gateway-rfwslk3zjq-nw.a.run.app/graphql"
+          value = "https://intouchapip-9dmxs7t9.nw.gateway.dev/graphql"
         }
         env {
           name  = "AUTH0_CLIENT_SECRET"

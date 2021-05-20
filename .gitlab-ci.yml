@@ -29,6 +29,13 @@ code_quality:
   stage: test
   needs:
     - install
+
+semgrep-sast:
+  rules:
+    - when: never
+
+nodejs-scan-sast:
+  needs: [install]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
