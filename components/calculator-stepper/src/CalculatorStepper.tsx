@@ -15,7 +15,7 @@ type Props = {
 const isStepElement = (
   element: React.ReactNode
 ): element is React.ReactElement<StepProps, typeof Step> =>
-  element &&
+  !!element &&
   typeof element === "object" &&
   "type" in element &&
   element.type === Step;
