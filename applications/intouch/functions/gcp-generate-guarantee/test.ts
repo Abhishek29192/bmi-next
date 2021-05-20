@@ -25,3 +25,7 @@ export const sendMail = async () => {
   };
   sendGuaranteePdf(event);
 };
+
+// uncomment any of these lines to try out the code
+// (async () => await pdfCreate())();
+// (async () => await sendMail())();
