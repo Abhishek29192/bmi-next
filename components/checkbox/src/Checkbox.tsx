@@ -21,8 +21,9 @@ const Checkbox = ({
   onChange,
   ...props
 }: Props) => {
-  const handleChange = (event) => {
-    !disabled && onChange(event.target.checked);
+  const handleChange = (event: React.ChangeEvent<{}>) => {
+    const target = event.target as EventTarget & HTMLInputElement;
+    !disabled && onChange(target.checked);
   };
   return (
     <FormControl
