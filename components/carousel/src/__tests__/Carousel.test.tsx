@@ -33,7 +33,7 @@ describe("Carousel component", () => {
         </Carousel>
       </div>
     );
-    const containerBeforeClick = container.firstChild.cloneNode(true);
+    const containerBeforeClick = container.firstChild!.cloneNode(true);
 
     fireEvent.click(getByLabelText(nextLabel));
 
@@ -53,7 +53,7 @@ describe("Carousel component", () => {
         </Carousel>
       </div>
     );
-    const containerBeforeClick = container.firstChild.cloneNode(true);
+    const containerBeforeClick = container.firstChild!.cloneNode(true);
 
     fireEvent.click(getByLabelText(previousLabel));
 
@@ -70,7 +70,7 @@ describe("Carousel component", () => {
         <Carousel.Controls />
       </Carousel>
     );
-    const containerBeforeClick = container.firstChild.cloneNode(true);
+    const containerBeforeClick = container.firstChild!.cloneNode(true);
 
     rerender(
       <Carousel initialPage={1}>
