@@ -61,6 +61,51 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
 </body>
 `;
 
+exports[`ProductFeaturesTable component Renders correctly With default row pattern color and with border 1`] = `
+<body>
+  <div>
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-odd-color"
+      >
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+            >
+              feature1
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+            >
+              200 
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+            >
+              feature-2
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+            >
+              300 
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`ProductFeaturesTable component Renders correctly With even row pattern color 1`] = `
 <body>
   <div>
@@ -68,6 +113,58 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
       <table
         class="MuiTable-root Table Table--row-even-color Table--no-border"
       >
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+            >
+              feature1
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+            >
+              200 
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+            >
+              feature-2
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+            >
+              300 
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ProductFeaturesTable component Renders correctly With header row 1`] = `
+<body>
+  <div>
+    <div>
+      <table
+        class="MuiTable-root Table Table--row-odd-color"
+      >
+        <thead
+          class="MuiTableHead-root ColorPair ColorPair--pearl"
+        >
+          <div>
+            Header Row
+          </div>
+        </thead>
         <tbody
           class="MuiTableBody-root"
         >

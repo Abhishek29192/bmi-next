@@ -5,14 +5,19 @@ import { ClassificationFeature } from "./types/ProductBaseTypes";
 type featureTableProps = {
   features: ClassificationFeature[];
   rowBgColorPattern?: "odd" | "even";
+  HeadRow?: React.ReactNode;
+  hasNoBorder: boolean;
 };
 
 const ProductFeaturesTable = ({
   features,
-  rowBgColorPattern = "odd"
+  rowBgColorPattern = "odd",
+  HeadRow,
+  hasNoBorder
 }: featureTableProps) => {
   return (
-    <Table hasNoBorder rowBgColorPattern={rowBgColorPattern}>
+    <Table hasNoBorder={hasNoBorder} rowBgColorPattern={rowBgColorPattern}>
+      {HeadRow && <Table.Head>{HeadRow}</Table.Head>}
       <Table.Body>
         {features &&
           features.map(({ name, code, featureValues, featureUnit }, index) => (
