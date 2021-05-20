@@ -62,8 +62,12 @@
 
   .filters {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: flex-end;
+
+    .no-wrap {
+      flex-shrink: 0;
+    }
 
     .chips {
       margin-left: 19px;
