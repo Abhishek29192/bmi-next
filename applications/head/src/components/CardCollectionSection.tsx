@@ -156,7 +156,7 @@ const CardCollectionSection = ({
   );
   const allKeysGrouped = [];
   Array.from(allKeys.values()).forEach((x: TagData) => {
-    if (!allKeysGrouped.find((y) => y.title == x.title) && x?.title != null)
+    if (x && !allKeysGrouped.find((y) => y.title == x.title))
       allKeysGrouped.push(x);
   });
 
