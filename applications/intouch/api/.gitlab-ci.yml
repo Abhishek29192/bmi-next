@@ -4,7 +4,7 @@ deploy_intouch_api_gateway_dev:
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/fix-pipeline')"
       changes:
         # execute on master, but only if changing intouch api
         - applications/intouch/api/**/*

@@ -15,17 +15,21 @@ steps:
     args:
       [
         "build",
+        ".",
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-service-training",
-        "./applications/intouch/api/services/training"
+        "-f",
+        "./applications/intouch/api/services/training/dockerfile"
       ]
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "build",
+        ".",
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-gateway",
-        "./applications/intouch/api/gateway"
+        "-f",
+        "./applications/intouch/api/gateway/dockerfile"
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
@@ -100,6 +104,6 @@ steps:
         "--set-env-vars=CONTENTFUL_TOKEN=${_CONTENTFUL_TOKEN}"
       ]
 
-timeout: 1200s
+timeout: 2400s
 
 logsBucket: "gs://intouch-replaform-bucket"
