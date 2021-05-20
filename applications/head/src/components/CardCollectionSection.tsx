@@ -21,6 +21,7 @@ import styles from "./styles/CardCollectionSection.module.scss";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { VisualiserContext } from "./Visualiser";
+import { TagData } from "./Tag";
 
 type Card = PageInfoData | PromoData;
 
@@ -149,20 +150,33 @@ const CardCollectionSection = ({
   // TODO: Type me.
   theme: any;
 }) => {
-  const cardsByTag = useMemo(
-    () => groupBy(cards, ({ tags }) => find(tags, { type: "Group" })?.title),
-    [cards]
+  const allKeys = [].concat.apply(
+    [],
+    cards.map((x) => x.tags)
   );
-  const groupKeys = moveRestKeyLast(Object.keys(cardsByTag));
+  const allKeysGrouped = [];
+  Array.from(allKeys.values()).forEach((x: TagData) => {
+    if (!allKeysGrouped.find((y) => y.title == x.title)) allKeysGrouped.push(x);
+  });
+
+  const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
+
+  const getCards = (title: string) => {
+    const cardsBySection = cards.filter((x) =>
+      x.tags.find((tag) => tag.title == title)
+    );
+    return cardsBySection;
+  };
+
   const activeCards = uniq(
     flatten(
       Object.entries(activeGroups).map(([title, isSelected]) =>
-        isSelected ? cardsByTag[title] : []
+        isSelected ? getCards(title) : []
       )
     )
   );
