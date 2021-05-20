@@ -1,0 +1,38 @@
+@import "@bmi/styles";
+
+.header {
+  display: grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bannerImage {
+  background-color: #dedede;
+}
+
+.metadata {
+  border-top: 1px solid $color-pearl;
+  border-bottom: 1px solid $color-pearl;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+.type {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+  svg {
+    margin-right: 0.5rem;
+  }
+}
+
+.status {
+  color: $color-charcoal;
+}
