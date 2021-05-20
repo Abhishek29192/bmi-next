@@ -203,13 +203,7 @@ const SingleHero = ({
         <div className={styles["wrapper"]}>
           {breadcrumbs}
           <div className={styles["content"]}>
-            <Typography
-              variant="h1"
-              hasUnderline
-              className={classnames(styles["title"], {
-                [styles["title--truncated"]]: levelProps.level === 1
-              })}
-            >
+            <Typography variant="h1" hasUnderline className={styles["title"]}>
               {title}
             </Typography>
             {levelProps.level === 1 && (
