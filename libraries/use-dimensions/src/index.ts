@@ -1,6 +1,11 @@
 // NOTE: source code copied from https://github.com/Swizec/useDimensions with unmerged SSR support. Removed scroll event listening and x, y values in the return object.
 
-import { useState, useCallback, useLayoutEffect, useEffect } from "react";
+import React, {
+  useState,
+  useCallback,
+  useLayoutEffect,
+  useEffect
+} from "react";
 
 export type DimensionObject = Partial<{
   width: number;
@@ -10,9 +15,9 @@ export type DimensionObject = Partial<{
 }>;
 
 export type UseDimensionsHook = [
-  (node: HTMLElement) => void,
+  (node: HTMLElement | null) => void,
   DimensionObject,
-  HTMLElement
+  HTMLElement | null
 ];
 
 export interface UseDimensionsArgs {
@@ -34,7 +39,7 @@ function useDimensions({
   liveMeasure = true
 }: UseDimensionsArgs = {}): UseDimensionsHook {
   const [dimensions, setDimensions] = useState<DimensionObject>({});
-  const [node, setNode] = useState(null);
+  const [node, setNode] = useState<HTMLElement | null>(null);
   const useLayoutHookBasedOnEnvironment =
     typeof window === "undefined" ? useEffect : useLayoutEffect;
 
