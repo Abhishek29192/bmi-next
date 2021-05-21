@@ -1,11 +1,11 @@
 import { Link } from "gatsby";
-import { result, uniqBy, groupBy, find, pickBy } from "lodash";
+import { result, uniqBy, groupBy, find, pickBy, sortBy } from "lodash";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 import {
   ClassificationFeatureValue,
   Product,
   VariantOption
-} from "../templates/product-details-page";
+} from "../components/types/ProductBaseTypes";
 
 export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
 
@@ -535,49 +535,38 @@ export const getProductAttributes = (
   ];
 };
 
-export const getProductTechnicalSpecifications = (
+const IGNORED_ATTRIBUTES = [
+  "scoringWeightAttributes.scoringweight",
+  "appearanceAttributes.colourfamily"
+];
+
+export const getValidClassification = (
   classificationNamespace: string,
   classifications
 ) => {
-  // TODO: This is hardcoded for Norway.
-  const IGNORED_CLASSIFICATIONS = [
-    "scoringWeightAttributes.scoringweight",
-    "appearanceAttributes.colourfamily"
-  ].map((value) => `${classificationNamespace}/${value}`);
-  const TECHNICAL_SPECIFICATION_ORDER = [
-    "measurements.length",
-    "measurements.width",
-    "measurements.height",
-    "weightAttributes.netweight",
-    "roofAttributes.minimumpitch",
-    "pitchRoofAttributes.piecespersqm",
-    "tilesAttributes.battendistance",
-    "tilesAttributes.averagedeckwidth",
-    "weightAttributes.weightpersqm"
-  ].map((value) => `${classificationNamespace}/${value}`);
+  const IGNORED_CLASSIFICATIONS = IGNORED_ATTRIBUTES.map(
+    (value) => `${classificationNamespace}/${value}`
+  );
 
-  return classifications
-    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code))
-    .map(({ code, name, featureValues, featureUnit }) => ({
-      name,
-      value: `${featureValues[0].value} ${featureUnit?.symbol || ""}`,
-      code
-    }))
-    .flat()
-    .sort(({ code: a }, { code: b }) => {
-      const aIndex = TECHNICAL_SPECIFICATION_ORDER.indexOf(a);
-      const bIndex = TECHNICAL_SPECIFICATION_ORDER.indexOf(b);
+  const classificationsToReturn = classifications.filter(
+    ({ features }) =>
+      !IGNORED_CLASSIFICATIONS.includes(features && features[0].code)
+  );
+  return classificationsToReturn;
+};
 
-      if (aIndex === -1) {
-        return 1;
-      }
+export const getValidFeatures = (classificationNamespace: string, features) => {
+  if (!features || !features.length) return [];
 
-      if (bIndex === -1) {
-        return -1;
-      }
+  const IGNORED_CLASSIFICATIONS = IGNORED_ATTRIBUTES.map(
+    (value) => `${classificationNamespace}/${value}`
+  );
+  const featureToReturn = sortBy(
+    features.filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code)),
+    "name"
+  );
 
-      return aIndex - bIndex;
-    });
+  return featureToReturn;
 };
 
 export type Category = {

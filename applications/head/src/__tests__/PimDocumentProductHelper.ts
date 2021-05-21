@@ -1,4 +1,4 @@
-import { PIMDocumentProduct } from "../components/PIMDocumentBase";
+import { PIMDocumentProduct } from "../components/types/PIMDocumentBase";
 import createCategory from "./CategoryHelper";
 import createClassification from "./ClassificationHelper";
 

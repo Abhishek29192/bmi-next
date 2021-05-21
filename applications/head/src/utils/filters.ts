@@ -1,8 +1,10 @@
 import { uniqBy, map } from "lodash";
-import { Product, Category } from "../templates/product-details-page";
+import { Product, Category } from "../components/types/ProductBaseTypes";
 import { Data as DocumentResultsData } from "../components/DocumentResults";
-import { Data as PIMDocumentData } from "../components/PIMDocument";
-import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
+import {
+  PIMDocumentData,
+  PIMLinkDocumentData
+} from "../components/types/PIMDocumentBase";
 import {
   findAllCategories,
   mapProductClassifications,

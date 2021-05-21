@@ -1,4 +1,4 @@
-import { Data as PIMDocumentData } from "../components/PIMDocument";
+import { PIMDocumentData } from "../components/types/PIMDocumentBase";
 import createAssetType from "./AssetTypeHelper";
 import createProduct from "./PimDocumentProductHelper";
 
