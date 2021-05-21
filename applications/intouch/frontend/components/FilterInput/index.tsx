@@ -15,7 +15,7 @@ export const FilterInput = ({ label }: FilterInputProps) => {
         label={label}
         variant="outlined"
         fullWidth
-        startAdornment={<Search />}
+        leftAdornment={<Search />}
       />
     </nav>
   );

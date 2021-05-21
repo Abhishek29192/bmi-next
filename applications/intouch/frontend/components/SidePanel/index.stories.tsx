@@ -106,5 +106,7 @@ export const Training = () => (
 );
 
 export const Team = () => (
-  <SidePanel searchLabel="Search team">{people}</SidePanel>
+  <SidePanel searchLabel="Search team" filters={trainingFilters}>
+    {people}
+  </SidePanel>
 );

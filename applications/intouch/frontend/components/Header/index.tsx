@@ -40,7 +40,7 @@ export const Header = ({ title }: HeaderProps) => {
             />
           </Link>
           <div className={styles.midHeaderNav}>
-            <IconButton onClick={toggle} id="notifications-panel-toggle">
+            <IconButton onClick={toggle}>
               <Icon source={Notifications} color="primary" />
             </IconButton>
             <Icon source={Menu} style={{ width: 40, display: "block" }} />
@@ -61,7 +61,7 @@ export const Header = ({ title }: HeaderProps) => {
           </div>
 
           <div className={styles.lowerHeaderNav}>
-            <IconButton onClick={toggle}>
+            <IconButton onClick={toggle} id="notifications-panel-toggle">
               <Icon source={Notifications} color="primary" />
             </IconButton>
             <UserMenu />
