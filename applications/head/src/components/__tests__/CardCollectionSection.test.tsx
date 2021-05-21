@@ -55,8 +55,8 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         description: {
-          raw:
-            '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          // eslint-disable-next-line prettier/prettier
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
         __typename: "ContentfulCardCollectionSection",
@@ -87,8 +87,8 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         description: {
-          raw:
-            '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          // eslint-disable-next-line prettier/prettier
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
         __typename: "ContentfulCardCollectionSection",
@@ -129,8 +129,8 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         description: {
-          raw:
-            '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          // eslint-disable-next-line prettier/prettier
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
         __typename: "ContentfulCardCollectionSection",
@@ -164,8 +164,8 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         description: {
-          raw:
-            '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          // eslint-disable-next-line prettier/prettier
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
         __typename: "ContentfulCardCollectionSection",
