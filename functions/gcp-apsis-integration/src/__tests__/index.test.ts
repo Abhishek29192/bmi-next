@@ -1091,8 +1091,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith(
       "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/test%40test.com/sections/usercreated.sections.fulq3a5aou/attributes",
       {
-        body:
-          '{"9820534":"test@test.com","312460234":true,"312461234":true,"312462234":"My Name"}',
+        body: '{"9820534":"test@test.com","312460234":true,"312461234":true,"312462234":"My Name"}',
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${oAuthToken}`,
