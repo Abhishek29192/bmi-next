@@ -228,8 +228,13 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQuery,
   OperationTypes.GetCompanyQueryVariables
 >;
-export const TrainingInformationDocument = gql`
-  query trainingInformation {
+export const TrainingDocument = gql`
+  query training {
+    trainingContentCollection {
+      items {
+        lmsCtaLabel
+      }
+    }
     courses {
       nodes {
         id
@@ -239,26 +244,13 @@ export const TrainingInformationDocument = gql`
         promoted
         trainingType
         description
-      }
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        startCursor
-        endCursor
-      }
-      totalCount
-    }
-    courseEnrollments {
-      nodes {
-        id
-        url
-        status
-        course {
-          id
-          name
-          description
-          image
-          technology
+        courseEnrollments {
+          nodes {
+            id
+            status
+            url
+            courseId
+          }
         }
       }
       pageInfo {
@@ -273,51 +265,49 @@ export const TrainingInformationDocument = gql`
 `;
 
 /**
- * __useTrainingInformationQuery__
+ * __useTrainingQuery__
  *
- * To run a query within a React component, call `useTrainingInformationQuery` and pass it any options that fit your needs.
- * When your component renders, `useTrainingInformationQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useTrainingQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTrainingQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useTrainingInformationQuery({
+ * const { data, loading, error } = useTrainingQuery({
  *   variables: {
  *   },
  * });
  */
-export function useTrainingInformationQuery(
+export function useTrainingQuery(
   baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.TrainingInformationQuery,
-    OperationTypes.TrainingInformationQueryVariables
+    OperationTypes.TrainingQuery,
+    OperationTypes.TrainingQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
-    OperationTypes.TrainingInformationQuery,
-    OperationTypes.TrainingInformationQueryVariables
-  >(TrainingInformationDocument, options);
+    OperationTypes.TrainingQuery,
+    OperationTypes.TrainingQueryVariables
+  >(TrainingDocument, options);
 }
-export function useTrainingInformationLazyQuery(
+export function useTrainingLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.TrainingInformationQuery,
-    OperationTypes.TrainingInformationQueryVariables
+    OperationTypes.TrainingQuery,
+    OperationTypes.TrainingQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
-    OperationTypes.TrainingInformationQuery,
-    OperationTypes.TrainingInformationQueryVariables
-  >(TrainingInformationDocument, options);
+    OperationTypes.TrainingQuery,
+    OperationTypes.TrainingQueryVariables
+  >(TrainingDocument, options);
 }
-export type TrainingInformationQueryHookResult = ReturnType<
-  typeof useTrainingInformationQuery
+export type TrainingQueryHookResult = ReturnType<typeof useTrainingQuery>;
+export type TrainingLazyQueryHookResult = ReturnType<
+  typeof useTrainingLazyQuery
 >;
-export type TrainingInformationLazyQueryHookResult = ReturnType<
-  typeof useTrainingInformationLazyQuery
->;
-export type TrainingInformationQueryResult = Apollo.QueryResult<
-  OperationTypes.TrainingInformationQuery,
-  OperationTypes.TrainingInformationQueryVariables
+export type TrainingQueryResult = Apollo.QueryResult<
+  OperationTypes.TrainingQuery,
+  OperationTypes.TrainingQueryVariables
 >;

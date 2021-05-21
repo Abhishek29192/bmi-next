@@ -167,8 +167,13 @@ export const ssrGetCompany = {
 
   usePage: useGetCompany
 };
-export const TrainingInformationDocument = gql`
-  query trainingInformation {
+export const TrainingDocument = gql`
+  query training {
+    trainingContentCollection {
+      items {
+        lmsCtaLabel
+      }
+    }
     courses {
       nodes {
         id
@@ -178,26 +183,13 @@ export const TrainingInformationDocument = gql`
         promoted
         trainingType
         description
-      }
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        startCursor
-        endCursor
-      }
-      totalCount
-    }
-    courseEnrollments {
-      nodes {
-        id
-        url
-        status
-        course {
-          id
-          name
-          description
-          image
-          technology
+        courseEnrollments {
+          nodes {
+            id
+            status
+            url
+            courseId
+          }
         }
       }
       pageInfo {
@@ -210,18 +202,17 @@ export const TrainingInformationDocument = gql`
     }
   }
 `;
-export async function getServerPageTrainingInformation(
+export async function getServerPageTraining(
   options: Omit<
-    Apollo.QueryOptions<OperationTypes.TrainingInformationQueryVariables>,
+    Apollo.QueryOptions<OperationTypes.TrainingQueryVariables>,
     "query"
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data =
-    await apolloClient.query<OperationTypes.TrainingInformationQuery>({
-      ...options,
-      query: TrainingInformationDocument
-    });
+  const data = await apolloClient.query<OperationTypes.TrainingQuery>({
+    ...options,
+    query: TrainingDocument
+  });
 
   const apolloState = apolloClient.cache.extract();
 
@@ -233,24 +224,24 @@ export async function getServerPageTrainingInformation(
     }
   };
 }
-export const useTrainingInformation = (
+export const useTraining = (
   optionsFunc?: (
     router: NextRouter
   ) => QueryHookOptions<
-    OperationTypes.TrainingInformationQuery,
-    OperationTypes.TrainingInformationQueryVariables
+    OperationTypes.TrainingQuery,
+    OperationTypes.TrainingQueryVariables
   >
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(TrainingInformationDocument, options);
+  return useQuery(TrainingDocument, options);
 };
-export type PageTrainingInformationComp = React.FC<{
-  data?: OperationTypes.TrainingInformationQuery;
+export type PageTrainingComp = React.FC<{
+  data?: OperationTypes.TrainingQuery;
   error?: Apollo.ApolloError;
 }>;
-export const ssrTrainingInformation = {
-  getServerPage: getServerPageTrainingInformation,
+export const ssrTraining = {
+  getServerPage: getServerPageTraining,
 
-  usePage: useTrainingInformation
+  usePage: useTraining
 };
