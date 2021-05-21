@@ -55,7 +55,6 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         description: {
-          // eslint-disable-next-line prettier/prettier
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
@@ -87,7 +86,6 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         description: {
-          // eslint-disable-next-line prettier/prettier
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
@@ -129,7 +127,6 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         description: {
-          // eslint-disable-next-line prettier/prettier
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
@@ -164,7 +161,6 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         description: {
-          // eslint-disable-next-line prettier/prettier
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
