@@ -1,6 +1,6 @@
 import { ClickableAction } from "@bmi/clickable";
 import { ButtonBaseActions } from "@material-ui/core";
-import React from "react";
+import React, { createContext, useContext } from "react";
 
 type GTM = {
   action?: (ClickableAction | Omit<ButtonBaseActions, "focusVisible">) & {
@@ -19,6 +19,12 @@ declare let window: Window & {
   dataLayer: object[];
 };
 
+type Context = {
+  idMap: Record<string, string>;
+};
+
+export const GTMContext = createContext<Context>({ idMap: {} });
+
 export function pushToDataLayer(dataGtm: GTM["gtm"]) {
   window.dataLayer && window.dataLayer.push(dataGtm);
 }
@@ -28,10 +34,12 @@ export default function withGTM<P>(
   propsToGtmMap: Map<P> = {}
 ) {
   const ComponentWithGTM = ({ gtm, action, ...props }: GTM & P) => {
+    const { idMap } = useContext(GTMContext);
     const { "data-gtm": gtmDatasetJson, ...actionRest } = action || {};
     const gtmDataset = gtmDatasetJson && JSON.parse(gtmDatasetJson);
+    const id = gtm.id || props[propsToGtmMap.id] || gtmDataset?.id;
     const dataGtm = {
-      id: gtm.id || props[propsToGtmMap.id] || gtmDataset?.id,
+      id: idMap[id] || id,
       label:
         gtm.label || String(props[propsToGtmMap.label]) || gtmDataset?.label,
       action: gtm.action || props[propsToGtmMap.action] || gtmDataset?.action
