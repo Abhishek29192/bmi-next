@@ -121,6 +121,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={featuredMedia?.image?.file.url}
     >
       {heroType === "Spotlight" ? (
         <SpotlightHero {...heroProps} breadcrumbs={breadcrumbsNode} />

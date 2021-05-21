@@ -32,6 +32,7 @@ type Props = {
   siteData: SiteData;
   isSearchPage?: boolean;
   variantCodeToPathMap?: Record<string, string>;
+  ogImageUrl?: string;
 };
 
 const Page = ({
@@ -40,7 +41,8 @@ const Page = ({
   pageData,
   siteData,
   isSearchPage,
-  variantCodeToPathMap
+  variantCodeToPathMap,
+  ogImageUrl
 }: Props) => {
   const {
     node_locale,
@@ -70,6 +72,8 @@ const Page = ({
         title={seo?.metaTitle || title}
         defer={false}
       >
+        {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+
         {/* NOTE: expand viewport beyond safe area */}
         <meta
           name="viewport"

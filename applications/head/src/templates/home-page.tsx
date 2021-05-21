@@ -95,6 +95,7 @@ const HomePage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={slides?.[0]?.featuredMedia.image?.file.url}
     >
       <SiteContext.Consumer>
         {(context) => {
