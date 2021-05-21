@@ -1,10 +1,10 @@
-deploy_intouch_api_gateway_dev:
+deploy_intouch_api_training_dev:
   stage: deploy
   image: google/cloud-sdk
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/fix-pipeline')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         # execute on master, but only if changing intouch api
         - applications/intouch/api/**/*
@@ -14,4 +14,4 @@ deploy_intouch_api_gateway_dev:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/api/cloudbuild.yaml --substitutions _CONTENTFUL_SPACE_ID=$INTOUCH_GTW_CONTENTFUL_SPACE_ID,_CONTENTFUL_ENVIRONMENT=$INTOUCH_GTW_CONTENTFUL_ENVIRONMENT,_CONTENTFUL_TOKEN=$INTOUCH_GTW_CONTENTFUL_TOKEN,_DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_DOCEBO_API_CLIENT_ID=$INTOUCH_DOCEBO_API_CLIENT_ID,_DOCEBO_API_JWT_PASSPHRASE=$INTOUCH_DOCEBO_API_JWT_PASSPHRASE
+    - gcloud builds submit . --config=applications/intouch/api/services/training/cloudbuild.yaml --substitutions _DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_DOCEBO_API_CLIENT_ID=$INTOUCH_DOCEBO_API_CLIENT_ID,_DOCEBO_API_JWT_PASSPHRASE=$INTOUCH_DOCEBO_API_JWT_PASSPHRASE

@@ -15,7 +15,7 @@ RUN yarn install
 WORKDIR /usr/src/app/applications/intouch/api/services/training
 
 # TypeScript
-RUN yarn tsc
+RUN yarn run build
 
 
 FROM node:12-alpine
@@ -31,7 +31,9 @@ COPY ./applications/intouch/shared ./applications/intouch/shared
 COPY ./applications/intouch/api/services/training ./applications/intouch/api/services/training
 
 # Copy built files from previous stage
-COPY --from=build /usr/src/app/applications/intouch/api/services/training/dist ./applications/intouch/api/services/training/dist
+COPY --from=build /usr/src/app/libraries/logger/dist /usr/src/app/libraries/logger/dist
+COPY --from=build /usr/src/app/applications/intouch/shared /usr/src/app/applications/intouch/shared
+COPY --from=build /usr/src/app/applications/intouch/api/services/training/dist /usr/src/app/applications/intouch/api/services/training/dist
 
 # Install prod
 RUN yarn install --production --cache-folder ./ycache && \

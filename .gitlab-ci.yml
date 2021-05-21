@@ -76,6 +76,7 @@ stages:
   - release
   - package
   - deploy
+  - deploy_gateway
   - dynamic_security
   - lighthouse_scan
 
