@@ -52,15 +52,21 @@ secret_detection_default_branch:
   rules:
     - when: never
 
-cache:
-  key:
-    files:
-      - yarn.lock
-  policy: pull
-  untracked: false
-  paths:
-    - "**/node_modules"
-    - ".yarn_cache"
+workflow:
+  rules:
+  - if: '$CI_MERGE_REQUEST_LABELS =~ "Disable Builds"'
+    when: never
+
+default:
+  cache:
+    key:
+      files:
+        - yarn.lock
+    policy: pull
+    untracked: false
+    paths:
+      - "**/node_modules"
+      - ".yarn_cache"
 
 variables:
   FF_USE_FASTZIP: "false"
