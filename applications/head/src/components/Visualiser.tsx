@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 import queryString from "query-string";
 import Visualiser, {
   Parameters,
@@ -9,7 +9,7 @@ import { navigate, graphql } from "gatsby";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
 import { devLog } from "../utils/devLog";
 import { getProductUrl } from "../utils/product-details-transforms";
-import { pushToDataLayer } from "../utils/google-tag-manager";
+import { pushToDataLayer, GTMContext } from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
@@ -57,6 +57,20 @@ const mapParameters = (params: any): Partial<Parameters> => {
   const { tileId, colourId, sidingId, viewMode } = params;
 
   return { tileId, colourId, sidingId, viewMode };
+};
+
+const ShareWidgetSectionWithContext = ({
+  data
+}: {
+  data: ShareWidgetSectionData;
+}) => {
+  return (
+    <GTMContext.Provider
+      value={{ idMap: { "cta-share1": "visualiser1-cta-share1" } }}
+    >
+      <ShareWidgetSection data={data} hasNoPadding={true} />
+    </GTMContext.Provider>
+  );
 };
 
 const VisualiserProvider = ({
@@ -143,7 +157,7 @@ const VisualiserProvider = ({
         {...parameters}
         shareWidget={
           shareWidgetData ? (
-            <ShareWidgetSection data={shareWidgetData} hasNoPadding={true} />
+            <ShareWidgetSectionWithContext data={shareWidgetData} />
           ) : undefined
         }
         onClick={handleOnClick}
