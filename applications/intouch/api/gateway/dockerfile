@@ -1,18 +1,47 @@
-FROM node:12-alpine
+FROM node:12-alpine as build
 
-# Create app directory
+# Create apps directory
 WORKDIR /usr/src/app
 
-# Install app dependencies
-COPY package*.json ./
+# Copy app files
+COPY ./package.json ./package.json
+COPY ./libraries ./libraries
+COPY ./applications/intouch/shared ./applications/intouch/shared
+COPY ./applications/intouch/api/gateway ./applications/intouch/api/gateway
 
 # Install all Packages
-RUN yarn
+RUN yarn install
 
-# Copy all other source code to work directory
-ADD . /usr/src/app
+WORKDIR /usr/src/app/applications/intouch/api/gateway
+
 # TypeScript
-RUN yarn tsc
+RUN yarn run build
+
+
+FROM node:12-alpine
+
+# Create apps directory
+WORKDIR /usr/src/app
+
+
+# Copy app files
+COPY ./package.json ./package.json
+COPY ./libraries ./libraries
+COPY ./applications/intouch/shared ./applications/intouch/shared
+COPY ./applications/intouch/api/gateway ./applications/intouch/api/gateway
+
+# Copy built files from previous stage
+COPY --from=build /usr/src/app/libraries/logger/dist /usr/src/app/libraries/logger/dist
+COPY --from=build /usr/src/app/applications/intouch/shared /usr/src/app/applications/intouch/shared
+COPY --from=build /usr/src/app/applications/intouch/api/gateway/dist /usr/src/app/applications/intouch/api/gateway/dist
+
+
+# Install prod
+RUN yarn install --production --cache-folder ./ycache && \
+  rm -rf ./ycache
+
+# Create app directory
+WORKDIR /usr/src/app/applications/intouch/api/gateway
 
 # Start
 CMD [ "yarn", "start" ]
