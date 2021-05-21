@@ -13,7 +13,7 @@
     "gcp-build": "tsc"
   },
   "dependencies": {
-    "@bmi/intouch-shared-types": "^0.0.0",
+    "@bmi/intouch-api-types": "^0.0.0",
     "@bmi/logger": "^0.0.0",
     "@google-cloud/pubsub": "^2.10.0",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",

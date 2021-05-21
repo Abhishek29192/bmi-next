@@ -1,18 +1,16 @@
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { resolve } from "path";
-import { getGuarantee } from "./mocks/data";
+import { mockGuarantee } from "./mocks/guarantee";
 import GuaranteePdf from "./src/GuaranteePdf";
-import { sendGuaranteePdf } from "./";
+import { sendGuaranteePdf } from ".";
 
 export const pdfCreate = async () => {
-  const result = await getGuarantee();
-  const guaranteePdf = new GuaranteePdf(result);
+  const guaranteePdf = new GuaranteePdf(mockGuarantee);
 
   const filePath = resolve(".", "pdf");
   if (!existsSync(filePath)) {
     mkdirSync(filePath);
   }
-
   const pdfs = await guaranteePdf.create();
 
   pdfs.forEach(async (pdf) => {
@@ -22,10 +20,12 @@ export const pdfCreate = async () => {
 };
 
 export const sendMail = async () => {
-  const result = await getGuarantee();
   const event = {
-    data: Buffer.from(JSON.stringify(result)).toString("base64")
+    data: Buffer.from(JSON.stringify(mockGuarantee)).toString("base64")
   };
-
-  sendGuaranteePdf(event, null);
+  sendGuaranteePdf(event);
 };
+
+// uncomment any of these lines to try out the code
+// (async () => await pdfCreate())();
+// (async () => await sendMail())();

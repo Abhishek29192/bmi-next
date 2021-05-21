@@ -4,11 +4,9 @@ deploy_intouch_api_companies_dev:
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
-        # execute on master, but only if changing intouch api
-        - applications/intouch/api/**/*
-        - applications/intouch/shared/**/*
+        - applications/intouch/api/companies/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json

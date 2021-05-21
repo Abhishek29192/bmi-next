@@ -6,15 +6,63 @@ import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
 import * as OperationTypes from "./operations";
 
-export const CreateCompanyDocument = gql`
-  mutation createCompany($input: CreateCompanyInput!) {
-    createCompany(input: $input) {
+export const UpdateCompanyDocument = gql`
+  mutation updateCompany($input: UpdateCompanyInput!) {
+    updateCompany(input: $input) {
       company {
         name
       }
     }
   }
 `;
+export const CurrentCompanyDocument = gql`
+  query currentCompany {
+    currentCompany
+  }
+`;
+export async function getServerPageCurrentCompany(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.CurrentCompanyQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.CurrentCompanyQuery>({
+    ...options,
+    query: CurrentCompanyDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useCurrentCompany = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.CurrentCompanyQuery,
+    OperationTypes.CurrentCompanyQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(CurrentCompanyDocument, options);
+};
+export type PageCurrentCompanyComp = React.FC<{
+  data?: OperationTypes.CurrentCompanyQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrCurrentCompany = {
+  getServerPage: getServerPageCurrentCompany,
+
+  usePage: useCurrentCompany
+};
 export const GetCurrentCompanyDocument = gql`
   query GetCurrentCompany {
     currentCompany
@@ -121,35 +169,36 @@ export const ssrGetCompany = {
 };
 export const TrainingDocument = gql`
   query training {
-    training {
-      name
-      url
-      user {
+    trainingContentCollection {
+      items {
+        lmsCtaLabel
+      }
+    }
+    courses {
+      nodes {
         id
-        email
-        user_level
-        username
-        firstname
-        lastname
-        enrollment {
-          count
-          has_more_data
-          current_page
-          current_page_size
-          total_page_count
-          total_count
-          items {
+        name
+        technology
+        image
+        promoted
+        trainingType
+        description
+        courseEnrollments {
+          nodes {
             id
-            name
-            description
             status
-            image_url
             url
-            type
-            level
+            courseId
           }
         }
       }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      totalCount
     }
   }
 `;

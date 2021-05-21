@@ -7,10 +7,11 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc && concurrently \"tsc -w\" \"nodemon src/index.ts\"",
+    "manual-test": "ts-node test.ts",
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@bmi/intouch-shared-types": "0.0.0",
+    "@bmi/intouch-api-types": "0.0.0",
     "@sendgrid/mail": "^7.4.2",
     "pdf-lib": "^1.16.0",
     "react": "^16.13.1",

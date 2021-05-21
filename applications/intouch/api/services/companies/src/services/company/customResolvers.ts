@@ -5,7 +5,7 @@ import {
   Source
 } from "graphql";
 import { ExecutionResult, Maybe } from "@graphql-tools/utils";
-import { GuaranteeQuery } from "@bmi/intouch-shared-types";
+import { Guarantee } from "@bmi/intouch-api-types";
 
 type guaranteeResolverParams = {
   graphql: <TData = ExecutionResult["data"]>(
@@ -130,7 +130,7 @@ export const guaranteeResolver = async ({
 
   const variables = { id: args.id };
 
-  const { data, errors } = await graphql<GuaranteeQuery>(
+  const { data } = await graphql<{ guarantee: Guarantee }>(
     resolverInfo.schema,
     document,
     null,

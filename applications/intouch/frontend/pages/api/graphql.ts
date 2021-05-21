@@ -33,8 +33,12 @@ const handler = async function (
    */
 
   if (process.env.NODE_ENV === "development") {
-    const [_, jwtPayload] = req.headers.authorization.split(".");
-    req.headers["x-apigateway-api-userinfo"] = jwtPayload;
+    const authHeader = req.headers.authorization;
+
+    if (authHeader) {
+      const [, jwtPayload] = authHeader.split(".");
+      req.headers["x-apigateway-api-userinfo"] = jwtPayload;
+    }
   }
   createProxyMiddleware({
     target: process.env.GRAPHQL_URL,

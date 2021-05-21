@@ -20,8 +20,22 @@ query guarantee($id:String!) {
       fileName
       url
     }
-    guaranteeTemplatesCollection(limit: 5) {
+    guaranteeTemplatesCollection {
       items {
+        approvalMessage {
+          event
+          format
+          subject
+          notificationBody
+          emailBody
+        }
+        rejectionMessage {
+          event
+          format
+          subject
+          notificationBody
+          emailBody
+        }
         logo {
           title
           url
@@ -52,6 +66,11 @@ query guarantee($id:String!) {
         headingValidity
         headingExpiry
         footer
+        mailBody
+        filenamePrefix
+        lockupLine1
+        lockupLine2
+        roofType
       }
     }
   }

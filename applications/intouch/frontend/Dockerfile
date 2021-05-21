@@ -13,7 +13,6 @@ COPY ./@types ./@types
 
 COPY ./libraries ./libraries
 COPY ./components ./components
-COPY ./applications/intouch/shared ./applications/intouch/shared
 COPY ./applications/intouch/frontend ./applications/intouch/frontend
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 
@@ -33,7 +32,6 @@ COPY yarn.lock .
 
 COPY ./libraries ./libraries
 COPY ./components ./components
-COPY ./applications/intouch/shared ./applications/intouch/shared
 COPY ./applications/intouch/frontend ./applications/intouch/frontend
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 
