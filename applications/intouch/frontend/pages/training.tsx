@@ -14,36 +14,46 @@ import { Layout } from "../components/Layout";
 
 // export doesn't matter for codegen
 export const pageQuery = gql`
-  query training {
-    training {
-      name
-      url
-      user {
+  query trainingInformation {
+    courses {
+      nodes {
         id
-        email
-        user_level
-        username
-        firstname
-        lastname
-        enrollment {
-          count
-          has_more_data
-          current_page
-          current_page_size
-          total_page_count
-          total_count
-          items {
-            id
-            name
-            description
-            status
-            image_url
-            url
-            type
-            level
-          }
+        name
+        technology
+        image
+        promoted
+        trainingType
+        description
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      totalCount
+    }
+    courseEnrollments {
+      nodes {
+        id
+        url
+        status
+
+        course {
+          id
+          name
+          description
+          image
+          technology
         }
       }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      totalCount
     }
   }
 `;

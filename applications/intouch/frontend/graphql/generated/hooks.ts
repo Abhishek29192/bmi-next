@@ -4,57 +4,112 @@ import * as OperationTypes from "./operations";
 
 const defaultOptions = {};
 
-export const CreateCompanyDocument = gql`
-  mutation createCompany($input: CreateCompanyInput!) {
-    createCompany(input: $input) {
+export const UpdateCompanyDocument = gql`
+  mutation updateCompany($input: UpdateCompanyInput!) {
+    updateCompany(input: $input) {
       company {
         name
       }
     }
   }
 `;
-export type CreateCompanyMutationFn = Apollo.MutationFunction<
-  OperationTypes.CreateCompanyMutation,
-  OperationTypes.CreateCompanyMutationVariables
+export type UpdateCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateCompanyMutation,
+  OperationTypes.UpdateCompanyMutationVariables
 >;
 
 /**
- * __useCreateCompanyMutation__
+ * __useUpdateCompanyMutation__
  *
- * To run a mutation, you first call `useCreateCompanyMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useCreateCompanyMutation` returns a tuple that includes:
+ * To run a mutation, you first call `useUpdateCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateCompanyMutation` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [createCompanyMutation, { data, loading, error }] = useCreateCompanyMutation({
+ * const [updateCompanyMutation, { data, loading, error }] = useUpdateCompanyMutation({
  *   variables: {
  *      input: // value for 'input'
  *   },
  * });
  */
-export function useCreateCompanyMutation(
+export function useUpdateCompanyMutation(
   baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.CreateCompanyMutation,
-    OperationTypes.CreateCompanyMutationVariables
+    OperationTypes.UpdateCompanyMutation,
+    OperationTypes.UpdateCompanyMutationVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useMutation<
-    OperationTypes.CreateCompanyMutation,
-    OperationTypes.CreateCompanyMutationVariables
-  >(CreateCompanyDocument, options);
+    OperationTypes.UpdateCompanyMutation,
+    OperationTypes.UpdateCompanyMutationVariables
+  >(UpdateCompanyDocument, options);
 }
-export type CreateCompanyMutationHookResult = ReturnType<
-  typeof useCreateCompanyMutation
+export type UpdateCompanyMutationHookResult = ReturnType<
+  typeof useUpdateCompanyMutation
 >;
-export type CreateCompanyMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
-export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.CreateCompanyMutation,
-  OperationTypes.CreateCompanyMutationVariables
+export type UpdateCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateCompanyMutation>;
+export type UpdateCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateCompanyMutation,
+  OperationTypes.UpdateCompanyMutationVariables
+>;
+export const CurrentCompanyDocument = gql`
+  query currentCompany {
+    currentCompany
+  }
+`;
+
+/**
+ * __useCurrentCompanyQuery__
+ *
+ * To run a query within a React component, call `useCurrentCompanyQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCurrentCompanyQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCurrentCompanyQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCurrentCompanyQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.CurrentCompanyQuery,
+    OperationTypes.CurrentCompanyQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.CurrentCompanyQuery,
+    OperationTypes.CurrentCompanyQueryVariables
+  >(CurrentCompanyDocument, options);
+}
+export function useCurrentCompanyLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.CurrentCompanyQuery,
+    OperationTypes.CurrentCompanyQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.CurrentCompanyQuery,
+    OperationTypes.CurrentCompanyQueryVariables
+  >(CurrentCompanyDocument, options);
+}
+export type CurrentCompanyQueryHookResult = ReturnType<
+  typeof useCurrentCompanyQuery
+>;
+export type CurrentCompanyLazyQueryHookResult = ReturnType<
+  typeof useCurrentCompanyLazyQuery
+>;
+export type CurrentCompanyQueryResult = Apollo.QueryResult<
+  OperationTypes.CurrentCompanyQuery,
+  OperationTypes.CurrentCompanyQueryVariables
 >;
 export const GetCurrentCompanyDocument = gql`
   query GetCurrentCompany {
@@ -173,85 +228,96 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQuery,
   OperationTypes.GetCompanyQueryVariables
 >;
-export const TrainingDocument = gql`
-  query training {
-    training {
-      name
-      url
-      user {
+export const TrainingInformationDocument = gql`
+  query trainingInformation {
+    courses {
+      nodes {
         id
-        email
-        user_level
-        username
-        firstname
-        lastname
-        enrollment {
-          count
-          has_more_data
-          current_page
-          current_page_size
-          total_page_count
-          total_count
-          items {
-            id
-            name
-            description
-            status
-            image_url
-            url
-            type
-            level
-          }
+        name
+        technology
+        image
+        promoted
+        trainingType
+        description
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      totalCount
+    }
+    courseEnrollments {
+      nodes {
+        id
+        url
+        status
+        course {
+          id
+          name
+          description
+          image
+          technology
         }
       }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      totalCount
     }
   }
 `;
 
 /**
- * __useTrainingQuery__
+ * __useTrainingInformationQuery__
  *
- * To run a query within a React component, call `useTrainingQuery` and pass it any options that fit your needs.
- * When your component renders, `useTrainingQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useTrainingInformationQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTrainingInformationQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useTrainingQuery({
+ * const { data, loading, error } = useTrainingInformationQuery({
  *   variables: {
  *   },
  * });
  */
-export function useTrainingQuery(
+export function useTrainingInformationQuery(
   baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.TrainingQuery,
-    OperationTypes.TrainingQueryVariables
+    OperationTypes.TrainingInformationQuery,
+    OperationTypes.TrainingInformationQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
-    OperationTypes.TrainingQuery,
-    OperationTypes.TrainingQueryVariables
-  >(TrainingDocument, options);
+    OperationTypes.TrainingInformationQuery,
+    OperationTypes.TrainingInformationQueryVariables
+  >(TrainingInformationDocument, options);
 }
-export function useTrainingLazyQuery(
+export function useTrainingInformationLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.TrainingQuery,
-    OperationTypes.TrainingQueryVariables
+    OperationTypes.TrainingInformationQuery,
+    OperationTypes.TrainingInformationQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
-    OperationTypes.TrainingQuery,
-    OperationTypes.TrainingQueryVariables
-  >(TrainingDocument, options);
+    OperationTypes.TrainingInformationQuery,
+    OperationTypes.TrainingInformationQueryVariables
+  >(TrainingInformationDocument, options);
 }
-export type TrainingQueryHookResult = ReturnType<typeof useTrainingQuery>;
-export type TrainingLazyQueryHookResult = ReturnType<
-  typeof useTrainingLazyQuery
+export type TrainingInformationQueryHookResult = ReturnType<
+  typeof useTrainingInformationQuery
 >;
-export type TrainingQueryResult = Apollo.QueryResult<
-  OperationTypes.TrainingQuery,
-  OperationTypes.TrainingQueryVariables
+export type TrainingInformationLazyQueryHookResult = ReturnType<
+  typeof useTrainingInformationLazyQuery
+>;
+export type TrainingInformationQueryResult = Apollo.QueryResult<
+  OperationTypes.TrainingInformationQuery,
+  OperationTypes.TrainingInformationQueryVariables
 >;

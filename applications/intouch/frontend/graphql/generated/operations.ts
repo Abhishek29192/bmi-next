@@ -1,18 +1,27 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
-export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.CreateCompanyInput;
+export type UpdateCompanyMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateCompanyInput;
 }>;
 
-export type CreateCompanyMutation = { readonly __typename?: "Mutation" } & {
-  readonly createCompany?: SchemaTypes.Maybe<
-    { readonly __typename?: "CreateCompanyPayload" } & {
+export type UpdateCompanyMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateCompany?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateCompanyPayload" } & {
       readonly company?: SchemaTypes.Maybe<
         { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "name">
       >;
     }
   >;
 };
+
+export type CurrentCompanyQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type CurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
+  SchemaTypes.Query,
+  "currentCompany"
+>;
 
 export type GetCurrentCompanyQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
@@ -36,56 +45,55 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
-export type TrainingQueryVariables = SchemaTypes.Exact<{
+export type TrainingInformationQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
 
-export type TrainingQuery = { readonly __typename?: "Query" } & {
-  readonly training?: SchemaTypes.Maybe<
-    { readonly __typename?: "TrainingInfo" } & Pick<
-      SchemaTypes.TrainingInfo,
-      "name" | "url"
+export type TrainingInformationQuery = { readonly __typename?: "Query" } & {
+  readonly courses?: SchemaTypes.Maybe<
+    { readonly __typename?: "CoursesConnection" } & Pick<
+      SchemaTypes.CoursesConnection,
+      "totalCount"
     > & {
-        readonly user?: SchemaTypes.Maybe<
-          { readonly __typename?: "TrainingUser" } & Pick<
-            SchemaTypes.TrainingUser,
+        readonly nodes: ReadonlyArray<
+          { readonly __typename?: "Course" } & Pick<
+            SchemaTypes.Course,
             | "id"
-            | "email"
-            | "user_level"
-            | "username"
-            | "firstname"
-            | "lastname"
+            | "name"
+            | "technology"
+            | "image"
+            | "promoted"
+            | "trainingType"
+            | "description"
+          >
+        >;
+        readonly pageInfo: { readonly __typename?: "PageInfo" } & Pick<
+          SchemaTypes.PageInfo,
+          "hasNextPage" | "hasPreviousPage" | "startCursor" | "endCursor"
+        >;
+      }
+  >;
+  readonly courseEnrollments?: SchemaTypes.Maybe<
+    { readonly __typename?: "CourseEnrollmentsConnection" } & Pick<
+      SchemaTypes.CourseEnrollmentsConnection,
+      "totalCount"
+    > & {
+        readonly nodes: ReadonlyArray<
+          { readonly __typename?: "CourseEnrollment" } & Pick<
+            SchemaTypes.CourseEnrollment,
+            "id" | "url" | "status"
           > & {
-              readonly enrollment?: SchemaTypes.Maybe<
-                { readonly __typename?: "Enrollment" } & Pick<
-                  SchemaTypes.Enrollment,
-                  | "count"
-                  | "has_more_data"
-                  | "current_page"
-                  | "current_page_size"
-                  | "total_page_count"
-                  | "total_count"
-                > & {
-                    readonly items?: SchemaTypes.Maybe<
-                      ReadonlyArray<
-                        SchemaTypes.Maybe<
-                          { readonly __typename?: "EnrollmentItems" } & Pick<
-                            SchemaTypes.EnrollmentItems,
-                            | "id"
-                            | "name"
-                            | "description"
-                            | "status"
-                            | "image_url"
-                            | "url"
-                            | "type"
-                            | "level"
-                          >
-                        >
-                      >
-                    >;
-                  }
+              readonly course?: SchemaTypes.Maybe<
+                { readonly __typename?: "Course" } & Pick<
+                  SchemaTypes.Course,
+                  "id" | "name" | "description" | "image" | "technology"
+                >
               >;
             }
+        >;
+        readonly pageInfo: { readonly __typename?: "PageInfo" } & Pick<
+          SchemaTypes.PageInfo,
+          "hasNextPage" | "hasPreviousPage" | "startCursor" | "endCursor"
         >;
       }
   >;
