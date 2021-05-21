@@ -5,7 +5,7 @@ import styles from "./Form.module.scss";
 import SubmitButton from "./_SubmitButton";
 import { InputValue } from "./withFormControl";
 
-type Values = Record<string, InputValue>;
+type Values = Record<string, InputValue | undefined>;
 type Errors = Record<string, string>;
 
 export type Props = Omit<React.HTMLProps<HTMLFormElement>, "onSubmit"> & {
