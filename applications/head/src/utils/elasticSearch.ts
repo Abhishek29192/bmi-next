@@ -181,7 +181,6 @@ export const compileElasticSearchQuery = (
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue^6", // boosted - (see confluence documentation, linked above)
                     // known classification values
                     // TODO: a way of doing this generically?
                     "colourfamilyValue.keyword", // this doesn't have any effect when caret boosting
@@ -189,7 +188,8 @@ export const compileElasticSearchQuery = (
                     "texturefamilyValue.keyword",
                     "measurementValue.keyword",
                     "categories.value.keyword",
-                    "plpCategories.value.keyword"
+                    "plpCategories.value.keyword",
+                    "classifications.features.featureValues.value^6" // boosted - (see confluence documentation, linked above)
                   ]
                 }
               }
