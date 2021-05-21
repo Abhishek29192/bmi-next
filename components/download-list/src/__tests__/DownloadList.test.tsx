@@ -48,7 +48,9 @@ describe("DownloadList component", () => {
       </DownloadList>
     );
 
-    await act(async () => fireEvent.click(await findByText(label)));
+    await act(async () => {
+      fireEvent.click(await findByText(label));
+    });
 
     expect(onClick.mock.calls).toMatchSnapshot();
   });
