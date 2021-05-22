@@ -37,6 +37,15 @@ created_at timestamp NOT NULL DEFAULT now(),
 updated_at timestamp NOT NULL DEFAULT now()
 );
 
+DROP TABLE IF EXISTS course_catalogue_temp CASCADE;
+CREATE TABLE course_catalogue_temp (
+id SERIAL PRIMARY KEY,
+catalogue_id int,
+course_id int,
+created_at timestamp NOT NULL DEFAULT now(),
+updated_at timestamp NOT NULL DEFAULT now()
+);
+
 DROP TABLE IF EXISTS course_enrollment CASCADE;
 CREATE TABLE course_enrollment (
 id SERIAL PRIMARY KEY,
@@ -44,6 +53,26 @@ user_id int,
 course_id int,
 status text,
 url text,
+created_at timestamp NOT NULL DEFAULT now(),
+updated_at timestamp NOT NULL DEFAULT now()
+);
+
+DROP TABLE IF EXISTS course_enrollment_temp CASCADE;
+CREATE TABLE course_enrollment_temp (
+id SERIAL PRIMARY KEY,
+user_id int,
+course_id int,
+status text,
+url text,
+created_at timestamp NOT NULL DEFAULT now(),
+updated_at timestamp NOT NULL DEFAULT now()
+);
+
+DROP TABLE IF EXISTS course_sync_configuration CASCADE;
+CREATE TABLE course_sync_configuration (
+id SERIAL PRIMARY KEY,
+config_name text,
+config_value text,
 created_at timestamp NOT NULL DEFAULT now(),
 updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -96,11 +125,27 @@ INSERT INTO course_catalogue(id,catalogue_id,course_id)
 VALUES ('1',345,123);
 
 
+TRUNCATE TABLE course_catalogue_temp RESTART IDENTITY;
+INSERT INTO course_catalogue_temp(id,catalogue_id,course_id)
+VALUES ('1',987,123);
+
+
 TRUNCATE TABLE course_enrollment RESTART IDENTITY;
 INSERT INTO course_enrollment(id,user_id,course_id,status,url)
 VALUES ('1',987,123,'enrolled','url');
 
+
+TRUNCATE TABLE course_enrollment_temp RESTART IDENTITY;
+
+
+TRUNCATE TABLE course_sync_configuration RESTART IDENTITY;
+INSERT INTO course_sync_configuration(id,config_name,config_value)
+VALUES ('1','last_update_date','1578492981760');
+
 ALTER TABLE course ADD UNIQUE (course_id);
+ALTER TABLE course_catalogue ADD UNIQUE (catalogue_id,course_id);
+ALTER TABLE course_enrollment ADD UNIQUE (user_id,course_id);
+
 
 ALTER TABLE course_catalogue ADD FOREIGN KEY (course_id) REFERENCES course(course_id);
 CREATE INDEX ON course_catalogue (course_id);
@@ -118,7 +163,7 @@ COMMENT ON COLUMN course.promoted IS 'Promoted courses a listed higher than othe
 COMMENT ON COLUMN course.training_type IS 'Some text from Docebo indicating whether it is a webinar, classroom etc';
 COMMENT ON COLUMN course.description IS 'Text description from Docebo';
 
-COMMENT ON TABLE course_temp IS 'A temporary training course that BMI offers in Docebo';
+COMMENT ON TABLE course_temp IS 'A temporary training course that BMI offers in Docebo. Courses are brought from Docebo into this table before being merged into the course table.';
 COMMENT ON COLUMN course_temp.id IS 'Primary key';
 COMMENT ON COLUMN course_temp.course_id IS 'Docebo CourseId';
 COMMENT ON COLUMN course_temp.technology IS 'technology';
@@ -130,20 +175,40 @@ COMMENT ON COLUMN course_temp.description IS 'Text description from Docebo';
 
 COMMENT ON TABLE course_catalogue IS 'Course Catalog';
 COMMENT ON COLUMN course_catalogue.id IS 'Primary key';
-COMMENT ON COLUMN course_catalogue.catalogue_id IS 'fk';
+COMMENT ON COLUMN course_catalogue.catalogue_id IS 'market';
 COMMENT ON COLUMN course_catalogue.course_id IS 'fk';
+
+COMMENT ON TABLE course_catalogue_temp IS 'Course Catalog temp table.  The course cataloogues from docebo are pulled into here first, before being merged into the course_catalogue table.';
+COMMENT ON COLUMN course_catalogue_temp.id IS 'Primary key';
+COMMENT ON COLUMN course_catalogue_temp.catalogue_id IS 'catalogue';
+COMMENT ON COLUMN course_catalogue_temp.course_id IS 'course';
 
 COMMENT ON TABLE course_enrollment IS 'Course Enrollments';
 COMMENT ON COLUMN course_enrollment.id IS 'Primary key';
-COMMENT ON COLUMN course_enrollment.user_id IS 'fk';
+COMMENT ON COLUMN course_enrollment.user_id IS 'account';
 COMMENT ON COLUMN course_enrollment.course_id IS 'fk';
 COMMENT ON COLUMN course_enrollment.status IS 'status';
 COMMENT ON COLUMN course_enrollment.url IS 'url';
 
+COMMENT ON TABLE course_enrollment_temp IS 'Course Enrollments temp table.  Enrollements are brought in here from Docebo first, before being merged into the course_enrollemnt table';
+COMMENT ON COLUMN course_enrollment_temp.id IS 'Primary key';
+COMMENT ON COLUMN course_enrollment_temp.user_id IS 'account';
+COMMENT ON COLUMN course_enrollment_temp.course_id IS 'course';
+COMMENT ON COLUMN course_enrollment_temp.status IS 'status';
+COMMENT ON COLUMN course_enrollment_temp.url IS 'url';
+
+COMMENT ON TABLE course_sync_configuration IS 'Course Sync Configuration';
+COMMENT ON COLUMN course_sync_configuration.id IS 'Primary key';
+COMMENT ON COLUMN course_sync_configuration.config_name IS 'account';
+COMMENT ON COLUMN course_sync_configuration.config_value IS 'course';
+
 SELECT SETVAL('course_id_seq', (select MAX(ID) from course));
 SELECT SETVAL('course_temp_id_seq', (select MAX(ID) from course_temp));
 SELECT SETVAL('course_catalogue_id_seq', (select MAX(ID) from course_catalogue));
+SELECT SETVAL('course_catalogue_temp_id_seq', (select MAX(ID) from course_catalogue_temp));
 SELECT SETVAL('course_enrollment_id_seq', (select MAX(ID) from course_enrollment));
+SELECT SETVAL('course_enrollment_temp_id_seq', (select MAX(ID) from course_enrollment_temp));
+SELECT SETVAL('course_sync_configuration_id_seq', (select MAX(ID) from course_sync_configuration));
 
 CREATE OR REPLACE FUNCTION update_modified_column()
 RETURNS TRIGGER
@@ -170,8 +235,23 @@ BEFORE UPDATE ON course_catalogue
 FOR EACH ROW 
 EXECUTE PROCEDURE update_modified_column();
 
+CREATE TRIGGER set_course_catalogue_temp_updated_at 
+BEFORE UPDATE ON course_catalogue_temp 
+FOR EACH ROW 
+EXECUTE PROCEDURE update_modified_column();
+
 CREATE TRIGGER set_course_enrollment_updated_at 
 BEFORE UPDATE ON course_enrollment 
+FOR EACH ROW 
+EXECUTE PROCEDURE update_modified_column();
+
+CREATE TRIGGER set_course_enrollment_temp_updated_at 
+BEFORE UPDATE ON course_enrollment_temp 
+FOR EACH ROW 
+EXECUTE PROCEDURE update_modified_column();
+
+CREATE TRIGGER set_course_sync_configuration_updated_at 
+BEFORE UPDATE ON course_sync_configuration 
 FOR EACH ROW 
 EXECUTE PROCEDURE update_modified_column();
 
