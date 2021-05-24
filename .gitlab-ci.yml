@@ -14,8 +14,9 @@ stages:
 
 workflow:
   rules:
-  - if: '$CI_MERGE_REQUEST_LABELS =~ "Disable Builds"'
-    when: never
+    - if: '$CI_MERGE_REQUEST_LABELS =~ /.*Disable Builds.*/'
+      when: never
+    - when: always
 
 include:
   - template: Code-Quality.gitlab-ci.yml
