@@ -48,7 +48,7 @@ const Button = ({
       className={classnames(
         styles["IconButton"],
         styles[`IconButton--${size || "medium"}`],
-        variant === "text" && styles[`IconButton--text`],
+        variant !== "outlined" && styles[`IconButton--${variant}`],
         {
           [styles["IconButton--disabled"]!]: disabled,
           [styles["IconButton--dark-background"]!]: hasDarkBackground
