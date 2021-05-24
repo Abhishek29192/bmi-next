@@ -1,5 +1,23 @@
 image: node:12
 
+stages:
+  - install
+  - audit
+  - test
+  - build
+  - release
+  - package
+  - deploy
+  - deploy_gateway
+  - dynamic_security
+  - lighthouse_scan
+
+workflow:
+  rules:
+    - if: '$CI_MERGE_REQUEST_LABELS =~ /.*Disable Builds.*/'
+      when: never
+    - when: always
+
 include:
   - template: Code-Quality.gitlab-ci.yml
   - template: Security/SAST.gitlab-ci.yml
@@ -10,6 +28,23 @@ include:
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
   - remote: "https://gitlab.com/dependabot-gitlab/dependabot-standalone/-/raw/master/.gitlab-ci.yml"
+
+default:
+  cache:
+    key:
+      files:
+        - yarn.lock
+    policy: pull
+    untracked: false
+    paths:
+      - "**/node_modules"
+      - ".yarn_cache"
+
+variables:
+  FF_USE_FASTZIP: "false"
+  ARTIFACT_COMPRESSION_LEVEL: fastest
+  CACHE_COMPRESSION_LEVEL: fastest
+  TRANSFER_METER_FREQUENCY: 5s
 
 .sast-analyzer:
   allow_failure: false
@@ -51,34 +86,6 @@ secret_detection:
 secret_detection_default_branch:
   rules:
     - when: never
-
-cache:
-  key:
-    files:
-      - yarn.lock
-  policy: pull
-  untracked: false
-  paths:
-    - "**/node_modules"
-    - ".yarn_cache"
-
-variables:
-  FF_USE_FASTZIP: "false"
-  ARTIFACT_COMPRESSION_LEVEL: fastest
-  CACHE_COMPRESSION_LEVEL: fastest
-  TRANSFER_METER_FREQUENCY: 5s
-
-stages:
-  - install
-  - audit
-  - test
-  - build
-  - release
-  - package
-  - deploy
-  - deploy_gateway
-  - dynamic_security
-  - lighthouse_scan
 
 install:
   stage: install
