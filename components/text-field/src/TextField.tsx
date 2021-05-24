@@ -85,4 +85,4 @@ export const TextField = ({
   );
 };
 
-export default withFormControl<Props>(TextField);
+export default withFormControl<Props, string>(TextField);
