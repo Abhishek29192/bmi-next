@@ -86,7 +86,7 @@ const EqualHeightsConsumer = ({
   return (
     <Component
       className={classnames({
-        [styles["content-box"]]: shouldDisableBoxSizing
+        [styles["content-box"]!]: shouldDisableBoxSizing
       })}
     >
       <EqualHeightsContext.Consumer>{children}</EqualHeightsContext.Consumer>
