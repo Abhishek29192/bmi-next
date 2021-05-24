@@ -62,8 +62,6 @@ const typeToIconMap = (type: DetailProps["type"]): SVGImport | undefined => {
 };
 
 const DetailsItem = (props: DetailProps) => {
-  const icon = typeToIconMap(props.type);
-
   if (props.type === "cta") {
     const { action, label } = props;
 
@@ -123,6 +121,7 @@ const DetailsItem = (props: DetailProps) => {
 
   const { type, label, text, action } = props;
   const WrapperElement = type === "address" ? "address" : "div";
+  const icon = typeToIconMap(type);
 
   return (
     <WrapperElement className={styles["row"]}>
