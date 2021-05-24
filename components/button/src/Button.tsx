@@ -5,6 +5,7 @@ import MaterialButton, {
 import MaterialIconButton, {
   IconButtonProps as MuiIconButtonProps
 } from "@material-ui/core/IconButton";
+import { Button as MuiButton } from "@material-ui/core";
 import classnames from "classnames";
 import { withClickable } from "@bmi/clickable";
 import styles from "./Button.module.scss";
@@ -39,7 +40,7 @@ const Button = ({
   accessibilityLabel,
   size,
   disabled,
-  component,
+  component = MuiButton,
   ...rest
 }: ButtonProps | IconButtonProps) => {
   return isIconButton ? (
@@ -47,9 +48,8 @@ const Button = ({
       className={classnames(
         styles["IconButton"],
         styles[`IconButton--${size || "medium"}`],
+        variant === "text" && styles[`IconButton--text`],
         {
-          // TODO: Handle variant being undefined
-          [styles[`IconButton--${variant}`]!]: variant,
           [styles["IconButton--disabled"]!]: disabled,
           [styles["IconButton--dark-background"]!]: hasDarkBackground
         },
@@ -61,7 +61,7 @@ const Button = ({
     >
       {children}
     </MaterialIconButton>
-  ) : component ? (
+  ) : (
     <MaterialButton
       className={classnames(styles["Button"], className, {
         [styles["Button--dark-background"]!]: hasDarkBackground
@@ -75,9 +75,6 @@ const Button = ({
     >
       {children}
     </MaterialButton>
-  ) : (
-    // TODO: What should we really do here?
-    <></>
   );
 };
 
