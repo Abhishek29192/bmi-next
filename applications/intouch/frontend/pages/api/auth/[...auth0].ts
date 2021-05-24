@@ -1,17 +1,21 @@
 import { getAuth0Instance } from "../../../lib/auth0";
 import { createAccount } from "../../../lib/account";
+import { REDIRECT_MAP } from "../../../lib/config";
 
 const afterCallback = async (req, res, session, state) => {
+  const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
 
-  const intouch_user_id =
-    user[`${process.env.AUTH0_NAMESPACE}/intouch_user_id`];
+  const intouch_user_id = user[`${AUTH0_NAMESPACE}/intouch_user_id`];
 
-  // To avoid redirect loop we do not create any user if coming from /api/silenth-auth (prompt=none)
+  // To avoid redirect loop we do not create any user if coming from /api/silent-login (prompt=none)
   if (!intouch_user_id && state.prompt !== "none") {
-    await createAccount(session);
+    await createAccount(req, session);
 
-    return res.writeHead(302, { Location: "/api/silent-auth" }).end();
+    res.writeHead(302, {
+      Location: "/api/silent-login"
+    });
+    res.end();
   }
 
   return session;
@@ -30,10 +34,16 @@ export default async (req, res) => {
 
   return handleAuth({
     async login(req, res) {
+      let { host } = req.headers;
+
+      if (host.indexOf(":") !== -1) {
+        host = host.split(":")[0];
+      }
+
       try {
         await handleLogin(req, res, {
           authorizationParams: {
-            market: req.query.market || "en"
+            market: REDIRECT_MAP[host]
           }
         });
       } catch (error) {
@@ -58,7 +68,7 @@ export default async (req, res) => {
         });
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("Error: ", error);
+        console.log("Error: ", error.message);
         const status = error.message === "invalid_token" ? 401 : error.status;
         return res.status(status || 500).end(error.message);
       }

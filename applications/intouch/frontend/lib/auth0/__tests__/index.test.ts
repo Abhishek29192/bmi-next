@@ -27,7 +27,10 @@ describe("App", () => {
 
   beforeEach(() => {
     req = {
-      url: ""
+      url: "",
+      headers: {
+        host: "en.local.intouch"
+      }
     };
     res = {
       writeHead: jest.fn(),
@@ -66,7 +69,8 @@ describe("App", () => {
   it("Should proceed if registration_to_complete = false and valid session", async () => {
     auth0Instance.getSession.mockImplementationOnce(() => ({
       user: {
-        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: false
+        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: false,
+        [`${process.env.AUTH0_NAMESPACE}/intouch_market_code`]: "en"
       }
     }));
     axios.get = jest.fn().mockResolvedValueOnce({ data: {} });
@@ -79,7 +83,8 @@ describe("App", () => {
     axios.get = jest.fn().mockResolvedValueOnce({ data: {} });
     auth0Instance.getSession.mockImplementationOnce(() => ({
       user: {
-        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: true
+        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: true,
+        [`${process.env.AUTH0_NAMESPACE}/intouch_market_code`]: "en"
       }
     }));
 
@@ -94,7 +99,8 @@ describe("App", () => {
     axios.get = jest.fn().mockRejectedValueOnce({ response: { status: 401 } });
     auth0Instance.getSession.mockImplementationOnce(() => ({
       user: {
-        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: true
+        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: true,
+        [`${process.env.AUTH0_NAMESPACE}/intouch_market_code`]: "en"
       }
     }));
 
@@ -111,7 +117,8 @@ describe("App", () => {
     });
     auth0Instance.getSession.mockImplementationOnce(() => ({
       user: {
-        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: true
+        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: true,
+        [`${process.env.AUTH0_NAMESPACE}/intouch_market_code`]: "en"
       }
     }));
 

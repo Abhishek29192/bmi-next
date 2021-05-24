@@ -30,9 +30,9 @@ const Company = ({ currentCompany }: any) => {
   // need to update it with the new values
   const [createCompany] = useMutation(UPDATE_COMPANY, {
     onCompleted: () => {
-      // Redirect to silent-auth in order to re-create the session as we need to remove
+      // Redirect to silent-login in order to re-create the session as we need to remove
       // the claim from the jwt token to stop showing the registration page to the user
-      window.location.assign("/api/silent-auth?returnTo=/");
+      window.location.assign("/api/silent-login?returnTo=/");
     }
   });
 

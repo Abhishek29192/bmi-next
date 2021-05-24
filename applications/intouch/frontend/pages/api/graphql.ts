@@ -29,7 +29,7 @@ const handler = async function (
    * If we are working locally we are not able to use the gcp api-gateway
    * so we need to replicate it sending the paylod base64.
    * The api gateway will always re-write this header so if we try to send this header
-   * to the api gateay it will be reject
+   * to the api gateay it will be overwritten
    */
 
   if (process.env.NODE_ENV === "development") {

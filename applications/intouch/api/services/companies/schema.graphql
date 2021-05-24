@@ -11710,7 +11710,7 @@ input CreateAccountInput {
   email: String
   firstName: String
   lastName: String
-  marketId: Int
+  marketCode: String
   role: Role
 }
 
