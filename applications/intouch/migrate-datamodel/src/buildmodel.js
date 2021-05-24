@@ -65,11 +65,12 @@ class Value {
 }
 
 class Attribute extends Value {
-  constructor(name, description, type, mockValues, constraint) {
+  constructor(name, description, type, mockValues, constraint, reference) {
     super(name, description);
     this.type = type;
     this.mockValues = mockValues.split(";");
     this.constraint = constraint;
+    this.reference = reference;
   }
 }
 
@@ -98,13 +99,14 @@ class Table extends Thing {
     ];
   }
 
-  addColumn(name, description, type, mockValues, constraint) {
+  addColumn(name, description, type, mockValues, constraint, reference) {
     let attribute = new Attribute(
       name,
       description,
       type,
       mockValues,
-      constraint
+      constraint,
+      reference
     );
     this.properties.push(attribute);
   }
@@ -169,11 +171,13 @@ ${this.properties
   getConstraints() {
     return this.properties
       .filter((p) => p.constraint)
-      .map(
-        (property) =>
-          `ALTER TABLE ${this.name} ADD ${property.constraint} (${property.name});`
-      )
-      .join("\n\n");
+      .map((property) => {
+        console.log("property.reference", property);
+        const refColumn = property.reference || property.name;
+        return `ALTER TABLE ${this.name} ADD ${property.constraint} (${refColumn});
+`;
+      })
+      .join("\n");
   }
 }
 
@@ -323,7 +327,8 @@ const buildModel = (records) => {
           record.Description,
           record.Type,
           record.Mocks,
-          record.Constraint
+          record.Constraint,
+          record.Reference
         ); // add the new field to the current table based on the current record
         break;
     }
