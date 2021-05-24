@@ -163,7 +163,7 @@ const CardCollectionSection = ({
 
   const getCards = (title: string) => {
     const cardsBySection = cards.filter((x) =>
-      x.tags.find((tag) => tag.title == title)
+      x.tags?.find((tag) => tag.title == title)
     );
     return cardsBySection;
   };
