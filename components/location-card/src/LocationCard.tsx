@@ -27,9 +27,10 @@ type Props = {
 const LocationCard = ({ title, details, footNote, isFlat }: Props) => {
   return (
     <address
-      className={classnames(styles["LocationCard"], {
-        [styles["LocationCard--flat"]]: isFlat
-      })}
+      className={classnames(
+        styles["LocationCard"],
+        isFlat && styles["LocationCard--flat"]
+      )}
     >
       <Typography variant="h5">{title}</Typography>
       <dl className={styles["list"]}>
