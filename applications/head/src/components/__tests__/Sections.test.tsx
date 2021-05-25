@@ -131,7 +131,8 @@ describe("Sections component", () => {
             path: "contact-us"
           },
           type: null,
-          parameters: null
+          parameters: null,
+          dialogContent: null
         },
         cards: [
           {
@@ -154,7 +155,8 @@ describe("Sections component", () => {
                 path: "contact-us"
               },
               type: null,
-              parameters: null
+              parameters: null,
+              dialogContent: null
             },
             id: "00000000-0000-0000-0000-000000000000"
           }
@@ -351,7 +353,8 @@ describe("Sections component", () => {
             url: "link-to-page",
             linkedPage: null,
             type: "Internal",
-            parameters: null
+            parameters: null,
+            dialogContent: null
           }
         ]
       }

@@ -166,4 +166,13 @@ export const query = graphql`
       ...EmbeddedBlockFragment
     }
   }
+  fragment RichTextFragmentNonRecursive on ContentfulRichText {
+    raw
+    references {
+      __typename
+      ...InlineHyperlinkFragmentNonRecursive
+      ...EmbeddedAssetBlockFragment
+      ...EmbeddedBlockFragmentNonRecursive
+    }
+  }
 `;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button, { ClickableAction } from "@bmi/button";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
 import Carousel, { getPageFromAbsoluteIndex } from "@bmi/carousel";
@@ -21,10 +20,7 @@ export type HeroItem = {
   media?: React.ReactElement<AcceptedNode>;
   /** Only required for level 1 */
   children: React.ReactNode;
-  cta?: {
-    label: React.ReactNode;
-    action?: ClickableAction;
-  };
+  cta?: React.ReactNode;
   hasUnderline?: boolean;
 };
 
@@ -114,10 +110,7 @@ const Hero = ({
             autoPlayInterval={autoPlayInterval}
           >
             {heroes.map(
-              (
-                { title, children, cta: linkProps = {}, hasUnderline = true },
-                index
-              ) => {
+              ({ title, children, cta, hasUnderline = true }, index) => {
                 return (
                   <Carousel.Slide key={`content-slide-${index}`}>
                     <div className={styles["content"]}>
@@ -132,16 +125,15 @@ const Hero = ({
                         {title}
                       </Typography>
                       <div className={styles["text"]}>{children}</div>
-                      {linkProps?.label && (
-                        <Button
-                          className={styles["cta"]}
-                          variant="outlined"
-                          hasDarkBackground
-                          {...linkProps}
-                        >
-                          {linkProps.label}
-                        </Button>
-                      )}
+                      {React.isValidElement(cta) &&
+                        React.cloneElement(cta, {
+                          className: classnames(
+                            styles["cta"],
+                            cta.props.className
+                          ),
+                          variant: "outlined",
+                          hasDarkBackground: true
+                        })}
                     </div>
                   </Carousel.Slide>
                 );
@@ -209,16 +201,15 @@ const SingleHero = ({
             {levelProps.level === 1 && (
               <>
                 <div className={styles["text"]}>{levelProps.children}</div>
-                {levelProps?.cta?.label && (
-                  <Button
-                    className={styles["cta"]}
-                    variant="outlined"
-                    hasDarkBackground
-                    {...levelProps.cta}
-                  >
-                    {levelProps.cta.label}
-                  </Button>
-                )}
+                {React.isValidElement(levelProps.cta) &&
+                  React.cloneElement(levelProps.cta, {
+                    className: classnames(
+                      styles["cta"],
+                      levelProps.cta.props.className
+                    ),
+                    variant: "outlined",
+                    hasDarkBackground: true
+                  })}
               </>
             )}
           </div>

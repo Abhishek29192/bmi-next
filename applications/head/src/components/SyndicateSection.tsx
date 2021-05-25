@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { graphql } from "gatsby";
+import Button from "@bmi/button";
 import Section from "@bmi/section";
 import Villain, { Props as VillainProps } from "@bmi/villain";
 import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";
 import { SiteContext } from "./Site";
-import { getCTA } from "./Link";
+import Link, { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
 import RichText from "./RichText";
 import { renderImage } from "./Image";
@@ -26,22 +27,40 @@ const SyndicateSection = ({
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
 
-  const villainsData = villains.map(
-    ({ featuredMedia, title, subtitle, ...typePromoData }, index) => {
-      return {
-        title,
-        children: (typePromoData as PromoData).body ? (
-          <RichText document={(typePromoData as PromoData).body} />
-        ) : (
-          subtitle
-        ),
-        media: typePromoData.featuredVideo
-          ? renderVideo(typePromoData.featuredVideo)
-          : renderImage(featuredMedia, { size: "cover" }),
-        cta: getCTA(typePromoData, countryCode, getMicroCopy("page.linkLabel"))
-      };
-    }
-  );
+  const villainsData = villains.map((data) => {
+    const callToAction = useMemo(() => {
+      const cta = getCTA(data, countryCode, getMicroCopy("page.linkLabel"));
+
+      if (data.__typename == "ContentfulPromo" && data.cta) {
+        return (
+          <Link component={Button} data={data.cta}>
+            {data.cta.label}
+          </Link>
+        );
+      }
+
+      if (cta && cta.action) {
+        return (
+          <Button action={cta.action}>{getMicroCopy("page.linkLabel")}</Button>
+        );
+      }
+
+      return null;
+    }, [data]);
+
+    return {
+      title: data.title,
+      children: (data as PromoData).body ? (
+        <RichText document={(data as PromoData).body} />
+      ) : (
+        data.subtitle
+      ),
+      media: data.featuredVideo
+        ? renderVideo(data.featuredVideo)
+        : renderImage(data.featuredMedia, { size: "cover" }),
+      cta: callToAction
+    };
+  });
 
   if (villainsData.length === 1) {
     const villainProperties = villainsData[0];

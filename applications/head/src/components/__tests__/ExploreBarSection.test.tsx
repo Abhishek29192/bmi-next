@@ -17,7 +17,8 @@ describe("ExploreBarSection component", () => {
           url: "link-to-page",
           linkedPage: null,
           type: "Internal",
-          parameters: null
+          parameters: null,
+          dialogContent: null
         },
         {
           __typename: "ContentfulLink",
@@ -28,7 +29,8 @@ describe("ExploreBarSection component", () => {
           url: "link-to-page-2",
           linkedPage: null,
           type: "Internal",
-          parameters: null
+          parameters: null,
+          dialogContent: null
         }
       ]
     };

@@ -6,7 +6,11 @@ import { graphql } from "gatsby";
 import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { getClickableActionFromUrl, LinkData, NavigationData } from "./Link";
+import {
+  getClickableActionFromUrl,
+  Data as LinkData,
+  NavigationData
+} from "./Link";
 import { SiteContext } from "./Site";
 
 const parseNavigation = (

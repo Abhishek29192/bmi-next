@@ -24,7 +24,8 @@ describe("SitemapSection component", () => {
               icon: "Phone",
               linkedPage: null,
               type: "External",
-              parameters: null
+              parameters: null,
+              dialogContent: null
             }
           ]
         },
@@ -44,7 +45,8 @@ describe("SitemapSection component", () => {
                 path: "landing-page"
               },
               type: "Internal",
-              parameters: null
+              parameters: null,
+              dialogContent: null
             }
           ]
         }

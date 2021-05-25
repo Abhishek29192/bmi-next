@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import Button from "@bmi/button";
 import { graphql } from "gatsby";
-import { SiteContext } from "../components/Site";
 import { VisualiserContext } from "./Visualiser";
-import { LinkData, getClickableActionFromUrl } from "./Link";
+import Link, { Data as LinkData } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
 
 type Props = {
@@ -17,28 +16,23 @@ const EmbeddedLink = ({
   theme = "primary",
   backgroundTheme = "light"
 }: Props) => {
-  const { countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
 
+  const handleOnClick = () => {
+    open && open(fields.parameters);
+  };
+
   return (
-    <Button
+    <Link
+      component={Button}
       variant={theme === "primary" ? "contained" : "outlined"}
       hasDarkBackground={backgroundTheme === "dark"}
-      action={getClickableActionFromUrl(
-        fields.linkedPage,
-        fields.url,
-        countryCode,
-        fields.asset?.file?.url,
-        fields.label,
-        fields.type,
-        () => {
-          open(fields.parameters);
-        }
-      )}
+      data={fields}
       className={styles["EmbeddedLink"]}
+      onClick={handleOnClick}
     >
       {fields.label}
-    </Button>
+    </Link>
   );
 };
 
@@ -49,5 +43,10 @@ export const query = graphql`
     __typename
     contentful_id
     ...LinkFragment
+  }
+  fragment EmbeddedLinkFragmentNonRecursive on ContentfulLink {
+    __typename
+    contentful_id
+    ...LinkFragmentNonRecursive
   }
 `;

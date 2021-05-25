@@ -5,9 +5,8 @@ import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import TableOfContent from "@bmi/table-of-content";
 import { SiteContext } from "./Site";
-import { VisualiserContext } from "./Visualiser";
 import RichText, { RichTextData } from "./RichText";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import Link, { Data as LinkData } from "./Link";
 
 export type Data = {
   __typename: "ContentfulLeadBlockSection";
@@ -22,8 +21,7 @@ const LeadBlockSection = ({
 }: {
   data: Data;
 }) => {
-  const { countryCode, getMicroCopy } = useContext(SiteContext);
-  const { open } = useContext(VisualiserContext);
+  const { getMicroCopy } = useContext(SiteContext);
 
   return (
     <Section backgroundColor="white">
@@ -39,21 +37,9 @@ const LeadBlockSection = ({
           </LeadBlock.Content.Section>
           {link && (
             <LeadBlock.Content.Section>
-              <Button
-                action={getClickableActionFromUrl(
-                  link.linkedPage,
-                  link.url,
-                  countryCode,
-                  null,
-                  link.label,
-                  link?.type,
-                  () => {
-                    open(link?.parameters);
-                  }
-                )}
-              >
+              <Link component={Button} data={link}>
                 {link.label}
-              </Button>
+              </Link>
             </LeadBlock.Content.Section>
           )}
         </LeadBlock.Content>

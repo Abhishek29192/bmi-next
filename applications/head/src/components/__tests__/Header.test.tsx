@@ -32,7 +32,8 @@ describe("Header component", () => {
                   icon: "Phone",
                   linkedPage: null,
                   type: "External",
-                  parameters: null
+                  parameters: null,
+                  dialogContent: null
                 }
               ]
             },
@@ -52,7 +53,8 @@ describe("Header component", () => {
                     path: "landing-page"
                   },
                   type: "Internal",
-                  parameters: null
+                  parameters: null,
+                  dialogContent: null
                 }
               ]
             }
@@ -74,7 +76,8 @@ describe("Header component", () => {
                 path: "landing-page"
               },
               type: "Internal",
-              parameters: null
+              parameters: null,
+              dialogContent: null
             }
           ]
         }}

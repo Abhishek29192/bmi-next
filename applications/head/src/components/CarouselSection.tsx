@@ -14,7 +14,7 @@ import { Data as PromoData } from "../components/Promo";
 import withGTM from "../utils/google-tag-manager";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
-import { LinkData, getCTA, getClickableActionFromUrl } from "./Link";
+import { Data as LinkData, getCTA, getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
 import { renderVideo } from "./Video";
@@ -112,7 +112,7 @@ const CarouselSection = ({
             link.label,
             link?.type,
             () => {
-              open(link?.parameters);
+              open && open(link?.parameters);
             }
           )}
           className={styles["link"]}

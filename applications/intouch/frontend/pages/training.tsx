@@ -44,16 +44,19 @@ const TrainingPage = ({ trainingData }: PageProps) => {
     title: course.name || "",
     children: <CourseItem {...course} />,
     imageSource: course.image || PLACEHOLDER_IMAGE,
-    cta: {
-      label: lmsCtaLabel,
-      action: {
-        model: "htmlLink",
-        // TODO: what url is this?
-        href: "",
-        target: "_blank",
-        rel: "noopener noreferrer"
-      }
-    }
+    cta: (
+      <Button
+        label={lmsCtaLabel}
+        action={{
+          model: "htmlLink",
+          href: "", // TODO: what url is this?
+          target: "_blank",
+          rel: "noopener noreferrer"
+        }}
+      >
+        {lmsCtaLabel}
+      </Button>
+    )
   }));
 
   return (

@@ -37,4 +37,8 @@ export const query = graphql`
     ...EmbeddedTableFragment
     ...EmbeddedLinkFragment
   }
+  fragment EmbeddedBlockFragmentNonRecursive on ContentfulRichTextReference {
+    ...EmbeddedTableFragment
+    ...EmbeddedLinkFragmentNonRecursive
+  }
 `;

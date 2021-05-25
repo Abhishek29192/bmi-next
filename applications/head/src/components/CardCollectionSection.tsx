@@ -14,7 +14,7 @@ import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import { SiteContext } from "./Site";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import Link, { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/CardCollectionSection.module.scss";
@@ -45,8 +45,6 @@ const CardCollectionItem = ({
   label: string;
   type: Data["cardType"];
 }) => {
-  const { countryCode } = useContext(SiteContext);
-  const { open } = useContext(VisualiserContext);
   const { title, subtitle, link, featuredMedia, brandLogo, featuredVideo } =
     transformCard(card);
 
@@ -71,19 +69,10 @@ const CardCollectionItem = ({
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
       footer={
         link ? (
-          <GTMButton
+          <Link
+            component={GTMButton}
+            data={link}
             variant="outlined"
-            action={getClickableActionFromUrl(
-              link.linkedPage,
-              link.url,
-              countryCode,
-              null,
-              transformedCardLabel,
-              link?.type,
-              () => {
-                open(link?.parameters);
-              }
-            )}
             startIcon={<ArrowForwardIcon />}
             gtm={{
               id: "cta-click1",
@@ -92,7 +81,7 @@ const CardCollectionItem = ({
             }}
           >
             {transformedCardLabel}
-          </GTMButton>
+          </Link>
         ) : undefined
       }
     >
@@ -315,7 +304,7 @@ const CardCollectionSection = ({
               link?.label,
               link?.type,
               () => {
-                open(link?.parameters);
+                open && open(link?.parameters);
               }
             )}
             className={styles["link"]}

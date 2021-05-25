@@ -4,7 +4,7 @@ import Search from "@bmi/search";
 import { graphql } from "gatsby";
 import React from "react";
 import Brands, { Data as BrandData } from "../components/Brands";
-import { getCTA } from "../components/Link";
+import Link from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
@@ -38,18 +38,32 @@ type Props = {
 };
 
 const getHeroItemsWithContext = (
-  { getMicroCopy, countryCode },
+  { getMicroCopy },
   slides: HomepageData["slides"]
 ): HeroItem[] => {
   return slides.map(
     ({ title, subtitle, featuredMedia, featuredVideo, ...rest }) => {
+      const callToAction =
+        rest.__typename === "ContentfulPromo" && rest.cta ? (
+          <Link component={Button} data={rest.cta}>
+            {rest.cta.label}
+          </Link>
+        ) : (
+          <Link
+            component={Button}
+            data={{ linkedPage: { path: rest["path"] } }}
+          >
+            {getMicroCopy("page.linkLabel")}
+          </Link>
+        );
+
       return {
         title,
         children: subtitle,
         media: featuredVideo
           ? renderVideo(featuredVideo)
           : renderImage(featuredMedia, { size: "cover" }),
-        cta: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
+        cta: rest["cta"] || rest["path"] ? callToAction : null
       };
     }
   );
