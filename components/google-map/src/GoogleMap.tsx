@@ -9,6 +9,7 @@ import GoogleApi, {
 } from "@bmi/google-api";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React, {
+  MutableRefObject,
   ReactNode,
   useContext,
   useEffect,
@@ -50,11 +51,11 @@ const GoogleMap = ({
   zoom,
   ...mapOptions
 }: Props) => {
-  const google = useContext<Google>(GoogleApi);
+  const google = useContext<Google | null>(GoogleApi);
   const [error, setError] = useState<Error>();
-  const googleMap = useRef<Map>();
-  const googleMarkers = useRef<Marker[]>([]);
-  const mapElement = useRef<HTMLDivElement>();
+  const googleMap: MutableRefObject<Map | null> = useRef<Map>(null);
+  const googleMarkers: MutableRefObject<Marker[]> = useRef<Marker[]>([]);
+  const mapElement = useRef<HTMLDivElement>(null);
 
   const createGoogleMarker = ({
     isActive,
@@ -67,7 +68,7 @@ const GoogleMap = ({
       fillOpacity: 1,
       strokeColor: "#fff",
       strokeWeight: 1,
-      anchor: new google.maps.Point(13, 34)
+      anchor: google ? new google.maps.Point(13, 34) : undefined
     };
 
     const activeIcon = {
@@ -76,13 +77,15 @@ const GoogleMap = ({
       scale: 1.5
     };
 
-    const googleMarker = new google.maps.Marker({
-      map: googleMap.current,
-      icon: isActive ? activeIcon : defaultIcon,
-      ...options
-    });
+    const googleMarker =
+      google &&
+      new google.maps.Marker({
+        map: googleMap.current || undefined,
+        icon: isActive ? activeIcon : defaultIcon,
+        ...options
+      });
 
-    googleMarker.addListener("click", ({ domEvent }) => {
+    googleMarker?.addListener("click", ({ domEvent }) => {
       onMarkerClick && onMarkerClick(data, googleMarker, domEvent);
     });
 
@@ -95,32 +98,37 @@ const GoogleMap = ({
   useEffect(() => {
     if (google) {
       const options = { center, zoom, ...defaultMapControls, ...mapOptions };
-      googleMap.current = new google.maps.Map(mapElement.current, options);
-      googleMarkers.current = markers.map(createGoogleMarker);
+      googleMap.current =
+        mapElement.current && new google.maps.Map(mapElement.current, options);
+      googleMarkers.current = markers
+        .map(createGoogleMarker)
+        .filter(Boolean) as google.maps.Marker[];
     }
   }, [google]);
 
   useEffect(() => {
     if (googleMap.current) {
       googleMarkers.current.map(deleteGoogleMarker);
-      googleMarkers.current = markers.map(createGoogleMarker);
+      googleMarkers.current = markers
+        .map(createGoogleMarker)
+        .filter(Boolean) as google.maps.Marker[];
     }
   }, [markers]);
 
   useEffect(() => {
-    if (googleMap.current) {
+    if (googleMap.current && bounds) {
       googleMap.current.fitBounds(bounds);
     }
   }, [bounds]);
 
   useEffect(() => {
-    if (googleMap.current) {
+    if (googleMap.current && center) {
       googleMap.current.panTo(center);
     }
   }, [center]);
 
   useEffect(() => {
-    if (googleMap.current) {
+    if (googleMap.current && zoom) {
       googleMap.current.setZoom(zoom);
     }
   }, [zoom]);
