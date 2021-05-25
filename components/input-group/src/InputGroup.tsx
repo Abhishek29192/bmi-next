@@ -33,9 +33,10 @@ const InputGroup = ({ input, button, lockBreakpoint = "sm" }: Props) => {
 
   return (
     <div
-      className={classnames(styles["InputGroup"], {
-        [styles[`InputGroup--locked-${lockBreakpoint}`]]: lockBreakpoint
-      })}
+      className={classnames(
+        styles["InputGroup"],
+        lockBreakpoint && styles[`InputGroup--locked-${lockBreakpoint}`]
+      )}
     >
       {InputComponent}
       {ButtonComponent}
