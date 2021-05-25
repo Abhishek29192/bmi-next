@@ -1,11 +1,6 @@
 // NOTE: source code copied from https://github.com/Swizec/useDimensions with unmerged SSR support. Removed scroll event listening and x, y values in the return object.
 
-import React, {
-  useState,
-  useCallback,
-  useLayoutEffect,
-  useEffect
-} from "react";
+import { useState, useCallback, useLayoutEffect, useEffect } from "react";
 
 export type DimensionObject = Partial<{
   width: number;
