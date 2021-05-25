@@ -82,7 +82,7 @@ const Header = ({
   mainMenuDefaultLabel,
   languageLabel
 }: HeaderProps) => {
-  const $body: HTMLElement =
+  const $body =
     typeof document !== "undefined"
       ? document.querySelector("body")
       : undefined;
@@ -104,12 +104,12 @@ const Header = ({
     $body.classList[method](classValue);
   };
 
-  const handleChange = (_event: React.ChangeEvent, newValue: number) => {
+  const handleChange = (_event: React.ChangeEvent<{}>, newValue: any) => {
     if (value === newValue) {
-      amendClassList(styles.MenuIsOpen, "remove");
+      amendClassList(styles.MenuIsOpen!, "remove");
       setValue(false);
     } else {
-      amendClassList(styles.MenuIsOpen, "add");
+      amendClassList(styles.MenuIsOpen!, "add");
       setShowSearch(false);
       setValue(newValue);
     }
@@ -117,10 +117,10 @@ const Header = ({
 
   const toggleMenu = () => {
     if (typeof value === "number" || value === true) {
-      amendClassList(styles.MenuIsOpen, "remove");
+      amendClassList(styles.MenuIsOpen!, "remove");
       setValue(false);
     } else {
-      amendClassList(styles.MenuIsOpen, "add");
+      amendClassList(styles.MenuIsOpen!, "add");
       setShowSearch(false);
       setValue(!value);
     }
@@ -132,7 +132,7 @@ const Header = ({
   const toggleSearch = () => {
     if (!showSearch) {
       setValue(false);
-      amendClassList(styles.MenuIsOpen, "remove");
+      amendClassList(styles.MenuIsOpen!, "remove");
     }
     setShowSearch(!showSearch);
   };
@@ -141,15 +141,19 @@ const Header = ({
     setValue(false);
     setShowLanguageSelection(false);
     setShowSearch(false);
-    amendClassList(styles.MenuIsOpen, "remove");
+    amendClassList(styles.MenuIsOpen!, "remove");
   };
 
-  const handleResize = ({ currentTarget }) => {
-    setSizes(getSize(currentTarget.innerWidth, elementWidths));
+  const handleResize = ({ currentTarget }: Pick<UIEvent, "currentTarget">) => {
+    if (!currentTarget || !("innerWidth" in currentTarget)) {
+      return;
+    }
+    const target = currentTarget as { innerWidth: number };
+    setSizes(getSize(target.innerWidth, elementWidths));
   };
 
   React.useEffect(() => {
-    amendClassList(styles.MenuIsOpen, "remove");
+    amendClassList(styles.MenuIsOpen!, "remove");
     handleResize({ currentTarget: window });
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -196,7 +200,7 @@ const Header = ({
                     styles["utilities-button"],
                     styles["language-selection-button"],
                     {
-                      [styles["language-selection-button--active"]]:
+                      [styles["language-selection-button--active"]!]:
                         showLanguageSelection
                     }
                   )}
@@ -213,7 +217,7 @@ const Header = ({
                   {language.code}
                   <span
                     className={classnames(styles["down-arrow"], {
-                      [styles["down-arrow--up"]]: showLanguageSelection
+                      [styles["down-arrow--up"]!]: showLanguageSelection
                     })}
                   >
                     ▾
@@ -288,7 +292,7 @@ const Header = ({
               <Button
                 accessibilityLabel={searchLabel}
                 className={classnames(styles["search-button"], {
-                  [styles["search-button--is-on-search-page"]]: isOnSearchPage
+                  [styles["search-button--is-on-search-page"]!]: isOnSearchPage
                 })}
                 variant={!sizes.length ? "text" : "contained"}
                 isIconButton
@@ -344,7 +348,7 @@ const Header = ({
         <Slide direction={!sizes.length ? "left" : "down"} in={showSearch}>
           <div
             className={classnames(styles["search-drawer-container"], {
-              [styles["search-drawer-container--hidden"]]:
+              [styles["search-drawer-container--hidden"]!]:
                 !showSearch && !sizes.length
             })}
           >
@@ -366,7 +370,7 @@ const Header = ({
                   buttonComponent={searchButtonComponent}
                   label={searchLabel}
                   placeholder={searchPlaceholder}
-                  defaultValue={isOnSearchPage ? query : ""}
+                  defaultValue={(isOnSearchPage && query) || ""}
                 />
               )}
             </div>

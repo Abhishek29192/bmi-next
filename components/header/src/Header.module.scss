@@ -104,7 +104,7 @@ $chevron-margin-left-lg: 3px;
 
     // This breakpoint is not custom to this component
     @media (min-width: $breakpoint-lg) {
-      &--isOnSearchPage {
+      &--is-on-search-page {
         display: none;
       }
     }

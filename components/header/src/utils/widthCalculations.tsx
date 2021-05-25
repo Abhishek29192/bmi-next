@@ -1,17 +1,17 @@
 import { NavigationList } from "@bmi/navigation";
 import styles from "../Header.module.scss";
 
-const charWidthSm = parseInt(styles["char-width-sm"]);
-const charWidthMd = parseInt(styles["char-width-md"]);
-const charWidthLg = parseInt(styles["char-width-lg"]);
-const logoWidthSm = parseInt(styles["logo-width-sm"]);
-const logoWidthMd = parseInt(styles["logo-width-md"]);
-const logoWidthLg = parseInt(styles["logo-width-lg"]);
-const buttonSpacingSm = parseInt(styles["button-spacing-sm"]);
-const buttonSpacingMd = parseInt(styles["button-spacing-md"]);
-const buttonSpacingLg = parseInt(styles["button-spacing-lg"]);
-const searchIconWidth = parseInt(styles["search-icon-width"]);
-const containerPadding = parseInt(styles["container-padding"]);
+const charWidthSm = parseInt(styles["char-width-sm"]!);
+const charWidthMd = parseInt(styles["char-width-md"]!);
+const charWidthLg = parseInt(styles["char-width-lg"]!);
+const logoWidthSm = parseInt(styles["logo-width-sm"]!);
+const logoWidthMd = parseInt(styles["logo-width-md"]!);
+const logoWidthLg = parseInt(styles["logo-width-lg"]!);
+const buttonSpacingSm = parseInt(styles["button-spacing-sm"]!);
+const buttonSpacingMd = parseInt(styles["button-spacing-md"]!);
+const buttonSpacingLg = parseInt(styles["button-spacing-lg"]!);
+const searchIconWidth = parseInt(styles["search-icon-width"]!);
+const containerPadding = parseInt(styles["container-padding"]!);
 
 export type HeaderSizes = ("small" | "medium" | "large")[];
 
