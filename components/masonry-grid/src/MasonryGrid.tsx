@@ -23,7 +23,7 @@ const MasonryGrid = ({ children }: MasonryGridProps) => {
   return (
     <Masonry
       breakpointCols={breakpointColumnsObj}
-      className={styles["MasonryGrid"]}
+      className={styles["MasonryGrid"]!}
       columnClassName={styles["column"]}
     >
       {children}
