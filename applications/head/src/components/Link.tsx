@@ -183,6 +183,19 @@ export const Link = ({
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const { countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
+
+  const handleOnClick = useCallback(
+    (...args) => {
+      onClick && onClick(...args);
+      open && data?.parameters && open(data.parameters);
+
+      if (data?.type === "Dialog") {
+        setDialogIsOpen(true);
+      }
+    },
+    [data?.parameters, data?.type, onClick]
+  );
+
   const action = useMemo(
     () =>
       getClickableActionFromUrl(
@@ -192,9 +205,9 @@ export const Link = ({
         data?.asset?.file?.url,
         data?.label,
         data?.type,
-        onClick
+        handleOnClick
       ),
-    [data, countryCode, onClick]
+    [data, countryCode, handleOnClick]
   );
 
   const handleDialogCloseClick = useCallback(() => {
@@ -217,18 +230,6 @@ export const Link = ({
       </Dialog>
     );
   }, [data?.dialogContent, dialogIsOpen]);
-
-  const handleOnClick = useCallback(
-    (...args) => {
-      onClick && onClick(...args);
-      open && data?.parameters && open(data.parameters);
-
-      if (data?.type === "Dialog") {
-        setDialogIsOpen(true);
-      }
-    },
-    [data?.parameters, data?.type]
-  );
 
   return (
     <>
