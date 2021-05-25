@@ -57,3 +57,8 @@ gl-code-quality-report.json
 .pnp.*
 
 tsconfig.tsbuildinfo
+
+# Created by contentful-graph
+**/content-types-with-relationships.json
+**/content-types.json
+**/graph.svg
