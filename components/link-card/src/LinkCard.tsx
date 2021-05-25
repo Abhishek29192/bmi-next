@@ -1,4 +1,4 @@
-import React, { forwardRef, MutableRefObject, useState } from "react";
+import React, { forwardRef, MutableRefObject } from "react";
 import classnames from "classnames";
 import ChevronRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import Card from "@bmi/card";
@@ -26,24 +26,31 @@ const LinkCard = (
     onCloseClick,
     onExpandCompleted
   }: Props,
-  forwardedRef: MutableRefObject<HTMLElement>
+  forwardedRef:
+    | ((instance: HTMLElement | null) => void)
+    | MutableRefObject<HTMLElement | null>
+    | null
 ) => {
   return (
     <Card
-      className={classnames(styles["LinkCard"], {
-        [styles[`LinkCard--selected`]]: isOpen
-      })}
-      onClick={!isOpen ? onClick : null}
+      className={classnames(
+        styles["LinkCard"],
+        isOpen && styles[`LinkCard--selected`]
+      )}
+      onClick={!isOpen ? onClick : undefined}
       ref={forwardedRef}
     >
-      <div className={styles["item"]} onClick={isOpen ? onCloseClick : null}>
+      <div
+        className={styles["item"]}
+        onClick={isOpen ? onCloseClick : undefined}
+      >
         <Typography gutterBottom variant="h6">
           {title}
         </Typography>
         <Typography className={styles["subtitle"]}>{subtitle}</Typography>
       </div>
       <div className={styles["icon"]}>
-        <ChevronRightIcon onClick={isOpen ? onCloseClick : null} />
+        <ChevronRightIcon onClick={isOpen ? onCloseClick : undefined} />
       </div>
       <Collapse
         in={isOpen}
