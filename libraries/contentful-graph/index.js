@@ -7,27 +7,22 @@ const { graphviz } = require("node-graphviz");
 
 const { SPACE_ID, ACCESS_TOKEN, ENVIRONMENT } = process.env;
 
-const getDotModel = async (spaceId, apiToken, environment) => {
-  const contentTypes = await convertApi.getContentTypesFromDistributionApi(
-    spaceId,
-    apiToken,
-    environment
-  );
-
-  const modelsMap = convertApi.contentTypesToModelMap(contentTypes);
-
-  return convertApi.modelsMapToDot(modelsMap, {});
-};
-
-const convertToSvg = (graph) => {
-  graphviz.dot(graph, "svg").then((svg) => {
+convertApi
+  .getContentTypesFromDistributionApi(SPACE_ID, ACCESS_TOKEN, ENVIRONMENT)
+  .then((contentTypes) => {
+    fs.writeFileSync("content-types.json", JSON.stringify(contentTypes));
+    return convertApi.contentTypesToModelMap(contentTypes);
+  })
+  .then((contentTypesWithRelationships) => {
+    fs.writeFileSync(
+      "content-types-with-relationships.json",
+      JSON.stringify(contentTypesWithRelationships)
+    );
+    return convertApi.modelsMapToDot(contentTypesWithRelationships, {});
+  })
+  .then((graph) => graphviz.dot(graph, "svg"))
+  .then((svg) => {
     fs.writeFileSync("graph.svg", svg);
-  });
-};
-
-getDotModel(SPACE_ID, ACCESS_TOKEN, ENVIRONMENT)
-  .then((graph) => {
-    convertToSvg(graph);
   })
   .catch((error) => {
     console.error(error);
