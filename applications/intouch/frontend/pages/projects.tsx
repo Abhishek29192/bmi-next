@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getAuth0Instance } from "../lib/auth0";
 import { Layout } from "../components/Layout";
@@ -25,4 +26,4 @@ export const getServerSideProps = async (ctx) => {
   })(ctx);
 };
 
-export default Projects;
+export default withPageAuthRequired(Projects);

@@ -1,31 +1,33 @@
 import { REDIRECT_MAP } from "../config";
 
-export const marketRedirect = (req, res, session) => {
-  const { AUTH0_NAMESPACE } = process.env;
-  const { user } = session;
+export const marketRedirect = (req, res, user = {}) => {
+  const { AUTH0_NAMESPACE, AUTH0_COOKIE_DOMAIN, NODE_ENV } = process.env;
 
-  const [host] = req.headers.host.split(":");
-  const [code] = host.split(".");
-  const intouch_market_code = user[`${AUTH0_NAMESPACE}/intouch_market_code`];
-
-  if (host.indexOf("localhost") !== -1) {
+  if (AUTH0_COOKIE_DOMAIN === "localhost") {
     return;
   }
 
-  const REDIRECT_MAP_INVERSE = {};
+  const [host, port] = req.headers.host.split(":");
+  const [code] = host.split(".");
+  const protocol = req.headers["x-forwarded-proto"] || "http";
+
+  const intouch_market_code = user[`${AUTH0_NAMESPACE}/intouch_market_code`];
+
+  const redirectMapInverse = {};
   Object.keys(REDIRECT_MAP).forEach((key) => {
-    REDIRECT_MAP_INVERSE[REDIRECT_MAP[key]] = key;
+    redirectMapInverse[REDIRECT_MAP[key]] = key;
   });
 
-  if (!intouch_market_code) {
-    throw new Error("missing_market");
-  }
+  if (intouch_market_code && intouch_market_code !== code) {
+    let returnTo = `${protocol}://${redirectMapInverse[intouch_market_code]}`;
+    if (port) {
+      returnTo = `${returnTo}:${port}`;
+    }
 
-  if (intouch_market_code !== code) {
-    // TODO use the right domain
     res.writeHead(302, {
-      Location: `http://${REDIRECT_MAP_INVERSE[intouch_market_code]}:3000`
+      Location: returnTo
     });
+
     res.end();
     return;
   }

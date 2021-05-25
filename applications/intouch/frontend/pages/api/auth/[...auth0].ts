@@ -11,11 +11,7 @@ const afterCallback = async (req, res, session, state) => {
   // To avoid redirect loop we do not create any user if coming from /api/silent-login (prompt=none)
   if (!intouch_user_id && state.prompt !== "none") {
     await createAccount(req, session);
-
-    res.writeHead(302, {
-      Location: "/api/silent-login"
-    });
-    res.end();
+    state.returnTo = "/api/silent-login";
   }
 
   return session;
@@ -48,7 +44,7 @@ export default async (req, res) => {
         });
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("Error: ", error);
+        console.log("[auth0] handle login: ", error.message);
         return res.status(error.status || 500).end(error.message);
       }
     },
@@ -57,7 +53,7 @@ export default async (req, res) => {
         await handleCallback(req, res, { afterCallback });
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("Error: ", error);
+        console.log("[auth0] handle callback: ", error.message);
         return res.status(error.status || 500).end(error.message);
       }
     },
@@ -68,7 +64,7 @@ export default async (req, res) => {
         });
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("Error: ", error.message);
+        console.log("[auth0] handle profile: ", error.message);
         const status = error.message === "invalid_token" ? 401 : error.status;
         return res.status(status || 500).end(error.message);
       }
@@ -78,7 +74,7 @@ export default async (req, res) => {
         await handleLogout(req, res);
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("Error: ", error);
+        console.log("[auth0] handle logout: ", error.message);
         return res.status(error.status || 500).end(error.message);
       }
     }

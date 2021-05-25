@@ -8,7 +8,7 @@ type ApiResponse = {
 
 const useApi = (
   path: string,
-  options: RequestInit = { method: "GET" }
+  options: any = { method: "GET" }
 ): ApiResponse => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -17,7 +17,10 @@ const useApi = (
   useEffect(() => {
     if (path) {
       setLoading(true);
-      fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api${path}`, options)
+      fetch(
+        `${window.location.protocol}//${window.location.host}/api${path}`,
+        options
+      )
         .then(async (res) => {
           if (!res.ok) {
             setError({ status: res.status, message: res.statusText });

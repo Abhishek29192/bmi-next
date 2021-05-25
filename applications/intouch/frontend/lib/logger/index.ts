@@ -4,7 +4,7 @@ type LogEvent = {
 };
 
 const log = (event: LogEvent) => {
-  // fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/log`, {
+  // fetch(`${window.location.protocol}//${window.location.host}/api/log`, {
   //   method: "POST",
   //   body: JSON.stringify(event)
   // });

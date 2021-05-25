@@ -94,38 +94,4 @@ describe("App", () => {
       Location: "/company-registration"
     });
   });
-
-  it("Should redirect to logout if invalid session", async () => {
-    axios.get = jest.fn().mockRejectedValueOnce({ response: { status: 401 } });
-    auth0Instance.getSession.mockImplementationOnce(() => ({
-      user: {
-        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: true,
-        [`${process.env.AUTH0_NAMESPACE}/intouch_market_code`]: "en"
-      }
-    }));
-
-    await getAuth0Instance(req, res);
-
-    expect(res.writeHead).toHaveBeenCalledWith(302, {
-      Location: "/api/auth/logout"
-    });
-  });
-
-  it("Should redirect to logout if user is blocked", async () => {
-    axios.get = jest.fn().mockRejectedValueOnce({
-      response: { data: "unauthorized (user is blocked)" }
-    });
-    auth0Instance.getSession.mockImplementationOnce(() => ({
-      user: {
-        [`${process.env.AUTH0_NAMESPACE}/registration_to_complete`]: true,
-        [`${process.env.AUTH0_NAMESPACE}/intouch_market_code`]: "en"
-      }
-    }));
-
-    await getAuth0Instance(req, res);
-
-    expect(res.writeHead).toHaveBeenCalledWith(302, {
-      Location: "/api/auth/logout"
-    });
-  });
 });

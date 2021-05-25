@@ -5,57 +5,54 @@ const { AUTH0_NAMESPACE } = process.env;
 describe("marketRedirect", () => {
   let res;
   let req;
-  let session;
+  let user;
   const mockWriteHead = jest.fn();
   const mockEnd = jest.fn();
 
   beforeEach(() => {
+    process.env.AUTH0_COOKIE_DOMAIN = "local.intouch";
     jest.resetAllMocks();
     res = {
       writeHead: mockWriteHead,
       end: mockEnd
     };
-    session = {
-      user: {
-        [`${AUTH0_NAMESPACE}/intouch_market_code`]: "es"
-      }
+    user = {
+      [`${AUTH0_NAMESPACE}/intouch_market_code`]: "es"
     };
   });
 
   it("should redirect to the right market", () => {
     req = {
       headers: {
-        host: "en.local.intouch"
+        host: "en.local.intouch",
+        "x-forwarded-proto": "http"
       }
     };
 
-    marketRedirect(req, res, session);
+    marketRedirect(req, res, user);
 
     expect(res.writeHead).toHaveBeenCalledWith(302, {
-      Location: `http://es.local.intouch:3000`
+      Location: `http://es.local.intouch`
     });
   });
 
   it("should not redirect if already in the right market", () => {
     req = {
       headers: {
-        host: "es.local.intouch"
+        host: "es.local.intouch",
+        "x-forwarded-proto": "http"
       }
     };
 
-    marketRedirect(req, res, session);
+    marketRedirect(req, res, user);
 
     expect(res.writeHead).toHaveBeenCalledTimes(0);
   });
 
   it("should not redirect localhost", () => {
-    req = {
-      headers: {
-        host: "localhost"
-      }
-    };
+    process.env.AUTH0_COOKIE_DOMAIN = "localhost";
 
-    marketRedirect(req, res, session);
+    marketRedirect(req, res, user);
 
     expect(res.writeHead).toHaveBeenCalledTimes(0);
   });

@@ -16,6 +16,24 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 
 - visit [http://intouch.local:3000/api/graphql](http://intouch.local:3000/api/graphql) to work directly on the apollo federated server without need to use the auth0 token
 
+The `AUTH0_COOKIE_DOMAIN` define when using multi market or single market.
+
+If you set `AUTH0_COOKIE_DOMAIN=localhost` the login cookie is set on the localhost domain and you will be able to run the app as single market opening `http://localhost:3000`
+
+If you set `AUTH0_COOKIE_DOMAIN=local.intouch` and you add these domain in yout /etc/hosts:
+
+```
+127.0.0.1       en.local.intouch
+127.0.0.1       it.local.intouch
+127.0.0.1       de.local.intouch
+127.0.0.1       us.local.intouch
+127.0.0.1       es.local.intouch
+```
+
+you will be able to run the app in multimarket in all the above domains.
+
+When you run with multimarket and you register a user with the `en` subdomain and you try to access to another subdomain you will be redirected to the `en` subdomain
+
 ## Workspaces
 
 See the [Work with Workspaces](https://gitlab.com/bmi-digital/dxb#work-with-workspaces) section in the monorepo root README file.

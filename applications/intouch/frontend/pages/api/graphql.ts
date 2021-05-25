@@ -21,7 +21,7 @@ const handler = async function (
       req.headers.authorization = `Bearer ${session.accessToken}`;
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.log("Error: ", error);
+      console.log("[graphql]: ", error);
     }
   }
 

@@ -33,8 +33,9 @@ export const createAccount = async (req, session) => {
   };
 
   try {
+    const protocol = req.headers["x-forwarded-proto"] || "http";
     const { data } = await axios.post(
-      `http://${req.headers.host}/api/graphql`,
+      `${protocol}://${req.headers.host}/api/graphql`,
       body,
       {
         headers: {
@@ -47,6 +48,6 @@ export const createAccount = async (req, session) => {
     return data;
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.log("Error:message: ", error.message);
+    console.log("[account]:createAccount ", error.message);
   }
 };

@@ -284,7 +284,7 @@ export const getServerSideProps = async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
     async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, ctx);
+      const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
       const pageProps = {
         company: null,

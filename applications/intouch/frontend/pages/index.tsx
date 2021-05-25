@@ -1,9 +1,12 @@
 import React from "react";
 import Button from "@bmi/button";
 import Hero from "@bmi/hero";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getAuth0Instance } from "../lib/auth0";
 import { Layout } from "../components/Layout";
 import logger from "../lib/logger";
+import { initializeApollo } from "../lib/apolloClient";
 
 const Homepage = () => {
   logger({
@@ -61,9 +64,18 @@ export const getServerSideProps = async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
     async getServerSideProps(ctx) {
-      return { props: {} };
+      return {
+        props: {
+          ...(await serverSideTranslations(ctx.locale, [
+            "common",
+            "sidebar",
+            "footer",
+            "company-page"
+          ]))
+        }
+      };
     }
   })(ctx);
 };
 
-export default Homepage;
+export default withPageAuthRequired(Homepage);
