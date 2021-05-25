@@ -1181,7 +1181,7 @@ HTMLCollection [
                 class="filters"
               >
                 <h6
-                  class="MuiTypography-root Typography MuiTypography-h6"
+                  class="MuiTypography-root no-wrap Typography MuiTypography-h6"
                 >
                   findARoofer.filtersLabel
                 </h6>
