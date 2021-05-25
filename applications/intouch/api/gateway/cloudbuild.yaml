@@ -18,25 +18,17 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
+        "alpha",
         "run",
         "deploy",
-        "gateway",
+        "tf-gateway",
         "--image",
         "gcr.io/$PROJECT_ID/intouch-api-gateway",
         "--region",
         "europe-west2",
         "--platform",
         "managed",
-        "--allow-unauthenticated",
-        "--set-env-vars=COMPANY_SERVICE_URL=https://companies-rfwslk3zjq-nw.a.run.app/graphql",
-        "--set-env-vars=TRAINING_SERVICE_URL=https://training-rfwslk3zjq-nw.a.run.app/graphql",
-        "--set-env-vars=AUTH0_AUDIENCE=https://dev-api.intouch.dev",
-        "--set-env-vars=AUTH0_DOMAIN=intouch-dev.eu.auth0.com",
-        "--set-env-vars=AUTH0_NAMESPACE=https://intouch",
-        "--set-env-vars=CONTENTFUL_API_HOST=https://graphql.contentful.com/content/v1",
-        "--set-env-vars=CONTENTFUL_SPACE_ID=${_CONTENTFUL_SPACE_ID}",
-        "--set-env-vars=CONTENTFUL_ENVIRONMENT=${_CONTENTFUL_ENVIRONMENT}",
-        "--set-env-vars=CONTENTFUL_TOKEN=${_CONTENTFUL_TOKEN}"
+        "--allow-unauthenticated"
       ]
 
 timeout: 1200s

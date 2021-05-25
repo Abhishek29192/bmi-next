@@ -38,6 +38,10 @@ resource "google_cloud_run_service" "default" {
           value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
         }
         env {
+          name  = "AUTH0_COOKIE_DOMAIN"
+          value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
+        }
+        env {
           name  = "GRAPHQL_URL"
           value = "https://intouchapip-9dmxs7t9.nw.gateway.dev/graphql"
         }
@@ -52,21 +56,4 @@ resource "google_cloud_run_service" "default" {
     percent         = 100
     latest_revision = true
   }
-}
-
-data "google_iam_policy" "noauth" {
-  binding {
-    role = "roles/run.invoker"
-    members = [
-      "allUsers",
-    ]
-  }
-}
-
-resource "google_cloud_run_service_iam_policy" "noauth" {
-  location = google_cloud_run_service.default.location
-  project  = google_cloud_run_service.default.project
-  service  = google_cloud_run_service.default.name
-
-  policy_data = data.google_iam_policy.noauth.policy_data
 }

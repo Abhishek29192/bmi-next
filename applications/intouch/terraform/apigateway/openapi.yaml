@@ -1,15 +1,15 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   title: APIGateway
   description: Gateway for the Intouch project
   version: 1.0.0
-host: gateway-rfwslk3zjq-nw.a.run.app
+host: tf-gateway-rfwslk3zjq-nw.a.run.app
 schemes:
   - https
 produces:
   - application/json
 x-google-backend:
-  address: https://gateway-rfwslk3zjq-nw.a.run.app/graphql
+  address: https://tf-gateway-rfwslk3zjq-nw.a.run.app/graphql
   protocol: h2
 paths:
   /graphql:
@@ -17,7 +17,7 @@ paths:
       summary: Generate a GraphQL request to the GraphQL Gateway
       operationId: graphql
       responses:
-        '200':
+        "200":
           description: A successful response
           schema:
             type: object
