@@ -2740,13 +2740,20 @@ type CourseCatalogueUpdateByTempPayload {
   unchanged and unused. May be used by a client to track mutations.
   """
   clientMutationId: String
-  integer: Int
+  bigInt: BigInt
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
 }
+
+"""
+A signed eight-byte integer. The upper big integer values are greater than the
+max value for a JavaScript number. Therefore all big integers will be output as
+strings and not numbers.
+"""
+scalar BigInt
 
 """All input for the `courseCatalogueUpdateByTemp` mutation."""
 input CourseCatalogueUpdateByTempInput {
@@ -2764,7 +2771,7 @@ type CourseEnrollmentUpdateByTempPayload {
   unchanged and unused. May be used by a client to track mutations.
   """
   clientMutationId: String
-  integer: Int
+  bigInt: BigInt
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -2788,7 +2795,7 @@ type CourseUpdateByTempPayload {
   unchanged and unused. May be used by a client to track mutations.
   """
   clientMutationId: String
-  integer: Int
+  bigInt: BigInt
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
