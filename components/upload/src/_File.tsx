@@ -96,7 +96,7 @@ const File = ({
     handleFileUpload().then((s) => (source = s));
 
     return () => {
-      URL.revokeObjectURL(previewImage);
+      previewImage && URL.revokeObjectURL(previewImage);
 
       source.cancel();
     };

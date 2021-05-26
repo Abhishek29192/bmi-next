@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent, DragEvent } from "react";
 import Typography from "@bmi/typography";
 import { withFormControl } from "@bmi/form";
 import FormHelperText from "@material-ui/core/FormHelperText";
@@ -20,14 +20,14 @@ export type Props = {
   instructions?: string;
   accept?: string;
   id: string;
-  onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onBlur: (event: ChangeEvent<HTMLInputElement>) => void;
   error?: boolean;
   errorText?: string;
   uploadErrorMessage?: string;
   onChange: any;
   uri: string;
   headers?: Record<string, string>;
-  mapBody?: (file: File) => Record<string, any>;
+  mapBody: (file: File) => Record<string, any>;
   mapValue: (file: File, response: any) => any;
   fileValidation?: (file: File) => string;
   onUploadRequest?: FileProps["onRequest"];
@@ -62,20 +62,25 @@ const Upload = ({
     onChange(files.map((file) => file.value));
   }, [files]);
 
-  const onInputChange = (event) => {
+  const onInputChange = (event?: ChangeEvent<HTMLInputElement>) => {
+    if (!event) {
+      return;
+    }
+
     onBlur(event);
 
-    const files: UploadFile[] = Array.from(event.target.files).map(
-      (file: File) => ({
-        file
-      })
-    );
+    const files: UploadFile[] =
+      (event.target.files &&
+        Array.from(event.target.files).map((file: File) => ({
+          file
+        }))) ||
+      [];
 
     event.target.value = "";
     setFiles((currentFiles) => currentFiles.concat(files));
   };
 
-  const handleDrop = (event) => {
+  const handleDrop = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     setDragCounter((counter) => counter - 1);
     const dataTransferItems: DataTransferItem[] = Array.from(
@@ -90,7 +95,7 @@ const Upload = ({
     setFiles((currentFiles) => currentFiles.concat(files));
   };
 
-  const onDragOver = (event) => {
+  const onDragOver = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
   };
 
@@ -160,9 +165,10 @@ const Upload = ({
                   onDragOver={onDragOver}
                   onDragLeave={() => setDragCounter((counter) => counter - 1)}
                   onDragEnter={() => setDragCounter((counter) => counter + 1)}
-                  className={classnames(styles["drop-zone"], {
-                    [styles["drop-zone--drag"]]: dragCounter
-                  })}
+                  className={classnames(
+                    styles["drop-zone"],
+                    dragCounter && styles["drop-zone--drag"]
+                  )}
                 >
                   <Icon className={styles["icon"]} source={CloudUploadIcon} />
                   <Typography className={styles["typography"]}>
@@ -209,4 +215,4 @@ const Upload = ({
   );
 };
 
-export default withFormControl<Props>(Upload);
+export default withFormControl<Props, File[]>(Upload);
