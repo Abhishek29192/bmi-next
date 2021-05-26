@@ -14,9 +14,10 @@ type TileProps = {
 const Tile = ({ children, icon, onClick }: TileProps) => {
   return (
     <Card
-      className={classnames(styles["Tile"], {
-        [styles["Tile--clickable"]]: !!onClick
-      })}
+      className={classnames(
+        styles["Tile"],
+        !!onClick && styles["Tile--clickable"]
+      )}
       onClick={onClick}
     >
       <Icon className={styles["icon"]} source={icon} />
