@@ -8,7 +8,8 @@ build_frc_website:
         - libraries/**/*
         - package.json
         - "**/package.json"
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
