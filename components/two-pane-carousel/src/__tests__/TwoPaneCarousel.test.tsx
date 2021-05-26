@@ -70,7 +70,7 @@ describe("TwoPaneCarousel component", () => {
     const { container, getByLabelText } = render(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
-    const containerBeforeClick = container.firstChild.cloneNode(true);
+    const containerBeforeClick = container.firstChild!.cloneNode(true);
 
     fireEvent.click(getByLabelText(nextLabel));
 
@@ -83,7 +83,7 @@ describe("TwoPaneCarousel component", () => {
     const { container, getByLabelText } = render(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
-    const containerBeforeClick = container.firstChild.cloneNode(true);
+    const containerBeforeClick = container.firstChild!.cloneNode(true);
 
     fireEvent.click(getByLabelText(previousLabel));
 

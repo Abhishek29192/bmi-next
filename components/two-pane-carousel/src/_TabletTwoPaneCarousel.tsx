@@ -21,7 +21,7 @@ const TwoPaneCarousel = ({ slides }: Props) => {
     breakpoints: {
       values: {
         ...defaultTheme.breakpoints.values,
-        xl: parseFloat(styles["breakpoint-xl"])
+        xl: parseFloat(styles["breakpoint-xl"]!)
       }
     }
   });
