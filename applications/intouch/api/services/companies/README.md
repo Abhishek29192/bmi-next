@@ -18,6 +18,8 @@ docker-compose up -d;                           // spin up the container
 docker logs postgres-company-db -f;             // log the container to check if everything is ok
 ```
 
+To update the db on dev (until we get the migrations script working) you can use `npm run migrate-db` with the right envs.
+
 ### Databse in GCP (reminder)
 
 It is important to grant a role to the postgres role in order to let postgraphile switch the role based on the user role
