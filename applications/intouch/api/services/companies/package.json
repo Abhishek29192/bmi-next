@@ -16,6 +16,7 @@
     "@bmi/intouch-api-types": "^0.0.0",
     "@bmi/logger": "^0.0.0",
     "@google-cloud/pubsub": "^2.10.0",
+    "@google-cloud/secret-manager": "^3.7.1",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",
     "apollo-server": "^2.19.2",

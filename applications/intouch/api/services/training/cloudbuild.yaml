@@ -37,8 +37,6 @@ steps:
         "--set-env-vars=DOCEBO_API_JWT_PASSPHRASE=${_DOCEBO_API_JWT_PASSPHRASE}",
         "--set-env-vars=PG_SCHEMA=public",
         "--set-env-vars=PG_USER=postgres",
-        "--set-env-vars=PASSWORD=intouch-db",
-        "--set-env-vars=HOST=/cloudsql/automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=DATABASE=training-db",
         "--set-env-vars=PG_PORT=5432"
       ]
