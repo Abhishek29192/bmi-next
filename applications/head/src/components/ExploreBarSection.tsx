@@ -2,7 +2,8 @@ import ExploreBar from "@bmi/explore-bar";
 import Section from "@bmi/section";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { getClickableActionFromUrl, Data as LinkData } from "./Link";
+import { devLog } from "../utils/devLog";
+import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
 
 export type Data = {
@@ -13,7 +14,16 @@ export type Data = {
 
 const ExploreBarSection = ({ data }: { data: Data }) => {
   const { countryCode } = useContext(SiteContext);
-  const { label, links } = data;
+  const { label } = data;
+  // Navigation is being used as the explore bar so bad values need filtering out.
+  const links = data.links.filter((link) => {
+    if (Object.keys(link).length) {
+      return true;
+    }
+    devLog(
+      `Only Links can be used if Navigation is being used as an Section. See Explore Bar labelled "${label}".`
+    );
+  });
 
   return (
     <Section>

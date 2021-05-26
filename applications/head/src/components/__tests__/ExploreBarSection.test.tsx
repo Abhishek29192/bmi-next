@@ -31,7 +31,9 @@ describe("ExploreBarSection component", () => {
           type: "Internal",
           parameters: null,
           dialogContent: null
-        }
+        },
+        // @ts-ignore This is how a nested Navigation comes through from Contentful
+        {}
       ]
     };
 
