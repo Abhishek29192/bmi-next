@@ -5,7 +5,10 @@ import MuiTooltip, {
 import classnames from "classnames";
 import styles from "./Tooltip.module.scss";
 
-const Tooltip = ({ className, ...props }: MuiTooltipProps, ref) => {
+const Tooltip = (
+  { className, ...props }: MuiTooltipProps,
+  ref: React.Ref<any>
+) => {
   return (
     <MuiTooltip
       {...props}
