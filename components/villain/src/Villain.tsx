@@ -50,9 +50,11 @@ const FullSizeVillain = ({
   return (
     <ColorPair
       theme={theme}
-      className={classnames(styles["Villain"], styles["Villain--full-size"], {
-        [styles["Villain--reversed"]]: isReversed
-      })}
+      className={classnames(
+        styles["Villain"],
+        styles["Villain--full-size"],
+        isReversed && styles["Villain--reversed"]
+      )}
     >
       <Container className={styles["container"]}>
         <div className={styles["content"]}>
@@ -98,7 +100,7 @@ const ContainedVillain = ({
     breakpoints: {
       values: {
         ...defaultTheme.breakpoints.values,
-        sm: parseFloat(styles["breakpoint-sm"])
+        sm: parseFloat(styles["breakpoint-sm"]!)
       }
     }
   });
@@ -109,9 +111,11 @@ const ContainedVillain = ({
 
   return (
     <div
-      className={classnames(styles["Villain"], styles["Villain--contained"], {
-        [styles["Villain--reversed"]]: isReversed
-      })}
+      className={classnames(
+        styles["Villain"],
+        styles["Villain--contained"],
+        isReversed && styles["Villain--reversed"]
+      )}
     >
       <ThemeProvider theme={customBreakpointsTheme}>
         <Grid
