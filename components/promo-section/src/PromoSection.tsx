@@ -6,6 +6,8 @@ import classnames from "classnames";
 import Section from "@bmi/section";
 import styles from "./PromoSection.module.scss";
 
+type Layout = "half" | "two-thirds";
+
 type Props = {
   title?: React.ReactNode;
   /**
@@ -14,12 +16,12 @@ type Props = {
   imageSource?: string | React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
   children: React.ReactNode;
-  layout?: "half" | "two-thirds";
+  layout?: Layout;
   isReversed?: boolean;
   className?: string;
 };
 
-const layoutRowsMap: Record<Props["layout"], GridSize[]> = {
+const layoutRowsMap: Record<Layout, GridSize[]> = {
   half: [6, 6],
   "two-thirds": [8, 4]
 };
@@ -59,9 +61,11 @@ const PromoSection = ({
   return (
     <Section
       backgroundColor="white"
-      className={classnames(className, styles["PromoSection"], {
-        [styles["PromoSection--reversed"]]: isReversed
-      })}
+      className={classnames(
+        className,
+        styles["PromoSection"],
+        isReversed && styles["PromoSection--reversed"]
+      )}
     >
       <Grid container spacing={3} className={styles["grid"]}>
         <Grid item xs={12} sm={rows[0]}>
