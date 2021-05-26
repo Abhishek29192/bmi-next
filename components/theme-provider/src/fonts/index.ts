@@ -6,24 +6,24 @@ import EffraRegular from "./Effra_W_Regular.woff2";
 
 export const effraRegular = {
   fontFamily: "Effra Regular",
-  fontDisplay: "swap",
+  fontDisplay: "auto",
   src: `url(${EffraRegular}) format('woff2')`
 } as AtRule.FontFace;
 
 export const effraMedium = {
   fontFamily: "Effra Medium",
-  fontDisplay: "swap",
+  fontDisplay: "auto",
   src: `url(${EffraMedium}) format('woff2')`
 } as AtRule.FontFace;
 
 export const effraBold = {
   fontFamily: "Effra Bold",
-  fontDisplay: "swap",
+  fontDisplay: "auto",
   src: `url(${EffraBold}) format('woff2')`
 } as AtRule.FontFace;
 
 export const effraHeavy = {
   fontFamily: "Effra Heavy",
-  fontDisplay: "swap",
+  fontDisplay: "auto",
   src: `url(${EffraHeavy}) format('woff2')`
 } as AtRule.FontFace;
