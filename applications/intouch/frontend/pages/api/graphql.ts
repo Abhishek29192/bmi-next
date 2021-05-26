@@ -1,6 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import { getAuth0Instance } from "../../lib/auth0";
+import { withLoggerApi } from "../../lib/logger/withLogger";
+
+interface Request extends NextApiRequest {
+  logger: any;
+}
 
 export const config = {
   api: {
@@ -9,11 +14,11 @@ export const config = {
   }
 };
 
-const handler = async function (
-  req: NextApiRequest,
-  res: NextApiResponse,
-  next: any
-) {
+const handler = async function (req: Request, res: NextApiResponse, next: any) {
+  const logger = req.logger("graphql");
+
+  logger.info("test");
+
   if (!req.headers.authorization) {
     try {
       const auth0 = await getAuth0Instance(req, res);
@@ -21,7 +26,7 @@ const handler = async function (
       req.headers.authorization = `Bearer ${session.accessToken}`;
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.log("[graphql]: ", error);
+      logger.error(error);
     }
   }
 
@@ -56,4 +61,4 @@ const handler = async function (
   })(req as any, res as any, next);
 };
 
-export default handler;
+export default withLoggerApi(handler);

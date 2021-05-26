@@ -1,4 +1,3 @@
-// import axios from "axios";
 import { initAuth0 } from "@auth0/nextjs-auth0";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
@@ -58,7 +57,7 @@ export const getAuth0Instance = async (req, res) => {
 
     if (!url.includes("/api/") && !url.includes("_next")) {
       // Get the current session
-      const session = await auth0.getSession(req, res);
+      const session = auth0.getSession(req, res);
       if (session?.user) {
         await marketRedirect(req, res, session.user);
         // Check if the user is a company admin and if it has already registered the company

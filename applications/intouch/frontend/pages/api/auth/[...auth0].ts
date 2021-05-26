@@ -1,8 +1,19 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
 import { createAccount } from "../../../lib/account";
 import { REDIRECT_MAP } from "../../../lib/config";
+import { withLoggerApi } from "../../../lib/logger/withLogger";
 
-const afterCallback = async (req, res, session, state) => {
+interface Request extends NextApiRequest {
+  logger: any;
+}
+
+const afterCallback = async (
+  req: Request,
+  res: NextApiResponse,
+  session,
+  state
+) => {
   const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
 
@@ -17,8 +28,10 @@ const afterCallback = async (req, res, session, state) => {
   return session;
 };
 
-export default async (req, res) => {
+export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
   const auth0 = await getAuth0Instance(req, res);
+
+  const logger = req.logger("Auth0");
 
   const {
     handleAuth,
@@ -44,7 +57,7 @@ export default async (req, res) => {
         });
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("[auth0] handle login: ", error.message);
+        logger.error(`handle login: ${error.message}`);
         return res.status(error.status || 500).end(error.message);
       }
     },
@@ -53,7 +66,7 @@ export default async (req, res) => {
         await handleCallback(req, res, { afterCallback });
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("[auth0] handle callback: ", error.message);
+        logger.error(`handle callback: ${error.message}`);
         return res.status(error.status || 500).end(error.message);
       }
     },
@@ -64,7 +77,7 @@ export default async (req, res) => {
         });
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("[auth0] handle profile: ", error.message);
+        logger.error(`handle profile: ${error.message}`);
         const status = error.message === "invalid_token" ? 401 : error.status;
         return res.status(status || 500).end(error.message);
       }
@@ -74,9 +87,9 @@ export default async (req, res) => {
         await handleLogout(req, res);
       } catch (error) {
         // eslint-disable-next-line no-console
-        console.log("[auth0] handle logout: ", error.message);
+        logger.error(`handle logout: ${error.message}`);
         return res.status(error.status || 500).end(error.message);
       }
     }
   })(req, res);
-};
+});

@@ -27,8 +27,6 @@ export const marketRedirect = (req, res, user = {}) => {
     res.writeHead(302, {
       Location: returnTo
     });
-
-    res.end();
-    return;
+    return res.end();
   }
 };

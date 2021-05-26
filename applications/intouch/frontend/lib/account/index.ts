@@ -12,6 +12,7 @@ export const mutationCreateAccount = `mutation CreateAccount($input: CreateAccou
 export const createAccount = async (req, session) => {
   const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
+  const logger = req.logger("account");
 
   // const market = user[`${AUTH0_NAMESPACE}/market`];
   const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
@@ -47,7 +48,6 @@ export const createAccount = async (req, session) => {
 
     return data;
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log("[account]:createAccount ", error.message);
+    logger.error(error.message);
   }
 };

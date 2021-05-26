@@ -64,6 +64,7 @@
     "storybook-addon-next-router": "^2.0.4"
   },
   "browser": {
-    "@google-cloud/secret-manager": false
+    "@google-cloud/secret-manager": false,
+    "@google-cloud/logging-winston": false
   }
 }

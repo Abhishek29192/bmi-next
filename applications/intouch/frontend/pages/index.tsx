@@ -5,8 +5,8 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getAuth0Instance } from "../lib/auth0";
 import { Layout } from "../components/Layout";
+import { withLogger } from "../lib/logger/withLogger";
 import logger from "../lib/logger";
-import { initializeApollo } from "../lib/apolloClient";
 
 const Homepage = () => {
   logger({
@@ -60,10 +60,13 @@ const Homepage = () => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = withLogger(async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
-    async getServerSideProps(ctx) {
+    async getServerSideProps({ req, res }) {
+      const logger = req.logger("home-page");
+      logger.info("log example");
+
       return {
         props: {
           ...(await serverSideTranslations(ctx.locale, [
@@ -76,6 +79,6 @@ export const getServerSideProps = async (ctx) => {
       };
     }
   })(ctx);
-};
+});
 
 export default withPageAuthRequired(Homepage);
