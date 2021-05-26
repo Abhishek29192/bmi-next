@@ -96,7 +96,19 @@ module.exports = {
         }
 
         const fields = hubSpotForm.formFieldGroups
-          .filter((input) => input.isPageBreak === false)
+          .filter((input) => {
+            // HubSpot provides alternative inputs other than fields.
+            if (input.isPageBreak === true) {
+              return false;
+            }
+
+            if (!input.fields.length) {
+              // TODO: Deal with text fields and others.
+              return false;
+            }
+
+            return true;
+          })
           .map((input) =>
             getNodeData(source.id, {
               // TODO: I only support basic hubspot form layout (one field per row)
