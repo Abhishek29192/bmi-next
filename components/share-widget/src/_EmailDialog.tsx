@@ -31,8 +31,8 @@ const EmailDialog = ({
     );
   };
 
-  const validateEmail = (value: string) =>
-    value.includes("@") ? false : "Email addresses must have an '@'";
+  const validateEmail = (value?: string) =>
+    value?.includes("@") ? false : "Email addresses must have an '@'";
 
   return (
     <Dialog

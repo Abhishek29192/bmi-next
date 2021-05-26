@@ -102,14 +102,17 @@ const ShareWidget = ({
         return location.href;
       case "{{message}}":
         return message || "";
+      default:
+        return "";
     }
   };
 
   return (
     <div
-      className={classnames(styles["ShareWidget"], {
-        [styles["ShareWidget--left-aligned"]]: isLeftAligned
-      })}
+      className={classnames(
+        styles["ShareWidget"],
+        isLeftAligned && styles["ShareWidget--left-aligned"]
+      )}
     >
       <Typography className={styles["title"]} variant="h6">
         {title || "Share this"}:
