@@ -14,7 +14,7 @@ export const SidePanel = ({
   filters,
   children
 }: SidePanelProps) => {
-  const filterButtons = filters.map((filter) => (
+  const filterButtons = (filters || []).map((filter) => (
     <FilterButton label={filter.label} key={filter.attr} />
   ));
 
