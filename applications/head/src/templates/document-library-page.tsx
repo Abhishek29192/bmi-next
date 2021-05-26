@@ -108,7 +108,7 @@ const sourceToSortMap: Record<
   (documents: DocumentResultsData) => DocumentResultsData
 > = {
   ALL: (documents) => sortBy(documents, ["assetType.name", "title"]),
-  PIM: (documents) => sortBy(documents, ["title"]),
+  PIM: (documents) => sortBy(documents, ["assetType.code", "title"]),
   CMS: (documents) => sortBy(documents, ["brand", "title"])
 };
 

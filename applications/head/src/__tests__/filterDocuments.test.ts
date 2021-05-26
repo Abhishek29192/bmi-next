@@ -329,7 +329,7 @@ describe("filter document tests", () => {
           inputDataItems.push(contenfulDocument2);
 
           let result = filterDocuments(inputDataItems, [
-            createBrandFilterCriteria()
+            createAssetTypeFilterCriteria()
           ]);
 
           expect(result).toEqual([]);
