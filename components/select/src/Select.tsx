@@ -27,8 +27,10 @@ const Select = ({
   helperText,
   ...props
 }: Props) => {
-  const handleChange = (event) => {
-    onChange(event.target.value);
+  const handleChange = (
+    event: React.ChangeEvent<{ name?: string; value: any }>
+  ) => {
+    onChange(event.target.value as string);
   };
   return (
     <FormControl
@@ -52,4 +54,4 @@ const Select = ({
 
 export { MenuItem };
 
-export default withFormControl<Props>(Select);
+export default withFormControl<Props, string>(Select);
