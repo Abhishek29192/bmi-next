@@ -5,7 +5,8 @@ import React, {
   useEffect,
   useMemo,
   useState,
-  Fragment
+  Fragment,
+  MutableRefObject
 } from "react";
 import classnames from "classnames";
 import MuiTable, { TableProps as MuiTableProps } from "@material-ui/core/Table";
@@ -19,8 +20,8 @@ import TableBody from "@material-ui/core/TableBody";
 import styles from "./Table.module.scss";
 
 const TableContext = createContext<{
-  theme: Colors;
-}>({ theme: null });
+  theme?: Colors;
+}>({});
 
 type TableProps = {
   theme?: Colors;
@@ -35,7 +36,7 @@ function parseTable(children: React.ReactNode): {
   const childElements = React.Children.toArray(children).filter(isValidElement);
 
   const header = childElements.find((child) => child.type === TableHead);
-  let headerRow = [];
+  let headerRow: React.ReactNode[] = [];
 
   if (header) {
     const row = React.Children.only((header.props as TableHeadProps).children);
@@ -48,15 +49,19 @@ function parseTable(children: React.ReactNode): {
 
   const body = childElements.find((child) => child.type === TableBody);
 
-  const rows = React.Children.toArray(
-    (body.props as TableBodyProps).children
-  ).filter(isValidElement);
+  const rows =
+    (body &&
+      React.Children.toArray((body.props as TableBodyProps).children).filter(
+        isValidElement
+      )) ||
+    [];
 
-  const bodyRows = rows.map((row) =>
-    React.Children.toArray((row.props as TableRowProps).children)
-      .filter(isValidElement)
-      .map((tableCell) => (tableCell.props as TableCellProps).children)
-  );
+  const bodyRows =
+    rows?.map((row) =>
+      React.Children.toArray((row.props as TableRowProps).children)
+        .filter(isValidElement)
+        .map((tableCell) => (tableCell.props as TableCellProps).children)
+    ) || [];
 
   return { headerRow, bodyRows };
 }
@@ -124,12 +129,13 @@ const Table = ({
         {tableSize === "normal" && (
           <MuiTable
             ref={normalTableRef}
-            className={classnames(styles["Table"], {
-              [styles[`Table--row-${_rowBgColorPattern}-color`]]:
-                _rowBgColorPattern !== "none",
-              [styles["Table--row-no-color"]]: _rowBgColorPattern === "none",
-              [styles["Table--no-border"]]: hasNoBorder
-            })}
+            className={classnames(
+              styles["Table"],
+              _rowBgColorPattern !== "none" &&
+                styles[`Table--row-${_rowBgColorPattern}-color`],
+              _rowBgColorPattern === "none" && styles["Table--row-no-color"],
+              hasNoBorder && styles["Table--no-border"]
+            )}
             {...rest}
           />
         )}
@@ -155,43 +161,49 @@ const Table = ({
   );
 };
 
-const MediumTable = React.forwardRef(function MediumTable(
-  { hasNoBorder, children, theme, ...rest }: TableProps,
-  ref
-) {
-  const { headerRow, bodyRows } = useMemo(
-    () => parseTable(children),
-    [children]
-  );
+const MediumTable = React.forwardRef<HTMLTableElement, TableProps>(
+  function MediumTable(
+    { hasNoBorder, children, theme, ...rest }: TableProps,
+    ref:
+      | ((instance: HTMLTableElement | null) => void)
+      | MutableRefObject<HTMLTableElement | null>
+      | null
+  ) {
+    const { headerRow, bodyRows } = useMemo(
+      () => parseTable(children),
+      [children]
+    );
 
-  return (
-    <MuiTable
-      ref={ref as (node: HTMLElement) => void}
-      className={classnames(styles["Table"], {
-        [styles["Table--no-border"]]: hasNoBorder
-      })}
-      {...rest}
-    >
-      <MuiTableBody>
-        {bodyRows.map((row, key) =>
-          row.map((cell, i) => (
-            <MuiTableRow
-              key={`${key}_${i}`}
-              className={classnames({
-                [styles["separator"]]: i === row.length - 1
-              })}
-            >
-              <ColorPair theme={theme} markupComponent={MuiTableCell}>
-                {headerRow[i]}
-              </ColorPair>
-              <MuiTableCell>{cell}</MuiTableCell>
-            </MuiTableRow>
-          ))
+    return (
+      <MuiTable
+        ref={ref}
+        className={classnames(
+          styles["Table"],
+          hasNoBorder && styles["Table--no-border"]
         )}
-      </MuiTableBody>
-    </MuiTable>
-  );
-});
+        {...rest}
+      >
+        <MuiTableBody>
+          {bodyRows.map((row, key) =>
+            row.map((cell, i) => (
+              <MuiTableRow
+                key={`${key}_${i}`}
+                className={classnames(
+                  i === row.length - 1 && styles["separator"]
+                )}
+              >
+                <ColorPair theme={theme} markupComponent={MuiTableCell}>
+                  {headerRow[i]}
+                </ColorPair>
+                <MuiTableCell>{cell}</MuiTableCell>
+              </MuiTableRow>
+            ))
+          )}
+        </MuiTableBody>
+      </MuiTable>
+    );
+  }
+);
 
 const SmallTable = ({
   hasNoBorder,
@@ -211,9 +223,7 @@ const SmallTable = ({
       className={classnames(
         styles["SmallTable"],
         styles[`SmallTable--item-${rowBgColorPattern}-color`],
-        {
-          [styles["SmallTable--no-border"]]: hasNoBorder
-        }
+        hasNoBorder && styles["SmallTable--no-border"]
       )}
     >
       {bodyRows.map((row, key) => (
