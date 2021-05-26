@@ -46,12 +46,14 @@ const Section = ({
     <SectionContext.Provider value={true}>
       <div
         id={id}
-        className={classnames(className, styles["Section"], {
-          [styles[`Section--${backgroundColor}`]]:
-            backgroundColor !== "transparent",
-          [styles["Section--no-spacing"]]: spacing === "none",
-          [styles["Section--slim"]]: isSlim
-        })}
+        className={classnames(
+          className,
+          styles["Section"],
+          backgroundColor !== "transparent" &&
+            styles[`Section--${backgroundColor}`],
+          spacing === "none" && styles["Section--no-spacing"],
+          isSlim && styles["Section--slim"]
+        )}
       >
         <Container
           maxWidth={size}
