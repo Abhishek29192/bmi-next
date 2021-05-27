@@ -1,8 +1,11 @@
 import React from "react";
 import Button from "@bmi/button";
 import Hero from "@bmi/hero";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { getAuth0Instance } from "../lib/auth0";
 import { Layout } from "../components/Layout";
+import { withLogger } from "../lib/logger/withLogger";
 import logger from "../lib/logger";
 
 const Homepage = () => {
@@ -57,13 +60,25 @@ const Homepage = () => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = withLogger(async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
-    async getServerSideProps(ctx) {
-      return { props: {} };
+    async getServerSideProps({ req, res }) {
+      const logger = req.logger("home-page");
+      logger.info("log example");
+
+      return {
+        props: {
+          ...(await serverSideTranslations(ctx.locale, [
+            "common",
+            "sidebar",
+            "footer",
+            "company-page"
+          ]))
+        }
+      };
     }
   })(ctx);
-};
+});
 
-export default Homepage;
+export default withPageAuthRequired(Homepage);

@@ -3,10 +3,11 @@ type LogEvent = {
   message: string;
 };
 
-const log = (event: LogEvent) =>
-  fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/log`, {
+const log = (event: LogEvent) => {
+  fetch(`${window.location.protocol}//${window.location.host}/api/log`, {
     method: "POST",
     body: JSON.stringify(event)
   });
+};
 
 export default log;

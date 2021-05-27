@@ -8,6 +8,7 @@ const WrapPlugin = makeWrapResolversPlugin({
       requires: {
         childColumns: [
           { column: "id", alias: "$account_id" },
+          { column: "market_id", alias: "$market_id" },
           { column: "role", alias: "$role" }
         ]
       },

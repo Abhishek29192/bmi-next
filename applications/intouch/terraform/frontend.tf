@@ -18,14 +18,6 @@ resource "google_cloud_run_service" "default" {
           container_port = 3000
         }
         env {
-          name  = "NEXT_PUBLIC_BASE_URL"
-          value = "https://tf-frontend-rfwslk3zjq-nw.a.run.app"
-        }
-        env {
-          name  = "AUTH0_BASE_URL"
-          value = "https://tf-frontend-rfwslk3zjq-nw.a.run.app"
-        }
-        env {
           name  = "AUTH0_NAMESPACE"
           value = "https://intouch"
         }
@@ -41,7 +33,10 @@ resource "google_cloud_run_service" "default" {
           name  = "AUTH0_CLIENT_ID"
           value = "W4gH2YagDOBdMpEUESoC4xZhsZbc3W1S"
         }
-
+        env {
+          name  = "AUTH0_COOKIE_DOMAIN"
+          value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
+        }
         env {
           name  = "GRAPHQL_URL"
           value = "https://intouchapip-9dmxs7t9.nw.gateway.dev/graphql"

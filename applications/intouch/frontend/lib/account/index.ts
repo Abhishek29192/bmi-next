@@ -5,17 +5,20 @@ export const mutationCreateAccount = `mutation CreateAccount($input: CreateAccou
   createAccount(input: $input) {
     account {
       id
+      marketId
     }
   }
 }`;
-export const createAccount = async (session) => {
+export const createAccount = async (req, session) => {
   const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
+  const logger = req.logger("account");
 
   // const market = user[`${AUTH0_NAMESPACE}/market`];
   const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
   const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
   const type = user[`${AUTH0_NAMESPACE}/type`];
+  const market = user[`${AUTH0_NAMESPACE}/market`];
 
   const body = {
     query: mutationCreateAccount,
@@ -24,21 +27,27 @@ export const createAccount = async (session) => {
         firstName,
         lastName,
         email: user.email,
-        role: type === "company" ? "COMPANY_ADMIN" : "INSTALLER"
+        role: type === "company" ? "COMPANY_ADMIN" : "INSTALLER",
+        marketCode: market
       }
     }
   };
 
-  const { data } = await axios.post(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/graphql`,
-    body,
-    {
-      headers: {
-        authorization: `Bearer ${session.accessToken}`,
-        "x-request-id": v4()
+  try {
+    const protocol = req.headers["x-forwarded-proto"] || "http";
+    const { data } = await axios.post(
+      `${protocol}://${req.headers.host}/api/graphql`,
+      body,
+      {
+        headers: {
+          authorization: `Bearer ${session.accessToken}`,
+          "x-request-id": v4()
+        }
       }
-    }
-  );
+    );
 
-  return data;
+    return data;
+  } catch (error) {
+    logger.error(error.message);
+  }
 };

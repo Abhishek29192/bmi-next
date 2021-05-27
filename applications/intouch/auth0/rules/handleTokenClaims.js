@@ -12,6 +12,7 @@ async function handleTokenClaims(user, context, callback) {
   if (app_metadata.intouch_user_id) {
     context.idToken = {
       ...context.idToken,
+      [`${namespace}/intouch_market_code`]: app_metadata.intouch_market_code,
       [`${namespace}/intouch_user_id`]: app_metadata.intouch_user_id,
       [`${namespace}/intouch_role`]: app_metadata.intouch_role
     };
@@ -26,6 +27,7 @@ async function handleTokenClaims(user, context, callback) {
 
     context.accessToken = {
       ...context.accessToken,
+      [`${namespace}/intouch_market_code`]: app_metadata.intouch_market_code,
       [`${namespace}/intouch_user_id`]: app_metadata.intouch_user_id,
       [`${namespace}/intouch_role`]: app_metadata.intouch_role,
       [`${namespace}/email`]: user.email // the access token doesn't have the email by default

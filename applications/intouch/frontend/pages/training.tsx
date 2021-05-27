@@ -3,6 +3,7 @@ import Hero, { HeroItem } from "@bmi/hero";
 import Button from "@bmi/button";
 import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
 import type { Course } from "@bmi/intouch-api-types";
@@ -151,7 +152,7 @@ export const getServerSideProps = async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
     async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, ctx);
+      const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
       let trainingData = {};
 
@@ -182,4 +183,4 @@ export const getServerSideProps = async (ctx) => {
   })(ctx);
 };
 
-export default TrainingPage;
+export default withPageAuthRequired(TrainingPage);
