@@ -111,6 +111,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       pageData={pageData}
       siteData={contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={selfProduct?.images?.[0].url}
     >
       {breadcrumbs && (
         <Section backgroundColor="pearl" isSlim>
