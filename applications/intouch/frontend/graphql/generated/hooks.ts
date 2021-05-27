@@ -1,11 +1,80 @@
-import { gql } from "@apollo/client";
-import * as Apollo from "@apollo/client";
 import * as OperationTypes from "./operations";
 
+import { gql } from "@apollo/client";
+import * as Apollo from "@apollo/client";
 const defaultOptions = {};
+export const CompanyDetailsFragmentFragmentDoc = gql`
+  fragment CompanyDetailsFragment on Company {
+    id
+    name
+    phone
+    website
+    aboutUs
+    publicEmail
+    phone
+    website
+    companyMembers {
+      nodes {
+        id
+      }
+    }
+  }
+`;
+export const UpdateCompanyDetailsDocument = gql`
+  mutation updateCompanyDetails($input: UpdateCompanyInput!) {
+    updateCompany(input: $input) {
+      company {
+        ...CompanyDetailsFragment
+      }
+    }
+  }
+  ${CompanyDetailsFragmentFragmentDoc}
+`;
+export type UpdateCompanyDetailsMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateCompanyDetailsMutation,
+  OperationTypes.UpdateCompanyDetailsMutationVariables
+>;
 
-export const UpdateCompanyDocument = gql`
-  mutation updateCompany($input: UpdateCompanyInput!) {
+/**
+ * __useUpdateCompanyDetailsMutation__
+ *
+ * To run a mutation, you first call `useUpdateCompanyDetailsMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateCompanyDetailsMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateCompanyDetailsMutation, { data, loading, error }] = useUpdateCompanyDetailsMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateCompanyDetailsMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateCompanyDetailsMutation,
+    OperationTypes.UpdateCompanyDetailsMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateCompanyDetailsMutation,
+    OperationTypes.UpdateCompanyDetailsMutationVariables
+  >(UpdateCompanyDetailsDocument, options);
+}
+export type UpdateCompanyDetailsMutationHookResult = ReturnType<
+  typeof useUpdateCompanyDetailsMutation
+>;
+export type UpdateCompanyDetailsMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
+export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateCompanyDetailsMutation,
+  OperationTypes.UpdateCompanyDetailsMutationVariables
+>;
+export const CreateCompanyDocument = gql`
+  mutation createCompany($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
       company {
         name
@@ -13,48 +82,48 @@ export const UpdateCompanyDocument = gql`
     }
   }
 `;
-export type UpdateCompanyMutationFn = Apollo.MutationFunction<
-  OperationTypes.UpdateCompanyMutation,
-  OperationTypes.UpdateCompanyMutationVariables
+export type CreateCompanyMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateCompanyMutation,
+  OperationTypes.CreateCompanyMutationVariables
 >;
 
 /**
- * __useUpdateCompanyMutation__
+ * __useCreateCompanyMutation__
  *
- * To run a mutation, you first call `useUpdateCompanyMutation` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUpdateCompanyMutation` returns a tuple that includes:
+ * To run a mutation, you first call `useCreateCompanyMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateCompanyMutation` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [updateCompanyMutation, { data, loading, error }] = useUpdateCompanyMutation({
+ * const [createCompanyMutation, { data, loading, error }] = useCreateCompanyMutation({
  *   variables: {
  *      input: // value for 'input'
  *   },
  * });
  */
-export function useUpdateCompanyMutation(
+export function useCreateCompanyMutation(
   baseOptions?: Apollo.MutationHookOptions<
-    OperationTypes.UpdateCompanyMutation,
-    OperationTypes.UpdateCompanyMutationVariables
+    OperationTypes.CreateCompanyMutation,
+    OperationTypes.CreateCompanyMutationVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useMutation<
-    OperationTypes.UpdateCompanyMutation,
-    OperationTypes.UpdateCompanyMutationVariables
-  >(UpdateCompanyDocument, options);
+    OperationTypes.CreateCompanyMutation,
+    OperationTypes.CreateCompanyMutationVariables
+  >(CreateCompanyDocument, options);
 }
-export type UpdateCompanyMutationHookResult = ReturnType<
-  typeof useUpdateCompanyMutation
+export type CreateCompanyMutationHookResult = ReturnType<
+  typeof useCreateCompanyMutation
 >;
-export type UpdateCompanyMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateCompanyMutation>;
-export type UpdateCompanyMutationOptions = Apollo.BaseMutationOptions<
-  OperationTypes.UpdateCompanyMutation,
-  OperationTypes.UpdateCompanyMutationVariables
+export type CreateCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
+export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateCompanyMutation,
+  OperationTypes.CreateCompanyMutationVariables
 >;
 export const CurrentCompanyDocument = gql`
   query currentCompany {
@@ -169,15 +238,10 @@ export type GetCurrentCompanyQueryResult = Apollo.QueryResult<
 export const GetCompanyDocument = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
-      name
-      phone
-      website
-      aboutUs
-      publicEmail
-      phone
-      website
+      ...CompanyDetailsFragment
     }
   }
+  ${CompanyDetailsFragmentFragmentDoc}
 `;
 
 /**

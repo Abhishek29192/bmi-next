@@ -1,10 +1,44 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
-export type UpdateCompanyMutationVariables = SchemaTypes.Exact<{
+export type CompanyDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  "id" | "name" | "phone" | "website" | "aboutUs" | "publicEmail"
+> & {
+    readonly companyMembers: {
+      readonly __typename?: "CompanyMembersConnection";
+    } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyMember" } & Pick<
+          SchemaTypes.CompanyMember,
+          "id"
+        >
+      >;
+    };
+  };
+
+export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
 }>;
 
-export type UpdateCompanyMutation = { readonly __typename?: "Mutation" } & {
+export type UpdateCompanyDetailsMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly updateCompany?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateCompanyPayload" } & {
+      readonly company?: SchemaTypes.Maybe<
+        { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
+      >;
+    }
+  >;
+};
+
+export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateCompanyInput;
+}>;
+
+export type CreateCompanyMutation = { readonly __typename?: "Mutation" } & {
   readonly updateCompany?: SchemaTypes.Maybe<
     { readonly __typename?: "UpdateCompanyPayload" } & {
       readonly company?: SchemaTypes.Maybe<
@@ -38,10 +72,7 @@ export type GetCompanyQueryVariables = SchemaTypes.Exact<{
 
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
-    { readonly __typename?: "Company" } & Pick<
-      SchemaTypes.Company,
-      "name" | "phone" | "website" | "aboutUs" | "publicEmail"
-    >
+    { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
   >;
 };
 

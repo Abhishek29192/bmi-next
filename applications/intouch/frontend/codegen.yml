@@ -40,6 +40,8 @@ generates:
       reactApolloVersion: 3
       withHooks: true
       withHOC: false
+      documentMode: external
+      importDocumentNodeExternallyFrom: ./hooks
     preset: import-types
     presetConfig:
       typesPath: ./operations
