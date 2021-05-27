@@ -475,8 +475,14 @@ export const generateUniqueDocuments = (
         : allOtherDocuments.push(document);
     });
 
-    const uniquePIMDocuments = uniqBy(allPIMDocuments, "url");
-    const uniqueCMSDocuments = uniqBy(allOtherDocuments, "asset.file.fileName");
+    const uniquePIMDocuments = uniqBy(
+      allPIMDocuments,
+      (item) => `${item.title}-${item.url}`
+    );
+    const uniqueCMSDocuments = uniqBy(
+      allOtherDocuments,
+      (item) => `${item.asset.file.fileName}`
+    );
     return [...uniquePIMDocuments, ...uniqueCMSDocuments];
   }
   return documents;
