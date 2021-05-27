@@ -11,7 +11,7 @@ SET
     image=subquery.image,
     promoted=subquery.promoted,
     training_type=subquery.training_type,
-    description=subquery.description,
+    description=subquery.description
 FROM (SELECT 
 course_id,technology,name,image,promoted,training_type,description 
 FROM  course_temp) AS subquery
@@ -23,6 +23,14 @@ ct.course_id,ct.technology,ct.name,ct.image,ct.promoted,ct.training_type,ct.desc
 FROM  course_temp ct  
 LEFT OUTER JOIN course c ON (c.course_id = ct.course_id)
 WHERE c.course_id IS NULL;
+
+
+DELETE FROM course c
+WHERE not EXISTS
+  (SELECT 1
+    FROM course_temp ct
+    WHERE (c.course_id = ct.course_id)
+     );
 
 select count(*) as course_count from course_temp;
 
@@ -53,6 +61,13 @@ FROM  course_enrollment_temp ct
 LEFT OUTER JOIN course_enrollment c ON (c.user_id = ct.user_id and c.course_id = ct.course_id)
 WHERE c.course_id IS NULL;
 
+  DELETE FROM course_enrollment c
+WHERE not EXISTS
+  (SELECT 1
+    FROM course_enrollment_temp ct
+    WHERE (c.user_id = ct.user_id and c.course_id = ct.course_id)
+     );
+
 select count(*) as course_enrollment_count from course_enrollment_temp;
 
 $$
@@ -82,3 +97,65 @@ select count(*) as course_enrollment_count from course_catalogue_temp;
 $$
 LANGUAGE sql
 volatile;
+
+
+
+-- Function to update courses 
+CREATE OR REPLACE FUNCTION course_update(courses course[])
+  RETURNS void
+  AS $$
+  DECLARE course_length INT;
+  
+BEGIN  
+	 course_length := array_length(courses , 1);
+if course_length>0 then
+  TRUNCATE TABLE course_temp;
+  insert into course_temp(course_id,technology,name,image,promoted,training_type,description)
+    select ct.course_id,ct.technology,ct.name,ct.image,ct.promoted,ct.training_type,ct.description
+    from unnest(courses) as ct;
+
+  PERFORM public.course_update_by_temp();
+end if; 
+
+END;
+$$ LANGUAGE plpgsql volatile;
+
+
+-- Function to update course enrollmets
+CREATE OR REPLACE FUNCTION course_enrollment_update(enrollments course_enrollment[])
+  RETURNS void
+  AS $$
+  DECLARE enrollments_length INT;
+  
+BEGIN  
+	 enrollments_length := array_length(enrollments , 1);
+if enrollments_length>0 then
+  TRUNCATE TABLE course_enrollment_temp;
+  insert into course_enrollment_temp(user_id, course_id, status, url)
+    select ct.user_id,ct.course_id,ct.status,ct.url from unnest(enrollments) as ct;
+
+  PERFORM public.course_enrollment_update_by_temp();
+end if; 
+
+END;
+$$ LANGUAGE plpgsql volatile;
+
+-- Function to update course catalogues
+CREATE OR REPLACE FUNCTION course_catalogue_update(catalogues course_catalogue[])
+  RETURNS void
+  AS $$
+  DECLARE catalogues_length INT;
+  
+BEGIN  
+	 catalogues_length := array_length(catalogues , 1);
+if catalogues_length>0 then
+  TRUNCATE TABLE course_catalogue_temp;
+  insert into course_catalogue_temp(catalogue_id, course_id)
+    select ct.catalogue_id,ct.course_id from unnest(catalogues) as ct;
+
+  PERFORM public.course_catalogue_update_by_temp();
+end if; 
+
+END;
+$$ LANGUAGE plpgsql volatile;
+

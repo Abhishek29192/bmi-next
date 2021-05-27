@@ -1,9 +1,9 @@
 export type Course = {
-  course_id: number;
+  courseId: number;
   technology: string;
   name: string;
   image: string;
   promoted: boolean;
-  training_type: string;
+  trainingType: string;
   description: string;
 };

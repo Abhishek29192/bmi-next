@@ -1,18 +1,16 @@
 import axios, { AxiosInstance } from "axios";
-import { Course } from "./common/types";
+import { createToken } from "../util/JwtUtil";
+import { Course } from "../types/Course";
+
+import { IUserCreateInput } from "../type";
 
 type CourseFilteredData = {
   courses: Course[];
   hasMoreData: boolean;
 };
 
-const {
-  DOCEBO_API_URL,
-  DOCEBO_API_CLIENT_ID,
-  DOCEBO_API_CLIENT_SECRET,
-  DOCEBO_API_USERNAME,
-  DOCEBO_API_PASSWORD
-} = process.env;
+const { DOCEBO_API_URL, DOCEBO_API_CLIENT_ID, DOCEBO_API_USERNAME } =
+  process.env;
 
 export default class DoceboClient {
   private client: AxiosInstance;
@@ -27,27 +25,15 @@ export default class DoceboClient {
   }
 
   public static async create(): Promise<DoceboClient> {
-    const { access_token } = await this.getTokenByUserInfo();
+    const { access_token } = await this.getSuperAdminApiToken();
     return new DoceboClient(access_token);
   }
 
-  private static async getTokenByUserInfo() {
-    const { data } = await axios({
-      method: "POST",
-      url: `${DOCEBO_API_URL}/oauth2/token`,
-      headers: { "content-type": "application/json" },
-      data: {
-        grant_type: "password",
-        client_id: DOCEBO_API_CLIENT_ID,
-        client_secret: DOCEBO_API_CLIENT_SECRET,
-        username: DOCEBO_API_USERNAME,
-        password: DOCEBO_API_PASSWORD
-      }
-    });
-    return data;
-  }
-
-  async getCourses(updated_from, page = 1, pageSize = 500): Promise<Course[]> {
+  async getCourses(
+    updated_from = "",
+    page = 1,
+    pageSize = 500
+  ): Promise<Course[]> {
     const { courses, hasMoreData } = await this.getCoursesByFilter(
       updated_from,
       page,
@@ -62,7 +48,7 @@ export default class DoceboClient {
       return courses;
     }
   }
-  async getEnrollments(updated_from, page = 1, pageSize = 200) {
+  async getEnrollments(updated_from = "", page = 1, pageSize = 200) {
     const { enrollments, hasMoreData } = await this.getEnrollmentsByFilter(
       updated_from,
       page,
@@ -92,7 +78,48 @@ export default class DoceboClient {
     }
   }
 
+  static async createSSOUrl(
+    username: string,
+    path: string = "/learn/mycourses"
+  ) {
+    const token = await this.getTokenByJWTPayload(username);
+    return `${DOCEBO_API_URL}${path};type=oauth2_response;access_token=${token.access_token};expires_in=${token.expires_in};token_type=${token.token_type};scope=${token.scope}`;
+  }
+
+  /**
+   *
+   * @returns Super admin token
+   */
+  public static async getSuperAdminApiToken() {
+    return this.getTokenByJWTPayload(DOCEBO_API_USERNAME);
+  }
+  public static async getTokenByJWTPayload(username: string) {
+    const body = await getTokenPayload(username);
+    const { data } = await axios({
+      method: "POST",
+      url: `${DOCEBO_API_URL}/oauth2/token`,
+      headers: { "content-type": "application/json" },
+      data: body
+    });
+    return data;
+  }
+
+  async createUser(input: IUserCreateInput) {
+    const select_orgchart = input.select_orgchart
+      ? { [`${input.select_orgchart.branch_id}`]: 1 }
+      : {};
+    const body = {
+      ...input,
+      password_retype: input.password,
+      select_orgchart
+    };
+    const { data } = await this.client.post(`/manage/v1/user`, body);
+
+    return data;
+  }
+
   private async isCoursePromoted(courseId: Number) {
+    const PROMOTED_COURSE_FIELD = "17";
     const {
       data: {
         data: { course_description }
@@ -102,14 +129,14 @@ export default class DoceboClient {
     );
 
     const additionalField = course_description.Additional_fields.find(
-      (field) => field.id === "17"
+      (field) => field.id === PROMOTED_COURSE_FIELD
     );
 
     return additionalField.value === "Yes";
   }
   private async coursesPromoted(courses: any[]) {
     for (const course of courses) {
-      course.promoted = await this.isCoursePromoted(course.course_id);
+      course.promoted = await this.isCoursePromoted(course.courseId);
     }
 
     return courses;
@@ -119,25 +146,23 @@ export default class DoceboClient {
     page: Number,
     pageSize: Number
   ): Promise<CourseFilteredData> {
+    const query = this.getQueryString(updated_from, page, pageSize);
+
     const {
       data: {
         data: { has_more_data, items = [] }
       }
-    } = await this.client.get(
-      `/learn/v1/courses?page=${page}&page_size=${pageSize}&updated_from=${updated_from}`
-    );
+    } = await this.client.get(`/learn/v1/courses?${query}`);
 
     const courses = items.map((item) => ({
-      course_id: item.id_course,
+      courseId: item.id_course,
       technology: item.category.name,
       name: item.name,
       image: item.img_url,
       promoted: false,
-      training_type: item.course_type,
+      trainingType: item.course_type,
       description: item.description
     }));
-
-    await this.coursesPromoted(courses);
 
     return {
       courses,
@@ -149,17 +174,16 @@ export default class DoceboClient {
     page: Number,
     pageSize: Number
   ) {
+    const query = this.getQueryString(updated_from, page, pageSize);
     const {
       data: {
         data: { has_more_data, items = [] }
       }
-    } = await this.client.get(
-      `/learn/v1/enrollments?page=${page}&page_size=${pageSize}&updated_from=${updated_from}`
-    );
+    } = await this.client.get(`/learn/v1/enrollments?${query}`);
 
     const enrollments = items.map((item) => ({
-      user_id: item.user_id,
-      course_id: item.id,
+      userId: item.user_id,
+      courseId: item.id,
       status: item.status,
       url: item.url
     }));
@@ -180,8 +204,8 @@ export default class DoceboClient {
 
     const catalogs = items.reduce((acc, curr) => {
       const enrolledCourse = curr.sub_items.map((course) => ({
-        catalogue_id: curr.catalogue_id,
-        course_id: course.item_id
+        catalogueId: curr.catalogue_id,
+        courseId: +course.item_id
       }));
 
       return [...acc, ...enrolledCourse];
@@ -192,4 +216,26 @@ export default class DoceboClient {
       hasMoreData: has_more_data
     };
   }
+  private getQueryString(updated_from: String, page: Number, pageSize: Number) {
+    let query = `page=${page}&page_size=${pageSize}`;
+    if (updated_from) query += `&updated_from=${updated_from}`;
+    return query;
+  }
 }
+
+const getTokenPayload = async (username) => {
+  const payload = {
+    iss: DOCEBO_API_CLIENT_ID,
+    sub: username,
+    aud: DOCEBO_API_URL.replace(/^https?:\/\//, ""),
+    iat: Date.now(),
+    exp: Date.now() + 30 * 60 * 1000
+  };
+  const jwtToken = await createToken(payload);
+  const body = {
+    grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    assertion: jwtToken
+  };
+
+  return body;
+};
