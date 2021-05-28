@@ -30,15 +30,8 @@ steps:
         "--allow-unauthenticated",
         "--add-cloudsql-instances=automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=DOCEBO_API_URL=${_DOCEBO_API_URL}",
-        "--set-env-vars=DOCEBO_API_CLIENT_ID=${_DOCEBO_API_CLIENT_ID}",
-        "--set-env-vars=DOCEBO_API_CLIENT_SECRET=",
-        "--set-env-vars=DOCEBO_API_USERNAME=",
-        "--set-env-vars=DOCEBO_API_PASSWORD=",
-        "--set-env-vars=DOCEBO_API_JWT_PASSPHRASE=${_DOCEBO_API_JWT_PASSPHRASE}",
         "--set-env-vars=PG_SCHEMA=public",
         "--set-env-vars=PG_USER=postgres",
-        "--set-env-vars=PASSWORD=intouch-db",
-        "--set-env-vars=HOST=/cloudsql/automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=DATABASE=training-db",
         "--set-env-vars=PG_PORT=5432"
       ]

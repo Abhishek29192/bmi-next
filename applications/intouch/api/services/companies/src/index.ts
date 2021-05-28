@@ -1,11 +1,10 @@
 import express from "express";
-
 import dotenv from "dotenv";
 
 dotenv.config();
-
 import { WinstonLogger } from "@bmi/logger";
 
+import { setEnvFromSecrets } from "./services/secrets";
 import { postgraphile } from "./postgraphile";
 import parseUserInfo from "./middleware/parseUserInfo";
 import pubsub from "./middleware/pubsub";
@@ -13,6 +12,12 @@ import pubsub from "./middleware/pubsub";
 const PORT = process.env.PORT || 4001;
 
 async function main() {
+  await setEnvFromSecrets([
+    { secret: "COMPANIES_DB_HOST", env: "PG_HOST" },
+    { secret: "COMPANIES_DB_PASSWORD", env: "PG_PASSWORD" },
+    { secret: "AUTH0_API_CLIENT_SECRET", env: "AUTH0_API_CLIENT_SECRET" }
+  ]);
+
   const app = express();
 
   app.use(express.json());
@@ -25,7 +30,7 @@ async function main() {
   app.use(pubsub);
 
   // Init postgraphile
-  app.use(postgraphile);
+  app.use(postgraphile());
 
   app.use((err, req, res, next) => {
     req.logger("index").error(err.stack);

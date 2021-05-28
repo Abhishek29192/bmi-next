@@ -31,10 +31,10 @@ steps:
         "--add-cloudsql-instances=automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=PG_SCHEMA=public",
         "--set-env-vars=PG_USER=postgres",
-        "--set-env-vars=PASSWORD=intouch-db",
-        "--set-env-vars=HOST=/cloudsql/automated-style-303709:europe-west2:intouch-db",
         "--set-env-vars=DATABASE=companies-db",
         "--set-env-vars=PG_PORT=5432"
+        "--set-env-vars=AUTH0_API_CLIENT_ID=M9fxKSvan4Jx0zyLdUhUWm2YO7UqnoyS"
+        "--set-env-vars=AUTH0_API_DOMAIN=intouch-dev.eu.auth0.com"
       ]
 
 timeout: 1200s
