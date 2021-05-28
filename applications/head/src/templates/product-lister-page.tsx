@@ -83,6 +83,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     title,
     subtitle,
     content,
+    featuredMedia,
     features,
     featuresLink,
     breadcrumbs,
@@ -232,6 +233,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={featuredMedia?.image?.file.url}
     >
       <SiteContext.Consumer>
         {({ getMicroCopy }) => {
