@@ -33,12 +33,11 @@ import { getCount as getCardsCount } from "../components/DocumentCardsResults";
 import { SiteContext } from "../components/Site";
 import RichText, { RichTextData } from "../components/RichText";
 import {
-  getBrandFilterFromDocuments,
-  getProductFamilyFilterFromDocuments,
-  getTextureFilterFromDocuments,
-  getAssetTypeFilterFromDocuments,
-  findPIMDocumentBrandCategory,
-  isPIMDocument
+  ResultType,
+  generateUniqueDocuments,
+  Source,
+  getDocumentFilters,
+  filterDocuments
 } from "../utils/filters";
 import { devLog } from "../utils/devLog";
 import ProgressIndicator from "../components/ProgressIndicator";
@@ -57,13 +56,11 @@ const documentCountMap: Record<
   cards: getCardsCount
 };
 
-type Source = "PIM" | "CMS" | "ALL";
-
 type Data = PageInfoData &
   PageData & {
     description: RichTextData | null;
     source: Source;
-    resultsType: "Simple" | "Technical" | "Card Collection";
+    resultsType: ResultType;
     documents: DocumentResultsData;
     breadcrumbs: BreadcrumbsData;
   };
@@ -111,7 +108,7 @@ const sourceToSortMap: Record<
   (documents: DocumentResultsData) => DocumentResultsData
 > = {
   ALL: (documents) => sortBy(documents, ["assetType.name", "title"]),
-  PIM: (documents) => sortBy(documents, ["title"]),
+  PIM: (documents) => sortBy(documents, ["assetType.code", "title"]),
   CMS: (documents) => sortBy(documents, ["brand", "title"])
 };
 
@@ -140,68 +137,17 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   });
   const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
-  const getFilters = (
-    documents: DocumentResultsData,
-    source: Data["source"],
-    resultsType: Data["resultsType"],
-    classificationNamespace
-  ) => {
-    // AC1 – view a page that displays PIM documents in a Simple Document table - INVALID
-
-    if (source === "PIM" && resultsType === "Simple") {
-      return [
-        getBrandFilterFromDocuments(documents),
-        getProductFamilyFilterFromDocuments(documents),
-        getTextureFilterFromDocuments(classificationNamespace, documents)
-      ];
-    }
-
-    // AC2 – view a page that displays documents in a Technical Document table
-    if (source === "PIM" && resultsType === "Technical") {
-      return [
-        getBrandFilterFromDocuments(documents),
-        getProductFamilyFilterFromDocuments(documents)
-      ];
-    }
-
-    // AC3 – view a page that displays documents in a Card Collection
-    if (source === "CMS" && resultsType === "Card Collection") {
-      return [getBrandFilterFromDocuments(documents)];
-    }
-
-    // AC4 – view a page that displays All documents in a Simple Document table
-    if (source === "ALL" && resultsType === "Simple") {
-      return [
-        getAssetTypeFilterFromDocuments(documents),
-        getBrandFilterFromDocuments(documents),
-        getProductFamilyFilterFromDocuments(documents)
-      ];
-    }
-
-    // AC5 – view a page that displays CMS documents in a Simple Document table,
-    // more than one Asset Type
-    // AC6 – view a page that displays CMS documents in a Simple Document table,
-    // only one Asset Type
-    if (source === "CMS" && resultsType === "Simple") {
-      return [
-        getBrandFilterFromDocuments(documents),
-        // TODO: Should not be there if ONLY ONE OPTION AVAILABLE
-        // TODO: Move this responsibility to Filters???
-        getAssetTypeFilterFromDocuments(documents)
-      ];
-    }
-
-    return [];
-  };
-
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const initialDocuments = useMemo(
-    () => sourceToSortMap[source](unsortedDocuments),
+    () =>
+      sourceToSortMap[source](
+        generateUniqueDocuments(resultsType, unsortedDocuments)
+      ),
     [unsortedDocuments]
   );
-  const format = resultTypeFormatMap[source][resultsType];
+  const format: Format = resultTypeFormatMap[source][resultsType];
   const getCount = documentCountMap[format];
   const [pageCount, setPageCount] = useState(
     Math.ceil(getCount(initialDocuments) / PAGE_SIZE)
@@ -210,48 +156,13 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
 
   const [filters, setFilters] = useState(
-    getFilters(
+    getDocumentFilters(
       initialDocuments,
       source,
       resultsType,
       pageContext.pimClassificationCatalogueNamespace
     ).filter(Boolean)
   );
-
-  const filterDocuments = (
-    documents: DocumentResultsData,
-    filters
-  ): DocumentResultsData => {
-    const valueGetters = {
-      brand: (document) =>
-        isPIMDocument(document)
-          ? findPIMDocumentBrandCategory(document)?.code
-          : document.brand,
-      // TODO: here we find first vs filter all inside getProductFamilyFilter
-      productFamily: (document) =>
-        isPIMDocument(document) &&
-        (document.product.categories || []).find(
-          ({ categoryType }) => categoryType === "ProductFamily"
-        )?.code,
-      contentfulAssetType: (document) => document.assetType.code
-    };
-
-    const filtersWithValues = filters.filter(({ value }) => value.length !== 0);
-
-    return documents.filter((document) => {
-      const matched = [];
-
-      filters.forEach((filter) => {
-        const valueGetter = valueGetters[filter.name];
-
-        if (valueGetter && filter.value.includes(valueGetter(document))) {
-          matched.push(filter.name);
-        }
-      });
-
-      return matched.length === filtersWithValues.length;
-    });
-  };
 
   const fakeSearch = async (documents, filters, page) => {
     if (isLoading) {

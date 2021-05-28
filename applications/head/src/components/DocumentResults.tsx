@@ -44,10 +44,6 @@ const DocumentResults = ({ data, format, page }: Props) => {
     }
   );
 
-  if (!ResultsComponent) {
-    return null;
-  }
-
   return (
     <>
       <ResultsComponent

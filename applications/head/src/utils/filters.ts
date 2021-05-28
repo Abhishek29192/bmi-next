@@ -5,11 +5,16 @@ import {
   PIMDocumentData,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
+import { Data as DocumentData } from "../components/Document";
 import {
   findAllCategories,
   mapProductClassifications,
   ProductCategoryTree
 } from "./product-details-transforms";
+
+export type filterOption = ProductFilter & {
+  value: string[];
+};
 
 export type ProductFilter = {
   label: string;
@@ -450,4 +455,124 @@ export const clearFilterValues = (filters) => {
     ...filter,
     value: []
   }));
+};
+
+export type ResultType = "Simple" | "Technical" | "Card Collection";
+
+export type Source = "PIM" | "CMS" | "ALL";
+
+export const generateUniqueDocuments = (
+  resultType: ResultType,
+  documents: DocumentResultsData
+): DocumentResultsData => {
+  //JIRA: 2042: this needs to be done only for "Simple" table results
+  if (resultType === "Simple") {
+    const allPIMDocuments = Array<PIMDocumentData | PIMLinkDocumentData>();
+    const allOtherDocuments = Array<DocumentData>();
+    documents.forEach((document) => {
+      isPIMDocument(document)
+        ? allPIMDocuments.push(document)
+        : allOtherDocuments.push(document);
+    });
+
+    const uniquePIMDocuments = uniqBy(
+      allPIMDocuments,
+      (item) => `${item.title}-${item.url}`
+    );
+    const uniqueCMSDocuments = uniqBy(
+      allOtherDocuments,
+      (item) => `${item.asset.file.fileName}`
+    );
+    return [...uniquePIMDocuments, ...uniqueCMSDocuments];
+  }
+  return documents;
+};
+
+export const getDocumentFilters = (
+  documents: DocumentResultsData,
+  source: Source,
+  resultsType: ResultType,
+  classificationNamespace
+) => {
+  // AC1 – view a page that displays PIM documents in a Simple Document table - INVALID
+
+  if (source === "PIM" && resultsType === "Simple") {
+    return [
+      getBrandFilterFromDocuments(documents),
+      getProductFamilyFilterFromDocuments(documents),
+      getTextureFilterFromDocuments(classificationNamespace, documents)
+    ];
+  }
+
+  // AC2 – view a page that displays documents in a Technical Document table
+  if (source === "PIM" && resultsType === "Technical") {
+    return [
+      getBrandFilterFromDocuments(documents),
+      getProductFamilyFilterFromDocuments(documents)
+    ];
+  }
+
+  // AC3 – view a page that displays documents in a Card Collection
+  if (source === "CMS" && resultsType === "Card Collection") {
+    return [getBrandFilterFromDocuments(documents)];
+  }
+
+  // AC4 – view a page that displays All documents in a Simple Document table
+  if (source === "ALL" && resultsType === "Simple") {
+    return [
+      getAssetTypeFilterFromDocuments(documents),
+      getBrandFilterFromDocuments(documents),
+      getProductFamilyFilterFromDocuments(documents)
+    ];
+  }
+
+  // AC5 – view a page that displays CMS documents in a Simple Document table,
+  // more than one Asset Type
+  // AC6 – view a page that displays CMS documents in a Simple Document table,
+  // only one Asset Type
+  if (source === "CMS" && resultsType === "Simple") {
+    return [
+      getBrandFilterFromDocuments(documents),
+      // TODO: Should not be there if ONLY ONE OPTION AVAILABLE
+      // TODO: Move this responsibility to Filters???
+      getAssetTypeFilterFromDocuments(documents)
+    ];
+  }
+
+  return [];
+};
+
+export const filterDocuments = (
+  documents: DocumentResultsData,
+  filters: Array<filterOption>
+): DocumentResultsData => {
+  const valueGetters = {
+    brand: (document) =>
+      isPIMDocument(document)
+        ? findPIMDocumentBrandCategory(document)?.code
+        : document.brand,
+    // TODO: here we find first vs filter all inside getProductFamilyFilter
+    productFamily: (document) =>
+      isPIMDocument(document) &&
+      (document.product.categories || []).find(
+        ({ categoryType }) => categoryType === "ProductFamily"
+      )?.code,
+    contentfulAssetType: (document) => document.assetType.code
+  };
+
+  const filtersWithValues = filters.filter(({ value }) => value.length !== 0);
+
+  return documents.filter((document) => {
+    const matched = [];
+
+    filters.forEach((filter) => {
+      const valueGetter = valueGetters[filter.name];
+
+      if (valueGetter && filter.value.includes(valueGetter(document))) {
+        matched.push(filter.name);
+      }
+    });
+
+    return matched.length === filtersWithValues.length;
+  });
 };
