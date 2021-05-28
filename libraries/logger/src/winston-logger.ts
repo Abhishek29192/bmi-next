@@ -5,7 +5,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 const loggingWinston = new LoggingWinston({
   labels: {
-    name: process.env.LOG_SERVICE_NAME || "inTouch"
+    name: process.env.LOG_SERVICE_NAME || "run.googleapis.com/intouch"
   }
 });
 
