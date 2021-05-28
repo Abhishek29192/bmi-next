@@ -12,4 +12,4 @@ deploy_intouch_api_training_dev:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/api/services/training/cloudbuild.yaml --substitutions _DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL,_DOCEBO_API_CLIENT_ID=$INTOUCH_DOCEBO_API_CLIENT_ID,_DOCEBO_API_JWT_PASSPHRASE=$INTOUCH_DOCEBO_API_JWT_PASSPHRASE
+    - gcloud builds submit . --config=applications/intouch/api/services/training/cloudbuild.yaml --substitutions _DOCEBO_API_URL=$INTOUCH_DOCEBO_API_URL

@@ -1,9 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
-import { WinstonLogger } from "@bmi/logger";
 
 dotenv.config();
-import { getSecret } from "./services/secrets";
+
+import { WinstonLogger } from "@bmi/logger";
+import { setEnvFromSecrets } from "./services/secrets";
 import { postgraphile } from "./postgraphile";
 import docebo from "./middleware/docebo";
 import parseUserInfo from "./middleware/parseUserInfo";
@@ -11,8 +12,13 @@ import parseUserInfo from "./middleware/parseUserInfo";
 const PORT = process.env.PORT || 4003;
 
 async function main() {
-  const dbPassword = await getSecret("TRAINING_DB_PASSWORD");
-  const dbHost = await getSecret("TRAINING_DB_HOST");
+  await setEnvFromSecrets([
+    { secret: "TRAINING_DB_PASSWORD", env: "PG_PASSWORD" },
+    { secret: "TRAINING_DB_HOST", env: "PG_HOST" },
+    { secret: "DOCEBO_API_CLIENT_ID", env: "DOCEBO_API_CLIENT_ID" },
+    { secret: "DOCEBO_API_CLIENT_SECRET", env: "DOCEBO_API_CLIENT_SECRET" },
+    { secret: "DOCEBO_API_JWT_PASSPHRASE", env: "DOCEBO_API_JWT_PASSPHRASE" }
+  ]);
 
   const app = express();
 
@@ -20,12 +26,7 @@ async function main() {
   app.use(WinstonLogger);
   app.use(parseUserInfo);
   app.use("*", docebo);
-  app.use(
-    postgraphile({
-      dbPassword: process.env.PG_PASSWORD || dbPassword,
-      dbHost: process.env.PG_HOST || dbHost
-    })
-  );
+  app.use(postgraphile());
   app.listen(PORT, () => {
     // eslint-disable-next-line no-console
     console.log(`🚀 Training service started at http://localhost:${PORT}`);
