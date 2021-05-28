@@ -11,11 +11,20 @@ const logging = new Logging();
 
 const log = async ({ severity, message }: LogEvent) => {
   // Selects the log to write to
-  const log = logging.log("Frontend");
+  const log = logging.log(
+    process.env.LOG_SERVICE_NAME || "run.googleapis.com/intouch"
+  );
 
   // The metadata associated with the entry
   const metadata = {
-    resource: { type: "global" },
+    resource: {
+      type: process.env.LOG_RESOURCE_TYPE || "cloud_run_revision",
+      labels: {
+        configuration_name: process.env.K_CONFIGURATION, // set by cloud run
+        service_name: process.env.K_SERVICE, // set by cloud run
+        revision_name: process.env.K_REVISION // set by cloud run
+      }
+    },
     severity
   };
 
