@@ -1,4 +1,4 @@
-import { updateUser, getAccessToken } from "../auth0";
+import Auth0 from "../auth0";
 
 const SELECT_ACCOUNT = "SELECT id, role, email FROM account WHERE email=$1";
 const UPDATE_ACCOUNT =
@@ -14,12 +14,16 @@ export const createAccount = async (
   let result;
   let account_id;
   let account_role;
-  const { pgClient, user } = context;
+  const { pgClient, user, Logger } = context;
   const { email, firstName, lastName, marketCode } = args.input;
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
+    const logger = Logger("service:account");
+
+    const auth0 = await Auth0.init(logger);
+
     // Check if the user already exists
     const { rows } = await pgClient.query(SELECT_ACCOUNT, [email]);
     const userExists = rows.length > 0;
@@ -43,7 +47,6 @@ export const createAccount = async (
     }
 
     // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
-    const { access_token } = await getAccessToken();
     const app_metadata: any = {
       intouch_market_code: marketCode,
       intouch_user_id: account_id,
@@ -58,14 +61,12 @@ export const createAccount = async (
       app_metadata.registration_to_complete = false;
     }
 
-    await updateUser(access_token, user.sub, {
+    await auth0.updateUser(user.sub, {
       app_metadata
     });
 
     return result;
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log("Error creating new user", e);
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
     throw e;
   } finally {
@@ -91,12 +92,12 @@ export const updateAccount = async (
 
     const doceboUserId = result.data["@account"].doceboUserId;
 
-    const { access_token } = await getAccessToken();
+    const auth0 = await Auth0.init(logger);
     const app_metadata: any = {
       intouch_docebo_id: doceboUserId
     };
 
-    await updateUser(access_token, user.sub, {
+    await auth0.updateUser(user.sub, {
       app_metadata
     });
 
@@ -108,4 +109,33 @@ export const updateAccount = async (
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
+};
+
+export const invite = async (graphql, _query, args, context, resolveInfo) => {
+  const { logger: Logger } = context;
+  const { email, firstName, lastName, type } = args.input;
+
+  const logger = Logger("service:account");
+
+  const auth0 = await Auth0.init(logger);
+
+  const user = await auth0.createUser({
+    email,
+    connection: "Username-Password-Authentication",
+    email_verified: false,
+    password: "Password1@",
+    verify_email: false,
+    user_metadata: {
+      type,
+      email,
+      firstname: firstName,
+      lastname: lastName
+    }
+  });
+
+  const result = await auth0.changePassword(email);
+
+  console.log("result", result);
+
+  return {};
 };

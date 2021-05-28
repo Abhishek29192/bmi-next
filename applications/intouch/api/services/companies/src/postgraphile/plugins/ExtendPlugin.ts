@@ -1,4 +1,5 @@
 import { makeExtendSchemaPlugin } from "graphile-utils";
+import { invite } from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
 import { getGuarantee } from "../../services/contentful";
 import { guaranteeResolver } from "../../services/company/customResolvers";
@@ -23,6 +24,9 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         }
       },
       Mutation: {
+        invite: async (_query, args, context, resolveInfo) => {
+          return invite(graphql, _query, args, context, resolveInfo);
+        },
         publishMessage: async (_query, args, context, resolveInfo) => {
           const { input } = args;
           const { pubSub } = context;

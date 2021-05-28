@@ -1,4 +1,4 @@
-import { updateUser, getAccessToken } from "../auth0";
+import Auth0 from "../auth0";
 
 export const updateCompany = async (
   resolve,
@@ -10,15 +10,14 @@ export const updateCompany = async (
   let result;
   const { pgClient, user } = context;
   const logger = context.logger("service:company");
+  const auth0 = new Auth0(logger);
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
     result = await resolve(source, args, context, resolveInfo);
 
-    const { access_token } = await getAccessToken();
-
-    await updateUser(access_token, user.sub, {
+    await auth0.updateUser(user.sub, {
       app_metadata: {
         registration_to_complete: false
       }

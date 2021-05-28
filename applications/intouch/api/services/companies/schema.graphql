@@ -6096,6 +6096,12 @@ type Mutation {
     input: PublishInput!
   ): Publish
   createGuaranteePdf(id: Int!): PublishOutput
+  invite(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: InviteInput!
+  ): Account
 }
 
 """
@@ -11767,6 +11773,13 @@ input PublishInput {
 
 type PublishOutput {
   messageId: String
+}
+
+input InviteInput {
+  email: String
+  firstName: String
+  lastName: String
+  type: Role
 }
 
 """

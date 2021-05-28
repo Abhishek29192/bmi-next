@@ -88,7 +88,9 @@ export default function handleErrors(
     const localPluck = ERROR_MESSAGE_OVERRIDES[code] || pluck;
     const exception = localPluck(originalError || error);
 
-    req.logger("postgraphile").error(exception.message || rawMessage);
+    const logger = req.logger("postgraphile");
+    logger.error(error);
+
     return {
       message: exception.message || rawMessage,
       locations,

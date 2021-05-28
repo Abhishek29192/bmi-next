@@ -131,8 +131,16 @@ export default gql`
     email: String
   }
 
+  input InviteInput {
+    email: String
+    firstName: String
+    lastName: String
+    type: Role
+  }
+
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
+    invite(input: InviteInput!): Account
   }
 `;
