@@ -2,8 +2,6 @@ overwrite: true
 # Endpoint API
 schema:
   - http://localhost:4000/graphql:
-      headers:
-        Authorization: "Bearer ${AUTH0_ACCESS_TOKEN}"
 # Format files
 hooks:
   afterAllFileWrite:
