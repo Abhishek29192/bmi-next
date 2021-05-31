@@ -13,3 +13,8 @@ generates:
   ./generated/types.ts:
     plugins:
       - typescript
+
+  # generate Schema file
+  ./generated/schema.graphql:
+    plugins:
+      - schema-ast
