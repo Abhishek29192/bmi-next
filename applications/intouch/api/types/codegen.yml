@@ -1,18 +1,15 @@
 overwrite: true
-# Endpoint API
 schema:
   - http://localhost:4000/graphql:
-# Format files
+
 hooks:
   afterAllFileWrite:
     - prettier --write
 generates:
-  # generate TS types
   ./generated/types.ts:
     plugins:
       - typescript
 
-  # generate Schema file
   ./generated/schema.graphql:
     plugins:
       - schema-ast
