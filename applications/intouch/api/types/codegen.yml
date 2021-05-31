@@ -9,7 +9,7 @@ hooks:
   afterAllFileWrite:
     - prettier --write
 generates:
-  # Create Schemas
-  ./generated/schemas.ts:
+  # generate TS types
+  ./generated/types.ts:
     plugins:
       - typescript

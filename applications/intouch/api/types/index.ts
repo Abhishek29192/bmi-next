@@ -1,1 +1,1 @@
-export * from "./generated/schemas";
+export * from "./generated/types";
