@@ -12,7 +12,7 @@ const postgraphile =
         ignoreIndexes: false,
         showErrorStack: "json",
         extendedErrors: ["hint", "detail", "errcode"],
-        exportGqlSchemaPath: "training_schema.graphql",
+        exportGqlSchemaPath: "schema.graphql",
         graphiql: true,
         enhanceGraphiql: true,
         enableQueryBatching: true,
