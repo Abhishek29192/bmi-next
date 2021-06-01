@@ -24,7 +24,7 @@ include:
   - template: Security/SAST.gitlab-ci.yml
   - template: Security/Secret-Detection.gitlab-ci.yml
   - local: "/applications/frc-website/.gitlab-ci.yml"
-  - local: "/applications/head/.gitlab-ci.yml"
+  - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/intouch/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"

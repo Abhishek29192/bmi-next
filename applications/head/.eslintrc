@@ -1,4 +1,0 @@
-// This disable gatsby local
-{
-  "extends": "../../.eslintrc.js"
-}
