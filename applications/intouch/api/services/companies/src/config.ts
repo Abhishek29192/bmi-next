@@ -10,7 +10,7 @@ const postgraphile =
         setofFunctionsContainNulls: false,
         ignoreRBAC: false,
         ignoreIndexes: false,
-        exportGqlSchemaPath: "schema.graphql",
+        exportGqlSchemaPath: "generated/schema.graphql",
         graphiql: true,
         enhanceGraphiql: true,
         enableQueryBatching: true,
