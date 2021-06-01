@@ -21,7 +21,6 @@ const getSecret = async (client, project, key) => {
   return values[0].payload.data.toString();
 };
 
-
 const CONTENTFUL_SERVICE = `${CONTENTFUL_API_HOST}/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`;
 
 const executor: Executor = async ({ document, variables }: ExecutionParams) => {
