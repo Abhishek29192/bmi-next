@@ -17,10 +17,5 @@ export const mockProject: Project = {
   buildingOwnerLastname: "Buildmaster",
   buildingOwnerMail: "owner@building.com",
   roofArea: 50,
-  addresses: {
-    edges: [],
-    nodes: [mockSiteAddress],
-    pageInfo: singlePageInfo,
-    totalCount: 1
-  }
+  siteAddress: mockSiteAddress
 };

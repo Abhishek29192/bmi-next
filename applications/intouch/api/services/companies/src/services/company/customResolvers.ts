@@ -56,29 +56,30 @@ export const guaranteeResolver = async ({
             name
             referenceNumber
           }
-          addresses {
-            nodes {
-              firstLine
-              secondLine
-              town
-              country
-              postcode
-              addressType
-            }
+          siteAddress {
+            firstLine
+            secondLine
+            town
+            country
+            postcode
           }
+          buildingOwnerAddress {
+            firstLine
+            secondLine
+            town
+            country
+            postcode
+          }
+          
         }
-        guaranteedProducts {
-          nodes {
-            product {
-              id
-              name
-              technology
-            }
-          }
+        productByProductBmiRef{
+          id
+          name
+          technology
         }
         startDate
-        expiry
-        issueNumber
+        expiryDate
+        bmiReferenceId
         guaranteeTypeId
         guaranteeType {
           name
