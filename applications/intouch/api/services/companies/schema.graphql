@@ -2089,6 +2089,12 @@ type Guarantee implements Node {
   """Reads a single `Project` that is related to this `Guarantee`."""
   project: Project
 
+  """Reads a single `System` that is related to this `Guarantee`."""
+  systemBySystemBmiRef: System
+
+  """Reads a single `Product` that is related to this `Guarantee`."""
+  productByProductBmiRef: Product
+
   """Reads a single `Account` that is related to this `Guarantee`."""
   reviewerAccount: Account
 
@@ -2129,6 +2135,198 @@ enum RequestStatus {
   REVIEW
   REJECTED
   APPROVED
+}
+
+"""A collection of products that can be guaranteed as a system"""
+type System implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """Primary key"""
+  id: Int!
+
+  """fk"""
+  marketId: Int
+
+  """ek"""
+  technology: Technology
+
+  """A unique reference for the system known to BMI"""
+  bmiRef: String
+
+  """Short name for the System"""
+  name: String
+
+  """A description for the System"""
+  description: String
+
+  """
+  The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
+  """
+  maximumValidityYears: Int
+
+  """
+  If true this system is available for users to select when applying for a system or solution guarantee
+  """
+  published: Boolean
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """Reads a single `Market` that is related to this `System`."""
+  market: Market
+
+  """Reads and enables pagination through a set of `Guarantee`."""
+  guaranteesBySystemBmiRef(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Guarantee`."""
+    orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: GuaranteeCondition
+  ): GuaranteesConnection!
+}
+
+"""Methods to use when ordering `Guarantee`."""
+enum GuaranteesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  REQUESTOR_ACCOUNT_ID_ASC
+  REQUESTOR_ACCOUNT_ID_DESC
+  RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC
+  RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
+  SYSTEM_BMI_REF_ASC
+  SYSTEM_BMI_REF_DESC
+  PRODUCT_BMI_REF_ASC
+  PRODUCT_BMI_REF_DESC
+  REVIEWER_ACCOUNT_ID_ASC
+  REVIEWER_ACCOUNT_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Guarantee` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input GuaranteeCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `requestorAccountId` field."""
+  requestorAccountId: Int
+
+  """
+  Checks for equality with the object’s `responsibleInstallerAccountId` field.
+  """
+  responsibleInstallerAccountId: Int
+
+  """Checks for equality with the object’s `projectId` field."""
+  projectId: Int
+
+  """Checks for equality with the object’s `systemBmiRef` field."""
+  systemBmiRef: String
+
+  """Checks for equality with the object’s `productBmiRef` field."""
+  productBmiRef: String
+
+  """Checks for equality with the object’s `reviewerAccountId` field."""
+  reviewerAccountId: Int
+}
+
+"""A product made by BMI"""
+type Product implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """Primary key"""
+  id: Int!
+
+  """fk"""
+  marketId: Int
+
+  """ek"""
+  technology: Technology
+
+  """A unique reference for the product known to BMI"""
+  bmiRef: String
+
+  """The Products brand"""
+  brand: String
+
+  """Short name for the Product"""
+  name: String
+
+  """A description of the Product"""
+  description: String
+
+  """The family of Products this Product is in"""
+  family: String
+
+  """Whether the Product is avialable for new guarantees"""
+  published: Boolean
+
+  """The number of years that this product can be guaranteed for"""
+  maximumValidityYears: Int
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """Reads a single `Market` that is related to this `Product`."""
+  market: Market
+
+  """Reads and enables pagination through a set of `Guarantee`."""
+  guaranteesByProductBmiRef(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Guarantee`."""
+    orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: GuaranteeCondition
+  ): GuaranteesConnection!
 }
 
 """A connection to a list of `EvidenceItem` values."""
@@ -2351,46 +2549,6 @@ type GuaranteesEdge {
 
   """The `Guarantee` at the end of the edge."""
   node: Guarantee!
-}
-
-"""Methods to use when ordering `Guarantee`."""
-enum GuaranteesOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  REQUESTOR_ACCOUNT_ID_ASC
-  REQUESTOR_ACCOUNT_ID_DESC
-  RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC
-  RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC
-  PROJECT_ID_ASC
-  PROJECT_ID_DESC
-  REVIEWER_ACCOUNT_ID_ASC
-  REVIEWER_ACCOUNT_ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `Guarantee` object types. All fields are tested
-for equality and combined with a logical ‘and.’
-"""
-input GuaranteeCondition {
-  """Checks for equality with the object’s `id` field."""
-  id: Int
-
-  """Checks for equality with the object’s `requestorAccountId` field."""
-  requestorAccountId: Int
-
-  """
-  Checks for equality with the object’s `responsibleInstallerAccountId` field.
-  """
-  responsibleInstallerAccountId: Int
-
-  """Checks for equality with the object’s `projectId` field."""
-  projectId: Int
-
-  """Checks for equality with the object’s `reviewerAccountId` field."""
-  reviewerAccountId: Int
 }
 
 """A connection to a list of `Note` values."""
@@ -2962,49 +3120,6 @@ type ProductsConnection {
   totalCount: Int!
 }
 
-"""A product made by BMI"""
-type Product implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-
-  """Primary key"""
-  id: Int!
-
-  """fk"""
-  marketId: Int
-
-  """ek"""
-  technology: Technology
-
-  """A unique reference for the product known to BMI"""
-  bmiRef: String
-
-  """The Products brand"""
-  brand: String
-
-  """Short name for the Product"""
-  name: String
-
-  """A description of the Product"""
-  description: String
-
-  """The family of Products this Product is in"""
-  family: String
-
-  """Whether the Product is avialable for new guarantees"""
-  published: Boolean
-
-  """The number of years that this product can be guaranteed for"""
-  maximumValidityYears: Int
-  createdAt: Datetime!
-  updatedAt: Datetime!
-
-  """Reads a single `Market` that is related to this `Product`."""
-  market: Market
-}
-
 """A `Product` edge in the connection."""
 type ProductsEdge {
   """A cursor for use in pagination."""
@@ -3056,47 +3171,6 @@ type SystemsConnection {
 
   """The count of *all* `System` you could get from the connection."""
   totalCount: Int!
-}
-
-"""A collection of products that can be guaranteed as a system"""
-type System implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-
-  """Primary key"""
-  id: Int!
-
-  """fk"""
-  marketId: Int
-
-  """ek"""
-  technology: Technology
-
-  """A unique reference for the system known to BMI"""
-  bmiRef: String
-
-  """Short name for the System"""
-  name: String
-
-  """A description for the System"""
-  description: String
-
-  """
-  The maximum number of years that this system can be guaranteed for.  Must be greater than 10.
-  """
-  maximumValidityYears: Int
-
-  """
-  If true this system is available for users to select when applying for a system or solution guarantee
-  """
-  published: Boolean
-  createdAt: Datetime!
-  updatedAt: Datetime!
-
-  """Reads a single `Market` that is related to this `System`."""
-  market: Market
 }
 
 """A `System` edge in the connection."""
@@ -3476,7 +3550,7 @@ type IsPartOfProjectEdge {
 }
 
 """A union of all federated types (those that use the @key directive)."""
-union _Entity = Account | Market | Company | Address | Project | Guarantee | EvidenceItem | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Product | System | Certification | Notification | SystemMember
+union _Entity = Account | Market | Company | Address | Project | Guarantee | System | Product | EvidenceItem | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Certification | Notification | SystemMember
 
 scalar _Any
 
@@ -4815,6 +4889,12 @@ type CreateGuaranteePayload {
 
   """Reads a single `Project` that is related to this `Guarantee`."""
   project: Project
+
+  """Reads a single `System` that is related to this `Guarantee`."""
+  systemBySystemBmiRef: System
+
+  """Reads a single `Product` that is related to this `Guarantee`."""
+  productByProductBmiRef: Product
 
   """Reads a single `Account` that is related to this `Guarantee`."""
   reviewerAccount: Account
@@ -6333,6 +6413,12 @@ type UpdateGuaranteePayload {
   """Reads a single `Project` that is related to this `Guarantee`."""
   project: Project
 
+  """Reads a single `System` that is related to this `Guarantee`."""
+  systemBySystemBmiRef: System
+
+  """Reads a single `Product` that is related to this `Guarantee`."""
+  productByProductBmiRef: Product
+
   """Reads a single `Account` that is related to this `Guarantee`."""
   reviewerAccount: Account
 
@@ -7813,6 +7899,12 @@ type DeleteGuaranteePayload {
 
   """Reads a single `Project` that is related to this `Guarantee`."""
   project: Project
+
+  """Reads a single `System` that is related to this `Guarantee`."""
+  systemBySystemBmiRef: System
+
+  """Reads a single `Product` that is related to this `Guarantee`."""
+  productByProductBmiRef: Product
 
   """Reads a single `Account` that is related to this `Guarantee`."""
   reviewerAccount: Account
