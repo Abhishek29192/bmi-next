@@ -32,8 +32,9 @@ steps:
         "--set-env-vars=DOCEBO_API_URL=${_DOCEBO_API_URL}",
         "--set-env-vars=PG_SCHEMA=public",
         "--set-env-vars=PG_USER=postgres",
-        "--set-env-vars=DATABASE=training-db",
-        "--set-env-vars=PG_PORT=5432"
+        "--set-env-vars=PG_DATABASE=training-db",
+        "--set-env-vars=PG_PORT=5432",
+        "--set-env-vars=GCP_SECRET_PROJECT=734962646925"
       ]
 
 timeout: 1200s
