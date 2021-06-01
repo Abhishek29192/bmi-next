@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 # Copy app files
 COPY ./package.json ./package.json
 COPY ./libraries ./libraries
+COPY ./applications/intouch/api/types ./applications/intouch/api/types
 COPY ./applications/intouch/api/services/training ./applications/intouch/api/services/training
 
 # Install all Packages
@@ -26,6 +27,7 @@ WORKDIR /usr/src/app
 # Copy app files
 COPY ./package.json ./package.json
 COPY ./libraries ./libraries
+COPY ./applications/intouch/api/types ./applications/intouch/api/types
 COPY ./applications/intouch/api/services/training ./applications/intouch/api/services/training
 
 # Copy built files from previous stage
