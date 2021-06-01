@@ -45,7 +45,7 @@ grant select on project to installer;
 grant select on project_member to installer;
 grant select on company to company_admin;
 grant insert on company to company_admin;
-grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, coordinates, about_us, public_email, website, facebook,linked_in) on company to company_admin;
+grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook,linked_in) on company to company_admin;
 
 -- company_member
 grant select, delete on company_member to installer;
@@ -91,9 +91,9 @@ grant select, insert, update, delete on invitation to super_admin;
 -- guarantee
 grant select on guarantee to installer;
 grant select on guarantee to company_admin;
-grant insert (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_id, status, start_date, expiry_date) on guarantee to company_admin;
-grant update (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_id, status, start_date, expiry_date) on guarantee to company_admin;
-grant update (pdf, requestor_account_id, expiry_date, issue_number) on guarantee to market_admin;
+grant insert (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
+grant update (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
+grant update (requestor_account_id, expiry_date) on guarantee to market_admin;
 
 -- account_certification
 grant select on certification to installer;
@@ -103,10 +103,6 @@ grant select, insert, update, delete on certification to company_admin;
 -- evidence_item
 grant select on evidence_item to installer;
 grant select, insert, update, delete on evidence_item to company_admin;
-
--- guaranteed_product
-grant select on guaranteed_product to installer;
-grant select, insert, update, delete on guaranteed_product to company_admin;
 
 -- product
 grant select on product to installer;
