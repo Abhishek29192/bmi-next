@@ -13,6 +13,12 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /**
+   * A signed eight-byte integer. The upper big integer values are greater than the
+   * max value for a JavaScript number. Therefore all big integers will be output as
+   * strings and not numbers.
+   */
+  BigInt: any;
   /** A location in a connection that can be used for resuming pagination. */
   Cursor: any;
   /**
@@ -1883,21 +1889,21 @@ export type Course = {
   description?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
-  /** Reads and enables pagination through a set of `CourseCatalog`. */
-  courseCatalogs: CourseCatalogsConnection;
+  /** Reads and enables pagination through a set of `CourseCatalogue`. */
+  courseCatalogues: CourseCataloguesConnection;
   /** Reads and enables pagination through a set of `CourseEnrollment`. */
   courseEnrollments: CourseEnrollmentsConnection;
 };
 
 /** A training course that BMI offers in Docebo */
-export type CourseCourseCatalogsArgs = {
+export type CourseCourseCataloguesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
   before?: Maybe<Scalars["Cursor"]>;
   after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
-  condition?: Maybe<CourseCatalogCondition>;
+  orderBy?: Maybe<Array<CourseCataloguesOrderBy>>;
+  condition?: Maybe<CourseCatalogueCondition>;
 };
 
 /** A training course that BMI offers in Docebo */
@@ -1912,84 +1918,192 @@ export type CourseCourseEnrollmentsArgs = {
 };
 
 /** Course Catalog */
-export type CourseCatalog = {
-  __typename?: "CourseCatalog";
+export type CourseCatalogue = {
+  __typename?: "CourseCatalogue";
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars["ID"];
   /** Primary key */
   id: Scalars["Int"];
-  /** fk */
-  catalogId?: Maybe<Scalars["Int"]>;
+  /** market */
+  catalogueId?: Maybe<Scalars["Int"]>;
   /** fk */
   courseId?: Maybe<Scalars["Int"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
-  /** Reads a single `Course` that is related to this `CourseCatalog`. */
+  /** Reads a single `Course` that is related to this `CourseCatalogue`. */
   course?: Maybe<Course>;
 };
 
 /**
- * A condition to be used against `CourseCatalog` object types. All fields are
+ * A condition to be used against `CourseCatalogue` object types. All fields are
  * tested for equality and combined with a logical ‘and.’
  */
-export type CourseCatalogCondition = {
+export type CourseCatalogueCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `catalogueId` field. */
+  catalogueId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `courseId` field. */
   courseId?: Maybe<Scalars["Int"]>;
 };
 
-/** An input for mutations affecting `CourseCatalog` */
-export type CourseCatalogInput = {
+/** An input for mutations affecting `CourseCatalogue` */
+export type CourseCatalogueInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  catalogId?: Maybe<Scalars["Int"]>;
+  /** market */
+  catalogueId?: Maybe<Scalars["Int"]>;
   /** fk */
   courseId?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-/** Represents an update to a `CourseCatalog`. Fields that are set will be updated. */
-export type CourseCatalogPatch = {
+/** Represents an update to a `CourseCatalogue`. Fields that are set will be updated. */
+export type CourseCataloguePatch = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  catalogId?: Maybe<Scalars["Int"]>;
+  /** market */
+  catalogueId?: Maybe<Scalars["Int"]>;
   /** fk */
   courseId?: Maybe<Scalars["Int"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-/** A connection to a list of `CourseCatalog` values. */
-export type CourseCatalogsConnection = {
-  __typename?: "CourseCatalogsConnection";
-  /** A list of `CourseCatalog` objects. */
-  nodes: Array<CourseCatalog>;
-  /** A list of edges which contains the `CourseCatalog` and cursor to aid in pagination. */
-  edges: Array<CourseCatalogsEdge>;
+/**
+ * Course Catalog temp table.  The course cataloogues from docebo are pulled into
+ * here first, before being merged into the course_catalogue table.
+ */
+export type CourseCatalogueTemp = {
+  __typename?: "CourseCatalogueTemp";
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
+  /** catalogue */
+  catalogueId?: Maybe<Scalars["Int"]>;
+  /** course */
+  courseId?: Maybe<Scalars["Int"]>;
+  createdAt: Scalars["Datetime"];
+  updatedAt: Scalars["Datetime"];
+};
+
+/**
+ * A condition to be used against `CourseCatalogueTemp` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export type CourseCatalogueTempCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars["Int"]>;
+};
+
+/** An input for mutations affecting `CourseCatalogueTemp` */
+export type CourseCatalogueTempInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** catalogue */
+  catalogueId?: Maybe<Scalars["Int"]>;
+  /** course */
+  courseId?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** Represents an update to a `CourseCatalogueTemp`. Fields that are set will be updated. */
+export type CourseCatalogueTempPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** catalogue */
+  catalogueId?: Maybe<Scalars["Int"]>;
+  /** course */
+  courseId?: Maybe<Scalars["Int"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** A connection to a list of `CourseCatalogueTemp` values. */
+export type CourseCatalogueTempsConnection = {
+  __typename?: "CourseCatalogueTempsConnection";
+  /** A list of `CourseCatalogueTemp` objects. */
+  nodes: Array<CourseCatalogueTemp>;
+  /** A list of edges which contains the `CourseCatalogueTemp` and cursor to aid in pagination. */
+  edges: Array<CourseCatalogueTempsEdge>;
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
-  /** The count of *all* `CourseCatalog` you could get from the connection. */
+  /** The count of *all* `CourseCatalogueTemp` you could get from the connection. */
   totalCount: Scalars["Int"];
 };
 
-/** A `CourseCatalog` edge in the connection. */
-export type CourseCatalogsEdge = {
-  __typename?: "CourseCatalogsEdge";
+/** A `CourseCatalogueTemp` edge in the connection. */
+export type CourseCatalogueTempsEdge = {
+  __typename?: "CourseCatalogueTempsEdge";
   /** A cursor for use in pagination. */
   cursor?: Maybe<Scalars["Cursor"]>;
-  /** The `CourseCatalog` at the end of the edge. */
-  node: CourseCatalog;
+  /** The `CourseCatalogueTemp` at the end of the edge. */
+  node: CourseCatalogueTemp;
 };
 
-/** Methods to use when ordering `CourseCatalog`. */
-export enum CourseCatalogsOrderBy {
+/** Methods to use when ordering `CourseCatalogueTemp`. */
+export enum CourseCatalogueTempsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
+  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
+  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
+}
+
+/** All input for the `courseCatalogueUpdateByTemp` mutation. */
+export type CourseCatalogueUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseCatalogueUpdateByTemp` mutation. */
+export type CourseCatalogueUpdateByTempPayload = {
+  __typename?: "CourseCatalogueUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** A connection to a list of `CourseCatalogue` values. */
+export type CourseCataloguesConnection = {
+  __typename?: "CourseCataloguesConnection";
+  /** A list of `CourseCatalogue` objects. */
+  nodes: Array<CourseCatalogue>;
+  /** A list of edges which contains the `CourseCatalogue` and cursor to aid in pagination. */
+  edges: Array<CourseCataloguesEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `CourseCatalogue` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `CourseCatalogue` edge in the connection. */
+export type CourseCataloguesEdge = {
+  __typename?: "CourseCataloguesEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `CourseCatalogue` at the end of the edge. */
+  node: CourseCatalogue;
+};
+
+/** Methods to use when ordering `CourseCatalogue`. */
+export enum CourseCataloguesOrderBy {
+  Natural = "NATURAL",
+  IdAsc = "ID_ASC",
+  IdDesc = "ID_DESC",
+  CatalogueIdAsc = "CATALOGUE_ID_ASC",
+  CatalogueIdDesc = "CATALOGUE_ID_DESC",
   CourseIdAsc = "COURSE_ID_ASC",
   CourseIdDesc = "COURSE_ID_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
@@ -2011,7 +2125,7 @@ export type CourseEnrollment = {
   nodeId: Scalars["ID"];
   /** Primary key */
   id: Scalars["Int"];
-  /** fk */
+  /** account */
   userId?: Maybe<Scalars["Int"]>;
   /** fk */
   courseId?: Maybe<Scalars["Int"]>;
@@ -2032,6 +2146,8 @@ export type CourseEnrollment = {
 export type CourseEnrollmentCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `userId` field. */
+  userId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `courseId` field. */
   courseId?: Maybe<Scalars["Int"]>;
 };
@@ -2040,7 +2156,7 @@ export type CourseEnrollmentCondition = {
 export type CourseEnrollmentInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** fk */
+  /** account */
   userId?: Maybe<Scalars["Int"]>;
   /** fk */
   courseId?: Maybe<Scalars["Int"]>;
@@ -2056,7 +2172,7 @@ export type CourseEnrollmentInput = {
 export type CourseEnrollmentPatch = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** fk */
+  /** account */
   userId?: Maybe<Scalars["Int"]>;
   /** fk */
   courseId?: Maybe<Scalars["Int"]>;
@@ -2066,6 +2182,122 @@ export type CourseEnrollmentPatch = {
   url?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/**
+ * Course Enrollments temp table.  Enrollements are brought in here from Docebo
+ * first, before being merged into the course_enrollemnt table
+ */
+export type CourseEnrollmentTemp = {
+  __typename?: "CourseEnrollmentTemp";
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
+  /** account */
+  userId?: Maybe<Scalars["Int"]>;
+  /** course */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** status */
+  status?: Maybe<Scalars["String"]>;
+  /** url */
+  url?: Maybe<Scalars["String"]>;
+  createdAt: Scalars["Datetime"];
+  updatedAt: Scalars["Datetime"];
+};
+
+/**
+ * A condition to be used against `CourseEnrollmentTemp` object types. All fields
+ * are tested for equality and combined with a logical ‘and.’
+ */
+export type CourseEnrollmentTempCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars["Int"]>;
+};
+
+/** An input for mutations affecting `CourseEnrollmentTemp` */
+export type CourseEnrollmentTempInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** account */
+  userId?: Maybe<Scalars["Int"]>;
+  /** course */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** status */
+  status?: Maybe<Scalars["String"]>;
+  /** url */
+  url?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** Represents an update to a `CourseEnrollmentTemp`. Fields that are set will be updated. */
+export type CourseEnrollmentTempPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** account */
+  userId?: Maybe<Scalars["Int"]>;
+  /** course */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** status */
+  status?: Maybe<Scalars["String"]>;
+  /** url */
+  url?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** A connection to a list of `CourseEnrollmentTemp` values. */
+export type CourseEnrollmentTempsConnection = {
+  __typename?: "CourseEnrollmentTempsConnection";
+  /** A list of `CourseEnrollmentTemp` objects. */
+  nodes: Array<CourseEnrollmentTemp>;
+  /** A list of edges which contains the `CourseEnrollmentTemp` and cursor to aid in pagination. */
+  edges: Array<CourseEnrollmentTempsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `CourseEnrollmentTemp` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `CourseEnrollmentTemp` edge in the connection. */
+export type CourseEnrollmentTempsEdge = {
+  __typename?: "CourseEnrollmentTempsEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `CourseEnrollmentTemp` at the end of the edge. */
+  node: CourseEnrollmentTemp;
+};
+
+/** Methods to use when ordering `CourseEnrollmentTemp`. */
+export enum CourseEnrollmentTempsOrderBy {
+  Natural = "NATURAL",
+  IdAsc = "ID_ASC",
+  IdDesc = "ID_DESC",
+  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
+  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
+}
+
+/** All input for the `courseEnrollmentUpdateByTemp` mutation. */
+export type CourseEnrollmentUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseEnrollmentUpdateByTemp` mutation. */
+export type CourseEnrollmentUpdateByTempPayload = {
+  __typename?: "CourseEnrollmentUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** A connection to a list of `CourseEnrollment` values. */
@@ -2095,6 +2327,8 @@ export enum CourseEnrollmentsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
+  UserIdAsc = "USER_ID_ASC",
+  UserIdDesc = "USER_ID_DESC",
   CourseIdAsc = "COURSE_ID_ASC",
   CourseIdDesc = "COURSE_ID_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
@@ -2143,6 +2377,219 @@ export type CoursePatch = {
   description?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** Course Sync Configuration */
+export type CourseSyncConfiguration = {
+  __typename?: "CourseSyncConfiguration";
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
+  /** account */
+  configName?: Maybe<Scalars["String"]>;
+  /** course */
+  configValue?: Maybe<Scalars["String"]>;
+  createdAt: Scalars["Datetime"];
+  updatedAt: Scalars["Datetime"];
+};
+
+/**
+ * A condition to be used against `CourseSyncConfiguration` object types. All
+ * fields are tested for equality and combined with a logical ‘and.’
+ */
+export type CourseSyncConfigurationCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars["Int"]>;
+};
+
+/** An input for mutations affecting `CourseSyncConfiguration` */
+export type CourseSyncConfigurationInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** account */
+  configName?: Maybe<Scalars["String"]>;
+  /** course */
+  configValue?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** Represents an update to a `CourseSyncConfiguration`. Fields that are set will be updated. */
+export type CourseSyncConfigurationPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** account */
+  configName?: Maybe<Scalars["String"]>;
+  /** course */
+  configValue?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** A connection to a list of `CourseSyncConfiguration` values. */
+export type CourseSyncConfigurationsConnection = {
+  __typename?: "CourseSyncConfigurationsConnection";
+  /** A list of `CourseSyncConfiguration` objects. */
+  nodes: Array<CourseSyncConfiguration>;
+  /** A list of edges which contains the `CourseSyncConfiguration` and cursor to aid in pagination. */
+  edges: Array<CourseSyncConfigurationsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `CourseSyncConfiguration` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `CourseSyncConfiguration` edge in the connection. */
+export type CourseSyncConfigurationsEdge = {
+  __typename?: "CourseSyncConfigurationsEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `CourseSyncConfiguration` at the end of the edge. */
+  node: CourseSyncConfiguration;
+};
+
+/** Methods to use when ordering `CourseSyncConfiguration`. */
+export enum CourseSyncConfigurationsOrderBy {
+  Natural = "NATURAL",
+  IdAsc = "ID_ASC",
+  IdDesc = "ID_DESC",
+  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
+  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
+}
+
+/**
+ * A temporary training course that BMI offers in Docebo. Courses are brought from
+ * Docebo into this table before being merged into the course table.
+ */
+export type CourseTemp = {
+  __typename?: "CourseTemp";
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  /** Primary key */
+  id: Scalars["Int"];
+  /** Docebo CourseId */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** technology */
+  technology?: Maybe<Scalars["String"]>;
+  /** A short name for the Course taken from Docebo */
+  name?: Maybe<Scalars["String"]>;
+  /** A reference to the image */
+  image?: Maybe<Scalars["String"]>;
+  /** Promoted courses a listed higher than others */
+  promoted?: Maybe<Scalars["Boolean"]>;
+  /** Some text from Docebo indicating whether it is a webinar, classroom etc */
+  trainingType?: Maybe<Scalars["String"]>;
+  /** Text description from Docebo */
+  description?: Maybe<Scalars["String"]>;
+  createdAt: Scalars["Datetime"];
+  updatedAt: Scalars["Datetime"];
+};
+
+/**
+ * A condition to be used against `CourseTemp` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type CourseTempCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: Maybe<Scalars["Int"]>;
+};
+
+/** An input for mutations affecting `CourseTemp` */
+export type CourseTempInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** Docebo CourseId */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** technology */
+  technology?: Maybe<Scalars["String"]>;
+  /** A short name for the Course taken from Docebo */
+  name?: Maybe<Scalars["String"]>;
+  /** A reference to the image */
+  image?: Maybe<Scalars["String"]>;
+  /** Promoted courses a listed higher than others */
+  promoted?: Maybe<Scalars["Boolean"]>;
+  /** Some text from Docebo indicating whether it is a webinar, classroom etc */
+  trainingType?: Maybe<Scalars["String"]>;
+  /** Text description from Docebo */
+  description?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** Represents an update to a `CourseTemp`. Fields that are set will be updated. */
+export type CourseTempPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** Docebo CourseId */
+  courseId?: Maybe<Scalars["Int"]>;
+  /** technology */
+  technology?: Maybe<Scalars["String"]>;
+  /** A short name for the Course taken from Docebo */
+  name?: Maybe<Scalars["String"]>;
+  /** A reference to the image */
+  image?: Maybe<Scalars["String"]>;
+  /** Promoted courses a listed higher than others */
+  promoted?: Maybe<Scalars["Boolean"]>;
+  /** Some text from Docebo indicating whether it is a webinar, classroom etc */
+  trainingType?: Maybe<Scalars["String"]>;
+  /** Text description from Docebo */
+  description?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** A connection to a list of `CourseTemp` values. */
+export type CourseTempsConnection = {
+  __typename?: "CourseTempsConnection";
+  /** A list of `CourseTemp` objects. */
+  nodes: Array<CourseTemp>;
+  /** A list of edges which contains the `CourseTemp` and cursor to aid in pagination. */
+  edges: Array<CourseTempsEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `CourseTemp` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `CourseTemp` edge in the connection. */
+export type CourseTempsEdge = {
+  __typename?: "CourseTempsEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `CourseTemp` at the end of the edge. */
+  node: CourseTemp;
+};
+
+/** Methods to use when ordering `CourseTemp`. */
+export enum CourseTempsOrderBy {
+  Natural = "NATURAL",
+  IdAsc = "ID_ASC",
+  IdDesc = "ID_DESC",
+  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
+  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
+}
+
+/** All input for the `courseUpdateByTemp` mutation. */
+export type CourseUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseUpdateByTemp` mutation. */
+export type CourseUpdateByTempPayload = {
+  __typename?: "CourseUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** A connection to a list of `Course` values. */
@@ -2424,38 +2871,70 @@ export type CreateCompanyPayloadCompanyEdgeArgs = {
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
 };
 
-/** All input for the create `CourseCatalog` mutation. */
-export type CreateCourseCatalogInput = {
+/** All input for the create `CourseCatalogue` mutation. */
+export type CreateCourseCatalogueInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `CourseCatalog` to be created by this mutation. */
-  courseCatalog: CourseCatalogInput;
+  /** The `CourseCatalogue` to be created by this mutation. */
+  courseCatalogue: CourseCatalogueInput;
 };
 
-/** The output of our create `CourseCatalog` mutation. */
-export type CreateCourseCatalogPayload = {
-  __typename?: "CreateCourseCatalogPayload";
+/** The output of our create `CourseCatalogue` mutation. */
+export type CreateCourseCataloguePayload = {
+  __typename?: "CreateCourseCataloguePayload";
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `CourseCatalog` that was created by this mutation. */
-  courseCatalog?: Maybe<CourseCatalog>;
+  /** The `CourseCatalogue` that was created by this mutation. */
+  courseCatalogue?: Maybe<CourseCatalogue>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Course` that is related to this `CourseCatalog`. */
+  /** Reads a single `Course` that is related to this `CourseCatalogue`. */
   course?: Maybe<Course>;
-  /** An edge for our `CourseCatalog`. May be used by Relay 1. */
-  courseCatalogEdge?: Maybe<CourseCatalogsEdge>;
+  /** An edge for our `CourseCatalogue`. May be used by Relay 1. */
+  courseCatalogueEdge?: Maybe<CourseCataloguesEdge>;
 };
 
-/** The output of our create `CourseCatalog` mutation. */
-export type CreateCourseCatalogPayloadCourseCatalogEdgeArgs = {
-  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
+/** The output of our create `CourseCatalogue` mutation. */
+export type CreateCourseCataloguePayloadCourseCatalogueEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCataloguesOrderBy>>;
+};
+
+/** All input for the create `CourseCatalogueTemp` mutation. */
+export type CreateCourseCatalogueTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseCatalogueTemp` to be created by this mutation. */
+  courseCatalogueTemp: CourseCatalogueTempInput;
+};
+
+/** The output of our create `CourseCatalogueTemp` mutation. */
+export type CreateCourseCatalogueTempPayload = {
+  __typename?: "CreateCourseCatalogueTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseCatalogueTemp` that was created by this mutation. */
+  courseCatalogueTemp?: Maybe<CourseCatalogueTemp>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseCatalogueTemp`. May be used by Relay 1. */
+  courseCatalogueTempEdge?: Maybe<CourseCatalogueTempsEdge>;
+};
+
+/** The output of our create `CourseCatalogueTemp` mutation. */
+export type CreateCourseCatalogueTempPayloadCourseCatalogueTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCatalogueTempsOrderBy>>;
 };
 
 /** All input for the create `CourseEnrollment` mutation. */
@@ -2492,6 +2971,38 @@ export type CreateCourseEnrollmentPayloadCourseEnrollmentEdgeArgs = {
   orderBy?: Maybe<Array<CourseEnrollmentsOrderBy>>;
 };
 
+/** All input for the create `CourseEnrollmentTemp` mutation. */
+export type CreateCourseEnrollmentTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseEnrollmentTemp` to be created by this mutation. */
+  courseEnrollmentTemp: CourseEnrollmentTempInput;
+};
+
+/** The output of our create `CourseEnrollmentTemp` mutation. */
+export type CreateCourseEnrollmentTempPayload = {
+  __typename?: "CreateCourseEnrollmentTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseEnrollmentTemp` that was created by this mutation. */
+  courseEnrollmentTemp?: Maybe<CourseEnrollmentTemp>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseEnrollmentTemp`. May be used by Relay 1. */
+  courseEnrollmentTempEdge?: Maybe<CourseEnrollmentTempsEdge>;
+};
+
+/** The output of our create `CourseEnrollmentTemp` mutation. */
+export type CreateCourseEnrollmentTempPayloadCourseEnrollmentTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseEnrollmentTempsOrderBy>>;
+};
+
 /** All input for the create `Course` mutation. */
 export type CreateCourseInput = {
   /**
@@ -2522,6 +3033,71 @@ export type CreateCoursePayload = {
 /** The output of our create `Course` mutation. */
 export type CreateCoursePayloadCourseEdgeArgs = {
   orderBy?: Maybe<Array<CoursesOrderBy>>;
+};
+
+/** All input for the create `CourseSyncConfiguration` mutation. */
+export type CreateCourseSyncConfigurationInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseSyncConfiguration` to be created by this mutation. */
+  courseSyncConfiguration: CourseSyncConfigurationInput;
+};
+
+/** The output of our create `CourseSyncConfiguration` mutation. */
+export type CreateCourseSyncConfigurationPayload = {
+  __typename?: "CreateCourseSyncConfigurationPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseSyncConfiguration` that was created by this mutation. */
+  courseSyncConfiguration?: Maybe<CourseSyncConfiguration>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseSyncConfiguration`. May be used by Relay 1. */
+  courseSyncConfigurationEdge?: Maybe<CourseSyncConfigurationsEdge>;
+};
+
+/** The output of our create `CourseSyncConfiguration` mutation. */
+export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
+
+/** All input for the create `CourseTemp` mutation. */
+export type CreateCourseTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseTemp` to be created by this mutation. */
+  courseTemp: CourseTempInput;
+};
+
+/** The output of our create `CourseTemp` mutation. */
+export type CreateCourseTempPayload = {
+  __typename?: "CreateCourseTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseTemp` that was created by this mutation. */
+  courseTemp?: Maybe<CourseTemp>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseTemp`. May be used by Relay 1. */
+  courseTempEdge?: Maybe<CourseTempsEdge>;
+};
+
+/** The output of our create `CourseTemp` mutation. */
+export type CreateCourseTempPayloadCourseTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseTempsOrderBy>>;
 };
 
 /** All input for the create `EvidenceItem` mutation. */
@@ -3309,19 +3885,32 @@ export type DeleteCourseByNodeIdInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteCourseCatalogByNodeId` mutation. */
-export type DeleteCourseCatalogByNodeIdInput = {
+/** All input for the `deleteCourseCatalogueByCatalogueIdAndCourseId` mutation. */
+export type DeleteCourseCatalogueByCatalogueIdAndCourseIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `CourseCatalog` to be deleted. */
+  /** market */
+  catalogueId: Scalars["Int"];
+  /** fk */
+  courseId: Scalars["Int"];
+};
+
+/** All input for the `deleteCourseCatalogueByNodeId` mutation. */
+export type DeleteCourseCatalogueByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseCatalogue` to be deleted. */
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteCourseCatalog` mutation. */
-export type DeleteCourseCatalogInput = {
+/** All input for the `deleteCourseCatalogue` mutation. */
+export type DeleteCourseCatalogueInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
@@ -3331,28 +3920,72 @@ export type DeleteCourseCatalogInput = {
   id: Scalars["Int"];
 };
 
-/** The output of our delete `CourseCatalog` mutation. */
-export type DeleteCourseCatalogPayload = {
-  __typename?: "DeleteCourseCatalogPayload";
+/** The output of our delete `CourseCatalogue` mutation. */
+export type DeleteCourseCataloguePayload = {
+  __typename?: "DeleteCourseCataloguePayload";
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `CourseCatalog` that was deleted by this mutation. */
-  courseCatalog?: Maybe<CourseCatalog>;
-  deletedCourseCatalogNodeId?: Maybe<Scalars["ID"]>;
+  /** The `CourseCatalogue` that was deleted by this mutation. */
+  courseCatalogue?: Maybe<CourseCatalogue>;
+  deletedCourseCatalogueNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Course` that is related to this `CourseCatalog`. */
+  /** Reads a single `Course` that is related to this `CourseCatalogue`. */
   course?: Maybe<Course>;
-  /** An edge for our `CourseCatalog`. May be used by Relay 1. */
-  courseCatalogEdge?: Maybe<CourseCatalogsEdge>;
+  /** An edge for our `CourseCatalogue`. May be used by Relay 1. */
+  courseCatalogueEdge?: Maybe<CourseCataloguesEdge>;
 };
 
-/** The output of our delete `CourseCatalog` mutation. */
-export type DeleteCourseCatalogPayloadCourseCatalogEdgeArgs = {
-  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
+/** The output of our delete `CourseCatalogue` mutation. */
+export type DeleteCourseCataloguePayloadCourseCatalogueEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCataloguesOrderBy>>;
+};
+
+/** All input for the `deleteCourseCatalogueTempByNodeId` mutation. */
+export type DeleteCourseCatalogueTempByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseCatalogueTemp` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCourseCatalogueTemp` mutation. */
+export type DeleteCourseCatalogueTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `CourseCatalogueTemp` mutation. */
+export type DeleteCourseCatalogueTempPayload = {
+  __typename?: "DeleteCourseCatalogueTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseCatalogueTemp` that was deleted by this mutation. */
+  courseCatalogueTemp?: Maybe<CourseCatalogueTemp>;
+  deletedCourseCatalogueTempNodeId?: Maybe<Scalars["ID"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseCatalogueTemp`. May be used by Relay 1. */
+  courseCatalogueTempEdge?: Maybe<CourseCatalogueTempsEdge>;
+};
+
+/** The output of our delete `CourseCatalogueTemp` mutation. */
+export type DeleteCourseCatalogueTempPayloadCourseCatalogueTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCatalogueTempsOrderBy>>;
 };
 
 /** All input for the `deleteCourseEnrollmentByNodeId` mutation. */
@@ -3364,6 +3997,19 @@ export type DeleteCourseEnrollmentByNodeIdInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `CourseEnrollment` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCourseEnrollmentByUserIdAndCourseId` mutation. */
+export type DeleteCourseEnrollmentByUserIdAndCourseIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** account */
+  userId: Scalars["Int"];
+  /** fk */
+  courseId: Scalars["Int"];
 };
 
 /** All input for the `deleteCourseEnrollment` mutation. */
@@ -3401,6 +4047,50 @@ export type DeleteCourseEnrollmentPayloadCourseEnrollmentEdgeArgs = {
   orderBy?: Maybe<Array<CourseEnrollmentsOrderBy>>;
 };
 
+/** All input for the `deleteCourseEnrollmentTempByNodeId` mutation. */
+export type DeleteCourseEnrollmentTempByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseEnrollmentTemp` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCourseEnrollmentTemp` mutation. */
+export type DeleteCourseEnrollmentTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `CourseEnrollmentTemp` mutation. */
+export type DeleteCourseEnrollmentTempPayload = {
+  __typename?: "DeleteCourseEnrollmentTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseEnrollmentTemp` that was deleted by this mutation. */
+  courseEnrollmentTemp?: Maybe<CourseEnrollmentTemp>;
+  deletedCourseEnrollmentTempNodeId?: Maybe<Scalars["ID"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseEnrollmentTemp`. May be used by Relay 1. */
+  courseEnrollmentTempEdge?: Maybe<CourseEnrollmentTempsEdge>;
+};
+
+/** The output of our delete `CourseEnrollmentTemp` mutation. */
+export type DeleteCourseEnrollmentTempPayloadCourseEnrollmentTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseEnrollmentTempsOrderBy>>;
+};
+
 /** All input for the `deleteCourse` mutation. */
 export type DeleteCourseInput = {
   /**
@@ -3432,6 +4122,95 @@ export type DeleteCoursePayload = {
 /** The output of our delete `Course` mutation. */
 export type DeleteCoursePayloadCourseEdgeArgs = {
   orderBy?: Maybe<Array<CoursesOrderBy>>;
+};
+
+/** All input for the `deleteCourseSyncConfigurationByNodeId` mutation. */
+export type DeleteCourseSyncConfigurationByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseSyncConfiguration` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCourseSyncConfiguration` mutation. */
+export type DeleteCourseSyncConfigurationInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `CourseSyncConfiguration` mutation. */
+export type DeleteCourseSyncConfigurationPayload = {
+  __typename?: "DeleteCourseSyncConfigurationPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseSyncConfiguration` that was deleted by this mutation. */
+  courseSyncConfiguration?: Maybe<CourseSyncConfiguration>;
+  deletedCourseSyncConfigurationNodeId?: Maybe<Scalars["ID"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseSyncConfiguration`. May be used by Relay 1. */
+  courseSyncConfigurationEdge?: Maybe<CourseSyncConfigurationsEdge>;
+};
+
+/** The output of our delete `CourseSyncConfiguration` mutation. */
+export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
+
+/** All input for the `deleteCourseTempByNodeId` mutation. */
+export type DeleteCourseTempByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseTemp` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteCourseTemp` mutation. */
+export type DeleteCourseTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `CourseTemp` mutation. */
+export type DeleteCourseTempPayload = {
+  __typename?: "DeleteCourseTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseTemp` that was deleted by this mutation. */
+  courseTemp?: Maybe<CourseTemp>;
+  deletedCourseTempNodeId?: Maybe<Scalars["ID"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseTemp`. May be used by Relay 1. */
+  courseTempEdge?: Maybe<CourseTempsEdge>;
+};
+
+/** The output of our delete `CourseTemp` mutation. */
+export type DeleteCourseTempPayloadCourseTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseTempsOrderBy>>;
 };
 
 /** All input for the `deleteEvidenceItemByNodeId` mutation. */
@@ -6552,38 +7331,89 @@ export type Mutation = {
   createGuaranteePdf?: Maybe<PublishOutput>;
   /** Creates a single `Course`. */
   createCourse?: Maybe<CreateCoursePayload>;
-  /** Creates a single `CourseCatalog`. */
-  createCourseCatalog?: Maybe<CreateCourseCatalogPayload>;
+  /** Creates a single `CourseCatalogue`. */
+  createCourseCatalogue?: Maybe<CreateCourseCataloguePayload>;
+  /** Creates a single `CourseCatalogueTemp`. */
+  createCourseCatalogueTemp?: Maybe<CreateCourseCatalogueTempPayload>;
   /** Creates a single `CourseEnrollment`. */
   createCourseEnrollment?: Maybe<CreateCourseEnrollmentPayload>;
+  /** Creates a single `CourseEnrollmentTemp`. */
+  createCourseEnrollmentTemp?: Maybe<CreateCourseEnrollmentTempPayload>;
+  /** Creates a single `CourseSyncConfiguration`. */
+  createCourseSyncConfiguration?: Maybe<CreateCourseSyncConfigurationPayload>;
+  /** Creates a single `CourseTemp`. */
+  createCourseTemp?: Maybe<CreateCourseTempPayload>;
   /** Updates a single `Course` using its globally unique id and a patch. */
   updateCourseByNodeId?: Maybe<UpdateCoursePayload>;
   /** Updates a single `Course` using a unique key and a patch. */
   updateCourse?: Maybe<UpdateCoursePayload>;
   /** Updates a single `Course` using a unique key and a patch. */
   updateCourseByCourseId?: Maybe<UpdateCoursePayload>;
-  /** Updates a single `CourseCatalog` using its globally unique id and a patch. */
-  updateCourseCatalogByNodeId?: Maybe<UpdateCourseCatalogPayload>;
-  /** Updates a single `CourseCatalog` using a unique key and a patch. */
-  updateCourseCatalog?: Maybe<UpdateCourseCatalogPayload>;
+  /** Updates a single `CourseCatalogue` using its globally unique id and a patch. */
+  updateCourseCatalogueByNodeId?: Maybe<UpdateCourseCataloguePayload>;
+  /** Updates a single `CourseCatalogue` using a unique key and a patch. */
+  updateCourseCatalogue?: Maybe<UpdateCourseCataloguePayload>;
+  /** Updates a single `CourseCatalogue` using a unique key and a patch. */
+  updateCourseCatalogueByCatalogueIdAndCourseId?: Maybe<UpdateCourseCataloguePayload>;
+  /** Updates a single `CourseCatalogueTemp` using its globally unique id and a patch. */
+  updateCourseCatalogueTempByNodeId?: Maybe<UpdateCourseCatalogueTempPayload>;
+  /** Updates a single `CourseCatalogueTemp` using a unique key and a patch. */
+  updateCourseCatalogueTemp?: Maybe<UpdateCourseCatalogueTempPayload>;
   /** Updates a single `CourseEnrollment` using its globally unique id and a patch. */
   updateCourseEnrollmentByNodeId?: Maybe<UpdateCourseEnrollmentPayload>;
   /** Updates a single `CourseEnrollment` using a unique key and a patch. */
   updateCourseEnrollment?: Maybe<UpdateCourseEnrollmentPayload>;
+  /** Updates a single `CourseEnrollment` using a unique key and a patch. */
+  updateCourseEnrollmentByUserIdAndCourseId?: Maybe<UpdateCourseEnrollmentPayload>;
+  /** Updates a single `CourseEnrollmentTemp` using its globally unique id and a patch. */
+  updateCourseEnrollmentTempByNodeId?: Maybe<UpdateCourseEnrollmentTempPayload>;
+  /** Updates a single `CourseEnrollmentTemp` using a unique key and a patch. */
+  updateCourseEnrollmentTemp?: Maybe<UpdateCourseEnrollmentTempPayload>;
+  /** Updates a single `CourseSyncConfiguration` using its globally unique id and a patch. */
+  updateCourseSyncConfigurationByNodeId?: Maybe<UpdateCourseSyncConfigurationPayload>;
+  /** Updates a single `CourseSyncConfiguration` using a unique key and a patch. */
+  updateCourseSyncConfiguration?: Maybe<UpdateCourseSyncConfigurationPayload>;
+  /** Updates a single `CourseTemp` using its globally unique id and a patch. */
+  updateCourseTempByNodeId?: Maybe<UpdateCourseTempPayload>;
+  /** Updates a single `CourseTemp` using a unique key and a patch. */
+  updateCourseTemp?: Maybe<UpdateCourseTempPayload>;
   /** Deletes a single `Course` using its globally unique id. */
   deleteCourseByNodeId?: Maybe<DeleteCoursePayload>;
   /** Deletes a single `Course` using a unique key. */
   deleteCourse?: Maybe<DeleteCoursePayload>;
   /** Deletes a single `Course` using a unique key. */
   deleteCourseByCourseId?: Maybe<DeleteCoursePayload>;
-  /** Deletes a single `CourseCatalog` using its globally unique id. */
-  deleteCourseCatalogByNodeId?: Maybe<DeleteCourseCatalogPayload>;
-  /** Deletes a single `CourseCatalog` using a unique key. */
-  deleteCourseCatalog?: Maybe<DeleteCourseCatalogPayload>;
+  /** Deletes a single `CourseCatalogue` using its globally unique id. */
+  deleteCourseCatalogueByNodeId?: Maybe<DeleteCourseCataloguePayload>;
+  /** Deletes a single `CourseCatalogue` using a unique key. */
+  deleteCourseCatalogue?: Maybe<DeleteCourseCataloguePayload>;
+  /** Deletes a single `CourseCatalogue` using a unique key. */
+  deleteCourseCatalogueByCatalogueIdAndCourseId?: Maybe<DeleteCourseCataloguePayload>;
+  /** Deletes a single `CourseCatalogueTemp` using its globally unique id. */
+  deleteCourseCatalogueTempByNodeId?: Maybe<DeleteCourseCatalogueTempPayload>;
+  /** Deletes a single `CourseCatalogueTemp` using a unique key. */
+  deleteCourseCatalogueTemp?: Maybe<DeleteCourseCatalogueTempPayload>;
   /** Deletes a single `CourseEnrollment` using its globally unique id. */
   deleteCourseEnrollmentByNodeId?: Maybe<DeleteCourseEnrollmentPayload>;
   /** Deletes a single `CourseEnrollment` using a unique key. */
   deleteCourseEnrollment?: Maybe<DeleteCourseEnrollmentPayload>;
+  /** Deletes a single `CourseEnrollment` using a unique key. */
+  deleteCourseEnrollmentByUserIdAndCourseId?: Maybe<DeleteCourseEnrollmentPayload>;
+  /** Deletes a single `CourseEnrollmentTemp` using its globally unique id. */
+  deleteCourseEnrollmentTempByNodeId?: Maybe<DeleteCourseEnrollmentTempPayload>;
+  /** Deletes a single `CourseEnrollmentTemp` using a unique key. */
+  deleteCourseEnrollmentTemp?: Maybe<DeleteCourseEnrollmentTempPayload>;
+  /** Deletes a single `CourseSyncConfiguration` using its globally unique id. */
+  deleteCourseSyncConfigurationByNodeId?: Maybe<DeleteCourseSyncConfigurationPayload>;
+  /** Deletes a single `CourseSyncConfiguration` using a unique key. */
+  deleteCourseSyncConfiguration?: Maybe<DeleteCourseSyncConfigurationPayload>;
+  /** Deletes a single `CourseTemp` using its globally unique id. */
+  deleteCourseTempByNodeId?: Maybe<DeleteCourseTempPayload>;
+  /** Deletes a single `CourseTemp` using a unique key. */
+  deleteCourseTemp?: Maybe<DeleteCourseTempPayload>;
+  courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
+  courseEnrollmentUpdateByTemp?: Maybe<CourseEnrollmentUpdateByTempPayload>;
+  courseUpdateByTemp?: Maybe<CourseUpdateByTempPayload>;
   createSSOUrl?: Maybe<SsoUrlOutput>;
 };
 
@@ -6987,12 +7817,28 @@ export type MutationCreateCourseArgs = {
   input: CreateCourseInput;
 };
 
-export type MutationCreateCourseCatalogArgs = {
-  input: CreateCourseCatalogInput;
+export type MutationCreateCourseCatalogueArgs = {
+  input: CreateCourseCatalogueInput;
+};
+
+export type MutationCreateCourseCatalogueTempArgs = {
+  input: CreateCourseCatalogueTempInput;
 };
 
 export type MutationCreateCourseEnrollmentArgs = {
   input: CreateCourseEnrollmentInput;
+};
+
+export type MutationCreateCourseEnrollmentTempArgs = {
+  input: CreateCourseEnrollmentTempInput;
+};
+
+export type MutationCreateCourseSyncConfigurationArgs = {
+  input: CreateCourseSyncConfigurationInput;
+};
+
+export type MutationCreateCourseTempArgs = {
+  input: CreateCourseTempInput;
 };
 
 export type MutationUpdateCourseByNodeIdArgs = {
@@ -7007,12 +7853,24 @@ export type MutationUpdateCourseByCourseIdArgs = {
   input: UpdateCourseByCourseIdInput;
 };
 
-export type MutationUpdateCourseCatalogByNodeIdArgs = {
-  input: UpdateCourseCatalogByNodeIdInput;
+export type MutationUpdateCourseCatalogueByNodeIdArgs = {
+  input: UpdateCourseCatalogueByNodeIdInput;
 };
 
-export type MutationUpdateCourseCatalogArgs = {
-  input: UpdateCourseCatalogInput;
+export type MutationUpdateCourseCatalogueArgs = {
+  input: UpdateCourseCatalogueInput;
+};
+
+export type MutationUpdateCourseCatalogueByCatalogueIdAndCourseIdArgs = {
+  input: UpdateCourseCatalogueByCatalogueIdAndCourseIdInput;
+};
+
+export type MutationUpdateCourseCatalogueTempByNodeIdArgs = {
+  input: UpdateCourseCatalogueTempByNodeIdInput;
+};
+
+export type MutationUpdateCourseCatalogueTempArgs = {
+  input: UpdateCourseCatalogueTempInput;
 };
 
 export type MutationUpdateCourseEnrollmentByNodeIdArgs = {
@@ -7021,6 +7879,34 @@ export type MutationUpdateCourseEnrollmentByNodeIdArgs = {
 
 export type MutationUpdateCourseEnrollmentArgs = {
   input: UpdateCourseEnrollmentInput;
+};
+
+export type MutationUpdateCourseEnrollmentByUserIdAndCourseIdArgs = {
+  input: UpdateCourseEnrollmentByUserIdAndCourseIdInput;
+};
+
+export type MutationUpdateCourseEnrollmentTempByNodeIdArgs = {
+  input: UpdateCourseEnrollmentTempByNodeIdInput;
+};
+
+export type MutationUpdateCourseEnrollmentTempArgs = {
+  input: UpdateCourseEnrollmentTempInput;
+};
+
+export type MutationUpdateCourseSyncConfigurationByNodeIdArgs = {
+  input: UpdateCourseSyncConfigurationByNodeIdInput;
+};
+
+export type MutationUpdateCourseSyncConfigurationArgs = {
+  input: UpdateCourseSyncConfigurationInput;
+};
+
+export type MutationUpdateCourseTempByNodeIdArgs = {
+  input: UpdateCourseTempByNodeIdInput;
+};
+
+export type MutationUpdateCourseTempArgs = {
+  input: UpdateCourseTempInput;
 };
 
 export type MutationDeleteCourseByNodeIdArgs = {
@@ -7035,12 +7921,24 @@ export type MutationDeleteCourseByCourseIdArgs = {
   input: DeleteCourseByCourseIdInput;
 };
 
-export type MutationDeleteCourseCatalogByNodeIdArgs = {
-  input: DeleteCourseCatalogByNodeIdInput;
+export type MutationDeleteCourseCatalogueByNodeIdArgs = {
+  input: DeleteCourseCatalogueByNodeIdInput;
 };
 
-export type MutationDeleteCourseCatalogArgs = {
-  input: DeleteCourseCatalogInput;
+export type MutationDeleteCourseCatalogueArgs = {
+  input: DeleteCourseCatalogueInput;
+};
+
+export type MutationDeleteCourseCatalogueByCatalogueIdAndCourseIdArgs = {
+  input: DeleteCourseCatalogueByCatalogueIdAndCourseIdInput;
+};
+
+export type MutationDeleteCourseCatalogueTempByNodeIdArgs = {
+  input: DeleteCourseCatalogueTempByNodeIdInput;
+};
+
+export type MutationDeleteCourseCatalogueTempArgs = {
+  input: DeleteCourseCatalogueTempInput;
 };
 
 export type MutationDeleteCourseEnrollmentByNodeIdArgs = {
@@ -7049,6 +7947,46 @@ export type MutationDeleteCourseEnrollmentByNodeIdArgs = {
 
 export type MutationDeleteCourseEnrollmentArgs = {
   input: DeleteCourseEnrollmentInput;
+};
+
+export type MutationDeleteCourseEnrollmentByUserIdAndCourseIdArgs = {
+  input: DeleteCourseEnrollmentByUserIdAndCourseIdInput;
+};
+
+export type MutationDeleteCourseEnrollmentTempByNodeIdArgs = {
+  input: DeleteCourseEnrollmentTempByNodeIdInput;
+};
+
+export type MutationDeleteCourseEnrollmentTempArgs = {
+  input: DeleteCourseEnrollmentTempInput;
+};
+
+export type MutationDeleteCourseSyncConfigurationByNodeIdArgs = {
+  input: DeleteCourseSyncConfigurationByNodeIdInput;
+};
+
+export type MutationDeleteCourseSyncConfigurationArgs = {
+  input: DeleteCourseSyncConfigurationInput;
+};
+
+export type MutationDeleteCourseTempByNodeIdArgs = {
+  input: DeleteCourseTempByNodeIdInput;
+};
+
+export type MutationDeleteCourseTempArgs = {
+  input: DeleteCourseTempInput;
+};
+
+export type MutationCourseCatalogueUpdateByTempArgs = {
+  input: CourseCatalogueUpdateByTempInput;
+};
+
+export type MutationCourseEnrollmentUpdateByTempArgs = {
+  input: CourseEnrollmentUpdateByTempInput;
+};
+
+export type MutationCourseUpdateByTempArgs = {
+  input: CourseUpdateByTempInput;
 };
 
 export type MutationCreateSsoUrlArgs = {
@@ -8026,20 +8964,42 @@ export type Query = {
   systemMemberByNodeId?: Maybe<SystemMember>;
   /** Reads and enables pagination through a set of `Course`. */
   courses?: Maybe<CoursesConnection>;
-  /** Reads and enables pagination through a set of `CourseCatalog`. */
-  courseCatalogs?: Maybe<CourseCatalogsConnection>;
+  /** Reads and enables pagination through a set of `CourseCatalogue`. */
+  courseCatalogues?: Maybe<CourseCataloguesConnection>;
+  /** Reads and enables pagination through a set of `CourseCatalogueTemp`. */
+  courseCatalogueTemps?: Maybe<CourseCatalogueTempsConnection>;
   /** Reads and enables pagination through a set of `CourseEnrollment`. */
   courseEnrollments?: Maybe<CourseEnrollmentsConnection>;
+  /** Reads and enables pagination through a set of `CourseEnrollmentTemp`. */
+  courseEnrollmentTemps?: Maybe<CourseEnrollmentTempsConnection>;
+  /** Reads and enables pagination through a set of `CourseSyncConfiguration`. */
+  courseSyncConfigurations?: Maybe<CourseSyncConfigurationsConnection>;
+  /** Reads and enables pagination through a set of `CourseTemp`. */
+  courseTemps?: Maybe<CourseTempsConnection>;
   course?: Maybe<Course>;
   courseByCourseId?: Maybe<Course>;
-  courseCatalog?: Maybe<CourseCatalog>;
+  courseCatalogue?: Maybe<CourseCatalogue>;
+  courseCatalogueByCatalogueIdAndCourseId?: Maybe<CourseCatalogue>;
+  courseCatalogueTemp?: Maybe<CourseCatalogueTemp>;
   courseEnrollment?: Maybe<CourseEnrollment>;
+  courseEnrollmentByUserIdAndCourseId?: Maybe<CourseEnrollment>;
+  courseEnrollmentTemp?: Maybe<CourseEnrollmentTemp>;
+  courseSyncConfiguration?: Maybe<CourseSyncConfiguration>;
+  courseTemp?: Maybe<CourseTemp>;
   /** Reads a single `Course` using its globally unique `ID`. */
   courseByNodeId?: Maybe<Course>;
-  /** Reads a single `CourseCatalog` using its globally unique `ID`. */
-  courseCatalogByNodeId?: Maybe<CourseCatalog>;
+  /** Reads a single `CourseCatalogue` using its globally unique `ID`. */
+  courseCatalogueByNodeId?: Maybe<CourseCatalogue>;
+  /** Reads a single `CourseCatalogueTemp` using its globally unique `ID`. */
+  courseCatalogueTempByNodeId?: Maybe<CourseCatalogueTemp>;
   /** Reads a single `CourseEnrollment` using its globally unique `ID`. */
   courseEnrollmentByNodeId?: Maybe<CourseEnrollment>;
+  /** Reads a single `CourseEnrollmentTemp` using its globally unique `ID`. */
+  courseEnrollmentTempByNodeId?: Maybe<CourseEnrollmentTemp>;
+  /** Reads a single `CourseSyncConfiguration` using its globally unique `ID`. */
+  courseSyncConfigurationByNodeId?: Maybe<CourseSyncConfiguration>;
+  /** Reads a single `CourseTemp` using its globally unique `ID`. */
+  courseTempByNodeId?: Maybe<CourseTemp>;
   token?: Maybe<Token>;
   tokenByUsername?: Maybe<Token>;
   asset?: Maybe<Asset>;
@@ -8445,14 +9405,24 @@ export type QueryCoursesArgs = {
   condition?: Maybe<CourseCondition>;
 };
 
-export type QueryCourseCatalogsArgs = {
+export type QueryCourseCataloguesArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
   before?: Maybe<Scalars["Cursor"]>;
   after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
-  condition?: Maybe<CourseCatalogCondition>;
+  orderBy?: Maybe<Array<CourseCataloguesOrderBy>>;
+  condition?: Maybe<CourseCatalogueCondition>;
+};
+
+export type QueryCourseCatalogueTempsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CourseCatalogueTempsOrderBy>>;
+  condition?: Maybe<CourseCatalogueTempCondition>;
 };
 
 export type QueryCourseEnrollmentsArgs = {
@@ -8465,6 +9435,36 @@ export type QueryCourseEnrollmentsArgs = {
   condition?: Maybe<CourseEnrollmentCondition>;
 };
 
+export type QueryCourseEnrollmentTempsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CourseEnrollmentTempsOrderBy>>;
+  condition?: Maybe<CourseEnrollmentTempCondition>;
+};
+
+export type QueryCourseSyncConfigurationsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  condition?: Maybe<CourseSyncConfigurationCondition>;
+};
+
+export type QueryCourseTempsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CourseTempsOrderBy>>;
+  condition?: Maybe<CourseTempCondition>;
+};
+
 export type QueryCourseArgs = {
   id: Scalars["Int"];
 };
@@ -8473,7 +9473,16 @@ export type QueryCourseByCourseIdArgs = {
   courseId: Scalars["Int"];
 };
 
-export type QueryCourseCatalogArgs = {
+export type QueryCourseCatalogueArgs = {
+  id: Scalars["Int"];
+};
+
+export type QueryCourseCatalogueByCatalogueIdAndCourseIdArgs = {
+  catalogueId: Scalars["Int"];
+  courseId: Scalars["Int"];
+};
+
+export type QueryCourseCatalogueTempArgs = {
   id: Scalars["Int"];
 };
 
@@ -8481,15 +9490,48 @@ export type QueryCourseEnrollmentArgs = {
   id: Scalars["Int"];
 };
 
+export type QueryCourseEnrollmentByUserIdAndCourseIdArgs = {
+  userId: Scalars["Int"];
+  courseId: Scalars["Int"];
+};
+
+export type QueryCourseEnrollmentTempArgs = {
+  id: Scalars["Int"];
+};
+
+export type QueryCourseSyncConfigurationArgs = {
+  id: Scalars["Int"];
+};
+
+export type QueryCourseTempArgs = {
+  id: Scalars["Int"];
+};
+
 export type QueryCourseByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
-export type QueryCourseCatalogByNodeIdArgs = {
+export type QueryCourseCatalogueByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+export type QueryCourseCatalogueTempByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
 export type QueryCourseEnrollmentByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+export type QueryCourseEnrollmentTempByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+export type QueryCourseSyncConfigurationByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+export type QueryCourseTempByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
@@ -9837,53 +10879,115 @@ export type UpdateCourseByNodeIdInput = {
   patch: CoursePatch;
 };
 
-/** All input for the `updateCourseCatalogByNodeId` mutation. */
-export type UpdateCourseCatalogByNodeIdInput = {
+/** All input for the `updateCourseCatalogueByCatalogueIdAndCourseId` mutation. */
+export type UpdateCourseCatalogueByCatalogueIdAndCourseIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `CourseCatalog` to be updated. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `CourseCatalog` being updated. */
-  patch: CourseCatalogPatch;
+  /** An object where the defined keys will be set on the `CourseCatalogue` being updated. */
+  patch: CourseCataloguePatch;
+  /** market */
+  catalogueId: Scalars["Int"];
+  /** fk */
+  courseId: Scalars["Int"];
 };
 
-/** All input for the `updateCourseCatalog` mutation. */
-export type UpdateCourseCatalogInput = {
+/** All input for the `updateCourseCatalogueByNodeId` mutation. */
+export type UpdateCourseCatalogueByNodeIdInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** An object where the defined keys will be set on the `CourseCatalog` being updated. */
-  patch: CourseCatalogPatch;
+  /** The globally unique `ID` which will identify a single `CourseCatalogue` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `CourseCatalogue` being updated. */
+  patch: CourseCataloguePatch;
+};
+
+/** All input for the `updateCourseCatalogue` mutation. */
+export type UpdateCourseCatalogueInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseCatalogue` being updated. */
+  patch: CourseCataloguePatch;
   /** Primary key */
   id: Scalars["Int"];
 };
 
-/** The output of our update `CourseCatalog` mutation. */
-export type UpdateCourseCatalogPayload = {
-  __typename?: "UpdateCourseCatalogPayload";
+/** The output of our update `CourseCatalogue` mutation. */
+export type UpdateCourseCataloguePayload = {
+  __typename?: "UpdateCourseCataloguePayload";
   /**
    * The exact same `clientMutationId` that was provided in the mutation input,
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `CourseCatalog` that was updated by this mutation. */
-  courseCatalog?: Maybe<CourseCatalog>;
+  /** The `CourseCatalogue` that was updated by this mutation. */
+  courseCatalogue?: Maybe<CourseCatalogue>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Course` that is related to this `CourseCatalog`. */
+  /** Reads a single `Course` that is related to this `CourseCatalogue`. */
   course?: Maybe<Course>;
-  /** An edge for our `CourseCatalog`. May be used by Relay 1. */
-  courseCatalogEdge?: Maybe<CourseCatalogsEdge>;
+  /** An edge for our `CourseCatalogue`. May be used by Relay 1. */
+  courseCatalogueEdge?: Maybe<CourseCataloguesEdge>;
 };
 
-/** The output of our update `CourseCatalog` mutation. */
-export type UpdateCourseCatalogPayloadCourseCatalogEdgeArgs = {
-  orderBy?: Maybe<Array<CourseCatalogsOrderBy>>;
+/** The output of our update `CourseCatalogue` mutation. */
+export type UpdateCourseCataloguePayloadCourseCatalogueEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCataloguesOrderBy>>;
+};
+
+/** All input for the `updateCourseCatalogueTempByNodeId` mutation. */
+export type UpdateCourseCatalogueTempByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseCatalogueTemp` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `CourseCatalogueTemp` being updated. */
+  patch: CourseCatalogueTempPatch;
+};
+
+/** All input for the `updateCourseCatalogueTemp` mutation. */
+export type UpdateCourseCatalogueTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseCatalogueTemp` being updated. */
+  patch: CourseCatalogueTempPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our update `CourseCatalogueTemp` mutation. */
+export type UpdateCourseCatalogueTempPayload = {
+  __typename?: "UpdateCourseCatalogueTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseCatalogueTemp` that was updated by this mutation. */
+  courseCatalogueTemp?: Maybe<CourseCatalogueTemp>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseCatalogueTemp`. May be used by Relay 1. */
+  courseCatalogueTempEdge?: Maybe<CourseCatalogueTempsEdge>;
+};
+
+/** The output of our update `CourseCatalogueTemp` mutation. */
+export type UpdateCourseCatalogueTempPayloadCourseCatalogueTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseCatalogueTempsOrderBy>>;
 };
 
 /** All input for the `updateCourseEnrollmentByNodeId` mutation. */
@@ -9897,6 +11001,21 @@ export type UpdateCourseEnrollmentByNodeIdInput = {
   nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `CourseEnrollment` being updated. */
   patch: CourseEnrollmentPatch;
+};
+
+/** All input for the `updateCourseEnrollmentByUserIdAndCourseId` mutation. */
+export type UpdateCourseEnrollmentByUserIdAndCourseIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseEnrollment` being updated. */
+  patch: CourseEnrollmentPatch;
+  /** account */
+  userId: Scalars["Int"];
+  /** fk */
+  courseId: Scalars["Int"];
 };
 
 /** All input for the `updateCourseEnrollment` mutation. */
@@ -9935,6 +11054,53 @@ export type UpdateCourseEnrollmentPayloadCourseEnrollmentEdgeArgs = {
   orderBy?: Maybe<Array<CourseEnrollmentsOrderBy>>;
 };
 
+/** All input for the `updateCourseEnrollmentTempByNodeId` mutation. */
+export type UpdateCourseEnrollmentTempByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseEnrollmentTemp` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `CourseEnrollmentTemp` being updated. */
+  patch: CourseEnrollmentTempPatch;
+};
+
+/** All input for the `updateCourseEnrollmentTemp` mutation. */
+export type UpdateCourseEnrollmentTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseEnrollmentTemp` being updated. */
+  patch: CourseEnrollmentTempPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our update `CourseEnrollmentTemp` mutation. */
+export type UpdateCourseEnrollmentTempPayload = {
+  __typename?: "UpdateCourseEnrollmentTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseEnrollmentTemp` that was updated by this mutation. */
+  courseEnrollmentTemp?: Maybe<CourseEnrollmentTemp>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseEnrollmentTemp`. May be used by Relay 1. */
+  courseEnrollmentTempEdge?: Maybe<CourseEnrollmentTempsEdge>;
+};
+
+/** The output of our update `CourseEnrollmentTemp` mutation. */
+export type UpdateCourseEnrollmentTempPayloadCourseEnrollmentTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseEnrollmentTempsOrderBy>>;
+};
+
 /** All input for the `updateCourse` mutation. */
 export type UpdateCourseInput = {
   /**
@@ -9967,6 +11133,101 @@ export type UpdateCoursePayload = {
 /** The output of our update `Course` mutation. */
 export type UpdateCoursePayloadCourseEdgeArgs = {
   orderBy?: Maybe<Array<CoursesOrderBy>>;
+};
+
+/** All input for the `updateCourseSyncConfigurationByNodeId` mutation. */
+export type UpdateCourseSyncConfigurationByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseSyncConfiguration` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `CourseSyncConfiguration` being updated. */
+  patch: CourseSyncConfigurationPatch;
+};
+
+/** All input for the `updateCourseSyncConfiguration` mutation. */
+export type UpdateCourseSyncConfigurationInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseSyncConfiguration` being updated. */
+  patch: CourseSyncConfigurationPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our update `CourseSyncConfiguration` mutation. */
+export type UpdateCourseSyncConfigurationPayload = {
+  __typename?: "UpdateCourseSyncConfigurationPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseSyncConfiguration` that was updated by this mutation. */
+  courseSyncConfiguration?: Maybe<CourseSyncConfiguration>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseSyncConfiguration`. May be used by Relay 1. */
+  courseSyncConfigurationEdge?: Maybe<CourseSyncConfigurationsEdge>;
+};
+
+/** The output of our update `CourseSyncConfiguration` mutation. */
+export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
+
+/** All input for the `updateCourseTempByNodeId` mutation. */
+export type UpdateCourseTempByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `CourseTemp` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `CourseTemp` being updated. */
+  patch: CourseTempPatch;
+};
+
+/** All input for the `updateCourseTemp` mutation. */
+export type UpdateCourseTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseTemp` being updated. */
+  patch: CourseTempPatch;
+  /** Primary key */
+  id: Scalars["Int"];
+};
+
+/** The output of our update `CourseTemp` mutation. */
+export type UpdateCourseTempPayload = {
+  __typename?: "UpdateCourseTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `CourseTemp` that was updated by this mutation. */
+  courseTemp?: Maybe<CourseTemp>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** An edge for our `CourseTemp`. May be used by Relay 1. */
+  courseTempEdge?: Maybe<CourseTempsEdge>;
+};
+
+/** The output of our update `CourseTemp` mutation. */
+export type UpdateCourseTempPayloadCourseTempEdgeArgs = {
+  orderBy?: Maybe<Array<CourseTempsOrderBy>>;
 };
 
 /** All input for the `updateEvidenceItemByNodeId` mutation. */
