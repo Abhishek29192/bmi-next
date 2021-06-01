@@ -6,14 +6,14 @@ config({
   path: resolve(__dirname, "../../.env")
 });
 
-const { PG_USER, PASSWORD, HOST, DATABASE, PG_PORT } = process.env;
+const { PG_USER, PG_PASSWORD, PG_HOST, PG_DATABASE, PG_PORT } = process.env;
 
 const pool = new Pool({
   user: PG_USER,
-  password: PASSWORD,
+  password: PG_PASSWORD,
   port: +PG_PORT,
-  host: HOST,
-  database: DATABASE
+  host: PG_HOST,
+  database: PG_DATABASE
 });
 const PERMISSION_DENIED = (table) => `permission denied for table ${table}`;
 const RLS_ERROR = (table) =>
@@ -547,58 +547,6 @@ describe("Database permissions", () => {
           );
         } catch (error) {
           expect(error.message).toEqual(RLS_ERROR("evidence_item"));
-        }
-      });
-    });
-  });
-
-  describe("Guarantee Product", () => {
-    describe("Company admin", () => {
-      it("should be able to add a product", async () => {
-        const { rows } = await transaction(
-          ROLE_COMPANY_ADMIN,
-          company_admin_id,
-          "insert into guaranteed_product (guarantee_id) VALUES($1) RETURNING *",
-          [guarantee_id]
-        );
-        expect(rows.length).toEqual(1);
-        evicence_item_id = rows[0].id;
-      });
-    });
-    describe("Installer", () => {
-      it("shouldn't be able to create a product", async () => {
-        try {
-          await transaction(
-            ROLE_INSTALLER,
-            installer_id,
-            "insert into guaranteed_product (guarantee_id) VALUES($1) RETURNING *",
-            [evicence_item_id]
-          );
-        } catch (error) {
-          expect(error.message).toEqual(
-            PERMISSION_DENIED("guaranteed_product")
-          );
-        }
-      });
-      it("should be able to select a product if member of a project", async () => {
-        const { rows } = await transaction(
-          ROLE_INSTALLER,
-          installer_id,
-          "select * from guaranteed_product",
-          []
-        );
-        expect(rows.length).toEqual(1);
-      });
-      it("shouldn't be able to select a product item if not member of a project", async () => {
-        try {
-          await transaction(
-            ROLE_INSTALLER,
-            1,
-            "select * from guaranteed_product",
-            []
-          );
-        } catch (error) {
-          expect(error.message).toEqual(RLS_ERROR("guaranteed_product"));
         }
       });
     });

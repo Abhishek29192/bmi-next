@@ -10,3 +10,9 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<HE
     $dump
 HERE
 
+echo "Creating procedures"
+dump="`cat /var/lib/postgresql/procedure.sql`"
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<HERE
+    $dump
+HERE
+

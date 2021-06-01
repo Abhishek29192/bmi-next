@@ -172,7 +172,6 @@ ${this.properties
     return this.properties
       .filter((p) => p.constraint)
       .map((property) => {
-        console.log("property.reference", property);
         const refColumn = property.reference || property.name;
         return `ALTER TABLE ${this.name} ADD ${property.constraint} (${refColumn});
 `;
@@ -217,7 +216,7 @@ class Reference {
 
   getPostgresCreate() {
     const refColumn = this.reference || "id";
-    return `ALTER TABLE ${this.source} ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target}(${refColumn});
+    return `ALTER TABLE ${this.source} ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target}(${refColumn}) ON DELETE CASCADE;
 CREATE INDEX ON ${this.source} (${this.referenceField});`;
   }
 }
@@ -281,7 +280,10 @@ const buildModel = (records) => {
       case "pk":
         myTable.addColumn(record.Name, record.Description, "pk", record.Mocks);
         break;
-      case "fk":
+      case "fk": {
+        const referenceType = record.ReferenceType
+          ? record.ReferenceType
+          : "int";
         myReference = new Reference(
           myTable.name,
           record.Name,
@@ -290,8 +292,11 @@ const buildModel = (records) => {
           record.Service
         );
         myDataModel.addReference(myReference); // create a reference and add it to the list of references
-        myTable.addColumn(record.Name, "fk", "int", record.Mocks); // add the new attribute to the current table
+
+        myTable.addColumn(record.Name, "fk", referenceType, record.Mocks); // add the new attribute to the current table
         break;
+      }
+
       case "ek":
         if (record.Index) {
           // if the column needs indexing, add the Index to the list of indices in the datamodel

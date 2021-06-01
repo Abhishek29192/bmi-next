@@ -12,12 +12,8 @@ export const mockCompany: Company = {
   updatedAt: "",
   companyDocuments: emptyNodes,
   companyMembers: emptyNodes,
-  addresses: {
-    edges: [],
-    nodes: [mockCompanyAddress],
-    pageInfo: singlePageInfo,
-    totalCount: 1
-  },
+  tradingAddress: mockCompanyAddress,
+  registeredAddress: mockCompanyAddress,
   companyOperationsByCompany: null,
   invitations: null,
   projects: {

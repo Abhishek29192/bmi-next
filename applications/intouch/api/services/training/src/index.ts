@@ -17,7 +17,8 @@ async function main() {
     { secret: "TRAINING_DB_HOST", env: "PG_HOST" },
     { secret: "DOCEBO_API_CLIENT_ID", env: "DOCEBO_API_CLIENT_ID" },
     { secret: "DOCEBO_API_CLIENT_SECRET", env: "DOCEBO_API_CLIENT_SECRET" },
-    { secret: "DOCEBO_API_JWT_PASSPHRASE", env: "DOCEBO_API_JWT_PASSPHRASE" }
+    { secret: "DOCEBO_API_JWT_PASSPHRASE", env: "DOCEBO_API_JWT_PASSPHRASE" },
+    { secret: "DOCEBO_API_USERNAME", env: "DOCEBO_API_USERNAME" }
   ]);
 
   const app = express();

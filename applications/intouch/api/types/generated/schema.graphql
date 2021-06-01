@@ -77,9 +77,14 @@ type Account implements Node {
   doceboUsername: String
 
   """
-  File reference or the file itself. A profile picture of the user
+  File reference. A profile picture of the user
   """
   photo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -538,9 +543,14 @@ input AccountPatch {
   doceboUsername: String
 
   """
-  File reference or the file itself. A profile picture of the user
+  File reference. A profile picture of the user
   """
   photo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -621,21 +631,6 @@ type Address implements Node {
   id: Int!
 
   """
-  fk
-  """
-  projectId: Int
-
-  """
-  fk
-  """
-  companyId: Int
-
-  """
-  ek
-  """
-  addressType: AddressType
-
-  """
   First line of this address
   """
   firstLine: String
@@ -651,6 +646,11 @@ type Address implements Node {
   town: String
 
   """
+  The region if relevant
+  """
+  region: String
+
+  """
   The country for this address
   """
   country: String
@@ -659,18 +659,182 @@ type Address implements Node {
   The postcode for this address
   """
   postcode: String
+
+  """
+  The coordinates on a map of the world
+  """
+  coordinates: Point
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
   """
-  Reads a single `Project` that is related to this `Address`.
+  Reads and enables pagination through a set of `Company`.
   """
-  project: Project
+  companiesByRegisteredAddressId(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Company`.
+    """
+    orderBy: [CompaniesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CompanyCondition
+  ): CompaniesConnection!
 
   """
-  Reads a single `Company` that is related to this `Address`.
+  Reads and enables pagination through a set of `Company`.
   """
-  company: Company
+  companiesByTradingAddressId(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Company`.
+    """
+    orderBy: [CompaniesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CompanyCondition
+  ): CompaniesConnection!
+
+  """
+  Reads and enables pagination through a set of `Project`.
+  """
+  projectsBySiteAddressId(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Project`.
+    """
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectCondition
+  ): ProjectsConnection!
+
+  """
+  Reads and enables pagination through a set of `Project`.
+  """
+  projectsByBuildingOwnerAddressId(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Project`.
+    """
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectCondition
+  ): ProjectsConnection!
 }
 
 """
@@ -681,16 +845,6 @@ input AddressCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
-
-  """
-  Checks for equality with the object’s `projectId` field.
-  """
-  projectId: Int
-
-  """
-  Checks for equality with the object’s `companyId` field.
-  """
-  companyId: Int
 }
 
 """
@@ -703,21 +857,6 @@ input AddressInput {
   id: Int
 
   """
-  fk
-  """
-  projectId: Int
-
-  """
-  fk
-  """
-  companyId: Int
-
-  """
-  ek
-  """
-  addressType: AddressType
-
-  """
   First line of this address
   """
   firstLine: String
@@ -733,6 +872,11 @@ input AddressInput {
   town: String
 
   """
+  The region if relevant
+  """
+  region: String
+
+  """
   The country for this address
   """
   country: String
@@ -741,6 +885,16 @@ input AddressInput {
   The postcode for this address
   """
   postcode: String
+
+  """
+  The coordinates on a map of the world
+  """
+  coordinates: PointInput
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -755,21 +909,6 @@ input AddressPatch {
   id: Int
 
   """
-  fk
-  """
-  projectId: Int
-
-  """
-  fk
-  """
-  companyId: Int
-
-  """
-  ek
-  """
-  addressType: AddressType
-
-  """
   First line of this address
   """
   firstLine: String
@@ -785,6 +924,11 @@ input AddressPatch {
   town: String
 
   """
+  The region if relevant
+  """
+  region: String
+
+  """
   The country for this address
   """
   country: String
@@ -793,15 +937,18 @@ input AddressPatch {
   The postcode for this address
   """
   postcode: String
+
+  """
+  The coordinates on a map of the world
+  """
+  coordinates: PointInput
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
-}
-
-enum AddressType {
-  REGISTERED
-  TRADING
-  BUILDING_OWNER
-  SITE
 }
 
 """
@@ -851,10 +998,6 @@ enum AddressesOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
-  PROJECT_ID_ASC
-  PROJECT_ID_DESC
-  COMPANY_ID_ASC
-  COMPANY_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1019,6 +1162,13 @@ enum AssetOrder {
   sys_publishedVersion_ASC
   sys_publishedVersion_DESC
 }
+
+"""
+A signed eight-byte integer. The upper big integer values are greater than the
+max value for a JavaScript number. Therefore all big integers will be output as
+strings and not numbers.
+"""
+scalar BigInt
 
 enum BusinessType {
   CONTRACTOR
@@ -1412,6 +1562,10 @@ enum CompaniesOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  REGISTERED_ADDRESS_ID_ASC
+  REGISTERED_ADDRESS_ID_DESC
+  TRADING_ADDRESS_ID_ASC
+  TRADING_ADDRESS_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1434,6 +1588,16 @@ type Company implements Node {
   fk
   """
   marketId: Int
+
+  """
+  fk
+  """
+  registeredAddressId: Int
+
+  """
+  fk
+  """
+  tradingAddressId: Int
 
   """
   the name of the owner of the Company
@@ -1486,19 +1650,14 @@ type Company implements Node {
   name: String
 
   """
-  The Tax number in that number, such as the VAT number
+  The Tax number in that Market, such as the VAT number
   """
   taxNumber: String
 
   """
-  They Companys public phone number
+  They Company public phone number
   """
   phone: String
-
-  """
-  The companys GoogleMap address
-  """
-  coordinates: Point
 
   """
   A bit of blurb to appear in Find a contractor
@@ -1506,7 +1665,7 @@ type Company implements Node {
   aboutUs: String
 
   """
-  The email address that they can be contacted with by the public assuming they are listed.
+  The email address that they can be contacted with by the public assuming they are listed
   """
   publicEmail: String
 
@@ -1535,6 +1694,21 @@ type Company implements Node {
   A reference to the logo
   """
   logo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  tradingAddressMigrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  registeredAddressMigrationId: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -1544,45 +1718,14 @@ type Company implements Node {
   market: Market
 
   """
-  Reads and enables pagination through a set of `Address`.
+  Reads a single `Address` that is related to this `Company`.
   """
-  addresses(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
+  registeredAddress: Address
 
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Address`.
-    """
-    orderBy: [AddressesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: AddressCondition
-  ): AddressesConnection!
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
 
   """
   Reads and enables pagination through a set of `CompanyDocument`.
@@ -1803,6 +1946,16 @@ input CompanyCondition {
   Checks for equality with the object’s `marketId` field.
   """
   marketId: Int
+
+  """
+  Checks for equality with the object’s `registeredAddressId` field.
+  """
+  registeredAddressId: Int
+
+  """
+  Checks for equality with the object’s `tradingAddressId` field.
+  """
+  tradingAddressId: Int
 }
 
 """
@@ -1965,6 +2118,16 @@ input CompanyInput {
   marketId: Int
 
   """
+  fk
+  """
+  registeredAddressId: Int
+
+  """
+  fk
+  """
+  tradingAddressId: Int
+
+  """
   the name of the owner of the Company
   """
   ownerFullname: String
@@ -2015,19 +2178,14 @@ input CompanyInput {
   name: String
 
   """
-  The Tax number in that number, such as the VAT number
+  The Tax number in that Market, such as the VAT number
   """
   taxNumber: String
 
   """
-  They Companys public phone number
+  They Company public phone number
   """
   phone: String
-
-  """
-  The companys GoogleMap address
-  """
-  coordinates: PointInput
 
   """
   A bit of blurb to appear in Find a contractor
@@ -2035,7 +2193,7 @@ input CompanyInput {
   aboutUs: String
 
   """
-  The email address that they can be contacted with by the public assuming they are listed.
+  The email address that they can be contacted with by the public assuming they are listed
   """
   publicEmail: String
 
@@ -2064,6 +2222,21 @@ input CompanyInput {
   A reference to the logo
   """
   logo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  tradingAddressMigrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -2414,6 +2587,16 @@ input CompanyPatch {
   marketId: Int
 
   """
+  fk
+  """
+  registeredAddressId: Int
+
+  """
+  fk
+  """
+  tradingAddressId: Int
+
+  """
   the name of the owner of the Company
   """
   ownerFullname: String
@@ -2464,19 +2647,14 @@ input CompanyPatch {
   name: String
 
   """
-  The Tax number in that number, such as the VAT number
+  The Tax number in that Market, such as the VAT number
   """
   taxNumber: String
 
   """
-  They Companys public phone number
+  They Company public phone number
   """
   phone: String
-
-  """
-  The companys GoogleMap address
-  """
-  coordinates: PointInput
 
   """
   A bit of blurb to appear in Find a contractor
@@ -2484,7 +2662,7 @@ input CompanyPatch {
   aboutUs: String
 
   """
-  The email address that they can be contacted with by the public assuming they are listed.
+  The email address that they can be contacted with by the public assuming they are listed
   """
   publicEmail: String
 
@@ -2513,6 +2691,21 @@ input CompanyPatch {
   A reference to the logo
   """
   logo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  tradingAddressMigrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -2892,9 +3085,9 @@ type Course {
   updatedAt: Datetime!
 
   """
-  Reads and enables pagination through a set of `CourseCatalog`.
+  Reads and enables pagination through a set of `CourseCatalogue`.
   """
-  courseCatalogs(
+  courseCatalogues(
     """
     Only read the first `n` values of the set.
     """
@@ -2922,15 +3115,15 @@ type Course {
     after: Cursor
 
     """
-    The method to use when ordering `CourseCatalog`.
+    The method to use when ordering `CourseCatalogue`.
     """
-    orderBy: [CourseCatalogsOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [CourseCataloguesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CourseCatalogCondition
-  ): CourseCatalogsConnection!
+    condition: CourseCatalogueCondition
+  ): CourseCataloguesConnection!
 
   """
   Reads and enables pagination through a set of `CourseEnrollment`.
@@ -2977,7 +3170,7 @@ type Course {
 """
 Course Catalog
 """
-type CourseCatalog {
+type CourseCatalogue {
   """
   A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   """
@@ -2989,9 +3182,9 @@ type CourseCatalog {
   id: Int!
 
   """
-  fk
+  market
   """
-  catalogId: Int
+  catalogueId: Int
 
   """
   fk
@@ -3001,20 +3194,25 @@ type CourseCatalog {
   updatedAt: Datetime!
 
   """
-  Reads a single `Course` that is related to this `CourseCatalog`.
+  Reads a single `Course` that is related to this `CourseCatalogue`.
   """
   course: Course
 }
 
 """
-A condition to be used against `CourseCatalog` object types. All fields are
+A condition to be used against `CourseCatalogue` object types. All fields are
 tested for equality and combined with a logical ‘and.’
 """
-input CourseCatalogCondition {
+input CourseCatalogueCondition {
   """
   Checks for equality with the object’s `id` field.
   """
   id: Int
+
+  """
+  Checks for equality with the object’s `catalogueId` field.
+  """
+  catalogueId: Int
 
   """
   Checks for equality with the object’s `courseId` field.
@@ -3023,18 +3221,18 @@ input CourseCatalogCondition {
 }
 
 """
-An input for mutations affecting `CourseCatalog`
+An input for mutations affecting `CourseCatalogue`
 """
-input CourseCatalogInput {
+input CourseCatalogueInput {
   """
   Primary key
   """
   id: Int
 
   """
-  fk
+  market
   """
-  catalogId: Int
+  catalogueId: Int
 
   """
   fk
@@ -3045,18 +3243,18 @@ input CourseCatalogInput {
 }
 
 """
-Represents an update to a `CourseCatalog`. Fields that are set will be updated.
+Represents an update to a `CourseCatalogue`. Fields that are set will be updated.
 """
-input CourseCatalogPatch {
+input CourseCataloguePatch {
   """
   Primary key
   """
   id: Int
 
   """
-  fk
+  market
   """
-  catalogId: Int
+  catalogueId: Int
 
   """
   fk
@@ -3067,18 +3265,101 @@ input CourseCatalogPatch {
 }
 
 """
-A connection to a list of `CourseCatalog` values.
+Course Catalog temp table.  The course cataloogues from docebo are pulled into
+here first, before being merged into the course_catalogue table.
 """
-type CourseCatalogsConnection {
+type CourseCatalogueTemp {
   """
-  A list of `CourseCatalog` objects.
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
   """
-  nodes: [CourseCatalog!]!
+  nodeId: ID!
 
   """
-  A list of edges which contains the `CourseCatalog` and cursor to aid in pagination.
+  Primary key
   """
-  edges: [CourseCatalogsEdge!]!
+  id: Int!
+
+  """
+  catalogue
+  """
+  catalogueId: Int
+
+  """
+  course
+  """
+  courseId: Int
+  createdAt: Datetime!
+  updatedAt: Datetime!
+}
+
+"""
+A condition to be used against `CourseCatalogueTemp` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input CourseCatalogueTempCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+}
+
+"""
+An input for mutations affecting `CourseCatalogueTemp`
+"""
+input CourseCatalogueTempInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  catalogue
+  """
+  catalogueId: Int
+
+  """
+  course
+  """
+  courseId: Int
+  createdAt: Datetime
+  updatedAt: Datetime
+}
+
+"""
+Represents an update to a `CourseCatalogueTemp`. Fields that are set will be updated.
+"""
+input CourseCatalogueTempPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  catalogue
+  """
+  catalogueId: Int
+
+  """
+  course
+  """
+  courseId: Int
+  createdAt: Datetime
+  updatedAt: Datetime
+}
+
+"""
+A connection to a list of `CourseCatalogueTemp` values.
+"""
+type CourseCatalogueTempsConnection {
+  """
+  A list of `CourseCatalogueTemp` objects.
+  """
+  nodes: [CourseCatalogueTemp!]!
+
+  """
+  A list of edges which contains the `CourseCatalogueTemp` and cursor to aid in pagination.
+  """
+  edges: [CourseCatalogueTempsEdge!]!
 
   """
   Information to aid in pagination.
@@ -3086,33 +3367,142 @@ type CourseCatalogsConnection {
   pageInfo: PageInfo!
 
   """
-  The count of *all* `CourseCatalog` you could get from the connection.
+  The count of *all* `CourseCatalogueTemp` you could get from the connection.
   """
   totalCount: Int!
 }
 
 """
-A `CourseCatalog` edge in the connection.
+A `CourseCatalogueTemp` edge in the connection.
 """
-type CourseCatalogsEdge {
+type CourseCatalogueTempsEdge {
   """
   A cursor for use in pagination.
   """
   cursor: Cursor
 
   """
-  The `CourseCatalog` at the end of the edge.
+  The `CourseCatalogueTemp` at the end of the edge.
   """
-  node: CourseCatalog!
+  node: CourseCatalogueTemp!
 }
 
 """
-Methods to use when ordering `CourseCatalog`.
+Methods to use when ordering `CourseCatalogueTemp`.
 """
-enum CourseCatalogsOrderBy {
+enum CourseCatalogueTempsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+All input for the `courseCatalogueUpdateByTemp` mutation.
+"""
+input CourseCatalogueUpdateByTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+}
+
+"""
+The output of our `courseCatalogueUpdateByTemp` mutation.
+"""
+type CourseCatalogueUpdateByTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  bigInt: BigInt
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `courseCatalogueUpdate` mutation.
+"""
+input CourseCatalogueUpdateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  catalogues: [CourseCatalogueInput]
+}
+
+"""
+The output of our `courseCatalogueUpdate` mutation.
+"""
+type CourseCatalogueUpdatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+A connection to a list of `CourseCatalogue` values.
+"""
+type CourseCataloguesConnection {
+  """
+  A list of `CourseCatalogue` objects.
+  """
+  nodes: [CourseCatalogue!]!
+
+  """
+  A list of edges which contains the `CourseCatalogue` and cursor to aid in pagination.
+  """
+  edges: [CourseCataloguesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `CourseCatalogue` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `CourseCatalogue` edge in the connection.
+"""
+type CourseCataloguesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `CourseCatalogue` at the end of the edge.
+  """
+  node: CourseCatalogue!
+}
+
+"""
+Methods to use when ordering `CourseCatalogue`.
+"""
+enum CourseCataloguesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  CATALOGUE_ID_ASC
+  CATALOGUE_ID_DESC
   COURSE_ID_ASC
   COURSE_ID_DESC
   PRIMARY_KEY_ASC
@@ -3149,7 +3539,7 @@ type CourseEnrollment {
   id: Int!
 
   """
-  fk
+  account
   """
   userId: Int
 
@@ -3187,6 +3577,11 @@ input CourseEnrollmentCondition {
   id: Int
 
   """
+  Checks for equality with the object’s `userId` field.
+  """
+  userId: Int
+
+  """
   Checks for equality with the object’s `courseId` field.
   """
   courseId: Int
@@ -3202,7 +3597,7 @@ input CourseEnrollmentInput {
   id: Int
 
   """
-  fk
+  account
   """
   userId: Int
 
@@ -3234,7 +3629,7 @@ input CourseEnrollmentPatch {
   id: Int
 
   """
-  fk
+  account
   """
   userId: Int
 
@@ -3254,6 +3649,226 @@ input CourseEnrollmentPatch {
   url: String
   createdAt: Datetime
   updatedAt: Datetime
+}
+
+"""
+Course Enrollments temp table.  Enrollements are brought in here from Docebo
+first, before being merged into the course_enrollemnt table
+"""
+type CourseEnrollmentTemp {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  account
+  """
+  userId: Int
+
+  """
+  course
+  """
+  courseId: Int
+
+  """
+  status
+  """
+  status: String
+
+  """
+  url
+  """
+  url: String
+  createdAt: Datetime!
+  updatedAt: Datetime!
+}
+
+"""
+A condition to be used against `CourseEnrollmentTemp` object types. All fields
+are tested for equality and combined with a logical ‘and.’
+"""
+input CourseEnrollmentTempCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+}
+
+"""
+An input for mutations affecting `CourseEnrollmentTemp`
+"""
+input CourseEnrollmentTempInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  account
+  """
+  userId: Int
+
+  """
+  course
+  """
+  courseId: Int
+
+  """
+  status
+  """
+  status: String
+
+  """
+  url
+  """
+  url: String
+  createdAt: Datetime
+  updatedAt: Datetime
+}
+
+"""
+Represents an update to a `CourseEnrollmentTemp`. Fields that are set will be updated.
+"""
+input CourseEnrollmentTempPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  account
+  """
+  userId: Int
+
+  """
+  course
+  """
+  courseId: Int
+
+  """
+  status
+  """
+  status: String
+
+  """
+  url
+  """
+  url: String
+  createdAt: Datetime
+  updatedAt: Datetime
+}
+
+"""
+A connection to a list of `CourseEnrollmentTemp` values.
+"""
+type CourseEnrollmentTempsConnection {
+  """
+  A list of `CourseEnrollmentTemp` objects.
+  """
+  nodes: [CourseEnrollmentTemp!]!
+
+  """
+  A list of edges which contains the `CourseEnrollmentTemp` and cursor to aid in pagination.
+  """
+  edges: [CourseEnrollmentTempsEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `CourseEnrollmentTemp` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `CourseEnrollmentTemp` edge in the connection.
+"""
+type CourseEnrollmentTempsEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `CourseEnrollmentTemp` at the end of the edge.
+  """
+  node: CourseEnrollmentTemp!
+}
+
+"""
+Methods to use when ordering `CourseEnrollmentTemp`.
+"""
+enum CourseEnrollmentTempsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+All input for the `courseEnrollmentUpdateByTemp` mutation.
+"""
+input CourseEnrollmentUpdateByTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+}
+
+"""
+The output of our `courseEnrollmentUpdateByTemp` mutation.
+"""
+type CourseEnrollmentUpdateByTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  bigInt: BigInt
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `courseEnrollmentUpdate` mutation.
+"""
+input CourseEnrollmentUpdateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  enrollments: [CourseEnrollmentInput]
+}
+
+"""
+The output of our `courseEnrollmentUpdate` mutation.
+"""
+type CourseEnrollmentUpdatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
 }
 
 """
@@ -3303,6 +3918,8 @@ enum CourseEnrollmentsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  USER_ID_ASC
+  USER_ID_DESC
   COURSE_ID_ASC
   COURSE_ID_DESC
   PRIMARY_KEY_ASC
@@ -3401,6 +4018,411 @@ input CoursePatch {
   description: String
   createdAt: Datetime
   updatedAt: Datetime
+}
+
+"""
+Course Sync Configuration
+"""
+type CourseSyncConfiguration {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  account
+  """
+  configName: String
+
+  """
+  course
+  """
+  configValue: String
+  createdAt: Datetime!
+  updatedAt: Datetime!
+}
+
+"""
+A condition to be used against `CourseSyncConfiguration` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input CourseSyncConfigurationCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `configName` field.
+  """
+  configName: String
+}
+
+"""
+An input for mutations affecting `CourseSyncConfiguration`
+"""
+input CourseSyncConfigurationInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  account
+  """
+  configName: String
+
+  """
+  course
+  """
+  configValue: String
+  createdAt: Datetime
+  updatedAt: Datetime
+}
+
+"""
+Represents an update to a `CourseSyncConfiguration`. Fields that are set will be updated.
+"""
+input CourseSyncConfigurationPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  account
+  """
+  configName: String
+
+  """
+  course
+  """
+  configValue: String
+  createdAt: Datetime
+  updatedAt: Datetime
+}
+
+"""
+A connection to a list of `CourseSyncConfiguration` values.
+"""
+type CourseSyncConfigurationsConnection {
+  """
+  A list of `CourseSyncConfiguration` objects.
+  """
+  nodes: [CourseSyncConfiguration!]!
+
+  """
+  A list of edges which contains the `CourseSyncConfiguration` and cursor to aid in pagination.
+  """
+  edges: [CourseSyncConfigurationsEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `CourseSyncConfiguration` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `CourseSyncConfiguration` edge in the connection.
+"""
+type CourseSyncConfigurationsEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `CourseSyncConfiguration` at the end of the edge.
+  """
+  node: CourseSyncConfiguration!
+}
+
+"""
+Methods to use when ordering `CourseSyncConfiguration`.
+"""
+enum CourseSyncConfigurationsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  CONFIG_NAME_ASC
+  CONFIG_NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A temporary training course that BMI offers in Docebo. Courses are brought from
+Docebo into this table before being merged into the course table.
+"""
+type CourseTemp {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  Docebo CourseId
+  """
+  courseId: Int
+
+  """
+  technology
+  """
+  technology: String
+
+  """
+  A short name for the Course taken from Docebo
+  """
+  name: String
+
+  """
+  A reference to the image
+  """
+  image: String
+
+  """
+  Promoted courses are listed higher than others
+  """
+  promoted: Boolean
+
+  """
+  Some text from Docebo indicating whether it is a webinar, classroom etc
+  """
+  trainingType: String
+
+  """
+  Text description from Docebo
+  """
+  description: String
+  createdAt: Datetime!
+  updatedAt: Datetime!
+}
+
+"""
+A condition to be used against `CourseTemp` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input CourseTempCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+}
+
+"""
+An input for mutations affecting `CourseTemp`
+"""
+input CourseTempInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  Docebo CourseId
+  """
+  courseId: Int
+
+  """
+  technology
+  """
+  technology: String
+
+  """
+  A short name for the Course taken from Docebo
+  """
+  name: String
+
+  """
+  A reference to the image
+  """
+  image: String
+
+  """
+  Promoted courses are listed higher than others
+  """
+  promoted: Boolean
+
+  """
+  Some text from Docebo indicating whether it is a webinar, classroom etc
+  """
+  trainingType: String
+
+  """
+  Text description from Docebo
+  """
+  description: String
+  createdAt: Datetime
+  updatedAt: Datetime
+}
+
+"""
+Represents an update to a `CourseTemp`. Fields that are set will be updated.
+"""
+input CourseTempPatch {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  Docebo CourseId
+  """
+  courseId: Int
+
+  """
+  technology
+  """
+  technology: String
+
+  """
+  A short name for the Course taken from Docebo
+  """
+  name: String
+
+  """
+  A reference to the image
+  """
+  image: String
+
+  """
+  Promoted courses are listed higher than others
+  """
+  promoted: Boolean
+
+  """
+  Some text from Docebo indicating whether it is a webinar, classroom etc
+  """
+  trainingType: String
+
+  """
+  Text description from Docebo
+  """
+  description: String
+  createdAt: Datetime
+  updatedAt: Datetime
+}
+
+"""
+A connection to a list of `CourseTemp` values.
+"""
+type CourseTempsConnection {
+  """
+  A list of `CourseTemp` objects.
+  """
+  nodes: [CourseTemp!]!
+
+  """
+  A list of edges which contains the `CourseTemp` and cursor to aid in pagination.
+  """
+  edges: [CourseTempsEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `CourseTemp` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `CourseTemp` edge in the connection.
+"""
+type CourseTempsEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `CourseTemp` at the end of the edge.
+  """
+  node: CourseTemp!
+}
+
+"""
+Methods to use when ordering `CourseTemp`.
+"""
+enum CourseTempsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+All input for the `courseUpdateByTemp` mutation.
+"""
+input CourseUpdateByTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+}
+
+"""
+The output of our `courseUpdateByTemp` mutation.
+"""
+type CourseUpdateByTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  bigInt: BigInt
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `courseUpdate` mutation.
+"""
+input CourseUpdateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  courses: [CourseInput]
+}
+
+"""
+The output of our `courseUpdate` mutation.
+"""
+type CourseUpdatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
 }
 
 """
@@ -3539,16 +4561,6 @@ type CreateAddressPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
-
-  """
-  Reads a single `Project` that is related to this `Address`.
-  """
-  project: Project
-
-  """
-  Reads a single `Company` that is related to this `Address`.
-  """
-  company: Company
 
   """
   An edge for our `Address`. May be used by Relay 1.
@@ -3821,6 +4833,16 @@ type CreateCompanyPayload {
   market: Market
 
   """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  registeredAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
+
+  """
   An edge for our `Company`. May be used by Relay 1.
   """
   companyEdge(
@@ -3832,9 +4854,9 @@ type CreateCompanyPayload {
 }
 
 """
-All input for the create `CourseCatalog` mutation.
+All input for the create `CourseCatalogue` mutation.
 """
-input CreateCourseCatalogInput {
+input CreateCourseCatalogueInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -3842,15 +4864,15 @@ input CreateCourseCatalogInput {
   clientMutationId: String
 
   """
-  The `CourseCatalog` to be created by this mutation.
+  The `CourseCatalogue` to be created by this mutation.
   """
-  courseCatalog: CourseCatalogInput!
+  courseCatalogue: CourseCatalogueInput!
 }
 
 """
-The output of our create `CourseCatalog` mutation.
+The output of our create `CourseCatalogue` mutation.
 """
-type CreateCourseCatalogPayload {
+type CreateCourseCataloguePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
   unchanged and unused. May be used by a client to track mutations.
@@ -3858,9 +4880,9 @@ type CreateCourseCatalogPayload {
   clientMutationId: String
 
   """
-  The `CourseCatalog` that was created by this mutation.
+  The `CourseCatalogue` that was created by this mutation.
   """
-  courseCatalog: CourseCatalog
+  courseCatalogue: CourseCatalogue
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -3868,19 +4890,66 @@ type CreateCourseCatalogPayload {
   query: Query
 
   """
-  Reads a single `Course` that is related to this `CourseCatalog`.
+  Reads a single `Course` that is related to this `CourseCatalogue`.
   """
   course: Course
 
   """
-  An edge for our `CourseCatalog`. May be used by Relay 1.
+  An edge for our `CourseCatalogue`. May be used by Relay 1.
   """
-  courseCatalogEdge(
+  courseCatalogueEdge(
     """
-    The method to use when ordering `CourseCatalog`.
+    The method to use when ordering `CourseCatalogue`.
     """
-    orderBy: [CourseCatalogsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): CourseCatalogsEdge
+    orderBy: [CourseCataloguesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseCataloguesEdge
+}
+
+"""
+All input for the create `CourseCatalogueTemp` mutation.
+"""
+input CreateCourseCatalogueTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseCatalogueTemp` to be created by this mutation.
+  """
+  courseCatalogueTemp: CourseCatalogueTempInput!
+}
+
+"""
+The output of our create `CourseCatalogueTemp` mutation.
+"""
+type CreateCourseCatalogueTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseCatalogueTemp` that was created by this mutation.
+  """
+  courseCatalogueTemp: CourseCatalogueTemp
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseCatalogueTemp`. May be used by Relay 1.
+  """
+  courseCatalogueTempEdge(
+    """
+    The method to use when ordering `CourseCatalogueTemp`.
+    """
+    orderBy: [CourseCatalogueTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseCatalogueTempsEdge
 }
 
 """
@@ -3936,6 +5005,53 @@ type CreateCourseEnrollmentPayload {
 }
 
 """
+All input for the create `CourseEnrollmentTemp` mutation.
+"""
+input CreateCourseEnrollmentTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseEnrollmentTemp` to be created by this mutation.
+  """
+  courseEnrollmentTemp: CourseEnrollmentTempInput!
+}
+
+"""
+The output of our create `CourseEnrollmentTemp` mutation.
+"""
+type CreateCourseEnrollmentTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseEnrollmentTemp` that was created by this mutation.
+  """
+  courseEnrollmentTemp: CourseEnrollmentTemp
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseEnrollmentTemp`. May be used by Relay 1.
+  """
+  courseEnrollmentTempEdge(
+    """
+    The method to use when ordering `CourseEnrollmentTemp`.
+    """
+    orderBy: [CourseEnrollmentTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseEnrollmentTempsEdge
+}
+
+"""
 All input for the create `Course` mutation.
 """
 input CreateCourseInput {
@@ -3980,6 +5096,100 @@ type CreateCoursePayload {
     """
     orderBy: [CoursesOrderBy!] = [PRIMARY_KEY_ASC]
   ): CoursesEdge
+}
+
+"""
+All input for the create `CourseSyncConfiguration` mutation.
+"""
+input CreateCourseSyncConfigurationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseSyncConfiguration` to be created by this mutation.
+  """
+  courseSyncConfiguration: CourseSyncConfigurationInput!
+}
+
+"""
+The output of our create `CourseSyncConfiguration` mutation.
+"""
+type CreateCourseSyncConfigurationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseSyncConfiguration` that was created by this mutation.
+  """
+  courseSyncConfiguration: CourseSyncConfiguration
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseSyncConfiguration`. May be used by Relay 1.
+  """
+  courseSyncConfigurationEdge(
+    """
+    The method to use when ordering `CourseSyncConfiguration`.
+    """
+    orderBy: [CourseSyncConfigurationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseSyncConfigurationsEdge
+}
+
+"""
+All input for the create `CourseTemp` mutation.
+"""
+input CreateCourseTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseTemp` to be created by this mutation.
+  """
+  courseTemp: CourseTempInput!
+}
+
+"""
+The output of our create `CourseTemp` mutation.
+"""
+type CreateCourseTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseTemp` that was created by this mutation.
+  """
+  courseTemp: CourseTemp
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseTemp`. May be used by Relay 1.
+  """
+  courseTempEdge(
+    """
+    The method to use when ordering `CourseTemp`.
+    """
+    orderBy: [CourseTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseTempsEdge
 }
 
 """
@@ -4088,7 +5298,12 @@ type CreateGuaranteePayload {
   """
   Reads a single `System` that is related to this `Guarantee`.
   """
-  system: System
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `Guarantee`.
+  """
+  productByProductBmiRef: Product
 
   """
   Reads a single `Account` that is related to this `Guarantee`.
@@ -4104,63 +5319,6 @@ type CreateGuaranteePayload {
     """
     orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
   ): GuaranteesEdge
-}
-
-"""
-All input for the create `GuaranteedProduct` mutation.
-"""
-input CreateGuaranteedProductInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The `GuaranteedProduct` to be created by this mutation.
-  """
-  guaranteedProduct: GuaranteedProductInput!
-}
-
-"""
-The output of our create `GuaranteedProduct` mutation.
-"""
-type CreateGuaranteedProductPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  The `GuaranteedProduct` that was created by this mutation.
-  """
-  guaranteedProduct: GuaranteedProduct
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """
-  Reads a single `Product` that is related to this `GuaranteedProduct`.
-  """
-  product: Product
-
-  """
-  Reads a single `Guarantee` that is related to this `GuaranteedProduct`.
-  """
-  guarantee: Guarantee
-
-  """
-  An edge for our `GuaranteedProduct`. May be used by Relay 1.
-  """
-  guaranteedProductEdge(
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): GuaranteedProductsEdge
 }
 
 """
@@ -4527,6 +5685,16 @@ type CreateProjectPayload {
   company: Company
 
   """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  siteAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  buildingOwnerAddress: Address
+
+  """
   An edge for our `Project`. May be used by Relay 1.
   """
   projectEdge(
@@ -4588,16 +5756,6 @@ type CreateSystemMemberPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
-
-  """
-  Reads a single `System` that is related to this `SystemMember`.
-  """
-  system: System
-
-  """
-  Reads a single `Product` that is related to this `SystemMember`.
-  """
-  product: Product
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.
@@ -4802,16 +5960,6 @@ type DeleteAddressPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
-
-  """
-  Reads a single `Project` that is related to this `Address`.
-  """
-  project: Project
-
-  """
-  Reads a single `Company` that is related to this `Address`.
-  """
-  company: Company
 
   """
   An edge for our `Address`. May be used by Relay 1.
@@ -5169,6 +6317,16 @@ type DeleteCompanyPayload {
   market: Market
 
   """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  registeredAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
+
+  """
   An edge for our `Company`. May be used by Relay 1.
   """
   companyEdge(
@@ -5212,9 +6370,9 @@ input DeleteCourseByNodeIdInput {
 }
 
 """
-All input for the `deleteCourseCatalogByNodeId` mutation.
+All input for the `deleteCourseCatalogueByCatalogueIdAndCourseId` mutation.
 """
-input DeleteCourseCatalogByNodeIdInput {
+input DeleteCourseCatalogueByCatalogueIdAndCourseIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -5222,15 +6380,36 @@ input DeleteCourseCatalogByNodeIdInput {
   clientMutationId: String
 
   """
-  The globally unique `ID` which will identify a single `CourseCatalog` to be deleted.
+  market
+  """
+  catalogueId: Int!
+
+  """
+  fk
+  """
+  courseId: Int!
+}
+
+"""
+All input for the `deleteCourseCatalogueByNodeId` mutation.
+"""
+input DeleteCourseCatalogueByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseCatalogue` to be deleted.
   """
   nodeId: ID!
 }
 
 """
-All input for the `deleteCourseCatalog` mutation.
+All input for the `deleteCourseCatalogue` mutation.
 """
-input DeleteCourseCatalogInput {
+input DeleteCourseCatalogueInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -5244,9 +6423,9 @@ input DeleteCourseCatalogInput {
 }
 
 """
-The output of our delete `CourseCatalog` mutation.
+The output of our delete `CourseCatalogue` mutation.
 """
-type DeleteCourseCatalogPayload {
+type DeleteCourseCataloguePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
   unchanged and unused. May be used by a client to track mutations.
@@ -5254,10 +6433,10 @@ type DeleteCourseCatalogPayload {
   clientMutationId: String
 
   """
-  The `CourseCatalog` that was deleted by this mutation.
+  The `CourseCatalogue` that was deleted by this mutation.
   """
-  courseCatalog: CourseCatalog
-  deletedCourseCatalogNodeId: ID
+  courseCatalogue: CourseCatalogue
+  deletedCourseCatalogueNodeId: ID
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -5265,19 +6444,83 @@ type DeleteCourseCatalogPayload {
   query: Query
 
   """
-  Reads a single `Course` that is related to this `CourseCatalog`.
+  Reads a single `Course` that is related to this `CourseCatalogue`.
   """
   course: Course
 
   """
-  An edge for our `CourseCatalog`. May be used by Relay 1.
+  An edge for our `CourseCatalogue`. May be used by Relay 1.
   """
-  courseCatalogEdge(
+  courseCatalogueEdge(
     """
-    The method to use when ordering `CourseCatalog`.
+    The method to use when ordering `CourseCatalogue`.
     """
-    orderBy: [CourseCatalogsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): CourseCatalogsEdge
+    orderBy: [CourseCataloguesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseCataloguesEdge
+}
+
+"""
+All input for the `deleteCourseCatalogueTempByNodeId` mutation.
+"""
+input DeleteCourseCatalogueTempByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseCatalogueTemp` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteCourseCatalogueTemp` mutation.
+"""
+input DeleteCourseCatalogueTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The output of our delete `CourseCatalogueTemp` mutation.
+"""
+type DeleteCourseCatalogueTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseCatalogueTemp` that was deleted by this mutation.
+  """
+  courseCatalogueTemp: CourseCatalogueTemp
+  deletedCourseCatalogueTempNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseCatalogueTemp`. May be used by Relay 1.
+  """
+  courseCatalogueTempEdge(
+    """
+    The method to use when ordering `CourseCatalogueTemp`.
+    """
+    orderBy: [CourseCatalogueTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseCatalogueTempsEdge
 }
 
 """
@@ -5294,6 +6537,27 @@ input DeleteCourseEnrollmentByNodeIdInput {
   The globally unique `ID` which will identify a single `CourseEnrollment` to be deleted.
   """
   nodeId: ID!
+}
+
+"""
+All input for the `deleteCourseEnrollmentByUserIdAndCourseId` mutation.
+"""
+input DeleteCourseEnrollmentByUserIdAndCourseIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  account
+  """
+  userId: Int!
+
+  """
+  fk
+  """
+  courseId: Int!
 }
 
 """
@@ -5350,6 +6614,70 @@ type DeleteCourseEnrollmentPayload {
 }
 
 """
+All input for the `deleteCourseEnrollmentTempByNodeId` mutation.
+"""
+input DeleteCourseEnrollmentTempByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseEnrollmentTemp` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteCourseEnrollmentTemp` mutation.
+"""
+input DeleteCourseEnrollmentTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The output of our delete `CourseEnrollmentTemp` mutation.
+"""
+type DeleteCourseEnrollmentTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseEnrollmentTemp` that was deleted by this mutation.
+  """
+  courseEnrollmentTemp: CourseEnrollmentTemp
+  deletedCourseEnrollmentTempNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseEnrollmentTemp`. May be used by Relay 1.
+  """
+  courseEnrollmentTempEdge(
+    """
+    The method to use when ordering `CourseEnrollmentTemp`.
+    """
+    orderBy: [CourseEnrollmentTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseEnrollmentTempsEdge
+}
+
+"""
 All input for the `deleteCourse` mutation.
 """
 input DeleteCourseInput {
@@ -5395,6 +6723,150 @@ type DeleteCoursePayload {
     """
     orderBy: [CoursesOrderBy!] = [PRIMARY_KEY_ASC]
   ): CoursesEdge
+}
+
+"""
+All input for the `deleteCourseSyncConfigurationByConfigName` mutation.
+"""
+input DeleteCourseSyncConfigurationByConfigNameInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  account
+  """
+  configName: String!
+}
+
+"""
+All input for the `deleteCourseSyncConfigurationByNodeId` mutation.
+"""
+input DeleteCourseSyncConfigurationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseSyncConfiguration` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteCourseSyncConfiguration` mutation.
+"""
+input DeleteCourseSyncConfigurationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The output of our delete `CourseSyncConfiguration` mutation.
+"""
+type DeleteCourseSyncConfigurationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseSyncConfiguration` that was deleted by this mutation.
+  """
+  courseSyncConfiguration: CourseSyncConfiguration
+  deletedCourseSyncConfigurationNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseSyncConfiguration`. May be used by Relay 1.
+  """
+  courseSyncConfigurationEdge(
+    """
+    The method to use when ordering `CourseSyncConfiguration`.
+    """
+    orderBy: [CourseSyncConfigurationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseSyncConfigurationsEdge
+}
+
+"""
+All input for the `deleteCourseTempByNodeId` mutation.
+"""
+input DeleteCourseTempByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseTemp` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteCourseTemp` mutation.
+"""
+input DeleteCourseTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The output of our delete `CourseTemp` mutation.
+"""
+type DeleteCourseTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseTemp` that was deleted by this mutation.
+  """
+  courseTemp: CourseTemp
+  deletedCourseTempNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseTemp`. May be used by Relay 1.
+  """
+  courseTempEdge(
+    """
+    The method to use when ordering `CourseTemp`.
+    """
+    orderBy: [CourseTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseTempsEdge
 }
 
 """
@@ -5537,7 +7009,12 @@ type DeleteGuaranteePayload {
   """
   Reads a single `System` that is related to this `Guarantee`.
   """
-  system: System
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `Guarantee`.
+  """
+  productByProductBmiRef: Product
 
   """
   Reads a single `Account` that is related to this `Guarantee`.
@@ -5553,80 +7030,6 @@ type DeleteGuaranteePayload {
     """
     orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
   ): GuaranteesEdge
-}
-
-"""
-All input for the `deleteGuaranteedProductByNodeId` mutation.
-"""
-input DeleteGuaranteedProductByNodeIdInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The globally unique `ID` which will identify a single `GuaranteedProduct` to be deleted.
-  """
-  nodeId: ID!
-}
-
-"""
-All input for the `deleteGuaranteedProduct` mutation.
-"""
-input DeleteGuaranteedProductInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  Primary key
-  """
-  id: Int!
-}
-
-"""
-The output of our delete `GuaranteedProduct` mutation.
-"""
-type DeleteGuaranteedProductPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  The `GuaranteedProduct` that was deleted by this mutation.
-  """
-  guaranteedProduct: GuaranteedProduct
-  deletedGuaranteedProductNodeId: ID
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """
-  Reads a single `Product` that is related to this `GuaranteedProduct`.
-  """
-  product: Product
-
-  """
-  Reads a single `Guarantee` that is related to this `GuaranteedProduct`.
-  """
-  guarantee: Guarantee
-
-  """
-  An edge for our `GuaranteedProduct`. May be used by Relay 1.
-  """
-  guaranteedProductEdge(
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): GuaranteedProductsEdge
 }
 
 """
@@ -5701,6 +7104,23 @@ type DeleteInvitationPayload {
     """
     orderBy: [InvitationsOrderBy!] = [PRIMARY_KEY_ASC]
   ): InvitationsEdge
+}
+
+"""
+All input for the `deleteMarketByDoceboCatalogueId` mutation.
+"""
+input DeleteMarketByDoceboCatalogueIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The default catalogue for the market.  All users in the market are able to see
+  all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
 }
 
 """
@@ -5911,6 +7331,22 @@ type DeleteNotificationPayload {
 }
 
 """
+All input for the `deleteProductByBmiRef` mutation.
+"""
+input DeleteProductByBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  A unique reference for the product known to BMI
+  """
+  bmiRef: String!
+}
+
+"""
 All input for the `deleteProductByNodeId` mutation.
 """
 input DeleteProductByNodeIdInput {
@@ -6112,6 +7548,16 @@ type DeleteProjectPayload {
   company: Company
 
   """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  siteAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  buildingOwnerAddress: Address
+
+  """
   An edge for our `Project`. May be used by Relay 1.
   """
   projectEdge(
@@ -6120,6 +7566,22 @@ type DeleteProjectPayload {
     """
     orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
   ): ProjectsEdge
+}
+
+"""
+All input for the `deleteSystemByBmiRef` mutation.
+"""
+input DeleteSystemByBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  A unique reference for the system known to BMI
+  """
+  bmiRef: String!
 }
 
 """
@@ -6206,16 +7668,6 @@ type DeleteSystemMemberPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
-
-  """
-  Reads a single `System` that is related to this `SystemMember`.
-  """
-  system: System
-
-  """
-  Reads a single `Product` that is related to this `SystemMember`.
-  """
-  product: Product
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.
@@ -6396,8 +7848,14 @@ enum EvidenceCategoryOrder {
   sys_publishedVersion_DESC
 }
 
+enum EvidenceCategoryType {
+  PROOF_OF_PURCHASE
+  MISCELLANEOUS
+  CUSTOM
+}
+
 """
-An item of evidence for a guarantee
+An file uploaded to a project, usually as evidence to support a guarantee
 """
 type EvidenceItem implements Node {
   """
@@ -6413,12 +7871,17 @@ type EvidenceItem implements Node {
   """
   a reference to the evidenceCategory sys id in Contentful
   """
-  evidenceCategoryId: String
+  customEvidenceCategoryId: String
 
   """
   fk
   """
   guaranteeId: Int
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
 
   """
   Short name for the item of evidence
@@ -6466,12 +7929,17 @@ input EvidenceItemInput {
   """
   a reference to the evidenceCategory sys id in Contentful
   """
-  evidenceCategoryId: String
+  customEvidenceCategoryId: String
 
   """
   fk
   """
   guaranteeId: Int
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
 
   """
   Short name for the item of evidence
@@ -6498,12 +7966,17 @@ input EvidenceItemPatch {
   """
   a reference to the evidenceCategory sys id in Contentful
   """
-  evidenceCategoryId: String
+  customEvidenceCategoryId: String
 
   """
   fk
   """
   guaranteeId: Int
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
 
   """
   Short name for the item of evidence
@@ -6588,7 +8061,7 @@ type Guarantee implements Node {
   """
   The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
   """
-  pdf: String
+  fileStorageId: String
 
   """
   fk
@@ -6611,9 +8084,14 @@ type Guarantee implements Node {
   guaranteeTypeId: String
 
   """
-  fk
+  system
   """
-  systemId: Int
+  systemBmiRef: String
+
+  """
+  product
+  """
+  productBmiRef: String
 
   """
   fk
@@ -6631,14 +8109,14 @@ type Guarantee implements Node {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually.
+  The date that the Guarantee is approved either automatically or manually
   """
   startDate: Datetime
 
   """
   When the guarantee will expire.  This is calculated when the request_status
   becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-  System and the ValidityOffset in this Tier.
+  System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -6646,9 +8124,9 @@ type Guarantee implements Node {
   This will be presented on the Guarantee pdf itself, if approved and is the
   primary reference for the Guarantees report. It is unique in the In the legacy
   system, the number is 3 sets of 4 digit numbers concatenated into one long
-  number from the Company Id, Project Id and Request Id.
+  number from the Company Id, Project Id and Guarantee Id
   """
-  issueNumber: String
+  bmiReferenceId: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -6670,7 +8148,12 @@ type Guarantee implements Node {
   """
   Reads a single `System` that is related to this `Guarantee`.
   """
-  system: System
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `Guarantee`.
+  """
+  productByProductBmiRef: Product
 
   """
   Reads a single `Account` that is related to this `Guarantee`.
@@ -6717,47 +8200,6 @@ type Guarantee implements Node {
     """
     condition: EvidenceItemCondition
   ): EvidenceItemsConnection!
-
-  """
-  Reads and enables pagination through a set of `GuaranteedProduct`.
-  """
-  guaranteedProducts(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: GuaranteedProductCondition
-  ): GuaranteedProductsConnection!
   guaranteeType: ContentfulGuaranteeType
 }
 
@@ -6787,9 +8229,14 @@ input GuaranteeCondition {
   projectId: Int
 
   """
-  Checks for equality with the object’s `systemId` field.
+  Checks for equality with the object’s `systemBmiRef` field.
   """
-  systemId: Int
+  systemBmiRef: String
+
+  """
+  Checks for equality with the object’s `productBmiRef` field.
+  """
+  productBmiRef: String
 
   """
   Checks for equality with the object’s `reviewerAccountId` field.
@@ -6809,7 +8256,7 @@ input GuaranteeInput {
   """
   The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
   """
-  pdf: String
+  fileStorageId: String
 
   """
   fk
@@ -6832,9 +8279,14 @@ input GuaranteeInput {
   guaranteeTypeId: String
 
   """
-  fk
+  system
   """
-  systemId: Int
+  systemBmiRef: String
+
+  """
+  product
+  """
+  productBmiRef: String
 
   """
   fk
@@ -6852,14 +8304,14 @@ input GuaranteeInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually.
+  The date that the Guarantee is approved either automatically or manually
   """
   startDate: Datetime
 
   """
   When the guarantee will expire.  This is calculated when the request_status
   becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-  System and the ValidityOffset in this Tier.
+  System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -6867,9 +8319,9 @@ input GuaranteeInput {
   This will be presented on the Guarantee pdf itself, if approved and is the
   primary reference for the Guarantees report. It is unique in the In the legacy
   system, the number is 3 sets of 4 digit numbers concatenated into one long
-  number from the Company Id, Project Id and Request Id.
+  number from the Company Id, Project Id and Guarantee Id
   """
-  issueNumber: String
+  bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -6886,7 +8338,7 @@ input GuaranteePatch {
   """
   The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
   """
-  pdf: String
+  fileStorageId: String
 
   """
   fk
@@ -6909,9 +8361,14 @@ input GuaranteePatch {
   guaranteeTypeId: String
 
   """
-  fk
+  system
   """
-  systemId: Int
+  systemBmiRef: String
+
+  """
+  product
+  """
+  productBmiRef: String
 
   """
   fk
@@ -6929,14 +8386,14 @@ input GuaranteePatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually.
+  The date that the Guarantee is approved either automatically or manually
   """
   startDate: Datetime
 
   """
   When the guarantee will expire.  This is calculated when the request_status
   becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-  System and the ValidityOffset in this Tier.
+  System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -6944,9 +8401,9 @@ input GuaranteePatch {
   This will be presented on the Guarantee pdf itself, if approved and is the
   primary reference for the Guarantees report. It is unique in the In the legacy
   system, the number is 3 sets of 4 digit numbers concatenated into one long
-  number from the Company Id, Project Id and Request Id.
+  number from the Company Id, Project Id and Guarantee Id
   """
-  issueNumber: String
+  bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -7391,163 +8848,6 @@ enum GuaranteeTypeOrder {
 }
 
 """
-A mapping of Products to Guarantees.  Needed because uou can have more than one Product per Product Guarantee.
-"""
-type GuaranteedProduct implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-
-  """
-  Primary key
-  """
-  id: Int!
-
-  """
-  fk
-  """
-  productId: Int
-
-  """
-  fk
-  """
-  guaranteeId: Int
-  createdAt: Datetime!
-  updatedAt: Datetime!
-
-  """
-  Reads a single `Product` that is related to this `GuaranteedProduct`.
-  """
-  product: Product
-
-  """
-  Reads a single `Guarantee` that is related to this `GuaranteedProduct`.
-  """
-  guarantee: Guarantee
-}
-
-"""
-A condition to be used against `GuaranteedProduct` object types. All fields are
-tested for equality and combined with a logical ‘and.’
-"""
-input GuaranteedProductCondition {
-  """
-  Checks for equality with the object’s `id` field.
-  """
-  id: Int
-
-  """
-  Checks for equality with the object’s `productId` field.
-  """
-  productId: Int
-
-  """
-  Checks for equality with the object’s `guaranteeId` field.
-  """
-  guaranteeId: Int
-}
-
-"""
-An input for mutations affecting `GuaranteedProduct`
-"""
-input GuaranteedProductInput {
-  """
-  Primary key
-  """
-  id: Int
-
-  """
-  fk
-  """
-  productId: Int
-
-  """
-  fk
-  """
-  guaranteeId: Int
-  createdAt: Datetime
-  updatedAt: Datetime
-}
-
-"""
-Represents an update to a `GuaranteedProduct`. Fields that are set will be updated.
-"""
-input GuaranteedProductPatch {
-  """
-  Primary key
-  """
-  id: Int
-
-  """
-  fk
-  """
-  productId: Int
-
-  """
-  fk
-  """
-  guaranteeId: Int
-  createdAt: Datetime
-  updatedAt: Datetime
-}
-
-"""
-A connection to a list of `GuaranteedProduct` values.
-"""
-type GuaranteedProductsConnection {
-  """
-  A list of `GuaranteedProduct` objects.
-  """
-  nodes: [GuaranteedProduct!]!
-
-  """
-  A list of edges which contains the `GuaranteedProduct` and cursor to aid in pagination.
-  """
-  edges: [GuaranteedProductsEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `GuaranteedProduct` you could get from the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-A `GuaranteedProduct` edge in the connection.
-"""
-type GuaranteedProductsEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: Cursor
-
-  """
-  The `GuaranteedProduct` at the end of the edge.
-  """
-  node: GuaranteedProduct!
-}
-
-"""
-Methods to use when ordering `GuaranteedProduct`.
-"""
-enum GuaranteedProductsOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  PRODUCT_ID_ASC
-  PRODUCT_ID_DESC
-  GUARANTEE_ID_ASC
-  GUARANTEE_ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
 A connection to a list of `Guarantee` values.
 """
 type GuaranteesConnection {
@@ -7600,8 +8900,10 @@ enum GuaranteesOrderBy {
   RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC
   PROJECT_ID_ASC
   PROJECT_ID_DESC
-  SYSTEM_ID_ASC
-  SYSTEM_ID_DESC
+  SYSTEM_BMI_REF_ASC
+  SYSTEM_BMI_REF_DESC
+  PRODUCT_BMI_REF_ASC
+  PRODUCT_BMI_REF_DESC
   REVIEWER_ACCOUNT_ID_ASC
   REVIEWER_ACCOUNT_ID_DESC
   PRIMARY_KEY_ASC
@@ -8102,7 +9404,7 @@ type Market implements Node {
   The default catalogue for the market.  All users in the market are able to see
   all courses in the default catalog from InTouch
   """
-  doceboCatalogueId: String
+  doceboCatalogueId: Int
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -8110,9 +9412,7 @@ type Market implements Node {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is
-  available.  Tier 0 can then be configured to support Guarantees in non-Roopro
-  countries.  In Roofpro countries various Tier configurations become possible.
+  Whether the market supports Projects.  If so then the Project section is available.
   """
   projectsEnabled: Boolean
 
@@ -8122,7 +9422,7 @@ type Market implements Node {
   gtag: String
 
   """
-  The coordinates of the middle of the country on a map
+  The coordinates of the middle of the Market on a map
   """
   geoMiddle: String
   createdAt: Datetime!
@@ -8342,6 +9642,11 @@ input MarketCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
+
+  """
+  Checks for equality with the object’s `doceboCatalogueId` field.
+  """
+  doceboCatalogueId: Int
 }
 
 """
@@ -8569,7 +9874,7 @@ input MarketInput {
   The default catalogue for the market.  All users in the market are able to see
   all courses in the default catalog from InTouch
   """
-  doceboCatalogueId: String
+  doceboCatalogueId: Int
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -8577,9 +9882,7 @@ input MarketInput {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is
-  available.  Tier 0 can then be configured to support Guarantees in non-Roopro
-  countries.  In Roofpro countries various Tier configurations become possible.
+  Whether the market supports Projects.  If so then the Project section is available.
   """
   projectsEnabled: Boolean
 
@@ -8589,7 +9892,7 @@ input MarketInput {
   gtag: String
 
   """
-  The coordinates of the middle of the country on a map
+  The coordinates of the middle of the Market on a map
   """
   geoMiddle: String
   createdAt: Datetime
@@ -8649,7 +9952,7 @@ input MarketPatch {
   The default catalogue for the market.  All users in the market are able to see
   all courses in the default catalog from InTouch
   """
-  doceboCatalogueId: String
+  doceboCatalogueId: Int
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -8657,9 +9960,7 @@ input MarketPatch {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is
-  available.  Tier 0 can then be configured to support Guarantees in non-Roopro
-  countries.  In Roofpro countries various Tier configurations become possible.
+  Whether the market supports Projects.  If so then the Project section is available.
   """
   projectsEnabled: Boolean
 
@@ -8669,7 +9970,7 @@ input MarketPatch {
   gtag: String
 
   """
-  The coordinates of the middle of the country on a map
+  The coordinates of the middle of the Market on a map
   """
   geoMiddle: String
   createdAt: Datetime
@@ -8723,6 +10024,8 @@ enum MarketsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  DOCEBO_CATALOGUE_ID_ASC
+  DOCEBO_CATALOGUE_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -9117,16 +10420,6 @@ type Mutation {
   ): CreateGuaranteePayload
 
   """
-  Creates a single `GuaranteedProduct`.
-  """
-  createGuaranteedProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateGuaranteedProductInput!
-  ): CreateGuaranteedProductPayload
-
-  """
   Creates a single `Invitation`.
   """
   createInvitation(
@@ -9407,26 +10700,6 @@ type Mutation {
   ): UpdateGuaranteePayload
 
   """
-  Updates a single `GuaranteedProduct` using its globally unique id and a patch.
-  """
-  updateGuaranteedProductByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateGuaranteedProductByNodeIdInput!
-  ): UpdateGuaranteedProductPayload
-
-  """
-  Updates a single `GuaranteedProduct` using a unique key and a patch.
-  """
-  updateGuaranteedProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateGuaranteedProductInput!
-  ): UpdateGuaranteedProductPayload
-
-  """
   Updates a single `Invitation` using its globally unique id and a patch.
   """
   updateInvitationByNodeId(
@@ -9464,6 +10737,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateMarketInput!
+  ): UpdateMarketPayload
+
+  """
+  Updates a single `Market` using a unique key and a patch.
+  """
+  updateMarketByDoceboCatalogueId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarketByDoceboCatalogueIdInput!
   ): UpdateMarketPayload
 
   """
@@ -9527,6 +10810,16 @@ type Mutation {
   ): UpdateProductPayload
 
   """
+  Updates a single `Product` using a unique key and a patch.
+  """
+  updateProductByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProductByBmiRefInput!
+  ): UpdateProductPayload
+
+  """
   Updates a single `Project` using its globally unique id and a patch.
   """
   updateProjectByNodeId(
@@ -9584,6 +10877,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateSystemInput!
+  ): UpdateSystemPayload
+
+  """
+  Updates a single `System` using a unique key and a patch.
+  """
+  updateSystemByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemByBmiRefInput!
   ): UpdateSystemPayload
 
   """
@@ -9797,26 +11100,6 @@ type Mutation {
   ): DeleteGuaranteePayload
 
   """
-  Deletes a single `GuaranteedProduct` using its globally unique id.
-  """
-  deleteGuaranteedProductByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteGuaranteedProductByNodeIdInput!
-  ): DeleteGuaranteedProductPayload
-
-  """
-  Deletes a single `GuaranteedProduct` using a unique key.
-  """
-  deleteGuaranteedProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteGuaranteedProductInput!
-  ): DeleteGuaranteedProductPayload
-
-  """
   Deletes a single `Invitation` using its globally unique id.
   """
   deleteInvitationByNodeId(
@@ -9854,6 +11137,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteMarketInput!
+  ): DeleteMarketPayload
+
+  """
+  Deletes a single `Market` using a unique key.
+  """
+  deleteMarketByDoceboCatalogueId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarketByDoceboCatalogueIdInput!
   ): DeleteMarketPayload
 
   """
@@ -9917,6 +11210,16 @@ type Mutation {
   ): DeleteProductPayload
 
   """
+  Deletes a single `Product` using a unique key.
+  """
+  deleteProductByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProductByBmiRefInput!
+  ): DeleteProductPayload
+
+  """
   Deletes a single `Project` using its globally unique id.
   """
   deleteProjectByNodeId(
@@ -9977,6 +11280,16 @@ type Mutation {
   ): DeleteSystemPayload
 
   """
+  Deletes a single `System` using a unique key.
+  """
+  deleteSystemByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemByBmiRefInput!
+  ): DeleteSystemPayload
+
+  """
   Deletes a single `SystemMember` using its globally unique id.
   """
   deleteSystemMemberByNodeId(
@@ -10020,14 +11333,24 @@ type Mutation {
   ): CreateCoursePayload
 
   """
-  Creates a single `CourseCatalog`.
+  Creates a single `CourseCatalogue`.
   """
-  createCourseCatalog(
+  createCourseCatalogue(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: CreateCourseCatalogInput!
-  ): CreateCourseCatalogPayload
+    input: CreateCourseCatalogueInput!
+  ): CreateCourseCataloguePayload
+
+  """
+  Creates a single `CourseCatalogueTemp`.
+  """
+  createCourseCatalogueTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCourseCatalogueTempInput!
+  ): CreateCourseCatalogueTempPayload
 
   """
   Creates a single `CourseEnrollment`.
@@ -10038,6 +11361,36 @@ type Mutation {
     """
     input: CreateCourseEnrollmentInput!
   ): CreateCourseEnrollmentPayload
+
+  """
+  Creates a single `CourseEnrollmentTemp`.
+  """
+  createCourseEnrollmentTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCourseEnrollmentTempInput!
+  ): CreateCourseEnrollmentTempPayload
+
+  """
+  Creates a single `CourseSyncConfiguration`.
+  """
+  createCourseSyncConfiguration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCourseSyncConfigurationInput!
+  ): CreateCourseSyncConfigurationPayload
+
+  """
+  Creates a single `CourseTemp`.
+  """
+  createCourseTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCourseTempInput!
+  ): CreateCourseTempPayload
 
   """
   Updates a single `Course` using its globally unique id and a patch.
@@ -10070,24 +11423,54 @@ type Mutation {
   ): UpdateCoursePayload
 
   """
-  Updates a single `CourseCatalog` using its globally unique id and a patch.
+  Updates a single `CourseCatalogue` using its globally unique id and a patch.
   """
-  updateCourseCatalogByNodeId(
+  updateCourseCatalogueByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseCatalogByNodeIdInput!
-  ): UpdateCourseCatalogPayload
+    input: UpdateCourseCatalogueByNodeIdInput!
+  ): UpdateCourseCataloguePayload
 
   """
-  Updates a single `CourseCatalog` using a unique key and a patch.
+  Updates a single `CourseCatalogue` using a unique key and a patch.
   """
-  updateCourseCatalog(
+  updateCourseCatalogue(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseCatalogInput!
-  ): UpdateCourseCatalogPayload
+    input: UpdateCourseCatalogueInput!
+  ): UpdateCourseCataloguePayload
+
+  """
+  Updates a single `CourseCatalogue` using a unique key and a patch.
+  """
+  updateCourseCatalogueByCatalogueIdAndCourseId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseCatalogueByCatalogueIdAndCourseIdInput!
+  ): UpdateCourseCataloguePayload
+
+  """
+  Updates a single `CourseCatalogueTemp` using its globally unique id and a patch.
+  """
+  updateCourseCatalogueTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseCatalogueTempByNodeIdInput!
+  ): UpdateCourseCatalogueTempPayload
+
+  """
+  Updates a single `CourseCatalogueTemp` using a unique key and a patch.
+  """
+  updateCourseCatalogueTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseCatalogueTempInput!
+  ): UpdateCourseCatalogueTempPayload
 
   """
   Updates a single `CourseEnrollment` using its globally unique id and a patch.
@@ -10108,6 +11491,86 @@ type Mutation {
     """
     input: UpdateCourseEnrollmentInput!
   ): UpdateCourseEnrollmentPayload
+
+  """
+  Updates a single `CourseEnrollment` using a unique key and a patch.
+  """
+  updateCourseEnrollmentByUserIdAndCourseId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseEnrollmentByUserIdAndCourseIdInput!
+  ): UpdateCourseEnrollmentPayload
+
+  """
+  Updates a single `CourseEnrollmentTemp` using its globally unique id and a patch.
+  """
+  updateCourseEnrollmentTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseEnrollmentTempByNodeIdInput!
+  ): UpdateCourseEnrollmentTempPayload
+
+  """
+  Updates a single `CourseEnrollmentTemp` using a unique key and a patch.
+  """
+  updateCourseEnrollmentTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseEnrollmentTempInput!
+  ): UpdateCourseEnrollmentTempPayload
+
+  """
+  Updates a single `CourseSyncConfiguration` using its globally unique id and a patch.
+  """
+  updateCourseSyncConfigurationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseSyncConfigurationByNodeIdInput!
+  ): UpdateCourseSyncConfigurationPayload
+
+  """
+  Updates a single `CourseSyncConfiguration` using a unique key and a patch.
+  """
+  updateCourseSyncConfiguration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseSyncConfigurationInput!
+  ): UpdateCourseSyncConfigurationPayload
+
+  """
+  Updates a single `CourseSyncConfiguration` using a unique key and a patch.
+  """
+  updateCourseSyncConfigurationByConfigName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseSyncConfigurationByConfigNameInput!
+  ): UpdateCourseSyncConfigurationPayload
+
+  """
+  Updates a single `CourseTemp` using its globally unique id and a patch.
+  """
+  updateCourseTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseTempByNodeIdInput!
+  ): UpdateCourseTempPayload
+
+  """
+  Updates a single `CourseTemp` using a unique key and a patch.
+  """
+  updateCourseTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseTempInput!
+  ): UpdateCourseTempPayload
 
   """
   Deletes a single `Course` using its globally unique id.
@@ -10140,24 +11603,54 @@ type Mutation {
   ): DeleteCoursePayload
 
   """
-  Deletes a single `CourseCatalog` using its globally unique id.
+  Deletes a single `CourseCatalogue` using its globally unique id.
   """
-  deleteCourseCatalogByNodeId(
+  deleteCourseCatalogueByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCourseCatalogByNodeIdInput!
-  ): DeleteCourseCatalogPayload
+    input: DeleteCourseCatalogueByNodeIdInput!
+  ): DeleteCourseCataloguePayload
 
   """
-  Deletes a single `CourseCatalog` using a unique key.
+  Deletes a single `CourseCatalogue` using a unique key.
   """
-  deleteCourseCatalog(
+  deleteCourseCatalogue(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCourseCatalogInput!
-  ): DeleteCourseCatalogPayload
+    input: DeleteCourseCatalogueInput!
+  ): DeleteCourseCataloguePayload
+
+  """
+  Deletes a single `CourseCatalogue` using a unique key.
+  """
+  deleteCourseCatalogueByCatalogueIdAndCourseId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseCatalogueByCatalogueIdAndCourseIdInput!
+  ): DeleteCourseCataloguePayload
+
+  """
+  Deletes a single `CourseCatalogueTemp` using its globally unique id.
+  """
+  deleteCourseCatalogueTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseCatalogueTempByNodeIdInput!
+  ): DeleteCourseCatalogueTempPayload
+
+  """
+  Deletes a single `CourseCatalogueTemp` using a unique key.
+  """
+  deleteCourseCatalogueTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseCatalogueTempInput!
+  ): DeleteCourseCatalogueTempPayload
 
   """
   Deletes a single `CourseEnrollment` using its globally unique id.
@@ -10178,7 +11671,130 @@ type Mutation {
     """
     input: DeleteCourseEnrollmentInput!
   ): DeleteCourseEnrollmentPayload
+
+  """
+  Deletes a single `CourseEnrollment` using a unique key.
+  """
+  deleteCourseEnrollmentByUserIdAndCourseId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseEnrollmentByUserIdAndCourseIdInput!
+  ): DeleteCourseEnrollmentPayload
+
+  """
+  Deletes a single `CourseEnrollmentTemp` using its globally unique id.
+  """
+  deleteCourseEnrollmentTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseEnrollmentTempByNodeIdInput!
+  ): DeleteCourseEnrollmentTempPayload
+
+  """
+  Deletes a single `CourseEnrollmentTemp` using a unique key.
+  """
+  deleteCourseEnrollmentTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseEnrollmentTempInput!
+  ): DeleteCourseEnrollmentTempPayload
+
+  """
+  Deletes a single `CourseSyncConfiguration` using its globally unique id.
+  """
+  deleteCourseSyncConfigurationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseSyncConfigurationByNodeIdInput!
+  ): DeleteCourseSyncConfigurationPayload
+
+  """
+  Deletes a single `CourseSyncConfiguration` using a unique key.
+  """
+  deleteCourseSyncConfiguration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseSyncConfigurationInput!
+  ): DeleteCourseSyncConfigurationPayload
+
+  """
+  Deletes a single `CourseSyncConfiguration` using a unique key.
+  """
+  deleteCourseSyncConfigurationByConfigName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseSyncConfigurationByConfigNameInput!
+  ): DeleteCourseSyncConfigurationPayload
+
+  """
+  Deletes a single `CourseTemp` using its globally unique id.
+  """
+  deleteCourseTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseTempByNodeIdInput!
+  ): DeleteCourseTempPayload
+
+  """
+  Deletes a single `CourseTemp` using a unique key.
+  """
+  deleteCourseTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseTempInput!
+  ): DeleteCourseTempPayload
+  courseCatalogueUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseCatalogueUpdateInput!
+  ): CourseCatalogueUpdatePayload
+  courseCatalogueUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseCatalogueUpdateByTempInput!
+  ): CourseCatalogueUpdateByTempPayload
+  courseEnrollmentUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseEnrollmentUpdateInput!
+  ): CourseEnrollmentUpdatePayload
+  courseEnrollmentUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseEnrollmentUpdateByTempInput!
+  ): CourseEnrollmentUpdateByTempPayload
+  courseUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseUpdateInput!
+  ): CourseUpdatePayload
+  courseUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseUpdateByTempInput!
+  ): CourseUpdateByTempPayload
   createSSOUrl(username: String!, path: String): SSOUrlOutput
+  updateTraining(lastUpdateDate: String): String
+  createDoceboUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UserCreateInput
+  ): UserCreateResponse
 }
 
 """
@@ -10722,12 +12338,12 @@ type Product implements Node {
   brand: String
 
   """
-  Short name for the product
+  Short name for the Product
   """
   name: String
 
   """
-  A description of the product
+  A description of the Product
   """
   description: String
 
@@ -10737,7 +12353,7 @@ type Product implements Node {
   family: String
 
   """
-  Whether the product is avialable when being selected or not
+  Whether the Product is avialable for new guarantees
   """
   published: Boolean
 
@@ -10754,9 +12370,9 @@ type Product implements Node {
   market: Market
 
   """
-  Reads and enables pagination through a set of `GuaranteedProduct`.
+  Reads and enables pagination through a set of `Guarantee`.
   """
-  guaranteedProducts(
+  guaranteesByProductBmiRef(
     """
     Only read the first `n` values of the set.
     """
@@ -10784,56 +12400,15 @@ type Product implements Node {
     after: Cursor
 
     """
-    The method to use when ordering `GuaranteedProduct`.
+    The method to use when ordering `Guarantee`.
     """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: GuaranteedProductCondition
-  ): GuaranteedProductsConnection!
-
-  """
-  Reads and enables pagination through a set of `SystemMember`.
-  """
-  systemMembers(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `SystemMember`.
-    """
-    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: SystemMemberCondition
-  ): SystemMembersConnection!
+    condition: GuaranteeCondition
+  ): GuaranteesConnection!
 }
 
 """
@@ -10849,6 +12424,11 @@ input ProductCondition {
   Checks for equality with the object’s `marketId` field.
   """
   marketId: Int
+
+  """
+  Checks for equality with the object’s `bmiRef` field.
+  """
+  bmiRef: String
 }
 
 """
@@ -10881,12 +12461,12 @@ input ProductInput {
   brand: String
 
   """
-  Short name for the product
+  Short name for the Product
   """
   name: String
 
   """
-  A description of the product
+  A description of the Product
   """
   description: String
 
@@ -10896,7 +12476,7 @@ input ProductInput {
   family: String
 
   """
-  Whether the product is avialable when being selected or not
+  Whether the Product is avialable for new guarantees
   """
   published: Boolean
 
@@ -10938,12 +12518,12 @@ input ProductPatch {
   brand: String
 
   """
-  Short name for the product
+  Short name for the Product
   """
   name: String
 
   """
-  A description of the product
+  A description of the Product
   """
   description: String
 
@@ -10953,7 +12533,7 @@ input ProductPatch {
   family: String
 
   """
-  Whether the product is avialable when being selected or not
+  Whether the Product is avialable for new guarantees
   """
   published: Boolean
 
@@ -11014,6 +12594,8 @@ enum ProductsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  BMI_REF_ASC
+  BMI_REF_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -11038,6 +12620,16 @@ type Project implements Node {
   companyId: Int
 
   """
+  fk
+  """
+  siteAddressId: Int
+
+  """
+  fk
+  """
+  buildingOwnerAddressId: Int
+
+  """
   ek
   """
   technology: Technology
@@ -11053,7 +12645,7 @@ type Project implements Node {
   description: String
 
   """
-  If this is true then the Project should have been hidden from users
+  If this is true then the Project should be hidden from End Users
   """
   hidden: Boolean
 
@@ -11080,7 +12672,7 @@ type Project implements Node {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if they have one
+  Name of the Building Owners Company if it is known
   """
   buildingOwnerCompany: String
 
@@ -11090,7 +12682,7 @@ type Project implements Node {
   startDate: Datetime
 
   """
-  The date that the Project expects to end.
+  The date that the Project expects to end
   """
   endDate: Datetime
   createdAt: Datetime!
@@ -11102,45 +12694,14 @@ type Project implements Node {
   company: Company
 
   """
-  Reads and enables pagination through a set of `Address`.
+  Reads a single `Address` that is related to this `Project`.
   """
-  addresses(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
+  siteAddress: Address
 
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Address`.
-    """
-    orderBy: [AddressesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: AddressCondition
-  ): AddressesConnection!
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  buildingOwnerAddress: Address
 
   """
   Reads and enables pagination through a set of `Guarantee`.
@@ -11279,6 +12840,16 @@ input ProjectCondition {
   Checks for equality with the object’s `companyId` field.
   """
   companyId: Int
+
+  """
+  Checks for equality with the object’s `siteAddressId` field.
+  """
+  siteAddressId: Int
+
+  """
+  Checks for equality with the object’s `buildingOwnerAddressId` field.
+  """
+  buildingOwnerAddressId: Int
 }
 
 """
@@ -11296,6 +12867,16 @@ input ProjectInput {
   companyId: Int
 
   """
+  fk
+  """
+  siteAddressId: Int
+
+  """
+  fk
+  """
+  buildingOwnerAddressId: Int
+
+  """
   ek
   """
   technology: Technology
@@ -11311,7 +12892,7 @@ input ProjectInput {
   description: String
 
   """
-  If this is true then the Project should have been hidden from users
+  If this is true then the Project should be hidden from End Users
   """
   hidden: Boolean
 
@@ -11338,7 +12919,7 @@ input ProjectInput {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if they have one
+  Name of the Building Owners Company if it is known
   """
   buildingOwnerCompany: String
 
@@ -11348,7 +12929,7 @@ input ProjectInput {
   startDate: Datetime
 
   """
-  The date that the Project expects to end.
+  The date that the Project expects to end
   """
   endDate: Datetime
   createdAt: Datetime
@@ -11356,9 +12937,7 @@ input ProjectInput {
 }
 
 """
-A connection between a User and a Project. A connection between a user and a
-company. This relationship could be simplified as one to many at the moment, but
-there is already demand for a many to many relationship.
+People who are on a Project
 """
 type ProjectMember implements Node {
   """
@@ -11529,6 +13108,16 @@ input ProjectPatch {
   companyId: Int
 
   """
+  fk
+  """
+  siteAddressId: Int
+
+  """
+  fk
+  """
+  buildingOwnerAddressId: Int
+
+  """
   ek
   """
   technology: Technology
@@ -11544,7 +13133,7 @@ input ProjectPatch {
   description: String
 
   """
-  If this is true then the Project should have been hidden from users
+  If this is true then the Project should be hidden from End Users
   """
   hidden: Boolean
 
@@ -11571,7 +13160,7 @@ input ProjectPatch {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if they have one
+  Name of the Building Owners Company if it is known
   """
   buildingOwnerCompany: String
 
@@ -11581,7 +13170,7 @@ input ProjectPatch {
   startDate: Datetime
 
   """
-  The date that the Project expects to end.
+  The date that the Project expects to end
   """
   endDate: Datetime
   createdAt: Datetime
@@ -11637,6 +13226,10 @@ enum ProjectsOrderBy {
   ID_DESC
   COMPANY_ID_ASC
   COMPANY_ID_DESC
+  SITE_ADDRESS_ID_ASC
+  SITE_ADDRESS_ID_DESC
+  BUILDING_OWNER_ADDRESS_ID_ASC
+  BUILDING_OWNER_ADDRESS_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -12056,47 +13649,6 @@ type Query {
   ): GuaranteesConnection
 
   """
-  Reads and enables pagination through a set of `GuaranteedProduct`.
-  """
-  guaranteedProducts(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: GuaranteedProductCondition
-  ): GuaranteedProductsConnection
-
-  """
   Reads and enables pagination through a set of `Invitation`.
   """
   invitations(
@@ -12474,15 +14026,17 @@ type Query {
   companyOperation(id: Int!): CompanyOperation
   evidenceItem(id: Int!): EvidenceItem
   guarantee(id: Int!): Guarantee
-  guaranteedProduct(id: Int!): GuaranteedProduct
   invitation(id: Int!): Invitation
   market(id: Int!): Market
+  marketByDoceboCatalogueId(doceboCatalogueId: Int!): Market
   note(id: Int!): Note
   notification(id: Int!): Notification
   product(id: Int!): Product
+  productByBmiRef(bmiRef: String!): Product
   project(id: Int!): Project
   projectMember(id: Int!): ProjectMember
   system(id: Int!): System
+  systemByBmiRef(bmiRef: String!): System
   systemMember(id: Int!): SystemMember
   currentAccountEmail: String
   currentAccountId: Int
@@ -12606,16 +14160,6 @@ type Query {
     """
     nodeId: ID!
   ): Guarantee
-
-  """
-  Reads a single `GuaranteedProduct` using its globally unique `ID`.
-  """
-  guaranteedProductByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `GuaranteedProduct`.
-    """
-    nodeId: ID!
-  ): GuaranteedProduct
 
   """
   Reads a single `Invitation` using its globally unique `ID`.
@@ -12749,9 +14293,9 @@ type Query {
   ): CoursesConnection
 
   """
-  Reads and enables pagination through a set of `CourseCatalog`.
+  Reads and enables pagination through a set of `CourseCatalogue`.
   """
-  courseCatalogs(
+  courseCatalogues(
     """
     Only read the first `n` values of the set.
     """
@@ -12779,15 +14323,56 @@ type Query {
     after: Cursor
 
     """
-    The method to use when ordering `CourseCatalog`.
+    The method to use when ordering `CourseCatalogue`.
     """
-    orderBy: [CourseCatalogsOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [CourseCataloguesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CourseCatalogCondition
-  ): CourseCatalogsConnection
+    condition: CourseCatalogueCondition
+  ): CourseCataloguesConnection
+
+  """
+  Reads and enables pagination through a set of `CourseCatalogueTemp`.
+  """
+  courseCatalogueTemps(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `CourseCatalogueTemp`.
+    """
+    orderBy: [CourseCatalogueTempsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CourseCatalogueTempCondition
+  ): CourseCatalogueTempsConnection
 
   """
   Reads and enables pagination through a set of `CourseEnrollment`.
@@ -12829,10 +14414,148 @@ type Query {
     """
     condition: CourseEnrollmentCondition
   ): CourseEnrollmentsConnection
+
+  """
+  Reads and enables pagination through a set of `CourseEnrollmentTemp`.
+  """
+  courseEnrollmentTemps(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `CourseEnrollmentTemp`.
+    """
+    orderBy: [CourseEnrollmentTempsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CourseEnrollmentTempCondition
+  ): CourseEnrollmentTempsConnection
+
+  """
+  Reads and enables pagination through a set of `CourseSyncConfiguration`.
+  """
+  courseSyncConfigurations(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `CourseSyncConfiguration`.
+    """
+    orderBy: [CourseSyncConfigurationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CourseSyncConfigurationCondition
+  ): CourseSyncConfigurationsConnection
+
+  """
+  Reads and enables pagination through a set of `CourseTemp`.
+  """
+  courseTemps(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `CourseTemp`.
+    """
+    orderBy: [CourseTempsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CourseTempCondition
+  ): CourseTempsConnection
   course(id: Int!): Course
   courseByCourseId(courseId: Int!): Course
-  courseCatalog(id: Int!): CourseCatalog
+  courseCatalogue(id: Int!): CourseCatalogue
+  courseCatalogueByCatalogueIdAndCourseId(
+    catalogueId: Int!
+    courseId: Int!
+  ): CourseCatalogue
+  courseCatalogueTemp(id: Int!): CourseCatalogueTemp
   courseEnrollment(id: Int!): CourseEnrollment
+  courseEnrollmentByUserIdAndCourseId(
+    userId: Int!
+    courseId: Int!
+  ): CourseEnrollment
+  courseEnrollmentTemp(id: Int!): CourseEnrollmentTemp
+  courseSyncConfiguration(id: Int!): CourseSyncConfiguration
+  courseSyncConfigurationByConfigName(
+    configName: String!
+  ): CourseSyncConfiguration
+  courseTemp(id: Int!): CourseTemp
 
   """
   Reads a single `Course` using its globally unique `ID`.
@@ -12845,14 +14568,24 @@ type Query {
   ): Course
 
   """
-  Reads a single `CourseCatalog` using its globally unique `ID`.
+  Reads a single `CourseCatalogue` using its globally unique `ID`.
   """
-  courseCatalogByNodeId(
+  courseCatalogueByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `CourseCatalog`.
+    The globally unique `ID` to be used in selecting a single `CourseCatalogue`.
     """
     nodeId: ID!
-  ): CourseCatalog
+  ): CourseCatalogue
+
+  """
+  Reads a single `CourseCatalogueTemp` using its globally unique `ID`.
+  """
+  courseCatalogueTempByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CourseCatalogueTemp`.
+    """
+    nodeId: ID!
+  ): CourseCatalogueTemp
 
   """
   Reads a single `CourseEnrollment` using its globally unique `ID`.
@@ -12863,6 +14596,36 @@ type Query {
     """
     nodeId: ID!
   ): CourseEnrollment
+
+  """
+  Reads a single `CourseEnrollmentTemp` using its globally unique `ID`.
+  """
+  courseEnrollmentTempByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CourseEnrollmentTemp`.
+    """
+    nodeId: ID!
+  ): CourseEnrollmentTemp
+
+  """
+  Reads a single `CourseSyncConfiguration` using its globally unique `ID`.
+  """
+  courseSyncConfigurationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CourseSyncConfiguration`.
+    """
+    nodeId: ID!
+  ): CourseSyncConfiguration
+
+  """
+  Reads a single `CourseTemp` using its globally unique `ID`.
+  """
+  courseTempByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CourseTemp`.
+    """
+    nodeId: ID!
+  ): CourseTemp
   token: Token
   tokenByUsername(username: String!): Token
   asset(id: String!, preview: Boolean, locale: String): Asset
@@ -13054,6 +14817,10 @@ type SSOUrlOutput {
   url: String
 }
 
+input SelectOrgchart {
+  branch_id: String
+}
+
 type Sys {
   id: String!
   spaceId: String!
@@ -13145,7 +14912,7 @@ type System implements Node {
   maximumValidityYears: Int
 
   """
-  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  If true this system is available for users to select when applying for a system or solution guarantee
   """
   published: Boolean
   createdAt: Datetime!
@@ -13159,7 +14926,7 @@ type System implements Node {
   """
   Reads and enables pagination through a set of `Guarantee`.
   """
-  guarantees(
+  guaranteesBySystemBmiRef(
     """
     Only read the first `n` values of the set.
     """
@@ -13196,47 +14963,6 @@ type System implements Node {
     """
     condition: GuaranteeCondition
   ): GuaranteesConnection!
-
-  """
-  Reads and enables pagination through a set of `SystemMember`.
-  """
-  systemMembers(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `SystemMember`.
-    """
-    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: SystemMemberCondition
-  ): SystemMembersConnection!
 }
 
 """
@@ -13252,6 +14978,11 @@ input SystemCondition {
   Checks for equality with the object’s `marketId` field.
   """
   marketId: Int
+
+  """
+  Checks for equality with the object’s `bmiRef` field.
+  """
+  bmiRef: String
 }
 
 """
@@ -13294,7 +15025,7 @@ input SystemInput {
   maximumValidityYears: Int
 
   """
-  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  If true this system is available for users to select when applying for a system or solution guarantee
   """
   published: Boolean
   createdAt: Datetime
@@ -13302,7 +15033,7 @@ input SystemInput {
 }
 
 """
-A system product pair
+A Products that make up a system
 """
 type SystemMember implements Node {
   """
@@ -13316,26 +15047,16 @@ type SystemMember implements Node {
   id: Int!
 
   """
-  fk
+  system
   """
-  systemId: Int
+  systemBmiRef: String
 
   """
-  fk
+  product
   """
-  productId: Int
+  productBmiRef: String
   createdAt: Datetime!
   updatedAt: Datetime!
-
-  """
-  Reads a single `System` that is related to this `SystemMember`.
-  """
-  system: System
-
-  """
-  Reads a single `Product` that is related to this `SystemMember`.
-  """
-  product: Product
 }
 
 """
@@ -13347,16 +15068,6 @@ input SystemMemberCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
-
-  """
-  Checks for equality with the object’s `systemId` field.
-  """
-  systemId: Int
-
-  """
-  Checks for equality with the object’s `productId` field.
-  """
-  productId: Int
 }
 
 """
@@ -13369,14 +15080,14 @@ input SystemMemberInput {
   id: Int
 
   """
-  fk
+  system
   """
-  systemId: Int
+  systemBmiRef: String
 
   """
-  fk
+  product
   """
-  productId: Int
+  productBmiRef: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -13391,14 +15102,14 @@ input SystemMemberPatch {
   id: Int
 
   """
-  fk
+  system
   """
-  systemId: Int
+  systemBmiRef: String
 
   """
-  fk
+  product
   """
-  productId: Int
+  productBmiRef: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -13450,10 +15161,6 @@ enum SystemMembersOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
-  SYSTEM_ID_ASC
-  SYSTEM_ID_DESC
-  PRODUCT_ID_ASC
-  PRODUCT_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -13498,7 +15205,7 @@ input SystemPatch {
   maximumValidityYears: Int
 
   """
-  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  If true this system is available for users to select when applying for a system or solution guarantee
   """
   published: Boolean
   createdAt: Datetime
@@ -13554,6 +15261,8 @@ enum SystemsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  BMI_REF_ASC
+  BMI_REF_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -14010,16 +15719,6 @@ type UpdateAddressPayload {
   query: Query
 
   """
-  Reads a single `Project` that is related to this `Address`.
-  """
-  project: Project
-
-  """
-  Reads a single `Company` that is related to this `Address`.
-  """
-  company: Company
-
-  """
   An edge for our `Address`. May be used by Relay 1.
   """
   addressEdge(
@@ -14420,6 +16119,16 @@ type UpdateCompanyPayload {
   market: Market
 
   """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  registeredAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
+
+  """
   An edge for our `Company`. May be used by Relay 1.
   """
   companyEdge(
@@ -14473,9 +16182,9 @@ input UpdateCourseByNodeIdInput {
 }
 
 """
-All input for the `updateCourseCatalogByNodeId` mutation.
+All input for the `updateCourseCatalogueByCatalogueIdAndCourseId` mutation.
 """
-input UpdateCourseCatalogByNodeIdInput {
+input UpdateCourseCatalogueByCatalogueIdAndCourseIdInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -14483,20 +16192,46 @@ input UpdateCourseCatalogByNodeIdInput {
   clientMutationId: String
 
   """
-  The globally unique `ID` which will identify a single `CourseCatalog` to be updated.
+  An object where the defined keys will be set on the `CourseCatalogue` being updated.
+  """
+  patch: CourseCataloguePatch!
+
+  """
+  market
+  """
+  catalogueId: Int!
+
+  """
+  fk
+  """
+  courseId: Int!
+}
+
+"""
+All input for the `updateCourseCatalogueByNodeId` mutation.
+"""
+input UpdateCourseCatalogueByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseCatalogue` to be updated.
   """
   nodeId: ID!
 
   """
-  An object where the defined keys will be set on the `CourseCatalog` being updated.
+  An object where the defined keys will be set on the `CourseCatalogue` being updated.
   """
-  patch: CourseCatalogPatch!
+  patch: CourseCataloguePatch!
 }
 
 """
-All input for the `updateCourseCatalog` mutation.
+All input for the `updateCourseCatalogue` mutation.
 """
-input UpdateCourseCatalogInput {
+input UpdateCourseCatalogueInput {
   """
   An arbitrary string value with no semantic meaning. Will be included in the
   payload verbatim. May be used to track mutations by the client.
@@ -14504,9 +16239,9 @@ input UpdateCourseCatalogInput {
   clientMutationId: String
 
   """
-  An object where the defined keys will be set on the `CourseCatalog` being updated.
+  An object where the defined keys will be set on the `CourseCatalogue` being updated.
   """
-  patch: CourseCatalogPatch!
+  patch: CourseCataloguePatch!
 
   """
   Primary key
@@ -14515,9 +16250,9 @@ input UpdateCourseCatalogInput {
 }
 
 """
-The output of our update `CourseCatalog` mutation.
+The output of our update `CourseCatalogue` mutation.
 """
-type UpdateCourseCatalogPayload {
+type UpdateCourseCataloguePayload {
   """
   The exact same `clientMutationId` that was provided in the mutation input,
   unchanged and unused. May be used by a client to track mutations.
@@ -14525,9 +16260,9 @@ type UpdateCourseCatalogPayload {
   clientMutationId: String
 
   """
-  The `CourseCatalog` that was updated by this mutation.
+  The `CourseCatalogue` that was updated by this mutation.
   """
-  courseCatalog: CourseCatalog
+  courseCatalogue: CourseCatalogue
 
   """
   Our root query field type. Allows us to run any query from our mutation payload.
@@ -14535,19 +16270,92 @@ type UpdateCourseCatalogPayload {
   query: Query
 
   """
-  Reads a single `Course` that is related to this `CourseCatalog`.
+  Reads a single `Course` that is related to this `CourseCatalogue`.
   """
   course: Course
 
   """
-  An edge for our `CourseCatalog`. May be used by Relay 1.
+  An edge for our `CourseCatalogue`. May be used by Relay 1.
   """
-  courseCatalogEdge(
+  courseCatalogueEdge(
     """
-    The method to use when ordering `CourseCatalog`.
+    The method to use when ordering `CourseCatalogue`.
     """
-    orderBy: [CourseCatalogsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): CourseCatalogsEdge
+    orderBy: [CourseCataloguesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseCataloguesEdge
+}
+
+"""
+All input for the `updateCourseCatalogueTempByNodeId` mutation.
+"""
+input UpdateCourseCatalogueTempByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseCatalogueTemp` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `CourseCatalogueTemp` being updated.
+  """
+  patch: CourseCatalogueTempPatch!
+}
+
+"""
+All input for the `updateCourseCatalogueTemp` mutation.
+"""
+input UpdateCourseCatalogueTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `CourseCatalogueTemp` being updated.
+  """
+  patch: CourseCatalogueTempPatch!
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The output of our update `CourseCatalogueTemp` mutation.
+"""
+type UpdateCourseCatalogueTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseCatalogueTemp` that was updated by this mutation.
+  """
+  courseCatalogueTemp: CourseCatalogueTemp
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseCatalogueTemp`. May be used by Relay 1.
+  """
+  courseCatalogueTempEdge(
+    """
+    The method to use when ordering `CourseCatalogueTemp`.
+    """
+    orderBy: [CourseCatalogueTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseCatalogueTempsEdge
 }
 
 """
@@ -14569,6 +16377,32 @@ input UpdateCourseEnrollmentByNodeIdInput {
   An object where the defined keys will be set on the `CourseEnrollment` being updated.
   """
   patch: CourseEnrollmentPatch!
+}
+
+"""
+All input for the `updateCourseEnrollmentByUserIdAndCourseId` mutation.
+"""
+input UpdateCourseEnrollmentByUserIdAndCourseIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `CourseEnrollment` being updated.
+  """
+  patch: CourseEnrollmentPatch!
+
+  """
+  account
+  """
+  userId: Int!
+
+  """
+  fk
+  """
+  courseId: Int!
 }
 
 """
@@ -14629,6 +16463,79 @@ type UpdateCourseEnrollmentPayload {
 }
 
 """
+All input for the `updateCourseEnrollmentTempByNodeId` mutation.
+"""
+input UpdateCourseEnrollmentTempByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseEnrollmentTemp` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `CourseEnrollmentTemp` being updated.
+  """
+  patch: CourseEnrollmentTempPatch!
+}
+
+"""
+All input for the `updateCourseEnrollmentTemp` mutation.
+"""
+input UpdateCourseEnrollmentTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `CourseEnrollmentTemp` being updated.
+  """
+  patch: CourseEnrollmentTempPatch!
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The output of our update `CourseEnrollmentTemp` mutation.
+"""
+type UpdateCourseEnrollmentTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseEnrollmentTemp` that was updated by this mutation.
+  """
+  courseEnrollmentTemp: CourseEnrollmentTemp
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseEnrollmentTemp`. May be used by Relay 1.
+  """
+  courseEnrollmentTempEdge(
+    """
+    The method to use when ordering `CourseEnrollmentTemp`.
+    """
+    orderBy: [CourseEnrollmentTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseEnrollmentTempsEdge
+}
+
+"""
 All input for the `updateCourse` mutation.
 """
 input UpdateCourseInput {
@@ -14678,6 +16585,173 @@ type UpdateCoursePayload {
     """
     orderBy: [CoursesOrderBy!] = [PRIMARY_KEY_ASC]
   ): CoursesEdge
+}
+
+"""
+All input for the `updateCourseSyncConfigurationByConfigName` mutation.
+"""
+input UpdateCourseSyncConfigurationByConfigNameInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `CourseSyncConfiguration` being updated.
+  """
+  patch: CourseSyncConfigurationPatch!
+
+  """
+  account
+  """
+  configName: String!
+}
+
+"""
+All input for the `updateCourseSyncConfigurationByNodeId` mutation.
+"""
+input UpdateCourseSyncConfigurationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseSyncConfiguration` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `CourseSyncConfiguration` being updated.
+  """
+  patch: CourseSyncConfigurationPatch!
+}
+
+"""
+All input for the `updateCourseSyncConfiguration` mutation.
+"""
+input UpdateCourseSyncConfigurationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `CourseSyncConfiguration` being updated.
+  """
+  patch: CourseSyncConfigurationPatch!
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The output of our update `CourseSyncConfiguration` mutation.
+"""
+type UpdateCourseSyncConfigurationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseSyncConfiguration` that was updated by this mutation.
+  """
+  courseSyncConfiguration: CourseSyncConfiguration
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseSyncConfiguration`. May be used by Relay 1.
+  """
+  courseSyncConfigurationEdge(
+    """
+    The method to use when ordering `CourseSyncConfiguration`.
+    """
+    orderBy: [CourseSyncConfigurationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseSyncConfigurationsEdge
+}
+
+"""
+All input for the `updateCourseTempByNodeId` mutation.
+"""
+input UpdateCourseTempByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `CourseTemp` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `CourseTemp` being updated.
+  """
+  patch: CourseTempPatch!
+}
+
+"""
+All input for the `updateCourseTemp` mutation.
+"""
+input UpdateCourseTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `CourseTemp` being updated.
+  """
+  patch: CourseTempPatch!
+
+  """
+  Primary key
+  """
+  id: Int!
+}
+
+"""
+The output of our update `CourseTemp` mutation.
+"""
+type UpdateCourseTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `CourseTemp` that was updated by this mutation.
+  """
+  courseTemp: CourseTemp
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `CourseTemp`. May be used by Relay 1.
+  """
+  courseTempEdge(
+    """
+    The method to use when ordering `CourseTemp`.
+    """
+    orderBy: [CourseTempsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CourseTempsEdge
 }
 
 """
@@ -14838,7 +16912,12 @@ type UpdateGuaranteePayload {
   """
   Reads a single `System` that is related to this `Guarantee`.
   """
-  system: System
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `Guarantee`.
+  """
+  productByProductBmiRef: Product
 
   """
   Reads a single `Account` that is related to this `Guarantee`.
@@ -14854,89 +16933,6 @@ type UpdateGuaranteePayload {
     """
     orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
   ): GuaranteesEdge
-}
-
-"""
-All input for the `updateGuaranteedProductByNodeId` mutation.
-"""
-input UpdateGuaranteedProductByNodeIdInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The globally unique `ID` which will identify a single `GuaranteedProduct` to be updated.
-  """
-  nodeId: ID!
-
-  """
-  An object where the defined keys will be set on the `GuaranteedProduct` being updated.
-  """
-  patch: GuaranteedProductPatch!
-}
-
-"""
-All input for the `updateGuaranteedProduct` mutation.
-"""
-input UpdateGuaranteedProductInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  An object where the defined keys will be set on the `GuaranteedProduct` being updated.
-  """
-  patch: GuaranteedProductPatch!
-
-  """
-  Primary key
-  """
-  id: Int!
-}
-
-"""
-The output of our update `GuaranteedProduct` mutation.
-"""
-type UpdateGuaranteedProductPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  The `GuaranteedProduct` that was updated by this mutation.
-  """
-  guaranteedProduct: GuaranteedProduct
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """
-  Reads a single `Product` that is related to this `GuaranteedProduct`.
-  """
-  product: Product
-
-  """
-  Reads a single `Guarantee` that is related to this `GuaranteedProduct`.
-  """
-  guarantee: Guarantee
-
-  """
-  An edge for our `GuaranteedProduct`. May be used by Relay 1.
-  """
-  guaranteedProductEdge(
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): GuaranteedProductsEdge
 }
 
 """
@@ -15020,6 +17016,28 @@ type UpdateInvitationPayload {
     """
     orderBy: [InvitationsOrderBy!] = [PRIMARY_KEY_ASC]
   ): InvitationsEdge
+}
+
+"""
+All input for the `updateMarketByDoceboCatalogueId` mutation.
+"""
+input UpdateMarketByDoceboCatalogueIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Market` being updated.
+  """
+  patch: MarketPatch!
+
+  """
+  The default catalogue for the market.  All users in the market are able to see
+  all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
 }
 
 """
@@ -15257,6 +17275,27 @@ type UpdateNotificationPayload {
 }
 
 """
+All input for the `updateProductByBmiRef` mutation.
+"""
+input UpdateProductByBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Product` being updated.
+  """
+  patch: ProductPatch!
+
+  """
+  A unique reference for the product known to BMI
+  """
+  bmiRef: String!
+}
+
+"""
 All input for the `updateProductByNodeId` mutation.
 """
 input UpdateProductByNodeIdInput {
@@ -15485,6 +17524,16 @@ type UpdateProjectPayload {
   company: Company
 
   """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  siteAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  buildingOwnerAddress: Address
+
+  """
   An edge for our `Project`. May be used by Relay 1.
   """
   projectEdge(
@@ -15493,6 +17542,27 @@ type UpdateProjectPayload {
     """
     orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
   ): ProjectsEdge
+}
+
+"""
+All input for the `updateSystemByBmiRef` mutation.
+"""
+input UpdateSystemByBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `System` being updated.
+  """
+  patch: SystemPatch!
+
+  """
+  A unique reference for the system known to BMI
+  """
+  bmiRef: String!
 }
 
 """
@@ -15600,16 +17670,6 @@ type UpdateSystemMemberPayload {
   query: Query
 
   """
-  Reads a single `System` that is related to this `SystemMember`.
-  """
-  system: System
-
-  """
-  Reads a single `Product` that is related to this `SystemMember`.
-  """
-  product: Product
-
-  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -15654,6 +17714,32 @@ type UpdateSystemPayload {
     """
     orderBy: [SystemsOrderBy!] = [PRIMARY_KEY_ASC]
   ): SystemsEdge
+}
+
+input UserCreateInput {
+  userid: String
+  email: String
+  password: String
+  privacy: String
+  firstname: String
+  lastname: String
+  force_change: Int
+  level: Int
+  language: String
+  expiration: String
+  email_validation_status: Int
+  valid: Int
+  date_format: String
+  timezone: String
+  role: Int
+  send_notification_email: Boolean
+  can_manage_subordinates: Boolean
+  select_orgchart: SelectOrgchart
+}
+
+type UserCreateResponse {
+  success: Boolean
+  user_id: Int
 }
 
 input cfContentArticleNestedFilter {

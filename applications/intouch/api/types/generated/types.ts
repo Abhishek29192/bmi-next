@@ -70,8 +70,10 @@ export type Account = Node & {
   doceboUserId?: Maybe<Scalars["Int"]>;
   /** Username in Docebo.  Needed to generate the SSO link */
   doceboUsername?: Maybe<Scalars["String"]>;
-  /** File reference or the file itself. A profile picture of the user */
+  /** File reference. A profile picture of the user */
   photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `Account`. */
@@ -229,8 +231,10 @@ export type AccountPatch = {
   doceboUserId?: Maybe<Scalars["Int"]>;
   /** Username in Docebo.  Needed to generate the SSO link */
   doceboUsername?: Maybe<Scalars["String"]>;
-  /** File reference or the file itself. A profile picture of the user */
+  /** File reference. A profile picture of the user */
   photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -283,60 +287,104 @@ export type Address = Node & {
   nodeId: Scalars["ID"];
   /** Primary key */
   id: Scalars["Int"];
-  /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  addressType?: Maybe<AddressType>;
   /** First line of this address */
   firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
   town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
   postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<Point>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
-  /** Reads a single `Project` that is related to this `Address`. */
-  project?: Maybe<Project>;
-  /** Reads a single `Company` that is related to this `Address`. */
-  company?: Maybe<Company>;
+  /** Reads and enables pagination through a set of `Company`. */
+  companiesByRegisteredAddressId: CompaniesConnection;
+  /** Reads and enables pagination through a set of `Company`. */
+  companiesByTradingAddressId: CompaniesConnection;
+  /** Reads and enables pagination through a set of `Project`. */
+  projectsBySiteAddressId: ProjectsConnection;
+  /** Reads and enables pagination through a set of `Project`. */
+  projectsByBuildingOwnerAddressId: ProjectsConnection;
+};
+
+/** A generic address */
+export type AddressCompaniesByRegisteredAddressIdArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CompaniesOrderBy>>;
+  condition?: Maybe<CompanyCondition>;
+};
+
+/** A generic address */
+export type AddressCompaniesByTradingAddressIdArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<CompaniesOrderBy>>;
+  condition?: Maybe<CompanyCondition>;
+};
+
+/** A generic address */
+export type AddressProjectsBySiteAddressIdArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<ProjectsOrderBy>>;
+  condition?: Maybe<ProjectCondition>;
+};
+
+/** A generic address */
+export type AddressProjectsByBuildingOwnerAddressIdArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<ProjectsOrderBy>>;
+  condition?: Maybe<ProjectCondition>;
 };
 
 /** A condition to be used against `Address` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type AddressCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `projectId` field. */
-  projectId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `companyId` field. */
-  companyId?: Maybe<Scalars["Int"]>;
 };
 
 /** An input for mutations affecting `Address` */
 export type AddressInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  addressType?: Maybe<AddressType>;
   /** First line of this address */
   firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
   town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
   postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -345,32 +393,25 @@ export type AddressInput = {
 export type AddressPatch = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  projectId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  addressType?: Maybe<AddressType>;
   /** First line of this address */
   firstLine?: Maybe<Scalars["String"]>;
   /** Second line of this address */
   secondLine?: Maybe<Scalars["String"]>;
   /** The postal town */
   town?: Maybe<Scalars["String"]>;
+  /** The region if relevant */
+  region?: Maybe<Scalars["String"]>;
   /** The country for this address */
   country?: Maybe<Scalars["String"]>;
   /** The postcode for this address */
   postcode?: Maybe<Scalars["String"]>;
+  /** The coordinates on a map of the world */
+  coordinates?: Maybe<PointInput>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
-
-export enum AddressType {
-  Registered = "REGISTERED",
-  Trading = "TRADING",
-  BuildingOwner = "BUILDING_OWNER",
-  Site = "SITE"
-}
 
 /** A connection to a list of `Address` values. */
 export type AddressesConnection = {
@@ -399,10 +440,6 @@ export enum AddressesOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  ProjectIdAsc = "PROJECT_ID_ASC",
-  ProjectIdDesc = "PROJECT_ID_DESC",
-  CompanyIdAsc = "COMPANY_ID_ASC",
-  CompanyIdDesc = "COMPANY_ID_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -945,6 +982,10 @@ export enum CompaniesOrderBy {
   IdDesc = "ID_DESC",
   MarketIdAsc = "MARKET_ID_ASC",
   MarketIdDesc = "MARKET_ID_DESC",
+  RegisteredAddressIdAsc = "REGISTERED_ADDRESS_ID_ASC",
+  RegisteredAddressIdDesc = "REGISTERED_ADDRESS_ID_DESC",
+  TradingAddressIdAsc = "TRADING_ADDRESS_ID_ASC",
+  TradingAddressIdDesc = "TRADING_ADDRESS_ID_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -958,6 +999,10 @@ export type Company = Node & {
   id: Scalars["Int"];
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
   /** the name of the owner of the Company */
   ownerFullname?: Maybe<Scalars["String"]>;
   /** the email address to contact the owner */
@@ -978,15 +1023,13 @@ export type Company = Node & {
   doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
-  /** The Tax number in that number, such as the VAT number */
+  /** The Tax number in that Market, such as the VAT number */
   taxNumber?: Maybe<Scalars["String"]>;
-  /** They Companys public phone number */
+  /** They Company public phone number */
   phone?: Maybe<Scalars["String"]>;
-  /** The companys GoogleMap address */
-  coordinates?: Maybe<Point>;
   /** A bit of blurb to appear in Find a contractor */
   aboutUs?: Maybe<Scalars["String"]>;
-  /** The email address that they can be contacted with by the public assuming they are listed. */
+  /** The email address that they can be contacted with by the public assuming they are listed */
   publicEmail?: Maybe<Scalars["String"]>;
   /** The Company website URL */
   website?: Maybe<Scalars["String"]>;
@@ -1001,12 +1044,20 @@ export type Company = Node & {
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo */
   logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `Company`. */
   market?: Maybe<Market>;
-  /** Reads and enables pagination through a set of `Address`. */
-  addresses: AddressesConnection;
+  /** Reads a single `Address` that is related to this `Company`. */
+  registeredAddress?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Company`. */
+  tradingAddress?: Maybe<Address>;
   /** Reads and enables pagination through a set of `CompanyDocument`. */
   companyDocuments: CompanyDocumentsConnection;
   /** Reads and enables pagination through a set of `CompanyMember`. */
@@ -1017,17 +1068,6 @@ export type Company = Node & {
   invitations: InvitationsConnection;
   /** Reads and enables pagination through a set of `Project`. */
   projects: ProjectsConnection;
-};
-
-/** A company that has been registered in InTouch */
-export type CompanyAddressesArgs = {
-  first?: Maybe<Scalars["Int"]>;
-  last?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  before?: Maybe<Scalars["Cursor"]>;
-  after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<AddressesOrderBy>>;
-  condition?: Maybe<AddressCondition>;
 };
 
 /** A company that has been registered in InTouch */
@@ -1091,6 +1131,10 @@ export type CompanyCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `registeredAddressId` field. */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `tradingAddressId` field. */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
 };
 
 /** A document uploaded by the Company to InTouch that appears on their Company Profile, for example an insurance certificate */
@@ -1184,6 +1228,10 @@ export type CompanyInput = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
   /** the name of the owner of the Company */
   ownerFullname?: Maybe<Scalars["String"]>;
   /** the email address to contact the owner */
@@ -1204,15 +1252,13 @@ export type CompanyInput = {
   doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
-  /** The Tax number in that number, such as the VAT number */
+  /** The Tax number in that Market, such as the VAT number */
   taxNumber?: Maybe<Scalars["String"]>;
-  /** They Companys public phone number */
+  /** They Company public phone number */
   phone?: Maybe<Scalars["String"]>;
-  /** The companys GoogleMap address */
-  coordinates?: Maybe<PointInput>;
   /** A bit of blurb to appear in Find a contractor */
   aboutUs?: Maybe<Scalars["String"]>;
-  /** The email address that they can be contacted with by the public assuming they are listed. */
+  /** The email address that they can be contacted with by the public assuming they are listed */
   publicEmail?: Maybe<Scalars["String"]>;
   /** The Company website URL */
   website?: Maybe<Scalars["String"]>;
@@ -1227,6 +1273,12 @@ export type CompanyInput = {
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo */
   logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -1429,6 +1481,10 @@ export type CompanyPatch = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   marketId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  registeredAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  tradingAddressId?: Maybe<Scalars["Int"]>;
   /** the name of the owner of the Company */
   ownerFullname?: Maybe<Scalars["String"]>;
   /** the email address to contact the owner */
@@ -1449,15 +1505,13 @@ export type CompanyPatch = {
   doceboGroupId?: Maybe<Scalars["String"]>;
   /** The registered name of the Company */
   name?: Maybe<Scalars["String"]>;
-  /** The Tax number in that number, such as the VAT number */
+  /** The Tax number in that Market, such as the VAT number */
   taxNumber?: Maybe<Scalars["String"]>;
-  /** They Companys public phone number */
+  /** They Company public phone number */
   phone?: Maybe<Scalars["String"]>;
-  /** The companys GoogleMap address */
-  coordinates?: Maybe<PointInput>;
   /** A bit of blurb to appear in Find a contractor */
   aboutUs?: Maybe<Scalars["String"]>;
-  /** The email address that they can be contacted with by the public assuming they are listed. */
+  /** The email address that they can be contacted with by the public assuming they are listed */
   publicEmail?: Maybe<Scalars["String"]>;
   /** The Company website URL */
   website?: Maybe<Scalars["String"]>;
@@ -1472,6 +1526,12 @@ export type CompanyPatch = {
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo */
   logo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -2075,6 +2135,28 @@ export type CourseCatalogueUpdateByTempPayload = {
   query?: Maybe<Query>;
 };
 
+/** All input for the `courseCatalogueUpdate` mutation. */
+export type CourseCatalogueUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  catalogues?: Maybe<Array<Maybe<CourseCatalogueInput>>>;
+};
+
+/** The output of our `courseCatalogueUpdate` mutation. */
+export type CourseCatalogueUpdatePayload = {
+  __typename?: "CourseCatalogueUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** A connection to a list of `CourseCatalogue` values. */
 export type CourseCataloguesConnection = {
   __typename?: "CourseCataloguesConnection";
@@ -2300,6 +2382,28 @@ export type CourseEnrollmentUpdateByTempPayload = {
   query?: Maybe<Query>;
 };
 
+/** All input for the `courseEnrollmentUpdate` mutation. */
+export type CourseEnrollmentUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  enrollments?: Maybe<Array<Maybe<CourseEnrollmentInput>>>;
+};
+
+/** The output of our `courseEnrollmentUpdate` mutation. */
+export type CourseEnrollmentUpdatePayload = {
+  __typename?: "CourseEnrollmentUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** A connection to a list of `CourseEnrollment` values. */
 export type CourseEnrollmentsConnection = {
   __typename?: "CourseEnrollmentsConnection";
@@ -2401,6 +2505,8 @@ export type CourseSyncConfiguration = {
 export type CourseSyncConfigurationCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `configName` field. */
+  configName?: Maybe<Scalars["String"]>;
 };
 
 /** An input for mutations affecting `CourseSyncConfiguration` */
@@ -2454,6 +2560,8 @@ export enum CourseSyncConfigurationsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
+  ConfigNameAsc = "CONFIG_NAME_ASC",
+  ConfigNameDesc = "CONFIG_NAME_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -2476,7 +2584,7 @@ export type CourseTemp = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses a listed higher than others */
+  /** Promoted courses are listed higher than others */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -2507,7 +2615,7 @@ export type CourseTempInput = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses a listed higher than others */
+  /** Promoted courses are listed higher than others */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -2529,7 +2637,7 @@ export type CourseTempPatch = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses a listed higher than others */
+  /** Promoted courses are listed higher than others */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -2588,6 +2696,28 @@ export type CourseUpdateByTempPayload = {
    */
   clientMutationId?: Maybe<Scalars["String"]>;
   bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** All input for the `courseUpdate` mutation. */
+export type CourseUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  courses?: Maybe<Array<Maybe<CourseInput>>>;
+};
+
+/** The output of our `courseUpdate` mutation. */
+export type CourseUpdatePayload = {
+  __typename?: "CourseUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
 };
@@ -2684,10 +2814,6 @@ export type CreateAddressPayload = {
   address?: Maybe<Address>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Project` that is related to this `Address`. */
-  project?: Maybe<Project>;
-  /** Reads a single `Company` that is related to this `Address`. */
-  company?: Maybe<Company>;
   /** An edge for our `Address`. May be used by Relay 1. */
   addressEdge?: Maybe<AddressesEdge>;
 };
@@ -2862,6 +2988,10 @@ export type CreateCompanyPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Company`. */
   market?: Maybe<Market>;
+  /** Reads a single `Address` that is related to this `Company`. */
+  registeredAddress?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Company`. */
+  tradingAddress?: Maybe<Address>;
   /** An edge for our `Company`. May be used by Relay 1. */
   companyEdge?: Maybe<CompaniesEdge>;
 };
@@ -3164,7 +3294,9 @@ export type CreateGuaranteePayload = {
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
-  system?: Maybe<System>;
+  systemBySystemBmiRef?: Maybe<System>;
+  /** Reads a single `Product` that is related to this `Guarantee`. */
+  productByProductBmiRef?: Maybe<Product>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   reviewerAccount?: Maybe<Account>;
   /** An edge for our `Guarantee`. May be used by Relay 1. */
@@ -3174,42 +3306,6 @@ export type CreateGuaranteePayload = {
 /** The output of our create `Guarantee` mutation. */
 export type CreateGuaranteePayloadGuaranteeEdgeArgs = {
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
-};
-
-/** All input for the create `GuaranteedProduct` mutation. */
-export type CreateGuaranteedProductInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `GuaranteedProduct` to be created by this mutation. */
-  guaranteedProduct: GuaranteedProductInput;
-};
-
-/** The output of our create `GuaranteedProduct` mutation. */
-export type CreateGuaranteedProductPayload = {
-  __typename?: "CreateGuaranteedProductPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `GuaranteedProduct` that was created by this mutation. */
-  guaranteedProduct?: Maybe<GuaranteedProduct>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Product` that is related to this `GuaranteedProduct`. */
-  product?: Maybe<Product>;
-  /** Reads a single `Guarantee` that is related to this `GuaranteedProduct`. */
-  guarantee?: Maybe<Guarantee>;
-  /** An edge for our `GuaranteedProduct`. May be used by Relay 1. */
-  guaranteedProductEdge?: Maybe<GuaranteedProductsEdge>;
-};
-
-/** The output of our create `GuaranteedProduct` mutation. */
-export type CreateGuaranteedProductPayloadGuaranteedProductEdgeArgs = {
-  orderBy?: Maybe<Array<GuaranteedProductsOrderBy>>;
 };
 
 /** All input for the create `Invitation` mutation. */
@@ -3445,6 +3541,10 @@ export type CreateProjectPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `Project`. */
   company?: Maybe<Company>;
+  /** Reads a single `Address` that is related to this `Project`. */
+  siteAddress?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Project`. */
+  buildingOwnerAddress?: Maybe<Address>;
   /** An edge for our `Project`. May be used by Relay 1. */
   projectEdge?: Maybe<ProjectsEdge>;
 };
@@ -3488,10 +3588,6 @@ export type CreateSystemMemberPayload = {
   systemMember?: Maybe<SystemMember>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `System` that is related to this `SystemMember`. */
-  system?: Maybe<System>;
-  /** Reads a single `Product` that is related to this `SystemMember`. */
-  product?: Maybe<Product>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -3616,10 +3712,6 @@ export type DeleteAddressPayload = {
   deletedAddressNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Project` that is related to this `Address`. */
-  project?: Maybe<Project>;
-  /** Reads a single `Company` that is related to this `Address`. */
-  company?: Maybe<Company>;
   /** An edge for our `Address`. May be used by Relay 1. */
   addressEdge?: Maybe<AddressesEdge>;
 };
@@ -3854,6 +3946,10 @@ export type DeleteCompanyPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Company`. */
   market?: Maybe<Market>;
+  /** Reads a single `Address` that is related to this `Company`. */
+  registeredAddress?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Company`. */
+  tradingAddress?: Maybe<Address>;
   /** An edge for our `Company`. May be used by Relay 1. */
   companyEdge?: Maybe<CompaniesEdge>;
 };
@@ -4124,6 +4220,17 @@ export type DeleteCoursePayloadCourseEdgeArgs = {
   orderBy?: Maybe<Array<CoursesOrderBy>>;
 };
 
+/** All input for the `deleteCourseSyncConfigurationByConfigName` mutation. */
+export type DeleteCourseSyncConfigurationByConfigNameInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** account */
+  configName: Scalars["String"];
+};
+
 /** All input for the `deleteCourseSyncConfigurationByNodeId` mutation. */
 export type DeleteCourseSyncConfigurationByNodeIdInput = {
   /**
@@ -4301,7 +4408,9 @@ export type DeleteGuaranteePayload = {
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
-  system?: Maybe<System>;
+  systemBySystemBmiRef?: Maybe<System>;
+  /** Reads a single `Product` that is related to this `Guarantee`. */
+  productByProductBmiRef?: Maybe<Product>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   reviewerAccount?: Maybe<Account>;
   /** An edge for our `Guarantee`. May be used by Relay 1. */
@@ -4311,54 +4420,6 @@ export type DeleteGuaranteePayload = {
 /** The output of our delete `Guarantee` mutation. */
 export type DeleteGuaranteePayloadGuaranteeEdgeArgs = {
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
-};
-
-/** All input for the `deleteGuaranteedProductByNodeId` mutation. */
-export type DeleteGuaranteedProductByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `GuaranteedProduct` to be deleted. */
-  nodeId: Scalars["ID"];
-};
-
-/** All input for the `deleteGuaranteedProduct` mutation. */
-export type DeleteGuaranteedProductInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** The output of our delete `GuaranteedProduct` mutation. */
-export type DeleteGuaranteedProductPayload = {
-  __typename?: "DeleteGuaranteedProductPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `GuaranteedProduct` that was deleted by this mutation. */
-  guaranteedProduct?: Maybe<GuaranteedProduct>;
-  deletedGuaranteedProductNodeId?: Maybe<Scalars["ID"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Product` that is related to this `GuaranteedProduct`. */
-  product?: Maybe<Product>;
-  /** Reads a single `Guarantee` that is related to this `GuaranteedProduct`. */
-  guarantee?: Maybe<Guarantee>;
-  /** An edge for our `GuaranteedProduct`. May be used by Relay 1. */
-  guaranteedProductEdge?: Maybe<GuaranteedProductsEdge>;
-};
-
-/** The output of our delete `GuaranteedProduct` mutation. */
-export type DeleteGuaranteedProductPayloadGuaranteedProductEdgeArgs = {
-  orderBy?: Maybe<Array<GuaranteedProductsOrderBy>>;
 };
 
 /** All input for the `deleteInvitationByNodeId` mutation. */
@@ -4407,6 +4468,20 @@ export type DeleteInvitationPayload = {
 /** The output of our delete `Invitation` mutation. */
 export type DeleteInvitationPayloadInvitationEdgeArgs = {
   orderBy?: Maybe<Array<InvitationsOrderBy>>;
+};
+
+/** All input for the `deleteMarketByDoceboCatalogueId` mutation. */
+export type DeleteMarketByDoceboCatalogueIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /**
+   * The default catalogue for the market.  All users in the market are able to see
+   * all courses in the default catalog from InTouch
+   */
+  doceboCatalogueId: Scalars["Int"];
 };
 
 /** All input for the `deleteMarketByNodeId` mutation. */
@@ -4547,6 +4622,17 @@ export type DeleteNotificationPayloadNotificationEdgeArgs = {
   orderBy?: Maybe<Array<NotificationsOrderBy>>;
 };
 
+/** All input for the `deleteProductByBmiRef` mutation. */
+export type DeleteProductByBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** A unique reference for the product known to BMI */
+  bmiRef: Scalars["String"];
+};
+
 /** All input for the `deleteProductByNodeId` mutation. */
 export type DeleteProductByNodeIdInput = {
   /**
@@ -4678,6 +4764,10 @@ export type DeleteProjectPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `Project`. */
   company?: Maybe<Company>;
+  /** Reads a single `Address` that is related to this `Project`. */
+  siteAddress?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Project`. */
+  buildingOwnerAddress?: Maybe<Address>;
   /** An edge for our `Project`. May be used by Relay 1. */
   projectEdge?: Maybe<ProjectsEdge>;
 };
@@ -4685,6 +4775,17 @@ export type DeleteProjectPayload = {
 /** The output of our delete `Project` mutation. */
 export type DeleteProjectPayloadProjectEdgeArgs = {
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
+};
+
+/** All input for the `deleteSystemByBmiRef` mutation. */
+export type DeleteSystemByBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** A unique reference for the system known to BMI */
+  bmiRef: Scalars["String"];
 };
 
 /** All input for the `deleteSystemByNodeId` mutation. */
@@ -4744,10 +4845,6 @@ export type DeleteSystemMemberPayload = {
   deletedSystemMemberNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `System` that is related to this `SystemMember`. */
-  system?: Maybe<System>;
-  /** Reads a single `Product` that is related to this `SystemMember`. */
-  product?: Maybe<Product>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -4937,7 +5034,13 @@ export enum EvidenceCategoryOrder {
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
-/** An item of evidence for a guarantee */
+export enum EvidenceCategoryType {
+  ProofOfPurchase = "PROOF_OF_PURCHASE",
+  Miscellaneous = "MISCELLANEOUS",
+  Custom = "CUSTOM"
+}
+
+/** An file uploaded to a project, usually as evidence to support a guarantee */
 export type EvidenceItem = Node & {
   __typename?: "EvidenceItem";
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -4945,9 +5048,11 @@ export type EvidenceItem = Node & {
   /** Primary key */
   id: Scalars["Int"];
   /** a reference to the evidenceCategory sys id in Contentful */
-  evidenceCategoryId?: Maybe<Scalars["String"]>;
+  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
   /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
   /** Short name for the item of evidence */
   name?: Maybe<Scalars["String"]>;
   /** File reference or the file itself. Photo of the evidence */
@@ -4974,9 +5079,11 @@ export type EvidenceItemInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** a reference to the evidenceCategory sys id in Contentful */
-  evidenceCategoryId?: Maybe<Scalars["String"]>;
+  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
   /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
   /** Short name for the item of evidence */
   name?: Maybe<Scalars["String"]>;
   /** File reference or the file itself. Photo of the evidence */
@@ -4990,9 +5097,11 @@ export type EvidenceItemPatch = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
   /** a reference to the evidenceCategory sys id in Contentful */
-  evidenceCategoryId?: Maybe<Scalars["String"]>;
+  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
   /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
   /** Short name for the item of evidence */
   name?: Maybe<Scalars["String"]>;
   /** File reference or the file itself. Photo of the evidence */
@@ -5042,7 +5151,7 @@ export type Guarantee = Node & {
   /** Primary key - starts at 6100 */
   id: Scalars["Int"];
   /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
-  pdf?: Maybe<Scalars["String"]>;
+  fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
@@ -5051,29 +5160,31 @@ export type Guarantee = Node & {
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTypeId?: Maybe<Scalars["String"]>;
-  /** fk */
-  systemId?: Maybe<Scalars["Int"]>;
+  /** system */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** product */
+  productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually. */
+  /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
   /**
    * When the guarantee will expire.  This is calculated when the request_status
    * becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-   * System and the ValidityOffset in this Tier.
+   * System and the ValidityOffset in this Tier
    */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /**
    * This will be presented on the Guarantee pdf itself, if approved and is the
    * primary reference for the Guarantees report. It is unique in the In the legacy
    * system, the number is 3 sets of 4 digit numbers concatenated into one long
-   * number from the Company Id, Project Id and Request Id.
+   * number from the Company Id, Project Id and Guarantee Id
    */
-  issueNumber?: Maybe<Scalars["String"]>;
+  bmiReferenceId?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Account` that is related to this `Guarantee`. */
@@ -5083,13 +5194,13 @@ export type Guarantee = Node & {
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
-  system?: Maybe<System>;
+  systemBySystemBmiRef?: Maybe<System>;
+  /** Reads a single `Product` that is related to this `Guarantee`. */
+  productByProductBmiRef?: Maybe<Product>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   reviewerAccount?: Maybe<Account>;
   /** Reads and enables pagination through a set of `EvidenceItem`. */
   evidenceItems: EvidenceItemsConnection;
-  /** Reads and enables pagination through a set of `GuaranteedProduct`. */
-  guaranteedProducts: GuaranteedProductsConnection;
   guaranteeType?: Maybe<ContentfulGuaranteeType>;
 };
 
@@ -5102,17 +5213,6 @@ export type GuaranteeEvidenceItemsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
   condition?: Maybe<EvidenceItemCondition>;
-};
-
-/** Starts life as request for a gurantee and becomes an actual issued guarantee */
-export type GuaranteeGuaranteedProductsArgs = {
-  first?: Maybe<Scalars["Int"]>;
-  last?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  before?: Maybe<Scalars["Cursor"]>;
-  after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<GuaranteedProductsOrderBy>>;
-  condition?: Maybe<GuaranteedProductCondition>;
 };
 
 /**
@@ -5128,8 +5228,10 @@ export type GuaranteeCondition = {
   responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `projectId` field. */
   projectId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `systemId` field. */
-  systemId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `systemBmiRef` field. */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** Checks for equality with the object’s `productBmiRef` field. */
+  productBmiRef?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `reviewerAccountId` field. */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
 };
@@ -5139,7 +5241,7 @@ export type GuaranteeInput = {
   /** Primary key - starts at 6100 */
   id?: Maybe<Scalars["Int"]>;
   /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
-  pdf?: Maybe<Scalars["String"]>;
+  fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
@@ -5148,29 +5250,31 @@ export type GuaranteeInput = {
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTypeId?: Maybe<Scalars["String"]>;
-  /** fk */
-  systemId?: Maybe<Scalars["Int"]>;
+  /** system */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** product */
+  productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually. */
+  /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
   /**
    * When the guarantee will expire.  This is calculated when the request_status
    * becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-   * System and the ValidityOffset in this Tier.
+   * System and the ValidityOffset in this Tier
    */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /**
    * This will be presented on the Guarantee pdf itself, if approved and is the
    * primary reference for the Guarantees report. It is unique in the In the legacy
    * system, the number is 3 sets of 4 digit numbers concatenated into one long
-   * number from the Company Id, Project Id and Request Id.
+   * number from the Company Id, Project Id and Guarantee Id
    */
-  issueNumber?: Maybe<Scalars["String"]>;
+  bmiReferenceId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -5180,7 +5284,7 @@ export type GuaranteePatch = {
   /** Primary key - starts at 6100 */
   id?: Maybe<Scalars["Int"]>;
   /** The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand */
-  pdf?: Maybe<Scalars["String"]>;
+  fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
@@ -5189,29 +5293,31 @@ export type GuaranteePatch = {
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTypeId?: Maybe<Scalars["String"]>;
-  /** fk */
-  systemId?: Maybe<Scalars["Int"]>;
+  /** system */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** product */
+  productBmiRef?: Maybe<Scalars["String"]>;
   /** fk */
   reviewerAccountId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTemplateId?: Maybe<Scalars["String"]>;
   /** ek */
   status?: Maybe<RequestStatus>;
-  /** The date that the Guarantee is approved either automatically or manually. */
+  /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
   /**
    * When the guarantee will expire.  This is calculated when the request_status
    * becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-   * System and the ValidityOffset in this Tier.
+   * System and the ValidityOffset in this Tier
    */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /**
    * This will be presented on the Guarantee pdf itself, if approved and is the
    * primary reference for the Guarantees report. It is unique in the In the legacy
    * system, the number is 3 sets of 4 digit numbers concatenated into one long
-   * number from the Company Id, Project Id and Request Id.
+   * number from the Company Id, Project Id and Guarantee Id
    */
-  issueNumber?: Maybe<Scalars["String"]>;
+  bmiReferenceId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -5872,97 +5978,6 @@ export enum GuaranteeTypeOrder {
   SysPublishedVersionDesc = "sys_publishedVersion_DESC"
 }
 
-/** A mapping of Products to Guarantees.  Needed because uou can have more than one Product per Product Guarantee. */
-export type GuaranteedProduct = Node & {
-  __typename?: "GuaranteedProduct";
-  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
-  nodeId: Scalars["ID"];
-  /** Primary key */
-  id: Scalars["Int"];
-  /** fk */
-  productId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  guaranteeId?: Maybe<Scalars["Int"]>;
-  createdAt: Scalars["Datetime"];
-  updatedAt: Scalars["Datetime"];
-  /** Reads a single `Product` that is related to this `GuaranteedProduct`. */
-  product?: Maybe<Product>;
-  /** Reads a single `Guarantee` that is related to this `GuaranteedProduct`. */
-  guarantee?: Maybe<Guarantee>;
-};
-
-/**
- * A condition to be used against `GuaranteedProduct` object types. All fields are
- * tested for equality and combined with a logical ‘and.’
- */
-export type GuaranteedProductCondition = {
-  /** Checks for equality with the object’s `id` field. */
-  id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `productId` field. */
-  productId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `guaranteeId` field. */
-  guaranteeId?: Maybe<Scalars["Int"]>;
-};
-
-/** An input for mutations affecting `GuaranteedProduct` */
-export type GuaranteedProductInput = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  productId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  guaranteeId?: Maybe<Scalars["Int"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-};
-
-/** Represents an update to a `GuaranteedProduct`. Fields that are set will be updated. */
-export type GuaranteedProductPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  productId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  guaranteeId?: Maybe<Scalars["Int"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-};
-
-/** A connection to a list of `GuaranteedProduct` values. */
-export type GuaranteedProductsConnection = {
-  __typename?: "GuaranteedProductsConnection";
-  /** A list of `GuaranteedProduct` objects. */
-  nodes: Array<GuaranteedProduct>;
-  /** A list of edges which contains the `GuaranteedProduct` and cursor to aid in pagination. */
-  edges: Array<GuaranteedProductsEdge>;
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo;
-  /** The count of *all* `GuaranteedProduct` you could get from the connection. */
-  totalCount: Scalars["Int"];
-};
-
-/** A `GuaranteedProduct` edge in the connection. */
-export type GuaranteedProductsEdge = {
-  __typename?: "GuaranteedProductsEdge";
-  /** A cursor for use in pagination. */
-  cursor?: Maybe<Scalars["Cursor"]>;
-  /** The `GuaranteedProduct` at the end of the edge. */
-  node: GuaranteedProduct;
-};
-
-/** Methods to use when ordering `GuaranteedProduct`. */
-export enum GuaranteedProductsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  ProductIdAsc = "PRODUCT_ID_ASC",
-  ProductIdDesc = "PRODUCT_ID_DESC",
-  GuaranteeIdAsc = "GUARANTEE_ID_ASC",
-  GuaranteeIdDesc = "GUARANTEE_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
-
 /** A connection to a list of `Guarantee` values. */
 export type GuaranteesConnection = {
   __typename?: "GuaranteesConnection";
@@ -5996,8 +6011,10 @@ export enum GuaranteesOrderBy {
   ResponsibleInstallerAccountIdDesc = "RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC",
   ProjectIdAsc = "PROJECT_ID_ASC",
   ProjectIdDesc = "PROJECT_ID_DESC",
-  SystemIdAsc = "SYSTEM_ID_ASC",
-  SystemIdDesc = "SYSTEM_ID_DESC",
+  SystemBmiRefAsc = "SYSTEM_BMI_REF_ASC",
+  SystemBmiRefDesc = "SYSTEM_BMI_REF_DESC",
+  ProductBmiRefAsc = "PRODUCT_BMI_REF_ASC",
+  ProductBmiRefDesc = "PRODUCT_BMI_REF_DESC",
   ReviewerAccountIdAsc = "REVIEWER_ACCOUNT_ID_ASC",
   ReviewerAccountIdDesc = "REVIEWER_ACCOUNT_ID_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
@@ -6275,18 +6292,14 @@ export type Market = Node & {
    * The default catalogue for the market.  All users in the market are able to see
    * all courses in the default catalog from InTouch
    */
-  doceboCatalogueId?: Maybe<Scalars["String"]>;
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /**
-   * Whether the market supports Projects.  If so then the Project section is
-   * available.  Tier 0 can then be configured to support Guarantees in non-Roopro
-   * countries.  In Roofpro countries various Tier configurations become possible.
-   */
+  /** Whether the market supports Projects.  If so then the Project section is available. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
-  /** The coordinates of the middle of the country on a map */
+  /** The coordinates of the middle of the Market on a map */
   geoMiddle?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
@@ -6361,6 +6374,8 @@ export type MarketSystemsArgs = {
 export type MarketCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `doceboCatalogueId` field. */
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
 };
 
 /** [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/marketContent) */
@@ -6624,18 +6639,14 @@ export type MarketInput = {
    * The default catalogue for the market.  All users in the market are able to see
    * all courses in the default catalog from InTouch
    */
-  doceboCatalogueId?: Maybe<Scalars["String"]>;
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /**
-   * Whether the market supports Projects.  If so then the Project section is
-   * available.  Tier 0 can then be configured to support Guarantees in non-Roopro
-   * countries.  In Roofpro countries various Tier configurations become possible.
-   */
+  /** Whether the market supports Projects.  If so then the Project section is available. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
-  /** The coordinates of the middle of the country on a map */
+  /** The coordinates of the middle of the Market on a map */
   geoMiddle?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -6665,18 +6676,14 @@ export type MarketPatch = {
    * The default catalogue for the market.  All users in the market are able to see
    * all courses in the default catalog from InTouch
    */
-  doceboCatalogueId?: Maybe<Scalars["String"]>;
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /**
-   * Whether the market supports Projects.  If so then the Project section is
-   * available.  Tier 0 can then be configured to support Guarantees in non-Roopro
-   * countries.  In Roofpro countries various Tier configurations become possible.
-   */
+  /** Whether the market supports Projects.  If so then the Project section is available. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
-  /** The coordinates of the middle of the country on a map */
+  /** The coordinates of the middle of the Market on a map */
   geoMiddle?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -6709,6 +6716,8 @@ export enum MarketsOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
+  DoceboCatalogueIdAsc = "DOCEBO_CATALOGUE_ID_ASC",
+  DoceboCatalogueIdDesc = "DOCEBO_CATALOGUE_ID_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -7150,8 +7159,6 @@ export type Mutation = {
   createEvidenceItem?: Maybe<CreateEvidenceItemPayload>;
   /** Creates a single `Guarantee`. */
   createGuarantee?: Maybe<CreateGuaranteePayload>;
-  /** Creates a single `GuaranteedProduct`. */
-  createGuaranteedProduct?: Maybe<CreateGuaranteedProductPayload>;
   /** Creates a single `Invitation`. */
   createInvitation?: Maybe<CreateInvitationPayload>;
   /** Creates a single `Market`. */
@@ -7208,10 +7215,6 @@ export type Mutation = {
   updateGuaranteeByNodeId?: Maybe<UpdateGuaranteePayload>;
   /** Updates a single `Guarantee` using a unique key and a patch. */
   updateGuarantee?: Maybe<UpdateGuaranteePayload>;
-  /** Updates a single `GuaranteedProduct` using its globally unique id and a patch. */
-  updateGuaranteedProductByNodeId?: Maybe<UpdateGuaranteedProductPayload>;
-  /** Updates a single `GuaranteedProduct` using a unique key and a patch. */
-  updateGuaranteedProduct?: Maybe<UpdateGuaranteedProductPayload>;
   /** Updates a single `Invitation` using its globally unique id and a patch. */
   updateInvitationByNodeId?: Maybe<UpdateInvitationPayload>;
   /** Updates a single `Invitation` using a unique key and a patch. */
@@ -7220,6 +7223,8 @@ export type Mutation = {
   updateMarketByNodeId?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Market` using a unique key and a patch. */
   updateMarket?: Maybe<UpdateMarketPayload>;
+  /** Updates a single `Market` using a unique key and a patch. */
+  updateMarketByDoceboCatalogueId?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Note` using its globally unique id and a patch. */
   updateNoteByNodeId?: Maybe<UpdateNotePayload>;
   /** Updates a single `Note` using a unique key and a patch. */
@@ -7232,6 +7237,8 @@ export type Mutation = {
   updateProductByNodeId?: Maybe<UpdateProductPayload>;
   /** Updates a single `Product` using a unique key and a patch. */
   updateProduct?: Maybe<UpdateProductPayload>;
+  /** Updates a single `Product` using a unique key and a patch. */
+  updateProductByBmiRef?: Maybe<UpdateProductPayload>;
   /** Updates a single `Project` using its globally unique id and a patch. */
   updateProjectByNodeId?: Maybe<UpdateProjectPayload>;
   /** Updates a single `Project` using a unique key and a patch. */
@@ -7244,6 +7251,8 @@ export type Mutation = {
   updateSystemByNodeId?: Maybe<UpdateSystemPayload>;
   /** Updates a single `System` using a unique key and a patch. */
   updateSystem?: Maybe<UpdateSystemPayload>;
+  /** Updates a single `System` using a unique key and a patch. */
+  updateSystemByBmiRef?: Maybe<UpdateSystemPayload>;
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
   /** Updates a single `SystemMember` using a unique key and a patch. */
@@ -7286,10 +7295,6 @@ export type Mutation = {
   deleteGuaranteeByNodeId?: Maybe<DeleteGuaranteePayload>;
   /** Deletes a single `Guarantee` using a unique key. */
   deleteGuarantee?: Maybe<DeleteGuaranteePayload>;
-  /** Deletes a single `GuaranteedProduct` using its globally unique id. */
-  deleteGuaranteedProductByNodeId?: Maybe<DeleteGuaranteedProductPayload>;
-  /** Deletes a single `GuaranteedProduct` using a unique key. */
-  deleteGuaranteedProduct?: Maybe<DeleteGuaranteedProductPayload>;
   /** Deletes a single `Invitation` using its globally unique id. */
   deleteInvitationByNodeId?: Maybe<DeleteInvitationPayload>;
   /** Deletes a single `Invitation` using a unique key. */
@@ -7298,6 +7303,8 @@ export type Mutation = {
   deleteMarketByNodeId?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Market` using a unique key. */
   deleteMarket?: Maybe<DeleteMarketPayload>;
+  /** Deletes a single `Market` using a unique key. */
+  deleteMarketByDoceboCatalogueId?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Note` using its globally unique id. */
   deleteNoteByNodeId?: Maybe<DeleteNotePayload>;
   /** Deletes a single `Note` using a unique key. */
@@ -7310,6 +7317,8 @@ export type Mutation = {
   deleteProductByNodeId?: Maybe<DeleteProductPayload>;
   /** Deletes a single `Product` using a unique key. */
   deleteProduct?: Maybe<DeleteProductPayload>;
+  /** Deletes a single `Product` using a unique key. */
+  deleteProductByBmiRef?: Maybe<DeleteProductPayload>;
   /** Deletes a single `Project` using its globally unique id. */
   deleteProjectByNodeId?: Maybe<DeleteProjectPayload>;
   /** Deletes a single `Project` using a unique key. */
@@ -7322,6 +7331,8 @@ export type Mutation = {
   deleteSystemByNodeId?: Maybe<DeleteSystemPayload>;
   /** Deletes a single `System` using a unique key. */
   deleteSystem?: Maybe<DeleteSystemPayload>;
+  /** Deletes a single `System` using a unique key. */
+  deleteSystemByBmiRef?: Maybe<DeleteSystemPayload>;
   /** Deletes a single `SystemMember` using its globally unique id. */
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using a unique key. */
@@ -7373,6 +7384,8 @@ export type Mutation = {
   updateCourseSyncConfigurationByNodeId?: Maybe<UpdateCourseSyncConfigurationPayload>;
   /** Updates a single `CourseSyncConfiguration` using a unique key and a patch. */
   updateCourseSyncConfiguration?: Maybe<UpdateCourseSyncConfigurationPayload>;
+  /** Updates a single `CourseSyncConfiguration` using a unique key and a patch. */
+  updateCourseSyncConfigurationByConfigName?: Maybe<UpdateCourseSyncConfigurationPayload>;
   /** Updates a single `CourseTemp` using its globally unique id and a patch. */
   updateCourseTempByNodeId?: Maybe<UpdateCourseTempPayload>;
   /** Updates a single `CourseTemp` using a unique key and a patch. */
@@ -7407,14 +7420,21 @@ export type Mutation = {
   deleteCourseSyncConfigurationByNodeId?: Maybe<DeleteCourseSyncConfigurationPayload>;
   /** Deletes a single `CourseSyncConfiguration` using a unique key. */
   deleteCourseSyncConfiguration?: Maybe<DeleteCourseSyncConfigurationPayload>;
+  /** Deletes a single `CourseSyncConfiguration` using a unique key. */
+  deleteCourseSyncConfigurationByConfigName?: Maybe<DeleteCourseSyncConfigurationPayload>;
   /** Deletes a single `CourseTemp` using its globally unique id. */
   deleteCourseTempByNodeId?: Maybe<DeleteCourseTempPayload>;
   /** Deletes a single `CourseTemp` using a unique key. */
   deleteCourseTemp?: Maybe<DeleteCourseTempPayload>;
+  courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
   courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
+  courseEnrollmentUpdate?: Maybe<CourseEnrollmentUpdatePayload>;
   courseEnrollmentUpdateByTemp?: Maybe<CourseEnrollmentUpdateByTempPayload>;
+  courseUpdate?: Maybe<CourseUpdatePayload>;
   courseUpdateByTemp?: Maybe<CourseUpdateByTempPayload>;
   createSSOUrl?: Maybe<SsoUrlOutput>;
+  updateTraining?: Maybe<Scalars["String"]>;
+  createDoceboUser?: Maybe<UserCreateResponse>;
 };
 
 export type MutationCreateAddressArgs = {
@@ -7447,10 +7467,6 @@ export type MutationCreateEvidenceItemArgs = {
 
 export type MutationCreateGuaranteeArgs = {
   input: CreateGuaranteeInput;
-};
-
-export type MutationCreateGuaranteedProductArgs = {
-  input: CreateGuaranteedProductInput;
 };
 
 export type MutationCreateInvitationArgs = {
@@ -7565,14 +7581,6 @@ export type MutationUpdateGuaranteeArgs = {
   input: UpdateGuaranteeInput;
 };
 
-export type MutationUpdateGuaranteedProductByNodeIdArgs = {
-  input: UpdateGuaranteedProductByNodeIdInput;
-};
-
-export type MutationUpdateGuaranteedProductArgs = {
-  input: UpdateGuaranteedProductInput;
-};
-
 export type MutationUpdateInvitationByNodeIdArgs = {
   input: UpdateInvitationByNodeIdInput;
 };
@@ -7587,6 +7595,10 @@ export type MutationUpdateMarketByNodeIdArgs = {
 
 export type MutationUpdateMarketArgs = {
   input: UpdateMarketInput;
+};
+
+export type MutationUpdateMarketByDoceboCatalogueIdArgs = {
+  input: UpdateMarketByDoceboCatalogueIdInput;
 };
 
 export type MutationUpdateNoteByNodeIdArgs = {
@@ -7613,6 +7625,10 @@ export type MutationUpdateProductArgs = {
   input: UpdateProductInput;
 };
 
+export type MutationUpdateProductByBmiRefArgs = {
+  input: UpdateProductByBmiRefInput;
+};
+
 export type MutationUpdateProjectByNodeIdArgs = {
   input: UpdateProjectByNodeIdInput;
 };
@@ -7635,6 +7651,10 @@ export type MutationUpdateSystemByNodeIdArgs = {
 
 export type MutationUpdateSystemArgs = {
   input: UpdateSystemInput;
+};
+
+export type MutationUpdateSystemByBmiRefArgs = {
+  input: UpdateSystemByBmiRefInput;
 };
 
 export type MutationUpdateSystemMemberByNodeIdArgs = {
@@ -7721,14 +7741,6 @@ export type MutationDeleteGuaranteeArgs = {
   input: DeleteGuaranteeInput;
 };
 
-export type MutationDeleteGuaranteedProductByNodeIdArgs = {
-  input: DeleteGuaranteedProductByNodeIdInput;
-};
-
-export type MutationDeleteGuaranteedProductArgs = {
-  input: DeleteGuaranteedProductInput;
-};
-
 export type MutationDeleteInvitationByNodeIdArgs = {
   input: DeleteInvitationByNodeIdInput;
 };
@@ -7743,6 +7755,10 @@ export type MutationDeleteMarketByNodeIdArgs = {
 
 export type MutationDeleteMarketArgs = {
   input: DeleteMarketInput;
+};
+
+export type MutationDeleteMarketByDoceboCatalogueIdArgs = {
+  input: DeleteMarketByDoceboCatalogueIdInput;
 };
 
 export type MutationDeleteNoteByNodeIdArgs = {
@@ -7769,6 +7785,10 @@ export type MutationDeleteProductArgs = {
   input: DeleteProductInput;
 };
 
+export type MutationDeleteProductByBmiRefArgs = {
+  input: DeleteProductByBmiRefInput;
+};
+
 export type MutationDeleteProjectByNodeIdArgs = {
   input: DeleteProjectByNodeIdInput;
 };
@@ -7791,6 +7811,10 @@ export type MutationDeleteSystemByNodeIdArgs = {
 
 export type MutationDeleteSystemArgs = {
   input: DeleteSystemInput;
+};
+
+export type MutationDeleteSystemByBmiRefArgs = {
+  input: DeleteSystemByBmiRefInput;
 };
 
 export type MutationDeleteSystemMemberByNodeIdArgs = {
@@ -7901,6 +7925,10 @@ export type MutationUpdateCourseSyncConfigurationArgs = {
   input: UpdateCourseSyncConfigurationInput;
 };
 
+export type MutationUpdateCourseSyncConfigurationByConfigNameArgs = {
+  input: UpdateCourseSyncConfigurationByConfigNameInput;
+};
+
 export type MutationUpdateCourseTempByNodeIdArgs = {
   input: UpdateCourseTempByNodeIdInput;
 };
@@ -7969,6 +7997,10 @@ export type MutationDeleteCourseSyncConfigurationArgs = {
   input: DeleteCourseSyncConfigurationInput;
 };
 
+export type MutationDeleteCourseSyncConfigurationByConfigNameArgs = {
+  input: DeleteCourseSyncConfigurationByConfigNameInput;
+};
+
 export type MutationDeleteCourseTempByNodeIdArgs = {
   input: DeleteCourseTempByNodeIdInput;
 };
@@ -7977,12 +8009,24 @@ export type MutationDeleteCourseTempArgs = {
   input: DeleteCourseTempInput;
 };
 
+export type MutationCourseCatalogueUpdateArgs = {
+  input: CourseCatalogueUpdateInput;
+};
+
 export type MutationCourseCatalogueUpdateByTempArgs = {
   input: CourseCatalogueUpdateByTempInput;
 };
 
+export type MutationCourseEnrollmentUpdateArgs = {
+  input: CourseEnrollmentUpdateInput;
+};
+
 export type MutationCourseEnrollmentUpdateByTempArgs = {
   input: CourseEnrollmentUpdateByTempInput;
+};
+
+export type MutationCourseUpdateArgs = {
+  input: CourseUpdateInput;
 };
 
 export type MutationCourseUpdateByTempArgs = {
@@ -7992,6 +8036,14 @@ export type MutationCourseUpdateByTempArgs = {
 export type MutationCreateSsoUrlArgs = {
   username: Scalars["String"];
   path?: Maybe<Scalars["String"]>;
+};
+
+export type MutationUpdateTrainingArgs = {
+  lastUpdateDate?: Maybe<Scalars["String"]>;
+};
+
+export type MutationCreateDoceboUserArgs = {
+  input?: Maybe<UserCreateInput>;
 };
 
 /** An object with a globally unique `ID`. */
@@ -8393,13 +8445,13 @@ export type Product = Node & {
   bmiRef?: Maybe<Scalars["String"]>;
   /** The Products brand */
   brand?: Maybe<Scalars["String"]>;
-  /** Short name for the product */
+  /** Short name for the Product */
   name?: Maybe<Scalars["String"]>;
-  /** A description of the product */
+  /** A description of the Product */
   description?: Maybe<Scalars["String"]>;
   /** The family of Products this Product is in */
   family?: Maybe<Scalars["String"]>;
-  /** Whether the product is avialable when being selected or not */
+  /** Whether the Product is avialable for new guarantees */
   published?: Maybe<Scalars["Boolean"]>;
   /** The number of years that this product can be guaranteed for */
   maximumValidityYears?: Maybe<Scalars["Int"]>;
@@ -8407,32 +8459,19 @@ export type Product = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `Product`. */
   market?: Maybe<Market>;
-  /** Reads and enables pagination through a set of `GuaranteedProduct`. */
-  guaranteedProducts: GuaranteedProductsConnection;
-  /** Reads and enables pagination through a set of `SystemMember`. */
-  systemMembers: SystemMembersConnection;
+  /** Reads and enables pagination through a set of `Guarantee`. */
+  guaranteesByProductBmiRef: GuaranteesConnection;
 };
 
 /** A product made by BMI */
-export type ProductGuaranteedProductsArgs = {
+export type ProductGuaranteesByProductBmiRefArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
   before?: Maybe<Scalars["Cursor"]>;
   after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<GuaranteedProductsOrderBy>>;
-  condition?: Maybe<GuaranteedProductCondition>;
-};
-
-/** A product made by BMI */
-export type ProductSystemMembersArgs = {
-  first?: Maybe<Scalars["Int"]>;
-  last?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  before?: Maybe<Scalars["Cursor"]>;
-  after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<SystemMembersOrderBy>>;
-  condition?: Maybe<SystemMemberCondition>;
+  orderBy?: Maybe<Array<GuaranteesOrderBy>>;
+  condition?: Maybe<GuaranteeCondition>;
 };
 
 /** A condition to be used against `Product` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -8441,6 +8480,8 @@ export type ProductCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `bmiRef` field. */
+  bmiRef?: Maybe<Scalars["String"]>;
 };
 
 /** An input for mutations affecting `Product` */
@@ -8455,13 +8496,13 @@ export type ProductInput = {
   bmiRef?: Maybe<Scalars["String"]>;
   /** The Products brand */
   brand?: Maybe<Scalars["String"]>;
-  /** Short name for the product */
+  /** Short name for the Product */
   name?: Maybe<Scalars["String"]>;
-  /** A description of the product */
+  /** A description of the Product */
   description?: Maybe<Scalars["String"]>;
   /** The family of Products this Product is in */
   family?: Maybe<Scalars["String"]>;
-  /** Whether the product is avialable when being selected or not */
+  /** Whether the Product is avialable for new guarantees */
   published?: Maybe<Scalars["Boolean"]>;
   /** The number of years that this product can be guaranteed for */
   maximumValidityYears?: Maybe<Scalars["Int"]>;
@@ -8481,13 +8522,13 @@ export type ProductPatch = {
   bmiRef?: Maybe<Scalars["String"]>;
   /** The Products brand */
   brand?: Maybe<Scalars["String"]>;
-  /** Short name for the product */
+  /** Short name for the Product */
   name?: Maybe<Scalars["String"]>;
-  /** A description of the product */
+  /** A description of the Product */
   description?: Maybe<Scalars["String"]>;
   /** The family of Products this Product is in */
   family?: Maybe<Scalars["String"]>;
-  /** Whether the product is avialable when being selected or not */
+  /** Whether the Product is avialable for new guarantees */
   published?: Maybe<Scalars["Boolean"]>;
   /** The number of years that this product can be guaranteed for */
   maximumValidityYears?: Maybe<Scalars["Int"]>;
@@ -8524,6 +8565,8 @@ export enum ProductsOrderBy {
   IdDesc = "ID_DESC",
   MarketIdAsc = "MARKET_ID_ASC",
   MarketIdDesc = "MARKET_ID_DESC",
+  BmiRefAsc = "BMI_REF_ASC",
+  BmiRefDesc = "BMI_REF_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -8537,13 +8580,17 @@ export type Project = Node & {
   id: Scalars["Int"];
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
   name?: Maybe<Scalars["String"]>;
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
-  /** If this is true then the Project should have been hidden from users */
+  /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
   roofArea?: Maybe<Scalars["Int"]>;
@@ -8557,35 +8604,26 @@ export type Project = Node & {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if they have one */
+  /** Name of the Building Owners Company if it is known */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project starts */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end.   */
+  /** The date that the Project expects to end */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Company` that is related to this `Project`. */
   company?: Maybe<Company>;
-  /** Reads and enables pagination through a set of `Address`. */
-  addresses: AddressesConnection;
+  /** Reads a single `Address` that is related to this `Project`. */
+  siteAddress?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Project`. */
+  buildingOwnerAddress?: Maybe<Address>;
   /** Reads and enables pagination through a set of `Guarantee`. */
   guarantees: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Note`. */
   notes: NotesConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
   projectMembers: ProjectMembersConnection;
-};
-
-/** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
-export type ProjectAddressesArgs = {
-  first?: Maybe<Scalars["Int"]>;
-  last?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  before?: Maybe<Scalars["Cursor"]>;
-  after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<AddressesOrderBy>>;
-  condition?: Maybe<AddressCondition>;
 };
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
@@ -8627,6 +8665,10 @@ export type ProjectCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `siteAddressId` field. */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `buildingOwnerAddressId` field. */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
 };
 
 /** An input for mutations affecting `Project` */
@@ -8635,13 +8677,17 @@ export type ProjectInput = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
   name?: Maybe<Scalars["String"]>;
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
-  /** If this is true then the Project should have been hidden from users */
+  /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
   roofArea?: Maybe<Scalars["Int"]>;
@@ -8655,21 +8701,17 @@ export type ProjectInput = {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if they have one */
+  /** Name of the Building Owners Company if it is known */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project starts */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end.   */
+  /** The date that the Project expects to end */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-/**
- * A connection between a User and a Project. A connection between a user and a
- * company. This relationship could be simplified as one to many at the moment, but
- * there is already demand for a many to many relationship.
- */
+/** People who are on a Project */
 export type ProjectMember = Node & {
   __typename?: "ProjectMember";
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -8766,13 +8808,17 @@ export type ProjectPatch = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  siteAddressId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
   /** ek */
   technology?: Maybe<Technology>;
   /** Short name for the Project */
   name?: Maybe<Scalars["String"]>;
   /** Short description of what the Project is about.  Sometimes useful to clarify some points to BMI */
   description?: Maybe<Scalars["String"]>;
-  /** If this is true then the Project should have been hidden from users */
+  /** If this is true then the Project should be hidden from End Users */
   hidden?: Maybe<Scalars["Boolean"]>;
   /** The number of square meters of roof that this project covers */
   roofArea?: Maybe<Scalars["Int"]>;
@@ -8786,11 +8832,11 @@ export type ProjectPatch = {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if they have one */
+  /** Name of the Building Owners Company if it is known */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
   /** The date that the Project starts */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end.   */
+  /** The date that the Project expects to end */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -8825,6 +8871,10 @@ export enum ProjectsOrderBy {
   IdDesc = "ID_DESC",
   CompanyIdAsc = "COMPANY_ID_ASC",
   CompanyIdDesc = "COMPANY_ID_DESC",
+  SiteAddressIdAsc = "SITE_ADDRESS_ID_ASC",
+  SiteAddressIdDesc = "SITE_ADDRESS_ID_DESC",
+  BuildingOwnerAddressIdAsc = "BUILDING_OWNER_ADDRESS_ID_ASC",
+  BuildingOwnerAddressIdDesc = "BUILDING_OWNER_ADDRESS_ID_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -8878,8 +8928,6 @@ export type Query = {
   evidenceItems?: Maybe<EvidenceItemsConnection>;
   /** Reads and enables pagination through a set of `Guarantee`. */
   guarantees?: Maybe<GuaranteesConnection>;
-  /** Reads and enables pagination through a set of `GuaranteedProduct`. */
-  guaranteedProducts?: Maybe<GuaranteedProductsConnection>;
   /** Reads and enables pagination through a set of `Invitation`. */
   invitations?: Maybe<InvitationsConnection>;
   /** Reads and enables pagination through a set of `Market`. */
@@ -8908,15 +8956,17 @@ export type Query = {
   companyOperation?: Maybe<CompanyOperation>;
   evidenceItem?: Maybe<EvidenceItem>;
   guarantee?: Maybe<Guarantee>;
-  guaranteedProduct?: Maybe<GuaranteedProduct>;
   invitation?: Maybe<Invitation>;
   market?: Maybe<Market>;
+  marketByDoceboCatalogueId?: Maybe<Market>;
   note?: Maybe<Note>;
   notification?: Maybe<Notification>;
   product?: Maybe<Product>;
+  productByBmiRef?: Maybe<Product>;
   project?: Maybe<Project>;
   projectMember?: Maybe<ProjectMember>;
   system?: Maybe<System>;
+  systemByBmiRef?: Maybe<System>;
   systemMember?: Maybe<SystemMember>;
   currentAccountEmail?: Maybe<Scalars["String"]>;
   currentAccountId?: Maybe<Scalars["Int"]>;
@@ -8942,8 +8992,6 @@ export type Query = {
   evidenceItemByNodeId?: Maybe<EvidenceItem>;
   /** Reads a single `Guarantee` using its globally unique `ID`. */
   guaranteeByNodeId?: Maybe<Guarantee>;
-  /** Reads a single `GuaranteedProduct` using its globally unique `ID`. */
-  guaranteedProductByNodeId?: Maybe<GuaranteedProduct>;
   /** Reads a single `Invitation` using its globally unique `ID`. */
   invitationByNodeId?: Maybe<Invitation>;
   /** Reads a single `Market` using its globally unique `ID`. */
@@ -8985,6 +9033,7 @@ export type Query = {
   courseEnrollmentByUserIdAndCourseId?: Maybe<CourseEnrollment>;
   courseEnrollmentTemp?: Maybe<CourseEnrollmentTemp>;
   courseSyncConfiguration?: Maybe<CourseSyncConfiguration>;
+  courseSyncConfigurationByConfigName?: Maybe<CourseSyncConfiguration>;
   courseTemp?: Maybe<CourseTemp>;
   /** Reads a single `Course` using its globally unique `ID`. */
   courseByNodeId?: Maybe<Course>;
@@ -9131,16 +9180,6 @@ export type QueryGuaranteesArgs = {
   condition?: Maybe<GuaranteeCondition>;
 };
 
-export type QueryGuaranteedProductsArgs = {
-  first?: Maybe<Scalars["Int"]>;
-  last?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  before?: Maybe<Scalars["Cursor"]>;
-  after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<GuaranteedProductsOrderBy>>;
-  condition?: Maybe<GuaranteedProductCondition>;
-};
-
 export type QueryInvitationsArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
@@ -9271,16 +9310,16 @@ export type QueryGuaranteeArgs = {
   id: Scalars["Int"];
 };
 
-export type QueryGuaranteedProductArgs = {
-  id: Scalars["Int"];
-};
-
 export type QueryInvitationArgs = {
   id: Scalars["Int"];
 };
 
 export type QueryMarketArgs = {
   id: Scalars["Int"];
+};
+
+export type QueryMarketByDoceboCatalogueIdArgs = {
+  doceboCatalogueId: Scalars["Int"];
 };
 
 export type QueryNoteArgs = {
@@ -9295,6 +9334,10 @@ export type QueryProductArgs = {
   id: Scalars["Int"];
 };
 
+export type QueryProductByBmiRefArgs = {
+  bmiRef: Scalars["String"];
+};
+
 export type QueryProjectArgs = {
   id: Scalars["Int"];
 };
@@ -9305,6 +9348,10 @@ export type QueryProjectMemberArgs = {
 
 export type QuerySystemArgs = {
   id: Scalars["Int"];
+};
+
+export type QuerySystemByBmiRefArgs = {
+  bmiRef: Scalars["String"];
 };
 
 export type QuerySystemMemberArgs = {
@@ -9352,10 +9399,6 @@ export type QueryEvidenceItemByNodeIdArgs = {
 };
 
 export type QueryGuaranteeByNodeIdArgs = {
-  nodeId: Scalars["ID"];
-};
-
-export type QueryGuaranteedProductByNodeIdArgs = {
   nodeId: Scalars["ID"];
 };
 
@@ -9501,6 +9544,10 @@ export type QueryCourseEnrollmentTempArgs = {
 
 export type QueryCourseSyncConfigurationArgs = {
   id: Scalars["Int"];
+};
+
+export type QueryCourseSyncConfigurationByConfigNameArgs = {
+  configName: Scalars["String"];
 };
 
 export type QueryCourseTempArgs = {
@@ -9808,6 +9855,10 @@ export type SsoUrlOutput = {
   url?: Maybe<Scalars["String"]>;
 };
 
+export type SelectOrgchart = {
+  branch_id?: Maybe<Scalars["String"]>;
+};
+
 export type Sys = {
   __typename?: "Sys";
   id: Scalars["String"];
@@ -9874,20 +9925,18 @@ export type System = Node & {
   description?: Maybe<Scalars["String"]>;
   /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
   maximumValidityYears?: Maybe<Scalars["Int"]>;
-  /** If true this system is on that is available for users to select when applying for a system or solution guarantee */
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
   published?: Maybe<Scalars["Boolean"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Market` that is related to this `System`. */
   market?: Maybe<Market>;
   /** Reads and enables pagination through a set of `Guarantee`. */
-  guarantees: GuaranteesConnection;
-  /** Reads and enables pagination through a set of `SystemMember`. */
-  systemMembers: SystemMembersConnection;
+  guaranteesBySystemBmiRef: GuaranteesConnection;
 };
 
 /** A collection of products that can be guaranteed as a system */
-export type SystemGuaranteesArgs = {
+export type SystemGuaranteesBySystemBmiRefArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -9897,23 +9946,14 @@ export type SystemGuaranteesArgs = {
   condition?: Maybe<GuaranteeCondition>;
 };
 
-/** A collection of products that can be guaranteed as a system */
-export type SystemSystemMembersArgs = {
-  first?: Maybe<Scalars["Int"]>;
-  last?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  before?: Maybe<Scalars["Cursor"]>;
-  after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<SystemMembersOrderBy>>;
-  condition?: Maybe<SystemMemberCondition>;
-};
-
 /** A condition to be used against `System` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type SystemCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `bmiRef` field. */
+  bmiRef?: Maybe<Scalars["String"]>;
 };
 
 /** An input for mutations affecting `System` */
@@ -9932,29 +9972,25 @@ export type SystemInput = {
   description?: Maybe<Scalars["String"]>;
   /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
   maximumValidityYears?: Maybe<Scalars["Int"]>;
-  /** If true this system is on that is available for users to select when applying for a system or solution guarantee */
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
   published?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-/** A system product pair */
+/** A Products that make up a system */
 export type SystemMember = Node & {
   __typename?: "SystemMember";
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
   nodeId: Scalars["ID"];
   /** Primary key */
   id: Scalars["Int"];
-  /** fk */
-  systemId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  productId?: Maybe<Scalars["Int"]>;
+  /** system */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** product */
+  productBmiRef?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
-  /** Reads a single `System` that is related to this `SystemMember`. */
-  system?: Maybe<System>;
-  /** Reads a single `Product` that is related to this `SystemMember`. */
-  product?: Maybe<Product>;
 };
 
 /**
@@ -9964,20 +10000,16 @@ export type SystemMember = Node & {
 export type SystemMemberCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `systemId` field. */
-  systemId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `productId` field. */
-  productId?: Maybe<Scalars["Int"]>;
 };
 
 /** An input for mutations affecting `SystemMember` */
 export type SystemMemberInput = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  systemId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  productId?: Maybe<Scalars["Int"]>;
+  /** system */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** product */
+  productBmiRef?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -9986,10 +10018,10 @@ export type SystemMemberInput = {
 export type SystemMemberPatch = {
   /** Primary key */
   id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  systemId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  productId?: Maybe<Scalars["Int"]>;
+  /** system */
+  systemBmiRef?: Maybe<Scalars["String"]>;
+  /** product */
+  productBmiRef?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -10021,10 +10053,6 @@ export enum SystemMembersOrderBy {
   Natural = "NATURAL",
   IdAsc = "ID_ASC",
   IdDesc = "ID_DESC",
-  SystemIdAsc = "SYSTEM_ID_ASC",
-  SystemIdDesc = "SYSTEM_ID_DESC",
-  ProductIdAsc = "PRODUCT_ID_ASC",
-  ProductIdDesc = "PRODUCT_ID_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -10045,7 +10073,7 @@ export type SystemPatch = {
   description?: Maybe<Scalars["String"]>;
   /** The maximum number of years that this system can be guaranteed for.  Must be greater than 10. */
   maximumValidityYears?: Maybe<Scalars["Int"]>;
-  /** If true this system is on that is available for users to select when applying for a system or solution guarantee */
+  /** If true this system is available for users to select when applying for a system or solution guarantee */
   published?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -10080,6 +10108,8 @@ export enum SystemsOrderBy {
   IdDesc = "ID_DESC",
   MarketIdAsc = "MARKET_ID_ASC",
   MarketIdDesc = "MARKET_ID_DESC",
+  BmiRefAsc = "BMI_REF_ASC",
+  BmiRefDesc = "BMI_REF_DESC",
   PrimaryKeyAsc = "PRIMARY_KEY_ASC",
   PrimaryKeyDesc = "PRIMARY_KEY_DESC"
 }
@@ -10591,10 +10621,6 @@ export type UpdateAddressPayload = {
   address?: Maybe<Address>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `Project` that is related to this `Address`. */
-  project?: Maybe<Project>;
-  /** Reads a single `Company` that is related to this `Address`. */
-  company?: Maybe<Company>;
   /** An edge for our `Address`. May be used by Relay 1. */
   addressEdge?: Maybe<AddressesEdge>;
 };
@@ -10844,6 +10870,10 @@ export type UpdateCompanyPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Market` that is related to this `Company`. */
   market?: Maybe<Market>;
+  /** Reads a single `Address` that is related to this `Company`. */
+  registeredAddress?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Company`. */
+  tradingAddress?: Maybe<Address>;
   /** An edge for our `Company`. May be used by Relay 1. */
   companyEdge?: Maybe<CompaniesEdge>;
 };
@@ -11135,6 +11165,19 @@ export type UpdateCoursePayloadCourseEdgeArgs = {
   orderBy?: Maybe<Array<CoursesOrderBy>>;
 };
 
+/** All input for the `updateCourseSyncConfigurationByConfigName` mutation. */
+export type UpdateCourseSyncConfigurationByConfigNameInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CourseSyncConfiguration` being updated. */
+  patch: CourseSyncConfigurationPatch;
+  /** account */
+  configName: Scalars["String"];
+};
+
 /** All input for the `updateCourseSyncConfigurationByNodeId` mutation. */
 export type UpdateCourseSyncConfigurationByNodeIdInput = {
   /**
@@ -11324,7 +11367,9 @@ export type UpdateGuaranteePayload = {
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
-  system?: Maybe<System>;
+  systemBySystemBmiRef?: Maybe<System>;
+  /** Reads a single `Product` that is related to this `Guarantee`. */
+  productByProductBmiRef?: Maybe<Product>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   reviewerAccount?: Maybe<Account>;
   /** An edge for our `Guarantee`. May be used by Relay 1. */
@@ -11334,57 +11379,6 @@ export type UpdateGuaranteePayload = {
 /** The output of our update `Guarantee` mutation. */
 export type UpdateGuaranteePayloadGuaranteeEdgeArgs = {
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
-};
-
-/** All input for the `updateGuaranteedProductByNodeId` mutation. */
-export type UpdateGuaranteedProductByNodeIdInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The globally unique `ID` which will identify a single `GuaranteedProduct` to be updated. */
-  nodeId: Scalars["ID"];
-  /** An object where the defined keys will be set on the `GuaranteedProduct` being updated. */
-  patch: GuaranteedProductPatch;
-};
-
-/** All input for the `updateGuaranteedProduct` mutation. */
-export type UpdateGuaranteedProductInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** An object where the defined keys will be set on the `GuaranteedProduct` being updated. */
-  patch: GuaranteedProductPatch;
-  /** Primary key */
-  id: Scalars["Int"];
-};
-
-/** The output of our update `GuaranteedProduct` mutation. */
-export type UpdateGuaranteedProductPayload = {
-  __typename?: "UpdateGuaranteedProductPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `GuaranteedProduct` that was updated by this mutation. */
-  guaranteedProduct?: Maybe<GuaranteedProduct>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Product` that is related to this `GuaranteedProduct`. */
-  product?: Maybe<Product>;
-  /** Reads a single `Guarantee` that is related to this `GuaranteedProduct`. */
-  guarantee?: Maybe<Guarantee>;
-  /** An edge for our `GuaranteedProduct`. May be used by Relay 1. */
-  guaranteedProductEdge?: Maybe<GuaranteedProductsEdge>;
-};
-
-/** The output of our update `GuaranteedProduct` mutation. */
-export type UpdateGuaranteedProductPayloadGuaranteedProductEdgeArgs = {
-  orderBy?: Maybe<Array<GuaranteedProductsOrderBy>>;
 };
 
 /** All input for the `updateInvitationByNodeId` mutation. */
@@ -11436,6 +11430,22 @@ export type UpdateInvitationPayload = {
 /** The output of our update `Invitation` mutation. */
 export type UpdateInvitationPayloadInvitationEdgeArgs = {
   orderBy?: Maybe<Array<InvitationsOrderBy>>;
+};
+
+/** All input for the `updateMarketByDoceboCatalogueId` mutation. */
+export type UpdateMarketByDoceboCatalogueIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Market` being updated. */
+  patch: MarketPatch;
+  /**
+   * The default catalogue for the market.  All users in the market are able to see
+   * all courses in the default catalog from InTouch
+   */
+  doceboCatalogueId: Scalars["Int"];
 };
 
 /** All input for the `updateMarketByNodeId` mutation. */
@@ -11585,6 +11595,19 @@ export type UpdateNotificationPayloadNotificationEdgeArgs = {
   orderBy?: Maybe<Array<NotificationsOrderBy>>;
 };
 
+/** All input for the `updateProductByBmiRef` mutation. */
+export type UpdateProductByBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Product` being updated. */
+  patch: ProductPatch;
+  /** A unique reference for the product known to BMI */
+  bmiRef: Scalars["String"];
+};
+
 /** All input for the `updateProductByNodeId` mutation. */
 export type UpdateProductByNodeIdInput = {
   /**
@@ -11725,6 +11748,10 @@ export type UpdateProjectPayload = {
   query?: Maybe<Query>;
   /** Reads a single `Company` that is related to this `Project`. */
   company?: Maybe<Company>;
+  /** Reads a single `Address` that is related to this `Project`. */
+  siteAddress?: Maybe<Address>;
+  /** Reads a single `Address` that is related to this `Project`. */
+  buildingOwnerAddress?: Maybe<Address>;
   /** An edge for our `Project`. May be used by Relay 1. */
   projectEdge?: Maybe<ProjectsEdge>;
 };
@@ -11732,6 +11759,19 @@ export type UpdateProjectPayload = {
 /** The output of our update `Project` mutation. */
 export type UpdateProjectPayloadProjectEdgeArgs = {
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
+};
+
+/** All input for the `updateSystemByBmiRef` mutation. */
+export type UpdateSystemByBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `System` being updated. */
+  patch: SystemPatch;
+  /** A unique reference for the system known to BMI */
+  bmiRef: Scalars["String"];
 };
 
 /** All input for the `updateSystemByNodeId` mutation. */
@@ -11798,10 +11838,6 @@ export type UpdateSystemMemberPayload = {
   systemMember?: Maybe<SystemMember>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
-  /** Reads a single `System` that is related to this `SystemMember`. */
-  system?: Maybe<System>;
-  /** Reads a single `Product` that is related to this `SystemMember`. */
-  product?: Maybe<Product>;
   /** An edge for our `SystemMember`. May be used by Relay 1. */
   systemMemberEdge?: Maybe<SystemMembersEdge>;
 };
@@ -11832,6 +11868,33 @@ export type UpdateSystemPayload = {
 /** The output of our update `System` mutation. */
 export type UpdateSystemPayloadSystemEdgeArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
+};
+
+export type UserCreateInput = {
+  userid?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+  password?: Maybe<Scalars["String"]>;
+  privacy?: Maybe<Scalars["String"]>;
+  firstname?: Maybe<Scalars["String"]>;
+  lastname?: Maybe<Scalars["String"]>;
+  force_change?: Maybe<Scalars["Int"]>;
+  level?: Maybe<Scalars["Int"]>;
+  language?: Maybe<Scalars["String"]>;
+  expiration?: Maybe<Scalars["String"]>;
+  email_validation_status?: Maybe<Scalars["Int"]>;
+  valid?: Maybe<Scalars["Int"]>;
+  date_format?: Maybe<Scalars["String"]>;
+  timezone?: Maybe<Scalars["String"]>;
+  role?: Maybe<Scalars["Int"]>;
+  send_notification_email?: Maybe<Scalars["Boolean"]>;
+  can_manage_subordinates?: Maybe<Scalars["Boolean"]>;
+  select_orgchart?: Maybe<SelectOrgchart>;
+};
+
+export type UserCreateResponse = {
+  __typename?: "UserCreateResponse";
+  success?: Maybe<Scalars["Boolean"]>;
+  user_id?: Maybe<Scalars["Int"]>;
 };
 
 export type CfContentArticleNestedFilter = {

@@ -17,18 +17,17 @@ export const PdfDocument = ({
 }) => {
   const {
     guaranteeType,
-    guaranteedProducts,
+    productByProductBmiRef,
     project,
-    issueNumber,
+    bmiReferenceId,
     startDate,
     expiryDate
   } = guaranteeData;
 
-  const address = guaranteeData.project.addresses.nodes.find(
-    (address) => address.addressType === "SITE"
-  );
+  const address = project.siteAddress;
+
   if (!address) {
-    throw new Error("project address must be of type site");
+    throw new Error("project site address can not be undefined");
   }
   const addressLine = `${address.firstLine} ${address.secondLine} ${address.town} ${address.country} ${address.postcode}`;
 
@@ -66,8 +65,7 @@ export const PdfDocument = ({
       </Typography>
 
       <Typography variant={"h6"} marginBottom={10}>
-        {template.headingProducts}:{" "}
-        {guaranteedProducts.nodes.map((node) => node.product.name).join()}
+        {template.headingProducts}: {productByProductBmiRef.name}
       </Typography>
 
       <Typography variant={"h1"} marginBottom={20}>
@@ -108,7 +106,7 @@ export const PdfDocument = ({
       </Typography>
 
       <Typography variant={"h6"} marginBottom={5}>
-        {template.headingGuaranteeId} :{issueNumber}
+        {template.headingGuaranteeId} :{bmiReferenceId}
       </Typography>
 
       <Typography variant={"h6"} marginBottom={5}>
