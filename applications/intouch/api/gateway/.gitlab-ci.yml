@@ -7,6 +7,8 @@ deploy_intouch_api_gateway_dev:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/api/**/*
+        - applications/intouch/api/services/companies/**/*
+        - applications/intouch/api/services/training/**/*
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
