@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import { createToken } from "../util/JwtUtil";
-import { Course } from "../types/Course";
+import { Course } from "../types/course";
 
 import { IUserCreateInput } from "../type";
 
