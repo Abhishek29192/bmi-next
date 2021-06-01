@@ -21,7 +21,7 @@
   package = "netlify-plugin-gatsby-cache"
 
 [[plugins]]
-  package = "../../../libraries/netlify-plugin-clear-gatsby-cache"
+  package = "../libraries/netlify-plugin-clear-gatsby-cache"
 
 [[plugins]]
   package = "../../../libraries/netlify-plugin-trigger-gitlab"
