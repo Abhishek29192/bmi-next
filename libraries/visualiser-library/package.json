@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Visualiser library",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "private": true,
   "keywords": [
     "react",
@@ -12,7 +13,6 @@
   ],
   "scripts": {
     "build": "yarn run clean-dist && webpack --config=configs/webpack/prod.js",
-    "prepublish": "yarn run clean-dist && webpack --config=configs/webpack/prod.js",
     "clean-dist": "rimraf dist/*"
   },
   "author": "",
@@ -21,7 +21,12 @@
     "access": "restricted"
   },
   "devDependencies": {
+    "@types/three": "^0.128.0",
     "react": "16.9",
-    "react-dom": "16.9"
+    "react-dom": "16.9",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "three": "^0.128.0"
   }
 }

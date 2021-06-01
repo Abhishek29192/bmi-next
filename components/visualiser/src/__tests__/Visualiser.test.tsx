@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Visualiser, { tilesSetData, sidingsSetData } from "../";
+import { Tile } from "../Types";
 
 describe("Visualiser component", () => {
   it("renders correctly", () => {
@@ -8,7 +9,7 @@ describe("Visualiser component", () => {
       <Visualiser
         contentSource="" //TODO: Need to mock this?
         open={false}
-        tiles={tilesSetData}
+        tiles={tilesSetData as Tile[]}
         sidings={sidingsSetData}
         onClose={() => console.log("close")}
         onClick={(params) => console.log(params)}

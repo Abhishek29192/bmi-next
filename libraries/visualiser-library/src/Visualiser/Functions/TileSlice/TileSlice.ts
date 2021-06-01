@@ -1,5 +1,4 @@
-// TODO: resolve eslint issues:
-import * as THREE from "../ThreeJs/ThreeJs.js";
+import * as THREE from "three";
 
 /*
  * Given a tile mesh (A three.js BufferGeometry object), this outputs a new geometry which has been
@@ -13,43 +12,48 @@ import * as THREE from "../ThreeJs/ThreeJs.js";
  * @param axis    either "x" or "z"
  */
 
-export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
+export default (
+  bufferGeometry: THREE.BufferGeometry,
+  axisInTileUnits: number,
+  axis: "x" | "y" | "z",
+  keepSide: "left" | "right"
+) => {
   // Get array of tri indices:
-  var normals = bufferGeometry.getAttribute("normal");
-  var uvs = bufferGeometry.getAttribute("uv");
-  var verts = bufferGeometry.getAttribute("position").array;
-  var tris = bufferGeometry.index.array;
+  const normals = bufferGeometry.getAttribute("normal");
+  const uvs = bufferGeometry.getAttribute("uv");
+  const verts = bufferGeometry.getAttribute("position").array;
+  const tris = bufferGeometry.index?.array || [];
 
-  var newTriangles = [];
-  var newVerts = [];
-  var newUvs = [];
-  var newNormals = [];
+  const newTriangles = [];
+  const newVerts: number[] = [];
+  const newUvs: number[] = [];
+  const newNormals: number[] = [];
 
-  var rightIsKept = keepSide == "right";
+  const rightIsKept = keepSide == "right";
 
-  var axisOffset = axis == "x" ? 0 : 2; // y = 1. Y will never be used.
-  var other2DAxisOffset = axis == "x" ? 2 : 0; // y = 1. The "other" axis when looking at the tile from the top down.
-  var newVertIndex = verts.length / 3;
+  const axisOffset = axis == "x" ? 0 : 2; // y = 1. Y will never be used.
+  const other2DAxisOffset = axis == "x" ? 2 : 0; // y = 1. The "other" axis when looking at the tile from the top down.
+  let newVertIndex = verts.length / 3;
 
-  var addIntersect = (vert1Index, vert2Index) => {
-    var vert1IndexX3 = vert1Index * 3;
-    var vert2IndexX3 = vert2Index * 3;
+  const addIntersect = (vert1Index: number, vert2Index: number) => {
+    const vert1IndexX3 = vert1Index * 3;
+    const vert2IndexX3 = vert2Index * 3;
 
-    var b = verts[vert1IndexX3 + axisOffset];
-    var c = verts[vert2IndexX3 + axisOffset];
-    var bOther = verts[vert1IndexX3 + other2DAxisOffset];
-    var cOther = verts[vert2IndexX3 + other2DAxisOffset];
-    var bY = verts[vert1IndexX3 + 1];
-    var cY = verts[vert2IndexX3 + 1];
+    const b = verts[vert1IndexX3 + axisOffset];
+    const c = verts[vert2IndexX3 + axisOffset];
+    const bOther = verts[vert1IndexX3 + other2DAxisOffset];
+    const cOther = verts[vert2IndexX3 + other2DAxisOffset];
+    const bY = verts[vert1IndexX3 + 1];
+    const cY = verts[vert2IndexX3 + 1];
 
     // % of the slice line between 2 verts:
-    var perc = (axisInTileUnits - b) / (c - b);
-    var otherIntersect = bOther + perc * (cOther - bOther);
-    var yIntersect = bY + perc * (cY - bY);
+    const perc = (axisInTileUnits - b) / (c - b);
+    const otherIntersect = bOther + perc * (cOther - bOther);
+    const yIntersect = bY + perc * (cY - bY);
 
     // We now have the 3 coords of the intersection point
     // between this triangle edge and the slice line. Add it to newVerts:
-    var newIndex = newVertIndex++;
+    const newIndex = newVertIndex++;
 
     if (axisOffset == 0) {
       // a/b/c represent x values:
@@ -71,10 +75,10 @@ export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
 
     if (uvs) {
       // TODO: calc correct uv at the intersect. It's always along the edge, so no need for barycentric stuff.
-      var bU = uvs.array[vert1Index * 2];
-      var cU = uvs.array[vert2Index * 2];
-      var bV = uvs.array[vert1Index * 2 + 1];
-      var cV = uvs.array[vert2Index * 2 + 1];
+      const bU = uvs.array[vert1Index * 2];
+      const cU = uvs.array[vert2Index * 2];
+      const bV = uvs.array[vert1Index * 2 + 1];
+      const cV = uvs.array[vert2Index * 2 + 1];
 
       newUvs.push(bU + perc * (cU - bU), bV + perc * (cV - bV));
     }
@@ -84,21 +88,21 @@ export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
 
   // +ve y is always assumed to be "up".
   // For each triangle, consider if it should be kept as-is, discarded, or sliced.
-  for (var i = 0; i < tris.length; i += 3) {
-    var aIndex = tris[i];
-    var bIndex = tris[i + 1];
-    var cIndex = tris[i + 2];
+  for (let i = 0; i < tris.length; i += 3) {
+    const aIndex = tris[i];
+    const bIndex = tris[i + 1];
+    const cIndex = tris[i + 2];
 
-    var a = verts[aIndex * 3 + axisOffset];
-    var b = verts[bIndex * 3 + axisOffset];
-    var c = verts[cIndex * 3 + axisOffset];
+    const a = verts[aIndex * 3 + axisOffset];
+    const b = verts[bIndex * 3 + axisOffset];
+    const c = verts[cIndex * 3 + axisOffset];
 
     // First check if all 3 verts are on the same side of the line (they very commonly will be).
     // This means the tri is going to be either kept or discarded.
 
-    var aOnLeft = a <= axisInTileUnits;
-    var bOnLeft = b <= axisInTileUnits;
-    var cOnLeft = c <= axisInTileUnits;
+    const aOnLeft = a <= axisInTileUnits;
+    const bOnLeft = b <= axisInTileUnits;
+    const cOnLeft = c <= axisInTileUnits;
 
     if (aOnLeft && bOnLeft && cOnLeft) {
       // Entirely on the left.
@@ -127,8 +131,8 @@ export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
         // b->c intersects
         // c->a intersects
 
-        var bcIntersect = addIntersect(bIndex, cIndex);
-        var caIntersect = addIntersect(cIndex, aIndex);
+        const bcIntersect = addIntersect(bIndex, cIndex);
+        const caIntersect = addIntersect(cIndex, aIndex);
 
         // Ok, now which part are we keeping?
 
@@ -152,8 +156,8 @@ export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
         // c->a intersects
         // a->b intersects
 
-        var caIntersect = addIntersect(cIndex, aIndex);
-        var abIntersect = addIntersect(aIndex, bIndex);
+        const caIntersect = addIntersect(cIndex, aIndex);
+        const abIntersect = addIntersect(aIndex, bIndex);
 
         // Ok, now which part are we keeping?
 
@@ -177,8 +181,8 @@ export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
         // a->b intersects
         // b->c intersects
 
-        var abIntersect = addIntersect(aIndex, bIndex);
-        var bcIntersect = addIntersect(bIndex, cIndex);
+        const abIntersect = addIntersect(aIndex, bIndex);
+        const bcIntersect = addIntersect(bIndex, cIndex);
 
         // Ok, now which part are we keeping?
 
@@ -207,11 +211,11 @@ export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
   if (newVerts.length) {
     // Merge originals and new ones:
 
-    var totalVertCount = verts.length + newVerts.length;
-    var vertBuffer = new Float32Array(totalVertCount);
+    const totalVertCount = verts.length + newVerts.length;
+    const vertBuffer = new Float32Array(totalVertCount);
     vertBuffer.set(verts);
 
-    for (var i = 0; i < newVerts.length; i++) {
+    for (let i = 0; i < newVerts.length; i++) {
       vertBuffer[verts.length + i] = newVerts[i];
     }
 
@@ -221,10 +225,10 @@ export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
     );
 
     if (normals) {
-      var normalBuffer = new Float32Array(totalVertCount);
+      const normalBuffer = new Float32Array(totalVertCount);
       normalBuffer.set(normals.array);
 
-      for (var i = 0; i < newVerts.length; i++) {
+      for (let i = 0; i < newVerts.length; i++) {
         normalBuffer[verts.length + i] = newNormals[i];
       }
 
@@ -235,17 +239,17 @@ export default (bufferGeometry, axisInTileUnits, axis, keepSide) => {
     }
 
     if (uvs) {
-      var uvBuffer = new Float32Array(uvs.array.length + newUvs.length);
+      const uvBuffer = new Float32Array(uvs.array.length + newUvs.length);
       uvBuffer.set(uvs.array);
 
-      for (var i = 0; i < newUvs.length; i++) {
+      for (let i = 0; i < newUvs.length; i++) {
         uvBuffer[uvs.array.length + i] = newUvs[i];
       }
 
       slicedTile.setAttribute("uv", new THREE.BufferAttribute(uvBuffer, 2));
     }
   } else {
-    for (var key in bufferGeometry.attributes) {
+    for (const key in bufferGeometry.attributes) {
       slicedTile.setAttribute(key, bufferGeometry.attributes[key].clone());
     }
   }

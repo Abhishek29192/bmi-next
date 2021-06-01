@@ -8,7 +8,6 @@ import React, {
   useCallback,
   Dispatch
 } from "react";
-import { ClickableAction } from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Card, { CardActions, CardContent } from "@bmi/card";
 import ContainerDialog from "@bmi/container-dialog";
@@ -32,13 +31,16 @@ import {
   HouseViewer,
   GetRef as getRef
 } from "@bmi/visualiser-library";
-import { groupBy } from "lodash";
+import { Dictionary, groupBy } from "lodash";
 import styles from "./Visualiser.module.scss";
+import { Colour, Material, Siding, Tile } from "./Types";
 
-const MATERIAL_NAME_MAP = {
-  1: "Betongtakstein",
-  2: "Telgtakstein",
-  3: "Takpanner"
+const MATERIAL_NAME_MAP: {
+  [material in Material]: string;
+} = {
+  "1": "Betongtakstein",
+  "2": "Telgtakstein",
+  "3": "Takpanner"
 };
 
 export type Parameters = {
@@ -46,8 +48,8 @@ export type Parameters = {
   colourId?: number;
   sidingId?: number;
   viewMode?: "tile" | "roof";
-  tiles: TileProps[];
-  sidings: SidingProps[];
+  tiles: Tile[];
+  sidings: Siding[];
 };
 
 type Props = {
@@ -65,20 +67,11 @@ type Props = {
   ) => void;
 } & Parameters;
 
-type TileProps =
-  | any
-  | {
-      productLink?: {
-        action?: ClickableAction;
-        label: string; // TODO: label in data should be "Les mer om produktet"
-      };
-    }; // TODO: type tile entity
-type TileColourProps = any; // TODO: type colour tile entity
-type SidingProps = any; // TODO: type sidings entity
+type TileProps = Omit<Tile, "colours"> & { colour: Colour };
 
 type TileSectorDialogProps = {
-  activeTile: TileProps;
-  activeColour: TileColourProps;
+  activeTile: Tile;
+  activeColour: Colour;
   contentSource: string;
   open: boolean;
   onCloseClick: (isTileSelectorOpen: boolean) => void;
@@ -87,7 +80,7 @@ type TileSectorDialogProps = {
     colourId: number;
     label: string;
   }) => void;
-  tiles: any;
+  tiles: Tile[];
 };
 
 const Actions = ({
@@ -201,7 +194,6 @@ const SelectionOptions = ({
               component="button"
               title={name}
               imageSource={getRef(colour.previewRef, {
-                url: true,
                 size: "128",
                 contentSource
               })}
@@ -212,10 +204,10 @@ const SelectionOptions = ({
                   label: `${name} + ${colour.name}`
                 })
               }
-              className={classnames({
-                [styles["active-selection-option"]]:
-                  defaultValue === `${id}-${colour.id}`
-              })}
+              className={classnames(
+                defaultValue === `${id}-${colour.id}` &&
+                  styles["active-selection-option"]
+              )}
               aria-label={
                 defaultValue === `${id}-${colour.id}` ? "Valgt" : undefined
               }
@@ -246,7 +238,9 @@ const TileSectorDialog = ({
     [tiles]
   );
 
-  const productPropsGroupedByMaterial = groupBy(productProps, "material");
+  const productPropsGroupedByMaterial: Dictionary<
+    (Omit<Tile, "colours"> & { colour: Colour })[]
+  > = groupBy(productProps, "material");
 
   const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
 
@@ -283,7 +277,7 @@ const TileSectorDialog = ({
           contentSource={contentSource}
           defaultValue={defaultTileIdentifier}
           key={`material-group-${key}`}
-          title={MATERIAL_NAME_MAP[key]}
+          title={MATERIAL_NAME_MAP[key as Material]}
           products={productPropsGroupedByMaterial[key]}
           onClick={onButtonClick}
         />
@@ -303,8 +297,8 @@ const SidingsSelectorDialog = ({
 }: {
   open: boolean;
   onCloseClick: (isSidingsSelectorOpen: boolean) => void;
-  activeSiding: SidingProps;
-  sidings: SidingProps[];
+  activeSiding: Siding;
+  sidings: Siding[];
   contentSource: string;
   onConfirmClick: (data: { sidingId: number }) => void;
   onClick: (event: { type: string; label: string }) => void;
@@ -339,7 +333,6 @@ const SidingsSelectorDialog = ({
               component="button"
               title={name}
               imageSource={getRef(diffuseMapRef, {
-                url: true,
                 size: "original",
                 contentSource
               })}
@@ -351,9 +344,9 @@ const SidingsSelectorDialog = ({
                   label: name
                 });
               }}
-              className={classnames({
-                [styles["active-selection-option"]]: activeSiding.id === id
-              })}
+              className={classnames(
+                activeSiding.id === id && styles["active-selection-option"]
+              )}
               aria-label={activeSiding.id === id ? "Valgt" : undefined}
             />
           </Grid>
@@ -370,7 +363,8 @@ const SharePopover = ({
   shareWidget: ReactNode;
   anchorRef: RefObject<HTMLDivElement>;
 }) => {
-  const [anchorElement, setAnchorElement] = useState(null);
+  const [anchorElement, setAnchorElement] =
+    useState<HTMLDivElement | null>(null);
 
   const handlePopoverClick = () => {
     setAnchorElement(anchorRef.current);
@@ -584,7 +578,7 @@ const Visualiser = ({
             colour={activeColour}
             options={{ contentSource }}
             siding={activeSiding}
-            setIsLoading={(isLoading) => setIsLoading(isLoading)}
+            setIsLoading={(isLoading: boolean) => setIsLoading(isLoading)}
           />
         )}
         <TileSectorDialog

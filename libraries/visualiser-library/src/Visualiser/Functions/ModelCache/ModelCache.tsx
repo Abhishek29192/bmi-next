@@ -1,6 +1,4 @@
-// TODO: resolve eslint issues:
-/* eslint-disable */
-import * as THREE from "../ThreeJs/ThreeJs.js";
+import { GLTFTile } from "../../../Types";
 import GLTFLoader from "../ThreeJsUtils/Gltf/Gltf.js";
 
 /*
@@ -8,21 +6,21 @@ import GLTFLoader from "../ThreeJsUtils/Gltf/Gltf.js";
  * Returns a promise which resolves as the gltf object.
  */
 
-var cache = {};
+const cache: { [index: string]: Promise<GLTFTile> } = {};
 
-export default (url) => {
+export default (url: string) => {
   if (cache[url]) {
     return cache[url];
   }
 
-  var promise = new Promise((success, reject) => {
+  var promise = new Promise<GLTFTile>((success) => {
     var pieces = url.split("/");
-    var name = pieces.pop();
+    var name = pieces.pop()!;
     var path = pieces.join("/") + "/";
 
     var loader = new GLTFLoader().setPath(path);
 
-    loader.load(name, (tileGltf) => {
+    loader.load(name, (tileGltf: GLTFTile) => {
       success(tileGltf);
     });
   });
