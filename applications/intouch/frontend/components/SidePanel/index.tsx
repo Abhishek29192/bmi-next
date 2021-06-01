@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 export type SidePanelProps = {
   searchLabel?: string;
-  filters?: any;
+  filters?: Record<string, any>;
   children: React.ReactNode | React.ReactNode[];
 };
 
@@ -19,25 +19,27 @@ export const SidePanel = ({
   ));
 
   return (
-    <div className={styles.sidePanel}>
-      <div className={styles.filters}>
-        <FilterInput label={searchLabel} />
-        <div className={styles.filterButtons}>
-          <span
-            style={{
-              fontWeight: "bold",
-              display: "inline-block",
-              marginRight: "0.5em",
-              paddingBottom: "0.5em"
-            }}
-          >
-            Show Me:
-          </span>
+    <div className={styles.main}>
+      <div className={styles.sidePanel}>
+        <div className={styles.filters}>
+          <FilterInput label={searchLabel} />
+          <div className={styles.filterButtons}>
+            <span
+              style={{
+                fontWeight: "bold",
+                display: "inline-block",
+                marginRight: "0.5em",
+                paddingBottom: "0.5em"
+              }}
+            >
+              Show Me:
+            </span>
 
-          {filterButtons}
+            {filterButtons}
+          </div>
         </div>
+        <div className={styles.results}>{children}</div>
       </div>
-      <div className={styles.results}>{children}</div>
     </div>
   );
 };

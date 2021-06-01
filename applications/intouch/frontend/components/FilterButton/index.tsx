@@ -6,8 +6,6 @@ export type FilterButtonProps = {
   label: string;
 };
 
-// This uses the makeStyles function from MUI rather than CSS modules because
-// the base MUI styles are not overrideable at that level for button components.
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -15,7 +13,9 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: "#f7f7f7",
       marginRight: "0.5em",
       marginBottom: "0.5em",
-      color: "007bbd",
+      color: "#007bbd",
+      paddingTop: "0.2rem",
+      paddingBottom: "0.2rem",
       "&:hover": {
         backgroundColor: "#f0f0f0"
       },

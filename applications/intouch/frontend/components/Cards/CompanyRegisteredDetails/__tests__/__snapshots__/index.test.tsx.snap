@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompanyRegisteredDetails component renders correctly 1`] = `
+<div
+  class="main"
+>
+  <h4
+    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+    style="font-size: 1.2rem;"
+  >
+    Registered Details
+  </h4>
+  <div
+    class="body"
+  >
+    <div
+      style="margin-bottom: 1.5rem;"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        Registered Name
+      </h6>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1"
+      >
+        Registered Name
+      </p>
+    </div>
+    <div
+      style="margin-bottom: 1.5rem;"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        Registered Address
+      </h6>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1"
+      >
+        Registered Address
+      </p>
+    </div>
+    <div
+      style="margin-bottom: 1.5rem;"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        Company VAT Number
+      </h6>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1"
+      >
+        0123456789
+      </p>
+    </div>
+    <div
+      style="margin-bottom: 1.5rem;"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        Contract
+      </h6>
+      <p
+        class="MuiTypography-root Typography MuiTypography-body1"
+      >
+        Valid until 99/99/99
+      </p>
+    </div>
+  </div>
+</div>
+`;
