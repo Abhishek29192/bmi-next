@@ -1,15 +1,15 @@
 overwrite: true
-# Endpoint API
 schema:
   - http://localhost:4000/graphql:
-      headers:
-        Authorization: "Bearer ${AUTH0_ACCESS_TOKEN}"
-# Format files
+
 hooks:
   afterAllFileWrite:
     - prettier --write
 generates:
-  # Create Schemas
-  ./generated/schemas.ts:
+  ./generated/types.ts:
     plugins:
       - typescript
+
+  ./generated/schema.graphql:
+    plugins:
+      - schema-ast
