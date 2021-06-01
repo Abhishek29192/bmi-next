@@ -5,6 +5,8 @@ const { isDryRun } = require("../../../../utils/process");
 module.exports.description =
   "change subtitle field from short text to long text";
 
+// This script was split due to limitation/features of contentful migration
+// such that you cannot rename/disable field and make a new one with same name in same script
 module.exports.up = (migration) => {
   const page = migration.editContentType("page");
 
@@ -37,8 +39,9 @@ module.exports.up = (migration) => {
   });
 };
 
+// Please run "migrate down -e [environment] -c page 20210524130540-rename-subtitle-text-field.js"
+// so that it returns the subtitle field back to its previous state
 module.exports.down = (migration) => {
   const page = migration.editContentType("page");
-
   page.deleteField("subtitle");
 };
