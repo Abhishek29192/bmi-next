@@ -874,7 +874,7 @@ type CourseTemp {
   """A reference to the image"""
   image: String
 
-  """Promoted courses a listed higher than others"""
+  """Promoted courses are listed higher than others"""
   promoted: Boolean
 
   """
@@ -1728,7 +1728,7 @@ input CourseTempInput {
   """A reference to the image"""
   image: String
 
-  """Promoted courses a listed higher than others"""
+  """Promoted courses are listed higher than others"""
   promoted: Boolean
 
   """
@@ -2368,7 +2368,7 @@ input CourseTempPatch {
   """A reference to the image"""
   image: String
 
-  """Promoted courses a listed higher than others"""
+  """Promoted courses are listed higher than others"""
   promoted: Boolean
 
   """
