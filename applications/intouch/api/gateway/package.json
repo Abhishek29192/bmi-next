@@ -6,9 +6,12 @@
   "main": "index.ts",
   "private": true,
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "tsc -b && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "codegen": "graphql-codegen -r dotenv/config --config codegen.yml",
+    "codegen:watch": "yarn codegen --watch \"../services/**/schema.graphql\"",
+    "dev": "tsc -b && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn codegen:watch\" \"yarn prettify-generated\"",
+    "prettify-generated": "onchange \"schema.graphql\" -- prettier --write schema.graphql ../types/index.ts",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@apollo/federation": "^0.22.0",
@@ -27,7 +30,11 @@
     "graphql-transform-federation": "^2.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.21.5",
+    "@graphql-codegen/schema-ast": "^1.18.3",
+    "@graphql-codegen/typescript": "^1.22.1",
     "concurrently": "^6.0.0",
+    "onchange": "^7.1.0",
     "typescript": "^3.9.3"
   }
 }

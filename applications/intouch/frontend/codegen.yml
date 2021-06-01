@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - "../api/types/generated/schema.graphql"
+  - "../api/gateway/schema.graphql"
 
 # Format files
 hooks:

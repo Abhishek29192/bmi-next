@@ -1,14 +1,6 @@
 {
   "name": "@bmi/intouch-api-types",
   "version": "0.0.0",
-  "description": "BMI InTouch GraphQL API schemas types definitions",
-  "license": "BMI-DXB",
-  "scripts": {
-    "codegen": "graphql-codegen --config codegen.yml"
-  },
-  "dependencies": {
-    "@graphql-codegen/cli": "^1.21.4",
-    "@graphql-codegen/schema-ast": "^1.18.3",
-    "@graphql-codegen/typescript": "^1.22.0"
-  }
+  "description": "BMI InTouch GraphQL API type definitions",
+  "license": "BMI-DXB"
 }

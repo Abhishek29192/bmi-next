@@ -9,10 +9,6 @@ hooks:
     - prettier --write
 
 generates:
-  ./generated/schema.graphql:
+  ./schema.graphql:
     plugins:
       - schema-ast
-
-  ./generated/types.ts:
-    plugins:
-      - typescript

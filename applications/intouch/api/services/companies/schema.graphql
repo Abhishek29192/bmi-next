@@ -401,47 +401,6 @@ type Query implements Node {
   ): GuaranteesConnection
 
   """
-  Reads and enables pagination through a set of `GuaranteedProduct`.
-  """
-  guaranteedProducts(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: GuaranteedProductCondition
-  ): GuaranteedProductsConnection
-
-  """
   Reads and enables pagination through a set of `Invitation`.
   """
   invitations(
@@ -819,15 +778,17 @@ type Query implements Node {
   companyOperation(id: Int!): CompanyOperation
   evidenceItem(id: Int!): EvidenceItem
   guarantee(id: Int!): Guarantee
-  guaranteedProduct(id: Int!): GuaranteedProduct
   invitation(id: Int!): Invitation
   market(id: Int!): Market
+  marketByDoceboCatalogueId(doceboCatalogueId: Int!): Market
   note(id: Int!): Note
   notification(id: Int!): Notification
   product(id: Int!): Product
+  productByBmiRef(bmiRef: String!): Product
   project(id: Int!): Project
   projectMember(id: Int!): ProjectMember
   system(id: Int!): System
+  systemByBmiRef(bmiRef: String!): System
   systemMember(id: Int!): SystemMember
   currentAccountEmail: String
   currentAccountId: Int
@@ -951,16 +912,6 @@ type Query implements Node {
     """
     nodeId: ID!
   ): Guarantee
-
-  """
-  Reads a single `GuaranteedProduct` using its globally unique `ID`.
-  """
-  guaranteedProductByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `GuaranteedProduct`.
-    """
-    nodeId: ID!
-  ): GuaranteedProduct
 
   """
   Reads a single `Invitation` using its globally unique `ID`.
@@ -1167,9 +1118,14 @@ type Account implements Node {
   doceboUsername: String
 
   """
-  File reference or the file itself. A profile picture of the user
+  File reference. A profile picture of the user
   """
   photo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -1624,7 +1580,7 @@ type Market implements Node {
   """
   The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
-  doceboCatalogueId: String
+  doceboCatalogueId: Int
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -1632,7 +1588,7 @@ type Market implements Node {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.  Tier 0 can then be configured to support Guarantees in non-Roopro countries.  In Roofpro countries various Tier configurations become possible.
+  Whether the market supports Projects.  If so then the Project section is available.
   """
   projectsEnabled: Boolean
 
@@ -1642,7 +1598,7 @@ type Market implements Node {
   gtag: String
 
   """
-  The coordinates of the middle of the country on a map
+  The coordinates of the middle of the Market on a map
   """
   geoMiddle: String
   createdAt: Datetime!
@@ -1954,6 +1910,16 @@ type Company implements Node {
   marketId: Int
 
   """
+  fk
+  """
+  registeredAddressId: Int
+
+  """
+  fk
+  """
+  tradingAddressId: Int
+
+  """
   the name of the owner of the Company
   """
   ownerFullname: String
@@ -2004,19 +1970,14 @@ type Company implements Node {
   name: String
 
   """
-  The Tax number in that number, such as the VAT number
+  The Tax number in that Market, such as the VAT number
   """
   taxNumber: String
 
   """
-  They Companys public phone number
+  They Company public phone number
   """
   phone: String
-
-  """
-  The companys GoogleMap address
-  """
-  coordinates: Point
 
   """
   A bit of blurb to appear in Find a contractor
@@ -2024,7 +1985,7 @@ type Company implements Node {
   aboutUs: String
 
   """
-  The email address that they can be contacted with by the public assuming they are listed.
+  The email address that they can be contacted with by the public assuming they are listed
   """
   publicEmail: String
 
@@ -2052,6 +2013,21 @@ type Company implements Node {
   A reference to the logo
   """
   logo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  tradingAddressMigrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  registeredAddressMigrationId: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -2061,45 +2037,14 @@ type Company implements Node {
   market: Market
 
   """
-  Reads and enables pagination through a set of `Address`.
+  Reads a single `Address` that is related to this `Company`.
   """
-  addresses(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
+  registeredAddress: Address
 
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Address`.
-    """
-    orderBy: [AddressesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: AddressCondition
-  ): AddressesConnection!
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
 
   """
   Reads and enables pagination through a set of `CompanyDocument`.
@@ -2327,36 +2272,6 @@ enum CompanyStatus {
   DEACTIVATED
 }
 
-type Point {
-  x: Float!
-  y: Float!
-}
-
-"""
-A connection to a list of `Address` values.
-"""
-type AddressesConnection {
-  """
-  A list of `Address` objects.
-  """
-  nodes: [Address!]!
-
-  """
-  A list of edges which contains the `Address` and cursor to aid in pagination.
-  """
-  edges: [AddressesEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `Address` you could get from the connection.
-  """
-  totalCount: Int!
-}
-
 """
 A generic address
 """
@@ -2370,21 +2285,6 @@ type Address implements Node {
   Primary key
   """
   id: Int!
-
-  """
-  fk
-  """
-  projectId: Int
-
-  """
-  fk
-  """
-  companyId: Int
-
-  """
-  ek
-  """
-  addressType: AddressType
 
   """
   First line of this address
@@ -2402,6 +2302,11 @@ type Address implements Node {
   town: String
 
   """
+  The region if relevant
+  """
+  region: String
+
+  """
   The country for this address
   """
   country: String
@@ -2410,112 +2315,23 @@ type Address implements Node {
   The postcode for this address
   """
   postcode: String
+
+  """
+  The coordinates on a map of the world
+  """
+  coordinates: Point
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
   """
-  Reads a single `Project` that is related to this `Address`.
+  Reads and enables pagination through a set of `Company`.
   """
-  project: Project
-
-  """
-  Reads a single `Company` that is related to this `Address`.
-  """
-  company: Company
-}
-
-enum AddressType {
-  REGISTERED
-  TRADING
-  BUILDING_OWNER
-  SITE
-}
-
-"""
-A project that has been put into InTouch by a Company Administrator to represent a project being done by that company
-"""
-type Project implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-
-  """
-  Primary key
-  """
-  id: Int!
-
-  """
-  fk
-  """
-  companyId: Int
-
-  """
-  ek
-  """
-  technology: Technology
-
-  """
-  Short name for the Project
-  """
-  name: String
-
-  """
-  Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
-  """
-  description: String
-
-  """
-  If this is true then the Project should have been hidden from users
-  """
-  hidden: Boolean
-
-  """
-  The number of square meters of roof that this project covers
-  """
-  roofArea: Int
-
-  """
-  Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
-  """
-  buildingOwnerMail: String
-
-  """
-  Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued.
-  """
-  buildingOwnerFirstname: String
-
-  """
-  Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued.
-  """
-  buildingOwnerLastname: String
-
-  """
-  Name of the Building Owners Company if they have one
-  """
-  buildingOwnerCompany: String
-
-  """
-  The date that the Project starts
-  """
-  startDate: Datetime
-
-  """
-  The date that the Project expects to end.
-  """
-  endDate: Datetime
-  createdAt: Datetime!
-  updatedAt: Datetime!
-
-  """
-  Reads a single `Company` that is related to this `Project`.
-  """
-  company: Company
-
-  """
-  Reads and enables pagination through a set of `Address`.
-  """
-  addresses(
+  companiesByRegisteredAddressId(
     """
     Only read the first `n` values of the set.
     """
@@ -2543,15 +2359,312 @@ type Project implements Node {
     after: Cursor
 
     """
-    The method to use when ordering `Address`.
+    The method to use when ordering `Company`.
     """
-    orderBy: [AddressesOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [CompaniesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: AddressCondition
-  ): AddressesConnection!
+    condition: CompanyCondition
+  ): CompaniesConnection!
+
+  """
+  Reads and enables pagination through a set of `Company`.
+  """
+  companiesByTradingAddressId(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Company`.
+    """
+    orderBy: [CompaniesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CompanyCondition
+  ): CompaniesConnection!
+
+  """
+  Reads and enables pagination through a set of `Project`.
+  """
+  projectsBySiteAddressId(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Project`.
+    """
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectCondition
+  ): ProjectsConnection!
+
+  """
+  Reads and enables pagination through a set of `Project`.
+  """
+  projectsByBuildingOwnerAddressId(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Project`.
+    """
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectCondition
+  ): ProjectsConnection!
+}
+
+type Point {
+  x: Float!
+  y: Float!
+}
+
+"""
+Methods to use when ordering `Company`.
+"""
+enum CompaniesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
+  REGISTERED_ADDRESS_ID_ASC
+  REGISTERED_ADDRESS_ID_DESC
+  TRADING_ADDRESS_ID_ASC
+  TRADING_ADDRESS_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Company` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input CompanyCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `marketId` field.
+  """
+  marketId: Int
+
+  """
+  Checks for equality with the object’s `registeredAddressId` field.
+  """
+  registeredAddressId: Int
+
+  """
+  Checks for equality with the object’s `tradingAddressId` field.
+  """
+  tradingAddressId: Int
+}
+
+"""
+A connection to a list of `Project` values.
+"""
+type ProjectsConnection {
+  """
+  A list of `Project` objects.
+  """
+  nodes: [Project!]!
+
+  """
+  A list of edges which contains the `Project` and cursor to aid in pagination.
+  """
+  edges: [ProjectsEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `Project` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A project that has been put into InTouch by a Company Administrator to represent a project being done by that company
+"""
+type Project implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  fk
+  """
+  companyId: Int
+
+  """
+  fk
+  """
+  siteAddressId: Int
+
+  """
+  fk
+  """
+  buildingOwnerAddressId: Int
+
+  """
+  ek
+  """
+  technology: Technology
+
+  """
+  Short name for the Project
+  """
+  name: String
+
+  """
+  Short description of what the Project is about.  Sometimes useful to clarify some points to BMI
+  """
+  description: String
+
+  """
+  If this is true then the Project should be hidden from End Users
+  """
+  hidden: Boolean
+
+  """
+  The number of square meters of roof that this project covers
+  """
+  roofArea: Int
+
+  """
+  Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
+  """
+  buildingOwnerMail: String
+
+  """
+  Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued.
+  """
+  buildingOwnerFirstname: String
+
+  """
+  Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued.
+  """
+  buildingOwnerLastname: String
+
+  """
+  Name of the Building Owners Company if it is known
+  """
+  buildingOwnerCompany: String
+
+  """
+  The date that the Project starts
+  """
+  startDate: Datetime
+
+  """
+  The date that the Project expects to end
+  """
+  endDate: Datetime
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """
+  Reads a single `Company` that is related to this `Project`.
+  """
+  company: Company
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  siteAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  buildingOwnerAddress: Address
 
   """
   Reads and enables pagination through a set of `Guarantee`.
@@ -2684,41 +2797,6 @@ enum Technology {
 }
 
 """
-Methods to use when ordering `Address`.
-"""
-enum AddressesOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  PROJECT_ID_ASC
-  PROJECT_ID_DESC
-  COMPANY_ID_ASC
-  COMPANY_ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `Address` object types. All fields are tested for equality and combined with a logical ‘and.’
-"""
-input AddressCondition {
-  """
-  Checks for equality with the object’s `id` field.
-  """
-  id: Int
-
-  """
-  Checks for equality with the object’s `projectId` field.
-  """
-  projectId: Int
-
-  """
-  Checks for equality with the object’s `companyId` field.
-  """
-  companyId: Int
-}
-
-"""
 A connection to a list of `Guarantee` values.
 """
 type GuaranteesConnection {
@@ -2760,7 +2838,7 @@ type Guarantee implements Node {
   """
   The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
   """
-  pdf: String
+  fileStorageId: String
 
   """
   fk
@@ -2785,7 +2863,12 @@ type Guarantee implements Node {
   """
   fk
   """
-  systemId: Int
+  systemBmiRef: String
+
+  """
+  fk
+  """
+  productBmiRef: String
 
   """
   fk
@@ -2803,19 +2886,19 @@ type Guarantee implements Node {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually.
+  The date that the Guarantee is approved either automatically or manually
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
   """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Request Id.
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
-  issueNumber: String
+  bmiReferenceId: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -2837,7 +2920,12 @@ type Guarantee implements Node {
   """
   Reads a single `System` that is related to this `Guarantee`.
   """
-  system: System
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `Guarantee`.
+  """
+  productByProductBmiRef: Product
 
   """
   Reads a single `Account` that is related to this `Guarantee`.
@@ -2884,47 +2972,6 @@ type Guarantee implements Node {
     """
     condition: EvidenceItemCondition
   ): EvidenceItemsConnection!
-
-  """
-  Reads and enables pagination through a set of `GuaranteedProduct`.
-  """
-  guaranteedProducts(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: GuaranteedProductCondition
-  ): GuaranteedProductsConnection!
   guaranteeType: ContentfulGuaranteeType
 }
 
@@ -2981,7 +3028,7 @@ type System implements Node {
   maximumValidityYears: Int
 
   """
-  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  If true this system is available for users to select when applying for a system or solution guarantee
   """
   published: Boolean
   createdAt: Datetime!
@@ -2995,7 +3042,7 @@ type System implements Node {
   """
   Reads and enables pagination through a set of `Guarantee`.
   """
-  guarantees(
+  guaranteesBySystemBmiRef(
     """
     Only read the first `n` values of the set.
     """
@@ -3036,7 +3083,7 @@ type System implements Node {
   """
   Reads and enables pagination through a set of `SystemMember`.
   """
-  systemMembers(
+  systemMembersBySystemBmiRef(
     """
     Only read the first `n` values of the set.
     """
@@ -3088,8 +3135,10 @@ enum GuaranteesOrderBy {
   RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC
   PROJECT_ID_ASC
   PROJECT_ID_DESC
-  SYSTEM_ID_ASC
-  SYSTEM_ID_DESC
+  SYSTEM_BMI_REF_ASC
+  SYSTEM_BMI_REF_DESC
+  PRODUCT_BMI_REF_ASC
+  PRODUCT_BMI_REF_DESC
   REVIEWER_ACCOUNT_ID_ASC
   REVIEWER_ACCOUNT_ID_DESC
   PRIMARY_KEY_ASC
@@ -3122,9 +3171,14 @@ input GuaranteeCondition {
   projectId: Int
 
   """
-  Checks for equality with the object’s `systemId` field.
+  Checks for equality with the object’s `systemBmiRef` field.
   """
-  systemId: Int
+  systemBmiRef: String
+
+  """
+  Checks for equality with the object’s `productBmiRef` field.
+  """
+  productBmiRef: String
 
   """
   Checks for equality with the object’s `reviewerAccountId` field.
@@ -3158,7 +3212,7 @@ type SystemMembersConnection {
 }
 
 """
-A system product pair
+A Products that make up a system
 """
 type SystemMember implements Node {
   """
@@ -3174,24 +3228,24 @@ type SystemMember implements Node {
   """
   fk
   """
-  systemId: Int
+  systemBmiRef: String
 
   """
   fk
   """
-  productId: Int
+  productBmiRef: String
   createdAt: Datetime!
   updatedAt: Datetime!
 
   """
   Reads a single `System` that is related to this `SystemMember`.
   """
-  system: System
+  systemBySystemBmiRef: System
 
   """
   Reads a single `Product` that is related to this `SystemMember`.
   """
-  product: Product
+  productByProductBmiRef: Product
 }
 
 """
@@ -3229,12 +3283,12 @@ type Product implements Node {
   brand: String
 
   """
-  Short name for the product
+  Short name for the Product
   """
   name: String
 
   """
-  A description of the product
+  A description of the Product
   """
   description: String
 
@@ -3244,7 +3298,7 @@ type Product implements Node {
   family: String
 
   """
-  Whether the product is avialable when being selected or not
+  Whether the Product is avialable for new guarantees
   """
   published: Boolean
 
@@ -3261,9 +3315,9 @@ type Product implements Node {
   market: Market
 
   """
-  Reads and enables pagination through a set of `GuaranteedProduct`.
+  Reads and enables pagination through a set of `Guarantee`.
   """
-  guaranteedProducts(
+  guaranteesByProductBmiRef(
     """
     Only read the first `n` values of the set.
     """
@@ -3291,20 +3345,20 @@ type Product implements Node {
     after: Cursor
 
     """
-    The method to use when ordering `GuaranteedProduct`.
+    The method to use when ordering `Guarantee`.
     """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: GuaranteedProductCondition
-  ): GuaranteedProductsConnection!
+    condition: GuaranteeCondition
+  ): GuaranteesConnection!
 
   """
   Reads and enables pagination through a set of `SystemMember`.
   """
-  systemMembers(
+  systemMembersByProductBmiRef(
     """
     Only read the first `n` values of the set.
     """
@@ -3344,80 +3398,54 @@ type Product implements Node {
 }
 
 """
-A connection to a list of `GuaranteedProduct` values.
+Methods to use when ordering `SystemMember`.
 """
-type GuaranteedProductsConnection {
-  """
-  A list of `GuaranteedProduct` objects.
-  """
-  nodes: [GuaranteedProduct!]!
-
-  """
-  A list of edges which contains the `GuaranteedProduct` and cursor to aid in pagination.
-  """
-  edges: [GuaranteedProductsEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `GuaranteedProduct` you could get from the connection.
-  """
-  totalCount: Int!
+enum SystemMembersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  SYSTEM_BMI_REF_ASC
+  SYSTEM_BMI_REF_DESC
+  PRODUCT_BMI_REF_ASC
+  PRODUCT_BMI_REF_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
 }
 
 """
-A mapping of Products to Guarantees.  Needed because uou can have more than one Product per Product Guarantee.
+A condition to be used against `SystemMember` object types. All fields are
+tested for equality and combined with a logical ‘and.’
 """
-type GuaranteedProduct implements Node {
+input SystemMemberCondition {
   """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  Checks for equality with the object’s `id` field.
   """
-  nodeId: ID!
+  id: Int
 
   """
-  Primary key
+  Checks for equality with the object’s `systemBmiRef` field.
   """
-  id: Int!
+  systemBmiRef: String
 
   """
-  fk
+  Checks for equality with the object’s `productBmiRef` field.
   """
-  productId: Int
-
-  """
-  fk
-  """
-  guaranteeId: Int
-  createdAt: Datetime!
-  updatedAt: Datetime!
-
-  """
-  Reads a single `Product` that is related to this `GuaranteedProduct`.
-  """
-  product: Product
-
-  """
-  Reads a single `Guarantee` that is related to this `GuaranteedProduct`.
-  """
-  guarantee: Guarantee
+  productBmiRef: String
 }
 
 """
-A `GuaranteedProduct` edge in the connection.
+A `SystemMember` edge in the connection.
 """
-type GuaranteedProductsEdge {
+type SystemMembersEdge {
   """
   A cursor for use in pagination.
   """
   cursor: Cursor
 
   """
-  The `GuaranteedProduct` at the end of the edge.
+  The `SystemMember` at the end of the edge.
   """
-  node: GuaranteedProduct!
+  node: SystemMember!
 }
 
 """
@@ -3446,93 +3474,6 @@ type PageInfo {
 }
 
 """
-Methods to use when ordering `GuaranteedProduct`.
-"""
-enum GuaranteedProductsOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  PRODUCT_ID_ASC
-  PRODUCT_ID_DESC
-  GUARANTEE_ID_ASC
-  GUARANTEE_ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `GuaranteedProduct` object types. All fields are
-tested for equality and combined with a logical ‘and.’
-"""
-input GuaranteedProductCondition {
-  """
-  Checks for equality with the object’s `id` field.
-  """
-  id: Int
-
-  """
-  Checks for equality with the object’s `productId` field.
-  """
-  productId: Int
-
-  """
-  Checks for equality with the object’s `guaranteeId` field.
-  """
-  guaranteeId: Int
-}
-
-"""
-Methods to use when ordering `SystemMember`.
-"""
-enum SystemMembersOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  SYSTEM_ID_ASC
-  SYSTEM_ID_DESC
-  PRODUCT_ID_ASC
-  PRODUCT_ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `SystemMember` object types. All fields are
-tested for equality and combined with a logical ‘and.’
-"""
-input SystemMemberCondition {
-  """
-  Checks for equality with the object’s `id` field.
-  """
-  id: Int
-
-  """
-  Checks for equality with the object’s `systemId` field.
-  """
-  systemId: Int
-
-  """
-  Checks for equality with the object’s `productId` field.
-  """
-  productId: Int
-}
-
-"""
-A `SystemMember` edge in the connection.
-"""
-type SystemMembersEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: Cursor
-
-  """
-  The `SystemMember` at the end of the edge.
-  """
-  node: SystemMember!
-}
-
-"""
 A connection to a list of `EvidenceItem` values.
 """
 type EvidenceItemsConnection {
@@ -3558,7 +3499,7 @@ type EvidenceItemsConnection {
 }
 
 """
-An item of evidence for a guarantee
+An file uploaded to a project, usually as evidence to support a guarantee
 """
 type EvidenceItem implements Node {
   """
@@ -3574,12 +3515,17 @@ type EvidenceItem implements Node {
   """
   a reference to the evidenceCategory sys id in Contentful
   """
-  evidenceCategoryId: String
+  customEvidenceCategoryId: String
 
   """
   fk
   """
   guaranteeId: Int
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
 
   """
   Short name for the item of evidence
@@ -3597,6 +3543,12 @@ type EvidenceItem implements Node {
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
+}
+
+enum EvidenceCategoryType {
+  PROOF_OF_PURCHASE
+  MISCELLANEOUS
+  CUSTOM
 }
 
 """
@@ -3911,7 +3863,7 @@ type ProjectMembersConnection {
 }
 
 """
-A connection between a User and a Project. A connection between a user and a company. This relationship could be simplified as one to many at the moment, but there is already demand for a many to many relationship.
+People who are on a Project
 """
 type ProjectMember implements Node {
   """
@@ -3999,18 +3951,60 @@ input ProjectMemberCondition {
 }
 
 """
-A `Address` edge in the connection.
+A `Project` edge in the connection.
 """
-type AddressesEdge {
+type ProjectsEdge {
   """
   A cursor for use in pagination.
   """
   cursor: Cursor
 
   """
-  The `Address` at the end of the edge.
+  The `Project` at the end of the edge.
   """
-  node: Address!
+  node: Project!
+}
+
+"""
+Methods to use when ordering `Project`.
+"""
+enum ProjectsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  COMPANY_ID_ASC
+  COMPANY_ID_DESC
+  SITE_ADDRESS_ID_ASC
+  SITE_ADDRESS_ID_DESC
+  BUILDING_OWNER_ADDRESS_ID_ASC
+  BUILDING_OWNER_ADDRESS_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Project` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input ProjectCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `companyId` field.
+  """
+  companyId: Int
+
+  """
+  Checks for equality with the object’s `siteAddressId` field.
+  """
+  siteAddressId: Int
+
+  """
+  Checks for equality with the object’s `buildingOwnerAddressId` field.
+  """
+  buildingOwnerAddressId: Int
 }
 
 """
@@ -4486,74 +4480,6 @@ input InvitationCondition {
 }
 
 """
-A connection to a list of `Project` values.
-"""
-type ProjectsConnection {
-  """
-  A list of `Project` objects.
-  """
-  nodes: [Project!]!
-
-  """
-  A list of edges which contains the `Project` and cursor to aid in pagination.
-  """
-  edges: [ProjectsEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `Project` you could get from the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-A `Project` edge in the connection.
-"""
-type ProjectsEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: Cursor
-
-  """
-  The `Project` at the end of the edge.
-  """
-  node: Project!
-}
-
-"""
-Methods to use when ordering `Project`.
-"""
-enum ProjectsOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  COMPANY_ID_ASC
-  COMPANY_ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `Project` object types. All fields are tested for equality and combined with a logical ‘and.’
-"""
-input ProjectCondition {
-  """
-  Checks for equality with the object’s `id` field.
-  """
-  id: Int
-
-  """
-  Checks for equality with the object’s `companyId` field.
-  """
-  companyId: Int
-}
-
-"""
 A `Company` edge in the connection.
 """
 type CompaniesEdge {
@@ -4566,34 +4492,6 @@ type CompaniesEdge {
   The `Company` at the end of the edge.
   """
   node: Company!
-}
-
-"""
-Methods to use when ordering `Company`.
-"""
-enum CompaniesOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  MARKET_ID_ASC
-  MARKET_ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `Company` object types. All fields are tested for equality and combined with a logical ‘and.’
-"""
-input CompanyCondition {
-  """
-  Checks for equality with the object’s `id` field.
-  """
-  id: Int
-
-  """
-  Checks for equality with the object’s `marketId` field.
-  """
-  marketId: Int
 }
 
 """
@@ -4645,6 +4543,8 @@ enum ProductsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  BMI_REF_ASC
+  BMI_REF_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -4662,6 +4562,11 @@ input ProductCondition {
   Checks for equality with the object’s `marketId` field.
   """
   marketId: Int
+
+  """
+  Checks for equality with the object’s `bmiRef` field.
+  """
+  bmiRef: String
 }
 
 """
@@ -4713,6 +4618,8 @@ enum SystemsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  BMI_REF_ASC
+  BMI_REF_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -4730,6 +4637,11 @@ input SystemCondition {
   Checks for equality with the object’s `marketId` field.
   """
   marketId: Int
+
+  """
+  Checks for equality with the object’s `bmiRef` field.
+  """
+  bmiRef: String
 }
 
 """
@@ -4970,6 +4882,67 @@ type AccountsEdge {
 }
 
 """
+A connection to a list of `Address` values.
+"""
+type AddressesConnection {
+  """
+  A list of `Address` objects.
+  """
+  nodes: [Address!]!
+
+  """
+  A list of edges which contains the `Address` and cursor to aid in pagination.
+  """
+  edges: [AddressesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `Address` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `Address` edge in the connection.
+"""
+type AddressesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `Address` at the end of the edge.
+  """
+  node: Address!
+}
+
+"""
+Methods to use when ordering `Address`.
+"""
+enum AddressesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Address` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input AddressCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+}
+
+"""
 A connection to a list of `Market` values.
 """
 type MarketsConnection {
@@ -5016,6 +4989,8 @@ enum MarketsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  DOCEBO_CATALOGUE_ID_ASC
+  DOCEBO_CATALOGUE_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -5028,6 +5003,11 @@ input MarketCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
+
+  """
+  Checks for equality with the object’s `doceboCatalogueId` field.
+  """
+  doceboCatalogueId: Int
 }
 
 """
@@ -5078,7 +5058,6 @@ union _Entity =
   | System
   | SystemMember
   | Product
-  | GuaranteedProduct
   | EvidenceItem
   | Note
   | ProjectMember
@@ -5186,16 +5165,6 @@ type Mutation {
     """
     input: CreateGuaranteeInput!
   ): CreateGuaranteePayload
-
-  """
-  Creates a single `GuaranteedProduct`.
-  """
-  createGuaranteedProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateGuaranteedProductInput!
-  ): CreateGuaranteedProductPayload
 
   """
   Creates a single `Invitation`.
@@ -5478,26 +5447,6 @@ type Mutation {
   ): UpdateGuaranteePayload
 
   """
-  Updates a single `GuaranteedProduct` using its globally unique id and a patch.
-  """
-  updateGuaranteedProductByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateGuaranteedProductByNodeIdInput!
-  ): UpdateGuaranteedProductPayload
-
-  """
-  Updates a single `GuaranteedProduct` using a unique key and a patch.
-  """
-  updateGuaranteedProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateGuaranteedProductInput!
-  ): UpdateGuaranteedProductPayload
-
-  """
   Updates a single `Invitation` using its globally unique id and a patch.
   """
   updateInvitationByNodeId(
@@ -5535,6 +5484,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateMarketInput!
+  ): UpdateMarketPayload
+
+  """
+  Updates a single `Market` using a unique key and a patch.
+  """
+  updateMarketByDoceboCatalogueId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarketByDoceboCatalogueIdInput!
   ): UpdateMarketPayload
 
   """
@@ -5598,6 +5557,16 @@ type Mutation {
   ): UpdateProductPayload
 
   """
+  Updates a single `Product` using a unique key and a patch.
+  """
+  updateProductByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProductByBmiRefInput!
+  ): UpdateProductPayload
+
+  """
   Updates a single `Project` using its globally unique id and a patch.
   """
   updateProjectByNodeId(
@@ -5655,6 +5624,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateSystemInput!
+  ): UpdateSystemPayload
+
+  """
+  Updates a single `System` using a unique key and a patch.
+  """
+  updateSystemByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemByBmiRefInput!
   ): UpdateSystemPayload
 
   """
@@ -5868,26 +5847,6 @@ type Mutation {
   ): DeleteGuaranteePayload
 
   """
-  Deletes a single `GuaranteedProduct` using its globally unique id.
-  """
-  deleteGuaranteedProductByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteGuaranteedProductByNodeIdInput!
-  ): DeleteGuaranteedProductPayload
-
-  """
-  Deletes a single `GuaranteedProduct` using a unique key.
-  """
-  deleteGuaranteedProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteGuaranteedProductInput!
-  ): DeleteGuaranteedProductPayload
-
-  """
   Deletes a single `Invitation` using its globally unique id.
   """
   deleteInvitationByNodeId(
@@ -5925,6 +5884,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteMarketInput!
+  ): DeleteMarketPayload
+
+  """
+  Deletes a single `Market` using a unique key.
+  """
+  deleteMarketByDoceboCatalogueId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarketByDoceboCatalogueIdInput!
   ): DeleteMarketPayload
 
   """
@@ -5988,6 +5957,16 @@ type Mutation {
   ): DeleteProductPayload
 
   """
+  Deletes a single `Product` using a unique key.
+  """
+  deleteProductByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProductByBmiRefInput!
+  ): DeleteProductPayload
+
+  """
   Deletes a single `Project` using its globally unique id.
   """
   deleteProjectByNodeId(
@@ -6048,6 +6027,16 @@ type Mutation {
   ): DeleteSystemPayload
 
   """
+  Deletes a single `System` using a unique key.
+  """
+  deleteSystemByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemByBmiRefInput!
+  ): DeleteSystemPayload
+
+  """
   Deletes a single `SystemMember` using its globally unique id.
   """
   deleteSystemMemberByNodeId(
@@ -6102,16 +6091,6 @@ type CreateAddressPayload {
   query: Query
 
   """
-  Reads a single `Project` that is related to this `Address`.
-  """
-  project: Project
-
-  """
-  Reads a single `Company` that is related to this `Address`.
-  """
-  company: Company
-
-  """
   An edge for our `Address`. May be used by Relay 1.
   """
   addressEdge(
@@ -6148,21 +6127,6 @@ input AddressInput {
   id: Int
 
   """
-  fk
-  """
-  projectId: Int
-
-  """
-  fk
-  """
-  companyId: Int
-
-  """
-  ek
-  """
-  addressType: AddressType
-
-  """
   First line of this address
   """
   firstLine: String
@@ -6178,6 +6142,11 @@ input AddressInput {
   town: String
 
   """
+  The region if relevant
+  """
+  region: String
+
+  """
   The country for this address
   """
   country: String
@@ -6186,8 +6155,23 @@ input AddressInput {
   The postcode for this address
   """
   postcode: String
+
+  """
+  The coordinates on a map of the world
+  """
+  coordinates: PointInput
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+}
+
+input PointInput {
+  x: Float!
+  y: Float!
 }
 
 """
@@ -6300,6 +6284,16 @@ type CreateCompanyPayload {
   market: Market
 
   """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  registeredAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
+
+  """
   An edge for our `Company`. May be used by Relay 1.
   """
   companyEdge(
@@ -6339,6 +6333,16 @@ input CompanyInput {
   fk
   """
   marketId: Int
+
+  """
+  fk
+  """
+  registeredAddressId: Int
+
+  """
+  fk
+  """
+  tradingAddressId: Int
 
   """
   the name of the owner of the Company
@@ -6391,19 +6395,14 @@ input CompanyInput {
   name: String
 
   """
-  The Tax number in that number, such as the VAT number
+  The Tax number in that Market, such as the VAT number
   """
   taxNumber: String
 
   """
-  They Companys public phone number
+  They Company public phone number
   """
   phone: String
-
-  """
-  The companys GoogleMap address
-  """
-  coordinates: PointInput
 
   """
   A bit of blurb to appear in Find a contractor
@@ -6411,7 +6410,7 @@ input CompanyInput {
   aboutUs: String
 
   """
-  The email address that they can be contacted with by the public assuming they are listed.
+  The email address that they can be contacted with by the public assuming they are listed
   """
   publicEmail: String
 
@@ -6439,13 +6438,23 @@ input CompanyInput {
   A reference to the logo
   """
   logo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  tradingAddressMigrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
-}
-
-input PointInput {
-  x: Float!
-  y: Float!
 }
 
 """
@@ -6749,12 +6758,17 @@ input EvidenceItemInput {
   """
   a reference to the evidenceCategory sys id in Contentful
   """
-  evidenceCategoryId: String
+  customEvidenceCategoryId: String
 
   """
   fk
   """
   guaranteeId: Int
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
 
   """
   Short name for the item of evidence
@@ -6807,7 +6821,12 @@ type CreateGuaranteePayload {
   """
   Reads a single `System` that is related to this `Guarantee`.
   """
-  system: System
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `Guarantee`.
+  """
+  productByProductBmiRef: Product
 
   """
   Reads a single `Account` that is related to this `Guarantee`.
@@ -6853,7 +6872,7 @@ input GuaranteeInput {
   """
   The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
   """
-  pdf: String
+  fileStorageId: String
 
   """
   fk
@@ -6878,7 +6897,12 @@ input GuaranteeInput {
   """
   fk
   """
-  systemId: Int
+  systemBmiRef: String
+
+  """
+  fk
+  """
+  productBmiRef: String
 
   """
   fk
@@ -6896,98 +6920,19 @@ input GuaranteeInput {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually.
+  The date that the Guarantee is approved either automatically or manually
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
   """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Request Id.
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
-  issueNumber: String
-  createdAt: Datetime
-  updatedAt: Datetime
-}
-
-"""
-The output of our create `GuaranteedProduct` mutation.
-"""
-type CreateGuaranteedProductPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  The `GuaranteedProduct` that was created by this mutation.
-  """
-  guaranteedProduct: GuaranteedProduct
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """
-  Reads a single `Product` that is related to this `GuaranteedProduct`.
-  """
-  product: Product
-
-  """
-  Reads a single `Guarantee` that is related to this `GuaranteedProduct`.
-  """
-  guarantee: Guarantee
-
-  """
-  An edge for our `GuaranteedProduct`. May be used by Relay 1.
-  """
-  guaranteedProductEdge(
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): GuaranteedProductsEdge
-}
-
-"""
-All input for the create `GuaranteedProduct` mutation.
-"""
-input CreateGuaranteedProductInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The `GuaranteedProduct` to be created by this mutation.
-  """
-  guaranteedProduct: GuaranteedProductInput!
-}
-
-"""
-An input for mutations affecting `GuaranteedProduct`
-"""
-input GuaranteedProductInput {
-  """
-  Primary key
-  """
-  id: Int
-
-  """
-  fk
-  """
-  productId: Int
-
-  """
-  fk
-  """
-  guaranteeId: Int
+  bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -7185,7 +7130,7 @@ input MarketInput {
   """
   The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
-  doceboCatalogueId: String
+  doceboCatalogueId: Int
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -7193,7 +7138,7 @@ input MarketInput {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.  Tier 0 can then be configured to support Guarantees in non-Roopro countries.  In Roofpro countries various Tier configurations become possible.
+  Whether the market supports Projects.  If so then the Project section is available.
   """
   projectsEnabled: Boolean
 
@@ -7203,7 +7148,7 @@ input MarketInput {
   gtag: String
 
   """
-  The coordinates of the middle of the country on a map
+  The coordinates of the middle of the Market on a map
   """
   geoMiddle: String
   createdAt: Datetime
@@ -7460,12 +7405,12 @@ input ProductInput {
   brand: String
 
   """
-  Short name for the product
+  Short name for the Product
   """
   name: String
 
   """
-  A description of the product
+  A description of the Product
   """
   description: String
 
@@ -7475,7 +7420,7 @@ input ProductInput {
   family: String
 
   """
-  Whether the product is avialable when being selected or not
+  Whether the Product is avialable for new guarantees
   """
   published: Boolean
 
@@ -7511,6 +7456,16 @@ type CreateProjectPayload {
   Reads a single `Company` that is related to this `Project`.
   """
   company: Company
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  siteAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  buildingOwnerAddress: Address
 
   """
   An edge for our `Project`. May be used by Relay 1.
@@ -7554,6 +7509,16 @@ input ProjectInput {
   companyId: Int
 
   """
+  fk
+  """
+  siteAddressId: Int
+
+  """
+  fk
+  """
+  buildingOwnerAddressId: Int
+
+  """
   ek
   """
   technology: Technology
@@ -7569,7 +7534,7 @@ input ProjectInput {
   description: String
 
   """
-  If this is true then the Project should have been hidden from users
+  If this is true then the Project should be hidden from End Users
   """
   hidden: Boolean
 
@@ -7594,7 +7559,7 @@ input ProjectInput {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if they have one
+  Name of the Building Owners Company if it is known
   """
   buildingOwnerCompany: String
 
@@ -7604,7 +7569,7 @@ input ProjectInput {
   startDate: Datetime
 
   """
-  The date that the Project expects to end.
+  The date that the Project expects to end
   """
   endDate: Datetime
   createdAt: Datetime
@@ -7782,7 +7747,7 @@ input SystemInput {
   maximumValidityYears: Int
 
   """
-  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  If true this system is available for users to select when applying for a system or solution guarantee
   """
   published: Boolean
   createdAt: Datetime
@@ -7812,12 +7777,12 @@ type CreateSystemMemberPayload {
   """
   Reads a single `System` that is related to this `SystemMember`.
   """
-  system: System
+  systemBySystemBmiRef: System
 
   """
   Reads a single `Product` that is related to this `SystemMember`.
   """
-  product: Product
+  productByProductBmiRef: Product
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.
@@ -7858,12 +7823,12 @@ input SystemMemberInput {
   """
   fk
   """
-  systemId: Int
+  systemBmiRef: String
 
   """
   fk
   """
-  productId: Int
+  productBmiRef: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -7985,9 +7950,14 @@ input AccountPatch {
   doceboUsername: String
 
   """
-  File reference or the file itself. A profile picture of the user
+  File reference. A profile picture of the user
   """
   photo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -8055,16 +8025,6 @@ type UpdateAddressPayload {
   query: Query
 
   """
-  Reads a single `Project` that is related to this `Address`.
-  """
-  project: Project
-
-  """
-  Reads a single `Company` that is related to this `Address`.
-  """
-  company: Company
-
-  """
   An edge for our `Address`. May be used by Relay 1.
   """
   addressEdge(
@@ -8106,21 +8066,6 @@ input AddressPatch {
   id: Int
 
   """
-  fk
-  """
-  projectId: Int
-
-  """
-  fk
-  """
-  companyId: Int
-
-  """
-  ek
-  """
-  addressType: AddressType
-
-  """
   First line of this address
   """
   firstLine: String
@@ -8136,6 +8081,11 @@ input AddressPatch {
   town: String
 
   """
+  The region if relevant
+  """
+  region: String
+
+  """
   The country for this address
   """
   country: String
@@ -8144,6 +8094,16 @@ input AddressPatch {
   The postcode for this address
   """
   postcode: String
+
+  """
+  The coordinates on a map of the world
+  """
+  coordinates: PointInput
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -8305,6 +8265,16 @@ type UpdateCompanyPayload {
   market: Market
 
   """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  registeredAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
+
+  """
   An edge for our `Company`. May be used by Relay 1.
   """
   companyEdge(
@@ -8349,6 +8319,16 @@ input CompanyPatch {
   fk
   """
   marketId: Int
+
+  """
+  fk
+  """
+  registeredAddressId: Int
+
+  """
+  fk
+  """
+  tradingAddressId: Int
 
   """
   the name of the owner of the Company
@@ -8401,19 +8381,14 @@ input CompanyPatch {
   name: String
 
   """
-  The Tax number in that number, such as the VAT number
+  The Tax number in that Market, such as the VAT number
   """
   taxNumber: String
 
   """
-  They Companys public phone number
+  They Company public phone number
   """
   phone: String
-
-  """
-  The companys GoogleMap address
-  """
-  coordinates: PointInput
 
   """
   A bit of blurb to appear in Find a contractor
@@ -8421,7 +8396,7 @@ input CompanyPatch {
   aboutUs: String
 
   """
-  The email address that they can be contacted with by the public assuming they are listed.
+  The email address that they can be contacted with by the public assuming they are listed
   """
   publicEmail: String
 
@@ -8449,6 +8424,21 @@ input CompanyPatch {
   A reference to the logo
   """
   logo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  tradingAddressMigrationId: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  registeredAddressMigrationId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -8858,12 +8848,17 @@ input EvidenceItemPatch {
   """
   a reference to the evidenceCategory sys id in Contentful
   """
-  evidenceCategoryId: String
+  customEvidenceCategoryId: String
 
   """
   fk
   """
   guaranteeId: Int
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
 
   """
   Short name for the item of evidence
@@ -8937,7 +8932,12 @@ type UpdateGuaranteePayload {
   """
   Reads a single `System` that is related to this `Guarantee`.
   """
-  system: System
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `Guarantee`.
+  """
+  productByProductBmiRef: Product
 
   """
   Reads a single `Account` that is related to this `Guarantee`.
@@ -8988,7 +8988,7 @@ input GuaranteePatch {
   """
   The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
   """
-  pdf: String
+  fileStorageId: String
 
   """
   fk
@@ -9013,7 +9013,12 @@ input GuaranteePatch {
   """
   fk
   """
-  systemId: Int
+  systemBmiRef: String
+
+  """
+  fk
+  """
+  productBmiRef: String
 
   """
   fk
@@ -9031,19 +9036,19 @@ input GuaranteePatch {
   status: RequestStatus
 
   """
-  The date that the Guarantee is approved either automatically or manually.
+  The date that the Guarantee is approved either automatically or manually
   """
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
   """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Request Id.
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
-  issueNumber: String
+  bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -9065,111 +9070,6 @@ input UpdateGuaranteeInput {
 
   """
   Primary key - starts at 6100
-  """
-  id: Int!
-}
-
-"""
-The output of our update `GuaranteedProduct` mutation.
-"""
-type UpdateGuaranteedProductPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  The `GuaranteedProduct` that was updated by this mutation.
-  """
-  guaranteedProduct: GuaranteedProduct
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """
-  Reads a single `Product` that is related to this `GuaranteedProduct`.
-  """
-  product: Product
-
-  """
-  Reads a single `Guarantee` that is related to this `GuaranteedProduct`.
-  """
-  guarantee: Guarantee
-
-  """
-  An edge for our `GuaranteedProduct`. May be used by Relay 1.
-  """
-  guaranteedProductEdge(
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): GuaranteedProductsEdge
-}
-
-"""
-All input for the `updateGuaranteedProductByNodeId` mutation.
-"""
-input UpdateGuaranteedProductByNodeIdInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The globally unique `ID` which will identify a single `GuaranteedProduct` to be updated.
-  """
-  nodeId: ID!
-
-  """
-  An object where the defined keys will be set on the `GuaranteedProduct` being updated.
-  """
-  patch: GuaranteedProductPatch!
-}
-
-"""
-Represents an update to a `GuaranteedProduct`. Fields that are set will be updated.
-"""
-input GuaranteedProductPatch {
-  """
-  Primary key
-  """
-  id: Int
-
-  """
-  fk
-  """
-  productId: Int
-
-  """
-  fk
-  """
-  guaranteeId: Int
-  createdAt: Datetime
-  updatedAt: Datetime
-}
-
-"""
-All input for the `updateGuaranteedProduct` mutation.
-"""
-input UpdateGuaranteedProductInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  An object where the defined keys will be set on the `GuaranteedProduct` being updated.
-  """
-  patch: GuaranteedProductPatch!
-
-  """
-  Primary key
   """
   id: Int!
 }
@@ -9398,7 +9298,7 @@ input MarketPatch {
   """
   The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
-  doceboCatalogueId: String
+  doceboCatalogueId: Int
 
   """
   The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address
@@ -9406,7 +9306,7 @@ input MarketPatch {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.  Tier 0 can then be configured to support Guarantees in non-Roopro countries.  In Roofpro countries various Tier configurations become possible.
+  Whether the market supports Projects.  If so then the Project section is available.
   """
   projectsEnabled: Boolean
 
@@ -9416,7 +9316,7 @@ input MarketPatch {
   gtag: String
 
   """
-  The coordinates of the middle of the country on a map
+  The coordinates of the middle of the Market on a map
   """
   geoMiddle: String
   createdAt: Datetime
@@ -9442,6 +9342,27 @@ input UpdateMarketInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `updateMarketByDoceboCatalogueId` mutation.
+"""
+input UpdateMarketByDoceboCatalogueIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Market` being updated.
+  """
+  patch: MarketPatch!
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
 }
 
 """
@@ -9751,12 +9672,12 @@ input ProductPatch {
   brand: String
 
   """
-  Short name for the product
+  Short name for the Product
   """
   name: String
 
   """
-  A description of the product
+  A description of the Product
   """
   description: String
 
@@ -9766,7 +9687,7 @@ input ProductPatch {
   family: String
 
   """
-  Whether the product is avialable when being selected or not
+  Whether the Product is avialable for new guarantees
   """
   published: Boolean
 
@@ -9800,6 +9721,27 @@ input UpdateProductInput {
 }
 
 """
+All input for the `updateProductByBmiRef` mutation.
+"""
+input UpdateProductByBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Product` being updated.
+  """
+  patch: ProductPatch!
+
+  """
+  A unique reference for the product known to BMI
+  """
+  bmiRef: String!
+}
+
+"""
 The output of our update `Project` mutation.
 """
 type UpdateProjectPayload {
@@ -9823,6 +9765,16 @@ type UpdateProjectPayload {
   Reads a single `Company` that is related to this `Project`.
   """
   company: Company
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  siteAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  buildingOwnerAddress: Address
 
   """
   An edge for our `Project`. May be used by Relay 1.
@@ -9871,6 +9823,16 @@ input ProjectPatch {
   companyId: Int
 
   """
+  fk
+  """
+  siteAddressId: Int
+
+  """
+  fk
+  """
+  buildingOwnerAddressId: Int
+
+  """
   ek
   """
   technology: Technology
@@ -9886,7 +9848,7 @@ input ProjectPatch {
   description: String
 
   """
-  If this is true then the Project should have been hidden from users
+  If this is true then the Project should be hidden from End Users
   """
   hidden: Boolean
 
@@ -9911,7 +9873,7 @@ input ProjectPatch {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if they have one
+  Name of the Building Owners Company if it is known
   """
   buildingOwnerCompany: String
 
@@ -9921,7 +9883,7 @@ input ProjectPatch {
   startDate: Datetime
 
   """
-  The date that the Project expects to end.
+  The date that the Project expects to end
   """
   endDate: Datetime
   createdAt: Datetime
@@ -10151,7 +10113,7 @@ input SystemPatch {
   maximumValidityYears: Int
 
   """
-  If true this system is on that is available for users to select when applying for a system or solution guarantee
+  If true this system is available for users to select when applying for a system or solution guarantee
   """
   published: Boolean
   createdAt: Datetime
@@ -10180,6 +10142,27 @@ input UpdateSystemInput {
 }
 
 """
+All input for the `updateSystemByBmiRef` mutation.
+"""
+input UpdateSystemByBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `System` being updated.
+  """
+  patch: SystemPatch!
+
+  """
+  A unique reference for the system known to BMI
+  """
+  bmiRef: String!
+}
+
+"""
 The output of our update `SystemMember` mutation.
 """
 type UpdateSystemMemberPayload {
@@ -10202,12 +10185,12 @@ type UpdateSystemMemberPayload {
   """
   Reads a single `System` that is related to this `SystemMember`.
   """
-  system: System
+  systemBySystemBmiRef: System
 
   """
   Reads a single `Product` that is related to this `SystemMember`.
   """
-  product: Product
+  productByProductBmiRef: Product
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.
@@ -10253,12 +10236,12 @@ input SystemMemberPatch {
   """
   fk
   """
-  systemId: Int
+  systemBmiRef: String
 
   """
   fk
   """
-  productId: Int
+  productBmiRef: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -10389,16 +10372,6 @@ type DeleteAddressPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
-
-  """
-  Reads a single `Project` that is related to this `Address`.
-  """
-  project: Project
-
-  """
-  Reads a single `Company` that is related to this `Address`.
-  """
-  company: Company
 
   """
   An edge for our `Address`. May be used by Relay 1.
@@ -10537,6 +10510,16 @@ type DeleteCompanyPayload {
   Reads a single `Market` that is related to this `Company`.
   """
   market: Market
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  registeredAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
 
   """
   An edge for our `Company`. May be used by Relay 1.
@@ -10906,7 +10889,12 @@ type DeleteGuaranteePayload {
   """
   Reads a single `System` that is related to this `Guarantee`.
   """
-  system: System
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `Guarantee`.
+  """
+  productByProductBmiRef: Product
 
   """
   Reads a single `Account` that is related to this `Guarantee`.
@@ -10952,80 +10940,6 @@ input DeleteGuaranteeInput {
 
   """
   Primary key - starts at 6100
-  """
-  id: Int!
-}
-
-"""
-The output of our delete `GuaranteedProduct` mutation.
-"""
-type DeleteGuaranteedProductPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  The `GuaranteedProduct` that was deleted by this mutation.
-  """
-  guaranteedProduct: GuaranteedProduct
-  deletedGuaranteedProductNodeId: ID
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """
-  Reads a single `Product` that is related to this `GuaranteedProduct`.
-  """
-  product: Product
-
-  """
-  Reads a single `Guarantee` that is related to this `GuaranteedProduct`.
-  """
-  guarantee: Guarantee
-
-  """
-  An edge for our `GuaranteedProduct`. May be used by Relay 1.
-  """
-  guaranteedProductEdge(
-    """
-    The method to use when ordering `GuaranteedProduct`.
-    """
-    orderBy: [GuaranteedProductsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): GuaranteedProductsEdge
-}
-
-"""
-All input for the `deleteGuaranteedProductByNodeId` mutation.
-"""
-input DeleteGuaranteedProductByNodeIdInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The globally unique `ID` which will identify a single `GuaranteedProduct` to be deleted.
-  """
-  nodeId: ID!
-}
-
-"""
-All input for the `deleteGuaranteedProduct` mutation.
-"""
-input DeleteGuaranteedProductInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  Primary key
   """
   id: Int!
 }
@@ -11166,6 +11080,22 @@ input DeleteMarketInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `deleteMarketByDoceboCatalogueId` mutation.
+"""
+input DeleteMarketByDoceboCatalogueIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
+  """
+  doceboCatalogueId: Int!
 }
 
 """
@@ -11381,6 +11311,22 @@ input DeleteProductInput {
 }
 
 """
+All input for the `deleteProductByBmiRef` mutation.
+"""
+input DeleteProductByBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  A unique reference for the product known to BMI
+  """
+  bmiRef: String!
+}
+
+"""
 The output of our delete `Project` mutation.
 """
 type DeleteProjectPayload {
@@ -11405,6 +11351,16 @@ type DeleteProjectPayload {
   Reads a single `Company` that is related to this `Project`.
   """
   company: Company
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  siteAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Project`.
+  """
+  buildingOwnerAddress: Address
 
   """
   An edge for our `Project`. May be used by Relay 1.
@@ -11593,6 +11549,22 @@ input DeleteSystemInput {
 }
 
 """
+All input for the `deleteSystemByBmiRef` mutation.
+"""
+input DeleteSystemByBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  A unique reference for the system known to BMI
+  """
+  bmiRef: String!
+}
+
+"""
 The output of our delete `SystemMember` mutation.
 """
 type DeleteSystemMemberPayload {
@@ -11616,12 +11588,12 @@ type DeleteSystemMemberPayload {
   """
   Reads a single `System` that is related to this `SystemMember`.
   """
-  system: System
+  systemBySystemBmiRef: System
 
   """
   Reads a single `Product` that is related to this `SystemMember`.
   """
-  product: Product
+  productByProductBmiRef: Product
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.
