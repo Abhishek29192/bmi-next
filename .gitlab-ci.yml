@@ -6,6 +6,7 @@ stages:
   - test
   - build
   - release
+  - migration
   - package
   - deploy
   - deploy_gateway

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
-const { spawnSync, execSync } = require("child_process");
+const { execSync, spawnSync } = require("child_process");
 const contentful = require("contentful-management");
 const { compareSemVer, isValidSemVer, parseSemVer } = require("semver-parser");
 const ora = require("ora");
@@ -350,8 +350,11 @@ If you wish to rebuild contentful environment, consider creating a new tag or ma
   }
 }
 
-async function main() {
-  const { targetBranch, tag, shouldBuild } = parseCIEnvironments();
+async function main([shouldBuild, targetBranch, tag]) {
+  if (!targetBranch && !tag && !shouldBuild) {
+    console.log("No arguments passed into main. Try to parse webhook");
+    ({ targetBranch, tag, shouldBuild } = parseCIEnvironments());
+  }
 
   console.log(`Build environment information:`, {
     targetBranch,
@@ -363,7 +366,7 @@ async function main() {
     console.log(
       `Only builds triggered by ${allowedHooks.join(
         ", "
-      )} are allowed. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
+      )} or gitlab jobs are allowed. The script will stop building and migrating, and will exit without error to allow the next build step to continue in the pipeline.`
     );
 
     return;
@@ -381,4 +384,4 @@ async function main() {
   }
 }
 
-main();
+main(process.argv.slice(2));
