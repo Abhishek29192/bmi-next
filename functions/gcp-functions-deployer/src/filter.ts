@@ -1,18 +1,20 @@
 import { DownloadResponse } from "@google-cloud/storage/build/src/file";
+import { FunctionMetadata } from "./types";
 
 export function filterFunctionMetadata(
   content: DownloadResponse,
   sourceName: string
-): object[] {
+): FunctionMetadata[] {
   // eslint-disable-next-line no-console
   console.log(`sourceName:${sourceName}`);
   if (!content) {
     return null;
   }
   const allFunctionMetadata = JSON.parse(content[0].toString());
-  const curerntFunctionsMetadata = allFunctionMetadata.filter(function (el) {
-    return el.source_archive_object === sourceName;
-  });
+  const curerntFunctionsMetadata: FunctionMetadata[] =
+    allFunctionMetadata.filter(function (el) {
+      return el.source_archive_object === sourceName;
+    });
 
   if (!curerntFunctionsMetadata || !curerntFunctionsMetadata.length) {
     // eslint-disable-next-line no-console

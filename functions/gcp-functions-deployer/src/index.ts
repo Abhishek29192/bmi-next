@@ -3,6 +3,7 @@ import type { HandlerFunction } from "@google-cloud/functions-framework/build/sr
 import { Storage } from "@google-cloud/storage/build/src/storage";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { filterFunctionMetadata } from "./filter";
+import { FunctionMetadata } from "./types";
 
 const storage = new Storage();
 const {
@@ -19,7 +20,7 @@ const secretManagerClient = new SecretManagerServiceClient();
 const bucket = storage.bucket(GCP_STORAGE_NAME);
 const triggerNameRegex = "sources/(.*).zip";
 
-async function triggerCloudBuild(requests: object[], source: string) {
+async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
   const secret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${TRIGGER_SECRET}/versions/latest`
   });
