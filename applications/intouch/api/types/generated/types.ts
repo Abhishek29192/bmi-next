@@ -2188,7 +2188,7 @@ export type CreateAccountInput = {
   email?: Maybe<Scalars["String"]>;
   firstName?: Maybe<Scalars["String"]>;
   lastName?: Maybe<Scalars["String"]>;
-  marketId?: Maybe<Scalars["Int"]>;
+  marketCode?: Maybe<Scalars["String"]>;
   role?: Maybe<Role>;
 };
 
