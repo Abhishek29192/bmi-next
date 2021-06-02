@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { uniqBy, map, sortBy } from "lodash";
+import { uniqBy, sortBy, mergeWith } from "lodash";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
@@ -16,7 +16,8 @@ import {
   getProductAttributes,
   mapGalleryImages,
   mapProductClassifications,
-  getValidClassification
+  getValidClassification,
+  getMergedClassifications
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
 import { getCTA } from "../components/Link";
@@ -83,18 +84,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pageContext.pimClassificationCatalogueNamespace
   );
 
-  const validClassifications = sortBy(
-    getValidClassification(
-      pageContext.pimClassificationCatalogueNamespace,
-      uniqBy(
-        map([
-          ...(selfProduct.classifications || []),
-          ...(product.classifications || [])
-        ]),
-        "code"
-      )
-    ),
-    ["code"]
+  const validClassifications = getMergedClassifications(
+    pageContext.pimClassificationCatalogueNamespace,
+    selfProduct,
+    product
   );
 
   const { resources, countryCode } = contentfulSite;
