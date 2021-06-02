@@ -1,7 +1,16 @@
 import { Link } from "gatsby";
-import { result, uniqBy, groupBy, find, pickBy, sortBy } from "lodash";
+import {
+  result,
+  uniqBy,
+  groupBy,
+  find,
+  pickBy,
+  sortBy,
+  mergeWith
+} from "lodash";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 import {
+  Classification,
   ClassificationFeatureValue,
   Product,
   VariantOption
@@ -542,8 +551,8 @@ const IGNORED_ATTRIBUTES = [
 
 export const getValidClassification = (
   classificationNamespace: string,
-  classifications
-) => {
+  classifications: Array<Classification>
+): Array<Classification> => {
   const IGNORED_CLASSIFICATIONS = IGNORED_ATTRIBUTES.map(
     (value) => `${classificationNamespace}/${value}`
   );
@@ -764,5 +773,25 @@ export const findUniqueVariantClassifications = (
     allClassificationValues,
     classifications[variant.code] || {},
     variant._product.variantOptions.length
+  );
+};
+
+export const getMergedClassifications = (
+  pimClassificationCatalogueNamespace: string,
+  selfProduct: Product | VariantOption,
+  product: Product
+) => {
+  return sortBy(
+    getValidClassification(
+      pimClassificationCatalogueNamespace,
+      uniqBy(
+        mergeWith(
+          selfProduct.classifications || [],
+          product.classifications || []
+        ),
+        (item) => item.code
+      )
+    ),
+    (item) => item.code
   );
 };
