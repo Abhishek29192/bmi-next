@@ -9,6 +9,7 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const findUp = require("find-up");
 require("graphql-import-node");
 const jsonfile = require("jsonfile");
+const toml = require("toml");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
 
@@ -139,7 +140,7 @@ const createProductPages = async (
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const componentMap = {
     ContentfulSimplePage: path.resolve("./src/templates/simple-page.tsx"),
@@ -290,6 +291,22 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       });
     }
+  }
+
+  const redirectsTomlFile = `./redirects_${process.env.SPACE_MARKET_CODE}.toml`;
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
+  if (fs.existsSync(redirectsTomlFile)) {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    const redirectsToml = fs.readFileSync(redirectsTomlFile);
+
+    const redirects = toml.parse(redirectsToml);
+    redirects.redirects.forEach((redirect) =>
+      createRedirect({
+        fromPath: redirect.from,
+        toPath: redirect.to,
+        isPermanent: !redirect.status || redirect.status == "301"
+      })
+    );
   }
 };
 
