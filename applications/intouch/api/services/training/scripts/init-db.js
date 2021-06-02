@@ -5,25 +5,21 @@ const fs = require("fs");
 const path = require("path");
 const { Client } = require("pg");
 
-const getFile = (file) => {
-  return fs.readFileSync(
-    path.resolve(__dirname, `../src/data/${file}`),
-    "utf8"
-  );
-};
+const getFile = (file) =>
+  fs.readFileSync(path.resolve(__dirname, `../src/data/${file}`), "utf8");
 
 async function main() {
   const db = getFile("training.sql");
 
-  const { PG_USER, DATABASE, PASSWORD, HOST, PG_PORT } = process.env;
+  const { PG_USER, PG_DATABASE, PG_PASSWORD, PG_HOST, PG_PORT } = process.env;
 
-  console.log(`Connecting to ${HOST}:${PG_PORT} as ${PG_USER}....`);
+  console.log(`Connecting to ${PG_HOST}:${PG_PORT} as ${PG_USER}....`);
   const client = new Client({
-    host: HOST,
+    host: PG_HOST,
     port: parseInt(PG_PORT),
     user: PG_USER,
-    password: PASSWORD,
-    database: DATABASE,
+    password: PG_PASSWORD,
+    database: PG_DATABASE,
     connectionTimeoutMillis: 3000
   });
   await client.connect();

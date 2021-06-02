@@ -5,12 +5,28 @@ const fs = require("fs");
 const path = require("path");
 const { Client } = require("pg");
 
-const getFile = (file) => {
-  return fs.readFileSync(
-    path.resolve(__dirname, `../src/data/${file}`),
-    "utf8"
-  );
-};
+// TODO: Figure out how to connect to GCP in order to use this
+// const { SecretManagerServiceClient } = require("@google-cloud/secret-manager");
+// const client = new SecretManagerServiceClient();
+// const getSecrets = async (keys) => {
+//   const { GCP_SECRET_PROJECT } = process.env;
+//   const secrets = keys.map(async (key) =>
+//     client.accessSecretVersion({
+//       name: `projects/${GCP_SECRET_PROJECT}/secrets/${key}/versions/latest`
+//     })
+//   );
+//   const results = await Promise.all(secrets);
+//   return keys.reduce(
+//     (result, key, index) => ({
+//       ...result,
+//       [key]: results[index][0].payload.data.toString()
+//     }),
+//     {}
+//   );
+// };
+
+const getFile = (file) =>
+  fs.readFileSync(path.resolve(__dirname, `../src/data/${file}`), "utf8");
 
 async function main() {
   const db = getFile("company.sql");
@@ -18,15 +34,22 @@ async function main() {
   const procedure = getFile("procedure.sql");
   const rls = getFile("rls.sql");
 
-  const { PG_USER, DATABASE, PASSWORD, HOST, PG_PORT } = process.env;
+  const { PG_USER, PG_DATABASE, PG_HOST, PG_PORT, PG_PASSWORD } = process.env;
 
-  console.log(`Connecting to ${HOST}:${PG_PORT} as ${PG_USER}....`);
+  // const credentials = await getSecrets([
+  //   "COMPANIES_DB_PASSWORD",
+  //   "COMPANIES_DB_HOST"
+  // ]).catch((error) => {
+  //   console.log("Error fetching credentials", error);
+  // });
+
+  console.log(`Connecting to ${PG_HOST}:${PG_PORT} as ${PG_USER}....`);
   const client = new Client({
-    host: HOST,
-    port: parseInt(PG_PORT),
     user: PG_USER,
-    password: PASSWORD,
-    database: DATABASE,
+    database: PG_DATABASE,
+    port: parseInt(PG_PORT),
+    host: PG_HOST,
+    password: PG_PASSWORD,
     connectionTimeoutMillis: 3000
   });
   await client.connect();
