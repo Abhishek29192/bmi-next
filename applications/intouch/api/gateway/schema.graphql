@@ -1,16 +1,10 @@
-directive @composedGraph(version: Int!) on SCHEMA
+directive @external on FIELD_DEFINITION
 
-directive @graph(name: String!, url: String!) on SCHEMA
+directive @key(fields: _FieldSet!) on OBJECT | INTERFACE
 
-directive @key(fields: String!, graph: String!) on OBJECT
+directive @provides(fields: _FieldSet!) on FIELD_DEFINITION
 
-directive @owner(graph: String!) on OBJECT
-
-directive @provides(fields: String!) on FIELD_DEFINITION
-
-directive @requires(fields: String!) on FIELD_DEFINITION
-
-directive @resolve(graph: String!) on FIELD_DEFINITION
+directive @requires(fields: _FieldSet!) on FIELD_DEFINITION
 
 """
 An InTouch account
@@ -1685,8 +1679,7 @@ type Company implements Node {
   linkedIn: String
 
   """
-  A 7 digit reference number generated for all Companies and visible to Roofpro
-  member Companies. (aka membership number).  Should be unique.
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
   referenceNumber: String
 
@@ -2213,8 +2206,7 @@ input CompanyInput {
   linkedIn: String
 
   """
-  A 7 digit reference number generated for all Companies and visible to Roofpro
-  member Companies. (aka membership number).  Should be unique.
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
   referenceNumber: String
 
@@ -2426,9 +2418,7 @@ enum CompanyMembersOrderBy {
 }
 
 """
-The assignment of an operation type to a Company by the Market Admin.  A Company
-can be assigned multiple types from the allowed enums list.  The operation types
-that a Company has are sent to Find a Roofer.
+The assignment of an operation type to a Company by the Market Admin.  A Company can be assigned multiple types from the allowed enums list.  The operation types that a Company has are sent to Find a Roofer.
 """
 type CompanyOperation implements Node {
   """
@@ -2682,8 +2672,7 @@ input CompanyPatch {
   linkedIn: String
 
   """
-  A 7 digit reference number generated for all Companies and visible to Roofpro
-  member Companies. (aka membership number).  Should be unique.
+  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
   """
   referenceNumber: String
 
@@ -3265,8 +3254,7 @@ input CourseCataloguePatch {
 }
 
 """
-Course Catalog temp table.  The course cataloogues from docebo are pulled into
-here first, before being merged into the course_catalogue table.
+Course Catalog temp table.  The course cataloogues from docebo are pulled into here first, before being merged into the course_catalogue table.
 """
 type CourseCatalogueTemp {
   """
@@ -3652,8 +3640,7 @@ input CourseEnrollmentPatch {
 }
 
 """
-Course Enrollments temp table.  Enrollements are brought in here from Docebo
-first, before being merged into the course_enrollemnt table
+Course Enrollments temp table.  Enrollements are brought in here from Docebo first, before being merged into the course_enrollemnt table
 """
 type CourseEnrollmentTemp {
   """
@@ -4161,8 +4148,7 @@ enum CourseSyncConfigurationsOrderBy {
 }
 
 """
-A temporary training course that BMI offers in Docebo. Courses are brought from
-Docebo into this table before being merged into the course table.
+A temporary training course that BMI offers in Docebo. Courses are brought from Docebo into this table before being merged into the course table.
 """
 type CourseTemp {
   """
@@ -5758,6 +5744,16 @@ type CreateSystemMemberPayload {
   query: Query
 
   """
+  Reads a single `System` that is related to this `SystemMember`.
+  """
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `SystemMember`.
+  """
+  productByProductBmiRef: Product
+
+  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -7117,8 +7113,7 @@ input DeleteMarketByDoceboCatalogueIdInput {
   clientMutationId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see
-  all courses in the default catalog from InTouch
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -7670,6 +7665,16 @@ type DeleteSystemMemberPayload {
   query: Query
 
   """
+  Reads a single `System` that is related to this `SystemMember`.
+  """
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `SystemMember`.
+  """
+  productByProductBmiRef: Product
+
+  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -8084,12 +8089,12 @@ type Guarantee implements Node {
   guaranteeTypeId: String
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
 
@@ -8114,17 +8119,12 @@ type Guarantee implements Node {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status
-  becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-  System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
   """
-  This will be presented on the Guarantee pdf itself, if approved and is the
-  primary reference for the Guarantees report. It is unique in the In the legacy
-  system, the number is 3 sets of 4 digit numbers concatenated into one long
-  number from the Company Id, Project Id and Guarantee Id
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
   bmiReferenceId: String
   createdAt: Datetime!
@@ -8279,12 +8279,12 @@ input GuaranteeInput {
   guaranteeTypeId: String
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
 
@@ -8309,17 +8309,12 @@ input GuaranteeInput {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status
-  becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-  System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
   """
-  This will be presented on the Guarantee pdf itself, if approved and is the
-  primary reference for the Guarantees report. It is unique in the In the legacy
-  system, the number is 3 sets of 4 digit numbers concatenated into one long
-  number from the Company Id, Project Id and Guarantee Id
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
   bmiReferenceId: String
   createdAt: Datetime
@@ -8361,12 +8356,12 @@ input GuaranteePatch {
   guaranteeTypeId: String
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
 
@@ -8391,17 +8386,12 @@ input GuaranteePatch {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status
-  becomes APPROVED. dependent on the StartDate, the Validity of the Product or
-  System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
   """
-  This will be presented on the Guarantee pdf itself, if approved and is the
-  primary reference for the Guarantees report. It is unique in the In the legacy
-  system, the number is 3 sets of 4 digit numbers concatenated into one long
-  number from the Company Id, Project Id and Guarantee Id
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
   bmiReferenceId: String
   createdAt: Datetime
@@ -9401,8 +9391,7 @@ type Market implements Node {
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see
-  all courses in the default catalog from InTouch
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -9871,8 +9860,7 @@ input MarketInput {
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see
-  all courses in the default catalog from InTouch
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -9949,8 +9937,7 @@ input MarketPatch {
   doceboCompanyAdminBranchId: String
 
   """
-  The default catalogue for the market.  All users in the market are able to see
-  all courses in the default catalog from InTouch
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int
 
@@ -10338,7 +10325,53 @@ enum MigrationOrder {
   sys_publishedVersion_DESC
 }
 
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
 type Mutation {
+  courseCatalogueUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseCatalogueUpdateInput!
+  ): CourseCatalogueUpdatePayload
+  courseCatalogueUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseCatalogueUpdateByTempInput!
+  ): CourseCatalogueUpdateByTempPayload
+  courseEnrollmentUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseEnrollmentUpdateInput!
+  ): CourseEnrollmentUpdatePayload
+  courseEnrollmentUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseEnrollmentUpdateByTempInput!
+  ): CourseEnrollmentUpdateByTempPayload
+  courseUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseUpdateInput!
+  ): CourseUpdatePayload
+  courseUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseUpdateByTempInput!
+  ): CourseUpdateByTempPayload
+  createAccount(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateAccountInput!
+  ): CreateAccountPayload
+
   """
   Creates a single `Address`.
   """
@@ -10398,929 +10431,6 @@ type Mutation {
     """
     input: CreateCompanyOperationInput!
   ): CreateCompanyOperationPayload
-
-  """
-  Creates a single `EvidenceItem`.
-  """
-  createEvidenceItem(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateEvidenceItemInput!
-  ): CreateEvidenceItemPayload
-
-  """
-  Creates a single `Guarantee`.
-  """
-  createGuarantee(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateGuaranteeInput!
-  ): CreateGuaranteePayload
-
-  """
-  Creates a single `Invitation`.
-  """
-  createInvitation(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateInvitationInput!
-  ): CreateInvitationPayload
-
-  """
-  Creates a single `Market`.
-  """
-  createMarket(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateMarketInput!
-  ): CreateMarketPayload
-
-  """
-  Creates a single `Note`.
-  """
-  createNote(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateNoteInput!
-  ): CreateNotePayload
-
-  """
-  Creates a single `Notification`.
-  """
-  createNotification(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateNotificationInput!
-  ): CreateNotificationPayload
-
-  """
-  Creates a single `Product`.
-  """
-  createProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateProductInput!
-  ): CreateProductPayload
-
-  """
-  Creates a single `Project`.
-  """
-  createProject(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateProjectInput!
-  ): CreateProjectPayload
-
-  """
-  Creates a single `ProjectMember`.
-  """
-  createProjectMember(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateProjectMemberInput!
-  ): CreateProjectMemberPayload
-
-  """
-  Creates a single `System`.
-  """
-  createSystem(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateSystemInput!
-  ): CreateSystemPayload
-
-  """
-  Creates a single `SystemMember`.
-  """
-  createSystemMember(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateSystemMemberInput!
-  ): CreateSystemMemberPayload
-
-  """
-  Updates a single `Account` using its globally unique id and a patch.
-  """
-  updateAccountByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateAccountByNodeIdInput!
-  ): UpdateAccountPayload
-
-  """
-  Updates a single `Account` using a unique key and a patch.
-  """
-  updateAccount(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateAccountInput!
-  ): UpdateAccountPayload
-
-  """
-  Updates a single `Account` using a unique key and a patch.
-  """
-  updateAccountByDoceboUserId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateAccountByDoceboUserIdInput!
-  ): UpdateAccountPayload
-
-  """
-  Updates a single `Address` using its globally unique id and a patch.
-  """
-  updateAddressByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateAddressByNodeIdInput!
-  ): UpdateAddressPayload
-
-  """
-  Updates a single `Address` using a unique key and a patch.
-  """
-  updateAddress(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateAddressInput!
-  ): UpdateAddressPayload
-
-  """
-  Updates a single `Certification` using its globally unique id and a patch.
-  """
-  updateCertificationByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCertificationByNodeIdInput!
-  ): UpdateCertificationPayload
-
-  """
-  Updates a single `Certification` using a unique key and a patch.
-  """
-  updateCertification(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCertificationInput!
-  ): UpdateCertificationPayload
-
-  """
-  Updates a single `Company` using its globally unique id and a patch.
-  """
-  updateCompanyByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCompanyByNodeIdInput!
-  ): UpdateCompanyPayload
-
-  """
-  Updates a single `Company` using a unique key and a patch.
-  """
-  updateCompany(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCompanyInput!
-  ): UpdateCompanyPayload
-
-  """
-  Updates a single `CompanyDocument` using its globally unique id and a patch.
-  """
-  updateCompanyDocumentByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCompanyDocumentByNodeIdInput!
-  ): UpdateCompanyDocumentPayload
-
-  """
-  Updates a single `CompanyDocument` using a unique key and a patch.
-  """
-  updateCompanyDocument(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCompanyDocumentInput!
-  ): UpdateCompanyDocumentPayload
-
-  """
-  Updates a single `CompanyMember` using its globally unique id and a patch.
-  """
-  updateCompanyMemberByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCompanyMemberByNodeIdInput!
-  ): UpdateCompanyMemberPayload
-
-  """
-  Updates a single `CompanyMember` using a unique key and a patch.
-  """
-  updateCompanyMember(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCompanyMemberInput!
-  ): UpdateCompanyMemberPayload
-
-  """
-  Updates a single `CompanyOperation` using its globally unique id and a patch.
-  """
-  updateCompanyOperationByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCompanyOperationByNodeIdInput!
-  ): UpdateCompanyOperationPayload
-
-  """
-  Updates a single `CompanyOperation` using a unique key and a patch.
-  """
-  updateCompanyOperation(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateCompanyOperationInput!
-  ): UpdateCompanyOperationPayload
-
-  """
-  Updates a single `EvidenceItem` using its globally unique id and a patch.
-  """
-  updateEvidenceItemByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateEvidenceItemByNodeIdInput!
-  ): UpdateEvidenceItemPayload
-
-  """
-  Updates a single `EvidenceItem` using a unique key and a patch.
-  """
-  updateEvidenceItem(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateEvidenceItemInput!
-  ): UpdateEvidenceItemPayload
-
-  """
-  Updates a single `Guarantee` using its globally unique id and a patch.
-  """
-  updateGuaranteeByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateGuaranteeByNodeIdInput!
-  ): UpdateGuaranteePayload
-
-  """
-  Updates a single `Guarantee` using a unique key and a patch.
-  """
-  updateGuarantee(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateGuaranteeInput!
-  ): UpdateGuaranteePayload
-
-  """
-  Updates a single `Invitation` using its globally unique id and a patch.
-  """
-  updateInvitationByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateInvitationByNodeIdInput!
-  ): UpdateInvitationPayload
-
-  """
-  Updates a single `Invitation` using a unique key and a patch.
-  """
-  updateInvitation(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateInvitationInput!
-  ): UpdateInvitationPayload
-
-  """
-  Updates a single `Market` using its globally unique id and a patch.
-  """
-  updateMarketByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateMarketByNodeIdInput!
-  ): UpdateMarketPayload
-
-  """
-  Updates a single `Market` using a unique key and a patch.
-  """
-  updateMarket(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateMarketInput!
-  ): UpdateMarketPayload
-
-  """
-  Updates a single `Market` using a unique key and a patch.
-  """
-  updateMarketByDoceboCatalogueId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateMarketByDoceboCatalogueIdInput!
-  ): UpdateMarketPayload
-
-  """
-  Updates a single `Note` using its globally unique id and a patch.
-  """
-  updateNoteByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateNoteByNodeIdInput!
-  ): UpdateNotePayload
-
-  """
-  Updates a single `Note` using a unique key and a patch.
-  """
-  updateNote(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateNoteInput!
-  ): UpdateNotePayload
-
-  """
-  Updates a single `Notification` using its globally unique id and a patch.
-  """
-  updateNotificationByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateNotificationByNodeIdInput!
-  ): UpdateNotificationPayload
-
-  """
-  Updates a single `Notification` using a unique key and a patch.
-  """
-  updateNotification(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateNotificationInput!
-  ): UpdateNotificationPayload
-
-  """
-  Updates a single `Product` using its globally unique id and a patch.
-  """
-  updateProductByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateProductByNodeIdInput!
-  ): UpdateProductPayload
-
-  """
-  Updates a single `Product` using a unique key and a patch.
-  """
-  updateProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateProductInput!
-  ): UpdateProductPayload
-
-  """
-  Updates a single `Product` using a unique key and a patch.
-  """
-  updateProductByBmiRef(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateProductByBmiRefInput!
-  ): UpdateProductPayload
-
-  """
-  Updates a single `Project` using its globally unique id and a patch.
-  """
-  updateProjectByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateProjectByNodeIdInput!
-  ): UpdateProjectPayload
-
-  """
-  Updates a single `Project` using a unique key and a patch.
-  """
-  updateProject(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateProjectInput!
-  ): UpdateProjectPayload
-
-  """
-  Updates a single `ProjectMember` using its globally unique id and a patch.
-  """
-  updateProjectMemberByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateProjectMemberByNodeIdInput!
-  ): UpdateProjectMemberPayload
-
-  """
-  Updates a single `ProjectMember` using a unique key and a patch.
-  """
-  updateProjectMember(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateProjectMemberInput!
-  ): UpdateProjectMemberPayload
-
-  """
-  Updates a single `System` using its globally unique id and a patch.
-  """
-  updateSystemByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateSystemByNodeIdInput!
-  ): UpdateSystemPayload
-
-  """
-  Updates a single `System` using a unique key and a patch.
-  """
-  updateSystem(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateSystemInput!
-  ): UpdateSystemPayload
-
-  """
-  Updates a single `System` using a unique key and a patch.
-  """
-  updateSystemByBmiRef(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateSystemByBmiRefInput!
-  ): UpdateSystemPayload
-
-  """
-  Updates a single `SystemMember` using its globally unique id and a patch.
-  """
-  updateSystemMemberByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateSystemMemberByNodeIdInput!
-  ): UpdateSystemMemberPayload
-
-  """
-  Updates a single `SystemMember` using a unique key and a patch.
-  """
-  updateSystemMember(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateSystemMemberInput!
-  ): UpdateSystemMemberPayload
-
-  """
-  Deletes a single `Account` using its globally unique id.
-  """
-  deleteAccountByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteAccountByNodeIdInput!
-  ): DeleteAccountPayload
-
-  """
-  Deletes a single `Account` using a unique key.
-  """
-  deleteAccount(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteAccountInput!
-  ): DeleteAccountPayload
-
-  """
-  Deletes a single `Account` using a unique key.
-  """
-  deleteAccountByDoceboUserId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteAccountByDoceboUserIdInput!
-  ): DeleteAccountPayload
-
-  """
-  Deletes a single `Address` using its globally unique id.
-  """
-  deleteAddressByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteAddressByNodeIdInput!
-  ): DeleteAddressPayload
-
-  """
-  Deletes a single `Address` using a unique key.
-  """
-  deleteAddress(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteAddressInput!
-  ): DeleteAddressPayload
-
-  """
-  Deletes a single `Certification` using its globally unique id.
-  """
-  deleteCertificationByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCertificationByNodeIdInput!
-  ): DeleteCertificationPayload
-
-  """
-  Deletes a single `Certification` using a unique key.
-  """
-  deleteCertification(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCertificationInput!
-  ): DeleteCertificationPayload
-
-  """
-  Deletes a single `Company` using its globally unique id.
-  """
-  deleteCompanyByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCompanyByNodeIdInput!
-  ): DeleteCompanyPayload
-
-  """
-  Deletes a single `Company` using a unique key.
-  """
-  deleteCompany(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCompanyInput!
-  ): DeleteCompanyPayload
-
-  """
-  Deletes a single `CompanyDocument` using its globally unique id.
-  """
-  deleteCompanyDocumentByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCompanyDocumentByNodeIdInput!
-  ): DeleteCompanyDocumentPayload
-
-  """
-  Deletes a single `CompanyDocument` using a unique key.
-  """
-  deleteCompanyDocument(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCompanyDocumentInput!
-  ): DeleteCompanyDocumentPayload
-
-  """
-  Deletes a single `CompanyMember` using its globally unique id.
-  """
-  deleteCompanyMemberByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCompanyMemberByNodeIdInput!
-  ): DeleteCompanyMemberPayload
-
-  """
-  Deletes a single `CompanyMember` using a unique key.
-  """
-  deleteCompanyMember(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCompanyMemberInput!
-  ): DeleteCompanyMemberPayload
-
-  """
-  Deletes a single `CompanyOperation` using its globally unique id.
-  """
-  deleteCompanyOperationByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCompanyOperationByNodeIdInput!
-  ): DeleteCompanyOperationPayload
-
-  """
-  Deletes a single `CompanyOperation` using a unique key.
-  """
-  deleteCompanyOperation(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCompanyOperationInput!
-  ): DeleteCompanyOperationPayload
-
-  """
-  Deletes a single `EvidenceItem` using its globally unique id.
-  """
-  deleteEvidenceItemByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteEvidenceItemByNodeIdInput!
-  ): DeleteEvidenceItemPayload
-
-  """
-  Deletes a single `EvidenceItem` using a unique key.
-  """
-  deleteEvidenceItem(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteEvidenceItemInput!
-  ): DeleteEvidenceItemPayload
-
-  """
-  Deletes a single `Guarantee` using its globally unique id.
-  """
-  deleteGuaranteeByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteGuaranteeByNodeIdInput!
-  ): DeleteGuaranteePayload
-
-  """
-  Deletes a single `Guarantee` using a unique key.
-  """
-  deleteGuarantee(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteGuaranteeInput!
-  ): DeleteGuaranteePayload
-
-  """
-  Deletes a single `Invitation` using its globally unique id.
-  """
-  deleteInvitationByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteInvitationByNodeIdInput!
-  ): DeleteInvitationPayload
-
-  """
-  Deletes a single `Invitation` using a unique key.
-  """
-  deleteInvitation(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteInvitationInput!
-  ): DeleteInvitationPayload
-
-  """
-  Deletes a single `Market` using its globally unique id.
-  """
-  deleteMarketByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteMarketByNodeIdInput!
-  ): DeleteMarketPayload
-
-  """
-  Deletes a single `Market` using a unique key.
-  """
-  deleteMarket(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteMarketInput!
-  ): DeleteMarketPayload
-
-  """
-  Deletes a single `Market` using a unique key.
-  """
-  deleteMarketByDoceboCatalogueId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteMarketByDoceboCatalogueIdInput!
-  ): DeleteMarketPayload
-
-  """
-  Deletes a single `Note` using its globally unique id.
-  """
-  deleteNoteByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteNoteByNodeIdInput!
-  ): DeleteNotePayload
-
-  """
-  Deletes a single `Note` using a unique key.
-  """
-  deleteNote(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteNoteInput!
-  ): DeleteNotePayload
-
-  """
-  Deletes a single `Notification` using its globally unique id.
-  """
-  deleteNotificationByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteNotificationByNodeIdInput!
-  ): DeleteNotificationPayload
-
-  """
-  Deletes a single `Notification` using a unique key.
-  """
-  deleteNotification(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteNotificationInput!
-  ): DeleteNotificationPayload
-
-  """
-  Deletes a single `Product` using its globally unique id.
-  """
-  deleteProductByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteProductByNodeIdInput!
-  ): DeleteProductPayload
-
-  """
-  Deletes a single `Product` using a unique key.
-  """
-  deleteProduct(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteProductInput!
-  ): DeleteProductPayload
-
-  """
-  Deletes a single `Product` using a unique key.
-  """
-  deleteProductByBmiRef(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteProductByBmiRefInput!
-  ): DeleteProductPayload
-
-  """
-  Deletes a single `Project` using its globally unique id.
-  """
-  deleteProjectByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteProjectByNodeIdInput!
-  ): DeleteProjectPayload
-
-  """
-  Deletes a single `Project` using a unique key.
-  """
-  deleteProject(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteProjectInput!
-  ): DeleteProjectPayload
-
-  """
-  Deletes a single `ProjectMember` using its globally unique id.
-  """
-  deleteProjectMemberByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteProjectMemberByNodeIdInput!
-  ): DeleteProjectMemberPayload
-
-  """
-  Deletes a single `ProjectMember` using a unique key.
-  """
-  deleteProjectMember(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteProjectMemberInput!
-  ): DeleteProjectMemberPayload
-
-  """
-  Deletes a single `System` using its globally unique id.
-  """
-  deleteSystemByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteSystemByNodeIdInput!
-  ): DeleteSystemPayload
-
-  """
-  Deletes a single `System` using a unique key.
-  """
-  deleteSystem(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteSystemInput!
-  ): DeleteSystemPayload
-
-  """
-  Deletes a single `System` using a unique key.
-  """
-  deleteSystemByBmiRef(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteSystemByBmiRefInput!
-  ): DeleteSystemPayload
-
-  """
-  Deletes a single `SystemMember` using its globally unique id.
-  """
-  deleteSystemMemberByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteSystemMemberByNodeIdInput!
-  ): DeleteSystemMemberPayload
-
-  """
-  Deletes a single `SystemMember` using a unique key.
-  """
-  deleteSystemMember(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteSystemMemberInput!
-  ): DeleteSystemMemberPayload
-  createAccount(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateAccountInput!
-  ): CreateAccountPayload
-  publishMessage(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: PublishInput!
-  ): Publish
-  createGuaranteePdf(id: Int!): PublishOutput
 
   """
   Creates a single `Course`.
@@ -11391,196 +10501,274 @@ type Mutation {
     """
     input: CreateCourseTempInput!
   ): CreateCourseTempPayload
-
-  """
-  Updates a single `Course` using its globally unique id and a patch.
-  """
-  updateCourseByNodeId(
+  createDoceboUser(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseByNodeIdInput!
-  ): UpdateCoursePayload
+    input: UserCreateInput
+  ): UserCreateResponse
 
   """
-  Updates a single `Course` using a unique key and a patch.
+  Creates a single `EvidenceItem`.
   """
-  updateCourse(
+  createEvidenceItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseInput!
-  ): UpdateCoursePayload
+    input: CreateEvidenceItemInput!
+  ): CreateEvidenceItemPayload
 
   """
-  Updates a single `Course` using a unique key and a patch.
+  Creates a single `Guarantee`.
   """
-  updateCourseByCourseId(
+  createGuarantee(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseByCourseIdInput!
-  ): UpdateCoursePayload
+    input: CreateGuaranteeInput!
+  ): CreateGuaranteePayload
+  createGuaranteePdf(id: Int!): PublishOutput
 
   """
-  Updates a single `CourseCatalogue` using its globally unique id and a patch.
+  Creates a single `Invitation`.
   """
-  updateCourseCatalogueByNodeId(
+  createInvitation(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseCatalogueByNodeIdInput!
-  ): UpdateCourseCataloguePayload
+    input: CreateInvitationInput!
+  ): CreateInvitationPayload
 
   """
-  Updates a single `CourseCatalogue` using a unique key and a patch.
+  Creates a single `Market`.
   """
-  updateCourseCatalogue(
+  createMarket(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseCatalogueInput!
-  ): UpdateCourseCataloguePayload
+    input: CreateMarketInput!
+  ): CreateMarketPayload
 
   """
-  Updates a single `CourseCatalogue` using a unique key and a patch.
+  Creates a single `Note`.
   """
-  updateCourseCatalogueByCatalogueIdAndCourseId(
+  createNote(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseCatalogueByCatalogueIdAndCourseIdInput!
-  ): UpdateCourseCataloguePayload
+    input: CreateNoteInput!
+  ): CreateNotePayload
 
   """
-  Updates a single `CourseCatalogueTemp` using its globally unique id and a patch.
+  Creates a single `Notification`.
   """
-  updateCourseCatalogueTempByNodeId(
+  createNotification(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseCatalogueTempByNodeIdInput!
-  ): UpdateCourseCatalogueTempPayload
+    input: CreateNotificationInput!
+  ): CreateNotificationPayload
 
   """
-  Updates a single `CourseCatalogueTemp` using a unique key and a patch.
+  Creates a single `Product`.
   """
-  updateCourseCatalogueTemp(
+  createProduct(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseCatalogueTempInput!
-  ): UpdateCourseCatalogueTempPayload
+    input: CreateProductInput!
+  ): CreateProductPayload
 
   """
-  Updates a single `CourseEnrollment` using its globally unique id and a patch.
+  Creates a single `Project`.
   """
-  updateCourseEnrollmentByNodeId(
+  createProject(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseEnrollmentByNodeIdInput!
-  ): UpdateCourseEnrollmentPayload
+    input: CreateProjectInput!
+  ): CreateProjectPayload
 
   """
-  Updates a single `CourseEnrollment` using a unique key and a patch.
+  Creates a single `ProjectMember`.
   """
-  updateCourseEnrollment(
+  createProjectMember(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseEnrollmentInput!
-  ): UpdateCourseEnrollmentPayload
+    input: CreateProjectMemberInput!
+  ): CreateProjectMemberPayload
+  createSSOUrl(username: String!, path: String): SSOUrlOutput
 
   """
-  Updates a single `CourseEnrollment` using a unique key and a patch.
+  Creates a single `System`.
   """
-  updateCourseEnrollmentByUserIdAndCourseId(
+  createSystem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseEnrollmentByUserIdAndCourseIdInput!
-  ): UpdateCourseEnrollmentPayload
+    input: CreateSystemInput!
+  ): CreateSystemPayload
 
   """
-  Updates a single `CourseEnrollmentTemp` using its globally unique id and a patch.
+  Creates a single `SystemMember`.
   """
-  updateCourseEnrollmentTempByNodeId(
+  createSystemMember(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseEnrollmentTempByNodeIdInput!
-  ): UpdateCourseEnrollmentTempPayload
+    input: CreateSystemMemberInput!
+  ): CreateSystemMemberPayload
 
   """
-  Updates a single `CourseEnrollmentTemp` using a unique key and a patch.
+  Deletes a single `Account` using a unique key.
   """
-  updateCourseEnrollmentTemp(
+  deleteAccount(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseEnrollmentTempInput!
-  ): UpdateCourseEnrollmentTempPayload
+    input: DeleteAccountInput!
+  ): DeleteAccountPayload
 
   """
-  Updates a single `CourseSyncConfiguration` using its globally unique id and a patch.
+  Deletes a single `Account` using a unique key.
   """
-  updateCourseSyncConfigurationByNodeId(
+  deleteAccountByDoceboUserId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseSyncConfigurationByNodeIdInput!
-  ): UpdateCourseSyncConfigurationPayload
+    input: DeleteAccountByDoceboUserIdInput!
+  ): DeleteAccountPayload
 
   """
-  Updates a single `CourseSyncConfiguration` using a unique key and a patch.
+  Deletes a single `Account` using its globally unique id.
   """
-  updateCourseSyncConfiguration(
+  deleteAccountByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseSyncConfigurationInput!
-  ): UpdateCourseSyncConfigurationPayload
+    input: DeleteAccountByNodeIdInput!
+  ): DeleteAccountPayload
 
   """
-  Updates a single `CourseSyncConfiguration` using a unique key and a patch.
+  Deletes a single `Address` using a unique key.
   """
-  updateCourseSyncConfigurationByConfigName(
+  deleteAddress(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseSyncConfigurationByConfigNameInput!
-  ): UpdateCourseSyncConfigurationPayload
+    input: DeleteAddressInput!
+  ): DeleteAddressPayload
 
   """
-  Updates a single `CourseTemp` using its globally unique id and a patch.
+  Deletes a single `Address` using its globally unique id.
   """
-  updateCourseTempByNodeId(
+  deleteAddressByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseTempByNodeIdInput!
-  ): UpdateCourseTempPayload
+    input: DeleteAddressByNodeIdInput!
+  ): DeleteAddressPayload
 
   """
-  Updates a single `CourseTemp` using a unique key and a patch.
+  Deletes a single `Certification` using a unique key.
   """
-  updateCourseTemp(
+  deleteCertification(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: UpdateCourseTempInput!
-  ): UpdateCourseTempPayload
+    input: DeleteCertificationInput!
+  ): DeleteCertificationPayload
 
   """
-  Deletes a single `Course` using its globally unique id.
+  Deletes a single `Certification` using its globally unique id.
   """
-  deleteCourseByNodeId(
+  deleteCertificationByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCourseByNodeIdInput!
-  ): DeleteCoursePayload
+    input: DeleteCertificationByNodeIdInput!
+  ): DeleteCertificationPayload
+
+  """
+  Deletes a single `Company` using a unique key.
+  """
+  deleteCompany(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyInput!
+  ): DeleteCompanyPayload
+
+  """
+  Deletes a single `Company` using its globally unique id.
+  """
+  deleteCompanyByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyByNodeIdInput!
+  ): DeleteCompanyPayload
+
+  """
+  Deletes a single `CompanyDocument` using a unique key.
+  """
+  deleteCompanyDocument(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyDocumentInput!
+  ): DeleteCompanyDocumentPayload
+
+  """
+  Deletes a single `CompanyDocument` using its globally unique id.
+  """
+  deleteCompanyDocumentByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyDocumentByNodeIdInput!
+  ): DeleteCompanyDocumentPayload
+
+  """
+  Deletes a single `CompanyMember` using a unique key.
+  """
+  deleteCompanyMember(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyMemberInput!
+  ): DeleteCompanyMemberPayload
+
+  """
+  Deletes a single `CompanyMember` using its globally unique id.
+  """
+  deleteCompanyMemberByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyMemberByNodeIdInput!
+  ): DeleteCompanyMemberPayload
+
+  """
+  Deletes a single `CompanyOperation` using a unique key.
+  """
+  deleteCompanyOperation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyOperationInput!
+  ): DeleteCompanyOperationPayload
+
+  """
+  Deletes a single `CompanyOperation` using its globally unique id.
+  """
+  deleteCompanyOperationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyOperationByNodeIdInput!
+  ): DeleteCompanyOperationPayload
 
   """
   Deletes a single `Course` using a unique key.
@@ -11603,14 +10791,14 @@ type Mutation {
   ): DeleteCoursePayload
 
   """
-  Deletes a single `CourseCatalogue` using its globally unique id.
+  Deletes a single `Course` using its globally unique id.
   """
-  deleteCourseCatalogueByNodeId(
+  deleteCourseByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCourseCatalogueByNodeIdInput!
-  ): DeleteCourseCataloguePayload
+    input: DeleteCourseByNodeIdInput!
+  ): DeleteCoursePayload
 
   """
   Deletes a single `CourseCatalogue` using a unique key.
@@ -11633,14 +10821,14 @@ type Mutation {
   ): DeleteCourseCataloguePayload
 
   """
-  Deletes a single `CourseCatalogueTemp` using its globally unique id.
+  Deletes a single `CourseCatalogue` using its globally unique id.
   """
-  deleteCourseCatalogueTempByNodeId(
+  deleteCourseCatalogueByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCourseCatalogueTempByNodeIdInput!
-  ): DeleteCourseCatalogueTempPayload
+    input: DeleteCourseCatalogueByNodeIdInput!
+  ): DeleteCourseCataloguePayload
 
   """
   Deletes a single `CourseCatalogueTemp` using a unique key.
@@ -11651,6 +10839,26 @@ type Mutation {
     """
     input: DeleteCourseCatalogueTempInput!
   ): DeleteCourseCatalogueTempPayload
+
+  """
+  Deletes a single `CourseCatalogueTemp` using its globally unique id.
+  """
+  deleteCourseCatalogueTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseCatalogueTempByNodeIdInput!
+  ): DeleteCourseCatalogueTempPayload
+
+  """
+  Deletes a single `CourseEnrollment` using a unique key.
+  """
+  deleteCourseEnrollment(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCourseEnrollmentInput!
+  ): DeleteCourseEnrollmentPayload
 
   """
   Deletes a single `CourseEnrollment` using its globally unique id.
@@ -11665,32 +10873,12 @@ type Mutation {
   """
   Deletes a single `CourseEnrollment` using a unique key.
   """
-  deleteCourseEnrollment(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCourseEnrollmentInput!
-  ): DeleteCourseEnrollmentPayload
-
-  """
-  Deletes a single `CourseEnrollment` using a unique key.
-  """
   deleteCourseEnrollmentByUserIdAndCourseId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteCourseEnrollmentByUserIdAndCourseIdInput!
   ): DeleteCourseEnrollmentPayload
-
-  """
-  Deletes a single `CourseEnrollmentTemp` using its globally unique id.
-  """
-  deleteCourseEnrollmentTempByNodeId(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteCourseEnrollmentTempByNodeIdInput!
-  ): DeleteCourseEnrollmentTempPayload
 
   """
   Deletes a single `CourseEnrollmentTemp` using a unique key.
@@ -11703,14 +10891,14 @@ type Mutation {
   ): DeleteCourseEnrollmentTempPayload
 
   """
-  Deletes a single `CourseSyncConfiguration` using its globally unique id.
+  Deletes a single `CourseEnrollmentTemp` using its globally unique id.
   """
-  deleteCourseSyncConfigurationByNodeId(
+  deleteCourseEnrollmentTempByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCourseSyncConfigurationByNodeIdInput!
-  ): DeleteCourseSyncConfigurationPayload
+    input: DeleteCourseEnrollmentTempByNodeIdInput!
+  ): DeleteCourseEnrollmentTempPayload
 
   """
   Deletes a single `CourseSyncConfiguration` using a unique key.
@@ -11733,14 +10921,14 @@ type Mutation {
   ): DeleteCourseSyncConfigurationPayload
 
   """
-  Deletes a single `CourseTemp` using its globally unique id.
+  Deletes a single `CourseSyncConfiguration` using its globally unique id.
   """
-  deleteCourseTempByNodeId(
+  deleteCourseSyncConfigurationByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: DeleteCourseTempByNodeIdInput!
-  ): DeleteCourseTempPayload
+    input: DeleteCourseSyncConfigurationByNodeIdInput!
+  ): DeleteCourseSyncConfigurationPayload
 
   """
   Deletes a single `CourseTemp` using a unique key.
@@ -11751,50 +10939,853 @@ type Mutation {
     """
     input: DeleteCourseTempInput!
   ): DeleteCourseTempPayload
-  courseCatalogueUpdate(
+
+  """
+  Deletes a single `CourseTemp` using its globally unique id.
+  """
+  deleteCourseTempByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: CourseCatalogueUpdateInput!
-  ): CourseCatalogueUpdatePayload
-  courseCatalogueUpdateByTemp(
+    input: DeleteCourseTempByNodeIdInput!
+  ): DeleteCourseTempPayload
+
+  """
+  Deletes a single `EvidenceItem` using a unique key.
+  """
+  deleteEvidenceItem(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: CourseCatalogueUpdateByTempInput!
-  ): CourseCatalogueUpdateByTempPayload
-  courseEnrollmentUpdate(
+    input: DeleteEvidenceItemInput!
+  ): DeleteEvidenceItemPayload
+
+  """
+  Deletes a single `EvidenceItem` using its globally unique id.
+  """
+  deleteEvidenceItemByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: CourseEnrollmentUpdateInput!
-  ): CourseEnrollmentUpdatePayload
-  courseEnrollmentUpdateByTemp(
+    input: DeleteEvidenceItemByNodeIdInput!
+  ): DeleteEvidenceItemPayload
+
+  """
+  Deletes a single `Guarantee` using a unique key.
+  """
+  deleteGuarantee(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: CourseEnrollmentUpdateByTempInput!
-  ): CourseEnrollmentUpdateByTempPayload
-  courseUpdate(
+    input: DeleteGuaranteeInput!
+  ): DeleteGuaranteePayload
+
+  """
+  Deletes a single `Guarantee` using its globally unique id.
+  """
+  deleteGuaranteeByNodeId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: CourseUpdateInput!
-  ): CourseUpdatePayload
-  courseUpdateByTemp(
+    input: DeleteGuaranteeByNodeIdInput!
+  ): DeleteGuaranteePayload
+
+  """
+  Deletes a single `Invitation` using a unique key.
+  """
+  deleteInvitation(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
-    input: CourseUpdateByTempInput!
-  ): CourseUpdateByTempPayload
-  createSSOUrl(username: String!, path: String): SSOUrlOutput
+    input: DeleteInvitationInput!
+  ): DeleteInvitationPayload
+
+  """
+  Deletes a single `Invitation` using its globally unique id.
+  """
+  deleteInvitationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteInvitationByNodeIdInput!
+  ): DeleteInvitationPayload
+
+  """
+  Deletes a single `Market` using a unique key.
+  """
+  deleteMarket(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarketInput!
+  ): DeleteMarketPayload
+
+  """
+  Deletes a single `Market` using a unique key.
+  """
+  deleteMarketByDoceboCatalogueId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarketByDoceboCatalogueIdInput!
+  ): DeleteMarketPayload
+
+  """
+  Deletes a single `Market` using its globally unique id.
+  """
+  deleteMarketByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarketByNodeIdInput!
+  ): DeleteMarketPayload
+
+  """
+  Deletes a single `Note` using a unique key.
+  """
+  deleteNote(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteNoteInput!
+  ): DeleteNotePayload
+
+  """
+  Deletes a single `Note` using its globally unique id.
+  """
+  deleteNoteByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteNoteByNodeIdInput!
+  ): DeleteNotePayload
+
+  """
+  Deletes a single `Notification` using a unique key.
+  """
+  deleteNotification(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteNotificationInput!
+  ): DeleteNotificationPayload
+
+  """
+  Deletes a single `Notification` using its globally unique id.
+  """
+  deleteNotificationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteNotificationByNodeIdInput!
+  ): DeleteNotificationPayload
+
+  """
+  Deletes a single `Product` using a unique key.
+  """
+  deleteProduct(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProductInput!
+  ): DeleteProductPayload
+
+  """
+  Deletes a single `Product` using a unique key.
+  """
+  deleteProductByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProductByBmiRefInput!
+  ): DeleteProductPayload
+
+  """
+  Deletes a single `Product` using its globally unique id.
+  """
+  deleteProductByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProductByNodeIdInput!
+  ): DeleteProductPayload
+
+  """
+  Deletes a single `Project` using a unique key.
+  """
+  deleteProject(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProjectInput!
+  ): DeleteProjectPayload
+
+  """
+  Deletes a single `Project` using its globally unique id.
+  """
+  deleteProjectByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProjectByNodeIdInput!
+  ): DeleteProjectPayload
+
+  """
+  Deletes a single `ProjectMember` using a unique key.
+  """
+  deleteProjectMember(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProjectMemberInput!
+  ): DeleteProjectMemberPayload
+
+  """
+  Deletes a single `ProjectMember` using its globally unique id.
+  """
+  deleteProjectMemberByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteProjectMemberByNodeIdInput!
+  ): DeleteProjectMemberPayload
+
+  """
+  Deletes a single `System` using a unique key.
+  """
+  deleteSystem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemInput!
+  ): DeleteSystemPayload
+
+  """
+  Deletes a single `System` using a unique key.
+  """
+  deleteSystemByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemByBmiRefInput!
+  ): DeleteSystemPayload
+
+  """
+  Deletes a single `System` using its globally unique id.
+  """
+  deleteSystemByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemByNodeIdInput!
+  ): DeleteSystemPayload
+
+  """
+  Deletes a single `SystemMember` using a unique key.
+  """
+  deleteSystemMember(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemMemberInput!
+  ): DeleteSystemMemberPayload
+
+  """
+  Deletes a single `SystemMember` using its globally unique id.
+  """
+  deleteSystemMemberByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemMemberByNodeIdInput!
+  ): DeleteSystemMemberPayload
+  publishMessage(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: PublishInput!
+  ): Publish
+
+  """
+  Updates a single `Account` using a unique key and a patch.
+  """
+  updateAccount(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountInput!
+  ): UpdateAccountPayload
+
+  """
+  Updates a single `Account` using a unique key and a patch.
+  """
+  updateAccountByDoceboUserId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountByDoceboUserIdInput!
+  ): UpdateAccountPayload
+
+  """
+  Updates a single `Account` using its globally unique id and a patch.
+  """
+  updateAccountByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountByNodeIdInput!
+  ): UpdateAccountPayload
+
+  """
+  Updates a single `Address` using a unique key and a patch.
+  """
+  updateAddress(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAddressInput!
+  ): UpdateAddressPayload
+
+  """
+  Updates a single `Address` using its globally unique id and a patch.
+  """
+  updateAddressByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAddressByNodeIdInput!
+  ): UpdateAddressPayload
+
+  """
+  Updates a single `Certification` using a unique key and a patch.
+  """
+  updateCertification(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCertificationInput!
+  ): UpdateCertificationPayload
+
+  """
+  Updates a single `Certification` using its globally unique id and a patch.
+  """
+  updateCertificationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCertificationByNodeIdInput!
+  ): UpdateCertificationPayload
+
+  """
+  Updates a single `Company` using a unique key and a patch.
+  """
+  updateCompany(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyInput!
+  ): UpdateCompanyPayload
+
+  """
+  Updates a single `Company` using its globally unique id and a patch.
+  """
+  updateCompanyByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyByNodeIdInput!
+  ): UpdateCompanyPayload
+
+  """
+  Updates a single `CompanyDocument` using a unique key and a patch.
+  """
+  updateCompanyDocument(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyDocumentInput!
+  ): UpdateCompanyDocumentPayload
+
+  """
+  Updates a single `CompanyDocument` using its globally unique id and a patch.
+  """
+  updateCompanyDocumentByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyDocumentByNodeIdInput!
+  ): UpdateCompanyDocumentPayload
+
+  """
+  Updates a single `CompanyMember` using a unique key and a patch.
+  """
+  updateCompanyMember(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyMemberInput!
+  ): UpdateCompanyMemberPayload
+
+  """
+  Updates a single `CompanyMember` using its globally unique id and a patch.
+  """
+  updateCompanyMemberByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyMemberByNodeIdInput!
+  ): UpdateCompanyMemberPayload
+
+  """
+  Updates a single `CompanyOperation` using a unique key and a patch.
+  """
+  updateCompanyOperation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyOperationInput!
+  ): UpdateCompanyOperationPayload
+
+  """
+  Updates a single `CompanyOperation` using its globally unique id and a patch.
+  """
+  updateCompanyOperationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyOperationByNodeIdInput!
+  ): UpdateCompanyOperationPayload
+
+  """
+  Updates a single `Course` using a unique key and a patch.
+  """
+  updateCourse(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseInput!
+  ): UpdateCoursePayload
+
+  """
+  Updates a single `Course` using a unique key and a patch.
+  """
+  updateCourseByCourseId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseByCourseIdInput!
+  ): UpdateCoursePayload
+
+  """
+  Updates a single `Course` using its globally unique id and a patch.
+  """
+  updateCourseByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseByNodeIdInput!
+  ): UpdateCoursePayload
+
+  """
+  Updates a single `CourseCatalogue` using a unique key and a patch.
+  """
+  updateCourseCatalogue(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseCatalogueInput!
+  ): UpdateCourseCataloguePayload
+
+  """
+  Updates a single `CourseCatalogue` using a unique key and a patch.
+  """
+  updateCourseCatalogueByCatalogueIdAndCourseId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseCatalogueByCatalogueIdAndCourseIdInput!
+  ): UpdateCourseCataloguePayload
+
+  """
+  Updates a single `CourseCatalogue` using its globally unique id and a patch.
+  """
+  updateCourseCatalogueByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseCatalogueByNodeIdInput!
+  ): UpdateCourseCataloguePayload
+
+  """
+  Updates a single `CourseCatalogueTemp` using a unique key and a patch.
+  """
+  updateCourseCatalogueTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseCatalogueTempInput!
+  ): UpdateCourseCatalogueTempPayload
+
+  """
+  Updates a single `CourseCatalogueTemp` using its globally unique id and a patch.
+  """
+  updateCourseCatalogueTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseCatalogueTempByNodeIdInput!
+  ): UpdateCourseCatalogueTempPayload
+
+  """
+  Updates a single `CourseEnrollment` using a unique key and a patch.
+  """
+  updateCourseEnrollment(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseEnrollmentInput!
+  ): UpdateCourseEnrollmentPayload
+
+  """
+  Updates a single `CourseEnrollment` using its globally unique id and a patch.
+  """
+  updateCourseEnrollmentByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseEnrollmentByNodeIdInput!
+  ): UpdateCourseEnrollmentPayload
+
+  """
+  Updates a single `CourseEnrollment` using a unique key and a patch.
+  """
+  updateCourseEnrollmentByUserIdAndCourseId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseEnrollmentByUserIdAndCourseIdInput!
+  ): UpdateCourseEnrollmentPayload
+
+  """
+  Updates a single `CourseEnrollmentTemp` using a unique key and a patch.
+  """
+  updateCourseEnrollmentTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseEnrollmentTempInput!
+  ): UpdateCourseEnrollmentTempPayload
+
+  """
+  Updates a single `CourseEnrollmentTemp` using its globally unique id and a patch.
+  """
+  updateCourseEnrollmentTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseEnrollmentTempByNodeIdInput!
+  ): UpdateCourseEnrollmentTempPayload
+
+  """
+  Updates a single `CourseSyncConfiguration` using a unique key and a patch.
+  """
+  updateCourseSyncConfiguration(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseSyncConfigurationInput!
+  ): UpdateCourseSyncConfigurationPayload
+
+  """
+  Updates a single `CourseSyncConfiguration` using a unique key and a patch.
+  """
+  updateCourseSyncConfigurationByConfigName(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseSyncConfigurationByConfigNameInput!
+  ): UpdateCourseSyncConfigurationPayload
+
+  """
+  Updates a single `CourseSyncConfiguration` using its globally unique id and a patch.
+  """
+  updateCourseSyncConfigurationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseSyncConfigurationByNodeIdInput!
+  ): UpdateCourseSyncConfigurationPayload
+
+  """
+  Updates a single `CourseTemp` using a unique key and a patch.
+  """
+  updateCourseTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseTempInput!
+  ): UpdateCourseTempPayload
+
+  """
+  Updates a single `CourseTemp` using its globally unique id and a patch.
+  """
+  updateCourseTempByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCourseTempByNodeIdInput!
+  ): UpdateCourseTempPayload
+
+  """
+  Updates a single `EvidenceItem` using a unique key and a patch.
+  """
+  updateEvidenceItem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateEvidenceItemInput!
+  ): UpdateEvidenceItemPayload
+
+  """
+  Updates a single `EvidenceItem` using its globally unique id and a patch.
+  """
+  updateEvidenceItemByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateEvidenceItemByNodeIdInput!
+  ): UpdateEvidenceItemPayload
+
+  """
+  Updates a single `Guarantee` using a unique key and a patch.
+  """
+  updateGuarantee(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateGuaranteeInput!
+  ): UpdateGuaranteePayload
+
+  """
+  Updates a single `Guarantee` using its globally unique id and a patch.
+  """
+  updateGuaranteeByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateGuaranteeByNodeIdInput!
+  ): UpdateGuaranteePayload
+
+  """
+  Updates a single `Invitation` using a unique key and a patch.
+  """
+  updateInvitation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateInvitationInput!
+  ): UpdateInvitationPayload
+
+  """
+  Updates a single `Invitation` using its globally unique id and a patch.
+  """
+  updateInvitationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateInvitationByNodeIdInput!
+  ): UpdateInvitationPayload
+
+  """
+  Updates a single `Market` using a unique key and a patch.
+  """
+  updateMarket(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarketInput!
+  ): UpdateMarketPayload
+
+  """
+  Updates a single `Market` using a unique key and a patch.
+  """
+  updateMarketByDoceboCatalogueId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarketByDoceboCatalogueIdInput!
+  ): UpdateMarketPayload
+
+  """
+  Updates a single `Market` using its globally unique id and a patch.
+  """
+  updateMarketByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarketByNodeIdInput!
+  ): UpdateMarketPayload
+
+  """
+  Updates a single `Note` using a unique key and a patch.
+  """
+  updateNote(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateNoteInput!
+  ): UpdateNotePayload
+
+  """
+  Updates a single `Note` using its globally unique id and a patch.
+  """
+  updateNoteByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateNoteByNodeIdInput!
+  ): UpdateNotePayload
+
+  """
+  Updates a single `Notification` using a unique key and a patch.
+  """
+  updateNotification(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateNotificationInput!
+  ): UpdateNotificationPayload
+
+  """
+  Updates a single `Notification` using its globally unique id and a patch.
+  """
+  updateNotificationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateNotificationByNodeIdInput!
+  ): UpdateNotificationPayload
+
+  """
+  Updates a single `Product` using a unique key and a patch.
+  """
+  updateProduct(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProductInput!
+  ): UpdateProductPayload
+
+  """
+  Updates a single `Product` using a unique key and a patch.
+  """
+  updateProductByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProductByBmiRefInput!
+  ): UpdateProductPayload
+
+  """
+  Updates a single `Product` using its globally unique id and a patch.
+  """
+  updateProductByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProductByNodeIdInput!
+  ): UpdateProductPayload
+
+  """
+  Updates a single `Project` using a unique key and a patch.
+  """
+  updateProject(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProjectInput!
+  ): UpdateProjectPayload
+
+  """
+  Updates a single `Project` using its globally unique id and a patch.
+  """
+  updateProjectByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProjectByNodeIdInput!
+  ): UpdateProjectPayload
+
+  """
+  Updates a single `ProjectMember` using a unique key and a patch.
+  """
+  updateProjectMember(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProjectMemberInput!
+  ): UpdateProjectMemberPayload
+
+  """
+  Updates a single `ProjectMember` using its globally unique id and a patch.
+  """
+  updateProjectMemberByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateProjectMemberByNodeIdInput!
+  ): UpdateProjectMemberPayload
+
+  """
+  Updates a single `System` using a unique key and a patch.
+  """
+  updateSystem(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemInput!
+  ): UpdateSystemPayload
+
+  """
+  Updates a single `System` using a unique key and a patch.
+  """
+  updateSystemByBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemByBmiRefInput!
+  ): UpdateSystemPayload
+
+  """
+  Updates a single `System` using its globally unique id and a patch.
+  """
+  updateSystemByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemByNodeIdInput!
+  ): UpdateSystemPayload
+
+  """
+  Updates a single `SystemMember` using a unique key and a patch.
+  """
+  updateSystemMember(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemMemberInput!
+  ): UpdateSystemMemberPayload
+
+  """
+  Updates a single `SystemMember` using its globally unique id and a patch.
+  """
+  updateSystemMemberByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemMemberByNodeIdInput!
+  ): UpdateSystemMemberPayload
   updateTraining(lastUpdateDate: String): String
-  createDoceboUser(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UserCreateInput
-  ): UserCreateResponse
 }
 
 """
@@ -11808,10 +11799,7 @@ interface Node {
 }
 
 """
-Usually a note added by someone at BMI who has been asked to approve a
-Guarantee.  It is likely to be either a short note of approval, saying something
-like, Approved, or Good Job, or a note of rejection, saying  something like, The
-photographs of the roof are not clear enough.
+Usually a note added by someone at BMI who has been asked to approve a Guarantee.  It is likely to be either a short note of approval, saying something like, Approved, or Good Job, or a note of rejection, saying  something like, The photographs of the roof are not clear enough.
 """
 type Note implements Node {
   """
@@ -12167,6 +12155,11 @@ Information about pagination in a connection.
 """
 type PageInfo {
   """
+  When paginating forwards, the cursor to continue.
+  """
+  endCursor: Cursor
+
+  """
   When paginating forwards, are there more items?
   """
   hasNextPage: Boolean!
@@ -12180,11 +12173,6 @@ type PageInfo {
   When paginating backwards, the cursor to continue.
   """
   startCursor: Cursor
-
-  """
-  When paginating forwards, the cursor to continue.
-  """
-  endCursor: Cursor
 }
 
 """
@@ -12409,6 +12397,47 @@ type Product implements Node {
     """
     condition: GuaranteeCondition
   ): GuaranteesConnection!
+
+  """
+  Reads and enables pagination through a set of `SystemMember`.
+  """
+  systemMembersByProductBmiRef(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `SystemMember`.
+    """
+    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SystemMemberCondition
+  ): SystemMembersConnection!
 }
 
 """
@@ -12655,9 +12684,7 @@ type Project implements Node {
   roofArea: Int
 
   """
-  Email address of the person who owns the building that the roof is going on.
-  Not mandatory for a Project, but mandatory when the Company applies for a
-  Guarantee related to the project.
+  Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
   """
   buildingOwnerMail: String
 
@@ -12902,9 +12929,7 @@ input ProjectInput {
   roofArea: Int
 
   """
-  Email address of the person who owns the building that the roof is going on.
-  Not mandatory for a Project, but mandatory when the Company applies for a
-  Guarantee related to the project.
+  Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
   """
   buildingOwnerMail: String
 
@@ -13143,9 +13168,7 @@ input ProjectPatch {
   roofArea: Int
 
   """
-  Email address of the person who owns the building that the roof is going on.
-  Not mandatory for a Project, but mandatory when the Company applies for a
-  Guarantee related to the project.
+  Email address of the person who owns the building that the roof is going on.  Not mandatory for a Project, but mandatory when the Company applies for a Guarantee related to the project.
   """
   buildingOwnerMail: String
 
@@ -13257,27 +13280,35 @@ The 'Quality' type represents quality as whole numeric values between `1` and `1
 """
 scalar Quality
 
-type Query {
+"""
+The root query type which gives access points into the data universe.
+"""
+type Query implements Node {
   """
-  Exposes the root query type nested one level down. This is helpful for Relay 1
-  which can only query top level fields if they are in a particular form.
+  Fetches a list of entities using their representations; used for Apollo
+  Federation.
   """
-  query: Query!
+  _entities(representations: [_Any!]!): [_Entity]!
+    @deprecated(reason: "Only Apollo Federation should use this")
 
   """
-  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  Entrypoint for Apollo Federation to determine more information about
+  this service.
   """
-  nodeId: ID!
+  _service: _Service!
+    @deprecated(reason: "Only Apollo Federation should use this")
+  account(id: Int!): Account
+  accountByDoceboUserId(doceboUserId: Int!): Account
 
   """
-  Fetches an object given its globally unique `ID`.
+  Reads a single `Account` using its globally unique `ID`.
   """
-  node(
+  accountByNodeId(
     """
-    The globally unique `ID`.
+    The globally unique `ID` to be used in selecting a single `Account`.
     """
     nodeId: ID!
-  ): Node
+  ): Account
 
   """
   Reads and enables pagination through a set of `Account`.
@@ -13319,6 +13350,17 @@ type Query {
     """
     condition: AccountCondition
   ): AccountsConnection
+  address(id: Int!): Address
+
+  """
+  Reads a single `Address` using its globally unique `ID`.
+  """
+  addressByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Address`.
+    """
+    nodeId: ID!
+  ): Address
 
   """
   Reads and enables pagination through a set of `Address`.
@@ -13360,6 +13402,44 @@ type Query {
     """
     condition: AddressCondition
   ): AddressesConnection
+  asset(id: String!, preview: Boolean, locale: String): Asset
+  assetCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: AssetFilter
+    order: [AssetOrder]
+  ): AssetCollection
+  carousel(id: String!, preview: Boolean, locale: String): Carousel
+  carouselCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: CarouselFilter
+    order: [CarouselOrder]
+  ): CarouselCollection
+  carouselItem(id: String!, preview: Boolean, locale: String): CarouselItem
+  carouselItemCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: CarouselItemFilter
+    order: [CarouselItemOrder]
+  ): CarouselItemCollection
+  certification(id: Int!): Certification
+
+  """
+  Reads a single `Certification` using its globally unique `ID`.
+  """
+  certificationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Certification`.
+    """
+    nodeId: ID!
+  ): Certification
 
   """
   Reads and enables pagination through a set of `Certification`.
@@ -13442,6 +13522,28 @@ type Query {
     """
     condition: CompanyCondition
   ): CompaniesConnection
+  company(id: Int!): Company
+
+  """
+  Reads a single `Company` using its globally unique `ID`.
+  """
+  companyByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Company`.
+    """
+    nodeId: ID!
+  ): Company
+  companyDocument(id: Int!): CompanyDocument
+
+  """
+  Reads a single `CompanyDocument` using its globally unique `ID`.
+  """
+  companyDocumentByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CompanyDocument`.
+    """
+    nodeId: ID!
+  ): CompanyDocument
 
   """
   Reads and enables pagination through a set of `CompanyDocument`.
@@ -13483,6 +13585,17 @@ type Query {
     """
     condition: CompanyDocumentCondition
   ): CompanyDocumentsConnection
+  companyMember(id: Int!): CompanyMember
+
+  """
+  Reads a single `CompanyMember` using its globally unique `ID`.
+  """
+  companyMemberByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CompanyMember`.
+    """
+    nodeId: ID!
+  ): CompanyMember
 
   """
   Reads and enables pagination through a set of `CompanyMember`.
@@ -13524,6 +13637,17 @@ type Query {
     """
     condition: CompanyMemberCondition
   ): CompanyMembersConnection
+  companyOperation(id: Int!): CompanyOperation
+
+  """
+  Reads a single `CompanyOperation` using its globally unique `ID`.
+  """
+  companyOperationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CompanyOperation`.
+    """
+    nodeId: ID!
+  ): CompanyOperation
 
   """
   Reads and enables pagination through a set of `CompanyOperation`.
@@ -13565,773 +13689,62 @@ type Query {
     """
     condition: CompanyOperationCondition
   ): CompanyOperationsConnection
+  contactDetails(id: String!, preview: Boolean, locale: String): ContactDetails
+  contactDetailsCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: ContactDetailsFilter
+    order: [ContactDetailsOrder]
+  ): ContactDetailsCollection
+  contentArticle(id: String!, preview: Boolean, locale: String): ContentArticle
+  contentArticleCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: ContentArticleFilter
+    order: [ContentArticleOrder]
+  ): ContentArticleCollection
+  course(id: Int!): Course
+  courseByCourseId(courseId: Int!): Course
 
   """
-  Reads and enables pagination through a set of `EvidenceItem`.
+  Reads a single `Course` using its globally unique `ID`.
   """
-  evidenceItems(
+  courseByNodeId(
     """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `EvidenceItem`.
-    """
-    orderBy: [EvidenceItemsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: EvidenceItemCondition
-  ): EvidenceItemsConnection
-
-  """
-  Reads and enables pagination through a set of `Guarantee`.
-  """
-  guarantees(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Guarantee`.
-    """
-    orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: GuaranteeCondition
-  ): GuaranteesConnection
-
-  """
-  Reads and enables pagination through a set of `Invitation`.
-  """
-  invitations(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Invitation`.
-    """
-    orderBy: [InvitationsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: InvitationCondition
-  ): InvitationsConnection
-
-  """
-  Reads and enables pagination through a set of `Market`.
-  """
-  markets(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Market`.
-    """
-    orderBy: [MarketsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: MarketCondition
-  ): MarketsConnection
-
-  """
-  Reads and enables pagination through a set of `Note`.
-  """
-  notes(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Note`.
-    """
-    orderBy: [NotesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: NoteCondition
-  ): NotesConnection
-
-  """
-  Reads and enables pagination through a set of `Notification`.
-  """
-  notifications(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Notification`.
-    """
-    orderBy: [NotificationsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: NotificationCondition
-  ): NotificationsConnection
-
-  """
-  Reads and enables pagination through a set of `Product`.
-  """
-  products(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Product`.
-    """
-    orderBy: [ProductsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: ProductCondition
-  ): ProductsConnection
-
-  """
-  Reads and enables pagination through a set of `Project`.
-  """
-  projects(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Project`.
-    """
-    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: ProjectCondition
-  ): ProjectsConnection
-
-  """
-  Reads and enables pagination through a set of `ProjectMember`.
-  """
-  projectMembers(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `ProjectMember`.
-    """
-    orderBy: [ProjectMembersOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: ProjectMemberCondition
-  ): ProjectMembersConnection
-
-  """
-  Reads and enables pagination through a set of `System`.
-  """
-  systems(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `System`.
-    """
-    orderBy: [SystemsOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: SystemCondition
-  ): SystemsConnection
-
-  """
-  Reads and enables pagination through a set of `SystemMember`.
-  """
-  systemMembers(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `SystemMember`.
-    """
-    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: SystemMemberCondition
-  ): SystemMembersConnection
-  account(id: Int!): Account
-  accountByDoceboUserId(doceboUserId: Int!): Account
-  address(id: Int!): Address
-  certification(id: Int!): Certification
-  company(id: Int!): Company
-  companyDocument(id: Int!): CompanyDocument
-  companyMember(id: Int!): CompanyMember
-  companyOperation(id: Int!): CompanyOperation
-  evidenceItem(id: Int!): EvidenceItem
-  guarantee(id: Int!): Guarantee
-  invitation(id: Int!): Invitation
-  market(id: Int!): Market
-  marketByDoceboCatalogueId(doceboCatalogueId: Int!): Market
-  note(id: Int!): Note
-  notification(id: Int!): Notification
-  product(id: Int!): Product
-  productByBmiRef(bmiRef: String!): Product
-  project(id: Int!): Project
-  projectMember(id: Int!): ProjectMember
-  system(id: Int!): System
-  systemByBmiRef(bmiRef: String!): System
-  systemMember(id: Int!): SystemMember
-  currentAccountEmail: String
-  currentAccountId: Int
-  currentCompany: Int
-  currentMarket: Int
-  isPartOfProject(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-  ): IsPartOfProjectConnection
-  isProjectEnabledByMarket: Boolean
-
-  """
-  Reads a single `Account` using its globally unique `ID`.
-  """
-  accountByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Account`.
+    The globally unique `ID` to be used in selecting a single `Course`.
     """
     nodeId: ID!
-  ): Account
+  ): Course
+  courseCatalogue(id: Int!): CourseCatalogue
+  courseCatalogueByCatalogueIdAndCourseId(
+    catalogueId: Int!
+    courseId: Int!
+  ): CourseCatalogue
 
   """
-  Reads a single `Address` using its globally unique `ID`.
+  Reads a single `CourseCatalogue` using its globally unique `ID`.
   """
-  addressByNodeId(
+  courseCatalogueByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `Address`.
+    The globally unique `ID` to be used in selecting a single `CourseCatalogue`.
     """
     nodeId: ID!
-  ): Address
+  ): CourseCatalogue
+  courseCatalogueTemp(id: Int!): CourseCatalogueTemp
 
   """
-  Reads a single `Certification` using its globally unique `ID`.
+  Reads a single `CourseCatalogueTemp` using its globally unique `ID`.
   """
-  certificationByNodeId(
+  courseCatalogueTempByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `Certification`.
+    The globally unique `ID` to be used in selecting a single `CourseCatalogueTemp`.
     """
     nodeId: ID!
-  ): Certification
-
-  """
-  Reads a single `Company` using its globally unique `ID`.
-  """
-  companyByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Company`.
-    """
-    nodeId: ID!
-  ): Company
-
-  """
-  Reads a single `CompanyDocument` using its globally unique `ID`.
-  """
-  companyDocumentByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `CompanyDocument`.
-    """
-    nodeId: ID!
-  ): CompanyDocument
-
-  """
-  Reads a single `CompanyMember` using its globally unique `ID`.
-  """
-  companyMemberByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `CompanyMember`.
-    """
-    nodeId: ID!
-  ): CompanyMember
-
-  """
-  Reads a single `CompanyOperation` using its globally unique `ID`.
-  """
-  companyOperationByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `CompanyOperation`.
-    """
-    nodeId: ID!
-  ): CompanyOperation
-
-  """
-  Reads a single `EvidenceItem` using its globally unique `ID`.
-  """
-  evidenceItemByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `EvidenceItem`.
-    """
-    nodeId: ID!
-  ): EvidenceItem
-
-  """
-  Reads a single `Guarantee` using its globally unique `ID`.
-  """
-  guaranteeByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Guarantee`.
-    """
-    nodeId: ID!
-  ): Guarantee
-
-  """
-  Reads a single `Invitation` using its globally unique `ID`.
-  """
-  invitationByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Invitation`.
-    """
-    nodeId: ID!
-  ): Invitation
-
-  """
-  Reads a single `Market` using its globally unique `ID`.
-  """
-  marketByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Market`.
-    """
-    nodeId: ID!
-  ): Market
-
-  """
-  Reads a single `Note` using its globally unique `ID`.
-  """
-  noteByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Note`.
-    """
-    nodeId: ID!
-  ): Note
-
-  """
-  Reads a single `Notification` using its globally unique `ID`.
-  """
-  notificationByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Notification`.
-    """
-    nodeId: ID!
-  ): Notification
-
-  """
-  Reads a single `Product` using its globally unique `ID`.
-  """
-  productByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Product`.
-    """
-    nodeId: ID!
-  ): Product
-
-  """
-  Reads a single `Project` using its globally unique `ID`.
-  """
-  projectByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `Project`.
-    """
-    nodeId: ID!
-  ): Project
-
-  """
-  Reads a single `ProjectMember` using its globally unique `ID`.
-  """
-  projectMemberByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `ProjectMember`.
-    """
-    nodeId: ID!
-  ): ProjectMember
-
-  """
-  Reads a single `System` using its globally unique `ID`.
-  """
-  systemByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `System`.
-    """
-    nodeId: ID!
-  ): System
-
-  """
-  Reads a single `SystemMember` using its globally unique `ID`.
-  """
-  systemMemberByNodeId(
-    """
-    The globally unique `ID` to be used in selecting a single `SystemMember`.
-    """
-    nodeId: ID!
-  ): SystemMember
-
-  """
-  Reads and enables pagination through a set of `Course`.
-  """
-  courses(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Course`.
-    """
-    orderBy: [CoursesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: CourseCondition
-  ): CoursesConnection
-
-  """
-  Reads and enables pagination through a set of `CourseCatalogue`.
-  """
-  courseCatalogues(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `CourseCatalogue`.
-    """
-    orderBy: [CourseCataloguesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: CourseCatalogueCondition
-  ): CourseCataloguesConnection
+  ): CourseCatalogueTemp
 
   """
   Reads and enables pagination through a set of `CourseCatalogueTemp`.
@@ -14375,9 +13788,9 @@ type Query {
   ): CourseCatalogueTempsConnection
 
   """
-  Reads and enables pagination through a set of `CourseEnrollment`.
+  Reads and enables pagination through a set of `CourseCatalogue`.
   """
-  courseEnrollments(
+  courseCatalogues(
     """
     Only read the first `n` values of the set.
     """
@@ -14405,15 +13818,41 @@ type Query {
     after: Cursor
 
     """
-    The method to use when ordering `CourseEnrollment`.
+    The method to use when ordering `CourseCatalogue`.
     """
-    orderBy: [CourseEnrollmentsOrderBy!] = [PRIMARY_KEY_ASC]
+    orderBy: [CourseCataloguesOrderBy!] = [PRIMARY_KEY_ASC]
 
     """
     A condition to be used in determining which values should be returned by the collection.
     """
-    condition: CourseEnrollmentCondition
-  ): CourseEnrollmentsConnection
+    condition: CourseCatalogueCondition
+  ): CourseCataloguesConnection
+  courseEnrollment(id: Int!): CourseEnrollment
+
+  """
+  Reads a single `CourseEnrollment` using its globally unique `ID`.
+  """
+  courseEnrollmentByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CourseEnrollment`.
+    """
+    nodeId: ID!
+  ): CourseEnrollment
+  courseEnrollmentByUserIdAndCourseId(
+    userId: Int!
+    courseId: Int!
+  ): CourseEnrollment
+  courseEnrollmentTemp(id: Int!): CourseEnrollmentTemp
+
+  """
+  Reads a single `CourseEnrollmentTemp` using its globally unique `ID`.
+  """
+  courseEnrollmentTempByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CourseEnrollmentTemp`.
+    """
+    nodeId: ID!
+  ): CourseEnrollmentTemp
 
   """
   Reads and enables pagination through a set of `CourseEnrollmentTemp`.
@@ -14457,6 +13896,61 @@ type Query {
   ): CourseEnrollmentTempsConnection
 
   """
+  Reads and enables pagination through a set of `CourseEnrollment`.
+  """
+  courseEnrollments(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `CourseEnrollment`.
+    """
+    orderBy: [CourseEnrollmentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: CourseEnrollmentCondition
+  ): CourseEnrollmentsConnection
+  courseSyncConfiguration(id: Int!): CourseSyncConfiguration
+  courseSyncConfigurationByConfigName(
+    configName: String!
+  ): CourseSyncConfiguration
+
+  """
+  Reads a single `CourseSyncConfiguration` using its globally unique `ID`.
+  """
+  courseSyncConfigurationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CourseSyncConfiguration`.
+    """
+    nodeId: ID!
+  ): CourseSyncConfiguration
+
+  """
   Reads and enables pagination through a set of `CourseSyncConfiguration`.
   """
   courseSyncConfigurations(
@@ -14496,6 +13990,17 @@ type Query {
     """
     condition: CourseSyncConfigurationCondition
   ): CourseSyncConfigurationsConnection
+  courseTemp(id: Int!): CourseTemp
+
+  """
+  Reads a single `CourseTemp` using its globally unique `ID`.
+  """
+  courseTempByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `CourseTemp`.
+    """
+    nodeId: ID!
+  ): CourseTemp
 
   """
   Reads and enables pagination through a set of `CourseTemp`.
@@ -14537,132 +14042,59 @@ type Query {
     """
     condition: CourseTempCondition
   ): CourseTempsConnection
-  course(id: Int!): Course
-  courseByCourseId(courseId: Int!): Course
-  courseCatalogue(id: Int!): CourseCatalogue
-  courseCatalogueByCatalogueIdAndCourseId(
-    catalogueId: Int!
-    courseId: Int!
-  ): CourseCatalogue
-  courseCatalogueTemp(id: Int!): CourseCatalogueTemp
-  courseEnrollment(id: Int!): CourseEnrollment
-  courseEnrollmentByUserIdAndCourseId(
-    userId: Int!
-    courseId: Int!
-  ): CourseEnrollment
-  courseEnrollmentTemp(id: Int!): CourseEnrollmentTemp
-  courseSyncConfiguration(id: Int!): CourseSyncConfiguration
-  courseSyncConfigurationByConfigName(
-    configName: String!
-  ): CourseSyncConfiguration
-  courseTemp(id: Int!): CourseTemp
 
   """
-  Reads a single `Course` using its globally unique `ID`.
+  Reads and enables pagination through a set of `Course`.
   """
-  courseByNodeId(
+  courses(
     """
-    The globally unique `ID` to be used in selecting a single `Course`.
+    Only read the first `n` values of the set.
     """
-    nodeId: ID!
-  ): Course
+    first: Int
 
-  """
-  Reads a single `CourseCatalogue` using its globally unique `ID`.
-  """
-  courseCatalogueByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `CourseCatalogue`.
+    Only read the last `n` values of the set.
     """
-    nodeId: ID!
-  ): CourseCatalogue
+    last: Int
 
-  """
-  Reads a single `CourseCatalogueTemp` using its globally unique `ID`.
-  """
-  courseCatalogueTempByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `CourseCatalogueTemp`.
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
     """
-    nodeId: ID!
-  ): CourseCatalogueTemp
+    offset: Int
 
-  """
-  Reads a single `CourseEnrollment` using its globally unique `ID`.
-  """
-  courseEnrollmentByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `CourseEnrollment`.
+    Read all values in the set before (above) this cursor.
     """
-    nodeId: ID!
-  ): CourseEnrollment
+    before: Cursor
 
-  """
-  Reads a single `CourseEnrollmentTemp` using its globally unique `ID`.
-  """
-  courseEnrollmentTempByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `CourseEnrollmentTemp`.
+    Read all values in the set after (below) this cursor.
     """
-    nodeId: ID!
-  ): CourseEnrollmentTemp
+    after: Cursor
 
-  """
-  Reads a single `CourseSyncConfiguration` using its globally unique `ID`.
-  """
-  courseSyncConfigurationByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `CourseSyncConfiguration`.
+    The method to use when ordering `Course`.
     """
-    nodeId: ID!
-  ): CourseSyncConfiguration
+    orderBy: [CoursesOrderBy!] = [PRIMARY_KEY_ASC]
 
-  """
-  Reads a single `CourseTemp` using its globally unique `ID`.
-  """
-  courseTempByNodeId(
     """
-    The globally unique `ID` to be used in selecting a single `CourseTemp`.
+    A condition to be used in determining which values should be returned by the collection.
     """
-    nodeId: ID!
-  ): CourseTemp
-  token: Token
-  tokenByUsername(username: String!): Token
-  asset(id: String!, preview: Boolean, locale: String): Asset
-  assetCollection(
+    condition: CourseCondition
+  ): CoursesConnection
+  currentAccountEmail: String
+  currentAccountId: Int
+  currentCompany: Int
+  currentMarket: Int
+  entryCollection(
     skip: Int = 0
     limit: Int = 100
     preview: Boolean
     locale: String
-    where: AssetFilter
-    order: [AssetOrder]
-  ): AssetCollection
-  guaranteeTemplate(
-    id: String!
-    preview: Boolean
-    locale: String
-  ): GuaranteeTemplate
-  guaranteeTemplateCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: GuaranteeTemplateFilter
-    order: [GuaranteeTemplateOrder]
-  ): GuaranteeTemplateCollection
-  messageTemplate(
-    id: String!
-    preview: Boolean
-    locale: String
-  ): MessageTemplate
-  messageTemplateCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MessageTemplateFilter
-    order: [MessageTemplateOrder]
-  ): MessageTemplateCollection
+    where: EntryFilter
+    order: [EntryOrder]
+  ): EntryCollection
   evidenceCategory(
     id: String!
     preview: Boolean
@@ -14676,24 +14108,82 @@ type Query {
     where: EvidenceCategoryFilter
     order: [EvidenceCategoryOrder]
   ): EvidenceCategoryCollection
-  marketContent(id: String!, preview: Boolean, locale: String): MarketContent
-  marketContentCollection(
+  evidenceItem(id: Int!): EvidenceItem
+
+  """
+  Reads a single `EvidenceItem` using its globally unique `ID`.
+  """
+  evidenceItemByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `EvidenceItem`.
+    """
+    nodeId: ID!
+  ): EvidenceItem
+
+  """
+  Reads and enables pagination through a set of `EvidenceItem`.
+  """
+  evidenceItems(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `EvidenceItem`.
+    """
+    orderBy: [EvidenceItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EvidenceItemCondition
+  ): EvidenceItemsConnection
+  guarantee(id: Int!): Guarantee
+
+  """
+  Reads a single `Guarantee` using its globally unique `ID`.
+  """
+  guaranteeByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Guarantee`.
+    """
+    nodeId: ID!
+  ): Guarantee
+  guaranteeTemplate(
+    id: String!
+    preview: Boolean
+    locale: String
+  ): GuaranteeTemplate
+  guaranteeTemplateCollection(
     skip: Int = 0
     limit: Int = 100
     preview: Boolean
     locale: String
-    where: MarketContentFilter
-    order: [MarketContentOrder]
-  ): MarketContentCollection
-  carouselItem(id: String!, preview: Boolean, locale: String): CarouselItem
-  carouselItemCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: CarouselItemFilter
-    order: [CarouselItemOrder]
-  ): CarouselItemCollection
+    where: GuaranteeTemplateFilter
+    order: [GuaranteeTemplateOrder]
+  ): GuaranteeTemplateCollection
   guaranteeType(id: String!, preview: Boolean, locale: String): GuaranteeType
   guaranteeTypeCollection(
     skip: Int = 0
@@ -14703,6 +14193,625 @@ type Query {
     where: GuaranteeTypeFilter
     order: [GuaranteeTypeOrder]
   ): GuaranteeTypeCollection
+
+  """
+  Reads and enables pagination through a set of `Guarantee`.
+  """
+  guarantees(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Guarantee`.
+    """
+    orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: GuaranteeCondition
+  ): GuaranteesConnection
+  invitation(id: Int!): Invitation
+
+  """
+  Reads a single `Invitation` using its globally unique `ID`.
+  """
+  invitationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Invitation`.
+    """
+    nodeId: ID!
+  ): Invitation
+
+  """
+  Reads and enables pagination through a set of `Invitation`.
+  """
+  invitations(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Invitation`.
+    """
+    orderBy: [InvitationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: InvitationCondition
+  ): InvitationsConnection
+  isPartOfProject(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+  ): IsPartOfProjectConnection
+  isProjectEnabledByMarket: Boolean
+  market(id: Int!): Market
+  marketByDoceboCatalogueId(doceboCatalogueId: Int!): Market
+
+  """
+  Reads a single `Market` using its globally unique `ID`.
+  """
+  marketByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Market`.
+    """
+    nodeId: ID!
+  ): Market
+  marketContent(id: String!, preview: Boolean, locale: String): MarketContent
+  marketContentCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MarketContentFilter
+    order: [MarketContentOrder]
+  ): MarketContentCollection
+
+  """
+  Reads and enables pagination through a set of `Market`.
+  """
+  markets(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Market`.
+    """
+    orderBy: [MarketsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MarketCondition
+  ): MarketsConnection
+  mediaFolder(id: String!, preview: Boolean, locale: String): MediaFolder
+  mediaFolderCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MediaFolderFilter
+    order: [MediaFolderOrder]
+  ): MediaFolderCollection
+  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
+  mediaToolCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MediaToolFilter
+    order: [MediaToolOrder]
+  ): MediaToolCollection
+  messageTemplate(
+    id: String!
+    preview: Boolean
+    locale: String
+  ): MessageTemplate
+  messageTemplateCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MessageTemplateFilter
+    order: [MessageTemplateOrder]
+  ): MessageTemplateCollection
+  migration(id: String!, preview: Boolean, locale: String): Migration
+  migrationCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: MigrationFilter
+    order: [MigrationOrder]
+  ): MigrationCollection
+
+  """
+  Fetches an object given its globally unique `ID`.
+  """
+  node(
+    """
+    The globally unique `ID`.
+    """
+    nodeId: ID!
+  ): Node
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+  note(id: Int!): Note
+
+  """
+  Reads a single `Note` using its globally unique `ID`.
+  """
+  noteByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Note`.
+    """
+    nodeId: ID!
+  ): Note
+
+  """
+  Reads and enables pagination through a set of `Note`.
+  """
+  notes(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Note`.
+    """
+    orderBy: [NotesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: NoteCondition
+  ): NotesConnection
+  notification(id: Int!): Notification
+
+  """
+  Reads a single `Notification` using its globally unique `ID`.
+  """
+  notificationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Notification`.
+    """
+    nodeId: ID!
+  ): Notification
+
+  """
+  Reads and enables pagination through a set of `Notification`.
+  """
+  notifications(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Notification`.
+    """
+    orderBy: [NotificationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: NotificationCondition
+  ): NotificationsConnection
+  partnerBrand(id: String!, preview: Boolean, locale: String): PartnerBrand
+  partnerBrandCollection(
+    skip: Int = 0
+    limit: Int = 100
+    preview: Boolean
+    locale: String
+    where: PartnerBrandFilter
+    order: [PartnerBrandOrder]
+  ): PartnerBrandCollection
+  product(id: Int!): Product
+  productByBmiRef(bmiRef: String!): Product
+
+  """
+  Reads a single `Product` using its globally unique `ID`.
+  """
+  productByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Product`.
+    """
+    nodeId: ID!
+  ): Product
+
+  """
+  Reads and enables pagination through a set of `Product`.
+  """
+  products(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Product`.
+    """
+    orderBy: [ProductsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProductCondition
+  ): ProductsConnection
+  project(id: Int!): Project
+
+  """
+  Reads a single `Project` using its globally unique `ID`.
+  """
+  projectByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `Project`.
+    """
+    nodeId: ID!
+  ): Project
+  projectMember(id: Int!): ProjectMember
+
+  """
+  Reads a single `ProjectMember` using its globally unique `ID`.
+  """
+  projectMemberByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `ProjectMember`.
+    """
+    nodeId: ID!
+  ): ProjectMember
+
+  """
+  Reads and enables pagination through a set of `ProjectMember`.
+  """
+  projectMembers(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `ProjectMember`.
+    """
+    orderBy: [ProjectMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectMemberCondition
+  ): ProjectMembersConnection
+
+  """
+  Reads and enables pagination through a set of `Project`.
+  """
+  projects(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `Project`.
+    """
+    orderBy: [ProjectsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: ProjectCondition
+  ): ProjectsConnection
+
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+  system(id: Int!): System
+  systemByBmiRef(bmiRef: String!): System
+
+  """
+  Reads a single `System` using its globally unique `ID`.
+  """
+  systemByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `System`.
+    """
+    nodeId: ID!
+  ): System
+  systemMember(id: Int!): SystemMember
+
+  """
+  Reads a single `SystemMember` using its globally unique `ID`.
+  """
+  systemMemberByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `SystemMember`.
+    """
+    nodeId: ID!
+  ): SystemMember
+
+  """
+  Reads and enables pagination through a set of `SystemMember`.
+  """
+  systemMembers(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `SystemMember`.
+    """
+    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SystemMemberCondition
+  ): SystemMembersConnection
+
+  """
+  Reads and enables pagination through a set of `System`.
+  """
+  systems(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `System`.
+    """
+    orderBy: [SystemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SystemCondition
+  ): SystemsConnection
   tierBenefit(id: String!, preview: Boolean, locale: String): TierBenefit
   tierBenefitCollection(
     skip: Int = 0
@@ -14712,6 +14821,8 @@ type Query {
     where: TierBenefitFilter
     order: [TierBenefitOrder]
   ): TierBenefitCollection
+  token: Token
+  tokenByUsername(username: String!): Token
   trainingContent(
     id: String!
     preview: Boolean
@@ -14725,77 +14836,6 @@ type Query {
     where: TrainingContentFilter
     order: [TrainingContentOrder]
   ): TrainingContentCollection
-  carousel(id: String!, preview: Boolean, locale: String): Carousel
-  carouselCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: CarouselFilter
-    order: [CarouselOrder]
-  ): CarouselCollection
-  partnerBrand(id: String!, preview: Boolean, locale: String): PartnerBrand
-  partnerBrandCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: PartnerBrandFilter
-    order: [PartnerBrandOrder]
-  ): PartnerBrandCollection
-  contactDetails(id: String!, preview: Boolean, locale: String): ContactDetails
-  contactDetailsCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: ContactDetailsFilter
-    order: [ContactDetailsOrder]
-  ): ContactDetailsCollection
-  mediaTool(id: String!, preview: Boolean, locale: String): MediaTool
-  mediaToolCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MediaToolFilter
-    order: [MediaToolOrder]
-  ): MediaToolCollection
-  mediaFolder(id: String!, preview: Boolean, locale: String): MediaFolder
-  mediaFolderCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MediaFolderFilter
-    order: [MediaFolderOrder]
-  ): MediaFolderCollection
-  contentArticle(id: String!, preview: Boolean, locale: String): ContentArticle
-  contentArticleCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: ContentArticleFilter
-    order: [ContentArticleOrder]
-  ): ContentArticleCollection
-  migration(id: String!, preview: Boolean, locale: String): Migration
-  migrationCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: MigrationFilter
-    order: [MigrationOrder]
-  ): MigrationCollection
-  entryCollection(
-    skip: Int = 0
-    limit: Int = 100
-    preview: Boolean
-    locale: String
-    where: EntryFilter
-    order: [EntryOrder]
-  ): EntryCollection
 }
 
 enum RequestStatus {
@@ -14963,6 +15003,47 @@ type System implements Node {
     """
     condition: GuaranteeCondition
   ): GuaranteesConnection!
+
+  """
+  Reads and enables pagination through a set of `SystemMember`.
+  """
+  systemMembersBySystemBmiRef(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `SystemMember`.
+    """
+    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SystemMemberCondition
+  ): SystemMembersConnection!
 }
 
 """
@@ -15047,16 +15128,26 @@ type SystemMember implements Node {
   id: Int!
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
   createdAt: Datetime!
   updatedAt: Datetime!
+
+  """
+  Reads a single `System` that is related to this `SystemMember`.
+  """
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `SystemMember`.
+  """
+  productByProductBmiRef: Product
 }
 
 """
@@ -15068,6 +15159,16 @@ input SystemMemberCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
+
+  """
+  Checks for equality with the object’s `systemBmiRef` field.
+  """
+  systemBmiRef: String
+
+  """
+  Checks for equality with the object’s `productBmiRef` field.
+  """
+  productBmiRef: String
 }
 
 """
@@ -15080,12 +15181,12 @@ input SystemMemberInput {
   id: Int
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
   createdAt: Datetime
@@ -15102,12 +15203,12 @@ input SystemMemberPatch {
   id: Int
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
   createdAt: Datetime
@@ -15161,6 +15262,10 @@ enum SystemMembersOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  SYSTEM_BMI_REF_ASC
+  SYSTEM_BMI_REF_DESC
+  PRODUCT_BMI_REF_ASC
+  PRODUCT_BMI_REF_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -17034,8 +17139,7 @@ input UpdateMarketByDoceboCatalogueIdInput {
   patch: MarketPatch!
 
   """
-  The default catalogue for the market.  All users in the market are able to see
-  all courses in the default catalog from InTouch
+  The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
 }
@@ -17670,6 +17774,16 @@ type UpdateSystemMemberPayload {
   query: Query
 
   """
+  Reads a single `System` that is related to this `SystemMember`.
+  """
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `SystemMember`.
+  """
+  productByProductBmiRef: Product
+
+  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -17740,6 +17854,56 @@ input UserCreateInput {
 type UserCreateResponse {
   success: Boolean
   user_id: Int
+}
+
+scalar _Any
+
+"""
+A union of all federated types (those that use the @key directive).
+"""
+union _Entity =
+    Account
+  | Address
+  | Certification
+  | Company
+  | CompanyDocument
+  | CompanyMember
+  | CompanyOperation
+  | Course
+  | CourseCatalogue
+  | CourseCatalogueTemp
+  | CourseEnrollment
+  | CourseEnrollmentTemp
+  | CourseSyncConfiguration
+  | CourseTemp
+  | EvidenceItem
+  | Guarantee
+  | Invitation
+  | Market
+  | Note
+  | Notification
+  | Product
+  | Project
+  | ProjectMember
+  | System
+  | SystemMember
+
+"""
+Used to represent a set of fields. Grammatically, a field set is a
+selection set minus the braces.
+"""
+scalar _FieldSet
+
+"""
+Describes our federated service.
+"""
+type _Service {
+  """
+  The GraphQL Schema Language definiton of our endpoint including the
+  Apollo Federation directives (but not their definitions or the special
+  Apollo Federation fields).
+  """
+  sdl: String @deprecated(reason: "Only Apollo Federation should use this")
 }
 
 input cfContentArticleNestedFilter {
