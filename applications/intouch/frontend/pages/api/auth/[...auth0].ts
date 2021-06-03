@@ -1,6 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
-import { createAccount } from "../../../lib/account";
+import {
+  createAccount,
+  createDoceboUser,
+  updateAccount
+} from "../../../lib/account";
 import { REDIRECT_MAP } from "../../../lib/config";
 import { withLoggerApi } from "../../../lib/logger/withLogger";
 
@@ -18,10 +22,22 @@ const afterCallback = async (
   const { user } = session;
 
   const intouch_user_id = user[`${AUTH0_NAMESPACE}/intouch_user_id`];
+  const intouch_docebo_id = user[`${AUTH0_NAMESPACE}/intouch_docebo_id`];
 
   // To avoid redirect loop we do not create any user if coming from /api/silent-login (prompt=none)
   if (!intouch_user_id && state.prompt !== "none") {
     await createAccount(req, session);
+    state.returnTo = "/api/silent-login";
+  }
+
+  if (intouch_user_id && !intouch_docebo_id) {
+    const {
+      data: {
+        createDoceboUser: { user_id }
+      }
+    } = await createDoceboUser(req, session);
+
+    await updateAccount(req, session, intouch_user_id, user_id);
     state.returnTo = "/api/silent-login";
   }
 
