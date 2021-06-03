@@ -4,13 +4,17 @@ FROM node:12-alpine as build
 WORKDIR /usr/src/app
 
 # Copy app files
+COPY ./.yarn ./.yarn
+COPY ./.yarnrc ./.yarnrc
+COPY ./yarn.lock ./yarn.lock
 COPY ./package.json ./package.json
 COPY ./libraries ./libraries
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 COPY ./applications/intouch/api/services/training ./applications/intouch/api/services/training
 
 # Install all Packages
-RUN yarn install
+RUN yarn install --frozen-lockfile --cache-folder ./ycache && \
+  rm -rf ./ycache
 
 WORKDIR /usr/src/app/applications/intouch/api/services/training
 
@@ -23,8 +27,10 @@ FROM node:12-alpine
 # Create apps directory
 WORKDIR /usr/src/app
 
-
 # Copy app files
+COPY ./.yarn ./.yarn
+COPY ./.yarnrc ./.yarnrc
+COPY ./yarn.lock ./yarn.lock
 COPY ./package.json ./package.json
 COPY ./libraries ./libraries
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
@@ -35,7 +41,7 @@ COPY --from=build /usr/src/app/libraries/logger/dist /usr/src/app/libraries/logg
 COPY --from=build /usr/src/app/applications/intouch/api/services/training/dist /usr/src/app/applications/intouch/api/services/training/dist
 
 # Install prod
-RUN yarn install --production --cache-folder ./ycache && \
+RUN yarn install --frozen-lockfile --production --cache-folder ./ycache && \
   rm -rf ./ycache
 
 # Create app directory
