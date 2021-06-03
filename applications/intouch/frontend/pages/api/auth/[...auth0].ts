@@ -1,10 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
-import {
-  createAccount,
-  createDoceboUser,
-  updateAccount
-} from "../../../lib/account";
+import { createAccount, createDoceboUser } from "../../../lib/account";
 import { REDIRECT_MAP } from "../../../lib/config";
 import { withLoggerApi } from "../../../lib/logger/withLogger";
 
@@ -26,18 +22,15 @@ const afterCallback = async (
 
   // To avoid redirect loop we do not create any user if coming from /api/silent-login (prompt=none)
   if (!intouch_user_id && state.prompt !== "none") {
-    await createAccount(req, session);
+    const { data: { createAccount: account = null } = {} } =
+      (await createAccount(req, session)) || {};
+
+    await createDoceboUser(req, session, account?.id);
     state.returnTo = "/api/silent-login";
+    return session;
   }
-
-  if (intouch_user_id && !intouch_docebo_id) {
-    const {
-      data: {
-        createDoceboUser: { user_id }
-      }
-    } = await createDoceboUser(req, session);
-
-    await updateAccount(req, session, intouch_user_id, user_id);
+  if (!intouch_docebo_id && state.prompt !== "none") {
+    await createDoceboUser(req, session);
     state.returnTo = "/api/silent-login";
   }
 
@@ -72,7 +65,6 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
           }
         });
       } catch (error) {
-        // eslint-disable-next-line no-console
         logger.error(`handle login: ${error.message}`);
         return res.status(error.status || 500).end(error.message);
       }
@@ -81,7 +73,6 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
       try {
         await handleCallback(req, res, { afterCallback });
       } catch (error) {
-        // eslint-disable-next-line no-console
         logger.error(`handle callback: ${error.message}`);
         return res.status(error.status || 500).end(error.message);
       }
@@ -92,7 +83,6 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
           refetch: true
         });
       } catch (error) {
-        // eslint-disable-next-line no-console
         logger.error(`handle profile: ${error.message}`);
         const status = error.message === "invalid_token" ? 401 : error.status;
         return res.status(status || 500).end(error.message);
@@ -102,7 +92,6 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
       try {
         await handleLogout(req, res);
       } catch (error) {
-        // eslint-disable-next-line no-console
         logger.error(`handle logout: ${error.message}`);
         return res.status(error.status || 500).end(error.message);
       }
