@@ -5,10 +5,6 @@ schema:
   # the watch mode is used when the gateway dev script is run
   - ../services/**/schema.graphql
 
-hooks:
-  afterAllFileWrite:
-    - prettier --write
-
 generates:
   ./schema.graphql:
     plugins:
