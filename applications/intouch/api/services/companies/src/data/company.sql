@@ -544,9 +544,9 @@ VALUES ('2',3,1,'NEW','devs+14@digitaldetox.co.uk','Hi, come and join the team')
 
 TRUNCATE TABLE market RESTART IDENTITY;
 INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle)
-VALUES ('1','en','mp','opay6t6wwmup','Mapleland','BMI Intouch Mapleland','mapleland@intouch.bmigroup.com','tbc2','tbc2',345,'tbc2',TRUE,'tbc1','42.7684,-78.8871');
+VALUES ('1','en','en','opay6t6wwmup','Mapleland','BMI Intouch Mapleland','mapleland@intouch.bmigroup.com','41','41',345,'tbc2',TRUE,'tbc1','42.7684,-78.8871');
 INSERT INTO market(id,language,domain,cms_space_id,name,send_name,send_mailbox,docebo_installers_branch_id,docebo_company_admin_branch_id,docebo_catalogue_id,merchandising_url,projects_enabled,gtag,geo_middle)
-VALUES ('2','en','tra','opay6t6wwmup','Transatlantia','BMI Intouch Mapleland','transatlantia@intouch.bmigroup.com','tbc2','tbc2',123,'tbc2',TRUE,'tbc1','27.9139,-82.7157');
+VALUES ('2','en','tra','opay6t6wwmup','Transatlantia','BMI Intouch Mapleland','transatlantia@intouch.bmigroup.com','41','41',123,'tbc2',TRUE,'tbc1','27.9139,-82.7157');
 
 
 TRUNCATE TABLE note RESTART IDENTITY;
@@ -645,6 +645,7 @@ VALUES ('6','S3','P5');
 
 ALTER TABLE account ADD UNIQUE (docebo_user_id);
 ALTER TABLE market ADD UNIQUE (docebo_catalogue_id);
+ALTER TABLE market ADD UNIQUE (domain);
 ALTER TABLE product ADD UNIQUE (bmi_ref);
 ALTER TABLE system ADD UNIQUE (bmi_ref);
 

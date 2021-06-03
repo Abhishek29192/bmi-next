@@ -780,6 +780,7 @@ type Query implements Node {
   guarantee(id: Int!): Guarantee
   invitation(id: Int!): Invitation
   market(id: Int!): Market
+  marketByDomain(domain: String!): Market
   marketByDoceboCatalogueId(doceboCatalogueId: Int!): Market
   note(id: Int!): Note
   notification(id: Int!): Notification
@@ -4794,6 +4795,8 @@ enum MarketsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  DOMAIN_ASC
+  DOMAIN_DESC
   DOCEBO_CATALOGUE_ID_ASC
   DOCEBO_CATALOGUE_ID_DESC
   PRIMARY_KEY_ASC
@@ -4808,6 +4811,11 @@ input MarketCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
+
+  """
+  Checks for equality with the object’s `domain` field.
+  """
+  domain: String
 
   """
   Checks for equality with the object’s `doceboCatalogueId` field.
@@ -5383,6 +5391,16 @@ type Mutation {
   """
   Updates a single `Market` using a unique key and a patch.
   """
+  updateMarketByDomain(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarketByDomainInput!
+  ): UpdateMarketPayload
+
+  """
+  Updates a single `Market` using a unique key and a patch.
+  """
   updateMarketByDoceboCatalogueId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -5778,6 +5796,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteMarketInput!
+  ): DeleteMarketPayload
+
+  """
+  Deletes a single `Market` using a unique key.
+  """
+  deleteMarketByDomain(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarketByDomainInput!
   ): DeleteMarketPayload
 
   """
@@ -9229,6 +9257,27 @@ input UpdateMarketInput {
 }
 
 """
+All input for the `updateMarketByDomain` mutation.
+"""
+input UpdateMarketByDomainInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Market` being updated.
+  """
+  patch: MarketPatch!
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+}
+
+"""
 All input for the `updateMarketByDoceboCatalogueId` mutation.
 """
 input UpdateMarketByDoceboCatalogueIdInput {
@@ -10954,6 +11003,22 @@ input DeleteMarketInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `deleteMarketByDomain` mutation.
+"""
+input DeleteMarketByDomainInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
 }
 
 """
