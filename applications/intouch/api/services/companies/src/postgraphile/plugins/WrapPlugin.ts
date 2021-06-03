@@ -1,6 +1,6 @@
 import { makeWrapResolversPlugin } from "graphile-utils";
 import { updateCompany } from "../../services/company";
-import { createAccount } from "../../services/account";
+import { createAccount, updateAccount } from "../../services/account";
 
 const WrapPlugin = makeWrapResolversPlugin({
   Mutation: {
@@ -14,6 +14,11 @@ const WrapPlugin = makeWrapResolversPlugin({
       },
       async resolve(resolve: any, source, args, context: any, resolveInfo) {
         return createAccount(resolve, source, args, context, resolveInfo);
+      }
+    },
+    updateAccount: {
+      async resolve(resolve: any, source, args, context: any, resolveInfo) {
+        return updateAccount(resolve, source, args, context, resolveInfo);
       }
     },
     updateCompany: {
