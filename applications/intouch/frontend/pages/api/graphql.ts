@@ -57,7 +57,7 @@ const handler = async function (req: Request, res: NextApiResponse, next: any) {
       "^/api/graphql": ""
     },
     xfwd: true,
-    logLevel: "debug"
+    logLevel: "error"
   })(req as any, res as any, next);
 };
 
