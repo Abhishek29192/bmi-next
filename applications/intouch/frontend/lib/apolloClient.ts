@@ -46,7 +46,7 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   const authLink = setContext(async (req, { headers }) => {
     let accessToken;
 
-    if (ctx) {
+    if (ctx.req) {
       const auth0 = await getAuth0Instance(ctx.req, ctx.res);
       const session = auth0.getSession(ctx.req, ctx.res);
       accessToken = `Bearer ${session.accessToken}`;

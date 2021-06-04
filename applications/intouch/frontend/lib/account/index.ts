@@ -49,5 +49,6 @@ export const createAccount = async (req, session) => {
     return data;
   } catch (error) {
     logger.error(error.message);
+    throw error;
   }
 };

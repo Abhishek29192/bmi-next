@@ -1,6 +1,7 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useMutation, gql } from "@apollo/client";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import TextField from "@bmi/text-field";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
@@ -100,4 +101,4 @@ export const getServerSideProps = async (ctx) => {
   })(ctx);
 };
 
-export default Company;
+export default withPageAuthRequired(Company);
