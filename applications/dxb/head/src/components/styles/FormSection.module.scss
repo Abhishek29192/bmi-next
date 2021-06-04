@@ -6,4 +6,186 @@
   margin-top: 1rem;
   padding: 2rem;
   max-width: 920px;
+
+  &--hubSpot {
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0;
+    margin-top: 1rem;
+    padding: 1rem 2rem 2rem;
+    max-width: 920px;
+
+    :global {
+      .hs-form fieldset {
+        max-width: none;
+      }
+
+      .field {
+        // Text box
+        &.hs-fieldtype-text,
+        &.hs-fieldtype-textarea,
+        &.hs-fieldtype-number,
+        &.hs-fieldtype-date,
+        &.hs-fieldtype-file,
+        &.hs-fieldtype-select {
+          > label {
+            background-color: $color-white;
+            color: $color-charcoal;
+            margin-bottom: -10px;
+            font-size: 14px;
+            top: 12px;
+            position: relative;
+            left: 9px;
+            padding: 0 5px;
+          }
+
+          // Inputs
+          .hs-input {
+            font-family: "Effra Regular";
+            border-radius: 4px;
+            border: 1px solid $color-storm;
+            padding: 18.5px 14px;
+            font-size: 16px;
+            color: $color-charcoal;
+            line-height: 1.1876em;
+            width: 100%;
+
+            &:hover {
+              border-color: $color-charcoal;
+            }
+
+            &:focus {
+              outline-color: $color-cyan-500;
+            }
+          }
+        }
+
+        // Checkbox/Radio
+        &.hs-fieldtype-booleancheckbox,
+        &.hs-fieldtype-checkbox,
+        &.hs-fieldtype-radio {
+          .inputs-list {
+            list-style: none;
+            padding: 0;
+          }
+
+          .hs-input {
+            position: relative;
+            top: -6px;
+            margin: 21px 26px 21px 21px;
+            height: 0;
+            width: 0;
+          }
+
+          .hs-input::before {
+            position: absolute;
+            top: -21px;
+            left: -21px;
+            content: "";
+            display: block;
+            height: 42px;
+            width: 42px;
+            border-radius: 50%;
+          }
+
+          .hs-input:hover::before {
+            background-color: #0072b00a;
+          }
+
+          .hs-input::after {
+            display: inline-block;
+            position: absolute;
+            top: -12px;
+            left: -12px;
+          }
+        }
+
+        // Checkbox
+        &.hs-fieldtype-booleancheckbox,
+        &.hs-fieldtype-checkbox {
+          .hs-input::after {
+            content: url("/icons/checkbox_outline.svg");
+            // This would be preferable, but I can't get this to work unfortunately.
+            // content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0072b0"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>');
+          }
+
+          .hs-input:checked::after {
+            content: url("/icons/checkbox.svg");
+            // content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0072b0"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>');
+          }
+        }
+
+        // Radio
+        &.hs-fieldtype-radio {
+          .hs-input::after {
+            content: url("/icons/radio_outline.svg");
+          }
+
+          .hs-input:checked::after {
+            content: url("/icons/radio.svg");
+          }
+        }
+
+        // Select
+        &.hs-fieldtype-select {
+        }
+      }
+
+      .form-columns-2 {
+        .hs-form-field:first-of-type {
+          .input {
+            margin-right: 24px;
+          }
+        }
+      }
+
+      // Error
+      .hs-error-msgs {
+        color: $color-charcoal;
+        font-size: 14px;
+        margin: 5px 0 0;
+        padding: 0 15px;
+        list-style: none;
+      }
+
+      // Submit button
+      .hs-submit {
+        padding-right: 5px;
+      }
+
+      .hs-button {
+        font-family: "Effra Regular";
+        color: $color-white;
+        background-color: $color-cyan-500;
+        border-radius: 3px;
+        border: 0;
+        font-size: 16px;
+        font-weight: 500;
+        box-shadow: 0px 3px 1px -2px #00000033, 0px 2px 2px 0px #00000024,
+          0px 1px 5px 0px #0000001f;
+        padding: 6px 16px;
+        line-height: 1.75;
+        min-width: 64px;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+          box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+          border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+        &:hover {
+          box-shadow: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024,
+            0px 1px 10px 0px #0000001f;
+          background-color: #004f7b;
+          cursor: pointer;
+        }
+      }
+
+      // HubSpot logo
+      .sproket {
+        display: none;
+      }
+
+      // Typography
+      h1 {
+        color: tomato;
+      }
+    }
+  }
 }

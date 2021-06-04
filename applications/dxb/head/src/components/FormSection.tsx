@@ -424,7 +424,7 @@ const FormSection = ({
       <Section backgroundColor={backgroundColor}>
         {showTitle && <Section.Title>{title}</Section.Title>}
         {description && <RichText document={description} />}
-        <div id={hubSpotFormID}></div>
+        <div id={hubSpotFormID} className={styles["Form--hubSpot"]}></div>
       </Section>
     );
   }
