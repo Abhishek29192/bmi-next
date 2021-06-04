@@ -61,18 +61,23 @@
   }
 
   .filters {
-    margin-left: 15px;
     display: flex;
     align-items: baseline;
     justify-content: flex-end;
 
-    .no-wrap {
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 15px;
+    }
+
+    .chips-label {
       flex-shrink: 0;
+      display: inline;
     }
 
     .chips {
       margin-left: 19px;
       margin-bottom: -5px;
+      text-align: right;
     }
   }
 

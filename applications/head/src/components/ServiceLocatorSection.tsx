@@ -525,10 +525,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           <Grid item xs={12} md={6} lg={8}>
             {uniqueRoofTypeByData.length > 1 && (
               <div className={styles["filters"]}>
-                <Typography variant="h6" className={styles["no-wrap"]}>
-                  {getMicroCopy("findARoofer.filtersLabel")}
-                </Typography>
                 <div className={styles["chips"]}>
+                  <Typography variant="h6" className={styles["chips-label"]}>
+                    {getMicroCopy("findARoofer.filtersLabel")}
+                  </Typography>
                   {uniqueRoofTypeByData.map((rooferType, index) => (
                     <Chip
                       key={index}

@@ -1180,14 +1180,14 @@ HTMLCollection [
               <div
                 class="filters"
               >
-                <h6
-                  class="MuiTypography-root no-wrap Typography MuiTypography-h6"
-                >
-                  findARoofer.filtersLabel
-                </h6>
                 <div
                   class="chips"
                 >
+                  <h6
+                    class="MuiTypography-root chips-label Typography MuiTypography-h6"
+                  >
+                    findARoofer.filtersLabel
+                  </h6>
                   <div
                     class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                     role="button"
