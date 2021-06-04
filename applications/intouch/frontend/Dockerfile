@@ -3,8 +3,11 @@ FROM node:12-alpine as build
 
 WORKDIR /usr/src/app
 
-COPY package.json .
+COPY ./.yarn ./.yarn
+COPY ./.yarnrc ./.yarnrc
 COPY yarn.lock .
+COPY package.json .
+
 COPY tsconfig.json .
 COPY babel.config.js .
 COPY .eslintrc.js .
@@ -16,7 +19,7 @@ COPY ./components ./components
 COPY ./applications/intouch/frontend ./applications/intouch/frontend
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 
-RUN yarn install --non-interactive --cache-folder ./ycache && \
+RUN yarn install --non-interactive --frozen-lockfile --cache-folder ./ycache && \
   rm -rf ./ycache
 
 # TODO change to real env
@@ -27,8 +30,10 @@ FROM node:12-alpine
 
 WORKDIR /usr/src/app
 
-COPY package.json .
+COPY ./.yarn ./.yarn
+COPY ./.yarnrc ./.yarnrc
 COPY yarn.lock .
+COPY package.json .
 
 COPY ./libraries ./libraries
 COPY ./components ./components
