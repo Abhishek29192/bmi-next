@@ -35,11 +35,11 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error(error.stack);
+      this.logger.error("Error getting access_token:", error);
     }
   };
 
-  async getUserByEmail(emailAddress) {
+  getUserByEmail = async (emailAddress) => {
     try {
       const { data } = await axios({
         method: "GET",
@@ -55,11 +55,11 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error(error.stack);
+      this.logger.error("Error getting user by email:", error);
     }
-  }
+  };
 
-  async createUser(body) {
+  createUser = async (body) => {
     try {
       const { data } = await axios({
         method: "POST",
@@ -72,11 +72,27 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error(error.stack);
+      this.logger.error("Error creating an user:", error);
     }
-  }
+  };
 
-  async updateUser(id, body) {
+  deleteUser = async (id) => {
+    try {
+      const { data } = await axios({
+        method: "DELETE",
+        url: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/users/${id}`,
+        headers: {
+          authorization: `Bearer ${this.accessToken}`
+        }
+      });
+
+      return data;
+    } catch (error) {
+      this.logger.error("Error creating an user:", error);
+    }
+  };
+
+  updateUser = async (id, body) => {
     try {
       const { data } = await axios({
         method: "PATCH",
@@ -89,11 +105,11 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error(error.stack);
+      this.logger.error("Error updating an user:", error);
     }
-  }
+  };
 
-  async createResetPasswordTicket(user_id: String) {
+  createResetPasswordTicket = async ({ user_id, result_url }) => {
     try {
       const { data } = await axios({
         method: "POST",
@@ -102,7 +118,9 @@ export default class Auth0 {
           authorization: `Bearer ${this.accessToken}`
         },
         data: {
-          user_id
+          user_id,
+          result_url,
+          mark_email_as_verified: true
         }
       });
 
@@ -114,9 +132,9 @@ export default class Auth0 {
         error.message
       );
     }
-  }
+  };
 
-  async changePassword(email: String) {
+  changePassword = async (email: String) => {
     try {
       const { data } = await axios({
         method: "POST",
@@ -138,5 +156,5 @@ export default class Auth0 {
         error.message
       );
     }
-  }
+  };
 }

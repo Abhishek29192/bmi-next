@@ -124,6 +124,10 @@ export default gql`
     guaranteeType: ContentfulGuaranteeType
   }
 
+  extend input AccountInput {
+    marketCode: String
+  }
+
   input PublishInput {
     title: String
     text: String
@@ -132,15 +136,20 @@ export default gql`
   }
 
   input InviteInput {
-    email: String
-    firstName: String
-    lastName: String
-    type: Role
+    email: String!
+    firstName: String!
+    lastName: String!
+    role: Role!
+  }
+
+  input InvitationComplete {
+    company_id: String
   }
 
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
-    invite(input: InviteInput!): Account
+    invite(input: InviteInput!): Invitation
+    completeInvitation(input: InvitationComplete!): Account
   }
 `;

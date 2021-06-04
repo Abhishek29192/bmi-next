@@ -10,7 +10,7 @@ export const updateCompany = async (
   let result;
   const { pgClient, user } = context;
   const logger = context.logger("service:company");
-  const auth0 = new Auth0(logger);
+  const auth0 = await Auth0.init(logger);
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 

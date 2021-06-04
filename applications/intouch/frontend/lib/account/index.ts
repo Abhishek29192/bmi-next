@@ -35,6 +35,12 @@ const querymarketByDomain = `query marketByDomain($domain:String!) {
   }
 } `;
 
+const mutationCompleteInvitation = `mutation completeInvitation($input:  InvitationComplete! ){
+  completeInvitation(input: $input) {
+    __typename
+  }
+}`;
+
 export const createAccount = async (req, session) => {
   const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
@@ -137,6 +143,19 @@ export const updateAccount = async (req, session, accountId, doceboUserId) => {
   return requestHandler(req, session, body);
 };
 
+export const completeAccountInvitation = async (req, session) => {
+  const body = {
+    query: mutationCompleteInvitation,
+    variables: {
+      input: {
+        company_id: req.query.company_id
+      }
+    }
+  };
+
+  return requestHandler(req, session, body);
+};
+
 export const getMarketByDomain = async (req, session) => {
   const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
@@ -161,6 +180,9 @@ const randomPassword = (length: number = 8) => {
 };
 const requestHandler = async (req, session, body) => {
   const logger = req.logger("account");
+
+  logger.info("Complete invitation");
+
   try {
     const protocol = req.headers["x-forwarded-proto"] || "http";
     const { data } = await axios.post(
@@ -175,6 +197,7 @@ const requestHandler = async (req, session, body) => {
     );
     return data;
   } catch (error) {
+    logger.error(error.response.data.errors);
     logger.error(error.message);
     throw error;
   }

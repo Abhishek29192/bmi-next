@@ -19,7 +19,8 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
   handleErrors,
   additionalGraphQLContextFromRequest: async (req: Request, res: Response) => ({
     user: req.user,
-    logger: req.logger
+    logger: req.logger,
+    pubSub: req.pubSub
   }),
   pgSettings: async ({ user }) => {
     let role: RolesValues;
@@ -29,7 +30,6 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     } else {
       role = "installer";
     }
-
     return {
       "app.current_account_id": user?.id,
       "app.current_account_email": user?.email,

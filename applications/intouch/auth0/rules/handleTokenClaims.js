@@ -40,6 +40,7 @@ async function handleTokenClaims(user, context, callback) {
   else {
     context.idToken = {
       ...context.idToken,
+      [`${namespace}/intouch_invitation`]: app_metadata.intouch_invitation,
       [`${namespace}/firstname`]: user_metadata.firstname,
       [`${namespace}/lastname`]: user_metadata.lastname,
       [`${namespace}/market`]: user_metadata.market,
@@ -48,6 +49,7 @@ async function handleTokenClaims(user, context, callback) {
 
     context.accessToken = {
       ...context.accessToken,
+      [`${namespace}/intouch_invitation`]: app_metadata.intouch_invitation,
       [`${namespace}/email`]: user.email // the access token doesn't have the email by default
     };
   }

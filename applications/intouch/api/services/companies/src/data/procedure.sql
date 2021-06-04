@@ -21,33 +21,6 @@ LANGUAGE sql
 STABLE;
 
 
-
--- Function to invite a new account to an organization
-CREATE OR REPLACE FUNCTION create_account (email text, first_name text, last_name text, market_code text, role role)
-  RETURNS account
-  AS $$
-  DECLARE 
-    _user account%rowtype;
-    company_id int;
-    market_id int;
-  BEGIN
-    SELECT id FROM market WHERE domain = market_code INTO market_id;
-    INSERT INTO account ("email", "first_name", "last_name", "market_id", "role") VALUES (email, first_name, last_name, market_id, role) RETURNING * INTO _user;
-
-    IF role = 'COMPANY_ADMIN' THEN
-      INSERT INTO company ("status", "market_id") VALUES ('NEW', market_id) RETURNING id INTO company_id;
-      INSERT INTO company_member ("account_id", "market_id", "company_id") VALUES (_user.id, market_id, company_id);
-    END IF;
-  RETURN _user;
-
-  END
-$$
-LANGUAGE 'plpgsql'
-VOLATILE
-SECURITY DEFINER;
-
-
-
 -- Get the current market
 CREATE OR REPLACE FUNCTION current_market ()
   RETURNS int
@@ -110,6 +83,22 @@ CREATE OR REPLACE FUNCTION is_part_of_project ()
     project_member
   WHERE
     account_id = current_account_id ();
+
+$$
+LANGUAGE sql
+STABLE
+SECURITY DEFINER;
+
+
+CREATE OR REPLACE FUNCTION market_id_by_domain (domain text)
+  RETURNS integer
+  AS $$
+  SELECT
+    id
+  FROM
+    market
+  WHERE
+    domain = domain;
 
 $$
 LANGUAGE sql

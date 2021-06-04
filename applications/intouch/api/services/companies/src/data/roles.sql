@@ -48,8 +48,7 @@ grant insert on company to company_admin;
 grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook,linked_in) on company to company_admin;
 
 -- company_member
-grant select, delete on company_member to installer;
-grant select, insert, delete on company_member to company_admin;
+grant select, insert, delete on company_member to installer;
 grant select, insert, delete on project_member to company_admin;
 grant select, insert, update, delete on project to company_admin;
 grant update (account_id) on company_member to company_admin;

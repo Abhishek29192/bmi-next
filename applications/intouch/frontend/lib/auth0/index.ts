@@ -66,10 +66,11 @@ export const getAuth0Instance = async (req, res) => {
         // If company not registered then redirect him to the company registration
         if (req.url !== "/company-registration" && regCompleted) {
           res.writeHead(302, { Location: "/company-registration" });
-          return res.end();
+          res.end();
         }
       }
     }
+
     return auth0;
   }
 };

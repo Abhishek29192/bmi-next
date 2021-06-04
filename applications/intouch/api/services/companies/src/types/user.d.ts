@@ -1,4 +1,5 @@
 type User = {
+  company_id: string;
   id: string;
   email: string;
   role: RolesKey;

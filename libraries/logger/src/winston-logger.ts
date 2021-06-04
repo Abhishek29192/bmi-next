@@ -37,9 +37,29 @@ const logger = (headers, module) => {
         winston.format.label({ label: module, message: true }),
         winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
         winston.format.errors({ stack: true }),
+        winston.format.metadata({
+          fillExcept: ["message", "level", "timestamp", "label"]
+        }),
         winston.format.printf(
-          (info) =>
-            `${[info.timestamp]} ${info.level} ${info.message} ${info.stack}`
+          ({ timestamp, level, message, error, ...metadata }) => {
+            let msg = `${[timestamp]} ${level}`;
+
+            if (typeof message !== "string") {
+              msg = `${msg} ${JSON.stringify(message)}`;
+            } else {
+              msg = `${msg} ${message}`;
+            }
+
+            if (error?.stack) {
+              msg = `${msg} ${error.stack}`;
+            }
+
+            if (metadata && Object.keys(metadata).length > 0) {
+              msg = `${msg} ${JSON.stringify(metadata)}`;
+            }
+
+            return msg;
+          }
         )
       );
 

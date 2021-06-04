@@ -769,6 +769,7 @@ type Query implements Node {
     condition: SystemMemberCondition
   ): SystemMembersConnection
   account(id: Int!): Account
+  accountByEmail(email: String!): Account
   accountByDoceboUserId(doceboUserId: Int!): Account
   address(id: Int!): Address
   certification(id: Int!): Certification
@@ -795,6 +796,7 @@ type Query implements Node {
   currentAccountId: Int
   currentCompany: Int
   currentMarket: Int
+  invitedUserId(invetee: String): Int
   isPartOfProject(
     """
     Only read the first `n` values of the set.
@@ -823,6 +825,7 @@ type Query implements Node {
     after: Cursor
   ): IsPartOfProjectConnection
   isProjectEnabledByMarket: Boolean
+  marketIdByDomain(domain: String): Int
 
   """
   Reads a single `Account` using its globally unique `ID`.
@@ -1840,6 +1843,8 @@ enum AccountsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  EMAIL_ASC
+  EMAIL_DESC
   DOCEBO_USER_ID_ASC
   DOCEBO_USER_ID_DESC
   PRIMARY_KEY_ASC
@@ -6083,12 +6088,6 @@ type Mutation {
     """
     input: DeleteSystemMemberInput!
   ): DeleteSystemMemberPayload
-  createAccount(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateAccountInput!
-  ): CreateAccountPayload
   publishMessage(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -6101,6 +6100,12 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: InviteInput!
+  ): Invitation
+  completeInvitation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: InvitationComplete!
   ): Account
 }
 
@@ -6976,8 +6981,7 @@ The output of our create `Invitation` mutation.
 """
 type CreateInvitationPayload {
   """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
+  Primary key
   """
   clientMutationId: String
 
@@ -6987,7 +6991,7 @@ type CreateInvitationPayload {
   invitation: Invitation
 
   """
-  Our root query field type. Allows us to run any query from our mutation payload.
+  fk
   """
   query: Query
 
@@ -7017,8 +7021,7 @@ All input for the create `Invitation` mutation.
 """
 input CreateInvitationInput {
   """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
+  fk
   """
   clientMutationId: String
 
@@ -11746,15 +11749,9 @@ All input for the `createAccount` mutation.
 """
 input CreateAccountInput {
   """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
+  Primary key
   """
-  clientMutationId: String
-  email: String
-  firstName: String
-  lastName: String
-  marketCode: String
-  role: Role
+  id: Int!
 }
 
 type Publish {
@@ -11776,10 +11773,14 @@ type PublishOutput {
 }
 
 input InviteInput {
-  email: String
-  firstName: String
-  lastName: String
-  type: Role
+  email: String!
+  firstName: String!
+  lastName: String!
+  role: Role!
+}
+
+input InvitationComplete {
+  company_id: String
 }
 
 """

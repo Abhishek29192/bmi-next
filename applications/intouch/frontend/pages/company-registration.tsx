@@ -1,4 +1,5 @@
 import React from "react";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useMutation, gql } from "@apollo/client";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";

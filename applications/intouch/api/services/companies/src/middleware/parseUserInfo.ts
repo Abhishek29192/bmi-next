@@ -1,9 +1,7 @@
 import { Buffer } from "buffer";
+import { getDbPool } from "../db";
 
-const { NODE_ENV } = process.env;
 const NAMESPACE = "https://intouch";
-const INTROSPECTION =
-  "query __ApolloGetServiceDefinition__ { _service { sdl } }";
 
 export const parseHeaders = (req): User => {
   if (req.headers["x-apigateway-api-userinfo"]) {
@@ -17,20 +15,9 @@ export const parseHeaders = (req): User => {
   return null;
 };
 
-export const isIntrospactionInDev = ({ body }) => {
-  if (NODE_ENV === "development" && body.query === INTROSPECTION) {
-    return true;
-  }
-  return false;
-};
-
-export default (req, res, next) => {
-  // Skip authentication is in dev and introspection query
-  if (isIntrospactionInDev(req)) {
-    return next();
-  }
-
+export default async (req, res, next) => {
   const user = parseHeaders(req);
+  const dbPool = getDbPool();
 
   if (user) {
     req.user = {
@@ -44,7 +31,21 @@ export default (req, res, next) => {
       sub: user.sub,
       aud: user.aud
     };
+
+    const { rows } = await dbPool.query(
+      "SELECT company_id FROM company_member WHERE account_id = $1",
+      [req.user.id]
+    );
+
+    if (rows.length) {
+      req.user = {
+        ...req.user,
+        company_id: rows[0].company_id
+      };
+    }
   }
+
+  console.log("req.user", req.user);
 
   return next();
 };
