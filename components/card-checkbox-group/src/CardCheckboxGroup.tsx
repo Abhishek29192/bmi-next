@@ -124,7 +124,7 @@ const CardCheckboxGroup = ({
 };
 
 const CardCheckboxGroupFormControl = Object.defineProperty(
-  withFormControl<Props>(CardCheckboxGroup),
+  withFormControl<Props, string[]>(CardCheckboxGroup),
   "Item",
   {
     value: CardCheckboxInput,
