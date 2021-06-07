@@ -2862,12 +2862,12 @@ type Guarantee implements Node {
   guaranteeTypeId: String
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
 
@@ -3080,6 +3080,47 @@ type System implements Node {
     """
     condition: GuaranteeCondition
   ): GuaranteesConnection!
+
+  """
+  Reads and enables pagination through a set of `SystemMember`.
+  """
+  systemMembersBySystemBmiRef(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `SystemMember`.
+    """
+    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SystemMemberCondition
+  ): SystemMembersConnection!
 }
 
 """
@@ -3144,6 +3185,68 @@ input GuaranteeCondition {
   Checks for equality with the object’s `reviewerAccountId` field.
   """
   reviewerAccountId: Int
+}
+
+"""
+A connection to a list of `SystemMember` values.
+"""
+type SystemMembersConnection {
+  """
+  A list of `SystemMember` objects.
+  """
+  nodes: [SystemMember!]!
+
+  """
+  A list of edges which contains the `SystemMember` and cursor to aid in pagination.
+  """
+  edges: [SystemMembersEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `SystemMember` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A Products that make up a system
+"""
+type SystemMember implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  fk
+  """
+  systemBmiRef: String
+
+  """
+  fk
+  """
+  productBmiRef: String
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """
+  Reads a single `System` that is related to this `SystemMember`.
+  """
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `SystemMember`.
+  """
+  productByProductBmiRef: Product
 }
 
 """
@@ -3252,6 +3355,123 @@ type Product implements Node {
     """
     condition: GuaranteeCondition
   ): GuaranteesConnection!
+
+  """
+  Reads and enables pagination through a set of `SystemMember`.
+  """
+  systemMembersByProductBmiRef(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `SystemMember`.
+    """
+    orderBy: [SystemMembersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: SystemMemberCondition
+  ): SystemMembersConnection!
+}
+
+"""
+Methods to use when ordering `SystemMember`.
+"""
+enum SystemMembersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  SYSTEM_BMI_REF_ASC
+  SYSTEM_BMI_REF_DESC
+  PRODUCT_BMI_REF_ASC
+  PRODUCT_BMI_REF_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `SystemMember` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input SystemMemberCondition {
+  """
+  Checks for equality with the object’s `id` field.
+  """
+  id: Int
+
+  """
+  Checks for equality with the object’s `systemBmiRef` field.
+  """
+  systemBmiRef: String
+
+  """
+  Checks for equality with the object’s `productBmiRef` field.
+  """
+  productBmiRef: String
+}
+
+"""
+A `SystemMember` edge in the connection.
+"""
+type SystemMembersEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `SystemMember` at the end of the edge.
+  """
+  node: SystemMember!
+}
+
+"""
+Information about pagination in a connection.
+"""
+type PageInfo {
+  """
+  When paginating forwards, are there more items?
+  """
+  hasNextPage: Boolean!
+
+  """
+  When paginating backwards, are there more items?
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  When paginating backwards, the cursor to continue.
+  """
+  startCursor: Cursor
+
+  """
+  When paginating forwards, the cursor to continue.
+  """
+  endCursor: Cursor
 }
 
 """
@@ -3345,31 +3565,6 @@ type EvidenceItemsEdge {
   The `EvidenceItem` at the end of the edge.
   """
   node: EvidenceItem!
-}
-
-"""
-Information about pagination in a connection.
-"""
-type PageInfo {
-  """
-  When paginating forwards, are there more items?
-  """
-  hasNextPage: Boolean!
-
-  """
-  When paginating backwards, are there more items?
-  """
-  hasPreviousPage: Boolean!
-
-  """
-  When paginating backwards, the cursor to continue.
-  """
-  startCursor: Cursor
-
-  """
-  When paginating forwards, the cursor to continue.
-  """
-  endCursor: Cursor
 }
 
 """
@@ -4824,95 +5019,6 @@ input MarketCondition {
 }
 
 """
-A connection to a list of `SystemMember` values.
-"""
-type SystemMembersConnection {
-  """
-  A list of `SystemMember` objects.
-  """
-  nodes: [SystemMember!]!
-
-  """
-  A list of edges which contains the `SystemMember` and cursor to aid in pagination.
-  """
-  edges: [SystemMembersEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `SystemMember` you could get from the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-A Products that make up a system
-"""
-type SystemMember implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-
-  """
-  Primary key
-  """
-  id: Int!
-
-  """
-  system
-  """
-  systemBmiRef: String
-
-  """
-  product
-  """
-  productBmiRef: String
-  createdAt: Datetime!
-  updatedAt: Datetime!
-}
-
-"""
-A `SystemMember` edge in the connection.
-"""
-type SystemMembersEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: Cursor
-
-  """
-  The `SystemMember` at the end of the edge.
-  """
-  node: SystemMember!
-}
-
-"""
-Methods to use when ordering `SystemMember`.
-"""
-enum SystemMembersOrderBy {
-  NATURAL
-  ID_ASC
-  ID_DESC
-  PRIMARY_KEY_ASC
-  PRIMARY_KEY_DESC
-}
-
-"""
-A condition to be used against `SystemMember` object types. All fields are
-tested for equality and combined with a logical ‘and.’
-"""
-input SystemMemberCondition {
-  """
-  Checks for equality with the object’s `id` field.
-  """
-  id: Int
-}
-
-"""
 A connection to a list of `Int` values.
 """
 type IsPartOfProjectConnection {
@@ -4958,6 +5064,7 @@ union _Entity =
   | Project
   | Guarantee
   | System
+  | SystemMember
   | Product
   | EvidenceItem
   | Note
@@ -4968,7 +5075,6 @@ union _Entity =
   | Invitation
   | Certification
   | Notification
-  | SystemMember
 
 scalar _Any
 
@@ -6817,12 +6923,12 @@ input GuaranteeInput {
   guaranteeTypeId: String
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
 
@@ -7697,6 +7803,16 @@ type CreateSystemMemberPayload {
   query: Query
 
   """
+  Reads a single `System` that is related to this `SystemMember`.
+  """
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `SystemMember`.
+  """
+  productByProductBmiRef: Product
+
+  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -7733,12 +7849,12 @@ input SystemMemberInput {
   id: Int
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
   createdAt: Datetime
@@ -8923,12 +9039,12 @@ input GuaranteePatch {
   guaranteeTypeId: String
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
 
@@ -10116,6 +10232,16 @@ type UpdateSystemMemberPayload {
   query: Query
 
   """
+  Reads a single `System` that is related to this `SystemMember`.
+  """
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `SystemMember`.
+  """
+  productByProductBmiRef: Product
+
+  """
   An edge for our `SystemMember`. May be used by Relay 1.
   """
   systemMemberEdge(
@@ -10157,12 +10283,12 @@ input SystemMemberPatch {
   id: Int
 
   """
-  system
+  fk
   """
   systemBmiRef: String
 
   """
-  product
+  fk
   """
   productBmiRef: String
   createdAt: Datetime
@@ -11523,6 +11649,16 @@ type DeleteSystemMemberPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
+
+  """
+  Reads a single `System` that is related to this `SystemMember`.
+  """
+  systemBySystemBmiRef: System
+
+  """
+  Reads a single `Product` that is related to this `SystemMember`.
+  """
+  productByProductBmiRef: Product
 
   """
   An edge for our `SystemMember`. May be used by Relay 1.

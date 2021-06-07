@@ -4424,6 +4424,17 @@ export type DeleteMarketByDoceboCatalogueIdInput = {
   doceboCatalogueId: Scalars["Int"];
 };
 
+/** All input for the `deleteMarketByDomain` mutation. */
+export type DeleteMarketByDomainInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
+};
+
 /** All input for the `deleteMarketByNodeId` mutation. */
 export type DeleteMarketByNodeIdInput = {
   /**
@@ -6272,6 +6283,8 @@ export type MarketSystemsArgs = {
 export type MarketCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `domain` field. */
+  domain?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `doceboCatalogueId` field. */
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
 };
@@ -6607,6 +6620,8 @@ export type MarketsOrderBy =
   | "NATURAL"
   | "ID_ASC"
   | "ID_DESC"
+  | "DOMAIN_ASC"
+  | "DOMAIN_DESC"
   | "DOCEBO_CATALOGUE_ID_ASC"
   | "DOCEBO_CATALOGUE_ID_DESC"
   | "PRIMARY_KEY_ASC"
@@ -7170,6 +7185,8 @@ export type Mutation = {
   deleteMarket?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Market` using a unique key. */
   deleteMarketByDoceboCatalogueId?: Maybe<DeleteMarketPayload>;
+  /** Deletes a single `Market` using a unique key. */
+  deleteMarketByDomain?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Market` using its globally unique id. */
   deleteMarketByNodeId?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Note` using a unique key. */
@@ -7287,6 +7304,8 @@ export type Mutation = {
   updateMarket?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Market` using a unique key and a patch. */
   updateMarketByDoceboCatalogueId?: Maybe<UpdateMarketPayload>;
+  /** Updates a single `Market` using a unique key and a patch. */
+  updateMarketByDomain?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Market` using its globally unique id and a patch. */
   updateMarketByNodeId?: Maybe<UpdateMarketPayload>;
   /** Updates a single `Note` using a unique key and a patch. */
@@ -7701,6 +7720,11 @@ export type MutationDeleteMarketByDoceboCatalogueIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteMarketByDomainArgs = {
+  input: DeleteMarketByDomainInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteMarketByNodeIdArgs = {
   input: DeleteMarketByNodeIdInput;
 };
@@ -7993,6 +8017,11 @@ export type MutationUpdateMarketArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateMarketByDoceboCatalogueIdArgs = {
   input: UpdateMarketByDoceboCatalogueIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateMarketByDomainArgs = {
+  input: UpdateMarketByDomainInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -9054,6 +9083,7 @@ export type Query = Node & {
   isProjectEnabledByMarket?: Maybe<Scalars["Boolean"]>;
   market?: Maybe<Market>;
   marketByDoceboCatalogueId?: Maybe<Market>;
+  marketByDomain?: Maybe<Market>;
   /** Reads a single `Market` using its globally unique `ID`. */
   marketByNodeId?: Maybe<Market>;
   marketContent?: Maybe<MarketContent>;
@@ -9676,6 +9706,11 @@ export type QueryMarketArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryMarketByDoceboCatalogueIdArgs = {
   doceboCatalogueId: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMarketByDomainArgs = {
+  domain: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -11615,6 +11650,19 @@ export type UpdateMarketByDoceboCatalogueIdInput = {
   patch: MarketPatch;
   /** The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch */
   doceboCatalogueId: Scalars["Int"];
+};
+
+/** All input for the `updateMarketByDomain` mutation. */
+export type UpdateMarketByDomainInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Market` being updated. */
+  patch: MarketPatch;
+  /** the country code used for example as the subdomain */
+  domain: Scalars["String"];
 };
 
 /** All input for the `updateMarketByNodeId` mutation. */
