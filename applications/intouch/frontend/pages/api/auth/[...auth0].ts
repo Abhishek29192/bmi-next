@@ -54,14 +54,20 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     async login(req, res) {
       let { host } = req.headers;
 
+      let market = REDIRECT_MAP[host];
+
+      // localhost
       if (host.indexOf(":") !== -1) {
         host = host.split(":")[0];
+        if (host === "localhost") {
+          market = REDIRECT_MAP[host] || "en";
+        }
       }
 
       try {
         await handleLogin(req, res, {
           authorizationParams: {
-            market: REDIRECT_MAP[host]
+            market
           },
           returnTo: req.query.returnTo || "/"
         });

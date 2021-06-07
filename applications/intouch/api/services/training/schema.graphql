@@ -1728,6 +1728,42 @@ type Mutation {
     """
     input: DeleteCourseTempInput!
   ): DeleteCourseTempPayload
+  courseCatalogueUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseCatalogueUpdateInput!
+  ): CourseCatalogueUpdatePayload
+  courseCatalogueUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseCatalogueUpdateByTempInput!
+  ): CourseCatalogueUpdateByTempPayload
+  courseEnrollmentUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseEnrollmentUpdateInput!
+  ): CourseEnrollmentUpdatePayload
+  courseEnrollmentUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseEnrollmentUpdateByTempInput!
+  ): CourseEnrollmentUpdateByTempPayload
+  courseUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseUpdateInput!
+  ): CourseUpdatePayload
+  courseUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseUpdateByTempInput!
+  ): CourseUpdateByTempPayload
   createSSOUrl(username: String!, path: String): SSOUrlOutput
   updateTraining(lastUpdateDate: String): String
   createDoceboUser(

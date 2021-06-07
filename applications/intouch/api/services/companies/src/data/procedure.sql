@@ -88,20 +88,3 @@ $$
 LANGUAGE sql
 STABLE
 SECURITY DEFINER;
-
-
-CREATE OR REPLACE FUNCTION market_id_by_domain (domain text)
-  RETURNS integer
-  AS $$
-  SELECT
-    id
-  FROM
-    market
-  WHERE
-    domain = domain;
-
-$$
-LANGUAGE sql
-STABLE
-SECURITY DEFINER;
-

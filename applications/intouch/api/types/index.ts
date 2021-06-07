@@ -207,6 +207,39 @@ export type AccountCondition = {
   doceboUserId?: Maybe<Scalars["Int"]>;
 };
 
+/** An input for mutations affecting `Account` */
+export type AccountInput = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** ek */
+  status?: Maybe<AccountStatus>;
+  /** fk */
+  marketId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  role?: Maybe<Role>;
+  /** The mail address associated with the account */
+  email?: Maybe<Scalars["String"]>;
+  /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
+  phone?: Maybe<Scalars["String"]>;
+  /** First name */
+  firstName?: Maybe<Scalars["String"]>;
+  /** Last name */
+  lastName?: Maybe<Scalars["String"]>;
+  /** When the account was created */
+  created?: Maybe<Scalars["Datetime"]>;
+  /** User account in Docebo */
+  doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Username in Docebo.  Needed to generate the SSO link */
+  doceboUsername?: Maybe<Scalars["String"]>;
+  /** File reference. A profile picture of the user */
+  photo?: Maybe<Scalars["String"]>;
+  /** Used for reference when importing data from the legacy system */
+  migrationId?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  marketCode?: Maybe<Scalars["String"]>;
+};
+
 /** Represents an update to a `Account`. Fields that are set will be updated. */
 export type AccountPatch = {
   /** Primary key */
@@ -2556,21 +2589,18 @@ export type CoursesOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
-/** All input for the `createAccount` mutation. */
+/** All input for the create `Account` mutation. */
 export type CreateAccountInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  email?: Maybe<Scalars["String"]>;
-  firstName?: Maybe<Scalars["String"]>;
-  lastName?: Maybe<Scalars["String"]>;
-  marketCode?: Maybe<Scalars["String"]>;
-  role?: Maybe<Role>;
+  /** The `Account` to be created by this mutation. */
+  account: AccountInput;
 };
 
-/** The output of our `createAccount` mutation. */
+/** The output of our create `Account` mutation. */
 export type CreateAccountPayload = {
   __typename?: "CreateAccountPayload";
   /**
@@ -2578,6 +2608,7 @@ export type CreateAccountPayload = {
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `Account` that was created by this mutation. */
   account?: Maybe<Account>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
@@ -2587,7 +2618,7 @@ export type CreateAccountPayload = {
   accountEdge?: Maybe<AccountsEdge>;
 };
 
-/** The output of our `createAccount` mutation. */
+/** The output of our create `Account` mutation. */
 export type CreateAccountPayloadAccountEdgeArgs = {
   orderBy?: Maybe<Array<AccountsOrderBy>>;
 };
@@ -3107,42 +3138,6 @@ export type CreateGuaranteePayload = {
 /** The output of our create `Guarantee` mutation. */
 export type CreateGuaranteePayloadGuaranteeEdgeArgs = {
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
-};
-
-/** All input for the create `Invitation` mutation. */
-export type CreateInvitationInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Invitation` to be created by this mutation. */
-  invitation: InvitationInput;
-};
-
-/** The output of our create `Invitation` mutation. */
-export type CreateInvitationPayload = {
-  __typename?: "CreateInvitationPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Invitation` that was created by this mutation. */
-  invitation?: Maybe<Invitation>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-  /** Reads a single `Account` that is related to this `Invitation`. */
-  senderAccount?: Maybe<Account>;
-  /** Reads a single `Company` that is related to this `Invitation`. */
-  company?: Maybe<Company>;
-  /** An edge for our `Invitation`. May be used by Relay 1. */
-  invitationEdge?: Maybe<InvitationsEdge>;
-};
-
-/** The output of our create `Invitation` mutation. */
-export type CreateInvitationPayloadInvitationEdgeArgs = {
-  orderBy?: Maybe<Array<InvitationsOrderBy>>;
 };
 
 /** All input for the create `Market` mutation. */
@@ -5920,6 +5915,10 @@ export type Invitation = Node & {
   company?: Maybe<Company>;
 };
 
+export type InvitationComplete = {
+  company_id?: Maybe<Scalars["String"]>;
+};
+
 /**
  * A condition to be used against `Invitation` object types. All fields are tested
  * for equality and combined with a logical ‘and.’
@@ -5931,24 +5930,6 @@ export type InvitationCondition = {
   senderAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
-};
-
-/** An input for mutations affecting `Invitation` */
-export type InvitationInput = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  senderAccountId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  companyId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  status?: Maybe<InvitationStatus>;
-  /** An email address */
-  invitee?: Maybe<Scalars["String"]>;
-  /** An optional note that can be included in the invitation by the sender */
-  personalNote?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
 /** Represents an update to a `Invitation`. Fields that are set will be updated. */
@@ -6004,6 +5985,13 @@ export type InvitationsOrderBy =
   | "COMPANY_ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+export type InviteInput = {
+  email: Scalars["String"];
+  firstName: Scalars["String"];
+  lastName: Scalars["String"];
+  role: Role;
+};
 
 /** A connection to a list of `Int` values. */
 export type IsPartOfProjectConnection = {
@@ -6907,6 +6895,14 @@ export type MigrationOrder =
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: "Mutation";
+  completeInvitation?: Maybe<Account>;
+  courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
+  courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
+  courseEnrollmentUpdate?: Maybe<CourseEnrollmentUpdatePayload>;
+  courseEnrollmentUpdateByTemp?: Maybe<CourseEnrollmentUpdateByTempPayload>;
+  courseUpdate?: Maybe<CourseUpdatePayload>;
+  courseUpdateByTemp?: Maybe<CourseUpdateByTempPayload>;
+  /** Creates a single `Account`. */
   createAccount?: Maybe<CreateAccountPayload>;
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
@@ -6940,8 +6936,6 @@ export type Mutation = {
   /** Creates a single `Guarantee`. */
   createGuarantee?: Maybe<CreateGuaranteePayload>;
   createGuaranteePdf?: Maybe<PublishOutput>;
-  /** Creates a single `Invitation`. */
-  createInvitation?: Maybe<CreateInvitationPayload>;
   /** Creates a single `Market`. */
   createMarket?: Maybe<CreateMarketPayload>;
   /** Creates a single `Note`. */
@@ -7077,6 +7071,7 @@ export type Mutation = {
   deleteSystemMember?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using its globally unique id. */
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
+  invite?: Maybe<Invitation>;
   publishMessage?: Maybe<Publish>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
@@ -7200,6 +7195,41 @@ export type Mutation = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationCompleteInvitationArgs = {
+  input: InvitationComplete;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseCatalogueUpdateArgs = {
+  input: CourseCatalogueUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseCatalogueUpdateByTempArgs = {
+  input: CourseCatalogueUpdateByTempInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseEnrollmentUpdateArgs = {
+  input: CourseEnrollmentUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseEnrollmentUpdateByTempArgs = {
+  input: CourseEnrollmentUpdateByTempInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseUpdateArgs = {
+  input: CourseUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseUpdateByTempArgs = {
+  input: CourseUpdateByTempInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateAccountArgs = {
   input: CreateAccountInput;
 };
@@ -7287,11 +7317,6 @@ export type MutationCreateGuaranteeArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateGuaranteePdfArgs = {
   id: Scalars["Int"];
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCreateInvitationArgs = {
-  input: CreateInvitationInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -7633,6 +7658,11 @@ export type MutationDeleteSystemMemberArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteSystemMemberByNodeIdArgs = {
   input: DeleteSystemMemberByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationInviteArgs = {
+  input: InviteInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -8914,6 +8944,7 @@ export type Query = Node & {
   marketByNodeId?: Maybe<Market>;
   marketContent?: Maybe<MarketContent>;
   marketContentCollection?: Maybe<MarketContentCollection>;
+  marketIdByDomain?: Maybe<Scalars["Int"]>;
   /** Reads and enables pagination through a set of `Market`. */
   markets?: Maybe<MarketsConnection>;
   mediaFolder?: Maybe<MediaFolder>;
@@ -9559,6 +9590,11 @@ export type QueryMarketContentCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
   where?: Maybe<MarketContentFilter>;
   order?: Maybe<Array<Maybe<MarketContentOrder>>>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryMarketIdByDomainArgs = {
+  domain?: Maybe<Scalars["String"]>;
 };
 
 /** The root query type which gives access points into the data universe. */

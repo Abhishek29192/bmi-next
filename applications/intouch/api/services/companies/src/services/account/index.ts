@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import camelcaseKeys from "camelcase-keys";
 import Auth0 from "../auth0";
 import { publish, TOPICS } from "../../services/events";
 
@@ -16,56 +17,63 @@ export const createAccount = async (
   let account_role;
   const { pgClient, user } = context;
   const {
-    account: { email, firstName, lastName, marketCode }
+    account: { email, marketCode }
   } = args.input;
+
+  const logger = context.logger("service:account");
+  const auth0 = await Auth0.init(logger);
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    const logger = context.logger("service:account");
-
-    const auth0 = await Auth0.init(logger);
+    // Set the role
+    await pgClient.query(`SELECT set_config('role', $1, true);`, [
+      "super_admin"
+    ]);
 
     // Check if the user already exists
     const { rows } = await pgClient.query(
-      "select id, role, email from account where email=$1",
+      "select * from account where email=$1",
       [email]
     );
     const userExists = rows.length > 0;
 
+    if (!userExists) {
+      result = await resolve(source, args, context, resolveInfo);
+      account_id = result.data.$account_id;
+      account_role = result.data.$role;
+    } else {
+      account_id = rows[0].id;
+      account_role = rows[0].role;
+    }
+
+    // Set the account ID
+    await pgClient.query(
+      `SELECT set_config('app.current_account_id', $1, true);`,
+      [account_id]
+    );
+
     const { rows: markets } = await pgClient.query(
-      "select * from market_id_by_domain($1)",
+      "select * from market where domain = $1",
       [marketCode]
     );
 
     if (markets.length === 0) {
-      logger.error(`Market ${marketCode} not found`);
-      throw new Error("market_not_found");
+      throw new Error(`Market ${marketCode} not found`);
     }
 
-    const [{ market_id_by_domain }] = markets;
+    const [market] = markets;
 
-    // If it exists update name, surname, role of the user with email args.input.email
-    if (userExists) {
-      const { rows: updatedRows } = await pgClient.query(
-        "update account set first_name=$1, last_name=$2 where email=$3 returning *",
-        [firstName, lastName, email, market_id_by_domain]
-      );
+    const { rows: updatedRows } = await pgClient.query(
+      "update account set market_id=$1 where id = $2 returning *",
+      [market.id, account_id]
+    );
 
-      // Create a compatible object
-      result = { data: { "@account": updatedRows[0] } };
-      account_id = updatedRows[0].id;
-      account_role = updatedRows[0].role;
-    } else {
-      const { marketCode, ...rest } = args.input.account;
-      args.input.account = {
-        ...rest,
-        marketId: market_id_by_domain
-      };
-      result = await resolve(source, args, context, resolveInfo);
-      account_id = result.data.$account_id;
-      account_role = result.data.$role;
-    }
+    result = {
+      data: {
+        "@account": camelcaseKeys(updatedRows[0])
+      }
+    };
 
     // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
     const app_metadata: any = {
@@ -78,7 +86,7 @@ export const createAccount = async (
     // we check rows.length === 0 because if the user already exist rows will be > 0 and the company will be already in the db (imported data)
     if (account_role === "COMPANY_ADMIN") {
       const { rows: companies } = await pgClient.query(
-        "insert into company (status, market_id) values ('new', $1) returning id",
+        "insert into company (status, market_id) values ('NEW', $1) returning id",
         [result.data.$market_id]
       );
       const [company] = companies;
@@ -148,24 +156,27 @@ export const invite = async (_query, args, context, resolveInfo) => {
   const logger = context.logger("service:account");
   const auth0 = await Auth0.init(logger);
 
-  try {
-    const { pgClient, pubSub, user } = context;
-    const { email, firstName, lastName, role, note } = args.input;
+  const { pgClient, pubSub, user } = context;
+  const { email, firstName, lastName, role, note } = args.input;
 
-    /**
-     * Creating the user in Auth0
-     *
-     * We use an initial random password because Auth0 requires it,
-     * at the same time we set the email_verified as false so we force the user
-     * to validate the email (in this case with a password reset) before be able
-     * to login. We set verify_email false becuase we don't want to send an email
-     * to verify the email as we are already sending the password reset email
-     */
-    const auth0User = await auth0.createUser({
+  let auth0User = await auth0.getUserByEmail(email);
+  const password = `Gj$1${crypto.randomBytes(20).toString("hex")}`;
+
+  /**
+   * Creating the user in Auth0
+   *
+   * We use an initial random password because Auth0 requires it,
+   * at the same time we set the email_verified as false so we force the user
+   * to validate the email (in this case with a password reset) before be able
+   * to login. We set verify_email false becuase we don't want to send an email
+   * to verify the email as we are already sending the password reset email
+   */
+  if (auth0User) {
+    auth0User = await auth0.createUser({
       email,
       connection: "Username-Password-Authentication",
       email_verified: false,
-      password: crypto.randomBytes(20).toString("hex"),
+      password,
       verify_email: false,
       user_metadata: {
         type: role.toLowerCase(),
@@ -174,56 +185,54 @@ export const invite = async (_query, args, context, resolveInfo) => {
         lastname: lastName
       }
     });
-    logger.info(`Created new user in auth0 with id: ${auth0User.user_id}`);
+    logger.info(`Created new user in auth0 with id: ${auth0User?.user_id}`);
+  }
 
-    // Creating a new invitation record
-    const { rows: invitations } = await pgClient.query(
-      "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
-      [user.id, user.company_id, "NEW", email, note]
-    );
-    logger.info(
-      `Created invitation record with id ${invitations[0].id}`,
-      invitations
-    );
+  // Creating a new invitation record
+  const { rows: invitations } = await pgClient.query(
+    "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+    [user.id, user.company_id, "NEW", email, note]
+  );
+  logger.info(
+    `Created invitation record with id ${invitations[0].id}`,
+    invitations
+  );
 
-    // Creating a passsword reset ticket
-    const ticket = await auth0.createResetPasswordTicket({
-      user_id: auth0User.user_id,
-      result_url: `http://en.local.intouch:3000/api/invitation?company_id=${user.company_id}`
-    });
+  // Creating a passsword reset ticket
+  const ticket = await auth0.createResetPasswordTicket({
+    user_id: auth0User.user_id,
+    result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company_id}`
+  });
 
-    // Send the email with the link to reset the password to the user
-    await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-      title: `You have been invited by ${user.company_id}`,
-      text: `
+  // Send the email with the link to reset the password to the user
+  await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
+    title: `You have been invited by ${user.company_id}`,
+    text: `
+    You are invited by company ${user.company_id}.
+    Please follow this link to set your password:
+    ${ticket.ticket}
+  `,
+    html: `
       You are invited by company ${user.company_id}.
       Please follow this link to set your password:
       ${ticket.ticket}
     `,
-      html: `
-        You are invited by company ${user.company_id}.
-        Please follow this link to set your password:
-        ${ticket.ticket}
-      `,
-      email: email
-    });
+    email: email
+  });
 
-    // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
-    const app_metadata: any = {
-      intouch_role: role,
-      intouch_invitation: true,
-      registration_to_complete: false
-    };
+  // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
+  const app_metadata: any = {
+    intouch_role: role,
+    intouch_invitation: true,
+    registration_to_complete: false
+  };
 
-    await auth0.updateUser(auth0User.user_id, {
-      app_metadata
-    });
-    logger.info(`app_metadata for user: ${auth0User.user_id} updated`);
+  await auth0.updateUser(auth0User.user_id, {
+    app_metadata
+  });
+  logger.info(`app_metadata for user: ${auth0User.user_id} updated`);
 
-    return invitations[0];
-  } catch (error) {
-    logger.error(error);
-  }
+  return invitations[0];
 };
 
 export const completeInvitation = async (
@@ -236,43 +245,38 @@ export const completeInvitation = async (
   const { company_id } = args.input;
   const logger = context.logger("service:account");
 
-  try {
-    const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
-    const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
-    const role =
-      user[`${AUTH0_NAMESPACE}/type`] === "company"
-        ? "COMPANY_ADMIN"
-        : "INSTALLER";
+  const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
+  const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
+  const role =
+    user[`${AUTH0_NAMESPACE}/type`] === "company"
+      ? "COMPANY_ADMIN"
+      : "INSTALLER";
 
-    // Get the invitation record to check if the request is legit
-    const { rows: invitations } = await pgClient.query(
-      "SELECT * FROM invitation WHERE invitee = $1 AND company_id = $2",
-      [user.email, parseInt(company_id)]
-    );
+  // Get the invitation record to check if the request is legit
+  const { rows: invitations } = await pgClient.query(
+    "SELECT * FROM invitation WHERE invitee = $1 AND company_id = $2",
+    [user.email, parseInt(company_id)]
+  );
 
-    const { rows: companies } = await pgClient.query(
-      "SELECT * FROM company WHERE id = $1",
-      [invitations[0].company_id]
-    );
+  const { rows: companies } = await pgClient.query(
+    "SELECT * FROM company WHERE id = $1",
+    [invitations[0].company_id]
+  );
 
-    const { rows: users } = await pgClient.query(
-      "INSERT INTO account (market_id, email, first_name, last_name, role) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-      [companies[0].market_id, user.email, firstName, lastName, role]
-    );
+  const { rows: users } = await pgClient.query(
+    "INSERT INTO account (market_id, email, first_name, last_name, role) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+    [companies[0].market_id, user.email, firstName, lastName, role]
+  );
 
-    // Connect user to the company
-    const { rows: company_members } = await pgClient.query(
-      "INSERT INTO company_member (market_id, account_id, company_id) VALUES ($1, $2, $3) RETURNING *",
-      [users[0].market_id, users[0].id, companies[0].id]
-    );
+  // Connect user to the company
+  const { rows: company_members } = await pgClient.query(
+    "INSERT INTO company_member (market_id, account_id, company_id) VALUES ($1, $2, $3) RETURNING *",
+    [users[0].market_id, users[0].id, companies[0].id]
+  );
 
-    logger.info(
-      `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
-    );
+  logger.info(
+    `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
+  );
 
-    return users[0];
-  } catch (error) {
-    logger.error(error);
-    throw error;
-  }
+  return users[0];
 };

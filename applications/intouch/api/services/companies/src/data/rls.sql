@@ -37,7 +37,7 @@ CREATE POLICY policy_market_admin ON company FOR ALL TO market_admin USING (curr
 CREATE POLICY policy_company_admin ON company FOR ALL TO company_admin USING (current_company() = id) WITH CHECK(true);
 CREATE POLICY policy_installer ON company FOR ALL TO installer USING (
   current_company() = id OR id IN (SELECT company_id from invitation WHERE invitee = current_account_email())
-);
+) WITH CHECK(true);
 
 
 

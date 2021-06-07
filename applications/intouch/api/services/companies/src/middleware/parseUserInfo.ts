@@ -32,15 +32,31 @@ export default async (req, res, next) => {
       aud: user.aud
     };
 
-    const { rows } = await dbPool.query(
+    const { rows: users } = await dbPool.query(
+      "SELECT * FROM account WHERE id = $1",
+      [req.user.id]
+    );
+
+    if (users.length) {
+      req.user = {
+        ...req.user,
+        market_id: users[0].market_id,
+        status: users[0].status,
+        docebo_user_id: users[0].docebo_user_id,
+        docebo_username: users[0].docebo_username,
+        migration_id: users[0].migration_id
+      };
+    }
+
+    const { rows: company_members } = await dbPool.query(
       "SELECT company_id FROM company_member WHERE account_id = $1",
       [req.user.id]
     );
 
-    if (rows.length) {
+    if (company_members.length) {
       req.user = {
         ...req.user,
-        company_id: rows[0].company_id
+        company_id: company_members[0].company_id
       };
     }
   }

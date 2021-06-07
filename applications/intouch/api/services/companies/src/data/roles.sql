@@ -40,11 +40,10 @@ grant select, insert, update, delete on market to super_admin;
 
 
 -- company
-grant select on company to installer;
+grant select, insert on company to installer;
 grant select on project to installer;
 grant select on project_member to installer;
-grant select on company to company_admin;
-grant insert on company to company_admin;
+grant select, insert on company to company_admin;
 grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook,linked_in) on company to company_admin;
 
 -- company_member
