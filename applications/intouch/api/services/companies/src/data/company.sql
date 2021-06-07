@@ -416,6 +416,10 @@ INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coord
 VALUES ('13','23 Shakespeare House','Barbican',null,'London','UK','EC1',null,null);
 INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
 VALUES ('14','4 Oxford Street',null,null,'London','UK','W1B 5LP',null,null);
+INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
+VALUES ('15','Next to Bluestar House','234-244 Stockwell Road, Brixton, London. SW9 9SP','Brixton','London','UK','SW9 9SP',null,null);
+INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
+VALUES ('16','4 Oxford Street',null,null,'London','UK','W1B 5LP',null,null);
 
 
 TRUNCATE TABLE certification RESTART IDENTITY;
@@ -590,26 +594,28 @@ TRUNCATE TABLE project RESTART IDENTITY;
 INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
 VALUES ('1',1,7,11,'PITCHED','St Matthews Church','Fix the roof',FALSE,504,'ccardenoza0@sogou.com','Alice','Malice','Alice in Cheam','2021-01-01 08:23:58','2021-01-04 08:23:58');
 INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
-VALUES ('2',1,8,12,'FLAT','Pop Brixton','Replace the roof',FALSE,166,'achazelle1@statcounter.com','Bob','Bigwick',null,'2021-01-01 08:23:58','2021-11-04 08:23:58');
+VALUES ('2',1,8,12,'FLAT','Pop Brixton','Replace the roof',FALSE,166,'achazelle1@statcounter.com','Bob','Bigwick',null,'2021-07-01 08:23:58','2021-11-04 08:23:58');
 INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
-VALUES ('3',2,9,13,'FLAT','Brixton Academy','Do up the roof',FALSE,147,'jkirkpatrick2@unesco.org','Charlie','Wright','Wright Brothers','2021-01-01 08:23:58','2021-02-04 08:23:58');
+VALUES ('3',2,9,13,'FLAT','Brixton Academy','Do up the roof',FALSE,147,'jkirkpatrick2@unesco.org','Charlie','Wright','Wright Brothers','2021-01-02 08:23:58','2021-02-04 08:23:58');
 INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
 VALUES ('4',3,10,14,'FLAT','Ministry of Sound','Waterproof old roof',TRUE,731,'kferrarini3@smugmug.com','Dave','Le Rave',null,'2020-11-04 08:23:58','2020-12-04 08:23:58');
+INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
+VALUES ('5',2,15,16,'FLAT','Nandos','Put in outdoor seating area',FALSE,50,'kferrarini3@smugmug.com','Dave','Le Rave',null,'2021-02-04 08:23:58','2021-12-04 08:23:58');
 
 
 TRUNCATE TABLE project_member RESTART IDENTITY;
 INSERT INTO project_member(id,project_id,account_id)
-VALUES ('1',1,1);
+VALUES ('1',1,3);
 INSERT INTO project_member(id,project_id,account_id)
-VALUES ('2',1,2);
+VALUES ('2',1,4);
 INSERT INTO project_member(id,project_id,account_id)
-VALUES ('3',1,3);
+VALUES ('3',1,5);
 INSERT INTO project_member(id,project_id,account_id)
-VALUES ('4',2,2);
+VALUES ('4',2,3);
 INSERT INTO project_member(id,project_id,account_id)
-VALUES ('5',2,3);
+VALUES ('5',2,5);
 INSERT INTO project_member(id,project_id,account_id)
-VALUES ('6',2,4);
+VALUES ('6',2,6);
 INSERT INTO project_member(id,project_id,account_id)
 VALUES ('7',3,7);
 INSERT INTO project_member(id,project_id,account_id)
@@ -644,8 +650,9 @@ INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref)
 VALUES ('6','S3','P5');
 
 ALTER TABLE account ADD UNIQUE (docebo_user_id);
-ALTER TABLE market ADD UNIQUE (docebo_catalogue_id);
 ALTER TABLE market ADD UNIQUE (domain);
+
+ALTER TABLE market ADD UNIQUE (docebo_catalogue_id);
 ALTER TABLE product ADD UNIQUE (bmi_ref);
 ALTER TABLE system ADD UNIQUE (bmi_ref);
 
