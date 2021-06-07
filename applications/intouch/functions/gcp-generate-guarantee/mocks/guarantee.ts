@@ -1,4 +1,4 @@
-import { Guarantee, RequestStatus } from "@bmi/intouch-api-types";
+import { Guarantee } from "@bmi/intouch-api-types";
 import { mockGuaranteeType } from "./guaranteeType";
 import { mockProduct } from "./product";
 import { mockProject } from "./project";
@@ -6,7 +6,7 @@ import { emptyNodes } from "./utils/graphileNodes";
 
 export const mockGuarantee: Guarantee = {
   id: 1,
-  status: RequestStatus.Approved,
+  status: "APPROVED",
   nodeId: "WyJndWFyYW50ZWVzIiwxXQ==",
   requestorAccountId: 5,
   responsibleInstallerAccountId: null,

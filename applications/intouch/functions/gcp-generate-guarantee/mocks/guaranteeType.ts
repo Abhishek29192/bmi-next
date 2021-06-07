@@ -1,8 +1,4 @@
-import {
-  ContentfulGuaranteeCoverageType,
-  ContentfulGuaranteeType,
-  ContentfulTechnologyType
-} from "@bmi/intouch-api-types";
+import { ContentfulGuaranteeType } from "@bmi/intouch-api-types";
 import {
   mockTemplateEnglish,
   mockTemplateEsperanto
@@ -13,8 +9,8 @@ export const mockGuaranteeType: ContentfulGuaranteeType = {
   ...mockContentfulEntry({ id: "7uSy0NeVTgPiJbOiVYW4DX" }),
   name: "Product guarantee (flat)",
   displayName: "Product guarantee",
-  technology: ContentfulTechnologyType["FLAT"],
-  coverage: ContentfulGuaranteeCoverageType["PRODUCT"],
+  technology: "FLAT",
+  coverage: "PRODUCT",
 
   signature: mockContentfulAsset({
     id: "5yryu89fGozf04U3duLJkT",
