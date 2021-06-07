@@ -7119,6 +7119,22 @@ input DeleteMarketByDoceboCatalogueIdInput {
 }
 
 """
+All input for the `deleteMarketByDomain` mutation.
+"""
+input DeleteMarketByDomainInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
+}
+
+"""
 All input for the `deleteMarketByNodeId` mutation.
 """
 input DeleteMarketByNodeIdInput {
@@ -9633,6 +9649,11 @@ input MarketCondition {
   id: Int
 
   """
+  Checks for equality with the object’s `domain` field.
+  """
+  domain: String
+
+  """
   Checks for equality with the object’s `doceboCatalogueId` field.
   """
   doceboCatalogueId: Int
@@ -10011,6 +10032,8 @@ enum MarketsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  DOMAIN_ASC
+  DOMAIN_DESC
   DOCEBO_CATALOGUE_ID_ASC
   DOCEBO_CATALOGUE_ID_DESC
   PRIMARY_KEY_ASC
@@ -11031,6 +11054,16 @@ type Mutation {
   ): DeleteMarketPayload
 
   """
+  Deletes a single `Market` using a unique key.
+  """
+  deleteMarketByDomain(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMarketByDomainInput!
+  ): DeleteMarketPayload
+
+  """
   Deletes a single `Market` using its globally unique id.
   """
   deleteMarketByNodeId(
@@ -11614,6 +11647,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateMarketByDoceboCatalogueIdInput!
+  ): UpdateMarketPayload
+
+  """
+  Updates a single `Market` using a unique key and a patch.
+  """
+  updateMarketByDomain(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMarketByDomainInput!
   ): UpdateMarketPayload
 
   """
@@ -14316,6 +14359,7 @@ type Query implements Node {
   isProjectEnabledByMarket: Boolean
   market(id: Int!): Market
   marketByDoceboCatalogueId(doceboCatalogueId: Int!): Market
+  marketByDomain(domain: String!): Market
 
   """
   Reads a single `Market` using its globally unique `ID`.
@@ -17142,6 +17186,27 @@ input UpdateMarketByDoceboCatalogueIdInput {
   The default catalogue for the market.  All users in the market are able to see all courses in the default catalog from InTouch
   """
   doceboCatalogueId: Int!
+}
+
+"""
+All input for the `updateMarketByDomain` mutation.
+"""
+input UpdateMarketByDomainInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Market` being updated.
+  """
+  patch: MarketPatch!
+
+  """
+  the country code used for example as the subdomain
+  """
+  domain: String!
 }
 
 """
