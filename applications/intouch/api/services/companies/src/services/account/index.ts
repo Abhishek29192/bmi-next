@@ -72,3 +72,40 @@ export const createAccount = async (
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
 };
+export const updateAccount = async (
+  resolve,
+  source,
+  args,
+  context,
+  resolveInfo
+) => {
+  let result;
+
+  const { pgClient, user } = context;
+  const logger = context.logger("service:account");
+
+  await pgClient.query("SAVEPOINT graphql_mutation");
+
+  try {
+    result = await resolve(source, args, context, resolveInfo);
+
+    const doceboUserId = result.data["@account"].doceboUserId;
+
+    const { access_token } = await getAccessToken();
+    const app_metadata: any = {
+      intouch_docebo_id: doceboUserId
+    };
+
+    await updateUser(access_token, user.sub, {
+      app_metadata
+    });
+
+    return result;
+  } catch (error) {
+    logger.error(error);
+    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+    throw error;
+  } finally {
+    await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
+  }
+};

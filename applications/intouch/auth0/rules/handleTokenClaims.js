@@ -12,9 +12,12 @@ async function handleTokenClaims(user, context, callback) {
   if (app_metadata.intouch_user_id) {
     context.idToken = {
       ...context.idToken,
+      [`${namespace}/firstname`]: user_metadata.firstname,
+      [`${namespace}/lastname`]: user_metadata.lastname,
       [`${namespace}/intouch_market_code`]: app_metadata.intouch_market_code,
       [`${namespace}/intouch_user_id`]: app_metadata.intouch_user_id,
-      [`${namespace}/intouch_role`]: app_metadata.intouch_role
+      [`${namespace}/intouch_role`]: app_metadata.intouch_role,
+      [`${namespace}/intouch_docebo_id`]: app_metadata.intouch_docebo_id
     };
 
     if (app_metadata.registration_to_complete === true) {
