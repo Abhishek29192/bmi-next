@@ -245,11 +245,7 @@ export type AccountPatch = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-export enum AccountStatus {
-  New = "NEW",
-  Active = "ACTIVE",
-  Suspended = "SUSPENDED"
-}
+export type AccountStatus = "NEW" | "ACTIVE" | "SUSPENDED";
 
 /** A connection to a list of `Account` values. */
 export type AccountsConnection = {
@@ -274,17 +270,16 @@ export type AccountsEdge = {
 };
 
 /** Methods to use when ordering `Account`. */
-export enum AccountsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  MarketIdAsc = "MARKET_ID_ASC",
-  MarketIdDesc = "MARKET_ID_DESC",
-  DoceboUserIdAsc = "DOCEBO_USER_ID_ASC",
-  DoceboUserIdDesc = "DOCEBO_USER_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type AccountsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "DOCEBO_USER_ID_ASC"
+  | "DOCEBO_USER_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A generic address */
 export type Address = Node & {
@@ -442,13 +437,12 @@ export type AddressesEdge = {
 };
 
 /** Methods to use when ordering `Address`. */
-export enum AddressesOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type AddressesOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** Represents a binary file in a space. An asset can be any file type. */
 export type Asset = {
@@ -613,35 +607,33 @@ export type AssetLinkingCollectionsMediaToolCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum AssetOrder {
-  UrlAsc = "url_ASC",
-  UrlDesc = "url_DESC",
-  SizeAsc = "size_ASC",
-  SizeDesc = "size_DESC",
-  ContentTypeAsc = "contentType_ASC",
-  ContentTypeDesc = "contentType_DESC",
-  FileNameAsc = "fileName_ASC",
-  FileNameDesc = "fileName_DESC",
-  WidthAsc = "width_ASC",
-  WidthDesc = "width_DESC",
-  HeightAsc = "height_ASC",
-  HeightDesc = "height_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type AssetOrder =
+  | "url_ASC"
+  | "url_DESC"
+  | "size_ASC"
+  | "size_DESC"
+  | "contentType_ASC"
+  | "contentType_DESC"
+  | "fileName_ASC"
+  | "fileName_DESC"
+  | "width_ASC"
+  | "width_DESC"
+  | "height_ASC"
+  | "height_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
-export enum BusinessType {
-  Contractor = "CONTRACTOR",
-  Architect = "ARCHITECT",
-  Merchant = "MERCHANT",
-  CorpDeveloper = "CORP_DEVELOPER"
-}
+export type BusinessType =
+  | "CONTRACTOR"
+  | "ARCHITECT"
+  | "MERCHANT"
+  | "CORP_DEVELOPER";
 
 /** Ordered list of items to be rendered as a carousel. [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/carousel) */
 export type Carousel = Entry & {
@@ -812,20 +804,19 @@ export type CarouselItemLinkingCollectionsCarouselCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum CarouselItemOrder {
-  HeaderAsc = "header_ASC",
-  HeaderDesc = "header_DESC",
-  CtaAsc = "cta_ASC",
-  CtaDesc = "cta_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type CarouselItemOrder =
+  | "header_ASC"
+  | "header_DESC"
+  | "cta_ASC"
+  | "cta_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 export type CarouselLinkingCollections = {
   __typename?: "CarouselLinkingCollections";
@@ -847,20 +838,19 @@ export type CarouselListCollection = {
   items: Array<Maybe<CarouselItem>>;
 };
 
-export enum CarouselOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  AudienceRoleAsc = "audienceRole_ASC",
-  AudienceRoleDesc = "audienceRole_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type CarouselOrder =
+  | "name_ASC"
+  | "name_DESC"
+  | "audienceRole_ASC"
+  | "audienceRole_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** A company that has been registered in InTouch */
 export type Certification = Node & {
@@ -949,15 +939,14 @@ export type CertificationsEdge = {
 };
 
 /** Methods to use when ordering `Certification`. */
-export enum CertificationsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  DoceboUserIdAsc = "DOCEBO_USER_ID_ASC",
-  DoceboUserIdDesc = "DOCEBO_USER_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CertificationsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "DOCEBO_USER_ID_ASC"
+  | "DOCEBO_USER_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A connection to a list of `Company` values. */
 export type CompaniesConnection = {
@@ -982,19 +971,18 @@ export type CompaniesEdge = {
 };
 
 /** Methods to use when ordering `Company`. */
-export enum CompaniesOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  MarketIdAsc = "MARKET_ID_ASC",
-  MarketIdDesc = "MARKET_ID_DESC",
-  RegisteredAddressIdAsc = "REGISTERED_ADDRESS_ID_ASC",
-  RegisteredAddressIdDesc = "REGISTERED_ADDRESS_ID_DESC",
-  TradingAddressIdAsc = "TRADING_ADDRESS_ID_ASC",
-  TradingAddressIdDesc = "TRADING_ADDRESS_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CompaniesOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "REGISTERED_ADDRESS_ID_ASC"
+  | "REGISTERED_ADDRESS_ID_DESC"
+  | "TRADING_ADDRESS_ID_ASC"
+  | "TRADING_ADDRESS_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A company that has been registered in InTouch */
 export type Company = Node & {
@@ -1215,15 +1203,14 @@ export type CompanyDocumentsEdge = {
 };
 
 /** Methods to use when ordering `CompanyDocument`. */
-export enum CompanyDocumentsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  CompanyIdAsc = "COMPANY_ID_ASC",
-  CompanyIdDesc = "COMPANY_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CompanyDocumentsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "COMPANY_ID_ASC"
+  | "COMPANY_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** An input for mutations affecting `Company` */
 export type CompanyInput = {
@@ -1372,19 +1359,18 @@ export type CompanyMembersEdge = {
 };
 
 /** Methods to use when ordering `CompanyMember`. */
-export enum CompanyMembersOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  MarketIdAsc = "MARKET_ID_ASC",
-  MarketIdDesc = "MARKET_ID_DESC",
-  AccountIdAsc = "ACCOUNT_ID_ASC",
-  AccountIdDesc = "ACCOUNT_ID_DESC",
-  CompanyIdAsc = "COMPANY_ID_ASC",
-  CompanyIdDesc = "COMPANY_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CompanyMembersOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "ACCOUNT_ID_ASC"
+  | "ACCOUNT_ID_DESC"
+  | "COMPANY_ID_ASC"
+  | "COMPANY_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** The assignment of an operation type to a Company by the Market Admin.  A Company can be assigned multiple types from the allowed enums list.  The operation types that a Company has are sent to Find a Roofer. */
 export type CompanyOperation = Node & {
@@ -1461,15 +1447,14 @@ export type CompanyOperationsEdge = {
 };
 
 /** Methods to use when ordering `CompanyOperation`. */
-export enum CompanyOperationsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  CompanyAsc = "COMPANY_ASC",
-  CompanyDesc = "COMPANY_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CompanyOperationsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "COMPANY_ASC"
+  | "COMPANY_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** Represents an update to a `Company`. Fields that are set will be updated. */
 export type CompanyPatch = {
@@ -1529,11 +1514,7 @@ export type CompanyPatch = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-export enum CompanyStatus {
-  New = "NEW",
-  Active = "ACTIVE",
-  Deactivated = "DEACTIVATED"
-}
+export type CompanyStatus = "NEW" | "ACTIVE" | "DEACTIVATED";
 
 /** Contact details that appear as cards on the Company Page [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contactDetails) */
 export type ContactDetails = Entry & {
@@ -1635,24 +1616,23 @@ export type ContactDetailsLinkingCollectionsMarketContentCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum ContactDetailsOrder {
-  FullNameAsc = "fullName_ASC",
-  FullNameDesc = "fullName_DESC",
-  SubHeadingAsc = "subHeading_ASC",
-  SubHeadingDesc = "subHeading_DESC",
-  EmailAsc = "email_ASC",
-  EmailDesc = "email_DESC",
-  PhoneNumberAsc = "phoneNumber_ASC",
-  PhoneNumberDesc = "phoneNumber_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type ContactDetailsOrder =
+  | "fullName_ASC"
+  | "fullName_DESC"
+  | "subHeading_ASC"
+  | "subHeading_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "phoneNumber_ASC"
+  | "phoneNumber_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** A standard webpage with just information and no iteractive functionality.  Currently limited to those pages targeted in the footer, which are Cookies Policy, Terms of use and the Privacy Policy [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/contentArticle) */
 export type ContentArticle = Entry & {
@@ -1762,20 +1742,19 @@ export type ContentArticleLinkingCollectionsMarketContentCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum ContentArticleOrder {
-  TitleAsc = "title_ASC",
-  TitleDesc = "title_DESC",
-  RelativePathAsc = "relativePath_ASC",
-  RelativePathDesc = "relativePath_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type ContentArticleOrder =
+  | "title_ASC"
+  | "title_DESC"
+  | "relativePath_ASC"
+  | "relativePath_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 export type ContentfulAsset = {
   __typename?: "ContentfulAsset";
@@ -1793,11 +1772,7 @@ export type ContentfulEvidenceCategory = {
   minimumUploads?: Maybe<Scalars["Int"]>;
 };
 
-export enum ContentfulGuaranteeCoverageType {
-  Product = "PRODUCT",
-  System = "SYSTEM",
-  Solution = "SOLUTION"
-}
+export type ContentfulGuaranteeCoverageType = "PRODUCT" | "SYSTEM" | "SOLUTION";
 
 export type ContentfulGuaranteeTemplate = {
   __typename?: "ContentfulGuaranteeTemplate";
@@ -1859,26 +1834,22 @@ export type ContentfulMessage = {
   emailBody?: Maybe<Scalars["String"]>;
 };
 
-export enum ContentfulMessageEventType {
-  MemberInvited = "MEMBER_INVITED",
-  NewuserInvited = "NEWUSER_INVITED",
-  ProfileReminder = "PROFILE_REMINDER",
-  AdminInvited = "ADMIN_INVITED",
-  RoleAssigned = "ROLE_ASSIGNED",
-  OwnerInvited = "OWNER_INVITED",
-  RegistrationCongrats = "REGISTRATION_CONGRATS",
-  RegistrationActivated = "REGISTRATION_ACTIVATED",
-  TeamJoined = "TEAM_JOINED",
-  CertificationExpired = "CERTIFICATION_EXPIRED",
-  TierAssigned = "TIER_ASSIGNED",
-  RequestRejected = "REQUEST_REJECTED",
-  RequestApproved = "REQUEST_APPROVED"
-}
+export type ContentfulMessageEventType =
+  | "MEMBER_INVITED"
+  | "NEWUSER_INVITED"
+  | "PROFILE_REMINDER"
+  | "ADMIN_INVITED"
+  | "ROLE_ASSIGNED"
+  | "OWNER_INVITED"
+  | "REGISTRATION_CONGRATS"
+  | "REGISTRATION_ACTIVATED"
+  | "TEAM_JOINED"
+  | "CERTIFICATION_EXPIRED"
+  | "TIER_ASSIGNED"
+  | "REQUEST_REJECTED"
+  | "REQUEST_APPROVED";
 
-export enum ContentfulMessageFormat {
-  Email = "EMAIL",
-  Notification = "NOTIFICATION"
-}
+export type ContentfulMessageFormat = "EMAIL" | "NOTIFICATION";
 
 export type ContentfulMetadata = {
   __typename?: "ContentfulMetadata";
@@ -1906,18 +1877,9 @@ export type ContentfulTag = {
   name?: Maybe<Scalars["String"]>;
 };
 
-export enum ContentfulTechnologyType {
-  Flat = "FLAT",
-  Pitched = "PITCHED",
-  Other = "OTHER"
-}
+export type ContentfulTechnologyType = "FLAT" | "PITCHED" | "OTHER";
 
-export enum ContentfulTiers {
-  T1 = "T1",
-  T2 = "T2",
-  T3 = "T3",
-  T4 = "T4"
-}
+export type ContentfulTiers = "T1" | "T2" | "T3" | "T4";
 
 /** A training course that BMI offers in Docebo */
 export type Course = {
@@ -2095,13 +2057,12 @@ export type CourseCatalogueTempsEdge = {
 };
 
 /** Methods to use when ordering `CourseCatalogueTemp`. */
-export enum CourseCatalogueTempsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CourseCatalogueTempsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** All input for the `courseCatalogueUpdateByTemp` mutation. */
 export type CourseCatalogueUpdateByTempInput = {
@@ -2170,17 +2131,16 @@ export type CourseCataloguesEdge = {
 };
 
 /** Methods to use when ordering `CourseCatalogue`. */
-export enum CourseCataloguesOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  CatalogueIdAsc = "CATALOGUE_ID_ASC",
-  CatalogueIdDesc = "CATALOGUE_ID_DESC",
-  CourseIdAsc = "COURSE_ID_ASC",
-  CourseIdDesc = "COURSE_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CourseCataloguesOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "CATALOGUE_ID_ASC"
+  | "CATALOGUE_ID_DESC"
+  | "COURSE_ID_ASC"
+  | "COURSE_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A condition to be used against `Course` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type CourseCondition = {
@@ -2339,13 +2299,12 @@ export type CourseEnrollmentTempsEdge = {
 };
 
 /** Methods to use when ordering `CourseEnrollmentTemp`. */
-export enum CourseEnrollmentTempsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CourseEnrollmentTempsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** All input for the `courseEnrollmentUpdateByTemp` mutation. */
 export type CourseEnrollmentUpdateByTempInput = {
@@ -2414,17 +2373,16 @@ export type CourseEnrollmentsEdge = {
 };
 
 /** Methods to use when ordering `CourseEnrollment`. */
-export enum CourseEnrollmentsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  UserIdAsc = "USER_ID_ASC",
-  UserIdDesc = "USER_ID_DESC",
-  CourseIdAsc = "COURSE_ID_ASC",
-  CourseIdDesc = "COURSE_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CourseEnrollmentsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "USER_ID_ASC"
+  | "USER_ID_DESC"
+  | "COURSE_ID_ASC"
+  | "COURSE_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** An input for mutations affecting `Course` */
 export type CourseInput = {
@@ -2543,15 +2501,14 @@ export type CourseSyncConfigurationsEdge = {
 };
 
 /** Methods to use when ordering `CourseSyncConfiguration`. */
-export enum CourseSyncConfigurationsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  ConfigNameAsc = "CONFIG_NAME_ASC",
-  ConfigNameDesc = "CONFIG_NAME_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CourseSyncConfigurationsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "CONFIG_NAME_ASC"
+  | "CONFIG_NAME_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A temporary training course that BMI offers in Docebo. Courses are brought from Docebo into this table before being merged into the course table. */
 export type CourseTemp = {
@@ -2654,13 +2611,12 @@ export type CourseTempsEdge = {
 };
 
 /** Methods to use when ordering `CourseTemp`. */
-export enum CourseTempsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CourseTempsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** All input for the `courseUpdateByTemp` mutation. */
 export type CourseUpdateByTempInput = {
@@ -2729,15 +2685,14 @@ export type CoursesEdge = {
 };
 
 /** Methods to use when ordering `Course`. */
-export enum CoursesOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  CourseIdAsc = "COURSE_ID_ASC",
-  CourseIdDesc = "COURSE_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type CoursesOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "COURSE_ID_ASC"
+  | "COURSE_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** All input for the `createAccount` mutation. */
 export type CreateAccountInput = {
@@ -4887,16 +4842,15 @@ export type EntryFilter = {
   AND?: Maybe<Array<Maybe<EntryFilter>>>;
 };
 
-export enum EntryOrder {
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type EntryOrder =
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** A category of evidence required by a Market for guarantees to be issued [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/evidenceCategory) */
 export type EvidenceCategory = Entry & {
@@ -5008,26 +4962,24 @@ export type EvidenceCategoryLinkingCollectionsGuaranteeTypeCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum EvidenceCategoryOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  MinimumUploadsAsc = "minimumUploads_ASC",
-  MinimumUploadsDesc = "minimumUploads_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type EvidenceCategoryOrder =
+  | "name_ASC"
+  | "name_DESC"
+  | "minimumUploads_ASC"
+  | "minimumUploads_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
-export enum EvidenceCategoryType {
-  ProofOfPurchase = "PROOF_OF_PURCHASE",
-  Miscellaneous = "MISCELLANEOUS",
-  Custom = "CUSTOM"
-}
+export type EvidenceCategoryType =
+  | "PROOF_OF_PURCHASE"
+  | "MISCELLANEOUS"
+  | "CUSTOM";
 
 /** An file uploaded to a project, usually as evidence to support a guarantee */
 export type EvidenceItem = Node & {
@@ -5122,15 +5074,14 @@ export type EvidenceItemsEdge = {
 };
 
 /** Methods to use when ordering `EvidenceItem`. */
-export enum EvidenceItemsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  GuaranteeIdAsc = "GUARANTEE_ID_ASC",
-  GuaranteeIdDesc = "GUARANTEE_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type EvidenceItemsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "GUARANTEE_ID_ASC"
+  | "GUARANTEE_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
 export type Guarantee = Node & {
@@ -5686,60 +5637,59 @@ export type GuaranteeTemplateLinkingCollectionsGuaranteeTypeCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum GuaranteeTemplateOrder {
-  DisplayNameAsc = "displayName_ASC",
-  DisplayNameDesc = "displayName_DESC",
-  SignatoryAsc = "signatory_ASC",
-  SignatoryDesc = "signatory_DESC",
-  HeadingGuaranteeAsc = "headingGuarantee_ASC",
-  HeadingGuaranteeDesc = "headingGuarantee_DESC",
-  HeadingScopeAsc = "headingScope_ASC",
-  HeadingScopeDesc = "headingScope_DESC",
-  HeadingProductsAsc = "headingProducts_ASC",
-  HeadingProductsDesc = "headingProducts_DESC",
-  HeadingBeneficiaryAsc = "headingBeneficiary_ASC",
-  HeadingBeneficiaryDesc = "headingBeneficiary_DESC",
-  HeadingBuildingOwnerNameAsc = "headingBuildingOwnerName_ASC",
-  HeadingBuildingOwnerNameDesc = "headingBuildingOwnerName_DESC",
-  HeadingBuildingAddressAsc = "headingBuildingAddress_ASC",
-  HeadingBuildingAddressDesc = "headingBuildingAddress_DESC",
-  HeadingRoofAreaAsc = "headingRoofArea_ASC",
-  HeadingRoofAreaDesc = "headingRoofArea_DESC",
-  HeadingRoofTypeAsc = "headingRoofType_ASC",
-  HeadingRoofTypeDesc = "headingRoofType_DESC",
-  HeadingContractorAsc = "headingContractor_ASC",
-  HeadingContractorDesc = "headingContractor_DESC",
-  HeadingContractorNameAsc = "headingContractorName_ASC",
-  HeadingContractorNameDesc = "headingContractorName_DESC",
-  HeadingContractorIdAsc = "headingContractorId_ASC",
-  HeadingContractorIdDesc = "headingContractorId_DESC",
-  HeadingStartDateAsc = "headingStartDate_ASC",
-  HeadingStartDateDesc = "headingStartDate_DESC",
-  HeadingGuaranteeIdAsc = "headingGuaranteeId_ASC",
-  HeadingGuaranteeIdDesc = "headingGuaranteeId_DESC",
-  HeadingValidityAsc = "headingValidity_ASC",
-  HeadingValidityDesc = "headingValidity_DESC",
-  HeadingExpiryAsc = "headingExpiry_ASC",
-  HeadingExpiryDesc = "headingExpiry_DESC",
-  GuaranteeScopeAsc = "guaranteeScope_ASC",
-  GuaranteeScopeDesc = "guaranteeScope_DESC",
-  FilenamePrefixAsc = "filenamePrefix_ASC",
-  FilenamePrefixDesc = "filenamePrefix_DESC",
-  LockupLine1Asc = "lockupLine1_ASC",
-  LockupLine1Desc = "lockupLine1_DESC",
-  LockupLine2Asc = "lockupLine2_ASC",
-  LockupLine2Desc = "lockupLine2_DESC",
-  RoofTypeAsc = "roofType_ASC",
-  RoofTypeDesc = "roofType_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type GuaranteeTemplateOrder =
+  | "displayName_ASC"
+  | "displayName_DESC"
+  | "signatory_ASC"
+  | "signatory_DESC"
+  | "headingGuarantee_ASC"
+  | "headingGuarantee_DESC"
+  | "headingScope_ASC"
+  | "headingScope_DESC"
+  | "headingProducts_ASC"
+  | "headingProducts_DESC"
+  | "headingBeneficiary_ASC"
+  | "headingBeneficiary_DESC"
+  | "headingBuildingOwnerName_ASC"
+  | "headingBuildingOwnerName_DESC"
+  | "headingBuildingAddress_ASC"
+  | "headingBuildingAddress_DESC"
+  | "headingRoofArea_ASC"
+  | "headingRoofArea_DESC"
+  | "headingRoofType_ASC"
+  | "headingRoofType_DESC"
+  | "headingContractor_ASC"
+  | "headingContractor_DESC"
+  | "headingContractorName_ASC"
+  | "headingContractorName_DESC"
+  | "headingContractorId_ASC"
+  | "headingContractorId_DESC"
+  | "headingStartDate_ASC"
+  | "headingStartDate_DESC"
+  | "headingGuaranteeId_ASC"
+  | "headingGuaranteeId_DESC"
+  | "headingValidity_ASC"
+  | "headingValidity_DESC"
+  | "headingExpiry_ASC"
+  | "headingExpiry_DESC"
+  | "guaranteeScope_ASC"
+  | "guaranteeScope_DESC"
+  | "filenamePrefix_ASC"
+  | "filenamePrefix_DESC"
+  | "lockupLine1_ASC"
+  | "lockupLine1_DESC"
+  | "lockupLine2_ASC"
+  | "lockupLine2_DESC"
+  | "roofType_ASC"
+  | "roofType_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** A type of guarantee [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/guaranteeType) */
 export type GuaranteeType = Entry & {
@@ -5917,28 +5867,27 @@ export type GuaranteeTypeLinkingCollectionsEntryCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum GuaranteeTypeOrder {
-  DisplayNameAsc = "displayName_ASC",
-  DisplayNameDesc = "displayName_DESC",
-  TechnologyAsc = "technology_ASC",
-  TechnologyDesc = "technology_DESC",
-  CoverageAsc = "coverage_ASC",
-  CoverageDesc = "coverage_DESC",
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  MaximumValidityYearsAsc = "maximumValidityYears_ASC",
-  MaximumValidityYearsDesc = "maximumValidityYears_DESC",
-  RankingAsc = "ranking_ASC",
-  RankingDesc = "ranking_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type GuaranteeTypeOrder =
+  | "displayName_ASC"
+  | "displayName_DESC"
+  | "technology_ASC"
+  | "technology_DESC"
+  | "coverage_ASC"
+  | "coverage_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "maximumValidityYears_ASC"
+  | "maximumValidityYears_DESC"
+  | "ranking_ASC"
+  | "ranking_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** A connection to a list of `Guarantee` values. */
 export type GuaranteesConnection = {
@@ -5963,89 +5912,85 @@ export type GuaranteesEdge = {
 };
 
 /** Methods to use when ordering `Guarantee`. */
-export enum GuaranteesOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  RequestorAccountIdAsc = "REQUESTOR_ACCOUNT_ID_ASC",
-  RequestorAccountIdDesc = "REQUESTOR_ACCOUNT_ID_DESC",
-  ResponsibleInstallerAccountIdAsc = "RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC",
-  ResponsibleInstallerAccountIdDesc = "RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC",
-  ProjectIdAsc = "PROJECT_ID_ASC",
-  ProjectIdDesc = "PROJECT_ID_DESC",
-  SystemBmiRefAsc = "SYSTEM_BMI_REF_ASC",
-  SystemBmiRefDesc = "SYSTEM_BMI_REF_DESC",
-  ProductBmiRefAsc = "PRODUCT_BMI_REF_ASC",
-  ProductBmiRefDesc = "PRODUCT_BMI_REF_DESC",
-  ReviewerAccountIdAsc = "REVIEWER_ACCOUNT_ID_ASC",
-  ReviewerAccountIdDesc = "REVIEWER_ACCOUNT_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type GuaranteesOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "REQUESTOR_ACCOUNT_ID_ASC"
+  | "REQUESTOR_ACCOUNT_ID_DESC"
+  | "RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC"
+  | "RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC"
+  | "PROJECT_ID_ASC"
+  | "PROJECT_ID_DESC"
+  | "SYSTEM_BMI_REF_ASC"
+  | "SYSTEM_BMI_REF_DESC"
+  | "PRODUCT_BMI_REF_ASC"
+  | "PRODUCT_BMI_REF_DESC"
+  | "REVIEWER_ACCOUNT_ID_ASC"
+  | "REVIEWER_ACCOUNT_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
-export enum ImageFormat {
+export type ImageFormat =
   /** JPG image format. */
-  Jpg = "JPG",
+  | "JPG"
   /**
    * Progressive JPG format stores multiple passes of an image in progressively higher detail.
    *         When a progressive image is loading, the viewer will first see a lower quality pixelated version which
    *         will gradually improve in detail, until the image is fully downloaded. This is to display an image as
    *         early as possible to make the layout look as designed.
    */
-  JpgProgressive = "JPG_PROGRESSIVE",
+  | "JPG_PROGRESSIVE"
   /** PNG image format */
-  Png = "PNG",
+  | "PNG"
   /**
    * 8-bit PNG images support up to 256 colors and weigh less than the standard 24-bit PNG equivalent.
    *         The 8-bit PNG format is mostly used for simple images, such as icons or logos.
    */
-  Png8 = "PNG8",
+  | "PNG8"
   /** WebP image format. */
-  Webp = "WEBP"
-}
+  | "WEBP";
 
-export enum ImageResizeFocus {
+export type ImageResizeFocus =
   /** Focus the resizing on the center. */
-  Center = "CENTER",
+  | "CENTER"
   /** Focus the resizing on the top. */
-  Top = "TOP",
+  | "TOP"
   /** Focus the resizing on the top right. */
-  TopRight = "TOP_RIGHT",
+  | "TOP_RIGHT"
   /** Focus the resizing on the right. */
-  Right = "RIGHT",
+  | "RIGHT"
   /** Focus the resizing on the bottom right. */
-  BottomRight = "BOTTOM_RIGHT",
+  | "BOTTOM_RIGHT"
   /** Focus the resizing on the bottom. */
-  Bottom = "BOTTOM",
+  | "BOTTOM"
   /** Focus the resizing on the bottom left. */
-  BottomLeft = "BOTTOM_LEFT",
+  | "BOTTOM_LEFT"
   /** Focus the resizing on the left. */
-  Left = "LEFT",
+  | "LEFT"
   /** Focus the resizing on the top left. */
-  TopLeft = "TOP_LEFT",
+  | "TOP_LEFT"
   /** Focus the resizing on the largest face. */
-  Face = "FACE",
+  | "FACE"
   /** Focus the resizing on the area containing all the faces. */
-  Faces = "FACES"
-}
+  | "FACES";
 
-export enum ImageResizeStrategy {
+export type ImageResizeStrategy =
   /** Resizes the image to fit into the specified dimensions. */
-  Fit = "FIT",
+  | "FIT"
   /**
    * Resizes the image to the specified dimensions, padding the image if needed.
    *         Uses desired background color as padding color.
    */
-  Pad = "PAD",
+  | "PAD"
   /** Resizes the image to the specified dimensions, cropping the image if needed. */
-  Fill = "FILL",
+  | "FILL"
   /** Resizes the image to the specified dimensions, changing the original aspect ratio if needed. */
-  Scale = "SCALE",
+  | "SCALE"
   /** Crops a part of the original image to fit into the specified dimensions. */
-  Crop = "CROP",
+  | "CROP"
   /** Creates a thumbnail from the image. */
-  Thumb = "THUMB"
-}
+  | "THUMB";
 
 export type ImageTransformOptions = {
   /** Desired width in pixels. Defaults to the original image width. */
@@ -6151,11 +6096,7 @@ export type InvitationPatch = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-export enum InvitationStatus {
-  New = "NEW",
-  Accepted = "ACCEPTED",
-  Cancelled = "CANCELLED"
-}
+export type InvitationStatus = "NEW" | "ACCEPTED" | "CANCELLED";
 
 /** A connection to a list of `Invitation` values. */
 export type InvitationsConnection = {
@@ -6180,17 +6121,16 @@ export type InvitationsEdge = {
 };
 
 /** Methods to use when ordering `Invitation`. */
-export enum InvitationsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  SenderAccountIdAsc = "SENDER_ACCOUNT_ID_ASC",
-  SenderAccountIdDesc = "SENDER_ACCOUNT_ID_DESC",
-  CompanyIdAsc = "COMPANY_ID_ASC",
-  CompanyIdDesc = "COMPANY_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type InvitationsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "SENDER_ACCOUNT_ID_ASC"
+  | "SENDER_ACCOUNT_ID_DESC"
+  | "COMPANY_ID_ASC"
+  | "COMPANY_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A connection to a list of `Int` values. */
 export type IsPartOfProjectConnection = {
@@ -6212,20 +6152,19 @@ export type IsPartOfProjectEdge = {
   node?: Maybe<Scalars["Int"]>;
 };
 
-export enum Language {
-  Da = "DA",
-  No = "NO",
-  En = "EN",
-  Sv = "SV",
-  Pt = "PT",
-  De = "DE",
-  Nl = "NL",
-  Sk = "SK",
-  Fr = "FR",
-  Pl = "PL",
-  Es = "ES",
-  Fi = "FI"
-}
+export type Language =
+  | "DA"
+  | "NO"
+  | "EN"
+  | "SV"
+  | "PT"
+  | "DE"
+  | "NL"
+  | "SK"
+  | "FR"
+  | "PL"
+  | "ES"
+  | "FI";
 
 /** A country that BMI operates in */
 export type Market = Node & {
@@ -6541,30 +6480,29 @@ export type MarketContentMediaLibraryRootCollection = {
   items: Array<Maybe<MediaFolder>>;
 };
 
-export enum MarketContentOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  NewsItemHeadingAsc = "newsItemHeading_ASC",
-  NewsItemHeadingDesc = "newsItemHeading_DESC",
-  NewsItemUrlAsc = "newsItemUrl_ASC",
-  NewsItemUrlDesc = "newsItemUrl_DESC",
-  NewsItemCtaAsc = "newsItemCta_ASC",
-  NewsItemCtaDesc = "newsItemCta_DESC",
-  ExternalLinkLabelAsc = "externalLinkLabel_ASC",
-  ExternalLinkLabelDesc = "externalLinkLabel_DESC",
-  ExternalLinkUrlAsc = "externalLinkUrl_ASC",
-  ExternalLinkUrlDesc = "externalLinkUrl_DESC",
-  LiveAsc = "live_ASC",
-  LiveDesc = "live_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type MarketContentOrder =
+  | "name_ASC"
+  | "name_DESC"
+  | "newsItemHeading_ASC"
+  | "newsItemHeading_DESC"
+  | "newsItemUrl_ASC"
+  | "newsItemUrl_DESC"
+  | "newsItemCta_ASC"
+  | "newsItemCta_DESC"
+  | "externalLinkLabel_ASC"
+  | "externalLinkLabel_DESC"
+  | "externalLinkUrl_ASC"
+  | "externalLinkUrl_DESC"
+  | "live_ASC"
+  | "live_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 export type MarketContentPartnerBrandsCollection = {
   __typename?: "MarketContentPartnerBrandsCollection";
@@ -6665,15 +6603,14 @@ export type MarketsEdge = {
 };
 
 /** Methods to use when ordering `Market`. */
-export enum MarketsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  DoceboCatalogueIdAsc = "DOCEBO_CATALOGUE_ID_ASC",
-  DoceboCatalogueIdDesc = "DOCEBO_CATALOGUE_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type MarketsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "DOCEBO_CATALOGUE_ID_ASC"
+  | "DOCEBO_CATALOGUE_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A folder used for categorising the presentation in the Media Tools Library [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaFolder) */
 export type MediaFolder = Entry & {
@@ -6764,18 +6701,17 @@ export type MediaFolderLinkingCollectionsMediaFolderCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum MediaFolderOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type MediaFolderOrder =
+  | "name_ASC"
+  | "name_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** Media which is hosted on Contentful [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/mediaTool) */
 export type MediaTool = Entry & {
@@ -6880,20 +6816,19 @@ export type MediaToolLinkingCollectionsMediaFolderCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum MediaToolOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  UrlAsc = "url_ASC",
-  UrlDesc = "url_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type MediaToolOrder =
+  | "name_ASC"
+  | "name_DESC"
+  | "url_ASC"
+  | "url_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** A template for email and/or notifications [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/messageTemplate) */
 export type MessageTemplate = Entry & {
@@ -7005,22 +6940,21 @@ export type MessageTemplateLinkingCollectionsGuaranteeTemplateCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum MessageTemplateOrder {
-  EventAsc = "event_ASC",
-  EventDesc = "event_DESC",
-  SubjectAsc = "subject_ASC",
-  SubjectDesc = "subject_DESC",
-  NotificationBodyAsc = "notificationBody_ASC",
-  NotificationBodyDesc = "notificationBody_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type MessageTemplateOrder =
+  | "event_ASC"
+  | "event_DESC"
+  | "subject_ASC"
+  | "subject_DESC"
+  | "notificationBody_ASC"
+  | "notificationBody_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** Meta data to store the state of content model through migrations [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/migration) */
 export type Migration = Entry & {
@@ -7081,18 +7015,17 @@ export type MigrationLinkingCollectionsEntryCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum MigrationOrder {
-  ContentTypeIdAsc = "contentTypeId_ASC",
-  ContentTypeIdDesc = "contentTypeId_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type MigrationOrder =
+  | "contentTypeId_ASC"
+  | "contentTypeId_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
@@ -8240,17 +8173,16 @@ export type NotesEdge = {
 };
 
 /** Methods to use when ordering `Note`. */
-export enum NotesOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  AuthorIdAsc = "AUTHOR_ID_ASC",
-  AuthorIdDesc = "AUTHOR_ID_DESC",
-  ProjectIdAsc = "PROJECT_ID_ASC",
-  ProjectIdDesc = "PROJECT_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type NotesOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "AUTHOR_ID_ASC"
+  | "AUTHOR_ID_DESC"
+  | "PROJECT_ID_ASC"
+  | "PROJECT_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** An internal notification available to an end user */
 export type Notification = Node & {
@@ -8339,21 +8271,16 @@ export type NotificationsEdge = {
 };
 
 /** Methods to use when ordering `Notification`. */
-export enum NotificationsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  AccountIdAsc = "ACCOUNT_ID_ASC",
-  AccountIdDesc = "ACCOUNT_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type NotificationsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "ACCOUNT_ID_ASC"
+  | "ACCOUNT_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
-export enum Operation {
-  Flat = "FLAT",
-  Pitched = "PITCHED",
-  Solar = "SOLAR"
-}
+export type Operation = "FLAT" | "PITCHED" | "SOLAR";
 
 /** Information about pagination in a connection. */
 export type PageInfo = {
@@ -8505,20 +8432,19 @@ export type PartnerBrandLinkingCollectionsMarketContentCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum PartnerBrandOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  WebsiteUrlAsc = "websiteUrl_ASC",
-  WebsiteUrlDesc = "websiteUrl_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type PartnerBrandOrder =
+  | "name_ASC"
+  | "name_DESC"
+  | "websiteUrl_ASC"
+  | "websiteUrl_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 export type Point = {
   __typename?: "Point";
@@ -8673,17 +8599,16 @@ export type ProductsEdge = {
 };
 
 /** Methods to use when ordering `Product`. */
-export enum ProductsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  MarketIdAsc = "MARKET_ID_ASC",
-  MarketIdDesc = "MARKET_ID_DESC",
-  BmiRefAsc = "BMI_REF_ASC",
-  BmiRefDesc = "BMI_REF_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type ProductsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "BMI_REF_ASC"
+  | "BMI_REF_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
 export type Project = Node & {
@@ -8896,17 +8821,16 @@ export type ProjectMembersEdge = {
 };
 
 /** Methods to use when ordering `ProjectMember`. */
-export enum ProjectMembersOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  ProjectIdAsc = "PROJECT_ID_ASC",
-  ProjectIdDesc = "PROJECT_ID_DESC",
-  AccountIdAsc = "ACCOUNT_ID_ASC",
-  AccountIdDesc = "ACCOUNT_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type ProjectMembersOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "PROJECT_ID_ASC"
+  | "PROJECT_ID_DESC"
+  | "ACCOUNT_ID_ASC"
+  | "ACCOUNT_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** Represents an update to a `Project`. Fields that are set will be updated. */
 export type ProjectPatch = {
@@ -8967,19 +8891,18 @@ export type ProjectsEdge = {
 };
 
 /** Methods to use when ordering `Project`. */
-export enum ProjectsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  CompanyIdAsc = "COMPANY_ID_ASC",
-  CompanyIdDesc = "COMPANY_ID_DESC",
-  SiteAddressIdAsc = "SITE_ADDRESS_ID_ASC",
-  SiteAddressIdDesc = "SITE_ADDRESS_ID_DESC",
-  BuildingOwnerAddressIdAsc = "BUILDING_OWNER_ADDRESS_ID_ASC",
-  BuildingOwnerAddressIdDesc = "BUILDING_OWNER_ADDRESS_ID_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type ProjectsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "COMPANY_ID_ASC"
+  | "COMPANY_ID_DESC"
+  | "SITE_ADDRESS_ID_ASC"
+  | "SITE_ADDRESS_ID_DESC"
+  | "BUILDING_OWNER_ADDRESS_ID_ASC"
+  | "BUILDING_OWNER_ADDRESS_ID_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 export type Publish = {
   __typename?: "Publish";
@@ -10074,20 +9997,18 @@ export type QueryTrainingContentCollectionArgs = {
   order?: Maybe<Array<Maybe<TrainingContentOrder>>>;
 };
 
-export enum RequestStatus {
-  New = "NEW",
-  Submitted = "SUBMITTED",
-  Review = "REVIEW",
-  Rejected = "REJECTED",
-  Approved = "APPROVED"
-}
+export type RequestStatus =
+  | "NEW"
+  | "SUBMITTED"
+  | "REVIEW"
+  | "REJECTED"
+  | "APPROVED";
 
-export enum Role {
-  SuperAdmin = "SUPER_ADMIN",
-  MarketAdmin = "MARKET_ADMIN",
-  Installer = "INSTALLER",
-  CompanyAdmin = "COMPANY_ADMIN"
-}
+export type Role =
+  | "SUPER_ADMIN"
+  | "MARKET_ADMIN"
+  | "INSTALLER"
+  | "COMPANY_ADMIN";
 
 export type SsoUrlOutput = {
   __typename?: "SSOUrlOutput";
@@ -10309,17 +10230,16 @@ export type SystemMembersEdge = {
 };
 
 /** Methods to use when ordering `SystemMember`. */
-export enum SystemMembersOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  SystemBmiRefAsc = "SYSTEM_BMI_REF_ASC",
-  SystemBmiRefDesc = "SYSTEM_BMI_REF_DESC",
-  ProductBmiRefAsc = "PRODUCT_BMI_REF_ASC",
-  ProductBmiRefDesc = "PRODUCT_BMI_REF_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type SystemMembersOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "SYSTEM_BMI_REF_ASC"
+  | "SYSTEM_BMI_REF_DESC"
+  | "PRODUCT_BMI_REF_ASC"
+  | "PRODUCT_BMI_REF_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 /** Represents an update to a `System`. Fields that are set will be updated. */
 export type SystemPatch = {
@@ -10366,30 +10286,20 @@ export type SystemsEdge = {
 };
 
 /** Methods to use when ordering `System`. */
-export enum SystemsOrderBy {
-  Natural = "NATURAL",
-  IdAsc = "ID_ASC",
-  IdDesc = "ID_DESC",
-  MarketIdAsc = "MARKET_ID_ASC",
-  MarketIdDesc = "MARKET_ID_DESC",
-  BmiRefAsc = "BMI_REF_ASC",
-  BmiRefDesc = "BMI_REF_DESC",
-  PrimaryKeyAsc = "PRIMARY_KEY_ASC",
-  PrimaryKeyDesc = "PRIMARY_KEY_DESC"
-}
+export type SystemsOrderBy =
+  | "NATURAL"
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "BMI_REF_ASC"
+  | "BMI_REF_DESC"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
-export enum Technology {
-  Flat = "FLAT",
-  Pitched = "PITCHED",
-  Other = "OTHER"
-}
+export type Technology = "FLAT" | "PITCHED" | "OTHER";
 
-export enum Tier {
-  T1 = "T1",
-  T2 = "T2",
-  T3 = "T3",
-  T4 = "T4"
-}
+export type Tier = "T1" | "T2" | "T3" | "T4";
 
 /** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/opay6t6wwmup/content_types/tierBenefit) */
 export type TierBenefit = Entry & {
@@ -10504,20 +10414,19 @@ export type TierBenefitLinkingCollectionsEntryCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum TierBenefitOrder {
-  NameAsc = "name_ASC",
-  NameDesc = "name_DESC",
-  TierAsc = "tier_ASC",
-  TierDesc = "tier_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type TierBenefitOrder =
+  | "name_ASC"
+  | "name_DESC"
+  | "tier_ASC"
+  | "tier_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 export type Token = {
   __typename?: "Token";
@@ -10754,36 +10663,35 @@ export type TrainingContentLinkingCollectionsEntryCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
 };
 
-export enum TrainingContentOrder {
-  PageHeadingAsc = "pageHeading_ASC",
-  PageHeadingDesc = "pageHeading_DESC",
-  LmsCtaLabelAsc = "lmsCtaLabel_ASC",
-  LmsCtaLabelDesc = "lmsCtaLabel_DESC",
-  PageSubHeadingAsc = "pageSubHeading_ASC",
-  PageSubHeadingDesc = "pageSubHeading_DESC",
-  Step1HeadingAsc = "step1Heading_ASC",
-  Step1HeadingDesc = "step1Heading_DESC",
-  Step1SubHeadingAsc = "step1SubHeading_ASC",
-  Step1SubHeadingDesc = "step1SubHeading_DESC",
-  Step2HeadingAsc = "step2Heading_ASC",
-  Step2HeadingDesc = "step2Heading_DESC",
-  Step2SubHeadingAsc = "step2SubHeading_ASC",
-  Step2SubHeadingDesc = "step2SubHeading_DESC",
-  Step3HeadingAsc = "step3Heading_ASC",
-  Step3HeadingDesc = "step3Heading_DESC",
-  Step3SubHeadingAsc = "step3SubHeading_ASC",
-  Step3SubHeadingDesc = "step3SubHeading_DESC",
-  LiveAsc = "live_ASC",
-  LiveDesc = "live_DESC",
-  SysIdAsc = "sys_id_ASC",
-  SysIdDesc = "sys_id_DESC",
-  SysPublishedAtAsc = "sys_publishedAt_ASC",
-  SysPublishedAtDesc = "sys_publishedAt_DESC",
-  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
-  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
-  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
-  SysPublishedVersionDesc = "sys_publishedVersion_DESC"
-}
+export type TrainingContentOrder =
+  | "pageHeading_ASC"
+  | "pageHeading_DESC"
+  | "lmsCtaLabel_ASC"
+  | "lmsCtaLabel_DESC"
+  | "pageSubHeading_ASC"
+  | "pageSubHeading_DESC"
+  | "step1Heading_ASC"
+  | "step1Heading_DESC"
+  | "step1SubHeading_ASC"
+  | "step1SubHeading_DESC"
+  | "step2Heading_ASC"
+  | "step2Heading_DESC"
+  | "step2SubHeading_ASC"
+  | "step2SubHeading_DESC"
+  | "step3Heading_ASC"
+  | "step3Heading_DESC"
+  | "step3SubHeading_ASC"
+  | "step3SubHeading_DESC"
+  | "live_ASC"
+  | "live_DESC"
+  | "sys_id_ASC"
+  | "sys_id_DESC"
+  | "sys_publishedAt_ASC"
+  | "sys_publishedAt_DESC"
+  | "sys_firstPublishedAt_ASC"
+  | "sys_firstPublishedAt_DESC"
+  | "sys_publishedVersion_ASC"
+  | "sys_publishedVersion_DESC";
 
 /** All input for the `updateAccountByDoceboUserId` mutation. */
 export type UpdateAccountByDoceboUserIdInput = {
