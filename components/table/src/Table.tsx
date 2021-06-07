@@ -23,7 +23,7 @@ const TableContext = createContext<{
   theme?: Colors;
 }>({});
 
-type TableProps = {
+export type TableProps = {
   theme?: Colors;
   hasNoBorder?: boolean;
   rowBgColorPattern?: "even" | "odd" | "none";
