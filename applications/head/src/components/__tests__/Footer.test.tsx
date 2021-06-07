@@ -50,7 +50,8 @@ describe("Footer component", () => {
                     icon: "Phone",
                     linkedPage: null,
                     type: null,
-                    parameters: null
+                    parameters: null,
+                    dialogContent: null
                   }
                 ]
               },
@@ -70,7 +71,8 @@ describe("Footer component", () => {
                       path: "landing-page"
                     },
                     type: null,
-                    parameters: null
+                    parameters: null,
+                    dialogContent: null
                   }
                 ]
               }
@@ -92,7 +94,8 @@ describe("Footer component", () => {
                   path: "landing-page"
                 },
                 type: null,
-                parameters: null
+                parameters: null,
+                dialogContent: null
               }
             ]
           }}

@@ -1,10 +1,14 @@
-import Clickable, {
-  ClickableAction as ClickableActionType,
-  Props
+import Clickable from "./Clickable";
+
+export type {
+  Props as ClickableProps,
+  Default,
+  DownloadLink,
+  HtmlLink,
+  RouterLink,
+  ClickableAction
 } from "./Clickable";
 
-export type ClickableProps = Props;
-export type ClickableAction = ClickableActionType;
 export { withClickable } from "./Clickable";
 
 export default Clickable;

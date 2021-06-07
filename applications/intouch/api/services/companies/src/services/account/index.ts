@@ -2,7 +2,7 @@ import { updateUser, getAccessToken } from "../auth0";
 
 const SELECT_ACCOUNT = "SELECT id, role, email FROM account WHERE email=$1";
 const UPDATE_ACCOUNT =
-  "UPDATE account SET first_name=$1, last_name=$2 WHERE email=$3 RETURNING id, email, role";
+  "UPDATE account SET first_name=$1, last_name=$2 WHERE email=$3 RETURNING id, email, role, market_id";
 
 export const createAccount = async (
   resolve,
@@ -12,10 +12,10 @@ export const createAccount = async (
   resolveInfo
 ) => {
   let result;
-  let account_role;
   let account_id;
+  let account_role;
   const { pgClient, user } = context;
-  const { email, firstName, lastName } = args.input;
+  const { email, firstName, lastName, marketCode } = args.input;
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
@@ -45,6 +45,7 @@ export const createAccount = async (
     // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
     const { access_token } = await getAccessToken();
     const app_metadata: any = {
+      intouch_market_code: marketCode,
       intouch_user_id: account_id,
       intouch_role: account_role
     };
@@ -67,6 +68,43 @@ export const createAccount = async (
     console.log("Error creating new user", e);
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
     throw e;
+  } finally {
+    await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
+  }
+};
+export const updateAccount = async (
+  resolve,
+  source,
+  args,
+  context,
+  resolveInfo
+) => {
+  let result;
+
+  const { pgClient, user } = context;
+  const logger = context.logger("service:account");
+
+  await pgClient.query("SAVEPOINT graphql_mutation");
+
+  try {
+    result = await resolve(source, args, context, resolveInfo);
+
+    const doceboUserId = result.data["@account"].doceboUserId;
+
+    const { access_token } = await getAccessToken();
+    const app_metadata: any = {
+      intouch_docebo_id: doceboUserId
+    };
+
+    await updateUser(access_token, user.sub, {
+      app_metadata
+    });
+
+    return result;
+  } catch (error) {
+    logger.error(error);
+    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+    throw error;
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }

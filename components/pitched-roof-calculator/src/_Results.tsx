@@ -11,6 +11,8 @@ import { guttering as gutteringList, hooks } from "./samples/guttering";
 import { VergeOption } from "./types";
 import { Measurements } from "./types/roof";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
+import { AnalyticsContext } from "./helpers/analytics";
+import Alert from "./subcomponents/_Alert";
 
 const getRemoveRow = (setRows) => (externalProductCode) =>
   setRows((rows) =>
@@ -33,6 +35,7 @@ const Results = ({
   guttering: any;
 }) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   const { faces, lines, area } = measurements;
 
@@ -173,10 +176,25 @@ const Results = ({
           />
         </FieldContainer>
       ) : null}
+      <Alert
+        type="warning"
+        title={getMicroCopy(copy, "results.alerts.quantities.title")}
+        first
+      >
+        {getMicroCopy(copy, "results.alerts.quantities.text")}
+      </Alert>
+      <Alert title={getMicroCopy(copy, "results.alerts.needToKnow.title")} last>
+        {getMicroCopy(copy, "results.alerts.needToKnow.text")}
+      </Alert>
       <Button
         startIcon={<PDFIcon />}
         style={{ marginBottom: 30 }}
         onClick={async () => {
+          pushEvent({
+            id: "rc-solution",
+            label: getMicroCopy(copy, "results.downloadPdfLabel"),
+            action: "selected"
+          });
           (await import("./PDF")).default({
             results,
             area: (area / 10000).toFixed(2),

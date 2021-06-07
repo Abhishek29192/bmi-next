@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Button from "@bmi/button";
 import Hero, { HeroItem } from "@bmi/hero";
 import Section from "@bmi/section";
 import { Data as SiteData, SiteContext } from "../components/Site";
@@ -10,7 +11,7 @@ import Sections, { Data as SectionsData } from "../components/Sections";
 import OverlapCards, {
   Data as OverlapCardData
 } from "../components/OverlapCards";
-import { getCTA } from "../components/Link";
+import Link from "../components/Link";
 import { Data as PageInfoData } from "../components/PageInfo";
 import Breadcrumbs, {
   Data as BreadcrumbsData
@@ -39,7 +40,7 @@ type Props = {
 };
 
 const getHeroItemsWithContext = (
-  { getMicroCopy, countryCode },
+  { getMicroCopy },
   slides: BrandLandingPageData["slides"]
 ): HeroItem[] => {
   return slides.map(
@@ -50,7 +51,16 @@ const getHeroItemsWithContext = (
         media: featuredVideo
           ? renderVideo(featuredVideo)
           : renderImage(featuredMedia, { size: "cover" }),
-        cta: getCTA(rest, countryCode, getMicroCopy("page.linkLabel"))
+        cta:
+          rest.__typename === "ContentfulPromo" ? (
+            <Link component={Button} data={rest.cta}>
+              {rest.cta.label}
+            </Link>
+          ) : (
+            <Link component={Button} data={{ linkedPage: { path: rest.path } }}>
+              {getMicroCopy("page.linkLabel")}
+            </Link>
+          )
       };
     }
   );
@@ -82,6 +92,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={featuredMedia?.image?.file.url}
     >
       <SiteContext.Consumer>
         {(context) => {
@@ -102,13 +113,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
               breadcrumbs={<Breadcrumbs data={breadcrumbs} isDarkThemed />}
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
-            >
-              {/* NOTE: This is disabled until search gets implemented. */}
-              {/* <Search
-                label={getMicroCopy("search.label")}
-                placeholder={getMicroCopy("search.placeholder")}
-              /> */}
-            </Hero>
+            ></Hero>
           );
         }}
       </SiteContext.Consumer>

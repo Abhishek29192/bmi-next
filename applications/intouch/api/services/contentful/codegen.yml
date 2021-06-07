@@ -1,0 +1,14 @@
+overwrite: true
+schema:
+  - ${CONTENTFUL_URL}:
+      headers:
+        - Authorization: "Bearer ${CONTENTFUL_TOKEN}"
+
+hooks:
+  afterAllFileWrite:
+    - prettier --write
+
+generates:
+  ./schema.graphql:
+    plugins:
+      - schema-ast

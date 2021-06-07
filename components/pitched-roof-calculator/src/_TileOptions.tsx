@@ -3,6 +3,8 @@ import CardRadioGroup from "@bmi/card-radio-group";
 import CardCheckboxGroup from "@bmi/card-checkbox-group";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
+import { AnalyticsContext } from "./helpers/analytics";
+import { Accessory } from "./types";
 
 type VergeOptionsProps = {
   // TODO: Type when importing from Contentful
@@ -12,6 +14,7 @@ type VergeOptionsProps = {
 
 const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
     return null;
@@ -34,11 +37,25 @@ const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
             value={name}
             title={name}
             imageSource={left.image}
+            onClick={() => {
+              pushEvent({
+                id: "rc-options-accessories",
+                label: name,
+                action: "selected"
+              });
+            }}
           />
         ))}
         <CardRadioGroup.Item
           value="none"
           title={getMicroCopy(copy, "tileOptions.verge.noneLabel")}
+          onClick={() => {
+            pushEvent({
+              id: "rc-options-accessories",
+              label: getMicroCopy(copy, "tileOptions.verge.noneLabel"),
+              action: "selected"
+            });
+          }}
         />
       </CardRadioGroup>
     </FieldContainer>
@@ -53,6 +70,7 @@ type RidgeOptionsProps = {
 
 const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   if (options.length < 2) {
     return null;
@@ -75,6 +93,13 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
             value={externalProductCode}
             title={name}
             imageSource={image}
+            onClick={() => {
+              pushEvent({
+                id: "rc-options-accessories",
+                label: name,
+                action: "selected"
+              });
+            }}
           >
             <CardRadioGroup.Item.Paragraph>
               Nobb: <strong>{externalProductCode}</strong>
@@ -89,7 +114,7 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
 type VentilationHoodOptionsProps = {
   // TODO: Type when importing from Contentful
   selected?: string[];
-  options: ReadonlyArray<any>;
+  options: ReadonlyArray<Accessory>;
 };
 
 const VentilationHoodOptions = ({
@@ -97,6 +122,7 @@ const VentilationHoodOptions = ({
   options
 }: VentilationHoodOptionsProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
     return null;
@@ -113,12 +139,19 @@ const VentilationHoodOptions = ({
         fieldIsRequiredError /* just needs to be truthy since it's not displayed anywhere */
         noneLabel={getMicroCopy(copy, "tileOptions.ventilationHood.noneLabel")}
       >
-        {options.map(({ description, image, externalProductCode }) => (
+        {options.map(({ name, image, externalProductCode }) => (
           <CardCheckboxGroup.Item
             key={externalProductCode}
             value={externalProductCode}
-            title={description}
+            title={name}
             imageSource={image}
+            onClick={() => {
+              pushEvent({
+                id: "rc-options-accessories",
+                label: name,
+                action: "selected"
+              });
+            }}
           >
             <CardCheckboxGroup.Item.Paragraph>
               Nobb: <strong>{externalProductCode}</strong>

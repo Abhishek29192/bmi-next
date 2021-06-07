@@ -2,22 +2,27 @@ import React from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
+// TODO: use @bmi components
 import CardContent from "@material-ui/core/CardContent";
+// TODO: button is not compatible here
 import Button from "@material-ui/core/Button";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/Mail";
 import AddIcon from "@material-ui/icons/Add";
+import Person from "@material-ui/icons/Person";
 import Typography from "@bmi/typography";
-import Grid from "@bmi/grid";
-import Card from "@bmi/card";
-import CompanyDetails from "@bmi/company-details";
 
-import { Person } from "@material-ui/icons";
+import Card from "@bmi/card";
+import Grid from "@bmi/grid";
 import Icon from "@bmi/icon";
+
 import { Layout } from "../components/Layout";
 import { InfoPair } from "../components/InfoPair";
 import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
+
+import CompanyDetailsCard from "../components/CompanyDetailsCard";
 
 import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
@@ -27,72 +32,6 @@ import {
   getServerPageGetCurrentCompany
 } from "../graphql/generated/page";
 
-const getCompanyData = (
-  company: GetCompanyQuery["company"]
-): { name: string; aboutus: string; details: any } => {
-  if (!company) {
-    return {
-      name: "Company not found",
-      aboutus: "company.aboutUs",
-      details: []
-    };
-  }
-
-  const details = [
-    {
-      type: "cta",
-      text: "Get directions",
-      action: { model: "htmlLink" as "htmlLink", href: company.website },
-      label: "Get directions"
-    },
-    {
-      type: "phone",
-      text: company.phone,
-      action: {
-        model: "htmlLink" as "htmlLink",
-        href: `tel:${company.phone}`
-      },
-      label: "Telephone"
-    },
-    {
-      type: "email",
-      text: company.publicEmail,
-
-      action: {
-        model: "htmlLink" as "htmlLink",
-        href: `mailto:${company.publicEmail}`
-      },
-
-      label: "Email"
-    },
-    {
-      type: "website",
-      text: "Visit website",
-      action: {
-        model: "htmlLink" as "htmlLink",
-        href: company.website
-      },
-      label: "Website"
-    },
-    {
-      type: "content",
-      label: "Type of roof",
-      text: <b>Flat</b>
-    },
-    {
-      type: "roofProLevel",
-      label: "BMI RoofPro Level",
-      level: "expert"
-    }
-  ];
-
-  return {
-    name: company.name,
-    aboutus: "company.aboutUs",
-    details
-  };
-};
-
 export type PageProps = {
   company: GetCompanyQuery["company"];
 };
@@ -100,7 +39,6 @@ export type PageProps = {
 const CompanyPage = ({ company }: PageProps) => {
   const { t } = useTranslation("company-page");
 
-  const { name, aboutus, details } = getCompanyData(company);
   return (
     <Layout title={t("Company")}>
       <Grid
@@ -184,9 +122,7 @@ const CompanyPage = ({ company }: PageProps) => {
               >
                 {t("Registered Details")}
               </Typography>
-              <CompanyDetails name={name} details={details}>
-                {aboutus}
-              </CompanyDetails>
+              <CompanyDetailsCard company={company} />
             </CardContent>
           </Card>
         </Grid>
@@ -269,13 +205,7 @@ export const GET_CURRENT_COMPANY = gql`
 export const GET_COMPANY = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
-      name
-      phone
-      website
-      aboutUs
-      publicEmail
-      phone
-      website
+      ...CompanyDetailsFragment
     }
   }
 `;
@@ -284,7 +214,7 @@ export const getServerSideProps = async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
     async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, ctx);
+      const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
       const pageProps = {
         company: null,

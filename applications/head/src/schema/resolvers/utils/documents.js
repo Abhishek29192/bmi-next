@@ -9,7 +9,7 @@ const mapExtensionToFormat = {
   png: "image/png"
 };
 
-const MAX_SIZE_ALLOWED = 10485760;
+const MAX_SIZE_ALLOWED_BYTES = 41943040; // 40MB
 
 exports.mapExtensionToFormat = mapExtensionToFormat;
 
@@ -25,7 +25,7 @@ exports.isPimLinkDocument = (asset) => {
     return true;
   }
 
-  if (fileSize > MAX_SIZE_ALLOWED) {
+  if (fileSize > MAX_SIZE_ALLOWED_BYTES) {
     return true;
   }
 

@@ -8,7 +8,11 @@ import { useApollo } from "../lib/apolloClient";
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
-  const apolloClient = useApollo(pageProps?.initialApolloState);
+  const apolloClient = useApollo(pageProps?.initialApolloState, {
+    Component,
+    pageProps,
+    ...rest
+  });
   return (
     <ApolloProvider client={apolloClient}>
       <Component {...pageProps} apolloClient={apolloClient} {...rest} />

@@ -25,6 +25,12 @@
   align-items: center;
 }
 
+.avatar {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1rem;
+}
+
 .jobtitle {
   color: $color-slate;
   margin-top: 0.25rem !important;

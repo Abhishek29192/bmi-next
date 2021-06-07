@@ -83,6 +83,7 @@ This is the most complex variation of the Hero, and it handles slightly differen
 When `autoPlayInterval` is specified, then the carousel will receive an `hasAutoPlay`
 
 ```jsx
+import Button from "@bmi/button";
 import Search from "@bmi/search";
 import firstImageSource from "./images/demo-tiles.jpg";
 import secondImageSource from "./images/demo-tiles-black.png";
@@ -97,27 +98,21 @@ import thirdImageSource from "./images/demo-house.png";
       children:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus suscipit dolor nisl, nec vestibulum odio molestie tincidunt.",
       media: <img src={firstImageSource} alt="first image source" />,
-      CTA: {
-        label: "Call to Action Button"
-      }
+      CTA: <Button>Call to Action Button</Button>
     },
     {
       title: "H1 Second heading dark background",
       children:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
       media: <img src={secondImageSource} alt="second image source" />,
-      CTA: {
-        label: "Call to Action Button"
-      }
+      CTA: <Button>Call to Action Button</Button>
     },
     {
       title: "H1 Third heading dark background",
       children:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non tincidunt quam. Fusce et semper lectus, eu tincidunt ligula.",
       media: <img src={thirdImageSource} alt="third image source" />,
-      CTA: {
-        label: "Call to Action Button"
-      }
+      CTA: <Button>Call to Action Button</Button>
     }
   ]}
 >

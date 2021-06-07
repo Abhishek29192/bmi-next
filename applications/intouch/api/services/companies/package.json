@@ -6,15 +6,18 @@
   "license": "BMI-DXB",
   "private": true,
   "scripts": {
-    "dev": "tsc && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema\"",
+    "build": "tsc -b",
+    "dev": "tsc -b && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema\"",
+    "gcp-build": "tsc",
+    "migrate-db": "node scripts/init-db.js",
     "prettify-schema": "onchange \"schema.graphql\" -- prettier --write schema.graphql",
-    "start": "node dist/index.js",
-    "build": "tsc -p .",
-    "gcp-build": "tsc -p ."
+    "start": "node dist/index.js"
   },
   "dependencies": {
-    "@bmi/intouch-shared-types": "^0.0.0",
+    "@bmi/intouch-api-types": "^0.0.0",
+    "@bmi/logger": "^0.0.0",
     "@google-cloud/pubsub": "^2.10.0",
+    "@google-cloud/secret-manager": "^3.7.1",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",
     "apollo-server": "^2.19.2",
@@ -27,6 +30,7 @@
     "graphile-utils": "^4.10.0",
     "graphql": "^15.5.0",
     "jwks-rsa": "^1.12.3",
+    "lodash.camelcase": "^4.3.0",
     "pg": "^8.5.1",
     "postgraphile": "^4.11.0",
     "postgraphile-apollo-server": "0.1.1"
@@ -35,10 +39,8 @@
     "@types/express": "^4.17.9",
     "@types/node": "^14.14.20",
     "concurrently": "^6.0.0",
-    "dotenv": "^8.2.0",
     "nodemon": "latest",
     "onchange": "^7.1.0",
-    "tslint": "^6.1.3",
     "typescript": "^3.9.3"
   }
 }

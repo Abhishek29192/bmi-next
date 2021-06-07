@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import { WinstonLogger } from "@bmi/logger";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ const { PORT = 4000 } = process.env;
     const app = express();
 
     app.use(express.json());
+    app.use(WinstonLogger);
     if (process.env.NODE_ENV === "development") {
       app.get("/playground", expressPlayground({ endpoint: "/graphql" }));
     }

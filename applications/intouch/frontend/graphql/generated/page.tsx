@@ -1,25 +1,55 @@
-import gql from "graphql-tag";
+import * as OperationTypes from "./operations";
+
+import * as Operations from "./hooks";
 import { NextRouter, useRouter } from "next/router";
 import { QueryHookOptions, useQuery } from "@apollo/client";
 import * as Apollo from "@apollo/client";
 import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
-import * as OperationTypes from "./operations";
 
-export const CreateCompanyDocument = gql`
-  mutation createCompany($input: CreateCompanyInput!) {
-    createCompany(input: $input) {
-      company {
-        name
-      }
+export async function getServerPageCurrentCompany(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.CurrentCompanyQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.CurrentCompanyQuery>({
+    ...options,
+    query: Operations.CurrentCompanyDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
     }
-  }
-`;
-export const GetCurrentCompanyDocument = gql`
-  query GetCurrentCompany {
-    currentCompany
-  }
-`;
+  };
+}
+export const useCurrentCompany = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.CurrentCompanyQuery,
+    OperationTypes.CurrentCompanyQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.CurrentCompanyDocument, options);
+};
+export type PageCurrentCompanyComp = React.FC<{
+  data?: OperationTypes.CurrentCompanyQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrCurrentCompany = {
+  getServerPage: getServerPageCurrentCompany,
+
+  usePage: useCurrentCompany
+};
 export async function getServerPageGetCurrentCompany(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetCurrentCompanyQueryVariables>,
@@ -29,7 +59,7 @@ export async function getServerPageGetCurrentCompany(
 ) {
   const data = await apolloClient.query<OperationTypes.GetCurrentCompanyQuery>({
     ...options,
-    query: GetCurrentCompanyDocument
+    query: Operations.GetCurrentCompanyDocument
   });
 
   const apolloState = apolloClient.cache.extract();
@@ -52,7 +82,7 @@ export const useGetCurrentCompany = (
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(GetCurrentCompanyDocument, options);
+  return useQuery(Operations.GetCurrentCompanyDocument, options);
 };
 export type PageGetCurrentCompanyComp = React.FC<{
   data?: OperationTypes.GetCurrentCompanyQuery;
@@ -63,19 +93,6 @@ export const ssrGetCurrentCompany = {
 
   usePage: useGetCurrentCompany
 };
-export const GetCompanyDocument = gql`
-  query GetCompany($companyId: Int!) {
-    company(id: $companyId) {
-      name
-      phone
-      website
-      aboutUs
-      publicEmail
-      phone
-      website
-    }
-  }
-`;
 export async function getServerPageGetCompany(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetCompanyQueryVariables>,
@@ -85,7 +102,7 @@ export async function getServerPageGetCompany(
 ) {
   const data = await apolloClient.query<OperationTypes.GetCompanyQuery>({
     ...options,
-    query: GetCompanyDocument
+    query: Operations.GetCompanyDocument
   });
 
   const apolloState = apolloClient.cache.extract();
@@ -108,7 +125,7 @@ export const useGetCompany = (
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(GetCompanyDocument, options);
+  return useQuery(Operations.GetCompanyDocument, options);
 };
 export type PageGetCompanyComp = React.FC<{
   data?: OperationTypes.GetCompanyQuery;
@@ -119,40 +136,6 @@ export const ssrGetCompany = {
 
   usePage: useGetCompany
 };
-export const TrainingDocument = gql`
-  query training {
-    training {
-      name
-      url
-      user {
-        id
-        email
-        user_level
-        username
-        firstname
-        lastname
-        enrollment {
-          count
-          has_more_data
-          current_page
-          current_page_size
-          total_page_count
-          total_count
-          items {
-            id
-            name
-            description
-            status
-            image_url
-            url
-            type
-            level
-          }
-        }
-      }
-    }
-  }
-`;
 export async function getServerPageTraining(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.TrainingQueryVariables>,
@@ -162,7 +145,7 @@ export async function getServerPageTraining(
 ) {
   const data = await apolloClient.query<OperationTypes.TrainingQuery>({
     ...options,
-    query: TrainingDocument
+    query: Operations.TrainingDocument
   });
 
   const apolloState = apolloClient.cache.extract();
@@ -185,7 +168,7 @@ export const useTraining = (
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(TrainingDocument, options);
+  return useQuery(Operations.TrainingDocument, options);
 };
 export type PageTrainingComp = React.FC<{
   data?: OperationTypes.TrainingQuery;

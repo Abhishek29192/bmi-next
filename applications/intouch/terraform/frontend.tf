@@ -18,14 +18,6 @@ resource "google_cloud_run_service" "default" {
           container_port = 3000
         }
         env {
-          name  = "NEXT_PUBLIC_BASE_URL"
-          value = "https://tf-frontend-rfwslk3zjq-nw.a.run.app"
-        }
-        env {
-          name  = "AUTH0_BASE_URL"
-          value = "https://tf-frontend-rfwslk3zjq-nw.a.run.app"
-        }
-        env {
           name  = "AUTH0_NAMESPACE"
           value = "https://intouch"
         }
@@ -41,18 +33,21 @@ resource "google_cloud_run_service" "default" {
           name  = "AUTH0_CLIENT_ID"
           value = "W4gH2YagDOBdMpEUESoC4xZhsZbc3W1S"
         }
-
+        env {
+          name  = "AUTH0_COOKIE_DOMAIN"
+          value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
+        }
+        env {
+          name  = "AUTH0_COOKIE_DOMAIN"
+          value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
+        }
         env {
           name  = "GRAPHQL_URL"
-          value = "https://gateway-rfwslk3zjq-nw.a.run.app/graphql"
+          value = "https://intouchapip-9dmxs7t9.nw.gateway.dev/graphql"
         }
         env {
-          name  = "AUTH0_CLIENT_SECRET"
-          value = "secret:automated-style-303709/AUTH0_CLIENT_SECRET"
-        }
-        env {
-          name  = "AUTH0_SECRET"
-          value = "secret:automated-style-303709/AUTH0_SECRET"
+          name  = "GCP_SECRET_PROJECT"
+          value = "734962646925"
         }
       }
     }
@@ -61,21 +56,4 @@ resource "google_cloud_run_service" "default" {
     percent         = 100
     latest_revision = true
   }
-}
-
-data "google_iam_policy" "noauth" {
-  binding {
-    role = "roles/run.invoker"
-    members = [
-      "allUsers",
-    ]
-  }
-}
-
-resource "google_cloud_run_service_iam_policy" "noauth" {
-  location = google_cloud_run_service.default.location
-  project  = google_cloud_run_service.default.project
-  service  = google_cloud_run_service.default.name
-
-  policy_data = data.google_iam_policy.noauth.policy_data
 }

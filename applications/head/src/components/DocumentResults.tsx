@@ -1,9 +1,11 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
 import { groupBy } from "lodash";
+import {
+  PIMDocumentData,
+  PIMLinkDocumentData
+} from "../components/types/PIMDocumentBase";
 import { Data as DocumentData } from "./Document";
-import { Data as PIMDocumentData } from "./PIMDocument";
-import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
 import DocumentCardsResults from "./DocumentCardsResults";
@@ -41,10 +43,6 @@ const DocumentResults = ({ data, format, page }: Props) => {
       return true;
     }
   );
-
-  if (!ResultsComponent) {
-    return null;
-  }
 
   return (
     <>

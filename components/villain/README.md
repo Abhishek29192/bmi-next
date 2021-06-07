@@ -7,6 +7,7 @@ There are 2 varieties of the Villain - Full Width and Grid Width. Each of these 
 ### Contained
 
 ```jsx
+import Button from "@bmi/button";
 import Section from "@bmi/section";
 import YoutubeVideo from "@bmi/youtube-video";
 import greyTiles from "./images/grey-tiles.png";
@@ -17,7 +18,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
   <Villain
     title="H4 Heading"
     media={<img src={greyTiles} alt="Lorem ipsum" />}
-    cta={{ label: "Call to action" }}
+    cta={<Button>Call to action</Button>}
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
     blandit, finibus augue et, ultricies felis.
@@ -25,7 +26,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
   <Villain
     title="H4 Heading"
     media={<img src={greyRoofHouseImage} alt="Lorem ipsum" />}
-    cta={{ label: "Call to action" }}
+    cta={<Button>Call to action</Button>}
     isReversed
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
@@ -37,7 +38,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
     media={
       <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
     }
-    cta={{ label: "Call to action" }}
+    cta={<Button>Call to action</Button>}
     isReversed
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
@@ -57,7 +58,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
 <Villain
   title="H2 Heading"
   media={<img src={greyRoofHouseImage} alt="Lorem ipsum" />}
-  cta={{ label: "Call to action" }}
+  cta={<Button>Call to action</Button>}
   isFullWidth
 >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit,
@@ -78,7 +79,7 @@ import YoutubeVideo from "@bmi/youtube-video";
   media={
     <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
   }
-  cta={{ label: "Call to action" }}
+  cta={<Button>Call to action</Button>}
   isFullWidth
 >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit,
@@ -97,7 +98,7 @@ import greyRoofHouseImage from "./images/grey-roof-house.png";
 <Villain
   title="H2 Heading"
   media={<img src={greyRoofHouseImage} alt="Lorem ipsum" />}
-  cta={{ label: "Call to action" }}
+  cta={<Button>Call to action</Button>}
   isFullWidth
   isReversed
 >
@@ -140,7 +141,7 @@ import greyTiles from "./images/grey-tiles.png";
   <Villain
     title="H4 Heading"
     imageSource={greyTiles}
-    cta={{ label: "Call to action" }}
+    cta={<Button>Call to action</Button>}
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl
     blandit, finibus augue et, ultricies felis.

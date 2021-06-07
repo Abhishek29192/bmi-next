@@ -1,0 +1,34 @@
+swagger: "2.0"
+info:
+  title: APIGateway
+  description: Gateway for the Intouch project
+  version: 1.0.0
+host: tf-gateway-rfwslk3zjq-nw.a.run.app
+schemes:
+  - https
+produces:
+  - application/json
+x-google-backend:
+  address: https://tf-gateway-rfwslk3zjq-nw.a.run.app/graphql
+  protocol: h2
+paths:
+  /graphql:
+    post:
+      summary: Generate a GraphQL request to the GraphQL Gateway
+      operationId: graphql
+      responses:
+        "200":
+          description: A successful response
+          schema:
+            type: object
+      security:
+        - auth0_jwk: []
+
+securityDefinitions:
+  auth0_jwk:
+    authorizationUrl: ""
+    flow: "implicit"
+    type: "oauth2"
+    x-google-issuer: "https://intouch-dev.eu.auth0.com/"
+    x-google-jwks_uri: "https://intouch-dev.eu.auth0.com/.well-known/jwks.json"
+    x-google-audiences: "https://dev-api.intouch.dev"

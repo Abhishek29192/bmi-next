@@ -8,20 +8,74 @@ export default gql`
     email: String
   }
 
-  type ContentfulTerms {
-    fileName: String
-    url: String
-  }
-  type ContentfulMaintenanceTemplate {
+  # TODO refactor Contentful schema out of here
+  # Ideal: download directly from Contentful & use their types
+  type ContentfulAsset {
+    title: String
+    description: String
+    contentType: String
     fileName: String
     url: String
   }
 
-  type ContentfulLogo {
-    title: String
-    url: String
+  enum ContentfulMessageEventType {
+    MEMBER_INVITED
+    NEWUSER_INVITED
+    PROFILE_REMINDER
+    ADMIN_INVITED
+    ROLE_ASSIGNED
+    OWNER_INVITED
+    REGISTRATION_CONGRATS
+    REGISTRATION_ACTIVATED
+    TEAM_JOINED
+    CERTIFICATION_EXPIRED
+    TIER_ASSIGNED
+    REQUEST_REJECTED
+    REQUEST_APPROVED
   }
-  type GuaranteeTemplateItems {
+
+  enum ContentfulMessageFormat {
+    EMAIL
+    NOTIFICATION
+  }
+
+  type ContentfulMessage {
+    event: ContentfulMessageEventType
+    format: ContentfulMessageFormat
+    subject: String
+    notificationBody: String
+    emailBody: String
+  }
+
+  enum ContentfulTechnologyType {
+    FLAT
+    PITCHED
+    OTHER
+  }
+  enum ContentfulGuaranteeCoverageType {
+    PRODUCT
+    SYSTEM
+    SOLUTION
+  }
+  enum ContentfulTiers {
+    T1
+    T2
+    T3
+    T4
+  }
+
+  type ContentfulEvidenceCategory {
+    name: String
+    description: String
+    minimumUploads: Int
+  }
+
+  type ContentfulGuaranteeTemplate {
+    approvalMessage: ContentfulMessage
+    rejectionMessage: ContentfulMessage
+    terms: ContentfulAsset
+    maintenanceTemplate: ContentfulAsset
+    logo: ContentfulAsset
     guaranteeScope: String
     signatory: String
     headingGuarantee: String
@@ -40,25 +94,29 @@ export default gql`
     headingValidity: String
     headingExpiry: String
     footer: String
-    terms: ContentfulTerms
-    maintenanceTemplate: ContentfulMaintenanceTemplate
-    logo: ContentfulLogo
+    mailBody: String
+    filenamePrefix: String
+    lockupLine1: String
+    lockupLine2: String
+    roofType: String
   }
-  type GuaranteeTemplatesCollection {
-    items: [GuaranteeTemplateItems]
+  type ContentfulGuaranteeTemplatesCollection {
+    items: [ContentfulGuaranteeTemplate]
   }
-  type ContentfulSignature {
-    fileName: String
-    url: String
-  }
+
   type ContentfulGuaranteeType {
-    name: String
     displayName: String
-    technology: String
-    coverage: String
-    signature: ContentfulSignature
-    guaranteeTemplatesCollection: GuaranteeTemplatesCollection
+    technology: ContentfulTechnologyType
+    coverage: ContentfulGuaranteeCoverageType
+    name: String
+    signature: ContentfulAsset
+    maximumValidityYears: Int
+    tiersAvailable: ContentfulTiers
+    ranking: Int
+    evidenceCategories: ContentfulEvidenceCategory
+    guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
   }
+
   type PublishOutput {
     messageId: String
   }

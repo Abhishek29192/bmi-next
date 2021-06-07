@@ -1,6 +1,7 @@
 import React from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useMutation, gql } from "@apollo/client";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import TextField from "@bmi/text-field";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
@@ -8,8 +9,8 @@ import GridStyles from "../styles/Grid.module.scss";
 import { initializeApollo } from "../lib/apolloClient";
 import { getAuth0Instance } from "../lib/auth0";
 
-const UPDATE_COMPANY = gql`
-  mutation updateCompany($input: UpdateCompanyInput!) {
+const CREATE_COMPANY = gql`
+  mutation createCompany($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
       company {
         name
@@ -28,11 +29,11 @@ const Company = ({ currentCompany }: any) => {
   // The company is created when we create the user in the db
   // through an sql procedure (create_account) here we just
   // need to update it with the new values
-  const [createCompany] = useMutation(UPDATE_COMPANY, {
+  const [createCompany] = useMutation(CREATE_COMPANY, {
     onCompleted: () => {
-      // Redirect to silent-auth in order to re-create the session as we need to remove
+      // Redirect to silent-login in order to re-create the session as we need to remove
       // the claim from the jwt token to stop showing the registration page to the user
-      window.location.assign("/api/silent-auth?returnTo=/");
+      window.location.assign("/api/silent-login?returnTo=/");
     }
   });
 
@@ -100,4 +101,4 @@ export const getServerSideProps = async (ctx) => {
   })(ctx);
 };
 
-export default Company;
+export default withPageAuthRequired(Company);

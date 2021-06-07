@@ -7,6 +7,8 @@ coverage-ts/**
 .yarn/**
 .yarn_cache
 
+**/generated/**
+
 # ESLint config files are JS source files nonetheless
 !**/.eslintrc.js
 
@@ -14,3 +16,7 @@ coverage-ts/**
 libraries/visualiser-library/**/TileSlice/**
 libraries/visualiser-library/**/ThreeJs/**
 libraries/visualiser-library/**/ThreeJsUtils/**
+
+# Ignore auto-generated migrations from Contentful
+libraries/migrate/projects/**/migrations
+libraries/migrate/projects/**/mocks

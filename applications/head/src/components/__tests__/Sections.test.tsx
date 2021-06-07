@@ -131,7 +131,8 @@ describe("Sections component", () => {
             path: "contact-us"
           },
           type: null,
-          parameters: null
+          parameters: null,
+          dialogContent: null
         },
         cards: [
           {
@@ -154,7 +155,8 @@ describe("Sections component", () => {
                 path: "contact-us"
               },
               type: null,
-              parameters: null
+              parameters: null,
+              dialogContent: null
             },
             id: "00000000-0000-0000-0000-000000000000"
           }
@@ -337,6 +339,24 @@ describe("Sections component", () => {
           videoRatio: { width: 16, height: 9 },
           className: null
         }
+      },
+      {
+        __typename: "ContentfulNavigation",
+        label: "Explore",
+        links: [
+          {
+            __typename: "ContentfulLink",
+            id: "string",
+            label: "string",
+            icon: null,
+            isLabelHidden: false,
+            url: "link-to-page",
+            linkedPage: null,
+            type: "Internal",
+            parameters: null,
+            dialogContent: null
+          }
+        ]
       }
     ];
 

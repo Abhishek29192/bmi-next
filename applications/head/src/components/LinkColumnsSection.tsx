@@ -8,7 +8,11 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import Section from "@bmi/section";
 import { ClickableAction } from "components/clickable/src";
 import { SiteContext } from "./Site";
-import { getClickableActionFromUrl, NavigationData, LinkData } from "./Link";
+import {
+  getClickableActionFromUrl,
+  NavigationData,
+  Data as LinkData
+} from "./Link";
 
 export type Data = {
   __typename: "ContentfulLinkColumnsSection";

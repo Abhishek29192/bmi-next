@@ -6,6 +6,7 @@ import NumericInput from "@bmi/up-down-simple-numeric-input";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { guttering, hooks } from "./samples/guttering";
+import { AnalyticsContext } from "./helpers/analytics";
 
 type GutteringSelectionProps = {
   // TODO: Type when importing from Contentful
@@ -15,6 +16,7 @@ type GutteringSelectionProps = {
 
 const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
     return null;
@@ -29,6 +31,13 @@ const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
             value={name}
             title={name}
             imageSource={image}
+            onClick={() => {
+              pushEvent({
+                id: "rc-select-guttering",
+                label: name,
+                action: "selected"
+              });
+            }}
           />
         ))}
       </CardRadioGroup>
@@ -47,6 +56,7 @@ const GutteringVariantSelection = ({
   options
 }: GutteringVariantSelectionProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
     return null;
@@ -65,6 +75,13 @@ const GutteringVariantSelection = ({
             value={externalProductCode}
             title={name}
             imageSource={image}
+            onClick={() => {
+              pushEvent({
+                id: "rc-select-guttering",
+                label: name,
+                action: "selected"
+              });
+            }}
           >
             <CardRadioGroup.Item.Paragraph>
               Nobb: <strong>{externalProductCode}</strong>
@@ -87,6 +104,7 @@ const GutteringHookSelection = ({
   options
 }: GutteringHookSelectionProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
     return null;
@@ -101,6 +119,13 @@ const GutteringHookSelection = ({
             value={externalProductCode}
             title={name}
             imageSource={image}
+            onClick={() => {
+              pushEvent({
+                id: "rc-select-guttering",
+                label: name,
+                action: "selected"
+              });
+            }}
           >
             <CardRadioGroup.Item.Paragraph>
               Nobb: <strong>{externalProductCode}</strong>
@@ -122,13 +147,24 @@ const DownPipeSelection = ({
   downPipeConnectors
 }: DownPipeSelectionProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   return (
     <>
       <FieldContainer title={getMicroCopy(copy, "guttering.downPipe.title")}>
         <Grid container>
           <Grid item xs={12} md={3}>
-            <NumericInput name="downPipes" defaultValue={downPipes} />
+            <NumericInput
+              name="downPipes"
+              defaultValue={downPipes}
+              onChange={(value) => {
+                pushEvent({
+                  id: "rc-select-guttering",
+                  label: getMicroCopy(copy, "guttering.downPipe.title"),
+                  action: value + ""
+                });
+              }}
+            />
           </Grid>
         </Grid>
       </FieldContainer>
@@ -140,6 +176,16 @@ const DownPipeSelection = ({
             <NumericInput
               name="downPipeConnectors"
               defaultValue={downPipeConnectors}
+              onChange={(value) => {
+                pushEvent({
+                  id: "rc-select-guttering",
+                  label: getMicroCopy(
+                    copy,
+                    "guttering.downPipeConnectors.title"
+                  ),
+                  action: value + ""
+                });
+              }}
             />
           </Grid>
         </Grid>

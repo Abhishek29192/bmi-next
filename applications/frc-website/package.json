@@ -12,10 +12,10 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "scripts": {
-    "dev": "gatsby clean && gatsby develop",
-    "start": "gatsby build && gatsby serve",
+    "build": "gatsby build --prefix-paths",
     "check:ts": "tsc",
-    "build": "gatsby build --prefix-paths"
+    "dev": "gatsby clean && gatsby develop",
+    "start": "gatsby build && gatsby serve"
   },
   "dependencies": {
     "@bmi/button": "0.0.0",

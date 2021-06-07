@@ -757,7 +757,7 @@ type ContentfulServiceLocatorSection implements Node {
   title: String
 
   "The label for this section."
-  label: String!
+  label: String
 
   "The body for this section."
   body: ContentfulRichText
@@ -900,6 +900,7 @@ union ContentfulSection =
     ContentfulCardCollectionSection
   | ContentfulCarouselSection
   | ContentfulFormSection
+  | ContentfulNavigation
   | ContentfulTabsOrAccordionSection
   | ContentfulSyndicateSection
   | ContentfulTitleWithContent
@@ -1148,6 +1149,9 @@ type ContentfulLink implements Node {
 
   "The query parameters for internal linked pages."
   queryParams: String
+
+  "The content of the dialog opened by a link."
+  dialogContent: ContentfulSection @link(from: "dialogContent___NODE")
 }
 
 """

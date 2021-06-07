@@ -1,12 +1,11 @@
-image: node:12
-
 build_gcp-download-zip:
   stage: build
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
       changes:
         - functions/gcp-download-zip/**/*
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -22,7 +21,8 @@ test_gcp-download-zip:
       changes:
         - functions/gcp-download-zip/**/*
         - jest/**/*
-  needs: [install]
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -34,13 +34,30 @@ test_gcp-download-zip:
       junit:
         - functions/gcp-download-zip/junit.xml
 
+test_mr_coverage_gcp-download-zip:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - functions/gcp-download-zip/**/*
+        - jest/**/*
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - git fetch origin master
+    - yarn workspace @bmi/gcp-download-zip coverage:jest --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+
 package_gcp-download-zip:
   stage: package
   rules:
     - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
       changes:
         - functions/gcp-download-zip/**/*
-  needs: [build_gcp-download-zip]
+  needs:
+    - build_gcp-download-zip
   dependencies:
     - build_gcp-download-zip
   before_script:
@@ -62,7 +79,8 @@ deploy_gcp-download-zip:
       changes:
         - functions/gcp-download-zip/**/*
       allow_failure: true
-  needs: [package_gcp-download-zip]
+  needs:
+    - package_gcp-download-zip
   dependencies:
     - package_gcp-download-zip
   before_script:

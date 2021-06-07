@@ -125,7 +125,7 @@ export const compileElasticSearchQuery = (
     size: pageSize,
     from: page * pageSize,
     // NOTE: scoringWeightInt is a number (long) in the index, no ".keyword" field
-    sort: [{ scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
+    sort: ["_score", { scoringWeightInt: "desc" }, { "name.keyword": "asc" }],
     aggs: {
       categories: {
         terms: {
@@ -171,21 +171,25 @@ export const compileElasticSearchQuery = (
             ? {
                 multi_match: {
                   query: searchQuery,
+                  // when caret boosting multi_match queries, "cross_fields" seems to work the best for us currently
+                  // https://bmigroup.atlassian.net/wiki/spaces/DXB/pages/2512847139/Tuning+Search+Relevance
+                  type: "cross_fields",
                   fields: [
                     "externalProductCode",
-                    "name",
+                    "name^5", // boosted - (see confluence documentation, linked above)
                     "summary",
                     "description",
                     "longDescription",
                     "shortDescription",
                     // known classification values
                     // TODO: a way of doing this generically?
-                    "colourfamilyValue.keyword",
+                    "colourfamilyValue.keyword", // this doesn't have any effect when caret boosting
                     "materialsValue.keyword",
                     "texturefamilyValue.keyword",
                     "measurementValue.keyword",
                     "categories.value.keyword",
-                    "plpCategories.value.keyword"
+                    "plpCategories.value.keyword",
+                    "classifications.features.featureValues.value^6" // boosted - (see confluence documentation, linked above)
                   ]
                 }
               }

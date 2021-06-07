@@ -1,52 +1,17 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Hero, { HeroItem } from "@bmi/hero";
 import Button from "@bmi/button";
 import AlertBanner from "@bmi/alert-banner";
 import { useTranslation } from "next-i18next";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
-import type { EnrollmentItems } from "@bmi/intouch-api-types";
+import type { Course } from "@bmi/intouch-api-types";
 import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
 import { getServerPageTraining } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
-
-// export doesn't matter for codegen
-export const pageQuery = gql`
-  query training {
-    training {
-      name
-      url
-      user {
-        id
-        email
-        user_level
-        username
-        firstname
-        lastname
-        enrollment {
-          count
-          has_more_data
-          current_page
-          current_page_size
-          total_page_count
-          total_count
-          items {
-            id
-            name
-            description
-            status
-            image_url
-            url
-            type
-            level
-          }
-        }
-      }
-    }
-  }
-`;
 
 type PageProps = {
   trainingData: {
@@ -61,29 +26,38 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
 
-  if (error) return <div>Oops... {error.message}</div>;
+  if (error)
+    return (
+      <Layout title={t("Training")}>
+        <div>Oops... {error.message}</div>
+      </Layout>
+    );
 
-  const {
-    training: {
-      url,
-      user: { enrollment }
-    }
-  } = data;
+  const { courses, trainingContentCollection } = data;
+
+  // there will only ever be 1 training collection item
+  const { lmsCtaLabel } = trainingContentCollection.items[0];
 
   const PLACEHOLDER_IMAGE = "https://source.unsplash.com/DJ7bWa-Gwks/600x900";
-  const heroes: HeroItem[] = enrollment.items.map((item) => ({
-    title: item.name || "",
-    children: trainingChildren(item),
-    imageSource: item.image_url || PLACEHOLDER_IMAGE,
-    cta: {
-      label: t("My courses"),
-      action: {
-        model: "htmlLink",
-        href: url,
-        target: "_blank",
-        rel: "noopener noreferrer"
-      }
-    }
+
+  // TODO Hero is not the right item to display the courses - should be a list
+  const heroes: HeroItem[] = courses.nodes.map((course: Course) => ({
+    title: course.name || "",
+    children: <CourseItem {...course} />,
+    imageSource: course.image || PLACEHOLDER_IMAGE,
+    cta: (
+      <Button
+        label={lmsCtaLabel}
+        action={{
+          model: "htmlLink",
+          href: "", // TODO: what url is this?
+          target: "_blank",
+          rel: "noopener noreferrer"
+        }}
+      >
+        {lmsCtaLabel}
+      </Button>
+    )
   }));
 
   return (
@@ -93,19 +67,33 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   );
 };
 
-const trainingChildren = ({
+const DEFAULT_ENROLLMENT_STATUS = "__TODO__";
+
+const CourseItem = ({
+  id,
   description,
-  type,
-  status,
-  url
-}: EnrollmentItems) => {
+  trainingType,
+  courseEnrollments
+}: Course) => {
+  const enrollment = useMemo(
+    () =>
+      courseEnrollments.nodes.find(
+        // hopefully we shouldn't also need to check for user id
+        // as the API should return only the trainings for the user
+        (e) => e.courseId === id
+      ),
+    [id, courseEnrollments]
+  );
+  const status = enrollment ? enrollment.status : DEFAULT_ENROLLMENT_STATUS;
+  const url = enrollment ? enrollment.url : "";
+
   const { t } = useTranslation("training-page");
   return (
     <div>
       <p>{description}</p>
       <AlertBanner severity="warning">
         <AlertBanner.Title>Info</AlertBanner.Title>
-        Type/Status : {type} / {status}
+        Type/Status : {trainingType} / {status}
         <Button
           style={{ marginTop: "50px", marginLeft: "50px" }}
           action={{
@@ -122,11 +110,49 @@ const trainingChildren = ({
   );
 };
 
+// export doesn't matter for codegen
+export const pageQuery = gql`
+  query training {
+    trainingContentCollection {
+      items {
+        lmsCtaLabel
+      }
+    }
+    courses {
+      nodes {
+        id
+        name
+        technology
+        image
+        promoted
+        trainingType
+        description
+
+        courseEnrollments {
+          nodes {
+            id
+            status
+            url
+            courseId
+          }
+        }
+      }
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
+      totalCount
+    }
+  }
+`;
+
 export const getServerSideProps = async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
     async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, ctx);
+      const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
       let trainingData = {};
 
@@ -157,4 +183,4 @@ export const getServerSideProps = async (ctx) => {
   })(ctx);
 };
 
-export default TrainingPage;
+export default withPageAuthRequired(TrainingPage);

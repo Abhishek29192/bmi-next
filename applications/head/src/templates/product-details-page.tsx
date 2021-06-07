@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { uniqBy, flatten, map } from "lodash";
+import { uniqBy, sortBy, mergeWith } from "lodash";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
 import Grid, { GridSize } from "@bmi/grid";
@@ -16,112 +16,19 @@ import {
   getProductAttributes,
   mapGalleryImages,
   mapProductClassifications,
-  getProductTechnicalSpecifications
+  getValidClassification,
+  getMergedClassifications
 } from "../utils/product-details-transforms";
 import RelatedProducts from "../components/RelatedProducts";
 import { getCTA } from "../components/Link";
 import ExploreBar from "../components/ExploreBar";
-import { Data as PIMDocumentData } from "../components/PIMDocument";
-import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
-import Breadcrumbs, {
-  Data as BreadcrumbsData
-} from "../components/Breadcrumbs";
+import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
+import { Product } from "../components/types/ProductBaseTypes";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
-};
-
-type Image = {
-  realFileName: string;
-  assetType: string;
-  mime: string;
-  url: string;
-  allowedToDownload: boolean;
-  containerId: string;
-  fileSize: number;
-  name: string;
-};
-
-type Asset = {
-  realFileName: string;
-  assetType: string;
-  url: string;
-  name: string;
-  format?: string;
-};
-
-export type ClassificationFeatureValue = {
-  value: string;
-  code: string | null; // This doesn't exist on some Features... perhaps we can be more specific with the types
-};
-
-type ClassificationFeatureUnit = {
-  name: string;
-  symbol: string;
-  unitType: string;
-};
-
-type ClassificationFeature = {
-  name: string;
-  code: string;
-  featureValues: ClassificationFeatureValue[];
-  featureUnit?: ClassificationFeatureUnit;
-};
-
-export type Classification = {
-  name: string;
-  code: string;
-  features: ClassificationFeature[];
-};
-
-export type VariantOption = {
-  code: string;
-  externalProductCode: string | null;
-  isSampleOrderAllowed: boolean;
-  images: ReadonlyArray<Image>;
-  classifications?: ReadonlyArray<Classification>;
-  approvalStatus: string;
-  shortDescription: string;
-  longDescription: string;
-  breadcrumbs: BreadcrumbsData;
-  path: string;
-};
-
-export type Category = {
-  name: string;
-  categoryType: string; // ENUM?
-  code: string;
-  parentCategoryCode: string;
-};
-
-type ProductImage = {
-  allowedToDownload: boolean;
-  assetType: string;
-  fileSize: number;
-  name: string;
-  url: string;
-  containerId: string;
-  mime: string;
-  realFileName: string;
-  format?: string;
-};
-
-// TODO: perhaps should be stored somewhere else to export
-export type Product = {
-  code: string;
-  externalProductCode: string | null;
-  name: string;
-  description: string;
-  images?: ReadonlyArray<ProductImage>;
-  assets?: ReadonlyArray<Asset>;
-  productBenefits?: ReadonlyArray<string>;
-  categories?: ReadonlyArray<Category>;
-  classifications?: ReadonlyArray<Classification>;
-  variantOptions?: ReadonlyArray<VariantOption>;
-  documents: (PIMDocumentData | PIMLinkDocumentData)[];
-  breadcrumbs: null;
 };
 
 type Props = {
@@ -177,22 +84,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pageContext.pimClassificationCatalogueNamespace
   );
 
-  const uniqueClassifications = uniqBy(
-    flatten(
-      map(
-        [
-          ...(selfProduct.classifications || []),
-          ...(product.classifications || [])
-        ],
-        "features"
-      )
-    ),
-    "code"
-  );
-
-  const technicalSpecifications = getProductTechnicalSpecifications(
+  const validClassifications = getMergedClassifications(
     pageContext.pimClassificationCatalogueNamespace,
-    uniqueClassifications
+    selfProduct,
+    product
   );
 
   const { resources, countryCode } = contentfulSite;
@@ -209,6 +104,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
       pageData={pageData}
       siteData={contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={selfProduct?.images?.[0].url}
     >
       {breadcrumbs && (
         <Section backgroundColor="pearl" isSlim>
@@ -259,7 +155,6 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
         <ProductLeadBlock
           description={product.description}
           keyFeatures={product.productBenefits}
-          technicalSpecifications={technicalSpecifications}
           sidebarItems={resources?.pdpSidebarItems}
           guaranteesAndWarranties={product.assets?.filter(
             (asset) =>
@@ -271,6 +166,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
               asset.assetType === "AWARDS" || asset.assetType === "CERTIFICATES"
           )}
           documents={product.documents}
+          validClassifications={validClassifications}
+          classificationNamespace={
+            pageContext.pimClassificationCatalogueNamespace
+          }
         />
       </Section>
       <RelatedProducts

@@ -43,7 +43,7 @@
   }
 
   .term {
-    display: flex;
+    display: contents;
   }
 
   .description {
@@ -55,6 +55,7 @@
   }
 
   .label {
+    flex-shrink: 0;
     display: inline-block;
     margin-right: 12px;
 

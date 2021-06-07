@@ -55,3 +55,10 @@ gl-code-quality-report.json
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+tsconfig.tsbuildinfo
+
+# Created by contentful-graph
+**/content-types-with-relationships.json
+**/content-types.json
+**/graph.svg

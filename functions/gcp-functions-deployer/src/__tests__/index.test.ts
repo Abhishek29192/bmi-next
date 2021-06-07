@@ -52,14 +52,23 @@ jest.mock("@google-cloud/storage/build/src/storage", () => {
   return { Storage: mStorage };
 });
 
-const function1Metadata = JSON.parse(
+const function2Metadata = JSON.parse(
   fs.readFileSync(
-    `${resourcesBasePath}/market1_function1_metadata.json`,
+    `${resourcesBasePath}/market1_function2_metadata.json`,
     "utf8"
   )
 );
-const filterFunctionMetadata = jest.fn().mockResolvedValue(function1Metadata);
-jest.mock("../filter", () => ({
+const function3Metadata = JSON.parse(
+  fs.readFileSync(
+    `${resourcesBasePath}/market1_function3_metadata.json`,
+    "utf8"
+  )
+);
+
+const filterFunctionMetadata = jest
+  .fn()
+  .mockResolvedValue([function2Metadata, function3Metadata]);
+jest.doMock("../filter", () => ({
   filterFunctionMetadata: filterFunctionMetadata
 }));
 
@@ -121,7 +130,16 @@ describe("When function is called with a valid file", () => {
       `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       {
         method: "POST",
-        body: JSON.stringify(function1Metadata),
+        body: JSON.stringify(function2Metadata),
+        headers: { "Content-Type": "application/json" }
+      }
+    );
+
+    expect(fetchMock).toBeCalledWith(
+      `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      {
+        method: "POST",
+        body: JSON.stringify(function3Metadata),
         headers: { "Content-Type": "application/json" }
       }
     );

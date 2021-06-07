@@ -6,7 +6,7 @@ import EqualHeights from "@bmi/equal-heights";
 import Button from "@bmi/button";
 import { iconMap } from "./Icon";
 import { SiteContext } from "./Site";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { Data as ImageData } from "./Image";
 
 export type Data = {

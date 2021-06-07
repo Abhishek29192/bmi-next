@@ -3,7 +3,6 @@ import classnames from "classnames";
 import Typography from "@bmi/typography";
 import Media, { AcceptedNode } from "@bmi/media";
 import Container from "@bmi/container";
-import Button, { ClickableAction } from "@bmi/button";
 import styles from "./SpotlightHero.module.scss";
 
 type Props = {
@@ -16,10 +15,7 @@ type Props = {
   media?: React.ReactElement<AcceptedNode>;
   backgroundColor?: "cyan" | "teal" | "blue" | "charcoal";
   breadcrumbs?: React.ReactNode;
-  cta?: {
-    label: React.ReactNode;
-    action?: ClickableAction;
-  };
+  cta?: React.ReactNode;
 };
 
 const renderMedia = (media: Props["media"]) => {
@@ -68,16 +64,12 @@ const SpotlightHero = ({
         <Container>
           <div className={styles["content"]}>
             <div className={styles["text"]}>{children}</div>
-            {cta && cta.label && (
-              <Button
-                className={styles["cta"]}
-                variant="outlined"
-                hasDarkBackground
-                {...cta}
-              >
-                {cta.label}
-              </Button>
-            )}
+            {React.isValidElement(cta) &&
+              React.cloneElement(cta, {
+                className: styles["cta"],
+                variant: "outlined",
+                hasDarkBackground: true
+              })}
           </div>
         </Container>
         <div

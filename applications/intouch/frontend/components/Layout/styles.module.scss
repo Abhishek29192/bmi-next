@@ -1,6 +1,7 @@
 @import "@bmi/styles";
 
 $sidebar-width: 200px;
+$tablet-width: 1024px;
 
 .sidebar {
   width: $sidebar-width;
@@ -13,7 +14,7 @@ $sidebar-width: 200px;
   flex-shrink: 0;
   top: 0;
 
-  @media (max-width: $breakpoint-md) {
+  @media (max-width: $tablet-width) {
     width: 100%;
     height: 64px;
     display: none;
@@ -75,7 +76,7 @@ $sidebar-width: 200px;
 
 .appContent {
   max-width: calc(100vw - #{$sidebar-width});
-  @media (max-width: $breakpoint-md) {
+  @media (max-width: $tablet-width) {
     max-width: 100vw;
   }
 }

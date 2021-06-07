@@ -14,13 +14,14 @@ import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import { SiteContext } from "./Site";
-import { getClickableActionFromUrl, LinkData } from "./Link";
+import Link, { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { Data as PromoData } from "./Promo";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/CardCollectionSection.module.scss";
 import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { VisualiserContext } from "./Visualiser";
+import { TagData } from "./Tag";
 
 type Card = PageInfoData | PromoData;
 
@@ -44,8 +45,6 @@ const CardCollectionItem = ({
   label: string;
   type: Data["cardType"];
 }) => {
-  const { countryCode } = useContext(SiteContext);
-  const { open } = useContext(VisualiserContext);
   const { title, subtitle, link, featuredMedia, brandLogo, featuredVideo } =
     transformCard(card);
 
@@ -70,19 +69,10 @@ const CardCollectionItem = ({
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
       footer={
         link ? (
-          <GTMButton
+          <Link
+            component={GTMButton}
+            data={link}
             variant="outlined"
-            action={getClickableActionFromUrl(
-              link.linkedPage,
-              link.url,
-              countryCode,
-              null,
-              transformedCardLabel,
-              link?.type,
-              () => {
-                open(link?.parameters);
-              }
-            )}
             startIcon={<ArrowForwardIcon />}
             gtm={{
               id: "cta-click1",
@@ -91,7 +81,7 @@ const CardCollectionItem = ({
             }}
           >
             {transformedCardLabel}
-          </GTMButton>
+          </Link>
         ) : undefined
       }
     >
@@ -143,20 +133,34 @@ const CardCollectionSection = ({
   // TODO: Type me.
   theme: any;
 }) => {
-  const cardsByTag = useMemo(
-    () => groupBy(cards, ({ tags }) => find(tags, { type: "Group" })?.title),
-    [cards]
+  const allKeys = [].concat.apply(
+    [],
+    cards.map((x) => x.tags)
   );
-  const groupKeys = moveRestKeyLast(Object.keys(cardsByTag));
+  const allKeysGrouped = [];
+  Array.from(allKeys.values()).forEach((x: TagData) => {
+    if (x && !allKeysGrouped.find((y) => y.title == x.title))
+      allKeysGrouped.push(x);
+  });
+
+  const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const { open } = useContext(VisualiserContext);
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
+
+  const getCards = (title: string) => {
+    const cardsBySection = cards.filter((x) =>
+      x.tags?.find((tag) => tag.title == title)
+    );
+    return cardsBySection;
+  };
+
   const activeCards = uniq(
     flatten(
       Object.entries(activeGroups).map(([title, isSelected]) =>
-        isSelected ? cardsByTag[title] : []
+        isSelected ? getCards(title) : []
       )
     )
   );
@@ -264,7 +268,15 @@ const CardCollectionSection = ({
             {iteratableCards.slice(0, numberOfCardsToShow).map((card, i) => {
               const { id } = card;
               return (
-                <Grid item key={`${id}-${i}`} xs={12} md={6} xl={3}>
+                <Grid
+                  item
+                  key={`${id}-${i}`}
+                  xs={12}
+                  sm={6}
+                  md={6}
+                  lg={4}
+                  xl={3}
+                >
                   <CardCollectionItem
                     card={card}
                     label={cardLabel}
@@ -292,7 +304,7 @@ const CardCollectionSection = ({
               link?.label,
               link?.type,
               () => {
-                open(link?.parameters);
+                open && open(link?.parameters);
               }
             )}
             className={styles["link"]}

@@ -21,7 +21,7 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import withGTM from "../utils/google-tag-manager";
 // TODO: FormInputs should be updated and used here.
 import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
-import { LinkData } from "./Link";
+import { Data as LinkData } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { SiteContext } from "./Site";
 import styles from "./styles/FormSection.module.scss";
@@ -486,6 +486,7 @@ export default FormSection;
 
 export const query = graphql`
   fragment FormSectionFragment on ContentfulFormSection {
+    __typename
     title
     showTitle
     description {
@@ -505,6 +506,31 @@ export const query = graphql`
     submitText
     successRedirect {
       ...LinkFragment
+    }
+    source
+    hubSpotFormGuid
+  }
+  fragment FormSectionFragmentNonRecursive on ContentfulFormSection {
+    __typename
+    title
+    showTitle
+    description {
+      ...RichTextFragmentNonRecursive
+    }
+    recipients
+    inputs {
+      label
+      name
+      options
+      type
+      required
+      width
+      accept
+      maxSize
+    }
+    submitText
+    successRedirect {
+      ...LinkFragmentNonRecursive
     }
     source
     hubSpotFormGuid

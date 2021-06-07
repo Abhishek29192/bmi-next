@@ -45,7 +45,7 @@ grant select on project to installer;
 grant select on project_member to installer;
 grant select on company to company_admin;
 grant insert on company to company_admin;
-grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, coordinates, about_us, public_email, website, facebook,linked_in) on company to company_admin;
+grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook,linked_in) on company to company_admin;
 
 -- company_member
 grant select, delete on company_member to installer;
@@ -54,39 +54,78 @@ grant select, insert, delete on project_member to company_admin;
 grant select, insert, update, delete on project to company_admin;
 grant update (account_id) on company_member to company_admin;
 
-
 -- account
 grant select, insert, update, delete on account to installer;
 
 
 -- address
 grant select on address to installer;
-grant insert, update, delete on address to company_admin;
+grant select, insert, update, delete on address to company_admin;
 
 
 -- company_document
+grant select on company_document to installer;
 grant select, insert, delete on company_document to company_admin;
-grant select, insert, delete on company_document to company_admin;
+
+
+-- project
+grant select on project to installer;
+grant select, insert, delete on project to company_admin;
+grant update (company_id, technology, name, description, roof_area, building_owner_mail, building_owner_firstname, building_owner_lastname, building_owner_company, start_date, end_date) on project to company_admin;
+grant update on project to market_admin;
+
+-- project_member
+grant select, delete on project_member to installer;
+grant select, insert, update, delete on project_member to company_admin;
+
+-- notification
+grant select on notification to installer;
+grant update (unread) on notification to installer;
+grant select, insert, update, delete on notification to super_admin;
+
+-- invitation
+grant select on invitation to installer;
+grant select, insert on invitation to company_admin;
+grant select, insert, update, delete on invitation to super_admin;
+
+-- guarantee
+grant select on guarantee to installer;
+grant select on guarantee to company_admin;
+grant insert (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
+grant update (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
+grant update (requestor_account_id, expiry_date) on guarantee to market_admin;
+
+-- account_certification
+grant select on certification to installer;
+grant select, insert, update, delete on certification to company_admin;
 
 
 -- evidence_item
 grant select on evidence_item to installer;
 grant select, insert, update, delete on evidence_item to company_admin;
 
-
--- guarantee
-grant select on guarantee to installer;
-grant select on guarantee to company_admin;
-grant insert (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_id, status, start_date, expiry_date) on guarantee to company_admin;
-grant update (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_id, status, start_date, expiry_date) on guarantee to company_admin;
-
-grant update (pdf, requestor_account_id, expiry_date, issue_number) on guarantee to market_admin;
+-- product
+grant select on product to installer;
+grant select, insert, update, delete on product to market_admin;
 
 
--- account_certification
-grant select on certification to installer;
-grant select, insert, update, delete on certification to company_admin;
 
+-- note
+grant select on note to installer;
+grant select, insert on note to market_admin;
+grant select, insert, update, delete on note to super_admin;
+
+
+
+-- system
+grant select on system to installer;
+grant select, insert, update on system to market_admin;
+grant select, insert, update, delete on system to super_admin;
+
+-- system_member
+grant select on system_member to installer;
+grant select, insert, update on system_member to market_admin;
+grant select, insert, update, delete on system_member to super_admin;
 
 
 -- future tables/functions/entities
