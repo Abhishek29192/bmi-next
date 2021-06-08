@@ -6,9 +6,7 @@ import {
   BufferAttribute,
   BufferGeometry,
   CanvasTexture,
-  ClampToEdgeWrapping,
   Color,
-  DirectionalLight,
   DoubleSide,
   FileLoader,
   FrontSide,
@@ -16,8 +14,6 @@ import {
   ImageBitmapLoader,
   InterleavedBuffer,
   InterleavedBufferAttribute,
-  Interpolant,
-  InterpolateDiscrete,
   InterpolateLinear,
   Line,
   LineBasicMaterial,
@@ -25,37 +21,25 @@ import {
   LineSegments,
   LinearFilter,
   LinearMipmapLinearFilter,
-  LinearMipmapNearestFilter,
-  Loader,
-  LoaderUtils,
   Material,
   MathUtils,
   Matrix4,
   Mesh,
   InstancedMesh,
   MeshBasicMaterial,
-  MeshPhysicalMaterial,
   MeshStandardMaterial,
-  MirroredRepeatWrapping,
-  NearestFilter,
-  NearestMipmapLinearFilter,
-  NearestMipmapNearestFilter,
   NumberKeyframeTrack,
   Object3D,
   OrthographicCamera,
   PerspectiveCamera,
-  PointLight,
   Points,
   PointsMaterial,
-  PropertyBinding,
   QuaternionKeyframeTrack,
   RGBFormat,
   RepeatWrapping,
   Skeleton,
   SkinnedMesh,
   Sphere,
-  SpotLight,
-  TangentSpaceNormalMap,
   TextureLoader,
   TriangleFanDrawMode,
   TriangleStripDrawMode,
@@ -64,27 +48,14 @@ import {
   VectorKeyframeTrack,
   sRGBEncoding,
   LoadingManager,
-  Side,
-  Vector,
   MaterialParameters,
   Scene,
   Camera,
-  EventDispatcher,
   Texture,
   Light
 } from "three";
-import { DDSLoader } from "three/examples/jsm/loaders/DDSLoader";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader";
-import {
-  Cache,
-  GLTF,
-  GLTFImage,
-  GLTFMaterial,
-  GLTFPrimitive,
-  GLTFTarget,
-  MaterialParams
-} from "./Types";
+import { Cache } from "./Types";
 import { GLTFCubicSplineInterpolant } from "./Interpolant";
 import {
   BufferViewCache,
@@ -100,9 +71,11 @@ import {
   GLTFMaterialsPbrSpecularGlossinessExtension,
   GLTFMaterialsUnlitExtension,
   GLTFTextureDDSExtension,
-  GLTFTextureTransformExtension
+  KHRTextureTransformExtension
 } from "./Extension";
 import { WEBGL_COMPONENT_TYPES } from "./Utils";
+import { GlTF, Image, MeshPrimitive } from "./types/gltf";
+import { KHRTextureTransformTextureInfoExtension } from "./types/KHR_texture_transform.textureInfo";
 
 type Options = {
   path: string;
@@ -112,7 +85,7 @@ type Options = {
 };
 
 export class GLTFParser {
-  json: GLTF;
+  json: GlTF;
   extensions: {
     [index: string]: Extension | undefined;
   };
@@ -133,9 +106,6 @@ export class GLTFParser {
   textureLoader: ImageBitmapLoader | TextureLoader;
   fileLoader: FileLoader;
 
-  BINARY_EXTENSION_HEADER_LENGTH = 12;
-  BINARY_EXTENSION_CHUNK_TYPES = { JSON: 0x4e4f534a, BIN: 0x004e4942 };
-
   WEBGL_TYPE_SIZES = {
     SCALAR: 1,
     VEC2: 2,
@@ -155,6 +125,7 @@ export class GLTFParser {
     // loader object cache
     this.bufferViewCache = new BufferViewCache();
     this.pointsMaterialCache = new PointsMaterialCache();
+    this.lightCache = new LightCache();
 
     // associations between Three.js objects and glTF elements
     this.associations = new Map();
@@ -165,7 +136,6 @@ export class GLTFParser {
     // Object3D instance caches
     this.meshCache = { refs: {}, uses: {} };
     this.cameraCache = { refs: {}, uses: {} };
-    this.lightCache = { refs: {}, uses: {} };
 
     // Track node names, to ensure no duplicates
     this.nodeNamesUsed = {};
@@ -796,8 +766,8 @@ export class GLTFParser {
 
   loadTextureImage(
     textureIndex: number,
-    source: GLTFTextureDDSExtension | GLTFImage,
-    loader: ImageBitmapLoader | TextureLoader
+    source: GLTFTextureDDSExtension | Image,
+    loader: ImageBitmapLoader | TextureLoader | KTX2Loader
   ) {
     const parser = this;
     const json = this.json;
@@ -899,51 +869,55 @@ export class GLTFParser {
    * @return {Promise}
    */
   assignTexture(
-    materialParams: MaterialParams,
+    materialParams: MaterialParameters,
     mapName: string,
     mapDef: any
   ): Promise<void> {
     const parser = this;
 
-    return this.getTextureDependency(mapDef.index)?.then((texture) => {
-      // Materials sample aoMap from UV set 1 and other maps from UV set 0 - this can't be configured
-      // However, we will copy UV set 0 to UV set 1 on demand for aoMap
-      if (
-        mapDef.texCoord !== undefined &&
-        mapDef.texCoord != 0 &&
-        !(mapName === "aoMap" && mapDef.texCoord == 1)
-      ) {
-        console.warn(
-          "THREE.GLTFLoader: Custom UV set " +
-            mapDef.texCoord +
-            " for texture " +
-            mapName +
-            " not yet supported."
-        );
-      }
-
-      if (parser.extensions[EXTENSIONS.KHR_TEXTURE_TRANSFORM]) {
-        const transform =
-          mapDef.extensions !== undefined
-            ? mapDef.extensions[EXTENSIONS.KHR_TEXTURE_TRANSFORM]
-            : undefined;
-
-        if (transform) {
-          const gltfReference = parser.associations.get(texture);
-          texture = (
-            parser.extensions[
-              EXTENSIONS.KHR_TEXTURE_TRANSFORM
-            ] as GLTFTextureTransformExtension
-          ).extendTexture(texture, transform);
-          parser.associations.set(texture, gltfReference);
+    return (
+      this.getTextureDependency(mapDef.index)?.then((texture) => {
+        // Materials sample aoMap from UV set 1 and other maps from UV set 0 - this can't be configured
+        // However, we will copy UV set 0 to UV set 1 on demand for aoMap
+        if (
+          mapDef.texCoord !== undefined &&
+          mapDef.texCoord != 0 &&
+          !(mapName === "aoMap" && mapDef.texCoord == 1)
+        ) {
+          console.warn(
+            "THREE.GLTFLoader: Custom UV set " +
+              mapDef.texCoord +
+              " for texture " +
+              mapName +
+              " not yet supported."
+          );
         }
-      }
 
-      if (mapName in materialParams) {
-        // @ts-ignore - Checking if mapName exists first
-        materialParams[mapName] = texture;
-      }
-    });
+        if (parser.extensions[EXTENSIONS.KHR_TEXTURE_TRANSFORM]) {
+          const transform =
+            mapDef.extensions !== undefined
+              ? (mapDef.extensions[
+                  EXTENSIONS.KHR_TEXTURE_TRANSFORM
+                ] as KHRTextureTransformTextureInfoExtension)
+              : undefined;
+
+          if (transform) {
+            const gltfReference = parser.associations.get(texture);
+            texture = (
+              parser.extensions[
+                EXTENSIONS.KHR_TEXTURE_TRANSFORM
+              ] as KHRTextureTransformExtension
+            ).extendTexture(texture, transform);
+            parser.associations.set(texture, gltfReference);
+          }
+        }
+
+        if (mapName in materialParams) {
+          // @ts-ignore - Checking if mapName exists first
+          materialParams[mapName] = texture;
+        }
+      }) || Promise.resolve()
+    );
   }
 
   /**
@@ -1078,7 +1052,7 @@ export class GLTFParser {
     const materialDef = json.materials?.[materialIndex];
 
     let materialType;
-    const materialParams: MaterialParams = {};
+    const materialParams: MaterialParameters = {};
     const materialExtensions = materialDef?.extensions || {};
 
     const pending = [];
@@ -1307,12 +1281,12 @@ export class GLTFParser {
    * @param {Array<GLTF.Primitive>} primitives
    * @return {Promise<Array<BufferGeometry>>}
    */
-  loadGeometries(primitives: GLTFPrimitive[]): Promise<Array<BufferGeometry>> {
+  loadGeometries(primitives: MeshPrimitive[]): Promise<Array<BufferGeometry>> {
     const parser = this;
     const extensions = this.extensions;
     const cache = this.primitiveCache;
 
-    function createDracoPrimitive(primitive: GLTFPrimitive) {
+    function createDracoPrimitive(primitive: MeshPrimitive) {
       return extensions[EXTENSIONS.KHR_DRACO_MESH_COMPRESSION]
         .decodePrimitive(primitive, parser)
         .then((geometry) => {
@@ -2022,7 +1996,7 @@ export class GLTFParser {
    */
   addPrimitiveAttributes = (
     geometry: BufferGeometry,
-    primitiveDef: GLTFPrimitive,
+    primitiveDef: MeshPrimitive,
     parser: GLTFParser
   ): Promise<BufferGeometry> => {
     const attributes = primitiveDef.attributes;
@@ -2300,11 +2274,11 @@ export class GLTFParser {
 
   /**
    * @param {Object3D|Material|BufferGeometry} object
-   * @param {GLTF} gltfDef
+   * @param {GlTF} gltfDef
    */
   assignExtrasToUserData = (
     object: Object3D | Material | BufferGeometry | GLTFTile,
-    gltfDef: GLTF
+    gltfDef: GlTF
   ) => {
     if (gltfDef.extras !== undefined) {
       if (typeof gltfDef.extras === "object") {
@@ -2327,7 +2301,7 @@ export class GLTFParser {
    */
   addMorphTargets = (
     geometry: BufferGeometry,
-    targets: GLTFTarget[],
+    targets: MeshPrimitive["targets"],
     parser: GLTFParser
   ): Promise<BufferGeometry> => {
     let hasMorphPosition = false;
@@ -2415,7 +2389,7 @@ export class GLTFParser {
     }
   };
 
-  createPrimitiveKey = (primitiveDef: GLTFPrimitive) => {
+  createPrimitiveKey = (primitiveDef: MeshPrimitive) => {
     const dracoExtension =
       primitiveDef.extensions &&
       primitiveDef.extensions[EXTENSIONS.KHR_DRACO_MESH_COMPRESSION];

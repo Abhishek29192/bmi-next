@@ -1,91 +1,24 @@
-import { GLTFTile } from "../../../../Types";
 import {
-  AnimationClip,
-  Bone,
-  Box3,
-  BufferAttribute,
-  BufferGeometry,
-  CanvasTexture,
-  ClampToEdgeWrapping,
   Color,
   DirectionalLight,
-  DoubleSide,
-  FileLoader,
-  FrontSide,
-  Group,
-  ImageBitmapLoader,
-  InterleavedBuffer,
-  InterleavedBufferAttribute,
-  Interpolant,
-  InterpolateDiscrete,
-  InterpolateLinear,
-  Line,
-  LineBasicMaterial,
-  LineLoop,
-  LineSegments,
-  LinearFilter,
-  LinearMipmapLinearFilter,
-  LinearMipmapNearestFilter,
-  Loader,
   LoaderUtils,
-  Material,
-  MathUtils,
-  Matrix4,
-  Mesh,
-  InstancedMesh,
   MeshBasicMaterial,
   MeshPhysicalMaterial,
-  MeshStandardMaterial,
-  MirroredRepeatWrapping,
-  NearestFilter,
-  NearestMipmapLinearFilter,
-  NearestMipmapNearestFilter,
-  NumberKeyframeTrack,
-  Object3D,
-  OrthographicCamera,
-  PerspectiveCamera,
   PointLight,
-  Points,
-  PointsMaterial,
-  PropertyBinding,
-  QuaternionKeyframeTrack,
-  RGBFormat,
-  RepeatWrapping,
-  Skeleton,
-  SkinnedMesh,
-  Sphere,
   SpotLight,
   TangentSpaceNormalMap,
-  TextureLoader,
-  TriangleFanDrawMode,
-  TriangleStripDrawMode,
   Vector2,
-  Vector3,
-  VectorKeyframeTrack,
-  sRGBEncoding,
-  LoadingManager,
-  Side,
-  Vector,
-  MaterialParameters,
-  Scene,
-  Camera,
-  EventDispatcher,
-  Texture
+  Texture,
+  MeshStandardMaterialParameters,
+  MaterialParameters
 } from "three";
-import { DDSLoader } from "three/examples/jsm/loaders/DDSLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
-import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader";
-import {
-  Cache,
-  GLTF,
-  GLTFMaterial,
-  GLTFPrimitive,
-  GLTFTarget,
-  MaterialParams
-} from "./Types";
+import { Cache } from "./Types";
 import { GLTFParser } from "./Parser";
 import { GLTFMeshStandardSGMaterial } from "./Material";
 import { getThreeAttributeName, WEBGL_COMPONENT_TYPES } from "./Utils";
+import { GlTF, Material, MeshPrimitive } from "./types/gltf";
+import { KHRTextureTransformTextureInfoExtension } from "./types/KHR_texture_transform.textureInfo";
 
 export const EXTENSIONS = {
   KHR_BINARY_GLTF: "KHR_binary_glTF",
@@ -272,9 +205,9 @@ export class GLTFMaterialsUnlitExtension extends Extension {
   }
 
   extendParams(
-    materialParams: MaterialParams,
+    materialParams: MaterialParameters,
     parser: GLTFParser,
-    materialDef?: GLTFMaterial
+    materialDef?: Material
   ) {
     const pending = [];
 
@@ -334,7 +267,10 @@ export class GLTFMaterialsClearcoatExtension extends Extension {
     return MeshPhysicalMaterial;
   }
 
-  extendMaterialParams(materialIndex: number, materialParams: MaterialParams) {
+  extendMaterialParams(
+    materialIndex: number,
+    materialParams: MaterialParameters
+  ) {
     const parser = this.parser;
     const materialDef = parser.json.materials?.[materialIndex];
 
@@ -417,7 +353,10 @@ export class GLTFMaterialsTransmissionExtension extends Extension {
     return MeshPhysicalMaterial;
   }
 
-  extendMaterialParams(materialIndex: number, materialParams: MaterialParams) {
+  extendMaterialParams(
+    materialIndex: number,
+    materialParams: MaterialParameters
+  ) {
     const parser = this.parser;
     const materialDef = parser.json.materials?.[materialIndex];
 
@@ -429,6 +368,7 @@ export class GLTFMaterialsTransmissionExtension extends Extension {
 
     const extension = materialDef.extensions[this.name];
 
+    // https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_materials_transmission
     if (extension.transmissionFactor !== undefined) {
       materialParams.transmission = extension.transmissionFactor;
     }
@@ -481,9 +421,16 @@ export class GLTFTextureBasisUExtension extends Extension {
       );
     }
 
+    if (!source) {
+      throw new Error("THREE.GLTFLoader: the texture is missing");
+    }
+
     return parser.loadTextureImage(textureIndex, source, loader);
   }
 }
+
+/* BINARY EXTENSION */
+export const BINARY_EXTENSION_HEADER_MAGIC = "glTF";
 
 export class GLTFBinaryExtension extends Extension {
   content?: string;
@@ -494,10 +441,17 @@ export class GLTFBinaryExtension extends Extension {
     length: number;
   };
 
+  BINARY_EXTENSION_CHUNK_TYPES = { JSON: 0x4e4f534a, BIN: 0x004e4942 };
+  BINARY_EXTENSION_HEADER_LENGTH = 12;
+
   constructor(data: ArrayBuffer) {
     super(EXTENSIONS.KHR_BINARY_GLTF);
 
-    const headerView = new DataView(data, 0, BINARY_EXTENSION_HEADER_LENGTH);
+    const headerView = new DataView(
+      data,
+      0,
+      this.BINARY_EXTENSION_HEADER_LENGTH
+    );
 
     this.header = {
       magic: LoaderUtils.decodeText(new Uint8Array(data.slice(0, 4))),
@@ -511,7 +465,7 @@ export class GLTFBinaryExtension extends Extension {
       throw new Error("THREE.GLTFLoader: Legacy binary file detected.");
     }
 
-    const chunkView = new DataView(data, BINARY_EXTENSION_HEADER_LENGTH);
+    const chunkView = new DataView(data, this.BINARY_EXTENSION_HEADER_LENGTH);
     let chunkIndex = 0;
 
     while (chunkIndex < chunkView.byteLength) {
@@ -521,15 +475,15 @@ export class GLTFBinaryExtension extends Extension {
       const chunkType = chunkView.getUint32(chunkIndex, true);
       chunkIndex += 4;
 
-      if (chunkType === BINARY_EXTENSION_CHUNK_TYPES.JSON) {
+      if (chunkType === this.BINARY_EXTENSION_CHUNK_TYPES.JSON) {
         const contentArray = new Uint8Array(
           data,
-          BINARY_EXTENSION_HEADER_LENGTH + chunkIndex,
+          this.BINARY_EXTENSION_HEADER_LENGTH + chunkIndex,
           chunkLength
         );
         this.content = LoaderUtils.decodeText(contentArray);
-      } else if (chunkType === BINARY_EXTENSION_CHUNK_TYPES.BIN) {
-        const byteOffset = BINARY_EXTENSION_HEADER_LENGTH + chunkIndex;
+      } else if (chunkType === this.BINARY_EXTENSION_CHUNK_TYPES.BIN) {
+        const byteOffset = this.BINARY_EXTENSION_HEADER_LENGTH + chunkIndex;
         this.body = data.slice(byteOffset, byteOffset + chunkLength);
       }
 
@@ -550,9 +504,9 @@ export class GLTFBinaryExtension extends Extension {
  * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_draco_mesh_compression
  */
 export class GLTFDracoMeshCompressionExtension extends Extension {
-  json: GLTF;
+  json: GlTF;
   dracoLoader: DRACOLoader;
-  constructor(json: GLTF, dracoLoader: DRACOLoader) {
+  constructor(json: GlTF, dracoLoader: DRACOLoader) {
     super(EXTENSIONS.KHR_DRACO_MESH_COMPRESSION);
     if (!dracoLoader) {
       throw new Error("THREE.GLTFLoader: No DRACOLoader instance provided.");
@@ -563,7 +517,7 @@ export class GLTFDracoMeshCompressionExtension extends Extension {
     this.dracoLoader.preload();
   }
 
-  decodePrimitive(primitive: GLTFPrimitive, parser: GLTFParser) {
+  decodePrimitive(primitive: MeshPrimitive, parser: GLTFParser) {
     const json = this.json;
     const dracoLoader = this.dracoLoader;
     const bufferViewIndex: number | undefined =
@@ -616,8 +570,8 @@ export class GLTFDracoMeshCompressionExtension extends Extension {
     );
 
     return parser
-      .getDependency("bufferView", bufferViewIndex)
-      .then((bufferView) => {
+      .getBufferViewDependency(bufferViewIndex)
+      ?.then((bufferView) => {
         return new Promise((resolve) => {
           dracoLoader.load(
             bufferView,
@@ -644,12 +598,15 @@ export class GLTFDracoMeshCompressionExtension extends Extension {
  *
  * Specification: https://github.com/KhronosGroup/glTF/tree/master/extensions/2.0/Khronos/KHR_texture_transform
  */
-export class GLTFTextureTransformExtension extends Extension {
+export class KHRTextureTransformExtension extends Extension {
   constructor() {
     super(EXTENSIONS.KHR_TEXTURE_TRANSFORM);
   }
 
-  extendTexture(texture, transform) {
+  extendTexture(
+    texture: Texture,
+    transform: KHRTextureTransformTextureInfoExtension
+  ) {
     texture = texture.clone();
 
     if (transform.offset !== undefined) {
@@ -719,8 +676,12 @@ export class GLTFMaterialsPbrSpecularGlossinessExtension extends Extension {
     return GLTFMeshStandardSGMaterial;
   }
 
-  extendParams(materialParams, materialDef, parser) {
-    const pbrSpecularGlossiness = materialDef.extensions[this.name];
+  extendParams(
+    materialParams: MaterialParameters,
+    parser: GLTFParser,
+    materialDef?: Material
+  ) {
+    const pbrSpecularGlossiness = materialDef?.extensions?.[this.name];
 
     materialParams.color = new Color(1.0, 1.0, 1.0);
     materialParams.opacity = 1.0;
@@ -768,7 +729,7 @@ export class GLTFMaterialsPbrSpecularGlossinessExtension extends Extension {
     return Promise.all(pending);
   }
 
-  createMaterial(materialParams) {
+  createMaterial(materialParams: MeshStandardMaterialParameters) {
     const material = new GLTFMeshStandardSGMaterial(materialParams);
     material.fog = true;
 
@@ -837,5 +798,11 @@ export class GLTFMaterialsPbrSpecularGlossinessExtension extends Extension {
 export class GLTFMeshQuantizationExtension extends Extension {
   constructor() {
     super(EXTENSIONS.KHR_MESH_QUANTIZATION);
+  }
+}
+
+export class FakeExtension extends Extension {
+  constructor() {
+    super("FAKE EXTENSION");
   }
 }

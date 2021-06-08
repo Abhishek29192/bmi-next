@@ -1,7 +1,6 @@
 import { GLTFTile } from "../../../../Types";
 import {
   ClampToEdgeWrapping,
-  Color,
   FileLoader,
   InterpolateDiscrete,
   InterpolateLinear,
@@ -15,18 +14,17 @@ import {
   NearestMipmapLinearFilter,
   NearestMipmapNearestFilter,
   RepeatWrapping,
-  Vector2,
-  LoadingManager,
-  Side
+  LoadingManager
 } from "three";
 import { DDSLoader } from "three/examples/jsm/loaders/DDSLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { KTX2Loader } from "three/examples/jsm/loaders/KTX2Loader";
-import { GLTF } from "./Types";
 import { GLTFParser } from "./Parser";
 import {
+  BINARY_EXTENSION_HEADER_MAGIC,
   Extension,
   EXTENSIONS,
+  FakeExtension,
   GLTFBinaryExtension,
   GLTFDracoMeshCompressionExtension,
   GLTFLightsExtension,
@@ -37,11 +35,9 @@ import {
   GLTFMeshQuantizationExtension,
   GLTFTextureBasisUExtension,
   GLTFTextureDDSExtension,
-  GLTFTextureTransformExtension
+  KHRTextureTransformExtension
 } from "./Extension";
-
-/* BINARY EXTENSION */
-const BINARY_EXTENSION_HEADER_MAGIC = "glTF";
+import { GlTF } from "./types/gltf";
 
 class GLTFLoader extends Loader {
   dracoLoader: DRACOLoader | undefined;
@@ -206,7 +202,7 @@ class GLTFLoader extends Loader {
       return;
     }
 
-    const json: GLTF = JSON.parse(content);
+    const json: GlTF = JSON.parse(content);
 
     if (
       json.asset === undefined ||
@@ -255,13 +251,13 @@ class GLTFLoader extends Loader {
       // in addUnknownExtensionsToUserData().
       // Remove this workaround if we move all the existing
       // extension handlers to plugin system
-      extensions[plugin.name] = true;
+      extensions[plugin.name] = new FakeExtension();
     }
 
     if (json.extensionsUsed) {
       for (let i = 0; i < json.extensionsUsed.length; ++i) {
         const extensionName = json.extensionsUsed[i];
-        const extensionsRequired = json.extensionsRequired || [];
+        const extensionsRequired: string[] = json.extensionsRequired || [];
 
         switch (extensionName) {
           case EXTENSIONS.KHR_MATERIALS_UNLIT:
@@ -274,10 +270,12 @@ class GLTFLoader extends Loader {
             break;
 
           case EXTENSIONS.KHR_DRACO_MESH_COMPRESSION:
-            extensions[extensionName] = new GLTFDracoMeshCompressionExtension(
-              json,
-              this.dracoLoader
-            );
+            if (this.dracoLoader) {
+              extensions[extensionName] = new GLTFDracoMeshCompressionExtension(
+                json,
+                this.dracoLoader
+              );
+            }
             break;
 
           case EXTENSIONS.MSFT_TEXTURE_DDS:
@@ -287,7 +285,7 @@ class GLTFLoader extends Loader {
             break;
 
           case EXTENSIONS.KHR_TEXTURE_TRANSFORM:
-            extensions[extensionName] = new GLTFTextureTransformExtension();
+            extensions[extensionName] = new KHRTextureTransformExtension();
             break;
 
           case EXTENSIONS.KHR_MESH_QUANTIZATION:

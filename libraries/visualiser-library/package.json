@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "build": "yarn run clean-dist && webpack --config=configs/webpack/prod.js",
-    "clean-dist": "rimraf dist/*"
+    "clean-dist": "rimraf dist/*",
+    "generate-types": "tsc -p tsconfig-generate-types.json && node dist-generate-types/generate-types.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@types/three": "^0.128.0",
+    "json-schema-to-typescript": "^10.1.4",
     "react": "16.9",
     "react-dom": "16.9",
     "webpack-cli": "^4.7.0"

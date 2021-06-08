@@ -1,3 +1,5 @@
+import { Asset } from "./Visualiser/Functions/ThreeJsUtils/Gltf/types/glTF";
+
 declare global {
   interface Window {
     scene: THREE.Scene;
@@ -74,7 +76,7 @@ export type GLTFTile = {
   scenes: THREE.Scene[];
   animations: any[]; //dependencies[1],
   cameras: THREE.Camera[]; //dependencies[2],
-  asset: GLTFAsset;
+  asset: Asset;
   parser: any; //parser,
   userData: { gltfExtensions: { [index: string]: object } };
 };
