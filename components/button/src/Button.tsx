@@ -40,7 +40,7 @@ const Button = ({
   accessibilityLabel,
   size,
   disabled,
-  component = MuiButton,
+  component,
   ...rest
 }: ButtonProps | IconButtonProps) => {
   return isIconButton ? (
@@ -69,7 +69,7 @@ const Button = ({
       variant={variant}
       color={color}
       size={size}
-      component={component}
+      component={component || "button"}
       disabled={disabled}
       {...rest}
     >
