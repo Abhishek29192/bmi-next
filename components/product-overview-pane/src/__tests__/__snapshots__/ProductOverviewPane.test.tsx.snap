@@ -18,7 +18,9 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
     <li>
       <span
         class="term"
-      />
+      >
+        label
+      </span>
       <span
         class="definition"
       >
@@ -151,7 +153,9 @@ exports[`ProductOverviewPane component renders correctly with empty variants 1`]
     <li>
       <span
         class="term"
-      />
+      >
+        label
+      </span>
       <span
         class="definition"
       >
