@@ -271,6 +271,50 @@ export const ssrInvitations = {
   usePage: useInvitations
 };
 
+export async function getServerPageGetContentArticleContent(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetContentArticleContentQuery>({
+      ...options,
+      query: Operations.GetContentArticleContentDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetContentArticleContent = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetContentArticleContentQuery,
+    OperationTypes.GetContentArticleContentQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetContentArticleContentDocument, options);
+};
+export type PageGetContentArticleContentComp = React.FC<{
+  data?: OperationTypes.GetContentArticleContentQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetContentArticleContent = {
+  getServerPage: getServerPageGetContentArticleContent,
+
+  usePage: useGetContentArticleContent
+};
 export async function getServerPageProductsAndSystems(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.ProductsAndSystemsQueryVariables>,
