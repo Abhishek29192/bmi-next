@@ -21,9 +21,14 @@ import { Layout } from "../components/Layout";
 import { InfoPair } from "../components/InfoPair";
 import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
-
 import CompanyDetailsCard from "../components/CompanyDetailsCard";
 
+import can from "../lib/permissions/can";
+import {
+  ErrorStatusCode,
+  generatePageError,
+  withPageError
+} from "../lib/error";
 import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { GetCompanyQuery } from "../graphql/generated/operations";
@@ -244,9 +249,22 @@ export const getServerSideProps = async (ctx) => {
         pageProps.company = company;
       }
 
+      const session = await auth0.getSession(ctx.req, ctx.res);
+      let canViewPage = can(session.user, "company", "view", {
+        companyMemberIds: pageProps.company
+          ? pageProps.company.companyMembers.nodes.map(({ id }) => id)
+          : []
+      });
+
+      if (!canViewPage) {
+        const statusCode = ErrorStatusCode.UNAUTHORISED;
+        ctx.res.statusCode = statusCode;
+        return generatePageError(404);
+      }
+
       return { props: pageProps };
     }
   })(ctx);
 };
 
-export default CompanyPage;
+export default withPageError<PageProps>(CompanyPage);
