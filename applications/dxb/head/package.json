@@ -141,6 +141,7 @@
   "devDependencies": {
     "@bmi/contentful-graph": "0.0.0",
     "@types/helmet": "^0.0.48",
+    "@types/lodash": "^4.14.170",
     "babel-preset-gatsby": "^0.12.2",
     "jest-preset-gatsby": "^1.0.117"
   }

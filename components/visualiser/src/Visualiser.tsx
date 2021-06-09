@@ -31,7 +31,7 @@ import {
   HouseViewer,
   GetRef as getRef
 } from "@bmi/visualiser-library";
-import { Dictionary, groupBy } from "lodash";
+import { groupBy } from "lodash";
 import styles from "./Visualiser.module.scss";
 import { Colour, Material, Siding, Tile } from "./Types";
 
@@ -238,9 +238,7 @@ const TileSectorDialog = ({
     [tiles]
   );
 
-  const productPropsGroupedByMaterial: Dictionary<
-    (Omit<Tile, "colours"> & { colour: Colour })[]
-  > = groupBy(productProps, "material");
+  const productPropsGroupedByMaterial = groupBy(productProps, "material");
 
   const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
 
