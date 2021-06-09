@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "@bmi/button";
 import { graphql } from "gatsby";
-import { VisualiserContext } from "./Visualiser";
 import Link, { Data as LinkData } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
 
@@ -16,12 +15,6 @@ const EmbeddedLink = ({
   theme = "primary",
   backgroundTheme = "light"
 }: Props) => {
-  const { open } = useContext(VisualiserContext);
-
-  const handleOnClick = () => {
-    open && open(fields.parameters);
-  };
-
   return (
     <Link
       component={Button}
@@ -29,7 +22,6 @@ const EmbeddedLink = ({
       hasDarkBackground={backgroundTheme === "dark"}
       data={fields}
       className={styles["EmbeddedLink"]}
-      onClick={handleOnClick}
     >
       {fields.label}
     </Link>

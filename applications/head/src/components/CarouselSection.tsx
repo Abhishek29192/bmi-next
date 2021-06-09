@@ -20,6 +20,7 @@ import { VisualiserContext } from "./Visualiser";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import styles from "./styles/CarouselSection.module.scss";
+import { CalculatorContext } from "./PitchedRoofCalcualtor";
 
 type Slide = PromoData | PageInfoData;
 
@@ -67,7 +68,8 @@ const CarouselSection = ({
   data: Data;
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
-  const { open } = useContext(VisualiserContext);
+  const { open: openVisualiser } = useContext(VisualiserContext);
+  const { open: openCalculator } = useContext(CalculatorContext);
 
   return (
     <Section
@@ -112,7 +114,11 @@ const CarouselSection = ({
             link.label,
             link?.type,
             () => {
-              open && open(link?.parameters);
+              if (link?.type === "Visualiser" && openVisualiser) {
+                openVisualiser(link?.parameters);
+              } else if (link?.type === "Calculator" && openCalculator) {
+                openCalculator(link?.parameters);
+              }
             }
           )}
           className={styles["link"]}
