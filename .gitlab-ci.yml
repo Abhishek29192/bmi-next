@@ -81,11 +81,6 @@ secret_detection:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   cache: {}
 
-# Used for the default branch, but with our more complex rules, we don't want to run this (as schedules will pick this up)
-secret_detection_default_branch:
-  rules:
-    - when: never
-
 install:
   stage: install
   rules:
