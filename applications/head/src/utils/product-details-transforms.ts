@@ -786,6 +786,7 @@ export const getMergedClassifications = (
       pimClassificationCatalogueNamespace,
       uniqBy(
         mergeWith(
+          [],
           selfProduct.classifications || [],
           product.classifications || []
         ),

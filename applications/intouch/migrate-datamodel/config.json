@@ -1,0 +1,16 @@
+{
+  "company": {
+    "host": "localhost",
+    "user": "postgres",
+    "database": "companies-db",
+    "password": "postgres",
+    "port": 5432
+  },
+  "training": {
+    "host": "localhost",
+    "user": "postgres",
+    "database": "training-db",
+    "password": "postgres",
+    "port": 5433
+  }
+}
