@@ -1,0 +1,12 @@
+build_visualiser-library:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - libraries/visualiser-library
+        - package.json
+        - "**/package.json"
+  needs:
+    - install
+  script:
+    - yarn workspace @bmi/visualiser-library build

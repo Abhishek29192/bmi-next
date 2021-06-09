@@ -28,6 +28,7 @@ include:
   - local: "/applications/intouch/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
+  - local: "/libraries/visualiser-library/.gitlab-ci.yml"
   - remote: "https://gitlab.com/dependabot-gitlab/dependabot-standalone/-/raw/master/.gitlab-ci.yml"
 
 default:
