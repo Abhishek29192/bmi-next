@@ -12,11 +12,9 @@
     "sass"
   ],
   "scripts": {
-    "build": "yarn run clean-dist && webpack --config=configs/webpack/prod.js",
-    "clean-dist": "rimraf dist/*",
+    "build": "tsc",
     "generate-types": "tsc -p tsconfig-generate-types.json && node dist-generate-types/generate-types.js"
   },
-  "author": "",
   "license": "ISC",
   "publishConfig": {
     "access": "restricted"

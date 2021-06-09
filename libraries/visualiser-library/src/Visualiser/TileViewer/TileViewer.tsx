@@ -1,10 +1,11 @@
 import React from "react";
 import * as THREE from "three";
-import { OrbitControls } from "../Functions/ThreeJsUtils/OrbitCamera/OrbitCamera";
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import modelCache from "../Functions/ModelCache/ModelCache";
 import getRef from "../Functions/GetRef/GetRef";
 import textureCache from "../Functions/TextureCache/TextureCache";
-import { Colour, Siding, GLTFTile, Tile } from "../../Types";
+import { Colour, Siding, Tile } from "../../Types";
 
 interface Props {
   tile: Tile;
@@ -19,7 +20,7 @@ interface State {
 }
 
 export default class TileViewer extends React.Component<Props, State> {
-  tile?: GLTFTile;
+  tile?: GLTF;
   controls?: OrbitControls;
   renderer?: THREE.WebGLRenderer;
   diffuseImage?: THREE.Texture;
@@ -112,7 +113,7 @@ export default class TileViewer extends React.Component<Props, State> {
         this.tileMaterial.needsUpdate = true;
       }
 
-      let gltf: GLTFTile | undefined;
+      let gltf: GLTF | undefined;
       // Load it:
       if (typeof modelUrl === "string") {
         gltf = await modelCache(modelUrl);

@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import * as THREE from "three";
-import { OrbitControls } from "../Functions/ThreeJsUtils/OrbitCamera/OrbitCamera";
-import tileSlice from "../Functions/TileSlice/TileSlice.js";
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import tileSlice from "../Functions/TileSlice/TileSlice";
 import modelCache from "../Functions/ModelCache/ModelCache";
 import textureCache from "../Functions/TextureCache/TextureCache";
 import getRef from "../Functions/GetRef/GetRef";
 import roofSegmentGenerator from "../Functions/RoofSegmentGenerator/RoofSegmentGenerator";
-import { Colour, GLTFTile, Siding, Tile } from "../../Types";
+import { Colour, Siding, Tile } from "../../Types";
 
 interface Props {
   tile: Tile;
@@ -147,7 +148,7 @@ export default class HouseViewer extends React.Component<Props, State> {
         ridgePromise,
         ridgeEndPromise
       ]);
-      const results = promiseResults.filter(Boolean) as GLTFTile[];
+      const results = promiseResults.filter(Boolean) as GLTF[];
       // Find the meshes:
       const tileMesh = this.findMesh(results[0]);
       if (!tileMesh) {
@@ -185,7 +186,7 @@ export default class HouseViewer extends React.Component<Props, State> {
   /*
    * Finds the first threejs Mesh node in the given gltf
    */
-  findMesh(gltf: GLTFTile): THREE.Mesh | undefined {
+  findMesh(gltf: GLTF): THREE.Mesh | undefined {
     let result: THREE.Mesh | undefined;
 
     gltf.scene.traverse((node) => {
@@ -706,7 +707,7 @@ export default class HouseViewer extends React.Component<Props, State> {
     window.addEventListener("resize", this.onWindowResize, false);
   }
 
-  deleteObject(scene: THREE.Scene, name: string) {
+  deleteObject(scene: THREE.Group, name: string) {
     const obj = scene.getObjectByName(name);
     obj?.parent?.remove(obj);
   }

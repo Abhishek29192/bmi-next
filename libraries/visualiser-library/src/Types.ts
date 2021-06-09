@@ -1,4 +1,4 @@
-import { Asset } from "./Visualiser/Functions/ThreeJsUtils/Gltf/types/glTF";
+import * as THREE from "three";
 
 declare global {
   interface Window {
@@ -70,25 +70,3 @@ export type Siding = {
   creatorUser: unknown;
   type: string;
 };
-
-export type GLTFTile = {
-  scene: THREE.Scene;
-  scenes: THREE.Scene[];
-  animations: any[]; //dependencies[1],
-  cameras: THREE.Camera[]; //dependencies[2],
-  asset: Asset;
-  parser: any; //parser,
-  userData: { gltfExtensions: { [index: string]: object } };
-};
-
-// export type TileViewer = React.Component<{
-//   tile: Tile;
-//   colour: Colour;
-//   setIsLoading: (isLoading: boolean) => void;
-// }>;
-
-// export type HouseViewer = React.Component<{
-//   tile: Tile;
-//   colour: Colour;
-//   siding: Siding;
-// }>;

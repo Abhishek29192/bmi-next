@@ -1,26 +1,25 @@
-import { GLTFTile } from "../../../Types";
-import GLTFLoader from "../ThreeJsUtils/Gltf/Gltf.js";
+import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 /*
  * Downloads and caches GLB or GLTF models.
  * Returns a promise which resolves as the gltf object.
  */
 
-const cache: { [index: string]: Promise<GLTFTile> } = {};
+const cache: { [index: string]: Promise<GLTF> } = {};
 
 export default (url: string) => {
   if (cache[url]) {
     return cache[url];
   }
 
-  var promise = new Promise<GLTFTile>((success) => {
-    var pieces = url.split("/");
-    var name = pieces.pop()!;
-    var path = pieces.join("/") + "/";
+  const promise = new Promise<GLTF>((success) => {
+    const pieces = url.split("/");
+    const name = pieces.pop()!;
+    const path = pieces.join("/") + "/";
 
-    var loader = new GLTFLoader().setPath(path);
+    const loader = new GLTFLoader().setPath(path);
 
-    loader.load(name, (tileGltf: GLTFTile) => {
+    loader.load(name, (tileGltf: GLTF) => {
       success(tileGltf);
     });
   });

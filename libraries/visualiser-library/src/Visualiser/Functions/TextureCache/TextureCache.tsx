@@ -12,7 +12,7 @@ export default (url: string): Promise<THREE.Texture> => {
     return cache[url];
   }
 
-  var promise = new Promise<THREE.Texture>((success) => {
+  const promise = new Promise<THREE.Texture>((success) => {
     new THREE.TextureLoader().load(url, (tex) => {
       tex.encoding = THREE.sRGBEncoding;
       tex.wrapS = THREE.RepeatWrapping;

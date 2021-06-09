@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "files": ["scripts/generate-types.ts"],
-  "compilerOptions": {
-    "noEmit": false,
-    "outDir": "dist-generate-types"
-  }
-}
