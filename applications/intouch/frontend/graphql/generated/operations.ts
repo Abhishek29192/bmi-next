@@ -87,44 +87,30 @@ export type TrainingQuery = { readonly __typename?: "Query" } & {
         SchemaTypes.Maybe<
           { readonly __typename?: "TrainingContent" } & Pick<
             SchemaTypes.TrainingContent,
-            "lmsCtaLabel"
-          >
+            | "pageHeading"
+            | "description"
+            | "lmsCtaLabel"
+            | "pageSubHeading"
+            | "step1Heading"
+            | "step1SubHeading"
+            | "step1Description"
+            | "step2Heading"
+            | "step2SubHeading"
+            | "step2Description"
+            | "step3Heading"
+            | "step3SubHeading"
+            | "step3Description"
+            | "live"
+          > & {
+              readonly image?: SchemaTypes.Maybe<
+                { readonly __typename?: "Asset" } & Pick<
+                  SchemaTypes.Asset,
+                  "url"
+                >
+              >;
+            }
         >
       >;
     }
-  >;
-  readonly courses?: SchemaTypes.Maybe<
-    { readonly __typename?: "CoursesConnection" } & Pick<
-      SchemaTypes.CoursesConnection,
-      "totalCount"
-    > & {
-        readonly nodes: ReadonlyArray<
-          { readonly __typename?: "Course" } & Pick<
-            SchemaTypes.Course,
-            | "id"
-            | "name"
-            | "technology"
-            | "image"
-            | "promoted"
-            | "trainingType"
-            | "description"
-          > & {
-              readonly courseEnrollments: {
-                readonly __typename?: "CourseEnrollmentsConnection";
-              } & {
-                readonly nodes: ReadonlyArray<
-                  { readonly __typename?: "CourseEnrollment" } & Pick<
-                    SchemaTypes.CourseEnrollment,
-                    "id" | "status" | "url" | "courseId"
-                  >
-                >;
-              };
-            }
-        >;
-        readonly pageInfo: { readonly __typename?: "PageInfo" } & Pick<
-          SchemaTypes.PageInfo,
-          "hasNextPage" | "hasPreviousPage" | "startCursor" | "endCursor"
-        >;
-      }
   >;
 };

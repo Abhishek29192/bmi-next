@@ -296,34 +296,24 @@ export const TrainingDocument = gql`
   query training {
     trainingContentCollection {
       items {
-        lmsCtaLabel
-      }
-    }
-    courses {
-      nodes {
-        id
-        name
-        technology
-        image
-        promoted
-        trainingType
+        pageHeading
         description
-        courseEnrollments {
-          nodes {
-            id
-            status
-            url
-            courseId
-          }
+        lmsCtaLabel
+        image {
+          url
         }
+        pageSubHeading
+        step1Heading
+        step1SubHeading
+        step1Description
+        step2Heading
+        step2SubHeading
+        step2Description
+        step3Heading
+        step3SubHeading
+        step3Description
+        live
       }
-      pageInfo {
-        hasNextPage
-        hasPreviousPage
-        startCursor
-        endCursor
-      }
-      totalCount
     }
   }
 `;
