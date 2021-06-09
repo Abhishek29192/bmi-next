@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
 import { TagData } from "../Tag";
 import { Data as PageInfoData } from "./../PageInfo";
@@ -203,5 +203,41 @@ describe("CardCollectionSection component", () => {
       // shouldn't be 2 copies of the result just because it is in both tags
       expect(titleElement3.length).toEqual(1);
     });
+  });
+
+  it("Expands collection when there is more than 8 cards", () => {
+    const cards: Card[] = Array.from(Array(10).keys()).map((i) => ({
+      ...card1,
+      id: `test-${i}`,
+      title: "test card title",
+      slug: `test ${i}`
+    }));
+
+    const data: Data = {
+      title: "test title",
+      description: {
+        raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+        references: null
+      },
+      __typename: "ContentfulCardCollectionSection",
+      cardType: "Highlight Card",
+      cardLabel: "a string",
+      groupCards: true,
+      cards: cards,
+      link: null
+    };
+
+    const wrapper = render(<CardCollectionSection data={data} theme="" />);
+
+    const renderedCards = wrapper.getAllByText("test card title");
+    expect(renderedCards).toHaveLength(10);
+    expect(wrapper.container.getElementsByClassName("hidden")).toHaveLength(2);
+
+    const showMoreButton = wrapper.getByText("global.showMore", {
+      exact: false
+    });
+    fireEvent.click(showMoreButton);
+
+    expect(wrapper.container.getElementsByClassName("hidden")).toHaveLength(0);
   });
 });
