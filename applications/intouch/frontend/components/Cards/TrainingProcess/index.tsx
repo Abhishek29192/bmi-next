@@ -2,22 +2,9 @@ import React from "react";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
 import { Search, School, VerifiedUser } from "@material-ui/icons";
-import { TrainingQuery } from "graphql/generated/operations";
+import { TrainingQuery } from "../../../graphql/generated/operations";
 import { InfoPair } from "../../InfoPair";
 import styles from "./styles.module.scss";
-
-export type TrainingProcessData = {
-  pageSubHeading: string;
-  step1Heading: string;
-  step1SubHeading: string;
-  step1Description: string;
-  step2Heading: string;
-  step2SubHeading: string;
-  step2Description: string;
-  step3Heading: string;
-  step3SubHeading: string;
-  step3Description: string;
-};
 
 export type TrainingProcessCardProps = {
   data: TrainingQuery["trainingContentCollection"];
