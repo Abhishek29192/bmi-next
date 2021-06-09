@@ -1,6 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
-import { createAccount, createDoceboUser } from "../../../lib/account";
+import {
+  createAccount,
+  createDoceboUser,
+  getAccount
+} from "../../../lib/account";
 import { REDIRECT_MAP } from "../../../lib/config";
 import { withLoggerApi } from "../../../lib/logger/withLogger";
 
@@ -9,29 +13,44 @@ interface Request extends NextApiRequest {
 }
 
 const afterCallback = async (
-  req: NextApiRequest,
+  req: Request,
   res: NextApiResponse,
   session,
   state
 ) => {
   const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
+  const logger = req.logger("Auth0:callback");
 
-  const intouch_invitation = user[`${AUTH0_NAMESPACE}/intouch_invitation`];
+  const intouch_invited = user[`${AUTH0_NAMESPACE}/intouch_invited`];
   const intouch_user_id = user[`${AUTH0_NAMESPACE}/intouch_user_id`];
   const intouch_docebo_id = user[`${AUTH0_NAMESPACE}/intouch_docebo_id`];
 
-  // To avoid redirect loop we do not create any user if coming from /api/silent-login (prompt=none)
-  if (!intouch_invitation && !intouch_user_id && state.prompt !== "none") {
-    const { data: { createAccount: account = null } = {} } =
-      (await createAccount(req, session)) || {};
+  if (intouch_invited) {
+    return session;
+  }
 
-    await createDoceboUser(req, session, account?.id);
+  if (!intouch_user_id && state.prompt !== "none") {
+    const { data } = await createAccount(req, session);
+    const {
+      createAccount: { account }
+    } = data;
+    logger.info("Account created", account);
+
+    await createDoceboUser(req, session, account);
+    logger.info("Docebo Account created");
+
     state.returnTo = "/api/silent-login";
     return session;
   }
+
   if (!intouch_docebo_id && state.prompt !== "none") {
-    await createDoceboUser(req, session);
+    const { data } = await getAccount(req, session);
+    logger.info("Docebo created", data);
+
+    await createDoceboUser(req, session, data);
+    logger.info("Docebo account created");
+    state.returnTo = "/api/silent-login";
   }
 
   return session;

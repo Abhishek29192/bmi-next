@@ -150,6 +150,6 @@ export default gql`
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
     invite(input: InviteInput!): Invitation
-    completeInvitation(input: InvitationComplete!): Account
+    completeInvitation(companyId: Int!): Account
   }
 `;

@@ -1,6 +1,6 @@
 import { getAuth0Instance } from "../../lib/auth0";
 import { withLoggerApi } from "../../lib/logger/withLogger";
-import { completeAccountInvitation } from "../../lib/account";
+import { completeAccountInvitation, createDoceboUser } from "../../lib/account";
 
 export const config = {
   api: {
@@ -26,8 +26,12 @@ export default withLoggerApi(async (req, res) => {
     res.end();
   } else {
     logger.info("Completing the invitation");
-    const result = await completeAccountInvitation(req, session);
-    logger.info("Invitation completed", result);
+    const { data } = await completeAccountInvitation(req, session);
+    logger.info("Invitation completed", data.completeInvitation);
+
+    await createDoceboUser(req, session, data.completeInvitation);
+    logger.info("Docebo user created", data);
+
     res.writeHead(302, { Location: "/api/silent-login" });
     res.end();
   }

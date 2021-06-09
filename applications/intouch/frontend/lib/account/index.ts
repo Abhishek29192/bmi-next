@@ -2,11 +2,27 @@ import axios from "axios";
 import { ROLES } from "lib/config";
 import { v4 } from "uuid";
 
+export const queryAccount = `query Account($id: Int!) {
+  account(id: $id) {
+    id
+    marketId
+    market {
+      language
+      doceboCompanyAdminBranchId
+      doceboInstallersBranchId
+    }
+  }
+}`;
 export const mutationCreateAccount = `mutation CreateAccount($input: CreateAccountInput!) {
   createAccount(input: $input) {
     account {
       id
       marketId
+      market {
+        language
+        doceboCompanyAdminBranchId
+        doceboInstallersBranchId
+      }
     }
   }
 }`;
@@ -35,11 +51,35 @@ const querymarketByDomain = `query marketByDomain($domain:String!) {
   }
 } `;
 
-const mutationCompleteInvitation = `mutation completeInvitation($input:  InvitationComplete! ){
-  completeInvitation(input: $input) {
-    __typename
+const mutationCompleteInvitation = `mutation completeInvitation ($companyId: Int!) {
+  completeInvitation (companyId: $companyId) {
+    id
+    marketId
+    market {
+      language
+      doceboCompanyAdminBranchId
+      doceboInstallersBranchId
+    }
   }
 }`;
+
+export const getAccount = async (req, session) => {
+  const { AUTH0_NAMESPACE } = process.env;
+  const { user } = session;
+
+  const userId = user[`${AUTH0_NAMESPACE}/intouch_user_id`];
+
+  const body = {
+    query: queryAccount,
+    variables: {
+      input: {
+        id: userId
+      }
+    }
+  };
+
+  return requestHandler(req, session, body);
+};
 
 export const createAccount = async (req, session) => {
   const { AUTH0_NAMESPACE } = process.env;
@@ -47,7 +87,7 @@ export const createAccount = async (req, session) => {
 
   const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
   const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
-  const registrationType = user[`${AUTH0_NAMESPACE}/type`];
+  const registrationType = user[`${AUTH0_NAMESPACE}/registrationType`];
   const marketCode = user[`${AUTH0_NAMESPACE}/market`] || "en";
 
   const body = {
@@ -69,60 +109,65 @@ export const createAccount = async (req, session) => {
   return requestHandler(req, session, body);
 };
 
-export const createDoceboUser = async (req, session, userId?: null) => {
+export const createDoceboUser = async (req, session, account) => {
+  const logger = req.logger("account:docebo");
+
   const REGULAR_USER_LEVEL = 6;
   const POWER_USER_LEVEL = 4;
 
-  const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
+  const { AUTH0_NAMESPACE } = process.env;
+  const { id, market } = account;
 
   const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
   const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
-  const registrationType = user[`${AUTH0_NAMESPACE}/type`];
-  const intouch_user_id = userId || user[`${AUTH0_NAMESPACE}/intouch_user_id`];
+  const registrationType = user[`${AUTH0_NAMESPACE}/registrationType`];
+  const intouch_user_id = id || user[`${AUTH0_NAMESPACE}/intouch_user_id`];
 
   user[`${AUTH0_NAMESPACE}/intouch_user_id`] = intouch_user_id;
 
-  const { data: { marketByDomain = null } = {} } =
-    (await getMarketByDomain(req, session)) || {};
+  const branchId =
+    registrationType === "company"
+      ? market.doceboCompanyAdminBranchId
+      : market.doceboInstallersBranchId;
 
-  if (marketByDomain) {
-    const branchId =
-      registrationType === "company"
-        ? marketByDomain?.doceboCompanyAdminBranchId
-        : marketByDomain?.doceboInstallersBranchId;
+  const language = market.language.toLowerCase() || "en";
+  const level =
+    registrationType === "company" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
 
-    const language = marketByDomain?.language.toLowerCase() || "en";
-    const level =
-      registrationType === "company" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
-
-    const body = {
-      query: mutationCreateDoceboUser,
-      variables: {
-        input: {
-          userid: user.email,
-          email: user.email,
-          password: randomPassword(),
-          firstname: firstName,
-          lastname: lastName,
-          language,
-          level,
-          email_validation_status: 1,
-          send_notification_email: false,
-          select_orgchart: {
-            branch_id: branchId
-          }
+  const body = {
+    query: mutationCreateDoceboUser,
+    variables: {
+      input: {
+        userid: user.email,
+        email: user.email,
+        password: randomPassword(),
+        firstname: firstName,
+        lastname: lastName,
+        language,
+        level,
+        email_validation_status: 1,
+        send_notification_email: false,
+        select_orgchart: {
+          branch_id: branchId
         }
       }
-    };
-
-    const { data: { createDoceboUser = null } = {} } =
-      (await requestHandler(req, session, body)) || {};
-
-    if (intouch_user_id && createDoceboUser?.user_id) {
-      updateAccount(req, session, intouch_user_id, createDoceboUser.user_id);
     }
+  };
+
+  const { data: { createDoceboUser = null } = {} } =
+    (await requestHandler(req, session, body)) || {};
+
+  if (intouch_user_id && createDoceboUser?.user_id) {
+    await updateAccount(
+      req,
+      session,
+      intouch_user_id,
+      createDoceboUser.user_id
+    );
   }
+
+  logger.info("Docebo account created", console);
 };
 
 export const updateAccount = async (req, session, accountId, doceboUserId) => {
@@ -147,9 +192,7 @@ export const completeAccountInvitation = async (req, session) => {
   const body = {
     query: mutationCompleteInvitation,
     variables: {
-      input: {
-        company_id: req.query.company_id
-      }
+      companyId: parseInt(req.query.company_id)
     }
   };
 
@@ -179,9 +222,7 @@ const randomPassword = (length: number = 8) => {
     .join("");
 };
 const requestHandler = async (req, session, body) => {
-  const logger = req.logger("account");
-
-  logger.info("Complete invitation");
+  const logger = req.logger("account:requestHandler");
 
   try {
     const protocol = req.headers["x-forwarded-proto"] || "http";
@@ -195,10 +236,11 @@ const requestHandler = async (req, session, body) => {
         }
       }
     );
+    console.log("data", data);
     return data;
   } catch (error) {
-    logger.error(error.response.data.errors);
-    logger.error(error.message);
+    logger.error("requestHandler", error.message);
+    logger.error("requestHandler", error.response.data.errors);
     throw error;
   }
 };

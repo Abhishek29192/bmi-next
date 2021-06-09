@@ -55,7 +55,7 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Error getting user by email:", error);
+      this.logger.error("Get user by email:", error);
     }
   };
 
@@ -72,7 +72,7 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Error creating an user:", error);
+      this.logger.error("Create user:", error);
     }
   };
 
@@ -88,7 +88,7 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Error creating an user:", error);
+      this.logger.error("Delete user:", error);
     }
   };
 
@@ -105,7 +105,7 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      this.logger.error("Error updating an user:", error);
+      this.logger.error("Update user:", error);
     }
   };
 
@@ -126,11 +126,7 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      console.log("error", error);
-      this.logger.error(
-        "Error creating reset password ticket: ",
-        error.message
-      );
+      this.logger.error("Create reset password ticket:", error);
     }
   };
 
@@ -150,11 +146,7 @@ export default class Auth0 {
 
       return data;
     } catch (error) {
-      console.log("error", error);
-      this.logger.error(
-        "Error creating reset password ticket: ",
-        error.message
-      );
+      this.logger.error("Change password:", error);
     }
   };
 }

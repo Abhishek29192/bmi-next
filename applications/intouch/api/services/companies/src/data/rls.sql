@@ -15,7 +15,6 @@ DROP POLICY IF EXISTS policy_super_admin ON account;
 DROP POLICY IF EXISTS policy_market_admin ON account;
 DROP POLICY IF EXISTS policy_company_admin ON account;
 DROP POLICY IF EXISTS policy_installer ON account;
-
 CREATE POLICY policy_super_admin ON account FOR ALL TO super_admin USING (true) WITH CHECK (true);
 CREATE POLICY policy_market_admin ON account FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
 CREATE POLICY policy_company_admin ON account FOR ALL TO company_admin 
@@ -23,7 +22,7 @@ CREATE POLICY policy_company_admin ON account FOR ALL TO company_admin
     id IN (SELECT account_id FROM company_member WHERE company_id = current_company())
   )
   WITH CHECK (true);
-CREATE POLICY policy_installer ON account FOR ALL TO installer USING (current_account_id() = id OR current_account_email() = email);
+CREATE POLICY policy_installer ON account FOR ALL TO installer USING (current_account_id() = id OR current_account_email() = email) WITH CHECK (true);
 
 
 
@@ -36,7 +35,7 @@ CREATE POLICY policy_super_admin ON company FOR ALL TO super_admin USING (true) 
 CREATE POLICY policy_market_admin ON company FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
 CREATE POLICY policy_company_admin ON company FOR ALL TO company_admin USING (current_company() = id) WITH CHECK(true);
 CREATE POLICY policy_installer ON company FOR ALL TO installer USING (
-  current_company() = id OR id IN (SELECT company_id from invitation WHERE invitee = current_account_email())
+  current_company() = id OR id IN (SELECT * FROM invited_by_companies())
 ) WITH CHECK(true);
 
 
@@ -51,9 +50,9 @@ CREATE POLICY policy_super_admin ON company_member FOR ALL TO super_admin USING 
 CREATE POLICY policy_market_admin ON company_member FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
 CREATE POLICY policy_company_admin ON company_member FOR ALL TO company_admin USING (current_company() = company_id) WITH CHECK (true);
 CREATE POLICY policy_installer ON company_member FOR ALL TO installer USING ( 
-  EXISTS(SELECT * FROM invitation WHERE company_id = company_id AND invitee = current_account_email())
+  company_id IN (SELECT * FROM invited_by_companies())
  ) WITH CHECK (
-  EXISTS(SELECT * FROM invitation WHERE company_id = company_id AND invitee = current_account_email())
+  company_id IN (SELECT * FROM invited_by_companies())
 );
 
 

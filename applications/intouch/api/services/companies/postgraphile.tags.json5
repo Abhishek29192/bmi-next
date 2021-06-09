@@ -2,6 +2,16 @@
   version: 1,
   config: {
     class: {
+      account: {
+        tags: {
+          omit: "create"
+        }
+      },
+      company: {
+        tags: {
+          omit: "create"
+        }
+      },
       invitation: {
         tags: {
           omit: "create"

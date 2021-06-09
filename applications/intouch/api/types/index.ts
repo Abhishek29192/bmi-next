@@ -203,6 +203,8 @@ export type AccountCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `email` field. */
+  email?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `doceboUserId` field. */
   doceboUserId?: Maybe<Scalars["Int"]>;
 };
@@ -303,6 +305,8 @@ export type AccountsOrderBy =
   | "ID_DESC"
   | "MARKET_ID_ASC"
   | "MARKET_ID_DESC"
+  | "EMAIL_ASC"
+  | "EMAIL_DESC"
   | "DOCEBO_USER_ID_ASC"
   | "DOCEBO_USER_ID_DESC"
   | "PRIMARY_KEY_ASC"
@@ -1238,64 +1242,6 @@ export type CompanyDocumentsOrderBy =
   | "COMPANY_ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
-
-/** An input for mutations affecting `Company` */
-export type CompanyInput = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** fk */
-  marketId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  registeredAddressId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  tradingAddressId?: Maybe<Scalars["Int"]>;
-  /** the name of the owner of the Company */
-  ownerFullname?: Maybe<Scalars["String"]>;
-  /** the email address to contact the owner */
-  ownerEmail?: Maybe<Scalars["String"]>;
-  /** the phone number to contact the owner */
-  ownerPhone?: Maybe<Scalars["String"]>;
-  /** ek */
-  businessType?: Maybe<BusinessType>;
-  /** ek */
-  tier?: Maybe<Tier>;
-  /** ek */
-  status?: Maybe<CompanyStatus>;
-  /** the email address of the person who filled out the company registration form */
-  registeredBy?: Maybe<Scalars["String"]>;
-  /** the date that the Company registration form was submitted */
-  registeredDate?: Maybe<Scalars["Datetime"]>;
-  /** The Group ID of the company in Docebo */
-  doceboGroupId?: Maybe<Scalars["String"]>;
-  /** The registered name of the Company */
-  name?: Maybe<Scalars["String"]>;
-  /** The Tax number in that Market, such as the VAT number */
-  taxNumber?: Maybe<Scalars["String"]>;
-  /** They Company public phone number */
-  phone?: Maybe<Scalars["String"]>;
-  /** A bit of blurb to appear in Find a contractor */
-  aboutUs?: Maybe<Scalars["String"]>;
-  /** The email address that they can be contacted with by the public assuming they are listed */
-  publicEmail?: Maybe<Scalars["String"]>;
-  /** The Company website URL */
-  website?: Maybe<Scalars["String"]>;
-  /** The Company facebook website */
-  facebook?: Maybe<Scalars["String"]>;
-  /** Their Company LinkedIn page URL */
-  linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
-  referenceNumber?: Maybe<Scalars["String"]>;
-  /** A reference to the logo */
-  logo?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  migrationId?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  tradingAddressMigrationId?: Maybe<Scalars["String"]>;
-  /** Used for reference when importing data from the legacy system */
-  registeredAddressMigrationId?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
-};
 
 /** A connection between a user and a company */
 export type CompanyMember = Node & {
@@ -2589,18 +2535,18 @@ export type CoursesOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
-/** All input for the create `Account` mutation. */
+/** All input for the `createAccount` mutation. */
 export type CreateAccountInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Account` to be created by this mutation. */
-  account: AccountInput;
+  account?: Maybe<AccountInput>;
+  marketCode?: Maybe<Scalars["String"]>;
 };
 
-/** The output of our create `Account` mutation. */
+/** The output of our `createAccount` mutation. */
 export type CreateAccountPayload = {
   __typename?: "CreateAccountPayload";
   /**
@@ -2608,7 +2554,6 @@ export type CreateAccountPayload = {
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Account` that was created by this mutation. */
   account?: Maybe<Account>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
@@ -2618,7 +2563,7 @@ export type CreateAccountPayload = {
   accountEdge?: Maybe<AccountsEdge>;
 };
 
-/** The output of our create `Account` mutation. */
+/** The output of our `createAccount` mutation. */
 export type CreateAccountPayloadAccountEdgeArgs = {
   orderBy?: Maybe<Array<AccountsOrderBy>>;
 };
@@ -2723,15 +2668,13 @@ export type CreateCompanyDocumentPayloadCompanyDocumentEdgeArgs = {
   orderBy?: Maybe<Array<CompanyDocumentsOrderBy>>;
 };
 
-/** All input for the create `Company` mutation. */
+/** All input for the `createCompany` mutation. */
 export type CreateCompanyInput = {
   /**
    * An arbitrary string value with no semantic meaning. Will be included in the
    * payload verbatim. May be used to track mutations by the client.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Company` to be created by this mutation. */
-  company: CompanyInput;
 };
 
 /** All input for the create `CompanyMember` mutation. */
@@ -2806,7 +2749,7 @@ export type CreateCompanyOperationPayloadCompanyOperationEdgeArgs = {
   orderBy?: Maybe<Array<CompanyOperationsOrderBy>>;
 };
 
-/** The output of our create `Company` mutation. */
+/** The output of our `createCompany` mutation. */
 export type CreateCompanyPayload = {
   __typename?: "CreateCompanyPayload";
   /**
@@ -2814,7 +2757,6 @@ export type CreateCompanyPayload = {
    * unchanged and unused. May be used by a client to track mutations.
    */
   clientMutationId?: Maybe<Scalars["String"]>;
-  /** The `Company` that was created by this mutation. */
   company?: Maybe<Company>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
@@ -2828,7 +2770,7 @@ export type CreateCompanyPayload = {
   companyEdge?: Maybe<CompaniesEdge>;
 };
 
-/** The output of our create `Company` mutation. */
+/** The output of our `createCompany` mutation. */
 export type CreateCompanyPayloadCompanyEdgeArgs = {
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
 };
@@ -5915,10 +5857,6 @@ export type Invitation = Node & {
   company?: Maybe<Company>;
 };
 
-export type InvitationComplete = {
-  company_id?: Maybe<Scalars["String"]>;
-};
-
 /**
  * A condition to be used against `Invitation` object types. All fields are tested
  * for equality and combined with a logical ‘and.’
@@ -5994,6 +5932,26 @@ export type InviteInput = {
 };
 
 /** A connection to a list of `Int` values. */
+export type InvitedByCompaniesConnection = {
+  __typename?: "InvitedByCompaniesConnection";
+  /** A list of `Int` objects. */
+  nodes: Array<Maybe<Scalars["Int"]>>;
+  /** A list of edges which contains the `Int` and cursor to aid in pagination. */
+  edges: Array<InvitedByCompanyEdge>;
+  /** The count of *all* `Int` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `Int` edge in the connection. */
+export type InvitedByCompanyEdge = {
+  __typename?: "InvitedByCompanyEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `Int` at the end of the edge. */
+  node?: Maybe<Scalars["Int"]>;
+};
+
+/** A connection to a list of `Int` values. */
 export type IsPartOfProjectConnection = {
   __typename?: "IsPartOfProjectConnection";
   /** A list of `Int` objects. */
@@ -6026,6 +5984,43 @@ export type Language =
   | "PL"
   | "ES"
   | "FI";
+
+/** All input for the `linkAccountToCompany` mutation. */
+export type LinkAccountToCompanyInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  accountId?: Maybe<Scalars["Int"]>;
+  companyId?: Maybe<Scalars["Int"]>;
+};
+
+/** The output of our `linkAccountToCompany` mutation. */
+export type LinkAccountToCompanyPayload = {
+  __typename?: "LinkAccountToCompanyPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  companyMember?: Maybe<CompanyMember>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+  /** Reads a single `Market` that is related to this `CompanyMember`. */
+  market?: Maybe<Market>;
+  /** Reads a single `Account` that is related to this `CompanyMember`. */
+  account?: Maybe<Account>;
+  /** Reads a single `Company` that is related to this `CompanyMember`. */
+  company?: Maybe<Company>;
+  /** An edge for our `CompanyMember`. May be used by Relay 1. */
+  companyMemberEdge?: Maybe<CompanyMembersEdge>;
+};
+
+/** The output of our `linkAccountToCompany` mutation. */
+export type LinkAccountToCompanyPayloadCompanyMemberEdgeArgs = {
+  orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
+};
 
 /** A country that BMI operates in */
 export type Market = Node & {
@@ -6902,13 +6897,11 @@ export type Mutation = {
   courseEnrollmentUpdateByTemp?: Maybe<CourseEnrollmentUpdateByTempPayload>;
   courseUpdate?: Maybe<CourseUpdatePayload>;
   courseUpdateByTemp?: Maybe<CourseUpdateByTempPayload>;
-  /** Creates a single `Account`. */
   createAccount?: Maybe<CreateAccountPayload>;
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
   /** Creates a single `Certification`. */
   createCertification?: Maybe<CreateCertificationPayload>;
-  /** Creates a single `Company`. */
   createCompany?: Maybe<CreateCompanyPayload>;
   /** Creates a single `CompanyDocument`. */
   createCompanyDocument?: Maybe<CreateCompanyDocumentPayload>;
@@ -7072,6 +7065,7 @@ export type Mutation = {
   /** Deletes a single `SystemMember` using its globally unique id. */
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
   invite?: Maybe<Invitation>;
+  linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   publishMessage?: Maybe<Publish>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
@@ -7196,7 +7190,7 @@ export type Mutation = {
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCompleteInvitationArgs = {
-  input: InvitationComplete;
+  companyId: Scalars["Int"];
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -7663,6 +7657,11 @@ export type MutationDeleteSystemMemberByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationInviteArgs = {
   input: InviteInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationLinkAccountToCompanyArgs = {
+  input: LinkAccountToCompanyInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -8935,6 +8934,8 @@ export type Query = Node & {
   invitationByNodeId?: Maybe<Invitation>;
   /** Reads and enables pagination through a set of `Invitation`. */
   invitations?: Maybe<InvitationsConnection>;
+  invitedByCompanies?: Maybe<InvitedByCompaniesConnection>;
+  isInvited?: Maybe<Scalars["Int"]>;
   isPartOfProject?: Maybe<IsPartOfProjectConnection>;
   isProjectEnabledByMarket?: Maybe<Scalars["Boolean"]>;
   market?: Maybe<Market>;
@@ -8944,7 +8945,6 @@ export type Query = Node & {
   marketByNodeId?: Maybe<Market>;
   marketContent?: Maybe<MarketContent>;
   marketContentCollection?: Maybe<MarketContentCollection>;
-  marketIdByDomain?: Maybe<Scalars["Int"]>;
   /** Reads and enables pagination through a set of `Market`. */
   markets?: Maybe<MarketsConnection>;
   mediaFolder?: Maybe<MediaFolder>;
@@ -9547,6 +9547,15 @@ export type QueryInvitationsArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QueryInvitedByCompaniesArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QueryIsPartOfProjectArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
@@ -9590,11 +9599,6 @@ export type QueryMarketContentCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
   where?: Maybe<MarketContentFilter>;
   order?: Maybe<Array<Maybe<MarketContentOrder>>>;
-};
-
-/** The root query type which gives access points into the data universe. */
-export type QueryMarketIdByDomainArgs = {
-  domain?: Maybe<Scalars["String"]>;
 };
 
 /** The root query type which gives access points into the data universe. */

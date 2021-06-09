@@ -3,7 +3,7 @@ import camelcaseKeys from "camelcase-keys";
 import Auth0 from "../auth0";
 import { publish, TOPICS } from "../../services/events";
 
-const AUTH0_NAMESPACE = "https://intouch";
+const { AUTH0_NAMESPACE } = process.env;
 
 export const createAccount = async (
   resolve,
@@ -12,101 +12,80 @@ export const createAccount = async (
   context,
   resolveInfo
 ) => {
-  let result;
-  let account_id;
-  let account_role;
   const { pgClient, user } = context;
   const {
-    account: { email, marketCode }
+    account: { marketCode }
   } = args.input;
 
+  let company;
   const logger = context.logger("service:account");
   const auth0 = await Auth0.init(logger);
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    // Set the role
-    await pgClient.query(`SELECT set_config('role', $1, true);`, [
-      "super_admin"
-    ]);
-
-    // Check if the user already exists
-    const { rows } = await pgClient.query(
-      "select * from account where email=$1",
-      [email]
-    );
-    const userExists = rows.length > 0;
-
-    if (!userExists) {
-      result = await resolve(source, args, context, resolveInfo);
-      account_id = result.data.$account_id;
-      account_role = result.data.$role;
-    } else {
-      account_id = rows[0].id;
-      account_role = rows[0].role;
-    }
+    const result = await resolve(source, args, context, resolveInfo);
 
     // Set the account ID
     await pgClient.query(
       `SELECT set_config('app.current_account_id', $1, true);`,
-      [account_id]
+      [result.data.$account_id]
     );
-
-    const { rows: markets } = await pgClient.query(
-      "select * from market where domain = $1",
-      [marketCode]
-    );
-
-    if (markets.length === 0) {
-      throw new Error(`Market ${marketCode} not found`);
-    }
-
-    const [market] = markets;
-
-    const { rows: updatedRows } = await pgClient.query(
-      "update account set market_id=$1 where id = $2 returning *",
-      [market.id, account_id]
-    );
-
-    result = {
-      data: {
-        "@account": camelcaseKeys(updatedRows[0])
-      }
-    };
 
     // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
     const app_metadata: any = {
       intouch_market_code: marketCode,
-      intouch_user_id: account_id,
-      intouch_role: account_role
+      intouch_user_id: result.data.$account_id,
+      intouch_role: result.data.$role
     };
 
-    // If the user is a company_admin then add a flag in auth0 to let him complete the registration of a company
-    // we check rows.length === 0 because if the user already exist rows will be > 0 and the company will be already in the db (imported data)
-    if (account_role === "COMPANY_ADMIN") {
-      const { rows: companies } = await pgClient.query(
-        "insert into company (status, market_id) values ('NEW', $1) returning id",
-        [result.data.$market_id]
-      );
-      const [company] = companies;
+    // If row > 1 means I'm already in a company
+    const { rows } = await pgClient.query(`SELECT * FROM company`, []);
 
-      await pgClient.query(
-        "insert into company_member (account_id, market_id, company_id) values ($1, $2, $3);",
-        [account_id, result.data.$market_id, company.id]
+    // If row = 0 I don't have a company so I'll create one
+    if (rows.length == 0 && result.data.$role === "COMPANY_ADMIN") {
+      const { rows: companies } = await pgClient.query(
+        `SELECT * FROM create_company()`,
+        []
       );
-      if (!userExists) {
+      if (companies[0].status === "NEW") {
         app_metadata.registration_to_complete = true;
       } else {
         app_metadata.registration_to_complete = false;
       }
+      company = companies[0];
     }
 
     await auth0.updateUser(user.sub, {
       app_metadata
     });
 
-    return result;
+    const { rows: markets } = await pgClient.query(
+      "select * from market where id = $1",
+      [result.data.$market_id]
+    );
+
+    return {
+      ...result,
+      data: {
+        ...result.data,
+        "@account": {
+          ...result.data["@account"],
+          "@market": {
+            ...camelcaseKeys(markets[0])
+          },
+          "@companyMembers": {
+            data: [
+              {
+                "@nodes": {
+                  "@company": camelcaseKeys(company)
+                }
+              }
+            ]
+          }
+        }
+      }
+    };
   } catch (e) {
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
     throw e;
@@ -114,6 +93,7 @@ export const createAccount = async (
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
 };
+
 export const updateAccount = async (
   resolve,
   source,
@@ -144,7 +124,7 @@ export const updateAccount = async (
 
     return result;
   } catch (error) {
-    logger.error(error);
+    logger.error("update account", error);
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
     throw error;
   } finally {
@@ -158,6 +138,9 @@ export const invite = async (_query, args, context, resolveInfo) => {
 
   const { pgClient, pubSub, user } = context;
   const { email, firstName, lastName, role, note } = args.input;
+
+  if (user.role === "INSTALLER")
+    throw new Error("you must be an admin to invite other users");
 
   let auth0User = await auth0.getUserByEmail(email);
   const password = `Gj$1${crypto.randomBytes(20).toString("hex")}`;
@@ -188,51 +171,62 @@ export const invite = async (_query, args, context, resolveInfo) => {
     logger.info(`Created new user in auth0 with id: ${auth0User?.user_id}`);
   }
 
-  // Creating a new invitation record
-  const { rows: invitations } = await pgClient.query(
-    "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
-    [user.id, user.company_id, "NEW", email, note]
-  );
-  logger.info(
-    `Created invitation record with id ${invitations[0].id}`,
-    invitations
-  );
+  await pgClient.query("SAVEPOINT graphql_mutation");
 
-  // Creating a passsword reset ticket
-  const ticket = await auth0.createResetPasswordTicket({
-    user_id: auth0User.user_id,
-    result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company_id}`
-  });
+  try {
+    // Creating a new invitation record
+    const { rows: invitations } = await pgClient.query(
+      "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+      [user.id, user.company_id, "NEW", email, note]
+    );
+    logger.info(
+      `Created invitation record with id ${invitations[0].id}`,
+      invitations
+    );
 
-  // Send the email with the link to reset the password to the user
-  await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-    title: `You have been invited by ${user.company_id}`,
-    text: `
-    You are invited by company ${user.company_id}.
-    Please follow this link to set your password:
-    ${ticket.ticket}
-  `,
-    html: `
+    // Creating a passsword reset ticket
+    const ticket = await auth0.createResetPasswordTicket({
+      user_id: auth0User.user_id,
+      result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company_id}`
+    });
+
+    // Send the email with the link to reset the password to the user
+    await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
+      title: `You have been invited by ${user.company_id}`,
+      text: `
       You are invited by company ${user.company_id}.
       Please follow this link to set your password:
       ${ticket.ticket}
     `,
-    email: email
-  });
+      html: `
+        You are invited by company ${user.company_id}.
+        Please follow this link to set your password:
+        ${ticket.ticket}
+      `,
+      email: email
+    });
 
-  // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
-  const app_metadata: any = {
-    intouch_role: role,
-    intouch_invitation: true,
-    registration_to_complete: false
-  };
+    // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
+    const app_metadata: any = {
+      intouch_role: role,
+      intouch_invited: true,
+      registration_to_complete: false
+    };
 
-  await auth0.updateUser(auth0User.user_id, {
-    app_metadata
-  });
-  logger.info(`app_metadata for user: ${auth0User.user_id} updated`);
+    await auth0.updateUser(auth0User.user_id, {
+      app_metadata
+    });
+    logger.info(`app_metadata for user: ${auth0User.user_id} updated`);
 
-  return invitations[0];
+    return invitations[0];
+  } catch (error) {
+    logger.error("complete invitation", error);
+    // TODO: delete the auth0 user?
+    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+    throw error;
+  } finally {
+    await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
+  }
 };
 
 export const completeInvitation = async (
@@ -242,41 +236,71 @@ export const completeInvitation = async (
   resolveInfo
 ) => {
   const { pgClient, user } = context;
-  const { company_id } = args.input;
+  const { companyId } = args;
   const logger = context.logger("service:account");
 
   const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
   const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
   const role =
-    user[`${AUTH0_NAMESPACE}/type`] === "company"
+    user[`${AUTH0_NAMESPACE}/registrationType`] === "company"
       ? "COMPANY_ADMIN"
       : "INSTALLER";
 
-  // Get the invitation record to check if the request is legit
-  const { rows: invitations } = await pgClient.query(
-    "SELECT * FROM invitation WHERE invitee = $1 AND company_id = $2",
-    [user.email, parseInt(company_id)]
-  );
+  await pgClient.query("SAVEPOINT graphql_mutation");
 
-  const { rows: companies } = await pgClient.query(
-    "SELECT * FROM company WHERE id = $1",
-    [invitations[0].company_id]
-  );
+  try {
+    // Get the invitation record to check if the request is legit
+    const { rows: invitations } = await pgClient.query(
+      "select * from invitation JOIN company ON invitation.company_id = company.id where invitation.company_id = $1",
+      [companyId]
+    );
 
-  const { rows: users } = await pgClient.query(
-    "INSERT INTO account (market_id, email, first_name, last_name, role) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-    [companies[0].market_id, user.email, firstName, lastName, role]
-  );
+    const { rows: users } = await pgClient.query(
+      "INSERT INTO account (market_id, email, first_name, last_name, role) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      [invitations[0].market_id, user.email, firstName, lastName, role]
+    );
 
-  // Connect user to the company
-  const { rows: company_members } = await pgClient.query(
-    "INSERT INTO company_member (market_id, account_id, company_id) VALUES ($1, $2, $3) RETURNING *",
-    [users[0].market_id, users[0].id, companies[0].id]
-  );
+    await pgClient.query(
+      `SELECT set_config('app.current_account_id', $1, true);`,
+      [users[0].id]
+    );
 
-  logger.info(
-    `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
-  );
+    const { rows: company_members } = await pgClient.query(
+      "select * from link_account_to_company ($1, $2)",
+      [users[0].id, invitations[0].id]
+    );
 
-  return users[0];
+    const { rows: markets } = await pgClient.query(
+      "select * from market where id = $1",
+      [users[0].market_id]
+    );
+
+    logger.info(
+      `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
+    );
+
+    const auth0 = await Auth0.init(logger);
+
+    // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
+    const app_metadata: any = {
+      intouch_market_code: markets[0].domain,
+      intouch_user_id: users[0].id,
+      intouch_role: role
+    };
+
+    await auth0.updateUser(user.sub, {
+      app_metadata
+    });
+
+    return {
+      ...users[0],
+      ["@market"]: camelcaseKeys(markets[0])
+    };
+  } catch (error) {
+    logger.error("complete invitation", error);
+    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+    throw error;
+  } finally {
+    await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
+  }
 };

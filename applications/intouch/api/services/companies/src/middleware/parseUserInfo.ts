@@ -1,9 +1,10 @@
 import { Buffer } from "buffer";
 import { getDbPool } from "../db";
 
-const NAMESPACE = "https://intouch";
+const { AUTH0_NAMESPACE } = process.env;
 
 export const parseHeaders = (req): User => {
+  console.log(req.headers["x-apigateway-api-userinfo"]);
   if (req.headers["x-apigateway-api-userinfo"]) {
     return JSON.parse(
       Buffer.from(
@@ -19,11 +20,13 @@ export default async (req, res, next) => {
   const user = parseHeaders(req);
   const dbPool = getDbPool();
 
+  console.log("user", user);
+
   if (user) {
     req.user = {
-      id: user[`${NAMESPACE}/intouch_user_id`],
-      role: user[`${NAMESPACE}/intouch_role`],
-      email: user[`${NAMESPACE}/email`],
+      id: user[`${AUTH0_NAMESPACE}/intouch_user_id`],
+      role: user[`${AUTH0_NAMESPACE}/intouch_role`],
+      email: user[`${AUTH0_NAMESPACE}/email`],
       iss: user.iss,
       iat: user.iat,
       exp: user.exp,
@@ -60,8 +63,6 @@ export default async (req, res, next) => {
       };
     }
   }
-
-  console.log("req.user", req.user);
 
   return next();
 };

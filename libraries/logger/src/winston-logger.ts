@@ -21,9 +21,8 @@ const logger = (headers, module) => {
 
   const transports: winston.transport[] = [new winston.transports.Console({})];
   if (isProd) {
-    // transports.push(loggingWinston);
+    transports.push(loggingWinston);
   }
-  transports.push(loggingWinston);
 
   let format = isProd
     ? winston.format.combine(
@@ -45,7 +44,7 @@ const logger = (headers, module) => {
             let msg = `${[timestamp]} ${level}`;
 
             if (typeof message !== "string") {
-              msg = `${msg} ${JSON.stringify(message)}`;
+              msg = `${msg} ${JSON.stringify(message, null, 4)}`;
             } else {
               msg = `${msg} ${message}`;
             }
@@ -55,7 +54,7 @@ const logger = (headers, module) => {
             }
 
             if (metadata && Object.keys(metadata).length > 0) {
-              msg = `${msg} ${JSON.stringify(metadata)}`;
+              msg = `${msg} ${JSON.stringify(metadata, null, 4)}`;
             }
 
             return msg;

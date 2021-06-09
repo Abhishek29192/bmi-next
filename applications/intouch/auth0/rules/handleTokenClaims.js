@@ -38,19 +38,24 @@ async function handleTokenClaims(user, context, callback) {
   }
   // The user just signup but the registration is not completed
   else {
+    console.log("getRole", user_metadata.type, user_metadata.type);
+
     context.idToken = {
       ...context.idToken,
-      [`${namespace}/intouch_invitation`]: app_metadata.intouch_invitation,
+      [`${namespace}/intouch_invited`]: app_metadata.intouch_invited,
       [`${namespace}/firstname`]: user_metadata.firstname,
       [`${namespace}/lastname`]: user_metadata.lastname,
       [`${namespace}/market`]: user_metadata.market,
-      [`${namespace}/type`]: user_metadata.type
+      [`${namespace}/type`]: user_metadata.type,
+      [`${namespace}/registrationType`]: user_metadata.type
     };
 
     context.accessToken = {
       ...context.accessToken,
-      [`${namespace}/intouch_invitation`]: app_metadata.intouch_invitation,
-      [`${namespace}/email`]: user.email // the access token doesn't have the email by default
+      [`${namespace}/type`]: user_metadata.type,
+      [`${namespace}/registrationType`]: user_metadata.type,
+      [`${namespace}/intouch_invited`]: app_metadata.intouch_invited,
+      [`${namespace}/email`]: user.email
     };
   }
 
