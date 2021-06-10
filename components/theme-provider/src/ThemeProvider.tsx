@@ -45,22 +45,22 @@ const theme = createMuiTheme({
     fontFamily: "Effra Regular",
     h1: {
       fontFamily: "Effra Heavy",
-      fontSize: "3rem",
+      fontSize: "clamp(2rem, 1.6917rem + 1vw, 3rem)",
       lineHeight: 1.2
     },
     h2: {
       fontFamily: "Effra Heavy",
-      fontSize: "2.5rem",
+      fontSize: "clamp(1.17rem, 1.2rem + 1vw, 2.5rem)",
       lineHeight: 1.2
     },
     h3: {
       fontFamily: "Effra Bold",
-      fontSize: "2rem",
+      fontSize: "clamp(1.5rem, 0.7rem + 1vw, 2rem)",
       lineHeight: 1.2
     },
     h4: {
       fontFamily: "Effra Bold",
-      fontSize: "1.75rem",
+      fontSize: "clamp(1rem, 0.75rem + 0.5vw, 1.75rem)",
       lineHeight: 1.2
     },
     h5: {
