@@ -21,12 +21,10 @@ import { Product } from "../components/types/ProductBaseTypes";
 import createPimDocument from "./PimDocumentHelper";
 import createPimLinkDocument from "./PimLinkDocumentHelper";
 import createContentfuldocument from "./ContentfulDocumentHelper";
-import createProduct, {
-  createBaseProduct,
-  createVariantOption
-} from "./PimDocumentProductHelper";
+import createProduct, { createBaseProduct } from "./PimDocumentProductHelper";
 import createCategory from "./CategoryHelper";
 import createClassification from "./ClassificationHelper";
+import createContentfulDocument from "./ContentfulDocumentHelper";
 
 describe("filters tests", () => {
   describe("sortAlphabeticallyBy tests", () => {
@@ -94,7 +92,7 @@ describe("filters tests", () => {
             }
           });
         const result = findPIMDocumentBrandCategory(inputDataItems);
-        expect(result).toEqual(undefined);
+        expect(result).toEqual([]);
       });
     });
     describe("When document with no empty array is passed", () => {
@@ -108,11 +106,11 @@ describe("filters tests", () => {
             }
           });
         const result = findPIMDocumentBrandCategory(inputDataItems);
-        expect(result).toEqual(undefined);
+        expect(result).toEqual([]);
       });
     });
-    describe("When document with Brand category is passed", () => {
-      it("returns undefined", () => {
+    describe("When document with single Brand category is passed", () => {
+      it("returns single brand category in an array", () => {
         const inputDataItems: PIMDocumentData | PIMLinkDocumentData =
           createPimDocument({
             product: {
@@ -128,12 +126,55 @@ describe("filters tests", () => {
               ]
             }
           });
-        const expectedResult = {
-          categoryType: "Brand",
-          code: "cat-code1",
-          name: "cat-code1",
-          parentCategoryCode: "cat-code0"
-        };
+        const expectedResult = [
+          {
+            categoryType: "Brand",
+            code: "cat-code1",
+            name: "cat-code1",
+            parentCategoryCode: "cat-code0"
+          }
+        ];
+        const result = findPIMDocumentBrandCategory(inputDataItems);
+        expect(result).toEqual(expectedResult);
+      });
+    });
+    describe("When document with multiple Brand category is passed", () => {
+      it("returns multiple brand category in an array", () => {
+        const inputDataItems: PIMDocumentData | PIMLinkDocumentData =
+          createPimDocument({
+            product: {
+              code: "product-code",
+              name: "product-name",
+              categories: [
+                {
+                  categoryType: "Brand",
+                  code: "cat-code1",
+                  name: "cat-code1",
+                  parentCategoryCode: "cat-code-1"
+                },
+                {
+                  categoryType: "Brand",
+                  code: "cat-code2",
+                  name: "cat-code2",
+                  parentCategoryCode: "cat-code-2"
+                }
+              ]
+            }
+          });
+        const expectedResult = [
+          {
+            categoryType: "Brand",
+            code: "cat-code1",
+            name: "cat-code1",
+            parentCategoryCode: "cat-code-1"
+          },
+          {
+            categoryType: "Brand",
+            code: "cat-code2",
+            name: "cat-code2",
+            parentCategoryCode: "cat-code-2"
+          }
+        ];
         const result = findPIMDocumentBrandCategory(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
@@ -285,7 +326,7 @@ describe("filters tests", () => {
         expect(result).toEqual(undefined);
       });
     });
-    describe("Documents has Brand category", () => {
+    describe("When PIM Documents has Brand category", () => {
       it("Then: returns brand filter", () => {
         const inputDataItems: DocumentResultsData =
           Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
@@ -305,6 +346,29 @@ describe("filters tests", () => {
             {
               label: "category-name",
               value: "category-code"
+            }
+          ],
+          value: []
+        };
+        inputDataItems.push(pimDocument);
+        let result = getBrandFilterFromDocuments(inputDataItems);
+        expect(result).toEqual(expectedResult);
+      });
+    });
+    describe("When Contenful Documents has Brand category", () => {
+      it("Then: returns brand filter", () => {
+        const inputDataItems: DocumentResultsData =
+          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+        const pimDocument = createContentfulDocument({ brand: "Brand-1" });
+
+        const expectedResult = {
+          label: "filterLabels.brand",
+          name: "brand",
+          options: [
+            {
+              label: "Brand-1",
+              value: "Brand-1"
             }
           ],
           value: []
