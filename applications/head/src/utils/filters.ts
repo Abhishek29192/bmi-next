@@ -56,23 +56,25 @@ export const sortAlphabeticallyBy = (propName) => (a, b) => {
 
 const findPIMProductBrandCategory = (
   product: Pick<Product, "categories">
-): Category => {
-  return (product.categories || []).find(
+): Category[] => {
+  return (product.categories || []).filter(
     ({ categoryType }) => categoryType === "Brand"
   );
 };
 
 export const findPIMDocumentBrandCategory = (
   document: PIMDocumentData | PIMLinkDocumentData
-): Category => {
+): Category[] => {
   return findPIMProductBrandCategory(document.product);
 };
 
 // Returns a Category like object
-const getBrandCategoryFromProducts = (products: readonly Product[]) => {
+const getBrandCategoryFromProducts = (
+  products: readonly Product[]
+): Category[] => {
   return uniqBy(
     products
-      .map((product) => {
+      .flatMap((product) => {
         return findPIMProductBrandCategory(product);
       })
       .filter(Boolean),
@@ -85,7 +87,7 @@ const getBrandCategoryFromProducts = (products: readonly Product[]) => {
 const getBrandCategoryFromDocuments = (documents: DocumentResultsData) => {
   return uniqBy(
     documents
-      .map((document) => {
+      .flatMap((document) => {
         if (isPIMDocument(document)) {
           return findPIMDocumentBrandCategory(document);
         }
@@ -369,6 +371,11 @@ const getMaterialsFilter = (
   };
 };
 
+// currently showing not covered in tests
+// As, This is going to the product-detail-transforms
+// where its working with product variant options recusrively!
+// dont understand how it creates path for categories
+// hence not covered in tests at the moment
 const getCategoryFilters = (productCategories: ProductCategoryTree) => {
   return Object.entries(productCategories)
     .sort((a, b) => {
@@ -542,37 +549,46 @@ export const getDocumentFilters = (
   return [];
 };
 
+type DocumentResultData = PIMDocumentData | DocumentData | PIMLinkDocumentData;
+
 export const filterDocuments = (
   documents: DocumentResultsData,
   filters: Array<filterOption>
 ): DocumentResultsData => {
-  const valueGetters = {
-    brand: (document) =>
+  const valueMatcher = {
+    brand: (document: DocumentResultData, valuesToMatch: string[]): boolean =>
       isPIMDocument(document)
-        ? findPIMDocumentBrandCategory(document)?.code
-        : document.brand,
-    // TODO: here we find first vs filter all inside getProductFamilyFilter
-    productFamily: (document) =>
+        ? findPIMDocumentBrandCategory(document).some((item) =>
+            valuesToMatch.includes(item.code)
+          )
+        : valuesToMatch.includes(document.brand),
+    productFamily: (
+      document: DocumentResultData,
+      valuesToMatch: string[]
+    ): boolean =>
       isPIMDocument(document) &&
-      (document.product.categories || []).find(
-        ({ categoryType }) => categoryType === "ProductFamily"
-      )?.code,
-    contentfulAssetType: (document) => document.assetType.code
+      (document.product.categories || [])
+        .filter(({ categoryType }) => categoryType === "ProductFamily")
+        .some((item) => valuesToMatch.includes(item.code)),
+    contentfulAssetType: (
+      document: DocumentResultData,
+      valuesToMatch: string[]
+    ): boolean => valuesToMatch.includes(document.assetType.code)
   };
 
   const filtersWithValues = filters.filter(({ value }) => value.length !== 0);
+  //user clears ALL filters then return all documents
+  if (filtersWithValues.length === 0) return documents;
 
   return documents.filter((document) => {
-    const matched = [];
-
-    filters.forEach((filter) => {
-      const valueGetter = valueGetters[filter.name];
-
-      if (valueGetter && filter.value.includes(valueGetter(document))) {
-        matched.push(filter.name);
+    // only work with the filters that user has checked
+    // i.e. filter with values!
+    return filtersWithValues.some((filter) => {
+      const matcher = valueMatcher[filter.name];
+      if (matcher) {
+        return matcher(document, filter.value);
       }
+      return false;
     });
-
-    return matched.length === filtersWithValues.length;
   });
 };
