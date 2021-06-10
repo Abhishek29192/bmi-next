@@ -60,7 +60,7 @@ describe("filter document tests", () => {
       });
 
       inputDataItems.push(pimDocument);
-      let result = filterDocuments(inputDataItems, [
+      const result = filterDocuments(inputDataItems, [
         createProductFamilyFilterCriteria({
           name: "property_does_not_exist"
         })
@@ -150,7 +150,7 @@ describe("filter document tests", () => {
 
           inputDataItems.push(contentfulDocument);
 
-          let result = filterDocuments(inputDataItems, [
+          const result = filterDocuments(inputDataItems, [
             createBrandFilterCriteria()
           ]);
 

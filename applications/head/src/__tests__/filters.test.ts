@@ -6,7 +6,7 @@ import {
 } from "../components/types/PIMDocumentBase";
 import {
   clearFilterValues,
-  findPIMDocumentBrandCategory,
+  findPIMDocumentBrandCategories,
   generateUniqueDocuments,
   getAssetTypeFilterFromDocuments,
   getBrandFilterFromDocuments,
@@ -91,7 +91,7 @@ describe("filters tests", () => {
               categories: undefined
             }
           });
-        const result = findPIMDocumentBrandCategory(inputDataItems);
+        const result = findPIMDocumentBrandCategories(inputDataItems);
         expect(result).toEqual([]);
       });
     });
@@ -105,7 +105,7 @@ describe("filters tests", () => {
               categories: []
             }
           });
-        const result = findPIMDocumentBrandCategory(inputDataItems);
+        const result = findPIMDocumentBrandCategories(inputDataItems);
         expect(result).toEqual([]);
       });
     });
@@ -134,7 +134,7 @@ describe("filters tests", () => {
             parentCategoryCode: "cat-code0"
           }
         ];
-        const result = findPIMDocumentBrandCategory(inputDataItems);
+        const result = findPIMDocumentBrandCategories(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
     });
@@ -175,7 +175,7 @@ describe("filters tests", () => {
             parentCategoryCode: "cat-code-2"
           }
         ];
-        const result = findPIMDocumentBrandCategory(inputDataItems);
+        const result = findPIMDocumentBrandCategories(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
     });

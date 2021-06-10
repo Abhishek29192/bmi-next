@@ -54,7 +54,7 @@ export const sortAlphabeticallyBy = (propName) => (a, b) => {
   return 0;
 };
 
-const findPIMProductBrandCategory = (
+const findPIMProductBrandCategories = (
   product: Pick<Product, "categories">
 ): Category[] => {
   return (product.categories || []).filter(
@@ -62,10 +62,10 @@ const findPIMProductBrandCategory = (
   );
 };
 
-export const findPIMDocumentBrandCategory = (
+export const findPIMDocumentBrandCategories = (
   document: PIMDocumentData | PIMLinkDocumentData
 ): Category[] => {
-  return findPIMProductBrandCategory(document.product);
+  return findPIMProductBrandCategories(document.product);
 };
 
 // Returns a Category like object
@@ -75,7 +75,7 @@ const getBrandCategoryFromProducts = (
   return uniqBy(
     products
       .flatMap((product) => {
-        return findPIMProductBrandCategory(product);
+        return findPIMProductBrandCategories(product);
       })
       .filter(Boolean),
     "code"
@@ -84,12 +84,12 @@ const getBrandCategoryFromProducts = (
 };
 
 // Returns a Category like object
-const getBrandCategoryFromDocuments = (documents: DocumentResultsData) => {
+const findBrandCategoriesFromDocuments = (documents: DocumentResultsData) => {
   return uniqBy(
     documents
       .flatMap((document) => {
         if (isPIMDocument(document)) {
-          return findPIMDocumentBrandCategory(document);
+          return findPIMDocumentBrandCategories(document);
         }
 
         // Using single value available in Contentful Document
@@ -149,7 +149,7 @@ const getBrandFilterFromProducts = (products: readonly Product[]) => {
 };
 
 export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
-  const allValues = getBrandCategoryFromDocuments(documents);
+  const allValues = findBrandCategoriesFromDocuments(documents);
 
   if (allValues.length === 0) {
     return;
@@ -558,8 +558,8 @@ export const filterDocuments = (
   const valueMatcher = {
     brand: (document: DocumentResultData, valuesToMatch: string[]): boolean =>
       isPIMDocument(document)
-        ? findPIMDocumentBrandCategory(document).some((item) =>
-            valuesToMatch.includes(item.code)
+        ? findPIMDocumentBrandCategories(document).some((brandCategory) =>
+            valuesToMatch.includes(brandCategory.code)
           )
         : valuesToMatch.includes(document.brand),
     productFamily: (
@@ -569,7 +569,7 @@ export const filterDocuments = (
       isPIMDocument(document) &&
       (document.product.categories || [])
         .filter(({ categoryType }) => categoryType === "ProductFamily")
-        .some((item) => valuesToMatch.includes(item.code)),
+        .some((brandCategory) => valuesToMatch.includes(brandCategory.code)),
     contentfulAssetType: (
       document: DocumentResultData,
       valuesToMatch: string[]
