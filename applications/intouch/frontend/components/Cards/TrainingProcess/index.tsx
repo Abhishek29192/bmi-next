@@ -1,52 +1,54 @@
 import React from "react";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
-import { Search, School } from "@material-ui/icons";
+import { Search, School, VerifiedUser } from "@material-ui/icons";
+import { TrainingQuery } from "../../../graphql/generated/operations";
 import { InfoPair } from "../../InfoPair";
 import styles from "./styles.module.scss";
 
 export type TrainingProcessCardProps = {
-  children?: React.ReactNode | React.ReactNode[];
+  data: TrainingQuery["trainingContentCollection"];
 };
 
-export const TrainingProcessCard = ({ children }: TrainingProcessCardProps) => {
+export const TrainingProcessCard = ({ data }: TrainingProcessCardProps) => {
+  const {
+    pageSubHeading,
+    step1Heading,
+    step1SubHeading,
+    step1Description,
+    step2Heading,
+    step2SubHeading,
+    step2Description,
+    step3Heading,
+    step3SubHeading,
+    step3Description
+  } = data.items[0];
   return (
     <div className={styles.main}>
       <Typography variant="h4" hasUnderline>
-        The Training Process
+        {pageSubHeading}
       </Typography>
       <div className={styles.body}>
         <div className={styles.subcontent}>
           <div className={styles.heading}>
             <Icon source={Search} />
-            <Typography variant="h5">Step 1</Typography>
+            <Typography variant="h5">{step1Heading}</Typography>
           </div>
-          <InfoPair title="Find the right training">
-            Search our extensive library of classroom training, workshops,
-            online webinars and e-learning courses to find what you need and
-            take your skills to the next level.
-          </InfoPair>
+          <InfoPair title={step1SubHeading}>{step1Description}</InfoPair>
         </div>
         <div className={styles.subcontent}>
           <div className={styles.heading}>
             <Icon source={School} />
-            <Typography variant="h5">Step 2</Typography>
+            <Typography variant="h5">{step2Heading}</Typography>
           </div>
-          <InfoPair title="Increase your skills">
-            Continue personal development to hone your skills in areas where you
-            need additional knowledge.
-          </InfoPair>
+          <InfoPair title={step2SubHeading}>{step2Description}</InfoPair>
         </div>
         <div className={styles.subcontent}>
           <div className={styles.heading}>
-            <Icon source={School} />
-            <Typography variant="h5">Step 3</Typography>
+            <Icon source={VerifiedUser} />
+            <Typography variant="h5">{step3Heading}</Typography>
           </div>
-          <InfoPair title="Get certified">
-            Develop your training achievements by collecting BMI certificates,
-            which you can additionally share with others. They will always be
-            visible on your profile.
-          </InfoPair>
+          <InfoPair title={step3SubHeading}>{step3Description}</InfoPair>
         </div>
       </div>
     </div>

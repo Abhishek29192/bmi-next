@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@bmi/grid";
 import Hero from "@bmi/hero";
 import Typography from "@bmi/typography";
+import { TrainingQuery } from "graphql/generated/operations";
 import { CourseDescription } from "../Cards/CourseDescription";
 import { TrainingProcessCard } from "../Cards/TrainingProcess";
 import GridStyles from "../../styles/Grid.module.scss";
@@ -17,6 +18,28 @@ export default {
 };
 
 let media = <img src="https://source.unsplash.com/MjLrM8rVMC0/1600"></img>;
+
+const trainingProcessCardData: TrainingQuery["trainingContentCollection"] = {
+  items: [
+    {
+      pageSubHeading: "The Training Process",
+      step1Heading: "Step 1",
+      step1SubHeading: "Find the right training",
+      step1Description: `Search our extensive library of classroom training, workshops,
+  online webinars and e-learning courses to find what you need and
+  take your skills to the next level.`,
+      step2Heading: "Step 2",
+      step2SubHeading: "Increase your skills",
+      step2Description: `Continue personal development to hone your skills in areas where you
+  need additional knowledge.`,
+      step3Heading: "Step 3",
+      step3SubHeading: "Get certified",
+      step3Description: `Develop your training achievements by collecting BMI certificates,
+  which you can additionally share with others. They will always be
+  visible on your profile.`
+    }
+  ]
+};
 
 export const Main = ({ title }: LayoutProps) => (
   <Layout title={title}>
@@ -38,7 +61,7 @@ export const Main = ({ title }: LayoutProps) => (
             e-learning courses and live workshops and webinars.
           </Hero>
 
-          <TrainingProcessCard />
+          <TrainingProcessCard data={trainingProcessCardData} />
         </Grid>
       </Grid>
     </div>
