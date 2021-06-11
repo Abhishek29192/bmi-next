@@ -42,7 +42,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   return (
     <Layout title={t("Training")}>
       <div style={{ display: "flex" }}>
-        <TrainingSidePanel />
+        <TrainingSidePanel courseCatalog={courseCatalogues} />
         <TrainingCover trainingContentCollection={trainingContentCollection} />
       </div>
     </Layout>
