@@ -310,7 +310,25 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 };
 
-exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
+const areValuesEqual = (a, b) => {
+  if (a === b) return true;
+  if (typeof a !== typeof b) return false;
+  if (typeof a === "function") {
+    return a.toString() === b.toString();
+  }
+  if (typeof a === "object") {
+    if (a instanceof RegExp && b instanceof RegExp) {
+      return a.toString() === b.toString();
+    }
+    return areDeepEqualObjects(a, b);
+  }
+};
+
+const areDeepEqualObjects = (a, b) =>
+  Object.keys(a).length === Object.keys(b).length &&
+  Object.keys(a).every((key) => areValuesEqual(a[key], b[key]));
+
+exports.onCreateWebpackConfig = ({ actions, stage, getConfig, rules }) => {
   actions.setWebpackConfig({
     resolve: {
       plugins: [
@@ -324,6 +342,18 @@ exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
   // only when building production.
   if (stage === "build-javascript") {
     const config = getConfig();
+
+    // Find dependencies rule similar to how gatsby-plugin-remove-dependency-transpilation does it
+    const dependenciesRuleExample = rules.dependencies();
+    // dependencies rule compiles most node_modules files which tend to be already compiled,
+    // it excludes  a few popular packages (to speed up the build and reduce the memory consumption),
+    // here we remove the rule to avoid overloading the memory.
+    // NOTE: if the issue continues and no notable performance imporvments were introduced by gatsby/webpack/babel, consider upgrading the pipeline memory
+    // and setting --max_old_space_size to the new limit.
+    config.module.rules = config.module.rules.filter(
+      (rule) => !areDeepEqualObjects(rule, dependenciesRuleExample)
+    );
+
     const miniCssExtractPlugin = config.plugins.find(
       (plugin) => plugin.constructor.name === "MiniCssExtractPlugin"
     );
