@@ -1,8 +1,10 @@
-type User = {
-  company_id: string;
-  id: string;
+import { Role } from "@bmi/intouch-api-types";
+
+export type Account = {
+  companyId: string;
+  intouchUserId: string;
   email: string;
-  role: RolesKey;
+  role: Role;
   iss: string; // Issuer
   iat: number; // Issued at time
   exp: number; // Expiration time
@@ -10,9 +12,12 @@ type User = {
   aud: string; // Audience
   sub: string; // Subject user id in auth0 "provider|id" es "auth0|1234567890"
   scope: string | string[]; // Scope requested
-  market_id: string;
+  invited: boolean;
+  firstName: string;
+  lastName: string;
+  marketId: string;
   status: string;
-  docebo_user_id: string;
-  docebo_username: string;
-  migration_id: string;
+  doceboUserId: string;
+  doceboUsername: string;
+  migrationId: string;
 };

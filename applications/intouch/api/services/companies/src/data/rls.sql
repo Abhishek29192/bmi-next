@@ -21,8 +21,8 @@ CREATE POLICY policy_company_admin ON account FOR ALL TO company_admin
   USING (
     id IN (SELECT account_id FROM company_member WHERE company_id = current_company())
   )
-  WITH CHECK (true);
-CREATE POLICY policy_installer ON account FOR ALL TO installer USING (current_account_id() = id OR current_account_email() = email) WITH CHECK (true);
+  WITH CHECK (false);
+CREATE POLICY policy_installer ON account FOR ALL TO installer USING (current_account_id() = id OR current_account_email() = email) WITH CHECK (false);
 
 
 

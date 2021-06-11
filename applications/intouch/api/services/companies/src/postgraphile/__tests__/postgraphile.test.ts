@@ -4,7 +4,7 @@ describe("Postgraphile", () => {
   it("the context should have the user object", async () => {
     const req: any = {
       user: {
-        id: "123",
+        intouchUserId: "123",
         role: "installer",
         email: "email"
       }
@@ -16,18 +16,38 @@ describe("Postgraphile", () => {
 
     expect(context).toEqual({
       user: {
-        id: "123",
+        intouchUserId: "123",
         role: "installer",
         email: "email"
       }
     });
   });
 
-  it("pgSetting should should set the role and user id", async () => {
+  it("pgSetting should set the role and user id", async () => {
     const req: any = {
       user: {
-        id: "123",
+        intouchUserId: "123",
         role: "installer",
+        email: "email"
+      }
+    };
+    const pgSettings =
+      typeof postGraphileOpts.pgSettings === "function"
+        ? await postGraphileOpts.pgSettings(req)
+        : postGraphileOpts.pgSettings;
+
+    expect(pgSettings).toEqual({
+      "app.current_account_id": "123",
+      "app.current_account_email": "email",
+      role: "installer"
+    });
+  });
+
+  it("pgSetting should set role installer if role not in whitelist", async () => {
+    const req: any = {
+      user: {
+        intouchUserId: "123",
+        role: "postgres",
         email: "email"
       }
     };

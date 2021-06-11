@@ -1,6 +1,6 @@
 import { initAuth0 } from "@auth0/nextjs-auth0";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-
+import { parseAccount } from "../account";
 import { marketRedirect } from "../redirects/market";
 
 let auth0;
@@ -21,7 +21,6 @@ export const getAuth0Instance = async (req, res) => {
     // Process exist only on server side, so In eed to be sure req exists
     const {
       GCP_SECRET_PROJECT,
-      AUTH0_NAMESPACE,
       AUTH0_ISSUER_BASE_URL,
       AUTH0_CLIENT_ID,
       AUTH0_COOKIE_DOMAIN
@@ -61,10 +60,9 @@ export const getAuth0Instance = async (req, res) => {
       if (session?.user) {
         await marketRedirect(req, res, session.user);
         // Check if the user is a company admin and if it has already registered the company
-        const regCompleted =
-          session?.user[`${AUTH0_NAMESPACE}/registration_to_complete`];
+        const { registrationToComplete } = parseAccount(session?.user);
         // If company not registered then redirect him to the company registration
-        if (req.url !== "/company-registration" && regCompleted) {
+        if (req.url !== "/company-registration" && registrationToComplete) {
           res.writeHead(302, { Location: "/company-registration" });
           res.end();
         }

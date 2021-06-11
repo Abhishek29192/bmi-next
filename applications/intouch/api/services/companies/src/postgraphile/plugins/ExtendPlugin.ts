@@ -3,6 +3,7 @@ import { invite, completeInvitation } from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
 import { getGuarantee } from "../../services/contentful";
 import { guaranteeResolver } from "../../services/company/customResolvers";
+import Auth0 from "../../services/auth0";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -25,10 +26,12 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
       },
       Mutation: {
         invite: async (_query, args, context, resolveInfo) => {
-          return invite(_query, args, context, resolveInfo);
+          const auth0 = await Auth0.init(context.logger);
+          return invite(_query, args, context, resolveInfo, auth0);
         },
         completeInvitation: async (_query, args, context, resolveInfo) => {
-          return completeInvitation(_query, args, context, resolveInfo);
+          const auth0 = await Auth0.init(context.logger);
+          return completeInvitation(_query, args, context, resolveInfo, auth0);
         },
         publishMessage: async (_query, args, context, resolveInfo) => {
           const { input } = args;

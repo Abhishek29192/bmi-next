@@ -1,25 +1,21 @@
 import crypto from "crypto";
 import camelcaseKeys from "camelcase-keys";
-import Auth0 from "../auth0";
+import { Account } from "../../types";
 import { publish, TOPICS } from "../../services/events";
-
-const { AUTH0_NAMESPACE } = process.env;
 
 export const createAccount = async (
   resolve,
   source,
   args,
   context,
-  resolveInfo
+  resolveInfo,
+  auth0
 ) => {
-  const { pgClient, user } = context;
-  const {
-    account: { marketCode }
-  } = args.input;
+  const { pgClient, user, logger: Logger } = context;
+  const { marketCode } = args.input;
 
   let company;
-  const logger = context.logger("service:account");
-  const auth0 = await Auth0.init(logger);
+  const logger = Logger("service:account");
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
@@ -87,6 +83,8 @@ export const createAccount = async (
       }
     };
   } catch (e) {
+    logger.error("Error creating a user");
+
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
     throw e;
   } finally {
@@ -99,7 +97,8 @@ export const updateAccount = async (
   source,
   args,
   context,
-  resolveInfo
+  resolveInfo,
+  auth0
 ) => {
   let result;
 
@@ -113,7 +112,6 @@ export const updateAccount = async (
 
     const doceboUserId = result.data["@account"].doceboUserId;
 
-    const auth0 = await Auth0.init(logger);
     const app_metadata: any = {
       intouch_docebo_id: doceboUserId
     };
@@ -132,17 +130,18 @@ export const updateAccount = async (
   }
 };
 
-export const invite = async (_query, args, context, resolveInfo) => {
+export const invite = async (_query, args, context, resolveInfo, auth0) => {
   const logger = context.logger("service:account");
-  const auth0 = await Auth0.init(logger);
 
-  const { pgClient, pubSub, user } = context;
+  const user: Account = context.user;
+  const { pgClient, pubSub } = context;
   const { email, firstName, lastName, role, note } = args.input;
 
   if (user.role === "INSTALLER")
     throw new Error("you must be an admin to invite other users");
 
   let auth0User = await auth0.getUserByEmail(email);
+
   const password = `Gj$1${crypto.randomBytes(20).toString("hex")}`;
 
   /**
@@ -154,7 +153,7 @@ export const invite = async (_query, args, context, resolveInfo) => {
    * to login. We set verify_email false becuase we don't want to send an email
    * to verify the email as we are already sending the password reset email
    */
-  if (auth0User) {
+  if (!auth0User) {
     auth0User = await auth0.createUser({
       email,
       connection: "Username-Password-Authentication",
@@ -177,7 +176,7 @@ export const invite = async (_query, args, context, resolveInfo) => {
     // Creating a new invitation record
     const { rows: invitations } = await pgClient.query(
       "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
-      [user.id, user.company_id, "NEW", email, note]
+      [user.intouchUserId, user.companyId, "NEW", email, note]
     );
     logger.info(
       `Created invitation record with id ${invitations[0].id}`,
@@ -186,20 +185,20 @@ export const invite = async (_query, args, context, resolveInfo) => {
 
     // Creating a passsword reset ticket
     const ticket = await auth0.createResetPasswordTicket({
-      user_id: auth0User.user_id,
-      result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company_id}`
+      user_id: auth0User?.user_id,
+      result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.companyId}`
     });
 
     // Send the email with the link to reset the password to the user
     await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-      title: `You have been invited by ${user.company_id}`,
+      title: `You have been invited by ${user.companyId}`,
       text: `
-      You are invited by company ${user.company_id}.
+      You are invited by company ${user.companyId}.
       Please follow this link to set your password:
       ${ticket.ticket}
     `,
       html: `
-        You are invited by company ${user.company_id}.
+        You are invited by company ${user.companyId}.
         Please follow this link to set your password:
         ${ticket.ticket}
       `,
@@ -233,18 +232,17 @@ export const completeInvitation = async (
   _query,
   args,
   context,
-  resolveInfo
+  resolveInfo,
+  auth0
 ) => {
-  const { pgClient, user } = context;
+  const { pgClient } = context;
   const { companyId } = args;
   const logger = context.logger("service:account");
 
-  const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
-  const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
-  const role =
-    user[`${AUTH0_NAMESPACE}/registrationType`] === "company"
-      ? "COMPANY_ADMIN"
-      : "INSTALLER";
+  const user: Account = context.user;
+  const firstName = user.firstName;
+  const lastName = user.lastName;
+  const role = user.role;
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
@@ -255,10 +253,16 @@ export const completeInvitation = async (
       [companyId]
     );
 
+    logger.info("invitations", invitations);
+
+    logger.info("input:", user);
+
     const { rows: users } = await pgClient.query(
       "INSERT INTO account (market_id, email, first_name, last_name, role) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [invitations[0].market_id, user.email, firstName, lastName, role]
     );
+
+    logger.info("users", users);
 
     await pgClient.query(
       `SELECT set_config('app.current_account_id', $1, true);`,
@@ -270,16 +274,18 @@ export const completeInvitation = async (
       [users[0].id, invitations[0].id]
     );
 
+    logger.info("company_members", users);
+
     const { rows: markets } = await pgClient.query(
       "select * from market where id = $1",
       [users[0].market_id]
     );
 
+    logger.info("markets", markets);
+
     logger.info(
       `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
-
-    const auth0 = await Auth0.init(logger);
 
     // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
     const app_metadata: any = {

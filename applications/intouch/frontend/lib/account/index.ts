@@ -2,6 +2,8 @@ import axios from "axios";
 import { ROLES } from "lib/config";
 import { v4 } from "uuid";
 
+const { AUTH0_NAMESPACE } = process.env;
+
 export const queryAccount = `query Account($id: Int!) {
   account(id: $id) {
     id
@@ -63,32 +65,52 @@ const mutationCompleteInvitation = `mutation completeInvitation ($companyId: Int
   }
 }`;
 
-export const getAccount = async (req, session) => {
-  const { AUTH0_NAMESPACE } = process.env;
-  const { user } = session;
+export const parseAccount = (user) => ({
+  intouchUserId: user[`${AUTH0_NAMESPACE}/intouch_user_id`],
+  email: user[`${AUTH0_NAMESPACE}/email`],
+  role: user[`${AUTH0_NAMESPACE}/intouch_role`],
+  lastName: user[`${AUTH0_NAMESPACE}/last_name`],
+  firstName: user[`${AUTH0_NAMESPACE}/first_name`],
+  invited: user[`${AUTH0_NAMESPACE}/intouch_invited`],
+  doceboId: user[`${AUTH0_NAMESPACE}/intouch_docebo_id`],
+  registrationType: user[`${AUTH0_NAMESPACE}/registration_type`],
+  marketCode: user[`${AUTH0_NAMESPACE}/intouch_market_code`],
+  registrationToComplete: user[`${AUTH0_NAMESPACE}/registration_to_complete`],
+  iss: user.iss,
+  iat: user.iat,
+  exp: user.exp,
+  scope: user.exp,
+  sub: user.sub,
+  aud: user.aud
+});
 
-  const userId = user[`${AUTH0_NAMESPACE}/intouch_user_id`];
+export const getAccount = async (req, session) => {
+  const { user } = session;
+  const logger = req.logger("account:get");
+  const { intouchUserId } = parseAccount(user);
 
   const body = {
     query: queryAccount,
     variables: {
       input: {
-        id: userId
+        id: intouchUserId
       }
     }
   };
 
-  return requestHandler(req, session, body);
+  const data = await requestHandler(req, session, body);
+
+  logger.info(`Get account with id: ${data.id}`);
+
+  return data;
 };
 
 export const createAccount = async (req, session) => {
-  const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
+  const logger = req.logger("account:create");
 
-  const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
-  const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
-  const registrationType = user[`${AUTH0_NAMESPACE}/registrationType`];
-  const marketCode = user[`${AUTH0_NAMESPACE}/market`] || "en";
+  const { firstName, lastName, registrationType, marketCode } =
+    parseAccount(user);
 
   const body = {
     query: mutationCreateAccount,
@@ -106,7 +128,11 @@ export const createAccount = async (req, session) => {
     }
   };
 
-  return requestHandler(req, session, body);
+  const data = await requestHandler(req, session, body);
+
+  logger.info(`Account with id: ${data.id} created`);
+
+  return data;
 };
 
 export const createDoceboUser = async (req, session, account) => {
@@ -116,15 +142,12 @@ export const createDoceboUser = async (req, session, account) => {
   const POWER_USER_LEVEL = 4;
 
   const { user } = session;
-  const { AUTH0_NAMESPACE } = process.env;
   const { id, market } = account;
 
-  const firstName = user[`${AUTH0_NAMESPACE}/firstname`];
-  const lastName = user[`${AUTH0_NAMESPACE}/lastname`];
-  const registrationType = user[`${AUTH0_NAMESPACE}/registrationType`];
-  const intouch_user_id = id || user[`${AUTH0_NAMESPACE}/intouch_user_id`];
+  const { firstName, lastName, registrationType, intouchUserId } =
+    parseAccount(user);
 
-  user[`${AUTH0_NAMESPACE}/intouch_user_id`] = intouch_user_id;
+  const intouch_user_id = id || intouchUserId;
 
   const branchId =
     registrationType === "company"
@@ -167,10 +190,12 @@ export const createDoceboUser = async (req, session, account) => {
     );
   }
 
-  logger.info("Docebo account created", console);
+  logger.info(`Docebo account with id ${createDoceboUser.user_id} created`);
 };
 
 export const updateAccount = async (req, session, accountId, doceboUserId) => {
+  const logger = req.logger("account:update");
+
   const { user } = session;
   const body = {
     query: mutationUpdateAccount,
@@ -185,10 +210,15 @@ export const updateAccount = async (req, session, accountId, doceboUserId) => {
     }
   };
 
-  return requestHandler(req, session, body);
+  const data = await requestHandler(req, session, body);
+
+  logger.info(`Account with id: ${data.id} updates`);
+
+  return data;
 };
 
 export const completeAccountInvitation = async (req, session) => {
+  const logger = req.logger("account:invitation");
   const body = {
     query: mutationCompleteInvitation,
     variables: {
@@ -196,21 +226,11 @@ export const completeAccountInvitation = async (req, session) => {
     }
   };
 
-  return requestHandler(req, session, body);
-};
+  const data = await requestHandler(req, session, body);
 
-export const getMarketByDomain = async (req, session) => {
-  const { AUTH0_NAMESPACE } = process.env;
-  const { user } = session;
-  const marketCode = user[`${AUTH0_NAMESPACE}/intouch_market_code`] || "en";
-  const body = {
-    query: querymarketByDomain,
-    variables: {
-      domain: marketCode
-    }
-  };
+  logger.info(`Invitation for user: ${data.id} completed`);
 
-  return requestHandler(req, session, body);
+  return data;
 };
 
 const randomPassword = (length: number = 8) => {
@@ -221,6 +241,7 @@ const randomPassword = (length: number = 8) => {
     .map(() => charset.charAt(Math.floor(Math.random() * charset.length)))
     .join("");
 };
+
 const requestHandler = async (req, session, body) => {
   const logger = req.logger("account:requestHandler");
 
@@ -236,7 +257,7 @@ const requestHandler = async (req, session, body) => {
         }
       }
     );
-    console.log("data", data);
+    logger.info("body", body);
     return data;
   } catch (error) {
     logger.error("requestHandler", error.message);

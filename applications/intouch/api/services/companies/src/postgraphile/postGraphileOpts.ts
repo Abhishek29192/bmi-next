@@ -1,11 +1,24 @@
+import { Role } from "@bmi/intouch-api-types";
 import { Request, Response } from "express";
 import { PostGraphileOptions } from "postgraphile";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import { TagsFilePlugin } from "postgraphile/plugins";
 import config from "../config";
+import { Account } from "../types/index";
 import { ExtendPlugin, WrapPlugin } from "./plugins";
 import handleErrors from "./handleErrors";
+
+type Props = {
+  user: Account;
+};
+
+const availableRoles: Role[] = [
+  "INSTALLER",
+  "COMPANY_ADMIN",
+  "MARKET_ADMIN",
+  "SUPER_ADMIN"
+];
 
 const postGraphileOpts: PostGraphileOptions<Request, Response> = {
   ...config.postgraphile,
@@ -22,18 +35,16 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     logger: req.logger,
     pubSub: req.pubSub
   }),
-  pgSettings: async ({ user }) => {
-    let role: RolesValues;
-    const { roles } = config;
-    if (Object.prototype.hasOwnProperty.call(roles, user?.role)) {
-      role = roles[user?.role];
-    } else {
-      role = "installer";
+  pgSettings: async ({ user }: Props) => {
+    let role = user?.role;
+    if (!availableRoles.includes(user?.role)) {
+      role = "INSTALLER";
     }
+
     return {
-      "app.current_account_id": user?.id,
+      "app.current_account_id": user?.intouchUserId,
       "app.current_account_email": user?.email,
-      role
+      role: role.toLocaleLowerCase()
     };
   }
 };

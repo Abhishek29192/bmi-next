@@ -1,4 +1,5 @@
 import { makeWrapResolversPlugin } from "graphile-utils";
+import Auth0 from "../../services/auth0";
 import { updateCompany } from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
 
@@ -14,12 +15,28 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
           ]
         },
         async resolve(resolve: any, source, args, context: any, resolveInfo) {
-          return createAccount(resolve, source, args, context, resolveInfo);
+          const auth0 = await Auth0.init(context.logger);
+          return createAccount(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo,
+            auth0
+          );
         }
       },
       updateAccount: {
         async resolve(resolve: any, source, args, context: any, resolveInfo) {
-          return updateAccount(resolve, source, args, context, resolveInfo);
+          const auth0 = await Auth0.init(context.logger);
+          return updateAccount(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo,
+            auth0
+          );
         }
       },
       updateCompany: {

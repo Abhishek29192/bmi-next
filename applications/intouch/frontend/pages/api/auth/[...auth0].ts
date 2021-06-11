@@ -3,7 +3,8 @@ import { getAuth0Instance } from "../../../lib/auth0";
 import {
   createAccount,
   createDoceboUser,
-  getAccount
+  getAccount,
+  parseAccount
 } from "../../../lib/account";
 import { REDIRECT_MAP } from "../../../lib/config";
 import { withLoggerApi } from "../../../lib/logger/withLogger";
@@ -18,38 +19,35 @@ const afterCallback = async (
   session,
   state
 ) => {
-  const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
-  const logger = req.logger("Auth0:callback");
+  const { invited, intouchUserId, doceboId } = parseAccount(user);
 
-  const intouch_invited = user[`${AUTH0_NAMESPACE}/intouch_invited`];
-  const intouch_user_id = user[`${AUTH0_NAMESPACE}/intouch_user_id`];
-  const intouch_docebo_id = user[`${AUTH0_NAMESPACE}/intouch_docebo_id`];
-
-  if (intouch_invited) {
+  // If the user is invited return the session as the return url
+  // in the reset password email will redirect him to /api/invitation
+  if (invited) {
     return session;
   }
 
-  if (!intouch_user_id && state.prompt !== "none") {
+  // The jwt token does not have the intouc_id property, let's create
+  // a new user and the docebo user
+  if (!intouchUserId && state.prompt !== "none") {
     const { data } = await createAccount(req, session);
     const {
       createAccount: { account }
     } = data;
-    logger.info("Account created", account);
 
     await createDoceboUser(req, session, account);
-    logger.info("Docebo Account created");
 
     state.returnTo = "/api/silent-login";
     return session;
   }
 
-  if (!intouch_docebo_id && state.prompt !== "none") {
+  // The user already have an inotuch_user_id but it doesn't have a docebo
+  // user id, so we create a docebo user
+  if (!doceboId && state.prompt !== "none") {
     const { data } = await getAccount(req, session);
-    logger.info("Docebo created", data);
 
     await createDoceboUser(req, session, data);
-    logger.info("Docebo account created");
     state.returnTo = "/api/silent-login";
   }
 

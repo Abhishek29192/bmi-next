@@ -1,7 +1,7 @@
 import { Logger } from "winston";
 import axios from "axios";
 
-export default class Auth0 {
+class Auth0 {
   logger: Logger;
   accessToken: string;
 
@@ -9,7 +9,7 @@ export default class Auth0 {
     this.logger = logger;
   }
 
-  static async init(logger) {
+  public static async init(logger) {
     const auth0 = new Auth0(logger);
 
     const { access_token } = await auth0.getAccessToken();
@@ -150,3 +150,5 @@ export default class Auth0 {
     }
   };
 }
+
+export default Auth0;

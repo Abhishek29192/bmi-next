@@ -101,7 +101,7 @@ LANGUAGE sql
 STABLE
 SECURITY DEFINER;
 
--- Function to invite a new account to an organization
+-- Function to create a new account
 CREATE OR REPLACE FUNCTION create_account (account account, market_code text)
   RETURNS account
   AS $$
@@ -114,7 +114,7 @@ BEGIN
   FROM
     market
   WHERE
-    DOMAIN = market_code INTO market_id;
+    domain = market_code INTO market_id;
   IF FOUND THEN
     INSERT INTO account ("email", "first_name", "last_name", "market_id", "role")
       VALUES (account.email, account.first_name, account.last_name, market_id, account.role)
@@ -133,7 +133,7 @@ LANGUAGE 'plpgsql'
 VOLATILE
 SECURITY DEFINER;
 
--- Function to invite a new account to an organization
+-- Function to create a new company
 CREATE OR REPLACE FUNCTION create_company ()
   RETURNS company
   AS $$
@@ -153,7 +153,7 @@ LANGUAGE 'plpgsql'
 VOLATILE
 SECURITY DEFINER;
 
--- Function to invite a new account to an organization
+-- Function link an account to a company
 CREATE OR REPLACE FUNCTION link_account_to_company (account_id int, company_id int)
   RETURNS company_member
   AS $$

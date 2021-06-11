@@ -16,7 +16,7 @@ describe("Account", () => {
       email: "email",
       [`${process.env.AUTH0_NAMESPACE}/firstname`]: "Name",
       [`${process.env.AUTH0_NAMESPACE}/lastname`]: "Lastname",
-      [`${process.env.AUTH0_NAMESPACE}/registrationType`]: "company"
+      [`${process.env.AUTH0_NAMESPACE}/registration_type`]: "company"
     }
   };
   const req = {

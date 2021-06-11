@@ -145,7 +145,7 @@
               <input
                 type="radio"
                 id="check-installer"
-                name="type"
+                name="registrationType"
                 value="installer"
                 checked
               />
@@ -157,7 +157,7 @@
               <input
                 type="radio"
                 id="check-company"
-                name="type"
+                name="registrationType"
                 value="company"
               />
               <label for="check-company" data-i18n="company">Company</label>
@@ -442,13 +442,13 @@
         function signup() {
           // Get the form
           const form = document.querySelectorAll("#signup-form form")[0];
-          const radios = form.elements["type"];
+          const radios = form.elements["registrationType"];
 
           var button = this;
           var email = document.getElementById("signup-email").value;
           var password = document.getElementById("signup-password").value;
-          var firstname = document.getElementById("signup-firstname").value;
-          var lastname = document.getElementById("signup-lastname").value;
+          var first_name = document.getElementById("signup-firstname").value;
+          var last_name = document.getElementById("signup-lastname").value;
 
           button.disabled = true;
           webAuth.redirect.signupAndLogin(
@@ -458,9 +458,9 @@
               password: password,
               captcha: captcha.getValue(),
               user_metadata: {
-                type: radios.value,
-                firstname,
-                lastname,
+                registration_type: radios.value,
+                first_name,
+                last_name,
                 market: config.extraParams.market
               }
             },

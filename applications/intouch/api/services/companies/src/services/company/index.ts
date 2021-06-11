@@ -24,7 +24,7 @@ export const updateCompany = async (
     });
 
     logger.info(
-      `Company ${result.data.$company_id} created by user ${user.id}`
+      `Company ${result.data.$company_id} created by user ${user.intouchUserId}`
     );
 
     return result;
