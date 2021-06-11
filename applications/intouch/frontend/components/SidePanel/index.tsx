@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FilterInput } from "../FilterInput";
 import { FilterButton } from "../FilterButton";
 import styles from "./styles.module.scss";
@@ -6,16 +6,27 @@ import styles from "./styles.module.scss";
 export type SidePanelProps = {
   searchLabel?: string;
   filters?: Record<string, any>;
+  filterClick?: (filter) => void;
   children: React.ReactNode | React.ReactNode[];
 };
 
 export const SidePanel = ({
   searchLabel,
   filters,
+  filterClick,
   children
 }: SidePanelProps) => {
+  const onClickHandler = (filter) => {
+    filterClick && filterClick(filter);
+  };
+
   const filterButtons = (filters || []).map((filter) => (
-    <FilterButton label={filter.label} key={filter.attr} />
+    <FilterButton
+      label={filter.label}
+      key={filter.attr}
+      isActive={filter.isActive}
+      onClick={() => onClickHandler(filter)}
+    />
   ));
 
   return (
