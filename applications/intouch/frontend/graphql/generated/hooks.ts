@@ -291,7 +291,7 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQueryVariables
 >;
 export const TrainingDocument = gql`
-  query training {
+  query training($catalogueId: Int!, $userId: Int!) {
     trainingContentCollection {
       items {
         pageHeading
@@ -313,6 +313,27 @@ export const TrainingDocument = gql`
         live
       }
     }
+    courseCatalogues(condition: { catalogueId: $catalogueId }) {
+      nodes {
+        course {
+          courseId
+          name
+          technology
+          image
+          promoted
+          trainingType
+          description
+          courseEnrollments(condition: { userId: $userId }) {
+            nodes {
+              id
+              status
+              url
+              courseId
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -328,11 +349,13 @@ export const TrainingDocument = gql`
  * @example
  * const { data, loading, error } = useTrainingQuery({
  *   variables: {
+ *      catalogueId: // value for 'catalogueId'
+ *      userId: // value for 'userId'
  *   },
  * });
  */
 export function useTrainingQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.TrainingQuery,
     OperationTypes.TrainingQueryVariables
   >
