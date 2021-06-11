@@ -29,7 +29,8 @@ const useStyles = makeStyles<Theme, MakeStylesProps>((theme: Theme) =>
       },
       "& > .MuiButton-label": {
         color: "#007bbd"
-      }
+      },
+      textTransform: "capitalize"
     }
   })
 );
