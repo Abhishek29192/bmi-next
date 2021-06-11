@@ -1,14 +1,10 @@
 import React from "react";
-import Hero from "@bmi/hero";
-import Button from "@bmi/button";
-import Grid from "@bmi/grid";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
-import { TrainingProcessCard } from "components/Cards/TrainingProcess";
+import { TrainingCover } from "components/Cards/TrainingCover";
 import { TrainingSidePanel } from "components/SidePanel/TrainingSidePanel";
-import GridStyles from "../styles/Grid.module.scss";
 import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
@@ -27,7 +23,6 @@ type PageProps = {
 const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
-
   if (error)
     return (
       <Layout title={t("Training")}>
@@ -35,7 +30,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
       </Layout>
     );
 
-  const { trainingContentCollection } = data;
+  const { trainingContentCollection, courseCatalogues } = data;
 
   if (!trainingContentCollection.items.length)
     return (
@@ -44,47 +39,11 @@ const TrainingPage = ({ trainingData }: PageProps) => {
       </Layout>
     );
 
-  // there will only ever be 1 training collection item
-  const { pageHeading, description, lmsCtaLabel, image } =
-    trainingContentCollection.items[0];
-
-  const media = <img src={image.url} />;
-
   return (
     <Layout title={t("Training")}>
       <div style={{ display: "flex" }}>
         <TrainingSidePanel />
-        <Grid
-          container
-          spacing={3}
-          className={GridStyles.outerGrid}
-          alignItems="stretch"
-        >
-          <Grid item xs={12}>
-            <Hero
-              media={media}
-              title={pageHeading}
-              level={1}
-              cta={
-                <Button
-                  label={lmsCtaLabel}
-                  action={{
-                    model: "htmlLink",
-                    href: "", // TODO: what url is this?
-                    target: "_blank",
-                    rel: "noopener noreferrer"
-                  }}
-                >
-                  {lmsCtaLabel}
-                </Button>
-              }
-            >
-              {description}
-            </Hero>
-
-            <TrainingProcessCard data={trainingContentCollection} />
-          </Grid>
-        </Grid>
+        <TrainingCover trainingContentCollection={trainingContentCollection} />
       </div>
     </Layout>
   );
@@ -92,6 +51,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
 
 export const getServerSideProps = async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+
   return auth0.withPageAuthRequired({
     async getServerSideProps({ locale, ...ctx }) {
       const apolloClient = await initializeApollo(null, { ...ctx, locale });
