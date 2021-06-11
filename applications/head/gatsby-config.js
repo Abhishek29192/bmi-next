@@ -485,16 +485,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
-        headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [
-          "X-Frame-Options: DENY",
-          `X-Robots-Tag: ${process.env.X_ROBOTS_TAG}`,
-          "X-XSS-Protection: 1; mode=block",
-          "X-Content-Type-Options: nosniff",
-          "Referrer-Policy: strict-origin-when-cross-origin",
-          `Content-Security-Policy: ${process.env.CONTENT_SECURITY_POLICY}`,
-          `Access-Control-Allow-Origin: ${process.env.ACCESS_CONTROL_ALLOW_ORIGIN}`
-        ], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+        headers: {
+          "/*": [
+            `Content-Security-Policy: ${process.env.CONTENT_SECURITY_POLICY}`,
+            "X-Frame-Options: DENY",
+            `X-Robots-Tag: ${process.env.X_ROBOTS_TAG}`,
+            "X-XSS-Protection: 1; mode=block",
+            "X-Content-Type-Options: nosniff",
+            "Referrer-Policy: strict-origin-when-cross-origin",
+            `Access-Control-Allow-Origin: ${process.env.ACCESS_CONTROL_ALLOW_ORIGIN}`
+          ]
+        }, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
         mergeSecurityHeaders: true, // boolean to turn off the default security headers
         mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
         mergeCachingHeaders: true, // boolean to turn off the default caching headers
