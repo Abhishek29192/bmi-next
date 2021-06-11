@@ -8,7 +8,9 @@ import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
 const longText =
-  process.env.LONG_TEXT && process.env.LONG_TEXT === "true" ? true : false;
+  process.env.GATSBY_LONG_TEXT && process.env.GATSBY_LONG_TEXT === "true"
+    ? true
+    : false;
 
 const theme = createMuiTheme({
   breakpoints: {
