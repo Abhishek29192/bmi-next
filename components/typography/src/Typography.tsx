@@ -7,6 +7,7 @@ import styles from "./Typography.module.scss";
 
 export type Props = Omit<TypographyProps, "variant"> & {
   hasUnderline?: boolean;
+  noClamp?: boolean;
   // NOTE: This is necessary until we upgrade to @material-ui/core@^5.0.0
   // see: https://github.com/mui-org/material-ui/issues/22452#issuecomment-685756045
   component?: React.ElementType;
@@ -31,8 +32,8 @@ const Typography = ({
   children,
   className,
   hasUnderline,
-  variant,
   noClamp,
+  variant,
   ...props
 }: Props) => (
   <MaterialTypography
