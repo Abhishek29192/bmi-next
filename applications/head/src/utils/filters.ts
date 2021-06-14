@@ -262,7 +262,6 @@ const getColorFilter = (
   }
 
   // Assuming all colours have the same label
-  const label = colorFilters[0]?.name;
   const values = uniqBy(map(colorFilters, "value"), "code");
 
   return {
@@ -313,7 +312,6 @@ const getTextureFilter = (
   }
 
   // Assuming all texturefamily classifications have the same label
-  const label = textures[0]?.name;
   const values = uniqBy(map(textures, "value"), "code");
 
   return {
@@ -355,7 +353,6 @@ const getMaterialsFilter = (
   }
 
   // Assuming all texturefamily classifications have the same label
-  const label = materials[0]?.name;
   const values = uniqBy(map(materials, "value"), "code");
 
   return {
@@ -371,12 +368,10 @@ const getMaterialsFilter = (
   };
 };
 
-// currently showing not covered in tests
-// As, This is going to the product-detail-transforms
-// where its working with product variant options recusrively!
-// dont understand how it creates path for categories
-// hence not covered in tests at the moment
-const getCategoryFilters = (productCategories: ProductCategoryTree) => {
+// exporting for test coverage
+// since couple of statement/branches are not reached
+// in the way its called from "getFilters" function
+export const getCategoryFilters = (productCategories: ProductCategoryTree) => {
   return Object.entries(productCategories)
     .sort((a, b) => {
       if (a[1]["name"] < b[1]["name"]) {
@@ -408,8 +403,6 @@ export const getFilters = (
   pageCategory?: Category,
   showBrandFilter?: boolean
 ) => {
-  const allCategories = findAllCategories(products);
-
   let showProductFamilyFilter = true;
   let showCategoryFilters = true;
   let showProductLineFilters = true;
@@ -419,7 +412,6 @@ export const getFilters = (
     showCategoryFilters = pageCategory.categoryType !== "Category";
     showProductLineFilters = pageCategory.categoryType !== "ProductLine";
   }
-
   return [
     showBrandFilter ? getBrandFilterFromProducts(products) : undefined,
     showProductFamilyFilter ? getProductFamilyFilter(products) : undefined,
@@ -427,7 +419,9 @@ export const getFilters = (
     getColorFilter(pimClassificationNamespace, products),
     getMaterialsFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),
-    ...(showCategoryFilters ? getCategoryFilters(allCategories) : [])
+    ...(showCategoryFilters
+      ? getCategoryFilters(findAllCategories(products))
+      : [])
   ].filter(Boolean);
 };
 

@@ -347,6 +347,40 @@ describe("filter document tests", () => {
 
   describe("product family filter tests", () => {
     describe("When product family filter is provided with PIM Documents", () => {
+      describe("And document product does not have any categories", () => {
+        it("Then: returns empty results", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+          const baseUrl: string = "http://localhost/document/library/";
+
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id-aero`,
+            url: `${baseUrl}pim-doc-url-aero`,
+            product: createProduct({
+              categories: null
+            })
+          });
+
+          inputDataItems.push(pimDocument);
+
+          const pimLinkDocument = createPimLinkDocument({
+            id: `pim-doc-id-ico`,
+            url: `${baseUrl}pim-doc-url-ico`,
+            product: createProduct({
+              categories: null
+            })
+          });
+
+          inputDataItems.push(pimLinkDocument);
+
+          let result = filterDocuments(inputDataItems, [
+            createProductFamilyFilterCriteria()
+          ]);
+
+          expect(result).toEqual([]);
+        });
+      });
       describe("And document with matching filter does NOT exists", () => {
         it("Then: returns empty results", () => {
           const inputDataItems: DocumentResultsData =
