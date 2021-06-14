@@ -66,7 +66,7 @@ const theme = createMuiTheme({
     h4: {
       fontFamily: "Effra Bold",
       fontSize: longText
-        ? "clamp(0.9rem, 0.68rem + 0.5vw, 1.75rem)"
+        ? "clamp(1.05rem, 0.68rem + 0.5vw, 1.75rem)"
         : "1.75rem",
       lineHeight: 1.2
     },
