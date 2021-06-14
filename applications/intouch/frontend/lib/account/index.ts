@@ -1,5 +1,5 @@
-import { Role } from "@bmi/intouch-api-types";
 import axios from "axios";
+import { ROLES } from "lib/config";
 import { v4 } from "uuid";
 
 export const mutationCreateAccount = `mutation CreateAccount($input: CreateAccountInput!) {
@@ -52,7 +52,9 @@ export const createAccount = async (req, session) => {
         lastName,
         email: user.email,
         role:
-          registrationType === "company" ? Role.CompanyAdmin : Role.Installer,
+          registrationType === "company"
+            ? ROLES.COMPANY_ADMIN
+            : ROLES.INSTALLER,
         marketCode
       }
     }

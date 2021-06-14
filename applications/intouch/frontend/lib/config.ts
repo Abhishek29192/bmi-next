@@ -1,8 +1,10 @@
-export const ROLES = {
-  COMPANY_ADMIN: "company_admin",
-  INSTALLER: "installer",
-  MARKET_ADMIN: "market_admin",
-  SUPER_ADMIN: "super_admin"
+import { Role } from "@bmi/intouch-api-types";
+
+export const ROLES: { [key: string]: Role } = {
+  COMPANY_ADMIN: "COMPANY_ADMIN",
+  INSTALLER: "INSTALLER",
+  MARKET_ADMIN: "MARKET_ADMIN",
+  SUPER_ADMIN: "SUPER_ADMIN"
 };
 
 export const REDIRECT_MAP =

@@ -15,7 +15,7 @@ stages:
 
 workflow:
   rules:
-    - if: '$CI_MERGE_REQUEST_LABELS =~ /.*Disable Builds.*/'
+    - if: "$CI_MERGE_REQUEST_LABELS =~ /.*Disable Builds.*/"
       when: never
     - when: always
 
@@ -57,12 +57,15 @@ eslint-sast:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 nodejs-scan-sast:
+  needs:
+    - install
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 semgrep-sast:
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    # - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - when: never
 
 # Shouldn't need cache, but the codeclimate checks fail due to a potential version issue
 code_quality:
@@ -72,25 +75,11 @@ code_quality:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
-semgrep-sast:
-  rules:
-    - when: never
-
-nodejs-scan-sast:
-  needs: [install]
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-
 secret_detection:
   needs: []
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
   cache: {}
-
-# Used for the default branch, but with our more complex rules, we don't want to run this (as schedules will pick this up)
-secret_detection_default_branch:
-  rules:
-    - when: never
 
 install:
   stage: install

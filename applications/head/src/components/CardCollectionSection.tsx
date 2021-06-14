@@ -1,4 +1,5 @@
 import React, { useContext, useState, useMemo } from "react";
+import classnames from "classnames";
 import { graphql } from "gatsby";
 import AnchorLink from "@bmi/anchor-link";
 import Button, { ButtonProps } from "@bmi/button";
@@ -265,8 +266,9 @@ const CardCollectionSection = ({
           </Carousel>
         ) : (
           <Grid container>
-            {iteratableCards.slice(0, numberOfCardsToShow).map((card, i) => {
+            {iteratableCards.map((card, i) => {
               const { id } = card;
+              const cardIsVisible = i >= numberOfCardsToShow;
               return (
                 <Grid
                   item
@@ -276,6 +278,7 @@ const CardCollectionSection = ({
                   md={6}
                   lg={4}
                   xl={3}
+                  className={cardIsVisible ? styles["hidden"] : ""}
                 >
                   <CardCollectionItem
                     card={card}

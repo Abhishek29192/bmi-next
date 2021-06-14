@@ -41,6 +41,33 @@ describe("filter document tests", () => {
       expect(result).toEqual(inputDataItems);
     });
   });
+  describe("When querying field is invalid :: no matcher available", () => {
+    it("Then: returns empty results", () => {
+      const inputDataItems: DocumentResultsData =
+        Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+      const baseUrl: string = "http://localhost/document/library/";
+
+      const pimDocument = createPimDocument({
+        id: `pim-doc-id`,
+        url: `${baseUrl}pim-doc-url`,
+        product: createProduct({
+          categories: [
+            createCategory({ categoryType: "Brand" }),
+            createCategory({ categoryType: "ProductFamily" })
+          ]
+        })
+      });
+
+      inputDataItems.push(pimDocument);
+      let result = filterDocuments(inputDataItems, [
+        createProductFamilyFilterCriteria({
+          name: "property_does_not_exist"
+        })
+      ]);
+      expect(result).toEqual([]);
+    });
+  });
 
   describe("Brand filter tests", () => {
     describe("When brand filter is provided with PIM Documents", () => {
@@ -84,7 +111,7 @@ describe("filter document tests", () => {
           expect(result).toEqual([]);
         });
       });
-      describe("And document with matching filter exists", () => {
+      describe("And document with single brand matching filter exists", () => {
         it("Then: returns filtered results", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
@@ -97,7 +124,7 @@ describe("filter document tests", () => {
             product: createProduct({
               categories: [
                 createCategory({ categoryType: "Brand", code: "AeroDek" }),
-                createCategory({ categoryType: "ProductFamily" })
+                createCategory({ categoryType: "ProductFamily" }) // will be ignored
               ]
             })
           });
@@ -110,14 +137,16 @@ describe("filter document tests", () => {
             product: createProduct({
               categories: [
                 createCategory({ categoryType: "Brand", code: "AeroDek" }),
-                createCategory({ categoryType: "ProductFamily" })
+                createCategory({ categoryType: "ProductFamily" }) // will be ignored
               ]
             })
           });
 
           inputDataItems.push(pimLinkDocument);
 
-          const contentfulDocument = createContentfulDocument();
+          const contentfulDocument = createContentfulDocument({
+            brand: "AeroDek"
+          });
 
           inputDataItems.push(contentfulDocument);
 
@@ -128,6 +157,128 @@ describe("filter document tests", () => {
           const expectedResults: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
           expectedResults.push(pimDocument);
+          expectedResults.push(pimLinkDocument);
+          expectedResults.push(contentfulDocument);
+
+          expect(result).toEqual(expectedResults);
+        });
+      });
+      describe("And PIM document with multiple brands matching filter exists", () => {
+        it("Then: returns result when filtered by any of the brand names", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+          const baseUrl: string = "http://localhost/document/library/";
+
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id-aero`,
+            url: `${baseUrl}pim-doc-url-aero`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand", code: "AeroDek" }),
+                createCategory({ categoryType: "Brand", code: "Icopal" }),
+                createCategory({
+                  categoryType: "Brand",
+                  code: "someOtherBrand"
+                })
+              ]
+            })
+          });
+          inputDataItems.push(pimDocument);
+
+          let result = filterDocuments(inputDataItems, [
+            createBrandFilterCriteria({
+              value: ["AeroDek"]
+            })
+          ]);
+
+          let expectedResults: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults.push(pimDocument);
+
+          expect(result).toEqual(expectedResults);
+
+          // search for 'document with Icopal Brand
+          result = filterDocuments(inputDataItems, [
+            createBrandFilterCriteria({
+              value: ["Icopal"]
+            })
+          ]);
+
+          expectedResults =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults.push(pimDocument);
+
+          expect(result).toEqual(expectedResults);
+
+          // search for 'document with both AeroDek and Icopal Brands
+          result = filterDocuments(inputDataItems, [
+            createBrandFilterCriteria({
+              value: ["AeroDek", "Icopal"]
+            })
+          ]);
+
+          expectedResults =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults.push(pimDocument);
+
+          expect(result).toEqual(expectedResults);
+        });
+      });
+      describe("And PIM Link document with multiple brands matching filter exists", () => {
+        it("Then: returns result when filtered by any of the brand names", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+          const baseUrl: string = "http://localhost/document/library/";
+
+          const pimLinkDocument = createPimLinkDocument({
+            id: `pim-doc-id-ico`,
+            url: `${baseUrl}pim-doc-url-ico`,
+            product: createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand", code: "AeroDek" }),
+                createCategory({ categoryType: "Brand", code: "Icopal" })
+              ]
+            })
+          });
+
+          inputDataItems.push(pimLinkDocument);
+
+          let result = filterDocuments(inputDataItems, [
+            createBrandFilterCriteria({
+              value: ["AeroDek"]
+            })
+          ]);
+
+          let expectedResults: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults.push(pimLinkDocument);
+
+          expect(result).toEqual(expectedResults);
+
+          // search for 'document with Icopal Brand
+          result = filterDocuments(inputDataItems, [
+            createBrandFilterCriteria({
+              value: ["Icopal"]
+            })
+          ]);
+
+          expectedResults =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults.push(pimLinkDocument);
+
+          expect(result).toEqual(expectedResults);
+
+          // search for 'document with both AeroDek and Icopal Brands
+          result = filterDocuments(inputDataItems, [
+            createBrandFilterCriteria({
+              value: ["AeroDek", "Icopal"]
+            })
+          ]);
+
+          expectedResults =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
           expectedResults.push(pimLinkDocument);
 
           expect(result).toEqual(expectedResults);
@@ -240,7 +391,7 @@ describe("filter document tests", () => {
           expect(result).toEqual([]);
         });
       });
-      describe("And document with matching filter exists", () => {
+      describe("And document with single productFamily matching filter exists", () => {
         it("Then: returns filtered results", () => {
           const inputDataItems: DocumentResultsData =
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
@@ -302,6 +453,120 @@ describe("filter document tests", () => {
             Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
           expectedResults.push(pimDocument);
           expectedResults.push(pimLinkDocument);
+
+          expect(result).toEqual(expectedResults);
+        });
+      });
+      describe("And PIM documents with multiple productFamily matching filter exists", () => {
+        it("Then: returns filtered results", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+          const baseUrl: string = "http://localhost/document/library/";
+
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id-aero`,
+            url: `${baseUrl}pim-doc-url-aero`,
+            product: createProduct({
+              categories: [
+                createCategory({
+                  categoryType: "ProductFamily",
+                  code: "AeroDek_Quadro_Plus"
+                }),
+                createCategory({
+                  categoryType: "ProductFamily",
+                  code: "product_family_2"
+                })
+              ]
+            })
+          });
+
+          inputDataItems.push(pimDocument);
+
+          // when searched with first product family in search filter criteria
+          let result = filterDocuments(inputDataItems, [
+            createProductFamilyFilterCriteria({
+              value: ["AeroDek_Quadro_Plus"]
+            })
+          ]);
+
+          let expectedResults: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults.push(pimDocument);
+          expect(result).toEqual(expectedResults);
+
+          // when searched with second product family in search filter criteria
+          result = filterDocuments(inputDataItems, [
+            createProductFamilyFilterCriteria({
+              value: ["product_family_2"]
+            })
+          ]);
+
+          expect(result).toEqual(expectedResults);
+
+          // when searched with both product family in search filter criteria
+          result = filterDocuments(inputDataItems, [
+            createProductFamilyFilterCriteria({
+              value: ["AeroDek_Quadro_Plus", "product_family_2"]
+            })
+          ]);
+
+          expect(result).toEqual(expectedResults);
+        });
+      });
+      describe("And PIM LINK documents with multiple product family matching filter exists", () => {
+        it("Then: returns filtered results", () => {
+          const inputDataItems: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+          const baseUrl: string = "http://localhost/document/library/";
+
+          const pimLinkDocument = createPimLinkDocument({
+            id: `pim-doc-id-ico`,
+            url: `${baseUrl}pim-doc-url-ico`,
+            product: createProduct({
+              categories: [
+                createCategory({
+                  categoryType: "ProductFamily",
+                  code: "AeroDek_Quadro_Plus"
+                }),
+                createCategory({
+                  categoryType: "ProductFamily",
+                  code: "product_family_2"
+                })
+              ]
+            })
+          });
+
+          inputDataItems.push(pimLinkDocument);
+
+          // when searched with first product family in search filter criteria
+          let result = filterDocuments(inputDataItems, [
+            createProductFamilyFilterCriteria({
+              value: ["AeroDek_Quadro_Plus"]
+            })
+          ]);
+
+          let expectedResults: DocumentResultsData =
+            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          expectedResults.push(pimLinkDocument);
+          expect(result).toEqual(expectedResults);
+
+          // when searched with second product family in search filter criteria
+          result = filterDocuments(inputDataItems, [
+            createProductFamilyFilterCriteria({
+              value: ["product_family_2"]
+            })
+          ]);
+
+          expect(result).toEqual(expectedResults);
+
+          // when searched with both product family in search filter criteria
+          result = filterDocuments(inputDataItems, [
+            createProductFamilyFilterCriteria({
+              value: ["AeroDek_Quadro_Plus", "product_family_2"]
+            })
+          ]);
 
           expect(result).toEqual(expectedResults);
         });
