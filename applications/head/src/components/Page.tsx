@@ -66,7 +66,7 @@ const Page = ({
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
   return (
-    <BmiThemeProvider>
+    <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
       <Helmet
         htmlAttributes={{ lang: node_locale }}
         title={seo?.metaTitle || title}
