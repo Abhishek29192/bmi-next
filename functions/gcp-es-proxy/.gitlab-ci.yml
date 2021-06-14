@@ -1,0 +1,106 @@
+test_gcp-es-proxy:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - functions/gcp-es-proxy/**/*
+        - jest/**/*
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/gcp-es-proxy coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/gcp-es-proxy/junit.xml
+
+test_mr_coverage_gcp-es-proxy:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - functions/gcp-es-proxy/**/*
+        - jest/**/*
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - git fetch origin master
+    - yarn workspace @bmi/gcp-es-proxy coverage:jest  --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+
+build_gcp-es-proxy:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
+      changes:
+        - functions/gcp-es-proxy/**/*
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/gcp-es-proxy build
+  artifacts:
+    paths:
+      - functions/gcp-es-proxy/dist
+  interruptible: true
+
+package_gcp-es-proxy:
+  stage: package
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - functions/gcp-es-proxy/**/*
+  needs:
+    - build_gcp-es-proxy
+  dependencies:
+    - build_gcp-es-proxy
+  before_script:
+    - apt-get update
+    - apt-get install -y zip unzip
+    - mkdir -p dist/functions
+  script:
+    - cd functions/gcp-es-proxy; zip -r $CI_PROJECT_DIR/dist/functions/gcp-es-proxy.zip package.json dist/; cd $CI_PROJECT_DIR;
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist/functions
+  interruptible: false
+
+# Deploy to QA or Pre-Production or Production Storage
+deploy_gcp-es-proxy:
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  stage: deploy
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - functions/gcp-es-proxy/**/*
+      allow_failure: true
+  needs:
+    - package_gcp-es-proxy
+  dependencies:
+    - package_gcp-es-proxy
+  before_script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_QA
+      fi
+          
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PREPROD
+      fi
+
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PROD
+      fi
+
+      apt-get update
+      apt-get install -y jq
+  script:
+    - ./scripts/deploy_function_package.sh $GCP_FUNCTIONS_CI gcp-es-proxy
+  interruptible: false
