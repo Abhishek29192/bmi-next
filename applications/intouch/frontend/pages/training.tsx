@@ -42,6 +42,13 @@ const TrainingPage = ({ trainingData }: PageProps) => {
       </Layout>
     );
 
+  //Translate course status
+  courseCatalogues?.nodes?.forEach(({ course }) => {
+    course.courseEnrollments?.nodes.forEach(
+      (enrollment) => (enrollment.status = t(enrollment.status))
+    );
+  });
+
   return (
     <Layout title={t("Training")}>
       <div style={{ display: "flex" }}>
