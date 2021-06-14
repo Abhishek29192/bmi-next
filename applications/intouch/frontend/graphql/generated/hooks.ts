@@ -291,7 +291,7 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQueryVariables
 >;
 export const TrainingDocument = gql`
-  query training($catalogueId: Int!, $userId: Int!) {
+  query training($catalogueId: Int, $userId: Int) {
     trainingContentCollection {
       items {
         pageHeading
@@ -355,7 +355,7 @@ export const TrainingDocument = gql`
  * });
  */
 export function useTrainingQuery(
-  baseOptions: Apollo.QueryHookOptions<
+  baseOptions?: Apollo.QueryHookOptions<
     OperationTypes.TrainingQuery,
     OperationTypes.TrainingQueryVariables
   >
@@ -385,4 +385,62 @@ export type TrainingLazyQueryHookResult = ReturnType<
 export type TrainingQueryResult = Apollo.QueryResult<
   OperationTypes.TrainingQuery,
   OperationTypes.TrainingQueryVariables
+>;
+export const DoceboCatalogIdByMarketDomainDocument = gql`
+  query DoceboCatalogIdByMarketDomain($domain: String!) {
+    marketByDomain(domain: $domain) {
+      doceboCatalogueId
+    }
+  }
+`;
+
+/**
+ * __useDoceboCatalogIdByMarketDomainQuery__
+ *
+ * To run a query within a React component, call `useDoceboCatalogIdByMarketDomainQuery` and pass it any options that fit your needs.
+ * When your component renders, `useDoceboCatalogIdByMarketDomainQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useDoceboCatalogIdByMarketDomainQuery({
+ *   variables: {
+ *      domain: // value for 'domain'
+ *   },
+ * });
+ */
+export function useDoceboCatalogIdByMarketDomainQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
+    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
+    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
+  >(DoceboCatalogIdByMarketDomainDocument, options);
+}
+export function useDoceboCatalogIdByMarketDomainLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
+    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
+    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
+  >(DoceboCatalogIdByMarketDomainDocument, options);
+}
+export type DoceboCatalogIdByMarketDomainQueryHookResult = ReturnType<
+  typeof useDoceboCatalogIdByMarketDomainQuery
+>;
+export type DoceboCatalogIdByMarketDomainLazyQueryHookResult = ReturnType<
+  typeof useDoceboCatalogIdByMarketDomainLazyQuery
+>;
+export type DoceboCatalogIdByMarketDomainQueryResult = Apollo.QueryResult<
+  OperationTypes.DoceboCatalogIdByMarketDomainQuery,
+  OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
 >;

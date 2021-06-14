@@ -179,3 +179,46 @@ export const ssrTraining = {
 
   usePage: useTraining
 };
+export async function getServerPageDoceboCatalogIdByMarketDomain(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
+      { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
+    );
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useDoceboCatalogIdByMarketDomain = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
+    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.DoceboCatalogIdByMarketDomainDocument, options);
+};
+export type PageDoceboCatalogIdByMarketDomainComp = React.FC<{
+  data?: OperationTypes.DoceboCatalogIdByMarketDomainQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrDoceboCatalogIdByMarketDomain = {
+  getServerPage: getServerPageDoceboCatalogIdByMarketDomain,
+
+  usePage: useDoceboCatalogIdByMarketDomain
+};

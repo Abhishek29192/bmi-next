@@ -8,7 +8,10 @@ import { TrainingSidePanel } from "components/SidePanel/TrainingSidePanel";
 import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
-import { getServerPageTraining } from "../graphql/generated/page";
+import {
+  getServerPageDoceboCatalogIdByMarketDomain,
+  getServerPageTraining
+} from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
 
 type PageProps = {
@@ -61,19 +64,29 @@ export const getServerSideProps = async (ctx) => {
       const { AUTH0_NAMESPACE } = process.env;
       const userId = user[`${AUTH0_NAMESPACE}/intouch_docebo_id`];
 
-      //TODO:Get default catalogue
-      //We can set default catalog_id to auth0 or we can read from market table
-      const catalogueId =
-        user[`${AUTH0_NAMESPACE}/intouch_docebo_catalog_id`] || 345;
-
       let trainingData = {};
 
+      const domain = user[`${AUTH0_NAMESPACE}/intouch_market_code`];
+
       try {
+        const {
+          props: {
+            data: { marketByDomain = {} }
+          }
+        } = await getServerPageDoceboCatalogIdByMarketDomain(
+          {
+            variables: {
+              domain
+            }
+          },
+          apolloClient
+        );
+
         const pageQuery = await getServerPageTraining(
           {
             variables: {
-              catalogueId: catalogueId,
-              userId: userId
+              catalogueId: marketByDomain?.doceboCatalogueId || null,
+              userId
             }
           },
           apolloClient
@@ -107,7 +120,7 @@ export default withPageAuthRequired(TrainingPage);
 
 // export doesn't matter for codegen
 export const pageQuery = gql`
-  query training($catalogueId: Int!, $userId: Int!) {
+  query training($catalogueId: Int, $userId: Int) {
     trainingContentCollection {
       items {
         pageHeading
@@ -149,6 +162,12 @@ export const pageQuery = gql`
           }
         }
       }
+    }
+  }
+
+  query DoceboCatalogIdByMarketDomain($domain: String!) {
+    marketByDomain(domain: $domain) {
+      doceboCatalogueId
     }
   }
 `;

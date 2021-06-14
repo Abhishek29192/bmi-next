@@ -77,8 +77,8 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
 };
 
 export type TrainingQueryVariables = SchemaTypes.Exact<{
-  catalogueId: SchemaTypes.Scalars["Int"];
-  userId: SchemaTypes.Scalars["Int"];
+  catalogueId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
+  userId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
 }>;
 
 export type TrainingQuery = { readonly __typename?: "Query" } & {
@@ -144,5 +144,20 @@ export type TrainingQuery = { readonly __typename?: "Query" } & {
         }
       >;
     }
+  >;
+};
+
+export type DoceboCatalogIdByMarketDomainQueryVariables = SchemaTypes.Exact<{
+  domain: SchemaTypes.Scalars["String"];
+}>;
+
+export type DoceboCatalogIdByMarketDomainQuery = {
+  readonly __typename?: "Query";
+} & {
+  readonly marketByDomain?: SchemaTypes.Maybe<
+    { readonly __typename?: "Market" } & Pick<
+      SchemaTypes.Market,
+      "doceboCatalogueId"
+    >
   >;
 };
