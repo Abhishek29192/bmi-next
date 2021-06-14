@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^1.7.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "uuid": "^8.3.2"
   }
 }

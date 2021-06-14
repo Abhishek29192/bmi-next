@@ -1,5 +1,4 @@
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { request } from "express";
 import fetch, { RequestInit } from "node-fetch";
 
 const { ES_HOST } = process.env;
@@ -41,14 +40,22 @@ export const proxy: HttpFunction = async (req, res) => {
     if (req.method === "POST") {
       requestInit.headers["content-length"] = req.header("content-length");
       requestInit.headers["content-type"] = req.header("content-type");
-      requestInit.compress = req.header("accept-encoding")?.includes("gzip");
+      requestInit.compress = false;
       requestInit.body = JSON.stringify(req.body);
     }
-    // eslint-disable-next-line no-console
-    console.debug(JSON.stringify(requestInit, undefined, 2));
-    const response = await fetch(ES_HOST + req.url, requestInit);
-    // eslint-disable-next-line no-console
-    console.debug(response);
-    return res.status(response.status).send(response);
+    try {
+      const response = await fetch(ES_HOST + req.url, requestInit);
+      // eslint-disable-next-line no-console
+      console.debug(response);
+      res.status(response.status);
+      for (let [key, value] of response.headers.entries()) {
+        res.setHeader(key, value);
+      }
+      return response.body.pipe(res);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+      return res.status(500).send("Request to Elasticsearch failed.");
+    }
   }
 };

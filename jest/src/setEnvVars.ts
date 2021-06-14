@@ -38,3 +38,5 @@ process.env.GCP_PROJECT_NAME = "dxb-gcp-project";
 
 process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE =
   "bmiClassificationCatalog/1.0";
+
+process.env.ES_HOST = "http://localhost:3000";
