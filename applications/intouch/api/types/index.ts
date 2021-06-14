@@ -13,12 +13,6 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  /**
-   * A signed eight-byte integer. The upper big integer values are greater than the
-   * max value for a JavaScript number. Therefore all big integers will be output as
-   * strings and not numbers.
-   */
-  BigInt: any;
   /** A location in a connection that can be used for resuming pagination. */
   Cursor: any;
   /**
@@ -2064,50 +2058,6 @@ export type CourseCatalogueTempsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
-/** All input for the `courseCatalogueUpdateByTemp` mutation. */
-export type CourseCatalogueUpdateByTempInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-};
-
-/** The output of our `courseCatalogueUpdateByTemp` mutation. */
-export type CourseCatalogueUpdateByTempPayload = {
-  __typename?: "CourseCatalogueUpdateByTempPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  bigInt?: Maybe<Scalars["BigInt"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-/** All input for the `courseCatalogueUpdate` mutation. */
-export type CourseCatalogueUpdateInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  catalogues?: Maybe<Array<Maybe<CourseCatalogueInput>>>;
-};
-
-/** The output of our `courseCatalogueUpdate` mutation. */
-export type CourseCatalogueUpdatePayload = {
-  __typename?: "CourseCatalogueUpdatePayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
 /** A connection to a list of `CourseCatalogue` values. */
 export type CourseCataloguesConnection = {
   __typename?: "CourseCataloguesConnection";
@@ -2305,50 +2255,6 @@ export type CourseEnrollmentTempsOrderBy =
   | "ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
-
-/** All input for the `courseEnrollmentUpdateByTemp` mutation. */
-export type CourseEnrollmentUpdateByTempInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-};
-
-/** The output of our `courseEnrollmentUpdateByTemp` mutation. */
-export type CourseEnrollmentUpdateByTempPayload = {
-  __typename?: "CourseEnrollmentUpdateByTempPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  bigInt?: Maybe<Scalars["BigInt"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-/** All input for the `courseEnrollmentUpdate` mutation. */
-export type CourseEnrollmentUpdateInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  enrollments?: Maybe<Array<Maybe<CourseEnrollmentInput>>>;
-};
-
-/** The output of our `courseEnrollmentUpdate` mutation. */
-export type CourseEnrollmentUpdatePayload = {
-  __typename?: "CourseEnrollmentUpdatePayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
 
 /** A connection to a list of `CourseEnrollment` values. */
 export type CourseEnrollmentsConnection = {
@@ -2617,50 +2523,6 @@ export type CourseTempsOrderBy =
   | "ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
-
-/** All input for the `courseUpdateByTemp` mutation. */
-export type CourseUpdateByTempInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-};
-
-/** The output of our `courseUpdateByTemp` mutation. */
-export type CourseUpdateByTempPayload = {
-  __typename?: "CourseUpdateByTempPayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  bigInt?: Maybe<Scalars["BigInt"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
-
-/** All input for the `courseUpdate` mutation. */
-export type CourseUpdateInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  courses?: Maybe<Array<Maybe<CourseInput>>>;
-};
-
-/** The output of our `courseUpdate` mutation. */
-export type CourseUpdatePayload = {
-  __typename?: "CourseUpdatePayload";
-  /**
-   * The exact same `clientMutationId` that was provided in the mutation input,
-   * unchanged and unused. May be used by a client to track mutations.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** Our root query field type. Allows us to run any query from our mutation payload. */
-  query?: Maybe<Query>;
-};
 
 /** A connection to a list of `Course` values. */
 export type CoursesConnection = {
@@ -7045,12 +6907,6 @@ export type MigrationOrder =
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: "Mutation";
-  courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
-  courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
-  courseEnrollmentUpdate?: Maybe<CourseEnrollmentUpdatePayload>;
-  courseEnrollmentUpdateByTemp?: Maybe<CourseEnrollmentUpdateByTempPayload>;
-  courseUpdate?: Maybe<CourseUpdatePayload>;
-  courseUpdateByTemp?: Maybe<CourseUpdateByTempPayload>;
   createAccount?: Maybe<CreateAccountPayload>;
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
@@ -7341,36 +7197,6 @@ export type Mutation = {
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseCatalogueUpdateArgs = {
-  input: CourseCatalogueUpdateInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseCatalogueUpdateByTempArgs = {
-  input: CourseCatalogueUpdateByTempInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseEnrollmentUpdateArgs = {
-  input: CourseEnrollmentUpdateInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseEnrollmentUpdateByTempArgs = {
-  input: CourseEnrollmentUpdateByTempInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseUpdateArgs = {
-  input: CourseUpdateInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseUpdateByTempArgs = {
-  input: CourseUpdateByTempInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */

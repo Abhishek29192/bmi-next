@@ -18,7 +18,8 @@ async function main() {
     { secret: "DOCEBO_API_CLIENT_ID", env: "DOCEBO_API_CLIENT_ID" },
     { secret: "DOCEBO_API_CLIENT_SECRET", env: "DOCEBO_API_CLIENT_SECRET" },
     { secret: "DOCEBO_API_JWT_PASSPHRASE", env: "DOCEBO_API_JWT_PASSPHRASE" },
-    { secret: "DOCEBO_API_USERNAME", env: "DOCEBO_API_USERNAME" }
+    { secret: "DOCEBO_API_USERNAME", env: "DOCEBO_API_USERNAME" },
+    { secret: "DOCEBO_JWT_KEY", env: "DOCEBO_JWT_KEY" }
   ]);
 
   const app = express();
