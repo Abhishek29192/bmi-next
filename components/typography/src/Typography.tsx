@@ -32,6 +32,7 @@ const Typography = ({
   className,
   hasUnderline,
   variant,
+  noClamp,
   ...props
 }: Props) => (
   <MaterialTypography
@@ -39,7 +40,8 @@ const Typography = ({
     className={classnames(className, styles["Typography"], {
       [styles["Typography--underline"]]:
         hasUnderline && ["h1", "h2", "h3", "h4"].includes(variant),
-      [styles["body3"]]: variant === "body3" || variant === "card"
+      [styles["body3"]]: variant === "body3" || variant === "card",
+      "no-clamp": noClamp
     })}
     {...props}
   >

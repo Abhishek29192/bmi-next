@@ -22,7 +22,7 @@ const PageSummaryCard = ({ title, subtitle, countryCode, path }: Props) => (
         title
       )}
     >
-      <Typography className="no-clamp" variant="h4">
+      <Typography noClamp variant="h4">
         {title}
       </Typography>
     </AnchorLink>
