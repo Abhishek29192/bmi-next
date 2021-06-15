@@ -7,6 +7,7 @@ import {
 import {
   clearFilterValues,
   findPIMDocumentBrandCategories,
+  convertToURLFilters,
   generateUniqueDocuments,
   getAssetTypeFilterFromDocuments,
   getBrandFilterFromDocuments,
@@ -1605,6 +1606,39 @@ describe("filters tests", () => {
         );
         expect(result).toEqual(expectedResult);
       });
+    });
+  });
+
+  describe("convertToURLFilters tests", () => {
+    const input = (firstValue: string[]) => [
+      {
+        label: "Colour",
+        name: "colour",
+        options: [
+          { label: "Grey", value: "grey", isDisabled: false },
+          { label: "Red", value: "red", isDisabled: false }
+        ],
+        value: firstValue
+      },
+      {
+        label: "Material",
+        name: "material",
+        options: [
+          { label: "Slate", value: "slate", isDisabled: false },
+          { label: "Clay", value: "clay", isDisabled: false }
+        ],
+        value: undefined
+      }
+    ];
+
+    it("converts filters correctly", () => {
+      const result = convertToURLFilters(input(["red"]));
+      expect(result).toEqual([{ name: "colour", value: ["red"] }]);
+    });
+
+    it("clears filters correctly", () => {
+      const result = convertToURLFilters(input(undefined));
+      expect(result).toEqual([]);
     });
   });
 });
