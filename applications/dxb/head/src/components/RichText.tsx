@@ -14,6 +14,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { graphql } from "gatsby";
 import withGTM from "../utils/google-tag-manager";
 import EmbeddedBlock from "./EmbeddedBlock";
+import EmbeddedInline from "./EmbeddedInline";
 import EmbeddedAssetBlock from "./EmbeddedAssetBlock";
 import InlineHyperlink from "./InlineHyperlink";
 import styles from "./styles/RichText.module.scss";
@@ -120,6 +121,9 @@ const getOptions = (settings: Settings): Options => {
         >
           {children}
         </GTMAnchorLink>
+      ),
+      [INLINES.EMBEDDED_ENTRY]: (node: Inline) => (
+        <EmbeddedInline node={node} {...settings} />
       )
     },
     renderMark: {
@@ -164,6 +168,7 @@ export const query = graphql`
       ...InlineHyperlinkFragment
       ...EmbeddedAssetBlockFragment
       ...EmbeddedBlockFragment
+      ...EmbeddedInlineFragment
     }
   }
   fragment RichTextFragmentNonRecursive on ContentfulRichText {
@@ -173,6 +178,7 @@ export const query = graphql`
       ...InlineHyperlinkFragmentNonRecursive
       ...EmbeddedAssetBlockFragment
       ...EmbeddedBlockFragmentNonRecursive
+      ...EmbeddedInlineFragmentNonRecursive
     }
   }
 `;

@@ -1,6 +1,6 @@
-import React from "react";
 import Button from "@bmi/button";
 import { graphql } from "gatsby";
+import React from "react";
 import Link, { Data as LinkData } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
 
