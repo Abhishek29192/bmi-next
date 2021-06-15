@@ -16,10 +16,11 @@ describe("Account", () => {
       email: "email",
       [`${process.env.AUTH0_NAMESPACE}/firstname`]: "Name",
       [`${process.env.AUTH0_NAMESPACE}/lastname`]: "Lastname",
-      [`${process.env.AUTH0_NAMESPACE}/type`]: "company"
+      [`${process.env.AUTH0_NAMESPACE}/registration_type`]: "company"
     }
   };
   const req = {
+    logger: jest.fn(),
     headers: {
       host: "graphql"
     }
@@ -34,10 +35,13 @@ describe("Account", () => {
         query: mutationCreateAccount,
         variables: {
           input: {
-            firstName: "Name",
-            lastName: "Lastname",
-            email: "email",
-            role: "COMPANY_ADMIN"
+            account: {
+              firstName: "Name",
+              lastName: "Lastname",
+              email: "email",
+              role: "COMPANY_ADMIN"
+            },
+            marketCode: "en"
           }
         }
       },

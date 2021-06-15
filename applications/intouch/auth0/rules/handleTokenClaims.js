@@ -12,12 +12,10 @@ async function handleTokenClaims(user, context, callback) {
   if (app_metadata.intouch_user_id) {
     context.idToken = {
       ...context.idToken,
-      [`${namespace}/firstname`]: user_metadata.firstname,
-      [`${namespace}/lastname`]: user_metadata.lastname,
       [`${namespace}/intouch_market_code`]: app_metadata.intouch_market_code,
+      [`${namespace}/intouch_docebo_id`]: app_metadata.intouch_docebo_id,
       [`${namespace}/intouch_user_id`]: app_metadata.intouch_user_id,
-      [`${namespace}/intouch_role`]: app_metadata.intouch_role,
-      [`${namespace}/intouch_docebo_id`]: app_metadata.intouch_docebo_id
+      [`${namespace}/intouch_role`]: app_metadata.intouch_role
     };
 
     if (app_metadata.registration_to_complete === true) {
@@ -30,7 +28,10 @@ async function handleTokenClaims(user, context, callback) {
 
     context.accessToken = {
       ...context.accessToken,
+      [`${namespace}/firstname`]: user_metadata.firstname,
+      [`${namespace}/lastname`]: user_metadata.lastname,
       [`${namespace}/intouch_market_code`]: app_metadata.intouch_market_code,
+      [`${namespace}/intouch_docebo_id`]: app_metadata.intouch_docebo_id,
       [`${namespace}/intouch_user_id`]: app_metadata.intouch_user_id,
       [`${namespace}/intouch_role`]: app_metadata.intouch_role,
       [`${namespace}/email`]: user.email // the access token doesn't have the email by default
@@ -40,15 +41,21 @@ async function handleTokenClaims(user, context, callback) {
   else {
     context.idToken = {
       ...context.idToken,
-      [`${namespace}/firstname`]: user_metadata.firstname,
-      [`${namespace}/lastname`]: user_metadata.lastname,
-      [`${namespace}/market`]: user_metadata.market,
-      [`${namespace}/type`]: user_metadata.type
+      [`${namespace}/intouch_invited`]: app_metadata.intouch_invited,
+      [`${namespace}/intouch_market_code`]: user_metadata.market,
+      [`${namespace}/registration_type`]: user_metadata.registration_type,
+      [`${namespace}/type`]: user_metadata.registration_type // TODO REMOVE THIS
     };
 
     context.accessToken = {
       ...context.accessToken,
-      [`${namespace}/email`]: user.email // the access token doesn't have the email by default
+      [`${namespace}/first_name`]: user_metadata.first_name,
+      [`${namespace}/last_name`]: user_metadata.last_name,
+      [`${namespace}/intouch_invited`]: app_metadata.intouch_invited,
+      [`${namespace}/intouch_market_code`]: user_metadata.market,
+      [`${namespace}/registration_type`]: user_metadata.registration_type,
+      [`${namespace}/type`]: user_metadata.registration_type, // TODO REMOVE THIS
+      [`${namespace}/email`]: user.email
     };
   }
 

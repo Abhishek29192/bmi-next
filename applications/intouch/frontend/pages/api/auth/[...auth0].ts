@@ -1,6 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
-import { createAccount, createDoceboUser } from "../../../lib/account";
+import {
+  createAccount,
+  createDoceboUser,
+  getAccount,
+  parseAccount
+} from "../../../lib/account";
 import { REDIRECT_MAP } from "../../../lib/config";
 import { withLoggerApi } from "../../../lib/logger/withLogger";
 
@@ -14,23 +19,35 @@ const afterCallback = async (
   session,
   state
 ) => {
-  const { AUTH0_NAMESPACE } = process.env;
   const { user } = session;
+  const { invited, intouchUserId, doceboId } = parseAccount(user);
 
-  const intouch_user_id = user[`${AUTH0_NAMESPACE}/intouch_user_id`];
-  const intouch_docebo_id = user[`${AUTH0_NAMESPACE}/intouch_docebo_id`];
+  // If the user is invited return the session as the return url
+  // in the reset password email will redirect him to /api/invitation
+  if (invited) {
+    return session;
+  }
 
-  // To avoid redirect loop we do not create any user if coming from /api/silent-login (prompt=none)
-  if (!intouch_user_id && state.prompt !== "none") {
-    const { data: { createAccount: account = null } = {} } =
-      (await createAccount(req, session)) || {};
+  // The jwt token does not have the intouc_id property, let's create
+  // a new user and the docebo user
+  if (!intouchUserId && state.prompt !== "none") {
+    const { data } = await createAccount(req, session);
+    const {
+      createAccount: { account }
+    } = data;
 
-    await createDoceboUser(req, session, account?.id);
+    await createDoceboUser(req, session, account);
+
     state.returnTo = "/api/silent-login";
     return session;
   }
-  if (!intouch_docebo_id && state.prompt !== "none") {
-    await createDoceboUser(req, session);
+
+  // The user already have an inotuch_user_id but it doesn't have a docebo
+  // user id, so we create a docebo user
+  if (!doceboId && state.prompt !== "none") {
+    const { data } = await getAccount(req, session);
+
+    await createDoceboUser(req, session, data);
     state.returnTo = "/api/silent-login";
   }
 
@@ -54,15 +71,22 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     async login(req, res) {
       let { host } = req.headers;
 
+      let market = REDIRECT_MAP[host];
+
+      // localhost
       if (host.indexOf(":") !== -1) {
         host = host.split(":")[0];
+        if (host === "localhost") {
+          market = REDIRECT_MAP[host] || "en";
+        }
       }
 
       try {
         await handleLogin(req, res, {
           authorizationParams: {
-            market: REDIRECT_MAP[host]
-          }
+            market
+          },
+          returnTo: req.query.returnTo || "/"
         });
       } catch (error) {
         logger.error(`handle login: ${error.message}`);
@@ -71,6 +95,7 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     },
     async callback(req, res) {
       try {
+        logger.info("Callback");
         await handleCallback(req, res, { afterCallback });
       } catch (error) {
         logger.error(`handle callback: ${error.message}`);
@@ -79,6 +104,7 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     },
     async profile(req, res) {
       try {
+        logger.info("Handle profile");
         await handleProfile(req, res, {
           refetch: true
         });
@@ -90,6 +116,7 @@ export default withLoggerApi(async (req: Request, res: NextApiResponse) => {
     },
     async logout(req, res) {
       try {
+        logger.info("Logout");
         await handleLogout(req, res);
       } catch (error) {
         logger.error(`handle logout: ${error.message}`);

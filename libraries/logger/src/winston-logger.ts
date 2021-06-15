@@ -3,12 +3,6 @@ import { LoggingWinston } from "@google-cloud/logging-winston";
 
 const isProd = process.env.NODE_ENV === "production";
 
-const loggingWinston = new LoggingWinston({
-  labels: {
-    name: process.env.LOG_SERVICE_NAME || "run.googleapis.com/intouch"
-  }
-});
-
 const getLogLevel = () => {
   if (process.env.LOG_LEVEL) {
     return process.env.LOG_LEVEL;
@@ -18,41 +12,62 @@ const getLogLevel = () => {
 };
 
 const logger = (headers, module) => {
-  const { combine, timestamp, label, printf } = winston.format;
+  const reqId = headers["x-request-id"] || "";
+  const loggingWinston = new LoggingWinston({
+    labels: {
+      name: process.env.LOG_SERVICE_NAME || "run.googleapis.com/intouch"
+    }
+  });
+
   const transports: winston.transport[] = [new winston.transports.Console({})];
   if (isProd) {
     transports.push(loggingWinston);
   }
 
-  const cid = headers["x-request-id"] ? ` - ${headers["x-request-id"]}: ` : "";
-  const format = isProd
-    ? combine(
-        label({ label: module }),
-        timestamp(),
-        printf(
-          (info) =>
-            `${[info.timestamp]} ${info.level} [${info.label}]:${cid} ${
-              info.message
-            }`
-        )
+  let format = isProd
+    ? winston.format.combine(
+        winston.format.label({ label: module, message: true }),
+        winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+        winston.format.errors({ stack: true }),
+        winston.format.json()
       )
-    : combine(
-        label({ label: module }),
+    : winston.format.combine(
         winston.format.colorize(),
-        timestamp(),
-        printf(
-          (info) =>
-            `${[info.timestamp]} ${info.level} [${info.label}]${cid} ${
-              info.message
-            }`
+        winston.format.label({ label: module, message: true }),
+        winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+        winston.format.errors({ stack: true }),
+        winston.format.metadata({
+          fillExcept: ["message", "level", "timestamp", "label"]
+        }),
+        winston.format.printf(
+          ({ timestamp, level, message, error, ...metadata }) => {
+            let msg = `${[timestamp]} ${level}`;
+
+            if (typeof message !== "string") {
+              msg = `${msg} ${JSON.stringify(message, null, 4)}`;
+            } else {
+              msg = `${msg} ${message}`;
+            }
+
+            if (error?.stack) {
+              msg = `${msg} ${error.stack}`;
+            }
+
+            if (metadata && Object.keys(metadata).length > 0) {
+              msg = `${msg} ${JSON.stringify(metadata, null, 4)}`;
+            }
+
+            return msg;
+          }
         )
       );
 
   return winston.createLogger({
     handleExceptions: true,
     level: getLogLevel(),
-    format,
+    format: format,
     transports,
+    defaultMeta: { requestId: reqId },
     exceptionHandlers: [new winston.transports.Console({})]
   });
 };

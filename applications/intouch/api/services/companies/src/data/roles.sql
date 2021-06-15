@@ -1,10 +1,10 @@
 -- https://www.postgresql.org/docs/9.1/sql-grant.html
 -- GRANT UPDATE (name, market) ON company TO app_user_editor;
 
-drop role if exists super_admin;
-drop role if exists market_admin;
-drop role if exists company_admin;
 drop role if exists installer;
+drop role if exists company_admin;
+drop role if exists market_admin;
+drop role if exists super_admin;
 
 create role super_admin nologin inherit;
 create role market_admin nologin inherit;
@@ -40,16 +40,14 @@ grant select, insert, update, delete on market to super_admin;
 
 
 -- company
-grant select on company to installer;
+grant select, insert on company to installer;
 grant select on project to installer;
 grant select on project_member to installer;
-grant select on company to company_admin;
-grant insert on company to company_admin;
+grant select, insert on company to company_admin;
 grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook,linked_in) on company to company_admin;
 
 -- company_member
-grant select, delete on company_member to installer;
-grant select, insert, delete on company_member to company_admin;
+grant select, insert, delete on company_member to installer;
 grant select, insert, delete on project_member to company_admin;
 grant select, insert, update, delete on project to company_admin;
 grant update (account_id) on company_member to company_admin;

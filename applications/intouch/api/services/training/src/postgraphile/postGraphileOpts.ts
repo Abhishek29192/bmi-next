@@ -3,6 +3,7 @@ import { PostGraphileOptions } from "postgraphile";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import config from "../config";
+import handleErrors from "./handleErrors";
 import {
   ExtendSchemaPlugin,
   RemoveNodeAndQueryFieldsPlugin,
@@ -18,8 +19,10 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     RemoveNodeAndQueryFieldsPlugin,
     StripNodeInterfacePlugin
   ],
+  handleErrors,
   additionalGraphQLContextFromRequest: async (req: Request, res: Response) => ({
-    docebo: req.docebo
+    docebo: req.docebo,
+    logger: req.logger
   })
 };
 

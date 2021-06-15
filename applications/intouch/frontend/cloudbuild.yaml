@@ -17,6 +17,6 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args: ["push", "eu.gcr.io/$PROJECT_ID/intouch-frontend"]
 
-timeout: 1200s
+timeout: 3600s
 
 logsBucket: "gs://intouch-replaform-bucket"
