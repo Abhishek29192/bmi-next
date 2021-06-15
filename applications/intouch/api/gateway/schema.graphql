@@ -7955,6 +7955,12 @@ enum EvidenceItemsOrderBy {
   PRIMARY_KEY_DESC
 }
 
+type File {
+  filename: String!
+  mimetype: String!
+  encoding: String!
+}
+
 """
 Starts life as request for a gurantee and becomes an actual issued guarantee
 """
@@ -9162,6 +9168,41 @@ input InviteInput {
   firstName: String!
   lastName: String!
   role: Role!
+}
+
+"""
+A connection to a list of `Int` values.
+"""
+type InvitedByCompaniesConnection {
+  """
+  A list of `Int` objects.
+  """
+  nodes: [Int]!
+
+  """
+  A list of edges which contains the `Int` and cursor to aid in pagination.
+  """
+  edges: [InvitedByCompanyEdge!]!
+
+  """
+  The count of *all* `Int` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `Int` edge in the connection.
+"""
+type InvitedByCompanyEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `Int` at the end of the edge.
+  """
+  node: Int
 }
 
 """
@@ -11805,6 +11846,7 @@ type Mutation {
     input: UpdateSystemMemberByNodeIdInput!
   ): UpdateSystemMemberPayload
   updateTraining(lastUpdateDate: String): String
+  uploadData(files: [Upload!]!): [File]
 }
 
 """
@@ -17923,6 +17965,11 @@ type UpdateSystemPayload {
     orderBy: [SystemsOrderBy!] = [PRIMARY_KEY_ASC]
   ): SystemsEdge
 }
+
+"""
+The `Upload` scalar type represents a file upload.
+"""
+scalar Upload
 
 input UserCreateInput {
   userid: String

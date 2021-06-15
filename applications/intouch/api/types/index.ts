@@ -41,6 +41,8 @@ export type Scalars = {
   JSON: any;
   /** The 'Quality' type represents quality as whole numeric values between `1` and `100`. */
   Quality: any;
+  /** The `Upload` scalar type represents a file upload. */
+  Upload: any;
   _Any: any;
   /**
    * Used to represent a set of fields. Grammatically, a field set is a
@@ -5042,6 +5044,13 @@ export type EvidenceItemsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+export type File = {
+  __typename?: "File";
+  filename: Scalars["String"];
+  mimetype: Scalars["String"];
+  encoding: Scalars["String"];
+};
+
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
 export type Guarantee = Node & {
   __typename?: "Guarantee";
@@ -6082,6 +6091,26 @@ export type InviteInput = {
   firstName: Scalars["String"];
   lastName: Scalars["String"];
   role: Role;
+};
+
+/** A connection to a list of `Int` values. */
+export type InvitedByCompaniesConnection = {
+  __typename?: "InvitedByCompaniesConnection";
+  /** A list of `Int` objects. */
+  nodes: Array<Maybe<Scalars["Int"]>>;
+  /** A list of edges which contains the `Int` and cursor to aid in pagination. */
+  edges: Array<InvitedByCompanyEdge>;
+  /** The count of *all* `Int` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `Int` edge in the connection. */
+export type InvitedByCompanyEdge = {
+  __typename?: "InvitedByCompanyEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `Int` at the end of the edge. */
+  node?: Maybe<Scalars["Int"]>;
 };
 
 /** A connection to a list of `Int` values. */
@@ -7343,6 +7372,7 @@ export type Mutation = {
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
+  uploadData?: Maybe<Array<Maybe<File>>>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -8134,6 +8164,11 @@ export type MutationUpdateSystemMemberByNodeIdArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTrainingArgs = {
   lastUpdateDate?: Maybe<Scalars["String"]>;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUploadDataArgs = {
+  files: Array<Scalars["Upload"]>;
 };
 
 /** An object with a globally unique `ID`. */

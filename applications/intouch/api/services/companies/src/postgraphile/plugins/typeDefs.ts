@@ -146,10 +146,19 @@ export default gql`
     company_id: String
   }
 
+  scalar Upload
+
+  type File {
+    filename: String!
+    mimetype: String!
+    encoding: String!
+  }
+
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
     invite(input: InviteInput!): Invitation
     completeInvitation(companyId: Int!): Account
+    uploadData(files: [Upload!]!): [File]
   }
 `;

@@ -161,3 +161,22 @@ export type DoceboCatalogIdByMarketDomainQuery = {
     >
   >;
 };
+
+export type UploadDataMutationVariables = SchemaTypes.Exact<{
+  files:
+    | ReadonlyArray<SchemaTypes.Scalars["Upload"]>
+    | SchemaTypes.Scalars["Upload"];
+}>;
+
+export type UploadDataMutation = { readonly __typename?: "Mutation" } & {
+  readonly uploadData?: SchemaTypes.Maybe<
+    ReadonlyArray<
+      SchemaTypes.Maybe<
+        { readonly __typename?: "File" } & Pick<
+          SchemaTypes.File,
+          "filename" | "mimetype" | "encoding"
+        >
+      >
+    >
+  >;
+};
