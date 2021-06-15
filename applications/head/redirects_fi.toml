@@ -2070,7 +2070,6 @@
 
 
 
-
 # ***** CONTENT REDIRECTS *****
 
 [[redirects]]
@@ -2200,7 +2199,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax/aluskatteet"
- to="/fi/tuotteet-ja-ratkaisut/harjakatot/aluskatteet/hengitt%C3%A4v%C3%A4t-divoroll-aluskatteet/"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/aluskatteet/hengittavat-divoroll-aluskatteet/"
  force=true
 
 [[redirects]]
@@ -2230,7 +2229,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/harjakattojen-tarvikkeet/l%C3%A4piviennit"
- to="/fi/tuotteet-ja-ratkaisut/harjakatot/tarvikkeet-harjakatoille/l%C3%A4piviennit-harjakatoille/"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tarvikkeet-harjakatoille/lapiviennit-harjakatoille/"
  force=true
 
 [[redirects]]
@@ -2280,7 +2279,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/loivat-katot/tuotteet/h%C3%B6yrynsulut"
- to="/fi/tuotteet-ja-ratkaisut/loivat-katot/katteet-ja-hoyrynsulut-loiville-katoille/h%C3%B6yrynsulut/"
+ to="/fi/tuotteet-ja-ratkaisut/loivat-katot/katteet-ja-hoyrynsulut-loiville-katoille/hoyrynsulut/"
  force=true
 
 [[redirects]]
@@ -2331,11 +2330,6 @@
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/tuotteet/katon-huoltoaineet"
  to="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/katon-huoltoaineet/"
- force=true
-
-[[redirects]]
- from="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet"
- to="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/"
  force=true
 
 [[redirects]]
@@ -2390,7 +2384,17 @@
 
 [[redirects]]
  from="/fi/esitteet-ja-dokumentit/hintalistat"
- to="/fi/esitteet-ja-dokumentit/hinnastot/"
+ to="/fi/esitteet-ja-dokumentit/asiakirjat-ja-resurssit/"
+ force=true
+
+[[redirects]]
+ from="/fi/esitteet-ja-dokumentit/k%c3%a4ytt%c3%b6turvallisuustiedotteet"
+ to="/fi/esitteet-ja-dokumentit/kayttoturvallisuustiedotteet/"
+ force=true
+
+[[redirects]]
+ from="/fi/esitteet-ja-dokumentit/suoritustasoilmoitukset-dop"
+ to="/fi/esitteet-ja-dokumentit/suoritustasoilmoitukset/"
  force=true
 
 [[redirects]]
@@ -2400,27 +2404,27 @@
 
 [[redirects]]
  from="/fi/muut-esitteet-ja-dokumentit"
- to="/fi/esitteet-ja-dokumentit/muut-esitteet-ja-dokumentit/"
+ to="/fi/esitteet-ja-dokumentit/icopal-katto-oy-esitteet/"
  force=true
 
 [[redirects]]
  from="/fi/referenssit-ja-artikkelit/kattoremontti-kampanja"
- to="/fi/kattoremontti-tarjouspyynto/"
+ to="/fi/kattoremontti-tarjouspyynto"
  force=true
 
 [[redirects]]
  from="/fi/referenssit-ja-artikkelit/kattoremontti-kampanja/tiilikatto"
- to="/fi/kattoremontti-tarjouspyynto/tiilikatto/"
+ to="/fi/kattoremontti-tarjouspyynto/tiilikatto"
  force=true
 
 [[redirects]]
  from="/fi/referenssit-ja-artikkelit/kattoremontti-kampanja/bitumikatto"
- to="/fi/kattoremontti-tarjouspyynto/bitumikatto/"
+ to="/fi/kattoremontti-tarjouspyynto/bitumikatto"
  force=true
 
 [[redirects]]
  from="/fi/pinnoitus"
- to="/fi/kattoremontti-tarjouspyynto/pinnoitus/"
+ to="/fi/kattoremontti-tarjouspyynto/pinnoitus"
  force=true
 
 [[redirects]]
@@ -2430,17 +2434,32 @@
 
 [[redirects]]
  from="/fi/bmi-suomi/yhteystiedot/laskutustiedot"
- to="/fi/ammattilaisille/bmi-suomi/yhteystiedot/"
+ to="/fi/ammattilaisille/bmi-suomi/yhteystiedot"
  force=true
 
 [[redirects]]
  from="/fi/bmi-suomi/uutiset/asuntomessuilla-suositaan-aurinkoenergiaa"
- to="/fi/bmi-suomi/uutiset/lohjan-asuntomessuilla-suositaan-aurinkoenergiaa/"
+ to="/fi/bmi-suomi/uutiset/lohjan-asuntomessuilla-suositaan-aurinkoenergiaa"
  force=true
 
 [[redirects]]
  from="/fi/bmi-suomi/uutiset/graviflex-viherkattokermin-valmistusta-suomeen"
- to="/fi/bmi-suomi/uutiset/bmi-icopalin-viherkattokermien-valmistusta-suomeen/"
+ to="/fi/bmi-suomi/uutiset/bmi-icopalin-viherkattokermien-valmistusta-suomeen"
+ force=true
+
+[[redirects]]
+ from="/fi/bmi-suomi/uutiset/ormax-aerlox-%E2%80%93-ohut-kevyt-ja-kest%C3%A4v%C3%A4mpi-kattotiili"
+ to="/fi/bmi-suomi/uutiset/ormax-aerlox-ohut-kevyt-ja-kestavampi-kattotiili"
+ force=true
+
+[[redirects]]
+ from="/fi/bmi-suomi/uutiset/juhannuksen-aukioloajat-2020"
+ to="/fi/bmi-suomi/uutiset"
+ force=true
+
+[[redirects]]
+ from="/fi/bmi-suomi/uutiset/vapun-ajan-aukioloajat-2020"
+ to="/fi/bmi-suomi/uutiset"
  force=true
 
 [[redirects]]
@@ -2450,13 +2469,24 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/loivat-katot/tuotteet/monarplan"
- to="/fi/tuotteet-ja-ratkaisut/loivat-katot/katteet-ja-hoyrynsulut-loiville-katoille/yksikerroskatteet/pvc-yksikerroskatteet/"
+ to="/fi/tuotteet-ja-ratkaisut/loivat-katot/katteet-ja-hoyrynsulut-loiville-katoille/yksikerroskatteet/pvc-yksikerroskatteet"
  force=true
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/loivat-katot/tuotteet/sealoflex"
- to="/fi/tuotteet-ja-ratkaisut/loivat-katot/nestemaiset-vedeneristeet/"
+ to="/fi/tuotteet-ja-ratkaisut/loivat-katot/nestemaiset-vedeneristeet"
  force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/tuotteet/monarflex"
+ to="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/telinepeitteet"
+ force=true
+
+[[redirects]]
+ from="/fi/bmi-suomi/uutiset/joulun-ajan-aukioloaikamme"
+ to="/fi/bmi-suomi/uutiset"
+ force=true
+
 
 
 
