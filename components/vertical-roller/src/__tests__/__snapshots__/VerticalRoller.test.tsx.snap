@@ -169,6 +169,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
         >
           <div
             class="Carousel Carousel--swipable"
+            data-testid="carousel"
           >
             <div
               style="overflow-x: hidden;"

@@ -6,6 +6,7 @@ exports[`Carousel component doesn't render controls when scroll is finite and pa
 >
   <div
     class="Carousel Carousel--opacity Carousel--with-gutter"
+    data-testid="carousel"
   >
     <div
       style="overflow-x: hidden;"
@@ -54,7 +55,7 @@ exports[`Carousel component navigates to next page 1`] = `
 - First value
 + Second value
 
-@@ -8,11 +8,11 @@
+@@ -9,11 +9,11 @@
         <div
           style=\\"overflow-x: hidden;\\"
         >
@@ -67,7 +68,7 @@ exports[`Carousel component navigates to next page 1`] = `
               aria-hidden=\\"false\\"
               class=\\"Carousel__slide--global\\"
               data-swipeable=\\"true\\"
-@@ -23,11 +23,11 @@
+@@ -24,11 +24,11 @@
               >
                 <div
                   class=\\"slide\\"
@@ -80,7 +81,7 @@ exports[`Carousel component navigates to next page 1`] = `
             </div>
           </div>
         </div>
-@@ -64,16 +64,21 @@
+@@ -65,16 +65,21 @@
         >
           <span
             class=\\"sliding-slot\\"
@@ -111,7 +112,7 @@ exports[`Carousel component navigates to previous page 1`] = `
 - First value
 + Second value
 
-@@ -8,11 +8,11 @@
+@@ -9,11 +9,11 @@
         <div
           style=\\"overflow-x: hidden;\\"
         >
@@ -124,7 +125,7 @@ exports[`Carousel component navigates to previous page 1`] = `
               aria-hidden=\\"false\\"
               class=\\"Carousel__slide--global\\"
               data-swipeable=\\"true\\"
-@@ -23,11 +23,11 @@
+@@ -24,11 +24,11 @@
               >
                 <div
                   class=\\"slide\\"
@@ -137,7 +138,7 @@ exports[`Carousel component navigates to previous page 1`] = `
             </div>
           </div>
         </div>
-@@ -64,14 +64,19 @@
+@@ -65,14 +65,19 @@
         >
           <span
             class=\\"sliding-slot\\"
@@ -166,6 +167,7 @@ exports[`Carousel component renders correctly 1`] = `
 >
   <div
     class="Carousel"
+    data-testid="carousel"
   >
     <div
       style="overflow-x: hidden;"
@@ -277,6 +279,7 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
 >
   <div
     class="Carousel Carousel--opacity"
+    data-testid="carousel"
   >
     <div
       style="overflow-x: hidden;"
@@ -375,7 +378,7 @@ exports[`Carousel component works when controlled 1`] = `
 - First value
 + Second value
 
-@@ -7,11 +7,11 @@
+@@ -8,11 +8,11 @@
       <div
         style=\\"overflow-x: hidden;\\"
       >
@@ -388,7 +391,7 @@ exports[`Carousel component works when controlled 1`] = `
             aria-hidden=\\"false\\"
             class=\\"Carousel__slide--global\\"
             data-swipeable=\\"true\\"
-@@ -22,11 +22,11 @@
+@@ -23,11 +23,11 @@
             >
               <div
                 class=\\"slide\\"
@@ -401,7 +404,7 @@ exports[`Carousel component works when controlled 1`] = `
           </div>
         </div>
       </div>
-@@ -63,16 +63,21 @@
+@@ -64,16 +64,21 @@
       >
         <span
           class=\\"sliding-slot\\"

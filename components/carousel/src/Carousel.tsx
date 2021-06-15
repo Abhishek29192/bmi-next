@@ -18,6 +18,8 @@ import SlideControls, {
 } from "@bmi/slide-controls";
 import ArrowControl from "@bmi/arrow-control";
 import { withWidth, WithWidth } from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
 import styles from "./Carousel.module.scss";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -303,6 +305,8 @@ const Carousel = ({
 }: Props) => {
   const [hasUserInteracted, setHasUserInteracted] = useState<boolean>(false);
   const [activePage, setActivePage] = useState<number>(initialPage);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const wrapper = useRef<HTMLDivElement>(null);
   const arrayChildren = React.Children.toArray(children);
@@ -425,6 +429,7 @@ const Carousel = ({
       >
         {arrayChildren.slice(0, firstSlideIndex)}
         <div
+          data-testid={hasUserInteracted ? "carousel-interacted" : "carousel"}
           className={classnames(styles["Carousel"], {
             [styles["Carousel--opacity"]!]: hasOpacityAnimation,
             [styles["Carousel--swipable"]!]:
@@ -434,6 +439,7 @@ const Carousel = ({
           ref={wrapper}
         >
           <CarouselComponent
+            animateHeight={isMobile}
             hysteresis={0.25}
             autoplay={Boolean(autoPlayProps.hasAutoPlay) && !hasUserInteracted}
             interval={
