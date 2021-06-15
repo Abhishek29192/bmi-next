@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import Typography from "@bmi/typography";
 import { SvgIcon } from "@material-ui/core";
+import { Technology } from "@bmi/intouch-api-types";
 import { FilterResult } from "../../FilterResult";
 import { SidePanel } from "../";
 import { TrainingQuery } from "../../../graphql/generated/operations";
-import PitchIcon from "./images/roofPitch.svg";
-import FlatIcon from "./images/roofFlat.svg";
-import OtherIcon from "./images/roofOther.svg";
+import { PitchIcon, FlatIcon, OtherIcon } from "../../icons";
 
 const DEFAULT_FILTER_CRITERIA = "all";
 
-enum COURSE_TECHNOLOGIES {
-  FLAT = "FLAT",
-  PITCHED = "PITCHED",
-  OTHER = "OTHER"
-}
+const courseTech: { [K in Technology]: string } = {
+  FLAT: "FLAT",
+  PITCHED: "PITCHED",
+  OTHER: "OTHER"
+};
 
 const TECHNOLOGIES_ICONS: {
-  [K in COURSE_TECHNOLOGIES]: React.FC<React.SVGProps<SVGSVGElement>>;
+  [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;
 } = {
   FLAT: FlatIcon,
   PITCHED: PitchIcon,
@@ -30,9 +29,9 @@ const trainingFilters = [
     attr: DEFAULT_FILTER_CRITERIA,
     isActive: false
   },
-  ...Object.keys(COURSE_TECHNOLOGIES).map((key) => ({
-    label: `${COURSE_TECHNOLOGIES[`${key}`]}`.toLowerCase(),
-    attr: COURSE_TECHNOLOGIES[`${key}`],
+  ...Object.keys(courseTech).map((key) => ({
+    label: `${courseTech[`${key}`]}`.toLowerCase(),
+    attr: courseTech[`${key}`],
     isActive: false
   }))
 ];
@@ -78,9 +77,7 @@ export const TrainingSidePanel = ({
               </Typography>
               <Typography style={{ display: "flex", padding: "2px" }}>
                 <SvgIcon
-                  component={
-                    TECHNOLOGIES_ICONS[technology as COURSE_TECHNOLOGIES]
-                  }
+                  component={TECHNOLOGIES_ICONS[technology as Technology]}
                 />
                 {courseEnrollments.nodes.map((node) => node.status)[0] ||
                   DEFAULT_ENROLLMENT_STATUS}
