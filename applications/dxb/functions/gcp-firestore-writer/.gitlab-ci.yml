@@ -1,0 +1,73 @@
+build_gcp-firestore-writer:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
+      changes:
+        - applications/dxb/functions/gcp-firestore-writer/**/*
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/gcp-firestore-writer build -p tsconfig.build.json
+  artifacts:
+    paths:
+      - applications/dxb/functions/gcp-firestore-writer/dist
+  interruptible: true
+
+package_gcp-firestore-writer:
+  stage: package
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - applications/dxb/functions/gcp-firestore-writer/**/*
+  needs:
+    - build_gcp-firestore-writer
+  dependencies:
+    - build_gcp-firestore-writer
+  before_script:
+    - apt-get update
+    - apt-get install -y zip unzip
+    - mkdir -p dist/functions
+  script:
+    - cd applications/dxb/functions/gcp-firestore-writer
+    - cp ../../../../yarn.lock .
+    - zip -r $CI_PROJECT_DIR/dist/functions/gcp-firestore-writer.zip package.json yarn.lock dist/
+    - cd $CI_PROJECT_DIR
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/dist/functions
+  interruptible: false
+
+# Deploy to QA or Pre-Production or Production Storage
+deploy_gcp-firestore-writer:
+  image: gcr.io/google.com/cloudsdktool/cloud-sdk
+  stage: deploy
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - applications/dxb/functions/gcp-firestore-writer/**/*
+      allow_failure: true
+  needs:
+    - package_gcp-firestore-writer
+  dependencies:
+    - package_gcp-firestore-writer
+  before_script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_QA
+      fi
+          
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PREPROD
+      fi
+
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PROD
+      fi
+
+      apt-get update
+      apt-get install -y jq
+  script:
+    - ./scripts/deploy_function_package.sh $GCP_FUNCTIONS_CI gcp-firestore-writer
+  interruptible: false
