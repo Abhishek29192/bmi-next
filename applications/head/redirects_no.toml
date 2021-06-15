@@ -145,7 +145,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/justerbart-hj%C3%B8rne-30%C2%B0-60%C2%B0
+ from="/no/produkter/justerbart-hj%C3%B8rne-30%C2%B0-60%C2%B0"
  to="/no/glassrekkverk-med-stolper"
  force=true
 
@@ -650,7 +650,7 @@
  force=true
 
 [[redirects]]
- from="/no/dokumentasjon/A6ring"
+ from="/no/dokumentasjon/ytelseserkl%C3%A6ring"
  to="/no/dokumentasjon/ytelseserklæringer"
  force=true
 
@@ -1830,7 +1830,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/cwl-vaierhj%C3%B8rne-m-f-1%2B1"
+ from="/no/produkter/cwl-vaierhj%C3%B8rne-m-f-1+1"
  to="/no/p/fallsikring/cwl-vaierhjørne-m-f-1+1/4156132349"
  force=true
 
@@ -1872,11 +1872,6 @@
 [[redirects]]
  from="/no/produkter/innosoft-b570-rensemiddel"
  to="/no/p/glassrekkverk-med-stolper/innosoft-b570-rensemiddel/2168786891"
- force=true
-
-[[redirects]]
- from="/no/produkter/justerbart-hj%C3%B8rne-30%C2%B0-60%C2%B0"
- to="/no/p/glassrekkverk-med-stolper/justerbart-hjørne-30°-60°/3651900744"
  force=true
 
 [[redirects]]
@@ -2233,7 +2228,7 @@
  force=true
 
 [[redirects]]
- from="/no/p/produkter-til-under-bakken/base-radonsperre/gr%C3%A5/"
+ from="/no/p/produkter-til-under-bakken/base-radonsperre/gr%C3%A5"
  to="/no/p/produkter-til-under-bakken/base-radonsperre/grå/2719853286"
  force=true
 
@@ -2243,7 +2238,7 @@
  force=true
 
 [[redirects]]
- from="/no/p/produkter-til-under-bakken/base-radonsperre/"
+ from="/no/p/produkter-til-under-bakken/base-radonsperre"
  to="/no/p/produkter-til-under-bakken/base-radonsperre/gr%C3%A5/2719853286"
  force=true
 
@@ -2298,7 +2293,7 @@
  force=true
 
 [[redirects]]
- from="/no/p/snosikring/kdn-sn%C3%B8fanger-konsoll-sn-k-605/sort/3159388300/"
+ from="/no/p/snosikring/kdn-sn%C3%B8fanger-konsoll-sn-k-605/sort/3159388300"
  to="/no/p/takstein/tegltakstein/kdn/kdn-snøfanger-konsoll-sn-k-605/sort/3159388300"
  force=true
 
@@ -2343,7 +2338,7 @@
  force=true
 
 [[redirects]]
- from="/no/dokumentasjon/milj%C3%B8deklarasjoner/"
+ from="/no/dokumentasjon/milj%C3%B8deklarasjoner"
  to="/no/dokumentasjon/miljødeklarasjoner-epd"
  force=true
 
@@ -2393,7 +2388,7 @@
  force=true
 
 [[redirects]]
- from="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/4254277302/"
+ from="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/4254277302"
  to="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/r%C3%B8d/4254277302"
  force=true
 
@@ -2478,7 +2473,7 @@
  force=true
 
 [[redirects]]
- from="/no/p/produkter-til-under-bakken/"
+ from="/no/p/produkter-til-under-bakken"
  to="/no/produkter-til-under-bakken"
  force=true
 
