@@ -27,6 +27,46 @@ export type UpdateCompanyDetailsMutation = {
   >;
 };
 
+export type GetGlobalDataQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetGlobalDataQuery = { readonly __typename?: "Query" } & {
+  readonly marketContentCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketContentCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "MarketContent" } & Pick<
+            SchemaTypes.MarketContent,
+            "externalLinkUrl" | "externalLinkLabel"
+          > & {
+              readonly footerLinksCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "MarketContentFooterLinksCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "ContentArticle" } & Pick<
+                        SchemaTypes.ContentArticle,
+                        "title" | "relativePath"
+                      >
+                    >
+                  >;
+                }
+              >;
+              readonly contactUsPage?: SchemaTypes.Maybe<
+                { readonly __typename?: "ContentArticle" } & Pick<
+                  SchemaTypes.ContentArticle,
+                  "title" | "relativePath"
+                >
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
 export type GetProjectQueryVariables = SchemaTypes.Exact<{
   projectId: SchemaTypes.Scalars["Int"];
 }>;

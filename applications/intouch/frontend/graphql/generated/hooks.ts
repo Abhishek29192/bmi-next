@@ -126,6 +126,76 @@ export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
 >;
+export const GetGlobalDataDocument = gql`
+  query GetGlobalData {
+    marketContentCollection(limit: 1) {
+      items {
+        footerLinksCollection {
+          items {
+            title
+            relativePath
+          }
+        }
+        contactUsPage {
+          title
+          relativePath
+        }
+        externalLinkUrl
+        externalLinkLabel
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetGlobalDataQuery__
+ *
+ * To run a query within a React component, call `useGetGlobalDataQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGlobalDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGlobalDataQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetGlobalDataQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >(GetGlobalDataDocument, options);
+}
+export function useGetGlobalDataLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >(GetGlobalDataDocument, options);
+}
+export type GetGlobalDataQueryHookResult = ReturnType<
+  typeof useGetGlobalDataQuery
+>;
+export type GetGlobalDataLazyQueryHookResult = ReturnType<
+  typeof useGetGlobalDataLazyQuery
+>;
+export type GetGlobalDataQueryResult = Apollo.QueryResult<
+  OperationTypes.GetGlobalDataQuery,
+  OperationTypes.GetGlobalDataQueryVariables
+>;
 export const GetProjectDocument = gql`
   query GetProject($projectId: Int!) {
     project(id: $projectId) {

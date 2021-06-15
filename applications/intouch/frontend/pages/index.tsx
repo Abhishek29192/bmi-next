@@ -14,11 +14,12 @@ import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
 import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
 import { withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
-
+import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import logger from "../lib/logger";
 
 type HomePageProps = {
   marketContentCollection: GetPartnerBrandsQuery["marketContentCollection"];
+  globalPageData: GetGlobalDataQuery;
 };
 
 const mapPartnerBrands = (
@@ -34,7 +35,10 @@ const mapPartnerBrands = (
   );
 };
 
-const Homepage = ({ marketContentCollection }: HomePageProps) => {
+const Homepage = ({
+  marketContentCollection,
+  globalPageData
+}: HomePageProps) => {
   const { t } = useTranslation("common");
 
   logger({
@@ -45,7 +49,7 @@ const Homepage = ({ marketContentCollection }: HomePageProps) => {
   const partnerBrands = mapPartnerBrands(marketContentCollection);
 
   return (
-    <Layout title="JS Roofers">
+    <Layout title="JS Roofers" pageData={globalPageData}>
       <Hero
         level={0}
         hasSpaceBottom
@@ -174,24 +178,27 @@ export const GET_PARTNER_BRANDS = gql`
   }
 `;
 
-export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
-  const {
-    props: {
-      data: { marketContentCollection }
-    }
-  } = await getServerPageGetPartnerBrands({}, apolloClient);
+export const getServerSideProps = withPage(
+  async ({ apolloClient, locale, globalPageData }) => {
+    const {
+      props: {
+        data: { marketContentCollection }
+      }
+    } = await getServerPageGetPartnerBrands({}, apolloClient);
 
-  return {
-    props: {
-      marketContentCollection,
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "sidebar",
-        "footer",
-        "company-page"
-      ]))
-    }
-  };
-});
+    return {
+      props: {
+        globalPageData,
+        marketContentCollection,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer",
+          "company-page"
+        ]))
+      }
+    };
+  }
+);
 
 export default withPageAuthRequired(Homepage);
