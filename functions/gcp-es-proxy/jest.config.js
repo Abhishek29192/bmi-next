@@ -5,13 +5,13 @@ const sharedConfig = require("../../jest.config");
 module.exports = {
   ...sharedConfig,
   rootDir: "../../",
-  roots: ["<rootDir>/functions/es-pim-products-ingest/src"],
+  roots: ["<rootDir>/functions/gcp-es-proxy/src"],
   coverageThreshold: {
     global: {
-      statements: "96",
-      branches: "85",
-      functions: "98",
-      lines: "96"
+      statements: "100",
+      branches: "100",
+      functions: "100",
+      lines: "100"
     }
   }
 };

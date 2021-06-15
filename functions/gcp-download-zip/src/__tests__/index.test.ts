@@ -1,26 +1,13 @@
 import fs from "fs";
 import os from "os";
-import { Request, Response } from "express";
+import { Request } from "express";
+import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import fetchMock from "jest-fetch-mock";
+import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
 import { protos } from "@google-cloud/secret-manager";
 
-const mockRequest = (body?, headers = {}): Partial<Request> => {
-  return {
-    method: "POST",
-    body: body,
-    headers: headers
-  };
-};
-
-const mockResponse = () => {
-  const res: Partial<Response> = {};
-  res.send = jest.fn().mockReturnValue(res);
-  res.status = jest.fn().mockReturnValue(res);
-  res.set = jest.fn().mockReturnValue(res);
-  res.setHeader = jest.fn().mockReturnValue(res);
-  return res;
-};
+const fetchMock = fetchMockJest.sandbox();
+jest.mock("node-fetch", () => fetchMock);
 
 const mockDocument = (
   href = `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
@@ -30,7 +17,7 @@ const mockDocument = (
   name: name
 });
 
-let recaptchaSecret = "recaptcha-secret";
+const recaptchaSecret = "recaptcha-secret";
 
 const accessSecretVersion = jest.fn();
 jest.mock("@google-cloud/secret-manager", () => {
@@ -70,7 +57,7 @@ beforeAll(() => {
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-  fetchMock.resetMocks();
+  fetchMock.reset();
   const index = require("../index");
   download = index.download;
 });
@@ -109,7 +96,7 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
 describe("Making a POST request", () => {
   it("returns status code 400 when the body is not sent", async () => {
-    const req = mockRequest();
+    const req = mockRequest("POST");
     const res = mockResponse();
 
     await download(req, res);
@@ -126,7 +113,7 @@ describe("Making a POST request", () => {
   });
 
   it("returns status code 400 when the body is empty", async () => {
-    const req = mockRequest({});
+    const req = mockRequest("POST", {}, "/", {});
     const res = mockResponse();
 
     await download(req, res);
@@ -143,10 +130,9 @@ describe("Making a POST request", () => {
   });
 
   it("returns status code 400 when the documents list is empty", async () => {
-    const req = mockRequest(
-      { documents: [] },
-      { "X-Recaptcha-Token": validToken }
-    );
+    const req = mockRequest("POST", { "X-Recaptcha-Token": validToken }, "/", {
+      documents: []
+    });
     const res = mockResponse();
 
     await download(req, res);
@@ -163,7 +149,7 @@ describe("Making a POST request", () => {
   });
 
   it("returns status code 400 when the token is missing", async () => {
-    const req = mockRequest({ documents: [mockDocument()] });
+    const req = mockRequest("POST", {}, "/", { documents: [mockDocument()] });
     const res = mockResponse();
 
     await download(req, res);
@@ -181,11 +167,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 400 when a document provided is from an invalid URL", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument("invalid-href")]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument("invalid-href")]
       }
     );
     const res = mockResponse();
@@ -205,11 +193,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 when an error is returned from Secret Manager when getting recaptcha key", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -236,11 +226,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 when the recaptcha request fails", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -249,7 +241,12 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockRejectOnce();
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: "{}",
+      error: new Error("Expected Error")
+    });
 
     await download(req, res);
 
@@ -261,7 +258,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -272,11 +269,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 400 when the recaptcha request returns a non-ok response", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -285,7 +284,12 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse("{}", { status: 400 });
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: "{}",
+      status: 400
+    });
 
     await download(req, res);
 
@@ -297,7 +301,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -308,11 +312,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 400 when the recaptcha check fails", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -321,12 +327,14 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: JSON.stringify({
         success: false,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await download(req, res);
 
@@ -338,7 +346,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -349,11 +357,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 400 when the recaptcha score is less than minimum score", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -362,12 +372,14 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: JSON.stringify({
         success: true,
         score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE) - 0.1
       })
-    );
+    });
 
     await download(req, res);
 
@@ -379,7 +391,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -390,11 +402,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 400 when the token is invalid", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": "invalid-token"
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -403,12 +417,14 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
+      method: "POST",
+      body: JSON.stringify({
         success: false,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await download(req, res);
 
@@ -420,7 +436,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
       { method: "POST" }
     );
@@ -431,13 +447,15 @@ describe("Making a POST request", () => {
 
   it("returns status code 500 when document fetch request fails", async () => {
     const req = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": validToken
+      },
+      "/",
       {
         documents: [
           mockDocument(`https://${process.env.DXB_VALID_HOSTS}/file.pdf`)
         ]
-      },
-      {
-        "X-Recaptcha-Token": validToken
       }
     );
     const res = mockResponse();
@@ -447,8 +465,10 @@ describe("Making a POST request", () => {
     ]);
 
     mockResponses(
+      fetchMock,
       {
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        method: "POST",
         body: JSON.stringify({
           success: true,
           score: process.env.RECAPTCHA_MINIMUM_SCORE
@@ -457,8 +477,9 @@ describe("Making a POST request", () => {
       },
       {
         url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
+        method: "GET",
         body: JSON.stringify("Failed to get document"),
-        error: true
+        error: new Error("Expected Error")
       }
     );
     createWriteStream.mockImplementation(() =>
@@ -477,13 +498,13 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
     expect(createWriteStream).toBeCalledTimes(1);
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(1);
@@ -491,13 +512,15 @@ describe("Making a POST request", () => {
 
   it("returns status code 200 when document fetch request returns a non-ok response", async () => {
     const req = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": validToken
+      },
+      "/",
       {
         documents: [
           mockDocument(`https://${process.env.DXB_VALID_HOSTS}/file.pdf`)
         ]
-      },
-      {
-        "X-Recaptcha-Token": validToken
       }
     );
     const res = mockResponse();
@@ -507,16 +530,18 @@ describe("Making a POST request", () => {
     ]);
 
     mockResponses(
+      fetchMock,
       {
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        method: "POST",
         body: JSON.stringify({
           success: true,
           score: process.env.RECAPTCHA_MINIMUM_SCORE
-        }),
-        status: 200
+        })
       },
       {
         url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
+        method: "GET",
         body: JSON.stringify(""),
         status: 400
       }
@@ -537,13 +562,13 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
     expect(createWriteStream).toBeCalledTimes(1);
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(1);
@@ -551,11 +576,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 200 when successfully created zip file when lowercase recaptcha header is used", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "x-recaptcha-token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -565,18 +592,19 @@ describe("Making a POST request", () => {
     ]);
 
     mockResponses(
+      fetchMock,
       {
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        method: "POST",
         body: JSON.stringify({
           success: true,
           score: process.env.RECAPTCHA_MINIMUM_SCORE
-        }),
-        status: 200
+        })
       },
       {
         url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
-        body: "Some value",
-        status: 200
+        method: "GET",
+        body: "Some value"
       }
     );
     createWriteStream.mockImplementation(() =>
@@ -595,13 +623,13 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
     expect(createWriteStream).toBeCalledTimes(1);
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(1);
@@ -609,11 +637,13 @@ describe("Making a POST request", () => {
 
   it("returns status code 200 when successfully created zip file", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -623,18 +653,19 @@ describe("Making a POST request", () => {
     ]);
 
     mockResponses(
+      fetchMock,
       {
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        method: "POST",
         body: JSON.stringify({
           success: true,
           score: process.env.RECAPTCHA_MINIMUM_SCORE
-        }),
-        status: 200
+        })
       },
       {
         url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
-        body: "Some value",
-        status: 200
+        method: "GET",
+        body: "Some value"
       }
     );
     createWriteStream.mockImplementation(() =>
@@ -653,13 +684,13 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
     expect(createWriteStream).toBeCalledTimes(1);
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(1);
@@ -667,11 +698,13 @@ describe("Making a POST request", () => {
 
   it("only gets Recaptcha secret once regardless of number of requests", async () => {
     const req = mockRequest(
-      {
-        documents: [mockDocument()]
-      },
+      "POST",
       {
         "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
       }
     );
     const res = mockResponse();
@@ -681,18 +714,19 @@ describe("Making a POST request", () => {
     ]);
 
     mockResponses(
+      fetchMock,
       {
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        method: "POST",
         body: JSON.stringify({
           success: true,
           score: process.env.RECAPTCHA_MINIMUM_SCORE
-        }),
-        status: 200
+        })
       },
       {
         url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
-        body: "Some value",
-        status: 200
+        method: "GET",
+        body: "Some value"
       }
     );
     createWriteStream.mockImplementation(() =>
@@ -713,39 +747,15 @@ describe("Making a POST request", () => {
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
     expect(accessSecretVersion).toBeCalledTimes(1);
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
     expect(createWriteStream).toBeCalledTimes(2);
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(2);
   });
 });
-
-interface MockedResponse {
-  url: string;
-  body: string;
-  status?: number;
-  error?: boolean;
-}
-
-const mockResponses = (...mockedResponses: MockedResponse[]) => {
-  fetchMock.mockResponse((request) => {
-    for (let mockedResponse of mockedResponses) {
-      if (request.url === mockedResponse.url) {
-        if (mockedResponse.error) {
-          return Promise.reject(mockedResponse.body);
-        }
-        return Promise.resolve({
-          body: mockedResponse.body,
-          init: { status: mockedResponse.status }
-        });
-      }
-    }
-    return Promise.reject(new Error(`${request.url} has not been mocked`));
-  });
-};

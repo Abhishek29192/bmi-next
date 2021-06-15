@@ -8,10 +8,10 @@ module.exports = {
   roots: ["<rootDir>/functions/gcp-apsis-integration/src"],
   coverageThreshold: {
     global: {
-      statements: "97",
-      branches: "72",
+      statements: "100",
+      branches: "100",
       functions: "100",
-      lines: "97"
+      lines: "100"
     }
   }
 };

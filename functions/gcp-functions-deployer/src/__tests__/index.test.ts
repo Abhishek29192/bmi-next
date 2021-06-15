@@ -1,9 +1,14 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import path from "path";
 import fs from "fs";
 import mockConsole from "jest-mock-console";
 import { protos } from "@google-cloud/secret-manager";
-import fetchMock from "jest-fetch-mock";
+import fetchMockJest from "fetch-mock-jest";
 import { when } from "jest-when";
+import { mockResponses } from "@bmi/fetch-mocks";
+
+const fetchMock = fetchMockJest.sandbox();
+jest.mock("node-fetch", () => fetchMock);
 
 const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 const apiSecret = "api_secret";
@@ -30,16 +35,14 @@ when(accessSecretVersion)
   })
   .mockReturnValue([{ payload: { data: apiSecret } }]);
 
-const downloadFile = jest.fn().mockImplementation(() => Promise.resolve());
+const downloadFile = jest.fn();
+const fileExists = jest.fn();
 
-const mMetaFile1 = {
+const file = jest.fn().mockImplementation(() => ({
   name: "file1.json",
-  download: downloadFile
-};
-
-const file = jest.fn().mockImplementation(() => {
-  return mMetaFile1;
-});
+  download: downloadFile,
+  exists: fileExists
+}));
 
 const bucket = jest.fn().mockImplementation(() => ({
   file: () => file()
@@ -67,7 +70,7 @@ const function3Metadata = JSON.parse(
 
 const filterFunctionMetadata = jest
   .fn()
-  .mockResolvedValue([function2Metadata, function3Metadata]);
+  .mockReturnValue([function2Metadata, function3Metadata]);
 jest.doMock("../filter", () => ({
   filterFunctionMetadata: filterFunctionMetadata
 }));
@@ -81,7 +84,7 @@ beforeAll(() => {
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-  fetchMock.resetMocks();
+  fetchMock.reset();
   const index = require("../index");
   deploy = index.deploy;
 });
@@ -98,19 +101,48 @@ describe("When function is called for an invalid file", () => {
 
 describe("When function is called with a valid file", () => {
   const validFile = "sources/gcp-download-zip.zip";
-  it("Fetch the meta file", async () => {
+  it("Does nothing if the file cannot be found", async () => {
+    fileExists.mockResolvedValue(false);
+
     await deploy({ name: validFile }, {});
 
     expect(file).toBeCalledTimes(1);
+    expect(fileExists).toBeCalledTimes(1);
+    expect(downloadFile).toBeCalledTimes(0);
+    expect(filterFunctionMetadata).toBeCalledTimes(0);
+  });
+
+  it("Does nothing if the file cannot be downloaded", async () => {
+    fileExists.mockResolvedValue(true);
+    downloadFile.mockResolvedValue([Buffer.of()]);
+    filterFunctionMetadata.mockReturnValue(null);
+
+    await deploy({ name: validFile }, {});
+
+    expect(file).toBeCalledTimes(1);
+    expect(fileExists).toBeCalledTimes(1);
+    expect(downloadFile).toBeCalledTimes(1);
+    expect(filterFunctionMetadata).toBeCalledTimes(1);
   });
 
   it("Downloads all meta files", async () => {
+    fileExists.mockResolvedValue(true);
+
     await deploy({ name: validFile }, {});
 
+    expect(file).toBeCalledTimes(1);
+    expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
   });
 
   it("Calls secret manager to fetch secrets", async () => {
+    fileExists.mockResolvedValue(true);
+    downloadFile.mockResolvedValue([Buffer.of()]);
+    filterFunctionMetadata.mockReturnValue([
+      function2Metadata,
+      function3Metadata
+    ]);
+
     await deploy({ name: validFile }, {});
 
     expect(accessSecretVersion).toBeCalledWith({
@@ -121,25 +153,68 @@ describe("When function is called with a valid file", () => {
     });
   });
 
-  it("Calls Cloud-Build webhook", async () => {
+  it("Calls Cloud-Build webhook which returns non-200 status", async () => {
     const triggerName = "gcp-download-zip-trigger";
+
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      body: "{}",
+      headers: { "Content-Type": "application/json" },
+      status: 404
+    });
 
     await deploy({ name: validFile }, {});
 
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetchedTimes(
+      1,
       `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       {
         method: "POST",
-        body: JSON.stringify(function2Metadata),
+        body: function2Metadata,
         headers: { "Content-Type": "application/json" }
       }
     );
 
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetchedTimes(
+      1,
       `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
       {
         method: "POST",
-        body: JSON.stringify(function3Metadata),
+        body: function3Metadata,
+        headers: { "Content-Type": "application/json" }
+      }
+    );
+  });
+
+  it("Calls Cloud-Build webhook", async () => {
+    const triggerName = "gcp-download-zip-trigger";
+
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      body: "{}",
+      headers: { "Content-Type": "application/json" }
+    });
+
+    await deploy({ name: validFile }, {});
+
+    expect(fetchMock).toHaveFetchedTimes(
+      1,
+      `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      {
+        method: "POST",
+        body: function2Metadata,
+        headers: { "Content-Type": "application/json" }
+      }
+    );
+
+    expect(fetchMock).toHaveFetchedTimes(
+      1,
+      `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
+      {
+        method: "POST",
+        body: function3Metadata,
         headers: { "Content-Type": "application/json" }
       }
     );

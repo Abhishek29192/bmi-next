@@ -1,39 +1,17 @@
-import { Readable, Writable } from "stream";
-import { MockOptions, MockResponseObject } from "fetch-mock";
-import { Request, Response } from "express";
-import mockConsole from "jest-mock-console";
+import { Readable } from "stream";
+import { Request } from "express";
 import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
 import { v4 as uuid } from "uuid";
+import {
+  MockedResponse,
+  mockRequest,
+  mockResponse,
+  mockResponses
+} from "@bmi/fetch-mocks";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
-
-const mockRequest = (
-  method: Request["method"],
-  url: Request["method"],
-  body: Request["body"],
-  headers: Request["headers"]
-): Partial<Request> => {
-  return {
-    method: method,
-    url: url,
-    body: body,
-    headers: headers,
-    header: jest.fn().mockImplementation((name: string) => headers[name])
-  };
-};
-
-const mockResponse = () => {
-  const res: Partial<Response> = {};
-  res.send = jest.fn().mockReturnValue(res);
-  res.status = jest.fn().mockReturnValue(res);
-  res.set = jest.fn().mockReturnValue(res);
-  res.setHeader = jest.fn().mockReturnValue(res);
-  res.on = jest.fn().mockReturnValue(res);
-  res.once = jest.fn().mockReturnValue(res);
-  res.emit = jest.fn().mockReturnValue(res);
-  return res;
-};
 
 let proxy;
 
@@ -112,31 +90,26 @@ describe("Making a DELETE request", () => {
 
 describe("Making a GET request", () => {
   it("calls elasticsearch and returns error response if something goes wrong", async () => {
-    const req = mockRequest(
-      "GET",
-      "/some_index/_search",
-      {},
-      {
-        accept: uuid(),
-        "accept-encoding": uuid(),
-        "accept-language": uuid(),
-        authorization: uuid(),
-        connection: uuid(),
-        "content-length": uuid(),
-        "content-type": uuid()
-      }
-    );
+    const req = mockRequest("GET", {}, "/some_index/_search", {
+      accept: uuid(),
+      "accept-encoding": uuid(),
+      "accept-language": uuid(),
+      authorization: uuid(),
+      connection: uuid(),
+      "content-length": uuid(),
+      "content-type": uuid()
+    });
     const res = mockResponse();
 
     const expectedResponse: MockedResponse = {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "GET",
-      body: "Something went bang",
+      body: Readable.from(["Something went bang"]),
       status: Math.floor(Math.random() * 500),
       headers: { "content-type": "application/json" },
       error: new Error("Something went bang!")
     };
-    mockResponses(expectedResponse);
+    mockResponses(fetchMock, expectedResponse);
 
     await proxy(req, res);
 
@@ -157,30 +130,25 @@ describe("Making a GET request", () => {
   });
 
   it("calls elasticsearch and returns response", async () => {
-    const req = mockRequest(
-      "GET",
-      "/some_index/_search",
-      {},
-      {
-        accept: uuid(),
-        "accept-encoding": uuid(),
-        "accept-language": uuid(),
-        authorization: uuid(),
-        connection: uuid(),
-        "content-length": uuid(),
-        "content-type": uuid()
-      }
-    );
+    const req = mockRequest("GET", {}, "/some_index/_search", {
+      accept: uuid(),
+      "accept-encoding": uuid(),
+      "accept-language": uuid(),
+      authorization: uuid(),
+      connection: uuid(),
+      "content-length": uuid(),
+      "content-type": uuid()
+    });
     const res = mockResponse();
 
     const expectedResponse: MockedResponse = {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "GET",
-      body: '{"size":0,"timeout":0}',
+      body: Readable.from(['{"size":0,"timeout":0}']),
       status: Math.floor(Math.random() * 500),
       headers: { "content-type": "application/json" }
     };
-    mockResponses(expectedResponse);
+    mockResponses(fetchMock, expectedResponse);
 
     await proxy(req, res);
 
@@ -203,17 +171,17 @@ describe("Making a GET request", () => {
   });
 
   it("calls elasticsearch without headers and returns response", async () => {
-    const req = mockRequest("GET", "/some_index/_search", {}, {});
+    const req = mockRequest("GET", {}, "/some_index/_search", {});
     const res = mockResponse();
 
     const expectedResponse: MockedResponse = {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "GET",
-      body: '{"size":0,"timeout":0}',
+      body: Readable.from(['{"size":0,"timeout":0}']),
       status: Math.floor(Math.random() * 500),
       headers: { "content-type": "application/json" }
     };
-    mockResponses(expectedResponse);
+    mockResponses(fetchMock, expectedResponse);
 
     await proxy(req, res);
 
@@ -230,30 +198,25 @@ describe("Making a GET request", () => {
   });
 
   it("calls elasticsearch without compressed even if gzip encoding allowed and returns response", async () => {
-    const req = mockRequest(
-      "GET",
-      "/some_index/_search",
-      {},
-      {
-        accept: uuid(),
-        "accept-encoding": `gzip ${uuid()}`,
-        "accept-language": uuid(),
-        authorization: uuid(),
-        connection: uuid(),
-        "content-length": uuid(),
-        "content-type": uuid()
-      }
-    );
+    const req = mockRequest("GET", {}, "/some_index/_search", {
+      accept: uuid(),
+      "accept-encoding": `gzip ${uuid()}`,
+      "accept-language": uuid(),
+      authorization: uuid(),
+      connection: uuid(),
+      "content-length": uuid(),
+      "content-type": uuid()
+    });
     const res = mockResponse();
 
     const expectedResponse = {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "GET",
-      body: '{"size":0,"timeout":0}',
+      body: Readable.from(['{"size":0,"timeout":0}']),
       status: Math.floor(Math.random() * 500),
       headers: { "content-type": "application/json" }
     };
-    mockResponses(expectedResponse);
+    mockResponses(fetchMock, expectedResponse);
 
     await proxy(req, res);
 
@@ -278,31 +241,26 @@ describe("Making a GET request", () => {
 
 describe("Making a POST request", () => {
   it("calls elasticsearch and returns error response if something goes wrong", async () => {
-    const req = mockRequest(
-      "POST",
-      "/some_index/_search",
-      {},
-      {
-        accept: uuid(),
-        "accept-encoding": uuid(),
-        "accept-language": uuid(),
-        authorization: uuid(),
-        connection: uuid(),
-        "content-length": uuid(),
-        "content-type": uuid()
-      }
-    );
+    const req = mockRequest("POST", {}, "/some_index/_search", {
+      accept: uuid(),
+      "accept-encoding": uuid(),
+      "accept-language": uuid(),
+      authorization: uuid(),
+      connection: uuid(),
+      "content-length": uuid(),
+      "content-type": uuid()
+    });
     const res = mockResponse();
 
     const expectedResponse = {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "POST",
-      body: "Something went bang",
+      body: Readable.from(["Something went bang"]),
       status: Math.floor(Math.random() * 500),
       headers: { "content-type": "application/json" },
       error: new Error("Something went bang!")
     };
-    mockResponses(expectedResponse);
+    mockResponses(fetchMock, expectedResponse);
 
     await proxy(req, res);
 
@@ -326,30 +284,25 @@ describe("Making a POST request", () => {
   });
 
   it("calls elasticsearch and returns response", async () => {
-    const req = mockRequest(
-      "POST",
-      "/some_index/_search",
-      {},
-      {
-        accept: uuid(),
-        "accept-encoding": uuid(),
-        "accept-language": uuid(),
-        authorization: uuid(),
-        connection: uuid(),
-        "content-length": uuid(),
-        "content-type": uuid()
-      }
-    );
+    const req = mockRequest("POST", {}, "/some_index/_search", {
+      accept: uuid(),
+      "accept-encoding": uuid(),
+      "accept-language": uuid(),
+      authorization: uuid(),
+      connection: uuid(),
+      "content-length": uuid(),
+      "content-type": uuid()
+    });
     const res = mockResponse();
 
     const expectedResponse = {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "POST",
-      body: '{"size":0,"timeout":0}',
+      body: Readable.from(['{"size":0,"timeout":0}']),
       status: Math.floor(Math.random() * 500),
       headers: { "content-type": "application/json" }
     };
-    mockResponses(expectedResponse);
+    mockResponses(fetchMock, expectedResponse);
 
     await proxy(req, res);
 
@@ -375,17 +328,17 @@ describe("Making a POST request", () => {
   });
 
   it("calls elasticsearch without headers and returns response", async () => {
-    const req = mockRequest("POST", "/some_index/_search", {}, {});
+    const req = mockRequest("POST", {}, "/some_index/_search", {});
     const res = mockResponse();
 
     const expectedResponse = {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "POST",
-      body: '{"size":0,"timeout":0}',
+      body: Readable.from(['{"size":0,"timeout":0}']),
       status: Math.floor(Math.random() * 500),
       headers: { "content-type": "application/json" }
     };
-    mockResponses(expectedResponse);
+    mockResponses(fetchMock, expectedResponse);
 
     await proxy(req, res);
 
@@ -403,30 +356,25 @@ describe("Making a POST request", () => {
   });
 
   it("calls elasticsearch with compressed even if gzip encoding allowed and returns response", async () => {
-    const req = mockRequest(
-      "POST",
-      "/some_index/_search",
-      {},
-      {
-        accept: uuid(),
-        "accept-encoding": `gzip ${uuid()}`,
-        "accept-language": uuid(),
-        authorization: uuid(),
-        connection: uuid(),
-        "content-length": uuid(),
-        "content-type": uuid()
-      }
-    );
+    const req = mockRequest("POST", {}, "/some_index/_search", {
+      accept: uuid(),
+      "accept-encoding": `gzip ${uuid()}`,
+      "accept-language": uuid(),
+      authorization: uuid(),
+      connection: uuid(),
+      "content-length": uuid(),
+      "content-type": uuid()
+    });
     const res = mockResponse();
 
     const expectedResponse = {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "POST",
-      body: '{"size":0,"timeout":0}',
+      body: Readable.from(['{"size":0,"timeout":0}']),
       status: Math.floor(Math.random() * 500),
       headers: { "content-type": "application/json" }
     };
-    mockResponses(expectedResponse);
+    mockResponses(fetchMock, expectedResponse);
 
     await proxy(req, res);
 
@@ -451,32 +399,3 @@ describe("Making a POST request", () => {
     });
   });
 });
-
-interface MockedResponse {
-  url: MockOptions["url"];
-  method: MockOptions["method"];
-  body: MockResponseObject["body"];
-  headers: MockResponseObject["headers"];
-  status?: MockResponseObject["status"];
-  error?: MockResponseObject["throws"];
-}
-
-const mockResponses = (...mockedResponses: MockedResponse[]) => {
-  for (let mockedResponse of mockedResponses) {
-    fetchMock.mock(
-      {
-        name: `${mockedResponse.method} - ${mockedResponse.url}`,
-        url: mockedResponse.url,
-        method: mockedResponse.method
-      },
-      mockedResponse.error
-        ? { throws: mockedResponse.error }
-        : {
-            body: Readable.from([mockedResponse.body]),
-            status: mockedResponse.status,
-            headers: new Headers(mockedResponse.headers)
-          },
-      { sendAsJson: false }
-    );
-  }
-};

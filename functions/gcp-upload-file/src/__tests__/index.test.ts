@@ -1,10 +1,18 @@
 import path from "path";
 import { readFileSync } from "fs";
 import { IncomingHttpHeaders } from "http";
-import { Request, Response } from "express";
+import { Request } from "express";
 import { protos } from "@google-cloud/secret-manager";
+import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import fetchMock from "jest-fetch-mock";
+import {
+  mockRequest as fetchMockRequest,
+  mockResponse,
+  mockResponses
+} from "@bmi/fetch-mocks";
+
+const fetchMock = fetchMockJest.sandbox();
+jest.mock("node-fetch", () => fetchMock);
 
 const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 const validToken = "valid-token";
@@ -14,22 +22,7 @@ const managementTokenSecret = "management-token-secret";
 const mockRequest = (
   body: Buffer | Object = readFileSync(`${resourcesBasePath}/blank.jpeg`),
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
-): Partial<Request> => {
-  return {
-    method: "POST",
-    body: body,
-    headers: headers
-  };
-};
-
-const mockResponse = () => {
-  const res: Partial<Response> = {};
-  res.send = jest.fn().mockReturnValue(res);
-  res.sendStatus = jest.fn().mockReturnValue(res);
-  res.status = jest.fn().mockReturnValue(res);
-  res.set = jest.fn().mockReturnValue(res);
-  return res;
-};
+): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
 
 const accessSecretVersion = jest.fn();
 jest.mock("@google-cloud/secret-manager", () => {
@@ -62,6 +55,7 @@ beforeAll(() => {
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
+  fetchMock.reset();
   const index = require("../index");
   upload = index.upload;
 });
@@ -156,14 +150,18 @@ describe("Making a POST request", () => {
     accessSecretVersion.mockResolvedValueOnce([
       { payload: { data: recaptchaSecret } }
     ]);
-    fetchMock.mockRejectOnce();
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      error: new Error("Expected error")
+    });
 
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -182,14 +180,19 @@ describe("Making a POST request", () => {
     accessSecretVersion.mockResolvedValueOnce([
       { payload: { data: recaptchaSecret } }
     ]);
-    fetchMock.mockResponse("{}", { status: 400 });
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: "{}",
+      status: 400
+    });
 
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -209,19 +212,21 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: false,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -241,19 +246,21 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE) - 0.1
       })
-    );
+    });
 
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -275,19 +282,21 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
+      body: JSON.stringify({
         success: false,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
       { method: "POST" }
     );
@@ -307,19 +316,21 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -341,19 +352,21 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -377,19 +390,21 @@ describe("Making a POST request", () => {
         throw new Error("Expected Error");
       });
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await upload(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -413,12 +428,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     getSpace.mockImplementationOnce(() => {
       throw new Error("Expected Error");
@@ -429,7 +446,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -453,12 +470,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     getEnvironment.mockImplementationOnce(() => {
       throw new Error("Expected Error");
@@ -469,7 +488,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -493,12 +512,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     const uploadResponse = {
       expected: "response"
@@ -510,7 +531,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -534,12 +555,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     const uploadResponse = {
       expected: "response"
@@ -551,7 +574,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -575,12 +598,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     const uploadResponse = {
       expected: "response"
@@ -592,7 +617,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -616,12 +641,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     const uploadResponse = {
       expected: "response"
@@ -633,7 +660,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -657,12 +684,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     const uploadResponse = {
       expected: "response"
@@ -674,7 +703,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -700,12 +729,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     const uploadResponse = {
       expected: "response"
@@ -718,7 +749,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -748,12 +779,14 @@ describe("Making a POST request", () => {
         { payload: { data: managementTokenSecret } }
       ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     const uploadResponse = {
       expected: "response"
@@ -766,7 +799,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );

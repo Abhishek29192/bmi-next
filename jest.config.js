@@ -13,6 +13,7 @@ module.exports = {
     "!**/.*.js",
     "!coverage/**",
     "!jest/**",
+    "!libraries/fetch-mocks/**",
     "!tmp/**",
     "!**/.cache/**"
   ],
