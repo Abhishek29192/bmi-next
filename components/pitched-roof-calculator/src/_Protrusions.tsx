@@ -149,7 +149,9 @@ const ProtrusionDimensions = ({
     protrusionTypes[protrusionType];
 
   return (
-    <FieldContainer title={"Enter protrusion dimensions"}>
+    <FieldContainer
+      title={getMicroCopy(copy, "roofDimensions.protrusions.prompt")}
+    >
       <Grid container className={styles["dimensions"]}>
         <Grid item xs={12} lg={3}>
           <DimensionsIllustration />

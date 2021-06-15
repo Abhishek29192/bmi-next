@@ -458,18 +458,21 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
       {getMicroCopy("results.alerts.quantities.text")}
     </Alert>
     <Alert title={getMicroCopy("results.alerts.needToKnow.title")}>
-      {getMicroCopy("results.alerts.needToKnow.text")}
+      {getMicroCopy("results.alerts.needToKnow.text", {
+        contingency: "0"
+      })}
     </Alert>
   </Document>
 );
 
-const openPdf = (props: PdfDocumentProps) => {
-  return pdf(<PdfDocument {...props} />, null, {
+export const getPDF = (props: PdfDocumentProps) =>
+  pdf(<PdfDocument {...props} />, null, {
     Effra: {
       normal: window.location.origin + "/" + EffraNormal,
       bold: window.location.origin + "/" + EffraBold
     }
-  }).open();
-};
+  });
+
+const openPdf = (props: PdfDocumentProps) => getPDF(props).open();
 
 export default openPdf;

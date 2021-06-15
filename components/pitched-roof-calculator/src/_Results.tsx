@@ -184,7 +184,9 @@ const Results = ({
         {getMicroCopy(copy, "results.alerts.quantities.text")}
       </Alert>
       <Alert title={getMicroCopy(copy, "results.alerts.needToKnow.title")} last>
-        {getMicroCopy(copy, "results.alerts.needToKnow.text")}
+        {getMicroCopy(copy, "results.alerts.needToKnow.text", {
+          contingency: "0"
+        })}
       </Alert>
       <Button
         startIcon={<PDFIcon />}
@@ -195,7 +197,7 @@ const Results = ({
             label: getMicroCopy(copy, "results.downloadPdfLabel"),
             action: "selected"
           });
-          (await import("./PDF")).default({
+          (await import("./_PDF")).default({
             results,
             area: (area / 10000).toFixed(2),
             getMicroCopy: (...params) => getMicroCopy(copy, ...params)
