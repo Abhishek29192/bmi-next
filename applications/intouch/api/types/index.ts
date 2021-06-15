@@ -203,8 +203,6 @@ export type AccountCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `email` field. */
-  email?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `doceboUserId` field. */
   doceboUserId?: Maybe<Scalars["Int"]>;
 };
@@ -305,8 +303,6 @@ export type AccountsOrderBy =
   | "ID_DESC"
   | "MARKET_ID_ASC"
   | "MARKET_ID_DESC"
-  | "EMAIL_ASC"
-  | "EMAIL_DESC"
   | "DOCEBO_USER_ID_ASC"
   | "DOCEBO_USER_ID_DESC"
   | "PRIMARY_KEY_ASC"
@@ -1062,7 +1058,7 @@ export type Company = Node & {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo */
   logo?: Maybe<Scalars["String"]>;
@@ -1473,7 +1469,7 @@ export type CompanyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo */
   logo?: Maybe<Scalars["String"]>;
@@ -6891,12 +6887,6 @@ export type MigrationOrder =
 export type Mutation = {
   __typename?: "Mutation";
   completeInvitation?: Maybe<Account>;
-  courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
-  courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
-  courseEnrollmentUpdate?: Maybe<CourseEnrollmentUpdatePayload>;
-  courseEnrollmentUpdateByTemp?: Maybe<CourseEnrollmentUpdateByTempPayload>;
-  courseUpdate?: Maybe<CourseUpdatePayload>;
-  courseUpdateByTemp?: Maybe<CourseUpdateByTempPayload>;
   createAccount?: Maybe<CreateAccountPayload>;
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
@@ -7191,36 +7181,6 @@ export type Mutation = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCompleteInvitationArgs = {
   companyId: Scalars["Int"];
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseCatalogueUpdateArgs = {
-  input: CourseCatalogueUpdateInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseCatalogueUpdateByTempArgs = {
-  input: CourseCatalogueUpdateByTempInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseEnrollmentUpdateArgs = {
-  input: CourseEnrollmentUpdateInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseEnrollmentUpdateByTempArgs = {
-  input: CourseEnrollmentUpdateByTempInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseUpdateArgs = {
-  input: CourseUpdateInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationCourseUpdateByTempArgs = {
-  input: CourseUpdateByTempInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -8935,7 +8895,6 @@ export type Query = Node & {
   /** Reads and enables pagination through a set of `Invitation`. */
   invitations?: Maybe<InvitationsConnection>;
   invitedByCompanies?: Maybe<InvitedByCompaniesConnection>;
-  isInvited?: Maybe<Scalars["Int"]>;
   isPartOfProject?: Maybe<IsPartOfProjectConnection>;
   isProjectEnabledByMarket?: Maybe<Scalars["Boolean"]>;
   market?: Maybe<Market>;

@@ -731,35 +731,6 @@ VALUES ('2',1,'PITCHED','S2','Aphazap Total Slate','For the perfect pitched roof
 INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
 VALUES ('3',1,'FLAT','S3','BMI Flat Pack','A bag of roofing goodness',30,TRUE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('1', 1, 1);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('2', 1, 2);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('3', 1, 3);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('4', 2, 2);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('5', 2, 3);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('6', 2, 4);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('7', 3, 7);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('8', 3, 8);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('9', 3, 9);
-
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('10', 4, 10);
 
 TRUNCATE TABLE SYSTEM RESTART IDENTITY;
 

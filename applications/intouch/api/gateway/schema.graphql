@@ -472,11 +472,6 @@ input AccountCondition {
   marketId: Int
 
   """
-  Checks for equality with the object’s `email` field.
-  """
-  email: String
-
-  """
   Checks for equality with the object’s `doceboUserId` field.
   """
   doceboUserId: Int
@@ -682,8 +677,6 @@ enum AccountsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
-  EMAIL_ASC
-  EMAIL_DESC
   DOCEBO_USER_ID_ASC
   DOCEBO_USER_ID_DESC
   PRIMARY_KEY_ASC
@@ -10112,42 +10105,6 @@ The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
   completeInvitation(companyId: Int!): Account
-  courseCatalogueUpdate(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseCatalogueUpdateInput!
-  ): CourseCatalogueUpdatePayload
-  courseCatalogueUpdateByTemp(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseCatalogueUpdateByTempInput!
-  ): CourseCatalogueUpdateByTempPayload
-  courseEnrollmentUpdate(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseEnrollmentUpdateInput!
-  ): CourseEnrollmentUpdatePayload
-  courseEnrollmentUpdateByTemp(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseEnrollmentUpdateByTempInput!
-  ): CourseEnrollmentUpdateByTempPayload
-  courseUpdate(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseUpdateInput!
-  ): CourseUpdatePayload
-  courseUpdateByTemp(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseUpdateByTempInput!
-  ): CourseUpdateByTempPayload
   createAccount(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -14114,7 +14071,6 @@ type Query implements Node {
     """
     after: Cursor
   ): InvitedByCompaniesConnection
-  isInvited: Int
   isPartOfProject(
     """
     Only read the first `n` values of the set.
