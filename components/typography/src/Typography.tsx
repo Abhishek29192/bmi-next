@@ -7,6 +7,7 @@ import styles from "./Typography.module.scss";
 
 export type Props = Omit<TypographyProps, "variant"> & {
   hasUnderline?: boolean;
+  noClamp?: boolean;
   // NOTE: This is necessary until we upgrade to @material-ui/core@^5.0.0
   // see: https://github.com/mui-org/material-ui/issues/22452#issuecomment-685756045
   component?: React.ElementType;
@@ -31,6 +32,7 @@ const Typography = ({
   children,
   className,
   hasUnderline,
+  noClamp,
   variant,
   ...props
 }: Props) => (
@@ -39,7 +41,8 @@ const Typography = ({
     className={classnames(className, styles["Typography"], {
       [styles["Typography--underline"]]:
         hasUnderline && ["h1", "h2", "h3", "h4"].includes(variant),
-      [styles["body3"]]: variant === "body3" || variant === "card"
+      [styles["body3"]]: variant === "body3" || variant === "card",
+      "no-clamp": noClamp
     })}
     {...props}
   >
