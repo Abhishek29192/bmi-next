@@ -6,8 +6,10 @@ import styles from "./Section.module.scss";
 
 export const SectionContext = createContext<boolean>(false);
 
+export type BackgroundColor = "transparent" | "alabaster" | "white" | "pearl";
+
 export type Props = {
-  backgroundColor?: "transparent" | "alabaster" | "white" | "pearl";
+  backgroundColor?: BackgroundColor;
   children: React.ReactNode;
   size?: "lg" | "md" | "sm" | "xl" | "xs" | false;
   spacing?: "default" | "none";
