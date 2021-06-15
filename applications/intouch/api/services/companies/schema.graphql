@@ -1867,6 +1867,8 @@ enum AccountsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  EMAIL_ASC
+  EMAIL_DESC
   DOCEBO_USER_ID_ASC
   DOCEBO_USER_ID_DESC
   PRIMARY_KEY_ASC
@@ -1886,6 +1888,11 @@ input AccountCondition {
   Checks for equality with the object’s `marketId` field.
   """
   marketId: Int
+
+  """
+  Checks for equality with the object’s `email` field.
+  """
+  email: String
 
   """
   Checks for equality with the object’s `doceboUserId` field.

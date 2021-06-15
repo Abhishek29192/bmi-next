@@ -31,10 +31,9 @@ const afterCallback = async (
   // The jwt token does not have the intouc_id property, let's create
   // a new user and the docebo user
   if (!intouchUserId && state.prompt !== "none") {
-    const { data } = await createAccount(req, session);
     const {
       createAccount: { account }
-    } = data;
+    } = await createAccount(req, session);
 
     await createDoceboUser(req, session, account);
 

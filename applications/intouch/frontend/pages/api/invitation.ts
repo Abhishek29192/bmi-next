@@ -26,11 +26,12 @@ export default withLoggerApi(async (req, res) => {
     res.end();
   } else {
     logger.info("Completing the invitation");
-    const { data } = await completeAccountInvitation(req, session);
-    logger.info("Invitation completed", data.completeInvitation);
+    const { completeInvitation } = await completeAccountInvitation(
+      req,
+      session
+    );
 
-    await createDoceboUser(req, session, data.completeInvitation);
-    logger.info("Docebo user created", data);
+    await createDoceboUser(req, session, completeInvitation);
 
     res.writeHead(302, { Location: "/api/silent-login" });
     res.end();

@@ -19,10 +19,12 @@ CREATE POLICY policy_super_admin ON account FOR ALL TO super_admin USING (true) 
 CREATE POLICY policy_market_admin ON account FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
 CREATE POLICY policy_company_admin ON account FOR ALL TO company_admin 
   USING (
-    id IN (SELECT account_id FROM company_member WHERE company_id = current_company())
+    current_account_id() = id OR current_account_email() = email OR id IN (SELECT account_id FROM company_member WHERE company_id = current_company())
   )
-  WITH CHECK (false);
-CREATE POLICY policy_installer ON account FOR ALL TO installer USING (current_account_id() = id OR current_account_email() = email) WITH CHECK (false);
+  WITH CHECK (
+    current_account_id() = id OR current_account_email() = email OR id IN (SELECT account_id FROM company_member WHERE company_id = current_company())
+  );
+CREATE POLICY policy_installer ON account FOR ALL TO installer USING (current_account_id() = id OR current_account_email() = email) WITH CHECK (current_account_id() = id OR current_account_email() = email);
 
 
 

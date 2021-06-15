@@ -6,7 +6,7 @@ class Auth0 {
   accessToken: string;
 
   constructor(logger) {
-    this.logger = logger;
+    this.logger = logger("Auth0");
   }
 
   public static async init(logger) {

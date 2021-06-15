@@ -430,38 +430,54 @@ INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last
   VALUES ('13', 'ACTIVE', 1, 'INSTALLER', 'devs+13@digitaldetox.co.uk', '1234567', 'Alessandro', 'Del Piero', '2020-06-12 10:19:47', 13998, 'devs+13@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Alessandro_Del_Piero_in_2014.jpg', NULL);
 
 TRUNCATE TABLE address RESTART IDENTITY;
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('1','Blue Star House','234-244 Stockwell Road, Brixton, London. SW9 9SP','Brixton','London','UK','SW9 9SP',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('2','Piazza di Trevi',null,'Rome',null,'Italy','00187 Roma RM',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('3','328 Coldharbour Lane','Brixton','London',null,'UK','SW9 8QH',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('4','Nursery Rd','Brixton','London',null,'UK','SW9 8BP','(51.4632583,-0.1194107)',null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('5','Praça do Príncipe Real 23 24','Near the Castle','Lisbon',null,'Portugal','1250-096 Lisboa','(38.7170416,-9.1510413)',null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('6','39 Old Castle Rd, Weymouth DT4 8QE',null,'Weymouth',null,'UK','DT4 8QE','(10.6971494,-72.2598689)',null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('7','1 Brixton Hill','Brixton',null,'London','UK','SW2 1RW',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('8','49 Brixton Station Rd','Brixton',null,'London','UK','SW9 8PQ',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('9','211 Stockwell Rd','Brixton',null,'London','UK','SW9 9SL',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('10','103 Gaunt St','Lambeth',null,'London','UK','London SE1 6DP',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('11','12 Alice Mansions','Soho',null,'London','UK','UK W1A',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('12','15 Bob Monk House','Covent Garden',null,'London','UK','W1C8RJ',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('13','23 Shakespeare House','Barbican',null,'London','UK','EC1',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('14','4 Oxford Street',null,null,'London','UK','W1B 5LP',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('15','Next to Bluestar House','234-244 Stockwell Road, Brixton, London. SW9 9SP','Brixton','London','UK','SW9 9SP',null,null);
-INSERT INTO address(id,first_line,second_line,town,region,country,postcode,coordinates,migration_id)
-VALUES ('16','4 Oxford Street',null,null,'London','UK','W1B 5LP',null,null);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('1', 'Blue Star House', '234-244 Stockwell Road, Brixton, London. SW9 9SP', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('2', 'Piazza di Trevi', NULL, 'Rome', NULL, 'Italy', '00187 Roma RM', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('3', '328 Coldharbour Lane', 'Brixton', 'London', NULL, 'UK', 'SW9 8QH', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('4', 'Nursery Rd', 'Brixton', 'London', NULL, 'UK', 'SW9 8BP', '(51.4632583,-0.1194107)', NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('5', 'Praça do Príncipe Real 23 24', 'Near the Castle', 'Lisbon', NULL, 'Portugal', '1250-096 Lisboa', '(38.7170416,-9.1510413)', NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('6', '39 Old Castle Rd, Weymouth DT4 8QE', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(10.6971494,-72.2598689)', NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('7', '1 Brixton Hill', 'Brixton', NULL, 'London', 'UK', 'SW2 1RW', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('8', '49 Brixton Station Rd', 'Brixton', NULL, 'London', 'UK', 'SW9 8PQ', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('9', '211 Stockwell Rd', 'Brixton', NULL, 'London', 'UK', 'SW9 9SL', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('10', '103 Gaunt St', 'Lambeth', NULL, 'London', 'UK', 'London SE1 6DP', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('11', '12 Alice Mansions', 'Soho', NULL, 'London', 'UK', 'UK W1A', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('12', '15 Bob Monk House', 'Covent Garden', NULL, 'London', 'UK', 'W1C8RJ', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('13', '23 Shakespeare House', 'Barbican', NULL, 'London', 'UK', 'EC1', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('14', '4 Oxford Street', NULL, NULL, 'London', 'UK', 'W1B 5LP', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('15', 'Next to Bluestar House', '234-244 Stockwell Road, Brixton, London. SW9 9SP', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
+
+INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
+  VALUES ('16', '4 Oxford Street', NULL, NULL, 'London', 'UK', 'W1B 5LP', NULL, NULL);
 
 TRUNCATE TABLE certification RESTART IDENTITY;
 
@@ -633,7 +649,7 @@ TRUNCATE TABLE market RESTART IDENTITY;
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
-  VALUES ('1', 'en', 'en', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'mapleland@intouch.bmigroup.com', '41', '41', 345, 'tbc2', TRUE, 'tbc1', '42.7684,-78.8871');
+  VALUES ('1', 'en', 'mp', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'mapleland@intouch.bmigroup.com', '41', '41', 345, 'tbc2', TRUE, 'tbc1', '42.7684,-78.8871');
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
@@ -688,49 +704,53 @@ INSERT INTO product (id, market_id, technology, bmi_ref, brand, name, descriptio
   VALUES ('6', 1, 'FLAT', 'P6', 'Cobert', 'Oozomatic Bitumen', 'Black and gooey.  That is all you need to know.  And it sticks.', 'Alphazap', FALSE, 30);
 
 TRUNCATE TABLE project RESTART IDENTITY;
-INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
-VALUES ('1',1,7,11,'PITCHED','St Matthews Church','Fix the roof',FALSE,504,'ccardenoza0@sogou.com','Alice','Malice','Alice in Cheam','2021-01-01 08:23:58','2021-01-04 08:23:58');
-INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
-VALUES ('2',1,8,12,'FLAT','Pop Brixton','Replace the roof',FALSE,166,'achazelle1@statcounter.com','Bob','Bigwick',null,'2021-07-01 08:23:58','2021-11-04 08:23:58');
-INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
-VALUES ('3',2,9,13,'FLAT','Brixton Academy','Do up the roof',FALSE,147,'jkirkpatrick2@unesco.org','Charlie','Wright','Wright Brothers','2021-01-02 08:23:58','2021-02-04 08:23:58');
-INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
-VALUES ('4',3,10,14,'FLAT','Ministry of Sound','Waterproof old roof',TRUE,731,'kferrarini3@smugmug.com','Dave','Le Rave',null,'2020-11-04 08:23:58','2020-12-04 08:23:58');
-INSERT INTO project(id,company_id,site_address_id,building_owner_address_id,technology,name,description,hidden,roof_area,building_owner_mail,building_owner_firstname,building_owner_lastname,building_owner_company,start_date,end_date)
-VALUES ('5',2,15,16,'FLAT','Nandos','Put in outdoor seating area',FALSE,50,'kferrarini3@smugmug.com','Dave','Le Rave',null,'2021-02-04 08:23:58','2021-12-04 08:23:58');
 
+INSERT INTO project (id, company_id, site_address_id, building_owner_address_id, technology, name, description, hidden, roof_area, building_owner_mail, building_owner_firstname, building_owner_lastname, building_owner_company, start_date, end_date)
+  VALUES ('1', 1, 7, 11, 'PITCHED', 'St Matthews Church', 'Fix the roof', FALSE, 504, 'ccardenoza0@sogou.com', 'Alice', 'Malice', 'Alice in Cheam', '2021-01-01 08:23:58', '2021-01-04 08:23:58');
+
+INSERT INTO project (id, company_id, site_address_id, building_owner_address_id, technology, name, description, hidden, roof_area, building_owner_mail, building_owner_firstname, building_owner_lastname, building_owner_company, start_date, end_date)
+  VALUES ('2', 1, 8, 12, 'FLAT', 'Pop Brixton', 'Replace the roof', FALSE, 166, 'achazelle1@statcounter.com', 'Bob', 'Bigwick', NULL, '2021-07-01 08:23:58', '2021-11-04 08:23:58');
+
+INSERT INTO project (id, company_id, site_address_id, building_owner_address_id, technology, name, description, hidden, roof_area, building_owner_mail, building_owner_firstname, building_owner_lastname, building_owner_company, start_date, end_date)
+  VALUES ('3', 2, 9, 13, 'FLAT', 'Brixton Academy', 'Do up the roof', FALSE, 147, 'jkirkpatrick2@unesco.org', 'Charlie', 'Wright', 'Wright Brothers', '2021-01-02 08:23:58', '2021-02-04 08:23:58');
+
+INSERT INTO project (id, company_id, site_address_id, building_owner_address_id, technology, name, description, hidden, roof_area, building_owner_mail, building_owner_firstname, building_owner_lastname, building_owner_company, start_date, end_date)
+  VALUES ('4', 3, 10, 14, 'FLAT', 'Ministry of Sound', 'Waterproof old roof', TRUE, 731, 'kferrarini3@smugmug.com', 'Dave', 'Le Rave', NULL, '2020-11-04 08:23:58', '2020-12-04 08:23:58');
+
+INSERT INTO project (id, company_id, site_address_id, building_owner_address_id, technology, name, description, hidden, roof_area, building_owner_mail, building_owner_firstname, building_owner_lastname, building_owner_company, start_date, end_date)
+  VALUES ('5', 2, 15, 16, 'FLAT', 'Nandos', 'Put in outdoor seating area', FALSE, 50, 'kferrarini3@smugmug.com', 'Dave', 'Le Rave', NULL, '2021-02-04 08:23:58', '2021-12-04 08:23:58');
 
 TRUNCATE TABLE project_member RESTART IDENTITY;
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('1',1,3);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('2',1,4);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('3',1,5);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('4',2,3);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('5',2,5);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('6',2,6);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('7',3,7);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('8',3,8);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('9',3,9);
-INSERT INTO project_member(id,project_id,account_id)
-VALUES ('10',4,10);
 
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('1', 1, 3);
 
-TRUNCATE TABLE system RESTART IDENTITY;
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('1',1,'PITCHED','S1','Aphazap Total Tile','For the perfect pitched roof',30,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('2',1,'PITCHED','S2','Aphazap Total Slate','For the perfect pitched roof',30,TRUE);
-INSERT INTO system(id,market_id,technology,bmi_ref,name,description,maximum_validity_years,published)
-VALUES ('3',1,'FLAT','S3','BMI Flat Pack','A bag of roofing goodness',30,TRUE);
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('2', 1, 4);
 
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('3', 1, 5);
+
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('4', 2, 3);
+
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('5', 2, 5);
+
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('6', 2, 6);
+
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('7', 3, 7);
+
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('8', 3, 8);
+
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('9', 3, 9);
+
+INSERT INTO project_member (id, project_id, account_id)
+  VALUES ('10', 4, 10);
 
 TRUNCATE TABLE SYSTEM RESTART IDENTITY;
 
@@ -744,28 +764,43 @@ INSERT INTO SYSTEM (id, market_id, technology, bmi_ref, name, description, maxim
   VALUES ('3', 1, 'FLAT', 'S3', 'BMI Flat Pack', 'A bag of roofing goodness', 30, TRUE);
 
 TRUNCATE TABLE system_member RESTART IDENTITY;
-INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref)
-VALUES ('1','S1','P1');
-INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref)
-VALUES ('2','S1','P3');
-INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref)
-VALUES ('3','S2','P2');
-INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref)
-VALUES ('4','S2','P3');
-INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref)
-VALUES ('5','S3','P4');
-INSERT INTO system_member(id,system_bmi_ref,product_bmi_ref)
-VALUES ('6','S3','P5');
 
-ALTER TABLE account ADD UNIQUE (docebo_user_id);
-ALTER TABLE market ADD UNIQUE (domain);
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
+  VALUES ('1', 'S1', 'P1');
 
-ALTER TABLE market ADD UNIQUE (docebo_catalogue_id);
-ALTER TABLE product ADD UNIQUE (bmi_ref);
-ALTER TABLE system ADD UNIQUE (bmi_ref);
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
+  VALUES ('2', 'S1', 'P3');
 
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
+  VALUES ('3', 'S2', 'P2');
 
-ALTER TABLE account ADD FOREIGN KEY (market_id) REFERENCES market(id) ON DELETE CASCADE;
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
+  VALUES ('4', 'S2', 'P3');
+
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
+  VALUES ('5', 'S3', 'P4');
+
+INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
+  VALUES ('6', 'S3', 'P5');
+
+ALTER TABLE account
+  ADD UNIQUE (docebo_user_id);
+
+ALTER TABLE market
+  ADD UNIQUE (DOMAIN);
+
+ALTER TABLE market
+  ADD UNIQUE (docebo_catalogue_id);
+
+ALTER TABLE product
+  ADD UNIQUE (bmi_ref);
+
+ALTER TABLE SYSTEM
+  ADD UNIQUE (bmi_ref);
+
+ALTER TABLE account
+  ADD FOREIGN KEY (market_id) REFERENCES market (id) ON DELETE CASCADE;
+
 CREATE INDEX ON account (market_id);
 
 ALTER TABLE certification
@@ -1458,4 +1493,10 @@ CREATE TRIGGER set_system_updated_at
   BEFORE UPDATE ON SYSTEM
   FOR EACH ROW
   EXECUTE PROCEDURE update_modified_column ();
+
+CREATE INDEX account_email_idx ON account USING btree (email);
+
+CREATE INDEX invitation_invitee_idx ON invitation USING btree (invitee);
+
+CREATE INDEX market_domain_idx ON market USING btree (DOMAIN);
 
