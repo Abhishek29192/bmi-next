@@ -6,6 +6,7 @@ import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
 import { VisualiserContext } from "./Visualiser";
+import { CalculatorContext } from "./PitchedRoofCalcualtor";
 
 const availableTypenames = [
   "ContentfulAsset",
@@ -28,7 +29,9 @@ const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const InlineHyperlink = ({ node, children }: Props) => {
   const { countryCode } = useContext(SiteContext);
-  const { open } = useContext(VisualiserContext);
+  const { open: openVisualiser } = useContext(VisualiserContext);
+  const { open: openCalculator } = useContext(CalculatorContext);
+
   const fields = node.data.target;
 
   // TODO: Handle ContentfulLink case.
@@ -48,7 +51,11 @@ const InlineHyperlink = ({ node, children }: Props) => {
           String(children),
           type,
           () => {
-            open(parameters);
+            if (type === "Visualiser" && openVisualiser) {
+              openVisualiser(parameters);
+            } else if (type === "Calculator" && openCalculator) {
+              openCalculator(parameters);
+            }
           }
         )}
         gtm={{

@@ -18,6 +18,7 @@ import ErrorFallback from "./ErrorFallback";
 import { Data as SEOContentData } from "./SEOContent";
 import VisualiserProvider from "./Visualiser";
 import styles from "./styles/Page.module.scss";
+import CalculatorProvider from "./PitchedRoofCalcualtor";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -178,7 +179,9 @@ const Page = ({
                 variantCodeToPathMap={variantCodeToPathMap}
                 shareWidgetData={resources?.visualiserShareWidget}
               >
-                <div className={styles["content"]}>{children}</div>
+                <CalculatorProvider>
+                  <div className={styles["content"]}>{children}</div>
+                </CalculatorProvider>
               </VisualiserProvider>
               {inputBanner ? <InputBanner data={inputBanner} /> : null}
             </ErrorBoundary>

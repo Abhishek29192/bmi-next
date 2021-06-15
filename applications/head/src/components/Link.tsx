@@ -6,6 +6,7 @@ import { Data as SimplePageData } from "../templates/simple-page";
 import { pushToDataLayer } from "../utils/google-tag-manager";
 import { IconName } from "./Icon";
 import { Data as PageInfoData } from "./PageInfo";
+import { CalculatorContext } from "./PitchedRoofCalcualtor";
 import { Data as PromoData } from "./Promo";
 import { SectionData, sectionsMap } from "./Sections";
 import { SiteContext } from "./Site";
@@ -30,6 +31,20 @@ export const getClickableActionFromUrl = (
 ): ClickableAction | undefined => {
   if (type === "Visualiser") {
     const dataGtm = { id: "cta-visualiser1", action: "visualiser", label };
+
+    return {
+      model: "default",
+      onClick: (...args) => {
+        onClick && onClick(...args);
+        pushToDataLayer(dataGtm);
+      },
+      // @ts-ignore data-gtm is not defined but a general html attribute
+      "data-gtm": JSON.stringify(dataGtm)
+    };
+  }
+
+  if (type === "Calculator") {
+    const dataGtm = { id: "cta-calculator1", action: "calculator", label };
 
     return {
       model: "default",
@@ -140,7 +155,14 @@ export type Data = {
   icon: IconName | null;
   isLabelHidden: boolean | null;
   url: string | null;
-  type: "External" | "Internal" | "Asset" | "Visualiser" | "Dialog" | null;
+  type:
+    | "External"
+    | "Internal"
+    | "Asset"
+    | "Visualiser"
+    | "Calculator"
+    | "Dialog"
+    | null;
   parameters: JSON | null;
   dialogContent: SectionData | null;
   linkedPage: {
@@ -182,12 +204,18 @@ export const Link = ({
 }) => {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const { countryCode } = useContext(SiteContext);
-  const { open } = useContext(VisualiserContext);
+  const { open: openVisualiser } = useContext(VisualiserContext);
+  const { open: openCalculator } = useContext(CalculatorContext);
 
   const handleOnClick = useCallback(
     (...args) => {
       onClick && onClick(...args);
-      open && data?.parameters && open(data.parameters);
+
+      if (data?.type === "Visualiser" && openVisualiser) {
+        openVisualiser(data?.parameters);
+      } else if (data?.type === "Calculator" && openCalculator) {
+        openCalculator(data?.parameters);
+      }
 
       if (data?.type === "Dialog") {
         setDialogIsOpen(true);

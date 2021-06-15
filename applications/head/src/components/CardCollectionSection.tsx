@@ -23,6 +23,7 @@ import { Data as PageInfoData } from "./PageInfo";
 import { iconMap } from "./Icon";
 import { VisualiserContext } from "./Visualiser";
 import { TagData } from "./Tag";
+import { CalculatorContext } from "./PitchedRoofCalcualtor";
 
 type Card = PageInfoData | PromoData;
 
@@ -148,7 +149,9 @@ const CardCollectionSection = ({
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
   const { getMicroCopy, countryCode } = useContext(SiteContext);
-  const { open } = useContext(VisualiserContext);
+  const { open: openVisualiser } = useContext(VisualiserContext);
+  const { open: openCalculator } = useContext(CalculatorContext);
+
   const shouldDisplayGroups = groupCards && groupKeys.length > 1;
 
   const getCards = (title: string) => {
@@ -307,7 +310,11 @@ const CardCollectionSection = ({
               link?.label,
               link?.type,
               () => {
-                open && open(link?.parameters);
+                if (link?.type === "Visualiser" && openVisualiser) {
+                  openVisualiser(link?.parameters);
+                } else if (link?.type === "Calculator" && openCalculator) {
+                  openCalculator(link?.parameters);
+                }
               }
             )}
             className={styles["link"]}
