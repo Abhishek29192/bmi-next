@@ -92,3 +92,5 @@ export type VariantOption = {
   breadcrumbs: BreadcrumbItem[];
   path: string;
 };
+
+export type VariantOptionWithProduct = VariantOption & { _product: Product };

@@ -1,5 +1,9 @@
 import { PIMDocumentProduct } from "../components/types/PIMDocumentBase";
-import { Product, VariantOption } from "../components/types/ProductBaseTypes";
+import {
+  Product,
+  VariantOption,
+  VariantOptionWithProduct
+} from "../components/types/ProductBaseTypes";
 import createCategory from "./CategoryHelper";
 import createClassification from "./ClassificationHelper";
 import createPimDocument from "./PimDocumentHelper";
@@ -51,4 +55,13 @@ export const createVariantOption = (
   };
 };
 
+export const createVariantOptionWithProduct = (
+  variantOptionWithProduct?: Partial<VariantOptionWithProduct>
+): VariantOptionWithProduct => {
+  return {
+    ...createVariantOption(),
+    _product: createBaseProduct(),
+    ...variantOptionWithProduct
+  };
+};
 export default createProduct;
