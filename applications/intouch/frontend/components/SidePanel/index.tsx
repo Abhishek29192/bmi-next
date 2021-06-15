@@ -8,6 +8,7 @@ export type SidePanelProps = {
   filters?: Record<string, any>;
   filterClick?: (filter) => void;
   showSearchFilter?: boolean;
+  onSearchFilterChange?: (value: string) => void;
   children: React.ReactNode | React.ReactNode[];
 };
 
@@ -16,10 +17,14 @@ export const SidePanel = ({
   filters,
   filterClick,
   showSearchFilter = true,
+  onSearchFilterChange,
   children
 }: SidePanelProps) => {
-  const onClickHandler = (filter) => {
+  const handleButtonClick = (filter) => {
     filterClick && filterClick(filter);
+  };
+  const handleInputOnChange = (value: string) => {
+    onSearchFilterChange && onSearchFilterChange(value);
   };
 
   const filterButtons = (filters || []).map((filter) => (
@@ -27,7 +32,7 @@ export const SidePanel = ({
       label={filter.label}
       key={filter.attr}
       isActive={filter.isActive}
-      onClick={() => onClickHandler(filter)}
+      onClick={() => handleButtonClick(filter)}
     />
   ));
 
@@ -35,7 +40,9 @@ export const SidePanel = ({
     <div className={styles.main}>
       <div className={styles.sidePanel}>
         <div className={styles.filters}>
-          {showSearchFilter && <FilterInput label={searchLabel} />}
+          {showSearchFilter && (
+            <FilterInput label={searchLabel} onChange={handleInputOnChange} />
+          )}
 
           <div className={styles.filterButtons}>
             <span

@@ -45,7 +45,10 @@ const DEFAULT_ENROLLMENT_STATUS = "General";
 export const TrainingSidePanel = ({
   courseCatalog
 }: TrainingSidePanelProps) => {
-  const [filterCriteria, setFilterCriteria] = useState(DEFAULT_FILTER_CRITERIA);
+  const [filterCriteria, setFilterCriteria] = useState<string>(
+    DEFAULT_FILTER_CRITERIA
+  );
+  const [searchCriteria, setSearchCriteria] = useState<string>(undefined);
   const { nodes = [] } = courseCatalog || {};
 
   const trainingFilterClickHandler = ({ attr }) => {
@@ -56,9 +59,11 @@ export const TrainingSidePanel = ({
     (item) => (item.isActive = item.attr === filterCriteria)
   );
   const courses = nodes.filter(
-    ({ course: { technology } }) =>
-      filterCriteria === DEFAULT_FILTER_CRITERIA ||
-      technology === filterCriteria
+    ({ course: { name, technology } }) =>
+      (filterCriteria === DEFAULT_FILTER_CRITERIA ||
+        technology === filterCriteria) &&
+      (!searchCriteria ||
+        name.toLowerCase().includes(searchCriteria.toLowerCase()))
   );
 
   return (
@@ -66,7 +71,9 @@ export const TrainingSidePanel = ({
       searchLabel="Search for training"
       filters={trainingFilters}
       filterClick={trainingFilterClickHandler}
-      showSearchFilter={false}
+      onSearchFilterChange={(filter: string) => {
+        setSearchCriteria(filter);
+      }}
     >
       {courses.map(
         ({ course: { name, technology, trainingType, courseEnrollments } }) => {
