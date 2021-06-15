@@ -140,7 +140,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
   if (user.role === "INSTALLER")
     throw new Error("you must be an admin to invite other users");
 
-  let auth0User = await auth0.getUserByEmail(email);
+  let [auth0User] = await auth0.getUserByEmail(email);
 
   const password = `Gj$1${crypto.randomBytes(20).toString("hex")}`;
 
@@ -163,8 +163,8 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
       user_metadata: {
         type: role.toLowerCase(),
         email,
-        firstname: firstName,
-        lastname: lastName
+        first_name: firstName,
+        last_name: lastName
       }
     });
     logger.info(`Created new user in auth0 with id: ${auth0User?.user_id}`);

@@ -39,19 +39,9 @@ export const mutationUpdateAccount = `mutation UpdateAccount($input: UpdateAccou
     account {
       id
       doceboUserId
-
     }
   }
 }`;
-const querymarketByDomain = `query marketByDomain($domain:String!) {
-  marketByDomain(domain: $domain) {
-    id
-    language
-    doceboCompanyAdminBranchId
-    doceboInstallersBranchId
-    domain
-  }
-} `;
 
 const mutationCompleteInvitation = `mutation completeInvitation ($companyId: Int!) {
   completeInvitation (companyId: $companyId) {
@@ -98,7 +88,7 @@ export const getAccount = async (req, session) => {
     }
   };
 
-  const data = await requestHandler(req, session, body);
+  const { data } = await requestHandler(req, session, body);
 
   logger.info(`Get account with id: ${data.id}`);
 
@@ -116,21 +106,26 @@ export const createAccount = async (req, session) => {
     query: mutationCreateAccount,
     variables: {
       input: {
-        firstName,
-        lastName,
-        email: user.email,
-        role:
-          registrationType === "company"
-            ? ROLES.COMPANY_ADMIN
-            : ROLES.INSTALLER,
+        account: {
+          firstName,
+          lastName,
+          email: user.email,
+          role:
+            registrationType === "company"
+              ? ROLES.COMPANY_ADMIN
+              : ROLES.INSTALLER
+        },
         marketCode
       }
     }
   };
 
-  const data = await requestHandler(req, session, body);
+  const { data } = await requestHandler(req, session, body);
+  const {
+    createAccount: { account }
+  } = data;
 
-  logger.info(`Account with id: ${data.id} created`);
+  logger.info(`Account with id: ${account.id} created`);
 
   return data;
 };
@@ -210,9 +205,12 @@ export const updateAccount = async (req, session, accountId, doceboUserId) => {
     }
   };
 
-  const data = await requestHandler(req, session, body);
+  const { data } = await requestHandler(req, session, body);
+  const {
+    updateAccount: { account }
+  } = data;
 
-  logger.info(`Account with id: ${data.id} updates`);
+  logger.info(`Account with id: ${account.id} updated`);
 
   return data;
 };
@@ -226,9 +224,9 @@ export const completeAccountInvitation = async (req, session) => {
     }
   };
 
-  const data = await requestHandler(req, session, body);
+  const { data } = await requestHandler(req, session, body);
 
-  logger.info(`Invitation for user: ${data.id} completed`);
+  logger.info(`Invitation for user: ${data.completeInvitation.id} completed`);
 
   return data;
 };
@@ -257,7 +255,7 @@ const requestHandler = async (req, session, body) => {
         }
       }
     );
-    logger.info("body", body);
+
     return data;
   } catch (error) {
     logger.error("requestHandler", error.message);
