@@ -25,10 +25,12 @@ const Thumbnail = ({
     <ButtonBase
       disabled={state === "disabled"}
       disableRipple={state === "selected"}
-      className={classnames(className, styles["Thumbnail"], {
-        [styles[`Thumbnail--${state}`]]: state !== "enabled",
-        [styles["Thumbnail--large"]]: size === "large"
-      })}
+      className={classnames(
+        className,
+        styles["Thumbnail"],
+        state !== "enabled" && styles[`Thumbnail--${state}`],
+        size === "large" && styles["Thumbnail--large"]
+      )}
       {...rest}
       style={{
         backgroundColor: color,

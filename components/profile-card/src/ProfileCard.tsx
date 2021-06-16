@@ -1,4 +1,4 @@
-import React, { RefObject } from "react";
+import React, { MutableRefObject } from "react";
 import Typography from "@bmi/typography";
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import classnames from "classnames";
@@ -19,7 +19,10 @@ type BodyProps = {
 
 const Body = (
   { name, title, style }: BodyProps,
-  ref: RefObject<HTMLDivElement>
+  ref:
+    | ((instance: HTMLDivElement | null) => void)
+    | MutableRefObject<HTMLDivElement | null>
+    | null
 ) => {
   return (
     <div className={styles["body"]} style={style}>

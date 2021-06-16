@@ -37,7 +37,7 @@ const BackToTop = ({ accessibilityLabel, className }: Props) => {
   return (
     <div
       className={classnames(className, styles["BackToTop"], {
-        [styles["BackToTop--hidden"]]: !isVisible
+        [styles["BackToTop--hidden"]!]: !isVisible
       })}
     >
       <Button

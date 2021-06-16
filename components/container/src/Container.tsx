@@ -20,7 +20,7 @@ const Container = ({
       className={classnames(
         styles["Container"],
         {
-          [styles["Container--full-width"]]: fullWidth
+          [styles["Container--full-width"]!]: fullWidth
         },
         wrapperClassName
       )}

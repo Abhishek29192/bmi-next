@@ -19,7 +19,7 @@ type Props = {
   isDragEnabled?: boolean;
 };
 
-const removeImageDrag = (children: Props["children"]) => {
+const removeImageDrag = (children: React.ReactElement<AcceptedNode>) => {
   if (children.type === "img") {
     return React.cloneElement(children, {
       onDragStart: (e: DragEvent) => {
@@ -33,9 +33,9 @@ const removeImageDrag = (children: Props["children"]) => {
 };
 
 const renderWrapperNode = (
-  children: Props["children"],
+  children: React.ReactElement<AcceptedNode>,
   isDragEnabled?: Props["isDragEnabled"]
-): Props["children"] => {
+): React.ReactElement<AcceptedNode> => {
   if (children.type === "img" && !isDragEnabled) {
     return removeImageDrag(children);
   }
@@ -64,9 +64,7 @@ const Media = ({
       wrapperNode.props.className,
       className,
       styles["Media"],
-      {
-        [styles[`Media--${size}`]]: size !== "cover"
-      }
+      size !== "cover" && styles[`Media--${size}`]
     )
   });
 };

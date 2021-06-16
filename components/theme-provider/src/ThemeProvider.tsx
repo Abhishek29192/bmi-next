@@ -11,17 +11,17 @@ const theme = (longText: boolean) =>
   createMuiTheme({
     breakpoints: {
       values: {
-        xs: parseFloat(variables["breakpoint-xs"]),
-        sm: parseFloat(variables["breakpoint-sm"]),
-        md: parseFloat(variables["breakpoint-md"]),
-        lg: parseFloat(variables["breakpoint-lg"]),
-        xl: parseFloat(variables["breakpoint-xl"])
+        xs: parseFloat(variables["breakpoint-xs"]!),
+        sm: parseFloat(variables["breakpoint-sm"]!),
+        md: parseFloat(variables["breakpoint-md"]!),
+        lg: parseFloat(variables["breakpoint-lg"]!),
+        xl: parseFloat(variables["breakpoint-xl"]!)
       }
     },
     palette: {
       primary: {
         // light: will be calculated from palette.primary.main,
-        main: variables["color-primary-main"]
+        main: variables["color-primary-main"]!
         // dark: will be calculated from palette.primary.main,
         // contrastText: will be calculated to contrast with palette.primary.main
       },

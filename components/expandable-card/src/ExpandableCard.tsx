@@ -5,7 +5,8 @@ import React, {
   useMemo,
   CSSProperties,
   useCallback,
-  useLayoutEffect
+  useLayoutEffect,
+  TransitionEvent
 } from "react";
 import DefaultCard, { CardContent } from "@bmi/card";
 import Button from "@bmi/button";
@@ -53,12 +54,13 @@ const getStyleFromAnimationStatus = (
   const fixedPositionStyle = {
     position: "absolute",
     minHeight: "auto",
-    height: element.parentElement.offsetHeight,
-    top: element.parentElement.offsetTop,
+    height: element.parentElement?.offsetHeight,
+    top: element.parentElement?.offsetTop,
     right:
-      element.parentElement.parentElement.offsetWidth -
-      (element.parentElement.offsetLeft + element.parentElement.offsetWidth),
-    left: element.parentElement.offsetLeft
+      (element.parentElement?.parentElement?.offsetWidth || 0) -
+      ((element.parentElement?.offsetLeft || 0) +
+        (element.parentElement?.offsetWidth || 0)),
+    left: element.parentElement?.offsetLeft
   };
 
   const progressToStyleMap = {
@@ -72,7 +74,7 @@ const getStyleFromAnimationStatus = (
       },
       END: {
         height: Math.max(
-          element.parentElement.parentElement.offsetHeight,
+          element.parentElement?.parentElement?.offsetHeight || 0,
           getChildrenHeight(element)
         )
       }
@@ -85,7 +87,7 @@ const getStyleFromAnimationStatus = (
         left: 0,
         height: Math.max(
           element.offsetHeight,
-          element.parentElement.parentElement.offsetHeight
+          element.parentElement?.parentElement?.offsetHeight || 0
         )
       },
       PROGRESS: fixedPositionStyle,
@@ -108,7 +110,7 @@ const ExpandableCard = ({
   body,
   footer,
   closeLabel = "Close",
-  isExpanded: initialIsExpanded,
+  isExpanded: initialIsExpanded = false,
   onClick,
   onCloseClick,
   onAnimationEnd
@@ -139,7 +141,7 @@ const ExpandableCard = ({
     const doneResizing = () => {
       setForceRerender((previous) => !previous);
     };
-    let resizeId;
+    let resizeId: NodeJS.Timeout;
     const onResize = () => {
       clearTimeout(resizeId);
       resizeId = setTimeout(doneResizing, 500);
@@ -156,8 +158,8 @@ const ExpandableCard = ({
 
       if (isExpanded && cardElement.current) {
         setWrapperSize({
-          minWidth: `${cardElement.current.parentElement.offsetWidth}px`,
-          height: `${cardElement.current.parentElement.offsetHeight}px`
+          minWidth: `${cardElement.current.parentElement?.offsetWidth || 0}px`,
+          height: `${cardElement.current.parentElement?.offsetHeight || 0}px`
         });
       }
     }
@@ -169,8 +171,8 @@ const ExpandableCard = ({
     if (initialIsExpanded !== isExpanded) {
       if (initialIsExpanded) {
         setWrapperSize({
-          minWidth: `${cardElement.current.parentElement.offsetWidth}px`,
-          height: `${cardElement.current.parentElement.offsetHeight}px`
+          minWidth: `${cardElement.current?.parentElement?.offsetWidth || 0}px`,
+          height: `${cardElement.current?.parentElement?.offsetHeight || 0}px`
         });
       }
 
@@ -184,18 +186,19 @@ const ExpandableCard = ({
       <Card
         role="button"
         aria-label={title}
-        onTransitionEnd={({ propertyName }) =>
+        onTransitionEnd={({ propertyName }: TransitionEvent<HTMLDivElement>) =>
           handleTransitionEnd(propertyName)
         }
         className={classnames(styles["ExpandableCard"], {
-          [styles["ExpandableCard--expanded"]]: isExpanded
+          [styles["ExpandableCard--expanded"]!]: isExpanded
         })}
         style={{
-          ...getStyleFromAnimationStatus(
-            cardElement.current,
-            animationStatus,
-            isExpanded
-          ),
+          ...(cardElement &&
+            getStyleFromAnimationStatus(
+              cardElement.current!,
+              animationStatus,
+              isExpanded
+            )),
           pointerEvents: onClick ? undefined : "auto"
         }}
         onClick={onClick}
@@ -218,7 +221,7 @@ const ExpandableCard = ({
             <Typography
               variant="h5"
               className={classnames(styles["title"], {
-                [styles["title--static"]]: !isExpanded && !wrapperSize.height
+                [styles["title--static"]!]: !isExpanded && !wrapperSize.height
               })}
             >
               {title}

@@ -69,11 +69,8 @@ const Hero = ({
   children?: React.ReactNode;
 }>) => {
   if (levelProps.level !== 0) {
-    const { level, title } = levelProps;
     return (
       <SingleHero
-        level={level}
-        title={title}
         breadcrumbs={breadcrumbs}
         className={className}
         {...levelProps}
@@ -93,9 +90,7 @@ const Hero = ({
         styles["Hero"],
         styles["Hero--slim"],
         styles["Hero--carousel"],
-        {
-          [styles["Hero--space-bottom"]]: hasSpaceBottom
-        },
+        hasSpaceBottom && styles["Hero--space-bottom"],
         className
       )}
     >
@@ -183,11 +178,9 @@ const SingleHero = ({
     <div
       className={classnames(
         styles["Hero"],
-        {
-          [styles["Hero--light"]]: levelProps.level === 3,
-          [styles["Hero--slim"]]: levelProps.level !== 1,
-          [styles[`Hero--lvl-${levelProps.level}`]]: !!levelProps.level
-        },
+        levelProps.level === 3 && styles["Hero--light"],
+        levelProps.level !== 1 && styles["Hero--slim"],
+        !!levelProps.level && styles[`Hero--lvl-${levelProps.level}`],
         className
       )}
     >

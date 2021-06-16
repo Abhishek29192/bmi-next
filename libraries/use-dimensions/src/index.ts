@@ -10,9 +10,9 @@ export type DimensionObject = Partial<{
 }>;
 
 export type UseDimensionsHook = [
-  (node: HTMLElement) => void,
+  (node: HTMLElement | null) => void,
   DimensionObject,
-  HTMLElement
+  HTMLElement | null
 ];
 
 export interface UseDimensionsArgs {
@@ -34,7 +34,7 @@ function useDimensions({
   liveMeasure = true
 }: UseDimensionsArgs = {}): UseDimensionsHook {
   const [dimensions, setDimensions] = useState<DimensionObject>({});
-  const [node, setNode] = useState(null);
+  const [node, setNode] = useState<HTMLElement | null>(null);
   const useLayoutHookBasedOnEnvironment =
     typeof window === "undefined" ? useEffect : useLayoutEffect;
 

@@ -36,7 +36,8 @@ const GeolocationButton = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
   // NOTE: workaround to force it to re-render on client
   // point is for the SSR state to be different from client
-  const [geolocation, setGeolocation] = useState(null);
+  const [geolocation, setGeolocation] =
+    useState<Geolocation | undefined>(undefined);
 
   useEffect(() => {
     setGeolocation(getGeolocation());

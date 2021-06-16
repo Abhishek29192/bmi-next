@@ -36,8 +36,13 @@ const ContainerDialog = ({
   containerClassName
 }: Props) => {
   const [header, content] = useMemo(() => {
-    const deconstructedChildren = React.Children.toArray(children).reduce(
-      (carry, child) => {
+    const deconstructedChildren = React.Children.toArray(children).reduce<
+      [React.ReactNode | null, React.ReactNode[]]
+    >(
+      (
+        carry: [React.ReactNode | null, React.ReactNode[]],
+        child: React.ReactNode
+      ) => {
         if (isValidElement<HeaderProps>(child) && child.type === Header) {
           return [
             React.cloneElement(child, {
@@ -70,7 +75,7 @@ const ContainerDialog = ({
             styles[`ContainerDialog--bg-${color}`],
             styles[`ContainerDialog--width-${maxWidth}`],
             {
-              [styles[`ContainerDialog--allowOverflow`]]: allowOverflow
+              [styles[`ContainerDialog--allowOverflow`]!]: allowOverflow
             },
             className
           )}
@@ -90,8 +95,11 @@ type HeaderProps = {
   children?: React.ReactNode;
 };
 
-const Header = React.forwardRef(
-  ({ onCloseClick, children }: HeaderProps, ref: RefObject<HTMLDivElement>) => {
+const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
+  (
+    { onCloseClick, children }: HeaderProps,
+    ref: React.LegacyRef<HTMLDivElement>
+  ) => {
     return (
       <div className={styles["header"]} ref={ref}>
         {children}

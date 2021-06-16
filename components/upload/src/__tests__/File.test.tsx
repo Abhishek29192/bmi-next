@@ -52,6 +52,7 @@ describe("Upload component", () => {
         mapBody={mapBody}
         onDeleteClick={onDeleteClick}
         onRequestSuccess={onRequestSuccess}
+        errorMessage={"Upload failed"}
       />
     );
     expect(axios.post).toHaveBeenCalled();
@@ -87,6 +88,7 @@ describe("Upload component", () => {
         mapBody={mapBody}
         onDeleteClick={onDeleteClick}
         onRequestSuccess={onRequestSuccess}
+        errorMessage={"Upload failed"}
       />
     );
     expect(axios.post).toHaveBeenCalled();

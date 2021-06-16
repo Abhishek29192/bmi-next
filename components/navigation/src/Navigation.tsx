@@ -28,13 +28,13 @@ type NavigationProps = {
   menu: readonly NavigationList[];
   initialDepth?: number;
   initialValue?: number | boolean;
-  setRootValue?: (value: any) => void;
+  setRootValue?: (value: number | boolean) => void;
   toggleLanguageSelection?: () => void;
   utilities: readonly LinkList[];
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
   languageLabel?: string;
-  sizes?: any;
+  sizes?: string[];
 };
 
 const Navigation = ({
@@ -59,7 +59,9 @@ const Navigation = ({
     <nav
       className={classnames(
         styles["Navigation"],
-        ...sizes.map((size) => styles[`Navigation--${size}`])
+        ...(sizes
+          ?.map((size) => styles[`Navigation--${size}`])
+          .filter(Boolean) || [])
       )}
     >
       <NavigationList
@@ -95,7 +97,7 @@ type NavigationListProps = {
   menu: readonly NavigationList[];
   parentHandleClick?: (newValue: number | boolean) => void;
   setDepth: (depth: number) => void;
-  setRootValue?: (value: any) => void;
+  setRootValue?: (value: number | boolean) => void;
   show?: boolean;
   toggleLanguageSelection?: () => void;
   utilities?: readonly LinkList[];
@@ -145,11 +147,12 @@ const NavigationList = ({
 
   return (
     <div
-      className={classnames(styles["NavigationList"], {
-        [className]: isRoot,
-        [styles["NavigationList--footer"]]: isFooter,
-        [styles["NavigationList--show"]]: show
-      })}
+      className={classnames(
+        styles["NavigationList"],
+        isRoot && className,
+        isFooter && styles["NavigationList--footer"],
+        show && styles["NavigationList--show"]
+      )}
     >
       <ul>
         {parentHandleClick ? (
@@ -331,9 +334,11 @@ export const NavigationListButton = ({
   ...rest
 }: NavigationListButtonProps) => (
   <Component
-    className={classnames(styles["NavigationListButton"], className, {
-      [styles["NavigationListButton--active"]]: active
-    })}
+    className={classnames(
+      styles["NavigationListButton"],
+      className,
+      active && styles["NavigationListButton--active"]
+    )}
     variant="text"
     {...rest}
   >

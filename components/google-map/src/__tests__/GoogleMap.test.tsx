@@ -23,10 +23,13 @@ describe("GoogleMap component", () => {
   it("invokes APIs and renders correctly", () => {
     const google = { maps: { Map } };
 
+    const bounds = { north: 90, east: 180, south: 90, west: 180 };
+    const centre = { lat: 0, lng: 0 };
+    const zoom = 1;
     const { container } = render(
       // @ts-ignore Ignore for mock function override
       <GoogleApi.Provider value={google}>
-        <GoogleMap />
+        <GoogleMap bounds={bounds} center={centre} zoom={zoom} />
       </GoogleApi.Provider>
     );
 
@@ -35,6 +38,8 @@ describe("GoogleMap component", () => {
 
     expect(container.firstChild).toMatchSnapshot();
     expect(Map).toHaveBeenCalledTimes(1);
-    expect(mockMapInstance.panTo).toHaveBeenCalled();
+    expect(mockMapInstance.fitBounds).toHaveBeenCalledWith(bounds);
+    expect(mockMapInstance.panTo).toHaveBeenCalledWith(centre);
+    expect(mockMapInstance.setZoom).toHaveBeenCalledWith(zoom);
   });
 });

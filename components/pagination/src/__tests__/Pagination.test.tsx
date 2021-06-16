@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import * as all from "@bmi/use-dimensions";
 import Pagination from "../";
 
-function mockAvailableWidth(width) {
+function mockAvailableWidth(width: number) {
   jest
     .spyOn(all, "default")
     .mockImplementation(() => [

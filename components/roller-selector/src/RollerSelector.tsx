@@ -21,9 +21,11 @@ const RollerSelector = ({
   return (
     <Component
       onClick={onClick}
-      className={classnames(className, styles["RollerSelector"], {
-        [styles["RollerSelector--selected"]]: isSelected
-      })}
+      className={classnames(
+        className,
+        styles["RollerSelector"],
+        isSelected && styles["RollerSelector--selected"]
+      )}
       {...rest}
     >
       {children}

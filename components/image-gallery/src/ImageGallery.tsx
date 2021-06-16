@@ -22,9 +22,7 @@ const renderMedia = (
 ) => {
   const className = classnames(
     styles["main-image-wrapper"],
-    {
-      [styles[`main-image-wrapper--${imageSize}`]]: imageSize !== "contain"
-    },
+    imageSize !== "contain" && styles[`main-image-wrapper--${imageSize}`],
     styles[`main-image-wrapper--${layout}`]
   );
 
@@ -81,7 +79,9 @@ const ImageGallery = ({
               component="p"
               className={styles["caption-text"]}
             >
-              <Truncate lines="2">{images[activeImageIndex].caption}</Truncate>
+              <Truncate lines="2">
+                {images[activeImageIndex]?.caption || ""}
+              </Truncate>
             </Typography>
           </div>
         ) : null}

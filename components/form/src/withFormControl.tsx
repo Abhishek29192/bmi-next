@@ -1,20 +1,22 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, ElementType } from "react";
 import { FormContext } from "./";
 
 export type InputValue = string | number | boolean | File[] | string[];
 
-export type Props = {
+export type Props<I extends InputValue> = {
   isRequired?: boolean;
   fieldIsRequiredError?: string;
   // TODO: pass all values so that validation could depend on other fields
-  getValidationError?: (val: InputValue) => false | string;
-  defaultValue?: InputValue;
-  value?: InputValue;
-  onChange?: (value: InputValue) => void;
+  getValidationError?: (val?: I) => false | string;
+  defaultValue?: I;
+  value?: I;
+  onChange?: (value: I) => void;
   name: string;
 };
 
-const withFormControl = <P extends {}>(WrappedComponent) => {
+const withFormControl = <P extends {}, I extends InputValue>(
+  WrappedComponent: ElementType<any>
+) => {
   const FormControl = ({
     isRequired,
     onChange,
@@ -22,14 +24,14 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     fieldIsRequiredError,
     getValidationError,
     value,
-    defaultValue = typeof value === "undefined" ? "" : undefined,
+    defaultValue,
     ...props
-  }: Omit<P, "onChange" | "defaultValue" | "value" | "onBlur"> & Props) => {
+  }: Omit<P, "onChange" | "defaultValue" | "value" | "onBlur"> & Props<I>) => {
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
-    const getError = (val: InputValue) => {
+    const getError = (val?: I) => {
       if (isRequired && !val) {
-        return fieldIsRequiredError;
+        return fieldIsRequiredError || null;
       }
       if (getValidationError && getValidationError(val)) {
         return getValidationError(val) || null;
@@ -38,9 +40,10 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     };
 
     useEffect(() => {
+      const errorMessage = getError(value || defaultValue);
       updateFormState(
         { [name]: value || defaultValue },
-        { [name]: getError(value || defaultValue) }
+        errorMessage ? { [name]: errorMessage } : {}
       );
     }, []);
 
@@ -49,10 +52,13 @@ const withFormControl = <P extends {}>(WrappedComponent) => {
     );
     const [blurred, setBlurred] = useState<boolean>(false);
 
-    const handleChange = (val: InputValue) => {
+    const handleChange = (val: I) => {
       const errorMessage = getError(val);
       setError(errorMessage);
-      updateFormState({ [name]: val }, { [name]: errorMessage });
+      updateFormState(
+        { [name]: val },
+        errorMessage ? { [name]: errorMessage } : {}
+      );
       if (onChange) {
         onChange(val);
       }

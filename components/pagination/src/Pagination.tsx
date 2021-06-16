@@ -25,7 +25,7 @@ const Pagination = (props: { page: number } & PaginationProps) => {
 
     setMaxAvailablePageSpaces(
       Math.min(
-        Math.floor((dimensions as DimensionObject).width / 48),
+        Math.floor((dimensions as DimensionObject).width! / 48),
         MAX_ITEM_COUNT
       )
     );
@@ -35,10 +35,12 @@ const Pagination = (props: { page: number } & PaginationProps) => {
   const hideAllPages = maxAvailablePageSpaces <= 2;
 
   const showFirstLastButton =
-    maxAvailablePageSpaces > 4 && props.count > maxAvailablePageSpaces - 2;
+    maxAvailablePageSpaces > 4 &&
+    !!props.count &&
+    props.count > maxAvailablePageSpaces - 2;
 
   let siblingCount = 1;
-  if (maxAvailablePageSpaces - 2 >= props.count) {
+  if (props.count && maxAvailablePageSpaces - 2 >= props.count) {
     siblingCount = props.count;
   } else if (isReducedMode) {
     const availablePageItemCount = showFirstLastButton
@@ -63,7 +65,7 @@ const Pagination = (props: { page: number } & PaginationProps) => {
             !(
               props.page -
                 siblingCount -
-                Math.max(siblingCount - (props.count - props.page), 0) <=
+                Math.max(siblingCount - ((props.count || 0) - props.page), 0) <=
                 item.page &&
               item.page <=
                 props.page +

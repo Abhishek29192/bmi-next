@@ -20,9 +20,10 @@ const ListItem = ({
   isCompact
 }: ListItemProps) => (
   <li
-    className={classnames(styles["ListItem"], {
-      [styles["ListItem--isCompact"]]: isCompact
-    })}
+    className={classnames(
+      styles["ListItem"],
+      isCompact && styles["ListItem--isCompact"]
+    )}
   >
     <div className={styles["icon"]}>{icon || <ChevronRightIcon />}</div>
     <div className={styles["content"]}>
@@ -45,8 +46,7 @@ type Props = {
 };
 
 const IconList = ({ children }: Props) => {
-  const items: React.ReactElement<any>[] = [].concat(children);
-  return <ul className={styles["IconList"]}>{items}</ul>;
+  return <ul className={styles["IconList"]}>{children}</ul>;
 };
 
 IconList.Item = ListItem;

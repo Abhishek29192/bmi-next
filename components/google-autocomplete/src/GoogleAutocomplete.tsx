@@ -12,7 +12,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 
 type Props = Omit<AutocompleteProps, "options"> & {
-  onPlaceChange?: (place: GeocoderResult) => void;
+  onPlaceChange?: (place: GeocoderResult | null) => void;
   controlledValue?: any;
 };
 
@@ -21,7 +21,7 @@ const GoogleAutocomplete = ({
   controlledValue = "",
   ...props
 }: Props) => {
-  const google = useContext<Google>(GoogleApi);
+  const google = useContext<Google | null>(GoogleApi);
   const debouncer = useRef<NodeJS.Timeout>();
   const googleAutocomplete = useRef<AutocompleteService>();
   const googleGeocoder = useRef<Geocoder>();
@@ -110,7 +110,7 @@ const GoogleAutocomplete = ({
         setValue(value);
       }}
       onInputChange={(_, inputValue) => {
-        clearTimeout(debouncer.current);
+        debouncer.current && clearTimeout(debouncer.current);
         debouncer.current = setTimeout(() => setInputValue(inputValue), 500);
       }}
       renderOption={({ structured_formatting }: AutocompletePrediction) =>

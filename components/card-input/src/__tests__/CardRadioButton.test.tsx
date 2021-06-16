@@ -50,7 +50,7 @@ describe("CardInput component", () => {
       </CardInput>
     );
 
-    fireEvent.click(container.querySelector("label"));
+    fireEvent.click(container.querySelector("label")!);
 
     expect(handleOnChange.mock.calls).toMatchSnapshot();
   });

@@ -2,21 +2,20 @@ import React from "react";
 import { render } from "@testing-library/react";
 import * as all from "@bmi/use-dimensions";
 import Table from "../";
+import { TableProps } from "../Table";
 
-function getDimensionHookFn(
-  width
-): () => [() => any, { width: number; height: number }, HTMLDivElement] {
-  return () => [
-    () => ({}),
-    { width, height: 0 },
-    document.createElement("div")
-  ];
+function getDimensionHookFn(width: number): () => all.UseDimensionsHook {
+  return () => [() => {}, { width, height: 0 }, document.createElement("div")];
 }
 
 function mockUseDimensions({
   containerWidth,
   normalTableWidth,
-  mediumTableWidth = null
+  mediumTableWidth
+}: {
+  containerWidth: number;
+  normalTableWidth: number;
+  mediumTableWidth: number;
 }) {
   let spy = jest.spyOn(all, "default");
 
@@ -33,7 +32,7 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-const ExampleTable = (props) => (
+const ExampleTable = (props: TableProps) => (
   <Table {...props}>
     <Table.Head>
       <Table.Row>
@@ -56,19 +55,31 @@ const ExampleTable = (props) => (
 
 describe("Table component", () => {
   it("renders correctly", () => {
-    mockUseDimensions({ containerWidth: 400, normalTableWidth: 400 });
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 400,
+      mediumTableWidth: 400
+    });
     const { container } = render(<ExampleTable />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it("renders table head with different ColorPair", () => {
-    mockUseDimensions({ containerWidth: 400, normalTableWidth: 400 });
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 400,
+      mediumTableWidth: 400
+    });
     const { container } = render(<ExampleTable theme="blue-900" />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
   it("renders without border", () => {
-    mockUseDimensions({ containerWidth: 400, normalTableWidth: 400 });
+    mockUseDimensions({
+      containerWidth: 400,
+      normalTableWidth: 400,
+      mediumTableWidth: 400
+    });
     const { container } = render(<ExampleTable theme="blue-900" hasNoBorder />);
     expect(container.firstChild).toMatchSnapshot();
   });

@@ -42,7 +42,7 @@ const Thumbnails = ({
       }
 
       const thumbnailsElement = thumbnailsRef.current;
-      const wrapperWidth = thumbnailsElement.parentElement.offsetWidth;
+      const wrapperWidth = thumbnailsElement?.parentElement?.offsetWidth || 0;
       const scrollerPositionPixels =
         (wrapperWidth * Math.abs(scrollerPosition)) / 100;
       const offset = thumbnailsWidth - (wrapperWidth + scrollerPositionPixels);
@@ -83,9 +83,7 @@ const Thumbnails = ({
         className={classnames(
           styles["thumb-scroller"],
           styles["thumb-scroller--left"],
-          {
-            [styles["thumb-scroller--hidden"]]: !visibleArrows.left
-          }
+          !visibleArrows.left && styles["thumb-scroller--hidden"]
         )}
         onClick={() => handleThumbScrollerClick("left")}
       />
@@ -94,9 +92,7 @@ const Thumbnails = ({
         className={classnames(
           styles["thumb-scroller"],
           styles["thumb-scroller--right"],
-          {
-            [styles["thumb-scroller--hidden"]]: !visibleArrows.right
-          }
+          !visibleArrows.right && styles["thumb-scroller--hidden"]
         )}
         onClick={() => handleThumbScrollerClick("right")}
       />
