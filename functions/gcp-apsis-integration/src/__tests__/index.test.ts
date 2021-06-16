@@ -1,9 +1,17 @@
 import { escape } from "querystring";
 import { IncomingHttpHeaders } from "http";
-import { Request, Response } from "express";
+import { Request } from "express";
 import { protos } from "@google-cloud/secret-manager";
+import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import fetchMock from "jest-fetch-mock";
+import {
+  mockRequest as fetchMockRequest,
+  mockResponse,
+  mockResponses
+} from "@bmi/fetch-mocks";
+
+const fetchMock = fetchMockJest.sandbox();
+jest.mock("node-fetch", () => fetchMock);
 
 const validToken = "valid-token";
 const recaptchaSecret = "recaptcha-secret";
@@ -12,22 +20,7 @@ const apsisClientSecret = "apsis-client-secret";
 const mockRequest = (
   body: Object = { email: "a@a.com", gdpr_1: true, gdpr_2: true },
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
-): Partial<Request> => {
-  return {
-    method: "POST",
-    body: body,
-    headers: headers
-  };
-};
-
-const mockResponse = () => {
-  const res: Partial<Response> = {};
-  res.send = jest.fn().mockReturnValue(res);
-  res.sendStatus = jest.fn().mockReturnValue(res);
-  res.status = jest.fn().mockReturnValue(res);
-  res.set = jest.fn().mockReturnValue(res);
-  return res;
-};
+): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
 
 const accessSecretVersion = jest.fn();
 jest.mock("@google-cloud/secret-manager", () => {
@@ -72,7 +65,7 @@ beforeAll(() => {
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-  fetchMock.resetMocks();
+  fetchMock.reset();
   const index = require("../index");
   optInEmailMarketing = index.optInEmailMarketing;
 });
@@ -100,6 +93,67 @@ describe("Making an OPTIONS request as part of CORS", () => {
 });
 
 describe("Making a POST request", () => {
+  it("returns status code 400 when the email address format is invalid", async () => {
+    const req = mockRequest({
+      email: "invalid_email",
+      gdpr_1: true,
+      gdpr_2: true
+    });
+    const res = mockResponse();
+
+    await optInEmailMarketing(req, res);
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Invalid input received."));
+  });
+
+  it("returns status code 400 when the gdpr_1 is false", async () => {
+    const req = mockRequest({
+      email: "test@test.com",
+      gdpr_1: false,
+      gdpr_2: true
+    });
+    const res = mockResponse();
+
+    await optInEmailMarketing(req, res);
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Invalid input received."));
+  });
+
+  it("returns status code 400 when the gdpr_2 is false", async () => {
+    const req = mockRequest({
+      email: "test@test.com",
+      gdpr_1: true,
+      gdpr_2: false
+    });
+    const res = mockResponse();
+
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    });
+
+    await optInEmailMarketing(req, res);
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Invalid input received."));
+  });
+
+  it("returns status code 400 when both gdpr fields are false", async () => {
+    const req = mockRequest({
+      email: "test@test.com",
+      gdpr_1: false,
+      gdpr_2: false
+    });
+    const res = mockResponse();
+
+    await optInEmailMarketing(req, res);
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Invalid input received."));
+  });
+
   it("returns status code 400 when the token is missing", async () => {
     const req = mockRequest(
       { email: "a@a.com", gdpr_1: true, gdpr_2: true },
@@ -128,7 +182,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(500);
     expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
@@ -142,14 +196,18 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockRejectOnce();
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      error: new Error("Expected Error")
+    });
 
     await optInEmailMarketing(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -166,14 +224,19 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse("{}", { status: 400 });
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: "{}",
+      status: 400
+    });
 
     await optInEmailMarketing(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -190,19 +253,21 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: JSON.stringify({
         success: false,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await optInEmailMarketing(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -219,19 +284,21 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: JSON.stringify({
         success: true,
         score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE) - 0.1
       })
-    );
+    });
 
     await optInEmailMarketing(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -253,19 +320,21 @@ describe("Making a POST request", () => {
       { payload: { data: recaptchaSecret } }
     ]);
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
+      method: "POST",
+      body: JSON.stringify({
         success: false,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     await optInEmailMarketing(req, res);
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
       { method: "POST" }
     );
@@ -274,96 +343,18 @@ describe("Making a POST request", () => {
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
   });
 
-  it("returns status code 400 when the email address format is invalid", async () => {
-    const req = mockRequest({
-      email: "invalid_email",
-      gdpr_1: true,
-      gdpr_2: true
-    });
-    const res = mockResponse();
-
-    fetchMock.mockResponse(
-      JSON.stringify({
-        success: false,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    );
-
-    await optInEmailMarketing(req, res);
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Invalid input received."));
-  });
-
-  it("returns status code 400 when the gdpr_1 is false", async () => {
-    const req = mockRequest({
-      email: "test@test.com",
-      gdpr_1: false,
-      gdpr_2: true
-    });
-    const res = mockResponse();
-
-    fetchMock.mockResponse(
-      JSON.stringify({
-        success: false,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    );
-
-    await optInEmailMarketing(req, res);
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Invalid input received."));
-  });
-
-  it("returns status code 400 when the gdpr_2 is false", async () => {
-    const req = mockRequest({
-      email: "test@test.com",
-      gdpr_1: true,
-      gdpr_2: false
-    });
-    const res = mockResponse();
-
-    fetchMock.mockResponse(
-      JSON.stringify({
-        success: false,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    );
-
-    await optInEmailMarketing(req, res);
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Invalid input received."));
-  });
-
-  it("returns status code 400 when both gdpr fields are false", async () => {
-    const req = mockRequest({
-      email: "test@test.com",
-      gdpr_1: false,
-      gdpr_2: false
-    });
-    const res = mockResponse();
-
-    fetchMock.mockResponse(
-      JSON.stringify({
-        success: false,
-        score: process.env.RECAPTCHA_MINIMUM_SCORE
-      })
-    );
-
-    await optInEmailMarketing(req, res);
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(Error("Invalid input received."));
-  });
-
   it("returns status code 500 when an error is returned from Secret Manager", async () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    fetchMock.mockResponse(
-      JSON.stringify({
+    mockResponses(fetchMock, {
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      method: "POST",
+      body: JSON.stringify({
         success: true,
         score: process.env.RECAPTCHA_MINIMUM_SCORE
       })
-    );
+    });
 
     accessSecretVersion
       .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
@@ -376,7 +367,7 @@ describe("Making a POST request", () => {
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
@@ -396,7 +387,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -404,6 +397,7 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: "",
         status: 500
@@ -414,25 +408,28 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toBeCalledTimes(2);
+    expect(fetchMock).toHaveFetchedTimes(2);
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
-      body: `{"client_id":"","client_secret":"${apsisClientSecret}","grant_type":"client_credentials"}`,
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      method: "POST",
-      redirect: "follow"
+      method: "POST"
     });
   });
 
@@ -451,7 +448,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -459,13 +458,14 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
-        }),
-        status: 200
+        })
       },
       {
+        method: "PATCH",
         url: getCreateProfileEndpoint(payloadEmail),
         body: "",
         status: 500
@@ -476,38 +476,38 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toBeCalledTimes(3);
+    expect(fetchMock).toHaveFetchedTimes(3);
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
-      body: `{"client_id":"","client_secret":"${apsisClientSecret}","grant_type":"client_credentials"}`,
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      method: "POST",
-      redirect: "follow"
+      method: "POST"
     });
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
-      {
-        body: '{"9820534":"a@a.com","312460234":true,"312461234":true}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
-        },
-        method: "PATCH"
-      }
-    );
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
   });
 
   it("returns status code 500 when an error is returned from createConsent", async () => {
@@ -525,7 +525,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -533,18 +535,19 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
-        }),
-        status: 200
+        })
       },
       {
+        method: "PATCH",
         url: getCreateProfileEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateConsentEndpoint(payloadEmail),
         body: "",
         status: 500
@@ -555,50 +558,53 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toBeCalledTimes(4);
+    expect(fetchMock).toHaveFetchedTimes(4);
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
-      body: `{"client_id":"","client_secret":"${apsisClientSecret}","grant_type":"client_credentials"}`,
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      method: "POST",
-      redirect: "follow"
+      method: "POST"
     });
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
-      {
-        body: '{"9820534":"a@a.com","312460234":true,"312461234":true}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
-        },
-        method: "PATCH"
-      }
-    );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
-      {
-        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
-        headers: {
-          Accept: "application/json",
-          Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      }
-    );
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
+    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
+      body: {
+        section_discriminator: "usercreated.sections.fulq3a5aou",
+        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+        topic_discriminator:
+          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
+        type: "opt-in"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
   });
 
   it("returns status code 500 when an error is returned from createSubscription", async () => {
@@ -616,7 +622,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -624,23 +632,24 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
-        }),
-        status: 200
+        })
       },
       {
+        method: "PATCH",
         url: getCreateProfileEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateConsentEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateSubscriptionEndpoint(payloadEmail),
         body: "",
         status: 500
@@ -651,42 +660,61 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
-    expect(fetchMock).toBeCalledTimes(5);
+    expect(fetchMock).toHaveFetchedTimes(5);
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
-      body: `{"client_id":"","client_secret":"${apsisClientSecret}","grant_type":"client_credentials"}`,
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      method: "POST",
-      redirect: "follow"
+      method: "POST"
     });
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
+    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
+      body: {
+        section_discriminator: "usercreated.sections.fulq3a5aou",
+        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+        topic_discriminator:
+          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
+        type: "opt-in"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(
+      getCreateSubscriptionEndpoint(payloadEmail),
       {
-        body: '{"9820534":"a@a.com","312460234":true,"312461234":true}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
+        body: {
+          consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+          topic_discriminator:
+            "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"
         },
-        method: "PATCH"
-      }
-    );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
-      {
-        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${oAuthToken}`,
@@ -695,10 +723,231 @@ describe("Making a POST request", () => {
         method: "POST"
       }
     );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
+  });
+
+  it("returns status code 500 when a subscription response is not returned from createSubscription", async () => {
+    const payloadEmail = "a@a.com";
+    const oAuthToken = "fdfdsfsdfdfdadsfdsfafsafds";
+    const req = mockRequest({
+      email: payloadEmail,
+      gdpr_1: true,
+      gdpr_2: true
+    });
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+
+    mockResponses(
+      fetchMock,
       {
-        body: '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
+        method: "POST",
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
+      {
+        method: "POST",
+        url: oAuthEndpoint,
+        body: JSON.stringify({
+          access_token: oAuthToken
+        })
+      },
+      {
+        method: "PATCH",
+        url: getCreateProfileEndpoint(payloadEmail),
+        body: ""
+      },
+      {
+        method: "POST",
+        url: getCreateConsentEndpoint(payloadEmail),
+        body: ""
+      },
+      {
+        method: "POST",
+        url: getCreateSubscriptionEndpoint(payloadEmail)
+      }
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(500);
+    expect(fetchMock).toHaveFetchedTimes(5);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
+    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
+      body: {
+        section_discriminator: "usercreated.sections.fulq3a5aou",
+        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+        topic_discriminator:
+          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
+        type: "opt-in"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(
+      getCreateSubscriptionEndpoint(payloadEmail),
+      {
+        body: {
+          consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+          topic_discriminator:
+            "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"
+        },
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${oAuthToken}`,
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      }
+    );
+  });
+
+  it("returns status code 500 when a subscription ID is not returned from createSubscription", async () => {
+    const payloadEmail = "a@a.com";
+    const oAuthToken = "fdfdsfsdfdfdadsfdsfafsafds";
+    const req = mockRequest({
+      email: payloadEmail,
+      gdpr_1: true,
+      gdpr_2: true
+    });
+    const res = mockResponse();
+
+    accessSecretVersion
+      .mockResolvedValueOnce([{ payload: { data: recaptchaSecret } }])
+      .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
+
+    mockResponses(
+      fetchMock,
+      {
+        method: "POST",
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
+      {
+        method: "POST",
+        url: oAuthEndpoint,
+        body: JSON.stringify({
+          access_token: oAuthToken
+        })
+      },
+      {
+        method: "PATCH",
+        url: getCreateProfileEndpoint(payloadEmail),
+        body: ""
+      },
+      {
+        method: "POST",
+        url: getCreateConsentEndpoint(payloadEmail),
+        body: ""
+      },
+      {
+        method: "POST",
+        url: getCreateSubscriptionEndpoint(payloadEmail),
+        body: "{}"
+      }
+    );
+
+    await optInEmailMarketing(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(500);
+    expect(fetchMock).toHaveFetchedTimes(5);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
+    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
+      body: {
+        section_discriminator: "usercreated.sections.fulq3a5aou",
+        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+        topic_discriminator:
+          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
+        type: "opt-in"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(
+      getCreateSubscriptionEndpoint(payloadEmail),
+      {
+        body: {
+          consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+          topic_discriminator:
+            "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"
+        },
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${oAuthToken}`,
@@ -727,7 +976,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -735,26 +986,26 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
-        }),
-        status: 200
+        })
       },
       {
+        method: "PATCH",
         url: getCreateProfileEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateConsentEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateSubscriptionEndpoint(payloadEmail),
-        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" }),
-        status: 200
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" })
       }
     );
 
@@ -762,54 +1013,61 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
-    expect(fetchMock).toBeCalledTimes(5);
+    expect(fetchMock).toHaveFetchedTimes(5);
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
-      body: `{"client_id":"","client_secret":"${apsisClientSecret}","grant_type":"client_credentials"}`,
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      method: "POST",
-      redirect: "follow"
+      method: "POST"
     });
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
+    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
+      body: {
+        section_discriminator: "usercreated.sections.fulq3a5aou",
+        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+        topic_discriminator:
+          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
+        type: "opt-in"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(
+      getCreateSubscriptionEndpoint(payloadEmail),
       {
-        body: '{"9820534":"a@a.com","312460234":true,"312461234":true}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
+        body: {
+          consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+          topic_discriminator:
+            "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"
         },
-        method: "PATCH"
-      }
-    );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
-      {
-        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      }
-    );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
-      {
-        body: '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
         headers: {
           Accept: "application/json",
           Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
@@ -835,7 +1093,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -843,26 +1103,26 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
-        }),
-        status: 200
+        })
       },
       {
+        method: "PATCH",
         url: getCreateProfileEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateConsentEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateSubscriptionEndpoint(payloadEmail),
-        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" }),
-        status: 200
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" })
       }
     );
 
@@ -870,54 +1130,61 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
-    expect(fetchMock).toBeCalledTimes(5);
+    expect(fetchMock).toHaveFetchedTimes(5);
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
-      body: `{"client_id":"","client_secret":"${apsisClientSecret}","grant_type":"client_credentials"}`,
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      method: "POST",
-      redirect: "follow"
+      method: "POST"
     });
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
+    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
+      body: {
+        section_discriminator: "usercreated.sections.fulq3a5aou",
+        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+        topic_discriminator:
+          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
+        type: "opt-in"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(
+      getCreateSubscriptionEndpoint(payloadEmail),
       {
-        body: '{"9820534":"a@a.com","312460234":true,"312461234":true}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
+        body: {
+          consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+          topic_discriminator:
+            "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"
         },
-        method: "PATCH"
-      }
-    );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
-      {
-        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      }
-    );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
-      {
-        body: '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
         headers: {
           Accept: "application/json",
           Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
@@ -943,7 +1210,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -951,26 +1220,26 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
-        }),
-        status: 200
+        })
       },
       {
+        method: "PATCH",
         url: getCreateProfileEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateConsentEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateSubscriptionEndpoint(payloadEmail),
-        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" }),
-        status: 200
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" })
       }
     );
 
@@ -979,54 +1248,61 @@ describe("Making a POST request", () => {
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
-    expect(fetchMock).toBeCalledTimes(10);
+    expect(fetchMock).toHaveFetchedTimes(10);
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith(
+    expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.APSIS_CLIENT_SECRET}/versions/latest`
     });
-    expect(fetchMock).toBeCalledWith("https://api.apsis.one/oauth/token", {
-      body: `{"client_id":"","client_secret":"${apsisClientSecret}","grant_type":"client_credentials"}`,
+    expect(fetchMock).toHaveFetched(oAuthEndpoint, {
+      body: {
+        client_id: "",
+        client_secret: apsisClientSecret,
+        grant_type: "client_credentials"
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      method: "POST",
-      redirect: "follow"
+      method: "POST"
     });
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/attributes",
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: { "9820534": "a@a.com", "312460234": true, "312461234": true },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
+    expect(fetchMock).toHaveFetched(getCreateConsentEndpoint(payloadEmail), {
+      body: {
+        section_discriminator: "usercreated.sections.fulq3a5aou",
+        consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+        topic_discriminator:
+          "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24",
+        type: "opt-in"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    });
+    expect(fetchMock).toHaveFetched(
+      getCreateSubscriptionEndpoint(payloadEmail),
       {
-        body: '{"9820534":"a@a.com","312460234":true,"312461234":true}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
+        body: {
+          consent_list_discriminator: "usercreated.targets.ylbz9hz52c",
+          topic_discriminator:
+            "usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"
         },
-        method: "PATCH"
-      }
-    );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/channels/com.channels.email/addresses/a%40a.com/consents",
-      {
-        body: '{"section_discriminator":"usercreated.sections.fulq3a5aou","consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24","type":"opt-in"}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      }
-    );
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/a%40a.com/sections/usercreated.sections.fulq3a5aou/subscriptions",
-      {
-        body: '{"consent_list_discriminator":"usercreated.targets.ylbz9hz52c","topic_discriminator":"usercreated.topics.nyhetsbrev_-_nettside-rg4kf3kt24"}',
         headers: {
           Accept: "application/json",
           Authorization: "Bearer fdfdsfsdfdfdadsfdsfafsafds",
@@ -1055,7 +1331,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -1063,43 +1341,45 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
-        }),
-        status: 200
+        })
       },
       {
+        method: "PATCH",
         url: getCreateProfileEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateConsentEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateSubscriptionEndpoint(payloadEmail),
-        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" }),
-        status: 200
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" })
       }
     );
 
     await optInEmailMarketing(req, res);
 
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/test%40test.com/sections/usercreated.sections.fulq3a5aou/attributes",
-      {
-        body: '{"9820534":"test@test.com","312460234":true,"312461234":true,"312462234":"My Name"}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
-        },
-        method: "PATCH"
-      }
-    );
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: {
+        "9820534": "test@test.com",
+        "312460234": true,
+        "312461234": true,
+        "312462234": "My Name"
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
   });
   it("It does not send first name attribute to apsis profile if name is not posted in payload", async () => {
     const payloadEmail = "test@test.com";
@@ -1116,7 +1396,9 @@ describe("Making a POST request", () => {
       .mockResolvedValueOnce([{ payload: { data: apsisClientSecret } }]);
 
     mockResponses(
+      fetchMock,
       {
+        method: "POST",
         url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
         body: JSON.stringify({
           success: true,
@@ -1124,66 +1406,43 @@ describe("Making a POST request", () => {
         })
       },
       {
+        method: "POST",
         url: oAuthEndpoint,
         body: JSON.stringify({
           access_token: oAuthToken
-        }),
-        status: 200
+        })
       },
       {
+        method: "PATCH",
         url: getCreateProfileEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateConsentEndpoint(payloadEmail),
-        body: "",
-        status: 200
+        body: ""
       },
       {
+        method: "POST",
         url: getCreateSubscriptionEndpoint(payloadEmail),
-        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" }),
-        status: 200
+        body: JSON.stringify({ id: "abcdafsdfsfsdfsdf" })
       }
     );
 
     await optInEmailMarketing(req, res);
 
-    expect(fetchMock).toBeCalledWith(
-      "https://api.apsis.one/audience/keyspaces/com.keyspaces.email/profiles/test%40test.com/sections/usercreated.sections.fulq3a5aou/attributes",
-      {
-        body: '{"9820534":"test@test.com","312460234":true,"312461234":true}',
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${oAuthToken}`,
-          "Content-Type": "application/json"
-        },
-        method: "PATCH"
-      }
-    );
+    expect(fetchMock).toHaveFetched(getCreateProfileEndpoint(payloadEmail), {
+      body: {
+        "9820534": "test@test.com",
+        "312460234": true,
+        "312461234": true
+      },
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${oAuthToken}`,
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    });
   });
 });
-
-interface MockedResponse {
-  url: string;
-  body: string;
-  status?: number;
-  error?: boolean;
-}
-
-const mockResponses = (...mockedResponses: MockedResponse[]) => {
-  fetchMock.mockResponse((request) => {
-    for (let mockedResponse of mockedResponses) {
-      if (request.url === mockedResponse.url) {
-        if (mockedResponse.error) {
-          return Promise.reject(mockedResponse.body);
-        }
-        return Promise.resolve({
-          body: mockedResponse.body,
-          init: { status: mockedResponse.status }
-        });
-      }
-    }
-    return Promise.reject(new Error(`${request.url} has not been mocked`));
-  });
-};

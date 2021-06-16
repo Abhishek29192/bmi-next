@@ -83,11 +83,11 @@ const getAuthToken = async () => {
 };
 
 const createProfile = async (
-  access_token: string = "",
-  email: string = "",
-  gdpr_1 = false,
-  gdpr_2 = false,
-  name: string = ""
+  access_token: string,
+  email: string,
+  gdpr_1: boolean,
+  gdpr_2: boolean,
+  name: string
 ) => {
   const createProfileEndpoint = `${apsisAudianceBase}/keyspaces/${APSIS_TARGET_KEYSPACE}/profiles/${escape(
     email
@@ -122,12 +122,9 @@ const createProfile = async (
     );
     throw new Error(response.statusText);
   }
-
-  const data = await response;
-  return data;
 };
 
-const createConsent = async (access_token: string = "", email: string = "") => {
+const createConsent = async (access_token: string, email: string) => {
   const createConsentEndpoint = `${apsisAudianceBase}/channels/${APSIS_TARGET_CHANNEL}/addresses/${escape(
     email
   )}/consents`;
@@ -155,15 +152,9 @@ const createConsent = async (access_token: string = "", email: string = "") => {
     );
     throw new Error(response.statusText);
   }
-
-  const data = await response;
-  return data;
 };
 
-const createSubscription = async (
-  access_token: string = "",
-  email: string = ""
-) => {
+const createSubscription = async (access_token: string, email: string) => {
   const createSubscriptionEndpoint = `${apsisAudianceBase}/keyspaces/${APSIS_TARGET_KEYSPACE}/profiles/${escape(
     email
   )}/sections/${APSIS_TARGET_SECTION}/subscriptions`;
@@ -190,8 +181,7 @@ const createSubscription = async (
     throw new Error(response.statusText);
   }
 
-  const data = await response.json();
-  return data;
+  return await response.json();
 };
 
 const validateEmail = (email: string): boolean => {
@@ -264,21 +254,18 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
 
       const { access_token } = await getAuthToken();
 
-      if (access_token) {
-        await createProfile(access_token, email, gdpr_1, gdpr_2, name);
+      await createProfile(access_token, email, gdpr_1, gdpr_2, name);
 
-        await createConsent(access_token, email);
+      await createConsent(access_token, email);
 
-        const subscriptionData = await createSubscription(access_token, email);
+      const subscriptionData = await createSubscription(access_token, email);
 
-        subscriptionId = subscriptionData?.id;
-      } else {
+      subscriptionId = subscriptionData.id;
+
+      if (!subscriptionId) {
         return response.sendStatus(500);
-      }
-      if (subscriptionId !== "") {
+      } else {
         return response.sendStatus(200);
-      } else {
-        return response.sendStatus(500);
       }
     } catch (error) {
       // eslint-disable-next-line no-console

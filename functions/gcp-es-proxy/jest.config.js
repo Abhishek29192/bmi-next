@@ -5,7 +5,7 @@ const sharedConfig = require("../../jest.config");
 module.exports = {
   ...sharedConfig,
   rootDir: "../../",
-  roots: ["<rootDir>/functions/gcp-apsis-integration/src"],
+  roots: ["<rootDir>/functions/gcp-es-proxy/src"],
   coverageThreshold: {
     global: {
       statements: "100",

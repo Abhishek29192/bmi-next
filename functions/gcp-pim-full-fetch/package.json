@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "yarn build && functions-framework --source=dist --target=handleRequest --port=3001",
+    "dev": "yarn build && functions-framework --source=dist --target=handleRequest --port=9055",
     "deploy": "yarn build && gcloud functions deploy pim-full-fetch --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml"
   },
   "dependencies": {

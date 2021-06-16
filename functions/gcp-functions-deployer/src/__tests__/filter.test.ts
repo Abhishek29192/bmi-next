@@ -1,6 +1,8 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import fs from "fs";
 import path from "path";
 import mockConsole from "jest-mock-console";
+import { filterFunctionMetadata } from "../filter";
 
 const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 
@@ -8,18 +10,14 @@ beforeAll(() => {
   mockConsole();
 });
 
-let filterFunctionMetadata;
-
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-  const filter = require("../filter");
-  filterFunctionMetadata = filter.filterFunctionMetadata;
 });
 
-describe("When called with null content", () => {
+describe("When called with empty content", () => {
   it("Returns null", async () => {
-    const value = await filterFunctionMetadata(null, "somefile.zip");
+    const value = filterFunctionMetadata([Buffer.of()], "somefile.zip");
     expect(value).toBe(null);
   });
 });
@@ -33,10 +31,7 @@ describe("When called with valid content and source matches only one function", 
     )
   );
   it("returns content back", async () => {
-    const value = await filterFunctionMetadata(
-      [buffer],
-      "sources/somefunction1.zip"
-    );
+    const value = filterFunctionMetadata([buffer], "sources/somefunction1.zip");
 
     expect(value).toHaveLength(1);
     expect(value[0]).toStrictEqual(jsonObject);
@@ -46,10 +41,7 @@ describe("When called with valid content and source matches only one function", 
 describe("When called with valid content and source does not match", () => {
   const buffer = fs.readFileSync(`${resourcesBasePath}/market1_metadata.json`);
   it("returns null", async () => {
-    const value = await filterFunctionMetadata(
-      [buffer],
-      "sources/unmatched.zip"
-    );
+    const value = filterFunctionMetadata([buffer], "sources/unmatched.zip");
 
     expect(value).toBe(null);
   });
@@ -70,7 +62,7 @@ describe("When called with valid content and source matches multiple functions",
     )
   );
   it("returns content back", async () => {
-    const values = await filterFunctionMetadata([buffer], "sources/upload.zip");
+    const values = filterFunctionMetadata([buffer], "sources/upload.zip");
 
     expect(values).toHaveLength(2);
     expect(values[0]).toStrictEqual(jsonObjectFunc1);
