@@ -14,6 +14,11 @@ export const TrainingCover = ({
   trainingContentCollection
 }: TrainingCoverProps) => {
   // there will only ever be 1 training collection item
+
+  if (!trainingContentCollection?.items?.length) {
+    return null;
+  }
+
   const { pageHeading, description, lmsCtaLabel, image } =
     trainingContentCollection.items[0];
 
