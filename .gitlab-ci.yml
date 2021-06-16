@@ -46,6 +46,7 @@ variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
   CACHE_COMPRESSION_LEVEL: fastest
   TRANSFER_METER_FREQUENCY: 5s
+  NODE_OPTIONS: --max-old-space-size=2560
 
 .sast-analyzer:
   allow_failure: false
