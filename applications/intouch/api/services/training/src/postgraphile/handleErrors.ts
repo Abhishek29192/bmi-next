@@ -89,7 +89,7 @@ export default function handleErrors(
     const exception = localPluck(originalError || error);
 
     const logger = req.logger("postgraphile");
-    logger.error(error);
+    logger.error("Error: ", error);
 
     return {
       message: exception.message || rawMessage,
