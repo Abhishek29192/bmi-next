@@ -40,7 +40,7 @@ const Button = ({
   accessibilityLabel,
   size,
   disabled,
-  component,
+  component = "button",
   ...rest
 }: ButtonProps | IconButtonProps) => {
   return isIconButton ? (
@@ -69,7 +69,7 @@ const Button = ({
       variant={variant}
       color={color}
       size={size}
-      component={component || "button"}
+      component={component}
       disabled={disabled}
       {...rest}
     >
