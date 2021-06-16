@@ -10,7 +10,7 @@ export const ROLES: { [key: string]: Role } = {
 export const REDIRECT_MAP =
   process.env.NODE_ENV === "production"
     ? {
-        "frontend-rfwslk3zjq-nw.a.run.app": "en"
+        "tf-frontend-rfwslk3zjq-nw.a.run.app": "en"
       }
     : {
         "en.local.intouch": "en",

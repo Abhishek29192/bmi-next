@@ -35,6 +35,7 @@ steps:
         "--set-env-vars=PG_PORT=5432",
         "--set-env-vars=AUTH0_API_CLIENT_ID=M9fxKSvan4Jx0zyLdUhUWm2YO7UqnoyS",
         "--set-env-vars=AUTH0_API_DOMAIN=intouch-dev.eu.auth0.com",
+        "--set-env-vars=AUTH0_NAMESPACE=https://intouch",
         "--set-env-vars=GCP_SECRET_PROJECT=734962646925"
       ]
 
