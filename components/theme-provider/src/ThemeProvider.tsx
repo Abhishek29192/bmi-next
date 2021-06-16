@@ -46,22 +46,24 @@ const theme = (longText: boolean) =>
       fontFamily: "Effra Regular",
       h1: {
         fontFamily: "Effra Heavy",
-        fontSize: "3rem",
+        fontSize: longText ? "clamp(2rem, 1.62rem + 1vw, 3rem)" : "3rem",
         lineHeight: 1.2
       },
       h2: {
         fontFamily: "Effra Heavy",
-        fontSize: "2.5rem",
+        fontSize: longText ? "clamp(1.17rem, 1.2rem + 1vw, 2.5rem)" : "2.5rem",
         lineHeight: 1.2
       },
       h3: {
         fontFamily: "Effra Bold",
-        fontSize: "2rem",
+        fontSize: longText ? "clamp(1.5rem, 0.7rem + 1vw, 2rem)" : "2rem",
         lineHeight: 1.2
       },
       h4: {
         fontFamily: "Effra Bold",
-        fontSize: "1.75rem",
+        fontSize: longText
+          ? "clamp(1.05rem, 0.68rem + 0.5vw, 1.75rem)"
+          : "1.75rem",
         lineHeight: 1.2
       },
       h5: {
