@@ -61,7 +61,7 @@ We use [Gatsby](https://www.gatsbyjs.org/) to generate static website and it's d
 
 #### Configuration
 
-Before running the website (`applications/head`), make sure you copy the `.env.example` file to `.env.development` (based on the `NODE_ENV`).
+Before running the website (`applications/dxb/head`), make sure you copy the `.env.example` file to `.env.development` (based on the `NODE_ENV`).
 
 Comment out the first set of variables: `COUNTRY_CODE`, `SPACE_ID`, and `ACCESS_TOKEN`.
 
@@ -87,7 +87,7 @@ When you run your newly written migration script, now you can run them in this e
 
 Note that in .env.\* in `libraries/migrate` you should always put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` instead of the DXB one otherwise you are running migration directly on DXB contentful account!
 
-You should also put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` in .env.\* in `applications/head` to use content and content type from your own account.
+You should also put `<YOUR OWN ACC SPACE ID>` and `<YOUR OWN ACC MANAGEMENT TOKEN>` in .env.\* in `applications/dxb/head` to use content and content type from your own account.
 
 #### Run Gatsby
 

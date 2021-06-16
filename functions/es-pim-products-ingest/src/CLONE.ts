@@ -118,7 +118,7 @@ export const getLeafCategory = (branch: CategoryPath) =>
 
 // Find attributes like surface finish, color, etc, from classifications
 // TODO: Try to consolidate with the "unique" approach.
-// from applications/head/src/utils/product-details-transforms.ts
+// from applications/dxb/head/src/utils/product-details-transforms.ts
 export const mapProductClassifications = (
   product: Pick<
     Product,
@@ -248,7 +248,7 @@ export const mapProductClassifications = (
   }, {});
 };
 
-// From applications/head/src/utils/product-details-transforms.ts
+// From applications/dxb/head/src/utils/product-details-transforms.ts
 export const getSizeLabel = (
   measurement: TransformedMeasurementValue,
   withUnit = true

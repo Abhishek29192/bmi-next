@@ -1,0 +1,2 @@
+include:
+  - local: "/applications/dxb/head/.gitlab-ci.yml"
