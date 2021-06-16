@@ -57,3 +57,19 @@ Mock data should be added directly in Contentful. We can save a particular snaps
 `yarn workspace @bmi/migrate content-download`
 
 Make sure you have appropriately configured the env vars.
+
+### Working with the GraphQL playground UI
+
+The easiest way to access the GraphQL Playground and try requesting data to the InTouch API is to:
+
+- run the frontend: `yarn workspace @bmi/intouch-frontend dev`
+- authenticate as a user
+- go to http://localhost:3000/api/graphql
+- try your queries/mutations
+
+Under the hood, the next.js app is making a request with an Authorization header to the GraphQL Gateway.
+
+In order to impersonate users/roles/memberships, from the Auth0 dev tenant dashboard you can:
+
+- change your `intouch_role`
+- change your `intouch_user_id`
