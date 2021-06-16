@@ -36,6 +36,7 @@ export type Data = {
   groupCards: boolean;
   cards: Card[];
   link: LinkData | null;
+  justifyCenter: boolean | null;
 };
 
 const CardCollectionItem = ({
@@ -128,7 +129,16 @@ const moveRestKeyLast = (arr) => {
 };
 
 const CardCollectionSection = ({
-  data: { title, description, cardType, cardLabel, groupCards, cards, link },
+  data: {
+    title,
+    description,
+    cardType,
+    cardLabel,
+    groupCards,
+    cards,
+    link,
+    justifyCenter
+  },
   theme
 }: {
   data: Data;
@@ -268,7 +278,7 @@ const CardCollectionSection = ({
             <Carousel.Controls type="arrows" />
           </Carousel>
         ) : (
-          <Grid container>
+          <Grid container justify={justifyCenter ? "center" : undefined}>
             {iteratableCards.map((card, i) => {
               const { id } = card;
               const cardIsVisible = i >= numberOfCardsToShow;
@@ -346,5 +356,6 @@ export const query = graphql`
       ...PromoFragment
       ...PageInfoFragment
     }
+    justifyCenter
   }
 `;

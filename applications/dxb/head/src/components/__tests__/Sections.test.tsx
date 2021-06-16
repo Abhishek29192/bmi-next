@@ -116,6 +116,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulCardCollectionSection",
         title: "card collection section title",
+        justifyCenter: false,
         description: null,
         groupCards: false,
         cardLabel: "Card Label",
@@ -165,6 +166,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulCardCollectionSection",
         title: "card section title 2",
+        justifyCenter: false,
         description: null,
         groupCards: false,
         cardLabel: "Go to {{title}}",

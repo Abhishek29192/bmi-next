@@ -545,6 +545,9 @@ type ContentfulCardCollectionSection implements Node {
 
   "The cards for this section."
   cards: [ContentfulPromoOrPage] @link(from: "cards___NODE")
+
+  "The section should be centered."
+  justifyCenter: Boolean
 }
 
 """
