@@ -59,7 +59,7 @@ build_head:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn workspace @bmi/head check:ts
-    - yarn workspace @bmi/head build:top
+    - yarn workspace @bmi/head build
   artifacts:
     paths:
       - applications/dxb/head/public
