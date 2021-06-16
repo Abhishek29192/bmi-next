@@ -65,7 +65,10 @@ package_gcp-download-zip:
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
   script:
-    - cd functions/gcp-download-zip; zip -r $CI_PROJECT_DIR/dist/functions/gcp-download-zip.zip package.json dist/; cd $CI_PROJECT_DIR;
+    - cd functions/gcp-download-zip
+    - cp ../../yarn.lock .
+    - zip -r $CI_PROJECT_DIR/dist/functions/gcp-download-zip.zip package.json yarn.lok dist/
+    - cd $CI_PROJECT_DIR
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions
