@@ -17,6 +17,7 @@ import { generateGetMicroCopy } from "./MicroCopy";
 import ErrorFallback from "./ErrorFallback";
 import { Data as SEOContentData } from "./SEOContent";
 import VisualiserProvider from "./Visualiser";
+import Calculator from "./PitchedRoofCalcualtor";
 import styles from "./styles/Page.module.scss";
 
 export type Data = {
@@ -178,7 +179,9 @@ const Page = ({
                 variantCodeToPathMap={variantCodeToPathMap}
                 shareWidgetData={resources?.visualiserShareWidget}
               >
-                <div className={styles["content"]}>{children}</div>
+                <Calculator>
+                  <div className={styles["content"]}>{children}</div>
+                </Calculator>
               </VisualiserProvider>
               {inputBanner ? <InputBanner data={inputBanner} /> : null}
             </ErrorBoundary>
