@@ -6196,7 +6196,12 @@ type Mutation {
     input: InviteInput!
   ): Invitation
   completeInvitation(companyId: Int!): Account
-  uploadData(files: [Upload!]!): [File]
+  bulkImport(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: BulkImportInput!
+  ): ImportPayload
 }
 
 """
@@ -11799,10 +11804,16 @@ input InviteInput {
   role: Role!
 }
 
-type File {
-  filename: String!
-  mimetype: String!
-  encoding: String!
+type ImportPayload {
+  systemsToUpdate: [System]
+  systemsToInsert: [System]
+  productsToUpdate: [Product]
+  productsToInsert: [Product]
+}
+
+input BulkImportInput {
+  files: [Upload!]!
+  dryRun: Boolean
 }
 
 """

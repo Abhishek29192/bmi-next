@@ -7,25 +7,42 @@ import { Layout } from "../components/Layout";
 import { withLogger } from "../lib/logger/withLogger";
 
 const UPLOAD_FILE = gql`
-  mutation uploadData($files: [Upload!]!) {
-    uploadData(files: $files) {
-      filename
-      mimetype
-      encoding
+  mutation bulkImport($input: BulkImportInput!) {
+    bulkImport(input: $input) {
+      systemsToInsert {
+        bmiRef
+      }
+      systemsToUpdate {
+        bmiRef
+      }
+      productsToInsert {
+        bmiRef
+      }
+      productsToUpdate {
+        bmiRef
+      }
     }
   }
 `;
 
 const Homepage = () => {
   const [filesToUpload, setFilesToUpload] = useState<FileList>();
+  const [importResult, setImportResult] = useState<any>({});
   const [singleUpload] = useMutation(UPLOAD_FILE);
 
-  const submit = (files) => {
-    singleUpload({
-      variables: {
-        files: filesToUpload
-      }
-    });
+  const submit = async (dryRun: boolean) => {
+    if (filesToUpload) {
+      const { data } = await singleUpload({
+        variables: {
+          input: {
+            files: filesToUpload,
+            dryRun
+          }
+        }
+      });
+
+      setImportResult(data.bulkImport);
+    }
   };
 
   return (
@@ -37,7 +54,32 @@ const Homepage = () => {
           setFilesToUpload(files);
         }}
       />
-      <button onClick={submit}>Submit</button>
+      <button onClick={() => submit(true)}>Submit dry run</button>
+      <button onClick={() => submit(false)}>Submit</button>
+      <div>
+        System to update
+        {importResult?.systemsToUpdate?.map((item) => (
+          <div>{item.bmiRef}</div>
+        ))}
+      </div>
+      <div>
+        product to update
+        {importResult?.productsToUpdate?.map((item) => (
+          <div>{item.bmiRef}</div>
+        ))}
+      </div>
+      <div>
+        System to insert
+        {importResult?.systemsToInsert?.map((item) => (
+          <div>{item.bmiRef}</div>
+        ))}
+      </div>
+      <div>
+        product to insert
+        {importResult?.productsToInsert?.map((item) => (
+          <div>{item.bmiRef}</div>
+        ))}
+      </div>
     </Layout>
   );
 };

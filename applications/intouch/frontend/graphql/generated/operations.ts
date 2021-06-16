@@ -162,21 +162,53 @@ export type DoceboCatalogIdByMarketDomainQuery = {
   >;
 };
 
-export type UploadDataMutationVariables = SchemaTypes.Exact<{
-  files:
-    | ReadonlyArray<SchemaTypes.Scalars["Upload"]>
-    | SchemaTypes.Scalars["Upload"];
+export type BulkImportMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.BulkImportInput;
 }>;
 
-export type UploadDataMutation = { readonly __typename?: "Mutation" } & {
-  readonly uploadData?: SchemaTypes.Maybe<
-    ReadonlyArray<
-      SchemaTypes.Maybe<
-        { readonly __typename?: "File" } & Pick<
-          SchemaTypes.File,
-          "filename" | "mimetype" | "encoding"
+export type BulkImportMutation = { readonly __typename?: "Mutation" } & {
+  readonly bulkImport?: SchemaTypes.Maybe<
+    { readonly __typename?: "ImportPayload" } & {
+      readonly systemsToInsert?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "System" } & Pick<
+              SchemaTypes.System,
+              "bmiRef"
+            >
+          >
         >
-      >
-    >
+      >;
+      readonly systemsToUpdate?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "System" } & Pick<
+              SchemaTypes.System,
+              "bmiRef"
+            >
+          >
+        >
+      >;
+      readonly productsToInsert?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "Product" } & Pick<
+              SchemaTypes.Product,
+              "bmiRef"
+            >
+          >
+        >
+      >;
+      readonly productsToUpdate?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "Product" } & Pick<
+              SchemaTypes.Product,
+              "bmiRef"
+            >
+          >
+        >
+      >;
+    }
   >;
 };

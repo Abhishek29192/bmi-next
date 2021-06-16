@@ -56,7 +56,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
 
           return { messageId };
         },
-        uploadData: async (query, args, context, resolveInfo) => {
+        bulkImport: async (query, args, context, resolveInfo) => {
           return bulkImport(args, context);
         }
       }

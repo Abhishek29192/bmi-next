@@ -154,11 +154,23 @@ export default gql`
     encoding: String!
   }
 
+  input BulkImportInput {
+    files: [Upload!]!
+    dryRun: Boolean
+  }
+
+  type ImportPayload {
+    systemsToUpdate: [System]
+    systemsToInsert: [System]
+    productsToUpdate: [Product]
+    productsToInsert: [Product]
+  }
+
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
     invite(input: InviteInput!): Invitation
     completeInvitation(companyId: Int!): Account
-    uploadData(files: [Upload!]!): [File]
+    bulkImport(input: BulkImportInput!): ImportPayload
   }
 `;

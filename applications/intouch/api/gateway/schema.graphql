@@ -1237,12 +1237,10 @@ enum AssetOrder {
   sys_publishedVersion_DESC
 }
 
-"""
-A signed eight-byte integer. The upper big integer values are greater than the
-max value for a JavaScript number. Therefore all big integers will be output as
-strings and not numbers.
-"""
-scalar BigInt
+input BulkImportInput {
+  files: [Upload!]!
+  dryRun: Boolean
+}
 
 enum BusinessType {
   CONTRACTOR
@@ -3330,62 +3328,6 @@ enum CourseCatalogueTempsOrderBy {
 }
 
 """
-All input for the `courseCatalogueUpdateByTemp` mutation.
-"""
-input CourseCatalogueUpdateByTempInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-}
-
-"""
-The output of our `courseCatalogueUpdateByTemp` mutation.
-"""
-type CourseCatalogueUpdateByTempPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-  bigInt: BigInt
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-}
-
-"""
-All input for the `courseCatalogueUpdate` mutation.
-"""
-input CourseCatalogueUpdateInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-  catalogues: [CourseCatalogueInput]
-}
-
-"""
-The output of our `courseCatalogueUpdate` mutation.
-"""
-type CourseCatalogueUpdatePayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-}
-
-"""
 A connection to a list of `CourseCatalogue` values.
 """
 type CourseCataloguesConnection {
@@ -3743,62 +3685,6 @@ enum CourseEnrollmentTempsOrderBy {
   ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
-}
-
-"""
-All input for the `courseEnrollmentUpdateByTemp` mutation.
-"""
-input CourseEnrollmentUpdateByTempInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-}
-
-"""
-The output of our `courseEnrollmentUpdateByTemp` mutation.
-"""
-type CourseEnrollmentUpdateByTempPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-  bigInt: BigInt
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-}
-
-"""
-All input for the `courseEnrollmentUpdate` mutation.
-"""
-input CourseEnrollmentUpdateInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-  enrollments: [CourseEnrollmentInput]
-}
-
-"""
-The output of our `courseEnrollmentUpdate` mutation.
-"""
-type CourseEnrollmentUpdatePayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
 }
 
 """
@@ -4296,62 +4182,6 @@ enum CourseTempsOrderBy {
   ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
-}
-
-"""
-All input for the `courseUpdateByTemp` mutation.
-"""
-input CourseUpdateByTempInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-}
-
-"""
-The output of our `courseUpdateByTemp` mutation.
-"""
-type CourseUpdateByTempPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-  bigInt: BigInt
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-}
-
-"""
-All input for the `courseUpdate` mutation.
-"""
-input CourseUpdateInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-  courses: [CourseInput]
-}
-
-"""
-The output of our `courseUpdate` mutation.
-"""
-type CourseUpdatePayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
 }
 
 """
@@ -7955,12 +7785,6 @@ enum EvidenceItemsOrderBy {
   PRIMARY_KEY_DESC
 }
 
-type File {
-  filename: String!
-  mimetype: String!
-  encoding: String!
-}
-
 """
 Starts life as request for a gurantee and becomes an actual issued guarantee
 """
@@ -8985,6 +8809,13 @@ input ImageTransformOptions {
   format: ImageFormat
 }
 
+type ImportPayload {
+  systemsToUpdate: [System]
+  systemsToInsert: [System]
+  productsToUpdate: [Product]
+  productsToInsert: [Product]
+}
+
 """
 An invitation to join InTouch
 """
@@ -9168,41 +8999,6 @@ input InviteInput {
   firstName: String!
   lastName: String!
   role: Role!
-}
-
-"""
-A connection to a list of `Int` values.
-"""
-type InvitedByCompaniesConnection {
-  """
-  A list of `Int` objects.
-  """
-  nodes: [Int]!
-
-  """
-  A list of edges which contains the `Int` and cursor to aid in pagination.
-  """
-  edges: [InvitedByCompanyEdge!]!
-
-  """
-  The count of *all* `Int` you could get from the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-A `Int` edge in the connection.
-"""
-type InvitedByCompanyEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: Cursor
-
-  """
-  The `Int` at the end of the edge.
-  """
-  node: Int
 }
 
 """
@@ -10350,43 +10146,13 @@ enum MigrationOrder {
 The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
+  bulkImport(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: BulkImportInput!
+  ): ImportPayload
   completeInvitation(companyId: Int!): Account
-  courseCatalogueUpdate(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseCatalogueUpdateInput!
-  ): CourseCatalogueUpdatePayload
-  courseCatalogueUpdateByTemp(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseCatalogueUpdateByTempInput!
-  ): CourseCatalogueUpdateByTempPayload
-  courseEnrollmentUpdate(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseEnrollmentUpdateInput!
-  ): CourseEnrollmentUpdatePayload
-  courseEnrollmentUpdateByTemp(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseEnrollmentUpdateByTempInput!
-  ): CourseEnrollmentUpdateByTempPayload
-  courseUpdate(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseUpdateInput!
-  ): CourseUpdatePayload
-  courseUpdateByTemp(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CourseUpdateByTempInput!
-  ): CourseUpdateByTempPayload
   createAccount(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -11846,7 +11612,6 @@ type Mutation {
     input: UpdateSystemMemberByNodeIdInput!
   ): UpdateSystemMemberPayload
   updateTraining(lastUpdateDate: String): String
-  uploadData(files: [Upload!]!): [File]
 }
 
 """

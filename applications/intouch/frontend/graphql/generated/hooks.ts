@@ -444,3 +444,63 @@ export type DoceboCatalogIdByMarketDomainQueryResult = Apollo.QueryResult<
   OperationTypes.DoceboCatalogIdByMarketDomainQuery,
   OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
 >;
+export const BulkImportDocument = gql`
+  mutation bulkImport($input: BulkImportInput!) {
+    bulkImport(input: $input) {
+      systemsToInsert {
+        bmiRef
+      }
+      systemsToUpdate {
+        bmiRef
+      }
+      productsToInsert {
+        bmiRef
+      }
+      productsToUpdate {
+        bmiRef
+      }
+    }
+  }
+`;
+export type BulkImportMutationFn = Apollo.MutationFunction<
+  OperationTypes.BulkImportMutation,
+  OperationTypes.BulkImportMutationVariables
+>;
+
+/**
+ * __useBulkImportMutation__
+ *
+ * To run a mutation, you first call `useBulkImportMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useBulkImportMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [bulkImportMutation, { data, loading, error }] = useBulkImportMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useBulkImportMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.BulkImportMutation,
+    OperationTypes.BulkImportMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.BulkImportMutation,
+    OperationTypes.BulkImportMutationVariables
+  >(BulkImportDocument, options);
+}
+export type BulkImportMutationHookResult = ReturnType<
+  typeof useBulkImportMutation
+>;
+export type BulkImportMutationResult = Apollo.MutationResult<OperationTypes.BulkImportMutation>;
+export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.BulkImportMutation,
+  OperationTypes.BulkImportMutationVariables
+>;

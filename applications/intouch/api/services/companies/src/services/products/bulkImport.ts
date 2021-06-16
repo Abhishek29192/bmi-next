@@ -1,5 +1,6 @@
 import * as csv from "fast-csv";
 import pgFormat from "pg-format";
+import camelcaseKeys from "camelcase-keys";
 
 const singleImport = async (file) =>
   new Promise<any[]>((resolve, reject) => {
@@ -19,22 +20,67 @@ const singleImport = async (file) =>
       });
   });
 
+const getProducts = async (market: string, pgClient: any) => {
+  const { rows = [] } = await pgClient.query("select * from product");
+  return rows.reduce(
+    (result, item) => ({
+      ...result,
+      [item.bmi_ref]: item
+    }),
+    []
+  );
+};
+const getSystems = async (market: string, pgClient: any) => {
+  const { rows = [] } = await pgClient.query("select * from system");
+  return rows.reduce(
+    (result, item) => ({
+      ...result,
+      [item.bmi_ref]: item
+    }),
+    []
+  );
+};
+
 export const bulkImport = async (args, context) => {
   const { pgClient } = context;
+  const { input } = args;
   const logger = context.logger("product:import");
 
-  const files = await args.files;
+  const files = await input.files;
 
   let products = [];
   let systems = [];
-  let system_member = [];
+  let systemMember = [];
+
+  const systemsToInsert = [];
+  const productsToInsert = [];
+  const systemsToUpdate = [];
+  const productsToUpdate = [];
 
   for await (let file of files) {
     const { filename, ...f } = await file;
+
+    const [env, marketCode, table] = filename.split("-");
+
+    if (!env || !marketCode || !table) {
+      throw new Error("the filename has a wrong format");
+    }
+
+    const { rows } = await pgClient.query(
+      "select id from market where domain = $1",
+      [marketCode]
+    );
+
+    if (!rows.length) {
+      throw new Error("the market doesn't exists");
+    }
+
+    const marketId = rows[0].id;
+
     const parsedFile: any[] = await singleImport({ filename, ...f });
 
     if (filename.indexOf("system_member.csv") !== -1) {
-      system_member = parsedFile.map((item) => {
+      systemMember = parsedFile.map((item) => {
         return {
           // id: item.id,
           system_bmi_ref: item.system_bmi_ref,
@@ -42,10 +88,18 @@ export const bulkImport = async (args, context) => {
         };
       });
     } else if (filename.indexOf("systems.csv") !== -1) {
+      const currentSystems = await getSystems(marketId, pgClient);
+
       systems = parsedFile.map((item) => {
+        if (currentSystems[item.bmi_ref]) {
+          systemsToUpdate.push(camelcaseKeys(item));
+        } else {
+          systemsToInsert.push(camelcaseKeys(item));
+        }
+
         return {
           // id: parseInt(item.id) || undefined,
-          // market_id: parseInt(item.market_id) || undefined,
+          market_id: marketId,
           technology: item.technology,
           bmi_ref: item.bmi_ref,
           name: item.name,
@@ -56,10 +110,18 @@ export const bulkImport = async (args, context) => {
         };
       });
     } else if (filename.indexOf("products.csv") !== -1) {
+      const currentProducts = await getProducts(marketId, pgClient);
+
       products = parsedFile.map((item) => {
+        if (currentProducts[item.bmi_ref]) {
+          productsToUpdate.push(camelcaseKeys(item));
+        } else {
+          productsToInsert.push(camelcaseKeys(item));
+        }
+
         return {
           // id: item.id,
-          // market_id: item.market_id,
+          market_id: marketId,
           technology: item.technology,
           bmi_ref: item.bmi_ref,
           brand: item.brand,
@@ -74,8 +136,17 @@ export const bulkImport = async (args, context) => {
   }
 
   logger.info(
-    `Importing ${systems.length} systems, ${products.length} products, and ${system_member.length} system_member`
+    `Importing ${systems.length} systems, ${products.length} products, and ${systemMember.length} system_member`
   );
+
+  if (input.dryRun) {
+    return {
+      systemsToUpdate,
+      systemsToInsert,
+      productsToUpdate,
+      productsToInsert
+    };
+  }
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
@@ -83,7 +154,7 @@ export const bulkImport = async (args, context) => {
   try {
     const { rows } = await pgClient.query(
       pgFormat(
-        `INSERT INTO system (technology, bmi_ref, name, description, maximum_validity_years, published) VALUES %L 
+        `INSERT INTO system (market_id, technology, bmi_ref, name, description, maximum_validity_years, published) VALUES %L 
           ON CONFLICT (id) DO UPDATE SET 
             technology = excluded.technology,
             bmi_ref = excluded.bmi_ref,
@@ -107,7 +178,7 @@ export const bulkImport = async (args, context) => {
   try {
     const { rows } = await pgClient.query(
       pgFormat(
-        `INSERT INTO product ( technology, bmi_ref, brand, name, description, family, published, maximum_validity_years ) VALUES %L
+        `INSERT INTO product (market_id, technology, bmi_ref, brand, name, description, family, published, maximum_validity_years ) VALUES %L
           ON CONFLICT (id) DO UPDATE SET
           technology = excluded.technology,
           bmi_ref = excluded.bmi_ref,
@@ -137,7 +208,7 @@ export const bulkImport = async (args, context) => {
           system_bmi_ref = excluded.system_bmi_ref,
           product_bmi_ref = excluded.product_bmi_ref RETURNING *;
         `,
-        system_member.map((item) => Object.values(item))
+        systemMember.map((item) => Object.values(item))
       )
     );
 
@@ -152,5 +223,8 @@ export const bulkImport = async (args, context) => {
 
   logger.info(`Import finished`);
 
-  return args.files;
+  return {
+    systemsToUpdate: [],
+    productsToUpdate: []
+  };
 };
