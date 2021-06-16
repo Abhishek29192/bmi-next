@@ -6,7 +6,7 @@ import {
 } from "../components/types/PIMDocumentBase";
 import {
   clearFilterValues,
-  findPIMDocumentBrandCategory,
+  findPIMDocumentBrandCategories,
   generateUniqueDocuments,
   getAssetTypeFilterFromDocuments,
   getBrandFilterFromDocuments,
@@ -15,13 +15,17 @@ import {
   getProductFamilyFilterFromDocuments,
   getTextureFilterFromDocuments,
   sortAlphabeticallyBy,
-  updateFilterValue
+  updateFilterValue,
+  getCategoryFilters
 } from "../utils/filters";
 import { Product } from "../components/types/ProductBaseTypes";
 import createPimDocument from "./PimDocumentHelper";
 import createPimLinkDocument from "./PimLinkDocumentHelper";
 import createContentfuldocument from "./ContentfulDocumentHelper";
-import createProduct, { createBaseProduct } from "./PimDocumentProductHelper";
+import createProduct, {
+  createBaseProduct,
+  createVariantOption
+} from "./PimDocumentProductHelper";
 import createCategory from "./CategoryHelper";
 import createClassification from "./ClassificationHelper";
 import createContentfulDocument from "./ContentfulDocumentHelper";
@@ -91,7 +95,7 @@ describe("filters tests", () => {
               categories: undefined
             }
           });
-        const result = findPIMDocumentBrandCategory(inputDataItems);
+        const result = findPIMDocumentBrandCategories(inputDataItems);
         expect(result).toEqual([]);
       });
     });
@@ -105,7 +109,7 @@ describe("filters tests", () => {
               categories: []
             }
           });
-        const result = findPIMDocumentBrandCategory(inputDataItems);
+        const result = findPIMDocumentBrandCategories(inputDataItems);
         expect(result).toEqual([]);
       });
     });
@@ -134,7 +138,7 @@ describe("filters tests", () => {
             parentCategoryCode: "cat-code0"
           }
         ];
-        const result = findPIMDocumentBrandCategory(inputDataItems);
+        const result = findPIMDocumentBrandCategories(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
     });
@@ -175,7 +179,7 @@ describe("filters tests", () => {
             parentCategoryCode: "cat-code-2"
           }
         ];
-        const result = findPIMDocumentBrandCategory(inputDataItems);
+        const result = findPIMDocumentBrandCategories(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
     });
@@ -229,41 +233,193 @@ describe("filters tests", () => {
         expect(result).toEqual([]);
       });
     });
-    describe("When array of filters are passed to update filtervalue", () => {
-      it("returns empty result", () => {
-        const inputFilters = [
-          {
-            label: "filterLabels.textureFamily",
-            name: "texturefamily",
-            options: [
-              {
-                label: "feature-label",
-                value: "value"
-              }
-            ],
-            value: ["someValue"]
-          }
-        ];
-        const expectedResult = [
-          {
-            label: "filterLabels.textureFamily",
-            name: "texturefamily",
-            options: [
-              {
-                label: "feature-label",
-                value: "value"
-              }
-            ],
-            value: ["someValue", "someValue-2"]
-          }
-        ];
-        const result = updateFilterValue(
-          inputFilters,
-          "texturefamily",
-          "someValue-2",
-          true
-        );
-        expect(result).toEqual(expectedResult);
+    describe("When array of filters are passed to Add a filter value", () => {
+      describe("and filtername does not match", () => {
+        it("returns newly added filter value in result", () => {
+          const inputFilters = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: ["someValue"]
+            }
+          ];
+          const expectedResult = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: ["someValue"]
+            }
+          ];
+          const result = updateFilterValue(
+            inputFilters,
+            "does-not-exist",
+            "someValue-2",
+            true
+          );
+          expect(result).toEqual(expectedResult);
+        });
+      });
+      describe("And existing Values is null", () => {
+        it("returns newly added filter value in result", () => {
+          const inputFilters = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: null
+            }
+          ];
+          const expectedResult = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: ["someValue-2"]
+            }
+          ];
+          const result = updateFilterValue(
+            inputFilters,
+            "texturefamily",
+            "someValue-2",
+            true
+          );
+          expect(result).toEqual(expectedResult);
+        });
+      });
+      describe("And filter has existing Values", () => {
+        it("returns newly added filter value in result", () => {
+          const inputFilters = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: ["someValue"]
+            }
+          ];
+          const expectedResult = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: ["someValue", "someValue-2"]
+            }
+          ];
+          const result = updateFilterValue(
+            inputFilters,
+            "texturefamily",
+            "someValue-2",
+            true
+          );
+          expect(result).toEqual(expectedResult);
+        });
+      });
+    });
+    describe("When array of filters are passed to remove filter value", () => {
+      describe("and filter Values is null", () => {
+        it("returns removed filter result", () => {
+          const inputFilters = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: null
+            }
+          ];
+          const expectedResult = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: []
+            }
+          ];
+          const result = updateFilterValue(
+            inputFilters,
+            "texturefamily",
+            "someValue",
+            false
+          );
+          expect(result).toEqual(expectedResult);
+        });
+      });
+      describe("and filter Values exist", () => {
+        it("returns removed filter result", () => {
+          const inputFilters = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: ["someValue"]
+            }
+          ];
+          const expectedResult = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [
+                {
+                  label: "feature-label",
+                  value: "value"
+                }
+              ],
+              value: []
+            }
+          ];
+          const result = updateFilterValue(
+            inputFilters,
+            "texturefamily",
+            "someValue",
+            false
+          );
+          expect(result).toEqual(expectedResult);
+        });
       });
     });
   });
@@ -280,7 +436,7 @@ describe("filters tests", () => {
         });
 
         inputDataItems.push(pimDocument);
-        let result = getAssetTypeFilterFromDocuments(inputDataItems);
+        const result = getAssetTypeFilterFromDocuments(inputDataItems);
         expect(result).toEqual(undefined);
       });
     });
@@ -305,7 +461,7 @@ describe("filters tests", () => {
           value: []
         };
         inputDataItems.push(pimDocument);
-        let result = getAssetTypeFilterFromDocuments(inputDataItems);
+        const result = getAssetTypeFilterFromDocuments(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
     });
@@ -322,7 +478,7 @@ describe("filters tests", () => {
         });
 
         inputDataItems.push(pimDocument);
-        let result = getBrandFilterFromDocuments(inputDataItems);
+        const result = getBrandFilterFromDocuments(inputDataItems);
         expect(result).toEqual(undefined);
       });
     });
@@ -351,7 +507,7 @@ describe("filters tests", () => {
           value: []
         };
         inputDataItems.push(pimDocument);
-        let result = getBrandFilterFromDocuments(inputDataItems);
+        const result = getBrandFilterFromDocuments(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
     });
@@ -374,13 +530,29 @@ describe("filters tests", () => {
           value: []
         };
         inputDataItems.push(pimDocument);
-        let result = getBrandFilterFromDocuments(inputDataItems);
+        const result = getBrandFilterFromDocuments(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
     });
   });
 
   describe("getProductFamilyFilterFromDocuments tests", () => {
+    describe("Documents has NO Categories", () => {
+      it("Then: returns undefined", () => {
+        const inputDataItems: DocumentResultsData =
+          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+        const pimDocument = createPimDocument({
+          id: `pim-doc-id`,
+          product: createProduct({ categories: null })
+        });
+
+        inputDataItems.push(pimDocument);
+        const result = getProductFamilyFilterFromDocuments(inputDataItems);
+        expect(result).toEqual(undefined);
+      });
+    });
+
     describe("Documents has NO ProductFamily Category", () => {
       it("Then: returns undefined", () => {
         const inputDataItems: DocumentResultsData =
@@ -391,7 +563,19 @@ describe("filters tests", () => {
         });
 
         inputDataItems.push(pimDocument);
-        let result = getProductFamilyFilterFromDocuments(inputDataItems);
+        const result = getProductFamilyFilterFromDocuments(inputDataItems);
+        expect(result).toEqual(undefined);
+      });
+    });
+    describe("Not a Pim document test", () => {
+      it("Then: returns undefined", () => {
+        const inputDataItems: DocumentResultsData =
+          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+
+        const pimDocument = createContentfulDocument();
+
+        inputDataItems.push(pimDocument);
+        const result = getProductFamilyFilterFromDocuments(inputDataItems);
         expect(result).toEqual(undefined);
       });
     });
@@ -419,7 +603,7 @@ describe("filters tests", () => {
           value: []
         };
         inputDataItems.push(pimDocument);
-        let result = getProductFamilyFilterFromDocuments(inputDataItems);
+        const result = getProductFamilyFilterFromDocuments(inputDataItems);
         expect(result).toEqual(expectedResult);
       });
     });
@@ -436,7 +620,7 @@ describe("filters tests", () => {
         });
 
         inputDataItems.push(pimDocument);
-        let result = getTextureFilterFromDocuments("", inputDataItems);
+        const result = getTextureFilterFromDocuments("", inputDataItems);
         expect(result).toEqual(undefined);
       });
     });
@@ -482,7 +666,7 @@ describe("filters tests", () => {
             value: []
           };
           inputDataItems.push(pimDocument);
-          let result = getTextureFilterFromDocuments("", inputDataItems);
+          const result = getTextureFilterFromDocuments("", inputDataItems);
           expect(result).toEqual(expectedResult);
         });
       });
@@ -492,137 +676,339 @@ describe("filters tests", () => {
   describe("getFilters tests", () => {
     describe("When NO products are provided", () => {
       it("Then: returns empty result", () => {
-        let result = getFilters("", []);
+        const result = getFilters("", []);
         expect(result).toEqual([]);
       });
     });
+    describe("And Category is null", () => {
+      it("Then: returns empty result", () => {
+        const result = getFilters("", [], null);
+        expect(result).toEqual([]);
+      });
+    });
+    describe("And pageCategory parameter is not provided", () => {
+      describe("And NO matching product category exists in product data", () => {
+        it("returns empty result", () => {
+          const inputDataItems: Array<Product> = Array<Product>();
+          inputDataItems.push(createBaseProduct());
 
-    describe("When Products are provided", () => {
-      describe("And pageCategory parameter is not provided", () => {
-        describe("And NO matching product category exists in product data", () => {
-          it("returns empty result", () => {
+          const result = getFilters("", inputDataItems);
+          expect(result).toEqual([]);
+        });
+      });
+      describe("And colour filter categories are present on product classification", () => {
+        it("returns colour filters", () => {
+          const inputDataItems: Array<Product> = Array<Product>();
+          const baseProduct = createBaseProduct();
+
+          baseProduct.classifications = [
+            createClassification({
+              name: "appearance Attributes",
+              code: "appearanceAttributes",
+              features: [
+                {
+                  name: "classification-feature-name",
+                  code: "/appearanceAttributes.colourfamily",
+                  featureValues: [
+                    {
+                      value: "feature-label",
+                      code: "value"
+                    }
+                  ]
+                }
+              ]
+            })
+          ];
+          const expectedResult = [
+            {
+              label: "filterLabels.colour",
+              name: "colour",
+              options: [{ label: "feature-label", value: "value" }],
+              value: []
+            }
+          ];
+          inputDataItems.push(baseProduct);
+
+          const result = getFilters("", inputDataItems);
+          expect(result).toEqual(expectedResult);
+        });
+      });
+
+      describe("And Materials filter categories are present on product classification", () => {
+        it("returns materials filters", () => {
+          const inputDataItems: Array<Product> = Array<Product>();
+          const baseProduct = createBaseProduct();
+
+          baseProduct.classifications = [
+            createClassification({
+              name: "appearance Attributes",
+              code: "generalInformation",
+              features: [
+                {
+                  name: "classification-feature-name",
+                  code: "/generalInformation.materials",
+                  featureValues: [
+                    {
+                      value: "feature-label",
+                      code: "value"
+                    }
+                  ]
+                }
+              ]
+            })
+          ];
+          const expectedResult = [
+            {
+              label: "filterLabels.materials",
+              name: "materials",
+              options: [{ label: "feature-label", value: "value" }],
+              value: []
+            }
+          ];
+          inputDataItems.push(baseProduct);
+
+          const result = getFilters("", inputDataItems);
+          expect(result).toEqual(expectedResult);
+        });
+      });
+
+      describe("And texture family filter categories are present on product classification", () => {
+        it("returns texture family filters", () => {
+          const inputDataItems: Array<Product> = Array<Product>();
+          const baseProduct = createBaseProduct();
+
+          baseProduct.classifications = [
+            createClassification({
+              name: "appearance Attributes",
+              code: "appearanceAttributes",
+              features: [
+                {
+                  name: "classification-feature-name",
+                  code: "/appearanceAttributes.texturefamily",
+                  featureValues: [
+                    {
+                      value: "feature-label",
+                      code: "value"
+                    }
+                  ]
+                }
+              ]
+            })
+          ];
+          const expectedResult = [
+            {
+              label: "filterLabels.textureFamily",
+              name: "texturefamily",
+              options: [{ label: "feature-label", value: "value" }],
+              value: []
+            }
+          ];
+          inputDataItems.push(baseProduct);
+
+          const result = getFilters("", inputDataItems);
+          expect(result).toEqual(expectedResult);
+        });
+      });
+    });
+    describe("And pageCategory parameter is provided", () => {
+      describe("When Products are provided", () => {
+        describe("showCategoryFilters is true", () => {
+          describe("getCategoryFilters tests", () => {
+            describe("And categories are ordered in descending order", () => {
+              it("returns category filters sorted by name", () => {
+                const inputDataItems: Array<Product> = Array<Product>();
+                const baseProduct = createBaseProduct({
+                  categories: [
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-z",
+                      name: "category-z",
+                      parentCategoryCode: ""
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-2",
+                      name: "category-2",
+                      parentCategoryCode: "category-z"
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-a",
+                      name: "category-a",
+                      parentCategoryCode: ""
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-3",
+                      name: "category-3",
+                      parentCategoryCode: "category-a"
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-aa",
+                      name: "category-aa",
+                      parentCategoryCode: ""
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-3a",
+                      name: "category-3a",
+                      parentCategoryCode: "category-aa"
+                    })
+                  ],
+                  variantOptions: [createVariantOption()]
+                });
+                const expectedResult = [
+                  {
+                    label: "category-a",
+                    name: "category-a",
+                    options: [
+                      {
+                        label: "category-3",
+                        value: "category-3"
+                      }
+                    ],
+                    value: []
+                  },
+                  {
+                    label: "category-aa",
+                    name: "category-aa",
+                    options: [
+                      {
+                        label: "category-3a",
+                        value: "category-3a"
+                      }
+                    ],
+                    value: []
+                  },
+                  {
+                    label: "category-z",
+                    name: "category-z",
+                    options: [
+                      {
+                        label: "category-2",
+                        value: "category-2"
+                      }
+                    ],
+                    value: []
+                  }
+                ];
+                inputDataItems.push(baseProduct);
+
+                const pageCategory = createCategory({
+                  categoryType: "some-category"
+                });
+                const result = getFilters("", inputDataItems, pageCategory);
+                expect(result).toEqual(expectedResult);
+              });
+            });
+
+            describe("And categories are ordered in ascending order", () => {
+              it("returns category filters sorted by name", () => {
+                const inputDataItems: Array<Product> = Array<Product>();
+                const baseProduct = createBaseProduct({
+                  categories: [
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-a",
+                      name: "category-a",
+                      parentCategoryCode: ""
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-aa",
+                      name: "category-aa",
+                      parentCategoryCode: "category-a"
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-aaa",
+                      name: "category-aaa",
+                      parentCategoryCode: "category-a"
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-b",
+                      name: "category-b",
+                      parentCategoryCode: ""
+                    }),
+                    createCategory({
+                      categoryType: "Category",
+                      code: "category-bbb",
+                      name: "category-bbb",
+                      parentCategoryCode: "category-b"
+                    })
+                  ],
+                  variantOptions: [createVariantOption()]
+                });
+                const expectedResult = [
+                  {
+                    label: "category-a",
+                    name: "category-a",
+                    value: [],
+                    options: [{ label: "category-aa", value: "category-aa" }]
+                  },
+                  {
+                    label: "category-b",
+                    name: "category-b",
+                    value: [],
+                    options: [{ label: "category-bbb", value: "category-bbb" }]
+                  }
+                ];
+                inputDataItems.push(baseProduct);
+
+                const pageCategory = createCategory({
+                  categoryType: "some-category"
+                });
+                const result = getFilters("", inputDataItems, pageCategory);
+                expect(result).toEqual(expectedResult);
+              });
+            });
+          });
+        });
+        describe("And pageCategory is 'Category'", () => {
+          it("returns Category filters as undefined", () => {
             const inputDataItems: Array<Product> = Array<Product>();
-            inputDataItems.push(createBaseProduct());
-
-            let result = getFilters("", inputDataItems);
+            const baseProduct = createBaseProduct();
+            baseProduct.categories = [
+              createCategory({ categoryType: "ProductFamily" })
+            ];
+            inputDataItems.push(baseProduct);
+            const pageCategory = createCategory({
+              categoryType: "Category"
+            });
+            const expectedResult = [
+              {
+                label: "filterLabels.productFamily",
+                name: "productFamily",
+                options: [
+                  {
+                    label: "category-name",
+                    value: "category-code"
+                  }
+                ],
+                value: []
+              }
+            ];
+            const result = getFilters("", inputDataItems, pageCategory);
+            expect(result).toEqual(expectedResult);
+          });
+        });
+        describe("And pageCategory is 'ProductFamily'", () => {
+          it("returns ProductFamily filters as undefined", () => {
+            const inputDataItems: Array<Product> = Array<Product>();
+            const baseProduct = createBaseProduct();
+            baseProduct.categories = [
+              createCategory({ categoryType: "ProductFamily" })
+            ];
+            inputDataItems.push(baseProduct);
+            const pageCategory = createCategory({
+              categoryType: "ProductFamily"
+            });
+            const result = getFilters("", inputDataItems, pageCategory);
             expect(result).toEqual([]);
           });
         });
-        describe("And colour filter categories are present on product classification", () => {
-          it("returns colour filters", () => {
-            const inputDataItems: Array<Product> = Array<Product>();
-            const baseProduct = createBaseProduct();
-
-            baseProduct.classifications = [
-              createClassification({
-                name: "appearance Attributes",
-                code: "appearanceAttributes",
-                features: [
-                  {
-                    name: "classification-feature-name",
-                    code: "/appearanceAttributes.colourfamily",
-                    featureValues: [
-                      {
-                        value: "feature-label",
-                        code: "value"
-                      }
-                    ]
-                  }
-                ]
-              })
-            ];
-            const expectedResult = [
-              {
-                label: "filterLabels.colour",
-                name: "colour",
-                options: [{ label: "feature-label", value: "value" }],
-                value: []
-              }
-            ];
-            inputDataItems.push(baseProduct);
-
-            let result = getFilters("", inputDataItems);
-            expect(result).toEqual(expectedResult);
-          });
-        });
-
-        describe("And Materials filter categories are present on product classification", () => {
-          it("returns materials filters", () => {
-            const inputDataItems: Array<Product> = Array<Product>();
-            const baseProduct = createBaseProduct();
-
-            baseProduct.classifications = [
-              createClassification({
-                name: "appearance Attributes",
-                code: "generalInformation",
-                features: [
-                  {
-                    name: "classification-feature-name",
-                    code: "/generalInformation.materials",
-                    featureValues: [
-                      {
-                        value: "feature-label",
-                        code: "value"
-                      }
-                    ]
-                  }
-                ]
-              })
-            ];
-            const expectedResult = [
-              {
-                label: "filterLabels.materials",
-                name: "materials",
-                options: [{ label: "feature-label", value: "value" }],
-                value: []
-              }
-            ];
-            inputDataItems.push(baseProduct);
-
-            let result = getFilters("", inputDataItems);
-            expect(result).toEqual(expectedResult);
-          });
-        });
-
-        describe("And texture family filter categories are present on product classification", () => {
-          it("returns texture family filters", () => {
-            const inputDataItems: Array<Product> = Array<Product>();
-            const baseProduct = createBaseProduct();
-
-            baseProduct.classifications = [
-              createClassification({
-                name: "appearance Attributes",
-                code: "appearanceAttributes",
-                features: [
-                  {
-                    name: "classification-feature-name",
-                    code: "/appearanceAttributes.texturefamily",
-                    featureValues: [
-                      {
-                        value: "feature-label",
-                        code: "value"
-                      }
-                    ]
-                  }
-                ]
-              })
-            ];
-            const expectedResult = [
-              {
-                label: "filterLabels.textureFamily",
-                name: "texturefamily",
-                options: [{ label: "feature-label", value: "value" }],
-                value: []
-              }
-            ];
-            inputDataItems.push(baseProduct);
-
-            let result = getFilters("", inputDataItems);
-            expect(result).toEqual(expectedResult);
-          });
-        });
-      });
-      describe("And pageCategory parameter is provided", () => {
         describe("And pageCategory is NOT 'ProductFamily'", () => {
           it("returns ProductFamily filters", () => {
             const inputDataItems: Array<Product> = Array<Product>();
@@ -642,11 +1028,35 @@ describe("filters tests", () => {
             const pageCategory = createCategory({
               categoryType: "some-category"
             });
-            let result = getFilters("", inputDataItems, pageCategory);
+            const result = getFilters("", inputDataItems, pageCategory);
             expect(result).toEqual(expectedResult);
           });
         });
         describe("And pageCategory is NOT 'ProductLine'", () => {
+          it("And showProductLineFilters is false : returns undefined", () => {
+            const inputDataItems: Array<Product> = Array<Product>();
+            const baseProduct = createBaseProduct();
+            baseProduct.categories = null;
+            const expectedResult = [];
+            inputDataItems.push(baseProduct);
+            const pageCategory = createCategory({
+              categoryType: "ProductLine"
+            });
+            const result = getFilters("", inputDataItems, pageCategory);
+            expect(result).toEqual(expectedResult);
+          });
+          it("And product has NO categories: returns empty result", () => {
+            const inputDataItems: Array<Product> = Array<Product>();
+            const baseProduct = createBaseProduct();
+            baseProduct.categories = null;
+            const expectedResult = [];
+            inputDataItems.push(baseProduct);
+            const pageCategory = createCategory({
+              categoryType: "some-category"
+            });
+            const result = getFilters("", inputDataItems, pageCategory);
+            expect(result).toEqual(expectedResult);
+          });
           it("returns ProductLine filters", () => {
             const inputDataItems: Array<Product> = Array<Product>();
             const baseProduct = createBaseProduct();
@@ -665,7 +1075,7 @@ describe("filters tests", () => {
             const pageCategory = createCategory({
               categoryType: "some-category"
             });
-            let result = getFilters("", inputDataItems, pageCategory);
+            const result = getFilters("", inputDataItems, pageCategory);
             expect(result).toEqual(expectedResult);
           });
         });
@@ -689,7 +1099,7 @@ describe("filters tests", () => {
               ];
               inputDataItems.push(baseProduct);
 
-              let result = getFilters("", inputDataItems, null, true);
+              const result = getFilters("", inputDataItems, null, true);
               expect(result).toEqual(expectedResult);
             });
           });
@@ -703,11 +1113,48 @@ describe("filters tests", () => {
               const expectedResult = [];
               inputDataItems.push(baseProduct);
 
-              let result = getFilters("", inputDataItems, null, true);
+              const result = getFilters("", inputDataItems, null, true);
               expect(result).toEqual(expectedResult);
             });
           });
         });
+      });
+    });
+  });
+
+  describe("getCategoryFilters tests", () => {
+    describe("and category names are euqal", () => {
+      it("it returns same category name", () => {
+        const inputDataItems = {
+          "category-a": { name: "category-a", values: [createCategory()] },
+          "category-b": { name: "category-a", values: [createCategory()] }
+        };
+        const expectedResult = [
+          {
+            label: "category-a",
+            name: "category-a",
+            options: [
+              {
+                label: "category-name",
+                value: "category-code"
+              }
+            ],
+            value: []
+          },
+          {
+            label: "category-a",
+            name: "category-b",
+            options: [
+              {
+                label: "category-name",
+                value: "category-code"
+              }
+            ],
+            value: []
+          }
+        ];
+        const result = getCategoryFilters(inputDataItems);
+        expect(result).toEqual(expectedResult);
       });
     });
   });
@@ -930,7 +1377,7 @@ describe("filters tests", () => {
         ];
 
         inputDataItems.push(pimDocument);
-        let result = getDocumentFilters(
+        const result = getDocumentFilters(
           inputDataItems,
           "PIM",
           "Simple",
@@ -985,7 +1432,7 @@ describe("filters tests", () => {
         ];
 
         inputDataItems.push(pimDocument);
-        let result = getDocumentFilters(
+        const result = getDocumentFilters(
           inputDataItems,
           "PIM",
           "Technical",
@@ -1029,7 +1476,7 @@ describe("filters tests", () => {
         ];
 
         inputDataItems.push(pimDocument);
-        let result = getDocumentFilters(
+        const result = getDocumentFilters(
           inputDataItems,
           "CMS",
           "Card Collection",
@@ -1084,7 +1531,7 @@ describe("filters tests", () => {
         ];
 
         inputDataItems.push(pimDocument);
-        let result = getDocumentFilters(
+        const result = getDocumentFilters(
           inputDataItems,
           "CMS",
           "Simple",
@@ -1150,7 +1597,7 @@ describe("filters tests", () => {
         ];
 
         inputDataItems.push(pimDocument);
-        let result = getDocumentFilters(
+        const result = getDocumentFilters(
           inputDataItems,
           "ALL",
           "Simple",

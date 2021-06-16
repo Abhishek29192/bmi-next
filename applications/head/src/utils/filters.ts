@@ -54,7 +54,7 @@ export const sortAlphabeticallyBy = (propName) => (a, b) => {
   return 0;
 };
 
-const findPIMProductBrandCategory = (
+const findPIMProductBrandCategories = (
   product: Pick<Product, "categories">
 ): Category[] => {
   return (product.categories || []).filter(
@@ -62,10 +62,10 @@ const findPIMProductBrandCategory = (
   );
 };
 
-export const findPIMDocumentBrandCategory = (
+export const findPIMDocumentBrandCategories = (
   document: PIMDocumentData | PIMLinkDocumentData
 ): Category[] => {
-  return findPIMProductBrandCategory(document.product);
+  return findPIMProductBrandCategories(document.product);
 };
 
 // Returns a Category like object
@@ -75,7 +75,7 @@ const getBrandCategoryFromProducts = (
   return uniqBy(
     products
       .flatMap((product) => {
-        return findPIMProductBrandCategory(product);
+        return findPIMProductBrandCategories(product);
       })
       .filter(Boolean),
     "code"
@@ -84,12 +84,12 @@ const getBrandCategoryFromProducts = (
 };
 
 // Returns a Category like object
-const getBrandCategoryFromDocuments = (documents: DocumentResultsData) => {
+const findBrandCategoriesFromDocuments = (documents: DocumentResultsData) => {
   return uniqBy(
     documents
       .flatMap((document) => {
         if (isPIMDocument(document)) {
-          return findPIMDocumentBrandCategory(document);
+          return findPIMDocumentBrandCategories(document);
         }
 
         // Using single value available in Contentful Document
@@ -149,7 +149,7 @@ const getBrandFilterFromProducts = (products: readonly Product[]) => {
 };
 
 export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
-  const allValues = getBrandCategoryFromDocuments(documents);
+  const allValues = findBrandCategoriesFromDocuments(documents);
 
   if (allValues.length === 0) {
     return;
@@ -262,7 +262,6 @@ const getColorFilter = (
   }
 
   // Assuming all colours have the same label
-  const label = colorFilters[0]?.name;
   const values = uniqBy(map(colorFilters, "value"), "code");
 
   return {
@@ -313,7 +312,6 @@ const getTextureFilter = (
   }
 
   // Assuming all texturefamily classifications have the same label
-  const label = textures[0]?.name;
   const values = uniqBy(map(textures, "value"), "code");
 
   return {
@@ -355,7 +353,6 @@ const getMaterialsFilter = (
   }
 
   // Assuming all texturefamily classifications have the same label
-  const label = materials[0]?.name;
   const values = uniqBy(map(materials, "value"), "code");
 
   return {
@@ -371,12 +368,10 @@ const getMaterialsFilter = (
   };
 };
 
-// currently showing not covered in tests
-// As, This is going to the product-detail-transforms
-// where its working with product variant options recusrively!
-// dont understand how it creates path for categories
-// hence not covered in tests at the moment
-const getCategoryFilters = (productCategories: ProductCategoryTree) => {
+// exporting for test coverage
+// since couple of statement/branches are not reached
+// in the way its called from "getFilters" function
+export const getCategoryFilters = (productCategories: ProductCategoryTree) => {
   return Object.entries(productCategories)
     .sort((a, b) => {
       if (a[1]["name"] < b[1]["name"]) {
@@ -408,8 +403,6 @@ export const getFilters = (
   pageCategory?: Category,
   showBrandFilter?: boolean
 ) => {
-  const allCategories = findAllCategories(products);
-
   let showProductFamilyFilter = true;
   let showCategoryFilters = true;
   let showProductLineFilters = true;
@@ -419,7 +412,6 @@ export const getFilters = (
     showCategoryFilters = pageCategory.categoryType !== "Category";
     showProductLineFilters = pageCategory.categoryType !== "ProductLine";
   }
-
   return [
     showBrandFilter ? getBrandFilterFromProducts(products) : undefined,
     showProductFamilyFilter ? getProductFamilyFilter(products) : undefined,
@@ -427,7 +419,9 @@ export const getFilters = (
     getColorFilter(pimClassificationNamespace, products),
     getMaterialsFilter(pimClassificationNamespace, products),
     getTextureFilter(pimClassificationNamespace, products),
-    ...(showCategoryFilters ? getCategoryFilters(allCategories) : [])
+    ...(showCategoryFilters
+      ? getCategoryFilters(findAllCategories(products))
+      : [])
   ].filter(Boolean);
 };
 
@@ -558,8 +552,8 @@ export const filterDocuments = (
   const valueMatcher = {
     brand: (document: DocumentResultData, valuesToMatch: string[]): boolean =>
       isPIMDocument(document)
-        ? findPIMDocumentBrandCategory(document).some((item) =>
-            valuesToMatch.includes(item.code)
+        ? findPIMDocumentBrandCategories(document).some((brandCategory) =>
+            valuesToMatch.includes(brandCategory.code)
           )
         : valuesToMatch.includes(document.brand),
     productFamily: (
@@ -569,7 +563,7 @@ export const filterDocuments = (
       isPIMDocument(document) &&
       (document.product.categories || [])
         .filter(({ categoryType }) => categoryType === "ProductFamily")
-        .some((item) => valuesToMatch.includes(item.code)),
+        .some((brandCategory) => valuesToMatch.includes(brandCategory.code)),
     contentfulAssetType: (
       document: DocumentResultData,
       valuesToMatch: string[]
