@@ -1,18 +1,17 @@
 import React from "react";
-import Hero from "@bmi/hero";
-import Button from "@bmi/button";
-import Grid from "@bmi/grid";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
-import { TrainingProcessCard } from "components/Cards/TrainingProcess";
+import { TrainingCover } from "components/Cards/TrainingCover";
 import { TrainingSidePanel } from "components/SidePanel/TrainingSidePanel";
-import GridStyles from "../styles/Grid.module.scss";
 import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
-import { getServerPageTraining } from "../graphql/generated/page";
+import {
+  getServerPageDoceboCatalogIdByMarketDomain,
+  getServerPageTraining
+} from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
 
 type PageProps = {
@@ -27,7 +26,6 @@ type PageProps = {
 const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
-
   if (error)
     return (
       <Layout title={t("Training")}>
@@ -35,7 +33,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
       </Layout>
     );
 
-  const { trainingContentCollection } = data;
+  const { trainingContentCollection, courseCatalogues } = data;
 
   if (!trainingContentCollection.items.length)
     return (
@@ -44,47 +42,18 @@ const TrainingPage = ({ trainingData }: PageProps) => {
       </Layout>
     );
 
-  // there will only ever be 1 training collection item
-  const { pageHeading, description, lmsCtaLabel, image } =
-    trainingContentCollection.items[0];
-
-  const media = <img src={image.url} />;
+  //Translate course status
+  courseCatalogues?.nodes?.forEach(({ course }) => {
+    course.courseEnrollments?.nodes.forEach(
+      (enrollment) => (enrollment.status = t(enrollment.status))
+    );
+  });
 
   return (
     <Layout title={t("Training")}>
       <div style={{ display: "flex" }}>
-        <TrainingSidePanel />
-        <Grid
-          container
-          spacing={3}
-          className={GridStyles.outerGrid}
-          alignItems="stretch"
-        >
-          <Grid item xs={12}>
-            <Hero
-              media={media}
-              title={pageHeading}
-              level={1}
-              cta={
-                <Button
-                  label={lmsCtaLabel}
-                  action={{
-                    model: "htmlLink",
-                    href: "", // TODO: what url is this?
-                    target: "_blank",
-                    rel: "noopener noreferrer"
-                  }}
-                >
-                  {lmsCtaLabel}
-                </Button>
-              }
-            >
-              {description}
-            </Hero>
-
-            <TrainingProcessCard data={trainingContentCollection} />
-          </Grid>
-        </Grid>
+        <TrainingSidePanel courseCatalog={courseCatalogues} />
+        <TrainingCover trainingContentCollection={trainingContentCollection} />
       </div>
     </Layout>
   );
@@ -92,14 +61,43 @@ const TrainingPage = ({ trainingData }: PageProps) => {
 
 export const getServerSideProps = async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+
   return auth0.withPageAuthRequired({
     async getServerSideProps({ locale, ...ctx }) {
       const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
+      const { user } = await auth0.getSession(ctx.req);
+
+      const { AUTH0_NAMESPACE } = process.env;
+      const userId = user[`${AUTH0_NAMESPACE}/intouch_docebo_id`];
+
       let trainingData = {};
 
+      const domain = user[`${AUTH0_NAMESPACE}/intouch_market_code`];
+
       try {
-        const pageQuery = await getServerPageTraining({}, apolloClient);
+        const {
+          props: {
+            data: { marketByDomain = {} }
+          }
+        } = await getServerPageDoceboCatalogIdByMarketDomain(
+          {
+            variables: {
+              domain
+            }
+          },
+          apolloClient
+        );
+
+        const pageQuery = await getServerPageTraining(
+          {
+            variables: {
+              catalogueId: marketByDomain?.doceboCatalogueId || null,
+              userId
+            }
+          },
+          apolloClient
+        );
 
         trainingData = pageQuery.props;
       } catch (error) {
@@ -129,7 +127,7 @@ export default withPageAuthRequired(TrainingPage);
 
 // export doesn't matter for codegen
 export const pageQuery = gql`
-  query training {
+  query training($catalogueId: Int, $userId: Int) {
     trainingContentCollection {
       items {
         pageHeading
@@ -150,6 +148,33 @@ export const pageQuery = gql`
         step3Description
         live
       }
+    }
+    courseCatalogues(condition: { catalogueId: $catalogueId }) {
+      nodes {
+        course {
+          courseId
+          name #
+          technology #
+          image
+          promoted
+          trainingType # category
+          description
+          courseEnrollments(condition: { userId: $userId }) {
+            nodes {
+              id
+              status
+              url
+              courseId
+            }
+          }
+        }
+      }
+    }
+  }
+
+  query DoceboCatalogIdByMarketDomain($domain: String!) {
+    marketByDomain(domain: $domain) {
+      doceboCatalogueId
     }
   }
 `;

@@ -1,16 +1,24 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import styles from "./styles.module.scss";
 
 export type FilterButtonProps = {
   label: string;
+  isActive?: Boolean;
+  onClick?: () => void;
 };
 
-const useStyles = makeStyles((theme: Theme) =>
+interface MakeStylesProps {
+  isActive: Boolean;
+}
+
+const useStyles = makeStyles<Theme, MakeStylesProps>((theme: Theme) =>
   createStyles({
     root: {
       borderRadius: "44px",
-      backgroundColor: "#f7f7f7",
+      backgroundColor: ({ isActive }) =>
+        isActive ? styles["color-cyan"] : styles["color-pearl"],
       marginRight: "0.5em",
       marginBottom: "0.5em",
       color: "#007bbd",
@@ -21,16 +29,26 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       "& > .MuiButton-label": {
         color: "#007bbd"
-      }
+      },
+      textTransform: "capitalize"
     }
   })
 );
 
-export const FilterButton = ({ label }: FilterButtonProps) => {
-  const classes = useStyles();
+export const FilterButton = ({
+  label,
+  isActive,
+  onClick
+}: FilterButtonProps) => {
+  const { root } = useStyles({ isActive });
 
   return (
-    <Button className={classes.root} variant="contained" disableElevation>
+    <Button
+      className={root}
+      variant="contained"
+      disableElevation
+      onClick={() => onClick && onClick()}
+    >
       {label}
     </Button>
   );
