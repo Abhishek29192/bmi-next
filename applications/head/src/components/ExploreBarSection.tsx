@@ -1,0 +1,56 @@
+import ExploreBar from "@bmi/explore-bar";
+import Section from "@bmi/section";
+import { graphql } from "gatsby";
+import React, { useContext } from "react";
+import { devLog } from "../utils/devLog";
+import { Data as LinkData, getClickableActionFromUrl } from "./Link";
+import { SiteContext } from "./Site";
+
+export type Data = {
+  __typename: "ContentfulNavigation";
+  label: string | null;
+  links: LinkData[];
+};
+
+const ExploreBarSection = ({ data }: { data: Data }) => {
+  const { countryCode } = useContext(SiteContext);
+  const { label } = data;
+  // Navigation is being used as the explore bar so bad values need filtering out.
+  const links = data.links.filter((link) => {
+    if (Object.keys(link).length) {
+      return true;
+    }
+    devLog(
+      `Only Links can be used if Navigation is being used as an Section. See Explore Bar labelled "${label}".`
+    );
+  });
+
+  return (
+    <Section>
+      <ExploreBar
+        heading={label}
+        links={links.map(({ label, linkedPage, url, asset }) => ({
+          label,
+          action: getClickableActionFromUrl(
+            linkedPage,
+            url,
+            countryCode,
+            asset?.file?.url,
+            label
+          )
+        }))}
+      />
+    </Section>
+  );
+};
+
+export default ExploreBarSection;
+
+export const query = graphql`
+  fragment ExploreBarSectionFragment on ContentfulNavigation {
+    label
+    links {
+      ...LinkFragment
+    }
+  }
+`;

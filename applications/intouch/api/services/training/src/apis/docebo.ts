@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 import { RESTDataSource, RequestOptions } from "apollo-datasource-rest";
 
 import {
@@ -44,12 +44,17 @@ export const loginToDocebo = async (username) => {
 };
 
 export default class Docebo extends RESTDataSource<ITokenInfo> {
+  private axiosInstance: AxiosInstance;
+
   constructor() {
     super();
     this.baseURL = DOCEBO_API_URL;
+    this.axiosInstance = axios.create({
+      baseURL: DOCEBO_API_URL
+    });
   }
   willSendRequest(request: RequestOptions) {
-    request.headers.set("Authorization", `Bearer ${this.context.token}`);
+    request.headers.set("Authorization", `Bearer ${this.context?.token || ""}`);
   }
 
   async getTokenByUserInfo() {
@@ -60,12 +65,14 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
       username: DOCEBO_API_USERNAME,
       password: DOCEBO_API_PASSWORD
     };
-    return this.post(`/oauth2/token`, body);
+    return this.axiosInstance.post(`/oauth2/token`, body);
   }
 
   async getTokenByJWTPayload(username: string) {
     const body = await getTokenPayload(username);
-    return this.post(`/oauth2/token`, body);
+    const { data } = await this.axiosInstance.post(`/oauth2/token`, body);
+
+    return data;
   }
 
   async getSSOUrl(path: string = "/learn/mycourses") {
@@ -73,26 +80,25 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
   }
 
   async createSSOUrl(username: string, path: string = "/learn/mycourses") {
-    const { access_token, expires_in, token_type, scope } =
-      await this.getTokenByJWTPayload(username);
-    return `${this.baseURL}${path};type=oauth2_response;access_token=${access_token};expires_in=${expires_in};token_type=${token_type};scope=${scope}`;
+    const token = await this.getTokenByJWTPayload(username);
+    return `${this.baseURL}${path};type=oauth2_response;access_token=${token.access_token};expires_in=${token.expires_in};token_type=${token.token_type};scope=${token.scope}`;
   }
 
   async getUser(id: Number) {
-    const { data } = await this.get(`/manage/v1/user/${id}`);
+    const { data } = await this.axiosInstance.get(`/manage/v1/user/${id}`);
     return data;
   }
   async getEnrollmentByUserId(userId: Number, options?: IPageQueryOptions) {
     const queryString = buildUrlQueryString(options);
     //TODO:Add filter criteria;
     //updated_from: Filters all the courses that have been updated after a certain date/time
-    const { data } = await this.get(
+    const { data } = await this.axiosInstance.get(
       `/learn/v1/enrollments?id_user=${userId}&${queryString}`
     );
     return data;
   }
   async getCourse(id: Number) {
-    const { data } = await this.get(`/learn/v1/courses/${id}`);
+    const { data } = await this.axiosInstance.get(`/learn/v1/courses/${id}`);
     return data;
   }
   async getCourses(options?: IPageQueryOptions) {
@@ -102,11 +108,13 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
     //updated_from: Filters all the courses that have been updated after a certain date/time
     //updated_to: Filters all the courses that have been updated before a certain date/time
 
-    const { data } = await this.get(`/learn/v1/courses?${queryString}`);
+    const { data } = await this.axiosInstance.get(
+      `/learn/v1/courses?${queryString}`
+    );
     return data;
   }
   async getSession() {
-    const { data } = await this.get(`/manage/v1/user/session`);
+    const { data } = await this.axiosInstance.get(`/manage/v1/user/session`);
     return data;
   }
   async checkUserValidatiy(userId?: String, email?: String) {
@@ -116,7 +124,9 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
 
     const query = `${mapQuery.map((e) => `${e.name}=${e.value}`).join("&")}`;
 
-    const { data } = await this.get(`/manage/v1/user/check_validity?${query}`);
+    const { data } = await this.axiosInstance.get(
+      `/manage/v1/user/check_validity?${query}`
+    );
     return data;
   }
   async createUser(input: IUserCreateInput) {
@@ -128,26 +138,28 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
       password_retype: input.password,
       select_orgchart: select_orgchart
     };
-    const { data } = await this.post(`/manage/v1/user`, body);
+    const { data } = await this.axiosInstance.post(`/manage/v1/user`, body);
     return data;
   }
   async getBranches(options?: IPageQueryOptions) {
     const queryString = buildUrlQueryString(options);
 
-    return this.get(`/manage/v1/orgchart?${queryString}`);
+    return this.axiosInstance.get(`/manage/v1/orgchart?${queryString}`);
   }
   async createGroup(input: IGroupCreateInput) {
     const body = {
       ...input
     };
-    const { data } = await this.post(`/manage/v1/group`, body);
+    const { data } = await this.axiosInstance.post(`/manage/v1/group`, body);
     return data;
   }
 
   async getCertifications(options?: IPageQueryOptions) {
     const queryString = buildUrlQueryString(options);
 
-    const { data } = await this.get(`/learn/v1/certification?${queryString}`);
+    const { data } = await this.axiosInstance.get(
+      `/learn/v1/certification?${queryString}`
+    );
     return data;
   }
 
@@ -155,7 +167,7 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
     const queryString = buildUrlQueryString(options);
 
     //show_item_list: Get sub_items (course list)
-    const { data } = await this.get(
+    const { data } = await this.axiosInstance.get(
       ` /learn/v1/catalog?show_item_list=1&${queryString}`
     );
     return data;
@@ -163,14 +175,14 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
   async getCategories(options?: IPageQueryOptions) {
     const queryString = buildUrlQueryString(options);
 
-    return this.get(`/learn/v1/categories?${queryString}`);
+    return this.axiosInstance.get(`/learn/v1/categories?${queryString}`);
   }
 
   //List of enrollments for current branch and children
   async getEnrollmentsReport(branchId: Number, options?: IPageQueryOptions) {
     const queryString = buildUrlQueryString(options);
 
-    const { data } = await this.get(
+    const { data } = await this.axiosInstance.get(
       `/report/v1/branch_dashboard_enrollment/${branchId}?${queryString}`
     );
     return data;
@@ -185,7 +197,7 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
 
     const query = `${mapQuery.map((e) => `${e.name}=${e.value}`).join("&")}`;
 
-    const { data: { rows = [] } = {} } = await this.get(
+    const { data: { rows = [] } = {} } = await this.axiosInstance.get(
       `/report/v1/report/${reportId}/data?${query}`
     );
     return rows;

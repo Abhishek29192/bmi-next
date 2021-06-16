@@ -8,6 +8,7 @@ import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPit
 import getPitchValues from "./helpers/getPitchValues";
 import { MainTileCategory, RangeValue } from "./types";
 import { DimensionsValues } from "./types/roof";
+import { AnalyticsContext } from "./helpers/analytics";
 
 type TileForValidation = {
   maxBattenGauge: RangeValue[];
@@ -41,6 +42,7 @@ const TileSelectionRow = ({
   selected
 }: TileSelectionRowProps) => {
   const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
     return null;
@@ -55,7 +57,14 @@ const TileSelectionRow = ({
             value={tile.code}
             title={tile.name}
             imageSource={tile.variants.slice().sort(byName)[0].image}
-            onClick={() => select(tile)}
+            onClick={() => {
+              pushEvent({
+                id: "rc-select-tile",
+                label: tile.name,
+                action: "selected"
+              });
+              select(tile);
+            }}
           >
             <CardRadioGroup.Item.Paragraph>
               {`${tile.variants.length} ${

@@ -62,12 +62,22 @@
 
   .filters {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: flex-end;
+
+    @media (min-width: $breakpoint-lg) {
+      margin-left: 15px;
+    }
+
+    .chips-label {
+      flex-shrink: 0;
+      display: inline;
+    }
 
     .chips {
       margin-left: 19px;
       margin-bottom: -5px;
+      text-align: right;
     }
   }
 

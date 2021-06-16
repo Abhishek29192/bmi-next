@@ -95,10 +95,6 @@ $hero-breakpoint-sm: 769px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-
-    @media (min-width: $breakpoint-sm) {
-      -webkit-line-clamp: 5;
-    }
   }
 
   .cta {

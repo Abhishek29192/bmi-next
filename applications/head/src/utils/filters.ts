@@ -1,13 +1,20 @@
 import { uniqBy, map } from "lodash";
-import { Product, Category } from "../templates/product-details-page";
+import { Product, Category } from "../components/types/ProductBaseTypes";
 import { Data as DocumentResultsData } from "../components/DocumentResults";
-import { Data as PIMDocumentData } from "../components/PIMDocument";
-import { Data as PIMLinkDocumentData } from "../components/PIMLinkDocument";
+import {
+  PIMDocumentData,
+  PIMLinkDocumentData
+} from "../components/types/PIMDocumentBase";
+import { Data as DocumentData } from "../components/Document";
 import {
   findAllCategories,
   mapProductClassifications,
   ProductCategoryTree
 } from "./product-details-transforms";
+
+export type filterOption = ProductFilter & {
+  value: string[];
+};
 
 export type ProductFilter = {
   label: string;
@@ -49,23 +56,25 @@ export const sortAlphabeticallyBy = (propName) => (a, b) => {
 
 const findPIMProductBrandCategory = (
   product: Pick<Product, "categories">
-): Category => {
-  return (product.categories || []).find(
+): Category[] => {
+  return (product.categories || []).filter(
     ({ categoryType }) => categoryType === "Brand"
   );
 };
 
 export const findPIMDocumentBrandCategory = (
   document: PIMDocumentData | PIMLinkDocumentData
-): Category => {
+): Category[] => {
   return findPIMProductBrandCategory(document.product);
 };
 
 // Returns a Category like object
-const getBrandCategoryFromProducts = (products: readonly Product[]) => {
+const getBrandCategoryFromProducts = (
+  products: readonly Product[]
+): Category[] => {
   return uniqBy(
     products
-      .map((product) => {
+      .flatMap((product) => {
         return findPIMProductBrandCategory(product);
       })
       .filter(Boolean),
@@ -78,7 +87,7 @@ const getBrandCategoryFromProducts = (products: readonly Product[]) => {
 const getBrandCategoryFromDocuments = (documents: DocumentResultsData) => {
   return uniqBy(
     documents
-      .map((document) => {
+      .flatMap((document) => {
         if (isPIMDocument(document)) {
           return findPIMDocumentBrandCategory(document);
         }
@@ -362,6 +371,11 @@ const getMaterialsFilter = (
   };
 };
 
+// currently showing not covered in tests
+// As, This is going to the product-detail-transforms
+// where its working with product variant options recusrively!
+// dont understand how it creates path for categories
+// hence not covered in tests at the moment
 const getCategoryFilters = (productCategories: ProductCategoryTree) => {
   return Object.entries(productCategories)
     .sort((a, b) => {
@@ -448,4 +462,133 @@ export const clearFilterValues = (filters) => {
     ...filter,
     value: []
   }));
+};
+
+export type ResultType = "Simple" | "Technical" | "Card Collection";
+
+export type Source = "PIM" | "CMS" | "ALL";
+
+export const generateUniqueDocuments = (
+  resultType: ResultType,
+  documents: DocumentResultsData
+): DocumentResultsData => {
+  //JIRA: 2042: this needs to be done only for "Simple" table results
+  if (resultType === "Simple") {
+    const allPIMDocuments = Array<PIMDocumentData | PIMLinkDocumentData>();
+    const allOtherDocuments = Array<DocumentData>();
+    documents.forEach((document) => {
+      isPIMDocument(document)
+        ? allPIMDocuments.push(document)
+        : allOtherDocuments.push(document);
+    });
+
+    const uniquePIMDocuments = uniqBy(
+      allPIMDocuments,
+      (item) => `${item.title}-${item.url}`
+    );
+    const uniqueCMSDocuments = uniqBy(
+      allOtherDocuments,
+      (item) => `${item.asset.file.fileName}`
+    );
+    return [...uniquePIMDocuments, ...uniqueCMSDocuments];
+  }
+  return documents;
+};
+
+export const getDocumentFilters = (
+  documents: DocumentResultsData,
+  source: Source,
+  resultsType: ResultType,
+  classificationNamespace
+) => {
+  // AC1 – view a page that displays PIM documents in a Simple Document table - INVALID
+
+  if (source === "PIM" && resultsType === "Simple") {
+    return [
+      getBrandFilterFromDocuments(documents),
+      getProductFamilyFilterFromDocuments(documents),
+      getTextureFilterFromDocuments(classificationNamespace, documents)
+    ];
+  }
+
+  // AC2 – view a page that displays documents in a Technical Document table
+  if (source === "PIM" && resultsType === "Technical") {
+    return [
+      getBrandFilterFromDocuments(documents),
+      getProductFamilyFilterFromDocuments(documents)
+    ];
+  }
+
+  // AC3 – view a page that displays documents in a Card Collection
+  if (source === "CMS" && resultsType === "Card Collection") {
+    return [getBrandFilterFromDocuments(documents)];
+  }
+
+  // AC4 – view a page that displays All documents in a Simple Document table
+  if (source === "ALL" && resultsType === "Simple") {
+    return [
+      getAssetTypeFilterFromDocuments(documents),
+      getBrandFilterFromDocuments(documents),
+      getProductFamilyFilterFromDocuments(documents)
+    ];
+  }
+
+  // AC5 – view a page that displays CMS documents in a Simple Document table,
+  // more than one Asset Type
+  // AC6 – view a page that displays CMS documents in a Simple Document table,
+  // only one Asset Type
+  if (source === "CMS" && resultsType === "Simple") {
+    return [
+      getBrandFilterFromDocuments(documents),
+      // TODO: Should not be there if ONLY ONE OPTION AVAILABLE
+      // TODO: Move this responsibility to Filters???
+      getAssetTypeFilterFromDocuments(documents)
+    ];
+  }
+
+  return [];
+};
+
+type DocumentResultData = PIMDocumentData | DocumentData | PIMLinkDocumentData;
+
+export const filterDocuments = (
+  documents: DocumentResultsData,
+  filters: Array<filterOption>
+): DocumentResultsData => {
+  const valueMatcher = {
+    brand: (document: DocumentResultData, valuesToMatch: string[]): boolean =>
+      isPIMDocument(document)
+        ? findPIMDocumentBrandCategory(document).some((item) =>
+            valuesToMatch.includes(item.code)
+          )
+        : valuesToMatch.includes(document.brand),
+    productFamily: (
+      document: DocumentResultData,
+      valuesToMatch: string[]
+    ): boolean =>
+      isPIMDocument(document) &&
+      (document.product.categories || [])
+        .filter(({ categoryType }) => categoryType === "ProductFamily")
+        .some((item) => valuesToMatch.includes(item.code)),
+    contentfulAssetType: (
+      document: DocumentResultData,
+      valuesToMatch: string[]
+    ): boolean => valuesToMatch.includes(document.assetType.code)
+  };
+
+  const filtersWithValues = filters.filter(({ value }) => value.length !== 0);
+  //user clears ALL filters then return all documents
+  if (filtersWithValues.length === 0) return documents;
+
+  return documents.filter((document) => {
+    // only work with the filters that user has checked
+    // i.e. filter with values!
+    return filtersWithValues.some((filter) => {
+      const matcher = valueMatcher[filter.name];
+      if (matcher) {
+        return matcher(document, filter.value);
+      }
+      return false;
+    });
+  });
 };

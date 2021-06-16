@@ -1,5 +1,3 @@
-image: node:12
-
 test_head:
   stage: test
   rules:
@@ -10,7 +8,9 @@ test_head:
         - libraries/**/*
         - jest/**/*
         - package.json
-  needs: [install]
+        - "**/package.json"
+  needs:
+    - install
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
@@ -22,6 +22,25 @@ test_head:
       junit:
         - applications/head/junit.xml
 
+test_mr_coverage_head:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - applications/head/**/*
+        - components/**/*
+        - libraries/**/*
+        - jest/**/*
+        - package.json
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - git fetch origin master
+    - yarn workspace @bmi/head coverage:jest --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+
 build_head:
   stage: build
   rules:
@@ -31,7 +50,9 @@ build_head:
         - components/**/*
         - libraries/**/*
         - package.json
-  needs: [install]
+        - "**/package.json"
+  needs:
+    - install
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
   before_script:
@@ -76,47 +97,106 @@ deploy_head_preview:
     - |
       DEPLOY_RESULT=$(npx netlify deploy --dir applications/head/public --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
       echo ${DEPLOY_RESULT}
+      SITE_URL=$(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')
       curl --request POST --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" -H "Content-Type: application/json" \
-        -d "{\"body\":\"Deployed to: $(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')\"}" \
+        -d "{\"body\":\"Deployed to: ${SITE_URL}\"}" \
         "https://gitlab.com/api/v4/projects/19163612/merge_requests/${CI_MERGE_REQUEST_IID}/notes"
+      echo "${SITE_URL}" > deploy_head
+  artifacts:
+    paths:
+      - deploy_head
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Triggered by Netlify when deploy is complete
-baseline_scan_head:
-  image: owasp/zap2docker-stable:latest
+# Disabled until it can be fixed
+baseline_scan_head_preview:
   stage: dynamic_security
   rules:
-    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head'"
+    # - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+    #   changes:
+    #     - applications/head/**/*
+    #     - components/**/*
+    #     - libraries/**/*
+    - when: never
+  needs:
+    - deploy_head_preview
+  image: owasp/zap2docker-stable:latest
   cache: {}
   script:
-    - zap-baseline.py -t ${SITE_URL_FROM_NETLIFY} || exit 0
+    - |
+      base_url=$(cat deploy_head)
+      [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
+      xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${base_url}" applications/head/dast/mr.context
+      zap-baseline.py -t "${base_url}/no/" -r zap_output.html -n applications/head/mr.context -U qa || exit 0
+  artifacts:
+    paths:
+      - zap_output.html
 
 # https://www.zaproxy.org/docs/docker/full-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true
-# When happy with how this works, change to use zap-full-scan.py
-full_scan_head:
+full_scan_head_qa:
   stage: dynamic_security
   rules:
-    - if: "$WHICH_SCHEDULE == 'full_scan_head'"
+    - if: "$WHICH_SCHEDULE == 'full_scan_head_qa'"
+      when: delayed
+      start_in: 1 minute
   image: owasp/zap2docker-stable:latest
   cache: {}
   script:
-    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app/no/
+    - zap-full-scan.py -t https://bmi-dxb-head-qa.netlify.app/ -r zap_output.html -n applications/head/qa.context -U qa
+  artifacts:
+    paths:
+      - zap_output.html
+
+# https://www.zaproxy.org/docs/docker/baseline-scan/
+# Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
+# SAST_DISABLED should be set to true
+# When happy with how this works, change to use zap-full-scan.py
+baseline_scan_head_prod:
+  stage: dynamic_security
+  rules:
+    - if: '$WHICH_SCHEDULE == "baseline_scan_head_prod"'
+  image: owasp/zap2docker-stable:latest
+  script:
+    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app -r zap_output.html -n applications/head/prod.context
+  artifacts:
+    paths:
+      - zap_output.html
 
 # https://github.com/GoogleChrome/lighthouse-ci
 # Lighthouse scan on netlify build
-lighthouseci_build_scan_head:
+lighthouseci_scan_head_preview:
   stage: lighthouse_scan
   rules:
-    - if: "$SITE_URL_FROM_NETLIFY != null && $SITE_FROM_NETLIFY == 'head'"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - applications/head/**/*
+        - components/**/*
+        - libraries/**/*
+  needs:
+    - deploy_head_preview
   image: cypress/browsers:node14.15.0-chrome86-ff82
+  variables:
+    # Required as QA password has a `$` in it
+    NETLIFY_PWD: "$NETLIFY_PASSWORD_QA"
   script:
-    - cd applications/head
-    - yarn lhci autorun --collect.url='$SITE_URL_FROM_NETLIFY' || echo "LHCI failed!"
+    - |
+      base_url=$(cat deploy_head)
+      [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
+      urls=(
+        "${base_url}/no/"
+        "${base_url}/no/contact-us/"
+        "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
+      )
+      params="--collect.settings.pwd=${NETLIFY_PWD}"
+      for url in ${urls[@]}; do
+        params="$params --collect.url=${url}"
+      done
+      yarn workspace @bmi/head lighthouse ${params} || echo "LHCI failed!"
   artifacts:
     paths:
-      - applications/head/.lighthouseci
+      - applications/head/lighthouseci/reports
 
 # https://github.com/GoogleChrome/lighthouse-ci
 # Should be set as a scheduled job for cron 0 2 * * 0 (2am every sunday) for QA
@@ -125,14 +205,123 @@ lighthouseci_build_scan_head:
 lighthouseci_scan_head:
   stage: lighthouse_scan
   variables:
+    # Required as QA password has a `$` in it
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"
   rules:
     - if: "$WHICH_SCHEDULE == 'lighthouseci_scan_head'"
   image: cypress/browsers:node14.15.0-chrome86-ff82
   script:
-    - cd applications/head
-    - sed -i 's/"http:\/\/localhost:8000\/no"/'$LIGHTHOUSE_URLS'/g' lighthouserc.js
-    - yarn lhci autorun --collect.settings.pwd=$NETLIFY_PWD
+    - sed -i 's/"http:\/\/localhost:8000\/no"/'$LIGHTHOUSE_URLS'/g' applications/head/lighthouserc.js
+    - yarn workspace @bmi/head lighthouse --collect.settings.pwd=$NETLIFY_PWD
   artifacts:
     paths:
-      - applications/head/.lighthouseci
+      - applications/head/lighthouseci/reports
+
+############################################################################
+# Templates used by each market to run content migrations
+############################################################################
+.migrate_content:
+  variables:
+    DXB_MARKET_ID: "" # Two letter market ID  -i.e. NO
+  stage: migration
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+  before_script:
+    - |
+      apt-get update
+      apt-get install -y jq
+
+      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
+        SOURCE_BRANCH=master
+        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_QA
+      fi
+          
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
+        SOURCE_BRANCH=pre-production
+        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PREPROD
+      fi
+
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
+        SOURCE_BRANCH=production
+        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PROD
+      fi
+
+      export PROJECT_RELATIVE_PATH=projects/dxb
+      export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
+      export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
+  script:
+    - yarn build-contentful true $SOURCE_BRANCH $CI_COMMIT_TAG
+
+.deploy_gatsby_cloud:
+  variables:
+    DXB_MARKET_ID: "" # Two letter market ID  -i.e. NO
+  stage: deploy
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+  before_script:
+    - |
+      apt-get update
+      apt-get install -y jq
+
+      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
+        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_QA
+      fi
+          
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
+        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_PREPROD
+      fi
+
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
+        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_PROD
+      fi
+  script:
+    - |
+      DXB_MARKET_BUILD_HOOK=$(cat $DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
+      curl -X POST -d {} $DXB_MARKET_BUILD_HOOK
+
+##############################################################
+# Market specific migration and deploy jobs start from here
+##############################################################
+
+migrate_content_norway:
+  extends: .migrate_content
+  needs:
+    - install
+  variables:
+    DXB_MARKET_ID: "NO"
+
+deploy_gatsby_cloud_norway:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_norway
+  variables:
+    DXB_MARKET_ID: "NO"
+# Uncomment once ready
+# migrate_content_italy:
+#   extends: .migrate_content
+#   needs:
+#     - install
+#   variables:
+#     DXB_MARKET_ID: "IT"
+#   rules:
+#     - if: "$CI_COMMIT_TAG" # Only trigger for tags as Italy is not on QA
+#       changes:
+#         - libraries/migrate/projects/dxb/**/*
+
+# deploy_gatsby_cloud_italy:
+#   extends: .deploy_gatsby_cloud
+#   needs:
+#     - migrate_content_italy
+#   variables:
+#     DXB_MARKET_ID: "IT"
+#   rules:
+#     - if: "$CI_COMMIT_TAG" # Only trigger for tags as Italy is not on QA
+#       changes:
+#         - libraries/migrate/projects/dxb/**/*
+##############################################################
+# Market specific migration and deploy jobs end here
+##############################################################

@@ -13,9 +13,8 @@ import { setContext } from "@apollo/client/link/context";
 import { getAuth0Instance } from "../lib/auth0";
 
 let apolloClient;
-const { NEXT_PUBLIC_BASE_URL } = process.env;
-
 const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
+  let baseUrl;
   const isBrowser = typeof window !== "undefined";
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -32,15 +31,22 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
     }
   });
 
-  let accessToken;
+  if (!isBrowser) {
+    const protocol = ctx?.req?.headers["x-forwarded-proto"] || "http";
+    baseUrl = `${protocol}://${ctx?.req?.headers?.host}`;
+  } else {
+    baseUrl = `${window.location.protocol}//${window.location.host}`;
+  }
 
   const httpLink = new HttpLink({
-    uri: `${NEXT_PUBLIC_BASE_URL}/api/graphql`,
+    uri: `${baseUrl}/api/graphql`,
     credentials: "same-origin"
   });
 
   const authLink = setContext(async (req, { headers }) => {
-    if (ctx) {
+    let accessToken;
+
+    if (ctx.req) {
       const auth0 = await getAuth0Instance(ctx.req, ctx.res);
       const session = auth0.getSession(ctx.req, ctx.res);
       accessToken = `Bearer ${session.accessToken}`;

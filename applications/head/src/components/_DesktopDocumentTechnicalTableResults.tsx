@@ -9,11 +9,13 @@ import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import {
+  PIMDocumentData,
+  PIMLinkDocumentData
+} from "../components/types/PIMDocumentBase";
 import AssetHeader from "./_AssetHeader";
 import { SiteContext } from "./Site";
 import { Data as AssetTypeData } from "./AssetType";
-import { Data as PIMDocumentData } from "./PIMDocument";
-import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import { Format } from "./types";
 import createAssetFileCountMap, {

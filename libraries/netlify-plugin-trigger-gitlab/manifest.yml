@@ -1,0 +1,6 @@
+name: netlify-plugin-trigger-gitlab
+inputs:
+  - name: gitlabUrl
+    description: URL of the GitLab pipeline to trigger
+  - name: application
+    description: Name of the application (e.g. head)

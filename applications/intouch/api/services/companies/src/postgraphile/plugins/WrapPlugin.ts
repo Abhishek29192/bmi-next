@@ -1,6 +1,6 @@
 import { makeWrapResolversPlugin } from "graphile-utils";
 import { updateCompany } from "../../services/company";
-import { createAccount } from "../../services/account";
+import { createAccount, updateAccount } from "../../services/account";
 
 const WrapPlugin = makeWrapResolversPlugin({
   Mutation: {
@@ -8,11 +8,17 @@ const WrapPlugin = makeWrapResolversPlugin({
       requires: {
         childColumns: [
           { column: "id", alias: "$account_id" },
+          { column: "market_id", alias: "$market_id" },
           { column: "role", alias: "$role" }
         ]
       },
       async resolve(resolve: any, source, args, context: any, resolveInfo) {
         return createAccount(resolve, source, args, context, resolveInfo);
+      }
+    },
+    updateAccount: {
+      async resolve(resolve: any, source, args, context: any, resolveInfo) {
+        return updateAccount(resolve, source, args, context, resolveInfo);
       }
     },
     updateCompany: {

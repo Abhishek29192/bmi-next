@@ -4,10 +4,12 @@ import Button, { IconButtonProps } from "@bmi/button";
 import Clickable, { ClickableProps } from "@bmi/clickable";
 import Icon, { iconMap } from "@bmi/icon";
 import withGTM from "../utils/google-tag-manager";
+import {
+  PIMDocumentData,
+  PIMLinkDocumentData
+} from "../components/types/PIMDocumentBase";
 import AssetHeader from "./_AssetHeader";
 import { Data as AssetTypeData } from "./AssetType";
-import { Data as PIMDocumentData } from "./PIMDocument";
-import { Data as PIMLinkDocumentData } from "./PIMLinkDocument";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import { Format } from "./types";
 

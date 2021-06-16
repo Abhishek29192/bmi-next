@@ -26,6 +26,24 @@ module.exports = pages.reduce(
         resolve(...args) {
           return resolvePath(...args);
         }
+      },
+      subtitle: {
+        async resolve(source, args, context) {
+          if (pageName !== "ContentfulSimplePage") {
+            return source.subtitle;
+          }
+
+          if (!source.subtitle___NODE) {
+            return null;
+          }
+
+          const longText = await context.nodeModel.getNodeById({
+            id: source.subtitle___NODE,
+            type: "contentfulSimplePageSubtitleTextNode"
+          });
+
+          return longText.subtitle;
+        }
       }
     }
   }),

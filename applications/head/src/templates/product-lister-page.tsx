@@ -29,7 +29,10 @@ import ProgressIndicator from "../components/ProgressIndicator";
 import { iconMap } from "../components/Icon";
 import RichText, { RichTextData } from "../components/RichText";
 import { Data as PageInfoData } from "../components/PageInfo";
-import { LinkData, getClickableActionFromUrl } from "../components/Link";
+import {
+  Data as LinkData,
+  getClickableActionFromUrl
+} from "../components/Link";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import Breadcrumbs, {
@@ -42,7 +45,7 @@ import {
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import FiltersSidebar from "../components/FiltersSidebar";
-import { Product } from "./product-details-page";
+import { Product } from "../components/types/ProductBaseTypes";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -80,6 +83,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     title,
     subtitle,
     content,
+    featuredMedia,
     features,
     featuresLink,
     breadcrumbs,
@@ -229,6 +233,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={featuredMedia?.image?.file.url}
     >
       <SiteContext.Consumer>
         {({ getMicroCopy }) => {

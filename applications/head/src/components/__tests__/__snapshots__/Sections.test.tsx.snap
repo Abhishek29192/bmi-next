@@ -323,7 +323,7 @@ HTMLCollection [
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
                   class="OverviewCard OverviewCard--flat"
@@ -437,7 +437,7 @@ HTMLCollection [
               class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
               >
                 <div
                   class="OverviewCard"
@@ -1180,14 +1180,14 @@ HTMLCollection [
               <div
                 class="filters"
               >
-                <h6
-                  class="MuiTypography-root Typography MuiTypography-h6"
-                >
-                  findARoofer.filtersLabel
-                </h6>
                 <div
                   class="chips"
                 >
+                  <h6
+                    class="MuiTypography-root chips-label Typography MuiTypography-h6"
+                  >
+                    findARoofer.filtersLabel
+                  </h6>
                   <div
                     class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
                     role="button"
@@ -1963,6 +1963,52 @@ HTMLCollection [
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="Explore"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <nav
+            aria-labelledby="explore-bar"
+            class="ExploreBar"
+          >
+            <h2
+              class="MuiTypography-root heading Typography MuiTypography-h6"
+              id="explore-bar"
+            >
+              Explore
+            </h2>
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button link MuiButton-outlinedPrimary"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"link-to-page\\",\\"label\\":\\"string\\"}"
+              href="link-to-page"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                string
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </nav>
         </div>
       </div>
     </div>

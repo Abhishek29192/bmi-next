@@ -1,5 +1,4 @@
 import axios from "axios";
-import uuid from "uuid";
 import { createAccount, mutationCreateAccount } from "../";
 
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
@@ -20,12 +19,17 @@ describe("Account", () => {
       [`${process.env.AUTH0_NAMESPACE}/type`]: "company"
     }
   };
+  const req = {
+    headers: {
+      host: "graphql"
+    }
+  };
   it("should send a mutation with the right values", async () => {
     axios.post = jest.fn().mockResolvedValue({ data: {} });
 
-    await createAccount(session);
+    await createAccount(req, session);
     expect(axios.post).toHaveBeenCalledWith(
-      process.env.GRAPHQL_URL,
+      `http://graphql/api/graphql`,
       {
         query: mutationCreateAccount,
         variables: {

@@ -1,18 +1,61 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
+export type CompanyDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  "id" | "name" | "phone" | "website" | "aboutUs" | "publicEmail"
+> & {
+    readonly companyMembers: {
+      readonly __typename?: "CompanyMembersConnection";
+    } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyMember" } & Pick<
+          SchemaTypes.CompanyMember,
+          "id"
+        >
+      >;
+    };
+  };
+
+export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateCompanyInput;
+}>;
+
+export type UpdateCompanyDetailsMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly updateCompany?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateCompanyPayload" } & {
+      readonly company?: SchemaTypes.Maybe<
+        { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
+      >;
+    }
+  >;
+};
+
 export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.CreateCompanyInput;
+  input: SchemaTypes.UpdateCompanyInput;
 }>;
 
 export type CreateCompanyMutation = { readonly __typename?: "Mutation" } & {
-  readonly createCompany?: SchemaTypes.Maybe<
-    { readonly __typename?: "CreateCompanyPayload" } & {
+  readonly updateCompany?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateCompanyPayload" } & {
       readonly company?: SchemaTypes.Maybe<
         { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "name">
       >;
     }
   >;
 };
+
+export type CurrentCompanyQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type CurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
+  SchemaTypes.Query,
+  "currentCompany"
+>;
 
 export type GetCurrentCompanyQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
@@ -29,10 +72,7 @@ export type GetCompanyQueryVariables = SchemaTypes.Exact<{
 
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
-    { readonly __typename?: "Company" } & Pick<
-      SchemaTypes.Company,
-      "name" | "phone" | "website" | "aboutUs" | "publicEmail"
-    >
+    { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
   >;
 };
 
@@ -41,52 +81,36 @@ export type TrainingQueryVariables = SchemaTypes.Exact<{
 }>;
 
 export type TrainingQuery = { readonly __typename?: "Query" } & {
-  readonly training?: SchemaTypes.Maybe<
-    { readonly __typename?: "TrainingInfo" } & Pick<
-      SchemaTypes.TrainingInfo,
-      "name" | "url"
-    > & {
-        readonly user?: SchemaTypes.Maybe<
-          { readonly __typename?: "TrainingUser" } & Pick<
-            SchemaTypes.TrainingUser,
-            | "id"
-            | "email"
-            | "user_level"
-            | "username"
-            | "firstname"
-            | "lastname"
+  readonly trainingContentCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "TrainingContentCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "TrainingContent" } & Pick<
+            SchemaTypes.TrainingContent,
+            | "pageHeading"
+            | "description"
+            | "lmsCtaLabel"
+            | "pageSubHeading"
+            | "step1Heading"
+            | "step1SubHeading"
+            | "step1Description"
+            | "step2Heading"
+            | "step2SubHeading"
+            | "step2Description"
+            | "step3Heading"
+            | "step3SubHeading"
+            | "step3Description"
+            | "live"
           > & {
-              readonly enrollment?: SchemaTypes.Maybe<
-                { readonly __typename?: "Enrollment" } & Pick<
-                  SchemaTypes.Enrollment,
-                  | "count"
-                  | "has_more_data"
-                  | "current_page"
-                  | "current_page_size"
-                  | "total_page_count"
-                  | "total_count"
-                > & {
-                    readonly items?: SchemaTypes.Maybe<
-                      ReadonlyArray<
-                        SchemaTypes.Maybe<
-                          { readonly __typename?: "EnrollmentItems" } & Pick<
-                            SchemaTypes.EnrollmentItems,
-                            | "id"
-                            | "name"
-                            | "description"
-                            | "status"
-                            | "image_url"
-                            | "url"
-                            | "type"
-                            | "level"
-                          >
-                        >
-                      >
-                    >;
-                  }
+              readonly image?: SchemaTypes.Maybe<
+                { readonly __typename?: "Asset" } & Pick<
+                  SchemaTypes.Asset,
+                  "url"
+                >
               >;
             }
-        >;
-      }
+        >
+      >;
+    }
   >;
 };

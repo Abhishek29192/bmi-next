@@ -1,52 +1,19 @@
 import React from "react";
-import Hero, { HeroItem } from "@bmi/hero";
+import Hero from "@bmi/hero";
 import Button from "@bmi/button";
-import AlertBanner from "@bmi/alert-banner";
+import Grid from "@bmi/grid";
 import { useTranslation } from "next-i18next";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
-import type { EnrollmentItems } from "@bmi/intouch-api-types";
+import { TrainingProcessCard } from "components/Cards/TrainingProcess";
+import { TrainingSidePanel } from "components/SidePanel/TrainingSidePanel";
+import GridStyles from "../styles/Grid.module.scss";
 import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
 import { getServerPageTraining } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
-
-// export doesn't matter for codegen
-export const pageQuery = gql`
-  query training {
-    training {
-      name
-      url
-      user {
-        id
-        email
-        user_level
-        username
-        firstname
-        lastname
-        enrollment {
-          count
-          has_more_data
-          current_page
-          current_page_size
-          total_page_count
-          total_count
-          items {
-            id
-            name
-            description
-            status
-            image_url
-            url
-            type
-            level
-          }
-        }
-      }
-    }
-  }
-`;
 
 type PageProps = {
   trainingData: {
@@ -61,64 +28,65 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
 
-  if (error) return <div>Oops... {error.message}</div>;
+  if (error)
+    return (
+      <Layout title={t("Training")}>
+        <div>Oops... {error.message}</div>
+      </Layout>
+    );
 
-  const {
-    training: {
-      url,
-      user: { enrollment }
-    }
-  } = data;
+  const { trainingContentCollection } = data;
 
-  const PLACEHOLDER_IMAGE = "https://source.unsplash.com/DJ7bWa-Gwks/600x900";
-  const heroes: HeroItem[] = enrollment.items.map((item) => ({
-    title: item.name || "",
-    children: trainingChildren(item),
-    imageSource: item.image_url || PLACEHOLDER_IMAGE,
-    cta: {
-      label: t("My courses"),
-      action: {
-        model: "htmlLink",
-        href: url,
-        target: "_blank",
-        rel: "noopener noreferrer"
-      }
-    }
-  }));
+  if (!trainingContentCollection.items.length)
+    return (
+      <Layout title={t("Training")}>
+        <div></div>
+      </Layout>
+    );
+
+  // there will only ever be 1 training collection item
+  const { pageHeading, description, lmsCtaLabel, image } =
+    trainingContentCollection.items[0];
+
+  const media = <img src={image.url} />;
 
   return (
     <Layout title={t("Training")}>
-      <Hero level={0} hasSpaceBottom autoPlayInterval={10000} heroes={heroes} />{" "}
-    </Layout>
-  );
-};
-
-const trainingChildren = ({
-  description,
-  type,
-  status,
-  url
-}: EnrollmentItems) => {
-  const { t } = useTranslation("training-page");
-  return (
-    <div>
-      <p>{description}</p>
-      <AlertBanner severity="warning">
-        <AlertBanner.Title>Info</AlertBanner.Title>
-        Type/Status : {type} / {status}
-        <Button
-          style={{ marginTop: "50px", marginLeft: "50px" }}
-          action={{
-            model: "htmlLink",
-            href: url,
-            target: "_blank",
-            rel: "noopener noreferrer"
-          }}
+      <div style={{ display: "flex" }}>
+        <TrainingSidePanel />
+        <Grid
+          container
+          spacing={3}
+          className={GridStyles.outerGrid}
+          alignItems="stretch"
         >
-          {t("See training")}
-        </Button>
-      </AlertBanner>
-    </div>
+          <Grid item xs={12}>
+            <Hero
+              media={media}
+              title={pageHeading}
+              level={1}
+              cta={
+                <Button
+                  label={lmsCtaLabel}
+                  action={{
+                    model: "htmlLink",
+                    href: "", // TODO: what url is this?
+                    target: "_blank",
+                    rel: "noopener noreferrer"
+                  }}
+                >
+                  {lmsCtaLabel}
+                </Button>
+              }
+            >
+              {description}
+            </Hero>
+
+            <TrainingProcessCard data={trainingContentCollection} />
+          </Grid>
+        </Grid>
+      </div>
+    </Layout>
   );
 };
 
@@ -126,12 +94,13 @@ export const getServerSideProps = async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
     async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, ctx);
+      const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
       let trainingData = {};
 
       try {
         const pageQuery = await getServerPageTraining({}, apolloClient);
+
         trainingData = pageQuery.props;
       } catch (error) {
         trainingData = {
@@ -142,19 +111,45 @@ export const getServerSideProps = async (ctx) => {
         };
       }
 
-      return {
-        props: {
-          trainingData,
-          ...(await serverSideTranslations(locale, [
-            "common",
-            "sidebar",
-            "footer",
-            "company-page"
-          ]))
-        }
+      const props = {
+        trainingData,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer",
+          "training-page"
+        ]))
       };
+
+      return { props };
     }
   })(ctx);
 };
+export default withPageAuthRequired(TrainingPage);
 
-export default TrainingPage;
+// export doesn't matter for codegen
+export const pageQuery = gql`
+  query training {
+    trainingContentCollection {
+      items {
+        pageHeading
+        description
+        lmsCtaLabel
+        image {
+          url
+        }
+        pageSubHeading
+        step1Heading
+        step1SubHeading
+        step1Description
+        step2Heading
+        step2SubHeading
+        step2Description
+        step3Heading
+        step3SubHeading
+        step3Description
+        live
+      }
+    }
+  }
+`;

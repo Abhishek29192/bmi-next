@@ -10,13 +10,12 @@ const postgraphile =
         setofFunctionsContainNulls: false,
         ignoreRBAC: false,
         ignoreIndexes: false,
-        showErrorStack: "json",
-        extendedErrors: ["hint", "detail", "errcode"],
         exportGqlSchemaPath: "schema.graphql",
         graphiql: true,
         enhanceGraphiql: true,
         enableQueryBatching: true,
-        legacyRelations: "omit"
+        legacyRelations: "omit",
+        allowExplain: true
       } as PostGraphileOptions<Request, Response>)
     : ({
         subscriptions: false,
@@ -29,7 +28,8 @@ const postgraphile =
         graphiql: false,
         enableQueryBatching: true,
         disableQueryLog: true,
-        legacyRelations: "omit"
+        legacyRelations: "omit",
+        allowExplain: false
       } as PostGraphileOptions<Request, Response>);
 
 const roles: Record<RolesKey, RolesValues> = {

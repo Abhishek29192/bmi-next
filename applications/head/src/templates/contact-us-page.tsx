@@ -28,7 +28,7 @@ type Data = PageInfoData &
     queriesSubtitle: string;
     otherAreasTitle: string;
     otherAreas: readonly TitleWithContentData[];
-    contentTopics: ContactTopicsData[];
+    contentTopics: ContactTopicsData[] | null;
     locationsTitle: string | null;
     locations: LocationsData | null;
     iframe: IframeSectionData | null;
@@ -82,6 +82,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
+      ogImageUrl={featuredMedia?.image?.file.url}
     >
       <Hero
         level={1}
@@ -93,9 +94,11 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         <Typography variant="h4" component="p">
           {queriesSubtitle}
         </Typography>
-        <div style={{ marginTop: "40px" }}>
-          {contentTopics && <ContactTopics topics={contentTopics} />}
-        </div>
+        {contentTopics && (
+          <div style={{ marginTop: "40px" }}>
+            <ContactTopics topics={contentTopics} />
+          </div>
+        )}
       </Section>
       {iframe && <IframeSection data={iframe} />}
       {locations && (

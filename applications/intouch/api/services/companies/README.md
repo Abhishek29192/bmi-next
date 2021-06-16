@@ -18,6 +18,8 @@ docker-compose up -d;                           // spin up the container
 docker logs postgres-company-db -f;             // log the container to check if everything is ok
 ```
 
+To update the db on dev (until we get the migrations script working) you can use `npm run migrate-db` with the right envs.
+
 ### Databse in GCP (reminder)
 
 It is important to grant a role to the postgres role in order to let postgraphile switch the role based on the user role
@@ -29,6 +31,8 @@ For reference:
 https://www.graphile.org/postgraphile/deploying-gcp/
 
 https://cloud.google.com/sql/docs/postgres/users
+
+If `PG_PASSWORD` and `PG_HOST` are set as env variable the app will pick these variables, if they are not set it will fetch them from GCP secrets (these can work only form GCP)
 
 ## GCP Pub/Sub
 

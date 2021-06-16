@@ -7,7 +7,7 @@ export type InfoPairProps = {
 };
 
 export const InfoPair = ({ title, children }: InfoPairProps) => (
-  <div style={{ marginBottom: "2rem" }}>
+  <div style={{ marginBottom: "1.5rem" }}>
     <Typography variant="h6">{title}</Typography>
     <Typography variant="body1">{children}</Typography>
   </div>

@@ -5,5 +5,13 @@ const sharedConfig = require("../../jest.config");
 module.exports = {
   ...sharedConfig,
   rootDir: "../../",
-  roots: ["<rootDir>/functions/gcp-form-submit/src"]
+  roots: ["<rootDir>/functions/gcp-form-submit/src"],
+  coverageThreshold: {
+    global: {
+      statements: "97",
+      branches: "96",
+      functions: "100",
+      lines: "97"
+    }
+  }
 };

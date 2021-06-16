@@ -11,10 +11,20 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   flex-shrink: 0;
+  position: sticky;
+  top: 0;
+
+  @media (max-width: 1024px) {
+    width: 230px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
 }
 
 .filterButtons {
-  margin: 1rem 0;
+  margin-top: 1rem;
 }
 
 .results {

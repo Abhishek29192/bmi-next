@@ -1,0 +1,33 @@
+# TODO: include in the pipeline, we still need to figure out how to connect to gcp
+# build_intouch_db:
+#   stage: build
+#   rules:
+#     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+#       # changes:
+#       #   - applications/intouch/api/companies/src/data/*
+#   needs: [install]
+#   variables:
+#     PG_SCHEMA: public
+#     PG_USER: postgres
+#     PG_DATABASE: companies-db
+#     PG_PORT: 5432
+#     GCP_SECRET_PROJECT: 734962646925
+#     GOOGLE_APPLICATION_CREDENTIALS: /builds/bmi-digital/dxb/gcloud-service-key.json
+#   script:
+#     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+#     - yarn workspace @bmi/intouch-api-service-companies migrate-db
+
+deploy_intouch_api_companies_dev:
+  stage: deploy
+  image: google/cloud-sdk
+  services:
+    - docker:dind
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud builds submit . --config=applications/intouch/api/services/companies/cloudbuild.yaml

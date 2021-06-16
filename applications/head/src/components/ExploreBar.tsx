@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import ExploreBar from "@bmi/explore-bar";
-import { LinkData, getClickableActionFromUrl } from "./Link";
+import { Data as LinkData, getClickableActionFromUrl } from "./Link";
 import { SiteContext } from "./Site";
 
 export type Data = {

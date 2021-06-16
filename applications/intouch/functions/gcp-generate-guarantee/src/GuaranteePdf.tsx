@@ -3,9 +3,9 @@ import * as React from "react";
 import { pdf } from "react-pdf-maker";
 import {
   Guarantee,
-  GuaranteeTemplate,
-  GuaranteeFileType
-} from "@bmi/intouch-shared-types";
+  ContentfulGuaranteeTemplate,
+  ContentfulGuaranteeType
+} from "@bmi/intouch-api-types";
 import { vfs } from "./vfs_fonts";
 import { PdfDocument } from "./components";
 import { buffer_encode, toArrayBuffer } from "./util/bufferUtil";
@@ -17,16 +17,17 @@ const fonts = {
     bold: "Roboto-Regular.ttf"
   }
 };
-export default class GuaranteePdf {
+
+type GuaranteeFileType = {
+  name: string;
+  data: Uint8Array;
+};
+
+export default class GuaranteePdfGenerator {
   readonly guaranteeData: Guarantee;
+
   constructor(guaranteeData: Guarantee) {
     this.guaranteeData = guaranteeData;
-  }
-
-  async create() {
-    await this.loadImages();
-
-    return this.getGuaranteeTemplatesPdf();
   }
 
   private async mergePdf(...files: ArrayBuffer[]): Promise<Uint8Array> {
@@ -42,9 +43,20 @@ export default class GuaranteePdf {
     return mergedPdf.save();
   }
 
-  private async getGuaranteePdf(template: GuaranteeTemplate): Promise<any> {
+  private async getGuaranteePdf(
+    guaranteeType: ContentfulGuaranteeType,
+    template: ContentfulGuaranteeTemplate
+  ): Promise<any> {
+    const logoEncoded = await base64_encode(template.logo.url);
+    const signatureEncoded = await base64_encode(guaranteeType.signature.url);
+
     const pdfDoc = (
-      <PdfDocument template={template} data={this.guaranteeData} />
+      <PdfDocument
+        template={template}
+        guaranteeData={this.guaranteeData}
+        logoEncoded={logoEncoded}
+        signatureEncoded={signatureEncoded}
+      />
     );
     const pdfDocGenerator = pdf(pdfDoc, null, fonts, vfs);
 
@@ -61,42 +73,36 @@ export default class GuaranteePdf {
     });
   }
 
-  private getGuaranteeTemplatesPdf(): Promise<GuaranteeFileType>[] {
-    const templates =
-      this.guaranteeData.guaranteeType.guaranteeTemplatesCollection.items;
+  public async create(): Promise<GuaranteeFileType[]> {
+    const { guaranteeType } = this.guaranteeData;
+    const templates = guaranteeType.guaranteeTemplatesCollection.items;
 
-    return templates.map(async (template) => {
-      const guaranteePdf = await this.getGuaranteePdf(template);
-      const maintanance = await this.getPdfFromUrl(
-        template.maintenanceTemplate.url
-      );
-      const termAndCondition = await this.getPdfFromUrl(template.terms.url);
-      const data = await this.mergePdf(
-        guaranteePdf,
-        maintanance,
-        termAndCondition
-      );
+    return Promise.all(
+      templates.map(async (template) => {
+        const guaranteePdf = await this.getGuaranteePdf(
+          guaranteeType,
+          template
+        );
 
-      return {
-        name: template.maintenanceTemplate.fileName,
-        data
-      };
-    });
+        const maintanance = await this.getPdfFromUrl(
+          template.maintenanceTemplate.url
+        );
+        const termAndCondition = await this.getPdfFromUrl(template.terms.url);
+        const data = await this.mergePdf(
+          guaranteePdf,
+          maintanance,
+          termAndCondition
+        );
+
+        return {
+          name: template.maintenanceTemplate.fileName,
+          data
+        };
+      })
+    );
   }
 
   private async getPdfFromUrl(url: string): Promise<ArrayBuffer> {
     return await buffer_encode(url);
   }
-
-  private loadImages = async () => {
-    this.guaranteeData.guaranteeType.signature.image = await base64_encode(
-      this.guaranteeData.guaranteeType.signature.url
-    );
-
-    for (const template of this.guaranteeData.guaranteeType
-      .guaranteeTemplatesCollection.items) {
-      template.logo.image = await base64_encode(template.logo.url);
-    }
-    return this.guaranteeData;
-  };
 }

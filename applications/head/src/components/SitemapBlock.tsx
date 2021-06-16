@@ -4,7 +4,7 @@ import AnchorLink from "@bmi/anchor-link";
 import MasonryGrid from "@bmi/masonry-grid";
 import Typography from "@bmi/typography";
 import {
-  LinkData,
+  Data as LinkData,
   NavigationData,
   getClickableActionFromUrl,
   NavigationItem

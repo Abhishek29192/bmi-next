@@ -7,6 +7,7 @@ const { withConfigs, styles } = require("./webpack-config");
 
 module.exports = withFonts({
   i18n,
+  future: { webpack5: true },
   webpack: (config, { defaultLoaders, dev, isServer }) => {
     // solution taken from https://github.com/jeantil/next-9-ts-aliases-workspaces/blob/master/packages/web-app/next.config.js
     config.module.rules.push({
@@ -25,8 +26,11 @@ module.exports = withFonts({
 
     // workaround for fs issues in translation config
     if (!isServer) {
-      config.node = {
-        fs: "empty"
+      config.resolve = {
+        ...config.resolve,
+        fallback: {
+          fs: false
+        }
       };
     }
 

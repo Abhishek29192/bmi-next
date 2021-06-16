@@ -260,77 +260,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/aerodek/quadro-plus-acoustic-takpanne"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-gavlbeslag-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-gavlbeslag-venstre"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-gavlbeslag-skottrenne-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-gavlbeslag-skottrenne-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-gavlbeslag-skottrenne-venstre"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-gavlbeslag-skottrenne-venstre"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-kilrenne-skuff"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-luftehatt"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-m%C3%B8ne-rett"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-overgangsbeslag-side-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-overgangsbeslag-side-venstre"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-soilhatt"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-stigetrinn-qa-25-tt"
- to="/no/staltakpanner/aerodek-quadro-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/quadro-plus-takpanne"
+ from="/no/produkter/aerodek/quadro-plus-*"
  to="/no/staltakpanner/aerodek-quadro-plus"
  force=true
 
@@ -350,57 +280,12 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/aerodek/robust-plus-gavlbeslag-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/robust-plus-gavlbeslag-venstre"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/robust-plus-luftehatt-10-45"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/robust-plus-m%C3%B8ne-endebeslag"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/robust-plus-m%C3%B8ne-profilert"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/robust-plus-m%C3%B8ne-rett"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/robust-plus-overgangsbeslag-front"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/robust-plus-overgangsbeslag-side-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/robust-plus-overgangsbeslag-side-venstre"
- to="/no/staltakpanner/aerodek-robust-plus"
- force=true
-
-[[redirects]]
  from="/no/produkter/robust-plus-reparasjossett"
  to="/no/staltakpanner/aerodek-robust-plus"
  force=true
 
 [[redirects]]
- from="/no/produkter/aerodek/robust-plus-takpanne"
+ from="/no/produkter/aerodek/robust-plus-*"
  to="/no/staltakpanner/aerodek-robust-plus"
  force=true
 
@@ -410,132 +295,12 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/aerodek/tradition-plus-gavlbeslag-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-gavlbeslag-kort-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-gavlbeslag-kort-venstre"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-gavlbeslag-venstre"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-kombi-takhatt"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-luftehatt-10-45"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-l%C3%B8skant"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-buet-3-modul"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-buet-slutt"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-buet-start"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-buet"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-rett"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-t"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-y-25-slutt"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-y-25-start"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-y-30-slutt"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-m%C3%B8ne-y-30-start"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-overbeslag-front"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-overgangsbeslag-side-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-overgangsbeslag-side-venstre"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
  from="/no/produkter/tradition-plus-pipeinndekning"
  to="/no/staltakpanner/aerodek-tradition-plus"
  force=true
 
 [[redirects]]
- from="/no/produkter/aerodek/tradition-plus-plan-plate"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-reparasjonssett"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-soil-hatt"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-takpanne"
- to="/no/staltakpanner/aerodek-tradition-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/tradition-plus-valm-slutt"
+ from="/no/produkter/aerodek/tradition-plus-*"
  to="/no/staltakpanner/aerodek-tradition-plus"
  force=true
 
@@ -550,132 +315,7 @@
  force=true
 
 [[redirects]]
- from="/no/produkter/aerodek/unique-plus-acoustic-takpanne"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-gavlbeslag-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-gavlbeslag-kort-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-gavlbeslag-kort-venstre"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-gavlbeslag-venstre"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-luftehatt-10-45"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-l%C3%B8skant"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-buet-3-modul"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-buet-slutt"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-buet-start"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-buet"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-t"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-y-25-slutt"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-y-25-start"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-y-30-slutt"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-m%C3%B8ne-y-30-start"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-overgangsbeslag-front"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-overgangsbeslag-side-h%C3%B8yre"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-overgangsbeslag-side-venstre"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-pipeinndekning"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-plan-plate"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-reparasjonssett"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-soilhatt"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-takhatt-kombi"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-takpanne"
- to="/no/staltakpanner/aerodek-unique-plus"
- force=true
-
-[[redirects]]
- from="/no/produkter/aerodek/unique-plus-valm-slutt"
+ from="/no/produkter/aerodek/unique-plus-*"
  to="/no/staltakpanner/aerodek-unique-plus"
  force=true
 
@@ -2586,20 +2226,291 @@
 
 
 
+
+[[redirects]]
+ from="/no/p/takstein/tegltakstein/turmalin/møneskrue-m/pakning-5x110mm/rød/4290304464"
+ to="/no/p/takstein/tegltakstein/kdn/m%C3%B8neskrue-m/pakning-5x110mm/r%C3%B8d/4290304464"
+ force=true
+
+[[redirects]]
+ from="/no/p/produkter-til-under-bakken/base-radonsperre/grå/"
+ to="/no/p/produkter-til-under-bakken/base-radonsperre/grå/2719853286"
+ force=true
+
+[[redirects]]
+ from="/no/p/takstein/tegltakstein/dantegl/dantegl-avløpsventilasjonspakke/naturell/ubehandlet-overflate/1452846056"
+ to="/no/p/takstein/tegltakstein/dantegl/dantegl-avløpsventilasjonspakke/naturell/ubehandlet-overflate/3432521515"
+ force=true
+
+[[redirects]]
+ from="/no/p/produkter-til-under-bakken/base-radonsperre/"
+ to="/no/p/produkter-til-under-bakken/base-radonsperre/gr%C3%A5/2719853286"
+ force=true
+
+[[redirects]]
+ from="/no/tips-and-inspiration/takskole/hus-og-hytte/nar-bor-taket-byttes"
+ to="/no/inspirasjon-tips-og-rad/ma-du-bytte-tak"
+ force=true
+
+[[redirects]]
+ from="/no/takproff-byggmester-bob-best-pa-tak"
+ to="/no/referansehistorier/takproff-byggmester-bob-best-pa-tak"
+ force=true
+
+[[redirects]]
+ from="/no/products/200326-beito-roof-shingle-skifer"
+ to="/no/takshingel/trend-takshingel"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/icopal/valdres-fotplate"
+ to="/no/p/takshingel/trend-takshingel/valdres-fotplate/skifer/1952170894"
+ force=true
+
+[[redirects]]
+ from="/no/proff/den-norske-håndverkeren"
+ to="/no/referansehistorier/takproff-norske-handverkere-er-verdens-beste"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/stigesikring-sst"
+ to="/no/p/stigetrinn/stigesikring-sst/sort/3577531742"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/icopal/kilrennebelegg-protect-s"
+ to="/no/p/takshingel/premium-takshingel/kilrennebelegg-premium/karbonsort/4022971717"
+ force=true
+
+[[redirects]]
+ from="/no/p/takstein/tegltakstein/turmalin/ventilasjonshette-universal-29-37°/svart/1008536247"
+ to="/no/p/takstein/tegltakstein/kdn/ventilasjonshette-universal-29-37%C2%B0/svart/1008536247"
+ force=true
+
+[[redirects]]
+ from="/no/p/produkter-til-under-bakken/grunnmursplater/primo/sort/1716156000"
+ to="/no/p/produkter-til-under-bakken/grunnmursplater/primo/sort/4269112749"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/m-clip-turmalin-30x48"
+ to="/no/p/takstein/tegltakstein/turmalin/m-clip-turmalin-30x48/505284656"
+ force=true
+
+[[redirects]]
+ from="/no/p/snosikring/kdn-snøfanger-konsoll-sn-k-605/sort/3159388300/"
+ to="/no/p/takstein/tegltakstein/kdn/kdn-snøfanger-konsoll-sn-k-605/sort/3159388300"
+ force=true
+
+[[redirects]]
+ from="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/289333998"
+ to="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/svart/289333998"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/skratak-produkter/produkter/shingel/sort"
+ to="/no/takshingel"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/bordtakbeslag-bt3-15"
+ to="/no/p/beslag-for-vinduer-vindskier-bordtak-og-vannbord/bordtakbeslag/bordtakbeslag-bt3-15/sort/plast/3660047862"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/icopal/icopal-universal"
+ to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
+ force=true
+
+[[redirects]]
+ from="/no/zanda-arktis"
+ to="/no/takstein/betongtakstein/zanda-arktis"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/tg-sluk-klemring"
+ to="/no/p/taksluk/tg-sluk-klemring/2452231733"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/snøfanger-konsoll-sn-s-606"
+ to="/no/p/takstein/betongtakstein/zanda-evo/sn%C3%B8fanger-konsoll-sn-s-606/teglr%C3%B8d/1059890807"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/aerodek-kilrenne-konisk"
+ to="/no/p/staltakpanner/aerodek-unique-plus/aerodek-kilrenne-konisk/1820276044"
+ force=true
+
+[[redirects]]
+ from="/no/dokumentasjon/miljødeklarasjoner/"
+ to="/no/dokumentasjon/miljødeklarasjoner-epd"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/nedløpsrør-15"
+ to="/no/p/takrenner/staltakrenne-125-mm/nedl%C3%B8psr%C3%B8r-15/sort/3816466751"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/stigesikring-sst"
+ to="/no/p/stigetrinn/stigesikring-sst/sort/3577531742"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/produktside/zanda-minster-normalstein"
+ to="/no/p/takstein/betongtakstein/zanda-minster/zanda-minster-normalstein/m%C3%B8rk-gr%C3%A5/4104038613"
+ force=true
+
+[[redirects]]
+ from="/no/p/takstein/tegltakstein/dantegl/dantegl-avløpsventilasjonspakke/naturell/ubehandlet-overflate/1452846056"
+ to="/no/p/takstein/tegltakstein/dantegl/dantegl-avl%C3%B8psventilasjonspakke/naturell/ubehandlet-overflate/3432521515"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/dekningspapp"
+ to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/dekningspapp/gr%C3%A5/3519640892"
+ force=true
+
+[[redirects]]
+ from="/no/tips-og-inspirasjon/takskole/hus-og-hytte/hva-skal-jeg-tenke-paa-naar-jeg-skal-bytte-tak"
+ to="/no/inspirasjon-tips-og-rad/hva-skal-jeg-tenke-pa-nar-jeg-skal-bytte-tak"
+ force=true
+
+[[redirects]]
+ from="/no/undertak/ventex"
+ to="/no/undertak/ventex-supra"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/icocorner-hjørne"
+ to="/no/p/icocorner-hj%C3%B8rne/1934244562"
+ force=true
+
+[[redirects]]
+ from="/no/p/takstein/betongtakstein/zanda-classic/zanda-ventilasjonspakke/1082417596"
+ to="/no/p/takstein/betongtakstein/zanda-classic/zanda-ventilasjonspakke/teglr%C3%B8d/1082417596"
+ force=true
+
+[[redirects]]
+ from="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/4254277302/"
+ to="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-valmbegynnelse/r%C3%B8d/4254277302"
+ force=true
+
+[[redirects]]
+ from="/no/takstein/betongtakstein/zanda"
+ to="/no/zanda"
+ force=true
+
+[[redirects]]
+ from="/no/p/staltakpanner/aerodek-tradition/takbro-konsoll-tbk-f-460-t/svart/407058901"
+ to="/no/p/takstein/tegltakstein/kdn/takbro-konsoll-tbk-f-460-t/svart/407058901"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/icopal/icopal-universal"
+ to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/produktside/zanda-minster-normalstein"
+ to="/no/takstein/betongtakstein/zanda-minster"
+ force=true
+
+[[redirects]]
+ from="/no/p/stolpefritt-glassrekkverk/endelokk-monteringskinne-for-toppmontert-stolpefritt-glassrekkverk/2497865575"
+ to="/no/p/stolpefritt-glassrekkverk/endelokk-monteringskinne-for-toppmontert-stolpefritt-glassrekkverk/144513019"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/butyl-fugebånd"
+ to="/no/p/butyl-fugeb%C3%A5nd/4278491499"
+ force=true
+
+[[redirects]]
+ from="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/289333998"
+ to="/no/p/takstein/betongtakstein/zanda-arktis/zanda-arktis-normalstein/svart/289333998"
+ force=true
+
+[[redirects]]
+ from="/no/proff/designe-et-tak"
+ to="/no/beregning-og-visualisering"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/skratak-produkter/produkter/takstein/zanda"
+ to="/no/takstein/betongtakstein"
+ force=true
+
+[[redirects]]
+ from="/no/nyheter/utvider-garantien-på-norges-mest-populære-ståltakpanner"
+ to="/no/nyheter/utvider-garantien-pa-norges-mest-populaere-staltakpanner"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/icopal/icopal-universal"
+ to="/no/p/produkter-til-gulvet/fuktsperre-og-gulvunderlag/fonda-universal-knasteplate/sort/2721204972"
+ force=true
+
+[[redirects]]
+ from="/no/tips-og-inspirasjon/takskole"
+ to="/no/inspirasjon-tips-og-rad"
+ force=true
+
+[[redirects]]
+ from="/no/monarflex-brand"
+ to="/no/monarflex"
+ force=true
+
+[[redirects]]
+ from="/no/nyheter/6-av-10-blir-lurt"
+ to="/no/inspirasjon-tips-og-rad/6-av-10-blir-lurt"
+ force=true
+
+[[redirects]]
+ from="/no/tips-og-inspirasjon/referanseprosjekt/gammel-sveitservilla-i-ny-drakt"
+ to="/no/referansehistorier/gammel-sveitservilla-i-ny-drakt"
+ force=true
+
+[[redirects]]
+ from="/no/nyheter/6-av-10-blir-lurt?fbclid=iwar3dyer7jzd7j6goydw9-cexgxh0ih3ynekauh0cb77hjqgfbzn187hypqs"
+ to="/no/inspirasjon-tips-og-rad/6-av-10-blir-lurt"
+ force=true
+
+[[redirects]]
+ from="/no/p/produkter-til-under-bakken/"
+ to="/no/produkter-til-under-bakken"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/skratak-produkter/monier"
+ to="/no/takstein/tegltakstein"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/skratak-produkter/icopal"
+ to="/no/icopal"
+ force=true
+
+[[redirects]]
+ from="/no/produkter/skratak-produkter"
+ to="/no/bmis-system-for-skra-tak"
+ force=true
+
+
+
+
+
+
 [[redirects]]
  from="/no/sxa/file/download*"
  to="/no/dokumentasjon"
  force=true
 
-
-
 [[redirects]]
  from="/no/produkter"
  to="/no/"
  force=true
-
-
-
 
 
 # Redirect root to /no. This is temporary. This solution will not work with 

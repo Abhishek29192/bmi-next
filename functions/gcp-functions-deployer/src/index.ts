@@ -3,6 +3,7 @@ import type { HandlerFunction } from "@google-cloud/functions-framework/build/sr
 import { Storage } from "@google-cloud/storage/build/src/storage";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { filterFunctionMetadata } from "./filter";
+import { FunctionMetadata } from "./types";
 
 const storage = new Storage();
 const {
@@ -19,7 +20,7 @@ const secretManagerClient = new SecretManagerServiceClient();
 const bucket = storage.bucket(GCP_STORAGE_NAME);
 const triggerNameRegex = "sources/(.*).zip";
 
-async function triggerCloudBuild(request: string, source: string) {
+async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
   const secret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${TRIGGER_SECRET}/versions/latest`
   });
@@ -37,16 +38,19 @@ async function triggerCloudBuild(request: string, source: string) {
 
   const triggerName = `${match[1]}-trigger`;
   const url = `https://cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiKey}&secret=${secretText}`;
-  const response = await fetch(url, {
-    method: "POST",
-    body: JSON.stringify(request),
-    headers: { "Content-Type": "application/json" }
-  });
-  if (response.status != 200) {
-    // eslint-disable-next-line no-console
-    console.error(
-      `Build trigger error: ${response.status} ${response.statusText}`
-    );
+
+  for (const key in requests) {
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(requests[key]),
+      headers: { "Content-Type": "application/json" }
+    });
+    if (response.status != 200) {
+      // eslint-disable-next-line no-console
+      console.error(
+        `Build trigger error: ${response.status} ${response.statusText}`
+      );
+    }
   }
 }
 

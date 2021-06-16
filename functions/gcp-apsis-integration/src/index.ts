@@ -16,6 +16,7 @@ const {
   APSIS_TARGET_EMAIL_ATTRIBUTE_ID,
   APSIS_TARGET_GDPR_1_ATTRIBUTE_ID,
   APSIS_TARGET_GDPR_2_ATTRIBUTE_ID,
+  APSIS_TARGET_FIRST_NAME_ATTRIBUTE_ID,
   APSIS_TARGET_CHANNEL,
   SECRET_MAN_GCP_PROJECT_NAME,
   RECAPTCHA_SECRET_KEY,
@@ -85,7 +86,8 @@ const createProfile = async (
   access_token: string = "",
   email: string = "",
   gdpr_1 = false,
-  gdpr_2 = false
+  gdpr_2 = false,
+  name: string = ""
 ) => {
   const createProfileEndpoint = `${apsisAudianceBase}/keyspaces/${APSIS_TARGET_KEYSPACE}/profiles/${escape(
     email
@@ -95,6 +97,12 @@ const createProfile = async (
     [APSIS_TARGET_GDPR_1_ATTRIBUTE_ID]: gdpr_1,
     [APSIS_TARGET_GDPR_2_ATTRIBUTE_ID]: gdpr_2
   };
+
+  if (APSIS_TARGET_FIRST_NAME_ATTRIBUTE_ID && name) {
+    // Roof calculator sends 'name' additionally - but does not split it to first and last name.
+    // Use first-name attribute in Apsis to capture the full name.
+    payload[APSIS_TARGET_FIRST_NAME_ATTRIBUTE_ID.toString()] = name;
+  }
 
   const response = await fetch(createProfileEndpoint, {
     method: "PATCH",
@@ -186,6 +194,15 @@ const createSubscription = async (
   return data;
 };
 
+const validateEmail = (email: string): boolean => {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+};
+
+const validateGDPR = (gdpr_1: boolean, gdpr_2: boolean) => {
+  return gdpr_1 && gdpr_2;
+};
+
 export const optInEmailMarketing: HttpFunction = async (request, response) => {
   let subscriptionId = "";
   response.set("Access-Control-Allow-Origin", "*");
@@ -202,8 +219,12 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
   } else {
     try {
       const {
-        body: { email, gdpr_1, gdpr_2 }
+        body: { email, gdpr_1, gdpr_2, name }
       } = request;
+
+      if (!validateEmail(email) || !validateGDPR(gdpr_1, gdpr_2)) {
+        return response.status(400).send(Error("Invalid input received."));
+      }
 
       const recaptchaToken =
         // eslint-disable-next-line security/detect-object-injection
@@ -244,7 +265,7 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
       const { access_token } = await getAuthToken();
 
       if (access_token) {
-        await createProfile(access_token, email, gdpr_1, gdpr_2);
+        await createProfile(access_token, email, gdpr_1, gdpr_2, name);
 
         await createConsent(access_token, email);
 
