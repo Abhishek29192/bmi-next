@@ -17,6 +17,7 @@
   "scripts": {
     "build": "gatsby build --prefix-paths",
     "build:debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby build --prefix-paths",
+    "build:top": "process-top ./node_modules/.bin/gatsby build",
     "check:ts": "tsc",
     "clean": "gatsby clean",
     "contentful-graph": "dotenv -c development -- contentful-graph",
