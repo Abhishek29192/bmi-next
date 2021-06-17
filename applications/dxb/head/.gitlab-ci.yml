@@ -184,7 +184,7 @@ lighthouseci_scan_head_preview:
     - |
       base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
-      status_code=curl --silent --output /dev/null --write-out "%{http_code}" "${base_url}"
+      status_code=$(curl --silent --output /dev/null --write-out "%{http_code}" "${base_url}")
       [ ${status_code} -eq 401 ] || exit 0
       urls=(
         "${base_url}/no/"
