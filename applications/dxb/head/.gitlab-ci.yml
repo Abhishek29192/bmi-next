@@ -188,7 +188,9 @@ lighthouseci_scan_head_preview:
       [ ${status_code} -eq 401 ] || exit 0
       urls=(
         "${base_url}/no/"
-        "${base_url}/no/contact-us/"
+        "${base_url}/no/icopal-brand/"
+        "${base_url}/no/metal-tiles/contact-us/"
+        "${base_url}/no/documentation-landing-page/all-product-catalogues/"
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
       )
       params="--collect.settings.pwd=${NETLIFY_PWD}"
