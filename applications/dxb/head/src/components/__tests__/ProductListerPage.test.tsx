@@ -13,6 +13,7 @@ import {
   ProductFilter,
   updateFilterValue
 } from "../../utils/filters";
+import createProduct from "../../__tests__/PimDocumentProductHelper";
 
 type Data = PageInfoData &
   PageData & {
@@ -134,12 +135,23 @@ const filters: ProductFilter[] = [
 const pageData = {
   contentfulProductListerPage: pageInfo,
   contentfulSite: siteData,
-  productFilters: filters
+  productFilters: filters,
+  initialProducts: []
 };
 
 describe("ProductListerPage template", () => {
   it("renders basic ProductListerPage", () => {
     const pageContext: any = [];
+    const { container } = render(
+      <ProductListerPage data={pageData} pageContext={pageContext} />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders basic ProductListerPage with initialProducts", () => {
+    const pageContext: any = [];
+    const prod = createProduct();
+    pageData.initialProducts.push(prod);
     const { container } = render(
       <ProductListerPage data={pageData} pageContext={pageContext} />
     );

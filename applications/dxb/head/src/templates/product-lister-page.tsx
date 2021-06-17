@@ -73,6 +73,7 @@ type Props = {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
     productFilters: ReadonlyArray<ProductFilter>;
+    initialProducts?: any[];
   };
 };
 
@@ -91,13 +92,13 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     seo
   } = data.contentfulProductListerPage;
 
+  const initialProducts = data.initialProducts ? data.initialProducts : [];
+
   const heroProps: HeroItem = {
     title,
     children: subtitle
   };
   const { countryCode } = data.contentfulSite;
-  // TODO: Ignoring gatsby data for now as fetching with ES
-  const initialProducts = [];
 
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState(initialProducts);

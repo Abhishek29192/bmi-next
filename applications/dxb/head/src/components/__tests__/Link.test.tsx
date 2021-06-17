@@ -1,6 +1,7 @@
 import { getClickableActionFromUrl, getCTA } from "../Link";
+import { Data as PromoData } from "../Promo";
 
-describe("Icon component", () => {
+describe("Link component", () => {
   describe("getClickableActionFromUrl function", () => {
     it("returns a Link router to page path", () => {
       expect(
@@ -93,6 +94,42 @@ describe("Icon component", () => {
               type: "External",
               parameters: null,
               dialogContent: null
+            }
+          },
+          "no",
+          "Go to Page"
+        )
+      ).toMatchSnapshot();
+    });
+
+    it("returns a Dialog content object with a promo item", () => {
+      const promo: PromoData = {
+        __typename: "ContentfulPromo",
+        id: "testId",
+        title: "test",
+        subtitle: "I am a subtitle",
+        body: null,
+        tags: null,
+        brandLogo: null,
+        featuredMedia: null,
+        featuredVideo: null,
+        cta: null
+      };
+
+      expect(
+        getCTA(
+          {
+            cta: {
+              __typename: "ContentfulLink",
+              id: "string",
+              label: "string",
+              icon: null,
+              isLabelHidden: null,
+              url: "https://www.external.co.uk",
+              linkedPage: null,
+              type: "Dialog",
+              parameters: null,
+              dialogContent: promo
             }
           },
           "no",
