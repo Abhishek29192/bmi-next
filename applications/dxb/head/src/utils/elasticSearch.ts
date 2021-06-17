@@ -170,7 +170,7 @@ export const compileElasticSearchQuery = (
           searchQuery
             ? {
                 multi_match: {
-                  query: searchQuery,
+                  query: `.*${searchQuery}.*`,
                   // when caret boosting multi_match queries, "cross_fields" seems to work the best for us currently
                   // https://bmigroup.atlassian.net/wiki/spaces/DXB/pages/2512847139/Tuning+Search+Relevance
                   type: "cross_fields",
