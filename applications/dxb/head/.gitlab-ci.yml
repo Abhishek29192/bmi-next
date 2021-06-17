@@ -95,6 +95,8 @@ deploy_head_preview:
     - apt-get install -y jq
   script:
     - |
+      node ./scripts/netlify-toml-builder.js
+      node ./scripts/netlify-token-replacer.js
       DEPLOY_RESULT=$(npx netlify deploy --dir applications/dxb/head/public --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
       echo ${DEPLOY_RESULT}
       SITE_URL=$(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')
@@ -184,20 +186,16 @@ lighthouseci_scan_head_preview:
     - |
       base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
-      status_code=$(curl --silent --output /dev/null --write-out "%{http_code}" "${base_url}")
-      [ ${status_code} -eq 401 ] || exit 0
       urls=(
         "${base_url}/no/"
-        "${base_url}/no/icopal-brand/"
-        "${base_url}/no/metal-tiles/contact-us/"
-        "${base_url}/no/documentation-landing-page/all-product-catalogues/"
+        "${base_url}/no/contact-us/"
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
       )
       params="--collect.settings.pwd=${NETLIFY_PWD}"
       for url in ${urls[@]}; do
         params="$params --collect.url=${url}"
       done
-      yarn workspace @bmi/head lighthouse ${params}
+      yarn workspace @bmi/head lighthouse ${params} || echo "LHCI failed!"
   artifacts:
     paths:
       - applications/dxb/head/lighthouseci/reports
@@ -215,13 +213,8 @@ lighthouseci_scan_head:
     - if: "$WHICH_SCHEDULE == 'lighthouseci_scan_head'"
   image: cypress/browsers:node14.15.0-chrome86-ff82
   script:
-    - |
-      params="--collect.settings.pwd=${NETLIFY_PWD}"
-      URLS=$(awk -F',' '{ for(i=1;i<=NF;i++) print $i }' <<< $LIGHTHOUSE_URLS)
-      for url in ${URLS[@]}; do
-        params="$params --collect.url=${url}"
-      done
-      yarn workspace @bmi/head lighthouse --collect.settings.pwd=$NETLIFY_PWD
+    - sed -i 's/"http:\/\/localhost:8000\/no"/'$LIGHTHOUSE_URLS'/g' applications/dxb/head/lighthouserc.js
+    - yarn workspace @bmi/head lighthouse --collect.settings.pwd=$NETLIFY_PWD
   artifacts:
     paths:
       - applications/dxb/head/lighthouseci/reports
