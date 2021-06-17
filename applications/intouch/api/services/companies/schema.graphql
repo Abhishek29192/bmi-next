@@ -4489,6 +4489,8 @@ enum InvitationsOrderBy {
   SENDER_ACCOUNT_ID_DESC
   COMPANY_ID_ASC
   COMPANY_ID_DESC
+  INVITEE_ASC
+  INVITEE_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -4512,6 +4514,11 @@ input InvitationCondition {
   Checks for equality with the object’s `companyId` field.
   """
   companyId: Int
+
+  """
+  Checks for equality with the object’s `invitee` field.
+  """
+  invitee: String
 }
 
 """

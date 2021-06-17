@@ -41,6 +41,13 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
       role = "INSTALLER";
     }
 
+    // eslint-disable-next-line no-console
+    console.log("app.current_account_id", user?.intouchUserId);
+    // eslint-disable-next-line no-console
+    console.log("app.current_account_email", user?.email);
+    // eslint-disable-next-line no-console
+    console.log("role", role.toLocaleLowerCase());
+
     return {
       "app.current_account_id": user?.intouchUserId,
       "app.current_account_email": user?.email,

@@ -5,15 +5,14 @@ import { Account } from "../types";
 const { AUTH0_NAMESPACE } = process.env;
 
 export const parseHeaders = (req): Account => {
-  if (req.headers["x-apigateway-api-userinfo"]) {
+  try {
     return JSON.parse(
       Buffer.from(
         req.headers["x-apigateway-api-userinfo"] as string,
         "base64"
       ).toString("ascii")
     );
-  }
-  return null;
+  } catch (error) {} // eslint-disable-line no-empty
 };
 
 export default async (req, res, next) => {

@@ -20,8 +20,10 @@ export const createAccount = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
+    logger.info("creating account ", args);
     const result = await resolve(source, args, context, resolveInfo);
 
+    logger.info("setting the current account in pg_config");
     // Set the account ID
     await pgClient.query(
       `SELECT set_config('app.current_account_id', $1, true);`,
