@@ -18,8 +18,5 @@
     "@google-cloud/functions-framework": "^1.7.1",
     "node-fetch": "^2.6.1",
     "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "@bmi/fetch-mocks": "0.0.0"
   }
 }
