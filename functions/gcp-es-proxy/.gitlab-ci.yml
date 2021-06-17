@@ -66,7 +66,10 @@ package_gcp-es-proxy:
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
   script:
-    - cd functions/gcp-es-proxy; zip -r $CI_PROJECT_DIR/dist/functions/gcp-es-proxy.zip package.json dist/; cd $CI_PROJECT_DIR;
+    - cd functions/gcp-es-proxy
+    - cp ../../yarn.lock .
+    - zip -r $CI_PROJECT_DIR/dist/functions/gcp-es-proxy.zip package.json yarn.lock dist/
+    - cd $CI_PROJECT_DIR
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions

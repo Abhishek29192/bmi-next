@@ -65,7 +65,10 @@ package_gcp-form-submit:
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
   script:
-    - cd functions/gcp-form-submit; zip -r $CI_PROJECT_DIR/dist/functions/gcp-form-submit.zip package.json dist/; cd $CI_PROJECT_DIR;
+    - cd functions/gcp-form-submit
+    - cp ../../yarn.lock .
+    - zip -r $CI_PROJECT_DIR/dist/functions/gcp-form-submit.zip package.json yarn.lock dist/
+    - cd $CI_PROJECT_DIR
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions

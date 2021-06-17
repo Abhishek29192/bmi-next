@@ -30,7 +30,10 @@ package_gcp-pim-full-fetch:
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
   script:
-    - cd functions/gcp-pim-full-fetch; zip -r $CI_PROJECT_DIR/dist/functions/gcp-pim-full-fetch.zip package.json dist/; cd $CI_PROJECT_DIR;
+    - cd functions/gcp-pim-full-fetch
+    - cp ../../yarn.lock .
+    - zip -r $CI_PROJECT_DIR/dist/functions/gcp-pim-full-fetch.zip package.json yarn.lock dist/
+    - cd $CI_PROJECT_DIR
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions

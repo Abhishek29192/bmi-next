@@ -30,7 +30,10 @@ package_gcp-firestore-writer:
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
   script:
-    - cd functions/gcp-firestore-writer; zip -r $CI_PROJECT_DIR/dist/functions/gcp-firestore-writer.zip package.json dist/; cd $CI_PROJECT_DIR;
+    - cd functions/gcp-firestore-writer
+    - cp ../../yarn.lock .
+    - zip -r $CI_PROJECT_DIR/dist/functions/gcp-firestore-writer.zip package.json yarn.lock dist/
+    - cd $CI_PROJECT_DIR
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions
