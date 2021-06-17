@@ -215,8 +215,13 @@ lighthouseci_scan_head:
     - if: "$WHICH_SCHEDULE == 'lighthouseci_scan_head'"
   image: cypress/browsers:node14.15.0-chrome86-ff82
   script:
-    - sed -i 's/"http:\/\/localhost:8000\/no"/'$LIGHTHOUSE_URLS'/g' applications/dxb/head/lighthouserc.js
-    - yarn workspace @bmi/head lighthouse --collect.settings.pwd=$NETLIFY_PWD
+    - |
+      params="--collect.settings.pwd=${NETLIFY_PWD}"
+      URLS=$(awk -F',' '{ for(i=1;i<=NF;i++) print $i }' <<< $LIGHTHOUSE_URLS)
+      for url in ${URLS[@]}; do
+        params="$params --collect.url=${url}"
+      done
+      yarn workspace @bmi/head lighthouse --collect.settings.pwd=$NETLIFY_PWD
   artifacts:
     paths:
       - applications/dxb/head/lighthouseci/reports
