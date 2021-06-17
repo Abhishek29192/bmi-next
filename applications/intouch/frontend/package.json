@@ -14,7 +14,8 @@
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "start": "next start",
-    "storybook": "start-storybook -p 6006 -s ./public"
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "test": "jest"
   },
   "dependencies": {
     "@apollo/client": "^3.3.15",
