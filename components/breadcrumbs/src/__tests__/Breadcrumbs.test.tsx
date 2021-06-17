@@ -31,6 +31,17 @@ describe("Breadcrumbs component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("renders correctly only one item", () => {
+    const { container } = render(
+      <Breadcrumbs>
+        <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
+          BMI Group
+        </Breadcrumbs.Item>
+      </Breadcrumbs>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it("renders dark themed correctly", () => {
     const { container } = render(
       <Breadcrumbs isDarkThemed>

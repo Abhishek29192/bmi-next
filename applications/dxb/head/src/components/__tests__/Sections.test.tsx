@@ -367,4 +367,25 @@ describe("Sections component", () => {
     );
     expect(container.children).toMatchSnapshot();
   });
+
+  it("doesnt render correctly if doesnt resolve to component", () => {
+    const data: Data = [
+      {
+        __typename: null, // null is an invalid typename
+        title: "Document Downloads",
+        description: {
+          raw: contentMock,
+          references: []
+        },
+        documents: []
+      }
+    ];
+
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
+    expect(container.children).toHaveLength(0); // returns empty array
+  });
 });
