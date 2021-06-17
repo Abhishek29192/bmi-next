@@ -55,9 +55,16 @@ const mutationCompleteInvitation = `mutation completeInvitation ($companyId: Int
   }
 }`;
 
+const mutationDoceboCreateSSOUrl = `mutation createSSOUrl ($username: String!,$path: String) {
+  createSSOUrl(username:$username,path:$path){
+    url
+  }
+}`;
+
 export const parseAccount = (user) => ({
   intouchUserId: user[`${AUTH0_NAMESPACE}/intouch_user_id`],
   email: user[`${AUTH0_NAMESPACE}/email`],
+  name: user[`name`],
   role: user[`${AUTH0_NAMESPACE}/intouch_role`],
   lastName: user[`${AUTH0_NAMESPACE}/last_name`],
   firstName: user[`${AUTH0_NAMESPACE}/first_name`],
@@ -186,6 +193,28 @@ export const createDoceboUser = async (req, session, account) => {
   }
 
   logger.info(`Docebo account with id ${createDoceboUser.user_id} created`);
+};
+export const createDoceboSSOUrl = async (req, session): Promise<string> => {
+  const logger = req.logger("account:docebo-sso");
+
+  const { user } = session;
+  const { name } = parseAccount(user);
+
+  const path = req.query.path || "/learn/mycourses";
+  const body = {
+    query: mutationDoceboCreateSSOUrl,
+    variables: {
+      username: name,
+      path
+    }
+  };
+
+  const { data: { createSSOUrl: { url = null } = {} } = {} } =
+    (await requestHandler(req, session, body)) || {};
+
+  logger.info(`Docebo SSO url created`);
+
+  return url;
 };
 
 export const updateAccount = async (req, session, accountId, doceboUserId) => {
