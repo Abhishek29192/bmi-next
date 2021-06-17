@@ -1,6 +1,6 @@
 import axios from "axios";
-import { ROLES } from "lib/config";
 import { v4 } from "uuid";
+import { ROLES } from "../../lib/config";
 
 const { AUTH0_NAMESPACE } = process.env;
 
@@ -99,7 +99,7 @@ export const createAccount = async (req, session) => {
   const { user } = session;
   const logger = req.logger("account:create");
 
-  const { firstName, lastName, registrationType, marketCode } =
+  const { firstName, lastName, registrationType, marketCode, email } =
     parseAccount(user);
 
   const body = {
@@ -109,7 +109,7 @@ export const createAccount = async (req, session) => {
         account: {
           firstName,
           lastName,
-          email: user.email,
+          email,
           role:
             registrationType === "company"
               ? ROLES.COMPANY_ADMIN

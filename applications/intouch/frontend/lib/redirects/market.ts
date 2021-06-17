@@ -2,7 +2,12 @@ import { REDIRECT_MAP } from "../config";
 import { parseAccount } from "../account";
 
 export const marketRedirect = (req, res, user = {}) => {
-  const { AUTH0_COOKIE_DOMAIN } = process.env;
+  const { AUTH0_COOKIE_DOMAIN, NODE_ENV } = process.env;
+
+  // We don't have subdomain yet
+  if (NODE_ENV === "production") {
+    return;
+  }
 
   if (AUTH0_COOKIE_DOMAIN === "localhost") {
     return;
