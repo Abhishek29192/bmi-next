@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState, ElementType } from "react";
+import { ValidationResult } from "./Form";
 import { FormContext } from "./";
 
 export type InputValue = string | number | boolean | File[] | string[];
@@ -7,7 +8,7 @@ export type Props<I extends InputValue> = {
   isRequired?: boolean;
   fieldIsRequiredError?: string;
   // TODO: pass all values so that validation could depend on other fields
-  getValidationError?: (val?: I) => false | string;
+  getValidationError?: (val?: I) => ValidationResult;
   defaultValue?: I;
   value?: I;
   onChange?: (value: I) => void;
@@ -29,7 +30,7 @@ const withFormControl = <P extends {}, I extends InputValue>(
   }: Omit<P, "onChange" | "defaultValue" | "value" | "onBlur"> & Props<I>) => {
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
 
-    const getError = (val?: I) => {
+    const getError = (val?: I): ValidationResult => {
       if (isRequired && !val) {
         return fieldIsRequiredError || null;
       }
@@ -47,7 +48,7 @@ const withFormControl = <P extends {}, I extends InputValue>(
       );
     }, []);
 
-    const [error, setError] = useState<string | null>(
+    const [error, setError] = useState<ValidationResult>(
       getError(value || defaultValue)
     );
     const [blurred, setBlurred] = useState<boolean>(false);
@@ -55,10 +56,7 @@ const withFormControl = <P extends {}, I extends InputValue>(
     const handleChange = (val: I) => {
       const errorMessage = getError(val);
       setError(errorMessage);
-      updateFormState(
-        { [name]: val },
-        errorMessage ? { [name]: errorMessage } : {}
-      );
+      updateFormState({ [name]: val }, { [name]: errorMessage });
       if (onChange) {
         onChange(val);
       }
