@@ -155,7 +155,7 @@ export const bulkImport = async (args, context) => {
     const { rows } = await pgClient.query(
       pgFormat(
         `INSERT INTO system (market_id, technology, bmi_ref, name, description, maximum_validity_years, published) VALUES %L 
-          ON CONFLICT (id) DO UPDATE SET 
+          ON CONFLICT (bmi_ref) DO UPDATE SET 
             technology = excluded.technology,
             bmi_ref = excluded.bmi_ref,
             name = excluded.name,
@@ -179,7 +179,7 @@ export const bulkImport = async (args, context) => {
     const { rows } = await pgClient.query(
       pgFormat(
         `INSERT INTO product (market_id, technology, bmi_ref, brand, name, description, family, published, maximum_validity_years ) VALUES %L
-          ON CONFLICT (id) DO UPDATE SET
+          ON CONFLICT (bmi_ref) DO UPDATE SET
           technology = excluded.technology,
           bmi_ref = excluded.bmi_ref,
           brand = excluded.brand,
@@ -204,7 +204,7 @@ export const bulkImport = async (args, context) => {
     const { rows } = await pgClient.query(
       pgFormat(
         `INSERT INTO system_member (system_bmi_ref, product_bmi_ref) VALUES %L
-          ON CONFLICT (id) DO UPDATE SET
+          ON CONFLICT (system_bmi_ref, product_bmi_ref) DO UPDATE SET
           system_bmi_ref = excluded.system_bmi_ref,
           product_bmi_ref = excluded.product_bmi_ref RETURNING *;
         `,

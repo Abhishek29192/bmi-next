@@ -34,6 +34,118 @@ export type UpdateCompanyDetailsMutation = {
   >;
 };
 
+export type ProductsAndSystemsQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type ProductsAndSystemsQuery = { readonly __typename?: "Query" } & {
+  readonly products?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProductsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Product" } & Pick<
+          SchemaTypes.Product,
+          | "id"
+          | "bmiRef"
+          | "family"
+          | "name"
+          | "brand"
+          | "published"
+          | "description"
+        >
+      >;
+    }
+  >;
+  readonly systems?: SchemaTypes.Maybe<
+    { readonly __typename?: "SystemsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "System" } & Pick<
+          SchemaTypes.System,
+          "id" | "bmiRef" | "description" | "name" | "published"
+        >
+      >;
+    }
+  >;
+};
+
+export type BulkImportMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.BulkImportInput;
+}>;
+
+export type BulkImportMutation = { readonly __typename?: "Mutation" } & {
+  readonly bulkImport?: SchemaTypes.Maybe<
+    { readonly __typename?: "ImportPayload" } & {
+      readonly systemsToInsert?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "System" } & Pick<
+              SchemaTypes.System,
+              "bmiRef"
+            >
+          >
+        >
+      >;
+      readonly systemsToUpdate?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "System" } & Pick<
+              SchemaTypes.System,
+              "bmiRef"
+            >
+          >
+        >
+      >;
+      readonly productsToInsert?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "Product" } & Pick<
+              SchemaTypes.Product,
+              "bmiRef"
+            >
+          >
+        >
+      >;
+      readonly productsToUpdate?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "Product" } & Pick<
+              SchemaTypes.Product,
+              "bmiRef"
+            >
+          >
+        >
+      >;
+    }
+  >;
+};
+
+export type UpdateProductMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateProductInput;
+}>;
+
+export type UpdateProductMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateProduct?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateProductPayload" } & {
+      readonly product?: SchemaTypes.Maybe<
+        { readonly __typename?: "Product" } & Pick<SchemaTypes.Product, "id">
+      >;
+    }
+  >;
+};
+
+export type UpdateSystemMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateSystemInput;
+}>;
+
+export type UpdateSystemMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateSystem?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateSystemPayload" } & {
+      readonly system?: SchemaTypes.Maybe<
+        { readonly __typename?: "System" } & Pick<SchemaTypes.System, "id">
+      >;
+    }
+  >;
+};
+
 export type CreateCompanyMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
 }>;
@@ -159,56 +271,5 @@ export type DoceboCatalogIdByMarketDomainQuery = {
       SchemaTypes.Market,
       "doceboCatalogueId"
     >
-  >;
-};
-
-export type BulkImportMutationVariables = SchemaTypes.Exact<{
-  input: SchemaTypes.BulkImportInput;
-}>;
-
-export type BulkImportMutation = { readonly __typename?: "Mutation" } & {
-  readonly bulkImport?: SchemaTypes.Maybe<
-    { readonly __typename?: "ImportPayload" } & {
-      readonly systemsToInsert?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          SchemaTypes.Maybe<
-            { readonly __typename?: "System" } & Pick<
-              SchemaTypes.System,
-              "bmiRef"
-            >
-          >
-        >
-      >;
-      readonly systemsToUpdate?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          SchemaTypes.Maybe<
-            { readonly __typename?: "System" } & Pick<
-              SchemaTypes.System,
-              "bmiRef"
-            >
-          >
-        >
-      >;
-      readonly productsToInsert?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          SchemaTypes.Maybe<
-            { readonly __typename?: "Product" } & Pick<
-              SchemaTypes.Product,
-              "bmiRef"
-            >
-          >
-        >
-      >;
-      readonly productsToUpdate?: SchemaTypes.Maybe<
-        ReadonlyArray<
-          SchemaTypes.Maybe<
-            { readonly __typename?: "Product" } & Pick<
-              SchemaTypes.Product,
-              "bmiRef"
-            >
-          >
-        >
-      >;
-    }
   >;
 };
