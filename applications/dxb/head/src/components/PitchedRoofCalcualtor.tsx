@@ -1,6 +1,8 @@
 import React, { createContext, useState } from "react";
 import MicroCopy from "@bmi/micro-copy";
 import PitchedRoofCalculator, { no } from "@bmi/pitched-roof-calculator";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import axios from "axios";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
 
@@ -33,6 +35,8 @@ const CalculatorProvider = ({ children }: Props) => {
     setIsOpen(true);
   };
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   return (
     <CalculatorContext.Provider
       value={{
@@ -51,6 +55,31 @@ const CalculatorProvider = ({ children }: Props) => {
           onClose={() => setIsOpen(false)}
           onAnalyticsEvent={pushToDataLayer}
           isDebugging={parameters?.isDebugging}
+          sendEmailAddress={async (values) => {
+            if (!process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT) {
+              devLog(
+                "WebTools calculator api endpoint for apsis isn't configured"
+              );
+              return;
+            }
+
+            const token = await executeRecaptcha();
+
+            try {
+              await axios.post(
+                process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,
+                values,
+                {
+                  headers: {
+                    "X-Recaptcha-Token": token
+                  }
+                }
+              );
+            } catch (error) {
+              // Ignore errors if any as this isn't necessary for PDF download to proceed
+              devLog("WebTools calculator api endpoint error", error);
+            }
+          }}
         />
       </MicroCopy.Provider>
     </CalculatorContext.Provider>

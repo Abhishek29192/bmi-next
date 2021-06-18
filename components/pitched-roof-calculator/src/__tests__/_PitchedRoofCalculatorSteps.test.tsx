@@ -11,6 +11,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
         <PitchedRoofCalculatorSteps
           selected="select-roof"
           setSelected={jest.fn()}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );

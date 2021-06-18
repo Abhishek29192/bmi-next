@@ -13,6 +13,7 @@ import UnderlaySelection from "./_UnderlaySelection";
 import Guttering from "./_Guttering";
 import { calculateArea } from "./calculation/calculate";
 import Results from "./_Results";
+import { EmailFormValues } from "./types/EmailFormValues";
 import protrusionTypes from "./calculation/protrusions";
 import { DimensionsValues, Measurements, Roof } from "./types/roof";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
@@ -31,12 +32,14 @@ type PitchedRoofCalculatorStepsProps = {
   isDebugging?: boolean;
   selected: Step;
   setSelected: (value: Step) => void;
+  sendEmailAddress: (values: EmailFormValues) => Promise<any>;
 };
 
 const PitchedRoofCalculatorSteps = ({
   isDebugging,
   selected,
-  setSelected
+  setSelected,
+  sendEmailAddress
 }: PitchedRoofCalculatorStepsProps) => {
   const copy = useContext(MicroCopyContext);
   const pushEvent = useContext(AnalyticsContext);
@@ -293,6 +296,7 @@ const PitchedRoofCalculatorSteps = ({
           <Guttering selections={guttering} />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
+          isForm={false}
           key="your-solution-contains"
           title={getMicroCopy(copy, "results.title")}
           subtitle={getMicroCopy(copy, "results.subtitle", {
@@ -331,7 +335,8 @@ const PitchedRoofCalculatorSteps = ({
               variant,
               tileOptions,
               underlay,
-              guttering
+              guttering,
+              sendEmailAddress
             }}
           />
         </CalculatorStepper.Step>

@@ -393,7 +393,7 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
+        <Results {...resultsProps} sendEmailAddress={jest.fn()} />
       </MicroCopy.Provider>
     );
 
@@ -403,7 +403,7 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders with debugging mode on", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} isDebugging />
+        <Results {...resultsProps} sendEmailAddress={jest.fn()} isDebugging />
       </MicroCopy.Provider>
     );
 
@@ -413,7 +413,10 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders with no guttering", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...{ ...resultsProps, guttering: {} }} />
+        <Results
+          {...{ ...resultsProps, guttering: {} }}
+          sendEmailAddress={jest.fn()}
+        />
       </MicroCopy.Provider>
     );
 
@@ -428,6 +431,7 @@ describe("PitchedRoofCalculator Results component", () => {
             ...resultsProps,
             tileOptions: { ...resultsProps.tileOptions, verge: "none" }
           }}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );
@@ -443,6 +447,7 @@ describe("PitchedRoofCalculator Results component", () => {
             ...resultsProps,
             tileOptions: { ...resultsProps.tileOptions, ridge: null }
           }}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );

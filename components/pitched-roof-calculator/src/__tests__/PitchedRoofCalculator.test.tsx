@@ -21,6 +21,7 @@ describe("PitchedRoofCalculator component", () => {
           onClose={jest.fn()}
           isDebugging
           onAnalyticsEvent={jest.fn()}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );
@@ -37,6 +38,7 @@ describe("PitchedRoofCalculator component", () => {
           onClose={jest.fn()}
           isDebugging
           onAnalyticsEvent={jest.fn()}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );
@@ -57,6 +59,7 @@ describe("PitchedRoofCalculator component", () => {
           onClose={onClose}
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );
@@ -82,6 +85,7 @@ describe("PitchedRoofCalculator component", () => {
           onClose={onClose}
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );

@@ -3,6 +3,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import ContainerDialog from "@bmi/container-dialog";
 import { AnalyticsContext, OnAnalyticsEvent } from "./helpers/analytics";
 import styles from "./PitchedRoofCalculator.module.scss";
+import { EmailFormValues } from "./types/EmailFormValues";
 
 const PitchedRoofCalculatorSteps = React.lazy(
   () => import("./_PitchedRoofCalculatorSteps")
@@ -13,13 +14,15 @@ type PitchedRoofCalculatorProps = {
   onClose: () => void;
   isDebugging?: boolean;
   onAnalyticsEvent?: OnAnalyticsEvent;
+  sendEmailAddress: (values: EmailFormValues) => Promise<any>;
 };
 
 const PitchedRoofCalculator = ({
   isOpen,
   onClose,
   isDebugging,
-  onAnalyticsEvent = () => {}
+  onAnalyticsEvent = () => {},
+  sendEmailAddress
 }: PitchedRoofCalculatorProps) => {
   const pushEvent: OnAnalyticsEvent = useCallback(
     (event) => {
@@ -80,7 +83,7 @@ const PitchedRoofCalculator = ({
               }
             >
               <PitchedRoofCalculatorSteps
-                {...{ isDebugging, selected, setSelected }}
+                {...{ isDebugging, selected, setSelected, sendEmailAddress }}
               />
             </Suspense>
           ) : null}
