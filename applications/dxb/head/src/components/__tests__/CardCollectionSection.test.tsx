@@ -4,6 +4,7 @@ import CardCollectionSection, { Data } from "../CardCollectionSection";
 import { TagData } from "../Tag";
 import { Data as PageInfoData } from "./../PageInfo";
 import { Data as PromoData } from "./../Promo";
+import { Data as LinkData } from "./../Link";
 
 type Card = PageInfoData | PromoData;
 
@@ -64,6 +65,243 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const titleElement = wrapper.getByText(data.title);
+      expect(titleElement).not.toBeNull();
+
+      const richTextElement = wrapper.getByText("test rich text");
+      expect(richTextElement).not.toBeNull();
+
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("When heading 2 is present", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-2","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const titleElement = wrapper.getByText(data.title);
+      expect(titleElement).not.toBeNull();
+
+      const richTextElement = wrapper.getByText("test rich text");
+      expect(richTextElement).not.toBeNull();
+
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("When heading 3 is present", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-3","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const titleElement = wrapper.getByText(data.title);
+      expect(titleElement).not.toBeNull();
+
+      const richTextElement = wrapper.getByText("test rich text");
+      expect(richTextElement).not.toBeNull();
+
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("When heading 4 is present", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-4","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const titleElement = wrapper.getByText(data.title);
+      expect(titleElement).not.toBeNull();
+
+      const richTextElement = wrapper.getByText("test rich text");
+      expect(richTextElement).not.toBeNull();
+
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("When heading 5 is present", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-5","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const titleElement = wrapper.getByText(data.title);
+      expect(titleElement).not.toBeNull();
+
+      const richTextElement = wrapper.getByText("test rich text");
+      expect(richTextElement).not.toBeNull();
+
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("When heading 6 is present", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-6","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const titleElement = wrapper.getByText(data.title);
+      expect(titleElement).not.toBeNull();
+
+      const richTextElement = wrapper.getByText("test rich text");
+      expect(richTextElement).not.toBeNull();
+
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("When entry-hyperlink is present", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"entry-hyperlink","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const titleElement = wrapper.getByText(data.title);
+      expect(titleElement).not.toBeNull();
+
+      const richTextElement = wrapper.getByText("test rich text");
+      expect(richTextElement).not.toBeNull();
+
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("When text length = 0", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const titleElement = wrapper.getByText(data.title);
+      expect(titleElement).not.toBeNull();
+
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("When when dialogContent link is provided", () => {
+      const cards: Card[] = [card1];
+      const promo: PromoData = {
+        __typename: "ContentfulPromo",
+        id: "testId",
+        title: "test",
+        subtitle: "I am a subtitle",
+        body: null,
+        tags: null,
+        brandLogo: null,
+        featuredMedia: null,
+        featuredVideo: null,
+        cta: null
+      };
+      const link = {
+        __typename: "ContentfulLink",
+        id: "string",
+        label: "string",
+        icon: null,
+        isLabelHidden: null,
+        url: "https://www.external.co.uk",
+        linkedPage: null,
+        type: "External",
+        parameters: null,
+        dialogContent: promo
+      } as LinkData;
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: link
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);

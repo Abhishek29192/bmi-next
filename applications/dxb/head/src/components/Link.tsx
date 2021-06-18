@@ -15,7 +15,6 @@ import { VisualiserContext } from "./Visualiser";
 
 const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
-
   return actionUrls.some((actionUrl) => url.startsWith(actionUrl));
 };
 

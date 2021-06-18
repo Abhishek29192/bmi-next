@@ -132,10 +132,30 @@ const filters: ProductFilter[] = [
   }
 ];
 
+const filtersWithColour: ProductFilter[] = [
+  {
+    label: "filter1",
+    name: "colour",
+    options: [
+      {
+        label: "option1",
+        value: "option1"
+      }
+    ]
+  }
+];
+
 const pageData = {
   contentfulProductListerPage: pageInfo,
   contentfulSite: siteData,
   productFilters: filters,
+  initialProducts: []
+};
+
+const pageDataWithColourFilter = {
+  contentfulProductListerPage: pageInfo,
+  contentfulSite: siteData,
+  productFilters: filtersWithColour,
   initialProducts: []
 };
 
@@ -154,6 +174,19 @@ describe("ProductListerPage template", () => {
     pageData.initialProducts.push(prod);
     const { container } = render(
       <ProductListerPage data={pageData} pageContext={pageContext} />
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("renders basic ProductListerPage with colour filter", () => {
+    const pageContext: any = [];
+    const prod = createProduct();
+    pageDataWithColourFilter.initialProducts.push(prod);
+    const { container } = render(
+      <ProductListerPage
+        data={pageDataWithColourFilter}
+        pageContext={pageContext}
+      />
     );
     expect(container.firstChild).toMatchSnapshot();
   });
