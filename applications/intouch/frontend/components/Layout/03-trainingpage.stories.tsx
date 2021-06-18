@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@bmi/grid";
 import Hero from "@bmi/hero";
 import Typography from "@bmi/typography";
-import { TrainingQuery } from "graphql/generated/operations";
+import { TrainingQuery } from "../../graphql/generated/operations";
 import { CourseDescription } from "../Cards/CourseDescription";
 import { TrainingProcessCard } from "../Cards/TrainingProcess";
 import GridStyles from "../../styles/Grid.module.scss";
