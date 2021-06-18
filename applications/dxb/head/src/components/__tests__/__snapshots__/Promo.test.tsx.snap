@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Promo component renders correctly 1`] = `
+Object {
+  "__typename": "ContentfulPromo",
+  "body": null,
+  "brandLogo": null,
+  "cta": null,
+  "featuredMedia": null,
+  "featuredVideo": null,
+  "id": "testId",
+  "subtitle": "I am a subtitle",
+  "tags": null,
+  "title": "test",
+}
+`;

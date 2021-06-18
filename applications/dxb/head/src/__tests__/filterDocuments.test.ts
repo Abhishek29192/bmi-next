@@ -4,7 +4,15 @@ import {
   PIMDocumentData,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
-import { filterDocuments } from "../utils/filters";
+import {
+  filterDocuments,
+  getDocumentFilters,
+  generateUniqueDocuments,
+  Source,
+  ResultType,
+  clearFilterValues,
+  updateFilterValue
+} from "../utils/filters";
 import createPimDocument from "./PimDocumentHelper";
 import createPimLinkDocument from "./PimLinkDocumentHelper";
 import createContentfulDocument from "./ContentfulDocumentHelper";
@@ -16,6 +24,132 @@ import {
   createProductFamilyFilterCriteria,
   createAssetTypeFilterCriteria
 } from "./filterHelper";
+
+describe("updateFilterValue tests", () => {
+  describe("When updateFilterValue is requested", () => {
+    it("Then: returns updated filters", () => {
+      const results = updateFilterValue(
+        [createBrandFilterCriteria()],
+        "brand",
+        "Icopal",
+        true
+      );
+      expect(results).toMatchSnapshot();
+    });
+  });
+
+  describe("When non checked updateFilterValue is requested", () => {
+    it("Then: returns updated filters", () => {
+      const results = updateFilterValue(
+        [createBrandFilterCriteria()],
+        "brand",
+        "AeroDek",
+        true
+      );
+      expect(results).toMatchSnapshot();
+    });
+  });
+});
+
+describe("clearFilterValues tests", () => {
+  describe("When clearFilterValues is requested", () => {
+    it("Then: returns correct results", () => {
+      const results = clearFilterValues([]);
+      expect(results).toMatchSnapshot();
+    });
+  });
+});
+
+describe("generateUniqueDocuments tests", () => {
+  describe("When Simple generateUniqueDocuments are requested", () => {
+    it("Then: returns correct results", () => {
+      const results = generateUniqueDocuments("Simple", []);
+      expect(results).toMatchSnapshot();
+    });
+  });
+
+  describe("When NOT Simple generateUniqueDocuments are requested", () => {
+    it("Then: returns no results", () => {
+      const src = "ThisIsInvalid" as ResultType;
+      const results = generateUniqueDocuments(src, []);
+      expect(results).toEqual([]);
+    });
+  });
+
+  describe("When Simple generateUniqueDocuments with PIM doc requested", () => {
+    it("Then: returns correct results", () => {
+      const doc: PIMDocumentData = {
+        __typename: "PIMDocument",
+        id: "pim-document-id",
+        title: "pim-document-title",
+        product: createProduct(),
+        url: "http://localhost/pim-document-id",
+        assetType: createAssetType(),
+        fileSize: 1,
+        format: "application/pdf",
+        extension: "pdf",
+        realFileName: "pim-document-id.pdf"
+      };
+      const results = generateUniqueDocuments("Simple", [doc]);
+      expect(results).toMatchSnapshot();
+    });
+  });
+
+  describe("When Simple generateUniqueDocuments with CMS doc requested", () => {
+    it("Then: returns correct results", () => {
+      const doc = createContentfulDocument({
+        id: `contentful-doc-id`
+      });
+      const results = generateUniqueDocuments("Simple", [doc]);
+      expect(results).toMatchSnapshot();
+    });
+  });
+});
+
+describe("getDocumentFilters tests", () => {
+  describe("When invalid types are requested", () => {
+    it("Then: empty collection returned", () => {
+      const src = "ThisIsInvalid" as Source;
+      const results = getDocumentFilters([], src, "Simple", "blah");
+      expect(results).toEqual([]);
+    });
+  });
+
+  describe("When PIM Simple are requested", () => {
+    it("Then: returns correct results", () => {
+      const results = getDocumentFilters([], "PIM", "Simple", "blah");
+      expect(results).toMatchSnapshot();
+    });
+  });
+
+  describe("When PIM Technical are requested", () => {
+    it("Then: returns correct results", () => {
+      const results = getDocumentFilters([], "PIM", "Technical", "blah");
+      expect(results).toMatchSnapshot();
+    });
+  });
+
+  describe("When CMS Card Collection are requested", () => {
+    it("Then: returns correct results", () => {
+      const results = getDocumentFilters([], "CMS", "Card Collection", "blah");
+      expect(results).toMatchSnapshot();
+    });
+  });
+
+  describe("When CMS Simple are requested", () => {
+    it("Then: returns correct results", () => {
+      const results = getDocumentFilters([], "CMS", "Simple", "blah");
+      expect(results).toMatchSnapshot();
+    });
+  });
+
+  describe("When ALL Simple are requested", () => {
+    it("Then: returns correct results", () => {
+      const results = getDocumentFilters([], "ALL", "Simple", "blah");
+      expect(results).toMatchSnapshot();
+    });
+  });
+});
 
 describe("filter document tests", () => {
   describe("When no filters are provided", () => {

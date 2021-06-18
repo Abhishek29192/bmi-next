@@ -1,7 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import DocumentResults, {
-  Data as DocumentResultsData
+  Data as DocumentResultsData,
+  Format
 } from "../DocumentResults";
 import { PIMDocumentData, PIMLinkDocumentData } from "../types/PIMDocumentBase";
 import { Data as DocumentData } from "../../components/Document";
@@ -53,6 +54,15 @@ describe("DocumentResults component", () => {
       <DocumentResults data={inputDataItems} format="simpleTable" page={20} />
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("invalid: does not render correctly", () => {
+    const format = "invalid" as Format;
+    expect(() => {
+      const { container } = render(
+        <DocumentResults data={inputDataItems} format={format} page={20} />
+      );
+    }).toThrowError();
   });
 
   it("technicalTable: renders correctly", () => {
