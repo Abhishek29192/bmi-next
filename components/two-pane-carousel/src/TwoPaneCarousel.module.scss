@@ -8,23 +8,14 @@
   }
 
   .heading {
-    margin-bottom: 24px;
+    padding-bottom: 24px;
   }
 
   .image {
-    width: 100%;
-    height: auto;
     background-size: cover;
     background-position: center center;
     max-height: 400px;
     margin-bottom: 24px;
-
-    &::before {
-      content: "";
-      width: 100%;
-      display: block;
-      padding-top: 100%;
-    }
   }
 
   .left-pane-slide {

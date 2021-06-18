@@ -112,6 +112,27 @@ describe("Carousel component", () => {
 
     expect(onPageChange.mock.calls).toMatchSnapshot();
   });
+  it("starts and stops autoplay when interacting with the carousel", async () => {
+    const nextLabel = "next";
+    const { getByTestId } = render(
+      <div>
+        <Carousel isSwipeDisabled hasAutoPlay pauseAutoPlayOnHover>
+          <Carousel.Slide>First slide</Carousel.Slide>
+          <Carousel.Slide>Second slide</Carousel.Slide>
+          <Carousel.Slide>Third slide</Carousel.Slide>
+          <Carousel.Controls nextLabel={nextLabel} />
+        </Carousel>
+      </div>
+    );
+
+    // Stops
+    fireEvent.mouseOver(getByTestId("carousel"));
+    expect(getByTestId("carousel-interacted")).toBeTruthy();
+
+    // Starts
+    fireEvent.mouseOut(getByTestId("carousel-interacted"));
+    expect(getByTestId("carousel")).toBeTruthy();
+  });
   it("renders correctly with arrow controls", () => {
     const { container } = render(
       <Carousel
