@@ -1,19 +1,12 @@
 import { Link } from "gatsby";
-import {
-  result,
-  uniqBy,
-  groupBy,
-  find,
-  pickBy,
-  sortBy,
-  mergeWith
-} from "lodash";
+import { result, uniqBy, groupBy, find, pickBy, sortBy, unionBy } from "lodash";
 import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
 import {
   Classification,
   ClassificationFeatureValue,
   Product,
-  VariantOption
+  VariantOption,
+  VariantOptionWithProduct
 } from "../components/types/ProductBaseTypes";
 
 export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
@@ -59,7 +52,9 @@ export const getSizeLabel = (
 ) => {
   const { length, width, height } = measurement || {};
   const components = [width, length, height].filter(Boolean);
-
+  // this should never occur as filter will always return empty array
+  // but not removing this line as I dont want to have regression!
+  /* istanbul ignore next */
   if (!components.length) {
     return;
   }
@@ -141,12 +136,13 @@ export const getColourThumbnailUrl = (images): string =>
     "url"
   );
 
-type TransformedClassificationValue = {
+export type TransformedClassificationValue = {
   name: string;
   value: ClassificationFeatureValue | "n/a";
   thumbnailUrl?: string;
 };
-type TransformedMeasurementValue = {
+
+export type TransformedMeasurementValue = {
   [dimensionName: string]: {
     name: string;
     value: {
@@ -157,7 +153,7 @@ type TransformedMeasurementValue = {
     };
   };
 };
-type TransformedClassificationsMap = {
+export type TransformedClassificationsMap = {
   [classificationName: string]:
     | TransformedClassificationValue
     | TransformedMeasurementValue;
@@ -168,6 +164,9 @@ type ClassificationsPerProductMap = {
 type AllClassificationsValues = {
   [productCode: string]: TransformedClassificationsMap[];
 };
+
+export type VariantCodeToPathMap = { [code: string]: string };
+export type Options = { size: string };
 
 // Find attributes like surface finish, color, etc, from classifications
 // TODO: Try to consolidate with the "unique" approach.
@@ -205,6 +204,7 @@ export const mapProductClassifications = (
     LENGTH: `${classificationNamepace}/${MEASUREMENTS}.length`,
     WIDTH: `${classificationNamepace}/${MEASUREMENTS}.width`,
     HEIGHT: `${classificationNamepace}/${MEASUREMENTS}.height`,
+    THICKNESS: `${classificationNamepace}/${MEASUREMENTS}.thickness`,
     MATERIALS: `${classificationNamepace}/${GENERAL_INFORMATION}.materials`
   };
 
@@ -273,7 +273,12 @@ export const mapProductClassifications = (
       if (code === MEASUREMENTS) {
         features.forEach(({ code, name, featureValues, featureUnit }) => {
           if (
-            [FEATURES.LENGTH, FEATURES.WIDTH, FEATURES.HEIGHT].includes(code)
+            [
+              FEATURES.LENGTH,
+              FEATURES.WIDTH,
+              FEATURES.HEIGHT,
+              FEATURES.THICKNESS
+            ].includes(code)
           ) {
             const productObject = carry[productCode];
             const measurements = productObject
@@ -328,11 +333,11 @@ const getPropValue = (classification, propName) => {
 };
 
 export const getProductAttributes = (
-  productClassifications,
-  selfProduct,
-  pageContext,
-  options,
-  variantCodeToPathMap
+  productClassifications: ClassificationsPerProductMap,
+  selfProduct: Product | VariantOption,
+  countryCode: string,
+  options: Options,
+  variantCodeToPathMap: VariantCodeToPathMap
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedSurfaceTreatment = getProductProp(
     productClassifications,
@@ -467,7 +472,7 @@ export const getProductAttributes = (
                   model: "routerLink",
                   linkComponent: Link,
                   to: getProductUrl(
-                    pageContext.countryCode,
+                    countryCode,
                     variantCodeToPathMap[variantCode]
                   )
                 }
@@ -502,7 +507,7 @@ export const getProductAttributes = (
                   model: "routerLink",
                   linkComponent: Link,
                   to: getProductUrl(
-                    pageContext.countryCode,
+                    countryCode,
                     variantCodeToPathMap[variantCode]
                   )
                 }
@@ -532,7 +537,7 @@ export const getProductAttributes = (
                   model: "routerLink",
                   linkComponent: Link,
                   to: getProductUrl(
-                    pageContext.countryCode,
+                    countryCode,
                     variantCodeToPathMap[variantCode]
                   )
                 }
@@ -736,8 +741,6 @@ export const mapClassificationValues = (
     .join(", ");
 };
 
-type VariantOptionWithProduct = VariantOption & { _product: Product };
-
 export const findUniqueVariantClassifications = (
   variant: VariantOptionWithProduct,
   classificationNamespace: string
@@ -776,22 +779,49 @@ export const findUniqueVariantClassifications = (
   );
 };
 
+// need to merge product and self classifications
+//such that the variant feature values are merged with product features
 export const getMergedClassifications = (
   pimClassificationCatalogueNamespace: string,
   selfProduct: Product | VariantOption,
   product: Product
 ) => {
+  const unionClassifications = unionBy(
+    [],
+    selfProduct.classifications || [],
+    product.classifications || []
+  );
+  const groupedClassifications: {
+    [index: string]: Classification[];
+  } = groupBy(unionClassifications, (item) => item.code);
+
+  const mergedClassifications: Classification[] = Object.values<
+    Classification[]
+  >(groupedClassifications).map((classifications: Classification[]) =>
+    classifications.reduce<Classification>(
+      (prevValue, currValue) => {
+        const mergedFeatures = sortBy(
+          unionBy(
+            prevValue.features,
+            currValue.features,
+            (feature) => feature.code
+          ),
+          (feature) => feature.name
+        );
+        return {
+          ...prevValue,
+          ...currValue,
+          features: mergedFeatures
+        };
+      },
+      { features: [] } as Classification
+    )
+  );
+
   return sortBy(
     getValidClassification(
       pimClassificationCatalogueNamespace,
-      uniqBy(
-        mergeWith(
-          [],
-          selfProduct.classifications || [],
-          product.classifications || []
-        ),
-        (item) => item.code
-      )
+      uniqBy(mergedClassifications, (item) => item.code)
     ),
     (item) => item.code
   );
