@@ -9,7 +9,7 @@ build_gcp-firestore-writer:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-firestore-writer build
+    - yarn workspace @bmi/gcp-firestore-writer build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/gcp-firestore-writer/dist

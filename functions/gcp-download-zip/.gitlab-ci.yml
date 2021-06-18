@@ -9,7 +9,7 @@ build_gcp-download-zip:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-download-zip build
+    - yarn workspace @bmi/gcp-download-zip build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/gcp-download-zip/dist

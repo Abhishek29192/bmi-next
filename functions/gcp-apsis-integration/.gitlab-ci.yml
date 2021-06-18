@@ -45,7 +45,7 @@ build_gcp-apsis-integration:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-apsis-integration build
+    - yarn workspace @bmi/gcp-apsis-integration build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/gcp-apsis-integration/dist

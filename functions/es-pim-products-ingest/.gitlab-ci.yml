@@ -45,7 +45,7 @@ build_es-pim-products-ingest:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/es-pim-products-ingest build
+    - yarn workspace @bmi/es-pim-products-ingest build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/es-pim-products-ingest/dist

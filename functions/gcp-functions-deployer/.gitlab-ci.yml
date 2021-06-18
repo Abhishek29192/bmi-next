@@ -9,7 +9,7 @@ build_gcp-functions-deployer:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-functions-deployer build
+    - yarn workspace @bmi/gcp-functions-deployer build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/gcp-functions-deployer/dist

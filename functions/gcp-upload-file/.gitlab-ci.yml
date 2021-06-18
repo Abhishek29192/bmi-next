@@ -45,7 +45,7 @@ build_gcp-upload-file:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-upload-file build
+    - yarn workspace @bmi/gcp-upload-file build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/gcp-upload-file/dist

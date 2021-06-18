@@ -45,7 +45,7 @@ build_gcp-form-submit:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-form-submit build
+    - yarn workspace @bmi/gcp-form-submit build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/gcp-form-submit/dist
