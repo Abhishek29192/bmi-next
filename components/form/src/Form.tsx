@@ -6,7 +6,9 @@ import SubmitButton from "./_SubmitButton";
 import { InputValue } from "./withFormControl";
 
 type Values = Record<string, InputValue | undefined>;
-type Errors = Record<string, string>;
+type ValidationPasses = false | "" | null | undefined;
+export type ValidationResult = string | ValidationPasses;
+type Errors = Record<string, ValidationResult>;
 
 export type Props = Omit<React.HTMLProps<HTMLFormElement>, "onSubmit"> & {
   children: React.ReactNode;
