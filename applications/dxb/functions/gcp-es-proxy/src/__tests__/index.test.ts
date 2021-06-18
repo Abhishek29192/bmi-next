@@ -9,7 +9,7 @@ import {
   mockRequest,
   mockResponse,
   mockResponses
-} from "../../../../libraries/fetch-mocks/src/index";
+} from "../../../../../../libraries/fetch-mocks/src/index";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
