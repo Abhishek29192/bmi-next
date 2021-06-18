@@ -127,6 +127,7 @@ baseline_scan_head_preview:
   cache: {}
   script:
     - |
+      [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
       base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
       xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${base_url}" applications/dxb/head/dast/mr.context
@@ -185,6 +186,7 @@ lighthouseci_scan_head_preview:
     NETLIFY_PWD: "$NETLIFY_PASSWORD_QA"
   script:
     - |
+      [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
       base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
       urls=(
