@@ -189,7 +189,7 @@ lighthouseci_scan_head_preview:
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
       urls=(
         "${base_url}/no/"
-        "${base_url}/no/contact-us/"
+        "${base_url}/no/metal-tiles/contact-us/"
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
       )
       params="--collect.settings.pwd=${NETLIFY_PWD}"
