@@ -3,12 +3,13 @@ import { Request } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
 import { v4 as uuid } from "uuid";
+// Needed until we upgrade to yarn 2 or use an NPM registry - https://github.com/yarnpkg/yarn/issues/6323
 import {
   MockedResponse,
   mockRequest,
   mockResponse,
   mockResponses
-} from "@bmi/fetch-mocks";
+} from "../../../../libraries/fetch-mocks/src/index";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);

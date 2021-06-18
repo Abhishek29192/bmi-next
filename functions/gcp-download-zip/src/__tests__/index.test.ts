@@ -3,8 +3,13 @@ import os from "os";
 import { Request } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
+// Needed until we upgrade to yarn 2 or use an NPM registry - https://github.com/yarnpkg/yarn/issues/6323
 import { protos } from "@google-cloud/secret-manager";
+import {
+  mockRequest,
+  mockResponse,
+  mockResponses
+} from "../../../../libraries/fetch-mocks/src/index";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);

@@ -16,8 +16,5 @@
     "@google-cloud/functions-framework": "^1.7.1",
     "@google-cloud/secret-manager": "^3.4.0",
     "node-fetch": "^2.6.1"
-  },
-  "devDependencies": {
-    "@bmi/fetch-mocks": "0.0.0"
   }
 }
