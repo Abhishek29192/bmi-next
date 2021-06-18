@@ -95,6 +95,10 @@ deploy_head_preview:
     - apt-get install -y jq
   script:
     - |
+      cd applications/dxb/head
+      node ./scripts/netlify-toml-builder.js
+      node ./scripts/netlify-token-replacer.js
+      cd ../../../
       DEPLOY_RESULT=$(npx netlify deploy --dir applications/dxb/head/public --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
       echo ${DEPLOY_RESULT}
       SITE_URL=$(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')
@@ -124,6 +128,7 @@ baseline_scan_head_preview:
   cache: {}
   script:
     - |
+      [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
       base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
       xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${base_url}" applications/dxb/head/dast/mr.context
@@ -182,11 +187,12 @@ lighthouseci_scan_head_preview:
     NETLIFY_PWD: "$NETLIFY_PASSWORD_QA"
   script:
     - |
+      [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
       base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
       urls=(
         "${base_url}/no/"
-        "${base_url}/no/contact-us/"
+        "${base_url}/no/metal-tiles/contact-us/"
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
       )
       params="--collect.settings.pwd=${NETLIFY_PWD}"
