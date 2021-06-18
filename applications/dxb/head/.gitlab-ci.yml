@@ -98,7 +98,8 @@ deploy_head_preview:
       cd applications/dxb/head
       node ./scripts/netlify-toml-builder.js
       node ./scripts/netlify-token-replacer.js
-      DEPLOY_RESULT=$(npx netlify deploy --dir public/ --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
+      cd ../../../
+      DEPLOY_RESULT=$(npx netlify deploy --dir applications/dxb/head/public --site "${NETLIFY_HEAD_SITE_ID}" --auth "${NETLIFY_AUTH_TOKEN}" --json) || exit 0
       echo ${DEPLOY_RESULT}
       SITE_URL=$(echo ${DEPLOY_RESULT} | jq -r '.deploy_url')
       curl --request POST --header "PRIVATE-TOKEN: ${GITLAB_TOKEN}" -H "Content-Type: application/json" \
