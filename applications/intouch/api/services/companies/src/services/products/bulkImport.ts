@@ -2,7 +2,7 @@ import * as csv from "fast-csv";
 import pgFormat from "pg-format";
 import camelcaseKeys from "camelcase-keys";
 
-const singleImport = async (file) =>
+export const singleImport = async (file) =>
   new Promise<any[]>((resolve, reject) => {
     const result = [];
     const { createReadStream } = file;
@@ -82,7 +82,6 @@ export const bulkImport = async (args, context) => {
     if (filename.indexOf("system_member.csv") !== -1) {
       systemMember = parsedFile.map((item) => {
         return {
-          // id: item.id,
           system_bmi_ref: item.system_bmi_ref,
           product_bmi_ref: item.product_bmi_ref
         };
@@ -98,7 +97,6 @@ export const bulkImport = async (args, context) => {
         }
 
         return {
-          // id: parseInt(item.id) || undefined,
           market_id: marketId,
           technology: item.technology,
           bmi_ref: item.bmi_ref,
@@ -120,7 +118,6 @@ export const bulkImport = async (args, context) => {
         }
 
         return {
-          // id: item.id,
           market_id: marketId,
           technology: item.technology,
           bmi_ref: item.bmi_ref,
