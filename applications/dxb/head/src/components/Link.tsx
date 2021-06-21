@@ -246,13 +246,14 @@ export const Link = ({
       return;
     }
 
+    const sectionId = `dialog-section-${new Date().getTime()}`;
     const Component: React.ElementType =
       sectionsMap[data.dialogContent.__typename];
 
     return (
       <Dialog open={dialogIsOpen} onCloseClick={handleDialogCloseClick}>
         <div className={styles["Link--dialog"]}>
-          <Component data={data.dialogContent} />
+          <Component data={data.dialogContent} id={sectionId} />
         </div>
       </Dialog>
     );
