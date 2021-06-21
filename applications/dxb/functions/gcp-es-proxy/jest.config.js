@@ -1,10 +1,10 @@
 "use strict";
 
-const sharedConfig = require("../../jest.config");
+const sharedConfig = require("../../../../jest.config");
 
 module.exports = {
   ...sharedConfig,
-  rootDir: "../../",
+  rootDir: "../../../../",
   roots: ["<rootDir>/functions/gcp-es-proxy/src"],
   coverageThreshold: {
     global: {

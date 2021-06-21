@@ -45,7 +45,7 @@ build_gcp-es-proxy:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-es-proxy build
+    - yarn workspace @bmi/gcp-es-proxy build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/gcp-es-proxy/dist
