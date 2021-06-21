@@ -8,6 +8,8 @@ exports[`Link component Link function ensure clicking Visualiser link works 1`] 
 
 exports[`Link component Link function ensure clicking link works 1`] = `[Function]`;
 
+exports[`Link component Link function handles parameters being non-null properly 1`] = `[Function]`;
+
 exports[`Link component Link function returns a Link correctly 1`] = `[Function]`;
 
 exports[`Link component Link function returns a Link correctly with Dialog promo 1`] = `[Function]`;

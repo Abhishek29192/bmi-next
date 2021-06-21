@@ -1,10 +1,12 @@
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
+import { Data as LinkData } from "../Link";
+import { Data as PageInfoData } from "../PageInfo";
+import { CalculatorContext } from "../PitchedRoofCalcualtor";
+import { Data as PromoData } from "../Promo";
 import { TagData } from "../Tag";
-import { Data as PageInfoData } from "./../PageInfo";
-import { Data as PromoData } from "./../Promo";
-import { Data as LinkData } from "./../Link";
+import { VisualiserContext } from "../Visualiser";
 
 type Card = PageInfoData | PromoData;
 
@@ -87,6 +89,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-2","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -114,6 +117,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-3","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -141,6 +145,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-4","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -168,6 +173,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-5","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -195,6 +201,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-6","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -222,6 +229,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"entry-hyperlink","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -249,6 +257,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -297,6 +306,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -482,5 +492,499 @@ describe("CardCollectionSection component", () => {
     fireEvent.click(showMoreButton);
 
     expect(wrapper.container.getElementsByClassName("hidden")).toHaveLength(0);
+  });
+
+  describe("Card label", () => {
+    it("renders as cardLabel", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Visualiser",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+
+      const cardLink = wrapper.getByTestId("card-link");
+      expect(cardLink.textContent).toEqual(data.cardLabel);
+    });
+
+    it("renders as cardLabel with the title replaced with the card title", () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a {{title}}",
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Visualiser",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+
+      const cardLink = wrapper.getByTestId("card-link");
+      expect(cardLink.textContent).toEqual(`a ${card1.title}`);
+    });
+
+    it("renders as card link label if cardLabel is not provided and card has link", () => {
+      const card: PromoData = {
+        __typename: "ContentfulPromo",
+        id: "test",
+        title: "test",
+        subtitle: null,
+        body: null,
+        brandLogo: null,
+        tags: [testTag1],
+        featuredMedia: null,
+        cta: {
+          __typename: "ContentfulLink",
+          id: "cta-id",
+          label: "CTA",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "External",
+          dialogContent: null,
+          linkedPage: null
+        },
+        featuredVideo: null
+      };
+      const cards: Card[] = [card];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: null,
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Visualiser",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+
+      const cardLink = wrapper.getByTestId("card-link");
+      expect(cardLink.textContent).toEqual(card.cta.label);
+    });
+
+    it("not rendered if cardLabel and card link are not provided", async () => {
+      const cards: Card[] = [
+        {
+          __typename: "ContentfulPromo",
+          id: "test",
+          title: "test",
+          subtitle: null,
+          body: null,
+          brandLogo: null,
+          tags: [testTag1],
+          featuredMedia: null,
+          cta: null,
+          featuredVideo: null
+        }
+      ];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: null,
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Visualiser",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+
+      const cardLink = wrapper.queryByTestId("card-link");
+      expect(cardLink).toBeNull();
+    });
+
+    it("renders as 'Go to card.title' if cardLabel and link label are not provided", () => {
+      const cards: Card[] = [
+        {
+          __typename: "ContentfulPromo",
+          id: "test",
+          title: "test",
+          subtitle: null,
+          body: null,
+          brandLogo: null,
+          tags: [testTag1],
+          featuredMedia: null,
+          cta: {
+            __typename: "ContentfulLink",
+            id: "visualiser-id",
+            label: null,
+            icon: null,
+            isLabelHidden: null,
+            url: null,
+            parameters: null,
+            type: "Visualiser",
+            dialogContent: null,
+            linkedPage: null
+          },
+          featuredVideo: null
+        }
+      ];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: null,
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Visualiser",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+
+      const cardLink = wrapper.getByTestId("card-link");
+      expect(cardLink.textContent).toEqual(`Go to ${card1.title}`);
+    });
+  });
+
+  describe("When the link is a visualiser link", () => {
+    it("does nothing when openVisualiser in context is undefined", async () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Visualiser",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const wrapper = render(
+        <VisualiserContext.Provider value={{ isOpen: false, open: undefined }}>
+          <CardCollectionSection data={data} theme="" />
+        </VisualiserContext.Provider>
+      );
+
+      const visualiserLink = wrapper.getByText(data.link.label);
+      visualiserLink.click();
+    });
+
+    it("calls visualiserOpen with null when link parameters are null", async () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Visualiser",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+      const visualiserOpen = jest.fn().mockImplementation(() => {});
+
+      const wrapper = render(
+        <VisualiserContext.Provider
+          value={{ isOpen: false, open: visualiserOpen }}
+        >
+          <CardCollectionSection data={data} theme="" />
+        </VisualiserContext.Provider>
+      );
+
+      const visualiserLink = wrapper.getByText(data.link.label);
+      visualiserLink.click();
+      expect(visualiserOpen).toBeCalledWith(null);
+    });
+
+    it("calls visualiserOpen with link parameters when link parameters are populated", async () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: { a: "b" },
+          type: "Visualiser",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const visualiserOpen = jest.fn().mockImplementation(() => {});
+
+      const wrapper = render(
+        <VisualiserContext.Provider
+          value={{ isOpen: false, open: visualiserOpen }}
+        >
+          <CardCollectionSection data={data} theme="" />
+        </VisualiserContext.Provider>
+      );
+
+      const visualiserLink = wrapper.getByText(data.link.label);
+      visualiserLink.click();
+      expect(visualiserOpen).toBeCalledWith(data.link.parameters);
+    });
+  });
+
+  describe("When the link is a calculator link", () => {
+    it("does nothing when openCalculator in context is undefined", async () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "calculator-id",
+          label: "Calculator",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Calculator",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const wrapper = render(
+        <CalculatorContext.Provider value={{ isOpen: false, open: undefined }}>
+          <CardCollectionSection data={data} theme="" />
+        </CalculatorContext.Provider>
+      );
+
+      const calculatorLink = wrapper.getByText(data.link.label);
+      calculatorLink.click();
+    });
+
+    it("calls calculatorOpen with null when link parameters are null", async () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "calculator-id",
+          label: "Calculator",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: "Calculator",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const calculatorOpen = jest.fn().mockImplementation(() => {});
+
+      const wrapper = render(
+        <CalculatorContext.Provider
+          value={{ isOpen: false, open: calculatorOpen }}
+        >
+          <CardCollectionSection data={data} theme="" />
+        </CalculatorContext.Provider>
+      );
+
+      const calculatorLink = wrapper.getByText(data.link.label);
+      calculatorLink.click();
+      expect(calculatorOpen).toBeCalledWith(null);
+    });
+
+    it("calls calculatorOpen with link parameters when link parameters are populated", async () => {
+      const cards: Card[] = [card1];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: {
+          __typename: "ContentfulLink",
+          id: "calculator-id",
+          label: "Calculator",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: { a: "b" },
+          type: "Calculator",
+          dialogContent: null,
+          linkedPage: null
+        }
+      };
+
+      const calculatorOpen = jest.fn().mockImplementation(() => {});
+
+      const wrapper = render(
+        <CalculatorContext.Provider
+          value={{ isOpen: false, open: calculatorOpen }}
+        >
+          <CardCollectionSection data={data} theme="" />
+        </CalculatorContext.Provider>
+      );
+
+      const calculatorLink = wrapper.getByText(data.link.label);
+      calculatorLink.click();
+      expect(calculatorOpen).toBeCalledWith(data.link.parameters);
+    });
   });
 });

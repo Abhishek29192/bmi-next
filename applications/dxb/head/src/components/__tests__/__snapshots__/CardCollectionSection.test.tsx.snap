@@ -55,6 +55,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
@@ -145,6 +146,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
@@ -239,6 +241,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
@@ -333,6 +336,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
@@ -427,6 +431,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
@@ -521,6 +526,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
@@ -615,6 +621,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
@@ -709,6 +716,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
@@ -803,6 +811,7 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
                       <button
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
                         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-testid="card-link"
                         tabindex="0"
                         type="button"
                       >
