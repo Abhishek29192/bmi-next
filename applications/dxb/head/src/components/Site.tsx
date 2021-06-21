@@ -42,7 +42,6 @@ export type Data = {
   } | null;
   scriptGA?: string | null;
   scriptOnetrust?: string | null;
-  scriptGTM?: string | null;
   scriptHotJar?: string | null;
   scriptGOptLoad?: string | null;
   scriptGRecaptchaId?: string | null;
@@ -76,7 +75,6 @@ export const query = graphql`
     }
     scriptGA
     scriptOnetrust
-    scriptGTM
     scriptHotJar
     scriptGOptLoad
     scriptGRecaptchaId
