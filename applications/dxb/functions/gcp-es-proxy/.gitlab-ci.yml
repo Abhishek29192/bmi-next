@@ -18,22 +18,6 @@ test_gcp-es-proxy:
       junit:
         - functions/gcp-es-proxy/junit.xml
 
-test_mr_coverage_gcp-es-proxy:
-  stage: test
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
-      changes:
-        - functions/gcp-es-proxy/**/*
-        - jest/**/*
-  needs:
-    - install
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - git fetch origin master
-    - yarn workspace @bmi/gcp-es-proxy coverage:jest  --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
-
 build_gcp-es-proxy:
   stage: build
   rules:
