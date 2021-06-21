@@ -1,10 +1,10 @@
 import React from "react";
+import { Filter } from "@bmi/filters";
 import ColorSwatch, { COLOR_CODES } from "../components/ColorSwatch";
-import { ProductFilter } from "./filters";
 
 type colourCodes = keyof typeof COLOR_CODES;
 
-export const enhanceColourFilterWithSwatches = (filter: ProductFilter) => {
+export const enhanceColourFilterWithSwatches = (filter: Filter): Filter => {
   return {
     ...filter,
     options: filter.options.map((option) => ({

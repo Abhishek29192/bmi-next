@@ -3,7 +3,7 @@ import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
 import Button from "@bmi/button";
 import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
 import Typography from "@bmi/typography";
-import Filters, { Props as FilterProps } from "@bmi/filters";
+import Filters, { FilterProps } from "@bmi/filters";
 import PerfectScrollbar from "@bmi/perfect-scrollbar";
 import withGTM from "../utils/google-tag-manager";
 import { SiteContext } from "./Site";

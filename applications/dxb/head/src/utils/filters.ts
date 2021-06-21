@@ -1,4 +1,5 @@
 import { uniqBy, map } from "lodash";
+import { Filter } from "@bmi/filters";
 import { Product, Category } from "../components/types/ProductBaseTypes";
 import { Data as DocumentResultsData } from "../components/DocumentResults";
 import {
@@ -11,19 +12,6 @@ import {
   mapProductClassifications,
   ProductCategoryTree
 } from "./product-details-transforms";
-
-export type filterOption = ProductFilter & {
-  value: string[];
-};
-
-export type ProductFilter = {
-  label: string;
-  name: string;
-  options: ReadonlyArray<{
-    label: string;
-    value: string;
-  }>;
-};
 
 export const isPIMDocument = (
   item: DocumentResultsData[0]
@@ -547,7 +535,7 @@ type DocumentResultData = PIMDocumentData | DocumentData | PIMLinkDocumentData;
 
 export const filterDocuments = (
   documents: DocumentResultsData,
-  filters: Array<filterOption>
+  filters: Array<Filter>
 ): DocumentResultsData => {
   const valueMatcher = {
     brand: (document: DocumentResultData, valuesToMatch: string[]): boolean =>

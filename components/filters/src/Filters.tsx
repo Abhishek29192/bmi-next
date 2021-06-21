@@ -11,7 +11,7 @@ type FilterOption = {
   isDisabled?: boolean;
 };
 
-type Filter = {
+export type Filter = {
   label: string;
   name: string;
   value?: ReadonlyArray<string>;

@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { Filter } from "@bmi/filters";
 import ProductListerPage from "../../templates/product-lister-page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as PageData } from "../../components/Page";
@@ -8,11 +9,6 @@ import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 import { Data as LinkData } from "../../components/Link";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
-import {
-  clearFilterValues,
-  ProductFilter,
-  updateFilterValue
-} from "../../utils/filters";
 import createProduct from "../../__tests__/PimDocumentProductHelper";
 
 type Data = PageInfoData &
@@ -119,7 +115,7 @@ const siteData: SiteData = {
   scriptGRecaptchaNet: null
 };
 
-const filters: ProductFilter[] = [
+const filters: Filter[] = [
   {
     label: "filter1",
     name: "filter1",
@@ -132,7 +128,7 @@ const filters: ProductFilter[] = [
   }
 ];
 
-const filtersWithColour: ProductFilter[] = [
+const filtersWithColour: Filter[] = [
   {
     label: "filter1",
     name: "colour",

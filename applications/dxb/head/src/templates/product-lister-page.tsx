@@ -10,6 +10,7 @@ import IconList from "@bmi/icon-list";
 import OverviewCard from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
+import { Filter } from "@bmi/filters";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -18,11 +19,7 @@ import {
 } from "../utils/product-details-transforms";
 import ResultsPagination from "../components/ResultsPagination";
 import withGTM from "../utils/google-tag-manager";
-import {
-  clearFilterValues,
-  ProductFilter,
-  updateFilterValue
-} from "../utils/filters";
+import { clearFilterValues, updateFilterValue } from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
@@ -72,7 +69,7 @@ type Props = {
   data: {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
-    productFilters: ReadonlyArray<ProductFilter>;
+    productFilters: ReadonlyArray<Filter>;
     initialProducts?: any[];
   };
 };
@@ -106,7 +103,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
 
   // NOTE: map colour filter values to specific colour swatch representation
-  const resolveFilters = (filters: readonly ProductFilter[]) => {
+  const resolveFilters = (filters: readonly Filter[]) => {
     return filters.map((filter) => {
       if (filter.name === "colour") {
         return enhanceColourFilterWithSwatches(filter);

@@ -1,8 +1,8 @@
-import { filterOption } from "../utils/filters";
+import { Filter } from "@bmi/filters";
 
 export const createBrandFilterCriteria = (
-  partialProps?: Partial<filterOption>
-): filterOption => {
+  partialProps?: Partial<Filter>
+): Filter => {
   return {
     label: "filterLabels.brand",
     name: "brand",
@@ -17,8 +17,8 @@ export const createBrandFilterCriteria = (
 };
 
 export const createProductFamilyFilterCriteria = (
-  partialProps?: Partial<filterOption>
-): filterOption => {
+  partialProps?: Partial<Filter>
+): Filter => {
   return {
     label: "filterLabels.productFamily",
     name: "productFamily",
@@ -33,8 +33,8 @@ export const createProductFamilyFilterCriteria = (
 };
 
 export const createAssetTypeFilterCriteria = (
-  partialProps?: Partial<filterOption>
-): filterOption => {
+  partialProps?: Partial<Filter>
+): Filter => {
   return {
     label: "filterLabels.assetType",
     name: "contentfulAssetType",
