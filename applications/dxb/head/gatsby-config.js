@@ -449,6 +449,22 @@ module.exports = {
           }
         ]
       : []),
+    ...(process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID &&
+    !process.env.GATSBY_PREVIEW
+      ? [
+          {
+            resolve: "gatsby-plugin-google-tagmanager",
+            options: {
+              id: process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID,
+              includeInDevelopment: true,
+              defaultDataLayer: {
+                platform: "gatsby",
+                env: process.env.NODE_ENV
+              }
+            }
+          }
+        ]
+      : []),
     ...(process.env.GATSBY_HUBSPOT_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
