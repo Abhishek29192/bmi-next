@@ -158,6 +158,39 @@ describe("Link component", () => {
         </Link>;
       }).toMatchSnapshot();
     });
+
+    it("handles parameters being non-null properly", () => {
+      const promo: PromoData = {
+        __typename: "ContentfulPromo",
+        id: "testId",
+        title: "test",
+        subtitle: "I am a subtitle",
+        body: null,
+        tags: null,
+        brandLogo: null,
+        featuredMedia: null,
+        featuredVideo: null,
+        cta: null
+      };
+      const data = {
+        __typename: "ContentfulLink",
+        id: "string",
+        label: "string",
+        icon: null,
+        isLabelHidden: null,
+        url: "https://www.external.co.uk",
+        linkedPage: null,
+        type: "External",
+        parameters: { key: "value" },
+        dialogContent: promo
+      } as LinkData;
+
+      expect(() => {
+        <Link component="a" data={data}>
+          {data.label}
+        </Link>;
+      }).toMatchSnapshot();
+    });
   });
 
   describe("getClickableActionFromUrl function", () => {

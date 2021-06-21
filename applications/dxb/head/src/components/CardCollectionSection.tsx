@@ -35,7 +35,7 @@ export type Data = {
   groupCards: boolean;
   cards: Card[];
   link: LinkData | null;
-  justifyCenter?: boolean;
+  justifyCenter: boolean | null;
 };
 
 const CardCollectionItem = ({
@@ -72,6 +72,7 @@ const CardCollectionItem = ({
       footer={
         link ? (
           <Link
+            data-testid={"card-link"}
             component={GTMButton}
             data={link}
             variant="outlined"

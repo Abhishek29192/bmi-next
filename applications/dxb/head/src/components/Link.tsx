@@ -162,7 +162,7 @@ export type Data = {
     | "Calculator"
     | "Dialog"
     | null;
-  parameters: JSON | null;
+  parameters: { [key: string]: any } | null;
   dialogContent: SectionData | null;
   linkedPage: {
     // NOTE: null is for Homepage type
