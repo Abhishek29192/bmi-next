@@ -38,12 +38,14 @@ const trainingFilters = [
 
 type TrainingSidePanelProps = {
   courseCatalog?: TrainingQuery["courseCatalogues"];
+  onCourseSelected?: (courseId: number) => void;
 };
 
 const DEFAULT_ENROLLMENT_STATUS = "General";
 
 export const TrainingSidePanel = ({
-  courseCatalog
+  courseCatalog,
+  onCourseSelected
 }: TrainingSidePanelProps) => {
   const [filterCriteria, setFilterCriteria] = useState<string>(
     DEFAULT_FILTER_CRITERIA
@@ -53,6 +55,7 @@ export const TrainingSidePanel = ({
 
   const trainingFilterClickHandler = ({ attr }) => {
     setFilterCriteria(attr);
+    onCourseSelected && onCourseSelected(null);
   };
 
   trainingFilters.forEach(
@@ -76,9 +79,23 @@ export const TrainingSidePanel = ({
       }}
     >
       {courses.map(
-        ({ course: { name, technology, trainingType, courseEnrollments } }) => {
+        ({
+          course: {
+            courseId,
+            name,
+            technology,
+            trainingType,
+            courseEnrollments
+          }
+        }) => {
           return (
-            <FilterResult label={name} key={name}>
+            <FilterResult
+              label={name}
+              key={name}
+              onClick={() => {
+                onCourseSelected && onCourseSelected(courseId);
+              }}
+            >
               <Typography style={{ textTransform: "capitalize" }}>
                 {trainingType}
               </Typography>
