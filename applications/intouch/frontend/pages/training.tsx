@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { Course } from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
+import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -15,6 +17,7 @@ import {
   getServerPageTraining
 } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
+import { CourseDescription } from "../components/Cards/CourseDescription";
 import { parseAccount } from "../lib/account";
 
 type PageProps = {
@@ -33,6 +36,8 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
 
+  const [activeCourse, setActiveCourse] = useState<Course>(null);
+
   if (error)
     return (
       <Layout title={t("Training")}>
@@ -49,6 +54,13 @@ const TrainingPage = ({ trainingData }: PageProps) => {
       </Layout>
     );
 
+  const sidePanelHandler = (courseId: number) => {
+    const activeCourse = courseCatalogues.nodes.find(
+      (node) => node.course.courseId === courseId
+    )?.course as Course;
+    setActiveCourse(activeCourse);
+  };
+
   //Translate course status
   courseCatalogues?.nodes?.forEach(({ course }) => {
     course.courseEnrollments?.nodes.forEach(
@@ -59,7 +71,10 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   return (
     <Layout title={t("Training")}>
       <div style={{ display: "flex" }}>
-        <TrainingSidePanel courseCatalog={courseCatalogues} />
+        <TrainingSidePanel
+          courseCatalog={courseCatalogues}
+          onCourseSelected={sidePanelHandler}
+        />
         <Grid
           container
           spacing={2}
@@ -67,10 +82,14 @@ const TrainingPage = ({ trainingData }: PageProps) => {
           alignItems="stretch"
         >
           <Grid item>
-            <TrainingCover
-              trainingContentCollection={trainingContentCollection}
-              lmsUrl={DOCEBO_SSO_URL}
-            />
+            {!activeCourse ? (
+              <TrainingCover
+                trainingContentCollection={trainingContentCollection}
+                lmsUrl={DOCEBO_SSO_URL}
+              />
+            ) : (
+              <CourseDetail course={activeCourse} />
+            )}
           </Grid>
         </Grid>
       </div>
@@ -138,6 +157,29 @@ export const getServerSideProps = async (ctx) => {
   })(ctx);
 };
 export default withPageAuthRequired(TrainingPage);
+
+const CourseDetail = ({ course }: { course: Course }) => {
+  const { t } = useTranslation("training-page");
+  const { name, trainingType, image, description, courseEnrollments } = course;
+  const { status = "General", url = "" } = courseEnrollments.nodes[0] || {};
+
+  return (
+    <CourseDescription
+      title={name}
+      type={trainingType}
+      status={status}
+      image={image}
+      lmsUrl={`${DOCEBO_SSO_URL}?path=${url}`}
+    >
+      <Typography variant="h5">{t("Description")}</Typography>
+
+      <Typography
+        component="div"
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
+    </CourseDescription>
+  );
+};
 
 // export doesn't matter for codegen
 export const pageQuery = gql`
