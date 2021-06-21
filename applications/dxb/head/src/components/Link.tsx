@@ -1,7 +1,13 @@
 import { ClickableAction } from "@bmi/clickable";
 import Dialog from "@bmi/dialog";
 import { graphql, Link as GatsbyLink } from "gatsby";
-import React, { useCallback, useContext, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+  useEffect
+} from "react";
 import { Data as SimplePageData } from "../templates/simple-page";
 import { pushToDataLayer } from "../utils/google-tag-manager";
 import { IconName } from "./Icon";
@@ -173,6 +179,7 @@ export type Data = {
       url: string | null;
     };
   } | null;
+  hubSpotCTAID: string | null;
 };
 
 export type NavigationItem = {
@@ -259,6 +266,70 @@ export const Link = ({
     );
   }, [data?.dialogContent, dialogIsOpen]);
 
+  const renderHubSpotCTA = useMemo(() => {
+    const { hubSpotCTAID } = data;
+    const HubSpotID = process.env.GATSBY_HUBSPOT_ID;
+
+    return (
+      <span className="hs-cta-wrapper" id={`hs-cta-wrapper-${hubSpotCTAID}`}>
+        <span
+          className={`hs-cta-node hs-cta-${hubSpotCTAID}`}
+          id={`hs-cta-${hubSpotCTAID}`}
+        >
+          <a
+            href={`https://cta-redirect.hubspot.com/cta/redirect/${HubSpotID}/${hubSpotCTAID}`}
+          >
+            <img
+              className="hs-cta-img"
+              id={`hs-cta-img-${hubSpotCTAID}`}
+              src={`https://no-cache.hubspot.com/cta/default/${HubSpotID}/${hubSpotCTAID}.png`}
+              alt="New call-to-action"
+            />
+          </a>
+        </span>
+      </span>
+    );
+  }, [data?.hubSpotCTAID]);
+
+  useEffect(() => {
+    if (
+      typeof window === "undefined" ||
+      typeof document === "undefined" ||
+      data?.type !== "HubSpot CTA" ||
+      !data?.hubSpotCTAID
+    ) {
+      return;
+    }
+
+    const script = document.getElementById("hubspot-cta-script");
+
+    if (!script) {
+      return;
+    }
+
+    const handleHubSpotCTALoad = () => {
+      if (!("hbspt" in window)) {
+        return;
+      }
+
+      window?.["hbspt"]?.cta?.load(
+        process.env.GATSBY_HUBSPOT_ID,
+        data?.hubSpotCTAID,
+        { region: "na1" } // Maybe this needs to be in env?
+      );
+    };
+
+    script.addEventListener("load", handleHubSpotCTALoad);
+
+    return () => {
+      script.removeEventListener("load", handleHubSpotCTALoad);
+    };
+  }, []);
+
+  if (data?.type === "HubSpot CTA" && data?.hubSpotCTAID) {
+    return renderHubSpotCTA;
+  }
+
   return (
     <>
       <Component action={action} onClick={handleOnClick} {...rest}>
@@ -300,6 +371,7 @@ export const query = graphql`
     parameters {
       ...VisualiserFragment
     }
+    hubSpotCTAID
   }
   fragment LinkFragment on ContentfulLink {
     ...LinkFragmentNonRecursive

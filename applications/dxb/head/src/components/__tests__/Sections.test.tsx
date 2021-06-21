@@ -150,7 +150,8 @@ describe("Sections component", () => {
           },
           type: null,
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         },
         cards: [
           {
@@ -174,7 +175,8 @@ describe("Sections component", () => {
               },
               type: null,
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             },
             id: "00000000-0000-0000-0000-000000000000",
             backgroundColor: null
@@ -262,7 +264,8 @@ describe("Sections component", () => {
           linkedPage: null,
           type: "Internal",
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         },
         featuredVideo: {
           title: "Video",
@@ -424,7 +427,8 @@ describe("Sections component", () => {
             linkedPage: null,
             type: "Internal",
             parameters: null,
-            dialogContent: null
+            dialogContent: null,
+            hubSpotCTAID: null
           }
         ]
       },

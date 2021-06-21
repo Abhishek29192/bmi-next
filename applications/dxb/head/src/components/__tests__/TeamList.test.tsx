@@ -497,7 +497,8 @@ describe("TeamList component", () => {
             },
             type: null,
             parameters: null,
-            dialogContent: null
+            dialogContent: null,
+            hubSpotCTAID: null
           }
         ]
       }

@@ -18,7 +18,8 @@ describe("ExploreBarSection component", () => {
         linkedPage: null,
         type: "External",
         parameters: null,
-        dialogContent: null
+        dialogContent: null,
+        hubSpotCTAID: null
       },
       date: null,
       exploreBar: {

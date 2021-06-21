@@ -5,6 +5,8 @@ import { Data as LinkData } from "../Link";
 import { Data as PromoData } from "../Promo";
 
 describe("Link component", () => {
+  process.env.GATSBY_HUBSPOT_ID = "012345";
+
   describe("Link function", () => {
     it("returns a Link correctly", () => {
       const cta = {
@@ -17,7 +19,8 @@ describe("Link component", () => {
         linkedPage: null,
         type: "External",
         parameters: null,
-        dialogContent: null
+        dialogContent: null,
+        hubSpotCTAID: null
       };
       expect(() => {
         <Link component="a" data={cta}>
@@ -37,7 +40,8 @@ describe("Link component", () => {
         linkedPage: null,
         type: "External",
         parameters: null,
-        dialogContent: null
+        dialogContent: null,
+        hubSpotCTAID: null
       };
 
       const { getByText } = render(
@@ -62,7 +66,8 @@ describe("Link component", () => {
         linkedPage: null,
         type: "Dialog",
         parameters: null,
-        dialogContent: null
+        dialogContent: null,
+        hubSpotCTAID: null
       };
 
       const { getByText } = render(
@@ -87,7 +92,8 @@ describe("Link component", () => {
         linkedPage: null,
         type: "Calculator",
         parameters: null,
-        dialogContent: null
+        dialogContent: null,
+        hubSpotCTAID: null
       };
 
       const { getByText } = render(
@@ -112,7 +118,8 @@ describe("Link component", () => {
         linkedPage: null,
         type: "Visualiser",
         parameters: null,
-        dialogContent: null
+        dialogContent: null,
+        hubSpotCTAID: null
       };
 
       const { getByText } = render(
@@ -150,7 +157,8 @@ describe("Link component", () => {
         linkedPage: null,
         type: "External",
         parameters: null,
-        dialogContent: promo
+        dialogContent: promo,
+        hubSpotCTAID: null
       } as LinkData;
 
       expect(() => {
@@ -184,7 +192,8 @@ describe("Link component", () => {
         linkedPage: null,
         type: "External",
         parameters: { key: "value" },
-        dialogContent: promo
+        dialogContent: promo,
+        hubSpotCTAID: null
       } as LinkData;
 
       expect(() => {
@@ -192,6 +201,94 @@ describe("Link component", () => {
           {data.label}
         </Link>;
       }).toMatchSnapshot();
+    });
+
+    it("HubSpot CTA renders without script loading successfully", () => {
+      const { container } = render(
+        <>
+          <script
+            id="hubspot-cta-script"
+            src="https://js.hscta.net/cta/current.js"
+          ></script>
+          <Link
+            data={{
+              __typename: "ContentfulLink",
+              id: "link",
+              label: "String",
+              icon: null,
+              isLabelHidden: false,
+              url: null,
+              linkedPage: null,
+              type: "HubSpot CTA",
+              parameters: null,
+              dialogContent: null,
+              hubSpotCTAID: "123abc"
+            }}
+          >
+            Test
+          </Link>
+        </>
+      );
+      const loadEvent = new Event("load");
+      const script = document.getElementById("hubspot-cta-script");
+      script.dispatchEvent(loadEvent);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("HubSpot CTA renders correctly", () => {
+      const { container } = render(
+        <>
+          <script
+            id="hubspot-cta-script"
+            src="https://js.hscta.net/cta/current.js"
+          ></script>
+          <Link
+            data={{
+              __typename: "ContentfulLink",
+              id: "link",
+              label: "String",
+              icon: null,
+              isLabelHidden: false,
+              url: null,
+              linkedPage: null,
+              type: "HubSpot CTA",
+              parameters: null,
+              dialogContent: null,
+              hubSpotCTAID: "123abc"
+            }}
+          >
+            Test
+          </Link>
+        </>
+      );
+      window["hbspt"] = { cta: { load: () => {} } };
+      const loadEvent = new Event("load");
+      const script = document.getElementById("hubspot-cta-script");
+      script.dispatchEvent(loadEvent);
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it("HubSpot CTA renders without script", () => {
+      const { container } = render(
+        <Link
+          data={{
+            __typename: "ContentfulLink",
+            id: "link",
+            label: "String",
+            icon: null,
+            isLabelHidden: false,
+            url: null,
+            linkedPage: null,
+            type: "HubSpot CTA",
+            parameters: null,
+            dialogContent: null,
+            hubSpotCTAID: "123abc"
+          }}
+        >
+          Test
+        </Link>
+      );
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 
@@ -252,7 +349,8 @@ describe("Link component", () => {
               linkedPage: null,
               type: "External",
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             }
           },
           "no",
@@ -310,7 +408,8 @@ describe("Link component", () => {
               linkedPage: null,
               type: "External",
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             }
           },
           "no",

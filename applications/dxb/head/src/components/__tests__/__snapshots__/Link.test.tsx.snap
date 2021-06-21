@@ -1,5 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Link component Link function HubSpot CTA renders correctly 1`] = `
+<script
+  id="hubspot-cta-script"
+  src="https://js.hscta.net/cta/current.js"
+/>
+`;
+
+exports[`Link component Link function HubSpot CTA renders without script 1`] = `
+<span
+  class="hs-cta-wrapper"
+  id="hs-cta-wrapper-123abc"
+>
+  <span
+    class="hs-cta-node hs-cta-123abc"
+    id="hs-cta-123abc"
+  >
+    <a
+      href="https://cta-redirect.hubspot.com/cta/redirect/012345/123abc"
+    >
+      <img
+        alt="New call-to-action"
+        class="hs-cta-img"
+        id="hs-cta-img-123abc"
+        src="https://no-cache.hubspot.com/cta/default/012345/123abc.png"
+      />
+    </a>
+  </span>
+</span>
+`;
+
+exports[`Link component Link function HubSpot CTA renders without script loading successfully 1`] = `
+<script
+  id="hubspot-cta-script"
+  src="https://js.hscta.net/cta/current.js"
+/>
+`;
+
 exports[`Link component Link function ensure clicking Calculator link works 1`] = `[Function]`;
 
 exports[`Link component Link function ensure clicking Dialog link works 1`] = `[Function]`;
