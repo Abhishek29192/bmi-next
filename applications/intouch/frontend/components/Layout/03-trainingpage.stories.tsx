@@ -87,6 +87,7 @@ export const TrainingCoursePage = ({ title }: LayoutProps) => (
             title="Basic competency programme (BCP)"
             type="Pitched roof"
             status="In progress"
+            image="https://source.unsplash.com/MjLrM8rVMC0/799x500/?architecture"
           >
             <Typography variant="h5">Description</Typography>
             <p>
