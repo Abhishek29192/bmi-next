@@ -34,6 +34,7 @@ const { PORT = 4000 } = process.env;
          * The Api gateway return an header called x-apigateway-api-userinfo with
          * with a string in base64 with the content of the jwt token
          *
+         *
          * x-request-id is a random uuid usefull to track the request through all
          * the different services
          * */

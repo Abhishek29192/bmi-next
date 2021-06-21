@@ -13,17 +13,31 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
     resolvers: {
       Query: {
         token: async (_query, args, context, resolverInfo) => {
-          const { access_token } = await DoceboClient.getSuperAdminApiToken();
+          const logger = context.logger("token");
 
-          return { access_token };
+          try {
+            const { access_token } = await DoceboClient.getSuperAdminApiToken();
+
+            return { access_token };
+          } catch (error) {
+            logger.error("Error fetching token: ", error);
+            throw error;
+          }
         },
         tokenByUsername: async (_query, args, context, resolverInfo) => {
-          const { username } = args;
+          const logger = context.logger("tokenByUsername");
 
-          const { access_token } = await DoceboClient.getTokenByJWTPayload(
-            username
-          );
-          return { access_token };
+          try {
+            const { username } = args;
+
+            const { access_token } = await DoceboClient.getTokenByJWTPayload(
+              username
+            );
+            return { access_token };
+          } catch (error) {
+            logger.error("Error fetching token by username:", error);
+            throw error;
+          }
         }
       },
       Mutation: {
@@ -45,11 +59,18 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return `Done`;
         },
         createDoceboUser: async (_query, args, context, resolverInfo) => {
-          const doceboClient = await DoceboClient.create();
-          const { input } = args;
+          const logger = context.logger("createDoceboUser");
 
-          const { data } = await doceboClient.createUser(input);
-          return data;
+          try {
+            const doceboClient = await DoceboClient.create();
+            const { input } = args;
+
+            const { data } = await doceboClient.createUser(input);
+            return data;
+          } catch (error) {
+            logger.error("Error creating user", error);
+            throw error;
+          }
         }
       }
     }

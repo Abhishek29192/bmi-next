@@ -62,7 +62,7 @@ export type Account = Node & {
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
   role?: Maybe<Role>;
-  /** The mail address associated with the account */
+  /** The email address associated with the account */
   email?: Maybe<Scalars["String"]>;
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
@@ -209,6 +209,8 @@ export type AccountCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `marketId` field. */
   marketId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `email` field. */
+  email?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `doceboUserId` field. */
   doceboUserId?: Maybe<Scalars["Int"]>;
 };
@@ -223,7 +225,7 @@ export type AccountInput = {
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
   role?: Maybe<Role>;
-  /** The mail address associated with the account */
+  /** The email address associated with the account */
   email?: Maybe<Scalars["String"]>;
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
@@ -256,7 +258,7 @@ export type AccountPatch = {
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
   role?: Maybe<Role>;
-  /** The mail address associated with the account */
+  /** The email address associated with the account */
   email?: Maybe<Scalars["String"]>;
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
@@ -309,6 +311,8 @@ export type AccountsOrderBy =
   | "ID_DESC"
   | "MARKET_ID_ASC"
   | "MARKET_ID_DESC"
+  | "EMAIL_ASC"
+  | "EMAIL_DESC"
   | "DOCEBO_USER_ID_ASC"
   | "DOCEBO_USER_ID_DESC"
   | "PRIMARY_KEY_ASC"
@@ -1054,7 +1058,7 @@ export type Company = Node & {
   taxNumber?: Maybe<Scalars["String"]>;
   /** They Company public phone number */
   phone?: Maybe<Scalars["String"]>;
-  /** A bit of blurb to appear in Find a contractor */
+  /** A descirption of the Company intended for Find a Roofer */
   aboutUs?: Maybe<Scalars["String"]>;
   /** The email address that they can be contacted with by the public assuming they are listed */
   publicEmail?: Maybe<Scalars["String"]>;
@@ -1066,7 +1070,7 @@ export type Company = Node & {
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
-  /** A reference to the logo */
+  /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
@@ -1170,7 +1174,7 @@ export type CompanyDocument = Node & {
   id: Scalars["Int"];
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
-  /** The document itself or the path to it */
+  /** The reference to the document */
   document?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
@@ -1195,7 +1199,7 @@ export type CompanyDocumentInput = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
-  /** The document itself or the path to it */
+  /** The reference to the document */
   document?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -1207,7 +1211,7 @@ export type CompanyDocumentPatch = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
-  /** The document itself or the path to it */
+  /** The reference to the document */
   document?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -1465,7 +1469,7 @@ export type CompanyPatch = {
   taxNumber?: Maybe<Scalars["String"]>;
   /** They Company public phone number */
   phone?: Maybe<Scalars["String"]>;
-  /** A bit of blurb to appear in Find a contractor */
+  /** A descirption of the Company intended for Find a Roofer */
   aboutUs?: Maybe<Scalars["String"]>;
   /** The email address that they can be contacted with by the public assuming they are listed */
   publicEmail?: Maybe<Scalars["String"]>;
@@ -1477,7 +1481,7 @@ export type CompanyPatch = {
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
-  /** A reference to the logo */
+  /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
@@ -3507,6 +3511,17 @@ export type DeleteAccountByDoceboUserIdInput = {
   doceboUserId: Scalars["Int"];
 };
 
+/** All input for the `deleteAccountByEmail` mutation. */
+export type DeleteAccountByEmailInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The email address associated with the account */
+  email: Scalars["String"];
+};
+
 /** All input for the `deleteAccountByNodeId` mutation. */
 export type DeleteAccountByNodeIdInput = {
   /**
@@ -4925,7 +4940,7 @@ export type EvidenceCategoryType =
   | "MISCELLANEOUS"
   | "CUSTOM";
 
-/** An file uploaded to a project, usually as evidence to support a guarantee */
+/** A file uploaded to a project, usually as evidence to support a guarantee */
 export type EvidenceItem = Node & {
   __typename?: "EvidenceItem";
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -5056,7 +5071,7 @@ export type Guarantee = Node & {
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -5137,7 +5152,7 @@ export type GuaranteeInput = {
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -5171,7 +5186,7 @@ export type GuaranteePatch = {
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -6002,6 +6017,8 @@ export type InvitationCondition = {
   senderAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `invitee` field. */
+  invitee?: Maybe<Scalars["String"]>;
 };
 
 /** Represents an update to a `Invitation`. Fields that are set will be updated. */
@@ -6055,6 +6072,8 @@ export type InvitationsOrderBy =
   | "SENDER_ACCOUNT_ID_DESC"
   | "COMPANY_ID_ASC"
   | "COMPANY_ID_DESC"
+  | "INVITEE_ASC"
+  | "INVITEE_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -6183,7 +6202,7 @@ export type Market = Node & {
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /** Whether the market supports Projects.  If so then the Project section is available. */
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
@@ -6528,7 +6547,7 @@ export type MarketInput = {
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /** Whether the market supports Projects.  If so then the Project section is available. */
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
@@ -6562,7 +6581,7 @@ export type MarketPatch = {
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /** Whether the market supports Projects.  If so then the Project section is available. */
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
@@ -7084,6 +7103,8 @@ export type Mutation = {
   deleteAccount?: Maybe<DeleteAccountPayload>;
   /** Deletes a single `Account` using a unique key. */
   deleteAccountByDoceboUserId?: Maybe<DeleteAccountPayload>;
+  /** Deletes a single `Account` using a unique key. */
+  deleteAccountByEmail?: Maybe<DeleteAccountPayload>;
   /** Deletes a single `Account` using its globally unique id. */
   deleteAccountByNodeId?: Maybe<DeleteAccountPayload>;
   /** Deletes a single `Address` using a unique key. */
@@ -7205,6 +7226,8 @@ export type Mutation = {
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccountByDoceboUserId?: Maybe<UpdateAccountPayload>;
+  /** Updates a single `Account` using a unique key and a patch. */
+  updateAccountByEmail?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using its globally unique id and a patch. */
   updateAccountByNodeId?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Address` using a unique key and a patch. */
@@ -7501,6 +7524,11 @@ export type MutationDeleteAccountArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAccountByDoceboUserIdArgs = {
   input: DeleteAccountByDoceboUserIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAccountByEmailArgs = {
+  input: DeleteAccountByEmailInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -7814,6 +7842,11 @@ export type MutationUpdateAccountByDoceboUserIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateAccountByEmailArgs = {
+  input: UpdateAccountByEmailInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateAccountByNodeIdArgs = {
   input: UpdateAccountByNodeIdInput;
 };
@@ -8109,7 +8142,7 @@ export type Node = {
   nodeId: Scalars["ID"];
 };
 
-/** Usually a note added by someone at BMI who has been asked to approve a Guarantee.  It is likely to be either a short note of approval, saying something like, Approved, or Good Job, or a note of rejection, saying  something like, The photographs of the roof are not clear enough. */
+/** A note added by a BMI admin. It is likely to be either a short note regarding approval, saying something like, Approved, or Good Job, or a note explaining a rejection, saying  something like, The photographs of the roof are not clear enough. */
 export type Note = Node & {
   __typename?: "Note";
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -8298,7 +8331,14 @@ export type NotificationsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
-export type Operation = "FLAT" | "PITCHED" | "SOLAR";
+export type Operation =
+  | "FLAT"
+  | "PITCHED"
+  | "SOLAR"
+  | "BITUMEN"
+  | "TILE"
+  | "COATER"
+  | "GREEN";
 
 /** Information about pagination in a connection. */
 export type PageInfo = {
@@ -8657,11 +8697,11 @@ export type Project = Node & {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if it is known */
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
-  /** The date that the Project starts */
+  /** The date that the Project officially starts or started */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end */
+  /** The date that the Project officially expects to end or ended */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
@@ -8750,11 +8790,11 @@ export type ProjectInput = {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if it is known */
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
-  /** The date that the Project starts */
+  /** The date that the Project officially starts or started */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end */
+  /** The date that the Project officially expects to end or ended */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -8876,11 +8916,11 @@ export type ProjectPatch = {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if it is known */
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
-  /** The date that the Project starts */
+  /** The date that the Project officially starts or started */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end */
+  /** The date that the Project officially expects to end or ended */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -8959,6 +8999,7 @@ export type Query = Node & {
   _service: _Service;
   account?: Maybe<Account>;
   accountByDoceboUserId?: Maybe<Account>;
+  accountByEmail?: Maybe<Account>;
   /** Reads a single `Account` using its globally unique `ID`. */
   accountByNodeId?: Maybe<Account>;
   /** Reads and enables pagination through a set of `Account`. */
@@ -9157,6 +9198,11 @@ export type QueryAccountArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryAccountByDoceboUserIdArgs = {
   doceboUserId: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAccountByEmailArgs = {
+  email: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -10738,6 +10784,19 @@ export type UpdateAccountByDoceboUserIdInput = {
   patch: AccountPatch;
   /** User account in Docebo */
   doceboUserId: Scalars["Int"];
+};
+
+/** All input for the `updateAccountByEmail` mutation. */
+export type UpdateAccountByEmailInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Account` being updated. */
+  patch: AccountPatch;
+  /** The email address associated with the account */
+  email: Scalars["String"];
 };
 
 /** All input for the `updateAccountByNodeId` mutation. */

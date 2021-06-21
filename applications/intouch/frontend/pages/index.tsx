@@ -64,9 +64,6 @@ export const getServerSideProps = withLogger(async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
     async getServerSideProps({ req, res }) {
-      const logger = req.logger("home-page");
-      logger.info("log example");
-
       return {
         props: {
           ...(await serverSideTranslations(ctx.locale, [

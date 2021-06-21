@@ -63,8 +63,8 @@ const mutationDoceboCreateSSOUrl = `mutation createSSOUrl ($username: String!,$p
 
 export const parseAccount = (user) => ({
   intouchUserId: user[`${AUTH0_NAMESPACE}/intouch_user_id`],
-  email: user[`${AUTH0_NAMESPACE}/email`],
   name: user[`name`],
+  email: user.email || user[`${AUTH0_NAMESPACE}/email`],
   role: user[`${AUTH0_NAMESPACE}/intouch_role`],
   lastName: user[`${AUTH0_NAMESPACE}/last_name`],
   firstName: user[`${AUTH0_NAMESPACE}/first_name`],
@@ -285,10 +285,12 @@ const requestHandler = async (req, session, body) => {
       }
     );
 
+    logger.info("body", body);
+
     return data;
   } catch (error) {
-    logger.error("requestHandler", error.message);
-    logger.error("requestHandler", error.response.data.errors);
+    logger.error("Error", error.message);
+    logger.error("Error data:", error.response.data.errors);
     throw error;
   }
 };

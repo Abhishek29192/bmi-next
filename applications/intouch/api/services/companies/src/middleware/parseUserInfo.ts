@@ -5,15 +5,17 @@ import { Account } from "../types";
 const { AUTH0_NAMESPACE } = process.env;
 
 export const parseHeaders = (req): Account => {
-  if (req.headers["x-apigateway-api-userinfo"]) {
-    return JSON.parse(
-      Buffer.from(
-        req.headers["x-apigateway-api-userinfo"] as string,
-        "base64"
-      ).toString("ascii")
-    );
+  const logger = req.logger("parse:user");
+  const userInfo = req.headers["x-apigateway-api-userinfo"];
+  if (userInfo) {
+    try {
+      return JSON.parse(
+        Buffer.from(userInfo as string, "base64").toString("ascii")
+      );
+    } catch (error) {
+      logger.error("Errore parsing the userinfo header: ", error);
+    }
   }
-  return null;
 };
 
 export default async (req, res, next) => {

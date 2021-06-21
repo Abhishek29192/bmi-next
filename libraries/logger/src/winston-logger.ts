@@ -67,7 +67,7 @@ const logger = (headers, module) => {
     level: getLogLevel(),
     format: format,
     transports,
-    defaultMeta: { requestId: reqId },
+    defaultMeta: { requestId: reqId, module },
     exceptionHandlers: [new winston.transports.Console({})]
   });
 };

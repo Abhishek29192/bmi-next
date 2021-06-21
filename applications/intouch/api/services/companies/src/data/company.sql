@@ -71,7 +71,11 @@ DROP TYPE IF EXISTS operation CASCADE;
 CREATE TYPE operation AS ENUM (
   'FLAT',
   'PITCHED',
-  'SOLAR'
+  'SOLAR',
+  'BITUMEN',
+  'TILE',
+  'COATER',
+  'GREEN'
 );
 
 DROP TYPE IF EXISTS request_status CASCADE;
@@ -649,7 +653,7 @@ TRUNCATE TABLE market RESTART IDENTITY;
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
-  VALUES ('1', 'en', 'mp', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'mapleland@intouch.bmigroup.com', '41', '41', 345, 'tbc2', TRUE, 'tbc1', '42.7684,-78.8871');
+  VALUES ('1', 'en', 'en', 'opay6t6wwmup', 'Mapleland', 'BMI Intouch Mapleland', 'mapleland@intouch.bmigroup.com', '41', '41', 345, 'tbc2', TRUE, 'tbc1', '42.7684,-78.8871');
 
 INSERT INTO market (id,
   LANGUAGE, DOMAIN, cms_space_id, name, send_name, send_mailbox, docebo_installers_branch_id, docebo_company_admin_branch_id, docebo_catalogue_id, merchandising_url, projects_enabled, gtag, geo_middle)
@@ -782,6 +786,9 @@ INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
 
 INSERT INTO system_member (id, system_bmi_ref, product_bmi_ref)
   VALUES ('6', 'S3', 'P5');
+
+ALTER TABLE account
+  ADD UNIQUE (email);
 
 ALTER TABLE account
   ADD UNIQUE (docebo_user_id);
@@ -963,7 +970,7 @@ COMMENT ON COLUMN account.market_id IS 'fk';
 
 COMMENT ON COLUMN account.role IS 'ek';
 
-COMMENT ON COLUMN account.email IS 'The mail address associated with the account';
+COMMENT ON COLUMN account.email IS 'The email address associated with the account';
 
 COMMENT ON COLUMN account.phone IS 'A phone number that can optionally be provided, and is useful for Company Admin people to provide';
 
@@ -1047,7 +1054,7 @@ COMMENT ON COLUMN company.tax_number IS 'The Tax number in that Market, such as 
 
 COMMENT ON COLUMN company.phone IS 'They Company public phone number';
 
-COMMENT ON COLUMN company.about_us IS 'A bit of blurb to appear in Find a contractor';
+COMMENT ON COLUMN company.about_us IS 'A descirption of the Company intended for Find a Roofer';
 
 COMMENT ON COLUMN company.public_email IS 'The email address that they can be contacted with by the public assuming they are listed';
 
@@ -1059,7 +1066,7 @@ COMMENT ON COLUMN company.linked_in IS 'Their Company LinkedIn page URL';
 
 COMMENT ON COLUMN company.reference_number IS 'A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. ';
 
-COMMENT ON COLUMN company.logo IS 'A reference to the logo';
+COMMENT ON COLUMN company.logo IS 'A reference to the logo image';
 
 COMMENT ON COLUMN company.migration_id IS 'Used for reference when importing data from the legacy system';
 
@@ -1073,7 +1080,7 @@ COMMENT ON COLUMN company_document.id IS 'Primary key';
 
 COMMENT ON COLUMN company_document.company_id IS 'fk';
 
-COMMENT ON COLUMN company_document.document IS 'The document itself or the path to it';
+COMMENT ON COLUMN company_document.document IS 'The reference to the document';
 
 COMMENT ON TABLE company_member IS 'A connection between a user and a company';
 
@@ -1093,7 +1100,7 @@ COMMENT ON COLUMN company_operation.company IS 'fk';
 
 COMMENT ON COLUMN company_operation.operation IS 'ek';
 
-COMMENT ON TABLE evidence_item IS 'An file uploaded to a project, usually as evidence to support a guarantee';
+COMMENT ON TABLE evidence_item IS 'A file uploaded to a project, usually as evidence to support a guarantee';
 
 COMMENT ON COLUMN evidence_item.id IS 'Primary key';
 
@@ -1133,7 +1140,7 @@ COMMENT ON COLUMN guarantee.status IS 'ek';
 
 COMMENT ON COLUMN guarantee.start_date IS 'The date that the Guarantee is approved either automatically or manually';
 
-COMMENT ON COLUMN guarantee.expiry_date IS 'When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier';
+COMMENT ON COLUMN guarantee.expiry_date IS 'When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier';
 
 COMMENT ON COLUMN guarantee.bmi_reference_id IS 'This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id';
 
@@ -1175,13 +1182,13 @@ COMMENT ON COLUMN market.docebo_catalogue_id IS 'The default catalogue for the m
 
 COMMENT ON COLUMN market.merchandising_url IS 'The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address';
 
-COMMENT ON COLUMN market.projects_enabled IS 'Whether the market supports Projects.  If so then the Project section is available.';
+COMMENT ON COLUMN market.projects_enabled IS 'Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.';
 
 COMMENT ON COLUMN market.gtag IS 'Reference to the Google Analytics tracking ID that is used for the Country GA reports';
 
 COMMENT ON COLUMN market.geo_middle IS 'The coordinates of the middle of the Market on a map';
 
-COMMENT ON TABLE note IS 'Usually a note added by someone at BMI who has been asked to approve a Guarantee.  It is likely to be either a short note of approval, saying something like, Approved, or Good Job, or a note of rejection, saying  something like, The photographs of the roof are not clear enough.';
+COMMENT ON TABLE note IS 'A note added by a BMI admin. It is likely to be either a short note regarding approval, saying something like, Approved, or Good Job, or a note explaining a rejection, saying  something like, The photographs of the roof are not clear enough.';
 
 COMMENT ON COLUMN note.id IS 'Primary key';
 
@@ -1251,11 +1258,11 @@ COMMENT ON COLUMN project.building_owner_firstname IS 'Name of the Building Owne
 
 COMMENT ON COLUMN project.building_owner_lastname IS 'Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued.';
 
-COMMENT ON COLUMN project.building_owner_company IS 'Name of the Building Owners Company if it is known';
+COMMENT ON COLUMN project.building_owner_company IS 'Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.';
 
-COMMENT ON COLUMN project.start_date IS 'The date that the Project starts';
+COMMENT ON COLUMN project.start_date IS 'The date that the Project officially starts or started';
 
-COMMENT ON COLUMN project.end_date IS 'The date that the Project expects to end';
+COMMENT ON COLUMN project.end_date IS 'The date that the Project officially expects to end or ended';
 
 COMMENT ON TABLE project_member IS 'People who are on a Project';
 
