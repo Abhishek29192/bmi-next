@@ -1,10 +1,12 @@
 import React from "react";
+import Grid from "@bmi/grid";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
 import { TrainingCover } from "../components/Cards/TrainingCover";
 import { TrainingSidePanel } from "../components/SidePanel/TrainingSidePanel";
+import GridStyles from "../styles/Grid.module.scss";
 import { getAuth0Instance } from "../lib/auth0";
 import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
@@ -13,6 +15,7 @@ import {
   getServerPageTraining
 } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
+import { parseAccount } from "../lib/account";
 
 type PageProps = {
   trainingData: {
@@ -21,11 +24,15 @@ type PageProps = {
       message: string;
     };
   };
+  username?: string;
 };
+
+const DOCEBO_SSO_URL = "/api/docebo-sso";
 
 const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
+
   if (error)
     return (
       <Layout title={t("Training")}>
@@ -53,7 +60,19 @@ const TrainingPage = ({ trainingData }: PageProps) => {
     <Layout title={t("Training")}>
       <div style={{ display: "flex" }}>
         <TrainingSidePanel courseCatalog={courseCatalogues} />
-        <TrainingCover trainingContentCollection={trainingContentCollection} />
+        <Grid
+          container
+          spacing={2}
+          className={GridStyles.outerGrid}
+          alignItems="stretch"
+        >
+          <Grid item>
+            <TrainingCover
+              trainingContentCollection={trainingContentCollection}
+              lmsUrl={DOCEBO_SSO_URL}
+            />
+          </Grid>
+        </Grid>
       </div>
     </Layout>
   );
@@ -67,14 +86,9 @@ export const getServerSideProps = async (ctx) => {
       const apolloClient = await initializeApollo(null, { ...ctx, locale });
 
       const { user } = await auth0.getSession(ctx.req);
-
-      const { AUTH0_NAMESPACE } = process.env;
-      const userId = user[`${AUTH0_NAMESPACE}/intouch_docebo_id`];
+      const { doceboId, marketCode } = parseAccount(user);
 
       let trainingData = {};
-
-      const domain = user[`${AUTH0_NAMESPACE}/intouch_market_code`];
-
       try {
         const {
           props: {
@@ -83,7 +97,7 @@ export const getServerSideProps = async (ctx) => {
         } = await getServerPageDoceboCatalogIdByMarketDomain(
           {
             variables: {
-              domain
+              domain: marketCode
             }
           },
           apolloClient
@@ -93,7 +107,7 @@ export const getServerSideProps = async (ctx) => {
           {
             variables: {
               catalogueId: marketByDomain?.doceboCatalogueId || null,
-              userId
+              userId: doceboId
             }
           },
           apolloClient
