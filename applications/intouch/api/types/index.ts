@@ -13,6 +13,12 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /**
+   * A signed eight-byte integer. The upper big integer values are greater than the
+   * max value for a JavaScript number. Therefore all big integers will be output as
+   * strings and not numbers.
+   */
+  BigInt: any;
   /** A location in a connection that can be used for resuming pagination. */
   Cursor: any;
   /**
@@ -56,7 +62,7 @@ export type Account = Node & {
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
   role?: Maybe<Role>;
-  /** The mail address associated with the account */
+  /** The email address associated with the account */
   email?: Maybe<Scalars["String"]>;
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
@@ -219,7 +225,7 @@ export type AccountInput = {
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
   role?: Maybe<Role>;
-  /** The mail address associated with the account */
+  /** The email address associated with the account */
   email?: Maybe<Scalars["String"]>;
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
@@ -252,7 +258,7 @@ export type AccountPatch = {
   marketId?: Maybe<Scalars["Int"]>;
   /** ek */
   role?: Maybe<Role>;
-  /** The mail address associated with the account */
+  /** The email address associated with the account */
   email?: Maybe<Scalars["String"]>;
   /** A phone number that can optionally be provided, and is useful for Company Admin people to provide */
   phone?: Maybe<Scalars["String"]>;
@@ -1052,7 +1058,7 @@ export type Company = Node & {
   taxNumber?: Maybe<Scalars["String"]>;
   /** They Company public phone number */
   phone?: Maybe<Scalars["String"]>;
-  /** A bit of blurb to appear in Find a contractor */
+  /** A descirption of the Company intended for Find a Roofer */
   aboutUs?: Maybe<Scalars["String"]>;
   /** The email address that they can be contacted with by the public assuming they are listed */
   publicEmail?: Maybe<Scalars["String"]>;
@@ -1064,7 +1070,7 @@ export type Company = Node & {
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
-  /** A reference to the logo */
+  /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
@@ -1168,7 +1174,7 @@ export type CompanyDocument = Node & {
   id: Scalars["Int"];
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
-  /** The document itself or the path to it */
+  /** The reference to the document */
   document?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
@@ -1193,7 +1199,7 @@ export type CompanyDocumentInput = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
-  /** The document itself or the path to it */
+  /** The reference to the document */
   document?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -1205,7 +1211,7 @@ export type CompanyDocumentPatch = {
   id?: Maybe<Scalars["Int"]>;
   /** fk */
   companyId?: Maybe<Scalars["Int"]>;
-  /** The document itself or the path to it */
+  /** The reference to the document */
   document?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -1463,7 +1469,7 @@ export type CompanyPatch = {
   taxNumber?: Maybe<Scalars["String"]>;
   /** They Company public phone number */
   phone?: Maybe<Scalars["String"]>;
-  /** A bit of blurb to appear in Find a contractor */
+  /** A descirption of the Company intended for Find a Roofer */
   aboutUs?: Maybe<Scalars["String"]>;
   /** The email address that they can be contacted with by the public assuming they are listed */
   publicEmail?: Maybe<Scalars["String"]>;
@@ -1475,7 +1481,7 @@ export type CompanyPatch = {
   linkedIn?: Maybe<Scalars["String"]>;
   /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
-  /** A reference to the logo */
+  /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
   /** Used for reference when importing data from the legacy system */
   migrationId?: Maybe<Scalars["String"]>;
@@ -2037,6 +2043,50 @@ export type CourseCatalogueTempsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+/** All input for the `courseCatalogueUpdateByTemp` mutation. */
+export type CourseCatalogueUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseCatalogueUpdateByTemp` mutation. */
+export type CourseCatalogueUpdateByTempPayload = {
+  __typename?: "CourseCatalogueUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** All input for the `courseCatalogueUpdate` mutation. */
+export type CourseCatalogueUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  catalogues?: Maybe<Array<Maybe<CourseCatalogueInput>>>;
+};
+
+/** The output of our `courseCatalogueUpdate` mutation. */
+export type CourseCatalogueUpdatePayload = {
+  __typename?: "CourseCatalogueUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** A connection to a list of `CourseCatalogue` values. */
 export type CourseCataloguesConnection = {
   __typename?: "CourseCataloguesConnection";
@@ -2234,6 +2284,50 @@ export type CourseEnrollmentTempsOrderBy =
   | "ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+/** All input for the `courseEnrollmentUpdateByTemp` mutation. */
+export type CourseEnrollmentUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseEnrollmentUpdateByTemp` mutation. */
+export type CourseEnrollmentUpdateByTempPayload = {
+  __typename?: "CourseEnrollmentUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** All input for the `courseEnrollmentUpdate` mutation. */
+export type CourseEnrollmentUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  enrollments?: Maybe<Array<Maybe<CourseEnrollmentInput>>>;
+};
+
+/** The output of our `courseEnrollmentUpdate` mutation. */
+export type CourseEnrollmentUpdatePayload = {
+  __typename?: "CourseEnrollmentUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
 
 /** A connection to a list of `CourseEnrollment` values. */
 export type CourseEnrollmentsConnection = {
@@ -2502,6 +2596,50 @@ export type CourseTempsOrderBy =
   | "ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+/** All input for the `courseUpdateByTemp` mutation. */
+export type CourseUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseUpdateByTemp` mutation. */
+export type CourseUpdateByTempPayload = {
+  __typename?: "CourseUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** All input for the `courseUpdate` mutation. */
+export type CourseUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  courses?: Maybe<Array<Maybe<CourseInput>>>;
+};
+
+/** The output of our `courseUpdate` mutation. */
+export type CourseUpdatePayload = {
+  __typename?: "CourseUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
 
 /** A connection to a list of `Course` values. */
 export type CoursesConnection = {
@@ -2967,9 +3105,10 @@ export type CreateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our create `CourseSyncConfiguration` mutation. */
-export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the create `CourseTemp` mutation. */
 export type CreateCourseTempInput = {
@@ -3370,6 +3509,17 @@ export type DeleteAccountByDoceboUserIdInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** User account in Docebo */
   doceboUserId: Scalars["Int"];
+};
+
+/** All input for the `deleteAccountByEmail` mutation. */
+export type DeleteAccountByEmailInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The email address associated with the account */
+  email: Scalars["String"];
 };
 
 /** All input for the `deleteAccountByNodeId` mutation. */
@@ -4012,9 +4162,10 @@ export type DeleteCourseSyncConfigurationPayload = {
 };
 
 /** The output of our delete `CourseSyncConfiguration` mutation. */
-export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the `deleteCourseTempByNodeId` mutation. */
 export type DeleteCourseTempByNodeIdInput = {
@@ -4789,7 +4940,7 @@ export type EvidenceCategoryType =
   | "MISCELLANEOUS"
   | "CUSTOM";
 
-/** An file uploaded to a project, usually as evidence to support a guarantee */
+/** A file uploaded to a project, usually as evidence to support a guarantee */
 export type EvidenceItem = Node & {
   __typename?: "EvidenceItem";
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -4920,7 +5071,7 @@ export type Guarantee = Node & {
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -5001,7 +5152,7 @@ export type GuaranteeInput = {
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -5035,7 +5186,7 @@ export type GuaranteePatch = {
   status?: Maybe<RequestStatus>;
   /** The date that the Guarantee is approved either automatically or manually */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
+  /** When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier */
   expiryDate?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
@@ -6051,7 +6202,7 @@ export type Market = Node & {
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /** Whether the market supports Projects.  If so then the Project section is available. */
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
@@ -6396,7 +6547,7 @@ export type MarketInput = {
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /** Whether the market supports Projects.  If so then the Project section is available. */
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
@@ -6430,7 +6581,7 @@ export type MarketPatch = {
   doceboCatalogueId?: Maybe<Scalars["Int"]>;
   /** The address of the merchandising site for the market.  CTAs of the MERCHANDISING type will link to this address */
   merchandisingUrl?: Maybe<Scalars["String"]>;
-  /** Whether the market supports Projects.  If so then the Project section is available. */
+  /** Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation. */
   projectsEnabled?: Maybe<Scalars["Boolean"]>;
   /** Reference to the Google Analytics tracking ID that is used for the Country GA reports */
   gtag?: Maybe<Scalars["String"]>;
@@ -6893,6 +7044,12 @@ export type MigrationOrder =
 export type Mutation = {
   __typename?: "Mutation";
   completeInvitation?: Maybe<Account>;
+  courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
+  courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
+  courseEnrollmentUpdate?: Maybe<CourseEnrollmentUpdatePayload>;
+  courseEnrollmentUpdateByTemp?: Maybe<CourseEnrollmentUpdateByTempPayload>;
+  courseUpdate?: Maybe<CourseUpdatePayload>;
+  courseUpdateByTemp?: Maybe<CourseUpdateByTempPayload>;
   createAccount?: Maybe<CreateAccountPayload>;
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
@@ -6946,6 +7103,8 @@ export type Mutation = {
   deleteAccount?: Maybe<DeleteAccountPayload>;
   /** Deletes a single `Account` using a unique key. */
   deleteAccountByDoceboUserId?: Maybe<DeleteAccountPayload>;
+  /** Deletes a single `Account` using a unique key. */
+  deleteAccountByEmail?: Maybe<DeleteAccountPayload>;
   /** Deletes a single `Account` using its globally unique id. */
   deleteAccountByNodeId?: Maybe<DeleteAccountPayload>;
   /** Deletes a single `Address` using a unique key. */
@@ -7067,6 +7226,8 @@ export type Mutation = {
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccountByDoceboUserId?: Maybe<UpdateAccountPayload>;
+  /** Updates a single `Account` using a unique key and a patch. */
+  updateAccountByEmail?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using its globally unique id and a patch. */
   updateAccountByNodeId?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Address` using a unique key and a patch. */
@@ -7187,6 +7348,36 @@ export type Mutation = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCompleteInvitationArgs = {
   companyId: Scalars["Int"];
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseCatalogueUpdateArgs = {
+  input: CourseCatalogueUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseCatalogueUpdateByTempArgs = {
+  input: CourseCatalogueUpdateByTempInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseEnrollmentUpdateArgs = {
+  input: CourseEnrollmentUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseEnrollmentUpdateByTempArgs = {
+  input: CourseEnrollmentUpdateByTempInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseUpdateArgs = {
+  input: CourseUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseUpdateByTempArgs = {
+  input: CourseUpdateByTempInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -7333,6 +7524,11 @@ export type MutationDeleteAccountArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteAccountByDoceboUserIdArgs = {
   input: DeleteAccountByDoceboUserIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteAccountByEmailArgs = {
+  input: DeleteAccountByEmailInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -7646,6 +7842,11 @@ export type MutationUpdateAccountByDoceboUserIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateAccountByEmailArgs = {
+  input: UpdateAccountByEmailInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateAccountByNodeIdArgs = {
   input: UpdateAccountByNodeIdInput;
 };
@@ -7941,7 +8142,7 @@ export type Node = {
   nodeId: Scalars["ID"];
 };
 
-/** Usually a note added by someone at BMI who has been asked to approve a Guarantee.  It is likely to be either a short note of approval, saying something like, Approved, or Good Job, or a note of rejection, saying  something like, The photographs of the roof are not clear enough. */
+/** A note added by a BMI admin. It is likely to be either a short note regarding approval, saying something like, Approved, or Good Job, or a note explaining a rejection, saying  something like, The photographs of the roof are not clear enough. */
 export type Note = Node & {
   __typename?: "Note";
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -8130,7 +8331,14 @@ export type NotificationsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
-export type Operation = "FLAT" | "PITCHED" | "SOLAR";
+export type Operation =
+  | "FLAT"
+  | "PITCHED"
+  | "SOLAR"
+  | "BITUMEN"
+  | "TILE"
+  | "COATER"
+  | "GREEN";
 
 /** Information about pagination in a connection. */
 export type PageInfo = {
@@ -8489,11 +8697,11 @@ export type Project = Node & {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if it is known */
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
-  /** The date that the Project starts */
+  /** The date that the Project officially starts or started */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end */
+  /** The date that the Project officially expects to end or ended */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
@@ -8582,11 +8790,11 @@ export type ProjectInput = {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if it is known */
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
-  /** The date that the Project starts */
+  /** The date that the Project officially starts or started */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end */
+  /** The date that the Project officially expects to end or ended */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -8708,11 +8916,11 @@ export type ProjectPatch = {
   buildingOwnerFirstname?: Maybe<Scalars["String"]>;
   /** Name of the Building Owner, seen on the Guarantee. Must be completed before a Guarantee is issued. */
   buildingOwnerLastname?: Maybe<Scalars["String"]>;
-  /** Name of the Building Owners Company if it is known */
+  /** Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company. */
   buildingOwnerCompany?: Maybe<Scalars["String"]>;
-  /** The date that the Project starts */
+  /** The date that the Project officially starts or started */
   startDate?: Maybe<Scalars["Datetime"]>;
-  /** The date that the Project expects to end */
+  /** The date that the Project officially expects to end or ended */
   endDate?: Maybe<Scalars["Datetime"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
@@ -8791,6 +8999,7 @@ export type Query = Node & {
   _service: _Service;
   account?: Maybe<Account>;
   accountByDoceboUserId?: Maybe<Account>;
+  accountByEmail?: Maybe<Account>;
   /** Reads a single `Account` using its globally unique `ID`. */
   accountByNodeId?: Maybe<Account>;
   /** Reads and enables pagination through a set of `Account`. */
@@ -8989,6 +9198,11 @@ export type QueryAccountArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryAccountByDoceboUserIdArgs = {
   doceboUserId: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryAccountByEmailArgs = {
+  email: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -10572,6 +10786,19 @@ export type UpdateAccountByDoceboUserIdInput = {
   doceboUserId: Scalars["Int"];
 };
 
+/** All input for the `updateAccountByEmail` mutation. */
+export type UpdateAccountByEmailInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `Account` being updated. */
+  patch: AccountPatch;
+  /** The email address associated with the account */
+  email: Scalars["String"];
+};
+
 /** All input for the `updateAccountByNodeId` mutation. */
 export type UpdateAccountByNodeIdInput = {
   /**
@@ -11259,9 +11486,10 @@ export type UpdateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our update `CourseSyncConfiguration` mutation. */
-export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the `updateCourseTempByNodeId` mutation. */
 export type UpdateCourseTempByNodeIdInput = {

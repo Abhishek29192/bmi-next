@@ -23,7 +23,7 @@ deploy_intouch_api_companies_dev:
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/frontend-unit-test'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/api/services/companies/**/*
   script:

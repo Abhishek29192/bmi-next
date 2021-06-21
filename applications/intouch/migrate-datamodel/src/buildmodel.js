@@ -238,10 +238,11 @@ EXECUTE PROCEDURE update_modified_column();
 }
 
 class Index {
-  constructor(table, columnName, indexType) {
+  constructor(table, columnName, indexType, service) {
     this.table = table;
     this.columnName = columnName;
     this.indexType = indexType;
+    this.service = service;
   }
 
   getPostgresCreate() {
@@ -300,7 +301,12 @@ const buildModel = (records) => {
       case "ek":
         if (record.Index) {
           // if the column needs indexing, add the Index to the list of indices in the datamodel
-          myIndex = new Index(myTable.name, record.Name, record.Index);
+          myIndex = new Index(
+            myTable.name,
+            record.Name,
+            record.Index,
+            myTable.service
+          );
           myDataModel.addIndex(myIndex);
         }
         myTable.addColumn(record.Name, "ek", record.Description, record.Mocks); // add the new attribute to the current table. The description column in the csv in this case contains a type rather than a description
@@ -324,7 +330,12 @@ const buildModel = (records) => {
       default:
         if (record.Index) {
           // if the column needs indexing, add the Index to the list of indices in the datamodel
-          myIndex = new Index(myTable.name, record.Name, record.Index);
+          myIndex = new Index(
+            myTable.name,
+            record.Name,
+            record.Index,
+            myTable.service
+          );
           myDataModel.addIndex(myIndex);
         }
         myTable.addColumn(

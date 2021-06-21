@@ -769,6 +769,7 @@ type Query implements Node {
     condition: SystemMemberCondition
   ): SystemMembersConnection
   account(id: Int!): Account
+  accountByEmail(email: String!): Account
   accountByDoceboUserId(doceboUserId: Int!): Account
   address(id: Int!): Address
   certification(id: Int!): Certification
@@ -1111,7 +1112,7 @@ type Account implements Node {
   role: Role
 
   """
-  The mail address associated with the account
+  The email address associated with the account
   """
   email: String
 
@@ -1616,7 +1617,7 @@ type Market implements Node {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -2015,7 +2016,7 @@ type Company implements Node {
   phone: String
 
   """
-  A bit of blurb to appear in Find a contractor
+  A descirption of the Company intended for Find a Roofer
   """
   aboutUs: String
 
@@ -2045,7 +2046,7 @@ type Company implements Node {
   referenceNumber: String
 
   """
-  A reference to the logo
+  A reference to the logo image
   """
   logo: String
 
@@ -2670,17 +2671,17 @@ type Project implements Node {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime!
@@ -2926,7 +2927,7 @@ type Guarantee implements Node {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -3534,7 +3535,7 @@ type EvidenceItemsConnection {
 }
 
 """
-An file uploaded to a project, usually as evidence to support a guarantee
+A file uploaded to a project, usually as evidence to support a guarantee
 """
 type EvidenceItem implements Node {
   """
@@ -3781,7 +3782,7 @@ type NotesConnection {
 }
 
 """
-Usually a note added by someone at BMI who has been asked to approve a Guarantee.  It is likely to be either a short note of approval, saying something like, Approved, or Good Job, or a note of rejection, saying  something like, The photographs of the roof are not clear enough.
+A note added by a BMI admin. It is likely to be either a short note regarding approval, saying something like, Approved, or Good Job, or a note explaining a rejection, saying  something like, The photographs of the roof are not clear enough.
 """
 type Note implements Node {
   """
@@ -4087,7 +4088,7 @@ type CompanyDocument implements Node {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime!
@@ -4334,6 +4335,10 @@ enum Operation {
   FLAT
   PITCHED
   SOLAR
+  BITUMEN
+  TILE
+  COATER
+  GREEN
 }
 
 """
@@ -5343,6 +5348,16 @@ type Mutation {
   """
   Updates a single `Account` using a unique key and a patch.
   """
+  updateAccountByEmail(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountByEmailInput!
+  ): UpdateAccountPayload
+
+  """
+  Updates a single `Account` using a unique key and a patch.
+  """
   updateAccountByDoceboUserId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -5748,6 +5763,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteAccountInput!
+  ): DeleteAccountPayload
+
+  """
+  Deletes a single `Account` using a unique key.
+  """
+  deleteAccountByEmail(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAccountByEmailInput!
   ): DeleteAccountPayload
 
   """
@@ -6428,7 +6453,7 @@ input CompanyDocumentInput {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime
@@ -6829,7 +6854,7 @@ input GuaranteeInput {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -6948,7 +6973,7 @@ input MarketInput {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -7369,17 +7394,17 @@ input ProjectInput {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime
@@ -7725,7 +7750,7 @@ input AccountPatch {
   role: Role
 
   """
-  The mail address associated with the account
+  The email address associated with the account
   """
   email: String
 
@@ -7791,6 +7816,27 @@ input UpdateAccountInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `updateAccountByEmail` mutation.
+"""
+input UpdateAccountByEmailInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Account` being updated.
+  """
+  patch: AccountPatch!
+
+  """
+  The email address associated with the account
+  """
+  email: String!
 }
 
 """
@@ -8201,7 +8247,7 @@ input CompanyPatch {
   phone: String
 
   """
-  A bit of blurb to appear in Find a contractor
+  A descirption of the Company intended for Find a Roofer
   """
   aboutUs: String
 
@@ -8231,7 +8277,7 @@ input CompanyPatch {
   referenceNumber: String
 
   """
-  A reference to the logo
+  A reference to the logo image
   """
   logo: String
 
@@ -8346,7 +8392,7 @@ input CompanyDocumentPatch {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime
@@ -8851,7 +8897,7 @@ input GuaranteePatch {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -9116,7 +9162,7 @@ input MarketPatch {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -9704,17 +9750,17 @@ input ProjectPatch {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime
@@ -10165,6 +10211,22 @@ input DeleteAccountInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `deleteAccountByEmail` mutation.
+"""
+input DeleteAccountByEmailInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The email address associated with the account
+  """
+  email: String!
 }
 
 """
@@ -11555,7 +11617,7 @@ input AccountInput {
   role: Role
 
   """
-  The mail address associated with the account
+  The email address associated with the account
   """
   email: String
 

@@ -77,10 +77,12 @@ const writeSql = (dataModel, service) => {
     });
   //output += "\n\n";
 
-  dataModel.indices.forEach((index) => {
-    output += index.getPostgresCreate();
-    output += "\n\n";
-  });
+  dataModel.indices
+    .filter((item) => item.service === service)
+    .forEach((index) => {
+      output += index.getPostgresCreate();
+      output += "\n\n";
+    });
 
   writeFile(`${service.toLowerCase()}.sql`, output);
 };

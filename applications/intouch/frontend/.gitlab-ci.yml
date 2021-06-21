@@ -27,7 +27,7 @@ build_intouch_frontend_dev:
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/frontend-unit-test')"
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
@@ -48,7 +48,7 @@ deploy_intouch_frontend_dev_to_cloudrun:
   services:
     - docker:dind
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/frontend-unit-test'"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         # execute on master, but only if changing intouch frontend (i.e. not all other monorepo changes)
         - applications/intouch/frontend/**/*

@@ -25,6 +25,7 @@ async function main() {
   const app = express();
 
   app.use(express.json());
+  // add logger
   app.use(WinstonLogger);
   app.use(parseUserInfo);
   app.use("*", docebo);

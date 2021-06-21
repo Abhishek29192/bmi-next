@@ -36,7 +36,7 @@ type Account implements Node {
   role: Role
 
   """
-  The mail address associated with the account
+  The email address associated with the account
   """
   email: String
 
@@ -507,7 +507,7 @@ input AccountInput {
   role: Role
 
   """
-  The mail address associated with the account
+  The email address associated with the account
   """
   email: String
 
@@ -580,7 +580,7 @@ input AccountPatch {
   role: Role
 
   """
-  The mail address associated with the account
+  The email address associated with the account
   """
   email: String
 
@@ -1237,6 +1237,13 @@ enum AssetOrder {
   sys_publishedVersion_DESC
 }
 
+"""
+A signed eight-byte integer. The upper big integer values are greater than the
+max value for a JavaScript number. Therefore all big integers will be output as
+strings and not numbers.
+"""
+scalar BigInt
+
 enum BusinessType {
   CONTRACTOR
   ARCHITECT
@@ -1727,7 +1734,7 @@ type Company implements Node {
   phone: String
 
   """
-  A bit of blurb to appear in Find a contractor
+  A descirption of the Company intended for Find a Roofer
   """
   aboutUs: String
 
@@ -1757,7 +1764,7 @@ type Company implements Node {
   referenceNumber: String
 
   """
-  A reference to the logo
+  A reference to the logo image
   """
   logo: String
 
@@ -2044,7 +2051,7 @@ type CompanyDocument implements Node {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime!
@@ -2087,7 +2094,7 @@ input CompanyDocumentInput {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime
@@ -2109,7 +2116,7 @@ input CompanyDocumentPatch {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime
@@ -2583,7 +2590,7 @@ input CompanyPatch {
   phone: String
 
   """
-  A bit of blurb to appear in Find a contractor
+  A descirption of the Company intended for Find a Roofer
   """
   aboutUs: String
 
@@ -2613,7 +2620,7 @@ input CompanyPatch {
   referenceNumber: String
 
   """
-  A reference to the logo
+  A reference to the logo image
   """
   logo: String
 
@@ -3323,6 +3330,62 @@ enum CourseCatalogueTempsOrderBy {
 }
 
 """
+All input for the `courseCatalogueUpdateByTemp` mutation.
+"""
+input CourseCatalogueUpdateByTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+}
+
+"""
+The output of our `courseCatalogueUpdateByTemp` mutation.
+"""
+type CourseCatalogueUpdateByTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  bigInt: BigInt
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `courseCatalogueUpdate` mutation.
+"""
+input CourseCatalogueUpdateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  catalogues: [CourseCatalogueInput]
+}
+
+"""
+The output of our `courseCatalogueUpdate` mutation.
+"""
+type CourseCatalogueUpdatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
 A connection to a list of `CourseCatalogue` values.
 """
 type CourseCataloguesConnection {
@@ -3680,6 +3743,62 @@ enum CourseEnrollmentTempsOrderBy {
   ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
+}
+
+"""
+All input for the `courseEnrollmentUpdateByTemp` mutation.
+"""
+input CourseEnrollmentUpdateByTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+}
+
+"""
+The output of our `courseEnrollmentUpdateByTemp` mutation.
+"""
+type CourseEnrollmentUpdateByTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  bigInt: BigInt
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `courseEnrollmentUpdate` mutation.
+"""
+input CourseEnrollmentUpdateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  enrollments: [CourseEnrollmentInput]
+}
+
+"""
+The output of our `courseEnrollmentUpdate` mutation.
+"""
+type CourseEnrollmentUpdatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
 }
 
 """
@@ -4177,6 +4296,62 @@ enum CourseTempsOrderBy {
   ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
+}
+
+"""
+All input for the `courseUpdateByTemp` mutation.
+"""
+input CourseUpdateByTempInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+}
+
+"""
+The output of our `courseUpdateByTemp` mutation.
+"""
+type CourseUpdateByTempPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  bigInt: BigInt
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+}
+
+"""
+All input for the `courseUpdate` mutation.
+"""
+input CourseUpdateInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  courses: [CourseInput]
+}
+
+"""
+The output of our `courseUpdate` mutation.
+"""
+type CourseUpdatePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
 }
 
 """
@@ -5532,6 +5707,22 @@ input DeleteAccountByDoceboUserIdInput {
   User account in Docebo
   """
   doceboUserId: Int!
+}
+
+"""
+All input for the `deleteAccountByEmail` mutation.
+"""
+input DeleteAccountByEmailInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The email address associated with the account
+  """
+  email: String!
 }
 
 """
@@ -7575,7 +7766,7 @@ enum EvidenceCategoryType {
 }
 
 """
-An file uploaded to a project, usually as evidence to support a guarantee
+A file uploaded to a project, usually as evidence to support a guarantee
 """
 type EvidenceItem implements Node {
   """
@@ -7834,7 +8025,7 @@ type Guarantee implements Node {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -8024,7 +8215,7 @@ input GuaranteeInput {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -8101,7 +8292,7 @@ input GuaranteePatch {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -9183,7 +9374,7 @@ type Market implements Node {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -9657,7 +9848,7 @@ input MarketInput {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -9734,7 +9925,7 @@ input MarketPatch {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -10119,6 +10310,42 @@ The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
   completeInvitation(companyId: Int!): Account
+  courseCatalogueUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseCatalogueUpdateInput!
+  ): CourseCatalogueUpdatePayload
+  courseCatalogueUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseCatalogueUpdateByTempInput!
+  ): CourseCatalogueUpdateByTempPayload
+  courseEnrollmentUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseEnrollmentUpdateInput!
+  ): CourseEnrollmentUpdatePayload
+  courseEnrollmentUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseEnrollmentUpdateByTempInput!
+  ): CourseEnrollmentUpdateByTempPayload
+  courseUpdate(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseUpdateInput!
+  ): CourseUpdatePayload
+  courseUpdateByTemp(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CourseUpdateByTempInput!
+  ): CourseUpdateByTempPayload
   createAccount(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -10378,6 +10605,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteAccountByDoceboUserIdInput!
+  ): DeleteAccountPayload
+
+  """
+  Deletes a single `Account` using a unique key.
+  """
+  deleteAccountByEmail(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAccountByEmailInput!
   ): DeleteAccountPayload
 
   """
@@ -10989,6 +11226,16 @@ type Mutation {
   ): UpdateAccountPayload
 
   """
+  Updates a single `Account` using a unique key and a patch.
+  """
+  updateAccountByEmail(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountByEmailInput!
+  ): UpdateAccountPayload
+
+  """
   Updates a single `Account` using its globally unique id and a patch.
   """
   updateAccountByNodeId(
@@ -11571,7 +11818,7 @@ interface Node {
 }
 
 """
-Usually a note added by someone at BMI who has been asked to approve a Guarantee.  It is likely to be either a short note of approval, saying something like, Approved, or Good Job, or a note of rejection, saying  something like, The photographs of the roof are not clear enough.
+A note added by a BMI admin. It is likely to be either a short note regarding approval, saying something like, Approved, or Good Job, or a note explaining a rejection, saying  something like, The photographs of the roof are not clear enough.
 """
 type Note implements Node {
   """
@@ -11920,6 +12167,10 @@ enum Operation {
   FLAT
   PITCHED
   SOLAR
+  BITUMEN
+  TILE
+  COATER
+  GREEN
 }
 
 """
@@ -12471,17 +12722,17 @@ type Project implements Node {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime!
@@ -12716,17 +12967,17 @@ input ProjectInput {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime
@@ -12955,17 +13206,17 @@ input ProjectPatch {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime
@@ -13071,6 +13322,7 @@ type Query implements Node {
     @deprecated(reason: "Only Apollo Federation should use this")
   account(id: Int!): Account
   accountByDoceboUserId(doceboUserId: Int!): Account
+  accountByEmail(email: String!): Account
 
   """
   Reads a single `Account` using its globally unique `ID`.
@@ -15481,6 +15733,27 @@ input UpdateAccountByDoceboUserIdInput {
   User account in Docebo
   """
   doceboUserId: Int!
+}
+
+"""
+All input for the `updateAccountByEmail` mutation.
+"""
+input UpdateAccountByEmailInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Account` being updated.
+  """
+  patch: AccountPatch!
+
+  """
+  The email address associated with the account
+  """
+  email: String!
 }
 
 """

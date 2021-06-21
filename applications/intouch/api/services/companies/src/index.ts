@@ -21,6 +21,7 @@ async function main() {
   const app = express();
 
   app.use(express.json());
+  // Add logger to req
   app.use(WinstonLogger);
 
   // Parse header to get current user info
