@@ -47,7 +47,9 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
     if (ctx.req) {
       const auth0 = await getAuth0Instance(ctx.req, ctx.res);
       const session = auth0.getSession(ctx.req, ctx.res);
-      accessToken = `Bearer ${session.accessToken}`;
+      accessToken = `Bearer ${
+        session?.accessToken || ctx.session?.accessToken
+      }`;
     }
 
     return {

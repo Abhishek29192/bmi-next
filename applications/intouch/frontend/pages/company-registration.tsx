@@ -42,7 +42,10 @@ const Company = ({ currentCompany }: any) => {
     createCompany({
       variables: {
         input: {
-          patch: values,
+          patch: {
+            ...values,
+            status: "ACTIVE"
+          },
           id: currentCompany
         }
       }

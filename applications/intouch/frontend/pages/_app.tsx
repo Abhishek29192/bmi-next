@@ -42,13 +42,4 @@ const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
   );
 };
 
-export const initialProps = async ({ ctx, Component }) => {
-  if (Component.getServerSideProps) {
-    Object.assign({}, await Component.getServerSideProps(ctx));
-  }
-  return {};
-};
-
-AuthApp.getInitialProps = initialProps;
-
 export default appWithTranslation(AuthApp);

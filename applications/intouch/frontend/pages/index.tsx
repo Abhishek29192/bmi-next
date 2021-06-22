@@ -1,4 +1,5 @@
 import React from "react";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import Button from "@bmi/button";
@@ -8,15 +9,11 @@ import Typography from "@bmi/typography";
 import Carousel from "@bmi/carousel";
 import OverviewCard from "@bmi/overview-card";
 import Link from "next/link";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { getAuth0Instance } from "../lib/auth0";
-import { Layout } from "../components/Layout";
-import { withLogger } from "../lib/logger/withLogger";
-
-import { initializeApollo } from "../lib/apolloClient";
 import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
 import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
+import { withPage } from "../lib/middleware/withPage";
+import { Layout } from "../components/Layout";
 
 import logger from "../lib/logger";
 
@@ -177,31 +174,24 @@ export const GET_PARTNER_BRANDS = gql`
   }
 `;
 
-export const getServerSideProps = withLogger(async (ctx) => {
-  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
-  return auth0.withPageAuthRequired({
-    async getServerSideProps(ctx) {
-      const apolloClient = await initializeApollo(null, ctx);
-
-      const {
-        props: {
-          data: { marketContentCollection }
-        }
-      } = await getServerPageGetPartnerBrands({}, apolloClient);
-
-      return {
-        props: {
-          marketContentCollection,
-          ...(await serverSideTranslations(ctx.locale, [
-            "common",
-            "sidebar",
-            "footer",
-            "company-page"
-          ]))
-        }
-      };
+export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
+  const {
+    props: {
+      data: { marketContentCollection }
     }
-  })(ctx);
+  } = await getServerPageGetPartnerBrands({}, apolloClient);
+
+  return {
+    props: {
+      marketContentCollection,
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "footer",
+        "company-page"
+      ]))
+    }
+  };
 });
 
 export default withPageAuthRequired(Homepage);

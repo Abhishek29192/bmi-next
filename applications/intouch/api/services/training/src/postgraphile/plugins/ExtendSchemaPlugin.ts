@@ -12,6 +12,18 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
     typeDefs,
     resolvers: {
       Query: {
+        checkUserValidatiy: async (_query, args, context, resolverInfo) => {
+          const { username, email } = args;
+          const client = await DoceboClient.create();
+          const { data } = await client.checkUserValidatiy(username, email);
+
+          return data;
+        },
+        userByEmail: async (_query, args, context, resolverInfo) => {
+          const { email } = args;
+          const client = await DoceboClient.create();
+          return client.userByEmail(email);
+        },
         token: async (_query, args, context, resolverInfo) => {
           const logger = context.logger("token");
 

@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { createProxyMiddleware } from "http-proxy-middleware";
 import { getAuth0Instance } from "../../lib/auth0";
-import { withLoggerApi } from "../../lib/logger/withLogger";
+import { withLoggerApi } from "../../lib/middleware/withLogger";
 
 interface Request extends NextApiRequest {
   logger: any;

@@ -54,7 +54,9 @@ DROP POLICY IF EXISTS policy_company_admin ON company_member;
 DROP POLICY IF EXISTS policy_installer ON company_member;
 CREATE POLICY policy_super_admin ON company_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
 CREATE POLICY policy_market_admin ON company_member FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
-CREATE POLICY policy_company_admin ON company_member FOR ALL TO company_admin USING (current_company() = company_id) WITH CHECK (true);
+CREATE POLICY policy_company_admin ON company_member FOR ALL TO company_admin USING (
+  current_company() = company_id
+) WITH CHECK (false);
 CREATE POLICY policy_installer ON company_member FOR ALL TO installer USING ( 
   company_id IN (SELECT * FROM invited_by_companies()) OR current_company() = company_id
  ) WITH CHECK (

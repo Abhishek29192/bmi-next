@@ -1,15 +1,20 @@
-import { getAuth0Instance } from "../../lib/auth0";
-import { withLoggerApi } from "../../lib/logger/withLogger";
-import { createDoceboSSOUrl } from "../../lib/account";
+import { withApi } from "../../lib/middleware/withApi";
+import Account from "../../lib/account";
+
+export const config = {
+  api: {
+    bodyParser: false,
+    externalResolver: true
+  }
+};
 
 // This api endpoint let us do a SSO login to Docebo
-export default withLoggerApi(async (req, res) => {
+export default withApi(async (req, res) => {
   const logger = req.logger("docebo-login");
-  const auth0 = await getAuth0Instance(req, res);
-  const session = await auth0.getSession(req, res);
+  const accountSrv = new Account(req.logger, req.apolloClient, req.session);
 
-  if (session) {
-    const url = await createDoceboSSOUrl(req, session);
+  if (req.session) {
+    const url = await accountSrv.createDoceboSSOUrl(req, req.session);
     res.writeHead(302, { Location: url });
     res.end();
   } else {

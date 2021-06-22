@@ -46,11 +46,6 @@ export const createAccount = async (
         `SELECT * FROM create_company()`,
         []
       );
-      if (companies[0].status === "NEW") {
-        app_metadata.registration_to_complete = true;
-      } else {
-        app_metadata.registration_to_complete = false;
-      }
       company = companies[0];
     }
 

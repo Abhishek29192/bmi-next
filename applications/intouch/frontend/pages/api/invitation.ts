@@ -1,5 +1,5 @@
 import { getAuth0Instance } from "../../lib/auth0";
-import { withLoggerApi } from "../../lib/logger/withLogger";
+import { withLoggerApi } from "../../lib/middleware/withLogger";
 import { completeAccountInvitation, createDoceboUser } from "../../lib/account";
 
 export const config = {

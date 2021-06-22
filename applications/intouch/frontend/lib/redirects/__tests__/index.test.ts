@@ -1,23 +1,18 @@
 import { marketRedirect } from "../market";
-
-const { AUTH0_NAMESPACE } = process.env;
+import { redirectCompanyRegistration } from "../companyRegistration";
 
 describe("marketRedirect", () => {
   let res;
   let req;
   let user;
-  const mockWriteHead = jest.fn();
-  const mockEnd = jest.fn();
 
   beforeEach(() => {
     process.env.AUTH0_COOKIE_DOMAIN = "local.intouch";
     jest.resetAllMocks();
-    res = {
-      writeHead: mockWriteHead,
-      end: mockEnd
-    };
     user = {
-      [`${AUTH0_NAMESPACE}/intouch_market_code`]: "es"
+      market: {
+        domain: "es"
+      }
     };
   });
 
@@ -29,10 +24,13 @@ describe("marketRedirect", () => {
       }
     };
 
-    marketRedirect(req, res, user);
+    const redirect = marketRedirect(req, user);
 
-    expect(res.writeHead).toHaveBeenCalledWith(302, {
-      Location: `http://es.local.intouch`
+    expect(redirect).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "http://es.local.intouch"
+      }
     });
   });
 
@@ -44,16 +42,41 @@ describe("marketRedirect", () => {
       }
     };
 
-    marketRedirect(req, res, user);
+    const redirect = marketRedirect(req, user);
 
-    expect(res.writeHead).toHaveBeenCalledTimes(0);
+    expect(redirect).toEqual(null);
   });
 
   it("should not redirect localhost", () => {
     process.env.AUTH0_COOKIE_DOMAIN = "localhost";
 
-    marketRedirect(req, res, user);
+    const redirect = marketRedirect(req, user);
 
-    expect(res.writeHead).toHaveBeenCalledTimes(0);
+    expect(redirect).toEqual(null);
+  });
+});
+
+describe("Company registration", () => {
+  it("should redirect the user to the company registration page", () => {
+    const redirect = redirectCompanyRegistration(
+      {
+        url: "/"
+      },
+      { companyStatus: "NEW" }
+    );
+
+    expect(redirect).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "/company-registration"
+      }
+    });
+  });
+  it("shouldn't redirect the user to the company registration page", () => {
+    const req = { url: "/" };
+    const user = { companyStatus: "ACTIVE" };
+    const redirect = redirectCompanyRegistration(req, user);
+
+    expect(redirect).toEqual(null);
   });
 });
