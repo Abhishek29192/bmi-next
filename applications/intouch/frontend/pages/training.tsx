@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Course } from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -17,8 +16,8 @@ import {
   getServerPageTraining
 } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
-import { CourseDescription } from "../components/Cards/CourseDescription";
 import { parseAccount } from "../lib/account";
+import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 
 type PageProps = {
   trainingData: {
@@ -27,7 +26,6 @@ type PageProps = {
       message: string;
     };
   };
-  username?: string;
 };
 
 const DOCEBO_SSO_URL = "/api/docebo-sso";
@@ -56,7 +54,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
 
   const sidePanelHandler = (courseId: number) => {
     const activeCourse = courseCatalogues.nodes.find(
-      (node) => node.course.courseId === courseId
+      ({ course }) => course.courseId === courseId
     )?.course as Course;
     setActiveCourse(activeCourse);
   };
@@ -88,7 +86,10 @@ const TrainingPage = ({ trainingData }: PageProps) => {
                 lmsUrl={DOCEBO_SSO_URL}
               />
             ) : (
-              <CourseDetail course={activeCourse} />
+              <TrainingCourseDetail
+                course={activeCourse}
+                lmsUrl={DOCEBO_SSO_URL}
+              />
             )}
           </Grid>
         </Grid>
@@ -157,29 +158,6 @@ export const getServerSideProps = async (ctx) => {
   })(ctx);
 };
 export default withPageAuthRequired(TrainingPage);
-
-const CourseDetail = ({ course }: { course: Course }) => {
-  const { t } = useTranslation("training-page");
-  const { name, trainingType, image, description, courseEnrollments } = course;
-  const { status = "General", url = "" } = courseEnrollments.nodes[0] || {};
-
-  return (
-    <CourseDescription
-      title={name}
-      type={trainingType}
-      status={status}
-      image={image}
-      lmsUrl={`${DOCEBO_SSO_URL}?path=${url}`}
-    >
-      <Typography variant="h5">{t("Description")}</Typography>
-
-      <Typography
-        component="div"
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
-    </CourseDescription>
-  );
-};
 
 // export doesn't matter for codegen
 export const pageQuery = gql`
