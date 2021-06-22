@@ -1,5 +1,15 @@
+const getCompanyStatus = (account) => {
+  if (!account) return null;
+
+  const { companyMembers = { nodes: [] } } = account;
+  const { nodes } = companyMembers;
+
+  return nodes[0]?.company?.status;
+};
+
 export const redirectCompanyRegistration = (req, user) => {
-  if (req?.url !== "/company-registration" && user?.companyStatus === "NEW") {
+  const companyStatus = getCompanyStatus(user);
+  if (req?.url !== "/company-registration" && companyStatus === "NEW") {
     return {
       redirect: {
         permanent: false,

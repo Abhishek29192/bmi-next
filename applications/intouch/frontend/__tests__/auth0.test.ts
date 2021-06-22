@@ -6,21 +6,41 @@ import {
   afterCallback
 } from "../pages/api/auth/[...auth0]";
 
-import { createAccount, createDoceboUser, getAccount } from "../lib/account";
+const mockGetAccount = jest.fn();
+const mockCreateAccount = jest.fn();
+const mockGetInvitation = jest.fn();
+const mockCreateDoceboUser = jest.fn();
+
+jest.mock("../lib/account", () => {
+  const mockedModule = jest.requireActual("../lib/account");
+
+  return {
+    __esModule: true,
+    default: jest.fn().mockImplementation(() => {
+      return {
+        ...mockedModule,
+        getAccount: mockGetAccount,
+        createAccount: mockCreateAccount,
+        getInvitation: mockGetInvitation,
+        createDoceboUser: mockCreateDoceboUser
+      };
+    })
+  };
+});
 
 const mockHandleLogin = jest.fn();
-
 jest.mock("../lib/auth0", () => ({
   getAuth0Instance: () => ({
     handleLogin: () => mockHandleLogin
   })
 }));
 
-jest.mock("../lib/account", () => ({
-  parseAccount: jest.requireActual("../lib/account").parseAccount,
-  createAccount: jest.fn(),
-  createDoceboUser: jest.fn(),
-  getAccount: jest.fn()
+const mockQuery = jest.fn();
+jest.mock("../lib/apolloClient", () => ({
+  initializeApollo: () =>
+    Promise.resolve({
+      query: mockQuery
+    })
 }));
 
 describe("Market", () => {
@@ -134,12 +154,17 @@ describe("Auth0 Handler", () => {
 describe("Auth0 callback", () => {
   let req;
   let res;
-  let session;
   let state;
+  let session;
+
+  let logger = () => ({
+    info: () => {},
+    error: () => {}
+  });
 
   beforeEach(() => {
     req = {
-      logger: jest.fn(),
+      logger,
       headers: {},
       query: {
         returnTo: "/return-to"
@@ -154,42 +179,19 @@ describe("Auth0 callback", () => {
     state = {};
   });
 
-  it("should return immediately if invited", async () => {
-    session = {
-      user: {
-        [`${process.env.AUTH0_NAMESPACE}/intouch_invited`]: 5
-      }
-    };
-
-    const result = await afterCallback(req, res, session, state);
-
-    expect(result).toEqual({
-      user: {
-        [`${process.env.AUTH0_NAMESPACE}/intouch_invited`]: 5
-      }
-    });
-    expect(createAccount).toHaveBeenCalledTimes(0);
-    expect(createDoceboUser).toHaveBeenCalledTimes(0);
-  });
-
-  it("should create a user is first login", async () => {
+  it("should create the user and the docebo user if first login", async () => {
     session = {
       user: {}
     };
 
-    (createAccount as jest.Mock).mockReturnValueOnce(
-      Promise.resolve({
-        createAccount: {
-          account: {
-            id: 1
-          }
-        }
-      })
-    );
+    mockGetAccount.mockImplementation(() => Promise.resolve(null));
+    mockGetInvitation.mockImplementation(() => Promise.resolve(null));
+    mockCreateAccount.mockImplementation(() => Promise.resolve({ id: 1 }));
+
     await afterCallback(req, res, session, state);
 
-    expect(createAccount).toHaveBeenCalledWith(req, session);
-    expect(createDoceboUser).toHaveBeenCalledWith(req, session, {
+    expect(mockCreateAccount).toHaveBeenCalledWith(session);
+    expect(mockCreateDoceboUser).toHaveBeenCalledWith(session, {
       id: 1
     });
     expect(state).toEqual({
@@ -197,28 +199,66 @@ describe("Auth0 callback", () => {
     });
   });
 
-  it("should create a docebo user if user exists but docebo id not", async () => {
+  it("should create the docebo user if it doesn exists", async () => {
     session = {
-      user: {
-        [`${process.env.AUTH0_NAMESPACE}/intouch_user_id`]: 123
-      }
+      user: {}
     };
 
-    (getAccount as jest.Mock).mockReturnValueOnce(
-      Promise.resolve({
-        data: {
-          id: 1
-        }
-      })
-    );
+    mockGetAccount.mockImplementation(() => Promise.resolve({ id: 1 }));
+    mockGetInvitation.mockImplementation(() => Promise.resolve(null));
+
     await afterCallback(req, res, session, state);
 
-    expect(getAccount).toHaveBeenCalledWith(req, session);
-    expect(createDoceboUser).toHaveBeenCalledWith(req, session, {
+    expect(mockCreateDoceboUser).toHaveBeenCalledWith(session, {
       id: 1
     });
     expect(state).toEqual({
       returnTo: "/api/silent-login"
+    });
+  });
+
+  it("should continue if user and docebo user alread exists", async () => {
+    session = {
+      user: {
+        foo: "bar"
+      }
+    };
+
+    mockGetAccount.mockImplementation(() =>
+      Promise.resolve({ id: 1, doceboUserId: 1 })
+    );
+    mockGetInvitation.mockImplementation(() => Promise.resolve(null));
+
+    expect(await afterCallback(req, res, session, state)).toEqual({
+      user: {
+        foo: "bar"
+      }
+    });
+  });
+
+  it("should continue if the user is invited", async () => {
+    session = {
+      user: {
+        foo: "bar"
+      }
+    };
+
+    mockGetAccount.mockImplementation(() => Promise.resolve(null));
+    mockGetInvitation.mockImplementation(() =>
+      Promise.resolve([
+        {
+          id: "",
+          status: "",
+          invitee: "",
+          senderAccountId: ""
+        }
+      ])
+    );
+
+    expect(await afterCallback(req, res, session, state)).toEqual({
+      user: {
+        foo: "bar"
+      }
     });
   });
 });

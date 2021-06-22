@@ -10,16 +10,7 @@ interface Request extends NextApiRequest {
   logger: any;
 }
 
-const getCompanyStatus = (account) => {
-  if (!account) return null;
-
-  const { companyMembers } = account;
-  const { nodes } = companyMembers;
-
-  return nodes?.[0]?.company?.status;
-};
-
-const afterCallback = async (
+export const afterCallback = async (
   req: Request,
   res: NextApiResponse,
   session: Session,
@@ -32,8 +23,6 @@ const afterCallback = async (
   // Fetch the account
   let account = await accountSrv.getAccount(session);
 
-  let companyStatus = getCompanyStatus(account);
-
   // If the user has a valid invitation return the session as the return url
   // in the reset password email will redirect him to /api/invitation
   const invitation = await accountSrv.getInvitation(session);
@@ -44,49 +33,23 @@ const afterCallback = async (
   // If the user do not exists create it and create docebo user
   if (!account?.id && state.prompt !== "none") {
     account = await accountSrv.createAccount(session);
-    companyStatus = getCompanyStatus(account);
 
-    await accountSrv.createDoceboUser(session, account);
+    await accountSrv.createDoceboUser(account);
 
     state.returnTo = "/api/silent-login";
-    return {
-      ...session,
-      user: {
-        ...session.user,
-        ...(companyStatus === "NEW" && {
-          companyStatus
-        })
-      }
-    };
+    return session;
   }
 
   // If the user do not exists create it and create docebo user
   if (!account?.doceboUserId && state.prompt !== "none") {
-    await accountSrv.createDoceboUser(session, account);
-    companyStatus = getCompanyStatus(account);
+    await accountSrv.createDoceboUser(account);
 
     state.returnTo = "/api/silent-login";
 
-    return {
-      ...session,
-      user: {
-        ...session.user,
-        ...(companyStatus === "NEW" && {
-          companyStatus
-        })
-      }
-    };
+    return session;
   }
 
-  return {
-    ...session,
-    user: {
-      ...session.user,
-      ...(companyStatus === "NEW" && {
-        companyStatus
-      })
-    }
-  };
+  return session;
 };
 
 export const getMarketFromReq = (req, res) => {

@@ -2,7 +2,6 @@ import { marketRedirect } from "../market";
 import { redirectCompanyRegistration } from "../companyRegistration";
 
 describe("marketRedirect", () => {
-  let res;
   let req;
   let user;
 
@@ -58,12 +57,18 @@ describe("marketRedirect", () => {
 
 describe("Company registration", () => {
   it("should redirect the user to the company registration page", () => {
-    const redirect = redirectCompanyRegistration(
-      {
-        url: "/"
-      },
-      { companyStatus: "NEW" }
-    );
+    const user = {
+      companyMembers: {
+        nodes: [
+          {
+            company: {
+              status: "NEW"
+            }
+          }
+        ]
+      }
+    };
+    const redirect = redirectCompanyRegistration({ url: "/" }, user);
 
     expect(redirect).toEqual({
       redirect: {
@@ -74,7 +79,17 @@ describe("Company registration", () => {
   });
   it("shouldn't redirect the user to the company registration page", () => {
     const req = { url: "/" };
-    const user = { companyStatus: "ACTIVE" };
+    const user = {
+      companyMembers: {
+        nodes: [
+          {
+            company: {
+              status: "ACTIVE"
+            }
+          }
+        ]
+      }
+    };
     const redirect = redirectCompanyRegistration(req, user);
 
     expect(redirect).toEqual(null);

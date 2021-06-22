@@ -1,6 +1,7 @@
 import { Logger } from "winston";
 import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
 import { ROLES } from "../../lib/config";
+import { randomPassword } from "../../lib/utils";
 
 const { AUTH0_NAMESPACE } = process.env;
 
@@ -31,6 +32,10 @@ export const mutationCreateAccount = gql`
     createAccount(input: $input) {
       account {
         id
+        role
+        email
+        firstName
+        lastName
         marketId
         market {
           language
@@ -113,7 +118,6 @@ const mutationDoceboCreateSSOUrl = gql`
 
 // This user is coming from the idToken
 export const parseAccount = (user) => ({
-  name: user[`name`],
   intouchUserId: user[`${AUTH0_NAMESPACE}/intouch_user_id`],
   registrationType: user[`${AUTH0_NAMESPACE}/registration_type`],
   marketCode: user[`${AUTH0_NAMESPACE}/intouch_market_code`],
@@ -127,16 +131,6 @@ export const parseAccount = (user) => ({
   sub: user.sub,
   aud: user.aud
 });
-
-const randomPassword = (length: number = 8) => {
-  const charset =
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-  return [...new Array(length)]
-    .map(() => charset.charAt(Math.floor(Math.random() * charset.length)))
-    .join("");
-};
-
 export default class Account {
   session: any;
   logger: Logger;
@@ -150,14 +144,14 @@ export default class Account {
 
   createDoceboSSOUrl = async (req, session): Promise<string> => {
     const { user } = session;
-    const { name } = parseAccount(user);
+    const { email } = parseAccount(user);
 
     const path = req.query.path || "/learn/mycourses";
     const { data: { createSSOUrl: { url = null } = {} } = {} } =
       await this.apolloClient.mutate({
         mutation: mutationDoceboCreateSSOUrl,
         variables: {
-          username: name,
+          username: email,
           path
         }
       });
@@ -223,7 +217,7 @@ export default class Account {
     return account;
   };
 
-  completeAccountInvitation = async (req, session) => {
+  completeAccountInvitation = async (req) => {
     this.logger.info(`Completing account invitation`);
 
     const { data } = await this.apolloClient.mutate({
@@ -240,7 +234,7 @@ export default class Account {
     return data;
   };
 
-  updateAccount = async (session, accountId, patch) => {
+  updateAccount = async (accountId, patch) => {
     this.logger.info(`Updating account`);
 
     const body = {
@@ -283,44 +277,45 @@ export default class Account {
     return data?.invitations?.nodes?.[0];
   };
 
-  createDoceboUser = async (session, account) => {
+  createDoceboUser = async (account) => {
     const POWER_USER_LEVEL = 4;
     const REGULAR_USER_LEVEL = 6;
 
-    const { user } = session;
-    const { market } = account;
-    const { firstName, lastName, registrationType } = parseAccount(user);
+    const { firstName, lastName, role, market, email } = account;
+    const { doceboCompanyAdminBranchId, doceboInstallersBranchId } = market;
 
     this.logger.info(`Get user by email`);
 
-    // Check if the user already exists
-    const { data } = await this.apolloClient.query({
+    // Check if the user already exists in docebo
+    const { data: doceboUser } = await this.apolloClient.query({
       query: userByEmailDocument,
       variables: {
-        email: user.email
+        email: email
       }
     });
 
-    let doceboUserId = data.userByEmail?.user_id
-      ? parseInt(data.userByEmail?.user_id)
+    let doceboUserId = doceboUser.userByEmail?.user_id
+      ? parseInt(doceboUser.userByEmail?.user_id)
       : null;
 
-    if (!data.userByEmail?.user_id) {
+    if (!doceboUser.userByEmail?.user_id) {
       const branchId =
-        registrationType === "company"
-          ? market.doceboCompanyAdminBranchId
-          : market.doceboInstallersBranchId;
+        role === "COMPANY_ADMIN"
+          ? doceboCompanyAdminBranchId
+          : doceboInstallersBranchId;
 
       const language = market.language.toLowerCase() || "en";
       const level =
-        registrationType === "company" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
+        role === "COMPANY_ADMIN" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
 
-      const body = {
+      this.logger.info(`Creating docebo account for user ${account.id}`);
+
+      const { data } = await this.apolloClient.mutate({
         mutation: mutationCreateDoceboUser,
         variables: {
           input: {
-            userid: user.email,
-            email: user.email,
+            userid: email,
+            email: email,
             password: randomPassword(),
             firstname: firstName,
             lastname: lastName,
@@ -333,11 +328,7 @@ export default class Account {
             }
           }
         }
-      };
-
-      this.logger.info(`Creating docebo account for user ${account.id}`);
-
-      const { data } = await this.apolloClient.mutate(body);
+      });
       const { createDoceboUser } = data;
 
       if (!createDoceboUser) {
@@ -349,9 +340,9 @@ export default class Account {
       this.logger.info(`Docebo account with id ${doceboUserId} created`);
     }
 
-    await this.updateAccount(session, account.id, {
+    await this.updateAccount(account.id, {
       doceboUserId: doceboUserId,
-      doceboUsername: user.email
+      doceboUsername: email
     });
 
     this.logger.info(

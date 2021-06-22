@@ -79,7 +79,6 @@ describe("Account", () => {
         app_metadata: {
           intouch_market_code: args.input.marketCode,
           intouch_role: args.input.account.role,
-          registration_to_complete: true,
           intouch_user_id: 1
         }
       });
@@ -133,8 +132,7 @@ describe("Account", () => {
       expect(mockAuth0Update).toBeCalledWith("auth0|user-id", {
         app_metadata: {
           intouch_role: args.input.role,
-          intouch_invited: true,
-          registration_to_complete: false
+          intouch_invited: true
         }
       });
     });
