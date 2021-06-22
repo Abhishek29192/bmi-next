@@ -96,9 +96,7 @@ const siteData: SiteData = {
   menuNavigation: mockNestedNavigation,
   menuUtilities: mockNavigation,
   resources: null,
-  scriptGOptLoad: null,
-  scriptGRecaptchaId: "1234",
-  scriptGRecaptchaNet: null
+  scriptGOptLoad: null
 };
 
 const pageData: Data = {

@@ -207,9 +207,7 @@ describe("HomePage template", () => {
       menuNavigation: mockNavigation,
       menuUtilities: mockNavigation,
       resources: null,
-      scriptGOptLoad: null,
-      scriptGRecaptchaId: "1234",
-      scriptGRecaptchaNet: null
+      scriptGOptLoad: null
     };
 
     const hpData = {

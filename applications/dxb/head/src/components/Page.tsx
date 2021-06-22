@@ -57,12 +57,14 @@ const Page = ({
     scriptGA,
     scriptOnetrust,
     scriptHotJar,
-    scriptGOptLoad,
-    scriptGRecaptchaId,
-    scriptGRecaptchaNet
+    scriptGOptLoad
   } = siteData;
 
   const { breadcrumbs, inputBanner, seo } = pageData;
+
+  const reCaptchaKey = !process.env.GATSBY_PREVIEW && process.env.RECAPTCHA_KEY;
+  const recaptchaNet =
+    !process.env.GATSBY_PREVIEW && process.env.RECAPTCHA_NET === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
@@ -140,8 +142,8 @@ const Page = ({
           countryCode,
           homePage: siteData.homePage,
           getMicroCopy,
-          scriptGRecaptchaId,
-          scriptGRecaptchaNet
+          reCaptchaKey,
+          recaptchaNet
         }}
       >
         <MicroCopy.Provider
@@ -154,8 +156,8 @@ const Page = ({
           )}
         >
           <GoogleReCaptchaProvider
-            reCaptchaKey={scriptGRecaptchaId}
-            useRecaptchaNet={scriptGRecaptchaNet}
+            reCaptchaKey={reCaptchaKey}
+            useRecaptchaNet={recaptchaNet}
             language={countryCode}
           >
             <Header

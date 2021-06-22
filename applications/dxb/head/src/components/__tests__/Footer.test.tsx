@@ -13,8 +13,8 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
         homePage: { title: "Home Page" },
         getMicroCopy: (path) => path,
         countryCode: "uk",
-        scriptGRecaptchaId: "",
-        scriptGRecaptchaNet: false
+        reCaptchaKey: "1234",
+        recaptchaNet: false
       }}
     >
       {children}
