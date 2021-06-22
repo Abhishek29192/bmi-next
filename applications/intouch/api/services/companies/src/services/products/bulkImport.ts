@@ -2,6 +2,10 @@ import * as csv from "fast-csv";
 import pgFormat from "pg-format";
 import camelcaseKeys from "camelcase-keys";
 
+const PRODUCTS_FILE = "products.csv";
+const SYSTEMS_FILE = "systems.csv";
+const SYSTEM_MEMBER_FILE = "system_member.csv";
+
 export const singleImport = async (file) =>
   new Promise<any[]>((resolve, reject) => {
     const result = [];
@@ -21,7 +25,10 @@ export const singleImport = async (file) =>
   });
 
 const getProducts = async (market: string, pgClient: any) => {
-  const { rows = [] } = await pgClient.query("select * from product");
+  const { rows = [] } = await pgClient.query(
+    "select * from product where market_id = $1",
+    [market]
+  );
   return rows.reduce(
     (result, item) => ({
       ...result,
@@ -31,7 +38,10 @@ const getProducts = async (market: string, pgClient: any) => {
   );
 };
 const getSystems = async (market: string, pgClient: any) => {
-  const { rows = [] } = await pgClient.query("select * from system");
+  const { rows = [] } = await pgClient.query(
+    "select * from system where market_id = $1",
+    [market]
+  );
   return rows.reduce(
     (result, item) => ({
       ...result,
@@ -79,14 +89,14 @@ export const bulkImport = async (args, context) => {
 
     const parsedFile: any[] = await singleImport({ filename, ...f });
 
-    if (filename.indexOf("system_member.csv") !== -1) {
+    if (filename.indexOf(SYSTEM_MEMBER_FILE) !== -1) {
       systemMember = parsedFile.map((item) => {
         return {
           system_bmi_ref: item.system_bmi_ref,
           product_bmi_ref: item.product_bmi_ref
         };
       });
-    } else if (filename.indexOf("systems.csv") !== -1) {
+    } else if (filename.indexOf(SYSTEMS_FILE) !== -1) {
       const currentSystems = await getSystems(marketId, pgClient);
 
       systems = parsedFile.map((item) => {
@@ -107,7 +117,7 @@ export const bulkImport = async (args, context) => {
             item.published?.toLowerCase() === "true" || item.published === "1"
         };
       });
-    } else if (filename.indexOf("products.csv") !== -1) {
+    } else if (filename.indexOf(PRODUCTS_FILE) !== -1) {
       const currentProducts = await getProducts(marketId, pgClient);
 
       products = parsedFile.map((item) => {

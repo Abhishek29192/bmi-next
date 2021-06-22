@@ -13,6 +13,12 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /**
+   * A signed eight-byte integer. The upper big integer values are greater than the
+   * max value for a JavaScript number. Therefore all big integers will be output as
+   * strings and not numbers.
+   */
+  BigInt: any;
   /** A location in a connection that can be used for resuming pagination. */
   Cursor: any;
   /**
@@ -1069,7 +1075,7 @@ export type Company = Node & {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -1480,7 +1486,7 @@ export type CompanyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -2044,6 +2050,50 @@ export type CourseCatalogueTempsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+/** All input for the `courseCatalogueUpdateByTemp` mutation. */
+export type CourseCatalogueUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseCatalogueUpdateByTemp` mutation. */
+export type CourseCatalogueUpdateByTempPayload = {
+  __typename?: "CourseCatalogueUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** All input for the `courseCatalogueUpdate` mutation. */
+export type CourseCatalogueUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  catalogues?: Maybe<Array<Maybe<CourseCatalogueInput>>>;
+};
+
+/** The output of our `courseCatalogueUpdate` mutation. */
+export type CourseCatalogueUpdatePayload = {
+  __typename?: "CourseCatalogueUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
 /** A connection to a list of `CourseCatalogue` values. */
 export type CourseCataloguesConnection = {
   __typename?: "CourseCataloguesConnection";
@@ -2241,6 +2291,50 @@ export type CourseEnrollmentTempsOrderBy =
   | "ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+/** All input for the `courseEnrollmentUpdateByTemp` mutation. */
+export type CourseEnrollmentUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseEnrollmentUpdateByTemp` mutation. */
+export type CourseEnrollmentUpdateByTempPayload = {
+  __typename?: "CourseEnrollmentUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** All input for the `courseEnrollmentUpdate` mutation. */
+export type CourseEnrollmentUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  enrollments?: Maybe<Array<Maybe<CourseEnrollmentInput>>>;
+};
+
+/** The output of our `courseEnrollmentUpdate` mutation. */
+export type CourseEnrollmentUpdatePayload = {
+  __typename?: "CourseEnrollmentUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
 
 /** A connection to a list of `CourseEnrollment` values. */
 export type CourseEnrollmentsConnection = {
@@ -2509,6 +2603,50 @@ export type CourseTempsOrderBy =
   | "ID_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+/** All input for the `courseUpdateByTemp` mutation. */
+export type CourseUpdateByTempInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+};
+
+/** The output of our `courseUpdateByTemp` mutation. */
+export type CourseUpdateByTempPayload = {
+  __typename?: "CourseUpdateByTempPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  bigInt?: Maybe<Scalars["BigInt"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** All input for the `courseUpdate` mutation. */
+export type CourseUpdateInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  courses?: Maybe<Array<Maybe<CourseInput>>>;
+};
+
+/** The output of our `courseUpdate` mutation. */
+export type CourseUpdatePayload = {
+  __typename?: "CourseUpdatePayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
 
 /** A connection to a list of `Course` values. */
 export type CoursesConnection = {
@@ -4587,6 +4725,19 @@ export type DeleteSystemMemberByNodeIdInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** The globally unique `ID` which will identify a single `SystemMember` to be deleted. */
   nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
+export type DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef: Scalars["String"];
+  /** fk */
+  productBmiRef: Scalars["String"];
 };
 
 /** All input for the `deleteSystemMember` mutation. */
@@ -6922,6 +7073,12 @@ export type Mutation = {
   __typename?: "Mutation";
   bulkImport?: Maybe<ImportPayload>;
   completeInvitation?: Maybe<Account>;
+  courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
+  courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
+  courseEnrollmentUpdate?: Maybe<CourseEnrollmentUpdatePayload>;
+  courseEnrollmentUpdateByTemp?: Maybe<CourseEnrollmentUpdateByTempPayload>;
+  courseUpdate?: Maybe<CourseUpdatePayload>;
+  courseUpdateByTemp?: Maybe<CourseUpdateByTempPayload>;
   createAccount?: Maybe<CreateAccountPayload>;
   /** Creates a single `Address`. */
   createAddress?: Maybe<CreateAddressPayload>;
@@ -7091,6 +7248,8 @@ export type Mutation = {
   deleteSystemMember?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using its globally unique id. */
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
+  /** Deletes a single `SystemMember` using a unique key. */
+  deleteSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<DeleteSystemMemberPayload>;
   invite?: Maybe<Invitation>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   publishMessage?: Maybe<Publish>;
@@ -7214,6 +7373,8 @@ export type Mutation = {
   updateSystemMember?: Maybe<UpdateSystemMemberPayload>;
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
+  /** Updates a single `SystemMember` using a unique key and a patch. */
+  updateSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
 };
 
@@ -7225,6 +7386,36 @@ export type MutationBulkImportArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCompleteInvitationArgs = {
   companyId: Scalars["Int"];
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseCatalogueUpdateArgs = {
+  input: CourseCatalogueUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseCatalogueUpdateByTempArgs = {
+  input: CourseCatalogueUpdateByTempInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseEnrollmentUpdateArgs = {
+  input: CourseEnrollmentUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseEnrollmentUpdateByTempArgs = {
+  input: CourseEnrollmentUpdateByTempInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseUpdateArgs = {
+  input: CourseUpdateInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCourseUpdateByTempArgs = {
+  input: CourseUpdateByTempInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -7664,6 +7855,11 @@ export type MutationDeleteSystemMemberByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationInviteArgs = {
   input: InviteInput;
 };
@@ -7976,6 +8172,11 @@ export type MutationUpdateSystemMemberArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateSystemMemberByNodeIdArgs = {
   input: UpdateSystemMemberByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -9020,6 +9221,7 @@ export type Query = Node & {
   systemMember?: Maybe<SystemMember>;
   /** Reads a single `SystemMember` using its globally unique `ID`. */
   systemMemberByNodeId?: Maybe<SystemMember>;
+  systemMemberBySystemBmiRefAndProductBmiRef?: Maybe<SystemMember>;
   /** Reads and enables pagination through a set of `SystemMember`. */
   systemMembers?: Maybe<SystemMembersConnection>;
   /** Reads and enables pagination through a set of `System`. */
@@ -9861,6 +10063,12 @@ export type QuerySystemMemberArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QuerySystemMemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  systemBmiRef: Scalars["String"];
+  productBmiRef: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -11933,6 +12141,21 @@ export type UpdateSystemMemberByNodeIdInput = {
   nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `SystemMember` being updated. */
   patch: SystemMemberPatch;
+};
+
+/** All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
+export type UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `SystemMember` being updated. */
+  patch: SystemMemberPatch;
+  /** fk */
+  systemBmiRef: Scalars["String"];
+  /** fk */
+  productBmiRef: Scalars["String"];
 };
 
 /** All input for the `updateSystemMember` mutation. */

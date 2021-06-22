@@ -805,6 +805,9 @@ ALTER TABLE product
 ALTER TABLE SYSTEM
   ADD UNIQUE (bmi_ref);
 
+ALTER TABLE system_member
+  ADD UNIQUE (system_bmi_ref, product_bmi_ref);
+
 ALTER TABLE account
   ADD FOREIGN KEY (market_id) REFERENCES market (id) ON DELETE CASCADE;
 

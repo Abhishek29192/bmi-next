@@ -15,7 +15,6 @@ import Tabs from "@bmi/tabs";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
 import Button from "@bmi/button";
-import { initializeApollo } from "../../lib/apolloClient";
 import { getAuth0Instance } from "../../lib/auth0";
 import { SidePanel } from "../../components/SidePanel";
 import { FilterResult } from "../../components/FilterResult";
@@ -27,7 +26,6 @@ import {
   useUpdateProductMutation,
   useUpdateSystemMutation
 } from "../../graphql/generated/hooks";
-import { getServerPageProductsAndSystems } from "../../graphql/generated/page";
 
 const ProductImport = () => {
   const { t } = useTranslation();
@@ -154,10 +152,15 @@ const ProductImport = () => {
                 </Typography>
                 <div style={{ marginTop: 30 }}>
                   <input
-                    type="file"
+                    // key={inputKey}
                     multiple
+                    type="file"
                     onChange={({ target: { files } }) => {
                       setFilesToUpload(files);
+                      // setInputKey(`uploader-${Date.now()}`);
+                    }}
+                    onClick={(event) => {
+                      event.currentTarget.value = null;
                     }}
                   />
                   <Button onClick={() => submit(true)}>Dry run</Button>
@@ -291,25 +294,13 @@ export const getServerSideProps = withLogger(async (ctx) => {
   const auth0 = await getAuth0Instance(ctx.req, ctx.res);
   return auth0.withPageAuthRequired({
     async getServerSideProps({ req, res, locale }) {
-      const apolloClient = await initializeApollo(null, { ...ctx, locale });
-
-      const {
-        props: { data }
-      } = await getServerPageProductsAndSystems(
-        {
-          variables: {}
-        },
-        apolloClient
-      );
-
       return {
         props: {
           ...(await serverSideTranslations(locale, [
             "common",
             "sidebar",
             "footer"
-          ])),
-          ...data
+          ]))
         }
       };
     }

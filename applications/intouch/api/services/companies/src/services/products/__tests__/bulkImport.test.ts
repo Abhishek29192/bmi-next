@@ -6,8 +6,8 @@ describe("Bulk importer", () => {
       query: jest.fn()
     },
     logger: () => ({
-      info: (message) => {}, //console.log(message),
-      error: (message) => {} //console.log(message)
+      info: (message) => {},
+      error: (message) => {}
     })
   };
 
@@ -16,7 +16,7 @@ describe("Bulk importer", () => {
     jest.restoreAllMocks();
   });
 
-  it("should'n import the products if no env or market", async () => {
+  it("shouldn't import the products if no env or market", async () => {
     const args = {
       input: {
         files: Promise.resolve([
@@ -37,7 +37,7 @@ describe("Bulk importer", () => {
     }
   });
 
-  it("should'n import the products if wrong market", async () => {
+  it("shouldn't import the products if wrong market", async () => {
     const args = {
       input: {
         files: Promise.resolve([
@@ -100,7 +100,7 @@ describe("Bulk importer", () => {
     });
   });
 
-  it("should import if dry run", async () => {
+  it("should import if not dry run", async () => {
     const args = {
       input: {
         dryRun: false,
