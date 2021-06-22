@@ -271,19 +271,37 @@ const Header = ({
                 value={value === true ? 0 : value}
                 variant="scrollable"
               >
-                {navigation.map(({ label }, key) => (
-                  <Tab
-                    aria-controls={`navigation-tabpanel-${key}`}
-                    className={classnames(
-                      styles["nav-item"],
-                      activeNavLabel === label && styles["nav-item--selected"]
-                    )}
-                    icon={<KeyboardArrowDown />}
-                    id={`navigation-tab-${key}`}
-                    key={`navigation-tab-${key}`}
-                    label={label}
-                  />
-                ))}
+                {navigation.map(({ label, action }, key) => {
+                  if (action) {
+                    return (
+                      <Clickable
+                        {...action}
+                        className={classnames(
+                          styles["nav-item"],
+                          styles["nav-item--no-children"],
+                          activeNavLabel === label &&
+                            styles["nav-item--selected"]
+                        )}
+                      >
+                        <span>{label}</span>
+                      </Clickable>
+                    );
+                  }
+
+                  return (
+                    <Tab
+                      aria-controls={`navigation-tabpanel-${key}`}
+                      className={classnames(
+                        styles["nav-item"],
+                        activeNavLabel === label && styles["nav-item--selected"]
+                      )}
+                      icon={<KeyboardArrowDown />}
+                      id={`navigation-tab-${key}`}
+                      key={`navigation-tab-${key}`}
+                      label={label}
+                    />
+                  );
+                })}
               </Tabs>
             </nav>
           </div>

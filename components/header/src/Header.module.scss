@@ -61,6 +61,7 @@ $chevron-margin-left-lg: 3px;
       padding: 6px $button-padding-sides;
       transition: color $transition-timing, background-color $transition-timing,
         box-shadow $transition-timing, border $transition-timing;
+      text-decoration: none;
       color: $color-slate;
       font-size: 16px;
       opacity: 1;
@@ -85,6 +86,11 @@ $chevron-margin-left-lg: 3px;
           height: $chevron-width;
           width: $chevron-width;
         }
+      }
+
+      &--no-children {
+        display: flex;
+        align-items: center;
       }
 
       &--selected {
