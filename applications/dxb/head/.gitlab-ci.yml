@@ -95,11 +95,39 @@ deploy_head_preview:
     paths:
       - deploy_head
 
+.base_scan:
+  stage: dynamic security
+  rules:
+    - when: never
+  image: owasp/zap2docker-stable:latest
+  cache: {}
+  script:
+    - mkdir /zap/wrk
+    - cp applications/dxb/head/dast/* /zap/wrk
+    - zap-baseline.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+  artifacts:
+    paths:
+      - zap_output.html
+
+.full_scan:
+  stage: dynamic security
+  rules:
+    - when: never
+  image: owasp/zap2docker-stable:latest
+  cache: {}
+  script:
+    - mkdir /zap/wrk
+    - cp applications/dxb/head/dast/* /zap/wrk
+    - zap-full-scan.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+  artifacts:
+    paths:
+      - zap_output.html
+
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Triggered by Netlify when deploy is complete
 # Disabled until it can be fixed
 baseline_scan_head_preview:
-  stage: dynamic security
+  extends: .base_scan
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -108,81 +136,59 @@ baseline_scan_head_preview:
         - libraries/**/*
   needs:
     - deploy_head_preview
-  image: owasp/zap2docker-stable:latest
-  cache: {}
-  script:
+  variables:
+    ZAP_ENVIRONMENT: "mr"
+  before_script:
     - |
       [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
-      base_url=$(cat deploy_head)
-      [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
-      mkdir /zap/wrk
-      cp applications/dxb/head/dast/* /zap/wrk
-      xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${base_url}" /zap/wrk/mr.context
-      zap-baseline.py -t "${base_url}/no/" -r zap_output.html -n mr.context -U qa || exit 0
-  artifacts:
-    paths:
-      - zap_output.html
+      export BASE_URL=$(cat deploy_head)
+      [ -z "${BASE_URL}" ] && echo "Nothing deployed to test" && exit 0
+      xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${BASE_URL}" applications/dxb/head/dast/mr.context
+      export BASE_URL=${BASE_URL}/no
 
 # https://www.zaproxy.org/docs/docker/full-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true
 full_scan_head_qa:
-  stage: dynamic security
+  extends: .full_scan
   rules:
     - if: "$WHICH_SCHEDULE == 'full_scan_head_qa'"
-      when: delayed
-      start_in: 1 minute
-  image: owasp/zap2docker-stable:latest
-  cache: {}
-  script:
-    - zap-full-scan.py -t https://bmi-dxb-head-qa.netlify.app/ -r zap_output.html -n applications/dxb/head/qa.context -U qa
-  artifacts:
-    paths:
-      - zap_output.html
+  variables:
+    BASE_URL: https://bmi-dxb-head-qa.netlify.app/no
+    ZAP_ENVIRONMENT: qa
+
+full_scan_head_pre_prod:
+  extends: .full_scan
+  rules:
+    - if: "$WHICH_SCHEDULE == 'full_scan_head_pre_prod'"
+  variables:
+    BASE_URL: https://bmi-dxb-head-preproduction.netlify.app/no/
+    ZAP_ENVIRONMENT: pre-production
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true
 # When happy with how this works, change to use zap-full-scan.py
 baseline_scan_head_prod:
-  stage: dynamic security
+  extends: .base_scan
   rules:
     - if: '$WHICH_SCHEDULE == "baseline_scan_head_prod"'
-  image: owasp/zap2docker-stable:latest
-  script:
-    - zap-baseline.py -t https://bmi-dxb-head-production.netlify.app -r zap_output.html -n applications/dxb/head/prod.context
-  artifacts:
-    paths:
-      - zap_output.html
+  variables:
+    BASE_URL: https://bmi-dxb-head-production.netlify.app/no
+    ZAP_ENVIRONMENT: production
 
-# https://github.com/GoogleChrome/lighthouse-ci
-# Lighthouse scan on netlify build
-lighthouseci_scan_head_preview:
+.lighthouse_scan:
   stage: lighthouse scan
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
-      changes:
-        - applications/dxb/head/**/*
-        - components/**/*
-        - libraries/**/*
-  needs:
-    - deploy_head_preview
-  image: cypress/browsers:node14.15.0-chrome86-ff82
   variables:
     # Required as QA password has a `$` in it
-    NETLIFY_PWD: "$NETLIFY_PASSWORD_QA"
+    NETLIFY_PWD: "$LIGHTHOUSE_PWD"
+  rules:
+    - when: never
+  image: cypress/browsers:node14.15.0-chrome86-ff82
   script:
     - |
-      [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
-      base_url=$(cat deploy_head)
-      [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
-      urls=(
-        "${base_url}/no/"
-        "${base_url}/no/metal-tiles/contact-us/"
-        "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
-      )
       params="--collect.settings.pwd=${NETLIFY_PWD}"
-      for url in ${urls[@]}; do
+      for url in ${LIGHTHOUSE_URLS[@]}; do
         params="$params --collect.url=${url}"
       done
       yarn workspace @bmi/head lighthouse ${params} || echo "LHCI failed!"
@@ -191,23 +197,39 @@ lighthouseci_scan_head_preview:
       - applications/dxb/head/lighthouseci/reports
 
 # https://github.com/GoogleChrome/lighthouse-ci
+# Lighthouse scan on netlify build
+lighthouseci_scan_head_preview:
+  extends: .lighthouse_scan
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - applications/dxb/head/**/*
+        - components/**/*
+        - libraries/**/*
+  needs:
+    - deploy_head_preview
+  variables:
+    # Required as QA password has a `$` in it
+    NETLIFY_PWD: "$NETLIFY_PASSWORD_QA"
+  before_script:
+    - |
+      [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
+      export base_url=$(cat deploy_head)
+      [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
+      export LIGHTHOUSE_URLS=(
+        "${base_url}/no/"
+        "${base_url}/no/metal-tiles/contact-us/"
+        "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
+      )
+
+# https://github.com/GoogleChrome/lighthouse-ci
 # Should be set as a scheduled job for cron 0 2 * * 0 (2am every sunday) for QA
 # Additional scheduled jobs for Pre-Prod and Prod at 3am and 4am
 # SAST_DISABLED should be set to true
 lighthouseci_scan_head:
-  stage: lighthouse scan
-  variables:
-    # Required as QA password has a `$` in it
-    NETLIFY_PWD: "$LIGHTHOUSE_PWD"
+  extends: .lighthouse_scan
   rules:
     - if: "$WHICH_SCHEDULE == 'lighthouseci_scan_head'"
-  image: cypress/browsers:node14.15.0-chrome86-ff82
-  script:
-    - sed -i 's/"http:\/\/localhost:8000\/no"/'$LIGHTHOUSE_URLS'/g' applications/dxb/head/lighthouserc.js
-    - yarn workspace @bmi/head lighthouse --collect.settings.pwd=$NETLIFY_PWD
-  artifacts:
-    paths:
-      - applications/dxb/head/lighthouseci/reports
 
 ############################################################################
 # Templates used by each market to run content migrations
