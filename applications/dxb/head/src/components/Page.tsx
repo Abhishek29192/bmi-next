@@ -64,7 +64,7 @@ const Page = ({
 
   const reCaptchaKey =
     !process.env.GATSBY_PREVIEW && process.env.GATSBY_RECAPTCHA_KEY;
-  const recaptchaNet =
+  const reCaptchaNet =
     !process.env.GATSBY_PREVIEW && process.env.GATSBY_RECAPTCHA_NET === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
@@ -144,7 +144,7 @@ const Page = ({
           homePage: siteData.homePage,
           getMicroCopy,
           reCaptchaKey,
-          recaptchaNet
+          reCaptchaNet
         }}
       >
         <MicroCopy.Provider
@@ -158,7 +158,7 @@ const Page = ({
         >
           <GoogleReCaptchaProvider
             reCaptchaKey={reCaptchaKey}
-            useRecaptchaNet={recaptchaNet}
+            useRecaptchaNet={reCaptchaNet}
             language={countryCode}
           >
             <Header

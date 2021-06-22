@@ -12,7 +12,7 @@ type Context = {
   };
   getMicroCopy: GetMicroCopy;
   reCaptchaKey?: string;
-  recaptchaNet?: boolean;
+  reCaptchaNet?: boolean;
 };
 
 export const SiteContext = createContext<Context>({

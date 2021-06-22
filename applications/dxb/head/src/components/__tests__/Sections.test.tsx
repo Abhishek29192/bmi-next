@@ -15,7 +15,7 @@ const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
         getMicroCopy: (path) => path,
         countryCode: "uk",
         reCaptchaKey: "1234",
-        recaptchaNet: false
+        reCaptchaNet: false
       }}
     >
       {children}
