@@ -12,7 +12,7 @@ export const TrainingCourseDetail = ({
 }: TrainingCourseDetailProps) => {
   const { t } = useTranslation("training-page");
   const { name, trainingType, image, description, courseEnrollments } = course;
-  const { status = "General", url = null } = courseEnrollments.nodes[0] || {};
+  const { status = "", url = null } = courseEnrollments.nodes[0] || {};
   return (
     <CourseDescription
       title={name}

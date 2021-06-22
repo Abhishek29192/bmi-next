@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TrainingCover component render correctly 1`] = `
+exports[`TrainingCourseDetail component render correctly 1`] = `
 <div
   class="main"
 >
@@ -47,20 +47,18 @@ exports[`TrainingCover component render correctly 1`] = `
           </div>
           <div
             class="status"
-          >
-            General
-          </div>
+          />
         </div>
         <div
           class="cta"
         >
-          <button
+          <a
+            aria-disabled="false"
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-            href=""
+            href="/api/docebo-sso"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"
-            type="button"
           >
             <span
               class="MuiButton-label"
@@ -84,7 +82,7 @@ exports[`TrainingCover component render correctly 1`] = `
             <span
               class="MuiTouchRipple-root"
             />
-          </button>
+          </a>
         </div>
       </div>
     </div>

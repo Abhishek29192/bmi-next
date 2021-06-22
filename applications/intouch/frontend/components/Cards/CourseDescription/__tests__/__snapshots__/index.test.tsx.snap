@@ -19,9 +19,7 @@ exports[`CourseDescription component renders correctly 1`] = `
         class="bannerImage"
       >
         <img
-          alt="Basic competency programme (BCP)"
           src="https://source.unsplash.com/MjLrM8rVMC0/799x500/?architecture"
-          style="width: 100%; display: block;"
         />
       </div>
       <div>

@@ -160,7 +160,6 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
                   focusable="false"
                   viewBox="0 0 24 24"
                 />
-                General
               </p>
             </div>
             <svg

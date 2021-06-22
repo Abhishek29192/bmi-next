@@ -41,8 +41,6 @@ type TrainingSidePanelProps = {
   onCourseSelected?: (courseId: number) => void;
 };
 
-const DEFAULT_ENROLLMENT_STATUS = "General";
-
 export const TrainingSidePanel = ({
   courseCatalog,
   onCourseSelected
@@ -103,8 +101,7 @@ export const TrainingSidePanel = ({
                 <SvgIcon
                   component={TECHNOLOGIES_ICONS[technology as Technology]}
                 />
-                {courseEnrollments.nodes.map((node) => node.status)[0] ||
-                  DEFAULT_ENROLLMENT_STATUS}
+                {courseEnrollments.nodes[0]?.status}
               </Typography>
             </FilterResult>
           );
