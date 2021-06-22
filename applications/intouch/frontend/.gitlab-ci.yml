@@ -20,8 +20,7 @@ test_intouch_frontend:
         - applications/intouch/frontend/junit.xml
 
 build_intouch_frontend_dev:
-  needs:
-    - test_intouch_frontend
+  needs: []
   image: google/cloud-sdk
   stage: build
   services:
@@ -34,7 +33,6 @@ build_intouch_frontend_dev:
         - libraries/**/*
         - package.json
         - "**/package.json"
-
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
