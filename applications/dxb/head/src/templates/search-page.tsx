@@ -5,6 +5,7 @@ import Tabs from "@bmi/tabs";
 import { QUERY_KEY } from "@bmi/search";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useState, FormEvent } from "react";
+import { Filter } from "@bmi/filters";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
@@ -23,7 +24,6 @@ import SearchTabPanelDocuments, {
 import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
-import { ProductFilter } from "../utils/filters";
 
 type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
@@ -43,7 +43,7 @@ type Props = {
         pimCode: string;
       }>;
     };
-    productFilters: ReadonlyArray<ProductFilter>;
+    productFilters: ReadonlyArray<Filter>;
   };
 };
 

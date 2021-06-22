@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import Grid from "@bmi/grid";
+import { FilterProps, Filter } from "@bmi/filters";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
-import {
-  clearFilterValues,
-  ProductFilter,
-  updateFilterValue
-} from "../utils/filters";
+import { clearFilterValues, updateFilterValue } from "../utils/filters";
 import {
   queryElasticSearch,
   compileElasticSearchQuery,
@@ -26,7 +23,7 @@ type Props = {
   initialProducts?: ReadonlyArray<any>; // TODO
   onLoadingChange?: (isLoading: boolean) => void;
   onCountChange?: (count: number) => void;
-  initialFilters: readonly ProductFilter[];
+  initialFilters: readonly Filter[];
   pageContext: any; // TODO
 };
 
@@ -63,7 +60,7 @@ const SearchTabPanelProducts = (props: Props) => {
   const [products, setProducts] = useState(initialProducts);
 
   // NOTE: map colour filter values to specific colour swatch representation
-  const enhancedFilters = useMemo(() => {
+  const enhancedFilters: Filter[] = useMemo(() => {
     return initialFilters.map((filter) => {
       if (filter.name === "colour") {
         return enhanceColourFilterWithSwatches(filter);
@@ -72,7 +69,7 @@ const SearchTabPanelProducts = (props: Props) => {
       return filter;
     });
   }, [initialFilters]);
-  const [filters, setFilters] = useState(enhancedFilters);
+  const [filters, setFilters] = useState<Filter[]>(enhancedFilters);
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(
     Math.ceil(products.length / PAGE_SIZE)
@@ -82,7 +79,7 @@ const SearchTabPanelProducts = (props: Props) => {
   // Loading status
   // =======================================
 
-  const updateLoadingStatus = (isLoading) => {
+  const updateLoadingStatus = (isLoading: boolean) => {
     setIsLoading(isLoading);
     onLoadingChange && onLoadingChange(isLoading);
   };
@@ -92,7 +89,7 @@ const SearchTabPanelProducts = (props: Props) => {
   // =======================================
 
   const queryES = async (
-    filters,
+    filters: Filter[],
     categoryCode,
     page,
     pageSize,
@@ -137,7 +134,7 @@ const SearchTabPanelProducts = (props: Props) => {
   // FILTERS
   // =======================================
 
-  const onFiltersChange = async (newFilters) => {
+  const onFiltersChange = async (newFilters: Filter[]) => {
     const result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
 
     if (result && result.aggregations) {
@@ -155,7 +152,11 @@ const SearchTabPanelProducts = (props: Props) => {
     setFilters(newFilters);
   };
 
-  const handleFiltersChange = (filterName, filterValue, checked) => {
+  const handleFiltersChange: FilterProps["onChange"] = (
+    filterName,
+    filterValue,
+    checked
+  ) => {
     const newFilters = updateFilterValue(
       filters,
       filterName,

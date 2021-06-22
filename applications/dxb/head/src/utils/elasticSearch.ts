@@ -1,3 +1,4 @@
+import { Filter } from "@bmi/filters";
 import { devLog } from "../utils/devLog";
 
 const ES_AGGREGATION_NAMES = {
@@ -14,8 +15,16 @@ const ES_AGGREGATION_NAMES = {
   "document-asset-type": "assetTypes"
 };
 
-export const removeIrrelevantFilters = (filters, aggregations) => {
-  const newFilters = filters
+export type Aggregations = Record<
+  string,
+  { buckets: { key: string; doc_count: number }[] }
+>;
+
+export const removeIrrelevantFilters = (
+  filters: Filter[],
+  aggregations: Aggregations
+): Filter[] =>
+  filters
     .map((filter) => {
       return {
         ...filter,
@@ -36,11 +45,11 @@ export const removeIrrelevantFilters = (filters, aggregations) => {
     // Return only filters with options
     .filter(({ options }) => options.length);
 
-  return newFilters;
-};
-
-export const disableFiltersFromAggregations = (filters, aggregations) => {
-  return filters.map((filter) => {
+export const disableFiltersFromAggregations = (
+  filters: Filter[],
+  aggregations: Aggregations
+): Filter[] =>
+  filters.map((filter) => {
     return {
       ...filter,
       options: filter.options.map((option) => {
@@ -60,7 +69,6 @@ export const disableFiltersFromAggregations = (filters, aggregations) => {
       })
     };
   });
-};
 
 // Filter.name => ES index mapping
 const searchTerms = {
@@ -76,11 +84,11 @@ const searchTerms = {
 };
 
 export const compileElasticSearchQuery = (
-  filters,
+  filters: Filter[],
   // TODO: Handle this being optional differently
-  categoryCode,
-  page,
-  pageSize,
+  categoryCode: string,
+  page: number,
+  pageSize: number,
   searchQuery?: string
 ): object => {
   const categoryFilters = [];
@@ -170,7 +178,7 @@ export const compileElasticSearchQuery = (
           searchQuery
             ? {
                 multi_match: {
-                  query: searchQuery,
+                  query: `.*${searchQuery}.*`,
                   // when caret boosting multi_match queries, "cross_fields" seems to work the best for us currently
                   // https://bmigroup.atlassian.net/wiki/spaces/DXB/pages/2512847139/Tuning+Search+Relevance
                   type: "cross_fields",
