@@ -36,13 +36,13 @@ const queries = [
   {
     query: myQuery,
     transformer: ({ data }) => data.allSitePage.edges.map(({ node }) => node), // optional
-    indexName: 'pages', //
+    indexName: "pages", //
     indexConfig: {
       // optional, any index settings or mappings
       mappings,
-      settings,
-    },
-  },
+      settings
+    }
+  }
 ];
 
 module.exports = {
@@ -50,13 +50,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-elasticsearch`,
       options: {
-        node: 'http://localhost:9200',
+        node: "http://localhost:9200",
         apiKey: process.env.ES_API_KEY, // optional
         queries,
-        chunkSize: 10000, // default: 1000
-      },
-    },
-  ],
+        chunkSize: 10000 // default: 1000
+      }
+    }
+  ]
 };
 ```
 
