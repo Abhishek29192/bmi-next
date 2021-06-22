@@ -173,7 +173,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
     // Creating a new invitation record
     const { rows: invitations } = await pgClient.query(
       "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
-      [user.intouchUserId, user.companyId, "NEW", email, note]
+      [user.intouchUserId, user.company.id, "NEW", email, note]
     );
     logger.info(
       `Created invitation record with id ${invitations[0].id}`,
@@ -183,19 +183,19 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
     // Creating a passsword reset ticket
     const ticket = await auth0.createResetPasswordTicket({
       user_id: auth0User?.user_id,
-      result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.companyId}`
+      result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
     });
 
     // Send the email with the link to reset the password to the user
     await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-      title: `You have been invited by ${user.companyId}`,
+      title: `You have been invited by ${user.company.id}`,
       text: `
-      You are invited by company ${user.companyId}.
+      You are invited by company ${user.company.id}.
       Please follow this link to set your password:
       ${ticket.ticket}
     `,
       html: `
-        You are invited by company ${user.companyId}.
+        You are invited by company ${user.company.id}.
         Please follow this link to set your password:
         ${ticket.ticket}
       `,

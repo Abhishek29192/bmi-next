@@ -1,4 +1,4 @@
-import { Role } from "@bmi/intouch-api-types";
+import { Role, Company } from "@bmi/intouch-api-types";
 
 export type Account = {
   companyId: string;
@@ -20,4 +20,5 @@ export type Account = {
   doceboUserId: string;
   doceboUsername: string;
   migrationId: string;
+  company: Company;
 };

@@ -5,7 +5,7 @@ import { Account } from "../types";
 const { AUTH0_NAMESPACE } = process.env;
 
 export const parseHeaders = (req): Account => {
-  const logger = req.logger("parse:user");
+  const logger = req.logger("userInfo");
   const userInfo = req.headers["x-apigateway-api-userinfo"];
   if (userInfo) {
     try {
@@ -60,14 +60,16 @@ export default async (req, res, next) => {
     );
 
     if (company_members.length) {
+      const { rows: companies } = await dbPool.query(
+        "SELECT * FROM company WHERE id = $1",
+        [company_members[0].company_id]
+      );
       req.user = {
         ...req.user,
-        company: company_members[0]
+        company: companies[0]
       };
     }
   }
-
-  // console.log("req.user", req.user);
 
   return next();
 };

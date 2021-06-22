@@ -98,6 +98,10 @@ export const mutationCompleteInvitation = gql`
   mutation completeInvitation($companyId: Int!) {
     completeInvitation(companyId: $companyId) {
       id
+      role
+      email
+      firstName
+      lastName
       marketId
       market {
         language

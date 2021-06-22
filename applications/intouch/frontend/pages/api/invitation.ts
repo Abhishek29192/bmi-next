@@ -1,5 +1,7 @@
-import { withApi } from "../../lib/middleware/withApi";
+import { withLoggerApi } from "../../lib/middleware/withLogger";
 import Account from "../../lib/account";
+import { getAuth0Instance } from "../../lib/auth0";
+import { initializeApollo } from "../../lib/apolloClient";
 
 export const config = {
   api: {
@@ -8,11 +10,13 @@ export const config = {
   }
 };
 
-export default withApi(async (req, res) => {
-  const { logger, apolloClient, session } = req;
-  const accountSrv = new Account(logger, apolloClient, session);
+export default withLoggerApi(async (req, res) => {
+  const auth0 = await getAuth0Instance(req, res);
+  const session = auth0.getSession(req, res);
+  const apolloClient = await initializeApollo(null, { req, res });
+  const accountSrv = new Account(req.logger, apolloClient, session);
 
-  logger.info("start");
+  const logger = req.logger("api:invitation");
 
   if (!session) {
     logger.info(`
@@ -25,10 +29,10 @@ export default withApi(async (req, res) => {
   } else {
     logger.info("Completing the invitation");
     const { completeInvitation } = await accountSrv.completeAccountInvitation(
-      session
+      req
     );
 
-    await accountSrv.createDoceboUser(session, completeInvitation);
+    await accountSrv.createDoceboUser(completeInvitation);
 
     res.writeHead(302, { Location: "/api/silent-login" });
     res.end();

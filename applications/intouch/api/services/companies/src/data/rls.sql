@@ -26,9 +26,9 @@ CREATE POLICY policy_company_admin ON account FOR ALL TO company_admin
   );
 CREATE POLICY policy_installer ON account FOR ALL TO installer USING (
   current_account_id() = id OR current_account_email() = email OR id IN (SELECT account_id FROM company_member WHERE company_id = current_company())
-  ) WITH CHECK (
-    current_account_id() = id OR current_account_email() = email
-  );
+) WITH CHECK (
+  current_account_id() = id OR current_account_email() = email
+);
 
 
 
@@ -59,7 +59,7 @@ CREATE POLICY policy_company_admin ON company_member FOR ALL TO company_admin US
 ) WITH CHECK (false);
 CREATE POLICY policy_installer ON company_member FOR ALL TO installer USING ( 
   company_id IN (SELECT * FROM invited_by_companies()) OR current_company() = company_id
- ) WITH CHECK (
+) WITH CHECK (
   company_id IN (SELECT * FROM invited_by_companies()) OR current_company() = company_id
 );
 

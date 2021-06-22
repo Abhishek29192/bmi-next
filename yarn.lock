@@ -22443,6 +22443,14 @@ marky@^1.2.0:
   resolved "https://registry.yarnpkg.com/marky/-/marky-1.2.2.tgz#4456765b4de307a13d263a69b0c79bf226e68323"
   integrity sha512-k1dB2HNeaNyORco8ulVEhctyEGkKHb2YWAhDsxeFlW2nROIirsctBYzKwwS3Vza+sKTS1zO4Z+n9/+9WbGLIxQ==
 
+mask-deep@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/mask-deep/-/mask-deep-3.0.7.tgz#8d82b852723d5a5088b99d5686d20822f4fb2ebb"
+  integrity sha512-dMLv8nuHtR9AY7g3GdNB1fGDcft4ttd9WcJGe95jbnqz9zDJtlNHK6w8osn68Bi/C6U1A5LWW0JEf3P7h0FKbQ==
+  dependencies:
+    lodash "^4.17.20"
+    url-parse "^1.1.9"
+
 maxstache-stream@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/maxstache-stream/-/maxstache-stream-1.0.4.tgz#9c7f5cab7e5fdd2d90da86143b4e9631ea328040"
@@ -32149,7 +32157,7 @@ url-parse-lax@^3.0.0:
   dependencies:
     prepend-http "^2.0.0"
 
-url-parse@^1.4.3, url-parse@^1.5.1:
+url-parse@^1.1.9, url-parse@^1.4.3, url-parse@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
   integrity sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q==
