@@ -1087,9 +1087,6 @@ type ContentfulSite implements Node {
   "OneTrust integration ID"
   scriptOnetrust: String
 
-  "Google Tag Manager integration ID"
-  scriptGTM: String
-
   "HotJar integration ID"
   scriptHotJar: String
 
