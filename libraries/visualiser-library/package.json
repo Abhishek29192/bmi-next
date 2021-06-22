@@ -1,32 +1,22 @@
 {
   "name": "@bmi/visualiser-library",
-  "version": "0.0.0",
-  "description": "Visualiser library",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
   "private": true,
-  "keywords": [
-    "react",
-    "webpack",
-    "babel",
-    "sass"
-  ],
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "generate-types": "tsc -p tsconfig-generate-types.json && node dist-generate-types/generate-types.js"
+    "build": "tsc"
   },
-  "license": "ISC",
   "publishConfig": {
     "access": "restricted"
   },
-  "devDependencies": {
-    "@types/three": "^0.128.0",
-    "json-schema-to-typescript": "^10.1.4",
-    "react": "16.9",
-    "react-dom": "16.9",
-    "webpack-cli": "^4.7.0"
-  },
   "dependencies": {
+    "react": "^16.13.1",
     "three": "^0.128.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.128.0"
   }
 }

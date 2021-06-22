@@ -2,10 +2,10 @@ import React from "react";
 import * as THREE from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import modelCache from "../Functions/ModelCache/ModelCache";
-import getRef from "../Functions/GetRef/GetRef";
-import textureCache from "../Functions/TextureCache/TextureCache";
-import { Colour, Siding, Tile } from "../../Types";
+import modelCache from "./ModelCache";
+import getRef from "./GetRef";
+import textureCache from "./TextureCache";
+import { Colour, Siding, Tile } from "./Types";
 
 interface Props {
   tile: Tile;

@@ -3,12 +3,12 @@ import React from "react";
 import * as THREE from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import tileSlice from "../Functions/TileSlice/TileSlice";
-import modelCache from "../Functions/ModelCache/ModelCache";
-import textureCache from "../Functions/TextureCache/TextureCache";
-import getRef from "../Functions/GetRef/GetRef";
-import roofSegmentGenerator from "../Functions/RoofSegmentGenerator/RoofSegmentGenerator";
-import { Colour, Siding, Tile } from "../../Types";
+import tileSlice from "./TileSlice";
+import modelCache from "./ModelCache";
+import textureCache from "./TextureCache";
+import getRef from "./GetRef";
+import roofSegmentGenerator from "./RoofSegmentGenerator";
+import { Colour, Siding, Tile } from "./Types";
 
 interface Props {
   tile: Tile;

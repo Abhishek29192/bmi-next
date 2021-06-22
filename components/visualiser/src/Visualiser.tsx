@@ -106,7 +106,7 @@ const Actions = ({
         startIcon={<SvgIcon component={TileColour} />}
         onClick={() => {
           toggleTileSelector(
-            (previousTileSelectorOpen) => !previousTileSelectorOpen
+            (previousTileSelectorOpen: boolean) => !previousTileSelectorOpen
           );
           onButtonClick({
             type: "bottom-menu",
@@ -123,7 +123,8 @@ const Actions = ({
         disabled={viewMode !== "roof"}
         onClick={() => {
           toggleSidingsSelector(
-            (previousSidingsSelectorOpen) => !previousSidingsSelectorOpen
+            (previousSidingsSelectorOpen: boolean) =>
+              !previousSidingsSelectorOpen
           );
           onButtonClick({
             type: "bottom-menu",
@@ -434,9 +435,9 @@ const Visualiser = ({
 
   const stateRef = React.useRef(state);
   const setState = useCallback(
-    (data) => {
+    (data: Parameters) => {
       stateRef.current = { ...state, ...data };
-      _setState((previousState) => {
+      _setState((previousState: Parameters) => {
         return { ...previousState, ...data };
       });
     },
@@ -466,7 +467,7 @@ const Visualiser = ({
   };
 
   const handleOnClick = useCallback(
-    ({ type, label, data }) => {
+    ({ type, label }: { type: string; label: string }) => {
       const { tileId, colourId, sidingId, viewMode } = stateRef.current;
 
       onClick({
@@ -475,8 +476,7 @@ const Visualiser = ({
         tileId,
         viewMode,
         type,
-        label,
-        data
+        label
       });
     },
     [stateRef]

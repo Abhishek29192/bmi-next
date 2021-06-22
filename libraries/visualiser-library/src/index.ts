@@ -1,7 +1,6 @@
-import TileViewer from "./Visualiser/TileViewer/TileViewer.jsx";
-import HouseViewer from "./Visualiser/HouseViewer/HouseViewer.jsx";
-import GetRef from "./Visualiser/Functions/GetRef/GetRef";
-import "./style.scss";
+import GetRef from "./GetRef";
+import HouseViewer from "./HouseViewer";
+import TileViewer from "./TileViewer";
 
 export { GetRef, TileViewer, HouseViewer };
 

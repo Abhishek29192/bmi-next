@@ -1,8 +1,6 @@
-// TODO: resolve eslint issues:
-/* eslint-disable */
-import { Tile } from "../../../Types";
 import * as THREE from "three";
-import tileSlice from "../TileSlice/TileSlice";
+import tileSlice from "./TileSlice";
+import { Tile } from "./Types";
 
 /*
  * Generates a planar, rectangular segment of roof between minX/ minZ and maxX/ maxZ using the given source tile (a ThreeJS Mesh object).
