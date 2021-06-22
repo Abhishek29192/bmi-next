@@ -434,7 +434,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/bitumilakka-icopal"
- to="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/bitumilakka-icopal/4138535849/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/bitumilakka-icopal/3928803308/"
  force=true
 
 [[redirects]]
@@ -464,7 +464,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/kumibitumiliuos-siplast-primer-25-l"
- to="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/kumibitumiliuos-siplast-primer-25-l/1717219958/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/kumibitumiliuos-siplast-primer-25-l/1717219958/"
  force=true
 
 [[redirects]]
@@ -689,7 +689,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/ormax/kattopinnoite-ormax-18-l"
- to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/kattopinnoite-ormax-18-l/tummanharmaa/matta/277750581/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/kattopinnoite-ormax-18-l/tummanharmaa/matta/277750581/"
  force=true
 
 [[redirects]]
@@ -1639,7 +1639,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/ormax/siisti-katto-katonpesuaine-5-l"
- to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-plus/siisti-katto-katonpesuaine-5-l/1159737188/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/siisti-katto-katonpesuaine-5-l/1159737188/"
  force=true
 
 [[redirects]]
@@ -2084,18 +2084,18 @@
  force=true
 
 [[redirects]]
- from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax/ormax"
- to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax+/"
- force=true
-
-[[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax/ormax-protector"
- to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-protector+/"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-protector-plus/"
  force=true
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax/ormax-aerlox"
  to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-aerlox/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax/ormax"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-plus/"
  force=true
 
 [[redirects]]
@@ -2200,7 +2200,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax/aluskatteet"
- to="/fi/tuotteet-ja-ratkaisut/harjakatot/aluskatteet/hengitt%C3%A4v%C3%A4t-divoroll-aluskatteet/"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/aluskatteet/hengittavat-divoroll-aluskatteet/"
  force=true
 
 [[redirects]]
@@ -2230,7 +2230,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/harjakattojen-tarvikkeet/l%C3%A4piviennit"
- to="/fi/tuotteet-ja-ratkaisut/harjakatot/tarvikkeet-harjakatoille/l%C3%A4piviennit-harjakatoille/"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tarvikkeet-harjakatoille/lapiviennit-harjakatoille/"
  force=true
 
 [[redirects]]
@@ -2280,7 +2280,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/loivat-katot/tuotteet/h%C3%B6yrynsulut"
- to="/fi/tuotteet-ja-ratkaisut/loivat-katot/katteet-ja-hoyrynsulut-loiville-katoille/h%C3%B6yrynsulut/"
+ to="/fi/tuotteet-ja-ratkaisut/loivat-katot/katteet-ja-hoyrynsulut-loiville-katoille/hoyrynsulut/"
  force=true
 
 [[redirects]]
@@ -2390,7 +2390,7 @@
 
 [[redirects]]
  from="/fi/esitteet-ja-dokumentit/hintalistat"
- to="/fi/esitteet-ja-dokumentit/hinnastot/"
+ to="/fi/esitteet-ja-dokumentit/asiakirjat-ja-resurssit/"
  force=true
 
 [[redirects]]
@@ -2400,7 +2400,32 @@
 
 [[redirects]]
  from="/fi/muut-esitteet-ja-dokumentit"
- to="/fi/esitteet-ja-dokumentit/muut-esitteet-ja-dokumentit/"
+ to="/fi/esitteet-ja-dokumentit/"
+ force=true
+
+[[redirects]]
+ from="/fi/bmi-suomi/uutiset/juhannuksen-aukioloajat-2020"
+ to="/fi/bmi-suomi/uutiset"
+ force=true
+
+[[redirects]]
+ from="/fi/bmi-suomi/uutiset/vapun-ajan-aukioloajat-2020"
+ to="/fi/bmi-suomi/uutiset"
+ force=true
+
+[[redirects]]
+ from="/fi/bmi-suomi/uutiset/joulun-ajan-aukioloaikamme"
+ to="/fi/bmi-suomi/uutiset"
+ force=true
+
+[[redirects]]
+ from="/fi/bmi-suomi/uutiset/ormax-aerlox-%E2%80%93-ohut-kevyt-ja-kest%C3%A4v%C3%A4mpi-kattotiili"
+ to="/fi/bmi-suomi/uutiset/ormax-aerlox-ohut-kevyt-ja-kestavampi-kattotiili"
+ force=true
+
+[[redirects]]
+ from="/fi/esitteet-ja-dokumentit/suoritustasoilmoitukset-dop"
+ to="/fi/esitteet-ja-dokumentit/suoritustasoilmoitukset/"
  force=true
 
 [[redirects]]
@@ -2430,7 +2455,7 @@
 
 [[redirects]]
  from="/fi/bmi-suomi/yhteystiedot/laskutustiedot"
- to="/fi/ammattilaisille/bmi-suomi/yhteystiedot/"
+ to="/fi/bmi-suomi/yhteystiedot/"
  force=true
 
 [[redirects]]
