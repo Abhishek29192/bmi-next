@@ -1,9 +1,7 @@
-import { CLAIMS } from "./claims";
-
 const isCompanyMember = (user, extraData: { companyMemberIds: number[] }) => {
   const { companyMemberIds } = extraData;
 
-  return companyMemberIds.includes(user[CLAIMS.userId]);
+  return companyMemberIds.includes(user.id);
 };
 
 // TODO: Is there any way to type this more specifically??? The extraData in particular.

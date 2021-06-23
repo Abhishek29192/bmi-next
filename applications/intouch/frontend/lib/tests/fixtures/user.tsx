@@ -2,11 +2,6 @@ import React from "react";
 import { UserProvider, UserProfile } from "@auth0/nextjs-auth0";
 
 const user: UserProfile = {
-  "https://intouch/firstname": "Joe",
-  "https://intouch/lastname": "Doe",
-  "https://intouch/intouch_market_code": "en",
-  "https://intouch/intouch_user_id": 1,
-  "https://intouch/intouch_role": "COMPANY_ADMIN",
   nickname: "joe",
   name: "joe@email.invalid",
   picture:

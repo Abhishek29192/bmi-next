@@ -8,15 +8,13 @@ import { gql } from "@apollo/client";
 import { TrainingCover } from "../components/Cards/TrainingCover";
 import { TrainingSidePanel } from "../components/SidePanel/TrainingSidePanel";
 import GridStyles from "../styles/Grid.module.scss";
-import { getAuth0Instance } from "../lib/auth0";
-import { initializeApollo } from "../lib/apolloClient";
 import { TrainingQuery } from "../graphql/generated/operations";
+import { withPage } from "../lib/middleware/withPage";
 import {
   getServerPageDoceboCatalogIdByMarketDomain,
   getServerPageTraining
 } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
-import { parseAccount } from "../lib/account";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 
 type PageProps = {
@@ -99,65 +97,61 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
-  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
+export const getServerSideProps = withPage(
+  async ({ apolloClient, account, locale }) => {
+    const {
+      doceboId,
+      market: { domain }
+    } = account;
 
-  return auth0.withPageAuthRequired({
-    async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, { ...ctx, locale });
-
-      const { user } = await auth0.getSession(ctx.req);
-      const { doceboId, marketCode } = parseAccount(user);
-
-      let trainingData = {};
-      try {
-        const {
-          props: {
-            data: { marketByDomain = {} }
+    let trainingData = {};
+    try {
+      const {
+        props: {
+          data: { marketByDomain = {} }
+        }
+      } = await getServerPageDoceboCatalogIdByMarketDomain(
+        {
+          variables: {
+            domain: domain
           }
-        } = await getServerPageDoceboCatalogIdByMarketDomain(
-          {
-            variables: {
-              domain: marketCode
-            }
-          },
-          apolloClient
-        );
+        },
+        apolloClient
+      );
 
-        const pageQuery = await getServerPageTraining(
-          {
-            variables: {
-              catalogueId: marketByDomain?.doceboCatalogueId || null,
-              userId: doceboId
-            }
-          },
-          apolloClient
-        );
-
-        trainingData = pageQuery.props;
-      } catch (error) {
-        trainingData = {
-          data: null,
-          error: {
-            message: error.message
+      const pageQuery = await getServerPageTraining(
+        {
+          variables: {
+            catalogueId: marketByDomain?.doceboCatalogueId || null,
+            userId: doceboId
           }
-        };
-      }
+        },
+        apolloClient
+      );
 
-      const props = {
-        trainingData,
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "footer",
-          "training-page"
-        ]))
+      trainingData = pageQuery.props;
+    } catch (error) {
+      trainingData = {
+        data: null,
+        error: {
+          message: error.message
+        }
       };
-
-      return { props };
     }
-  })(ctx);
-};
+
+    const props = {
+      trainingData,
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "footer",
+        "training-page"
+      ]))
+    };
+
+    return { props };
+  }
+);
 export default withPageAuthRequired(TrainingPage);
 
 // export doesn't matter for codegen

@@ -41,7 +41,7 @@ export default async (req, res, next) => {
     if (users.length) {
       req.user = {
         ...req.user,
-        intouchUserId: users[0].id,
+        id: users[0].id,
         role: users[0].role,
         firstName: users[0].first_name,
         lastName: users[0].last_name,
@@ -56,7 +56,7 @@ export default async (req, res, next) => {
 
     const { rows: company_members } = await dbPool.query(
       "SELECT * FROM company_member WHERE account_id = $1",
-      [req.user.intouchUserId]
+      [req.user.id]
     );
 
     if (company_members.length) {

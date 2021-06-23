@@ -1,30 +1,7 @@
-import { gql } from "@apollo/client";
 import { NextLogger } from "@bmi/logger";
 import { getAuth0Instance } from "../auth0";
 import { initializeApollo } from "../apolloClient";
-
-export const queryAccountByEmail = gql`
-  query accountByEmail($email: String!) {
-    accountByEmail(email: $email) {
-      id
-      marketId
-      doceboUserId
-      market {
-        language
-        doceboCompanyAdminBranchId
-        doceboInstallersBranchId
-      }
-      companyMembers {
-        nodes {
-          company {
-            id
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+import { queryAccountByEmail } from "../account";
 
 export const withApi = (handler) => async (req, res) => {
   const auth0 = await getAuth0Instance(req, res);

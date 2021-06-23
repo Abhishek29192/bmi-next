@@ -216,7 +216,7 @@ export const GET_COMPANY = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, session, res }) => {
+  async ({ locale, apolloClient, account, res }) => {
     const pageProps = {
       company: null,
       ...(await serverSideTranslations(locale, [
@@ -244,7 +244,17 @@ export const getServerSideProps = withPage(
         }
       } = data;
       pageProps.company = company;
-    } else {
+    }
+
+    let canViewPage = can(account, "company", "view", {
+      companyMemberIds: pageProps.company
+        ? pageProps.company.companyMembers.nodes.map(
+            ({ accountId }) => accountId
+          )
+        : []
+    });
+
+    if (!canViewPage) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(404);

@@ -21,7 +21,8 @@ const REDACTED_KEYS = [
   "name",
   "surname",
   "first_name",
-  "last_name"
+  "last_name",
+  "invitee"
 ];
 
 const logger = (headers, module) => {

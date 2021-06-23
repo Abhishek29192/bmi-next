@@ -9,15 +9,9 @@ async function handleTokenClaims(user, context, callback) {
   const { app_metadata = {}, user_metadata = {} } = user;
 
   if (app_metadata.intouch_user_id) {
-    context.idToken = {
-      ...context.idToken,
-      [`${namespace}/intouch_user_id`]: app_metadata.intouch_user_id
-    };
-
     context.accessToken = {
       ...context.accessToken,
-      [`${namespace}/email`]: user.email, // the access token doesn't have the email by default
-      [`${namespace}/intouch_user_id`]: app_metadata.intouch_user_id
+      [`${namespace}/email`]: user.email
     };
   } else {
     // I need this data to complete the registration
@@ -32,8 +26,7 @@ async function handleTokenClaims(user, context, callback) {
 
     context.accessToken = {
       ...context.accessToken,
-      [`${namespace}/email`]: user.email,
-      [`${namespace}/intouch_user_id`]: app_metadata.intouch_user_id
+      [`${namespace}/email`]: user.email
     };
   }
 

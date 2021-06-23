@@ -11,8 +11,7 @@ export const createAccount = async (
   resolveInfo,
   auth0
 ) => {
-  const { pgClient, user, logger: Logger } = context;
-  const { marketCode } = args.input;
+  const { pgClient, logger: Logger } = context;
 
   let company;
   const logger = Logger("service:account");
@@ -30,13 +29,6 @@ export const createAccount = async (
       [result.data.$account_id]
     );
 
-    // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
-    const app_metadata: any = {
-      intouch_market_code: marketCode,
-      intouch_user_id: result.data.$account_id,
-      intouch_role: result.data.$role
-    };
-
     // If row > 1 means I'm already in a company
     const { rows } = await pgClient.query(`SELECT * FROM company`, []);
 
@@ -48,10 +40,6 @@ export const createAccount = async (
       );
       company = companies[0];
     }
-
-    await auth0.updateUser(user.sub, {
-      app_metadata
-    });
 
     const { rows: markets } = await pgClient.query(
       "select * from market where id = $1",
@@ -173,7 +161,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
     // Creating a new invitation record
     const { rows: invitations } = await pgClient.query(
       "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
-      [user.intouchUserId, user.company.id, "NEW", email, note]
+      [user.id, user.company.id, "NEW", email, note]
     );
     logger.info(
       `Created invitation record with id ${invitations[0].id}`,
@@ -202,16 +190,6 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
       email: email
     });
 
-    // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
-    const app_metadata: any = {
-      intouch_role: role,
-      intouch_invited: true,
-      registration_to_complete: false
-    };
-
-    await auth0.updateUser(auth0User.user_id, {
-      app_metadata
-    });
     logger.info(`app_metadata for user: ${auth0User.user_id} updated`);
 
     return invitations[0];
@@ -283,17 +261,6 @@ export const completeInvitation = async (
     logger.info(
       `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
     );
-
-    // Update app_metadata in Auth0 so on the next login we can build the token with the right claims
-    const app_metadata: any = {
-      intouch_market_code: markets[0].domain,
-      intouch_user_id: users[0].id,
-      intouch_role: role
-    };
-
-    await auth0.updateUser(user.sub, {
-      app_metadata
-    });
 
     return {
       ...users[0],

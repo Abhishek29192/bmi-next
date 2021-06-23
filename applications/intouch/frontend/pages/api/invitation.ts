@@ -10,7 +10,7 @@ export const config = {
   }
 };
 
-export default withLoggerApi(async (req, res) => {
+export const handler = async (req, res) => {
   const auth0 = await getAuth0Instance(req, res);
   const session = auth0.getSession(req, res);
   const apolloClient = await initializeApollo(null, { req, res });
@@ -37,4 +37,6 @@ export default withLoggerApi(async (req, res) => {
     res.writeHead(302, { Location: "/api/silent-login" });
     res.end();
   }
-});
+};
+
+export default withLoggerApi(handler);

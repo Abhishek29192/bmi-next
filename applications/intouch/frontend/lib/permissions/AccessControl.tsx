@@ -1,5 +1,5 @@
 import React from "react";
-import { useUser } from "@auth0/nextjs-auth0";
+import { useAuthContext } from "../../context/UserContext";
 import can from "./can";
 
 type AccessControlProps = {
@@ -10,16 +10,16 @@ type AccessControlProps = {
 };
 
 const AccessControl = (props: AccessControlProps) => {
-  const { user } = useUser();
+  const { account } = useAuthContext();
 
-  if (!user) {
+  if (!account) {
     // User can be undefined on first render
     return null;
   }
 
   const { dataModel, action, extraData, children } = props;
 
-  if (!can(user, dataModel, action, extraData)) {
+  if (!can(account, dataModel, action, extraData)) {
     return <div>Not allowed</div>;
   }
 

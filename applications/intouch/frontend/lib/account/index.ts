@@ -9,9 +9,11 @@ export const queryAccountByEmail = gql`
   query accountByEmail($email: String!) {
     accountByEmail(email: $email) {
       id
+      role
       marketId
       doceboUserId
       market {
+        domain
         language
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
@@ -105,6 +107,7 @@ export const mutationCompleteInvitation = gql`
       marketId
       market {
         language
+        domain
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
       }
@@ -122,7 +125,6 @@ const mutationDoceboCreateSSOUrl = gql`
 
 // This user is coming from the idToken
 export const parseAccount = (user) => ({
-  intouchUserId: user[`${AUTH0_NAMESPACE}/intouch_user_id`],
   registrationType: user[`${AUTH0_NAMESPACE}/registration_type`],
   marketCode: user[`${AUTH0_NAMESPACE}/intouch_market_code`],
   firstName: user[`${AUTH0_NAMESPACE}/first_name`],

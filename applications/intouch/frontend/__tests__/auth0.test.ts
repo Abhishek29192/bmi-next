@@ -191,7 +191,7 @@ describe("Auth0 callback", () => {
     await afterCallback(req, res, session, state);
 
     expect(mockCreateAccount).toHaveBeenCalledWith(session);
-    expect(mockCreateDoceboUser).toHaveBeenCalledWith(session, {
+    expect(mockCreateDoceboUser).toHaveBeenCalledWith({
       id: 1
     });
     expect(state).toEqual({
@@ -209,7 +209,7 @@ describe("Auth0 callback", () => {
 
     await afterCallback(req, res, session, state);
 
-    expect(mockCreateDoceboUser).toHaveBeenCalledWith(session, {
+    expect(mockCreateDoceboUser).toHaveBeenCalledWith({
       id: 1
     });
     expect(state).toEqual({

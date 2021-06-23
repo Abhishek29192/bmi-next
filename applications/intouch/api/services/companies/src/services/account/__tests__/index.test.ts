@@ -23,7 +23,7 @@ describe("Account", () => {
   let contextMock = {
     user: {
       sub: "user-sub",
-      intouchUserId: null,
+      id: null,
       companyId: null
     },
     pgClient: { query: mockQuery },
@@ -77,8 +77,6 @@ describe("Account", () => {
 
       expect(mockAuth0Update).toBeCalledWith("user-sub", {
         app_metadata: {
-          intouch_market_code: args.input.marketCode,
-          intouch_role: args.input.account.role,
           intouch_user_id: 1
         }
       });
@@ -127,12 +125,6 @@ describe("Account", () => {
           email: args.input.email,
           first_name: args.input.firstName,
           last_name: args.input.lastName
-        }
-      });
-      expect(mockAuth0Update).toBeCalledWith("auth0|user-id", {
-        app_metadata: {
-          intouch_role: args.input.role,
-          intouch_invited: true
         }
       });
     });

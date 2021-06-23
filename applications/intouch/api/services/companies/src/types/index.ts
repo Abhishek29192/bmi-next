@@ -1,8 +1,8 @@
 import { Role, Company } from "@bmi/intouch-api-types";
 
 export type Account = {
+  id: string;
   companyId: string;
-  intouchUserId: string;
   email: string;
   role: Role;
   iss: string; // Issuer
