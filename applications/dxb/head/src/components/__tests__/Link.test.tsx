@@ -137,7 +137,8 @@ describe("Link component", () => {
         brandLogo: null,
         featuredMedia: null,
         featuredVideo: null,
-        cta: null
+        cta: null,
+        backgroundColor: null
       };
       const data = {
         __typename: "ContentfulLink",
@@ -170,7 +171,8 @@ describe("Link component", () => {
         brandLogo: null,
         featuredMedia: null,
         featuredVideo: null,
-        cta: null
+        cta: null,
+        backgroundColor: null
       };
       const data = {
         __typename: "ContentfulLink",
