@@ -518,6 +518,33 @@ exports[`FormSection component renders correctly 1`] = `
           </button>
         </div>
       </form>
+      <p
+        class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+      >
+        This site is protected by reCAPTCHA and the Google
+         
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="https://policies.google.com/privacy"
+        >
+          <span>
+            Privacy Policy
+          </span>
+        </a>
+         
+        and
+         
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="https://policies.google.com/terms"
+        >
+          <span>
+            Terms of Service
+          </span>
+        </a>
+         
+        apply.
+      </p>
     </div>
   </div>
 </div>

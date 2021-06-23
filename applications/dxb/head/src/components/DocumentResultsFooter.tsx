@@ -12,6 +12,7 @@ import createAssetFileCountMap, {
   AssetUniqueFileCountMap
 } from "./DocumentFileUtils";
 import { SiteContext } from "./Site";
+import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import styles from "./styles/DocumentResultsFooter.module.scss";
 
 type Props = {
@@ -137,6 +138,7 @@ const DocumentResultsFooter = ({
               onDownloadClick(list, token, resetList);
             }}
           />
+          <RecaptchaPrivacyLinks />
         </>
       )}
     </div>
