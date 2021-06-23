@@ -470,6 +470,9 @@ type ContentfulPromo implements Node {
 
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
+
+  "The background colour"
+  backgroundColor: String
 }
 
 """
