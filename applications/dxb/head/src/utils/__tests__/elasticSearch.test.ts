@@ -186,7 +186,7 @@ describe("compileElasticSearchQuery function", () => {
           "bool": Object {
             "must": Array [
               Object {
-                "multi_match": Object {
+                "query_string": Object {
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -202,7 +202,7 @@ describe("compileElasticSearchQuery function", () => {
                     "plpCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
-                  "query": ".*bar.*",
+                  "query": "*bar*",
                   "type": "cross_fields",
                 },
               },
