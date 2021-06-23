@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
@@ -27,6 +27,18 @@ import {
   useUpdateSystemMutation
 } from "../../graphql/generated/hooks";
 
+const renderList = (label, list) =>
+  list?.length > 0 && (
+    <>
+      <Typography variant="h6">{label}</Typography>
+      {list.map((item, index) => (
+        <Typography key={`index-${index}`} variant="body1">
+          {item.bmiRef}
+        </Typography>
+      ))}
+    </>
+  );
+
 const ProductImport = () => {
   const { t } = useTranslation();
 
@@ -39,7 +51,7 @@ const ProductImport = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product>();
   const [selectedSystem, setSelectedSystem] = useState<System>();
 
-  const [getProductAndSystem] = useProductsAndSystemsLazyQuery({
+  const [getProductsAndSystems] = useProductsAndSystemsLazyQuery({
     fetchPolicy: "network-only",
     onCompleted: ({ products, systems }) => {
       setProducts(products as ProductsConnection);
@@ -47,99 +59,105 @@ const ProductImport = () => {
     }
   });
   const [bulkImport] = useBulkImportMutation({
-    onCompleted: () => getProductAndSystem(),
+    onCompleted: () => getProductsAndSystems(),
     onError: (error) => {
       alert(error);
     }
   });
   const [udpateProduct] = useUpdateProductMutation({
-    onCompleted: () => getProductAndSystem()
+    onCompleted: () => getProductsAndSystems()
   });
   const [updateSystem] = useUpdateSystemMutation({
-    onCompleted: () => getProductAndSystem()
+    onCompleted: () => getProductsAndSystems()
   });
 
   useEffect(() => {
-    getProductAndSystem();
+    getProductsAndSystems();
   }, []);
 
-  const submit = async (dryRun: boolean) => {
-    if (filesToUpload) {
-      const { data } = await bulkImport({
+  const submit = useCallback(
+    async (dryRun: boolean) => {
+      if (filesToUpload) {
+        const { data } = await bulkImport({
+          variables: {
+            input: {
+              files: filesToUpload as unknown as any[],
+              dryRun
+            }
+          }
+        });
+
+        if (data) {
+          setImportResult({
+            ...data.bulkImport,
+            message: dryRun ? t("Dry run completed") : t("Import completed")
+          });
+        }
+      }
+    },
+    [setImportResult, bulkImport, filesToUpload]
+  );
+
+  const onProductChange = useCallback(
+    (name, value) => {
+      setSelectedProduct((prev) => ({
+        ...prev,
+        [name]: value
+      }));
+    },
+    [setSelectedProduct]
+  );
+
+  const onSystemChange = useCallback(
+    (name, value) => {
+      setSelectedSystem((prev) => ({
+        ...prev,
+        [name]: value
+      }));
+    },
+    [setSelectedSystem]
+  );
+
+  const onProductSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
+      const { id, __typename, ...rest } = selectedProduct;
+      udpateProduct({
         variables: {
           input: {
-            files: filesToUpload as unknown as any[],
-            dryRun
+            id,
+            patch: {
+              ...rest
+            }
           }
         }
       });
+    },
+    [udpateProduct, selectedProduct]
+  );
 
-      if (data) {
-        setImportResult({
-          ...data.bulkImport,
-          message: dryRun ? "Dry run completed" : "Import completed"
-        });
-      }
-    }
-  };
-
-  const onProductChange = (name, value) =>
-    setSelectedProduct((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-
-  const onSystemChange = (name, value) =>
-    setSelectedSystem((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-
-  const onProductSubmit = (event) => {
-    event.preventDefault();
-    const { id, __typename, ...rest } = selectedProduct;
-    udpateProduct({
-      variables: {
-        input: {
-          id,
-          patch: {
-            ...rest
+  const onSystemSubmit = useCallback(
+    (event) => {
+      event.preventDefault();
+      const { id, __typename, ...rest } = selectedSystem;
+      updateSystem({
+        variables: {
+          input: {
+            id,
+            patch: {
+              ...rest
+            }
           }
         }
-      }
-    });
-  };
-  const onSystemSubmit = (event) => {
-    event.preventDefault();
-    const { id, __typename, ...rest } = selectedSystem;
-    updateSystem({
-      variables: {
-        input: {
-          id,
-          patch: {
-            ...rest
-          }
-        }
-      }
-    });
-  };
-
-  const renderListOfProduct = (label, list) =>
-    list?.length > 0 && (
-      <>
-        <Typography variant="h6">{label}</Typography>
-        {list.map((item, index) => (
-          <Typography key={`index-${index}`} variant="body1">
-            {item.bmiRef}
-          </Typography>
-        ))}
-      </>
-    );
+      });
+    },
+    [updateSystem, selectedSystem]
+  );
 
   return (
-    <Layout title="Product Import">
+    <Layout title={t("Product Import")}>
       <Tabs initialValue="one">
-        <Tabs.TabPanel heading="Bulk import" index="one">
+        <Tabs.TabPanel heading={t("Bulk import")} index="one">
           <div style={{ padding: 12 }}>
             <Grid container spacing={3}>
               <Grid item xs={6}>
@@ -152,12 +170,10 @@ const ProductImport = () => {
                 </Typography>
                 <div style={{ marginTop: 30 }}>
                   <input
-                    // key={inputKey}
                     multiple
                     type="file"
                     onChange={({ target: { files } }) => {
                       setFilesToUpload(files);
-                      // setInputKey(`uploader-${Date.now()}`);
                     }}
                     onClick={(event) => {
                       event.currentTarget.value = null;
@@ -167,20 +183,20 @@ const ProductImport = () => {
                 </div>
               </Grid>
               <Grid item xs={6}>
-                {renderListOfProduct(
-                  "System to update",
+                {renderList(
+                  t("System to update"),
                   importResult?.systemsToUpdate
                 )}
-                {renderListOfProduct(
-                  "Product to update",
+                {renderList(
+                  t("Product to update"),
                   importResult?.productsToUpdate
                 )}
-                {renderListOfProduct(
-                  "System to insert",
+                {renderList(
+                  t("System to insert"),
                   importResult?.systemsToInsert
                 )}
-                {renderListOfProduct(
-                  "Product to insert",
+                {renderList(
+                  t("Product to insert"),
                   importResult?.productsToInsert
                 )}
 
@@ -200,7 +216,7 @@ const ProductImport = () => {
             </Grid>
           </div>
         </Tabs.TabPanel>
-        <Tabs.TabPanel heading="Products" index="two">
+        <Tabs.TabPanel heading={t("Products")} index="two">
           <div style={{ display: "flex" }}>
             <SidePanel key="list-products">
               {products?.nodes.map((product, index) => (
@@ -228,7 +244,7 @@ const ProductImport = () => {
                           name={key}
                           label={t(key)}
                           fullWidth
-                          value={selectedProduct[key]}
+                          value={selectedProduct[`${key}`]}
                           onChange={(value) => onProductChange(key, value)}
                         />
                       </Grid>
@@ -242,7 +258,7 @@ const ProductImport = () => {
             )}
           </div>
         </Tabs.TabPanel>
-        <Tabs.TabPanel heading="System" index="three">
+        <Tabs.TabPanel heading={t("System")} index="three">
           <div style={{ display: "flex" }}>
             <SidePanel key="list-systems">
               {systems?.nodes.map((system, index) => (
@@ -271,14 +287,14 @@ const ProductImport = () => {
                           name={key}
                           label={t(key)}
                           fullWidth
-                          value={selectedSystem[key]}
+                          value={selectedSystem[`${key}`]}
                           onChange={(value) => onSystemChange(key, value)}
                         />
                       </Grid>
                     ))}
                   </Grid>
                   <Form.ButtonWrapper>
-                    <Form.SubmitButton>Save</Form.SubmitButton>
+                    <Form.SubmitButton>{t("Save")}</Form.SubmitButton>
                   </Form.ButtonWrapper>
                 </Form>
               </div>
@@ -307,7 +323,7 @@ export const getServerSideProps = withLogger(async (ctx) => {
   })(ctx);
 });
 
-// export doesn't matter for codegen
+// TODO: fetch product by market
 export const pageQuery = gql`
   query ProductsAndSystems {
     products {

@@ -4130,7 +4130,7 @@ type CourseTemp {
   image: String
 
   """
-  Promoted courses are listed higher than others
+  Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API
   """
   promoted: Boolean
 
@@ -4188,7 +4188,7 @@ input CourseTempInput {
   image: String
 
   """
-  Promoted courses are listed higher than others
+  Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API
   """
   promoted: Boolean
 
@@ -4235,7 +4235,7 @@ input CourseTempPatch {
   image: String
 
   """
-  Promoted courses are listed higher than others
+  Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API
   """
   promoted: Boolean
 
@@ -7539,27 +7539,6 @@ input DeleteSystemMemberByNodeIdInput {
 }
 
 """
-All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
-"""
-input DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  fk
-  """
-  systemBmiRef: String!
-
-  """
-  fk
-  """
-  productBmiRef: String!
-}
-
-"""
 All input for the `deleteSystemMember` mutation.
 """
 input DeleteSystemMemberInput {
@@ -9085,6 +9064,11 @@ input InvitationCondition {
   companyId: Int
 
   """
+  Checks for equality with the object’s `status` field.
+  """
+  status: InvitationStatus
+
+  """
   Checks for equality with the object’s `invitee` field.
   """
   invitee: String
@@ -9184,6 +9168,8 @@ enum InvitationsOrderBy {
   SENDER_ACCOUNT_ID_DESC
   COMPANY_ID_ASC
   COMPANY_ID_DESC
+  STATUS_ASC
+  STATUS_DESC
   INVITEE_ASC
   INVITEE_DESC
   PRIMARY_KEY_ASC
@@ -11225,16 +11211,6 @@ type Mutation {
     """
     input: DeleteSystemMemberByNodeIdInput!
   ): DeleteSystemMemberPayload
-
-  """
-  Deletes a single `SystemMember` using a unique key.
-  """
-  deleteSystemMemberBySystemBmiRefAndProductBmiRef(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput!
-  ): DeleteSystemMemberPayload
   invite(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -11852,16 +11828,6 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateSystemMemberByNodeIdInput!
-  ): UpdateSystemMemberPayload
-
-  """
-  Updates a single `SystemMember` using a unique key and a patch.
-  """
-  updateSystemMemberBySystemBmiRefAndProductBmiRef(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput!
   ): UpdateSystemMemberPayload
   updateTraining(lastUpdateDate: String): String
 }
@@ -14840,10 +14806,6 @@ type Query implements Node {
     The globally unique `ID` to be used in selecting a single `SystemMember`.
     """
     nodeId: ID!
-  ): SystemMember
-  systemMemberBySystemBmiRefAndProductBmiRef(
-    systemBmiRef: String!
-    productBmiRef: String!
   ): SystemMember
 
   """
@@ -17887,32 +17849,6 @@ input UpdateSystemMemberByNodeIdInput {
   An object where the defined keys will be set on the `SystemMember` being updated.
   """
   patch: SystemMemberPatch!
-}
-
-"""
-All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
-"""
-input UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  An object where the defined keys will be set on the `SystemMember` being updated.
-  """
-  patch: SystemMemberPatch!
-
-  """
-  fk
-  """
-  systemBmiRef: String!
-
-  """
-  fk
-  """
-  productBmiRef: String!
 }
 
 """

@@ -1075,7 +1075,7 @@ export type Company = Node & {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -1486,7 +1486,7 @@ export type CompanyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -2511,7 +2511,7 @@ export type CourseTemp = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses are listed higher than others */
+  /** Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -2542,7 +2542,7 @@ export type CourseTempInput = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses are listed higher than others */
+  /** Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -2564,7 +2564,7 @@ export type CourseTempPatch = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses are listed higher than others */
+  /** Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -4727,19 +4727,6 @@ export type DeleteSystemMemberByNodeIdInput = {
   nodeId: Scalars["ID"];
 };
 
-/** All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
-export type DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** fk */
-  systemBmiRef: Scalars["String"];
-  /** fk */
-  productBmiRef: Scalars["String"];
-};
-
 /** All input for the `deleteSystemMember` mutation. */
 export type DeleteSystemMemberInput = {
   /**
@@ -6045,6 +6032,8 @@ export type InvitationCondition = {
   senderAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `status` field. */
+  status?: Maybe<InvitationStatus>;
   /** Checks for equality with the object’s `invitee` field. */
   invitee?: Maybe<Scalars["String"]>;
 };
@@ -6100,6 +6089,8 @@ export type InvitationsOrderBy =
   | "SENDER_ACCOUNT_ID_DESC"
   | "COMPANY_ID_ASC"
   | "COMPANY_ID_DESC"
+  | "STATUS_ASC"
+  | "STATUS_DESC"
   | "INVITEE_ASC"
   | "INVITEE_DESC"
   | "PRIMARY_KEY_ASC"
@@ -7248,8 +7239,6 @@ export type Mutation = {
   deleteSystemMember?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using its globally unique id. */
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
-  /** Deletes a single `SystemMember` using a unique key. */
-  deleteSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<DeleteSystemMemberPayload>;
   invite?: Maybe<Invitation>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   publishMessage?: Maybe<Publish>;
@@ -7373,8 +7362,6 @@ export type Mutation = {
   updateSystemMember?: Maybe<UpdateSystemMemberPayload>;
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
-  /** Updates a single `SystemMember` using a unique key and a patch. */
-  updateSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
 };
 
@@ -7855,11 +7842,6 @@ export type MutationDeleteSystemMemberByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
-  input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
 export type MutationInviteArgs = {
   input: InviteInput;
 };
@@ -8172,11 +8154,6 @@ export type MutationUpdateSystemMemberArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateSystemMemberByNodeIdArgs = {
   input: UpdateSystemMemberByNodeIdInput;
-};
-
-/** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
-  input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -9221,7 +9198,6 @@ export type Query = Node & {
   systemMember?: Maybe<SystemMember>;
   /** Reads a single `SystemMember` using its globally unique `ID`. */
   systemMemberByNodeId?: Maybe<SystemMember>;
-  systemMemberBySystemBmiRefAndProductBmiRef?: Maybe<SystemMember>;
   /** Reads and enables pagination through a set of `SystemMember`. */
   systemMembers?: Maybe<SystemMembersConnection>;
   /** Reads and enables pagination through a set of `System`. */
@@ -10063,12 +10039,6 @@ export type QuerySystemMemberArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QuerySystemMemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
-};
-
-/** The root query type which gives access points into the data universe. */
-export type QuerySystemMemberBySystemBmiRefAndProductBmiRefArgs = {
-  systemBmiRef: Scalars["String"];
-  productBmiRef: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -12141,21 +12111,6 @@ export type UpdateSystemMemberByNodeIdInput = {
   nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `SystemMember` being updated. */
   patch: SystemMemberPatch;
-};
-
-/** All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
-export type UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput = {
-  /**
-   * An arbitrary string value with no semantic meaning. Will be included in the
-   * payload verbatim. May be used to track mutations by the client.
-   */
-  clientMutationId?: Maybe<Scalars["String"]>;
-  /** An object where the defined keys will be set on the `SystemMember` being updated. */
-  patch: SystemMemberPatch;
-  /** fk */
-  systemBmiRef: Scalars["String"];
-  /** fk */
-  productBmiRef: Scalars["String"];
 };
 
 /** All input for the `updateSystemMember` mutation. */

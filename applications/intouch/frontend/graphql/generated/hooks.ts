@@ -67,7 +67,8 @@ export function useUpdateCompanyDetailsMutation(
 export type UpdateCompanyDetailsMutationHookResult = ReturnType<
   typeof useUpdateCompanyDetailsMutation
 >;
-export type UpdateCompanyDetailsMutationResult = Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
+export type UpdateCompanyDetailsMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
 export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
@@ -202,7 +203,8 @@ export function useBulkImportMutation(
 export type BulkImportMutationHookResult = ReturnType<
   typeof useBulkImportMutation
 >;
-export type BulkImportMutationResult = Apollo.MutationResult<OperationTypes.BulkImportMutation>;
+export type BulkImportMutationResult =
+  Apollo.MutationResult<OperationTypes.BulkImportMutation>;
 export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.BulkImportMutation,
   OperationTypes.BulkImportMutationVariables
@@ -253,7 +255,8 @@ export function useUpdateProductMutation(
 export type UpdateProductMutationHookResult = ReturnType<
   typeof useUpdateProductMutation
 >;
-export type UpdateProductMutationResult = Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
+export type UpdateProductMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
 export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProductMutation,
   OperationTypes.UpdateProductMutationVariables
@@ -304,7 +307,8 @@ export function useUpdateSystemMutation(
 export type UpdateSystemMutationHookResult = ReturnType<
   typeof useUpdateSystemMutation
 >;
-export type UpdateSystemMutationResult = Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
+export type UpdateSystemMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
 export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
@@ -355,7 +359,8 @@ export function useCreateCompanyMutation(
 export type CreateCompanyMutationHookResult = ReturnType<
   typeof useCreateCompanyMutation
 >;
-export type CreateCompanyMutationResult = Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
+export type CreateCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
 export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateCompanyMutation,
   OperationTypes.CreateCompanyMutationVariables

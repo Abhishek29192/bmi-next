@@ -230,8 +230,11 @@ export const bulkImport = async (args, context) => {
 
   logger.info(`Import finished`);
 
+  // TODO: decide what we want to return
   return {
     systemsToUpdate: [],
-    productsToUpdate: []
+    productsToUpdate: [],
+    productsToInsert: [],
+    systemsToInsert: []
   };
 };

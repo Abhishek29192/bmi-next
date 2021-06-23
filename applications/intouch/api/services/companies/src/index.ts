@@ -20,10 +20,10 @@ async function main() {
   ]);
 
   const app = express();
+  app.use(WinstonLogger);
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
-  app.use(WinstonLogger);
 
   // Parse header to get current user info
   app.use(parseUserInfo);
@@ -35,8 +35,8 @@ async function main() {
   app.use(postgraphile());
 
   app.use((err, req, res, next) => {
-    // const logger = req.logger("index");
-    // logger.error(err.stack);
+    const logger = req.logger("index");
+    logger.error(err.stack);
     return res.send(err);
   });
 
