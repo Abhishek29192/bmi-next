@@ -1,1 +1,0 @@
-# InTouch API Types

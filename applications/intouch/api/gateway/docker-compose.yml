@@ -4,7 +4,7 @@ services:
   api-gateway-service:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     environment:
       ENV_NAME: dev
       COMPANY_SERVICE: https://companies-akoergu63a-nw.a.run.app/graphql

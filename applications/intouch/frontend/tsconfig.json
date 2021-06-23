@@ -5,7 +5,10 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@bmi/*": ["../../../node_modules/@bmi/*/src"]
+      "@bmi/*": [
+        "../../../node_modules/@bmi/*/src",
+        "./node_modules/@bmi/*/src"
+      ]
     },
     "allowJs": false,
     "strict": false,

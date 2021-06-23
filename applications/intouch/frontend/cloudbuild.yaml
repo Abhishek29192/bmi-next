@@ -9,7 +9,9 @@ steps:
         "-t",
         "eu.gcr.io/$PROJECT_ID/intouch-frontend",
         "-f",
-        "applications/intouch/frontend/Dockerfile"
+        "applications/intouch/frontend/dockerfile",
+        "--build-arg",
+        "NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}"
       ]
     env:
       - "NEXT_PUBLIC_BASE_URL=https://tf-frontend-rfwslk3zjq-nw.a.run.app"
