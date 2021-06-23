@@ -8,10 +8,10 @@ module.exports = {
   roots: ["<rootDir>/applications/dxb/head/src"],
   coverageThreshold: {
     global: {
-      statements: "19",
-      branches: "7",
-      functions: "9",
-      lines: "35"
+      statements: "58",
+      branches: "34",
+      functions: "43",
+      lines: "58"
     }
   }
 };
