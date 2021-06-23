@@ -2,15 +2,16 @@
 
 ## Setup local environment
 
-#### **.npmrc**
+#### NPM TOKEN
 
-Add NPM_TOKEN to .npmrc file.
-
-You can generate one of these from your NPM account at [`https://www.npmjs.com/settings/<username>/tokens`](https://www.npmjs.com/settings/<username>/tokens) .
+The workspace packages are also published to a private NPM registry.
+You will need to add the NPM_AUTH_READ_TOKEN to your profile's environment variables to run the install step.
 
 ```
-//registry.npmjs.org/:_authToken=<NPM_TOKEN>
+export NPM_AUTH_READ_TOKEN="00000000-0000-0000-0000-000000000000"
 ```
+
+See [this guide by NPM](https://blog.npmjs.org/post/118393368555/deploying-with-npm-private-modules) for more details.
 
 ### Mac
 
