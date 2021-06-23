@@ -59,4 +59,9 @@
       flex-direction: row-reverse;
     }
   }
+
+  // NOTE: This unfortunately is inhibited by the TableOfContents wrapper in head
+  &:nth-of-type(even) {
+    background-color: $color-alabaster;
+  }
 }
