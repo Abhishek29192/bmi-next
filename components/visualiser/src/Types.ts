@@ -1,3 +1,11 @@
+import * as THREE from "three";
+
+declare global {
+  interface Window {
+    scene: THREE.Scene;
+  }
+}
+
 export type Material = "1" | "2" | "3";
 
 export type Colour = {
@@ -41,6 +49,9 @@ export type Tile = {
   revisionId: unknown;
   isDraft: boolean;
   type: string;
+  thicknessReduction?: number;
+  invert?: boolean;
+  invertY?: boolean;
 };
 
 export type Siding = {

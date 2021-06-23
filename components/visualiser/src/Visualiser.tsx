@@ -26,13 +26,11 @@ import { Popover, SvgIcon } from "@material-ui/core";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShareIcon from "@material-ui/icons/Share";
 import classnames from "classnames";
-import {
-  TileViewer,
-  HouseViewer,
-  GetRef as getRef
-} from "@bmi/visualiser-library";
 import { groupBy } from "lodash";
-import styles from "./Visualiser.module.scss";
+import getRef from "./GetRef";
+import HouseViewer from "./HouseViewer";
+import TileViewer from "./TileViewer";
+import styles from "./styles/Visualiser.module.scss";
 import { Colour, Material, Siding, Tile } from "./Types";
 
 const MATERIAL_NAME_MAP: {
