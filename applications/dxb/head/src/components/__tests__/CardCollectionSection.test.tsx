@@ -285,7 +285,8 @@ describe("CardCollectionSection component", () => {
         brandLogo: null,
         featuredMedia: null,
         featuredVideo: null,
-        cta: null
+        cta: null,
+        backgroundColor: null
       };
       const link = {
         __typename: "ContentfulLink",
@@ -587,7 +588,8 @@ describe("CardCollectionSection component", () => {
           dialogContent: null,
           linkedPage: null
         },
-        featuredVideo: null
+        featuredVideo: null,
+        backgroundColor: null
       };
       const cards: Card[] = [card];
 
@@ -635,7 +637,8 @@ describe("CardCollectionSection component", () => {
           tags: [testTag1],
           featuredMedia: null,
           cta: null,
-          featuredVideo: null
+          featuredVideo: null,
+          backgroundColor: null
         }
       ];
 
@@ -694,7 +697,8 @@ describe("CardCollectionSection component", () => {
             dialogContent: null,
             linkedPage: null
           },
-          featuredVideo: null
+          featuredVideo: null,
+          backgroundColor: null
         }
       ];
 

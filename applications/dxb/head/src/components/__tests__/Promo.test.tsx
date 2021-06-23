@@ -12,7 +12,8 @@ describe("Promo component", () => {
       brandLogo: null,
       featuredMedia: null,
       featuredVideo: null,
-      cta: null
+      cta: null,
+      backgroundColor: null
     };
 
     expect(promo).toMatchSnapshot();

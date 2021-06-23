@@ -67,7 +67,8 @@ describe("HomePage template", () => {
         }
       },
       cta: null,
-      featuredVideo: null
+      featuredVideo: null,
+      backgroundColor: null
     };
     const card2: PromoData = {
       __typename: "ContentfulPromo",
@@ -115,7 +116,8 @@ describe("HomePage template", () => {
         }
       },
       cta: null,
-      featuredVideo: null
+      featuredVideo: null,
+      backgroundColor: null
     };
     const promos: OverlapCardData = [card1, card2];
     const slide: PageInfoData = {

@@ -3,6 +3,7 @@
 exports[`Promo component renders correctly 1`] = `
 Object {
   "__typename": "ContentfulPromo",
+  "backgroundColor": null,
   "body": null,
   "brandLogo": null,
   "cta": null,
