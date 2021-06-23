@@ -89,7 +89,6 @@ install:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - echo '//registry.npmjs.org/:_authToken=${NPM_AUTH_READ_TOKEN}'>.npmrc
     - yarn install --frozen-lockfile --check-files
   cache:
     key:

@@ -43,10 +43,6 @@ license_finder_output.html
 coffeelint.json
 gl-code-quality-report.json
 
-#NPM config
-.npmrc*
-!.npmrc.example
-
 # Yarn
 .yarn/*
 !.yarn/patches
