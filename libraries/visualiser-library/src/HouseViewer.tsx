@@ -9,6 +9,7 @@ import textureCache from "./TextureCache";
 import getRef from "./GetRef";
 import roofSegmentGenerator from "./RoofSegmentGenerator";
 import { Colour, Siding, Tile } from "./Types";
+import styles from "./__styles__/HouseViewer.module.scss";
 
 interface Props {
   tile: Tile;
@@ -49,7 +50,7 @@ export default class HouseViewer extends React.Component<Props, State> {
     this.setIsLoading = this.setIsLoading.bind(this);
   }
 
-  getDerivedStateFromProps(props: Props) {
+  UNSAFE_getDerivedStateFromProps(props: Props) {
     if (
       props.tile !== this.props.tile ||
       props.colour !== this.props.colour ||
@@ -191,7 +192,7 @@ export default class HouseViewer extends React.Component<Props, State> {
 
     gltf.scene.traverse((node) => {
       if (!result && node && "inMesh" in node && node["isMesh"]) {
-        result = node;
+        result = node as THREE.Mesh;
       }
     });
 
@@ -571,7 +572,7 @@ export default class HouseViewer extends React.Component<Props, State> {
       light.shadow.camera.right = 10;
       light.shadow.camera.top = 10;
       light.shadow.camera.bottom = -10;
-      light.shadowBias = -0.0005;
+      light.shadow.bias = -0.0005;
       scene.add(light);
 
       /*
@@ -739,7 +740,7 @@ export default class HouseViewer extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="house-viewer">
+      <div className={styles["house-viewer"]}>
         <div
           ref={(r) => {
             this.container = r;

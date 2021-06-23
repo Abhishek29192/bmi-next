@@ -435,9 +435,9 @@ const Visualiser = ({
 
   const stateRef = React.useRef(state);
   const setState = useCallback(
-    (data: Parameters) => {
+    (data) => {
       stateRef.current = { ...state, ...data };
-      _setState((previousState: Parameters) => {
+      _setState((previousState) => {
         return { ...previousState, ...data };
       });
     },
@@ -467,7 +467,7 @@ const Visualiser = ({
   };
 
   const handleOnClick = useCallback(
-    ({ type, label }: { type: string; label: string }) => {
+    ({ type, label, data }) => {
       const { tileId, colourId, sidingId, viewMode } = stateRef.current;
 
       onClick({
@@ -476,7 +476,8 @@ const Visualiser = ({
         tileId,
         viewMode,
         type,
-        label
+        label,
+        data
       });
     },
     [stateRef]

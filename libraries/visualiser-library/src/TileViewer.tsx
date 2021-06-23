@@ -6,6 +6,7 @@ import modelCache from "./ModelCache";
 import getRef from "./GetRef";
 import textureCache from "./TextureCache";
 import { Colour, Siding, Tile } from "./Types";
+import styles from "./__styles__/TileViewer.module.scss";
 
 interface Props {
   tile: Tile;
@@ -40,7 +41,7 @@ export default class TileViewer extends React.Component<Props, State> {
     this.setIsLoading = this.setIsLoading.bind(this);
   }
 
-  getDerivedStateFromProps(props: Props) {
+  UNSAFE_componentWillReceiveProps(props: Props) {
     if (props.tile !== this.props.tile || props.colour !== this.props.colour) {
       this.setIsLoading(true);
       this.loadModel(props);
@@ -277,7 +278,7 @@ export default class TileViewer extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="tile-viewer">
+      <div className={styles["tile-viewer"]}>
         <div
           ref={(r) => {
             this.container = r;
