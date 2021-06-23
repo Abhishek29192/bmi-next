@@ -13,8 +13,21 @@ import styles from "./styles/PromoSection.module.scss";
 
 export type Data = PromoData;
 
+const backgroundColorMap = {
+  White: "white" as "white",
+  Alabaster: "alabaster" as "alabaster"
+};
+
 const IntegratedPromoSection = ({ data }: { data: Data }) => {
-  const { title, subtitle, body, featuredMedia, cta, featuredVideo } = data;
+  const {
+    title,
+    subtitle,
+    body,
+    featuredMedia,
+    cta,
+    featuredVideo,
+    backgroundColor
+  } = data;
 
   const GTMButton =
     withGTM<
@@ -32,6 +45,9 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
           : renderImage(featuredMedia, { position: "top left" })
       }
       className={styles["PromoSection"]}
+      backgroundColor={
+        backgroundColor ? backgroundColorMap[backgroundColor] : null
+      }
     >
       {body ? <RichText document={body} /> : subtitle}
       {cta && (

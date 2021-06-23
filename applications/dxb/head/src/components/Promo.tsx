@@ -16,6 +16,7 @@ export type Data = {
   featuredMedia: ImageData | null;
   cta: LinkData | null;
   featuredVideo: VideoData | null;
+  backgroundColor: "White" | "Alabaster" | null;
 };
 
 export const promoQuery = graphql`
@@ -41,5 +42,6 @@ export const promoQuery = graphql`
     featuredVideo {
       ...VideoFragment
     }
+    backgroundColor
   }
 `;

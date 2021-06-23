@@ -96,7 +96,8 @@ describe("Sections component", () => {
             body: null,
             featuredMedia: null,
             cta: null,
-            featuredVideo: null
+            featuredVideo: null,
+            backgroundColor: "White"
           },
           {
             __typename: "ContentfulPromo",
@@ -108,7 +109,22 @@ describe("Sections component", () => {
             body: null,
             featuredMedia: null,
             cta: null,
-            featuredVideo: null
+            featuredVideo: null,
+            backgroundColor: "Alabaster"
+          },
+          {
+            __typename: "ContentfulPromo",
+            id: "4567",
+            title: "Villain 3",
+            brandLogo: null,
+            tags: null,
+            subtitle: null,
+            body: null,
+            featuredMedia: null,
+            cta: null,
+            featuredVideo: null,
+            // @ts-ignore
+            backgroundColor: "Invalid"
           }
         ],
         isReversed: false
@@ -159,7 +175,8 @@ describe("Sections component", () => {
               parameters: null,
               dialogContent: null
             },
-            id: "00000000-0000-0000-0000-000000000000"
+            id: "00000000-0000-0000-0000-000000000000",
+            backgroundColor: null
           }
         ]
       },
@@ -232,8 +249,56 @@ describe("Sections component", () => {
         brandLogo: null,
         tags: null,
         featuredMedia: null,
+        cta: {
+          __typename: "ContentfulLink",
+          id: "string",
+          label: "string",
+          icon: null,
+          isLabelHidden: false,
+          url: "link-to-page",
+          linkedPage: null,
+          type: "Internal",
+          parameters: null,
+          dialogContent: null
+        },
+        featuredVideo: {
+          title: "Video",
+          label: "Video",
+          subtitle: null,
+          youtubeId: "abc123",
+          previewMedia: null,
+          videoRatio: null,
+          className: null
+        },
+        backgroundColor: null
+      },
+      {
+        __typename: "ContentfulPromo",
+        id: "5678",
+        title: "card section title 2",
+        subtitle: null,
+        body: null,
+        brandLogo: null,
+        tags: null,
+        featuredMedia: {
+          altText: null,
+          type: null,
+          // @ts-ignore Doesn't get this
+          image: {
+            resize: {
+              src: "image.png"
+            },
+            file: {
+              fileName: "image",
+              url: "image.png"
+            }
+          },
+          caption: null,
+          focalPoint: null
+        },
         cta: null,
-        featuredVideo: null
+        featuredVideo: null,
+        backgroundColor: null
       },
       {
         __typename: "ContentfulImageGallerySection",
@@ -359,6 +424,11 @@ describe("Sections component", () => {
             dialogContent: null
           }
         ]
+      },
+      {
+        // @ts-ignore
+        __typename: "InvalidTypename",
+        title: "Invalid type test"
       }
     ];
 

@@ -3,7 +3,7 @@ import Grid, { GridSize } from "@bmi/grid";
 import Typography from "@bmi/typography";
 import Media, { AcceptedNode } from "@bmi/media";
 import classnames from "classnames";
-import Section from "@bmi/section";
+import Section, { BackgroundColor } from "@bmi/section";
 import styles from "./PromoSection.module.scss";
 
 type Layout = "half" | "two-thirds";
@@ -19,6 +19,7 @@ type Props = {
   layout?: Layout;
   isReversed?: boolean;
   className?: string;
+  backgroundColor?: BackgroundColor;
 };
 
 const layoutRowsMap: Record<Layout, GridSize[]> = {
@@ -48,6 +49,7 @@ const __DeprecatedImageSource = ({
 };
 
 const PromoSection = ({
+  backgroundColor = "white",
   title,
   imageSource,
   media,
@@ -60,7 +62,7 @@ const PromoSection = ({
 
   return (
     <Section
-      backgroundColor="white"
+      backgroundColor={backgroundColor}
       className={classnames(
         className,
         styles["PromoSection"],
