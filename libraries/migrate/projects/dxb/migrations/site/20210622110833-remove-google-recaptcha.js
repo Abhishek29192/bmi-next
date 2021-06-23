@@ -1,7 +1,7 @@
-import {
-  down as removeRecaptcha,
-  up as addRecaptcha
-} from "./20210208143734-add-google-recaptcha";
+const {
+  down: removeRecaptcha,
+  up: addRecaptcha
+} = require("./20210208143734-add-google-recaptcha");
 
 module.exports.description = "Remove Recaptcha configuration";
 
