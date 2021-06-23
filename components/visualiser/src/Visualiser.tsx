@@ -487,7 +487,7 @@ const Visualiser = ({
       tiles.find(({ id }) => id === tileId) ||
       tiles[0]
     );
-  }, [tiles, state.tileId]);
+  }, [tiles, state.tileId, tileId]);
 
   const activeColour = useMemo(() => {
     return (

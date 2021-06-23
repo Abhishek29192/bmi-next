@@ -35,7 +35,7 @@ export default class HouseViewer extends React.Component<Props, State> {
   walls?: THREE.Mesh;
   scene?: THREE.Scene;
   camera?: THREE.PerspectiveCamera;
-  container?: HTMLDivElement | null;
+  container?: HTMLDivElement;
   houseLoader?: unknown;
   sidingMaterial?: unknown;
   controls?: OrbitControls;
@@ -138,11 +138,11 @@ export default class HouseViewer extends React.Component<Props, State> {
       mat.needsUpdate = true;
 
       const tileRef = getRef(tileInfo.lowDetailMeshRef, { contentSource });
-      const tilePromise = tileRef ? modelCache(tileRef) : null;
+      const tilePromise = tileRef ? modelCache(tileRef) : undefined;
       const ridgeRef = getRef(tileInfo.ridgeRef, { contentSource });
-      const ridgePromise = ridgeRef ? modelCache(ridgeRef) : null;
+      const ridgePromise = ridgeRef ? modelCache(ridgeRef) : undefined;
       const ridgeEndRef = getRef(tileInfo.ridgeEndRef, { contentSource });
-      const ridgeEndPromise = ridgeEndRef ? modelCache(ridgeEndRef) : null;
+      const ridgeEndPromise = ridgeEndRef ? modelCache(ridgeEndRef) : undefined;
 
       // put inside this request to prevent 'white flashes'
       const promiseResults = await Promise.all([
@@ -167,12 +167,6 @@ export default class HouseViewer extends React.Component<Props, State> {
         results.length >= 3 && results[2]
           ? this.findMesh(results[2])
           : undefined;
-      if (!ridgeEndMesh) {
-        return;
-      }
-
-      // eslint-disable-next-line no-console
-      console.log(`TileMesh: ${tileMesh}`);
 
       // Generate the roof now:
       this.generateRoof(tileInfo, mat, tileMesh, ridgeMesh, ridgeEndMesh);
@@ -195,7 +189,7 @@ export default class HouseViewer extends React.Component<Props, State> {
     let result: THREE.Mesh | undefined;
 
     gltf.scene.traverse((node) => {
-      if (!result && node && "inMesh" in node && node["isMesh"]) {
+      if (!result && node && "isMesh" in node && node["isMesh"]) {
         result = node as THREE.Mesh;
       }
     });
@@ -208,7 +202,7 @@ export default class HouseViewer extends React.Component<Props, State> {
     material: THREE.MeshStandardMaterial,
     tileMesh: THREE.Mesh,
     ridgeMesh: THREE.Mesh,
-    ridgeEndMesh: THREE.Mesh
+    ridgeEndMesh?: THREE.Mesh
   ) {
     const roofLayout = {
       ridges: [
@@ -366,7 +360,7 @@ export default class HouseViewer extends React.Component<Props, State> {
         const ridge = ridges[i];
         let ridgeEndLength = 0;
 
-        if (ridgeEndMesh !== null) {
+        if (ridgeEndMesh) {
           // Ridge ends are the 2 specialised tiles that go
           // at the ends of ridges to cap them off.
           boundingBox = ridgeEndMesh.geometry.boundingBox;
@@ -388,7 +382,7 @@ export default class HouseViewer extends React.Component<Props, State> {
 
         let posZ = 0;
 
-        if (ridgeEndMesh !== null) {
+        if (ridgeEndMesh) {
           // Ridge ends are the 2 specialised tiles that go
           // at the ends of ridges to cap them off.
           posZ += ridgeEndLength;

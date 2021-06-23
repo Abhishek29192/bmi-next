@@ -30,7 +30,7 @@ export default class TileViewer extends React.Component<Props, State> {
   tileMaterial?: THREE.MeshStandardMaterial;
   scene?: THREE.Scene;
   camera?: THREE.PerspectiveCamera;
-  container?: HTMLDivElement | null;
+  container?: HTMLDivElement;
 
   constructor(props: Props) {
     super(props);
