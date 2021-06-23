@@ -255,12 +255,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
         </Section>
       )}
       <SiteContext.Consumer>
-        {({
-          getMicroCopy,
-          scriptGRecaptchaId,
-          scriptGRecaptchaNet,
-          node_locale
-        }) => {
+        {({ getMicroCopy }) => {
           return (
             <DownloadList
               maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}

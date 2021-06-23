@@ -1092,12 +1092,6 @@ type ContentfulSite implements Node {
 
   "Google Optimize Load balancing ID"
   scriptGOptLoad: String
-
-  "Google Recaptcha ID"
-  scriptGRecaptchaId: String
-
-  "Google Recaptcha Use Net?"
-  scriptGRecaptchaNet: Boolean
 }
 
 """
