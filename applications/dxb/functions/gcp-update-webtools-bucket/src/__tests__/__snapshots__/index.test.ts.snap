@@ -1,0 +1,1889 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generating JSON file from WebTools space accepts OPTIONS request 1`] = `
+Array [
+  Array [
+    "Access-Control-Allow-Origin",
+    "*",
+  ],
+  Array [
+    "Access-Control-Allow-Methods",
+    "POST",
+  ],
+  Array [
+    "Access-Control-Allow-Headers",
+    Array [
+      "Content-Type",
+      "Authorization",
+    ],
+  ],
+  Array [
+    "Access-Control-Max-Age",
+    "3600",
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space doesn't call accessSecretVersion for every request: send calls 1`] = `
+Array [
+  Array [
+    "ok",
+  ],
+  Array [
+    "ok",
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space doesn't call accessSecretVersion for every request: status calls 1`] = `
+Array [
+  Array [
+    200,
+  ],
+  Array [
+    200,
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space makes calls to Contentful and creates the transformed data file 1`] = `
+Array [
+  Array [
+    "https://graphql.contentful.com/content/v1/spaces/WEBTOOLS_CONTENTFUL_SPACE_VALUE/environments/WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE",
+    Object {
+      "body": Object {
+        "query": "
+    {
+      mainTileCollection(limit: 1000) {
+        items {
+          code
+          sys {
+            id
+          }
+        }
+      }
+    }
+    ",
+      },
+      "headers": Object {
+        "Authorization": "Bearer SOME_TOKEN",
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+  Array [
+    "https://graphql.contentful.com/content/v1/spaces/WEBTOOLS_CONTENTFUL_SPACE_VALUE/environments/WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE",
+    Object {
+      "body": Object {
+        "query": "
+          {
+            mainTile(id: \\"an id\\") {
+              code
+              name
+              category
+              minBattenGauge
+              maxBattenGaugeCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              eaveGaugeCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              ridgeSpacingCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              width
+              height
+              brokenBond
+              accessoriesCollection(limit: 50) {
+                items {
+                  ...AccessoryFragment
+                }
+              }
+              variantsCollection(limit: 20) {
+                items {
+                  code
+                  name
+                  image
+                  externalProductCode
+                  color
+                  halfTile {
+                    code
+                    name
+                    externalProductCode
+                    image
+                    width
+                  }
+                  hip {
+                    ... on RidgeTile {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                    ... on HipTile {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                    __typename
+                  }
+                  ridgeOptionsCollection(limit: 20) {
+                    items {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                  }
+                  vergeOptionsCollection(limit: 20) {
+                    items {
+                      ... on MetalFlushOption {
+                        name
+                        left {
+                          ...VergeMetalFlushFragment
+                        }
+                        right {
+                          ...VergeMetalFlushFragment
+                        }
+                        leftStart {
+                          ...VergeMetalFlushFragment
+                        }
+                        rightStart {
+                          ...VergeMetalFlushFragment
+                        }
+                      }
+                      ... on TileVergeOption {
+                        name
+                        left {
+                          ...VergeTileFragment
+                        }
+                        right {
+                          ...VergeTileFragment
+                        }
+                        halfLeft {
+                          ...HalfVergeTileFragment
+                        }
+                        halfRight {
+                          ...HalfVergeTileFragment
+                        }
+                      }
+                      __typename
+                    }
+                  }
+                  ventilationHoodOptionsCollection(limit: 20) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  accessoriesCollection(limit: 50) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  eaveAccessoriesCollection(limit: 50) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  minBattenGauge
+                  maxBattenGaugeCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  eaveGaugeCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  ridgeSpacingCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  width
+                  height
+                }
+              }
+            }
+          }
+          
+          fragment VergeMetalFlushFragment on VergeMetalFlush {
+            code
+            name
+            externalProductCode
+            image
+            length
+          }
+          
+          fragment VergeTileFragment on VergeTile {
+            code
+            name
+            externalProductCode
+            image
+            width
+          }
+          
+          fragment HalfVergeTileFragment on HalfVergeTile {
+            code
+            name
+            externalProductCode
+            image
+            width
+          }
+          
+          fragment RangeValueFragment on RangeValue {
+            start
+            end
+            value
+          }
+          
+          fragment AccessoryFragment on Accessory {
+            code
+            name
+            externalProductCode
+            packSize
+            image
+            category
+          }      
+          ",
+      },
+      "headers": Object {
+        "Authorization": "Bearer SOME_TOKEN",
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+  Array [
+    "https://graphql.contentful.com/content/v1/spaces/WEBTOOLS_CONTENTFUL_SPACE_VALUE/environments/WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE",
+    Object {
+      "body": Object {
+        "query": "
+          {
+            mainTile(id: \\"3ioUlsVSaX98uUvpq0A17d\\") {
+              code
+              name
+              category
+              minBattenGauge
+              maxBattenGaugeCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              eaveGaugeCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              ridgeSpacingCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              width
+              height
+              brokenBond
+              accessoriesCollection(limit: 50) {
+                items {
+                  ...AccessoryFragment
+                }
+              }
+              variantsCollection(limit: 20) {
+                items {
+                  code
+                  name
+                  image
+                  externalProductCode
+                  color
+                  halfTile {
+                    code
+                    name
+                    externalProductCode
+                    image
+                    width
+                  }
+                  hip {
+                    ... on RidgeTile {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                    ... on HipTile {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                    __typename
+                  }
+                  ridgeOptionsCollection(limit: 20) {
+                    items {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                  }
+                  vergeOptionsCollection(limit: 20) {
+                    items {
+                      ... on MetalFlushOption {
+                        name
+                        left {
+                          ...VergeMetalFlushFragment
+                        }
+                        right {
+                          ...VergeMetalFlushFragment
+                        }
+                        leftStart {
+                          ...VergeMetalFlushFragment
+                        }
+                        rightStart {
+                          ...VergeMetalFlushFragment
+                        }
+                      }
+                      ... on TileVergeOption {
+                        name
+                        left {
+                          ...VergeTileFragment
+                        }
+                        right {
+                          ...VergeTileFragment
+                        }
+                        halfLeft {
+                          ...HalfVergeTileFragment
+                        }
+                        halfRight {
+                          ...HalfVergeTileFragment
+                        }
+                      }
+                      __typename
+                    }
+                  }
+                  ventilationHoodOptionsCollection(limit: 20) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  accessoriesCollection(limit: 50) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  eaveAccessoriesCollection(limit: 50) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  minBattenGauge
+                  maxBattenGaugeCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  eaveGaugeCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  ridgeSpacingCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  width
+                  height
+                }
+              }
+            }
+          }
+          
+          fragment VergeMetalFlushFragment on VergeMetalFlush {
+            code
+            name
+            externalProductCode
+            image
+            length
+          }
+          
+          fragment VergeTileFragment on VergeTile {
+            code
+            name
+            externalProductCode
+            image
+            width
+          }
+          
+          fragment HalfVergeTileFragment on HalfVergeTile {
+            code
+            name
+            externalProductCode
+            image
+            width
+          }
+          
+          fragment RangeValueFragment on RangeValue {
+            start
+            end
+            value
+          }
+          
+          fragment AccessoryFragment on Accessory {
+            code
+            name
+            externalProductCode
+            packSize
+            image
+            category
+          }      
+          ",
+      },
+      "headers": Object {
+        "Authorization": "Bearer SOME_TOKEN",
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+  Array [
+    "https://graphql.contentful.com/content/v1/spaces/WEBTOOLS_CONTENTFUL_SPACE_VALUE/environments/WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE",
+    Object {
+      "body": Object {
+        "query": "
+    {
+      gutterCollection(limit: 20) {
+        items {
+          code
+          material
+          image
+          length
+          variantsCollection(limit: 20) {
+            items {
+              code
+              name
+              externalProductCode
+              image
+              length
+              downPipe {
+                ...AccessoryFragment
+              }
+              downPipeConnector {
+                ...AccessoryFragment
+              }
+            }
+          }
+        }
+      }
+      gutterHookCollection(limit: 100) {
+        items {
+          code
+          name
+          externalProductCode
+          image
+          color
+          distanceBetweenHooks
+        }
+      }
+    }
+    
+    fragment AccessoryFragment on Accessory {
+      code
+      name
+      externalProductCode
+      packSize
+      image
+      category
+    }
+    ",
+      },
+      "headers": Object {
+        "Authorization": "Bearer SOME_TOKEN",
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+  Array [
+    "https://graphql.contentful.com/content/v1/spaces/WEBTOOLS_CONTENTFUL_SPACE_VALUE/environments/WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE",
+    Object {
+      "body": Object {
+        "query": "
+    {
+      underlayCollection(limit:100) {
+        items {
+          code
+          name
+          externalProductCode
+          image
+          shortDescription
+          minimumSupportedPitch
+          length
+          width
+          overlap
+        }
+      }
+    }
+    ",
+      },
+      "headers": Object {
+        "Authorization": "Bearer SOME_TOKEN",
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space makes calls to Contentful and creates the transformed data file: fetch & transform warnings 1`] = `
+Array [
+  Array [
+    "Failed to transform a failing product, skipping for this build.",
+    "Cannot read property 'items' of undefined",
+  ],
+  Array [
+    "Failed to transform failing gutter, skipping for this build.",
+    "Cannot read property 'items' of undefined",
+  ],
+  Array [
+    "Failed to transform Gutter_steel_fascia_bracket_adjustable_0-38dgr_125mm, skipping for this build.",
+    "ValidationError: \\"variants[0].code\\" is required",
+  ],
+  Array [
+    "Failed to transform 200657_Gutter_07_steel_end_cap_left_or_right_125mm_dark_silver, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_32_PVC_Rensetrakt_75mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_34_PVC_Lovsil_selvrensende_75mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_N41_Rormuffe_75mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_N47_Rorklamme_Plast_75mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_T43_Rennevinkel_innvendig_105mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_T44_Rennevinkel_utvendig_105mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_L46_Skjotestykke_105mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_N44_Grenror_120dgr_75mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_T46_Skjotestykke_105mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_T64_Tappstykke_105mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_T41-V_Endebunn_venstre_105mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_N46_Lovfanger_75mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform Gutter_PVC_T45_Tappstykke_105mm, skipping for this build.",
+    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+  ],
+  Array [
+    "Failed to transform failing hook 1, skipping for this build.",
+    "ValidationError: \\"name\\" is required",
+  ],
+  Array [
+    "Failed to transform failing underlay 1, skipping for this build.",
+    "ValidationError: \\"name\\" is required",
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space makes calls to Contentful and creates the transformed data file: transformed file save parameters 1`] = `
+Array [
+  Array [
+    Object {
+      "gutterHooks": Array [
+        Object {
+          "code": "001434_Gutter_PVC_T47_Rennekrok_105mm_black",
+          "externalProductCode": "21674270",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h50/hbb/8797418029086/Product-Color-Selector-Mobile_Rennekrok-T47-Takrenne-plast.jpg",
+          "length": 60,
+          "name": "Rennekrok T47",
+        },
+        Object {
+          "code": "001448_Gutter_PVC_T47_Rennekrok_105mm_white",
+          "externalProductCode": "21674411",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/had/hcf/8797418618910/Product-Color-Selector-Mobile_Rennekrok-T47-Takrenne-plast.jpg",
+          "length": 60,
+          "name": "Rennekrok T47",
+        },
+        Object {
+          "code": "200120_Gutter_PVC_T50_Rennekrok_med_30mm_lufting_105mm_black",
+          "externalProductCode": "41466947",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf1/h5b/8797420978206/Product-Color-Selector-Mobile_T50-med-lufting-Takrenne-plast.jpg",
+          "length": 60,
+          "name": "T50 med lufting",
+        },
+        Object {
+          "code": "200902_Gutter_steel_kassekrok_kombi_150mm_black",
+          "externalProductCode": "51763297",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h75/h36/8974962393118/Product-Color-Selector-Mobile-Takrenne-staal53jpg",
+          "length": 60,
+          "name": "Kassekrok kombi",
+        },
+        Object {
+          "code": "000619_Gutter_steel_fascia_bracket_with_ventilation_30mm_125mm_silver",
+          "externalProductCode": "43421314",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h98/h7e/8974234353694/Product-Color-Selector-Mobile-43421314-KOKL-125-135jpg",
+          "length": 60,
+          "name": "Kombi kasse m/lufting",
+        },
+        Object {
+          "code": "000657_Gutter_steel_fascia_bracket_with_ventilation_30mm_125mm_black",
+          "externalProductCode": "43421280",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc8/hcb/8808931393566/Product-Color-Selector-Mobile-000657-Kombi-kasse-med-lufting-svart.jpg",
+          "length": 60,
+          "name": "Kombi kasse m/lufting",
+        },
+        Object {
+          "code": "200063_Gutter_steel_fascia_bracket_with_ventilation_30mm_125mm_white",
+          "externalProductCode": "43421295",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h98/h7e/8974234353694/Product-Color-Selector-Mobile-43421314-KOKL-125-135jpg",
+          "length": 60,
+          "name": "Kombi kasse m/lufting",
+        },
+        Object {
+          "code": "200675_Gutter_steel_fascia_bracket_with_ventilation_30mm_125mm",
+          "externalProductCode": "46467960",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h99/hdf/8808949088286/Product-Color-Selector-Mobile-000657-Kombi-kasse-med-lufting-svart.jpg",
+          "length": 60,
+          "name": "Kombi kasse m/lufting",
+        },
+        Object {
+          "code": "001526_Gutter_62_steel_fascia_bracket_combined_125mm_silver",
+          "externalProductCode": "23100704",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc4/h15/8800856571934/Product-Color-Selector-Mobile-23100704-kassekrok-kombi-silver.jpg",
+          "length": 60,
+          "name": "Kassekrok kombi 62",
+        },
+        Object {
+          "code": "074310_Gutter_62_steel_fascia_bracket_combined_125mm_white",
+          "externalProductCode": "10577138",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h7a/h62/8797384146974/Product-Color-Selector-Mobile_Kassekrok-kombi-62-Takrenne-staal.jpg",
+          "length": 60,
+          "name": "Kassekrok kombi 62",
+        },
+        Object {
+          "code": "074542_Gutter_62_steel_fascia_bracket_combined_125mm_black",
+          "externalProductCode": "10576908",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h17/he6/8974919794718/Product-Color-Selector-Mobile-Takrenne-staal20jpg",
+          "length": 60,
+          "name": "Kassekrok kombi 62",
+        },
+        Object {
+          "code": "200672_Gutter_62_steel_fascia_bracket_combined_125mm_dark_silver",
+          "externalProductCode": "23100704",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h2c/h86/8800857751582/Product-Color-Selector-Mobile-49101916-kassekrok-kombi-ms.jpg",
+          "length": 60,
+          "name": "Kassekrok kombi 62",
+        },
+      ],
+      "gutters": Array [
+        Object {
+          "code": "Gutter_63_steel_Rennejern_kombi_125mm",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h8d/h98/8974963114014/Product-Color-Selector-Mobile-Takrenne-staal11jpg",
+          "name": "Steel",
+          "variants": Array [],
+        },
+        Object {
+          "code": "Gutter_steel_Torvstokk-krok_125mm",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hfe/h03/8975241674782/Product-Color-Selector-Mobile-Takrenne-staal23jpg",
+          "name": "Steel",
+          "variants": Array [],
+        },
+        Object {
+          "code": "200154_Gutter_07_steel_end_cap_left_or_right_125mm_silver",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha1/h8b/8974950137886/Product-Color-Selector-Mobile-Takrenne-staal36jpg",
+          "name": "Steel",
+          "variants": Array [
+            Object {
+              "code": "200657_Gutter_07_steel_end_cap_left_or_right_125mm_dark_silver",
+              "downpipe": Object {
+                "category": "accessories",
+                "code": "Test_Downpipe",
+                "externalProductCode": "99990001",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb7/h1f/8975039103006/Product-Color-Selector-Mobile-Feieplataa-FP-8-F460-T2jpg",
+                "name": "Test Downpipe",
+                "packSize": 1,
+              },
+              "downpipeConnector": Object {
+                "category": "accessories",
+                "code": "Test_DownpipeConnector",
+                "externalProductCode": "99990002",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb7/h1f/8975039103006/Product-Color-Selector-Mobile-Feieplataa-FP-8-F460-T2jpg",
+                "name": "Test DownpipeConnector",
+                "packSize": 1,
+              },
+              "externalProductCode": "49062504",
+              "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf2/h10/8974958788638/Product-Color-Selector-Mobile-Takrenne-staal47jpg",
+              "length": 5,
+              "name": "Endebunn 07 Universal",
+            },
+            Object {
+              "code": "200154_Gutter_07_steel_end_cap_left_or_right_125mm_silver",
+              "downpipe": Object {
+                "category": "accessories",
+                "code": "Test_Downpipe",
+                "externalProductCode": "99990001",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb7/h1f/8975039103006/Product-Color-Selector-Mobile-Feieplataa-FP-8-F460-T2jpg",
+                "name": "Test Downpipe",
+                "packSize": 1,
+              },
+              "downpipeConnector": Object {
+                "category": "accessories",
+                "code": "Test_DownpipeConnector",
+                "externalProductCode": "99990002",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb7/h1f/8975039103006/Product-Color-Selector-Mobile-Feieplataa-FP-8-F460-T2jpg",
+                "name": "Test DownpipeConnector",
+                "packSize": 1,
+              },
+              "externalProductCode": "42032196",
+              "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha1/h8b/8974950137886/Product-Color-Selector-Mobile-Takrenne-staal36jpg",
+              "length": 1,
+              "name": "Endebunn 07 Universal",
+            },
+          ],
+        },
+        Object {
+          "code": "Gutter_PVC_N50_Sokkelkne_75mm",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h9e/h34/8974903640094/Product-Color-Selector-Mobile-Takrenne-plast10jpg",
+          "name": "PVC",
+          "variants": Array [],
+        },
+        Object {
+          "code": "Gutter_PVC_T47_Rennekrok_105mm",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h46/h5f/8797417439262/Product-Color-Selector-Mobile_Rennekrok-T47.jpg",
+          "name": "PVC",
+          "variants": Array [],
+        },
+      ],
+      "mainTiles": Array [
+        Object {
+          "brokenBond": false,
+          "category": "concrete",
+          "code": "Zanda_Protector_main_tile",
+          "eaveGauge": Array [
+            Object {
+              "end": 31,
+              "start": 15,
+              "value": 38,
+            },
+            Object {
+              "end": 45,
+              "start": 31,
+              "value": 38.5,
+            },
+          ],
+          "height": 42,
+          "maxBattenGauge": Array [
+            Object {
+              "end": 24,
+              "start": 15,
+              "value": 31,
+            },
+            Object {
+              "end": 27,
+              "start": 24,
+              "value": 33,
+            },
+            Object {
+              "end": 31,
+              "start": 27,
+              "value": 34,
+            },
+            Object {
+              "end": 35,
+              "start": 31,
+              "value": 35,
+            },
+            Object {
+              "end": 42,
+              "start": 35,
+              "value": 36,
+            },
+            Object {
+              "end": 90,
+              "start": 42,
+              "value": 37,
+            },
+          ],
+          "minBattenGauge": 31,
+          "name": "Zanda Protector normalstein",
+          "ridgeSpacing": Array [
+            Object {
+              "end": 55,
+              "start": 15,
+              "value": 5,
+            },
+          ],
+          "variants": Array [
+            Object {
+              "accessories": Array [
+                Object {
+                  "category": "accessories",
+                  "code": "002236_Chimney_plateau_FP-8-F461_T_black",
+                  "externalProductCode": "27706472",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hbb/h88/8797051682846/Product-Color-Selector-Mobile_Feieplataa-FP-8-F461-T-Feieplataa-FP-8-F461-T.jpg",
+                  "name": "Chimney_plateau_FP-8-F461_T",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "101931_Chimney_plateau_FP-8-F460_T_black",
+                  "externalProductCode": "24762981",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h9d/hba/8975040544798/Product-Color-Selector-Mobile-Feieplataa-FP-8-F460-T3jpg",
+                  "name": "Chimney_plateau_FP-8-F460_T",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "200121_Console_snowrail_SN_IF-662_black",
+                  "externalProductCode": "40307274",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hd2/h50/8798365188126/Product-Color-Selector-Mobile_Konsoll-SN-IF-662-Konsoll-SN-IF-662.jpg",
+                  "name": "Console_snowrail_SN_IF-662",
+                  "packSize": 10,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "200123_Snow_defence_snowrail_SN_GG-11_black",
+                  "externalProductCode": "27710078",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h70/h4c/8808938471454/Product-Color-Selector-Mobile-SN-GG-11-sort10.jpg",
+                  "name": "Snow_defence_snowrail_SN_GG-11",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "200235_Console_snowrail_SN_F-661_black",
+                  "externalProductCode": "43020282",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hfc/h29/8975055683614/Product-Color-Selector-Mobile-Konsoll-SN-F-6612jpg",
+                  "name": "Console_snowrail_SN_F-661",
+                  "packSize": 10,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "302151408_Console_snowrail_SN_S-606_black",
+                  "externalProductCode": "27710060",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h8b/he0/8975183282206/Product-Color-Selector-Mobile-snofanger1jpg",
+                  "name": "Console_snowrail_SN_S-606",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "sealing",
+                  "code": "304200050_M_Glue_290ml_black",
+                  "externalProductCode": "51530973",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h70/h4c/8975470231582/Product-Color-Selector-Mobile-Lim-M-Gluejpg",
+                  "name": "M_Glue_290ml",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "fixings",
+                  "code": "306233108_Ridge_clip_concrete_black",
+                  "externalProductCode": "40944779",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h1f/h62/8973873479710/Product-Color-Selector-Mobile-Klips-monestein-betongjpg",
+                  "name": "Ridge_clip_concrete",
+                  "packSize": 25,
+                },
+                Object {
+                  "category": "fixings",
+                  "code": "306290090_Ridge_tile_screw_5x110_black",
+                  "externalProductCode": "50871433",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/he0/h3d/8797742628894/Product-Color-Selector-Mobile_Moneskrue-Moneskrue.jpg",
+                  "name": "Ridge_tile_screw_5x110",
+                  "packSize": 25,
+                },
+                Object {
+                  "category": "fixings",
+                  "code": "306290100_Ridge_tile_screw_5x110_black",
+                  "externalProductCode": "50871444",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h9e/h6b/8975205629982/Product-Color-Selector-Mobile-Moneskrue1jpg",
+                  "name": "Ridge_tile_screw_5x110",
+                  "packSize": 50,
+                },
+                Object {
+                  "category": "tiles",
+                  "code": "313200122_Zanda_Protector_verge_end_left_black",
+                  "externalProductCode": "46035954",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb9/h84/8798130012190/Product-Color-Selector-Mobile_Zanda-Protector-gavlavslutning-venstre-Zanda-Protector-gavlavslutning-venstre.jpg",
+                  "name": "Zanda Protector gavlavslutning venstre",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "tiles",
+                  "code": "313201122_Zanda_Protector_verge_end_right_black",
+                  "externalProductCode": "46035984",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hea/h04/8975212838942/Product-Color-Selector-Mobile-Zanda-Protector-gavlavslutning-hoyre3jpg",
+                  "name": "Zanda Protector gavlavslutning høyre",
+                  "packSize": 1,
+                },
+              ],
+              "brokenBond": false,
+              "code": "175200122_Zanda_Protector_main_tile_black",
+              "color": "Svart",
+              "eaveAccessories": Array [],
+              "eaveGauge": Array [
+                Object {
+                  "end": 45,
+                  "start": 31,
+                  "value": 38.5,
+                },
+                Object {
+                  "end": 31,
+                  "start": 15,
+                  "value": 38,
+                },
+              ],
+              "externalProductCode": "46035712",
+              "halfTile": Object {
+                "code": "275102122_Zanda_Protector_half_tile_black",
+                "externalProductCode": "46035795",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h96/hde/8973565067294/Product-Color-Selector-Mobile-275102122-Halvstein-Zanda-Protector-Svartjpg",
+                "name": "Zanda Protector halvstein",
+                "width": 15,
+              },
+              "height": 42,
+              "hip": Object {
+                "code": "275214122_Zanda_Protector_hipstart_black",
+                "externalProductCode": "46035863",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hd4/h12/8798110547998/Product-Color-Selector-Mobile_Zanda-Protector-valmbegynnelse-Zanda-Protector-valmbegynnelse.jpg",
+                "length": 33,
+                "name": "Zanda Protector valmbegynnelse",
+              },
+              "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf8/hba/8973561462814/Product-Color-Selector-Mobile-175200122-Zanda-Protector-normalstein-svartjpg",
+              "maxBattenGauge": Array [
+                Object {
+                  "end": 42,
+                  "start": 35,
+                  "value": 36,
+                },
+                Object {
+                  "end": 90,
+                  "start": 42,
+                  "value": 37,
+                },
+                Object {
+                  "end": 35,
+                  "start": 31,
+                  "value": 35,
+                },
+                Object {
+                  "end": 31,
+                  "start": 27,
+                  "value": 34,
+                },
+                Object {
+                  "end": 27,
+                  "start": 24,
+                  "value": 33,
+                },
+                Object {
+                  "end": 24,
+                  "start": 15,
+                  "value": 31,
+                },
+              ],
+              "minBattenGauge": 31,
+              "name": "Zanda Protector Normalstein",
+              "ridgeOptions": Array [
+                Object {
+                  "code": "249702122_Zanda_Protector_ridge_tile_black",
+                  "externalProductCode": "46035761",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h8c/h30/8973568671774/Product-Color-Selector-Mobile-249702122-Concrete-Ridgetile-Protector20-Blackjpg",
+                  "length": 33,
+                  "name": "Zanda Protector mønestein",
+                },
+                Object {
+                  "code": "275213122_Zanda_Protector_T_ridge_black",
+                  "externalProductCode": "46035833",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hd6/h24/8973916012574/Product-Color-Selector-Mobile-Zanda-Protector-T-monejpg",
+                  "length": 1,
+                  "name": "Zanda Protector T-møne",
+                },
+                Object {
+                  "code": "275215122_Zanda_Protector_Y_ridge_black",
+                  "externalProductCode": "46035897",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h27/h36/8973575880734/Product-Color-Selector-Mobile-275215122-Concrete-Y-Ridge-Protector20-Blackjpg",
+                  "length": 1,
+                  "name": "Zanda Protector valmtetning",
+                },
+                Object {
+                  "code": "275216122_Zanda_Protector_ridge_end_black",
+                  "externalProductCode": "46035920",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hd6/h2e/8975018852382/Product-Color-Selector-Mobile-Zanda-Protector-moneavslutningjpg",
+                  "length": 1,
+                  "name": "Zanda Protector møneavslutning",
+                },
+              ],
+              "ridgeSpacing": Array [
+                Object {
+                  "end": 55,
+                  "start": 15,
+                  "value": 5,
+                },
+              ],
+              "ventilationHoodOptions": Array [
+                Object {
+                  "category": "ventilation",
+                  "code": "307900280_Ventilation_list_1m",
+                  "externalProductCode": "51614496",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h88/h2c/8797946380318/Product-Color-Selector-Mobile_Ventilasjonslist-for-takfotlekt-Ventilasjonslist-for-takfotlekt.jpg",
+                  "name": "Ventilation_list_1m",
+                  "packSize": 1,
+                },
+              ],
+              "vergeOptions": Array [
+                Object {
+                  "left": Object {
+                    "code": "Test_MetalFlushOption_left",
+                    "externalProductCode": "99900001",
+                    "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h04/h72/8975284207646/Product-Color-Selector-Mobile-Konsoll-SN-S-606,-rod40jpg",
+                    "length": 20,
+                    "name": "Test MetalFlushOption left",
+                  },
+                  "leftStart": Object {
+                    "code": "Test_MetalFlushOption_leftStart",
+                    "externalProductCode": "99900003",
+                    "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h04/h72/8975284207646/Product-Color-Selector-Mobile-Konsoll-SN-S-606,-rod40jpg",
+                    "length": 20,
+                    "name": "Test MetalFlushOption leftStart",
+                  },
+                  "name": "Test MetalFlushOption",
+                  "right": Object {
+                    "code": "Test_MetalFlushOption_right",
+                    "externalProductCode": "99900002",
+                    "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h04/h72/8975284207646/Product-Color-Selector-Mobile-Konsoll-SN-S-606,-rod40jpg",
+                    "length": 20,
+                    "name": "Test MetalFlushOption right",
+                  },
+                  "rightStart": Object {
+                    "code": "Test_MetalFlushOption_rightStart",
+                    "externalProductCode": "99900004",
+                    "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h04/h72/8975284207646/Product-Color-Selector-Mobile-Konsoll-SN-S-606,-rod40jpg",
+                    "length": 20,
+                    "name": "Test MetalFlushOption rightStart",
+                  },
+                  "type": "METAL_FLUSH",
+                },
+                Object {
+                  "halfLeft": Object {
+                    "code": "Test_TileVergeOption_halfLeft",
+                    "externalProductCode": "99900013",
+                    "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h15/h8c/8975056404510/Product-Color-Selector-Mobile-Konsoll-SN-F-6611jpg",
+                    "name": "Test TileVergeOption halfLeft",
+                    "width": 20,
+                  },
+                  "halfRight": Object {
+                    "code": "Test_TileVergeOption_halfRight",
+                    "externalProductCode": "99900014",
+                    "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h15/h8c/8975056404510/Product-Color-Selector-Mobile-Konsoll-SN-F-6611jpg",
+                    "name": "Test TileVergeOption halfRight",
+                    "width": 20,
+                  },
+                  "left": Object {
+                    "code": "Test_TileVergeOption_left",
+                    "externalProductCode": "99900011",
+                    "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h15/h8c/8975056404510/Product-Color-Selector-Mobile-Konsoll-SN-F-6611jpg",
+                    "name": "Test TileVergeOption left",
+                    "width": 20,
+                  },
+                  "name": "Test TileVergeOption",
+                  "right": Object {
+                    "code": "Test_TileVergeOption_right",
+                    "externalProductCode": "99900012",
+                    "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h15/h8c/8975056404510/Product-Color-Selector-Mobile-Konsoll-SN-F-6611jpg",
+                    "name": "Test TileVergeOption right",
+                    "width": 20,
+                  },
+                  "type": "TILE",
+                },
+              ],
+              "width": 30,
+            },
+            Object {
+              "accessories": Array [
+                Object {
+                  "category": "accessories",
+                  "code": "200483_Console_snowrail_SN_IF-662_grey",
+                  "externalProductCode": "46278555",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/heb/h0f/8975283486750/Product-Color-Selector-Mobile-SN-Konsoll-F-662jpg",
+                  "name": "Console_snowrail_SN_IF-662",
+                  "packSize": 10,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "200484_Console_snowrail_SN_F-661_grey",
+                  "externalProductCode": "46278517",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h15/h8c/8975056404510/Product-Color-Selector-Mobile-Konsoll-SN-F-6611jpg",
+                  "name": "Console_snowrail_SN_F-661",
+                  "packSize": 10,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "200485_Snow_defence_snowrail_SN_GG-11_grey",
+                  "externalProductCode": "46278585",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h29/h83/8797787127838/Product-Color-Selector-Mobile_Gelender-SN-GG-11-Gelender-SN-GG-11.jpg",
+                  "name": "Snow_defence_snowrail_SN_GG-11",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "sealing",
+                  "code": "304200051_M_Glue_290ml_grey",
+                  "externalProductCode": "51531703",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb6/hdc/8975468789790/Product-Color-Selector-Mobile-Lim-M-Gluejpg",
+                  "name": "M_Glue_290ml",
+                  "packSize": 1,
+                },
+              ],
+              "brokenBond": false,
+              "code": "175200224_Zanda_Protector_main_tile_grey",
+              "color": "Grå",
+              "eaveAccessories": Array [],
+              "eaveGauge": Array [
+                Object {
+                  "end": 31,
+                  "start": 15,
+                  "value": 38,
+                },
+                Object {
+                  "end": 45,
+                  "start": 31,
+                  "value": 38.5,
+                },
+              ],
+              "externalProductCode": "46247263",
+              "halfTile": Object {
+                "code": "275101224_Zanda_Protector_half_tile_grey",
+                "externalProductCode": "46247282",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h76/hdc/8975104704542/Product-Color-Selector-Mobile-Zanda-Protector-halvstein2jpg",
+                "name": "Zanda Protector halvstein",
+                "width": 15,
+              },
+              "height": 42,
+              "hip": Object {
+                "code": "275214224_Zanda_Protector_hipstart_grey",
+                "externalProductCode": "46247494",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h35/h49/8798111137822/Product-Color-Selector-Mobile_Zanda-Protector-valmbegynnelse-Zanda-Protector-valmbegynnelse.jpg",
+                "length": 33,
+                "name": "Zanda Protector valmbegynnelse",
+              },
+              "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h30/h5b/8973562183710/Product-Color-Selector-Mobile-175202224-Zanda-Protector-normalstein-grajpg",
+              "maxBattenGauge": Array [
+                Object {
+                  "end": 24,
+                  "start": 15,
+                  "value": 31,
+                },
+                Object {
+                  "end": 27,
+                  "start": 24,
+                  "value": 33,
+                },
+                Object {
+                  "end": 31,
+                  "start": 27,
+                  "value": 34,
+                },
+                Object {
+                  "end": 35,
+                  "start": 31,
+                  "value": 35,
+                },
+                Object {
+                  "end": 90,
+                  "start": 42,
+                  "value": 37,
+                },
+                Object {
+                  "end": 42,
+                  "start": 35,
+                  "value": 36,
+                },
+              ],
+              "minBattenGauge": 31,
+              "name": "Zanda Protector Normalstein",
+              "ridgeOptions": Array [
+                Object {
+                  "code": "249702224_Zanda_Protector_ridge_tile_grey",
+                  "externalProductCode": "46247418",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h70/h59/8975070101534/Product-Color-Selector-Mobile-Zanda-Protector-monestein3jpg",
+                  "length": 33,
+                  "name": "Zanda Protector mønestein",
+                },
+                Object {
+                  "code": "275213224_Zanda_Protector_T_ridge_grey",
+                  "externalProductCode": "46341517",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf1/h61/8798122934302/Product-Color-Selector-Mobile_Zanda-Protector-T-mone-Zanda-Protector-T-mone.jpg",
+                  "length": 1,
+                  "name": "Zanda Protector T-møne",
+                },
+                Object {
+                  "code": "275215224_Zanda_Protector_Y_ridge_grey",
+                  "externalProductCode": "46247456",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf0/h2b/8973576601630/Product-Color-Selector-Mobile-275215224-Concrete-Y-Ridge-Protector20-Greyjpg",
+                  "length": 1,
+                  "name": "Zanda Protector valmtetning",
+                },
+                Object {
+                  "code": "275216224_Zanda_Protector_ridge_end_grey",
+                  "externalProductCode": "46247437",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hff/h8f/8973572997150/Product-Color-Selector-Mobile-275216224-Zanda-Protector-moneavslutning-grajpg",
+                  "length": 1,
+                  "name": "Zanda Protector møneavslutning",
+                },
+              ],
+              "ridgeSpacing": Array [
+                Object {
+                  "end": 55,
+                  "start": 15,
+                  "value": 5,
+                },
+              ],
+              "ventilationHoodOptions": Array [
+                Object {
+                  "category": "ventilation",
+                  "code": "307900280_Ventilation_list_1m",
+                  "externalProductCode": "51614496",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h88/h2c/8797946380318/Product-Color-Selector-Mobile_Ventilasjonslist-for-takfotlekt-Ventilasjonslist-for-takfotlekt.jpg",
+                  "name": "Ventilation_list_1m",
+                  "packSize": 1,
+                },
+              ],
+              "vergeOptions": Array [],
+              "width": 30,
+            },
+            Object {
+              "accessories": Array [
+                Object {
+                  "category": "accessories",
+                  "code": "302151402_Console_snowrail_SN_S-606_red",
+                  "externalProductCode": "30282479",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h04/h72/8975284207646/Product-Color-Selector-Mobile-Konsoll-SN-S-606,-rod40jpg",
+                  "name": "Console_snowrail_SN_S-606",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "fixings",
+                  "code": "306233101_Ridge_clip_concrete_red",
+                  "externalProductCode": "40944803",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc0/h1a/8797738500126/Product-Color-Selector-Mobile_Klips-monestein-betong-Klips-monestein-betong.jpg",
+                  "name": "Ridge_clip_concrete",
+                  "packSize": 25,
+                },
+              ],
+              "brokenBond": false,
+              "code": "175200522_Zanda_Protector_main_tile_red",
+              "color": "Rød",
+              "eaveAccessories": Array [],
+              "eaveGauge": Array [
+                Object {
+                  "end": 45,
+                  "start": 31,
+                  "value": 38.5,
+                },
+                Object {
+                  "end": 31,
+                  "start": 15,
+                  "value": 38,
+                },
+              ],
+              "externalProductCode": "46035723",
+              "halfTile": Object {
+                "code": "275101522_Zanda_Protector_half_tile_red",
+                "externalProductCode": "46035776",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc1/hc3/8975105425438/Product-Color-Selector-Mobile-Zanda-Protector-halvstein3jpg",
+                "name": "Zanda Protector halvstein",
+                "width": 15,
+              },
+              "height": 42,
+              "hip": Object {
+                "code": "275214522_Zanda_Protector_hipstart_red",
+                "externalProductCode": "46035878",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hd1/h64/8975467347998/Product-Color-Selector-Mobile-275214522-Concrete-Hipstart-Protector20-Redjpg",
+                "length": 33,
+                "name": "Zanda Protector valmbegynnelse",
+              },
+              "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hfd/h46/8975046311966/Product-Color-Selector-Mobile-Zanda-Protector-Normalstein3jpg",
+              "maxBattenGauge": Array [
+                Object {
+                  "end": 42,
+                  "start": 35,
+                  "value": 36,
+                },
+                Object {
+                  "end": 90,
+                  "start": 42,
+                  "value": 37,
+                },
+                Object {
+                  "end": 35,
+                  "start": 31,
+                  "value": 35,
+                },
+                Object {
+                  "end": 31,
+                  "start": 27,
+                  "value": 34,
+                },
+                Object {
+                  "end": 27,
+                  "start": 24,
+                  "value": 33,
+                },
+                Object {
+                  "end": 24,
+                  "start": 15,
+                  "value": 31,
+                },
+              ],
+              "minBattenGauge": 31,
+              "name": "Zanda Protector Normalstein",
+              "ridgeOptions": Array [
+                Object {
+                  "code": "249700522_Zanda_Protector_ridge_tile_red",
+                  "externalProductCode": "46035742",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hd5/h36/8975068659742/Product-Color-Selector-Mobile-Zanda-Protector-monestein-1jpg",
+                  "length": 33,
+                  "name": "Zanda Protector mønestein",
+                },
+                Object {
+                  "code": "275213522_Zanda_Protector_T_ridge_red",
+                  "externalProductCode": "46035844",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/he7/h05/8798123524126/Product-Color-Selector-Mobile_Zanda-Protector-T-mone-Zanda-Protector-T-mone.jpg",
+                  "length": 1,
+                  "name": "Zanda Protector T-møne",
+                },
+                Object {
+                  "code": "275215522_Zanda_Protector_Y_ridge_red",
+                  "externalProductCode": "46035901",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb9/h8b/8973577322526/Product-Color-Selector-Mobile-275215522-Concrete-Y-Ridge-Protector20-Redjpg",
+                  "length": 1,
+                  "name": "Zanda Protector valmtetning",
+                },
+                Object {
+                  "code": "275216522_Zanda_Protector_ridge_end_red",
+                  "externalProductCode": "46035935",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h17/hf2/8973573718046/Product-Color-Selector-Mobile-275216522-Moneavslutning-Zanda-Protector-Rodjpg",
+                  "length": 1,
+                  "name": "Zanda Protector møneavslutning",
+                },
+              ],
+              "ridgeSpacing": Array [
+                Object {
+                  "end": 55,
+                  "start": 15,
+                  "value": 5,
+                },
+              ],
+              "ventilationHoodOptions": Array [
+                Object {
+                  "category": "ventilation",
+                  "code": "307900280_Ventilation_list_1m",
+                  "externalProductCode": "51614496",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h88/h2c/8797946380318/Product-Color-Selector-Mobile_Ventilasjonslist-for-takfotlekt-Ventilasjonslist-for-takfotlekt.jpg",
+                  "name": "Ventilation_list_1m",
+                  "packSize": 1,
+                },
+              ],
+              "vergeOptions": Array [],
+              "width": 30,
+            },
+            Object {
+              "accessories": Array [
+                Object {
+                  "category": "tiles",
+                  "code": "313200122_Zanda_Protector_verge_end_left_black",
+                  "externalProductCode": "46035954",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb9/h84/8798130012190/Product-Color-Selector-Mobile_Zanda-Protector-gavlavslutning-venstre-Zanda-Protector-gavlavslutning-venstre.jpg",
+                  "name": "Zanda Protector gavlavslutning venstre",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "tiles",
+                  "code": "313201122_Zanda_Protector_verge_end_right_black",
+                  "externalProductCode": "46035984",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hea/h04/8975212838942/Product-Color-Selector-Mobile-Zanda-Protector-gavlavslutning-hoyre3jpg",
+                  "name": "Zanda Protector gavlavslutning høyre",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "002236_Chimney_plateau_FP-8-F461_T_black",
+                  "externalProductCode": "27706472",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hbb/h88/8797051682846/Product-Color-Selector-Mobile_Feieplataa-FP-8-F461-T-Feieplataa-FP-8-F461-T.jpg",
+                  "name": "Chimney_plateau_FP-8-F461_T",
+                  "packSize": 1,
+                },
+                Object {
+                  "category": "accessories",
+                  "code": "101931_Chimney_plateau_FP-8-F460_T_black",
+                  "externalProductCode": "24762981",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h9d/hba/8975040544798/Product-Color-Selector-Mobile-Feieplataa-FP-8-F460-T3jpg",
+                  "name": "Chimney_plateau_FP-8-F460_T",
+                  "packSize": 1,
+                },
+              ],
+              "brokenBond": false,
+              "code": "175200624_Zanda_Protector_main_tile_clayred",
+              "color": "Teglrød",
+              "eaveAccessories": Array [],
+              "eaveGauge": Array [
+                Object {
+                  "end": 31,
+                  "start": 15,
+                  "value": 38,
+                },
+                Object {
+                  "end": 45,
+                  "start": 31,
+                  "value": 38.5,
+                },
+              ],
+              "externalProductCode": "46035738",
+              "halfTile": Object {
+                "code": "275101624_Zanda_Protector_half_tile_clayred",
+                "externalProductCode": "46035780",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h09/h05/8975466627102/Product-Color-Selector-Mobile-275101624-DS-Halftile-Protector20-ClayRedjpg",
+                "name": "Zanda Protector halvstein",
+                "width": 15,
+              },
+              "height": 42,
+              "hip": Object {
+                "code": "275214624_Zanda_Protector_hipstart_clayred",
+                "externalProductCode": "46035882",
+                "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h9c/hb9/8798112317470/Product-Color-Selector-Mobile_Zanda-Protector-valmbegynnelse-Zanda-Protector-valmbegynnelse.jpg",
+                "length": 33,
+                "name": "Zanda Protector valmbegynnelse",
+              },
+              "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hcb/h18/8975047032862/Product-Color-Selector-Mobile-Zanda-Protector-Normalstein-2jpg",
+              "maxBattenGauge": Array [
+                Object {
+                  "end": 24,
+                  "start": 15,
+                  "value": 31,
+                },
+                Object {
+                  "end": 27,
+                  "start": 24,
+                  "value": 33,
+                },
+                Object {
+                  "end": 31,
+                  "start": 27,
+                  "value": 34,
+                },
+                Object {
+                  "end": 35,
+                  "start": 31,
+                  "value": 35,
+                },
+                Object {
+                  "end": 90,
+                  "start": 42,
+                  "value": 37,
+                },
+                Object {
+                  "end": 42,
+                  "start": 35,
+                  "value": 36,
+                },
+              ],
+              "minBattenGauge": 31,
+              "name": "Zanda Protector Normalstein",
+              "ridgeOptions": Array [
+                Object {
+                  "code": "249700624_Zanda_Protector_ridge_tile_clayred",
+                  "externalProductCode": "46035757",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hb0/h96/8975069380638/Product-Color-Selector-Mobile-Zanda-Protector-monestein2jpg",
+                  "length": 33,
+                  "name": "Zanda Protector mønestein",
+                },
+                Object {
+                  "code": "275213624_Zanda_Protector_T_ridge_clayred",
+                  "externalProductCode": "46035852",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h21/h56/8798124113950/Product-Color-Selector-Mobile_Zanda-Protector-T-mone-Zanda-Protector-T-mone.jpg",
+                  "length": 1,
+                  "name": "Zanda Protector T-møne",
+                },
+                Object {
+                  "code": "275215624_Zanda_Protector_Y_ridge_clayred",
+                  "externalProductCode": "46035916",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h82/heb/8973578043422/Product-Color-Selector-Mobile-275215624-Concrete-Y-Ridge-Protector20-Clay-Redjpg",
+                  "length": 1,
+                  "name": "Zanda Protector valmtetning",
+                },
+                Object {
+                  "code": "275216624_Zanda_Protector_ridge_end_clayred",
+                  "externalProductCode": "46035946",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hf8/h63/8975106146334/Product-Color-Selector-Mobile-Zanda-Protector-moneavslutning-2jpg",
+                  "length": 1,
+                  "name": "Zanda Protector møneavslutning",
+                },
+              ],
+              "ridgeSpacing": Array [
+                Object {
+                  "end": 55,
+                  "start": 15,
+                  "value": 5,
+                },
+              ],
+              "ventilationHoodOptions": Array [
+                Object {
+                  "category": "ventilation",
+                  "code": "307900280_Ventilation_list_1m",
+                  "externalProductCode": "51614496",
+                  "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h88/h2c/8797946380318/Product-Color-Selector-Mobile_Ventilasjonslist-for-takfotlekt-Ventilasjonslist-for-takfotlekt.jpg",
+                  "name": "Ventilation_list_1m",
+                  "packSize": 1,
+                },
+              ],
+              "vergeOptions": Array [],
+              "width": 30,
+            },
+          ],
+          "width": 30,
+        },
+      ],
+      "underlays": Array [
+        Object {
+          "code": "200640_Underlay_Ultra_D_SK_1-2x25m",
+          "description": "",
+          "externalProductCode": "48796118",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hce/hdf/8993417592862/Product-Color-Selector-Mobile-BMI-Icopal-UltraD-rulljpg",
+          "length": 2500,
+          "minSupportedPitch": 15,
+          "name": "Icopal Ultra D SK",
+          "overlap": 25,
+          "width": 110,
+        },
+        Object {
+          "code": "201020_Underlay_Flexi-D_1x25m",
+          "description": "",
+          "externalProductCode": "56246986",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/he9/h67/8993416151070/Product-Color-Selector-Mobile-BMI-Icopal-FlexiD-rulljpg",
+          "length": 2500,
+          "minSupportedPitch": 15,
+          "name": "Underlag Flexi D 1x25m",
+          "overlap": 25,
+          "width": 90,
+        },
+        Object {
+          "code": "001066_Underlay_Super_D_1x15m",
+          "description": "",
+          "externalProductCode": "22208763",
+          "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hbb/h57/8993414709278/Product-Color-Selector-Mobile-BMI-Icopal-SuperD-rulljpg",
+          "length": 1500,
+          "minSupportedPitch": 15,
+          "name": "Icopal Super D",
+          "overlap": 25,
+          "width": 90,
+        },
+      ],
+    },
+    Object {
+      "public": true,
+    },
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space retries when getting 429: first and second requests match 1`] = `
+Array [
+  Array [
+    "https://graphql.contentful.com/content/v1/spaces/WEBTOOLS_CONTENTFUL_SPACE_VALUE/environments/WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE",
+    Object {
+      "body": Object {
+        "query": "
+    {
+      mainTileCollection(limit: 1000) {
+        items {
+          code
+          sys {
+            id
+          }
+        }
+      }
+    }
+    ",
+      },
+      "headers": Object {
+        "Authorization": "Bearer SOME_TOKEN",
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+  Array [
+    "https://graphql.contentful.com/content/v1/spaces/WEBTOOLS_CONTENTFUL_SPACE_VALUE/environments/WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE",
+    Object {
+      "body": Object {
+        "query": "
+    {
+      mainTileCollection(limit: 1000) {
+        items {
+          code
+          sys {
+            id
+          }
+        }
+      }
+    }
+    ",
+      },
+      "headers": Object {
+        "Authorization": "Bearer SOME_TOKEN",
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+  Array [
+    "https://graphql.contentful.com/content/v1/spaces/WEBTOOLS_CONTENTFUL_SPACE_VALUE/environments/WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE",
+    Object {
+      "body": Object {
+        "query": "
+          {
+            mainTile(id: \\"an id\\") {
+              code
+              name
+              category
+              minBattenGauge
+              maxBattenGaugeCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              eaveGaugeCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              ridgeSpacingCollection(limit: 20) {
+                items {
+                  ...RangeValueFragment
+                }
+              }
+              width
+              height
+              brokenBond
+              accessoriesCollection(limit: 50) {
+                items {
+                  ...AccessoryFragment
+                }
+              }
+              variantsCollection(limit: 20) {
+                items {
+                  code
+                  name
+                  image
+                  externalProductCode
+                  color
+                  halfTile {
+                    code
+                    name
+                    externalProductCode
+                    image
+                    width
+                  }
+                  hip {
+                    ... on RidgeTile {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                    ... on HipTile {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                    __typename
+                  }
+                  ridgeOptionsCollection(limit: 20) {
+                    items {
+                      code
+                      name
+                      externalProductCode
+                      image
+                      length
+                    }
+                  }
+                  vergeOptionsCollection(limit: 20) {
+                    items {
+                      ... on MetalFlushOption {
+                        name
+                        left {
+                          ...VergeMetalFlushFragment
+                        }
+                        right {
+                          ...VergeMetalFlushFragment
+                        }
+                        leftStart {
+                          ...VergeMetalFlushFragment
+                        }
+                        rightStart {
+                          ...VergeMetalFlushFragment
+                        }
+                      }
+                      ... on TileVergeOption {
+                        name
+                        left {
+                          ...VergeTileFragment
+                        }
+                        right {
+                          ...VergeTileFragment
+                        }
+                        halfLeft {
+                          ...HalfVergeTileFragment
+                        }
+                        halfRight {
+                          ...HalfVergeTileFragment
+                        }
+                      }
+                      __typename
+                    }
+                  }
+                  ventilationHoodOptionsCollection(limit: 20) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  accessoriesCollection(limit: 50) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  eaveAccessoriesCollection(limit: 50) {
+                    items {
+                      ...AccessoryFragment
+                    }
+                  }
+                  minBattenGauge
+                  maxBattenGaugeCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  eaveGaugeCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  ridgeSpacingCollection(limit: 20) {
+                    items {
+                      ...RangeValueFragment
+                    }
+                  }
+                  width
+                  height
+                }
+              }
+            }
+          }
+          
+          fragment VergeMetalFlushFragment on VergeMetalFlush {
+            code
+            name
+            externalProductCode
+            image
+            length
+          }
+          
+          fragment VergeTileFragment on VergeTile {
+            code
+            name
+            externalProductCode
+            image
+            width
+          }
+          
+          fragment HalfVergeTileFragment on HalfVergeTile {
+            code
+            name
+            externalProductCode
+            image
+            width
+          }
+          
+          fragment RangeValueFragment on RangeValue {
+            start
+            end
+            value
+          }
+          
+          fragment AccessoryFragment on Accessory {
+            code
+            name
+            externalProductCode
+            packSize
+            image
+            category
+          }      
+          ",
+      },
+      "headers": Object {
+        "Authorization": "Bearer SOME_TOKEN",
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space thorws when getting error other than 429: thrown error 1`] = `
+Array [
+  Array [
+    "ERROR!",
+    400,
+    "Bad Request",
+  ],
+  Array [
+    [Error: Bad Request],
+  ],
+]
+`;
