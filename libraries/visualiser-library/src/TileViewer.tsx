@@ -6,7 +6,7 @@ import modelCache from "./ModelCache";
 import getRef from "./GetRef";
 import textureCache from "./TextureCache";
 import { Colour, Siding, Tile } from "./Types";
-import styles from "./__styles__/TileViewer.module.scss";
+import styles from "./styles/TileViewer.module.scss";
 
 interface Props {
   tile: Tile;

@@ -9,7 +9,7 @@ import textureCache from "./TextureCache";
 import getRef from "./GetRef";
 import roofSegmentGenerator from "./RoofSegmentGenerator";
 import { Colour, Siding, Tile } from "./Types";
-import styles from "./__styles__/HouseViewer.module.scss";
+import styles from "./styles/HouseViewer.module.scss";
 
 interface Props {
   tile: Tile;
@@ -51,6 +51,7 @@ export default class HouseViewer extends React.Component<Props, State> {
   }
 
   UNSAFE_getDerivedStateFromProps(props: Props) {
+    // TODO: Doesn't go into the if statement on change
     if (
       props.tile !== this.props.tile ||
       props.colour !== this.props.colour ||
@@ -169,6 +170,9 @@ export default class HouseViewer extends React.Component<Props, State> {
       if (!ridgeEndMesh) {
         return;
       }
+
+      // eslint-disable-next-line no-console
+      console.log(`TileMesh: ${tileMesh}`);
 
       // Generate the roof now:
       this.generateRoof(tileInfo, mat, tileMesh, ridgeMesh, ridgeEndMesh);
