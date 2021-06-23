@@ -6,9 +6,9 @@ const {
 module.exports.description = "Remove Recaptcha configuration";
 
 module.exports.up = (migration) => {
-  removeRecaptcha();
+  removeRecaptcha(migration);
 };
 
 module.exports.down = (migration) => {
-  addRecaptcha();
+  addRecaptcha(migration);
 };
