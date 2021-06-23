@@ -2,8 +2,6 @@ import { Buffer } from "buffer";
 import { getDbPool } from "../db";
 import { Account } from "../types";
 
-const { AUTH0_NAMESPACE } = process.env;
-
 export const parseHeaders = (req): Account => {
   const logger = req.logger("userInfo");
   const userInfo = req.headers["x-apigateway-api-userinfo"];
@@ -24,7 +22,7 @@ export default async (req, res, next) => {
 
   if (user) {
     req.user = {
-      email: user[`${AUTH0_NAMESPACE}/email`],
+      email: user[`${process.env.AUTH0_NAMESPACE}/email`],
       iss: user.iss,
       iat: user.iat,
       exp: user.exp,
@@ -46,7 +44,7 @@ export default async (req, res, next) => {
         firstName: users[0].first_name,
         lastName: users[0].last_name,
         marketId: users[0].market_id,
-        marketCode: users[0].market_domain,
+        marketDomain: users[0].market_domain,
         status: users[0].status,
         doceboUserId: users[0].docebo_user_id,
         doceboUsername: users[0].docebo_username,

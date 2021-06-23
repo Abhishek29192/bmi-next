@@ -1,4 +1,5 @@
-import { createAccount, invite } from "../";
+import { completeInvitation, createAccount, invite } from "../";
+import * as eventsSrv from "../../../services/events";
 
 const mockQuery = jest.fn();
 const mockResolve = jest.fn();
@@ -20,11 +21,10 @@ describe("Account", () => {
     getUserByEmail: mockAuth0GetUserByEmail,
     createUser: mockAuth0CreateUser
   };
-  let contextMock = {
+  let contextMock: any = {
     user: {
       sub: "user-sub",
-      id: null,
-      companyId: null
+      id: null
     },
     pgClient: { query: mockQuery },
     logger: () => ({
@@ -66,20 +66,7 @@ describe("Account", () => {
 
       await createAccount(mockResolve, null, args, contextMock, null, auth0);
 
-      expect(mockQuery.mock.calls).toEqual([
-        [`SAVEPOINT graphql_mutation`],
-        [`SELECT set_config('app.current_account_id', $1, true);`, [1]],
-        [`SELECT * FROM company`, []],
-        [`SELECT * FROM create_company()`, []],
-        ["select * from market where id = $1", [1]],
-        ["RELEASE SAVEPOINT graphql_mutation"]
-      ]);
-
-      expect(mockAuth0Update).toBeCalledWith("user-sub", {
-        app_metadata: {
-          intouch_user_id: 1
-        }
-      });
+      expect(mockQuery.mock.calls).toMatchSnapshot();
     });
   });
 
@@ -100,8 +87,10 @@ describe("Account", () => {
       });
       mockAuth0GetUserByEmail.mockResolvedValueOnce([]);
       mockCreateResetPasswordTicket.mockResolvedValueOnce({
-        tiket: "my-ticket"
+        ticket: "my-ticket"
       });
+
+      const spy = jest.spyOn(eventsSrv, "publish");
 
       mockQuery.mockResolvedValueOnce({}).mockResolvedValueOnce({
         rows: [
@@ -111,9 +100,29 @@ describe("Account", () => {
         ]
       });
 
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          email: "email@email.com",
+          company: {
+            id: 1
+          }
+        },
+        pgClient: { query: mockQuery },
+        logger: () => ({
+          error: () => {},
+          info: () => {}
+        })
+      };
+
       await invite(null, args, contextMock, null, auth0);
 
       expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.email);
+
+      expect(mockQuery.mock.calls).toMatchSnapshot();
+      expect(spy.mock.calls).toMatchSnapshot();
+
       expect(mockAuth0CreateUser).toBeCalledWith({
         email: args.input.email,
         connection: "Username-Password-Authentication",
@@ -127,6 +136,82 @@ describe("Account", () => {
           last_name: args.input.lastName
         }
       });
+    });
+
+    it("should complete an invitation", async () => {
+      const args = {
+        companyId: 1
+      };
+
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          firstName: "Name",
+          lastName: "Lastname",
+          role: "INSTALLER",
+          email: "email@email.com",
+          company: {
+            id: 1
+          }
+        },
+        pgClient: { query: mockQuery },
+        logger: () => ({
+          error: () => {},
+          info: () => {}
+        })
+      };
+
+      mockQuery
+        .mockResolvedValueOnce({ rows: [] }) // savepoint
+        .mockResolvedValueOnce({ rows: [{ id: 1, market_id: 1 }] }) // invitation
+        .mockResolvedValueOnce({ rows: [{ id: 1, market_id: 1 }] }) // account
+        .mockResolvedValueOnce({ rows: [] }) // config
+        .mockResolvedValueOnce({
+          rows: [{ id: 1, account_id: 1, company_id: 1 }]
+        }) // link_to_company
+        .mockResolvedValueOnce({
+          rows: [{ id: "id", domain: "en" }]
+        }); // market
+
+      await completeInvitation(null, args, contextMock, null, auth0);
+
+      expect(mockQuery.mock.calls).toMatchSnapshot();
+    });
+
+    it("should rollback an invitation if a query throw an error", async () => {
+      const args = {
+        companyId: 1
+      };
+
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          firstName: "Name",
+          lastName: "Lastname",
+          role: "INSTALLER",
+          email: "email@email.com",
+          company: {
+            id: 1
+          }
+        },
+        pgClient: { query: mockQuery },
+        logger: () => ({
+          error: () => {},
+          info: () => {}
+        })
+      };
+
+      mockQuery
+        .mockResolvedValueOnce({ rows: [] }) // savepoint
+        .mockRejectedValueOnce({}); // invitation
+
+      try {
+        await completeInvitation(null, args, contextMock, null, auth0);
+      } catch (error) {
+        expect(mockQuery.mock.calls).toMatchSnapshot();
+      }
     });
   });
 });

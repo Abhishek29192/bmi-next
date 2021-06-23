@@ -84,36 +84,7 @@ export const updateAccount = async (
   context,
   resolveInfo,
   auth0
-) => {
-  let result;
-
-  const { pgClient, user } = context;
-  const logger = context.logger("service:account");
-
-  await pgClient.query("SAVEPOINT graphql_mutation");
-
-  try {
-    result = await resolve(source, args, context, resolveInfo);
-
-    const doceboUserId = result.data["@account"].doceboUserId;
-
-    const app_metadata: any = {
-      intouch_docebo_id: doceboUserId
-    };
-
-    await auth0.updateUser(user.sub, {
-      app_metadata
-    });
-
-    return result;
-  } catch (error) {
-    logger.error("update account", error);
-    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
-    throw error;
-  } finally {
-    await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
-  }
-};
+) => await resolve(source, args, context, resolveInfo);
 
 export const invite = async (_query, args, context, resolveInfo, auth0) => {
   const logger = context.logger("service:account");
@@ -125,7 +96,8 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
   if (user.role === "INSTALLER")
     throw new Error("you must be an admin to invite other users");
 
-  let [auth0User] = await auth0.getUserByEmail(email);
+  let auth0Users = await auth0.getUserByEmail(email);
+  let auth0User = auth0Users?.length ? auth0Users[0] : null;
 
   const password = `Gj$1${crypto.randomBytes(20).toString("hex")}`;
 
@@ -190,8 +162,6 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
       email: email
     });
 
-    logger.info(`app_metadata for user: ${auth0User.user_id} updated`);
-
     return invitations[0];
   } catch (error) {
     logger.error("complete invitation", error);
@@ -228,16 +198,10 @@ export const completeInvitation = async (
       [companyId]
     );
 
-    logger.info("invitations", invitations);
-
-    logger.info("input:", user);
-
     const { rows: users } = await pgClient.query(
       "INSERT INTO account (market_id, email, first_name, last_name, role) VALUES ($1, $2, $3, $4, $5) RETURNING *",
       [invitations[0].market_id, user.email, firstName, lastName, role]
     );
-
-    logger.info("users", users);
 
     await pgClient.query(
       `SELECT set_config('app.current_account_id', $1, true);`,
@@ -249,14 +213,10 @@ export const completeInvitation = async (
       [users[0].id, invitations[0].id]
     );
 
-    logger.info("company_members", users);
-
     const { rows: markets } = await pgClient.query(
       "select * from market where id = $1",
       [users[0].market_id]
     );
-
-    logger.info("markets", markets);
 
     logger.info(
       `Added reletion with id: ${company_members[0].id} between user: ${company_members[0].account_id} and company ${company_members[0].company_id}`
