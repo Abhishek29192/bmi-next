@@ -1,11 +1,8 @@
 import React from "react";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-
-import { getAuth0Instance } from "../../lib/auth0";
 import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
 import { ProjectsInsight } from "../../components/Cards/ProjectsInsight";
@@ -14,20 +11,9 @@ import { TeamTab } from "../../components/Tabs/Team";
 import { GuaranteeTab } from "../../components/Tabs/Guarantee";
 import { UploadsTab } from "../../components/Tabs/Uploads";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
-
-const projectDetails = [
-  { id: 1, name: "Old Brompton Library", company: "JS Roofers" },
-  { id: 2, name: "Kensington School", company: "Mark's Roofing" },
-  { id: 3, name: "Greenwich Observatory", company: "Horizon Roofing Co" },
-  { id: 4, name: "Camden Crown Pub", company: "JS Roofers" },
-  { id: 5, name: "Leyton Sports Hall", company: "JS Roofers" }
-];
+import { useGetProjectQuery } from "../../graphql/generated/hooks";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
-  const projectDetail = projectDetails.find(
-    (detail) => detail.id === projectId
-  );
-
   if (!projectId) {
     return (
       <Grid item xs={12}>
@@ -43,34 +29,47 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
     );
   }
 
+  const { data: { project = null } = {}, loading } = useGetProjectQuery({
+    variables: {
+      projectId: projectId
+    }
+  });
+
+  if (loading) return <></>;
+
+  const getProjectStatus = (startDate, endDate) => {
+    if (!startDate && !endDate) return "Not started";
+    else if (startDate && !endDate) return "In progress";
+    else return "Completed";
+  };
+
   return (
     <>
       <Grid item xs={12} md={8}>
         <ProjectsHeader
-          title={projectDetail.name}
-          projectCode="PROFLO-d1847"
-          projectStatus="In progress"
-          buildingAddress="8 Old Brompton Road, South Kensington, London, SW7 3SS"
-          projectDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum
-          dolor sit amet..."
-          startDate="24 Feb 2021"
-          endDate="30 March 2022"
-          guarantee="Not requested"
-          guaranteeStatus="N/A"
+          title={project.name}
+          projectCode={`${project.id}`}
+          projectStatus={getProjectStatus(project.startDate, project.endDate)}
+          buildingAddress={`${project.siteAddress.firstLine}, ${project.siteAddress.secondLine}, ${project.siteAddress.region}, ${project.siteAddress.town}, ${project.siteAddress.postcode}`}
+          projectDescription={project.description}
+          startDate={project.startDate}
+          endDate={project.endDate}
+          guarantee="-"
+          guaranteeStatus="-"
         />
 
         <BuildingOwnerDetails
-          name="Lewis Hamilton"
-          email="l.hamilton@f1mercedes.com"
-          company="JP Morgan"
-          address="2 Flanton Road, Bow, London, E1 4FG"
+          name={`${project.buildingOwnerFirstname} ${project.buildingOwnerLastname}`}
+          email={project.buildingOwnerMail}
+          company={project.buildingOwnerCompany}
+          address={`${project.buildingOwnerAddress?.firstLine}, ${project.buildingOwnerAddress?.secondLine}, ${project.buildingOwnerAddress?.region}, ${project.buildingOwnerAddress?.town}, ${project.buildingOwnerAddress?.postcode}`}
         />
       </Grid>
 
       <Grid item xs={12} md={4}>
         <ProjectsInsight
-          daysRemaining="180"
-          totalDays="185"
+          daysRemaining="1"
+          totalDays="5"
           certifiedInstallers="0"
         />
       </Grid>
@@ -97,17 +96,36 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
-  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
-  return auth0.withPageAuthRequired({
-    async getServerSideProps({ locale, ...ctx }) {
-      return {
-        props: {
-          ...(await serverSideTranslations(locale, ["common"]))
-        }
-      };
-    }
-  })(ctx);
-};
+export default ProjectDetail;
 
-export default withPageAuthRequired(ProjectDetail);
+export const GET_PROJECT = gql`
+  query GetProject($projectId: Int!) {
+    project(id: $projectId) {
+      id
+      name
+      technology
+      roofArea
+      startDate
+      endDate
+      description
+      siteAddress {
+        firstLine
+        secondLine
+        town
+        region
+        postcode
+      }
+      buildingOwnerFirstname
+      buildingOwnerLastname
+      buildingOwnerCompany
+      buildingOwnerMail
+      buildingOwnerAddress {
+        firstLine
+        secondLine
+        town
+        region
+        postcode
+      }
+    }
+  }
+`;

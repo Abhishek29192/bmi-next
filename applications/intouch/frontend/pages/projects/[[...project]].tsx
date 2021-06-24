@@ -5,45 +5,44 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { gql } from "@apollo/client";
+import { withPage } from "../../lib/middleware/withPage";
 import GridStyles from "../../styles/Grid.module.scss";
 import { ProjectSidePanel } from "../../components/SidePanel/ProjectSidePanel";
-import { getAuth0Instance } from "../../lib/auth0";
 import { Layout } from "../../components/Layout";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
+import { GetProjectsQuery } from "../../graphql/generated/operations";
+import { getServerPageGetProjects } from "../../graphql/generated/page";
 
 import ProjectDetail from "./project-detail";
 
-const projectDetails = [
-  { id: 1, name: "Old Brompton Library", company: "JS Roofers" },
-  { id: 2, name: "Kensington School", company: "Mark's Roofing" },
-  { id: 3, name: "Greenwich Observatory", company: "Horizon Roofing Co" },
-  { id: 4, name: "Camden Crown Pub", company: "JS Roofers" },
-  { id: 5, name: "Leyton Sports Hall", company: "JS Roofers" }
-];
+export type PageProps = {
+  projects: GetProjectsQuery["projects"];
+};
 
-const Projects = () => {
+const Projects = ({ projects }: PageProps) => {
   const { t } = useTranslation("common");
   const router = useRouter();
 
   const [activeProjectId, setActiveProjectId] = useState<number>(null);
 
   useEffect(() => {
-    const currentPath = router.query.project;
+    const currentProjectId: number =
+      parseInt((router.query.project || [])[0]) || projects?.nodes[0]?.id;
 
-    if (currentPath) {
-      setActiveProjectId(+currentPath[0]);
-    }
+    setActiveProjectId(currentProjectId);
   }, [router]);
 
   const sidePanelHandler = (projectId: number) => {
-    setActiveProjectId(projectId);
+    //setActiveProjectId(projectId);
+    router.push(`/projects/${projectId}`, undefined, { shallow: true });
   };
 
   return (
     <Layout title={t("Projects")}>
       <div style={{ display: "flex" }}>
         <ProjectSidePanel
-          projectDetails={projectDetails}
+          projects={projects}
           onProjectSelected={sidePanelHandler}
         />
 
@@ -53,10 +52,10 @@ const Projects = () => {
           className={GridStyles.outerGrid}
           alignItems="stretch"
         >
-          {projectDetails.length > 0 && (
+          {projects?.nodes?.length > 0 && (
             <ProjectDetail projectId={activeProjectId} />
           )}
-          {!projectDetails.length && (
+          {!projects?.nodes?.length && (
             <Grid item xs={12}>
               <NoProjectsCard title="No projects to display">
                 <Typography variant="subtitle2">
@@ -75,17 +74,42 @@ const Projects = () => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
-  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
-  return auth0.withPageAuthRequired({
-    async getServerSideProps({ locale, ...ctx }) {
-      return {
-        props: {
-          ...(await serverSideTranslations(locale, ["common"]))
-        }
-      };
+export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
+  const {
+    props: {
+      data: { projects }
     }
-  })(ctx);
-};
+  } = await getServerPageGetProjects({}, apolloClient);
+
+  const props = {
+    projects,
+    ...(await serverSideTranslations(locale, [
+      "common",
+      "sidebar",
+      "footer",
+      "project-page"
+    ]))
+  };
+
+  return { props };
+});
 
 export default withPageAuthRequired(Projects);
+
+export const GET_PROJECTS = gql`
+  query GetProjects {
+    projects {
+      nodes {
+        id
+        name
+        technology
+        startDate
+        endDate
+        siteAddress {
+          town
+          postcode
+        }
+      }
+    }
+  }
+`;
