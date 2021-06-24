@@ -71,10 +71,10 @@ const getQueryObject = (queryString, page = 0, filters = []) => {
 
   const queryElements = [
     {
-      match: {
-        pageData: {
-          query: queryString
-        }
+      query_string: {
+        query: `*${queryString}*`,
+        type: "cross_fields",
+        fields: ["pageData"]
       }
     },
     ...filtersQuery
