@@ -97,20 +97,56 @@ export const renderImage = (data?: Data, options: Options = {}) => {
 export default Image;
 
 export const query = graphql`
-  fragment ImageFragment on ContentfulImage {
+  fragment BaseImageFragment on ContentfulImage {
     type
     altText
     caption {
       caption
     }
     type
+    focalPoint {
+      x
+      y
+    }
+  }
+  fragment ImageFragment on ContentfulImage {
+    ...BaseImageFragment
     image {
       ...AssetFragment
       gatsbyImageData(placeholder: BLURRED)
     }
-    focalPoint {
-      x
-      y
+  }
+  fragment ImageGallerySlideFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 1392
+        formats: [WEBP, JPG, AUTO]
+      )
+    }
+  }
+  fragment ImageCardFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 580
+        formats: [WEBP, JPG, AUTO]
+      )
+    }
+  }
+  fragment ImageSlideFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 684
+        formats: [WEBP, JPG, AUTO]
+      )
     }
   }
 `;

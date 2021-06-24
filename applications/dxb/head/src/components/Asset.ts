@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 
 export type Data = {
+  fluid: any;
   resize: {
     src: string;
   };
