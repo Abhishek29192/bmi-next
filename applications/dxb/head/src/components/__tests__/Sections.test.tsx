@@ -368,6 +368,116 @@ describe("Sections component", () => {
     expect(container.children).toMatchSnapshot();
   });
 
+  it("renders correctly when incomplete", () => {
+    const data = [
+      {
+        __typename: "ContentfulTabsOrAccordionSection",
+        description: { description: "string" },
+        items: [
+          {
+            __typename: "ContentfulTitleWithContent",
+            title: "hello",
+            content: {
+              raw: contentMock,
+              references: []
+            }
+          }
+        ],
+        title: "string",
+        type: "Accordion"
+      },
+      {
+        __typename: "ContentfulTabsOrAccordionSection",
+        description: { description: "string" },
+        items: [
+          {
+            __typename: "ContentfulTitleWithContent",
+            title: "hello",
+            content: {
+              raw: contentMock,
+              references: []
+            }
+          }
+        ],
+        title: "string",
+        type: "Tabs"
+      },
+      {
+        __typename: "ContentfulSyndicateSection"
+      }
+    ] as Data;
+
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
+    expect(container.children).toMatchSnapshot();
+  });
+
+  it("renders correctly with 1 villain", () => {
+    const data = [
+      {
+        __typename: "ContentfulTabsOrAccordionSection",
+        description: { description: "string" },
+        items: [
+          {
+            __typename: "ContentfulTitleWithContent",
+            title: "hello",
+            content: {
+              raw: contentMock,
+              references: []
+            }
+          }
+        ],
+        title: "string",
+        type: "Accordion"
+      },
+      {
+        __typename: "ContentfulTabsOrAccordionSection",
+        description: { description: "string" },
+        items: [
+          {
+            __typename: "ContentfulTitleWithContent",
+            title: "hello",
+            content: {
+              raw: contentMock,
+              references: []
+            }
+          }
+        ],
+        title: "string",
+        type: "Tabs"
+      },
+      {
+        __typename: "ContentfulSyndicateSection",
+        title: "Title",
+        villains: [
+          {
+            __typename: "ContentfulPromo",
+            id: "1234",
+            title: "Villain 1",
+            brandLogo: null,
+            tags: null,
+            subtitle: null,
+            body: null,
+            featuredMedia: null,
+            cta: null,
+            featuredVideo: null
+          }
+        ],
+        isReversed: false
+      }
+    ] as Data;
+
+    const { container } = render(
+      <MockSiteContext>
+        <Sections data={data} />
+      </MockSiteContext>
+    );
+    expect(container.children).toMatchSnapshot();
+  });
+
   it("doesnt render correctly if doesnt resolve to component", () => {
     const data: Data = [
       {

@@ -2015,3 +2015,493 @@ HTMLCollection [
   </div>,
 ]
 `;
+
+exports[`Sections component renders correctly when incomplete 1`] = `
+HTMLCollection [
+  <div
+    id="string"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            string
+          </h2>
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1"
+          >
+            string
+          </p>
+          <div
+            style="margin-top: 40px;"
+          >
+            <div
+              class="Accordion"
+            >
+              <div
+                class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  class="MuiButtonBase-root MuiAccordionSummary-root"
+                  data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiAccordionSummary-content"
+                  >
+                    <h3
+                      class="MuiTypography-root Typography MuiTypography-h6"
+                    >
+                      hello
+                    </h3>
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    aria-hidden="true"
+                    class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="MuiCollapse-container MuiCollapse-hidden"
+                  style="min-height: 0px;"
+                >
+                  <div
+                    class="MuiCollapse-wrapper"
+                  >
+                    <div
+                      class="MuiCollapse-wrapperInner"
+                    >
+                      <div
+                        role="region"
+                      >
+                        <div
+                          class="MuiAccordionDetails-root details"
+                        >
+                          <div
+                            class="RichText"
+                          >
+                            <p
+                              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                            >
+                              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="string"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section Section--pearl"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            string
+          </h2>
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1"
+          >
+            string
+          </p>
+          <div
+            style="margin-top: 40px;"
+          >
+            <div
+              class="Tabs Tabs--primary"
+            >
+              <div
+                class="TabsBar"
+              >
+                <div
+                  class="Container"
+                >
+                  <div
+                    class="MuiContainer-root MuiContainer-maxWidthXl"
+                  >
+                    <div
+                      class="MuiTabs-root"
+                    >
+                      <div
+                        class="MuiTabs-scrollable"
+                        style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                      />
+                      <div
+                        class="MuiTabs-scroller MuiTabs-scrollable"
+                        style="margin-bottom: 0px;"
+                      >
+                        <div
+                          aria-label="tabs"
+                          class="MuiTabs-flexContainer"
+                          role="tablist"
+                        >
+                          <button
+                            aria-controls="tabpanel-hello"
+                            aria-selected="true"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                            data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                            id="tab-hello"
+                            role="tab"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <span
+                              class="MuiTab-wrapper"
+                            >
+                              hello
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </button>
+                        </div>
+                        <span
+                          class="PrivateTabIndicator-root-14 PrivateTabIndicator-colorPrimary-15 MuiTabs-indicator"
+                          style="left: 0px; width: 0px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-labelledby="tab-hello"
+                class="MuiGrid-root TabPanel MuiGrid-item"
+                heading="hello"
+                id="tabpanel-hello"
+                role="tabpanel"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-18 TabPanelBox"
+                >
+                  <div
+                    class="RichText"
+                  >
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                    >
+                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      />
+    </div>
+  </div>,
+]
+`;
+
+exports[`Sections component renders correctly with 1 villain 1`] = `
+HTMLCollection [
+  <div
+    id="string"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            string
+          </h2>
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1"
+          >
+            string
+          </p>
+          <div
+            style="margin-top: 40px;"
+          >
+            <div
+              class="Accordion"
+            >
+              <div
+                class="MuiPaper-root MuiAccordion-root item MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-expanded="false"
+                  class="MuiButtonBase-root MuiAccordionSummary-root"
+                  data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiAccordionSummary-content"
+                  >
+                    <h3
+                      class="MuiTypography-root Typography MuiTypography-h6"
+                    >
+                      hello
+                    </h3>
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    aria-hidden="true"
+                    class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                  >
+                    <span
+                      class="MuiIconButton-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="MuiCollapse-container MuiCollapse-hidden"
+                  style="min-height: 0px;"
+                >
+                  <div
+                    class="MuiCollapse-wrapper"
+                  >
+                    <div
+                      class="MuiCollapse-wrapperInner"
+                    >
+                      <div
+                        role="region"
+                      >
+                        <div
+                          class="MuiAccordionDetails-root details"
+                        >
+                          <div
+                            class="RichText"
+                          >
+                            <p
+                              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                            >
+                              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="string"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Section Section--pearl"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h2
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          >
+            string
+          </h2>
+          <p
+            class="MuiTypography-root Typography MuiTypography-body1"
+          >
+            string
+          </p>
+          <div
+            style="margin-top: 40px;"
+          >
+            <div
+              class="Tabs Tabs--primary"
+            >
+              <div
+                class="TabsBar"
+              >
+                <div
+                  class="Container"
+                >
+                  <div
+                    class="MuiContainer-root MuiContainer-maxWidthXl"
+                  >
+                    <div
+                      class="MuiTabs-root"
+                    >
+                      <div
+                        class="MuiTabs-scrollable"
+                        style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                      />
+                      <div
+                        class="MuiTabs-scroller MuiTabs-scrollable"
+                        style="margin-bottom: 0px;"
+                      >
+                        <div
+                          aria-label="tabs"
+                          class="MuiTabs-flexContainer"
+                          role="tablist"
+                        >
+                          <button
+                            aria-controls="tabpanel-hello"
+                            aria-selected="true"
+                            class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                            data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
+                            id="tab-hello"
+                            role="tab"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <span
+                              class="MuiTab-wrapper"
+                            >
+                              hello
+                            </span>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </button>
+                        </div>
+                        <span
+                          class="PrivateTabIndicator-root-19 PrivateTabIndicator-colorPrimary-20 MuiTabs-indicator"
+                          style="left: 0px; width: 0px;"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-labelledby="tab-hello"
+                class="MuiGrid-root TabPanel MuiGrid-item"
+                heading="hello"
+                id="tabpanel-hello"
+                role="tabpanel"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-23 TabPanelBox"
+                >
+                  <div
+                    class="RichText"
+                  >
+                    <p
+                      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                    >
+                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="Title"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="Villain Villain--full-size ColorPair ColorPair--blue-800"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root container MuiContainer-maxWidthXl"
+        >
+          <div
+            class="content"
+          >
+            <h2
+              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            >
+              Villain 1
+            </h2>
+            <div
+              class="text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

@@ -26,7 +26,7 @@ const TeamList = ({ data }: { data: Data }) => {
     <div>
       <EqualHeights>
         <Grid container justify="center" spacing={3}>
-          {data.slice(0, numberVisible).map((teamMember, index) => {
+          {data?.slice(0, numberVisible).map((teamMember, index) => {
             const { name, jobTitle, profileImage, links } = teamMember;
             const src = profileImage?.image.resize.src;
 
@@ -68,7 +68,7 @@ const TeamList = ({ data }: { data: Data }) => {
               </Grid>
             );
           })}
-          {numberVisible < data.length ? (
+          {data && numberVisible < data.length ? (
             <Button
               variant="outlined"
               onClick={() =>

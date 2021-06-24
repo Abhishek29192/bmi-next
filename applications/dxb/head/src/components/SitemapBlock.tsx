@@ -60,11 +60,11 @@ const WrapperComponent = ({
 const SitemapBlock = ({ links, label, level = 0 }: Props) => {
   const { countryCode } = useContext(SiteContext);
 
-  const validSitemapLinks = links.filter(isValidSitemapType);
+  const validSitemapLinks = links?.filter(isValidSitemapType);
 
   return (
     <WrapperComponent isChild={level > 0}>
-      {validSitemapLinks.map((link) => {
+      {validSitemapLinks?.map((link) => {
         const { __typename } = link;
 
         if (__typename === "ContentfulLink") {
