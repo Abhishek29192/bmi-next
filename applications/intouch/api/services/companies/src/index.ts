@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 import { WinstonLogger } from "@bmi/logger";
+import { graphqlUploadExpress } from "graphql-upload";
 
 import { setEnvFromSecrets } from "./services/secrets";
 import { postgraphile } from "./postgraphile";
@@ -19,10 +20,10 @@ async function main() {
   ]);
 
   const app = express();
-
-  app.use(express.json());
-  // Add logger to req
   app.use(WinstonLogger);
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+  app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
 
   // Parse header to get current user info
   app.use(parseUserInfo);
@@ -34,7 +35,8 @@ async function main() {
   app.use(postgraphile());
 
   app.use((err, req, res, next) => {
-    req.logger("index").error(err.stack);
+    const logger = req.logger("index");
+    logger.error(err.stack);
     return res.send(err);
   });
 

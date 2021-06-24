@@ -41,6 +41,8 @@ export type Scalars = {
   JSON: any;
   /** The 'Quality' type represents quality as whole numeric values between `1` and `100`. */
   Quality: any;
+  /** The `Upload` scalar type represents a file upload. */
+  Upload: any;
   _Any: any;
   /**
    * Used to represent a set of fields. Grammatically, a field set is a
@@ -665,6 +667,11 @@ export type AssetOrder =
   | "sys_firstPublishedAt_DESC"
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
+
+export type BulkImportInput = {
+  files: Array<Scalars["Upload"]>;
+  dryRun?: Maybe<Scalars["Boolean"]>;
+};
 
 export type BusinessType =
   | "CONTRACTOR"
@@ -2504,7 +2511,7 @@ export type CourseTemp = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses are listed higher than others */
+  /** Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -2535,7 +2542,7 @@ export type CourseTempInput = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses are listed higher than others */
+  /** Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -2557,7 +2564,7 @@ export type CourseTempPatch = {
   name?: Maybe<Scalars["String"]>;
   /** A reference to the image */
   image?: Maybe<Scalars["String"]>;
-  /** Promoted courses are listed higher than others */
+  /** Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API */
   promoted?: Maybe<Scalars["Boolean"]>;
   /** Some text from Docebo indicating whether it is a webinar, classroom etc */
   trainingType?: Maybe<Scalars["String"]>;
@@ -5981,6 +5988,14 @@ export type ImageTransformOptions = {
   format?: Maybe<ImageFormat>;
 };
 
+export type ImportPayload = {
+  __typename?: "ImportPayload";
+  systemsToUpdate?: Maybe<Array<Maybe<System>>>;
+  systemsToInsert?: Maybe<Array<Maybe<System>>>;
+  productsToUpdate?: Maybe<Array<Maybe<Product>>>;
+  productsToInsert?: Maybe<Array<Maybe<Product>>>;
+};
+
 /** An invitation to join InTouch */
 export type Invitation = Node & {
   __typename?: "Invitation";
@@ -6017,6 +6032,8 @@ export type InvitationCondition = {
   senderAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `status` field. */
+  status?: Maybe<InvitationStatus>;
   /** Checks for equality with the object’s `invitee` field. */
   invitee?: Maybe<Scalars["String"]>;
 };
@@ -6072,6 +6089,8 @@ export type InvitationsOrderBy =
   | "SENDER_ACCOUNT_ID_DESC"
   | "COMPANY_ID_ASC"
   | "COMPANY_ID_DESC"
+  | "STATUS_ASC"
+  | "STATUS_DESC"
   | "INVITEE_ASC"
   | "INVITEE_DESC"
   | "PRIMARY_KEY_ASC"
@@ -7043,6 +7062,7 @@ export type MigrationOrder =
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: "Mutation";
+  bulkImport?: Maybe<ImportPayload>;
   completeInvitation?: Maybe<Account>;
   courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
   courseCatalogueUpdateByTemp?: Maybe<CourseCatalogueUpdateByTempPayload>;
@@ -7343,6 +7363,11 @@ export type Mutation = {
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationBulkImportArgs = {
+  input: BulkImportInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */

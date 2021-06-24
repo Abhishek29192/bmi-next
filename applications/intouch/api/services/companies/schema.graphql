@@ -4494,6 +4494,8 @@ enum InvitationsOrderBy {
   SENDER_ACCOUNT_ID_DESC
   COMPANY_ID_ASC
   COMPANY_ID_DESC
+  STATUS_ASC
+  STATUS_DESC
   INVITEE_ASC
   INVITEE_DESC
   PRIMARY_KEY_ASC
@@ -4519,6 +4521,11 @@ input InvitationCondition {
   Checks for equality with the object’s `companyId` field.
   """
   companyId: Int
+
+  """
+  Checks for equality with the object’s `status` field.
+  """
+  status: InvitationStatus
 
   """
   Checks for equality with the object’s `invitee` field.
@@ -6196,6 +6203,12 @@ type Mutation {
     input: InviteInput!
   ): Invitation
   completeInvitation(companyId: Int!): Account
+  bulkImport(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: BulkImportInput!
+  ): ImportPayload
 }
 
 """
@@ -11797,6 +11810,23 @@ input InviteInput {
   lastName: String!
   role: Role!
 }
+
+type ImportPayload {
+  systemsToUpdate: [System]
+  systemsToInsert: [System]
+  productsToUpdate: [Product]
+  productsToInsert: [Product]
+}
+
+input BulkImportInput {
+  files: [Upload!]!
+  dryRun: Boolean
+}
+
+"""
+The `Upload` scalar type represents a file upload.
+"""
+scalar Upload
 
 """
 Used to represent a set of fields. Grammatically, a field set is a
