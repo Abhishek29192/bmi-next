@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import LocationCard, { DetailProps } from "@bmi/location-card";
+import MicroCopy from "@bmi/micro-copy";
 import withGTM from "../utils/google-tag-manager";
 import RichText, { RichTextData } from "./RichText";
 
@@ -32,7 +33,7 @@ export const getDetails = (
             target: "_blank",
             rel: "noopener noreferrer"
           },
-          label: "Address"
+          label: <MicroCopy path="global.address" />
         }
       ]
     : [];
@@ -42,7 +43,7 @@ export const getDetails = (
           type: "phone",
           text: phoneNumber,
           action: { model: "htmlLink", href: `tel:${phoneNumber}` },
-          label: "Telephone"
+          label: <MicroCopy path="global.telephone" />
         }
       ]
     : [];
@@ -52,7 +53,7 @@ export const getDetails = (
           type: "email",
           text: email,
           action: { model: "htmlLink", href: `mailto:${email}` },
-          label: "Email"
+          label: <MicroCopy path="global.email" />
         }
       ]
     : [];
