@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
 import { InfoPair } from "../../InfoPair";
+import { NoContent } from "../../NoContent";
 import styles from "./styles.module.scss";
 
 export type BuildingOwnerDetailsProps = {
@@ -22,12 +23,16 @@ export const BuildingOwnerDetails = ({
   return (
     <div className={styles.main}>
       <Typography variant="h5">{t("Building Owner Details")}</Typography>
-      <div className={styles.body}>
-        <InfoPair title={t("Name")}>{name}</InfoPair>
-        <InfoPair title={t("Email")}>{email}</InfoPair>
-        <InfoPair title={t("Company")}>{company}</InfoPair>
-        <InfoPair title={t("Building Owner Address")}>{address}</InfoPair>
-      </div>
+      {!company ? (
+        <NoContent message="Building owner details have not been added to this project" />
+      ) : (
+        <div className={styles.body}>
+          <InfoPair title={t("Name")}>{name}</InfoPair>
+          <InfoPair title={t("Email")}>{email}</InfoPair>
+          <InfoPair title={t("Company")}>{company}</InfoPair>
+          <InfoPair title={t("Building Owner Address")}>{address}</InfoPair>
+        </div>
+      )}
     </div>
   );
 };
