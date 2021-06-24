@@ -11,7 +11,6 @@ module.exports = {
     "!**/*.config.js",
     "!.*.js",
     "!**/.*.js",
-    "!libraries/visualiser-library/src/Visualiser/Functions/(ThreeJs|ThreeJsUtils)/**",
     "!coverage/**",
     "!jest/**",
     "!libraries/fetch-mocks/**",
