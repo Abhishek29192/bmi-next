@@ -40,6 +40,7 @@ module.exports = {
     "^.+\\.(ts|tsx)$": "ts-jest",
     "^.+\\.(js|jsx)$": "babel-jest"
   },
+  transformIgnorePatterns: ["node_modules/(?!(three)/)"],
   setupFiles: [
     "<rootDir>/jest/src/setEnvVars.ts",
     "<rootDir>/jest/src/setupTests.ts"
