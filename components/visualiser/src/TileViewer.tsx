@@ -1,67 +1,22 @@
-import React from "react";
 import * as THREE from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import modelCache from "./ModelCache";
 import getRef from "./GetRef";
 import textureCache from "./TextureCache";
-import { Colour, Siding, Tile } from "./Types";
-import styles from "./styles/TileViewer.module.scss";
+import Viewer, { Props, State } from "./Viewer";
 
-interface Props {
-  tile: Tile;
-  colour: Colour;
-  options: { contentSource: string };
-  siding: Siding;
-  setIsLoading: (isLoading: boolean) => void;
-}
-
-interface State {
-  isLoading: boolean;
-}
-
-export default class TileViewer extends React.Component<Props, State> {
+export default class TileViewer extends Viewer<Props, State> {
   tile?: GLTF;
-  controls?: OrbitControls;
-  renderer?: THREE.WebGLRenderer;
-  diffuseImage?: THREE.Texture;
-  metalicImage?: THREE.Texture;
-  normalImage?: THREE.Texture;
   tileMaterial?: THREE.MeshStandardMaterial;
-  scene?: THREE.Scene;
-  camera?: THREE.PerspectiveCamera;
-  container?: HTMLDivElement;
 
   constructor(props: Props) {
-    super(props);
-    this.state = {
-      isLoading: true
-    };
-    this.onWindowResize = this.onWindowResize.bind(this);
-    this.setIsLoading = this.setIsLoading.bind(this);
+    super(props, { isLoading: true });
   }
 
   UNSAFE_componentWillReceiveProps(props: Props) {
-    if (props.tile !== this.props.tile || props.colour !== this.props.colour) {
-      this.setIsLoading(true);
-      this.loadModel(props);
-      this.controls?.reset();
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.renderer) {
-      this.renderer.domElement?.parentNode?.removeChild(
-        this.renderer.domElement
-      );
-    }
-    window.removeEventListener("resize", this.onWindowResize);
-  }
-
-  componentDidMount() {
-    this.setIsLoading(true);
-    this.load();
-    window.addEventListener("resize", this.onWindowResize, false);
+    super.UNSAFE_componentWillReceiveProps(props);
+    this.controls?.reset();
   }
 
   async loadModel(props: Props) {
@@ -250,41 +205,5 @@ export default class TileViewer extends React.Component<Props, State> {
 
     this.renderFrame();
     this.loadModel(this.props);
-  }
-
-  onWindowResize() {
-    this.renderFrame();
-  }
-
-  renderFrame() {
-    if (!this.container) {
-      return;
-    }
-
-    const size = this.container.getBoundingClientRect();
-    this.camera!.aspect = size.width / size.height;
-    this.camera!.updateProjectionMatrix();
-
-    this.renderer!.setSize(size.width, size.height);
-    this.renderer!.render(this.scene!, this.camera!);
-  }
-
-  setIsLoading(isLoading: boolean) {
-    if (this.props.setIsLoading) {
-      this.props.setIsLoading(isLoading);
-    }
-    this.setState({ isLoading });
-  }
-
-  render() {
-    return (
-      <div className={styles["tile-viewer"]}>
-        <div
-          ref={(r) => {
-            this.container = r;
-          }}
-        />
-      </div>
-    );
   }
 }

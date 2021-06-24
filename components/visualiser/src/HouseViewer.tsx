@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-import React from "react";
 import * as THREE from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -9,72 +7,38 @@ import textureCache from "./TextureCache";
 import getRef from "./GetRef";
 import roofSegmentGenerator from "./RoofSegmentGenerator";
 import { Colour, Siding, Tile } from "./Types";
-import styles from "./styles/HouseViewer.module.scss";
+import Viewer, { Props as ViewerProps, State as ViewerState } from "./Viewer";
 
-interface Props {
-  tile: Tile;
-  colour: Colour;
-  options: { contentSource: string };
+interface Props extends ViewerProps {
   siding: Siding;
-  setIsLoading: (isLoading: boolean) => void;
 }
 
-interface State {
-  isLoading: boolean;
+interface State extends ViewerState {
   colour?: Colour;
   siding?: Siding;
 }
 
-export default class HouseViewer extends React.Component<Props, State> {
-  ready?: unknown;
-  diffuseImage?: THREE.Texture;
-  metalicImage?: THREE.Texture;
-  normalImage?: THREE.Texture;
+export default class HouseViewer extends Viewer<Props, State> {
   snowFences?: THREE.Object3D[];
   roof?: THREE.Group;
   walls?: THREE.Mesh;
-  scene?: THREE.Scene;
-  camera?: THREE.PerspectiveCamera;
-  container?: HTMLDivElement;
   houseLoader?: unknown;
   sidingMaterial?: unknown;
-  controls?: OrbitControls;
-  renderer?: THREE.WebGLRenderer;
 
   constructor(props: Props) {
-    super(props);
-    this.state = {
-      isLoading: true
-    };
-    this.onWindowResize = this.onWindowResize.bind(this);
-    this.setIsLoading = this.setIsLoading.bind(this);
+    super(props, { isLoading: true });
   }
 
-  UNSAFE_getDerivedStateFromProps(props: Props) {
-    // TODO: Doesn't go into the if statement on change
-    if (
-      props.tile !== this.props.tile ||
-      props.colour !== this.props.colour ||
-      props.siding !== this.props.siding
-    ) {
-      this.setIsLoading(true);
-      this.loadModel(props);
-    }
+  propsChanged(props: Props) {
+    return super.propsChanged(props) || props.siding !== this.props.siding;
   }
 
   async loadModel(props: Props) {
-    if (!this.ready) {
-      return;
-    }
-
     if (props.colour !== this.state.colour) {
       this.setState({
         colour: props.colour
       });
-
-      await new Promise((resolve) =>
-        resolve(this.loadHouse(props.colour, props.tile))
-      );
+      await this.loadHouse(props.colour, props.tile);
     }
 
     if (props.siding !== this.state.siding) {
@@ -394,7 +358,7 @@ export default class HouseViewer extends React.Component<Props, State> {
           );
 
           // Offset along the axis by the min of the bounding box such that the min face
-          // sits exactly at 0. This helps line up objects of constying length.
+          // sits exactly at 0. This helps line up objects of varying length.
           placementHelper.position.set(0, -0.05, -(boundingBox?.min.z || 0));
           placementHelper.rotation.y = Math.PI;
           placementHelper.updateMatrix();
@@ -648,7 +612,6 @@ export default class HouseViewer extends React.Component<Props, State> {
 				*/
 
           this.renderFrame();
-          this.ready = true;
           this.loadModel(this.props);
         }
       );
@@ -691,60 +654,8 @@ export default class HouseViewer extends React.Component<Props, State> {
     this.renderFrame();
   }
 
-  componentWillUnmount() {
-    if (this.renderer) {
-      this.renderer.domElement.parentNode?.removeChild(
-        this.renderer.domElement
-      );
-    }
-    window.removeEventListener("resize", this.onWindowResize);
-  }
-
-  componentDidMount() {
-    this.setIsLoading(true);
-    this.load();
-    window.addEventListener("resize", this.onWindowResize, false);
-  }
-
   deleteObject(scene: THREE.Group, name: string) {
     const obj = scene.getObjectByName(name);
     obj?.parent?.remove(obj);
-  }
-
-  onWindowResize() {
-    this.renderFrame();
-  }
-
-  renderFrame() {
-    if (!this.container) {
-      return;
-    }
-
-    const size = this.container.getBoundingClientRect();
-
-    this.camera!.aspect = size.width / size.height;
-    this.camera!.updateProjectionMatrix();
-
-    this.renderer!.setSize(size.width, size.height);
-    this.renderer!.render(this.scene!, this.camera!);
-  }
-
-  setIsLoading(isLoading: boolean) {
-    if (this.props.setIsLoading) {
-      this.props.setIsLoading(isLoading);
-    }
-    this.setState({ isLoading });
-  }
-
-  render() {
-    return (
-      <div className={styles["house-viewer"]}>
-        <div
-          ref={(r) => {
-            this.container = r;
-          }}
-        />
-      </div>
-    );
   }
 }

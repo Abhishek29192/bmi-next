@@ -15,7 +15,7 @@ import * as THREE from "three";
 export default (
   bufferGeometry: THREE.BufferGeometry,
   axisInTileUnits: number,
-  axis: "x" | "y" | "z",
+  axis: "x" | "z",
   keepSide: "left" | "right"
 ) => {
   // Get array of tri indices:
