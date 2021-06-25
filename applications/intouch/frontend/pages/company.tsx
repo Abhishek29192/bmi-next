@@ -37,7 +37,7 @@ import {
   getServerPageGetCurrentCompany
 } from "../graphql/generated/page";
 
-export type PageProps = {
+type PageProps = {
   company: GetCompanyQuery["company"];
 };
 
