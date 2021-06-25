@@ -1,9 +1,9 @@
-import { Role } from "@bmi/intouch-api-types";
 import { Request, Response } from "express";
 import { PostGraphileOptions } from "postgraphile";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import { TagsFilePlugin } from "postgraphile/plugins";
+import { Role } from "@bmi/intouch-api-types";
 import config from "../config";
 import { Account } from "../types/index";
 import { ExtendPlugin, WrapPlugin } from "./plugins";

@@ -1,4 +1,4 @@
-import { logger } from "@bmi/logger";
+import { logger } from "@bmi-digital/logger";
 
 export const config = {
   api: {

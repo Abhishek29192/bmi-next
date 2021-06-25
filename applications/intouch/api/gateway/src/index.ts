@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { WinstonLogger } from "@bmi/logger";
+import { WinstonLogger } from "@bmi-digital/logger";
 
 dotenv.config();
 import express from "express";
