@@ -6,8 +6,12 @@ test_intouch_companies:
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
-        - applications/intouch/api/companies/*
-  needs: [install]
+        - applications/intouch/api/services/companies/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
+  needs:
+    - install
   variables:
     PG_HOST: postgres
     PG_USER: postgres
@@ -27,8 +31,30 @@ test_intouch_companies:
       junit:
         - applications/intouch/api/services/companies/junit.xml
 
+build_intouch_api_companies_dev:
+  stage: build
+  needs: []
+  image: google/cloud-sdk
+  services:
+    - docker:dind
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gcloud builds submit . --config=applications/intouch/api/services/companies/cloudbuild.build.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN,_CI_COMMIT_SHORT_SHA=$CI_COMMIT_SHORT_SHA
+
 deploy_intouch_api_companies_dev:
   stage: deploy
+  needs:
+    - build_intouch_api_companies_dev
+    - test_intouch_companies
   image: google/cloud-sdk
   services:
     - docker:dind
@@ -36,7 +62,6 @@ deploy_intouch_api_companies_dev:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
         - applications/intouch/api/services/companies/**/*
-  needs: []
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json

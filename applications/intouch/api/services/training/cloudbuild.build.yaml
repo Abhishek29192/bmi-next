@@ -1,22 +1,26 @@
-# build the container image
+# File: cloudbuild.yaml
 steps:
+  # build the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "build",
         ".",
         "-t",
-        "eu.gcr.io/$PROJECT_ID/intouch-frontend:${_CI_COMMIT_SHORT_SHA}",
+        "gcr.io/$PROJECT_ID/intouch-api-service-training:${_CI_COMMIT_SHORT_SHA}",
         "-f",
-        "applications/intouch/frontend/dockerfile",
+        "./applications/intouch/api/services/training/dockerfile",
         "--build-arg",
         "NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}"
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
-      ["push", "eu.gcr.io/$PROJECT_ID/intouch-frontend:${_CI_COMMIT_SHORT_SHA}"]
+      [
+        "push",
+        "gcr.io/$PROJECT_ID/intouch-api-service-training:${_CI_COMMIT_SHORT_SHA}"
+      ]
 
-timeout: 3600s
+timeout: 1200s
 
 logsBucket: "gs://intouch-replaform-bucket"
