@@ -8,6 +8,7 @@ import OverviewCard from "@bmi/overview-card";
 import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Section from "@bmi/section";
+import { uniqBy } from "lodash";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "../components/Icon";
 import {
@@ -44,7 +45,7 @@ const ProductListing = ({
 
   const allVariants = useMemo(
     () =>
-      [...products]
+      uniqBy(products, (product) => product.name)
         .sort((a, b) => {
           // NOTE: Sort only by base product scoring weight
           const getWeightValue = (product) =>
