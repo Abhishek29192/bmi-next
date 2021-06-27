@@ -5,13 +5,17 @@ import Grid from "@bmi/grid";
 import Form from "@bmi/form";
 import TextField from "@bmi/text-field";
 import Checkbox from "@bmi/checkbox";
-import { CircularProgress } from "@material-ui/core";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { battenCalc } from "./calculation/calculate";
-import underlays from "./samples/underlays";
-import { guttering as gutteringList, hooks } from "./samples/guttering";
-import { ResultsObject, VergeOption } from "./types";
+import {
+  LengthBasedProduct,
+  MainTileVariant,
+  ResultsObject,
+  Underlay,
+  VergeOption,
+  Guttering
+} from "./types";
 import { Measurements } from "./types/roof";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
 import { AnalyticsContext } from "./helpers/analytics";
@@ -22,7 +26,7 @@ import { EmailFormValues } from "./types/EmailFormValues";
 type EmailAddressCollectionProps = {
   results: ResultsObject;
   area: number;
-  sendEmailAddress: (values: EmailFormValues) => Promise<any>;
+  sendEmailAddress: (values: EmailFormValues) => Promise<void>;
 };
 
 const EmailAddressCollection = ({
@@ -169,6 +173,9 @@ const getRemoveRow = (setRows) => (externalProductCode) =>
   );
 
 const Results = ({
+  underlays,
+  gutters,
+  gutterHooks,
   isDebugging,
   measurements,
   variant,
@@ -177,9 +184,12 @@ const Results = ({
   guttering,
   sendEmailAddress
 }: {
+  underlays: Underlay[];
+  gutters: Guttering[];
+  gutterHooks: LengthBasedProduct[];
   isDebugging?: boolean;
   measurements: Measurements;
-  variant: any;
+  variant: MainTileVariant;
   tileOptions: any;
   underlay: any;
   guttering: any;
@@ -211,7 +221,7 @@ const Results = ({
     let gutteringVariant, gutteringHook;
 
     if (guttering.gutteringVariant) {
-      gutteringVariant = gutteringList
+      gutteringVariant = gutters
         .find(({ name }) => guttering.guttering === name)
         .variants.find(
           ({ externalProductCode }) =>
@@ -220,7 +230,7 @@ const Results = ({
     }
 
     if (guttering.gutteringHook) {
-      gutteringHook = hooks.find(
+      gutteringHook = gutterHooks.find(
         ({ externalProductCode }) =>
           guttering.gutteringHook === externalProductCode
       );

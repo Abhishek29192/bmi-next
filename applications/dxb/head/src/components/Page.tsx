@@ -182,7 +182,7 @@ const Page = ({
                 variantCodeToPathMap={variantCodeToPathMap}
                 shareWidgetData={resources?.visualiserShareWidget}
               >
-                <Calculator>
+                <Calculator onError={() => navigate(`/${countryCode}/422`)}>
                   <div className={styles["content"]}>{children}</div>
                 </Calculator>
               </VisualiserProvider>

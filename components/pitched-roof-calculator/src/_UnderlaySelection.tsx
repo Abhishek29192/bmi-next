@@ -4,14 +4,14 @@ import CardRadioGroup from "@bmi/card-radio-group";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import getPitchValues from "./helpers/getPitchValues";
-import underlays from "./samples/underlays";
 import { DimensionsValues } from "./types/roof";
 import { AnalyticsContext } from "./helpers/analytics";
+import { Underlay } from "./types";
 
 type UnderlaySelectionRowProps = {
   // TODO: Type when importing from Contentful
   selected?: any;
-  options: ReadonlyArray<any>;
+  options: ReadonlyArray<Underlay>;
 };
 
 const validateUnderlayForPitchValues = (
@@ -23,6 +23,7 @@ const UnderlaySelectionRow = ({
   options,
   selected
 }: UnderlaySelectionRowProps) => {
+  const copy = useContext(MicroCopyContext);
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -35,9 +36,12 @@ const UnderlaySelectionRow = ({
         name="underlay"
         defaultValue={selected}
         isRequired
-        fieldIsRequiredError /* just needs to be truthy since it's not displayed anywhere */
+        fieldIsRequiredError={getMicroCopy(
+          copy,
+          "validation.errors.fieldRequired"
+        )}
       >
-        {options.map((underlay) => (
+        {options.map((underlay: Underlay) => (
           <CardRadioGroup.Item
             key={underlay.externalProductCode}
             value={underlay.externalProductCode}
@@ -64,11 +68,15 @@ const UnderlaySelectionRow = ({
   );
 };
 
-type UnderlaySelectionProps = Pick<UnderlaySelectionRowProps, "selected"> & {
+type UnderlaySelectionProps = Pick<
+  UnderlaySelectionRowProps,
+  "selected" | "options"
+> & {
   dimensions: DimensionsValues;
 };
 
 const UnderlaySelection = ({
+  options,
   dimensions,
   selected
 }: UnderlaySelectionProps) => {
@@ -76,7 +84,7 @@ const UnderlaySelection = ({
 
   const pitchValues = getPitchValues(dimensions);
 
-  const filteredOptions = underlays
+  const filteredOptions = options
     .filter((underlay) =>
       validateUnderlayForPitchValues(underlay.minSupportedPitch, pitchValues)
     )

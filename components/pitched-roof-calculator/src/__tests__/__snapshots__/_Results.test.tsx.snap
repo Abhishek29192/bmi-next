@@ -134,7 +134,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Test Guttering Grey",
       "externalProductCode": "4391",
       "packSize": "-",
@@ -142,7 +142,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Test Guttering Hook Grey",
       "externalProductCode": "4392",
       "packSize": "-",
@@ -150,7 +150,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Downpipe",
       "externalProductCode": "33332",
       "packSize": "-",
@@ -158,7 +158,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Downpipe Connector",
       "externalProductCode": "33331",
       "packSize": "-",
@@ -206,7 +206,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",
@@ -657,7 +657,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Test Guttering Grey",
       "externalProductCode": "4391",
       "packSize": "-",
@@ -665,7 +665,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Test Guttering Hook Grey",
       "externalProductCode": "4392",
       "packSize": "-",
@@ -673,7 +673,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Downpipe",
       "externalProductCode": "33332",
       "packSize": "-",
@@ -681,7 +681,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Downpipe Connector",
       "externalProductCode": "33331",
       "packSize": "-",
@@ -729,7 +729,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",
@@ -1253,7 +1253,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Test Guttering Grey",
       "externalProductCode": "4391",
       "packSize": "-",
@@ -1261,7 +1261,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Test Guttering Hook Grey",
       "externalProductCode": "4392",
       "packSize": "-",
@@ -1269,7 +1269,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Downpipe",
       "externalProductCode": "33332",
       "packSize": "-",
@@ -1277,7 +1277,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Downpipe Connector",
       "externalProductCode": "33331",
       "packSize": "-",
@@ -1325,7 +1325,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",
@@ -1744,7 +1744,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
   "rows": [
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Test Guttering Grey",
       "externalProductCode": "4391",
       "packSize": "-",
@@ -1752,7 +1752,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Test Guttering Hook Grey",
       "externalProductCode": "4392",
       "packSize": "-",
@@ -1760,7 +1760,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Downpipe",
       "externalProductCode": "33332",
       "packSize": "-",
@@ -1768,7 +1768,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       "description": "Downpipe Connector",
       "externalProductCode": "33331",
       "packSize": "-",
@@ -1816,7 +1816,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",
@@ -2307,7 +2307,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
     },
     {
       "category": "accessories",
-      "image": "path-to-image",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",

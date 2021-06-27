@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { MicroCopy } from "../helpers/microCopy";
+import data from "../samples/data.json";
 import en from "../samples/copy/en.json";
 import Results from "../_Results";
 import { Measurements } from "../types/roof";
@@ -371,22 +372,25 @@ const resultsProps = {
     width: 33.2,
     height: 42,
     brokenBond: true
-  },
+  } as any,
   tileOptions: {
     verge: "Verge Metal Flush",
     ridge: "46035761",
     ventilation: ["100456781"]
-  },
+  } as any,
   underlay: {
     underlay: "26583450"
-  },
+  } as any,
   guttering: {
     guttering: "Test Guttering",
     gutteringVariant: "4391",
     gutteringHook: "4392",
     downPipes: 2,
     downPipeConnectors: 3
-  }
+  } as any,
+  underlays: data.underlays as any,
+  gutters: data.gutters as any,
+  gutterHooks: data.gutterHooks as any
 };
 
 describe("PitchedRoofCalculator Results component", () => {

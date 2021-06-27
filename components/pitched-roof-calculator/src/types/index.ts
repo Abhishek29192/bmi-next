@@ -48,20 +48,21 @@ export type Accessory = BaseVariant & {
 };
 
 export type Underlay = BaseVariant & {
+  description?: string;
   minSupportedPitch: number;
   length: number;
   width: number;
   overlap: number;
 };
 
-export type GutteringVaraint = LengthBasedProduct & {
+export type GutteringVariant = LengthBasedProduct & {
   downpipe: Accessory;
   downpipeConnector: Accessory;
 };
 
 export type Guttering = BaseProduct & {
   image: string;
-  variants: GutteringVaraint[];
+  variants: GutteringVariant[];
 };
 
 export type BaseTile = {
@@ -77,23 +78,23 @@ export type BaseTile = {
 export type MainTileVariant = BaseVariant &
   BaseTile & {
     color: string;
-    halfTile: WidthBasedProduct;
+    halfTile?: WidthBasedProduct;
     hip: LengthBasedProduct;
     ridgeOptions: LengthBasedProduct[];
     vergeOptions: VergeOption[];
-    valleyMetalFlushStart: LengthBasedProduct;
-    valleyMetalFlush: LengthBasedProduct;
-    valleyMetalFlushEnd: LengthBasedProduct;
-    valleyMetalFlushTop: LengthBasedProduct;
-    valleyMetalFlushDormerStart: LengthBasedProduct;
+    valleyMetalFlushStart?: LengthBasedProduct;
+    valleyMetalFlush?: LengthBasedProduct;
+    valleyMetalFlushEnd?: LengthBasedProduct;
+    valleyMetalFlushTop?: LengthBasedProduct;
+    valleyMetalFlushDormerStart?: LengthBasedProduct;
     accessories: Accessory[];
     eaveAccessories: Accessory[];
-    clip: Accessory;
-    ridgeAndHipScrew: Accessory;
-    longScrew: Accessory;
-    screw: Accessory;
-    stormBracket: Accessory;
-    finishingKit: Accessory;
+    clip?: Accessory;
+    ridgeAndHipScrew?: Accessory;
+    longScrew?: Accessory;
+    screw?: Accessory;
+    stormBracket?: Accessory;
+    finishingKit?: Accessory;
     ventilationHoodOptions: Accessory[];
   };
 
@@ -111,6 +112,13 @@ export type ProductCategory =
   | "sealing"
   | "ventilation"
   | "accessories";
+
+export type Data = {
+  mainTiles: MainTile[];
+  gutters: Guttering[];
+  gutterHooks: LengthBasedProduct[];
+  underlays: Underlay[];
+};
 
 export type ResultsRow = {
   category: ProductCategory;
