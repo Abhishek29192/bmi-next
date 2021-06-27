@@ -10,8 +10,6 @@ describe("CourseDescription component", () => {
         <CourseDescription
           title="Basic competency programme (BCP)"
           type="Pitched roof"
-          status="In progress"
-          image="https://source.unsplash.com/MjLrM8rVMC0/799x500/?architecture"
         >
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem

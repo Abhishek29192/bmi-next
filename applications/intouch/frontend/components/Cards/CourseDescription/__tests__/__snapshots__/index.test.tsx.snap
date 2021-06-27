@@ -15,13 +15,6 @@ exports[`CourseDescription component renders correctly 1`] = `
     <div
       class="header"
     >
-      <div
-        class="bannerImage"
-      >
-        <img
-          src="https://source.unsplash.com/MjLrM8rVMC0/799x500/?architecture"
-        />
-      </div>
       <div>
         <div
           class="metadata"
@@ -47,9 +40,7 @@ exports[`CourseDescription component renders correctly 1`] = `
           </div>
           <div
             class="status"
-          >
-            In progress
-          </div>
+          />
         </div>
         <div
           class="cta"
