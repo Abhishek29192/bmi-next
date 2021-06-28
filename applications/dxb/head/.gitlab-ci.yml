@@ -116,12 +116,11 @@ deploy_head_preview:
 baseline_scan_head_preview:
   stage: dynamic_security
   rules:
-    # - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
-    #   changes:
-    #     - applications/dxb/head/**/*
-    #     - components/**/*
-    #     - libraries/**/*
-    - when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - applications/dxb/head/**/*
+        - components/**/*
+        - libraries/**/*
   needs:
     - deploy_head_preview
   image: owasp/zap2docker-stable:latest
@@ -131,8 +130,10 @@ baseline_scan_head_preview:
       [ ! -f "deploy_head" ] && echo "Nothing deployed to test" && exit 0
       base_url=$(cat deploy_head)
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
-      xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${base_url}" applications/dxb/head/dast/mr.context
-      zap-baseline.py -t "${base_url}/no/" -r zap_output.html -n applications/dxb/head/mr.context -U qa || exit 0
+      mkdir /zap/wrk
+      cp applications/dxb/head/dast/* /zap/wrk
+      xmlstarlet ed --inplace -P -u '/configuration/context/authentication/form/loginurl' -v "${base_url}" /zap/wrk/mr.context
+      zap-baseline.py -t "${base_url}/no/" -r zap_output.html -n mr.context -U qa || exit 0
   artifacts:
     paths:
       - zap_output.html
