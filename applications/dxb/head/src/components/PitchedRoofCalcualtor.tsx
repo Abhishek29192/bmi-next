@@ -34,7 +34,15 @@ const CalculatorProvider = ({ children }: Props) => {
   };
 
   return (
-    <CalculatorContext.Provider value={{ isOpen, open }}>
+    <CalculatorContext.Provider
+      value={{
+        isOpen,
+        open:
+          process.env.GATSBY_ENABLE_WEBTOOLS_CALCULATOR === "true"
+            ? open
+            : () => {}
+      }}
+    >
       {children}
       {/* Currently, this is only available for Norway */}
       <MicroCopy.Provider values={no}>
