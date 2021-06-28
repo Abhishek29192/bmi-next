@@ -30,8 +30,7 @@ steps:
         "europe-west2",
         "--platform",
         "managed",
-        "--allow-unauthenticated",
-        "--set-env-vars=NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}"
+        "--allow-unauthenticated"
       ]
 
 timeout: 1200s

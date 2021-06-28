@@ -82,6 +82,10 @@ resource "google_cloud_run_service" "tf-gateway" {
           name  = "GCP_SECRET_PROJECT"
           value = "734962646925"
         }
+        env {
+          name  = "NPM_AUTH_READ_TOKEN"
+          value = ""
+        }
       }
     }
   }

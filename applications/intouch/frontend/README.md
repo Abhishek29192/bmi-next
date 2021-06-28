@@ -32,7 +32,7 @@ If you set `AUTH0_COOKIE_DOMAIN=local.intouch` and you add these domain in yout 
 
 you will be able to run the app in multimarket in all the above domains.
 
-When you run with multimarket and you register a user with the `en` subdomain and you try to access to another subdomain you will be redirected to the `en` subdomain
+When you run with multimarket and you register a user with the `en` subdomain and you try to access to another subdomain you will be redirected to the `en` subdomain.
 
 ## Workspaces
 
