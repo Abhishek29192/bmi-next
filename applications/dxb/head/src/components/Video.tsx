@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import YoutubeVideo from "@bmi/youtube-video";
+import { getSrc } from "gatsby-plugin-image";
 import { Data as ImageData } from "./Image";
 
 export type Data = {
@@ -28,7 +29,7 @@ export const renderVideo = (data: Data) => {
       videoId={youtubeId}
       embedHeight={videoRatio?.height || 0}
       embedWidth={videoRatio?.width || 0}
-      previewImageSource={previewMedia?.image?.resize.src || undefined}
+      previewImageSource={getSrc(previewMedia?.image?.gatsbyImageData)}
       className={className}
     />
   );
