@@ -58,6 +58,10 @@ const getRecaptchaSecretKey = async () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
     });
 
+    if (!recaptchaSecretKey[0].payload?.data) {
+      throw Error("Unable to get ReCaptcha secret key");
+    }
+
     recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
   }
   return recaptchaSecretKeyCache;

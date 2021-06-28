@@ -190,6 +190,48 @@ describe("Making a POST request", () => {
     expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
   });
 
+  it("returns status code 500 when the payload is undefined for ReCaptcha secret", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    accessSecretVersion.mockImplementationOnce(() => [{}]);
+
+    await submit(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
+  });
+
+  it("returns status code 500 when the data is undefined for ReCaptcha secret", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    accessSecretVersion.mockImplementationOnce(() => [{ payload: {} }]);
+
+    await submit(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
+  });
+
   it("returns status code 500 when the recaptcha request fails", async () => {
     const req = mockRequest();
     const res = mockResponse();
@@ -220,6 +262,39 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(500);
     expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
+  });
+
+  it("returns status code 400 when the recaptcha returns non-ok response", async () => {
+    const req = mockRequest();
+    const res = mockResponse();
+
+    accessSecretVersion.mockResolvedValueOnce([
+      { payload: { data: recaptchaSecret } }
+    ]);
+
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: "{}",
+      status: 400
+    });
+
+    await submit(req, res);
+
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(getSpace).toBeCalledTimes(0);
+    expect(getEnvironment).toBeCalledTimes(0);
+    expect(createAsset).toBeCalledTimes(0);
+    expect(processForAllLocales).toBeCalledTimes(0);
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
   });
 
   it("returns status code 400 when the recaptcha check fails", async () => {
