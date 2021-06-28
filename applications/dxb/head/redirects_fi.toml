@@ -319,7 +319,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/bitumiliuos-quick-prime-spray"
- to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/bitumiliuos-quick-prime-spray/234115420/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/bitumiliuos-quick-prime-spray/234115420/"
  force=true
 
 [[redirects]]
@@ -339,7 +339,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/universal-ft-teippi"
- to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/universal-ft-teippi/3386858025/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/universal-ft-teippi/3386858025/"
  force=true
 
 [[redirects]]
@@ -384,7 +384,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/tippapelti-2-5-m-rst"
- to="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/tippapelti-2.5-m-rst/1039787415/"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/jyrkat-viherkatot/tippapelti-2.5-m-rst/1039787415/"
  force=true
 
 [[redirects]]
@@ -439,12 +439,12 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/bitumiliuos-icopal"
- to="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/bitumiliuos-icopal/3021207913/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/bitumiliuos-icopal/3021207913/"
  force=true
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/holkkarima-bituminen"
- to="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/holkkarima-bituminen/musta/4235414418/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/holkkarima-bituminen/musta/4235414418/"
  force=true
 
 [[redirects]]
@@ -559,7 +559,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/valokate-fastlock-uni"
- to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/valokate-fastlock-uni/kirkas/358306903/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/valokate-fastlock-uni/kirkas/358306903/"
  force=true
 
 [[redirects]]
@@ -569,7 +569,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/vedeneristemassa-quickseal-2-5-l"
- to="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/nestemaiset-vedeneristeet/vedeneristemassa-quickseal-2.5-l/1884215290/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/vedeneristemassa-quickseal-2.5-l/1884215290/"
  force=true
 
 [[redirects]]
@@ -1369,12 +1369,12 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/salaojalevy-fonda-green-2-08-x-10-m"
- to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/salaojalevy-fonda-green-2.08-x-10-m/3781918164/"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/jyrkat-viherkatot/salaojalevy-fonda-green-2.08-x-10-m/3781918164/"
  force=true
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/icopal/salaojalevy-fonda-geoplex-10-2-x-15-m"
- to="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/salaojalevy-fonda-geoplex-10-2-x-15-m/2825099517/"
+ to="/fi/p/tuotteet-ja-ratkaisut/infra/fonda-geoplex/salaojalevy-fonda-geoplex-10-2-x-15-m/2825099517/"
  force=true
 
 [[redirects]]
@@ -1594,7 +1594,7 @@
 
 [[redirects]]
  from="/fi/tuotteet-ja-ratkaisut/products/ormax/tehopesu-katonpesuaine-5-l"
- to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-plus/tehopesu-katonpesuaine-5-l/1664725913/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/tehopesu-katonpesuaine-5-l/1664725913/"
  force=true
 
 [[redirects]]
@@ -2482,6 +2482,284 @@
  from="/fi/tuotteet-ja-ratkaisut/loivat-katot/tuotteet/sealoflex"
  to="/fi/tuotteet-ja-ratkaisut/loivat-katot/nestemaiset-vedeneristeet/"
  force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/loivat-katot/bmi-icopal"
+ to="/fi/bmi-suomi/bmi-icopal/"
+ force=true
+
+[[redirects]]
+ from="/fi/referenssit"
+ to="/fi/referenssit-ja-artikkelit/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/bmi-ormax"
+ to="/fi/bmi-suomi/bmi-ormax/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-plus/siisti-katto-katonpesuaine-5-l/1159737188/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/siisti-katto-katonpesuaine-5-l/1159737188/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/viherkaton-alar%C3%A4yst%C3%A4spelti-2.5-m-rst/2276591539/"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/jyrkat-viherkatot/viherkaton-alar%C3%A4yst%C3%A4spelti-2.5-m-rst/2276591539/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/products/ormax/ormax-protector"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-protector-plus/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/harjakattojen-tarvikkeet/ormax"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tarvikkeet-harjakatoille/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/kattopinnoite-ormax-18-l/tummanharmaa/matta/277750581/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/kattopinnoite-ormax-18-l/tummanharmaa/matta/277750581/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/kumibitumiliuos-siplast-primer-25-l/1717219958/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/kumibitumiliuos-siplast-primer-25-l/1717219958/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/bitumilakka-icopal/4138535849/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/bitumilakka-icopal/4138535849/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/products/ormax-evo"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/aurinkopaneeli-evo-105w/matta/800747926/~/link.aspx*"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/aurinkopaneeli-evo-105w/matta/800747926/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/kattopinnoite-ormax-18-l/tummanharmaa/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/kattopinnoite-ormax-18-l/tummanharmaa/matta/277750581/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/kattopinnoite-ormax-18-l/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/kattopinnoite-ormax-18-l/tummanharmaa/matta/277750581/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/salaojalevy-fonda-geoplex-10-2-x-15-m/2825099517/"
+ to="/fi/p/tuotteet-ja-ratkaisut/infra/fonda-geoplex/salaojalevy-fonda-geoplex-10-2-x-15-m/2825099517/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/bitumiliuos-icopal/3021207913/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/bitumiliuos-icopal/3021207913/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/products/ormax"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/"
+ force=true
+
+[[redirects]]
+ from="/fi/ammattilaisille/icopal-katto-oy"
+ to="/fi/bmi-suomi/icopal-katto-oy/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/viherkaton-p%C3%A4%C3%A4tyr%C3%A4yst%C3%A4spelti-2.5-m-rst/3864451928/"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/jyrkat-viherkatot/viherkaton-p%C3%A4%C3%A4tyr%C3%A4yst%C3%A4spelti-2.5-m-rst/3864451928/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-plus/tehopesu-katonpesuaine-5-l/1664725913/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/tehopesu-katonpesuaine-5-l/1664725913/"
+ force=true
+
+[[redirects]]
+ from="/fi/omakotiasujille/loyda-kattourakoitsija"
+ to="/fi/urakoitsijahaku/"
+ force=true
+
+[[redirects]]
+ from="/fi/hakusivu"
+ to="/fi/search"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/products/ormax/ormax"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-plus/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/bitumiliuos-quick-prime-spray/234115420/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/bitumiliuos-quick-prime-spray/234115420/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/nestemaiset-vedeneristeet/vedeneristemassa-quickseal-2.5-l/1884215290/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/vedeneristemassa-quickseal-2.5-l/1884215290/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/valokate-fastlock-uni/kirkas/358306903/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/valokate-fastlock-uni/kirkas/358306903/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/products/ormax/ywx1c2thdg"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/granat_nortegl_nova_rubin_turmalin_vittinge-e13_vittinge-t11"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/savikattotiilet/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/tuotteet/bitumiset-liimat-ja-liuokset"
+ to="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/katon-huoltoaineet/bitumiset-huoltoaineet/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/tippapelti-2.5-m-rst/1039787415/"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/jyrkat-viherkatot/tippapelti-2.5-m-rst/1039787415/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/holkkarima-bituminen/musta/4235414418/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/holkkarima-bituminen/musta/4235414418/"
+ force=true
+
+[[redirects]]
+ from="/fi/redirects/ormax-evo"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/tuotteet"
+ to="/fi/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/akku-lg-chem-resu-10h-9.3-kwh/3929577258/~/link.aspx*"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/akku-lg-chem-resu-10h-9.3-kwh/3929577258/"
+ force=true
+
+[[redirects]]
+ from="/fi/referenssit-ja-artikkelit/king-of-roofs-2021-pisa-saneeraus-pirkkala"
+ to="/fi/referenssit-ja-artikkelit/king-of-roofs-2021-pisa-kattoremontti-pirkkala/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/evo"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax_ormax-evo_ormax-protector"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/"
+ force=true
+
+[[redirects]]
+ from="/fi/esitteet-ja-dokumentit/esitteet/tuoteluettelot"
+ to="/fi/esitteet-ja-dokumentit/tuoteluettelot/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax/ormax_ormax-evo_ormax-protector_ormax-aerlox"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/kaikki-tuotteet/h%C3%B6yrynsulku-reflex-v-tek-2-x-80-m/sininen-/-valkoinen/295757984/"
+ to="/fi/p/tuotteet-ja-ratkaisut/loivat-katot/katteet-ja-hoyrynsulut-loiville-katoille/hoyrynsulut/h%C3%B6yrynsulku-reflex-v-tek-2-x-80-m/sininen-/-valkoinen/295757984/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/universal-ft-teippi/3386858025/"
+ to="/fi/p/tuotteet-ja-ratkaisut/muut-rakennustuotteet/muut-tuotteet/universal-ft-teippi/3386858025/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-protector/"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-protector-plus/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/ormax"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/granat_nortegl_nova_rubin_turmalin_vittinge-e13_vittinge-t11"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/savikattotiilet/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/savikattotiilet"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/savikattotiilet/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-plus/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/savikattotiilet/granat"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/savikattotiilet/granat/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/savikattotiilet/granat/lapetiili-granat/"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/savikattotiilet/granat/lapetiili-granat/enkopoitu-antrasiitti/enkopoitu/160015437/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tuotteet/salaojalevy-fonda-green-2.08-x-10-m/3781918164/"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/jyrkat-viherkatot/salaojalevy-fonda-green-2.08-x-10-m/3781918164/"
+ force=true
+
+[[redirects]]
+ from="/fi/tuotteet-ja-ratkaisut/harjakatot/tuotteet/-protector"
+ to="/fi/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-protector-plus/"
+ force=true
+
+[[redirects]]
+ from="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/aurinkopaneeli-evo-50w/kiilt%C3%A4v%C3%A4/799435427/~/link.aspx*"
+ to="/fi/p/tuotteet-ja-ratkaisut/harjakatot/tiilikatot/betonikattotiilet/ormax-evo/aurinkopaneeli-evo-50w/kiilt%C3%A4v%C3%A4/799435427/"
+ force=true
+
+
+
+[[redirects]]
+ from="/fi/sxa/file/download*"
+ to="/fi/esitteet-ja-dokumentit/"
+ force=true
+
 
 
 
