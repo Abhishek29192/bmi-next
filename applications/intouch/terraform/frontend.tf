@@ -38,16 +38,16 @@ resource "google_cloud_run_service" "default" {
           value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
         }
         env {
-          name  = "AUTH0_COOKIE_DOMAIN"
-          value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
-        }
-        env {
           name  = "GRAPHQL_URL"
           value = "https://intouchapip-9dmxs7t9.nw.gateway.dev/graphql"
         }
         env {
           name  = "GCP_SECRET_PROJECT"
           value = "734962646925"
+        }
+        env {
+          name  = "NPM_AUTH_READ_TOKEN"
+          value = ""
         }
       }
     }
