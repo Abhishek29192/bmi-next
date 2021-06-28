@@ -118,8 +118,8 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
       password,
       verify_email: false,
       user_metadata: {
-        type: role.toLowerCase(),
-        email,
+        registration_type: role.toLowerCase(),
+        market: user.marketDomain,
         first_name: firstName,
         last_name: lastName
       }
@@ -185,9 +185,21 @@ export const completeInvitation = async (
   const logger = context.logger("service:account");
 
   const user: Account = context.user;
-  const firstName = user.firstName;
-  const lastName = user.lastName;
-  const role = user.role;
+
+  let auth0Users = await auth0.getUserByEmail(user.email);
+  let auth0User = auth0Users?.length ? auth0Users[0] : null;
+
+  const first_name = auth0User.user_metadata.first_name;
+  const last_name = auth0User.user_metadata.last_name;
+
+  const role =
+    auth0User.user_metadata.registration_type === "company"
+      ? "COMPANY_ADMIN"
+      : "INSTALLER";
+
+  if (!auth0User) {
+    throw new Error("User missing in auth0, please contact the support");
+  }
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
@@ -199,8 +211,15 @@ export const completeInvitation = async (
     );
 
     const { rows: users } = await pgClient.query(
-      "INSERT INTO account (market_id, email, first_name, last_name, role) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-      [invitations[0].market_id, user.email, firstName, lastName, role]
+      "INSERT INTO account (market_id, email, first_name, last_name, role, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+      [
+        invitations[0].market_id,
+        user.email,
+        first_name,
+        last_name,
+        role,
+        "ACTIVE"
+      ]
     );
 
     await pgClient.query(

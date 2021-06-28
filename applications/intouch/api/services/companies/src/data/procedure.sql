@@ -116,8 +116,8 @@ BEGIN
   WHERE
     domain = market_code INTO market_id;
   IF FOUND THEN
-    INSERT INTO account ("email", "first_name", "last_name", "market_id", "role")
-      VALUES (account.email, account.first_name, account.last_name, market_id, account.role)
+    INSERT INTO account ("email", "first_name", "last_name", "market_id", "role", "status")
+      VALUES (account.email, account.first_name, account.last_name, market_id, account.role, 'ACTIVE')
     ON CONFLICT (email)
       DO UPDATE SET
         first_name = EXCLUDED.first_name, last_name = EXCLUDED.last_name, ROLE = EXCLUDED.role

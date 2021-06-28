@@ -7,6 +7,137 @@ import * as Apollo from "@apollo/client";
 import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
 
+export async function getServerPageAccountByEmail(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.AccountByEmailQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.AccountByEmailQuery>({
+    ...options,
+    query: Operations.AccountByEmailDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useAccountByEmail = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.AccountByEmailQuery,
+    OperationTypes.AccountByEmailQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.AccountByEmailDocument, options);
+};
+export type PageAccountByEmailComp = React.FC<{
+  data?: OperationTypes.AccountByEmailQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrAccountByEmail = {
+  getServerPage: getServerPageAccountByEmail,
+
+  usePage: useAccountByEmail
+};
+
+export async function getServerPageUserByEmail(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.UserByEmailQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.UserByEmailQuery>({
+    ...options,
+    query: Operations.UserByEmailDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useUserByEmail = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.UserByEmailQuery,
+    OperationTypes.UserByEmailQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.UserByEmailDocument, options);
+};
+export type PageUserByEmailComp = React.FC<{
+  data?: OperationTypes.UserByEmailQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrUserByEmail = {
+  getServerPage: getServerPageUserByEmail,
+
+  usePage: useUserByEmail
+};
+export async function getServerPageInvitations(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.InvitationsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.InvitationsQuery>({
+    ...options,
+    query: Operations.InvitationsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useInvitations = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.InvitationsQuery,
+    OperationTypes.InvitationsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.InvitationsDocument, options);
+};
+export type PageInvitationsComp = React.FC<{
+  data?: OperationTypes.InvitationsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrInvitations = {
+  getServerPage: getServerPageInvitations,
+
+  usePage: useInvitations
+};
+
 export async function getServerPageProductsAndSystems(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.ProductsAndSystemsQueryVariables>,

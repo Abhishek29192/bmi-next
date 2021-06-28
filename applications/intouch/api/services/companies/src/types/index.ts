@@ -16,6 +16,7 @@ export type Account = {
   firstName: string;
   lastName: string;
   marketId: string;
+  marketDomain: string;
   status: string;
   doceboUserId: string;
   doceboUsername: string;

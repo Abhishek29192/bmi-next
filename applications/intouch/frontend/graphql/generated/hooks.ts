@@ -86,6 +86,484 @@ export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
 >;
+export const AccountByEmailDocument = gql`
+  query accountByEmail($email: String!) {
+    accountByEmail(email: $email) {
+      id
+      role
+      marketId
+      doceboUserId
+      market {
+        domain
+        language
+        doceboCompanyAdminBranchId
+        doceboInstallersBranchId
+      }
+      companyMembers {
+        nodes {
+          company {
+            id
+            status
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useAccountByEmailQuery__
+ *
+ * To run a query within a React component, call `useAccountByEmailQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAccountByEmailQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAccountByEmailQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useAccountByEmailQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.AccountByEmailQuery,
+    OperationTypes.AccountByEmailQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.AccountByEmailQuery,
+    OperationTypes.AccountByEmailQueryVariables
+  >(AccountByEmailDocument, options);
+}
+export function useAccountByEmailLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.AccountByEmailQuery,
+    OperationTypes.AccountByEmailQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.AccountByEmailQuery,
+    OperationTypes.AccountByEmailQueryVariables
+  >(AccountByEmailDocument, options);
+}
+export type AccountByEmailQueryHookResult = ReturnType<
+  typeof useAccountByEmailQuery
+>;
+export type AccountByEmailLazyQueryHookResult = ReturnType<
+  typeof useAccountByEmailLazyQuery
+>;
+export type AccountByEmailQueryResult = Apollo.QueryResult<
+  OperationTypes.AccountByEmailQuery,
+  OperationTypes.AccountByEmailQueryVariables
+>;
+export const CreateAccountDocument = gql`
+  mutation CreateAccount($input: CreateAccountInput!) {
+    createAccount(input: $input) {
+      account {
+        id
+        role
+        email
+        firstName
+        lastName
+        marketId
+        market {
+          language
+          doceboCompanyAdminBranchId
+          doceboInstallersBranchId
+        }
+        companyMembers {
+          nodes {
+            company {
+              id
+              status
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export type CreateAccountMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateAccountMutation,
+  OperationTypes.CreateAccountMutationVariables
+>;
+
+/**
+ * __useCreateAccountMutation__
+ *
+ * To run a mutation, you first call `useCreateAccountMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateAccountMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createAccountMutation, { data, loading, error }] = useCreateAccountMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateAccountMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateAccountMutation,
+    OperationTypes.CreateAccountMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateAccountMutation,
+    OperationTypes.CreateAccountMutationVariables
+  >(CreateAccountDocument, options);
+}
+export type CreateAccountMutationHookResult = ReturnType<
+  typeof useCreateAccountMutation
+>;
+export type CreateAccountMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
+export type CreateAccountMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateAccountMutation,
+  OperationTypes.CreateAccountMutationVariables
+>;
+export const CreateDoceboUserDocument = gql`
+  mutation createDoceboUser($input: UserCreateInput!) {
+    createDoceboUser(input: $input) {
+      success
+      user_id
+    }
+  }
+`;
+export type CreateDoceboUserMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateDoceboUserMutation,
+  OperationTypes.CreateDoceboUserMutationVariables
+>;
+
+/**
+ * __useCreateDoceboUserMutation__
+ *
+ * To run a mutation, you first call `useCreateDoceboUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateDoceboUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createDoceboUserMutation, { data, loading, error }] = useCreateDoceboUserMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateDoceboUserMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateDoceboUserMutation,
+    OperationTypes.CreateDoceboUserMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateDoceboUserMutation,
+    OperationTypes.CreateDoceboUserMutationVariables
+  >(CreateDoceboUserDocument, options);
+}
+export type CreateDoceboUserMutationHookResult = ReturnType<
+  typeof useCreateDoceboUserMutation
+>;
+export type CreateDoceboUserMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
+export type CreateDoceboUserMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateDoceboUserMutation,
+  OperationTypes.CreateDoceboUserMutationVariables
+>;
+export const UpdateAccountDocument = gql`
+  mutation UpdateAccount($input: UpdateAccountInput!) {
+    updateAccount(input: $input) {
+      account {
+        id
+        doceboUserId
+      }
+    }
+  }
+`;
+export type UpdateAccountMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateAccountMutation,
+  OperationTypes.UpdateAccountMutationVariables
+>;
+
+/**
+ * __useUpdateAccountMutation__
+ *
+ * To run a mutation, you first call `useUpdateAccountMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateAccountMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateAccountMutation, { data, loading, error }] = useUpdateAccountMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateAccountMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateAccountMutation,
+    OperationTypes.UpdateAccountMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateAccountMutation,
+    OperationTypes.UpdateAccountMutationVariables
+  >(UpdateAccountDocument, options);
+}
+export type UpdateAccountMutationHookResult = ReturnType<
+  typeof useUpdateAccountMutation
+>;
+export type UpdateAccountMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
+export type UpdateAccountMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateAccountMutation,
+  OperationTypes.UpdateAccountMutationVariables
+>;
+export const UserByEmailDocument = gql`
+  query userByEmail($email: String!) {
+    userByEmail(email: $email) {
+      user_id
+    }
+  }
+`;
+
+/**
+ * __useUserByEmailQuery__
+ *
+ * To run a query within a React component, call `useUserByEmailQuery` and pass it any options that fit your needs.
+ * When your component renders, `useUserByEmailQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useUserByEmailQuery({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useUserByEmailQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.UserByEmailQuery,
+    OperationTypes.UserByEmailQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.UserByEmailQuery,
+    OperationTypes.UserByEmailQueryVariables
+  >(UserByEmailDocument, options);
+}
+export function useUserByEmailLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.UserByEmailQuery,
+    OperationTypes.UserByEmailQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.UserByEmailQuery,
+    OperationTypes.UserByEmailQueryVariables
+  >(UserByEmailDocument, options);
+}
+export type UserByEmailQueryHookResult = ReturnType<typeof useUserByEmailQuery>;
+export type UserByEmailLazyQueryHookResult = ReturnType<
+  typeof useUserByEmailLazyQuery
+>;
+export type UserByEmailQueryResult = Apollo.QueryResult<
+  OperationTypes.UserByEmailQuery,
+  OperationTypes.UserByEmailQueryVariables
+>;
+export const InvitationsDocument = gql`
+  query invitations($invitee: String!) {
+    invitations(condition: { invitee: $invitee, status: NEW }) {
+      nodes {
+        id
+        status
+        invitee
+        senderAccountId
+      }
+    }
+  }
+`;
+
+/**
+ * __useInvitationsQuery__
+ *
+ * To run a query within a React component, call `useInvitationsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useInvitationsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useInvitationsQuery({
+ *   variables: {
+ *      invitee: // value for 'invitee'
+ *   },
+ * });
+ */
+export function useInvitationsQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.InvitationsQuery,
+    OperationTypes.InvitationsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.InvitationsQuery,
+    OperationTypes.InvitationsQueryVariables
+  >(InvitationsDocument, options);
+}
+export function useInvitationsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.InvitationsQuery,
+    OperationTypes.InvitationsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.InvitationsQuery,
+    OperationTypes.InvitationsQueryVariables
+  >(InvitationsDocument, options);
+}
+export type InvitationsQueryHookResult = ReturnType<typeof useInvitationsQuery>;
+export type InvitationsLazyQueryHookResult = ReturnType<
+  typeof useInvitationsLazyQuery
+>;
+export type InvitationsQueryResult = Apollo.QueryResult<
+  OperationTypes.InvitationsQuery,
+  OperationTypes.InvitationsQueryVariables
+>;
+export const CompleteInvitationDocument = gql`
+  mutation completeInvitation($companyId: Int!) {
+    completeInvitation(companyId: $companyId) {
+      id
+      role
+      email
+      firstName
+      lastName
+      marketId
+      market {
+        language
+        domain
+        doceboCompanyAdminBranchId
+        doceboInstallersBranchId
+      }
+    }
+  }
+`;
+export type CompleteInvitationMutationFn = Apollo.MutationFunction<
+  OperationTypes.CompleteInvitationMutation,
+  OperationTypes.CompleteInvitationMutationVariables
+>;
+
+/**
+ * __useCompleteInvitationMutation__
+ *
+ * To run a mutation, you first call `useCompleteInvitationMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCompleteInvitationMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [completeInvitationMutation, { data, loading, error }] = useCompleteInvitationMutation({
+ *   variables: {
+ *      companyId: // value for 'companyId'
+ *   },
+ * });
+ */
+export function useCompleteInvitationMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CompleteInvitationMutation,
+    OperationTypes.CompleteInvitationMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CompleteInvitationMutation,
+    OperationTypes.CompleteInvitationMutationVariables
+  >(CompleteInvitationDocument, options);
+}
+export type CompleteInvitationMutationHookResult = ReturnType<
+  typeof useCompleteInvitationMutation
+>;
+export type CompleteInvitationMutationResult =
+  Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
+export type CompleteInvitationMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CompleteInvitationMutation,
+  OperationTypes.CompleteInvitationMutationVariables
+>;
+export const CreateSsoUrlDocument = gql`
+  mutation createSSOUrl($username: String!, $path: String) {
+    createSSOUrl(username: $username, path: $path) {
+      url
+    }
+  }
+`;
+export type CreateSsoUrlMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateSsoUrlMutation,
+  OperationTypes.CreateSsoUrlMutationVariables
+>;
+
+/**
+ * __useCreateSsoUrlMutation__
+ *
+ * To run a mutation, you first call `useCreateSsoUrlMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateSsoUrlMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createSsoUrlMutation, { data, loading, error }] = useCreateSsoUrlMutation({
+ *   variables: {
+ *      username: // value for 'username'
+ *      path: // value for 'path'
+ *   },
+ * });
+ */
+export function useCreateSsoUrlMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateSsoUrlMutation,
+    OperationTypes.CreateSsoUrlMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateSsoUrlMutation,
+    OperationTypes.CreateSsoUrlMutationVariables
+  >(CreateSsoUrlDocument, options);
+}
+export type CreateSsoUrlMutationHookResult = ReturnType<
+  typeof useCreateSsoUrlMutation
+>;
+export type CreateSsoUrlMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
+export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateSsoUrlMutation,
+  OperationTypes.CreateSsoUrlMutationVariables
+>;
 export const ProductsAndSystemsDocument = gql`
   query ProductsAndSystems {
     products {

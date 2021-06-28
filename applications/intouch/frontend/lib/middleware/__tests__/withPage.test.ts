@@ -147,7 +147,6 @@ describe("Middleware withPage", () => {
       }
     });
     expect(account).toEqual({
-      foo: "bar",
       market: {
         domain: "es"
       },

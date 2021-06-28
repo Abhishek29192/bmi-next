@@ -17,8 +17,6 @@ export const config = {
 const handler = async function (req: Request, res: NextApiResponse, next: any) {
   const logger = req.logger("graphql");
 
-  logger.info("test");
-
   if (!req.headers.authorization) {
     try {
       const auth0 = await getAuth0Instance(req, res);

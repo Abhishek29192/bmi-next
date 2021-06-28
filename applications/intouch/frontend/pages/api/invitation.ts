@@ -28,11 +28,10 @@ export const handler = async (req, res) => {
     res.end();
   } else {
     logger.info("Completing the invitation");
-    const { completeInvitation } = await accountSrv.completeAccountInvitation(
-      req
-    );
+    const { completeInvitation: account } =
+      await accountSrv.completeAccountInvitation(req);
 
-    await accountSrv.createDoceboUser(completeInvitation);
+    await accountSrv.createDoceboUser(account);
 
     res.writeHead(302, { Location: "/api/silent-login" });
     res.end();

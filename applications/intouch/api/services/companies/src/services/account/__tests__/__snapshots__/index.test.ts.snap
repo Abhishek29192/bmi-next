@@ -12,13 +12,14 @@ Array [
     ],
   ],
   Array [
-    "INSERT INTO account (market_id, email, first_name, last_name, role) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+    "INSERT INTO account (market_id, email, first_name, last_name, role, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
     Array [
       1,
       "email@email.com",
       "Name",
-      "Lastname",
+      "Name",
       "INSTALLER",
+      "ACTIVE",
     ],
   ],
   Array [

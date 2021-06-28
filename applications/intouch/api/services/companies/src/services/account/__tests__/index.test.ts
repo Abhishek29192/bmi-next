@@ -105,6 +105,7 @@ describe("Account", () => {
           sub: "user-sub",
           id: null,
           email: "email@email.com",
+          marketDomain: "en",
           company: {
             id: 1
           }
@@ -130,8 +131,8 @@ describe("Account", () => {
         password: "Gj$1Password",
         verify_email: false,
         user_metadata: {
-          type: args.input.role.toLocaleLowerCase(),
-          email: args.input.email,
+          registration_type: args.input.role.toLocaleLowerCase(),
+          market: contextMock.user.marketDomain,
           first_name: args.input.firstName,
           last_name: args.input.lastName
         }
@@ -161,6 +162,16 @@ describe("Account", () => {
           info: () => {}
         })
       };
+
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => [
+        {
+          user_metadata: {
+            first_name: "Name",
+            last_name: "Name",
+            registration_type: "installer"
+          }
+        }
+      ]);
 
       mockQuery
         .mockResolvedValueOnce({ rows: [] }) // savepoint
@@ -202,6 +213,16 @@ describe("Account", () => {
           info: () => {}
         })
       };
+
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => [
+        {
+          user_metadata: {
+            first_name: "Name",
+            last_name: "Name",
+            registration_type: "installer"
+          }
+        }
+      ]);
 
       mockQuery
         .mockResolvedValueOnce({ rows: [] }) // savepoint

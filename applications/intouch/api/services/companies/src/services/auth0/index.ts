@@ -45,7 +45,7 @@ class Auth0 {
         method: "GET",
         url: `https://${
           process.env.AUTH0_API_DOMAIN
-        }/api/v2/users-by-email?fields=user_id&email=${encodeURIComponent(
+        }/api/v2/users-by-email?include_fields=true&fields=user_id,user_metadata,email_verified&email=${encodeURIComponent(
           emailAddress
         )}`,
         headers: {
