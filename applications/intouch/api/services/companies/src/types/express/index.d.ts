@@ -1,7 +1,7 @@
 declare module Express {
   export interface Request {
     pubSub: any;
-    user: import("./../user");
+    user: import("./../index").Account;
     logger: (modue: string) => import("winston").Logger;
   }
 }

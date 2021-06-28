@@ -16,19 +16,8 @@
     "baseUrl": ".",
     "rootDirs": ["src"],
     "paths": {
-      "@bmi/*": ["../../../../../node_modules/@bmi/*/src"]
-    },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types",
-      "../../../../../node_modules/@types",
-      "../../../../../@types"
-    ]
-  },
-  "references": [
-    {
-      "path": "../../../../../libraries/logger"
+      "@bmi/intouch-api-types": ["../../types/index.d.ts"]
     }
-  ],
+  },
   "exclude": ["**/dist/**"]
 }

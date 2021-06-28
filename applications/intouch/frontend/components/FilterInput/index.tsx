@@ -4,9 +4,13 @@ import TextField from "@bmi/text-field";
 
 export type FilterInputProps = {
   label?: string;
+  onChange?: (value: string) => void;
 };
 
-export const FilterInput = ({ label }: FilterInputProps) => {
+export const FilterInput = ({ label, onChange }: FilterInputProps) => {
+  const handleOnChange = (newValue: string) => {
+    onChange && onChange(newValue);
+  };
   return (
     <nav>
       <TextField
@@ -16,6 +20,7 @@ export const FilterInput = ({ label }: FilterInputProps) => {
         variant="outlined"
         fullWidth
         leftAdornment={<Search />}
+        onChange={handleOnChange}
       />
     </nav>
   );

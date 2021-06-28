@@ -1211,7 +1211,7 @@ type CourseTemp {
   image: String
 
   """
-  Promoted courses are listed higher than others
+  Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API
   """
   promoted: Boolean
 
@@ -2320,7 +2320,7 @@ input CourseTempInput {
   image: String
 
   """
-  Promoted courses are listed higher than others
+  Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API
   """
   promoted: Boolean
 
@@ -3138,7 +3138,7 @@ input CourseTempPatch {
   image: String
 
   """
-  Promoted courses are listed higher than others
+  Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API
   """
   promoted: Boolean
 

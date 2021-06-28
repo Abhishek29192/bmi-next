@@ -75,7 +75,7 @@ const CardRadioGroup = ({
 };
 
 const CardRadioGroupFormControl = Object.defineProperty(
-  withFormControl<Props>(CardRadioGroup),
+  withFormControl<Props, string>(CardRadioGroup),
   "Item",
   {
     value: CardInput,

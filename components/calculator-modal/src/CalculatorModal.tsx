@@ -18,7 +18,7 @@ type Props = {
   backdropProps?: ModalProps["BackdropProps"];
   ariaLabelledby?: string;
   ariaDescribedby?: string;
-  children: React.ReactNode;
+  children: Exclude<React.ReactNode, null | undefined>;
   className?: string;
   headerCenter?: string;
 };

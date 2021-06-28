@@ -1,4 +1,4 @@
-import Filters, { Props as FilterProps } from "./Filters";
+import Filters from "./Filters";
 
-export type Props = FilterProps;
+export { Props as FilterProps, Filter } from "./Filters";
 export default Filters;

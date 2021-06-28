@@ -12,5 +12,8 @@ module.exports = {
     ],
     "@babel/preset-typescript",
     "@babel/preset-react"
+  ],
+  plugins: [
+    ["react-remove-properties", { properties: ["data-test", "data-testid"] }]
   ]
 };

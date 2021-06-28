@@ -14,7 +14,7 @@ const Grid = forwardRef(
         spacing={3}
         container
         className={classnames(styles["Grid"], {
-          [styles["Grid--justify"]]: rest.justify === "center"
+          [styles["Grid--justify"]!]: rest.justify === "center"
         })}
         ref={ref}
         {...rest}

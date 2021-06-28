@@ -31,7 +31,7 @@ const AnchorLink = ({
 }: Props) => {
   const { type, theme } = useContext(ColorPairContext);
   const colorFromTheme: Props["color"] =
-    color || typeToColorMap[type] || "default";
+    color || (type && typeToColorMap[type]) || "default";
 
   const arrowIcon = (
     <Icon
@@ -45,8 +45,8 @@ const AnchorLink = ({
   return (
     <Link
       className={classnames(className, styles["Anchorlink"], {
-        [styles["Anchorlink--disabled"]]: isDisabled,
-        [styles[`Anchorlink--${colorFromTheme}`]]:
+        [styles["Anchorlink--disabled"]!]: isDisabled,
+        [styles[`Anchorlink--${colorFromTheme}`]!]:
           theme !== "white" && colorFromTheme !== "default"
       })}
       {...rest}

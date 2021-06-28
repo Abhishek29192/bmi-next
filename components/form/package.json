@@ -1,5 +1,6 @@
 {
   "name": "@bmi/form",
+  "private": true,
   "version": "0.0.0",
   "license": "BMI-DXB",
   "src": "src/index.ts",
@@ -10,10 +11,7 @@
   },
   "dependencies": {
     "@bmi/button": "0.0.0",
-    "@bmi/checkbox": "0.0.0",
     "@bmi/grid": "0.0.0",
-    "@bmi/select": "0.0.0",
-    "@bmi/upload": "0.0.0",
     "classnames": "^2.2.6",
     "react": "^16.13.1"
   },

@@ -1,8 +1,9 @@
 import axios from "axios";
-import { createAccount, mutationCreateAccount } from "../";
 
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 process.env.GRAPHQL_URL = "GRAPHQL_URL";
+
+import { createAccount, mutationCreateAccount } from "../";
 
 jest.mock("axios");
 jest.mock("uuid", () => ({
@@ -13,31 +14,51 @@ describe("Account", () => {
   const session = {
     accessToken: "my-token",
     user: {
-      email: "email",
-      [`${process.env.AUTH0_NAMESPACE}/firstname`]: "Name",
-      [`${process.env.AUTH0_NAMESPACE}/lastname`]: "Lastname",
-      [`${process.env.AUTH0_NAMESPACE}/type`]: "company"
+      [`${process.env.AUTH0_NAMESPACE}/email`]: "email",
+      [`${process.env.AUTH0_NAMESPACE}/first_name`]: "Name",
+      [`${process.env.AUTH0_NAMESPACE}/last_name`]: "Lastname",
+      [`${process.env.AUTH0_NAMESPACE}/registration_type`]: "company",
+      [`${process.env.AUTH0_NAMESPACE}/intouch_market_code`]: "en"
     }
   };
   const req = {
+    logger: () => ({
+      info: jest.fn(),
+      error: jest.fn()
+    }),
     headers: {
       host: "graphql"
     }
   };
-  it("should send a mutation with the right values", async () => {
-    axios.post = jest.fn().mockResolvedValue({ data: {} });
+
+  it("should send the create mutation with the right values", async () => {
+    axios.post = jest.fn().mockResolvedValue({
+      data: {
+        data: {
+          createAccount: {
+            account: {
+              id: 1
+            }
+          }
+        }
+      }
+    });
 
     await createAccount(req, session);
+
     expect(axios.post).toHaveBeenCalledWith(
       `http://graphql/api/graphql`,
       {
         query: mutationCreateAccount,
         variables: {
           input: {
-            firstName: "Name",
-            lastName: "Lastname",
-            email: "email",
-            role: "COMPANY_ADMIN"
+            account: {
+              firstName: "Name",
+              lastName: "Lastname",
+              email: "email",
+              role: "COMPANY_ADMIN"
+            },
+            marketCode: "en"
           }
         }
       },

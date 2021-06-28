@@ -83,10 +83,11 @@ class Thing {
 }
 
 class Table extends Thing {
-  constructor(name, description, examples, service) {
+  constructor(name, description, examples, service, constraint) {
     super(name, description);
     this.examples = examples;
     this.service = service;
+    this.constraint = constraint;
     this.additionalFields = [
       {
         name: "created_at",
@@ -164,19 +165,27 @@ ${this.properties
     }
     return `${sqlString}\n`;
   }
+
   getSequence() {
     return `SELECT SETVAL('${this.name}_id_seq', (select MAX(ID) from ${this.name}));`;
   }
 
   getConstraints() {
-    return this.properties
+    const singleConstraints = this.properties
       .filter((p) => p.constraint)
       .map((property) => {
         const refColumn = property.reference || property.name;
-        return `ALTER TABLE ${this.name} ADD ${property.constraint} (${refColumn});
-`;
-      })
-      .join("\n");
+
+        return `ALTER TABLE ${this.name} ADD ${property.constraint} (${refColumn});\n`;
+      });
+
+    let multipleUniqueConstraints = [];
+    if (this.constraint) {
+      multipleUniqueConstraints = this.constraint
+        .split("-")
+        .map((item) => `ALTER TABLE ${this.name} ADD ${item};\n`);
+    }
+    return [].concat(singleConstraints, multipleUniqueConstraints).join("\n");
   }
 }
 
@@ -238,10 +247,11 @@ EXECUTE PROCEDURE update_modified_column();
 }
 
 class Index {
-  constructor(table, columnName, indexType) {
+  constructor(table, columnName, indexType, service) {
     this.table = table;
     this.columnName = columnName;
     this.indexType = indexType;
+    this.service = service;
   }
 
   getPostgresCreate() {
@@ -273,7 +283,8 @@ const buildModel = (records) => {
           record.Name,
           record.Description,
           record.Examples,
-          record.Service
+          record.Service,
+          record.Constraint
         );
         trigger = new Trigger(record.Name, record.Service);
         break;
@@ -300,7 +311,12 @@ const buildModel = (records) => {
       case "ek":
         if (record.Index) {
           // if the column needs indexing, add the Index to the list of indices in the datamodel
-          myIndex = new Index(myTable.name, record.Name, record.Index);
+          myIndex = new Index(
+            myTable.name,
+            record.Name,
+            record.Index,
+            myTable.service
+          );
           myDataModel.addIndex(myIndex);
         }
         myTable.addColumn(record.Name, "ek", record.Description, record.Mocks); // add the new attribute to the current table. The description column in the csv in this case contains a type rather than a description
@@ -324,7 +340,12 @@ const buildModel = (records) => {
       default:
         if (record.Index) {
           // if the column needs indexing, add the Index to the list of indices in the datamodel
-          myIndex = new Index(myTable.name, record.Name, record.Index);
+          myIndex = new Index(
+            myTable.name,
+            record.Name,
+            record.Index,
+            myTable.service
+          );
           myDataModel.addIndex(myIndex);
         }
         myTable.addColumn(

@@ -13,9 +13,7 @@ type Props = {
 const ResponseMessage = ({ icon, title, children, error }: Props) => (
   <div className={styles["ResponseMessage"]}>
     <Icon
-      className={classnames(styles["icon"], {
-        [styles["icon--error"]]: error
-      })}
+      className={classnames(styles["icon"], error && styles["icon--error"])}
       source={icon}
     />
     <Typography className={styles["title"]} variant="h2">

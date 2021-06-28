@@ -37,7 +37,7 @@ const ToggleCard = ({
       className={classnames(
         styles["ToggleCard"],
         {
-          [styles["ToggleCard--disabled"]]: disabled
+          [styles["ToggleCard--disabled"]!]: disabled
         },
         className
       )}
@@ -50,14 +50,12 @@ const ToggleCard = ({
             style={{ backgroundImage: `url(${imageSource})` }}
           />
         ) : null}
-        {illustratedImage ? (
-          <Illustration preserveAspectRatio="xMidYMid" />
-        ) : null}
+        {Illustration ? <Illustration preserveAspectRatio="xMidYMid" /> : null}
         {title ? (
           <Typography
             variant="h6"
             className={classnames(styles["title"], {
-              [styles["title--only"]]: titleOnly
+              [styles["title--only"]!]: titleOnly
             })}
           >
             {title}

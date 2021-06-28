@@ -1,55 +1,35 @@
-FROM node:12-alpine as build
-
-# Create apps directory
-WORKDIR /usr/src/app
-
-# Copy app files
-COPY ./.yarn ./.yarn
-COPY ./.yarnrc ./.yarnrc
-COPY ./yarn.lock ./yarn.lock
-COPY ./package.json ./package.json
-COPY ./libraries ./libraries
-COPY ./applications/intouch/api/types ./applications/intouch/api/types
-COPY ./applications/intouch/api/services/companies ./applications/intouch/api/services/companies
-
-# Install all Packages
-RUN yarn install --frozen-lockfile --cache-folder ./ycache && \
-  rm -rf ./ycache
-
-WORKDIR /usr/src/app/applications/intouch/api/services/companies
-
-# TypeScript
-RUN yarn run build
-
-
 FROM node:12-alpine
 
-# Create apps directory
+# Directory --> monorepo directory
 WORKDIR /usr/src/app
 
-
-# Copy app files
+# Use same yarn version as monorepo
 COPY ./.yarn ./.yarn
 COPY ./.yarnrc ./.yarnrc
-COPY ./yarn.lock ./yarn.lock
-COPY ./package.json ./package.json
-COPY ./libraries ./libraries
+
+# NPM Token needed to install private registry packages
+ARG NPM_AUTH_READ_TOKEN
+COPY .npmrc .npmrc
+
+# Copy workspace source files
 COPY ./applications/intouch/api/types ./applications/intouch/api/types
 COPY ./applications/intouch/api/services/companies ./applications/intouch/api/services/companies
 
-# Copy built files from previous stage
-COPY --from=build /usr/src/app/libraries/logger/dist /usr/src/app/libraries/logger/dist
-COPY --from=build /usr/src/app/applications/intouch/api/services/companies/dist /usr/src/app/applications/intouch/api/services/companies/dist
+# Use Monorepo lockfile to resolve dependencies
+COPY ./yarn.lock ./applications/intouch/api/services/companies/yarn.lock
 
+WORKDIR /usr/src/app/applications/intouch/api/services/companies
 
-# Install prod
-RUN yarn install --frozen-lockfile --production --cache-folder ./ycache && \
+# Install production
+RUN yarn install --pure-lockfile --production --cache-folder ./ycache && \
   rm -rf ./ycache
 
-# Create app directory
-WORKDIR /usr/src/app/applications/intouch/api/services/companies
+RUN rm -f ../../../../../npmrc
+
+
+# Build
+RUN yarn run build
 
 # Start
 CMD [ "yarn", "start" ]
 EXPOSE 8080
-

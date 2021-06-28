@@ -13,7 +13,7 @@ generates:
   # generate types in separate exportable package
   # this makes it easier to use the types across multiple packages (e.g. functions)
   # without having to expose the gateway as a "public" package
-  ../types/index.ts:
+  ../types/index.d.ts:
     plugins:
       - typescript
     config:

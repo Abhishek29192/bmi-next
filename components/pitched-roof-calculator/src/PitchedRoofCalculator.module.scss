@@ -1,13 +1,8 @@
-@import "@bmi/styles";
-
 .PitchedRoofCalculator {
-  padding: 0px 20px 20px;
-
-  .logo {
-    width: 50px;
-    margin-bottom: 10px;
-    @media (min-width: $breakpoint-md) {
-      width: 80px;
-    }
+  .spinnerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px /* container margins and paddings */);
   }
 }

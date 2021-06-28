@@ -1,22 +1,23 @@
 {
   "name": "@bmi/intouch-api-service-training",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "src/index.ts",
-  "license": "BMI-DXB",
   "description": "BMI InTouch Training GraphQL API",
+  "license": "BMI-DXB",
   "private": true,
   "scripts": {
-    "dev": "tsc -b && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema\"",
-    "build": "tsc -b",
+    "build": "tsc --build tsconfig.prod.json ",
+    "dev": "tsc --build && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema\"",
     "migrate-db": "node scripts/init-db.js",
     "prettify-schema": "onchange \"schema.graphql\" -- prettier --write schema.graphql",
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@bmi/logger": "0.0.0",
+    "@bmi-digital/logger": "0.0.1",
     "@google-cloud/secret-manager": "^3.7.1",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",
+    "@graphql-tools/utils": "^7.10.0",
     "@types/jsonwebtoken": "^8.5.0",
     "apollo-datasource-rest": "^0.10.0",
     "apollo-server": "^2.19.2",
@@ -27,14 +28,12 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.5.1",
     "postgraphile": "^4.11.0",
-    "postgraphile-apollo-server": "0.1.1"
+    "postgraphile-apollo-server": "0.1.1",
+    "typescript": "^3.9.3"
   },
   "devDependencies": {
-    "@types/express": "^4.17.9",
-    "@types/node": "^14.14.20",
     "concurrently": "^6.0.0",
     "nodemon": "latest",
-    "onchange": "^7.1.0",
-    "typescript": "^3.9.3"
+    "onchange": "^7.1.0"
   }
 }

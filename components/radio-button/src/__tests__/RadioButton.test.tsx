@@ -49,7 +49,7 @@ describe("RadioButton component", () => {
       </RadioButton>
     );
 
-    container.querySelector("label").click();
+    container.querySelector("label")!.click();
 
     expect(handleOnChange).toHaveBeenCalled();
   });

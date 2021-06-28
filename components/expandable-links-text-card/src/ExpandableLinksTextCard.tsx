@@ -6,10 +6,14 @@ import Typography from "@bmi/typography";
 import { ButtonProps, IconButtonProps } from "@bmi/button";
 import styles from "./ExpandableLinksTextCard.module.scss";
 
-function partitionLinks(links, separator) {
+function partitionLinks(links: Link[], separator?: number) {
   return links.reduce(
-    (partitionedLinks, link, index) => {
-      if (index < separator) {
+    (
+      partitionedLinks: { shownLinks: Link[]; hiddenLinks: Link[] },
+      link,
+      index
+    ) => {
+      if (separator && index < separator) {
         partitionedLinks.shownLinks.push(link);
       } else {
         partitionedLinks.hiddenLinks.push(link);
@@ -23,12 +27,14 @@ function partitionLinks(links, separator) {
   );
 }
 
+type Link = {
+  action: ClickableAction | undefined;
+  label: string;
+};
+
 type ExpandableLinksTextCardsProps = {
   title: string;
-  links: {
-    action: ClickableAction | undefined;
-    label: string;
-  }[];
+  links: Link[];
   separator?: number;
   openButton: React.ReactElement<ButtonProps | IconButtonProps>;
   closeButton?: React.ReactElement<ButtonProps | IconButtonProps>;

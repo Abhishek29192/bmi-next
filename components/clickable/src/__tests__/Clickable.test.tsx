@@ -1,6 +1,6 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
+import mockConsole, { RestoreConsole } from "jest-mock-console";
 import Clickable, { withClickable } from "../";
 
 beforeAll(() => {
@@ -10,7 +10,7 @@ beforeAll(() => {
 afterEach(cleanup);
 
 describe("Clickable component", () => {
-  let restoreConsole;
+  let restoreConsole: RestoreConsole;
 
   beforeAll(() => {
     restoreConsole = mockConsole();

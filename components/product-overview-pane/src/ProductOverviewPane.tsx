@@ -7,7 +7,7 @@ import Typography from "@bmi/typography";
 import styles from "./ProductOverviewPane.module.scss";
 
 const Chip = withClickable((props) => {
-  let MarkupComponent: React.ElementType;
+  let MarkupComponent: React.ElementType | undefined = undefined;
 
   if (props.href) {
     MarkupComponent = "a";
@@ -30,23 +30,16 @@ type Variant = {
 
 type Attribute = {
   name: string;
-} & (
-  | {
-      type?: "chips";
-      variants: Omit<Variant, "thumbnail">[];
-    }
-  | {
-      type: "thumbnails";
-      component?: React.ComponentType<any>; // TODO
-      variants: Variant[];
-    }
-);
+  type?: "chips" | "thumbnails";
+  variants: Variant[];
+  component?: React.ComponentType<any>; // TODO
+};
 
 export type Props = {
-  name: React.ReactNode;
+  name: string;
   brandLogo?: SVGImport;
-  nobb: React.ReactNode;
-  nobbLabel?: React.ReactNode;
+  nobb: string | null;
+  nobbLabel: string;
   attributes?: Attribute[];
   children?: React.ReactNode;
   thumbnailComponent?: React.ComponentType<any>; // TODO
@@ -168,11 +161,11 @@ const ProductOverviewPane = ({
               name: nobbLabel,
               variants: []
             },
-            ...attributes.map((attribute) =>
+            ...(attributes?.map((attribute) =>
               attribute.type === "thumbnails"
                 ? { ...attribute, component: thumbnailComponent }
                 : attribute
-            )
+            ) || [])
           ].map(renderAttribute)}
         </ul>
       ) : (
@@ -186,11 +179,11 @@ const ProductOverviewPane = ({
                 }
               ]
             },
-            ...attributes.map((attribute) =>
+            ...(attributes?.map((attribute) =>
               attribute.type === "thumbnails"
                 ? { ...attribute, component: thumbnailComponent }
                 : attribute
-            )
+            ) || [])
           ].map(renderAttribute)}
         </ul>
       )}

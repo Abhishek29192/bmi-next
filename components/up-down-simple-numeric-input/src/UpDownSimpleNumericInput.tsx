@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import classnames from "classnames";
 import Button from "@bmi/button";
 import AddIcon from "@material-ui/icons/Add";
@@ -37,7 +37,7 @@ const UpDownSimpleNumericInput = ({
     getValidValue(defaultValue, min, max)
   );
 
-  const handleChange = (value) => {
+  const handleChange = (value: number) => {
     const newValue = getValidValue(value, min, max);
     setCount(newValue);
     onChange(newValue);
@@ -46,7 +46,7 @@ const UpDownSimpleNumericInput = ({
   const handleIncrement = () => handleChange(count + step);
   const handleDecrement = () => handleChange(count - step);
 
-  const handleInputChange = (value) => {
+  const handleInputChange = (value: string) => {
     const newValue = parseFloat(value);
     if (!isNaN(newValue)) handleChange(newValue);
   };
@@ -77,9 +77,10 @@ const UpDownSimpleNumericInput = ({
     <RawTextField
       name={name}
       variant="hybrid"
-      className={classnames(styles["input"], {
-        [styles["input-in-middle"]]: buttonPlacement === "sides"
-      })}
+      className={classnames(
+        styles["input"],
+        buttonPlacement === "sides" && styles["input-in-middle"]
+      )}
       value={count.toString()}
       onChange={handleInputChange}
     />
@@ -87,10 +88,11 @@ const UpDownSimpleNumericInput = ({
 
   const ComponentWithButtonsOnEitherSide = (
     <div
-      className={classnames(styles["UpDownSimpleNumericInput"], {
-        [styles[`UpDownSimpleNumericInput--locked-${lockBreakpoint}`]]:
-          lockBreakpoint
-      })}
+      className={classnames(
+        styles["UpDownSimpleNumericInput"],
+        lockBreakpoint &&
+          styles[`UpDownSimpleNumericInput--locked-${lockBreakpoint}`]
+      )}
     >
       {DownButton}
       {InputComponent}
@@ -100,10 +102,11 @@ const UpDownSimpleNumericInput = ({
 
   const ComponentWithButtonsOnTheRight = (
     <div
-      className={classnames(styles["UpDownSimpleNumericInput"], {
-        [styles[`UpDownSimpleNumericInput--locked-${lockBreakpoint}`]]:
-          lockBreakpoint
-      })}
+      className={classnames(
+        styles["UpDownSimpleNumericInput"],
+        lockBreakpoint &&
+          styles[`UpDownSimpleNumericInput--locked-${lockBreakpoint}`]
+      )}
     >
       {InputComponent}
       {DownButton}
@@ -118,4 +121,4 @@ const UpDownSimpleNumericInput = ({
   return CounterComponent;
 };
 
-export default withFormControl<Props>(UpDownSimpleNumericInput);
+export default withFormControl<Props, number>(UpDownSimpleNumericInput);

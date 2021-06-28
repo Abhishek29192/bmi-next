@@ -1,0 +1,10 @@
+include:
+  - local: "/applications/dxb/functions/es-pim-products-ingest/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-apsis-integration/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-download-zip/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-es-proxy/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-firestore-writer/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-form-submit/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-pim-full-fetch/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-pim-message-handler/.gitlab-ci.yml"
+  - local: "/applications/dxb/functions/gcp-upload-file/.gitlab-ci.yml"

@@ -7,7 +7,7 @@ export function filterFunctionMetadata(
 ): FunctionMetadata[] {
   // eslint-disable-next-line no-console
   console.log(`sourceName:${sourceName}`);
-  if (!content) {
+  if (!content || !content[0].length) {
     return null;
   }
   const allFunctionMetadata = JSON.parse(content[0].toString());

@@ -12,8 +12,8 @@ export const QUERY_KEY = "q";
 type Props = Omit<FormProps, "children" | "onChange"> & {
   buttonText?: string;
   clearLabel?: string;
-  defaultValue?: InputValue;
-  value?: InputValue;
+  defaultValue?: string;
+  value?: string;
   buttonComponent?: React.ComponentType<any>; // TODO
   helperText?: string;
   label?: string;
@@ -37,12 +37,12 @@ const Search = ({
   isSubmitDisabled,
   ...formProps
 }: Props) => {
-  const [value, setValue] = useState<InputValue>(
+  const [value, setValue] = useState<string | undefined>(
     valueProp || defaultValue || undefined
   );
   const Button = buttonComponent || DefaultButton;
 
-  const handleOnChange = (newValue: InputValue) => {
+  const handleOnChange = (newValue: string) => {
     setValue(newValue);
 
     if (onChange) {

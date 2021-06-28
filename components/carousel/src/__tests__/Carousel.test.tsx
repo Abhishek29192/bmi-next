@@ -33,7 +33,7 @@ describe("Carousel component", () => {
         </Carousel>
       </div>
     );
-    const containerBeforeClick = container.firstChild.cloneNode(true);
+    const containerBeforeClick = container.firstChild!.cloneNode(true);
 
     fireEvent.click(getByLabelText(nextLabel));
 
@@ -53,7 +53,7 @@ describe("Carousel component", () => {
         </Carousel>
       </div>
     );
-    const containerBeforeClick = container.firstChild.cloneNode(true);
+    const containerBeforeClick = container.firstChild!.cloneNode(true);
 
     fireEvent.click(getByLabelText(previousLabel));
 
@@ -70,7 +70,7 @@ describe("Carousel component", () => {
         <Carousel.Controls />
       </Carousel>
     );
-    const containerBeforeClick = container.firstChild.cloneNode(true);
+    const containerBeforeClick = container.firstChild!.cloneNode(true);
 
     rerender(
       <Carousel initialPage={1}>
@@ -111,6 +111,27 @@ describe("Carousel component", () => {
     fireEvent.touchEnd(getByText("Second slide"));
 
     expect(onPageChange.mock.calls).toMatchSnapshot();
+  });
+  it("starts and stops autoplay when interacting with the carousel", async () => {
+    const nextLabel = "next";
+    const { getByTestId } = render(
+      <div>
+        <Carousel isSwipeDisabled hasAutoPlay pauseAutoPlayOnHover>
+          <Carousel.Slide>First slide</Carousel.Slide>
+          <Carousel.Slide>Second slide</Carousel.Slide>
+          <Carousel.Slide>Third slide</Carousel.Slide>
+          <Carousel.Controls nextLabel={nextLabel} />
+        </Carousel>
+      </div>
+    );
+
+    // Stops
+    fireEvent.mouseOver(getByTestId("carousel"));
+    expect(getByTestId("carousel-interacted")).toBeTruthy();
+
+    // Starts
+    fireEvent.mouseOut(getByTestId("carousel-interacted"));
+    expect(getByTestId("carousel")).toBeTruthy();
   });
   it("renders correctly with arrow controls", () => {
     const { container } = render(

@@ -7,6 +7,49 @@ import * as Apollo from "@apollo/client";
 import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
 
+export async function getServerPageProductsAndSystems(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.ProductsAndSystemsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.ProductsAndSystemsQuery>(
+    { ...options, query: Operations.ProductsAndSystemsDocument }
+  );
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useProductsAndSystems = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.ProductsAndSystemsQuery,
+    OperationTypes.ProductsAndSystemsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.ProductsAndSystemsDocument, options);
+};
+export type PageProductsAndSystemsComp = React.FC<{
+  data?: OperationTypes.ProductsAndSystemsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrProductsAndSystems = {
+  getServerPage: getServerPageProductsAndSystems,
+
+  usePage: useProductsAndSystems
+};
+
 export async function getServerPageCurrentCompany(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.CurrentCompanyQueryVariables>,
@@ -178,4 +221,47 @@ export const ssrTraining = {
   getServerPage: getServerPageTraining,
 
   usePage: useTraining
+};
+export async function getServerPageDoceboCatalogIdByMarketDomain(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
+      { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
+    );
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useDoceboCatalogIdByMarketDomain = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
+    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.DoceboCatalogIdByMarketDomainDocument, options);
+};
+export type PageDoceboCatalogIdByMarketDomainComp = React.FC<{
+  data?: OperationTypes.DoceboCatalogIdByMarketDomainQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrDoceboCatalogIdByMarketDomain = {
+  getServerPage: getServerPageDoceboCatalogIdByMarketDomain,
+
+  usePage: useDoceboCatalogIdByMarketDomain
 };

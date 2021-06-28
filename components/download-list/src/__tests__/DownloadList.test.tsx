@@ -1,6 +1,5 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
+import { render, fireEvent, cleanup, act } from "@testing-library/react";
 import DownloadList from "../";
 
 afterEach(cleanup);
@@ -48,7 +47,9 @@ describe("DownloadList component", () => {
       </DownloadList>
     );
 
-    await act(async () => fireEvent.click(await findByText(label)));
+    await act(async () => {
+      fireEvent.click(await findByText(label));
+    });
 
     expect(onClick.mock.calls).toMatchSnapshot();
   });

@@ -7,15 +7,12 @@ export const ROLES: { [key: string]: Role } = {
   SUPER_ADMIN: "SUPER_ADMIN"
 };
 
-export const REDIRECT_MAP =
-  process.env.NODE_ENV === "production"
-    ? {
-        "frontend-rfwslk3zjq-nw.a.run.app": "en"
-      }
-    : {
-        "en.local.intouch": "en",
-        "it.local.intouch": "it",
-        "de.local.intouch": "de",
-        "es.local.intouch": "es",
-        "us.local.intouch": "us"
-      };
+export const REDIRECT_MAP = {
+  localhost: "en",
+  "tf-frontend-rfwslk3zjq-nw.a.run.app": "en",
+  "en.local.intouch": "en",
+  "it.local.intouch": "it",
+  "de.local.intouch": "de",
+  "es.local.intouch": "es",
+  "us.local.intouch": "us"
+};

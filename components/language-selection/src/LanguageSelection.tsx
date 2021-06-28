@@ -36,7 +36,7 @@ const LanguageSelection = ({ languages }: LanguageSelectionProps) => (
         Standards in building materials.
       </b>
     </Typography>
-    {languages.map(({ label, menu: subMenu }, key) => (
+    {languages.map(({ label, menu: subMenu = [] }, key) => (
       <div key={`language-group-${key}`}>
         <Typography className={styles["heading"]} variant="h6">
           {label}

@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clearFilterValues tests When clearFilterValues is requested Then: returns correct results 1`] = `Array []`;
+
+exports[`generateUniqueDocuments tests When Simple generateUniqueDocuments are requested Then: returns correct results 1`] = `Array []`;
+
+exports[`generateUniqueDocuments tests When Simple generateUniqueDocuments with CMS doc requested Then: returns correct results 1`] = `
+Array [
+  Object {
+    "__typename": "ContentfulDocument",
+    "asset": Object {
+      "file": Object {
+        "contentType": "",
+        "details": Object {
+          "size": 89898,
+        },
+        "fileName": "fileName",
+        "url": "http://doesnot-exist.com/fileName",
+      },
+    },
+    "assetType": Object {
+      "__typename": "ContentfulAssetType",
+      "code": "asset-code",
+      "description": Object {
+        "raw": "rich-text-raw",
+        "references": Array [
+          Object {
+            "__typename": "paragraph",
+            "contentful_id": "rich-text-reference-contentful-id",
+          },
+        ],
+      },
+      "id": "asset-id",
+      "name": "asset-name",
+      "pimCode": "asset-pim-code",
+    },
+    "brand": null,
+    "description": null,
+    "id": "contentful-doc-id",
+    "image": Object {
+      "resize": Object {
+        "src": "",
+      },
+    },
+    "title": "contentful-document-title",
+  },
+]
+`;
+
+exports[`generateUniqueDocuments tests When Simple generateUniqueDocuments with PIM doc requested Then: returns correct results 1`] = `
+Array [
+  Object {
+    "__typename": "PIMDocument",
+    "assetType": Object {
+      "__typename": "ContentfulAssetType",
+      "code": "asset-code",
+      "description": Object {
+        "raw": "rich-text-raw",
+        "references": Array [
+          Object {
+            "__typename": "paragraph",
+            "contentful_id": "rich-text-reference-contentful-id",
+          },
+        ],
+      },
+      "id": "asset-id",
+      "name": "asset-name",
+      "pimCode": "asset-pim-code",
+    },
+    "extension": "pdf",
+    "fileSize": 1,
+    "format": "application/pdf",
+    "id": "pim-document-id",
+    "product": Object {
+      "categories": Array [
+        Object {
+          "categoryType": "category-category-type",
+          "code": "category-code",
+          "name": "category-name",
+          "parentCategoryCode": "category-parent-category-code",
+        },
+      ],
+      "classifications": Array [
+        Object {
+          "code": "classification-code",
+          "features": Array [
+            Object {
+              "code": "classification-feature-code",
+              "featureUnit": Object {
+                "name": "classification-feature-feature-unit-name",
+                "symbol": "classification-feature-feature-unit-symbol",
+                "unitType": "classification-feature-feature-unit-unit-type",
+              },
+              "featureValues": Array [
+                Object {
+                  "code": "classification-feature-feature-value-code",
+                  "value": "classification-feature-feature-value-value",
+                },
+              ],
+              "name": "classification-feature-name",
+            },
+          ],
+          "name": "classification-name",
+        },
+      ],
+      "code": "product-code",
+      "name": "product-name",
+    },
+    "realFileName": "pim-document-id.pdf",
+    "title": "pim-document-title",
+    "url": "http://localhost/pim-document-id",
+  },
+]
+`;
+
+exports[`getDocumentFilters tests When ALL Simple are requested Then: returns correct results 1`] = `
+Array [
+  undefined,
+  undefined,
+  undefined,
+]
+`;
+
+exports[`getDocumentFilters tests When CMS Card Collection are requested Then: returns correct results 1`] = `
+Array [
+  undefined,
+]
+`;
+
+exports[`getDocumentFilters tests When CMS Simple are requested Then: returns correct results 1`] = `
+Array [
+  undefined,
+  undefined,
+]
+`;
+
+exports[`getDocumentFilters tests When PIM Simple are requested Then: returns correct results 1`] = `
+Array [
+  undefined,
+  undefined,
+  undefined,
+]
+`;
+
+exports[`getDocumentFilters tests When PIM Technical are requested Then: returns correct results 1`] = `
+Array [
+  undefined,
+  undefined,
+]
+`;
+
+exports[`updateFilterValue tests When non checked updateFilterValue is requested Then: returns updated filters 1`] = `
+Array [
+  Object {
+    "label": "filterLabels.brand",
+    "name": "brand",
+    "options": Array [
+      Object {
+        "label": "AeroDek",
+        "value": "AeroDek",
+      },
+      Object {
+        "label": "Icopal",
+        "value": "Icopal",
+      },
+      Object {
+        "label": "BMI Components",
+        "value": "BMI Components",
+      },
+    ],
+    "value": Array [
+      "AeroDek",
+      "AeroDek",
+    ],
+  },
+]
+`;
+
+exports[`updateFilterValue tests When updateFilterValue is requested Then: returns updated filters 1`] = `
+Array [
+  Object {
+    "label": "filterLabels.brand",
+    "name": "brand",
+    "options": Array [
+      Object {
+        "label": "AeroDek",
+        "value": "AeroDek",
+      },
+      Object {
+        "label": "Icopal",
+        "value": "Icopal",
+      },
+      Object {
+        "label": "BMI Components",
+        "value": "BMI Components",
+      },
+    ],
+    "value": Array [
+      "AeroDek",
+      "Icopal",
+    ],
+  },
+]
+`;

@@ -3,13 +3,12 @@ import { v4 } from "uuid";
 import {
   ApolloClient,
   InMemoryCache,
-  HttpLink,
   NormalizedCacheObject
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import { ApolloLink } from "@apollo/client/link/core";
 import { setContext } from "@apollo/client/link/context";
-
+import { createUploadLink } from "apollo-upload-client";
 import { getAuth0Instance } from "../lib/auth0";
 
 let apolloClient;
@@ -38,9 +37,8 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
     baseUrl = `${window.location.protocol}//${window.location.host}`;
   }
 
-  const httpLink = new HttpLink({
-    uri: `${baseUrl}/api/graphql`,
-    credentials: "same-origin"
+  const uploadLink = createUploadLink({
+    uri: `${baseUrl}/api/graphql`
   });
 
   const authLink = setContext(async (req, { headers }) => {
@@ -64,7 +62,7 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser,
-    link: ApolloLink.from([errorLink, authLink, httpLink]),
+    link: ApolloLink.from([errorLink, authLink, uploadLink]),
     cache: new InMemoryCache(),
     credentials: "include"
   });

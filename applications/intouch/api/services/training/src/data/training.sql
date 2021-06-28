@@ -170,7 +170,7 @@ COMMENT ON COLUMN course_temp.course_id IS 'Docebo CourseId';
 COMMENT ON COLUMN course_temp.technology IS 'technology';
 COMMENT ON COLUMN course_temp.name IS 'A short name for the Course taken from Docebo';
 COMMENT ON COLUMN course_temp.image IS 'A reference to the image';
-COMMENT ON COLUMN course_temp.promoted IS 'Promoted courses are listed higher than others';
+COMMENT ON COLUMN course_temp.promoted IS 'Promoted courses are intended to be listed higher than others. At time of writing, this data could not practically be acquired from the Docebo API';
 COMMENT ON COLUMN course_temp.training_type IS 'Some text from Docebo indicating whether it is a webinar, classroom etc';
 COMMENT ON COLUMN course_temp.description IS 'Text description from Docebo';
 

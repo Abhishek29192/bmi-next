@@ -40,7 +40,7 @@ const NavigationItem = ({
   return (
     <li
       className={classnames(styles["list-item"], {
-        [styles["list-item--icon"]]: isLabelHidden
+        [styles["list-item--icon"]!]: isLabelHidden
       })}
     >
       {isLabelHidden && IconComponent ? (
@@ -56,7 +56,7 @@ const NavigationItem = ({
         </Button>
       ) : (
         <Button
-          startIcon={icon ? <IconComponent /> : undefined}
+          startIcon={IconComponent ? <IconComponent /> : undefined}
           className={styles["link"]}
           hasDarkBackground
           variant="text"
@@ -118,7 +118,7 @@ const SecondaryNavigation = ({
 
   return (
     <div className={styles["secondary-navigation"]}>
-      {logo && (
+      {Logo && (
         <div className={styles["logo"]}>
           <Logo />
         </div>

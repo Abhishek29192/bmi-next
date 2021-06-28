@@ -6,8 +6,10 @@ import styles from "./Section.module.scss";
 
 export const SectionContext = createContext<boolean>(false);
 
+export type BackgroundColor = "transparent" | "alabaster" | "white" | "pearl";
+
 export type Props = {
-  backgroundColor?: "transparent" | "alabaster" | "white" | "pearl";
+  backgroundColor?: BackgroundColor;
   children: React.ReactNode;
   size?: "lg" | "md" | "sm" | "xl" | "xs" | false;
   spacing?: "default" | "none";
@@ -46,12 +48,14 @@ const Section = ({
     <SectionContext.Provider value={true}>
       <div
         id={id}
-        className={classnames(className, styles["Section"], {
-          [styles[`Section--${backgroundColor}`]]:
-            backgroundColor !== "transparent",
-          [styles["Section--no-spacing"]]: spacing === "none",
-          [styles["Section--slim"]]: isSlim
-        })}
+        className={classnames(
+          className,
+          styles["Section"],
+          backgroundColor !== "transparent" &&
+            styles[`Section--${backgroundColor}`],
+          spacing === "none" && styles["Section--no-spacing"],
+          isSlim && styles["Section--slim"]
+        )}
       >
         <Container
           maxWidth={size}

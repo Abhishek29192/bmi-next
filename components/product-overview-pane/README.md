@@ -56,7 +56,8 @@ const attributes = [
 <ProductOverviewPane
   name="Type S Roof Shingles"
   brandLogo={Zanda}
-  nnob="1394983720195"
+  nobb="1394983720195"
+  nobbLabel="label"
   attributes={attributes}
 />;
 ```

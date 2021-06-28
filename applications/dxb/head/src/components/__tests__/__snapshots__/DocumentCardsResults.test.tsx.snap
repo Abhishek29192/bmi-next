@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Brands component renders correctly 1`] = `
+<div
+  class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+>
+  <div
+    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+  >
+    <div
+      class="OverviewCard"
+    >
+      <div
+        class="body"
+      >
+        <svg
+          class="brand-logo"
+          preserveAspectRatio="xMinYMin"
+        />
+        <h4
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+        >
+          document 1
+        </h4>
+        <div
+          class="children"
+        />
+        <div
+          class="footer"
+        >
+          <a
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"test\\"}"
+            href="https:test"
+            rel="noopener noreferrer"
+            tabindex="0"
+            target="_blank"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              <span
+                class="MuiButton-startIcon MuiButton-iconSizeMedium"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+              MC: documentLibrary.card.download
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

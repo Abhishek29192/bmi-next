@@ -5,8 +5,10 @@ import styles from "./Form.module.scss";
 import SubmitButton from "./_SubmitButton";
 import { InputValue } from "./withFormControl";
 
-type Values = Record<string, InputValue>;
-type Errors = Record<string, string>;
+type Values = Record<string, InputValue | undefined>;
+type ValidationPasses = false | "" | null | undefined;
+export type ValidationResult = string | ValidationPasses;
+type Errors = Record<string, ValidationResult>;
 
 export type Props = Omit<React.HTMLProps<HTMLFormElement>, "onSubmit"> & {
   children: React.ReactNode;
@@ -48,7 +50,7 @@ const Form = ({
     setErrors((prev) => ({ ...prev, ...fieldErrors }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     setHasBeenSubmitted(true);
     if (onSubmit) {
       onSubmit(event, values);
@@ -67,7 +69,7 @@ const Form = ({
       <form
         onSubmit={handleSubmit}
         className={classnames(styles["Form"], className, {
-          [styles["Form--rightAlignButton"]]: rightAlignButton
+          [styles["Form--rightAlignButton"]!]: rightAlignButton
         })}
         {...formProps}
       >

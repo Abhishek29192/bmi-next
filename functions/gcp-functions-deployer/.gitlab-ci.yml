@@ -9,7 +9,7 @@ build_gcp-functions-deployer:
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
-    - yarn workspace @bmi/gcp-functions-deployer build
+    - yarn workspace @bmi/gcp-functions-deployer build -p tsconfig.build.json
   artifacts:
     paths:
       - functions/gcp-functions-deployer/dist
@@ -65,7 +65,10 @@ package_gcp-functions-deployer:
     - apt-get install -y zip unzip
     - mkdir -p dist/functions
   script:
-    - cd functions/gcp-functions-deployer; zip -r $CI_PROJECT_DIR/dist/functions/gcp-functions-deployer.zip package.json dist/; cd $CI_PROJECT_DIR;
+    - cd functions/gcp-functions-deployer
+    - cp ../../yarn.lock .
+    - zip -r $CI_PROJECT_DIR/dist/functions/gcp-functions-deployer.zip package.json yarn.lock dist/
+    - cd $CI_PROJECT_DIR
   artifacts:
     paths:
       - $CI_PROJECT_DIR/dist/functions

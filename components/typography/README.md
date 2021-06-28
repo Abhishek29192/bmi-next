@@ -126,3 +126,11 @@ This component wraps the Material-UI [Typography](https://material-ui.com/compon
   overline text
 </Typography>
 ```
+
+### noClamp
+
+```jsx
+<Typography noClamp variant="h4">
+  prevents heading clamping when used
+</Typography>
+```

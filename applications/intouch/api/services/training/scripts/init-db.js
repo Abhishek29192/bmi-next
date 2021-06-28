@@ -10,6 +10,7 @@ const getFile = (file) =>
 
 async function main() {
   const db = getFile("training.sql");
+  const procedure = getFile("procedure.sql");
 
   const { PG_USER, PG_DATABASE, PG_PASSWORD, PG_HOST, PG_PORT } = process.env;
 
@@ -34,6 +35,9 @@ async function main() {
   console.log("Importing main db");
   await client.query(db);
   console.log("DB imported");
+  console.log("Importing procedure");
+  await client.query(procedure);
+  console.log("Procedure imported");
 }
 
 main().catch((error) => {

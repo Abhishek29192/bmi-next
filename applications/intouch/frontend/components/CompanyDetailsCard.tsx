@@ -7,7 +7,7 @@ import Dialog from "@bmi/dialog";
 import Form from "@bmi/form";
 import TextField from "@bmi/text-field";
 import CompanyDetails from "@bmi/company-details";
-import { useUpdateCompanyDetailsMutation } from "graphql/generated/hooks";
+import { useUpdateCompanyDetailsMutation } from "../graphql/generated/hooks";
 import AccessControl from "../lib/permissions/AccessControl";
 import { GetCompanyQuery } from "../graphql/generated/operations";
 

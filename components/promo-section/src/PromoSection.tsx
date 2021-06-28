@@ -3,8 +3,10 @@ import Grid, { GridSize } from "@bmi/grid";
 import Typography from "@bmi/typography";
 import Media, { AcceptedNode } from "@bmi/media";
 import classnames from "classnames";
-import Section from "@bmi/section";
+import Section, { BackgroundColor } from "@bmi/section";
 import styles from "./PromoSection.module.scss";
+
+type Layout = "half" | "two-thirds";
 
 type Props = {
   title?: React.ReactNode;
@@ -14,12 +16,13 @@ type Props = {
   imageSource?: string | React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
   children: React.ReactNode;
-  layout?: "half" | "two-thirds";
+  layout?: Layout;
   isReversed?: boolean;
   className?: string;
+  backgroundColor?: BackgroundColor;
 };
 
-const layoutRowsMap: Record<Props["layout"], GridSize[]> = {
+const layoutRowsMap: Record<Layout, GridSize[]> = {
   half: [6, 6],
   "two-thirds": [8, 4]
 };
@@ -46,6 +49,7 @@ const __DeprecatedImageSource = ({
 };
 
 const PromoSection = ({
+  backgroundColor = "white",
   title,
   imageSource,
   media,
@@ -58,10 +62,12 @@ const PromoSection = ({
 
   return (
     <Section
-      backgroundColor="white"
-      className={classnames(className, styles["PromoSection"], {
-        [styles["PromoSection--reversed"]]: isReversed
-      })}
+      backgroundColor={backgroundColor}
+      className={classnames(
+        className,
+        styles["PromoSection"],
+        isReversed && styles["PromoSection--reversed"]
+      )}
     >
       <Grid container spacing={3} className={styles["grid"]}>
         <Grid item xs={12} sm={rows[0]}>

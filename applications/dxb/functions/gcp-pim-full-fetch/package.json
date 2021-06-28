@@ -1,0 +1,24 @@
+{
+  "name": "@bmi/gcp-pim-full-fetch",
+  "version": "0.0.0",
+  "license": "BMI-DXB",
+  "src": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "yarn build && functions-framework --source=dist --target=handleRequest --port=9055",
+    "deploy": "yarn build && gcloud functions deploy pim-full-fetch --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=handleRequest --env-vars-file=env.yaml"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.8.0",
+    "@google-cloud/pubsub": "^2.5.0",
+    "@google-cloud/secret-manager": "^3.4.0",
+    "dotenv": "^8.2.0",
+    "firebase-admin": "^9.2.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.7.1"
+  }
+}

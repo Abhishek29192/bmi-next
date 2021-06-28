@@ -1,0 +1,900 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelatedProducts component renders correctly when scoringweight equal & names equal 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: pdp.relatedProducts.title
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="Tabs Tabs--secondary"
+        >
+          <div
+            class="TabsBar"
+          >
+            <div
+              class="Container"
+            >
+              <div
+                class="MuiContainer-root MuiContainer-maxWidthXl"
+              >
+                <div
+                  class="MuiTabs-root"
+                >
+                  <div
+                    class="MuiTabs-scrollable"
+                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                  />
+                  <div
+                    class="MuiTabs-scroller MuiTabs-scrollable"
+                    style="margin-bottom: 0px;"
+                  >
+                    <div
+                      aria-label="tabs"
+                      class="MuiTabs-flexContainer"
+                      role="tablist"
+                    >
+                      <button
+                        aria-controls="tabpanel-Root"
+                        aria-selected="true"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-Root"
+                        role="tab"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiTab-wrapper"
+                        >
+                          Root
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                    <span
+                      class="PrivateTabIndicator-root-16 PrivateTabIndicator-colorPrimary-17 MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-labelledby="tab-Root"
+            class="MuiGrid-root TabPanel MuiGrid-item"
+            heading="Root"
+            id="tabpanel-Root"
+            role="tabpanel"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-20 TabPanelBox"
+            >
+              <div
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test1
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test2
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedProducts component renders correctly when scoringweight equal & names sorted opposite 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: pdp.relatedProducts.title
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="Tabs Tabs--secondary"
+        >
+          <div
+            class="TabsBar"
+          >
+            <div
+              class="Container"
+            >
+              <div
+                class="MuiContainer-root MuiContainer-maxWidthXl"
+              >
+                <div
+                  class="MuiTabs-root"
+                >
+                  <div
+                    class="MuiTabs-scrollable"
+                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                  />
+                  <div
+                    class="MuiTabs-scroller MuiTabs-scrollable"
+                    style="margin-bottom: 0px;"
+                  >
+                    <div
+                      aria-label="tabs"
+                      class="MuiTabs-flexContainer"
+                      role="tablist"
+                    >
+                      <button
+                        aria-controls="tabpanel-Root"
+                        aria-selected="true"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-Root"
+                        role="tab"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiTab-wrapper"
+                        >
+                          Root
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                    <span
+                      class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorPrimary-22 MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-labelledby="tab-Root"
+            class="MuiGrid-root TabPanel MuiGrid-item"
+            heading="Root"
+            id="tabpanel-Root"
+            role="tabpanel"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-25 TabPanelBox"
+            >
+              <div
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct1
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test2
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct2
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test1
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedProducts component renders correctly when scoringweight equal 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: pdp.relatedProducts.title
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="Tabs Tabs--secondary"
+        >
+          <div
+            class="TabsBar"
+          >
+            <div
+              class="Container"
+            >
+              <div
+                class="MuiContainer-root MuiContainer-maxWidthXl"
+              >
+                <div
+                  class="MuiTabs-root"
+                >
+                  <div
+                    class="MuiTabs-scrollable"
+                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                  />
+                  <div
+                    class="MuiTabs-scroller MuiTabs-scrollable"
+                    style="margin-bottom: 0px;"
+                  >
+                    <div
+                      aria-label="tabs"
+                      class="MuiTabs-flexContainer"
+                      role="tablist"
+                    >
+                      <button
+                        aria-controls="tabpanel-Root"
+                        aria-selected="true"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-Root"
+                        role="tab"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiTab-wrapper"
+                        >
+                          Root
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                    <span
+                      class="PrivateTabIndicator-root-11 PrivateTabIndicator-colorPrimary-12 MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-labelledby="tab-Root"
+            class="MuiGrid-root TabPanel MuiGrid-item"
+            heading="Root"
+            id="tabpanel-Root"
+            role="tabpanel"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-15 TabPanelBox"
+            >
+              <div
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test1
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct2
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test2
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedProducts component renders correctly with no products 1`] = `null`;
+
+exports[`RelatedProducts component renders correctly with products 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: pdp.relatedProducts.title
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="Tabs Tabs--secondary"
+        >
+          <div
+            class="TabsBar"
+          >
+            <div
+              class="Container"
+            >
+              <div
+                class="MuiContainer-root MuiContainer-maxWidthXl"
+              >
+                <div
+                  class="MuiTabs-root"
+                >
+                  <div
+                    class="MuiTabs-scrollable"
+                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                  />
+                  <div
+                    class="MuiTabs-scroller MuiTabs-scrollable"
+                    style="margin-bottom: 0px;"
+                  >
+                    <div
+                      aria-label="tabs"
+                      class="MuiTabs-flexContainer"
+                      role="tablist"
+                    >
+                      <button
+                        aria-controls="tabpanel-Root"
+                        aria-selected="true"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-Root"
+                        role="tab"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiTab-wrapper"
+                        >
+                          Root
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                    <span
+                      class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorPrimary-2 MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-labelledby="tab-Root"
+            class="MuiGrid-root TabPanel MuiGrid-item"
+            heading="Root"
+            id="tabpanel-Root"
+            role="tabpanel"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-5 TabPanelBox"
+            >
+              <div
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test1
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RelatedProducts component renders correctly with products without categories 1`] = `null`;
+
+exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
+<div
+  class="Section Section--alabaster"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      >
+        MC: pdp.relatedProducts.title
+      </h2>
+      <div
+        class="RelatedProducts"
+      >
+        <div
+          class="Tabs Tabs--secondary"
+        >
+          <div
+            class="TabsBar"
+          >
+            <div
+              class="Container"
+            >
+              <div
+                class="MuiContainer-root MuiContainer-maxWidthXl"
+              >
+                <div
+                  class="MuiTabs-root"
+                >
+                  <div
+                    class="MuiTabs-scrollable"
+                    style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+                  />
+                  <div
+                    class="MuiTabs-scroller MuiTabs-scrollable"
+                    style="margin-bottom: 0px;"
+                  >
+                    <div
+                      aria-label="tabs"
+                      class="MuiTabs-flexContainer"
+                      role="tablist"
+                    >
+                      <button
+                        aria-controls="tabpanel-Root"
+                        aria-selected="true"
+                        class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                        data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"Root\\",\\"action\\":\\"Filter – Related Products\\"}"
+                        id="tab-Root"
+                        role="tab"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiTab-wrapper"
+                        >
+                          Root
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                    <span
+                      class="PrivateTabIndicator-root-6 PrivateTabIndicator-colorPrimary-7 MuiTabs-indicator"
+                      style="left: 0px; width: 0px;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-labelledby="tab-Root"
+            class="MuiGrid-root TabPanel MuiGrid-item"
+            heading="Root"
+            id="tabpanel-Root"
+            role="tabpanel"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-10 TabPanelBox"
+            >
+              <div
+                class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct2
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test2
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
+                >
+                  <div
+                    class="OverviewCard"
+                  >
+                    <div
+                      class="body"
+                    >
+                      <h5
+                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+                      >
+                        imaproduct
+                      </h5>
+                      
+                      <div
+                        class="children"
+                      >
+                        MC: pdp.nobb.label
+                        :
+                         
+                        <b>
+                          test1
+                        </b>
+                      </div>
+                      <div
+                        class="footer"
+                      >
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="/en/"
+                        >
+                          <span>
+                            MC: pdp.relatedProducts.viewDetails
+                          </span>
+                          <svg
+                            aria-hidden="true"
+                            class="icon"
+                            focusable="false"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
