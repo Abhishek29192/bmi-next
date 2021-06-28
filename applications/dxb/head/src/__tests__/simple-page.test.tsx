@@ -53,13 +53,13 @@ describe("ExploreBarSection component", () => {
             width: 948,
             height: 720
           },
-          resize: {
-            src: "//images.asset.jpg"
-          },
           file: {
             fileName: "Lorem ipsum",
             url: "//images.asset.jpg"
           }
+        },
+        thumbnail: {
+          src: "//image.asset.jpg"
         }
       },
       featuredVideo: null,
