@@ -2623,3 +2623,16 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
   </div>
 </div>
 `;
+
+exports[`PitchedRoofCalculator Results component sends email address 1`] = `
+Array [
+  Array [
+    Object {
+      "email": "test@test.test",
+      "gdpr_1": true,
+      "gdpr_2": true,
+      "name": "Test Test",
+    },
+  ],
+]
+`;

@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PitchedRoofCalculator PDF components renders h1 Typograph correctly 1`] = `
+Object {
+  "stack": Array [
+    Object {
+      "alignment": "left",
+      "bold": true,
+      "fontSize": 22.5,
+      "lineHeight": 1.33,
+      "text": "Heading 1",
+    },
+    Object {
+      "canvas": Array [
+        Object {
+          "lineColor": "#009FE3",
+          "lineWidth": 4,
+          "type": "line",
+          "x1": 0,
+          "x2": 100,
+          "y1": 0,
+          "y2": 0,
+        },
+      ],
+    },
+  ],
+}
+`;
+
 exports[`PitchedRoofCalculator PDF tool avoids rendering empty tables results 1`] = `
 Object {
   "content": Array [

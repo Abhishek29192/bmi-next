@@ -92,7 +92,7 @@ type TypographProps = {
   [rest: string]: any;
 };
 
-const Typography = ({
+export const Typography = ({
   variant = "body1",
   hasUnderline = variant === "h1",
   center,

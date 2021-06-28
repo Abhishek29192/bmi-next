@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { MicroCopy } from "../helpers/microCopy";
 import data from "../samples/data.json";
 import en from "../samples/copy/en.json";
@@ -393,6 +393,14 @@ const resultsProps = {
   gutterHooks: data.gutterHooks as any
 };
 
+beforeEach(() => {
+  global.open = jest.fn();
+});
+
+afterAll(() => {
+  global.open = undefined;
+});
+
 describe("PitchedRoofCalculator Results component", () => {
   it("renders correctly", () => {
     const { container } = render(
@@ -457,5 +465,31 @@ describe("PitchedRoofCalculator Results component", () => {
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  it("sends email address", () => {
+    const sendEmailAddress = jest.fn();
+    const { container } = render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} sendEmailAddress={sendEmailAddress} />
+      </MicroCopy.Provider>
+    );
+
+    const nameInput = container.querySelector(`input[name="name"]`);
+    fireEvent.change(nameInput, { target: { value: "Test Test" } });
+
+    const emailInput = container.querySelector(`input[name="email"]`);
+    fireEvent.change(emailInput, { target: { value: "test@test.test" } });
+
+    const gdpr_1Input = container.querySelector(`input[name="gdpr_1"]`);
+    fireEvent.click(gdpr_1Input);
+
+    const gdpr_2Input = container.querySelector(`input[name="gdpr_2"]`);
+    fireEvent.click(gdpr_2Input);
+
+    const submitButton = container.querySelector(`.submit`);
+    fireEvent.click(submitButton);
+
+    expect(sendEmailAddress.mock.calls).toMatchSnapshot();
   });
 });

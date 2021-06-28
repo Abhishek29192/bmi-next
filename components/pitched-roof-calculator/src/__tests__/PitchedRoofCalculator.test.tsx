@@ -2,9 +2,7 @@ import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import { MicroCopy } from "../helpers/microCopy";
-import en from "../samples/copy/en.json";
-import data from "../samples/data.json";
-import PitchedRoofCalculator from "../PitchedRoofCalculator";
+import PitchedRoofCalculator, { en, no, sampleData as data } from "../";
 
 jest.mock("../_PitchedRoofCalculatorSteps");
 const LOADED_TEXT = "loaded";
@@ -35,7 +33,7 @@ describe("PitchedRoofCalculator component", () => {
 
   it("renders closed", async () => {
     const { container, findByText } = render(
-      <MicroCopy.Provider values={en}>
+      <MicroCopy.Provider values={no}>
         <PitchedRoofCalculator
           onClose={jest.fn()}
           isDebugging
