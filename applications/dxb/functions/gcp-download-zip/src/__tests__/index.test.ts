@@ -1,10 +1,10 @@
 import fs from "fs";
 import os from "os";
-import { Request } from "express";
+import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-// Needed until we upgrade to yarn 2 or use an NPM registry - https://github.com/yarnpkg/yarn/issues/6323
 import { protos } from "@google-cloud/secret-manager";
+// Needed until we upgrade to yarn 2 or use an NPM registry - https://github.com/yarnpkg/yarn/issues/6323
 import {
   mockRequest,
   mockResponse,
@@ -17,10 +17,7 @@ jest.mock("node-fetch", () => fetchMock);
 const mockDocument = (
   href = `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
   name = "file.pdf"
-) => ({
-  href: href,
-  name: name
-});
+) => ({ href, name });
 
 const recaptchaSecret = "recaptcha-secret";
 
@@ -53,7 +50,8 @@ jest.mock("@google-cloud/storage", () => {
 const validToken = "valid-token";
 const temporaryFile = `${os.tmpdir()}/gcp-download-zip.zip`;
 
-let download;
+const download = (req: Partial<Request>, res: Partial<Response>) =>
+  require("../index").download(req, res);
 
 beforeAll(() => {
   mockConsole();
@@ -63,13 +61,36 @@ beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
   fetchMock.reset();
-  const index = require("../index");
-  download = index.download;
 });
 
 afterEach(() => {
   // eslint-disable-next-line security/detect-non-literal-fs-filename
-  fs.access(temporaryFile, (err) => err || fs.unlinkSync(temporaryFile));
+  fs.existsSync(temporaryFile) &&
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    fs.unlinkSync(temporaryFile);
+});
+
+describe("Invalid environment variables", () => {
+  it("should return 500 if GCS_NAME is not set", async () => {
+    const gcsName = process.env.GCS_NAME;
+    delete process.env.GCS_NAME;
+
+    const req = mockRequest("POST");
+    const res = mockResponse();
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledTimes(0);
+    expect(res.sendStatus).toBeCalledWith(500);
+    expect(bucket).toBeCalledTimes(0);
+    expect(file).toBeCalledTimes(0);
+    expect(fetchMock).toBeCalledTimes(0);
+    expect(res.setHeader).toBeCalledTimes(0);
+    expect(createWriteStream).toBeCalledTimes(0);
+    expect(publicUrl).toBeCalledTimes(0);
+
+    process.env.GCS_NAME = gcsName;
+  });
 });
 
 describe("Making an OPTIONS request as part of CORS", () => {
@@ -196,6 +217,58 @@ describe("Making a POST request", () => {
     expect(publicUrl).toBeCalledTimes(0);
   });
 
+  it("returns status code 400 when a document provided is missing name", async () => {
+    const req = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [{ href: `https://${process.env.DXB_VALID_HOSTS}/file.pdf` }]
+      }
+    );
+    const res = mockResponse();
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith("Missing name(s).");
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file).toBeCalledTimes(0);
+    expect(fetchMock).toBeCalledTimes(0);
+    expect(res.setHeader).toBeCalledTimes(0);
+    expect(createWriteStream).toBeCalledTimes(0);
+    expect(publicUrl).toBeCalledTimes(0);
+  });
+
+  it("returns status code 400 when a document provided is missing href", async () => {
+    const req = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [{ name: "file.pdf" }]
+      }
+    );
+    const res = mockResponse();
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith("Missing HREF(s).");
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file).toBeCalledTimes(0);
+    expect(fetchMock).toBeCalledTimes(0);
+    expect(res.setHeader).toBeCalledTimes(0);
+    expect(createWriteStream).toBeCalledTimes(0);
+    expect(publicUrl).toBeCalledTimes(0);
+  });
+
   it("returns status code 500 when an error is returned from Secret Manager when getting recaptcha key", async () => {
     const req = mockRequest(
       "POST",
@@ -212,6 +285,68 @@ describe("Making a POST request", () => {
     accessSecretVersion.mockImplementationOnce(() => {
       throw new Error("Expected Error");
     });
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith("Recaptcha request failed.");
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file).toBeCalledTimes(0);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toBeCalledTimes(0);
+    expect(res.setHeader).toBeCalledTimes(0);
+    expect(createWriteStream).toBeCalledTimes(0);
+    expect(publicUrl).toBeCalledTimes(0);
+  });
+
+  it("returns status code 500 when response is missing payload when getting recaptcha key", async () => {
+    const req = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
+      }
+    );
+    const res = mockResponse();
+
+    accessSecretVersion.mockImplementationOnce(() => [{}]);
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith("Recaptcha request failed.");
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file).toBeCalledTimes(0);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toBeCalledTimes(0);
+    expect(res.setHeader).toBeCalledTimes(0);
+    expect(createWriteStream).toBeCalledTimes(0);
+    expect(publicUrl).toBeCalledTimes(0);
+  });
+
+  it("returns status code 500 when response is missing data when getting recaptcha key", async () => {
+    const req = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [mockDocument()]
+      }
+    );
+    const res = mockResponse();
+
+    accessSecretVersion.mockImplementationOnce(() => [{ payload: {} }]);
 
     await download(req, res);
 
@@ -382,7 +517,7 @@ describe("Making a POST request", () => {
       method: "POST",
       body: JSON.stringify({
         success: true,
-        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE) - 0.1
+        score: parseFloat(process.env.RECAPTCHA_MINIMUM_SCORE!) - 0.1
       })
     });
 
@@ -515,6 +650,67 @@ describe("Making a POST request", () => {
     expect(publicUrl).toBeCalledTimes(1);
   });
 
+  it("returns status code 500 when creating write stream throws error", async () => {
+    const req = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": validToken
+      },
+      "/",
+      {
+        documents: [
+          mockDocument(`https://${process.env.DXB_VALID_HOSTS}/file.pdf`)
+        ]
+      }
+    );
+    const res = mockResponse();
+
+    accessSecretVersion.mockResolvedValueOnce([
+      { payload: { data: recaptchaSecret } }
+    ]);
+
+    mockResponses(
+      fetchMock,
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        method: "POST",
+        body: JSON.stringify({
+          success: true,
+          score: process.env.RECAPTCHA_MINIMUM_SCORE
+        })
+      },
+      {
+        url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
+        method: "GET",
+        body: JSON.stringify(""),
+        status: 400
+      }
+    );
+    createWriteStream.mockImplementation(() => {
+      throw Error("Expected error");
+    });
+    publicUrl.mockImplementation(() => "https://somewhere/file.zip");
+
+    await download(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(500);
+    expect(res.send).toBeCalledWith(Error("Expected error"));
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
+    expect(createWriteStream).toBeCalledTimes(1);
+    expect(fetchMock).toHaveFetchedTimes(1);
+    expect(publicUrl).toBeCalledTimes(0);
+  });
+
   it("returns status code 200 when document fetch request returns a non-ok response", async () => {
     const req = mockRequest(
       "POST",
@@ -638,6 +834,102 @@ describe("Making a POST request", () => {
       `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
     );
     expect(publicUrl).toBeCalledTimes(1);
+  });
+
+  it("defaults RECAPTCHA_MINIMUM_SCORE to 1.0 and returns status code 200 when successfully created zip file", async () => {
+    const recaptchaMinimumScore = process.env.RECAPTCHA_MINIMUM_SCORE;
+    delete process.env.RECAPTCHA_MINIMUM_SCORE;
+
+    const failReq = mockRequest(
+      "POST",
+      {
+        "X-Recaptcha-Token": `${validToken}0.9`
+      },
+      "/",
+      {
+        documents: [mockDocument()]
+      }
+    );
+    const res = mockResponse();
+
+    accessSecretVersion.mockResolvedValueOnce([
+      { payload: { data: recaptchaSecret } }
+    ]);
+
+    mockResponses(
+      fetchMock,
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}0.9`,
+        method: "POST",
+        body: JSON.stringify({
+          success: true,
+          score: 0.9
+        })
+      },
+      {
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}1.0`,
+        method: "POST",
+        body: JSON.stringify({
+          success: true,
+          score: 1.0
+        })
+      },
+      {
+        url: `https://${process.env.DXB_VALID_HOSTS}/file.pdf`,
+        method: "GET",
+        body: "Some value"
+      }
+    );
+    createWriteStream.mockImplementation(() =>
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
+      fs.createWriteStream(temporaryFile)
+    );
+    publicUrl.mockImplementation(() => "https://somewhere/file.zip");
+
+    await download(failReq, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.status).toBeCalledWith(400);
+    expect(res.send).toBeCalledWith("Recaptcha check failed.");
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}0.9`,
+      { method: "POST" }
+    );
+
+    const passReq = mockRequest(
+      failReq.method!,
+      {
+        "X-Recaptcha-Token": `${validToken}1.0`
+      },
+      failReq.url,
+      failReq.body
+    );
+
+    await download(passReq, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.send).toBeCalledWith({ url: "https://somewhere/file.zip" });
+    expect(bucket).toBeCalledWith(process.env.GCS_NAME);
+    expect(file.mock.calls[0][0].endsWith(".zip")).toBeTruthy();
+    expect(accessSecretVersion).toBeCalledWith({
+      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.RECAPTCHA_SECRET_KEY}/versions/latest`
+    });
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}1.0`,
+      { method: "POST" }
+    );
+    expect(res.setHeader).toBeCalledWith("Content-type", "application/json");
+    expect(createWriteStream).toBeCalledTimes(1);
+    expect(fetchMock).toHaveFetched(
+      `https://${process.env.DXB_VALID_HOSTS}/file.pdf`
+    );
+    expect(publicUrl).toBeCalledTimes(1);
+
+    process.env.RECAPTCHA_MINIMUM_SCORE = recaptchaMinimumScore;
   });
 
   it("returns status code 200 when successfully created zip file", async () => {
