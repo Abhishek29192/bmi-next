@@ -86,6 +86,10 @@ resource "google_cloud_run_service" "tf-gateway" {
           name  = "NPM_AUTH_READ_TOKEN"
           value = ""
         }
+        env {
+          name  = "NODE_ENV"
+          value = "production"
+        }
       }
     }
   }
