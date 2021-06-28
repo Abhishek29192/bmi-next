@@ -1,6 +1,7 @@
 // THIS IS A CLONE OF EXTERNAL DEPENDENCIES I COULDN'T REQUIRE FROM HEAD ATM
 // POSSIBLY WITH SOME CHANGES
 // product-details-trasnforms.ts
+// @ts-nocheck
 
 import { result, find } from "lodash";
 import { Product } from "./pim";
