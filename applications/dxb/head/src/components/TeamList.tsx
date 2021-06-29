@@ -18,7 +18,7 @@ export type Data = {
 
 const TEAM_MEMBERS_PER_PAGE = 8;
 
-const TeamList = ({ data }: { data: Data }) => {
+const TeamList = ({ data }: { data: Data | null }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
   const showMoreText = getMicroCopy("global.showMore");
   const [numberVisible, setNumberVisible] = useState(TEAM_MEMBERS_PER_PAGE);
