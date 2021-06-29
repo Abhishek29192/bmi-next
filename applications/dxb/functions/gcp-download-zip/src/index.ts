@@ -2,7 +2,7 @@ import type { HttpFunction } from "@google-cloud/functions-framework/build/src/f
 import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import Archiver from "archiver";
+import archiver from "archiver";
 import { verifyOrigins } from "./verify";
 
 const {
@@ -14,13 +14,19 @@ const {
 } = process.env;
 
 const storage = new Storage();
-const bucket = storage.bucket(GCS_NAME);
-const validHosts = DXB_VALID_HOSTS.split(",").map((value) => value.trim());
-const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+const bucket = GCS_NAME && storage.bucket(GCS_NAME);
+const validHosts =
+  DXB_VALID_HOSTS?.split(",").map((value) => value.trim()) || [];
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1.0");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 let recaptchaSecretKeyCache: string;
 const secretManagerClient = new SecretManagerServiceClient();
+
+type Document = {
+  name?: string;
+  href?: string;
+};
 
 const getRecaptchaSecretKey = async () => {
   if (!recaptchaSecretKeyCache) {
@@ -28,12 +34,22 @@ const getRecaptchaSecretKey = async () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
     });
 
+    if (!recaptchaSecretKey[0].payload?.data) {
+      throw Error("Unable to get ReCaptcha secret key");
+    }
+
     recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
   }
   return recaptchaSecretKeyCache;
 };
 
 export const download: HttpFunction = async (request, response) => {
+  if (!bucket) {
+    // eslint-disable-next-line no-console
+    console.error("Unable to connect to a storage bucket");
+    return response.sendStatus(500);
+  }
+
   response.set("Access-Control-Allow-Origin", "*");
 
   if (request.method === "OPTIONS") {
@@ -66,9 +82,21 @@ export const download: HttpFunction = async (request, response) => {
       return response.status(400).send("Token not provided.");
     }
 
+    if (request.body.documents.find((values: Document) => !values.name)) {
+      // eslint-disable-next-line no-console
+      console.error("Missing name(s).");
+      return response.status(400).send("Missing name(s).");
+    }
+
+    if (request.body.documents.find((values: Document) => !values.href)) {
+      // eslint-disable-next-line no-console
+      console.error("Missing HREF(s).");
+      return response.status(400).send("Missing HREF(s).");
+    }
+
     if (
       !verifyOrigins(
-        request.body.documents.map((values) => values.href),
+        request.body.documents.map((values: Document) => values.href),
         validHosts
       )
     ) {
@@ -110,7 +138,7 @@ export const download: HttpFunction = async (request, response) => {
       const zipFile = bucket.file(`${fileName}.zip`);
       const zipFileWriteStream = zipFile.createWriteStream();
 
-      const archive = new Archiver("zip", {
+      const archive = archiver("zip", {
         zlib: { level: 9 } // Sets the compression level.
       });
 
@@ -124,8 +152,8 @@ export const download: HttpFunction = async (request, response) => {
       archive.pipe(zipFileWriteStream);
 
       await Promise.all(
-        request.body.documents.map(async ({ name, href }) => {
-          const response = await fetch(href);
+        request.body.documents.map(async ({ name, href }: Document) => {
+          const response = await fetch(href!);
           if (!response.ok) {
             // eslint-disable-next-line no-console
             console.error(
@@ -133,7 +161,7 @@ export const download: HttpFunction = async (request, response) => {
             );
           }
           const buffer = await response.buffer();
-          archive.append(buffer, { name: name });
+          archive.append(buffer, { name: name! });
         })
       ).catch((err) => {
         // eslint-disable-next-line no-console

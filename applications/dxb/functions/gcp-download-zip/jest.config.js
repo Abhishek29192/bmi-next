@@ -8,10 +8,10 @@ module.exports = {
   roots: ["<rootDir>/applications/dxb/functions/gcp-download-zip/src"],
   coverageThreshold: {
     global: {
-      statements: "95",
-      branches: "100",
-      functions: "88",
-      lines: "95"
+      statements: "97",
+      branches: "96",
+      functions: "90",
+      lines: "97"
     }
   }
 };

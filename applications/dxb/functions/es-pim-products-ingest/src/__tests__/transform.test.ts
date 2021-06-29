@@ -1,3 +1,4 @@
+import mockConsole from "jest-mock-console";
 import { transformProduct } from "../transform";
 import {
   createAppearanceAttributesClassification,
@@ -11,6 +12,10 @@ import createVariantOption from "./helpers/VariantOptionHelper";
 import createPimProduct from "./helpers/PimProductHelper";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
+
+beforeAll(() => {
+  mockConsole();
+});
 
 describe("transformProduct", () => {
   it("should transform full product with single variant to a single ES product", () => {
@@ -40,12 +45,12 @@ describe("transformProduct", () => {
     )[0].classifications.filter(
       (classification) => classification.code === "scoringWeightAttributes"
     );
-    const expectedScoringWeightAttributes = product.classifications.filter(
+    const expectedScoringWeightAttributes = product.classifications!.filter(
       (classification) => classification.code === "scoringWeightAttributes"
     );
     expect(expectedScoringWeightAttributes).not.toEqual(
-      product.variantOptions.filter((variant) =>
-        variant.classifications.filter(
+      product.variantOptions!.filter((variant) =>
+        variant.classifications!.filter(
           (classification) => classification.code === "scoringWeightAttributes"
         )
       )
@@ -81,12 +86,12 @@ describe("transformProduct", () => {
     )[0].classifications.filter(
       (classification) => classification.code === "appearanceAttributes"
     );
-    const expectedAppearanceAttributes = product.classifications.filter(
+    const expectedAppearanceAttributes = product.classifications!.filter(
       (classification) => classification.code === "appearanceAttributes"
     );
     expect(expectedAppearanceAttributes).not.toEqual(
-      product.variantOptions.filter((variant) =>
-        variant.classifications.filter(
+      product.variantOptions!.filter((variant) =>
+        variant.classifications!.filter(
           (classification) => classification.code === "appearanceAttributes"
         )
       )
@@ -116,12 +121,12 @@ describe("transformProduct", () => {
     )[0].classifications.filter(
       (classification) => classification.code === "generalInformation"
     );
-    const expectedGeneralInformation = product.classifications.filter(
+    const expectedGeneralInformation = product.classifications!.filter(
       (classification) => classification.code === "generalInformation"
     );
     expect(expectedGeneralInformation).not.toEqual(
-      product.variantOptions.filter((variant) =>
-        variant.classifications.filter(
+      product.variantOptions!.filter((variant) =>
+        variant.classifications!.filter(
           (classification) => classification.code === "generalInformation"
         )
       )
@@ -151,12 +156,12 @@ describe("transformProduct", () => {
     )[0].classifications.filter(
       (classification) => classification.code === "generalInformation"
     );
-    const expectedGeneralInformation = product.classifications.filter(
+    const expectedGeneralInformation = product.classifications!.filter(
       (classification) => classification.code === "generalInformation"
     );
     expect(expectedGeneralInformation).not.toEqual(
-      product.variantOptions.filter((variant) =>
-        variant.classifications.filter(
+      product.variantOptions!.filter((variant) =>
+        variant.classifications!.filter(
           (classification) => classification.code === "generalInformation"
         )
       )
@@ -173,7 +178,7 @@ describe("transformProduct", () => {
       ]
     });
     const actualApprovalStatus = transformProduct(product)[0].approvalStatus;
-    const expectedApprovalStatus = product.variantOptions[0].approvalStatus;
+    const expectedApprovalStatus = product.variantOptions![0].approvalStatus;
     expect(expectedApprovalStatus).not.toEqual(product.approvalStatus);
     expect(actualApprovalStatus).toEqual(expectedApprovalStatus);
   });

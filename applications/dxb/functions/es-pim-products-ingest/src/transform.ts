@@ -180,9 +180,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       scoringWeight,
       // Parsing to a number so it'll be mapped as integer (long).
       // @todo: Eventually to be swapped out with scoringWeight when changes have been propagated.
-      scoringWeightInt: Number.isFinite(Number.parseInt(scoringWeight))
-        ? Number.parseInt(scoringWeight)
-        : 0,
+      scoringWeightInt:
+        scoringWeight && Number.isFinite(Number.parseInt(scoringWeight))
+          ? Number.parseInt(scoringWeight)
+          : 0,
       colourfamilyCode,
       colourfamilyValue,
       texturefamilyCode,

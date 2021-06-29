@@ -18,6 +18,7 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@types/jest-when": "^2.7.3",
     "env-cmd": "^10.1.0",
     "jest-when": "^3.2.0",
     "js-yaml": "^4.0.0"
