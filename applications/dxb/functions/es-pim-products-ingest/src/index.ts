@@ -152,21 +152,11 @@ const getBulkOperations = (
       [] as (DeleteOperation | (IndexOperation | ProductVariant))[]
     );
   }
-
-  switch (action) {
-    case "delete":
-      return variants.reduce(
-        (allOps, item) => [...allOps, ...getDeleteOperation(indexName, item)],
-        [] as DeleteOperation[]
-      );
-    case "create":
-    case "index":
-    case "update":
-      return variants.reduce(
-        (allOps, item) => [...allOps, ...getIndexOperation(indexName, item)],
-        [] as (IndexOperation | ProductVariant)[]
-      );
-  }
+  // action is only sent in as "delete"
+  return variants.reduce<DeleteOperation[]>(
+    (allOps, item) => [...allOps, ...getDeleteOperation(indexName, item)],
+    []
+  );
 };
 
 const updateElasticSearch = async (

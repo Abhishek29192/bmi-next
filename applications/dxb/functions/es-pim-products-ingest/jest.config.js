@@ -9,10 +9,9 @@ module.exports = {
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      statements: "96",
-      branches: "85",
-      functions: "98",
-      lines: "97"
+      statements: "98",
+      branches: "90",
+      lines: "98"
     }
   }
 };
