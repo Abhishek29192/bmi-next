@@ -45,5 +45,13 @@ module.exports = {
     "<rootDir>/jest/src/setEnvVars.ts",
     "<rootDir>/jest/src/setupTests.ts"
   ],
-  setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"]
+  setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"],
+  coverageThreshold: {
+    global: {
+      statements: "100",
+      branches: "100",
+      functions: "100",
+      lines: "100"
+    }
+  }
 };
