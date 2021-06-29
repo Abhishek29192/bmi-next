@@ -24,7 +24,7 @@ WORKDIR /usr/src/app/applications/intouch/api/gateway
 RUN yarn install --pure-lockfile --production --cache-folder ./ycache && \
   rm -rf ./ycache
 
-RUN rm -f ../../../../npmrc
+RUN rm -f ../../../../.npmrc
 
 
 # Build
