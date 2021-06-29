@@ -56,6 +56,19 @@ const navigation = [
         }
       }
     ]
+  },
+  {
+    label: "Tiles",
+    menu: [
+      {
+        label: "Clay",
+        action: {
+          model: "routerLink" as "routerLink",
+          to: "/clay/",
+          linkComponent: Clickable
+        }
+      }
+    ]
   }
 ];
 
