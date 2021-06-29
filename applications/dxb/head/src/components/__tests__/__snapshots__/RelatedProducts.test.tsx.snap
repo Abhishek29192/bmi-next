@@ -133,51 +133,6 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                     </div>
                   </div>
                 </div>
-                <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
-                >
-                  <div
-                    class="OverviewCard"
-                  >
-                    <div
-                      class="body"
-                    >
-                      <h5
-                        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
-                      >
-                        imaproduct
-                      </h5>
-                      
-                      <div
-                        class="children"
-                      >
-                        MC: pdp.nobb.label
-                        :
-                         
-                        <b>
-                          test2
-                        </b>
-                      </div>
-                      <div
-                        class="footer"
-                      >
-                        <a
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          href="/en/"
-                        >
-                          <span>
-                            MC: pdp.relatedProducts.viewDetails
-                          </span>
-                          <svg
-                            aria-hidden="true"
-                            class="icon"
-                            focusable="false"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
