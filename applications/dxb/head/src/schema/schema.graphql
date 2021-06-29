@@ -1592,6 +1592,9 @@ type ContentfulIframe implements Node {
   "The label for the video"
   title: String
 
+  "The summary for the video"
+  summary: ContentfulRichText
+
   "URL for iframe source"
   url: String!
 
