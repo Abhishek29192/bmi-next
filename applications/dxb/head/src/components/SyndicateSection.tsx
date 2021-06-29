@@ -14,7 +14,7 @@ import { renderImage } from "./Image";
 export type Data = {
   __typename: "ContentfulSyndicateSection";
   title: string | null;
-  villains: (PromoData | PageInfoData)[];
+  villains: (PromoData | PageInfoData)[] | null;
   isReversed: boolean;
 };
 
