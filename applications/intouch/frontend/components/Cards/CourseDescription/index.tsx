@@ -11,7 +11,9 @@ import styles from "./styles.module.scss";
 export type CourseDescriptionProps = {
   title: string;
   type: string;
-  status: string;
+  status?: string;
+  image?: string;
+  lmsUrl?: string;
   children?: React.ReactNode | React.ReactNode[];
 };
 
@@ -19,6 +21,8 @@ export const CourseDescription = ({
   title,
   type,
   status,
+  image,
+  lmsUrl,
   children
 }: CourseDescriptionProps) => {
   const { t } = useTranslation("common");
@@ -26,7 +30,11 @@ export const CourseDescription = ({
   return (
     <GenericCard title={title}>
       <div className={styles.header}>
-        <div className={styles.bannerImage}></div>
+        {image && (
+          <div className={styles.bannerImage}>
+            <img src={image} alt="" />
+          </div>
+        )}
         <div>
           <div className={styles.metadata}>
             <div className={styles.type}>
@@ -36,7 +44,16 @@ export const CourseDescription = ({
             <div className={styles.status}>{status}</div>
           </div>
           <div className={styles.cta}>
-            <Button startIcon={<ArrowForwardIcon />} variant="outlined">
+            <Button
+              startIcon={<ArrowForwardIcon />}
+              variant="outlined"
+              action={{
+                model: "htmlLink",
+                href: lmsUrl,
+                target: "_blank",
+                rel: "noopener noreferrer"
+              }}
+            >
               {t("View training")}
             </Button>
           </div>

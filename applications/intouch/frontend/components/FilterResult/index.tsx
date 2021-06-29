@@ -8,13 +8,18 @@ import styles from "./styles.module.scss";
 
 export type FilterResultProps = {
   label: string;
+  onClick?: () => void;
   children: React.ReactNode | React.ReactNode[];
 };
 
-export const FilterResult = ({ label, children }: FilterResultProps) => {
+export const FilterResult = ({
+  label,
+  onClick,
+  children
+}: FilterResultProps) => {
   return (
     <div>
-      <CardActionArea>
+      <CardActionArea onClick={onClick}>
         <CardContent className={styles.main}>
           <Typography variant="h6" className={styles.title}>
             {label ? label : "Label"}

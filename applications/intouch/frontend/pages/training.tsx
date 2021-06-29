@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Course } from "@bmi/intouch-api-types";
 import Grid from "@bmi/grid";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
@@ -16,6 +17,7 @@ import {
 } from "../graphql/generated/page";
 import { Layout } from "../components/Layout";
 import { parseAccount } from "../lib/account";
+import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 
 type PageProps = {
   trainingData: {
@@ -24,7 +26,6 @@ type PageProps = {
       message: string;
     };
   };
-  username?: string;
 };
 
 const DOCEBO_SSO_URL = "/api/docebo-sso";
@@ -32,6 +33,8 @@ const DOCEBO_SSO_URL = "/api/docebo-sso";
 const TrainingPage = ({ trainingData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
+
+  const [activeCourse, setActiveCourse] = useState<Course>(null);
 
   if (error)
     return (
@@ -49,6 +52,13 @@ const TrainingPage = ({ trainingData }: PageProps) => {
       </Layout>
     );
 
+  const sidePanelHandler = (courseId: number) => {
+    const activeCourse = courseCatalogues.nodes.find(
+      ({ course }) => course.courseId === courseId
+    )?.course as Course;
+    setActiveCourse(activeCourse);
+  };
+
   //Translate course status
   courseCatalogues?.nodes?.forEach(({ course }) => {
     course.courseEnrollments?.nodes.forEach(
@@ -59,7 +69,11 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   return (
     <Layout title={t("Training")}>
       <div style={{ display: "flex" }}>
-        <TrainingSidePanel courseCatalog={courseCatalogues} />
+        <TrainingSidePanel
+          courseCatalog={courseCatalogues}
+          onCourseSelected={sidePanelHandler}
+          onFilterChange={() => setActiveCourse(null)}
+        />
         <Grid
           container
           spacing={2}
@@ -67,10 +81,17 @@ const TrainingPage = ({ trainingData }: PageProps) => {
           alignItems="stretch"
         >
           <Grid item>
-            <TrainingCover
-              trainingContentCollection={trainingContentCollection}
-              lmsUrl={DOCEBO_SSO_URL}
-            />
+            {!activeCourse ? (
+              <TrainingCover
+                trainingContentCollection={trainingContentCollection}
+                lmsUrl={DOCEBO_SSO_URL}
+              />
+            ) : (
+              <TrainingCourseDetail
+                course={activeCourse}
+                lmsUrl={DOCEBO_SSO_URL}
+              />
+            )}
           </Grid>
         </Grid>
       </div>
