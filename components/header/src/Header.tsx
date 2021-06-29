@@ -7,7 +7,7 @@ import LanguageSelection, {
   LanguageSelectionList
 } from "@bmi/language-selection";
 import { BMI as BmiIcon } from "@bmi/logo";
-import Clickable, { ClickableAction } from "@bmi/clickable";
+import Clickable, { ClickableProps, ClickableAction } from "@bmi/clickable";
 import Navigation, { LinkList, NavigationList } from "@bmi/navigation";
 import Container from "@bmi/container";
 import Typography from "@bmi/typography";
@@ -25,7 +25,7 @@ import {
   Search as SearchIcon
 } from "@material-ui/icons";
 import classnames from "classnames";
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./Header.module.scss";
 import {
   getElementWidths,
@@ -271,20 +271,46 @@ const Header = ({
                 value={value === true ? 0 : value}
                 variant="scrollable"
               >
-                {navigation.map(({ label, action }, key) => {
-                  if (action) {
+                {navigation.map(({ label, action, menu }, key) => {
+                  let clickableAction = action;
+                  let menuLabel = label;
+
+                  if (menu && menu.length === 1 && menu[0].action) {
+                    clickableAction = menu[0].action;
+                    menuLabel = menu[0].label;
+                  }
+
+                  if (clickableAction) {
+                    const ClickableNavItem = (
+                      { children, ...props }: ClickableProps,
+                      ref: any
+                    ) => {
+                      return (
+                        <Clickable {...clickableAction} {...props}>
+                          {children &&
+                            React.Children.map(children, (child) =>
+                              child
+                                ? // @ts-ignore Cannot see that children can be ReactNode[]
+                                  React.cloneElement(child, {
+                                    children: menuLabel
+                                  })
+                                : null
+                            )}
+                        </Clickable>
+                      );
+                    };
+
                     return (
-                      <Clickable
-                        {...action}
+                      <Tab
                         className={classnames(
                           styles["nav-item"],
                           styles["nav-item--no-children"],
                           activeNavLabel === label &&
                             styles["nav-item--selected"]
                         )}
-                      >
-                        <span>{label}</span>
-                      </Clickable>
+                        key={`navigation-tab-${key}`}
+                        component={forwardRef(ClickableNavItem)}
+                      />
                     );
                   }
 
@@ -298,7 +324,7 @@ const Header = ({
                       icon={<KeyboardArrowDown />}
                       id={`navigation-tab-${key}`}
                       key={`navigation-tab-${key}`}
-                      label={label}
+                      label={menuLabel}
                     />
                   );
                 })}

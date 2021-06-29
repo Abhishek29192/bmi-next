@@ -77,64 +77,37 @@ exports[`Header component renders correctly 1`] = `
                   class="MuiTabs-flexContainer"
                   role="tablist"
                 >
-                  <button
-                    aria-controls="navigation-tabpanel-0"
+                  <a
+                    aria-disabled="false"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item MuiTab-labelIcon"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
-                    id="navigation-tab-0"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"undefined\\"}"
+                    href="tel:+4401234567890"
                     role="tab"
                     tabindex="-1"
-                    type="button"
                   >
                     <span
                       class="MuiTab-wrapper"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      Get in touch
+                      +44 (0) 1234567890
                     </span>
                     <span
                       class="MuiTouchRipple-root"
                     />
-                  </button>
-                  <button
-                    aria-controls="navigation-tabpanel-1"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item MuiTab-labelIcon"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\"}"
-                    id="navigation-tab-1"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
+                  </a>
+                  <a
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
+                    href="/gb/landing-page"
                   >
                     <span
                       class="MuiTab-wrapper"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      About BMI
+                      Our story
                     </span>
                     <span
                       class="MuiTouchRipple-root"
                     />
-                  </button>
+                  </a>
                 </div>
                 <span
                   class="PrivateTabIndicator-root-1 PrivateTabIndicator-colorSecondary-3 MuiTabs-indicator"

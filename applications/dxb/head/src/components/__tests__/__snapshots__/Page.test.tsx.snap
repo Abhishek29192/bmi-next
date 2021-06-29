@@ -79,73 +79,54 @@ exports[`Page component renders correctly 1`] = `
                   class="MuiTabs-flexContainer"
                   role="tablist"
                 >
-                  <button
-                    aria-controls="navigation-tabpanel-0"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item MuiTab-labelIcon"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
-                    id="navigation-tab-0"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <span
-                      class="MuiTab-wrapper"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      Get in touch
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <button
-                    aria-controls="navigation-tabpanel-1"
-                    aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item MuiTab-labelIcon"
-                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\"}"
-                    id="navigation-tab-1"
-                    role="tab"
-                    tabindex="-1"
-                    type="button"
-                  >
-                    <span
-                      class="MuiTab-wrapper"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                        />
-                      </svg>
-                      About BMI
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
                   <a
-                    class="nav-item nav-item--no-children"
-                    href="link-to-page"
-                    textcolor="inherit"
-                    value="2"
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"undefined\\"}"
+                    href="tel:+4401234567890"
+                    role="tab"
+                    tabindex="-1"
                   >
-                    <span>
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      +44 (0) 1234567890
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                  <a
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
+                    href="/uk/landing-page"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      Our story
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
+                  <a
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"undefined\\"}"
+                    href="link-to-page"
+                    role="tab"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
                       string
                     </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
                   </a>
                 </div>
                 <span
