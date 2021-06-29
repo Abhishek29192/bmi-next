@@ -13,7 +13,7 @@ import { SiteContext } from "./Site";
 import styles from "./styles/SitemapBlock.module.scss";
 
 type Props = {
-  links: (NavigationData | NavigationItem | LinkData)[];
+  links: (NavigationData | NavigationItem | LinkData)[] | null;
   label?: string;
   level?: number;
   isChild?: boolean;
