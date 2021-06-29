@@ -792,6 +792,10 @@ type Query implements Node {
   system(id: Int!): System
   systemByBmiRef(bmiRef: String!): System
   systemMember(id: Int!): SystemMember
+  systemMemberBySystemBmiRefAndProductBmiRef(
+    systemBmiRef: String!
+    productBmiRef: String!
+  ): SystemMember
   currentAccountEmail: String
   currentAccountId: Int
   currentCompany: Int
@@ -2011,7 +2015,7 @@ type Company implements Node {
   taxNumber: String
 
   """
-  They Company public phone number
+  The Company public phone number
   """
   phone: String
 
@@ -2703,6 +2707,47 @@ type Project implements Node {
   buildingOwnerAddress: Address
 
   """
+  Reads and enables pagination through a set of `EvidenceItem`.
+  """
+  evidenceItems(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `EvidenceItem`.
+    """
+    orderBy: [EvidenceItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EvidenceItemCondition
+  ): EvidenceItemsConnection!
+
+  """
   Reads and enables pagination through a set of `Guarantee`.
   """
   guarantees(
@@ -2833,18 +2878,18 @@ enum Technology {
 }
 
 """
-A connection to a list of `Guarantee` values.
+A connection to a list of `EvidenceItem` values.
 """
-type GuaranteesConnection {
+type EvidenceItemsConnection {
   """
-  A list of `Guarantee` objects.
+  A list of `EvidenceItem` objects.
   """
-  nodes: [Guarantee!]!
+  nodes: [EvidenceItem!]!
 
   """
-  A list of edges which contains the `Guarantee` and cursor to aid in pagination.
+  A list of edges which contains the `EvidenceItem` and cursor to aid in pagination.
   """
-  edges: [GuaranteesEdge!]!
+  edges: [EvidenceItemsEdge!]!
 
   """
   Information to aid in pagination.
@@ -2852,9 +2897,72 @@ type GuaranteesConnection {
   pageInfo: PageInfo!
 
   """
-  The count of *all* `Guarantee` you could get from the connection.
+  The count of *all* `EvidenceItem` you could get from the connection.
   """
   totalCount: Int!
+}
+
+"""
+A file uploaded to a project, usually as evidence to support a guarantee
+"""
+type EvidenceItem implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+
+  """
+  Primary key
+  """
+  id: Int!
+
+  """
+  a reference to the evidenceCategory sys id in Contentful
+  """
+  customEvidenceCategoryId: String
+
+  """
+  fk
+  """
+  projectId: Int
+
+  """
+  fk
+  """
+  guaranteeId: Int
+
+  """
+  ek
+  """
+  evidenceCategoryType: EvidenceCategoryType
+
+  """
+  Short name for the item of evidence
+  """
+  name: String
+
+  """
+  File reference or the file itself. Photo of the evidence
+  """
+  attachment: String
+  createdAt: Datetime!
+  updatedAt: Datetime!
+
+  """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
+  Reads a single `Guarantee` that is related to this `EvidenceItem`.
+  """
+  guarantee: Guarantee
+}
+
+enum EvidenceCategoryType {
+  PROOF_OF_PURCHASE
+  MISCELLANEOUS
+  CUSTOM
 }
 
 """
@@ -3156,6 +3264,71 @@ type System implements Node {
     """
     condition: SystemMemberCondition
   ): SystemMembersConnection!
+}
+
+"""
+A connection to a list of `Guarantee` values.
+"""
+type GuaranteesConnection {
+  """
+  A list of `Guarantee` objects.
+  """
+  nodes: [Guarantee!]!
+
+  """
+  A list of edges which contains the `Guarantee` and cursor to aid in pagination.
+  """
+  edges: [GuaranteesEdge!]!
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `Guarantee` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `Guarantee` edge in the connection.
+"""
+type GuaranteesEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `Guarantee` at the end of the edge.
+  """
+  node: Guarantee!
+}
+
+"""
+Information about pagination in a connection.
+"""
+type PageInfo {
+  """
+  When paginating forwards, are there more items?
+  """
+  hasNextPage: Boolean!
+
+  """
+  When paginating backwards, are there more items?
+  """
+  hasPreviousPage: Boolean!
+
+  """
+  When paginating backwards, the cursor to continue.
+  """
+  startCursor: Cursor
+
+  """
+  When paginating forwards, the cursor to continue.
+  """
+  endCursor: Cursor
 }
 
 """
@@ -3485,130 +3658,14 @@ type SystemMembersEdge {
 }
 
 """
-Information about pagination in a connection.
-"""
-type PageInfo {
-  """
-  When paginating forwards, are there more items?
-  """
-  hasNextPage: Boolean!
-
-  """
-  When paginating backwards, are there more items?
-  """
-  hasPreviousPage: Boolean!
-
-  """
-  When paginating backwards, the cursor to continue.
-  """
-  startCursor: Cursor
-
-  """
-  When paginating forwards, the cursor to continue.
-  """
-  endCursor: Cursor
-}
-
-"""
-A connection to a list of `EvidenceItem` values.
-"""
-type EvidenceItemsConnection {
-  """
-  A list of `EvidenceItem` objects.
-  """
-  nodes: [EvidenceItem!]!
-
-  """
-  A list of edges which contains the `EvidenceItem` and cursor to aid in pagination.
-  """
-  edges: [EvidenceItemsEdge!]!
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  The count of *all* `EvidenceItem` you could get from the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-A file uploaded to a project, usually as evidence to support a guarantee
-"""
-type EvidenceItem implements Node {
-  """
-  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
-  """
-  nodeId: ID!
-
-  """
-  Primary key
-  """
-  id: Int!
-
-  """
-  a reference to the evidenceCategory sys id in Contentful
-  """
-  customEvidenceCategoryId: String
-
-  """
-  fk
-  """
-  guaranteeId: Int
-
-  """
-  ek
-  """
-  evidenceCategoryType: EvidenceCategoryType
-
-  """
-  Short name for the item of evidence
-  """
-  name: String
-
-  """
-  File reference or the file itself. Photo of the evidence
-  """
-  attachment: String
-  createdAt: Datetime!
-  updatedAt: Datetime!
-
-  """
-  Reads a single `Guarantee` that is related to this `EvidenceItem`.
-  """
-  guarantee: Guarantee
-}
-
-enum EvidenceCategoryType {
-  PROOF_OF_PURCHASE
-  MISCELLANEOUS
-  CUSTOM
-}
-
-"""
-A `EvidenceItem` edge in the connection.
-"""
-type EvidenceItemsEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: Cursor
-
-  """
-  The `EvidenceItem` at the end of the edge.
-  """
-  node: EvidenceItem!
-}
-
-"""
 Methods to use when ordering `EvidenceItem`.
 """
 enum EvidenceItemsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
   GUARANTEE_ID_ASC
   GUARANTEE_ID_DESC
   PRIMARY_KEY_ASC
@@ -3624,6 +3681,11 @@ input EvidenceItemCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
+
+  """
+  Checks for equality with the object’s `projectId` field.
+  """
+  projectId: Int
 
   """
   Checks for equality with the object’s `guaranteeId` field.
@@ -3742,18 +3804,18 @@ enum ContentfulMessageFormat {
 }
 
 """
-A `Guarantee` edge in the connection.
+A `EvidenceItem` edge in the connection.
 """
-type GuaranteesEdge {
+type EvidenceItemsEdge {
   """
   A cursor for use in pagination.
   """
   cursor: Cursor
 
   """
-  The `Guarantee` at the end of the edge.
+  The `EvidenceItem` at the end of the edge.
   """
-  node: Guarantee!
+  node: EvidenceItem!
 }
 
 """
@@ -5150,11 +5212,11 @@ union _Entity =
   | Company
   | Address
   | Project
+  | EvidenceItem
   | Guarantee
   | System
   | SystemMember
   | Product
-  | EvidenceItem
   | Note
   | ProjectMember
   | CompanyDocument
@@ -5753,6 +5815,16 @@ type Mutation {
   ): UpdateSystemMemberPayload
 
   """
+  Updates a single `SystemMember` using a unique key and a patch.
+  """
+  updateSystemMemberBySystemBmiRefAndProductBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput!
+  ): UpdateSystemMemberPayload
+
+  """
   Deletes a single `Account` using its globally unique id.
   """
   deleteAccountByNodeId(
@@ -6170,6 +6242,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteSystemMemberInput!
+  ): DeleteSystemMemberPayload
+
+  """
+  Deletes a single `SystemMember` using a unique key.
+  """
+  deleteSystemMemberBySystemBmiRefAndProductBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput!
   ): DeleteSystemMemberPayload
   createAccount(
     """
@@ -6657,6 +6739,11 @@ type CreateEvidenceItemPayload {
   query: Query
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -6701,6 +6788,11 @@ input EvidenceItemInput {
   a reference to the evidenceCategory sys id in Contentful
   """
   customEvidenceCategoryId: String
+
+  """
+  fk
+  """
+  projectId: Int
 
   """
   fk
@@ -8255,7 +8347,7 @@ input CompanyPatch {
   taxNumber: String
 
   """
-  They Company public phone number
+  The Company public phone number
   """
   phone: String
 
@@ -8669,6 +8761,11 @@ type UpdateEvidenceItemPayload {
   query: Query
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -8718,6 +8815,11 @@ input EvidenceItemPatch {
   a reference to the evidenceCategory sys id in Contentful
   """
   customEvidenceCategoryId: String
+
+  """
+  fk
+  """
+  projectId: Int
 
   """
   fk
@@ -10158,6 +10260,32 @@ input UpdateSystemMemberInput {
 }
 
 """
+All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+"""
+input UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `SystemMember` being updated.
+  """
+  patch: SystemMemberPatch!
+
+  """
+  fk
+  """
+  systemBmiRef: String!
+
+  """
+  fk
+  """
+  productBmiRef: String!
+}
+
+"""
 The output of our delete `Account` mutation.
 """
 type DeleteAccountPayload {
@@ -10707,6 +10835,11 @@ type DeleteEvidenceItemPayload {
   Our root query field type. Allows us to run any query from our mutation payload.
   """
   query: Query
+
+  """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
 
   """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
@@ -11558,6 +11691,27 @@ input DeleteSystemMemberInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+"""
+input DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  fk
+  """
+  systemBmiRef: String!
+
+  """
+  fk
+  """
+  productBmiRef: String!
 }
 
 """

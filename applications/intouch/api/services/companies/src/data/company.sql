@@ -231,6 +231,7 @@ DROP TABLE IF EXISTS evidence_item CASCADE;
 CREATE TABLE evidence_item (
   id serial PRIMARY KEY,
   custom_evidence_category_id text,
+  project_id int,
   guarantee_id int,
   evidence_category_type evidence_category_type,
   name text,
@@ -404,7 +405,7 @@ INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last
   VALUES ('3', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+3@digitaldetox.co.uk', '1234567', 'Dom', 'Perignon', '2020-06-12 10:19:47', 13988, 'devs+3@digitaldetox.co.uk', 'https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('4', 'ACTIVE', 1, 'INSTALLER', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Affleck', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL);
+  VALUES ('4', 'ACTIVE', 1, 'INSTALLER', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Cranwell', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
   VALUES ('5', 'ACTIVE', 1, 'INSTALLER', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL);
@@ -594,38 +595,38 @@ INSERT INTO company_operation (id, company, operation)
 
 TRUNCATE TABLE evidence_item RESTART IDENTITY;
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('1', NULL, 1, 'PROOF_OF_PURCHASE', 'stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg', 'https://image.shutterstock.com/z/stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('1', NULL, 1, 1, 'PROOF_OF_PURCHASE', 'stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg', 'https://image.shutterstock.com/z/stock-vector-realistic-paper-shop-receipt-with-barcode-vector-shop-terminal-768909406.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('2', NULL, 2, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('2', NULL, 1, 2, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('3', NULL, 3, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('3', NULL, 3, 3, 'PROOF_OF_PURCHASE', '450px-Interior_drain_replacement.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Interior_drain_replacement.jpg/450px-Interior_drain_replacement.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('4', '3ka17lbEy4ENxBKQC4CY4V', 3, 'CUSTOM', 'gargoyle-images-manchester-600w-71247169.jpg', 'https://c7.alamy.com/comp/FK32Y4/st-matthews-church-in-brixton-hill-south-london-FK32Y4.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('4', '3ka17lbEy4ENxBKQC4CY4V', 3, 3, 'CUSTOM', 'gargoyle-images-manchester-600w-71247169.jpg', 'https://c7.alamy.com/comp/FK32Y4/st-matthews-church-in-brixton-hill-south-london-FK32Y4.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('5', '3ka17lbEy4ENxBKQC4CY4V', 3, 'CUSTOM', 'gargoyle-fountain-detail-close-600w-499048789.jpg', 'https://image.shutterstock.com/image-photo/gargoyle-fountain-detail-close-600w-499048789.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('5', '3ka17lbEy4ENxBKQC4CY4V', 3, 3, 'CUSTOM', 'gargoyle-fountain-detail-close-600w-499048789.jpg', 'https://image.shutterstock.com/image-photo/gargoyle-fountain-detail-close-600w-499048789.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('6', '7j0FaWCBSVanXJqaZrDyvP', 3, 'CUSTOM', 'dancing-friends-600w-717409222.jpg', 'https://image.shutterstock.com/image-photo/dancing-friends-600w-717409222.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('6', '7j0FaWCBSVanXJqaZrDyvP', 3, 3, 'CUSTOM', 'dancing-friends-600w-717409222.jpg', 'https://image.shutterstock.com/image-photo/dancing-friends-600w-717409222.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('7', '5FbxiRcMYuY6txgoVAnWJm', 3, 'CUSTOM', 'Army_Photography_Contest_-_2007_-_FMWRC_-_Arts_and_Crafts_-_A_Plumpish_Proportion_%284930276154%29.jpg', 'https://image.shutterstock.com/image-photo/dramatic-picture-frozen-medieval-dragon-600w-131654306.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('7', '5FbxiRcMYuY6txgoVAnWJm', 3, 3, 'CUSTOM', 'Army_Photography_Contest_-_2007_-_FMWRC_-_Arts_and_Crafts_-_A_Plumpish_Proportion_%284930276154%29.jpg', 'https://image.shutterstock.com/image-photo/dramatic-picture-frozen-medieval-dragon-600w-131654306.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('8', '3ka17lbEy4ENxBKQC4CY4V', 4, 'CUSTOM', 'ministry-of-sound-24-1.jpg', 'https://paradise.london/wp-content/uploads/2019/08/ministry-of-sound-24-1.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('8', '3ka17lbEy4ENxBKQC4CY4V', NULL, 4, 'CUSTOM', 'ministry-of-sound-24-1.jpg', 'https://paradise.london/wp-content/uploads/2019/08/ministry-of-sound-24-1.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('9', '3ka17lbEy4ENxBKQC4CY4V', 4, 'CUSTOM', 'prague-czech-republic-august-172019-600w-1722304249.jpg', 'https://image.shutterstock.com/image-photo/prague-czech-republic-august-172019-600w-1722304249.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('9', '3ka17lbEy4ENxBKQC4CY4V', 4, 4, 'CUSTOM', 'prague-czech-republic-august-172019-600w-1722304249.jpg', 'https://image.shutterstock.com/image-photo/prague-czech-republic-august-172019-600w-1722304249.jpg');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('10', '7j0FaWCBSVanXJqaZrDyvP', 4, 'CUSTOM', 'rooftop-party.html', 'https://depositphotos.com/stock-photos/rooftop-party.html');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('10', '7j0FaWCBSVanXJqaZrDyvP', 4, 4, 'CUSTOM', 'rooftop-party.html', 'https://depositphotos.com/stock-photos/rooftop-party.html');
 
-INSERT INTO evidence_item (id, custom_evidence_category_id, guarantee_id, evidence_category_type, name, attachment)
-  VALUES ('11', '5FbxiRcMYuY6txgoVAnWJm', 4, 'CUSTOM', 'Ceiling-leak.jpg', 'https://rennisonroofing.com/wp-content/uploads/2020/04/Ceiling-leak.jpg');
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('11', '5FbxiRcMYuY6txgoVAnWJm', 4, 4, 'CUSTOM', 'Ceiling-leak.jpg', 'https://rennisonroofing.com/wp-content/uploads/2020/04/Ceiling-leak.jpg');
 
 TRUNCATE TABLE guarantee RESTART IDENTITY;
 
@@ -859,6 +860,11 @@ ALTER TABLE company_operation
 CREATE INDEX ON company_operation (company);
 
 ALTER TABLE evidence_item
+  ADD FOREIGN KEY (project_id) REFERENCES project (id) ON DELETE CASCADE;
+
+CREATE INDEX ON evidence_item (project_id);
+
+ALTER TABLE evidence_item
   ADD FOREIGN KEY (guarantee_id) REFERENCES guarantee (id) ON DELETE CASCADE;
 
 CREATE INDEX ON evidence_item (guarantee_id);
@@ -1055,7 +1061,7 @@ COMMENT ON COLUMN company.name IS 'The registered name of the Company';
 
 COMMENT ON COLUMN company.tax_number IS 'The Tax number in that Market, such as the VAT number';
 
-COMMENT ON COLUMN company.phone IS 'They Company public phone number';
+COMMENT ON COLUMN company.phone IS 'The Company public phone number';
 
 COMMENT ON COLUMN company.about_us IS 'A descirption of the Company intended for Find a Roofer';
 
@@ -1108,6 +1114,8 @@ COMMENT ON TABLE evidence_item IS 'A file uploaded to a project, usually as evid
 COMMENT ON COLUMN evidence_item.id IS 'Primary key';
 
 COMMENT ON COLUMN evidence_item.custom_evidence_category_id IS 'a reference to the evidenceCategory sys id in Contentful';
+
+COMMENT ON COLUMN evidence_item.project_id IS 'fk';
 
 COMMENT ON COLUMN evidence_item.guarantee_id IS 'fk';
 
@@ -1505,6 +1513,8 @@ CREATE TRIGGER set_system_updated_at
   EXECUTE PROCEDURE update_modified_column ();
 
 CREATE INDEX account_email_idx ON account USING btree (email);
+
+CREATE INDEX invitation_status_idx ON invitation USING btree (status);
 
 CREATE INDEX invitation_invitee_idx ON invitation USING btree (invitee);
 

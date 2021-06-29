@@ -1734,7 +1734,7 @@ type Company implements Node {
   taxNumber: String
 
   """
-  They Company public phone number
+  The Company public phone number
   """
   phone: String
 
@@ -2590,7 +2590,7 @@ input CompanyPatch {
   taxNumber: String
 
   """
-  They Company public phone number
+  The Company public phone number
   """
   phone: String
 
@@ -5151,6 +5151,11 @@ type CreateEvidenceItemPayload {
   query: Query
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -6814,6 +6819,11 @@ type DeleteEvidenceItemPayload {
   query: Query
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -7539,6 +7549,27 @@ input DeleteSystemMemberByNodeIdInput {
 }
 
 """
+All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+"""
+input DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  fk
+  """
+  systemBmiRef: String!
+
+  """
+  fk
+  """
+  productBmiRef: String!
+}
+
+"""
 All input for the `deleteSystemMember` mutation.
 """
 input DeleteSystemMemberInput {
@@ -7792,6 +7823,11 @@ type EvidenceItem implements Node {
   """
   fk
   """
+  projectId: Int
+
+  """
+  fk
+  """
   guaranteeId: Int
 
   """
@@ -7812,6 +7848,11 @@ type EvidenceItem implements Node {
   updatedAt: Datetime!
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -7826,6 +7867,11 @@ input EvidenceItemCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
+
+  """
+  Checks for equality with the object’s `projectId` field.
+  """
+  projectId: Int
 
   """
   Checks for equality with the object’s `guaranteeId` field.
@@ -7846,6 +7892,11 @@ input EvidenceItemInput {
   a reference to the evidenceCategory sys id in Contentful
   """
   customEvidenceCategoryId: String
+
+  """
+  fk
+  """
+  projectId: Int
 
   """
   fk
@@ -7883,6 +7934,11 @@ input EvidenceItemPatch {
   a reference to the evidenceCategory sys id in Contentful
   """
   customEvidenceCategoryId: String
+
+  """
+  fk
+  """
+  projectId: Int
 
   """
   fk
@@ -7954,6 +8010,8 @@ enum EvidenceItemsOrderBy {
   NATURAL
   ID_ASC
   ID_DESC
+  PROJECT_ID_ASC
+  PROJECT_ID_DESC
   GUARANTEE_ID_ASC
   GUARANTEE_ID_DESC
   PRIMARY_KEY_ASC
@@ -11211,6 +11269,16 @@ type Mutation {
     """
     input: DeleteSystemMemberByNodeIdInput!
   ): DeleteSystemMemberPayload
+
+  """
+  Deletes a single `SystemMember` using a unique key.
+  """
+  deleteSystemMemberBySystemBmiRefAndProductBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput!
+  ): DeleteSystemMemberPayload
   invite(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -11828,6 +11896,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateSystemMemberByNodeIdInput!
+  ): UpdateSystemMemberPayload
+
+  """
+  Updates a single `SystemMember` using a unique key and a patch.
+  """
+  updateSystemMemberBySystemBmiRefAndProductBmiRef(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput!
   ): UpdateSystemMemberPayload
   updateTraining(lastUpdateDate: String): String
 }
@@ -12777,6 +12855,47 @@ type Project implements Node {
   Reads a single `Address` that is related to this `Project`.
   """
   buildingOwnerAddress: Address
+
+  """
+  Reads and enables pagination through a set of `EvidenceItem`.
+  """
+  evidenceItems(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+
+    """
+    The method to use when ordering `EvidenceItem`.
+    """
+    orderBy: [EvidenceItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EvidenceItemCondition
+  ): EvidenceItemsConnection!
 
   """
   Reads and enables pagination through a set of `Guarantee`.
@@ -14806,6 +14925,10 @@ type Query implements Node {
     The globally unique `ID` to be used in selecting a single `SystemMember`.
     """
     nodeId: ID!
+  ): SystemMember
+  systemMemberBySystemBmiRefAndProductBmiRef(
+    systemBmiRef: String!
+    productBmiRef: String!
   ): SystemMember
 
   """
@@ -17020,6 +17143,11 @@ type UpdateEvidenceItemPayload {
   query: Query
 
   """
+  Reads a single `Project` that is related to this `EvidenceItem`.
+  """
+  project: Project
+
+  """
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
@@ -17849,6 +17977,32 @@ input UpdateSystemMemberByNodeIdInput {
   An object where the defined keys will be set on the `SystemMember` being updated.
   """
   patch: SystemMemberPatch!
+}
+
+"""
+All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation.
+"""
+input UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `SystemMember` being updated.
+  """
+  patch: SystemMemberPatch!
+
+  """
+  fk
+  """
+  systemBmiRef: String!
+
+  """
+  fk
+  """
+  productBmiRef: String!
 }
 
 """
