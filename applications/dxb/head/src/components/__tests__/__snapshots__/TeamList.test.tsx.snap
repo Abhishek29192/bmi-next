@@ -49,3 +49,450 @@ exports[`TeamList component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`TeamList component renders correctly when incomplete 1`] = `
+<div>
+  <div
+    class="EqualHeights"
+  >
+    <div
+      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TeamList component renders correctly with links 1`] = `
+<div>
+  <div
+    class="EqualHeights"
+  >
+    <div
+      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="footer"
+          >
+            <span
+              class="row"
+            >
+              Contact us
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TeamList component renders correctly with more than 8 1`] = `
+<div>
+  <div
+    class="EqualHeights"
+  >
+    <div
+      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <img
+              class="profile-picture"
+              src="//images.asset.jpg"
+            />
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -56,4 +56,13 @@ describe("SitemapSection component", () => {
     const { container } = render(<SitemapSection data={data} />);
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it("renders correctly if incomplete", () => {
+    const data = {
+      __typename: "ContentfulNavigation"
+    } as NavigationData;
+
+    const { container } = render(<SitemapSection data={data} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

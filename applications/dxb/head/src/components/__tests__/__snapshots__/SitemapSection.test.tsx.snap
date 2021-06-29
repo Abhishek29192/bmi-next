@@ -87,3 +87,28 @@ exports[`SitemapSection component renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`SitemapSection component renders correctly if incomplete 1`] = `
+<div
+  class="Section"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthXl"
+    >
+      <h2
+        class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+      />
+      <div
+        class="SitemapBlock"
+      >
+        <div
+          class="MasonryGrid"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
