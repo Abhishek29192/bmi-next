@@ -283,6 +283,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The iframe content"
   iframe: ContentfulIframe @link(from: "iframe___NODE")
 
+  "The sections for this contact us page."
+  sections: [ContentfulSection] @link(from: "sections___NODE")
+
   "The topics for this page."
   contentTopics: [ContentfulContactTopic] @link(from: "contentTopics___NODE")
 

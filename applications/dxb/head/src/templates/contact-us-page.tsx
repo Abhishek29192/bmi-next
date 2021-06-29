@@ -10,6 +10,7 @@ import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as TitleWithContentData } from "../components/TitleWithContent";
 import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
+import Sections, { Data as SectionsData } from "../components/Sections";
 import IframeSection, {
   Data as IframeSectionData
 } from "../components/IframeSection";
@@ -21,7 +22,7 @@ import Locations, { Data as LocationsData } from "../components/Locations";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 
-type Data = PageInfoData &
+export type Data = PageInfoData &
   PageData & {
     __typename: "ContentfulContactUsPage";
     queriesTitle: string;
@@ -29,6 +30,7 @@ type Data = PageInfoData &
     otherAreasTitle: string;
     otherAreas: readonly TitleWithContentData[];
     contentTopics: ContactTopicsData[] | null;
+    sections: SectionsData | null;
     locationsTitle: string | null;
     locations: LocationsData | null;
     iframe: IframeSectionData | null;
@@ -56,6 +58,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     otherAreas,
     contentTopics,
     inputBanner,
+    sections,
     locationsTitle,
     locations,
     iframe,
@@ -101,6 +104,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
         )}
       </Section>
       {iframe && <IframeSection data={iframe} />}
+      {sections && <Sections data={sections} />}
       {locations && (
         <Section backgroundColor="white">
           <Section.Title>{locationsTitle}</Section.Title>
@@ -142,6 +146,9 @@ export const pageQuery = graphql`
         ...TitleWithContentFragment
       }
       ...PageFragment
+      sections {
+        ...SectionsFragment
+      }
       locationsTitle
       locations {
         ...LocationsFragment
