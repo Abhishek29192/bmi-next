@@ -21,7 +21,7 @@ const [isOpen, setIsOpen] = React.useState(false);
     onClose={() => setIsOpen(false)}
     isDebugging
     onAnalyticsEvent={(event) => console.log("Analytics Event:", event)}
-    getData={() => data}
+    data={data}
     sendEmailAddress={async (values) => {
       console.log("Collecting email address:", sendEmailAddress);
     }}
@@ -48,7 +48,7 @@ const [isOpen, setIsOpen] = React.useState(false);
     onClose={() => setIsOpen(false)}
     isDebugging
     onAnalyticsEvent={(event) => console.log("Analytics Event:", event)}
-    getData={() => data}
+    data={data}
     sendEmailAddress={async (values) => {
       console.log("Collecting email address:", sendEmailAddress);
     }}

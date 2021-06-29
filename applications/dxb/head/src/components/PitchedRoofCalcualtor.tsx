@@ -1,8 +1,9 @@
-import React, { createContext, useMemo, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import MicroCopy from "@bmi/micro-copy";
 import PitchedRoofCalculator, {
   no,
-  sampleData
+  sampleData,
+  Data
 } from "@bmi/pitched-roof-calculator";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
@@ -41,42 +42,39 @@ const CalculatorProvider = ({ children, onError }: Props) => {
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const getData = useMemo(() => {
-    let data;
-    let fetchAndSetDataPromise;
+  const [data, setData] = useState<Data>();
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    const cancelTokenSouce = axios.CancelToken.source();
 
     const fetchAndSetData = async () => {
       if (!process.env.GATSBY_WEBTOOLS_CALCULATOR_DATA_URL) {
         devLog("Calculator data url was not found, using sample data instead.");
-        data = sampleData;
+        setData(sampleData as Data);
         return;
       }
 
       try {
         const response = await axios.get(
-          process.env.GATSBY_WEBTOOLS_CALCULATOR_DATA_URL
+          process.env.GATSBY_WEBTOOLS_CALCULATOR_DATA_URL,
+          { cancelToken: cancelTokenSouce.token }
         );
 
-        data = response.data;
+        setData(response.data);
       } catch (error) {
         devLog(error);
         onError();
       }
     };
 
-    return () => {
-      if (!data) {
-        if (!fetchAndSetDataPromise) {
-          fetchAndSetDataPromise = fetchAndSetData();
-        }
+    fetchAndSetData();
 
-        // Trigger React suspense
-        throw fetchAndSetDataPromise;
-      }
-
-      return data;
-    };
-  }, []);
+    return () => cancelTokenSouce.cancel();
+  }, [open]);
 
   return (
     <CalculatorContext.Provider
@@ -95,7 +93,7 @@ const CalculatorProvider = ({ children, onError }: Props) => {
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
           isDebugging={parameters?.isDebugging}
-          getData={getData}
+          data={data}
           onAnalyticsEvent={pushToDataLayer}
           sendEmailAddress={async (values) => {
             if (!process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT) {

@@ -5,28 +5,16 @@ import { AnalyticsContext, OnAnalyticsEvent } from "./helpers/analytics";
 import styles from "./PitchedRoofCalculator.module.scss";
 import { EmailFormValues } from "./types/EmailFormValues";
 import { Data } from "./types";
-import type { PitchedRoofCalculatorStepsProps } from "./_PitchedRoofCalculatorSteps";
 
 const PitchedRoofCalculatorSteps = React.lazy(
   () => import("./_PitchedRoofCalculatorSteps")
 );
 
-type GetData = () => Data;
-
-const PitchedRoofCalculatorLoader = ({
-  getData,
-  ...rest
-}: Omit<PitchedRoofCalculatorStepsProps, "data"> & { getData: GetData }) => {
-  const data = getData();
-
-  return <PitchedRoofCalculatorSteps {...rest} data={data} />;
-};
-
 type PitchedRoofCalculatorProps = {
   isOpen?: boolean;
   onClose: () => void;
   isDebugging?: boolean;
-  getData: GetData; // throws a promise to trigger React Suspense if not fetched yet
+  data?: Data; // undefied shows loading progress
   onAnalyticsEvent?: OnAnalyticsEvent;
   sendEmailAddress: (values: EmailFormValues) => Promise<void>;
 };
@@ -35,7 +23,7 @@ const PitchedRoofCalculator = ({
   isOpen,
   onClose,
   isDebugging,
-  getData,
+  data,
   onAnalyticsEvent = () => {},
   sendEmailAddress
 }: PitchedRoofCalculatorProps) => {
@@ -71,6 +59,12 @@ const PitchedRoofCalculator = ({
 
   const isSSR = typeof window === "undefined";
 
+  const loading = (
+    <div className={styles["spinnerContainer"]}>
+      <CircularProgress className={styles["spinner"]} />
+    </div>
+  );
+
   return (
     <AnalyticsContext.Provider value={pushEvent}>
       <ContainerDialog
@@ -90,22 +84,20 @@ const PitchedRoofCalculator = ({
       >
         <div className={styles["PitchedRoofCalculator"]}>
           {!isSSR ? (
-            <Suspense
-              fallback={
-                <div className={styles["spinnerContainer"]}>
-                  <CircularProgress className={styles["spinner"]} />
-                </div>
-              }
-            >
-              <PitchedRoofCalculatorLoader
-                {...{
-                  isDebugging,
-                  getData,
-                  selected,
-                  setSelected,
-                  sendEmailAddress
-                }}
-              />
+            <Suspense fallback={loading}>
+              {data ? (
+                <PitchedRoofCalculatorSteps
+                  {...{
+                    isDebugging,
+                    selected,
+                    setSelected,
+                    sendEmailAddress,
+                    data
+                  }}
+                />
+              ) : (
+                loading
+              )}
             </Suspense>
           ) : null}
         </div>

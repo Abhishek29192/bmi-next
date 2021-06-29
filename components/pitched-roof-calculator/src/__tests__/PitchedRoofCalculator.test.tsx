@@ -4,8 +4,12 @@ import mockConsole from "jest-mock-console";
 import { MicroCopy } from "../helpers/microCopy";
 import PitchedRoofCalculator, { en, no, sampleData as data } from "../";
 
-jest.mock("../_PitchedRoofCalculatorSteps");
 const LOADED_TEXT = "loaded";
+
+jest.mock("../_PitchedRoofCalculatorSteps", () => ({
+  __esModule: true,
+  default: jest.fn().mockImplementation(() => <p>{LOADED_TEXT}</p>)
+}));
 
 beforeEach(() => {
   mockConsole();
@@ -13,6 +17,8 @@ beforeEach(() => {
 
 describe("PitchedRoofCalculator component", () => {
   it("renders correctly", async () => {
+    expect(data).toBeTruthy();
+
     const { container, findByText } = render(
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculator
@@ -21,7 +27,7 @@ describe("PitchedRoofCalculator component", () => {
           isDebugging
           onAnalyticsEvent={jest.fn()}
           sendEmailAddress={jest.fn()}
-          getData={() => data as any}
+          data={data as any}
         />
       </MicroCopy.Provider>
     );
@@ -39,7 +45,7 @@ describe("PitchedRoofCalculator component", () => {
           isDebugging
           onAnalyticsEvent={jest.fn()}
           sendEmailAddress={jest.fn()}
-          getData={() => data as any}
+          data={data as any}
         />
       </MicroCopy.Provider>
     );
@@ -61,7 +67,7 @@ describe("PitchedRoofCalculator component", () => {
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
           sendEmailAddress={jest.fn()}
-          getData={() => data as any}
+          data={data as any}
         />
       </MicroCopy.Provider>
     );
@@ -88,7 +94,7 @@ describe("PitchedRoofCalculator component", () => {
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
           sendEmailAddress={jest.fn()}
-          getData={() => data as any}
+          data={data as any}
         />
       </MicroCopy.Provider>
     );
