@@ -1,6 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon component renders correctly 1`] = `
+exports[`Icon component renders Arrow correctly 1`] = `<svg />`;
+
+exports[`Icon component renders Cross correctly 1`] = `<svg />`;
+
+exports[`Icon component renders Download correctly 1`] = `<svg />`;
+
+exports[`Icon component renders External correctly 1`] = `<svg />`;
+
+exports[`Icon component renders Facebook correctly 1`] = `<svg />`;
+
+exports[`Icon component renders FileJPEG correctly 1`] = `<svg />`;
+
+exports[`Icon component renders FileJPG correctly 1`] = `<svg />`;
+
+exports[`Icon component renders FilePDF correctly 1`] = `<svg />`;
+
+exports[`Icon component renders FilePNG correctly 1`] = `<svg />`;
+
+exports[`Icon component renders HardHatHead correctly 1`] = `<svg />`;
+
+exports[`Icon component renders LinkedIn correctly 1`] = `<svg />`;
+
+exports[`Icon component renders LocationOn correctly 1`] = `<svg />`;
+
+exports[`Icon component renders Mail correctly 1`] = `
+<svg
+  aria-hidden="true"
+  class="MuiSvgIcon-root"
+  focusable="false"
+  viewBox="0 0 24 24"
+>
+  <path
+    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+  />
+</svg>
+`;
+
+exports[`Icon component renders Phone correctly 1`] = `
+<svg
+  aria-hidden="true"
+  class="MuiSvgIcon-root"
+  focusable="false"
+  viewBox="0 0 24 24"
+>
+  <path
+    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+  />
+</svg>
+`;
+
+exports[`Icon component renders PhoneMobile correctly 1`] = `
+<svg
+  aria-hidden="true"
+  class="MuiSvgIcon-root"
+  focusable="false"
+  viewBox="0 0 24 24"
+>
+  <path
+    d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"
+  />
+</svg>
+`;
+
+exports[`Icon component renders PlayArrow correctly 1`] = `
+<svg
+  aria-hidden="true"
+  class="MuiSvgIcon-root"
+  focusable="false"
+  viewBox="0 0 24 24"
+>
+  <path
+    d="M8 5v14l11-7z"
+  />
+</svg>
+`;
+
+exports[`Icon component renders QuestionMark correctly 1`] = `
+<svg
+  aria-hidden="true"
+  class="MuiSvgIcon-root"
+  focusable="false"
+  viewBox="0 0 24 24"
+>
+  <path
+    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+  />
+</svg>
+`;
+
+exports[`Icon component renders SelectRoof correctly 1`] = `<svg />`;
+
+exports[`Icon component renders SelectTile correctly 1`] = `<svg />`;
+
+exports[`Icon component renders SelectWallColour correctly 1`] = `<svg />`;
+
+exports[`Icon component renders TileColour correctly 1`] = `<svg />`;
+
+exports[`Icon component renders User correctly 1`] = `
 <svg
   aria-hidden="true"
   class="MuiSvgIcon-root"
@@ -12,3 +109,5 @@ exports[`Icon component renders correctly 1`] = `
   />
 </svg>
 `;
+
+exports[`Icon component renders YouTube correctly 1`] = `<svg />`;
