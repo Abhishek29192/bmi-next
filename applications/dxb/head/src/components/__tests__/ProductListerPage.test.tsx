@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { Filter } from "@bmi/filters";
+import { LocationProvider } from "@reach/router";
 import ProductListerPage from "../../templates/product-lister-page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import { Data as PageData } from "../../components/Page";
@@ -157,7 +158,9 @@ describe("ProductListerPage template", () => {
   it("renders basic ProductListerPage", () => {
     const pageContext: any = [];
     const { container } = render(
-      <ProductListerPage data={pageData} pageContext={pageContext} />
+      <LocationProvider>
+        <ProductListerPage data={pageData} pageContext={pageContext} />
+      </LocationProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -167,7 +170,9 @@ describe("ProductListerPage template", () => {
     const prod = createProduct();
     pageData.initialProducts.push(prod);
     const { container } = render(
-      <ProductListerPage data={pageData} pageContext={pageContext} />
+      <LocationProvider>
+        <ProductListerPage data={pageData} pageContext={pageContext} />
+      </LocationProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -177,10 +182,12 @@ describe("ProductListerPage template", () => {
     const prod = createProduct();
     pageDataWithColourFilter.initialProducts.push(prod);
     const { container } = render(
-      <ProductListerPage
-        data={pageDataWithColourFilter}
-        pageContext={pageContext}
-      />
+      <LocationProvider>
+        <ProductListerPage
+          data={pageDataWithColourFilter}
+          pageContext={pageContext}
+        />
+      </LocationProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -190,7 +197,9 @@ describe("ProductListerPage template", () => {
 
     const pageContext: any = [];
     const { container } = render(
-      <ProductListerPage data={pageData} pageContext={pageContext} />
+      <LocationProvider>
+        <ProductListerPage data={pageData} pageContext={pageContext} />
+      </LocationProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });

@@ -11,6 +11,8 @@ import OverviewCard from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import { Filter } from "@bmi/filters";
+import queryString from "query-string";
+import { navigate, useLocation } from "@reach/router";
 import {
   getProductUrl,
   findMasterImageUrl,
@@ -19,7 +21,11 @@ import {
 } from "../utils/product-details-transforms";
 import ResultsPagination from "../components/ResultsPagination";
 import withGTM from "../utils/google-tag-manager";
-import { clearFilterValues, updateFilterValue } from "../utils/filters";
+import {
+  URLProductFilter,
+  convertToURLFilters,
+  updateFilterValue
+} from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import Scrim from "../components/Scrim";
 import ProgressIndicator from "../components/ProgressIndicator";
@@ -55,6 +61,10 @@ type Data = PageInfoData &
     featuresLink: LinkData | null;
     breadcrumbs: BreadcrumbsData;
   };
+
+type QueryParams = {
+  filters: URLProductFilter[];
+};
 
 type Props = {
   pageContext: {
@@ -102,6 +112,18 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const resultsElement = useRef<HTMLDivElement>(null);
 
+  const location = useLocation();
+
+  const queryParams = useMemo<QueryParams>(() => {
+    const parsedQueryParams = queryString.parse(location.search);
+    return {
+      ...parsedQueryParams,
+      ...(parsedQueryParams.filters
+        ? { filters: JSON.parse(parsedQueryParams.filters as string) }
+        : { filters: [] })
+    };
+  }, [location.search]);
+
   // NOTE: map colour filter values to specific colour swatch representation
   const resolveFilters = (filters: readonly Filter[]) => {
     return filters.map((filter) => {
@@ -132,25 +154,6 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     fetchProducts(filters, pageContext.categoryCode, page - 1, PAGE_SIZE);
   };
 
-  const onFiltersChange = async (newFilters) => {
-    // NOTE: If filters change, we reset pagination to first page
-    const result = await fetchProducts(
-      newFilters,
-      pageContext.categoryCode,
-      0,
-      PAGE_SIZE
-    );
-
-    if (result && result.aggregations) {
-      newFilters = disableFiltersFromAggregations(
-        newFilters,
-        result.aggregations
-      );
-    }
-
-    setFilters(newFilters);
-  };
-
   const handleFiltersChange = (filterName, filterValue, checked) => {
     const newFilters = updateFilterValue(
       filters,
@@ -158,17 +161,17 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       filterValue,
       checked
     );
+    const URLFilters = convertToURLFilters(newFilters);
 
-    onFiltersChange(newFilters);
+    navigate(
+      `?${queryString.stringify({
+        filters: JSON.stringify(URLFilters)
+      })}`
+    );
   };
 
   // Resets all selected filter values to nothing
-  // TODO: This has duplication but didn't want to refactor too much at once
-  const clearFilters = () => {
-    const newFilters = clearFilterValues(filters);
-
-    onFiltersChange(newFilters);
-  };
+  const handleClearFilters = () => navigate(location.pathname);
 
   const fetchProducts = async (filters, categoryCode, page, pageSize) => {
     if (isLoading) {
@@ -203,15 +206,42 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       setProducts(hits.hits.map((hit) => hit._source));
     }
 
+    if (results && results.aggregations) {
+      const newFilters = disableFiltersFromAggregations(
+        filters,
+        results.aggregations
+      );
+
+      setFilters(newFilters);
+    }
+
     setIsLoading(false);
 
     return results;
   };
 
-  // Fetch ES on mount
   useEffect(() => {
-    fetchProducts(filters, pageContext.categoryCode, 0, PAGE_SIZE);
-  }, []);
+    if (queryParams?.filters?.length) {
+      // Filter search
+      const updatedFilters = queryParams.filters.reduce(
+        (newFilters, { name, value }) =>
+          updateFilterValue(
+            newFilters,
+            name,
+            value[0],
+            value[0] ? true : false
+          ),
+        filters
+      );
+
+      setFilters(updatedFilters);
+      fetchProducts(updatedFilters, pageContext.categoryCode, 0, PAGE_SIZE);
+    } else {
+      // Default search (no filters)
+      setFilters(resolvedFilters);
+      fetchProducts(resolvedFilters, pageContext.categoryCode, 0, PAGE_SIZE);
+    }
+  }, [location.search]);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect,
   // maybe pointless for this value to rely on it as more will break.
@@ -301,7 +331,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                       <FiltersSidebar
                         filters={filters}
                         onFiltersChange={handleFiltersChange}
-                        onClearFilters={clearFilters}
+                        onClearFilters={handleClearFilters}
                       />
                     </Grid>
                   ) : null}
