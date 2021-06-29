@@ -49,6 +49,10 @@ resource "google_cloud_run_service" "default" {
           name  = "NPM_AUTH_READ_TOKEN"
           value = ""
         }
+        env {
+          name  = "NODE_ENV"
+          value = "production"
+        }
       }
     }
   }
