@@ -39,11 +39,13 @@ const trainingFilters = [
 type TrainingSidePanelProps = {
   courseCatalog?: TrainingQuery["courseCatalogues"];
   onCourseSelected?: (courseId: number) => void;
+  onFilterChange?: () => void;
 };
 
 export const TrainingSidePanel = ({
   courseCatalog,
-  onCourseSelected
+  onCourseSelected,
+  onFilterChange
 }: TrainingSidePanelProps) => {
   const [filterCriteria, setFilterCriteria] = useState<string>(
     DEFAULT_FILTER_CRITERIA
@@ -53,7 +55,7 @@ export const TrainingSidePanel = ({
 
   const trainingFilterClickHandler = ({ attr }) => {
     setFilterCriteria(attr);
-    onCourseSelected && onCourseSelected(null);
+    onFilterChange && onFilterChange();
   };
 
   trainingFilters.forEach(

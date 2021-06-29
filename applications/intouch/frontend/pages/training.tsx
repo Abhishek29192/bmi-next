@@ -72,6 +72,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
         <TrainingSidePanel
           courseCatalog={courseCatalogues}
           onCourseSelected={sidePanelHandler}
+          onFilterChange={() => setActiveCourse(null)}
         />
         <Grid
           container
