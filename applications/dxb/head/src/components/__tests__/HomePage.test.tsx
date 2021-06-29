@@ -129,6 +129,7 @@ describe("HomePage template", () => {
       slug: "slug",
       path: "path",
       tags: null,
+      date: null,
       featuredMedia: {
         type: null,
         altText: "Lorem ipsum",

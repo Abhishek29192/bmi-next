@@ -28,6 +28,7 @@ const pageInfo: Data = {
   subtitle: null,
   brandLogo: null,
   tags: null,
+  date: null,
   featuredMedia: {
     type: null,
     altText: "Lorem ipsum",
