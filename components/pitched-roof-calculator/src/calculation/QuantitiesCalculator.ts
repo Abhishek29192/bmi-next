@@ -10,7 +10,7 @@ import {
   VergeMetalFlushOption,
   Accessory,
   ResultsObject,
-  GutteringVaraint
+  GutteringVariant
 } from "../types";
 import {
   Face,
@@ -67,7 +67,7 @@ export type QuantitiesCalculatorProps = {
   ridge: LengthBasedProduct;
   ventilationHoods: Accessory[];
   underlay: Underlay;
-  gutteringVariant?: GutteringVaraint;
+  gutteringVariant?: GutteringVariant;
   gutteringHook?: LengthBasedProduct;
   downPipes?: number;
   downPipeConnectors?: number;
@@ -311,7 +311,7 @@ class QuantitiesCalculator {
 
   addGuttering(
     eave: Line[],
-    gutteringVariant?: GutteringVaraint,
+    gutteringVariant?: GutteringVariant,
     gutteringHook?: LengthBasedProduct,
     downPipes: number = 0,
     downPipeConnectors: number = 0

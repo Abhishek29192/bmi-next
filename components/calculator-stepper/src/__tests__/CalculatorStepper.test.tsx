@@ -37,6 +37,28 @@ describe("CalculatorStepper component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("renders as a div", () => {
+    const { container } = render(
+      <CalculatorStepper selected="select-a-roof-shape">
+        <CalculatorStepper.Step
+          isForm={false}
+          key="select-a-roof-shape"
+          title="This is the 2nd page"
+          subtitle="Choose the closest to your roof shape"
+          backLabel="Go Back"
+          backButtonOnClick={() => {}}
+          linkLabel="Skip"
+          linkOnClick={() => {}}
+          nextLabel="Calculate"
+          nextButtonOnClick={() => {}}
+        >
+          <SelectingARoof />
+        </CalculatorStepper.Step>
+      </CalculatorStepper>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it("ignores footer when there are no buttons", () => {
     const { container } = render(
       <CalculatorStepper selected="select-a-roof-shape">

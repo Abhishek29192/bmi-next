@@ -1,5 +1,7 @@
+import React from "react";
+import { pdf } from "react-pdf-maker";
 import en from "../samples/copy/en.json";
-import { getPDF } from "../_PDF";
+import { getPDF, Typography } from "../_PDF";
 import { getMicroCopy } from "../helpers/microCopy";
 import { ResultsObject } from "../types";
 
@@ -165,6 +167,14 @@ describe("PitchedRoofCalculator PDF tool", () => {
       area: "150",
       getMicroCopy: (...params) => getMicroCopy(en, ...params)
     });
+
+    expect(file.docDefinition).toMatchSnapshot();
+  });
+});
+
+describe("PitchedRoofCalculator PDF components", () => {
+  it("renders h1 Typograph correctly", () => {
+    const file = pdf(<Typography variant="h1">Heading 1</Typography>);
 
     expect(file.docDefinition).toMatchSnapshot();
   });
