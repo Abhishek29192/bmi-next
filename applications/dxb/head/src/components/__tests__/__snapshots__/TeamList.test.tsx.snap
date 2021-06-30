@@ -17,10 +17,14 @@ exports[`TeamList component renders correctly 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
