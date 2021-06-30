@@ -106,7 +106,7 @@ export const Team = ({ title }: LayoutProps) => (
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Uploads" index="three">
               <TabCard>
-                <UploadsTab />
+                <UploadsTab uploads={uploadedFiles} />
               </TabCard>
             </Tabs.TabPanel>
           </Tabs>
@@ -119,3 +119,48 @@ export const Team = ({ title }: LayoutProps) => (
 Team.args = {
   title: "Projects"
 };
+
+const uploadedFiles = new Map<string, string[]>([
+  [
+    "Ventilation systems",
+    [
+      `Ut enim ad minim veniam, quis nostrud exercitation ullamco
+  laboris nisi ut aliquip ex ea commodo consequat.`
+    ]
+  ],
+  [
+    "Roof corners",
+    [
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+      eget.`
+    ]
+  ],
+  [
+    "Chimney",
+    [
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.`
+    ]
+  ],
+  [
+    "Receipt of purchase",
+    [
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.`
+    ]
+  ],
+  [
+    "Supporting files",
+    [
+      `Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt
+      mollit anim id est laborum.`
+    ]
+  ]
+]);
