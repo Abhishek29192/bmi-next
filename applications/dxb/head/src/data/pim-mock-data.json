@@ -1,0 +1,418 @@
+{
+  "type": "systemWsDTO",
+  "approvalStatus": "approved",
+  "assets": [
+    {
+      "allowedToDownload": true,
+      "assetType": "BIM",
+      "name": "BIM URL Sample",
+      "url": "https://www.bimobject.com/fr/bmi_siplast_fr/product/spl010108"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "WARRANTIES",
+      "fileSize": 8470,
+      "mime": "image/jpeg",
+      "name": "Garanti Test",
+      "realFileName": "Monier garanti 30 år.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hc2/h3e/8972787286046/Monier-garanti-30-aarjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "AWARDS",
+      "fileSize": 7454,
+      "mime": "image/png",
+      "name": "test award",
+      "realFileName": "Test_Award.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h03/h62/9006918271006/Test-Awardpng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GUARANTIES",
+      "fileSize": 12750,
+      "mime": "image/png",
+      "name": "Test Guarentee (NO)",
+      "realFileName": "Test_Guarantee.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h05/h5f/9006918336542/Test-Guaranteepng"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "CERTIFICATES",
+      "fileSize": 8364,
+      "mime": "image/png",
+      "name": "Test Certificate (NO)",
+      "realFileName": "test_Certificate.png",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf4/h5b/9006918402078/test-Certificatepng"
+    }
+  ],
+  "categories": [
+    {
+      "categoryType": "Brand",
+      "code": "Icopal",
+      "image": {
+        "allowedToDownload": true,
+        "altText": "Icopal RGB logo",
+        "assetType": "MASTER_IMAGE",
+        "containerId": "container_Icopal_RGB_Logo",
+        "fileSize": 6144,
+        "mime": "image/png",
+        "name": "bmi_icopal",
+        "realFileName": "bmi_icopal.png",
+        "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h77/h56/8801873297438/bmi-icopal.png"
+      },
+      "name": "Icopal",
+      "parentCategoryCode": "BMI"
+    },
+    {
+      "categoryType": "SystemType",
+      "code": "SYSTEM_FAST_TRACK",
+      "name": "Fast Track",
+      "parentCategoryCode": "SYSTEM_FLAT_ROOF"
+    },
+    {
+      "categoryType": "SystemType",
+      "code": "SYSTEM_FLAT_ROOF",
+      "name": "Flat Roof",
+      "parentCategoryCode": "SYSTEM_TYPES"
+    }
+  ],
+  "classifications": [
+    {
+      "code": "systemAttributes",
+      "features": [
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
+          "featureValues": [
+            {
+              "value": "N/A"
+            }
+          ],
+          "name": "Roof build-up"
+        }
+      ],
+      "name": "System Attributes"
+    },
+    {
+      "code": "measurementAttributes",
+      "features": [
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/measurementAttributes.width",
+          "featureUnit": {
+            "name": "mm",
+            "symbol": "mm",
+            "unitType": "uom"
+          },
+          "featureValues": [
+            {
+              "value": "55"
+            }
+          ]
+        }
+      ],
+      "name": "Measurement"
+    }
+  ],
+  "code": "Test_PIM",
+  "images": [
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 185391,
+      "mime": "image/jpeg",
+      "name": "TBK SN-403 T",
+      "realFileName": "TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 50546,
+      "format": "Product-Hero-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Large-Desktop_TBK SN-403 T",
+      "realFileName": "Product-Hero-Large-Desktop_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h8f/h39/9004357943326/Product-Hero-Large-Desktop-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 4797,
+      "format": "Product-Color-Selector-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Mobile_TBK SN-403 T",
+      "realFileName": "Product-Color-Selector-Mobile_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h19/h11/9004358008862/Product-Color-Selector-Mobile-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 11351,
+      "format": "Product-Listing-Card-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Large-Desktop_TBK SN-403 T",
+      "realFileName": "Product-Listing-Card-Large-Desktop_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hda/h11/9004358074398/Product-Listing-Card-Large-Desktop-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 27074,
+      "format": "Product-Hero-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Small-Desktop-Tablet_TBK SN-403 T",
+      "realFileName": "Product-Hero-Small-Desktop-Tablet_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd8/h14/9004358139934/Product-Hero-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 7445,
+      "format": "Product-Hero-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Mobile_TBK SN-403 T",
+      "realFileName": "Product-Hero-Mobile_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he9/h17/9004358205470/Product-Hero-Mobile-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 13076,
+      "format": "Product-Color-Selector-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Large-Desktop_TBK SN-403 T",
+      "realFileName": "Product-Color-Selector-Large-Desktop_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hab/h18/9004358271006/Product-Color-Selector-Large-Desktop-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 7445,
+      "format": "Product-Color-Selector-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Small-Desktop-Tablet_TBK SN-403 T",
+      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha9/h1b/9004358336542/Product-Color-Selector-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 5631,
+      "format": "Product-Listing-Card-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Small-Desktop-Tablet_TBK SN-403 T",
+      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hba/h1e/9004358402078/Product-Listing-Card-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 6142,
+      "format": "Product-Listing-Card-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Mobile_TBK SN-403 T",
+      "realFileName": "Product-Listing-Card-Mobile_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h68/h1f/9004358467614/Product-Listing-Card-Mobile-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 46347,
+      "format": "Web",
+      "mime": "image/jpeg",
+      "name": "Web_TBK SN-403 T",
+      "realFileName": "Web_TBK SN-403 T.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h79/h22/9004358533150/Web-TBK-SN-403-Tjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "MASTER_IMAGE",
+      "containerId": "container_00000222_302212108_Attach_bracket_TBK_SN-403_black_Festebeslag-TBK-SN-403-Festebeslag-TBK-SN-403.jpg",
+      "fileSize": 511725,
+      "format": "Print",
+      "mime": "image/tiff",
+      "name": "Print_TBK SN-403 T",
+      "realFileName": "Print_TBK SN-403 T.tiff",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h27/h23/9004358598686/Print-TBK-SN-403-Ttiff"
+    }
+  ],
+  "longDescription": "<p>LDescription NO</p>",
+  "name": "TEST ID NO",
+  "shortDescription": "SD Norway",
+  "systemBenefits": ["windroof NO"],
+  "systemLayers": [
+    {
+      "addon": false,
+      "approvalStatus": "approved",
+      "code": "Test_Layer",
+      "images": [
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 566118,
+          "mime": "image/jpeg",
+          "name": "10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hf5/h8c/8974292451358/10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 125472,
+          "format": "Product-Hero-Large-Desktop",
+          "mime": "image/jpeg",
+          "name": "Product-Hero-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Hero-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h1f/h76/9003844403230/Product-Hero-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 21488,
+          "format": "Product-Color-Selector-Mobile",
+          "mime": "image/jpeg",
+          "name": "Product-Color-Selector-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Color-Selector-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h71/h75/9003844468766/Product-Color-Selector-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 27891,
+          "format": "Product-Listing-Card-Large-Desktop",
+          "mime": "image/jpeg",
+          "name": "Product-Listing-Card-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Listing-Card-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h60/h72/9003844534302/Product-Listing-Card-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 49575,
+          "format": "Product-Hero-Small-Desktop-Tablet",
+          "mime": "image/jpeg",
+          "name": "Product-Hero-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Hero-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb2/h71/9003844599838/Product-Hero-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 23891,
+          "format": "Product-Hero-Mobile",
+          "mime": "image/jpeg",
+          "name": "Product-Hero-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Hero-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha1/h6e/9003844665374/Product-Hero-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 29691,
+          "format": "Product-Color-Selector-Large-Desktop",
+          "mime": "image/jpeg",
+          "name": "Product-Color-Selector-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Color-Selector-Large-Desktop_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h90/h6b/9003844730910/Product-Color-Selector-Large-Desktop-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 23891,
+          "format": "Product-Color-Selector-Small-Desktop-Tablet",
+          "mime": "image/jpeg",
+          "name": "Product-Color-Selector-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he1/h6a/9003844796446/Product-Color-Selector-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 22335,
+          "format": "Product-Listing-Card-Small-Desktop-Tablet",
+          "mime": "image/jpeg",
+          "name": "Product-Listing-Card-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd1/h67/9003844861982/Product-Listing-Card-Small-Desktop-Tablet-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 22745,
+          "format": "Product-Listing-Card-Mobile",
+          "mime": "image/jpeg",
+          "name": "Product-Listing-Card-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Product-Listing-Card-Mobile_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd2/h64/9003844927518/Product-Listing-Card-Mobile-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 91700,
+          "format": "Web",
+          "mime": "image/jpeg",
+          "name": "Web_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Web_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.jpg",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h11/h64/9003844993054/Web-10205979-Icopal-bordtakbeslag-plast-BT3-17-sortjpg"
+        },
+        {
+          "allowedToDownload": true,
+          "assetType": "MASTER_IMAGE",
+          "containerId": "container_00000289_049353_Bordtakbeslag_BT3-17_3m_black_Bordtakbeslag-plast-BT3-17-Bordtaksbeslag-plast-BT3-17.jpg",
+          "fileSize": 1098565,
+          "format": "Print",
+          "mime": "image/tiff",
+          "name": "Print_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort",
+          "realFileName": "Print_10205979-Icopal-bordtakbeslag-plast-BT3-17-sort.tiff",
+          "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h68/h19/9003845058590/Print-10205979-Icopal-bordtakbeslag-plast-BT3-17-sorttiff"
+        }
+      ],
+      "layerNumber": 1,
+      "longDescription": "Long Description NO",
+      "name": "Layer Id NO",
+      "optionalProducts": [
+        {
+          "code": "Radonmansjett"
+        }
+      ],
+      "products": [
+        {
+          "code": "Zanda_Protector_main_tile"
+        }
+      ],
+      "shortDescription": "SD NO",
+      "type": "LAYER_VAPOR_BARRIER"
+    }
+  ],
+  "systemReferences": [
+    {
+      "referenceType": "CROSSELLING",
+      "target": {
+        "code": "TEST_2",
+        "name": "TEST_IDENTIFIER_NO"
+      },
+      "preselected": true
+    }
+  ]
+}
