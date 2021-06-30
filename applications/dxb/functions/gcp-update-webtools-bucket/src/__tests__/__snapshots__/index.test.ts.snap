@@ -8,7 +8,7 @@ Array [
   ],
   Array [
     "Access-Control-Allow-Methods",
-    "POST",
+    "POST, GET",
   ],
   Array [
     "Access-Control-Allow-Headers",
@@ -42,6 +42,63 @@ Array [
   ],
   Array [
     200,
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space fails if accessSecretVersion doesn't return a value: error logs 1`] = `
+Array [
+  Array [
+    [Error: Unable to get secret value],
+  ],
+  Array [
+    [Error: Unable to get Contentful secret value],
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space fails if accessSecretVersion doesn't return a value: send calls 1`] = `
+Array [
+  Array [
+    "Internal Server Error",
+  ],
+  Array [
+    "Internal Server Error",
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space fails if accessSecretVersion doesn't return a value: status calls 1`] = `
+Array [
+  Array [
+    500,
+  ],
+  Array [
+    500,
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space fails if bucket isn't provided: error logs 1`] = `
+Array [
+  Array [
+    "Couldn't get GCP bucket, make sure WEBTOOLS_CALCULATOR_BUCKET is correctly defined",
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space fails if bucket isn't provided: send calls 1`] = `
+Array [
+  Array [
+    "Internal Server Error",
+  ],
+]
+`;
+
+exports[`Generating JSON file from WebTools space fails if bucket isn't provided: status calls 1`] = `
+Array [
+  Array [
+    500,
   ],
 ]
 `;
@@ -562,71 +619,71 @@ Array [
   ],
   Array [
     "Failed to transform Gutter_steel_fascia_bracket_adjustable_0-38dgr_125mm, skipping for this build.",
-    "ValidationError: \\"variants[0].code\\" is required",
+    "\\"variants[0].code\\" is required",
   ],
   Array [
     "Failed to transform 200657_Gutter_07_steel_end_cap_left_or_right_125mm_dark_silver, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_32_PVC_Rensetrakt_75mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_34_PVC_Lovsil_selvrensende_75mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_N41_Rormuffe_75mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_N47_Rorklamme_Plast_75mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_T43_Rennevinkel_innvendig_105mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_T44_Rennevinkel_utvendig_105mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_L46_Skjotestykke_105mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_N44_Grenror_120dgr_75mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_T46_Skjotestykke_105mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_T64_Tappstykke_105mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_T41-V_Endebunn_venstre_105mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_N46_Lovfanger_75mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform Gutter_PVC_T45_Tappstykke_105mm, skipping for this build.",
-    "ValidationError: \\"variants[0].downpipe\\" must be of type object",
+    "\\"variants[0].downpipe\\" must be of type object",
   ],
   Array [
     "Failed to transform failing hook 1, skipping for this build.",
-    "ValidationError: \\"name\\" is required",
+    "\\"name\\" is required",
   ],
   Array [
     "Failed to transform failing underlay 1, skipping for this build.",
-    "ValidationError: \\"name\\" is required",
+    "\\"name\\" is required",
   ],
 ]
 `;
@@ -1877,11 +1934,6 @@ Array [
 
 exports[`Generating JSON file from WebTools space thorws when getting error other than 429: thrown error 1`] = `
 Array [
-  Array [
-    "ERROR!",
-    400,
-    "Bad Request",
-  ],
   Array [
     [Error: Bad Request],
   ],

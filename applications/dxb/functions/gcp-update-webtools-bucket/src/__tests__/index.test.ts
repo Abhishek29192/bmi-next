@@ -15,16 +15,7 @@ jest.mock("node-fetch", () => fetchMock);
 const SECRET = "SOME_SECRET";
 const CONTENTFUL_TOKEN = "SOME_TOKEN";
 
-const accessSecretVersion = jest.fn().mockImplementation(({ name }) => {
-  if (name.includes(process.env.WEBTOOLS_UPDATE_REQUEST_SECRET)) {
-    return [{ payload: { data: SECRET } }];
-  }
-  if (name.includes(process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET)) {
-    return [{ payload: { data: CONTENTFUL_TOKEN } }];
-  }
-
-  throw new Error("Unkown secret");
-});
+const accessSecretVersion = jest.fn();
 jest.mock("@google-cloud/secret-manager", () => {
   const mSecretManagerServiceClient = jest.fn(() => ({
     accessSecretVersion: (
@@ -48,10 +39,14 @@ jest.mock("@google-cloud/storage", () => {
 
 let handleRequest: HttpFunction;
 
-let oldEnv;
+let oldEnv = process.env;
 
 beforeAll(() => {
   oldEnv = process.env;
+  mockConsole();
+});
+
+beforeEach(() => {
   process.env = {
     ...oldEnv,
     WEBTOOLS_UPDATE_REQUEST_SECRET: "WEBTOOLS_UPDATE_REQUEST_SECRET_VALUE",
@@ -61,13 +56,22 @@ beforeAll(() => {
     WEBTOOLS_CONTENTFUL_SPACE: "WEBTOOLS_CONTENTFUL_SPACE_VALUE",
     WEBTOOLS_CONTENTFUL_ENVIRONMENT: "WEBTOOLS_CONTENTFUL_ENVIRONMENT_VALUE"
   };
-  mockConsole();
-});
 
-beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
   fetchMock.reset();
+
+  accessSecretVersion.mockImplementation(({ name }) => {
+    if (name.includes(process.env.WEBTOOLS_UPDATE_REQUEST_SECRET)) {
+      return [{ payload: { data: SECRET } }];
+    }
+    if (name.includes(process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET)) {
+      return [{ payload: { data: CONTENTFUL_TOKEN } }];
+    }
+
+    throw new Error("Unkown secret");
+  });
+
   const index = require("../index");
   handleRequest = index.handleRequest;
 });
@@ -106,9 +110,9 @@ describe("Generating JSON file from WebTools space", () => {
     expect(
       fetchMock
         .calls()
-        .map(([url, { body, ...rest }]) => [
+        .map(([url, result]) => [
           url,
-          { body: JSON.parse(body as string), ...rest }
+          result ? { ...result, body: JSON.parse(result.body as string) } : null
         ])
     ).toMatchSnapshot();
 
@@ -176,9 +180,9 @@ describe("Generating JSON file from WebTools space", () => {
       fetchMock
         .calls()
         .slice(0, 3)
-        .map(([url, { body, ...rest }]) => [
+        .map(([url, result]) => [
           url,
-          { body: JSON.parse(body as string), ...rest }
+          result ? { ...result, body: JSON.parse(result.body as string) } : null
         ])
     ).toMatchSnapshot("first and second requests match");
 
@@ -266,5 +270,83 @@ describe("Generating JSON file from WebTools space", () => {
       "status calls"
     );
     expect((res.send as jest.Mock).mock.calls).toMatchSnapshot("send calls");
+  });
+
+  it("fails if accessSecretVersion doesn't return a value", async () => {
+    accessSecretVersion.mockImplementation(({ name }) => {
+      if (name.includes(process.env.WEBTOOLS_UPDATE_REQUEST_SECRET)) {
+        return [{ payload: undefined }];
+      }
+      if (name.includes(process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET)) {
+        return [{ payload: { data: CONTENTFUL_TOKEN } }];
+      }
+
+      throw new Error("Unkown secret");
+    });
+
+    const req = mockRequest(
+      "GET",
+      { authorization: `Bearer ${SECRET}` },
+      "/",
+      {}
+    );
+
+    const res = mockResponse();
+
+    // Partial type match issue, ignoring for now
+    // @ts-ignore
+    await handleRequest(req, res);
+
+    accessSecretVersion.mockImplementation(({ name }) => {
+      if (name.includes(process.env.WEBTOOLS_UPDATE_REQUEST_SECRET)) {
+        return [{ payload: { data: SECRET } }];
+      }
+      if (name.includes(process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET)) {
+        return [{ payload: undefined }];
+      }
+
+      throw new Error("Unkown secret");
+    });
+
+    // @ts-ignore
+    await handleRequest(req, res);
+
+    expect((res.status as jest.Mock).mock.calls).toMatchSnapshot(
+      "status calls"
+    );
+    expect((res.send as jest.Mock).mock.calls).toMatchSnapshot("send calls");
+
+    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot(
+      "error logs"
+    );
+  });
+
+  it("fails if bucket isn't provided", async () => {
+    process.env.WEBTOOLS_CALCULATOR_BUCKET = "";
+    jest.resetModules();
+    const index = require("../index");
+    handleRequest = index.handleRequest;
+
+    const res = mockResponse();
+
+    const req = mockRequest(
+      "GET",
+      { authorization: `Bearer ${SECRET}` },
+      "/",
+      {}
+    );
+
+    // Partial type match issue, ignoring for now
+    // @ts-ignore
+    await handleRequest(req, res);
+
+    expect((res.status as jest.Mock).mock.calls).toMatchSnapshot(
+      "status calls"
+    );
+    expect((res.send as jest.Mock).mock.calls).toMatchSnapshot("send calls");
+
+    expect((console.error as jest.Mock).mock.calls).toMatchSnapshot(
+      "error logs"
+    );
   });
 });

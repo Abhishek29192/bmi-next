@@ -17,21 +17,30 @@ import {
   WidthBasedProduct
 } from "./types";
 
-const validate = (schema, preprocess) => (value) => {
-  const result = schema.validate(preprocess(value));
+type OneValueFunction = (v: any) => any;
+const returnSelf = (v: any) => v;
 
-  if (result.error) {
-    throw new Error(result.error);
-  }
+const validate =
+  (schema: Joi.ObjectSchema<any>, preprocess: (v: any) => any) =>
+  (value: any) => {
+    const result = schema.validate(preprocess(value));
 
-  return result.value;
-};
+    if (result.error) {
+      throw new Error(result.error.details[0].message);
+    }
 
-const optional = (value, fn) => (value ? fn(value) : undefined);
-const getNumber = (value, fallback) =>
-  typeof value === "number" ? value : fallback;
+    return result.value;
+  };
 
-const mapItems = (a, fn, fallback) =>
+const optional = (value: any, fn: OneValueFunction) =>
+  value ? fn(value) : undefined;
+
+const getNumber = (value: number, fallback: number | null | undefined) =>
+  typeof value === "number" ? value : optional(fallback, returnSelf);
+
+type Collection = { items: any[] };
+
+const mapItems = (a: Collection, fn: OneValueFunction, fallback: Collection) =>
   a.items.length ? a.items.map(fn) : fallback.items.map(fn);
 
 const baseProductValidator = Joi.object({
@@ -39,7 +48,7 @@ const baseProductValidator = Joi.object({
   name: Joi.string().required()
 });
 
-const getBaseProduct = (product): BaseProduct => ({
+const getBaseProduct = (product: any): BaseProduct => ({
   code: product.code,
   name: product.name
 });
@@ -49,7 +58,7 @@ const baseVariantValidator = baseProductValidator.append({
   image: Joi.string().required()
 });
 
-const getBaseVariant = (variant): BaseVariant => ({
+const getBaseVariant = (variant: any): BaseVariant => ({
   ...getBaseProduct(variant),
   externalProductCode: variant.externalProductCode,
   image: variant.image
@@ -59,7 +68,7 @@ const lengthBasedProductValidator = baseVariantValidator.append({
   length: Joi.number().required()
 });
 
-const getLengthBasedProduct = (variant): LengthBasedProduct => ({
+const getLengthBasedProduct = (variant: any): LengthBasedProduct => ({
   ...getBaseVariant(variant),
   length: variant.length
 });
@@ -68,7 +77,7 @@ const widthBasedProductValidator = baseVariantValidator.append({
   width: Joi.number().required()
 });
 
-const getWidthBasedProduct = (variant): WidthBasedProduct => ({
+const getWidthBasedProduct = (variant: any): WidthBasedProduct => ({
   ...getBaseVariant(variant),
   width: variant.width
 });
@@ -82,7 +91,7 @@ const vergeMetalFlushOptionValidator = Joi.object({
   rightStart: lengthBasedProductValidator
 }).required();
 
-const getVergeMetalFlushOption = (option): VergeMetalFlushOption => ({
+const getVergeMetalFlushOption = (option: any): VergeMetalFlushOption => ({
   type: "METAL_FLUSH",
   name: option.name,
   left: getLengthBasedProduct(option.left),
@@ -100,7 +109,7 @@ const vergeTileOptionValidator = Joi.object({
   halfRight: widthBasedProductValidator
 }).required();
 
-const getVergeTileOption = (option): VergeTileOption => ({
+const getVergeTileOption = (option: any): VergeTileOption => ({
   type: "TILE",
   name: option.name,
   left: getWidthBasedProduct(option.left),
@@ -114,11 +123,13 @@ const vergeOptionValidator = Joi.alternatives().try(
   vergeTileOptionValidator
 );
 
-const getVergeOption = (option): VergeOption =>
+type VergeOptionTypes = "MetalFlushOption" | "TileVergeOption";
+
+const getVergeOption = (option: any): VergeOption =>
   ({
     MetalFlushOption: getVergeMetalFlushOption,
     TileVergeOption: getVergeTileOption
-  }[option.__typename](option));
+  }[option.__typename as VergeOptionTypes](option));
 
 const accessoryValidator = baseVariantValidator.append({
   category: Joi.string()
@@ -127,7 +138,7 @@ const accessoryValidator = baseVariantValidator.append({
   packSize: Joi.number().required()
 });
 
-const getAccessory = (variant): Accessory => ({
+const getAccessory = (variant: any): Accessory => ({
   ...getBaseVariant(variant),
   category: variant.category,
   packSize: variant.packSize || 1
@@ -141,7 +152,7 @@ const underlayValidator = baseVariantValidator.append({
   overlap: Joi.number().required()
 });
 
-const getUnderlay = (product): Underlay => ({
+const getUnderlay = (product: any): Underlay => ({
   ...getBaseVariant(product),
   description: product.shortDescription || "",
   minSupportedPitch: product.minimumSupportedPitch,
@@ -155,7 +166,7 @@ const gutteringVariantValidator = lengthBasedProductValidator.append({
   downpipeConnector: accessoryValidator.required()
 });
 
-const getGutteringVariant = (variant, product): GutteringVariant => ({
+const getGutteringVariant = (variant: any, product: any): GutteringVariant => ({
   ...getLengthBasedProduct({
     ...variant,
     length: variant.length !== null ? variant.length : product.length
@@ -169,17 +180,17 @@ const gutteringValidator = baseProductValidator.append({
   variants: Joi.array().items(gutteringVariantValidator).required()
 });
 
-const getGuttering = (product): Guttering => ({
+const getGuttering = (product: any): Guttering => ({
   ...getBaseProduct({ ...product, name: product.material }),
   image: product.image,
-  variants: product.variantsCollection.items.map((variant) =>
+  variants: product.variantsCollection.items.map((variant: any) =>
     getGutteringVariant(variant, product)
   )
 });
 
 const gutterHookValidator = lengthBasedProductValidator;
 
-const getGutterHook = (product): LengthBasedProduct => ({
+const getGutterHook = (product: any): LengthBasedProduct => ({
   ...getBaseVariant(product),
   length: product.distanceBetweenHooks
 });
@@ -190,7 +201,7 @@ const rangeValueValidator = Joi.object({
   value: Joi.number().required()
 });
 
-const getRangeValue = (range): RangeValue => ({
+const getRangeValue = (range: any): RangeValue => ({
   start: range.start,
   end: range.end,
   value: range.value
@@ -206,7 +217,7 @@ const baseTileSchema = {
   brokenBond: Joi.boolean().required()
 };
 
-const getBaseTile = (variant, mainTileProduct): BaseTile => ({
+const getBaseTile = (variant: any, mainTileProduct: any): BaseTile => ({
   minBattenGauge: getNumber(
     variant.minBattenGauge,
     mainTileProduct.minBattenGauge
@@ -254,7 +265,10 @@ const mainTileVariantValidator = baseVariantValidator.append({
   ventilationHoodOptions: Joi.array().items(accessoryValidator).required()
 });
 
-const getMainTileVariant = (variant, mainTileProduct): MainTileVariant => ({
+const getMainTileVariant = (
+  variant: any,
+  mainTileProduct: any
+): MainTileVariant => ({
   ...getBaseVariant(variant),
   ...getBaseTile(variant, mainTileProduct),
   color: variant.color,
@@ -301,23 +315,23 @@ const mainTileValidator = baseProductValidator.append({
   variants: Joi.array().items(mainTileVariantValidator).required()
 });
 
-const getMainTile = (product): MainTile => ({
+const getMainTile = (product: any): MainTile => ({
   ...getBaseProduct(product),
   ...getBaseTile(product, product),
   category: product.category,
-  variants: product.variantsCollection.items.map((variant) =>
+  variants: product.variantsCollection.items.map((variant: any) =>
     getMainTileVariant(variant, product)
   )
 });
 
-export const transformMainTileProduct = (product): MainTile =>
+export const transformMainTileProduct = (product: any): MainTile =>
   validate(mainTileValidator, getMainTile)(product);
 
-export const transformGutteringProduct = (product): Guttering =>
+export const transformGutteringProduct = (product: any): Guttering =>
   validate(gutteringValidator, getGuttering)(product);
 
-export const transformGutterHookProduct = (product): LengthBasedProduct =>
+export const transformGutterHookProduct = (product: any): LengthBasedProduct =>
   validate(gutterHookValidator, getGutterHook)(product);
 
-export const transformUnderlayProduct = (product): Underlay =>
+export const transformUnderlayProduct = (product: any): Underlay =>
   validate(underlayValidator, getUnderlay)(product);

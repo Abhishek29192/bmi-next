@@ -25,7 +25,7 @@ const {
   WEBTOOLS_CONTENTFUL_ENVIRONMENT
 } = process.env;
 
-let contentfulToken;
+let contentfulToken: string | undefined;
 
 const secretManagerClient = new SecretManagerServiceClient();
 
@@ -33,6 +33,10 @@ const getAuthToken = async () => {
   const contentfulSecret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${WEBTOOLS_CONTENTFUL_TOKEN_SECRET}/versions/latest`
   });
+
+  if (!contentfulSecret[0].payload?.data) {
+    throw new Error("Unable to get Contentful secret value");
+  }
 
   return contentfulSecret[0].payload.data.toString();
 };
@@ -42,10 +46,14 @@ const getRequestSecret = async () => {
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${WEBTOOLS_UPDATE_REQUEST_SECRET}/versions/latest`
   });
 
+  if (!requestSecret[0].payload?.data) {
+    throw new Error("Unable to get secret value");
+  }
+
   return requestSecret[0].payload.data.toString();
 };
 
-const fetchData = async (body: object, remainingRetries = 5) => {
+const fetchData = async (body: object, remainingRetries = 5): Promise<any> => {
   if (!contentfulToken) {
     contentfulToken = await getAuthToken();
   }
@@ -75,8 +83,6 @@ const fetchData = async (body: object, remainingRetries = 5) => {
 
   // Errors other than 429
   if (!response.ok) {
-    // eslint-disable-next-line no-console
-    console.error("ERROR!", response.status, response.statusText);
     throw new Error(response.statusText);
   }
 
@@ -181,36 +187,46 @@ const getUnderlayProducts = async () => {
 };
 
 const storage = new Storage();
-const bucket = storage.bucket(WEBTOOLS_CALCULATOR_BUCKET);
+const bucket =
+  WEBTOOLS_CALCULATOR_BUCKET && storage.bucket(WEBTOOLS_CALCULATOR_BUCKET);
 
-let requestSecret;
+let requestSecret: string | undefined;
 
 const handleRequest: HttpFunction = async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
 
   if (req.method === "OPTIONS") {
-    res.set("Access-Control-Allow-Methods", "POST");
+    res.set("Access-Control-Allow-Methods", "POST, GET");
     res.set("Access-Control-Allow-Headers", ["Content-Type", "Authorization"]);
     res.set("Access-Control-Max-Age", "3600");
 
     return res.status(204).send("");
   }
 
-  if (!requestSecret) {
-    requestSecret = await getRequestSecret();
-  }
-  if (
-    !req.headers.authorization ||
-    !req.headers.authorization.startsWith("Bearer ") ||
-    req.headers.authorization.substr("Bearer ".length) !== requestSecret
-  ) {
-    console.log("Failed authorization");
-    return res.status(401).send("Unauthorized");
-  }
-
-  console.log("Fetching new data");
-
   try {
+    if (!requestSecret) {
+      requestSecret = await getRequestSecret();
+    }
+    if (
+      !req.headers.authorization ||
+      !req.headers.authorization.startsWith("Bearer ") ||
+      req.headers.authorization.substr("Bearer ".length) !== requestSecret
+    ) {
+      console.log("Failed authorization");
+      return res.status(401).send("Unauthorized");
+    }
+
+    if (!bucket) {
+      console.error(
+        "Couldn't get GCP bucket, make sure WEBTOOLS_CALCULATOR_BUCKET is correctly defined"
+      );
+      res.status(500).send("Internal Server Error");
+      console.log("Failed");
+      return;
+    }
+
+    console.log("Fetching new data");
+
     const mainTiles = await getMainTileProducts();
     const { gutters, gutterHooks } = await getGutteringRelatedProducts();
     const underlays = await getUnderlayProducts();
