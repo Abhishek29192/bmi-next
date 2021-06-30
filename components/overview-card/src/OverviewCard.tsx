@@ -17,7 +17,7 @@ type Props = {
   imageSource?: string | React.ReactNode;
   imageSize?: "cover" | "contain";
   media?: React.ReactElement<AcceptedNode>;
-  brandImageSource?: SVGImport;
+  brandImageSource?: SVGImport | string;
   footer?: React.ReactNode;
   isFlat?: boolean;
 };
@@ -47,6 +47,27 @@ const __DeprecatedImageSource = ({
   );
 };
 
+const BrandLogo = ({
+  brandImageSource,
+  imageSource,
+  media
+}: Pick<Props, "brandImageSource" | "imageSource" | "media">) => {
+  if (!brandImageSource) {
+    return null;
+  }
+
+  const className = classnames(styles["brand-logo"], {
+    [styles["brand-logo--negative"]!]: !!(imageSource || media)
+  });
+
+  if (typeof brandImageSource === "string") {
+    return <img src={brandImageSource} alt="" className={className} />;
+  }
+
+  const BrandLogo = brandImageSource;
+  return <BrandLogo preserveAspectRatio="xMinYMin" className={className} />;
+};
+
 const OverviewCard = ({
   title,
   titleVariant = "h4",
@@ -61,8 +82,6 @@ const OverviewCard = ({
   footer,
   isFlat = false
 }: Props) => {
-  const BrandLogo = brandImageSource;
-
   return (
     <div
       className={classnames(
@@ -78,15 +97,11 @@ const OverviewCard = ({
         {media}
       </Media>
       <div className={styles["body"]}>
-        {BrandLogo ? (
-          <BrandLogo
-            preserveAspectRatio="xMinYMin"
-            className={classnames(
-              styles["brand-logo"],
-              !!(imageSource || media) && styles["brand-logo--negative"]
-            )}
-          />
-        ) : null}
+        <BrandLogo
+          brandImageSource={brandImageSource}
+          imageSource={imageSource}
+          media={media}
+        />
         <Typography
           variant={titleVariant}
           hasUnderline={hasTitleUnderline}

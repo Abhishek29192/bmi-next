@@ -188,6 +188,60 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type ImageFragmentFragment = { readonly __typename?: "Asset" } & Pick<
+  SchemaTypes.Asset,
+  | "title"
+  | "description"
+  | "contentType"
+  | "fileName"
+  | "size"
+  | "url"
+  | "width"
+  | "height"
+>;
+
+export type GetPartnerBrandsQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
+  readonly marketContentCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketContentCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "MarketContent" } & {
+            readonly partnerBrandsCollection?: SchemaTypes.Maybe<
+              {
+                readonly __typename?: "MarketContentPartnerBrandsCollection";
+              } & {
+                readonly items: ReadonlyArray<
+                  SchemaTypes.Maybe<
+                    { readonly __typename?: "PartnerBrand" } & Pick<
+                      SchemaTypes.PartnerBrand,
+                      "name" | "shortDescription"
+                    > & {
+                        readonly image?: SchemaTypes.Maybe<
+                          {
+                            readonly __typename?: "Asset";
+                          } & ImageFragmentFragment
+                        >;
+                        readonly logo?: SchemaTypes.Maybe<
+                          {
+                            readonly __typename?: "Asset";
+                          } & ImageFragmentFragment
+                        >;
+                      }
+                  >
+                >;
+              }
+            >;
+          }
+        >
+      >;
+    }
+  >;
+};
+
 export type TrainingQueryVariables = SchemaTypes.Exact<{
   catalogueId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
   userId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;

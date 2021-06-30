@@ -179,6 +179,49 @@ export const ssrGetCompany = {
 
   usePage: useGetCompany
 };
+export async function getServerPageGetPartnerBrands(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetPartnerBrandsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetPartnerBrandsQuery>({
+    ...options,
+    query: Operations.GetPartnerBrandsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetPartnerBrands = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetPartnerBrandsQuery,
+    OperationTypes.GetPartnerBrandsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetPartnerBrandsDocument, options);
+};
+export type PageGetPartnerBrandsComp = React.FC<{
+  data?: OperationTypes.GetPartnerBrandsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetPartnerBrands = {
+  getServerPage: getServerPageGetPartnerBrands,
+
+  usePage: useGetPartnerBrands
+};
 export async function getServerPageTraining(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.TrainingQueryVariables>,

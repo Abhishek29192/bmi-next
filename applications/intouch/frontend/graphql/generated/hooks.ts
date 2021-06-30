@@ -20,6 +20,18 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
     }
   }
 `;
+export const ImageFragmentFragmentDoc = gql`
+  fragment ImageFragment on Asset {
+    title
+    description
+    contentType
+    fileName
+    size
+    url
+    width
+    height
+  }
+`;
 export const UpdateCompanyDetailsDocument = gql`
   mutation updateCompanyDetails($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
@@ -531,6 +543,77 @@ export type GetCompanyLazyQueryHookResult = ReturnType<
 export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQuery,
   OperationTypes.GetCompanyQueryVariables
+>;
+export const GetPartnerBrandsDocument = gql`
+  query GetPartnerBrands {
+    marketContentCollection(limit: 1) {
+      items {
+        partnerBrandsCollection {
+          items {
+            name
+            shortDescription
+            image {
+              ...ImageFragment
+            }
+            logo {
+              ...ImageFragment
+            }
+          }
+        }
+      }
+    }
+  }
+  ${ImageFragmentFragmentDoc}
+`;
+
+/**
+ * __useGetPartnerBrandsQuery__
+ *
+ * To run a query within a React component, call `useGetPartnerBrandsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPartnerBrandsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPartnerBrandsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetPartnerBrandsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetPartnerBrandsQuery,
+    OperationTypes.GetPartnerBrandsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetPartnerBrandsQuery,
+    OperationTypes.GetPartnerBrandsQueryVariables
+  >(GetPartnerBrandsDocument, options);
+}
+export function useGetPartnerBrandsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetPartnerBrandsQuery,
+    OperationTypes.GetPartnerBrandsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetPartnerBrandsQuery,
+    OperationTypes.GetPartnerBrandsQueryVariables
+  >(GetPartnerBrandsDocument, options);
+}
+export type GetPartnerBrandsQueryHookResult = ReturnType<
+  typeof useGetPartnerBrandsQuery
+>;
+export type GetPartnerBrandsLazyQueryHookResult = ReturnType<
+  typeof useGetPartnerBrandsLazyQuery
+>;
+export type GetPartnerBrandsQueryResult = Apollo.QueryResult<
+  OperationTypes.GetPartnerBrandsQuery,
+  OperationTypes.GetPartnerBrandsQueryVariables
 >;
 export const TrainingDocument = gql`
   query training($catalogueId: Int, $userId: Int) {
