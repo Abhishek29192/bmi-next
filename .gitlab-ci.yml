@@ -47,6 +47,10 @@ variables:
   CACHE_COMPRESSION_LEVEL: fastest
   TRANSFER_METER_FREQUENCY: 5s
   NODE_OPTIONS: --max-old-space-size=2560
+  POSTGRES_DB: custom_db
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: custom_pass
+  POSTGRES_HOST_AUTH_METHOD: trust
 
 .sast-analyzer:
   allow_failure: false

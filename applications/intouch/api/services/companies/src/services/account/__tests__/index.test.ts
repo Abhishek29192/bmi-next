@@ -101,7 +101,7 @@ describe("Account", () => {
       mockAuth0CreateUser.mockResolvedValueOnce({
         user_id: "auth0|user-id"
       });
-      mockAuth0GetUserByEmail.mockResolvedValueOnce(null);
+      mockAuth0GetUserByEmail.mockResolvedValueOnce([]);
       mockCreateResetPasswordTicket.mockResolvedValueOnce({
         tiket: "my-ticket"
       });
@@ -126,8 +126,8 @@ describe("Account", () => {
         user_metadata: {
           type: args.input.role.toLocaleLowerCase(),
           email: args.input.email,
-          firstname: args.input.firstName,
-          lastname: args.input.lastName
+          first_name: args.input.firstName,
+          last_name: args.input.lastName
         }
       });
       expect(mockAuth0Update).toBeCalledWith("auth0|user-id", {
