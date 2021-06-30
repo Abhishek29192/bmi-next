@@ -12,6 +12,7 @@ const jsonfile = require("jsonfile");
 const toml = require("toml");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
+const { createSystemPages } = require("./src/gatsby/system-details-pages");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -289,6 +290,15 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           siteId: site.id
         }
+      });
+    }
+
+    if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES) {
+      await createSystemPages({
+        siteId: site.id,
+        countryCode: site.countryCode,
+        createPage: actions.createPage,
+        graphql
       });
     }
   }
