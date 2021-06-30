@@ -7,7 +7,7 @@ steps:
         "build",
         ".",
         "-t",
-        "gcr.io/$PROJECT_ID/intouch-api-gateway",
+        "gcr.io/$PROJECT_ID/intouch-api-gateway:${_CI_COMMIT_SHORT_SHA}",
         "-f",
         "./applications/intouch/api/gateway/dockerfile",
         "--build-arg",
@@ -15,7 +15,8 @@ steps:
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/$PROJECT_ID/intouch-api-gateway"]
+    args:
+      ["push", "gcr.io/$PROJECT_ID/intouch-api-gateway:${_CI_COMMIT_SHORT_SHA}"]
   # deploy to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
@@ -25,7 +26,7 @@ steps:
         "deploy",
         "tf-gateway",
         "--image",
-        "gcr.io/$PROJECT_ID/intouch-api-gateway",
+        "gcr.io/$PROJECT_ID/intouch-api-gateway:${_CI_COMMIT_SHORT_SHA}",
         "--region",
         "europe-west2",
         "--platform",
