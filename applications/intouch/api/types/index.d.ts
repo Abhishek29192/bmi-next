@@ -1063,7 +1063,7 @@ export type Company = Node & {
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
   taxNumber?: Maybe<Scalars["String"]>;
-  /** They Company public phone number */
+  /** The Company public phone number */
   phone?: Maybe<Scalars["String"]>;
   /** A descirption of the Company intended for Find a Roofer */
   aboutUs?: Maybe<Scalars["String"]>;
@@ -1474,7 +1474,7 @@ export type CompanyPatch = {
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
   taxNumber?: Maybe<Scalars["String"]>;
-  /** They Company public phone number */
+  /** The Company public phone number */
   phone?: Maybe<Scalars["String"]>;
   /** A descirption of the Company intended for Find a Roofer */
   aboutUs?: Maybe<Scalars["String"]>;
@@ -3172,6 +3172,8 @@ export type CreateEvidenceItemPayload = {
   evidenceItem?: Maybe<EvidenceItem>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Project` that is related to this `EvidenceItem`. */
+  project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
@@ -4253,6 +4255,8 @@ export type DeleteEvidenceItemPayload = {
   deletedEvidenceItemNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Project` that is related to this `EvidenceItem`. */
+  project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
@@ -4727,6 +4731,19 @@ export type DeleteSystemMemberByNodeIdInput = {
   nodeId: Scalars["ID"];
 };
 
+/** All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
+export type DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef: Scalars["String"];
+  /** fk */
+  productBmiRef: Scalars["String"];
+};
+
 /** All input for the `deleteSystemMember` mutation. */
 export type DeleteSystemMemberInput = {
   /**
@@ -4957,6 +4974,8 @@ export type EvidenceItem = Node & {
   /** a reference to the evidenceCategory sys id in Contentful */
   customEvidenceCategoryId?: Maybe<Scalars["String"]>;
   /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
   /** ek */
   evidenceCategoryType?: Maybe<EvidenceCategoryType>;
@@ -4966,6 +4985,8 @@ export type EvidenceItem = Node & {
   attachment?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
+  /** Reads a single `Project` that is related to this `EvidenceItem`. */
+  project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
 };
@@ -4977,6 +4998,8 @@ export type EvidenceItem = Node & {
 export type EvidenceItemCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `projectId` field. */
+  projectId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `guaranteeId` field. */
   guaranteeId?: Maybe<Scalars["Int"]>;
 };
@@ -4987,6 +5010,8 @@ export type EvidenceItemInput = {
   id?: Maybe<Scalars["Int"]>;
   /** a reference to the evidenceCategory sys id in Contentful */
   customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
   /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
   /** ek */
@@ -5005,6 +5030,8 @@ export type EvidenceItemPatch = {
   id?: Maybe<Scalars["Int"]>;
   /** a reference to the evidenceCategory sys id in Contentful */
   customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
   /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
   /** ek */
@@ -5044,6 +5071,8 @@ export type EvidenceItemsOrderBy =
   | "NATURAL"
   | "ID_ASC"
   | "ID_DESC"
+  | "PROJECT_ID_ASC"
+  | "PROJECT_ID_DESC"
   | "GUARANTEE_ID_ASC"
   | "GUARANTEE_ID_DESC"
   | "PRIMARY_KEY_ASC"
@@ -7239,6 +7268,8 @@ export type Mutation = {
   deleteSystemMember?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using its globally unique id. */
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
+  /** Deletes a single `SystemMember` using a unique key. */
+  deleteSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<DeleteSystemMemberPayload>;
   invite?: Maybe<Invitation>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   publishMessage?: Maybe<Publish>;
@@ -7362,6 +7393,8 @@ export type Mutation = {
   updateSystemMember?: Maybe<UpdateSystemMemberPayload>;
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
+  /** Updates a single `SystemMember` using a unique key and a patch. */
+  updateSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
 };
 
@@ -7842,6 +7875,11 @@ export type MutationDeleteSystemMemberByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationInviteArgs = {
   input: InviteInput;
 };
@@ -8154,6 +8192,11 @@ export type MutationUpdateSystemMemberArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateSystemMemberByNodeIdArgs = {
   input: UpdateSystemMemberByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -8736,12 +8779,25 @@ export type Project = Node & {
   siteAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Project`. */
   buildingOwnerAddress?: Maybe<Address>;
+  /** Reads and enables pagination through a set of `EvidenceItem`. */
+  evidenceItems: EvidenceItemsConnection;
   /** Reads and enables pagination through a set of `Guarantee`. */
   guarantees: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Note`. */
   notes: NotesConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
   projectMembers: ProjectMembersConnection;
+};
+
+/** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
+export type ProjectEvidenceItemsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
+  condition?: Maybe<EvidenceItemCondition>;
 };
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
@@ -9198,6 +9254,7 @@ export type Query = Node & {
   systemMember?: Maybe<SystemMember>;
   /** Reads a single `SystemMember` using its globally unique `ID`. */
   systemMemberByNodeId?: Maybe<SystemMember>;
+  systemMemberBySystemBmiRefAndProductBmiRef?: Maybe<SystemMember>;
   /** Reads and enables pagination through a set of `SystemMember`. */
   systemMembers?: Maybe<SystemMembersConnection>;
   /** Reads and enables pagination through a set of `System`. */
@@ -10039,6 +10096,12 @@ export type QuerySystemMemberArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QuerySystemMemberByNodeIdArgs = {
   nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QuerySystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  systemBmiRef: Scalars["String"];
+  productBmiRef: Scalars["String"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -11601,6 +11664,8 @@ export type UpdateEvidenceItemPayload = {
   evidenceItem?: Maybe<EvidenceItem>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Project` that is related to this `EvidenceItem`. */
+  project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
@@ -12111,6 +12176,21 @@ export type UpdateSystemMemberByNodeIdInput = {
   nodeId: Scalars["ID"];
   /** An object where the defined keys will be set on the `SystemMember` being updated. */
   patch: SystemMemberPatch;
+};
+
+/** All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
+export type UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `SystemMember` being updated. */
+  patch: SystemMemberPatch;
+  /** fk */
+  systemBmiRef: Scalars["String"];
+  /** fk */
+  productBmiRef: Scalars["String"];
 };
 
 /** All input for the `updateSystemMember` mutation. */

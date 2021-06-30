@@ -171,13 +171,15 @@ DROP POLICY IF EXISTS policy_company_admin ON evidence_item;
 DROP POLICY IF EXISTS policy_installer_select ON evidence_item;
 CREATE POLICY policy_super_admin ON evidence_item FOR ALL TO super_admin USING (true) WITH CHECK (true);
 -- CREATE POLICY policy_market_admin ON evidence_item FOR ALL TO market_admin USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
+
 CREATE POLICY policy_company_admin ON evidence_item FOR ALL TO company_admin USING (
-  current_company() = (SELECT company_id FROM project JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.id = guarantee_id) 
+  project_id IN (SELECT * FROM is_part_of_project())
 ) WITH CHECK (
-  current_company() = (SELECT company_id FROM project JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.id = guarantee_id) 
+  project_id IN (SELECT * FROM is_part_of_project())
 );
+
 CREATE POLICY policy_installer_select ON evidence_item FOR SELECT TO installer USING (
-  current_company() = (SELECT company_id FROM project JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.id = guarantee_id) 
+  project_id IN (SELECT * FROM is_part_of_project()) 
 );
 
 
