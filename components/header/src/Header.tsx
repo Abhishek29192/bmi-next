@@ -273,11 +273,9 @@ const Header = ({
               >
                 {navigation.map(({ label, action, menu }, key) => {
                   let clickableAction = action;
-                  let menuLabel = label;
 
                   if (menu && menu.length === 1 && menu[0].action) {
                     clickableAction = menu[0].action;
-                    menuLabel = menu[0].label;
                   }
 
                   if (clickableAction) {
@@ -292,7 +290,7 @@ const Header = ({
                               child
                                 ? // @ts-ignore Cannot see that children can be ReactNode[]
                                   React.cloneElement(child, {
-                                    children: menuLabel
+                                    children: label
                                   })
                                 : null
                             )}
@@ -324,7 +322,7 @@ const Header = ({
                       icon={<KeyboardArrowDown />}
                       id={`navigation-tab-${key}`}
                       key={`navigation-tab-${key}`}
-                      label={menuLabel}
+                      label={label}
                     />
                   );
                 })}

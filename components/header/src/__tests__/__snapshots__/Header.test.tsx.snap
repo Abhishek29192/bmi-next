@@ -303,7 +303,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -1238,7 +1238,7 @@ exports[`Header component opens menu when clicked 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -2173,7 +2173,7 @@ exports[`Header component renders correctly 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -3114,7 +3114,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -4049,7 +4049,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -4984,7 +4984,7 @@ exports[`Header component toggle search 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -5978,7 +5978,7 @@ exports[`Header component toggle search 2`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"

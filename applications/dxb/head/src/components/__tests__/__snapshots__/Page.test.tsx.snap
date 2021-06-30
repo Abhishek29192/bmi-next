@@ -92,7 +92,7 @@ exports[`Page component renders correctly 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      +44 (0) 1234567890
+                      Get in touch
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -110,7 +110,7 @@ exports[`Page component renders correctly 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Our story
+                      About BMI
                     </span>
                     <span
                       class="MuiTouchRipple-root"
