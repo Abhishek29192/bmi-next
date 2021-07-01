@@ -1,6 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { MicroCopy } from "../helpers/microCopy";
+import data from "../samples/data.json";
 import en from "../samples/copy/en.json";
 import Results from "../_Results";
 import { Measurements } from "../types/roof";
@@ -371,29 +372,40 @@ const resultsProps = {
     width: 33.2,
     height: 42,
     brokenBond: true
-  },
+  } as any,
   tileOptions: {
     verge: "Verge Metal Flush",
     ridge: "46035761",
     ventilation: ["100456781"]
-  },
+  } as any,
   underlay: {
     underlay: "26583450"
-  },
+  } as any,
   guttering: {
     guttering: "Test Guttering",
     gutteringVariant: "4391",
     gutteringHook: "4392",
     downPipes: 2,
     downPipeConnectors: 3
-  }
+  } as any,
+  underlays: data.underlays as any,
+  gutters: data.gutters as any,
+  gutterHooks: data.gutterHooks as any
 };
+
+beforeEach(() => {
+  global.open = jest.fn();
+});
+
+afterAll(() => {
+  global.open = undefined;
+});
 
 describe("PitchedRoofCalculator Results component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
+        <Results {...resultsProps} sendEmailAddress={jest.fn()} />
       </MicroCopy.Provider>
     );
 
@@ -403,7 +415,7 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders with debugging mode on", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} isDebugging />
+        <Results {...resultsProps} sendEmailAddress={jest.fn()} isDebugging />
       </MicroCopy.Provider>
     );
 
@@ -413,7 +425,10 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders with no guttering", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...{ ...resultsProps, guttering: {} }} />
+        <Results
+          {...{ ...resultsProps, guttering: {} }}
+          sendEmailAddress={jest.fn()}
+        />
       </MicroCopy.Provider>
     );
 
@@ -428,6 +443,7 @@ describe("PitchedRoofCalculator Results component", () => {
             ...resultsProps,
             tileOptions: { ...resultsProps.tileOptions, verge: "none" }
           }}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );
@@ -443,10 +459,37 @@ describe("PitchedRoofCalculator Results component", () => {
             ...resultsProps,
             tileOptions: { ...resultsProps.tileOptions, ridge: null }
           }}
+          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  it("sends email address", () => {
+    const sendEmailAddress = jest.fn();
+    const { container } = render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} sendEmailAddress={sendEmailAddress} />
+      </MicroCopy.Provider>
+    );
+
+    const nameInput = container.querySelector(`input[name="name"]`);
+    fireEvent.change(nameInput, { target: { value: "Test Test" } });
+
+    const emailInput = container.querySelector(`input[name="email"]`);
+    fireEvent.change(emailInput, { target: { value: "test@test.test" } });
+
+    const gdpr_1Input = container.querySelector(`input[name="gdpr_1"]`);
+    fireEvent.click(gdpr_1Input);
+
+    const gdpr_2Input = container.querySelector(`input[name="gdpr_2"]`);
+    fireEvent.click(gdpr_2Input);
+
+    const submitButton = container.querySelector(`.submit`);
+    fireEvent.click(submitButton);
+
+    expect(sendEmailAddress.mock.calls).toMatchSnapshot();
   });
 });

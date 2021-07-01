@@ -92,7 +92,7 @@ type TypographProps = {
   [rest: string]: any;
 };
 
-const Typography = ({
+export const Typography = ({
   variant = "body1",
   hasUnderline = variant === "h1",
   center,
@@ -468,8 +468,16 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
 export const getPDF = (props: PdfDocumentProps) =>
   pdf(<PdfDocument {...props} />, null, {
     Effra: {
-      normal: window.location.origin + "/" + EffraNormal,
-      bold: window.location.origin + "/" + EffraBold
+      normal: EffraNormal
+        ? EffraNormal.includes("://")
+          ? EffraNormal
+          : window.location.origin + "/" + EffraNormal
+        : "",
+      bold: EffraBold
+        ? EffraBold.includes("://")
+          ? EffraBold
+          : window.location.origin + "/" + EffraBold
+        : ""
     }
   });
 

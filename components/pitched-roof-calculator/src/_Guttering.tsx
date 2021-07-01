@@ -5,13 +5,17 @@ import { FormContext } from "@bmi/form";
 import NumericInput from "@bmi/up-down-simple-numeric-input";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
-import { guttering, hooks } from "./samples/guttering";
 import { AnalyticsContext } from "./helpers/analytics";
+import {
+  Guttering as GutteringType,
+  GutteringVariant,
+  LengthBasedProduct
+} from "./types";
 
 type GutteringSelectionProps = {
   // TODO: Type when importing from Contentful
   selected?: string;
-  options: ReadonlyArray<any>;
+  options: ReadonlyArray<GutteringType>;
 };
 
 const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
@@ -48,7 +52,7 @@ const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
 type GutteringVariantSelectionProps = {
   // TODO: Type when importing from Contentful
   selected?: string;
-  options: ReadonlyArray<any>;
+  options: ReadonlyArray<GutteringVariant>;
 };
 
 const GutteringVariantSelection = ({
@@ -96,7 +100,7 @@ const GutteringVariantSelection = ({
 type GutteringHookSelectionProps = {
   // TODO: Type when importing from Contentful
   selected?: string;
-  options: ReadonlyArray<any>;
+  options: ReadonlyArray<LengthBasedProduct>;
 };
 
 const GutteringHookSelection = ({
@@ -202,18 +206,20 @@ type GutteringProps = {
     downPipes?: number;
     downPipeConnectors?: number;
   };
+  gutters: GutteringType[];
+  gutterHooks: LengthBasedProduct[];
 };
 
-const Guttering = ({ selections }: GutteringProps) => {
+const Guttering = ({ selections, gutters, gutterHooks }: GutteringProps) => {
   const { values } = useContext(FormContext);
   const variants = (
-    guttering.find(({ name }) => values["guttering"] === name) || {
+    gutters.find(({ name }) => values["guttering"] === name) || {
       variants: []
     }
   ).variants;
   return (
     <div>
-      <GutteringSelection selected={selections.guttering} options={guttering} />
+      <GutteringSelection selected={selections.guttering} options={gutters} />
       {values["guttering"] ? (
         <GutteringVariantSelection
           selected={selections.gutteringVariant}
@@ -224,7 +230,7 @@ const Guttering = ({ selections }: GutteringProps) => {
         <>
           <GutteringHookSelection
             selected={selections.gutteringHook}
-            options={hooks}
+            options={gutterHooks}
           />
           <DownPipeSelection
             downPipes={selections.downPipes}

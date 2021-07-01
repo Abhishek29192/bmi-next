@@ -3,10 +3,9 @@ import Typography from "@bmi/typography";
 import CardRadioGroup from "@bmi/card-radio-group";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
-import tiles from "./samples/tiles";
 import validateRangesAgainstPitchValues from "./helpers/validateRangesAgainstPitchValues";
 import getPitchValues from "./helpers/getPitchValues";
-import { MainTileCategory, RangeValue } from "./types";
+import { MainTile, MainTileCategory, RangeValue } from "./types";
 import { DimensionsValues } from "./types/roof";
 import { AnalyticsContext } from "./helpers/analytics";
 
@@ -83,10 +82,16 @@ const TileSelectionRow = ({
 const categories: MainTileCategory[] = ["concrete", "clay", "metal"];
 
 type TileSelecionProps = Pick<TileSelectionRowProps, "select" | "selected"> & {
+  tiles: MainTile[];
   dimensions: DimensionsValues;
 };
 
-const TileSelection = ({ select, selected, dimensions }: TileSelecionProps) => {
+const TileSelection = ({
+  select,
+  selected,
+  dimensions,
+  tiles
+}: TileSelecionProps) => {
   const copy = useContext(MicroCopyContext);
 
   const pitchValues = getPitchValues(dimensions);

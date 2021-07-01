@@ -4,12 +4,16 @@ import CardCheckboxGroup from "@bmi/card-checkbox-group";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { AnalyticsContext } from "./helpers/analytics";
-import { Accessory } from "./types";
+import {
+  Accessory,
+  LengthBasedProduct,
+  MainTileVariant,
+  VergeOption
+} from "./types";
 
 type VergeOptionsProps = {
-  // TODO: Type when importing from Contentful
   selected?: string;
-  options: ReadonlyArray<any>;
+  options: ReadonlyArray<VergeOption>;
 };
 
 const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
@@ -29,7 +33,10 @@ const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
         name="verge"
         defaultValue={selected}
         isRequired
-        fieldIsRequiredError /* just needs to be truthy since it's not displayed anywhere */
+        fieldIsRequiredError={getMicroCopy(
+          copy,
+          "validation.errors.fieldRequired"
+        )}
       >
         {options.map(({ name, left }) => (
           <CardRadioGroup.Item
@@ -63,9 +70,8 @@ const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
 };
 
 type RidgeOptionsProps = {
-  // TODO: Type when importing from Contentful
   selected?: string;
-  options: ReadonlyArray<any>;
+  options: ReadonlyArray<LengthBasedProduct>;
 };
 
 const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
@@ -85,7 +91,10 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
         name="ridge"
         defaultValue={selected}
         isRequired
-        fieldIsRequiredError /* just needs to be truthy since it's not displayed anywhere */
+        fieldIsRequiredError={getMicroCopy(
+          copy,
+          "validation.errors.fieldRequired"
+        )}
       >
         {options.map(({ name, image, externalProductCode }) => (
           <CardRadioGroup.Item
@@ -112,7 +121,6 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
 };
 
 type VentilationHoodOptionsProps = {
-  // TODO: Type when importing from Contentful
   selected?: string[];
   options: ReadonlyArray<Accessory>;
 };
@@ -136,7 +144,10 @@ const VentilationHoodOptions = ({
         name="ventilation"
         defaultValue={selected}
         isRequired
-        fieldIsRequiredError /* just needs to be truthy since it's not displayed anywhere */
+        fieldIsRequiredError={getMicroCopy(
+          copy,
+          "validation.errors.fieldRequired"
+        )}
         noneLabel={getMicroCopy(copy, "tileOptions.ventilationHood.noneLabel")}
       >
         {options.map(({ name, image, externalProductCode }) => (
@@ -164,7 +175,7 @@ const VentilationHoodOptions = ({
 };
 
 type TileOptionsProps = {
-  variant: any;
+  variant: MainTileVariant;
   selections: {
     verge?: string;
     ridge?: string;

@@ -30,6 +30,7 @@ const CalculatorStepper = ({ selected, children }: Props) => {
 };
 
 type StepProps = {
+  isForm?: boolean;
   title: string;
   subtitle: string;
   paragraph?: React.ReactNode;
@@ -43,6 +44,7 @@ type StepProps = {
 };
 
 const Step = ({
+  isForm = true,
   title,
   subtitle,
   paragraph,
@@ -101,8 +103,8 @@ const Step = ({
 
   const hasButtons = backLabel || nextLabel || linkLabel;
 
-  return (
-    <Form onSubmit={nextButtonOnClick}>
+  const content = (
+    <>
       <Typography variant="h4" className={classnames(styles["step-title"])}>
         {title}
       </Typography>
@@ -115,7 +117,13 @@ const Step = ({
       <div className={styles["content"]}>{children}</div>
       <Divider className={styles["hr"]} />
       {hasButtons ? footer : null}
-    </Form>
+    </>
+  );
+
+  return isForm ? (
+    <Form onSubmit={nextButtonOnClick}>{content}</Form>
+  ) : (
+    <div>{content}</div>
   );
 };
 

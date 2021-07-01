@@ -10,7 +10,7 @@ const measurementsUnion = {
   P: "15",
   P1: "16",
   P2: "17",
-  P3: "18"
+  P3: "22"
 };
 
 describe("PitchedRoofCalculator roofs calculations", () => {
