@@ -47,6 +47,10 @@ const createApolloClient = (ctx): ApolloClient<NormalizedCacheObject> => {
     if (ctx.req) {
       const auth0 = await getAuth0Instance(ctx.req, ctx.res);
       const session = auth0.getSession(ctx.req, ctx.res);
+
+      // We use apollo client also before adding the session object in the req object
+      // in particular in pages/api/auth/auth0 in the afterCallback, this is why
+      // we need to check ctx.session
       accessToken = `Bearer ${
         session?.accessToken || ctx.session?.accessToken
       }`;

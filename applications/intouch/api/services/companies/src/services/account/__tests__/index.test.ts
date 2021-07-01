@@ -1,5 +1,6 @@
 import { completeInvitation, createAccount, invite } from "../";
 import * as eventsSrv from "../../../services/events";
+import { company } from "../../../fixtures";
 
 const mockQuery = jest.fn();
 const mockResolve = jest.fn();
@@ -71,6 +72,44 @@ describe("Account", () => {
   });
 
   describe("Invitation", () => {
+    it("shouldn't be able invite a user if installer", async () => {
+      const args = {
+        input: {
+          email: "email",
+          firstName: "firstName",
+          lastName: "lastName",
+          role: "INSTALLER",
+          personal_note: "personal_note"
+        }
+      };
+
+      contextMock = {
+        user: {
+          sub: "user-sub",
+          id: null,
+          role: "INSTALLER",
+          email: "email@email.com",
+          marketDomain: "en",
+          company: {
+            ...company
+          }
+        },
+        pgClient: { query: mockQuery },
+        logger: () => ({
+          error: () => {},
+          info: () => {}
+        })
+      };
+
+      try {
+        await invite(null, args, contextMock, null, auth0);
+      } catch (error) {
+        expect(error.message).toEqual(
+          "you must be an admin to invite other users"
+        );
+      }
+    });
+
     it("should invite a user", async () => {
       const args = {
         input: {
@@ -78,7 +117,7 @@ describe("Account", () => {
           firstName: "firstName",
           lastName: "lastName",
           role: "COMPANY_ADMIN",
-          note: "note"
+          personal_note: "personal_note"
         }
       };
 
@@ -104,10 +143,11 @@ describe("Account", () => {
         user: {
           sub: "user-sub",
           id: null,
+          role: "COMPANY_ADMIN",
           email: "email@email.com",
           marketDomain: "en",
           company: {
-            id: 1
+            ...company
           }
         },
         pgClient: { query: mockQuery },
@@ -131,7 +171,7 @@ describe("Account", () => {
         password: "Gj$1Password",
         verify_email: false,
         user_metadata: {
-          registration_type: args.input.role.toLocaleLowerCase(),
+          intouch_role: args.input.role,
           market: contextMock.user.marketDomain,
           first_name: args.input.firstName,
           last_name: args.input.lastName
@@ -153,7 +193,7 @@ describe("Account", () => {
           role: "INSTALLER",
           email: "email@email.com",
           company: {
-            id: 1
+            ...company
           }
         },
         pgClient: { query: mockQuery },
@@ -163,15 +203,13 @@ describe("Account", () => {
         })
       };
 
-      mockAuth0GetUserByEmail.mockImplementationOnce(() => [
-        {
-          user_metadata: {
-            first_name: "Name",
-            last_name: "Name",
-            registration_type: "installer"
-          }
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => ({
+        user_metadata: {
+          first_name: "Name",
+          last_name: "Name",
+          intouch_role: "installer"
         }
-      ]);
+      }));
 
       mockQuery
         .mockResolvedValueOnce({ rows: [] }) // savepoint
@@ -204,7 +242,7 @@ describe("Account", () => {
           role: "INSTALLER",
           email: "email@email.com",
           company: {
-            id: 1
+            ...company
           }
         },
         pgClient: { query: mockQuery },
@@ -214,15 +252,13 @@ describe("Account", () => {
         })
       };
 
-      mockAuth0GetUserByEmail.mockImplementationOnce(() => [
-        {
-          user_metadata: {
-            first_name: "Name",
-            last_name: "Name",
-            registration_type: "installer"
-          }
+      mockAuth0GetUserByEmail.mockImplementationOnce(() => ({
+        user_metadata: {
+          first_name: "Name",
+          last_name: "Name",
+          intouch_role: "installer"
         }
-      ]);
+      }));
 
       mockQuery
         .mockResolvedValueOnce({ rows: [] }) // savepoint

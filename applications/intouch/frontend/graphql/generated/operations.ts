@@ -12,7 +12,7 @@ export type CompanyDetailsFragmentFragment = {
       readonly nodes: ReadonlyArray<
         { readonly __typename?: "CompanyMember" } & Pick<
           SchemaTypes.CompanyMember,
-          "id" | "accountId"
+          "accountId"
         >
       >;
     };

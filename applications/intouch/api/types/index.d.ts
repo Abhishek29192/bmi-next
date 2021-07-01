@@ -6135,6 +6135,7 @@ export type InviteInput = {
   firstName: Scalars["String"];
   lastName: Scalars["String"];
   role: Role;
+  personal_note?: Maybe<Scalars["String"]>;
 };
 
 /** A connection to a list of `Int` values. */

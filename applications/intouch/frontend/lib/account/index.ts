@@ -1,6 +1,5 @@
 import { Logger } from "winston";
 import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
-import { ROLES } from "../../lib/config";
 import { randomPassword } from "../../lib/utils";
 
 const { AUTH0_NAMESPACE } = process.env;
@@ -125,7 +124,7 @@ const mutationDoceboCreateSSOUrl = gql`
 
 // This user is coming from the idToken
 export const parseAccount = (user) => ({
-  registrationType: user[`${AUTH0_NAMESPACE}/registration_type`],
+  intouch_role: user[`${AUTH0_NAMESPACE}/intouch_role`],
   marketCode: user[`${AUTH0_NAMESPACE}/intouch_market_code`],
   firstName: user[`${AUTH0_NAMESPACE}/first_name`],
   lastName: user[`${AUTH0_NAMESPACE}/last_name`],
@@ -193,18 +192,15 @@ export default class Account {
 
     this.logger.info(`Creating account`);
 
-    const { firstName, lastName, registrationType, marketCode, email } =
+    const { firstName, lastName, intouch_role, marketCode, email } =
       parseAccount(user);
-
-    const role =
-      registrationType === "company" ? ROLES.COMPANY_ADMIN : ROLES.INSTALLER;
 
     const { data } = await this.apolloClient.mutate({
       mutation: mutationCreateAccount,
       variables: {
         input: {
           account: {
-            role,
+            role: intouch_role,
             email,
             lastName,
             firstName

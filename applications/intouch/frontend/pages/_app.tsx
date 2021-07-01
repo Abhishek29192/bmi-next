@@ -6,7 +6,7 @@ import { UserProvider } from "@auth0/nextjs-auth0";
 import { StylesProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
 import { useApollo } from "../lib/apolloClient";
-import UserContextWrapper from "../context/UserContext";
+import AccountContextWrapper from "../context/AccountContext";
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
@@ -37,9 +37,9 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
 const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
   return (
     <UserProvider>
-      <UserContextWrapper account={pageProps.account}>
+      <AccountContextWrapper account={pageProps.account}>
         <App Component={Component} pageProps={pageProps} {...rest} />
-      </UserContextWrapper>
+      </AccountContextWrapper>
     </UserProvider>
   );
 };

@@ -15,7 +15,6 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
     website
     companyMembers {
       nodes {
-        id
         accountId
       }
     }

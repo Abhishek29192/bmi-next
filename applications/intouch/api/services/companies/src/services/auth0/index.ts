@@ -39,7 +39,7 @@ class Auth0 {
     }
   };
 
-  getUserByEmail = async (emailAddress) => {
+  getUsersByEmail = async (emailAddress) => {
     try {
       const { data } = await axios({
         method: "GET",
@@ -57,6 +57,12 @@ class Auth0 {
     } catch (error) {
       this.logger.error("Get user by email:", error);
     }
+  };
+
+  getUserByEmail = async (emailAddress) => {
+    const users = await this.getUsersByEmail(emailAddress);
+
+    return users.length ? users[0] : null;
   };
 
   createUser = async (body) => {

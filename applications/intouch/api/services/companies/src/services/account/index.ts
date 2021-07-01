@@ -1,7 +1,11 @@
 import crypto from "crypto";
 import camelcaseKeys from "camelcase-keys";
+import { InviteInput, Role } from "@bmi/intouch-api-types";
 import { Account } from "../../types";
 import { publish, TOPICS } from "../../services/events";
+
+const INSTALLER: Role = "INSTALLER";
+const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
 
 export const createAccount = async (
   resolve,
@@ -19,7 +23,9 @@ export const createAccount = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    logger.info("creating account ", args);
+    args.input.account.role =
+      args.input.account.role === COMPANY_ADMIN ? COMPANY_ADMIN : INSTALLER;
+
     const result = await resolve(source, args, context, resolveInfo);
 
     logger.info("setting the current account in pg_config");
@@ -33,7 +39,7 @@ export const createAccount = async (
     const { rows } = await pgClient.query(`SELECT * FROM company`, []);
 
     // If row = 0 I don't have a company so I'll create one
-    if (rows.length == 0 && result.data.$role === "COMPANY_ADMIN") {
+    if (rows.length == 0 && result.data.$role === COMPANY_ADMIN) {
       const { rows: companies } = await pgClient.query(
         `SELECT * FROM create_company()`,
         []
@@ -91,13 +97,13 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
 
   const user: Account = context.user;
   const { pgClient, pubSub } = context;
-  const { email, firstName, lastName, role, note } = args.input;
+  const { email, firstName, lastName, role, personal_note }: InviteInput =
+    args.input;
 
-  if (user.role === "INSTALLER")
+  if (!user.role || user.role === INSTALLER)
     throw new Error("you must be an admin to invite other users");
 
-  let auth0Users = await auth0.getUserByEmail(email);
-  let auth0User = auth0Users?.length ? auth0Users[0] : null;
+  let auth0User = await auth0.getUserByEmail(email);
 
   const password = `Gj$1${crypto.randomBytes(20).toString("hex")}`;
 
@@ -118,7 +124,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
       password,
       verify_email: false,
       user_metadata: {
-        registration_type: role.toLowerCase(),
+        intouch_role: role === COMPANY_ADMIN ? COMPANY_ADMIN : INSTALLER,
         market: user.marketDomain,
         first_name: firstName,
         last_name: lastName
@@ -133,7 +139,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
     // Creating a new invitation record
     const { rows: invitations } = await pgClient.query(
       "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
-      [user.id, user.company.id, "NEW", email, note]
+      [user.id, user.company.id, "NEW", email, personal_note]
     );
     logger.info(
       `Created invitation record with id ${invitations[0].id}`,
@@ -186,16 +192,7 @@ export const completeInvitation = async (
 
   const user: Account = context.user;
 
-  let auth0Users = await auth0.getUserByEmail(user.email);
-  let auth0User = auth0Users?.length ? auth0Users[0] : null;
-
-  const first_name = auth0User.user_metadata.first_name;
-  const last_name = auth0User.user_metadata.last_name;
-
-  const role =
-    auth0User.user_metadata.registration_type === "company"
-      ? "COMPANY_ADMIN"
-      : "INSTALLER";
+  let auth0User = await auth0.getUserByEmail(user.email);
 
   if (!auth0User) {
     throw new Error("User missing in auth0, please contact the support");
@@ -204,6 +201,15 @@ export const completeInvitation = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
+    const first_name = auth0User.user_metadata?.first_name;
+    const last_name = auth0User.user_metadata?.last_name;
+
+    // Let's be sure we create only installer or company_admin
+    let role: Role =
+      auth0User.user_metadata?.intouch_role === COMPANY_ADMIN
+        ? COMPANY_ADMIN
+        : INSTALLER;
+
     // Get the invitation record to check if the request is legit
     const { rows: invitations } = await pgClient.query(
       "select * from invitation JOIN company ON invitation.company_id = company.id where invitation.company_id = $1",

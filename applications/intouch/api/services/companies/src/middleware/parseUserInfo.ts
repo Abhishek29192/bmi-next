@@ -52,16 +52,12 @@ export default async (req, res, next) => {
       };
     }
 
-    const { rows: company_members } = await dbPool.query(
-      "SELECT * FROM company_member WHERE account_id = $1",
+    const { rows: companies } = await dbPool.query(
+      "SELECT company.* FROM company JOIN company_member ON company_member.company_id = company.id WHERE company_member.account_id = $1",
       [req.user.id]
     );
 
-    if (company_members.length) {
-      const { rows: companies } = await dbPool.query(
-        "SELECT * FROM company WHERE id = $1",
-        [company_members[0].company_id]
-      );
+    if (companies.length) {
       req.user = {
         ...req.user,
         company: companies[0]

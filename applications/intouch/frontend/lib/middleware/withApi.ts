@@ -1,3 +1,4 @@
+import { Session } from "@auth0/nextjs-auth0";
 import { NextLogger } from "@bmi/logger";
 import { getAuth0Instance } from "../auth0";
 import { initializeApollo } from "../apolloClient";
@@ -11,7 +12,7 @@ export const withApi = (handler) => async (req, res) => {
   }
 
   return auth0.withApiAuthRequired(async (req, res) => {
-    const { user, ...session } = auth0.getSession(req, res);
+    const session: Session = auth0.getSession(req, res);
     const apolloClient = await initializeApollo(null, { req, res });
 
     const {
@@ -19,12 +20,12 @@ export const withApi = (handler) => async (req, res) => {
     } = await apolloClient.query({
       query: queryAccountByEmail,
       variables: {
-        email: user.email
+        email: session.user.email
       }
     });
 
     return await handler(
-      { ...req, accountByEmail, apolloClient, session: { user, ...session } },
+      { ...req, accountByEmail, apolloClient, session },
       res
     );
   })(req, res);

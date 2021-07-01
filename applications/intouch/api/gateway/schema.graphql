@@ -9243,6 +9243,7 @@ input InviteInput {
   firstName: String!
   lastName: String!
   role: Role!
+  personal_note: String
 }
 
 """

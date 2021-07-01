@@ -1,6 +1,8 @@
+import { Request } from "express";
+import { Account } from "@bmi/intouch-api-types";
 import { REDIRECT_MAP } from "../config";
 
-export const marketRedirect = (req, user) => {
+export const marketRedirect = (req: Request, account: Account) => {
   const { AUTH0_COOKIE_DOMAIN, NODE_ENV } = process.env;
 
   // We don't have subdomain yet
@@ -18,7 +20,7 @@ export const marketRedirect = (req, user) => {
 
   const {
     market: { domain }
-  } = user;
+  } = account;
 
   const redirectMapInverse = {};
   Object.keys(REDIRECT_MAP).forEach((key) => {

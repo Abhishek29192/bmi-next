@@ -103,10 +103,7 @@ export default class DoceboClient {
     return data;
   }
 
-  public async userByEmail(email?: String) {
-    const mapQuery = [];
-    if (email) mapQuery.push({ name: "email", value: email });
-
+  public async userByEmail(email: String) {
     const {
       data: { data }
     } = await this.client.get(

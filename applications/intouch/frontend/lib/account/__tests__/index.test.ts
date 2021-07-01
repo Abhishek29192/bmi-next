@@ -49,7 +49,7 @@ describe("Account", () => {
     await accountSrv.createAccount({
       user: {
         email: "emamil@email.com",
-        [`${process.env.AUTH0_NAMESPACE}/registration_type`]: "company",
+        [`${process.env.AUTH0_NAMESPACE}/intouch_role`]: "COMPANY_ADMIN",
         [`${process.env.AUTH0_NAMESPACE}/intouch_market_code`]: "en",
         [`${process.env.AUTH0_NAMESPACE}/first_name`]: "Name",
         [`${process.env.AUTH0_NAMESPACE}/last_name`]: "Lastname"
@@ -148,7 +148,7 @@ describe("Account", () => {
     expect(mockMutate).toHaveBeenCalledTimes(0);
   });
 
-  it("should create the docebo account if already exists", async () => {
+  it("should create the docebo account if the intouch account exists but no docebo account are linked to it", async () => {
     mockQuery.mockImplementationOnce(() =>
       Promise.resolve({
         data: {

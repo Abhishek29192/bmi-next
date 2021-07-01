@@ -17,7 +17,7 @@ async function handleTokenClaims(user, context, callback) {
     // I need this data to complete the registration
     context.idToken = {
       ...context.idToken,
-      [`${namespace}/registration_type`]: user_metadata.registration_type,
+      [`${namespace}/intouch_role`]: user_metadata.intouch_role,
       [`${namespace}/intouch_invited`]: app_metadata.intouch_invited,
       [`${namespace}/intouch_market_code`]: user_metadata.market,
       [`${namespace}/first_name`]: user_metadata.first_name,

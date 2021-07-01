@@ -9,8 +9,16 @@ jest.mock("../../db", () => ({
   })
 }));
 
-const USER_INFO_HEADER =
-  "ewogICJ1c2VyL2VtYWlsIjogInVzZXIuZW1haWwiLAogICJpc3MiOiAidXNlci5pc3MiLAogICJpYXQiOiAidXNlci5pYXQiLAogICJleHAiOiAidXNlci5leHAiLAogICJzY29wZSI6ICJ1c2VyLmV4cCIsCiAgInN1YiI6ICJ1c2VyLnN1YiIsCiAgImF1ZCI6ICJ1c2VyLmF1ZCIKfQ==";
+const user = {
+  "user/email": "user.email",
+  iss: "user.iss",
+  iat: "user.iat",
+  exp: "user.exp",
+  scope: "user.exp",
+  sub: "user.sub",
+  aud: "user.aud"
+};
+const USER_INFO_HEADER = Buffer.from(JSON.stringify(user)).toString("base64");
 
 describe("ParseUserInfo", () => {
   let logger = () => ({
@@ -42,7 +50,7 @@ describe("ParseUserInfo", () => {
     });
   });
 
-  it("should appen the user object to the request", async () => {
+  it("should append the user object to the request", async () => {
     mockQuery
       .mockImplementationOnce(() =>
         Promise.resolve({
@@ -58,17 +66,6 @@ describe("ParseUserInfo", () => {
               docebo_user_id: "docebo_user_id",
               docebo_username: "docebo_username",
               migration_id: "migration_id"
-            }
-          ]
-        })
-      )
-      .mockImplementationOnce(() =>
-        Promise.resolve({
-          rows: [
-            {
-              id: 2,
-              account_id: 1,
-              company_id: 123
             }
           ]
         })

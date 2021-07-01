@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuthContext } from "../../context/UserContext";
+import { useAccountContext } from "../../context/AccountContext";
 import can from "./can";
 
 type AccessControlProps = {
@@ -10,7 +10,7 @@ type AccessControlProps = {
 };
 
 const AccessControl = (props: AccessControlProps) => {
-  const { account } = useAuthContext();
+  const { account } = useAccountContext();
 
   if (!account) {
     // User can be undefined on first render

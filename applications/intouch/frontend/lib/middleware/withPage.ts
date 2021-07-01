@@ -1,4 +1,4 @@
-import { UserProfile } from "@auth0/nextjs-auth0";
+import { Session } from "@auth0/nextjs-auth0";
 import { Account } from "@bmi/intouch-api-types";
 import { NextLogger } from "@bmi/logger";
 import { getAuth0Instance } from "../auth0";
@@ -13,7 +13,7 @@ export const innerGetServerSideProps = async (
   ctx
 ) => {
   const { req, res } = ctx;
-  const { user, ...session } = auth0.getSession(req, res);
+  const session: Session = auth0.getSession(req, res);
 
   const apolloClient = await initializeApollo(null, { req, res });
 
@@ -22,7 +22,7 @@ export const innerGetServerSideProps = async (
   } = await apolloClient.query({
     query: queryAccountByEmail,
     variables: {
-      email: user.email
+      email: session.user.email
     }
   });
 
@@ -40,7 +40,7 @@ export const innerGetServerSideProps = async (
     ...ctx,
     auth0,
     apolloClient,
-    session: { user, ...session } as UserProfile,
+    session: session,
     account: accountByEmail as Account
   });
 };
