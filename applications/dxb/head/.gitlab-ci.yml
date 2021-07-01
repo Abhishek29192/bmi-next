@@ -1,5 +1,5 @@
 test_head:
-  stage: test
+  extends: .test_jest
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -9,21 +9,12 @@ test_head:
         - jest/**/*
         - package.json
         - "**/package.json"
-  needs:
-    - install
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/head coverage:jest
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
-  artifacts:
-    when: always
-    reports:
-      junit:
-        - applications/dxb/head/junit.xml
+  variables:
+    WORKSPACE: "@bmi/head"
+    ROOT_DIR: "applications/dxb/head"
 
 test_mr_coverage_head:
-  stage: test
+  extends: .test_jest_mr_coverage
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -32,14 +23,8 @@ test_mr_coverage_head:
         - libraries/**/*
         - jest/**/*
         - package.json
-  needs:
-    - install
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - git fetch origin master
-    - yarn workspace @bmi/head coverage:jest --changed-since=origin/master --coverage-threshold='{"global":{"statements":"80","branches":"80","functions":"80","lines":"80"}}'
-  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  variables:
+    WORKSPACE: "@bmi/head"
 
 build_head:
   stage: build
@@ -114,7 +99,7 @@ deploy_head_preview:
 # Triggered by Netlify when deploy is complete
 # Disabled until it can be fixed
 baseline_scan_head_preview:
-  stage: dynamic_security
+  stage: dynamic security
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -142,7 +127,7 @@ baseline_scan_head_preview:
 # Should be set as a scheduled job for cron 0 0 * * 0 (midnight every sunday)
 # SAST_DISABLED should be set to true
 full_scan_head_qa:
-  stage: dynamic_security
+  stage: dynamic security
   rules:
     - if: "$WHICH_SCHEDULE == 'full_scan_head_qa'"
       when: delayed
@@ -160,7 +145,7 @@ full_scan_head_qa:
 # SAST_DISABLED should be set to true
 # When happy with how this works, change to use zap-full-scan.py
 baseline_scan_head_prod:
-  stage: dynamic_security
+  stage: dynamic security
   rules:
     - if: '$WHICH_SCHEDULE == "baseline_scan_head_prod"'
   image: owasp/zap2docker-stable:latest
@@ -173,7 +158,7 @@ baseline_scan_head_prod:
 # https://github.com/GoogleChrome/lighthouse-ci
 # Lighthouse scan on netlify build
 lighthouseci_scan_head_preview:
-  stage: lighthouse_scan
+  stage: lighthouse scan
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -210,7 +195,7 @@ lighthouseci_scan_head_preview:
 # Additional scheduled jobs for Pre-Prod and Prod at 3am and 4am
 # SAST_DISABLED should be set to true
 lighthouseci_scan_head:
-  stage: lighthouse_scan
+  stage: lighthouse scan
   variables:
     # Required as QA password has a `$` in it
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"

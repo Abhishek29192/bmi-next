@@ -3,6 +3,7 @@ image: node:12
 stages:
   - install
   - audit
+  - static analysis
   - test
   - build
   - release
@@ -10,8 +11,8 @@ stages:
   - package
   - deploy
   - deploy_gateway
-  - dynamic_security
-  - lighthouse_scan
+  - dynamic security
+  - lighthouse scan
 
 workflow:
   rules:
@@ -20,15 +21,14 @@ workflow:
     - when: always
 
 include:
-  - template: Code-Quality.gitlab-ci.yml
-  - template: Security/SAST.gitlab-ci.yml
-  - template: Security/Secret-Detection.gitlab-ci.yml
+  - local: "/.gitlab/dependabot.gitlab-ci.yml"
+  - local: "/.gitlab/static-analysis.gitlab-ci.yml"
+  - local: "/.gitlab/test.gitlab-ci.yml"
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/intouch/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
-  - remote: "https://gitlab.com/dependabot-gitlab/dependabot-standalone/-/raw/master/.gitlab-ci.yml"
 
 default:
   cache:
@@ -51,40 +51,6 @@ variables:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: custom_pass
   POSTGRES_HOST_AUTH_METHOD: trust
-  SAST_EXCLUDED_ANALYZERS: spotbugs
-
-.sast-analyzer:
-  allow_failure: false
-  needs: []
-  cache: {}
-
-eslint-sast:
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-
-nodejs-scan-sast:
-  needs:
-    - install
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-
-semgrep-sast:
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-
-# Shouldn't need cache, but the codeclimate checks fail due to a potential version issue
-code_quality:
-  stage: test
-  needs:
-    - install
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-
-secret_detection:
-  needs: []
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-  cache: {}
 
 install:
   stage: install
@@ -124,17 +90,6 @@ license_finder:
       - license_finder_output.html
     when: always
 
-eslint:
-  stage: test
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-  needs:
-    - install
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn eslint "**/*.{js,ts,tsx}"
-
 release:
   image: node:13
   stage: release
@@ -144,7 +99,3 @@ release:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - npx -p semantic-release@17.3.6 semantic-release
-
-# Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
-.dependabot-gitlab:
-  cache: {}
