@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
     <context>
-        <name>Head QA</name>
+        <name>Head MR</name>
         <desc/>
         <inscope>true</inscope>
         <incregexes>https://.*bmi-dxb-head-qa.netlify.app.*</incregexes>
@@ -38,7 +38,7 @@
             </form>
         </authentication>
         <users>
-            <user>1388;true;cWE=;2;cWE=~TDN0TTNpbmQkYjIwMjA=~</user>
+            <user>1388;true;bXI=;2;bXI=~TDN0TTNpbmQkYjIwMjA=~</user>
         </users>
         <forceduser>1388</forceduser>
         <session>
