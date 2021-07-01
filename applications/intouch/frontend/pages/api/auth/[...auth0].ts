@@ -25,9 +25,11 @@ export const afterCallback = async (
 
   // If the user has a valid invitation return the session as the return url
   // in the reset password email will redirect him to /api/invitation
-  const invitation = await accountSrv.getInvitation(session);
-  if (invitation && !account?.id) {
-    return session;
+  if (!account?.id) {
+    const invitation = await accountSrv.getInvitation(session);
+    if (invitation) {
+      return session;
+    }
   }
 
   // If the user do not exists create it and create docebo user
@@ -45,7 +47,6 @@ export const afterCallback = async (
     await accountSrv.createDoceboUser(account);
 
     state.returnTo = "/api/silent-login";
-
     return session;
   }
 

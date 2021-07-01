@@ -10,6 +10,7 @@ export const queryAccountByEmail = gql`
       id
       role
       marketId
+      email
       doceboUserId
       market {
         domain

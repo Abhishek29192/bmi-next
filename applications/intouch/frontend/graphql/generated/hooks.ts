@@ -91,6 +91,7 @@ export const AccountByEmailDocument = gql`
       id
       role
       marketId
+      email
       doceboUserId
       market {
         domain
