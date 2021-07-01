@@ -71,9 +71,20 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiAvatar-fallback"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                />
+              </svg>
+            </div>
           </div>
           <div
             class="content-box"
@@ -113,10 +124,14 @@ exports[`TeamList component renders correctly with links 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -172,10 +187,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -209,10 +228,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -246,10 +269,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -283,10 +310,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -320,10 +351,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -357,10 +392,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -394,10 +433,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -431,10 +474,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
@@ -468,10 +515,14 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.asset.jpg"
+              />
+            </div>
           </div>
           <div
             class="content-box"
