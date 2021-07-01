@@ -1,4 +1,3 @@
-# File: cloudbuild.yaml
 steps:
   # build the container image
   - name: "gcr.io/cloud-builders/docker"
@@ -17,22 +16,6 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args:
       ["push", "gcr.io/$PROJECT_ID/intouch-api-gateway:${_CI_COMMIT_SHORT_SHA}"]
-  # deploy to Cloud Run
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      [
-        "alpha",
-        "run",
-        "deploy",
-        "tf-gateway",
-        "--image",
-        "gcr.io/$PROJECT_ID/intouch-api-gateway:${_CI_COMMIT_SHORT_SHA}",
-        "--region",
-        "europe-west2",
-        "--platform",
-        "managed",
-        "--allow-unauthenticated"
-      ]
 
 timeout: 1200s
 
