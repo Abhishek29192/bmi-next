@@ -124,7 +124,7 @@ describe("Account", () => {
       mockAuth0CreateUser.mockResolvedValueOnce({
         user_id: "auth0|user-id"
       });
-      mockAuth0GetUserByEmail.mockResolvedValueOnce([]);
+      mockAuth0GetUserByEmail.mockResolvedValueOnce(null);
       mockCreateResetPasswordTicket.mockResolvedValueOnce({
         ticket: "my-ticket"
       });
