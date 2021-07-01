@@ -174,6 +174,7 @@ export const pageQuery = graphql`
       leadBlock {
         ...LeadBlockSectionFragment
       }
+      date
       shareWidget {
         ...ShareWidgetSectionFragment
       }

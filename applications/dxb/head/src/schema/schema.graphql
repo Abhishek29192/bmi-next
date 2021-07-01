@@ -210,6 +210,9 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The introudction block for this page."
   leadBlock: ContentfulLeadBlockSection @link(from: "leadBlock___NODE")
 
+  "The date for the page entry."
+  date: String
+
   "The sections for this page."
   sections: [ContentfulSection] @link(from: "sections___NODE")
 
@@ -551,6 +554,9 @@ type ContentfulCardCollectionSection implements Node {
 
   "The section should be centered."
   justifyCenter: Boolean
+
+  "The order in which the cards should be sorted."
+  sortOrder: String
 }
 
 """

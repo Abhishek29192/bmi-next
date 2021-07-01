@@ -17,6 +17,7 @@ export type Data = {
   brandLogo: string | null;
   slug: string;
   path: string;
+  date: string | null;
   tags: TagData[] | null;
   // TODO: Move Video as option of Media.
   featuredMedia: ImageData | null;
@@ -41,6 +42,9 @@ export const query = graphql`
     }
     featuredVideo {
       ...VideoFragment
+    }
+    ... on ContentfulSimplePage {
+      date
     }
   }
 `;

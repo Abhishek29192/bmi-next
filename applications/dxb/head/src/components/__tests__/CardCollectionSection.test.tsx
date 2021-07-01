@@ -1,10 +1,11 @@
-import React from "react";
 import { fireEvent, render } from "@testing-library/react";
+import React from "react";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
 import { Data as LinkData } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
 import { Data as PromoData } from "../Promo";
+import { SiteContext } from "../Site";
 import { TagData } from "../Tag";
 import { VisualiserContext } from "../Visualiser";
 
@@ -23,6 +24,7 @@ const card1: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
+  date: "2021-06-09T00:00:00",
   tags: [testTag1]
 };
 const card2: PageInfoData = {
@@ -35,6 +37,7 @@ const card2: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
+  date: "2021-06-09T00:00:00",
   tags: [testTag2]
 };
 const card3: PageInfoData = {
@@ -47,7 +50,21 @@ const card3: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
+  date: "2021-06-09T00:00:00",
   tags: [testTag1, testTag2]
+};
+const card4: PromoData = {
+  __typename: "ContentfulPromo",
+  id: "1234",
+  title: "Villain 1",
+  brandLogo: null,
+  tags: null,
+  subtitle: null,
+  body: null,
+  featuredMedia: null,
+  cta: null,
+  backgroundColor: null,
+  featuredVideo: null
 };
 
 describe("CardCollectionSection component", () => {
@@ -67,10 +84,16 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <CardCollectionSection
+          data={data}
+          theme={{ cardCollectionRowType: "single-row" }}
+        />
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -95,7 +118,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -123,7 +147,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -151,7 +176,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -179,7 +205,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -207,7 +234,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -235,7 +263,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -263,7 +292,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -313,7 +343,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: link
+        link: link,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -345,7 +376,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -387,7 +419,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -408,7 +441,7 @@ describe("CardCollectionSection component", () => {
     it("When Card belongs to multiple selected tags, results returned only once", () => {
       // add 3 cards with 2 different tags
       // when filtered by tag1 & tag2, cards 1,2,3 should show (ONLY once each)
-      const cards: Card[] = [card1, card2, card3];
+      const cards: Card[] = [card1, card2, card3, card4];
 
       const data: Data = {
         title: "test title",
@@ -422,7 +455,8 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -478,7 +512,8 @@ describe("CardCollectionSection component", () => {
       cardLabel: "a string",
       groupCards: true,
       cards: cards,
-      link: null
+      link: null,
+      sortOrder: null
     };
 
     const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -522,7 +557,8 @@ describe("CardCollectionSection component", () => {
           type: "Visualiser",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -557,7 +593,8 @@ describe("CardCollectionSection component", () => {
           type: "Visualiser",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -616,7 +653,8 @@ describe("CardCollectionSection component", () => {
           type: "Visualiser",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -665,7 +703,8 @@ describe("CardCollectionSection component", () => {
           type: "Visualiser",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -725,7 +764,8 @@ describe("CardCollectionSection component", () => {
           type: "Visualiser",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -762,7 +802,8 @@ describe("CardCollectionSection component", () => {
           type: "Visualiser",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const wrapper = render(
@@ -801,7 +842,8 @@ describe("CardCollectionSection component", () => {
           type: "Visualiser",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
       const visualiserOpen = jest.fn().mockImplementation(() => {});
 
@@ -844,7 +886,8 @@ describe("CardCollectionSection component", () => {
           type: "Visualiser",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const visualiserOpen = jest.fn().mockImplementation(() => {});
@@ -890,7 +933,8 @@ describe("CardCollectionSection component", () => {
           type: "Calculator",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const wrapper = render(
@@ -929,7 +973,8 @@ describe("CardCollectionSection component", () => {
           type: "Calculator",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const calculatorOpen = jest.fn().mockImplementation(() => {});
@@ -973,7 +1018,8 @@ describe("CardCollectionSection component", () => {
           type: "Calculator",
           dialogContent: null,
           linkedPage: null
-        }
+        },
+        sortOrder: null
       };
 
       const calculatorOpen = jest.fn().mockImplementation(() => {});
@@ -989,6 +1035,74 @@ describe("CardCollectionSection component", () => {
       const calculatorLink = wrapper.getByText(data.link.label);
       calculatorLink.click();
       expect(calculatorOpen).toBeCalledWith(data.link.parameters);
+    });
+  });
+
+  describe("Sorts correctly", () => {
+    it("By newest date first", () => {
+      const cards: Card[] = [card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Date (Newest first)"
+      };
+
+      const wrapper = render(
+        <SiteContext.Provider
+          value={{
+            countryCode: "no",
+            getMicroCopy: (string) => `MC: ${string}`,
+            node_locale: "",
+            homePage: {
+              title: ""
+            }
+          }}
+        >
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("By oldest date first", () => {
+      const cards: Card[] = [card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Date (Oldest first)"
+      };
+
+      const wrapper = render(
+        <SiteContext.Provider
+          value={{
+            countryCode: "no",
+            getMicroCopy: (string) => `MC: ${string}`,
+            node_locale: "",
+            homePage: {
+              title: ""
+            }
+          }}
+        >
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
+      expect(wrapper.baseElement).toMatchSnapshot();
     });
   });
 });

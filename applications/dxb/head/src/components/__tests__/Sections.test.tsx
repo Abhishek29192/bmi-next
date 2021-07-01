@@ -137,6 +137,7 @@ describe("Sections component", () => {
         groupCards: false,
         cardLabel: "Card Label",
         cardType: "Story Card",
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "00000000-0000-0000-0000-000000000000",
@@ -189,6 +190,7 @@ describe("Sections component", () => {
         cardLabel: "Go to {{title}}",
         cardType: "Highlight Card",
         link: null,
+        sortOrder: null,
         cards: [
           {
             __typename: "ContentfulSimplePage",
@@ -199,6 +201,7 @@ describe("Sections component", () => {
             title: "page title",
             brandLogo: null,
             subtitle: "page subtitle",
+            date: null,
             featuredMedia: {
               type: null,
               altText: "Lorem ipsum",
@@ -429,7 +432,9 @@ describe("Sections component", () => {
         // @ts-ignore
         __typename: "InvalidTypename",
         title: "Invalid type test"
-      }
+      },
+      // @ts-ignore For test coverage
+      {}
     ];
 
     const { container } = render(
