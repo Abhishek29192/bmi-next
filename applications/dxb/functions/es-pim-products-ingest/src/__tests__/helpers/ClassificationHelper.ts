@@ -64,13 +64,13 @@ export const createGeneralInformationClassification = (
   classification?: Partial<Classification>
 ): Classification =>
   createClassification({
-    ...classification,
     features: [
       createFeature({
         code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`,
         featureValues: [createFeatureValue({ value: "concrete" })]
       })
     ],
+    ...classification,
     code: "generalInformation"
   });
 
@@ -78,7 +78,6 @@ export const createMeasurementsClassification = (
   classification?: Partial<Classification>
 ): Classification =>
   createClassification({
-    ...classification,
     features: [
       createFeature({
         code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
@@ -108,6 +107,7 @@ export const createMeasurementsClassification = (
         })
       })
     ],
+    ...classification,
     code: "measurements"
   });
 

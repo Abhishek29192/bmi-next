@@ -8,6 +8,7 @@ module.exports = {
   roots: ["<rootDir>/components"],
   coverageThreshold: {
     global: {
+      ...sharedConfig.coverageThreshold.global,
       statements: "23",
       branches: "11",
       functions: "15",

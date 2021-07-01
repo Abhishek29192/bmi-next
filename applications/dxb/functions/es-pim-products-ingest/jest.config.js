@@ -8,10 +8,10 @@ module.exports = {
   roots: ["<rootDir>/applications/dxb/functions/es-pim-products-ingest/src"],
   coverageThreshold: {
     global: {
+      ...sharedConfig.coverageThreshold.global,
       statements: "98",
-      branches: "86",
-      functions: "98",
-      lines: "97"
+      branches: "90",
+      lines: "98"
     }
   }
 };
