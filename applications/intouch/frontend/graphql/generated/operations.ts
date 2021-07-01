@@ -42,7 +42,7 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
   readonly accountByEmail?: SchemaTypes.Maybe<
     { readonly __typename?: "Account" } & Pick<
       SchemaTypes.Account,
-      "id" | "role" | "marketId" | "doceboUserId"
+      "id" | "role" | "marketId" | "email" | "doceboUserId"
     > & {
         readonly market?: SchemaTypes.Maybe<
           { readonly __typename?: "Market" } & Pick<

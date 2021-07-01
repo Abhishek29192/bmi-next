@@ -1080,7 +1080,7 @@ export type Company = Node & {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
@@ -1491,7 +1491,7 @@ export type CompanyPatch = {
   facebook?: Maybe<Scalars["String"]>;
   /** Their Company LinkedIn page URL */
   linkedIn?: Maybe<Scalars["String"]>;
-  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique. */
+  /** A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.  */
   referenceNumber?: Maybe<Scalars["String"]>;
   /** A reference to the logo image */
   logo?: Maybe<Scalars["String"]>;
