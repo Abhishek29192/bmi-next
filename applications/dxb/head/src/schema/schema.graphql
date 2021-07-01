@@ -958,6 +958,10 @@ type ContentfulResources implements Node {
   pdpShareWidget: ContentfulShareWidgetSection
     @link(from: "pdpShareWidget___NODE")
 
+  "The share widget for the system details page for these resources."
+  sdpShareWidget: ContentfulShareWidgetSection
+    @link(from: "sdpShareWidget___NODE")
+
   "The input banner for the product details page for these resources."
   pdpInputBanner: ContentfulInputBanner @link(from: "pdpInputBanner___NODE")
 
