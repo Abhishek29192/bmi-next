@@ -45,7 +45,7 @@ const CalculatorProvider = ({ children, onError }: Props) => {
   const [data, setData] = useState<Data>();
 
   useEffect(() => {
-    if (!open) {
+    if (!isOpen) {
       return;
     }
 
@@ -74,7 +74,7 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     fetchAndSetData();
 
     return () => cancelTokenSouce.cancel();
-  }, [open]);
+  }, [isOpen]);
 
   return (
     <CalculatorContext.Provider
