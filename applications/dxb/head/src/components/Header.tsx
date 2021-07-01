@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
+import { getSrc } from "gatsby-plugin-image";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
@@ -22,7 +23,7 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
     {
       label: promo.title,
       // TODO: Use media here? 🤔
-      image: promo.featuredMedia?.image?.resize.src
+      image: getSrc(promo.featuredMedia?.image)
     },
     { label: promo.title, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),

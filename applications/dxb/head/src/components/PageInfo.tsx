@@ -20,12 +20,18 @@ export type Data = {
   date: string | null;
   tags: TagData[] | null;
   // TODO: Move Video as option of Media.
-  featuredMedia: ImageData | null;
+  featuredMedia:
+    | (ImageData & {
+        thumbnail: {
+          src: string;
+        };
+      })
+    | null;
   featuredVideo: VideoData | null;
 };
 
 export const query = graphql`
-  fragment PageInfoFragment on ContentfulPage {
+  fragment BasePageInfoFragment on ContentfulPage {
     __typename
     id
     title
@@ -37,11 +43,26 @@ export const query = graphql`
       title
       type
     }
+    featuredVideo {
+      ...VideoFragment
+    }
+  }
+  fragment PageInfoFragment on ContentfulPage {
+    ...BasePageInfoFragment
     featuredMedia {
       ...ImageFragment
     }
-    featuredVideo {
-      ...VideoFragment
+  }
+  fragment PageInfoCardFragment on ContentfulPage {
+    ...BasePageInfoFragment
+    featuredMedia {
+      ...ImageCardFragment
+    }
+  }
+  fragment PageInfoSlideFragment on ContentfulPage {
+    ...BasePageInfoFragment
+    featuredMedia {
+      ...ImageSlideFragment
     }
     ... on ContentfulSimplePage {
       date

@@ -414,8 +414,8 @@ export const query = graphql`
       ...LinkFragment
     }
     cards {
-      ...PromoFragment
-      ...PageInfoFragment
+      ...PromoCardFragment
+      ...PageInfoCardFragment
     }
     justifyCenter
     sortOrder

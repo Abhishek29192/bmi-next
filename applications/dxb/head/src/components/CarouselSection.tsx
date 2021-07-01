@@ -140,8 +140,8 @@ export const query = graphql`
     variant
     slides {
       ... on ContentfulPromoOrPage {
-        ...PromoFragment
-        ...PageInfoFragment
+        ...PromoSlideFragment
+        ...PageInfoSlideFragment
       }
     }
     link {
