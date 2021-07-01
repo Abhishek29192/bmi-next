@@ -51,6 +51,7 @@ variables:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: custom_pass
   POSTGRES_HOST_AUTH_METHOD: trust
+  SAST_EXCLUDED_ANALYZERS: spotbugs
 
 .sast-analyzer:
   allow_failure: false
@@ -69,8 +70,7 @@ nodejs-scan-sast:
 
 semgrep-sast:
   rules:
-    # - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-    - when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
 
 # Shouldn't need cache, but the codeclimate checks fail due to a potential version issue
 code_quality:
