@@ -51,6 +51,7 @@ variables:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: custom_pass
   POSTGRES_HOST_AUTH_METHOD: trust
+  SAST_EXCLUDED_ANALYZERS: spotbugs
 
 .sast-analyzer:
   allow_failure: false

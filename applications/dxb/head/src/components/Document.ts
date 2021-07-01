@@ -21,7 +21,7 @@ export type Data = {
         size: number;
       };
     };
-  };
+  } | null;
   // TODO: add validations for this Rich Text field in CMS
   description: RichTextData | null;
   brand: string;
