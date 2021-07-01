@@ -401,6 +401,8 @@ type Query {
     @deprecated(reason: "Only Apollo Federation should use this")
   token: Token
   tokenByUsername(username: String!): Token
+  userByEmail(email: String): UserData
+  checkUserValidatiy(email: String, username: String): CheckUserValidityPayload
 }
 
 """
@@ -1293,6 +1295,28 @@ type _Service {
 
 type Token {
   access_token: String
+}
+
+type UserData {
+  user_id: String
+  username: String
+  first_name: String
+  last_name: String
+  email: String
+  uuid: String
+  lang_code: String
+  expiration: String
+  email_validation_status: String
+  valid: String
+  language: String
+  level: String
+  role_id: String
+  role_title: String
+  role: String
+}
+
+type CheckUserValidityPayload {
+  success: String
 }
 
 """

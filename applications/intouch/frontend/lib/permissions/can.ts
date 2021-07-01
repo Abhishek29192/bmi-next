@@ -1,15 +1,13 @@
-import { UserProfile } from "@auth0/nextjs-auth0";
-import { CLAIMS } from "./claims";
+import { Account } from "@bmi/intouch-api-types";
 import gates from "./gates";
 
 const can = (
-  user: UserProfile,
+  user: Account,
   dataModel: string,
   action: string,
   extraData?: any
 ): boolean => {
-  const userRole = user[CLAIMS.role];
-  const gate = gates?.[dataModel]?.[action]?.[userRole];
+  const gate = gates?.[dataModel]?.[action]?.[user?.role];
 
   if (typeof gate === "function") {
     return gate(user, extraData || {});

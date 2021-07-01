@@ -1,5 +1,6 @@
 import winston from "winston";
 import { LoggingWinston } from "@google-cloud/logging-winston";
+import maskDeep from "mask-deep";
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -10,6 +11,19 @@ const getLogLevel = () => {
 
   return process.env.NODE_ENV === "production" ? "error" : "debug";
 };
+
+const REDACTED_KEYS = [
+  "email",
+  "password",
+  "doceboUsername",
+  "firstName",
+  "lastName",
+  "name",
+  "surname",
+  "first_name",
+  "last_name",
+  "invitee"
+];
 
 const logger = (headers, module) => {
   const reqId = headers["x-request-id"] || "";
@@ -24,11 +38,20 @@ const logger = (headers, module) => {
     transports.push(loggingWinston);
   }
 
+  const redact = winston.format((info, opts) => {
+    const redacted = maskDeep(info, REDACTED_KEYS);
+    return {
+      ...info,
+      ...redacted
+    };
+  });
+
   let format = isProd
     ? winston.format.combine(
         winston.format.label({ label: module, message: true }),
         winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
         winston.format.errors({ stack: true }),
+        redact(),
         winston.format.json()
       )
     : winston.format.combine(
@@ -44,7 +67,8 @@ const logger = (headers, module) => {
             let msg = `${[timestamp]} ${level}`;
 
             if (typeof message !== "string") {
-              msg = `${msg} ${JSON.stringify(message, null, 4)}`;
+              const redacted = maskDeep(message, REDACTED_KEYS);
+              msg = `${msg} ${JSON.stringify(redacted, null, 4)}`;
             } else {
               msg = `${msg} ${message}`;
             }
@@ -54,7 +78,16 @@ const logger = (headers, module) => {
             }
 
             if (metadata && Object.keys(metadata).length > 0) {
-              msg = `${msg} ${JSON.stringify(metadata, null, 4)}`;
+              const redacted = maskDeep(metadata.metadata, REDACTED_KEYS);
+
+              msg = `${msg} ${JSON.stringify(
+                {
+                  ...metadata,
+                  metadata: redacted
+                },
+                null,
+                4
+              )}`;
             }
 
             return msg;

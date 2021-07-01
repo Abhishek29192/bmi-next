@@ -1592,6 +1592,10 @@ enum CertificationsOrderBy {
   PRIMARY_KEY_DESC
 }
 
+type CheckUserValidityPayload {
+  success: String
+}
+
 """
 A connection to a list of `Company` values.
 """
@@ -9239,6 +9243,7 @@ input InviteInput {
   firstName: String!
   lastName: String!
   role: Role!
+  personal_note: String
 }
 
 """
@@ -13649,6 +13654,7 @@ type Query implements Node {
     """
     condition: CertificationCondition
   ): CertificationsConnection
+  checkUserValidatiy(email: String, username: String): CheckUserValidityPayload
 
   """
   Reads and enables pagination through a set of `Company`.
@@ -15036,6 +15042,7 @@ type Query implements Node {
     where: TrainingContentFilter
     order: [TrainingContentOrder]
   ): TrainingContentCollection
+  userByEmail(email: String): UserData
 }
 
 enum RequestStatus {
@@ -18132,6 +18139,24 @@ input UserCreateInput {
 type UserCreateResponse {
   success: Boolean
   user_id: Int
+}
+
+type UserData {
+  user_id: String
+  username: String
+  first_name: String
+  last_name: String
+  email: String
+  uuid: String
+  lang_code: String
+  expiration: String
+  email_validation_status: String
+  valid: String
+  language: String
+  level: String
+  role_id: String
+  role_title: String
+  role: String
 }
 
 scalar _Any

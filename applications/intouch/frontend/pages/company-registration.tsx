@@ -8,6 +8,7 @@ import Grid from "@bmi/grid";
 import GridStyles from "../styles/Grid.module.scss";
 import { initializeApollo } from "../lib/apolloClient";
 import { getAuth0Instance } from "../lib/auth0";
+import { withPage } from "../lib/middleware/withPage";
 
 const CREATE_COMPANY = gql`
   mutation createCompany($input: UpdateCompanyInput!) {
@@ -42,7 +43,10 @@ const Company = ({ currentCompany }: any) => {
     createCompany({
       variables: {
         input: {
-          patch: values,
+          patch: {
+            ...values,
+            status: "ACTIVE"
+          },
           id: currentCompany
         }
       }
@@ -79,26 +83,20 @@ const Company = ({ currentCompany }: any) => {
   );
 };
 
-export const getServerSideProps = async (ctx) => {
-  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
-  return auth0.withPageAuthRequired({
-    async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, { ...ctx, locale });
-      const {
-        data: { currentCompany }
-      } = await apolloClient.query({
-        query: GET_CURRENT_COMPANY,
-        variables: {}
-      });
+export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
+  const {
+    data: { currentCompany }
+  } = await apolloClient.query({
+    query: GET_CURRENT_COMPANY,
+    variables: {}
+  });
 
-      return {
-        props: {
-          currentCompany,
-          ...(await serverSideTranslations(locale, ["common"]))
-        }
-      };
+  return {
+    props: {
+      currentCompany,
+      ...(await serverSideTranslations(locale, ["common"]))
     }
-  })(ctx);
-};
+  };
+});
 
 export default withPageAuthRequired(Company);

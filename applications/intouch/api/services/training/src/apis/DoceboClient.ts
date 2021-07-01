@@ -103,6 +103,29 @@ export default class DoceboClient {
     return data;
   }
 
+  public async userByEmail(email: String) {
+    const {
+      data: { data }
+    } = await this.client.get(
+      `/manage/v1/user?match_type=full&search_text=${email}`
+    );
+
+    return data.items[0];
+  }
+
+  public async checkUserValidatiy(userId?: String, email?: String) {
+    const mapQuery = [];
+    if (userId) mapQuery.push({ name: "userid", value: userId });
+    if (email) mapQuery.push({ name: "email", value: email });
+
+    const query = `${mapQuery.map((e) => `${e.name}=${e.value}`).join("&")}`;
+
+    const { data } = await this.client.get(
+      `/manage/v1/user/check_validity?${query}`
+    );
+    return data;
+  }
+
   async createUser(input: IUserCreateInput) {
     const select_orgchart = input.select_orgchart
       ? { [`${input.select_orgchart.branch_id}`]: 1 }

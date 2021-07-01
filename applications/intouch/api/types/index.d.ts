@@ -992,6 +992,11 @@ export type CertificationsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+export type CheckUserValidityPayload = {
+  __typename?: "CheckUserValidityPayload";
+  success?: Maybe<Scalars["String"]>;
+};
+
 /** A connection to a list of `Company` values. */
 export type CompaniesConnection = {
   __typename?: "CompaniesConnection";
@@ -6130,6 +6135,7 @@ export type InviteInput = {
   firstName: Scalars["String"];
   lastName: Scalars["String"];
   role: Role;
+  personal_note?: Maybe<Scalars["String"]>;
 };
 
 /** A connection to a list of `Int` values. */
@@ -9101,6 +9107,7 @@ export type Query = Node & {
   certificationByNodeId?: Maybe<Certification>;
   /** Reads and enables pagination through a set of `Certification`. */
   certifications?: Maybe<CertificationsConnection>;
+  checkUserValidatiy?: Maybe<CheckUserValidityPayload>;
   /** Reads and enables pagination through a set of `Company`. */
   companies?: Maybe<CompaniesConnection>;
   company?: Maybe<Company>;
@@ -9265,6 +9272,7 @@ export type Query = Node & {
   tokenByUsername?: Maybe<Token>;
   trainingContent?: Maybe<TrainingContent>;
   trainingContentCollection?: Maybe<TrainingContentCollection>;
+  userByEmail?: Maybe<UserData>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9394,6 +9402,12 @@ export type QueryCertificationsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CertificationsOrderBy>>;
   condition?: Maybe<CertificationCondition>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryCheckUserValidatiyArgs = {
+  email?: Maybe<Scalars["String"]>;
+  username?: Maybe<Scalars["String"]>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -10163,6 +10177,11 @@ export type QueryTrainingContentCollectionArgs = {
   locale?: Maybe<Scalars["String"]>;
   where?: Maybe<TrainingContentFilter>;
   order?: Maybe<Array<Maybe<TrainingContentOrder>>>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryUserByEmailArgs = {
+  email?: Maybe<Scalars["String"]>;
 };
 
 export type RequestStatus =
@@ -12279,6 +12298,25 @@ export type UserCreateResponse = {
   __typename?: "UserCreateResponse";
   success?: Maybe<Scalars["Boolean"]>;
   user_id?: Maybe<Scalars["Int"]>;
+};
+
+export type UserData = {
+  __typename?: "UserData";
+  user_id?: Maybe<Scalars["String"]>;
+  username?: Maybe<Scalars["String"]>;
+  first_name?: Maybe<Scalars["String"]>;
+  last_name?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+  uuid?: Maybe<Scalars["String"]>;
+  lang_code?: Maybe<Scalars["String"]>;
+  expiration?: Maybe<Scalars["String"]>;
+  email_validation_status?: Maybe<Scalars["String"]>;
+  valid?: Maybe<Scalars["String"]>;
+  language?: Maybe<Scalars["String"]>;
+  level?: Maybe<Scalars["String"]>;
+  role_id?: Maybe<Scalars["String"]>;
+  role_title?: Maybe<Scalars["String"]>;
+  role?: Maybe<Scalars["String"]>;
 };
 
 /** A union of all federated types (those that use the @key directive). */

@@ -2,6 +2,7 @@ import React from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 // TODO: use @bmi components
 import CardContent from "@material-ui/core/CardContent";
@@ -29,13 +30,12 @@ import {
   generatePageError,
   withPageError
 } from "../lib/error";
-import { getAuth0Instance } from "../lib/auth0";
-import { initializeApollo } from "../lib/apolloClient";
 import { GetCompanyQuery } from "../graphql/generated/operations";
 import {
   getServerPageGetCompany,
   getServerPageGetCurrentCompany
 } from "../graphql/generated/page";
+import { withPage } from "../lib/middleware/withPage";
 
 type PageProps = {
   company: GetCompanyQuery["company"];
@@ -215,56 +215,53 @@ export const GET_COMPANY = gql`
   }
 `;
 
-export const getServerSideProps = async (ctx) => {
-  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
-  return auth0.withPageAuthRequired({
-    async getServerSideProps({ locale, ...ctx }) {
-      const apolloClient = await initializeApollo(null, { ...ctx, locale });
+export const getServerSideProps = withPage(
+  async ({ locale, apolloClient, account, res }) => {
+    const pageProps = {
+      company: null,
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "footer",
+        "company-page"
+      ]))
+    };
 
-      const pageProps = {
-        company: null,
-        ...(await serverSideTranslations(locale, [
-          "common",
-          "sidebar",
-          "footer",
-          "company-page"
-        ]))
-      };
+    const {
+      props: {
+        data: { currentCompany }
+      }
+    } = await getServerPageGetCurrentCompany({}, apolloClient);
 
+    if (currentCompany) {
+      const data = await getServerPageGetCompany(
+        { variables: { companyId: currentCompany } },
+        apolloClient
+      );
       const {
         props: {
-          data: { currentCompany }
+          data: { company }
         }
-      } = await getServerPageGetCurrentCompany({}, apolloClient);
-
-      if (currentCompany) {
-        const {
-          props: {
-            data: { company }
-          }
-        } = await getServerPageGetCompany(
-          { variables: { companyId: currentCompany } },
-          apolloClient
-        );
-        pageProps.company = company;
-      }
-
-      const session = await auth0.getSession(ctx.req, ctx.res);
-      let canViewPage = can(session.user, "company", "view", {
-        companyMemberIds: pageProps.company
-          ? pageProps.company.companyMembers.nodes.map(({ id }) => id)
-          : []
-      });
-
-      if (!canViewPage) {
-        const statusCode = ErrorStatusCode.UNAUTHORISED;
-        ctx.res.statusCode = statusCode;
-        return generatePageError(404);
-      }
-
-      return { props: pageProps };
+      } = data;
+      pageProps.company = company;
     }
-  })(ctx);
-};
 
-export default withPageError<PageProps>(CompanyPage);
+    let canViewPage = can(account, "company", "view", {
+      companyMemberIds: pageProps.company
+        ? pageProps.company.companyMembers.nodes.map(
+            ({ accountId }) => accountId
+          )
+        : []
+    });
+
+    if (!canViewPage) {
+      const statusCode = ErrorStatusCode.UNAUTHORISED;
+      res.statusCode = statusCode;
+      return generatePageError(404);
+    }
+
+    return { props: pageProps };
+  }
+);
+
+export default withPageAuthRequired(withPageError<PageProps>(CompanyPage));

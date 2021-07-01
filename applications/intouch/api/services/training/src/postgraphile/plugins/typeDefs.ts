@@ -9,9 +9,32 @@ export default gql`
     access_token: String
   }
 
+  type CheckUserValidityPayload {
+    success: String
+  }
+
+  type UserData {
+    user_id: String
+    username: String
+    first_name: String
+    last_name: String
+    email: String
+    uuid: String
+    lang_code: String
+    expiration: String
+    email_validation_status: String
+    valid: String
+    language: String
+    level: String
+    role_id: String
+    role_title: String
+    role: String
+  }
+
   input SelectOrgchart {
     branch_id: String
   }
+
   input UserCreateInput {
     userid: String
     email: String
@@ -40,6 +63,11 @@ export default gql`
   extend type Query {
     token: Token
     tokenByUsername(username: String!): Token
+    userByEmail(email: String): UserData
+    checkUserValidatiy(
+      email: String
+      username: String
+    ): CheckUserValidityPayload
   }
 
   extend type Mutation {

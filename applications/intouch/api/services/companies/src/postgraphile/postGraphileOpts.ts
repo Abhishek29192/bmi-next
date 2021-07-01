@@ -42,7 +42,7 @@ const postGraphileOpts: PostGraphileOptions<Request, Response> = {
     }
 
     return {
-      "app.current_account_id": user?.intouchUserId,
+      "app.current_account_id": user?.id,
       "app.current_account_email": user?.email,
       role: role.toLocaleLowerCase()
     };

@@ -90,7 +90,7 @@ export const CompanyDetailsFragment = gql`
     website
     companyMembers {
       nodes {
-        id
+        accountId
       }
     }
   }
@@ -163,7 +163,9 @@ const CompanyDetailsCard = ({ company }: Props) => {
   const [isEditDialogOpen, setEditDialogOpen] = useState(false);
   const { name, aboutUs, details } = getCompanyData(company);
 
-  const companyMemberIds = company.companyMembers.nodes.map(({ id }) => id);
+  const companyMemberIds = company.companyMembers.nodes.map(
+    ({ accountId }) => accountId
+  );
 
   return (
     <CompanyDetails name={name} details={details}>

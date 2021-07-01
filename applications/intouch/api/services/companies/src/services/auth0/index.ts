@@ -39,13 +39,13 @@ class Auth0 {
     }
   };
 
-  getUserByEmail = async (emailAddress) => {
+  getUsersByEmail = async (emailAddress) => {
     try {
       const { data } = await axios({
         method: "GET",
         url: `https://${
           process.env.AUTH0_API_DOMAIN
-        }/api/v2/users-by-email?fields=user_id&email=${encodeURIComponent(
+        }/api/v2/users-by-email?include_fields=true&fields=user_id,user_metadata,email_verified&email=${encodeURIComponent(
           emailAddress
         )}`,
         headers: {
@@ -57,6 +57,12 @@ class Auth0 {
     } catch (error) {
       this.logger.error("Get user by email:", error);
     }
+  };
+
+  getUserByEmail = async (emailAddress) => {
+    const users = await this.getUsersByEmail(emailAddress);
+
+    return users.length ? users[0] : null;
   };
 
   createUser = async (body) => {

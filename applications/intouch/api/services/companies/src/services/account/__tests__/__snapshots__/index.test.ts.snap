@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account Invitation should complete an invitation 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "select * from invitation JOIN company ON invitation.company_id = company.id where invitation.company_id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "INSERT INTO account (market_id, email, first_name, last_name, role, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+    Array [
+      1,
+      "email@email.com",
+      "Name",
+      "Name",
+      "INSTALLER",
+      "ACTIVE",
+    ],
+  ],
+  Array [
+    "SELECT set_config('app.current_account_id', $1, true);",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "select * from link_account_to_company ($1, $2)",
+    Array [
+      1,
+      1,
+    ],
+  ],
+  Array [
+    "select * from market where id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Invitation should invite a user 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+    Array [
+      null,
+      1,
+      "NEW",
+      "email",
+      "personal_note",
+    ],
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Invitation should invite a user 2`] = `
+Array [
+  Array [
+    undefined,
+    "transactional-email",
+    Object {
+      "email": "email",
+      "html": "
+        You are invited by company 1.
+        Please follow this link to set your password:
+        my-ticket
+      ",
+      "text": "
+      You are invited by company 1.
+      Please follow this link to set your password:
+      my-ticket
+    ",
+      "title": "You have been invited by 1",
+    },
+  ],
+]
+`;
+
+exports[`Account Invitation should rollback an invitation if a query throw an error 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "select * from invitation JOIN company ON invitation.company_id = company.id where invitation.company_id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "ROLLBACK TO SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Registration Should be able to register 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "SELECT set_config('app.current_account_id', $1, true);",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "SELECT * FROM company",
+    Array [],
+  ],
+  Array [
+    "SELECT * FROM create_company()",
+    Array [],
+  ],
+  Array [
+    "select * from market where id = $1",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;

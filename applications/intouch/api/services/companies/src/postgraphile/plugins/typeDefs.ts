@@ -140,6 +140,7 @@ export default gql`
     firstName: String!
     lastName: String!
     role: Role!
+    personal_note: String
   }
 
   input InvitationComplete {
