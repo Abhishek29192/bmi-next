@@ -47,6 +47,18 @@ describe("Hero component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it("renders with deprecated imageSource - not string", () => {
+    const imageSourceElement = <img src={imageSource} />;
+    const { container } = render(
+      <Hero imageSource={imageSourceElement} title="H1 Heading" level={1}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non
+        tincidunt quam. Fusce et semper lectus, eu tincidunt ligula. Phasellus
+        suscipit dolor nisl, nec vestibulum odio molestie tincidunt.
+      </Hero>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it("renders level 2", () => {
     const { container } = render(<Hero title="H1 Heading" level={2} />);
     expect(container.firstChild).toMatchSnapshot();

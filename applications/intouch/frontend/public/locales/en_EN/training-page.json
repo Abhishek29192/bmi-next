@@ -1,5 +1,9 @@
 {
   "Training": "Training",
   "See training": "See training",
-  "My courses": "My courses"
+  "My courses": "My courses",
+  "in_progress": "In progress",
+  "enrolled": "Enrolled",
+  "completed": "Completed",
+  "waiting": "Waiting"
 }

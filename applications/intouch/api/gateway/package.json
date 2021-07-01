@@ -6,19 +6,21 @@
   "main": "index.ts",
   "private": true,
   "scripts": {
-    "build": "tsc -b",
+    "build": "tsc --build tsconfig.prod.json",
     "codegen": "graphql-codegen --config codegen.yml",
-    "codegen:prettify": "yarn codegen && prettier --write schema.graphql ../types/index.ts",
-    "dev": "yarn codegen:prettify && tsc -b && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
+    "codegen:prettify": "yarn codegen && prettier --write schema.graphql ../types/index.d.ts",
+    "dev": "yarn codegen:prettify && tsc --build && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
     "start": "node dist/index.js"
   },
   "dependencies": {
     "@apollo/federation": "^0.22.0",
     "@apollo/gateway": "^0.22.0",
-    "@bmi/logger": "0.0.0",
+    "@bmi-digital/logger": "0.0.1",
     "@google-cloud/secret-manager": "^3.7.1",
     "@google-cloud/storage": "^5.7.0",
+    "@profusion/apollo-federation-upload": "^2.2.2",
     "apollo-server": "^2.19.2",
+    "apollo-server-express": "2.25.1",
     "cors": "^2.8.5",
     "cross-fetch": "^3.0.4",
     "dotenv": "^8.2.0",
@@ -26,13 +28,14 @@
     "graphql": "^15.5.0",
     "graphql-playground-middleware-express": "^1.7.22",
     "graphql-tools": "^6.0.8",
-    "graphql-transform-federation": "^2.2.0"
+    "graphql-transform-federation": "^2.2.0",
+    "graphql-upload": "^12.0.0",
+    "typescript": "^3.9.3"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.21.5",
     "@graphql-codegen/schema-ast": "^1.18.3",
     "@graphql-codegen/typescript": "^1.22.1",
-    "concurrently": "^6.0.0",
-    "typescript": "^3.9.3"
+    "concurrently": "^6.0.0"
   }
 }

@@ -1,0 +1,36 @@
+test_gcp-es-proxy:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - functions/gcp-es-proxy/**/*
+        - jest/**/*
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/gcp-es-proxy coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - functions/gcp-es-proxy/junit.xml
+
+build_gcp-es-proxy:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
+      changes:
+        - functions/gcp-es-proxy/**/*
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/gcp-es-proxy build -p tsconfig.build.json
+  artifacts:
+    paths:
+      - functions/gcp-es-proxy/dist
+  interruptible: true

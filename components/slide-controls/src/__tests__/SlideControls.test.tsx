@@ -112,7 +112,7 @@ describe("SlideControls component", () => {
     const { container, getByText } = render(
       <SlideControls current={1} total={5} />
     );
-    const containerBeforeAnimationEnd = container.firstChild.cloneNode(true);
+    const containerBeforeAnimationEnd = container.firstChild!.cloneNode(true);
 
     fireEvent.animationEnd(getByText("01"));
 

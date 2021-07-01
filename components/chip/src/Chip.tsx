@@ -36,9 +36,7 @@ const Chip = ({
           styles["Chip"],
           styles["Chip--removable"],
           styles["Chip--default"],
-          {
-            [styles[`Chip--theme-${theme}`]]: !!theme
-          }
+          styles[`Chip--theme-${theme}`] && styles[`Chip--theme-${theme}`]
         )}
         label={children}
         onClick={onClick}
@@ -53,12 +51,15 @@ const Chip = ({
 
   return (
     <MaterialChip
-      className={classnames(styles["Chip"], {
-        [styles["Chip--default"]]: !(
-          rest.type === "selectable" && rest.isSelected
-        ),
-        [styles[`Chip--theme-${theme}`]]: !!theme
-      })}
+      className={classnames(
+        styles["Chip"],
+        {
+          [styles["Chip--default"]!]: !(
+            rest.type === "selectable" && rest.isSelected
+          )
+        },
+        styles[`Chip--theme-${theme}`] && [styles[`Chip--theme-${theme}`]]
+      )}
       label={children}
       onClick={onClick}
       color={isSelected ? "primary" : "default"}

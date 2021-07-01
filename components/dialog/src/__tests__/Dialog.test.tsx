@@ -11,7 +11,7 @@ describe("Dialog component", () => {
         <Dialog.Actions confirmLabel={"Close"} />
       </Dialog>
     );
-    expect(container.parentElement).toMatchSnapshot();
+    expect(container.parentElement!).toMatchSnapshot();
   });
 
   it("renders closed", () => {
@@ -22,7 +22,7 @@ describe("Dialog component", () => {
         <Dialog.Actions confirmLabel={"Close"} />
       </Dialog>
     );
-    expect(container.parentElement).toMatchSnapshot();
+    expect(container.parentElement!).toMatchSnapshot();
   });
 
   it("renders without a heading", () => {
@@ -32,7 +32,7 @@ describe("Dialog component", () => {
         <Dialog.Actions confirmLabel={"Close"} />
       </Dialog>
     );
-    expect(container.parentElement).toMatchSnapshot();
+    expect(container.parentElement!).toMatchSnapshot();
   });
 
   it("calls all events", () => {
@@ -76,7 +76,7 @@ describe("Dialog component", () => {
     cancelButton.click();
     expect(onCancelClick).toHaveBeenCalled();
 
-    const backdrop = container.parentElement.querySelector(
+    const backdrop = container.parentElement!.querySelector(
       `.${backdropClassName}`
     );
     // @ts-ignore

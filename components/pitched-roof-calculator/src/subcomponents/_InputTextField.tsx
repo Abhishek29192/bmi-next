@@ -15,7 +15,7 @@ const InputTextField = ({
   name,
   label = name,
   type,
-  defaultValue
+  defaultValue = ""
 }: InputTextFieldProps) => {
   const copy = useContext(MicroCopyContext);
   const { helperText, unit, validator } = getFieldTypes((path, placeholders) =>

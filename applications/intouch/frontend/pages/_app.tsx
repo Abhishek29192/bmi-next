@@ -4,7 +4,6 @@ import { appWithTranslation } from "next-i18next";
 import { ApolloProvider } from "@apollo/client";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import { useApollo } from "../lib/apolloClient";
-
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {

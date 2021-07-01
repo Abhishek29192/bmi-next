@@ -1,11 +1,9 @@
 import dotenv from "dotenv";
-import { WinstonLogger } from "@bmi/logger";
+import { WinstonLogger } from "@bmi-digital/logger";
 
 dotenv.config();
-
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
-import expressPlayground from "graphql-playground-middleware-express";
 
 import gatewayService from "./gateway";
 import config from "./config";
@@ -17,11 +15,7 @@ const { PORT = 4000 } = process.env;
     const gateway = await gatewayService();
     const app = express();
 
-    app.use(express.json());
     app.use(WinstonLogger);
-    if (process.env.NODE_ENV === "development") {
-      app.get("/playground", expressPlayground({ endpoint: "/graphql" }));
-    }
     const server = new ApolloServer({
       gateway,
       playground: false,
@@ -33,6 +27,7 @@ const { PORT = 4000 } = process.env;
          *
          * The Api gateway return an header called x-apigateway-api-userinfo with
          * with a string in base64 with the content of the jwt token
+         *
          *
          * x-request-id is a random uuid usefull to track the request through all
          * the different services

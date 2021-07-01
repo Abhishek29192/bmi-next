@@ -78,9 +78,7 @@ const Tabs = ({
       className={classnames(
         styles["Tabs"],
         styles[`Tabs--${theme}`],
-        {
-          [styles[`Tabs--visible-until-${visibleUntil}`]]: visibleUntil
-        },
+        visibleUntil && styles[`Tabs--visible-until-${visibleUntil}`],
         className
       )}
     >

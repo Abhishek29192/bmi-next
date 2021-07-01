@@ -1,26 +1,26 @@
-# TODO: integrate unit test in the pipeline
-# test_intouch_frontend:
-#   stage: test
-#   rules:
-#     - if: "$CI_COMMIT_BRANCH == 'master'"
-#       changes:
-#         - applications/intouch/frontend/**/*
-#         - components/**/*
-#         - libraries/**/*
-#   before_script:
-#     - yarn config set cache-folder ${PWD}/.yarn_cache
-#   script:
-#     - yarn workspace @bmi/intouch-frontend coverage:jest
-#   coverage: /All\sfiles.*?\s+(\d+.\d+)/
-#   artifacts:
-#     when: always
-#     reports:
-#       junit:
-#         - applications/intouch/frontend/junit.xml
+test_intouch_frontend:
+  stage: test
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/frontend/**/*
+        - components/**/*
+        - libraries/**/*
+        - package.json
+        - "**/package.json"
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/intouch-frontend coverage:jest
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - applications/intouch/frontend/junit.xml
 
 build_intouch_frontend_dev:
-  # needs:
-  # - test_intouch_frontend
+  needs: []
   image: google/cloud-sdk
   stage: build
   services:
@@ -33,12 +33,11 @@ build_intouch_frontend_dev:
         - libraries/**/*
         - package.json
         - "**/package.json"
-
   script:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.yaml
+    - gcloud builds submit . --config=applications/intouch/frontend/cloudbuild.yaml --substitutions _NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
 
 deploy_intouch_frontend_dev_to_cloudrun:
   needs: [build_intouch_frontend_dev]

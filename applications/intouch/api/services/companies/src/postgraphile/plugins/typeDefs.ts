@@ -124,6 +124,10 @@ export default gql`
     guaranteeType: ContentfulGuaranteeType
   }
 
+  extend input AccountInput {
+    marketCode: String
+  }
+
   input PublishInput {
     title: String
     text: String
@@ -131,8 +135,42 @@ export default gql`
     email: String
   }
 
+  input InviteInput {
+    email: String!
+    firstName: String!
+    lastName: String!
+    role: Role!
+  }
+
+  input InvitationComplete {
+    company_id: String
+  }
+
+  scalar Upload
+
+  type File {
+    filename: String!
+    mimetype: String!
+    encoding: String!
+  }
+
+  input BulkImportInput {
+    files: [Upload!]!
+    dryRun: Boolean
+  }
+
+  type ImportPayload {
+    systemsToUpdate: [System]
+    systemsToInsert: [System]
+    productsToUpdate: [Product]
+    productsToInsert: [Product]
+  }
+
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
+    invite(input: InviteInput!): Invitation
+    completeInvitation(companyId: Int!): Account
+    bulkImport(input: BulkImportInput!): ImportPayload
   }
 `;

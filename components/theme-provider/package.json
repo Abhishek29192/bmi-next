@@ -1,5 +1,6 @@
 {
   "name": "@bmi/theme-provider",
+  "private": true,
   "version": "0.0.0",
   "license": "BMI-DXB",
   "src": "src/index.ts",

@@ -5,13 +5,17 @@ export default async (req: Request, res: Response, next: NextFunction) => {
   const userInfo = req.headers["x-apigateway-api-userinfo"];
   const logger = req.logger("ParseUserInfo");
 
-  try {
-    req.user = JSON.parse(
-      Buffer.from(userInfo as string, "base64").toString("ascii")
-    );
-    logger.info(req.user);
-  } catch (error) {
-    logger.error(error);
+  if (userInfo) {
+    try {
+      req.user = JSON.parse(
+        Buffer.from(userInfo as string, "base64").toString("ascii")
+      );
+    } catch (error) {
+      logger.error(
+        "Error parsing the x-apigateway-api-userinfo header: ",
+        error
+      );
+    }
   }
 
   return next();

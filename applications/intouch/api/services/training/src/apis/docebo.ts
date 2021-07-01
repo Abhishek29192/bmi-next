@@ -13,17 +13,11 @@ import {
 } from "../type";
 import { createToken } from "../util/JwtUtil";
 
-const {
-  DOCEBO_API_URL,
-  DOCEBO_API_CLIENT_ID,
-  DOCEBO_API_CLIENT_SECRET,
-  DOCEBO_API_USERNAME,
-  DOCEBO_API_PASSWORD
-} = process.env;
+const { DOCEBO_API_URL } = process.env;
 
 const getTokenPayload = async (username) => {
   const payload = {
-    iss: DOCEBO_API_CLIENT_ID,
+    iss: process.env.DOCEBO_API_CLIENT_ID,
     sub: username,
     aud: DOCEBO_API_URL.replace(/^https?:\/\//, ""),
     iat: Date.now(),
@@ -60,10 +54,10 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
   async getTokenByUserInfo() {
     const body = {
       grant_type: "password",
-      client_id: DOCEBO_API_CLIENT_ID,
-      client_secret: DOCEBO_API_CLIENT_SECRET,
-      username: DOCEBO_API_USERNAME,
-      password: DOCEBO_API_PASSWORD
+      client_id: process.env.DOCEBO_API_CLIENT_ID,
+      client_secret: process.env.DOCEBO_API_CLIENT_SECRET,
+      username: process.env.DOCEBO_API_USERNAME,
+      password: process.env.DOCEBO_API_PASSWORD
     };
     return this.axiosInstance.post(`/oauth2/token`, body);
   }

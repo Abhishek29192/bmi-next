@@ -62,7 +62,9 @@ const DownloadListCheckbox = ({
 }: DownloadListCheckboxProps) => {
   const { list, updateList, remainingSize, isLoading } =
     useContext(DownloadListContext);
-  const maxLimitIsReached: boolean = fileSize > remainingSize;
+  const maxLimitIsReached: boolean = fileSize
+    ? fileSize > remainingSize
+    : false;
 
   return (
     <Tooltip
@@ -160,7 +162,11 @@ const DownloadList = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [size, setSize] = useState<number>(0);
   const count = Object.values(list).filter(Boolean).length;
-  const handleUpdateList: Context["updateList"] = (name, value, fileSize) => {
+  const handleUpdateList: Context["updateList"] = (
+    name,
+    value,
+    fileSize = 0
+  ) => {
     setList((prevList) => ({
       ...prevList,
       [name]: value
@@ -191,7 +197,7 @@ const DownloadList = ({
         updateList: handleUpdateList,
         resetList: handleResetList,
         count,
-        remainingSize: maxSize - size,
+        remainingSize: maxSize ? maxSize - size : Infinity,
         isLoading,
         setIsLoading
       }}

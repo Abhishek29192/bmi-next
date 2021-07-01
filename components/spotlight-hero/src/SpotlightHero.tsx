@@ -20,7 +20,7 @@ type Props = {
 
 const renderMedia = (media: Props["media"]) => {
   if (!media) {
-    return null;
+    return undefined;
   }
 
   if (media.type === "img") {

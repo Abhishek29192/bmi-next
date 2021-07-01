@@ -10,7 +10,7 @@ export type Props = {
   className?: string;
   children: React.ReactNode;
   defaultValue?: string[];
-  onChange?: (value: string[]) => void;
+  onChange?: (value: string[] | null) => void;
   noneLabel?: string;
 };
 
@@ -26,7 +26,7 @@ const isRadioItemElement = (
   React.isValidElement(element) && element.type === CardCheckboxInput;
 
 const toBooleanObject = (values: string[]): Record<string, boolean> =>
-  values.reduce((acc: object, v) => {
+  values.reduce((acc: { [value: string]: boolean }, v: string) => {
     acc[v] = true;
     return acc;
   }, {});
@@ -107,7 +107,7 @@ const CardCheckboxGroup = ({
             <CardCheckboxInput
               value="none"
               title={noneLabel}
-              checked={selected && !Object.keys(selected).length}
+              checked={!!selected && !Object.keys(selected).length}
               onClick={() => {
                 setSelected({});
 
@@ -124,7 +124,7 @@ const CardCheckboxGroup = ({
 };
 
 const CardCheckboxGroupFormControl = Object.defineProperty(
-  withFormControl<Props>(CardCheckboxGroup),
+  withFormControl<Props, string[]>(CardCheckboxGroup),
   "Item",
   {
     value: CardCheckboxInput,

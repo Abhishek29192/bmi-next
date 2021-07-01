@@ -769,6 +769,7 @@ type Query implements Node {
     condition: SystemMemberCondition
   ): SystemMembersConnection
   account(id: Int!): Account
+  accountByEmail(email: String!): Account
   accountByDoceboUserId(doceboUserId: Int!): Account
   address(id: Int!): Address
   certification(id: Int!): Certification
@@ -795,6 +796,33 @@ type Query implements Node {
   currentAccountId: Int
   currentCompany: Int
   currentMarket: Int
+  invitedByCompanies(
+    """
+    Only read the first `n` values of the set.
+    """
+    first: Int
+
+    """
+    Only read the last `n` values of the set.
+    """
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """
+    Read all values in the set before (above) this cursor.
+    """
+    before: Cursor
+
+    """
+    Read all values in the set after (below) this cursor.
+    """
+    after: Cursor
+  ): InvitedByCompaniesConnection
   isPartOfProject(
     """
     Only read the first `n` values of the set.
@@ -1084,7 +1112,7 @@ type Account implements Node {
   role: Role
 
   """
-  The mail address associated with the account
+  The email address associated with the account
   """
   email: String
 
@@ -1589,7 +1617,7 @@ type Market implements Node {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -1840,6 +1868,8 @@ enum AccountsOrderBy {
   ID_DESC
   MARKET_ID_ASC
   MARKET_ID_DESC
+  EMAIL_ASC
+  EMAIL_DESC
   DOCEBO_USER_ID_ASC
   DOCEBO_USER_ID_DESC
   PRIMARY_KEY_ASC
@@ -1859,6 +1889,11 @@ input AccountCondition {
   Checks for equality with the object’s `marketId` field.
   """
   marketId: Int
+
+  """
+  Checks for equality with the object’s `email` field.
+  """
+  email: String
 
   """
   Checks for equality with the object’s `doceboUserId` field.
@@ -1981,7 +2016,7 @@ type Company implements Node {
   phone: String
 
   """
-  A bit of blurb to appear in Find a contractor
+  A descirption of the Company intended for Find a Roofer
   """
   aboutUs: String
 
@@ -2011,7 +2046,7 @@ type Company implements Node {
   referenceNumber: String
 
   """
-  A reference to the logo
+  A reference to the logo image
   """
   logo: String
 
@@ -2636,17 +2671,17 @@ type Project implements Node {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime!
@@ -2892,7 +2927,7 @@ type Guarantee implements Node {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -3500,7 +3535,7 @@ type EvidenceItemsConnection {
 }
 
 """
-An file uploaded to a project, usually as evidence to support a guarantee
+A file uploaded to a project, usually as evidence to support a guarantee
 """
 type EvidenceItem implements Node {
   """
@@ -3747,7 +3782,7 @@ type NotesConnection {
 }
 
 """
-Usually a note added by someone at BMI who has been asked to approve a Guarantee.  It is likely to be either a short note of approval, saying something like, Approved, or Good Job, or a note of rejection, saying  something like, The photographs of the roof are not clear enough.
+A note added by a BMI admin. It is likely to be either a short note regarding approval, saying something like, Approved, or Good Job, or a note explaining a rejection, saying  something like, The photographs of the roof are not clear enough.
 """
 type Note implements Node {
   """
@@ -4053,7 +4088,7 @@ type CompanyDocument implements Node {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime!
@@ -4300,6 +4335,10 @@ enum Operation {
   FLAT
   PITCHED
   SOLAR
+  BITUMEN
+  TILE
+  COATER
+  GREEN
 }
 
 """
@@ -4455,6 +4494,10 @@ enum InvitationsOrderBy {
   SENDER_ACCOUNT_ID_DESC
   COMPANY_ID_ASC
   COMPANY_ID_DESC
+  STATUS_ASC
+  STATUS_DESC
+  INVITEE_ASC
+  INVITEE_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -4478,6 +4521,16 @@ input InvitationCondition {
   Checks for equality with the object’s `companyId` field.
   """
   companyId: Int
+
+  """
+  Checks for equality with the object’s `status` field.
+  """
+  status: InvitationStatus
+
+  """
+  Checks for equality with the object’s `invitee` field.
+  """
+  invitee: String
 }
 
 """
@@ -5021,6 +5074,41 @@ input MarketCondition {
 """
 A connection to a list of `Int` values.
 """
+type InvitedByCompaniesConnection {
+  """
+  A list of `Int` objects.
+  """
+  nodes: [Int]!
+
+  """
+  A list of edges which contains the `Int` and cursor to aid in pagination.
+  """
+  edges: [InvitedByCompanyEdge!]!
+
+  """
+  The count of *all* `Int` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A `Int` edge in the connection.
+"""
+type InvitedByCompanyEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: Cursor
+
+  """
+  The `Int` at the end of the edge.
+  """
+  node: Int
+}
+
+"""
+A connection to a list of `Int` values.
+"""
 type IsPartOfProjectConnection {
   """
   A list of `Int` objects.
@@ -5115,16 +5203,6 @@ type Mutation {
   ): CreateCertificationPayload
 
   """
-  Creates a single `Company`.
-  """
-  createCompany(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateCompanyInput!
-  ): CreateCompanyPayload
-
-  """
   Creates a single `CompanyDocument`.
   """
   createCompanyDocument(
@@ -5173,16 +5251,6 @@ type Mutation {
     """
     input: CreateGuaranteeInput!
   ): CreateGuaranteePayload
-
-  """
-  Creates a single `Invitation`.
-  """
-  createInvitation(
-    """
-    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
-    """
-    input: CreateInvitationInput!
-  ): CreateInvitationPayload
 
   """
   Creates a single `Market`.
@@ -5282,6 +5350,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: UpdateAccountInput!
+  ): UpdateAccountPayload
+
+  """
+  Updates a single `Account` using a unique key and a patch.
+  """
+  updateAccountByEmail(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAccountByEmailInput!
   ): UpdateAccountPayload
 
   """
@@ -5697,6 +5775,16 @@ type Mutation {
   """
   Deletes a single `Account` using a unique key.
   """
+  deleteAccountByEmail(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAccountByEmailInput!
+  ): DeleteAccountPayload
+
+  """
+  Deletes a single `Account` using a unique key.
+  """
   deleteAccountByDoceboUserId(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -6089,6 +6177,18 @@ type Mutation {
     """
     input: CreateAccountInput!
   ): CreateAccountPayload
+  createCompany(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateCompanyInput!
+  ): CreateCompanyPayload
+  linkAccountToCompany(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: LinkAccountToCompanyInput!
+  ): LinkAccountToCompanyPayload
   publishMessage(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -6096,6 +6196,19 @@ type Mutation {
     input: PublishInput!
   ): Publish
   createGuaranteePdf(id: Int!): PublishOutput
+  invite(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: InviteInput!
+  ): Invitation
+  completeInvitation(companyId: Int!): Account
+  bulkImport(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: BulkImportInput!
+  ): ImportPayload
 }
 
 """
@@ -6287,205 +6400,6 @@ input CertificationInput {
 }
 
 """
-The output of our create `Company` mutation.
-"""
-type CreateCompanyPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  The `Company` that was created by this mutation.
-  """
-  company: Company
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """
-  Reads a single `Market` that is related to this `Company`.
-  """
-  market: Market
-
-  """
-  Reads a single `Address` that is related to this `Company`.
-  """
-  registeredAddress: Address
-
-  """
-  Reads a single `Address` that is related to this `Company`.
-  """
-  tradingAddress: Address
-
-  """
-  An edge for our `Company`. May be used by Relay 1.
-  """
-  companyEdge(
-    """
-    The method to use when ordering `Company`.
-    """
-    orderBy: [CompaniesOrderBy!] = [PRIMARY_KEY_ASC]
-  ): CompaniesEdge
-}
-
-"""
-All input for the create `Company` mutation.
-"""
-input CreateCompanyInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The `Company` to be created by this mutation.
-  """
-  company: CompanyInput!
-}
-
-"""
-An input for mutations affecting `Company`
-"""
-input CompanyInput {
-  """
-  Primary key
-  """
-  id: Int
-
-  """
-  fk
-  """
-  marketId: Int
-
-  """
-  fk
-  """
-  registeredAddressId: Int
-
-  """
-  fk
-  """
-  tradingAddressId: Int
-
-  """
-  the name of the owner of the Company
-  """
-  ownerFullname: String
-
-  """
-  the email address to contact the owner
-  """
-  ownerEmail: String
-
-  """
-  the phone number to contact the owner
-  """
-  ownerPhone: String
-
-  """
-  ek
-  """
-  businessType: BusinessType
-
-  """
-  ek
-  """
-  tier: Tier
-
-  """
-  ek
-  """
-  status: CompanyStatus
-
-  """
-  the email address of the person who filled out the company registration form
-  """
-  registeredBy: String
-
-  """
-  the date that the Company registration form was submitted
-  """
-  registeredDate: Datetime
-
-  """
-  The Group ID of the company in Docebo
-  """
-  doceboGroupId: String
-
-  """
-  The registered name of the Company
-  """
-  name: String
-
-  """
-  The Tax number in that Market, such as the VAT number
-  """
-  taxNumber: String
-
-  """
-  They Company public phone number
-  """
-  phone: String
-
-  """
-  A bit of blurb to appear in Find a contractor
-  """
-  aboutUs: String
-
-  """
-  The email address that they can be contacted with by the public assuming they are listed
-  """
-  publicEmail: String
-
-  """
-  The Company website URL
-  """
-  website: String
-
-  """
-  The Company facebook website
-  """
-  facebook: String
-
-  """
-  Their Company LinkedIn page URL
-  """
-  linkedIn: String
-
-  """
-  A 7 digit reference number generated for all Companies and visible to Roofpro member Companies. (aka membership number).  Should be unique.
-  """
-  referenceNumber: String
-
-  """
-  A reference to the logo
-  """
-  logo: String
-
-  """
-  Used for reference when importing data from the legacy system
-  """
-  migrationId: String
-
-  """
-  Used for reference when importing data from the legacy system
-  """
-  tradingAddressMigrationId: String
-
-  """
-  Used for reference when importing data from the legacy system
-  """
-  registeredAddressMigrationId: String
-  createdAt: Datetime
-  updatedAt: Datetime
-}
-
-"""
 The output of our create `CompanyDocument` mutation.
 """
 type CreateCompanyDocumentPayload {
@@ -6552,7 +6466,7 @@ input CompanyDocumentInput {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime
@@ -6953,7 +6867,7 @@ input GuaranteeInput {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -6961,100 +6875,6 @@ input GuaranteeInput {
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
   bmiReferenceId: String
-  createdAt: Datetime
-  updatedAt: Datetime
-}
-
-"""
-The output of our create `Invitation` mutation.
-"""
-type CreateInvitationPayload {
-  """
-  The exact same `clientMutationId` that was provided in the mutation input,
-  unchanged and unused. May be used by a client to track mutations.
-  """
-  clientMutationId: String
-
-  """
-  The `Invitation` that was created by this mutation.
-  """
-  invitation: Invitation
-
-  """
-  Our root query field type. Allows us to run any query from our mutation payload.
-  """
-  query: Query
-
-  """
-  Reads a single `Account` that is related to this `Invitation`.
-  """
-  senderAccount: Account
-
-  """
-  Reads a single `Company` that is related to this `Invitation`.
-  """
-  company: Company
-
-  """
-  An edge for our `Invitation`. May be used by Relay 1.
-  """
-  invitationEdge(
-    """
-    The method to use when ordering `Invitation`.
-    """
-    orderBy: [InvitationsOrderBy!] = [PRIMARY_KEY_ASC]
-  ): InvitationsEdge
-}
-
-"""
-All input for the create `Invitation` mutation.
-"""
-input CreateInvitationInput {
-  """
-  An arbitrary string value with no semantic meaning. Will be included in the
-  payload verbatim. May be used to track mutations by the client.
-  """
-  clientMutationId: String
-
-  """
-  The `Invitation` to be created by this mutation.
-  """
-  invitation: InvitationInput!
-}
-
-"""
-An input for mutations affecting `Invitation`
-"""
-input InvitationInput {
-  """
-  Primary key
-  """
-  id: Int
-
-  """
-  fk
-  """
-  senderAccountId: Int
-
-  """
-  fk
-  """
-  companyId: Int
-
-  """
-  ek
-  """
-  status: InvitationStatus
-
-  """
-  An email address
-  """
-  invitee: String
-
-  """
-  An optional note that can be included in the invitation by the sender
-  """
-  personalNote: String
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -7166,7 +6986,7 @@ input MarketInput {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -7587,17 +7407,17 @@ input ProjectInput {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime
@@ -7943,7 +7763,7 @@ input AccountPatch {
   role: Role
 
   """
-  The mail address associated with the account
+  The email address associated with the account
   """
   email: String
 
@@ -8009,6 +7829,27 @@ input UpdateAccountInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `updateAccountByEmail` mutation.
+"""
+input UpdateAccountByEmailInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Account` being updated.
+  """
+  patch: AccountPatch!
+
+  """
+  The email address associated with the account
+  """
+  email: String!
 }
 
 """
@@ -8419,7 +8260,7 @@ input CompanyPatch {
   phone: String
 
   """
-  A bit of blurb to appear in Find a contractor
+  A descirption of the Company intended for Find a Roofer
   """
   aboutUs: String
 
@@ -8449,7 +8290,7 @@ input CompanyPatch {
   referenceNumber: String
 
   """
-  A reference to the logo
+  A reference to the logo image
   """
   logo: String
 
@@ -8564,7 +8405,7 @@ input CompanyDocumentPatch {
   companyId: Int
 
   """
-  The document itself or the path to it
+  The reference to the document
   """
   document: String
   createdAt: Datetime
@@ -9069,7 +8910,7 @@ input GuaranteePatch {
   startDate: Datetime
 
   """
-  When the guarantee will expire.  This is calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier
   """
   expiryDate: Datetime
 
@@ -9334,7 +9175,7 @@ input MarketPatch {
   merchandisingUrl: String
 
   """
-  Whether the market supports Projects.  If so then the Project section is available.
+  Whether the market supports Projects.  If so then the Projects link should be available in th left hand navigation.
   """
   projectsEnabled: Boolean
 
@@ -9922,17 +9763,17 @@ input ProjectPatch {
   buildingOwnerLastname: String
 
   """
-  Name of the Building Owners Company if it is known
+  Name of the Building Owner company if there is such a thing.  Not the same as an InTouch Company.
   """
   buildingOwnerCompany: String
 
   """
-  The date that the Project starts
+  The date that the Project officially starts or started
   """
   startDate: Datetime
 
   """
-  The date that the Project expects to end
+  The date that the Project officially expects to end or ended
   """
   endDate: Datetime
   createdAt: Datetime
@@ -10383,6 +10224,22 @@ input DeleteAccountInput {
   Primary key
   """
   id: Int!
+}
+
+"""
+All input for the `deleteAccountByEmail` mutation.
+"""
+input DeleteAccountByEmailInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The email address associated with the account
+  """
+  email: String!
 }
 
 """
@@ -11744,11 +11601,189 @@ input CreateAccountInput {
   payload verbatim. May be used to track mutations by the client.
   """
   clientMutationId: String
-  email: String
-  firstName: String
-  lastName: String
+  account: AccountInput
   marketCode: String
+}
+
+"""
+An input for mutations affecting `Account`
+"""
+input AccountInput {
+  """
+  Primary key
+  """
+  id: Int
+
+  """
+  ek
+  """
+  status: AccountStatus
+
+  """
+  fk
+  """
+  marketId: Int
+
+  """
+  ek
+  """
   role: Role
+
+  """
+  The email address associated with the account
+  """
+  email: String
+
+  """
+  A phone number that can optionally be provided, and is useful for Company Admin people to provide
+  """
+  phone: String
+
+  """
+  First name
+  """
+  firstName: String
+
+  """
+  Last name
+  """
+  lastName: String
+
+  """
+  When the account was created
+  """
+  created: Datetime
+
+  """
+  User account in Docebo
+  """
+  doceboUserId: Int
+
+  """
+  Username in Docebo.  Needed to generate the SSO link
+  """
+  doceboUsername: String
+
+  """
+  File reference. A profile picture of the user
+  """
+  photo: String
+
+  """
+  Used for reference when importing data from the legacy system
+  """
+  migrationId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  marketCode: String
+}
+
+"""
+The output of our `createCompany` mutation.
+"""
+type CreateCompanyPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  company: Company
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `Market` that is related to this `Company`.
+  """
+  market: Market
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  registeredAddress: Address
+
+  """
+  Reads a single `Address` that is related to this `Company`.
+  """
+  tradingAddress: Address
+
+  """
+  An edge for our `Company`. May be used by Relay 1.
+  """
+  companyEdge(
+    """
+    The method to use when ordering `Company`.
+    """
+    orderBy: [CompaniesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CompaniesEdge
+}
+
+"""
+All input for the `createCompany` mutation.
+"""
+input CreateCompanyInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+}
+
+"""
+The output of our `linkAccountToCompany` mutation.
+"""
+type LinkAccountToCompanyPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  companyMember: CompanyMember
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `Market` that is related to this `CompanyMember`.
+  """
+  market: Market
+
+  """
+  Reads a single `Account` that is related to this `CompanyMember`.
+  """
+  account: Account
+
+  """
+  Reads a single `Company` that is related to this `CompanyMember`.
+  """
+  company: Company
+
+  """
+  An edge for our `CompanyMember`. May be used by Relay 1.
+  """
+  companyMemberEdge(
+    """
+    The method to use when ordering `CompanyMember`.
+    """
+    orderBy: [CompanyMembersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): CompanyMembersEdge
+}
+
+"""
+All input for the `linkAccountToCompany` mutation.
+"""
+input LinkAccountToCompanyInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  accountId: Int
+  companyId: Int
 }
 
 type Publish {
@@ -11768,6 +11803,30 @@ input PublishInput {
 type PublishOutput {
   messageId: String
 }
+
+input InviteInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  role: Role!
+}
+
+type ImportPayload {
+  systemsToUpdate: [System]
+  systemsToInsert: [System]
+  productsToUpdate: [Product]
+  productsToInsert: [Product]
+}
+
+input BulkImportInput {
+  files: [Upload!]!
+  dryRun: Boolean
+}
+
+"""
+The `Upload` scalar type represents a file upload.
+"""
+scalar Upload
 
 """
 Used to represent a set of fields. Grammatically, a field set is a

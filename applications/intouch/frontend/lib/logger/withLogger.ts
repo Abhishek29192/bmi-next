@@ -1,4 +1,4 @@
-import { NextLogger } from "@bmi/logger";
+import { NextLogger } from "@bmi-digital/logger";
 
 export function withLogger(getServerSideProps) {
   return async (context) => {

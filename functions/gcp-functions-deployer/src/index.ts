@@ -18,7 +18,7 @@ const {
 } = process.env;
 const secretManagerClient = new SecretManagerServiceClient();
 const bucket = storage.bucket(GCP_STORAGE_NAME);
-const triggerNameRegex = "sources/(.*).zip";
+const triggerNameRegex = `${FUNCTIONS_SOURCE_FOLDER}/(.*).zip`;
 
 async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
   const secret = await secretManagerClient.accessSecretVersion({
@@ -31,12 +31,7 @@ async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
   });
   const apiKey = apiKeySecret[0].payload.data.toString();
 
-  const match = source.match(triggerNameRegex);
-  if (!match) {
-    throw "trigger not found";
-  }
-
-  const triggerName = `${match[1]}-trigger`;
+  const triggerName = `${source}-trigger`;
   const url = `https://cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiKey}&secret=${secretText}`;
 
   for (const key in requests) {
@@ -60,17 +55,18 @@ export const deploy: HandlerFunction = async (file, context) => {
   // eslint-disable-next-line no-console
   console.log(`File: ${file.name}`);
 
-  if (!file.name.startsWith(`${FUNCTIONS_SOURCE_FOLDER}/`)) {
+  const match = file.name.match(triggerNameRegex);
+  if (!match) {
     // eslint-disable-next-line no-console
-    console.warn("Invalid source folder received. Skipping the deployment.");
+    console.warn("Invalid source folder recieved. Skipping the deployment.");
     return;
   }
 
-  const metadataFile = await bucket.file(
+  const metadataFile = bucket.file(
     `${FUNCTIONS_METADATA_FOLDER}/${FUNCTIONS_METADATA_FILE}`
   );
 
-  if (!metadataFile) {
+  if (!(await metadataFile.exists())) {
     // eslint-disable-next-line no-console
     console.warn("Metadata file not found. Skipping the deployment.");
     return;
@@ -80,9 +76,9 @@ export const deploy: HandlerFunction = async (file, context) => {
   console.log(`file: ${metadataFile.name}`);
   try {
     const fileContent = await metadataFile.download();
-    const metadata = await filterFunctionMetadata(fileContent, file.name);
+    const metadata = filterFunctionMetadata(fileContent, file.name);
     if (metadata) {
-      await triggerCloudBuild(metadata, file.name);
+      await triggerCloudBuild(metadata, match[1]);
     } else {
       // eslint-disable-next-line no-console
       console.warn(`Metadata file not found for ${file.name} source`);

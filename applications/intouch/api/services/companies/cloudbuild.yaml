@@ -9,7 +9,9 @@ steps:
         "-t",
         "gcr.io/$PROJECT_ID/intouch-api-service-companies",
         "-f",
-        "./applications/intouch/api/services/companies/dockerfile"
+        "./applications/intouch/api/services/companies/dockerfile",
+        "--build-arg",
+        "NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}"
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"
@@ -35,7 +37,10 @@ steps:
         "--set-env-vars=PG_PORT=5432",
         "--set-env-vars=AUTH0_API_CLIENT_ID=M9fxKSvan4Jx0zyLdUhUWm2YO7UqnoyS",
         "--set-env-vars=AUTH0_API_DOMAIN=intouch-dev.eu.auth0.com",
-        "--set-env-vars=GCP_SECRET_PROJECT=734962646925"
+        "--set-env-vars=AUTH0_NAMESPACE=https://intouch",
+        "--set-env-vars=LOG_LEVEL=info",
+        "--set-env-vars=GCP_SECRET_PROJECT=734962646925",
+        "--set-env-vars=NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}"
       ]
 
 timeout: 1200s

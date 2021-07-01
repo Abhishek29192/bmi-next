@@ -15,9 +15,11 @@ type Props = {
 const isRadioItemElement = (
   element: React.ReactNode
 ): element is React.ReactElement<RadioButtonProps, typeof RadioButton> =>
-  typeof element === "object" &&
-  "type" in element &&
-  element.type === RadioButton;
+  (element &&
+    typeof element === "object" &&
+    "type" in element &&
+    element.type === RadioButton) ||
+  false;
 
 const RadioGroup = ({
   name,
@@ -58,7 +60,7 @@ const RadioGroup = ({
 };
 
 const RadioGroupFormControl = Object.defineProperty(
-  withFormControl<Props>(RadioGroup),
+  withFormControl<Props, string>(RadioGroup),
   "Item",
   {
     value: RadioButton,

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrainingCover component render correctly 1`] = `
+<div
+  class="Hero Hero--lvl-1"
+>
+  <div
+    class="Container"
+  >
+    <div
+      class="MuiContainer-root container MuiContainer-maxWidthXl"
+    >
+      <div
+        class="wrapper"
+      >
+        <div
+          class="content"
+        >
+          <h1
+            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+          >
+            BMI Academy
+          </h1>
+          <div
+            class="text"
+          >
+            BMI Academy provides you with the skills you need to fit BMI products.
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button cta Button--dark-background MuiButton-outlinedPrimary"
+            label="Your training plan"
+            rel="noopener noreferrer"
+            tabindex="0"
+            target="_blank"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Your training plan
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img
+    class="image Media"
+    src=""
+  />
+</div>
+`;

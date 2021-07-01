@@ -43,4 +43,4 @@ export function loadGoogleApi(
   return loader.load();
 }
 
-export default createContext<Google>(null);
+export default createContext<Google | null>(null);

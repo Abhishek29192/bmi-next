@@ -32,14 +32,6 @@ const postgraphile =
         allowExplain: false
       } as PostGraphileOptions<Request, Response>);
 
-const roles: Record<RolesKey, RolesValues> = {
-  SUPER_ADMIN: "super_admin",
-  MARKET_ADMIN: "market_admin",
-  INSTALLER: "installer",
-  COMPANY_ADMIN: "company_admin"
-};
-
 export default {
-  postgraphile,
-  roles
+  postgraphile
 };

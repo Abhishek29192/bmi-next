@@ -1,4 +1,4 @@
-import { updateUser, getAccessToken } from "../auth0";
+import Auth0 from "../auth0";
 
 export const updateCompany = async (
   resolve,
@@ -9,6 +9,7 @@ export const updateCompany = async (
 ) => {
   let result;
   const { pgClient, user } = context;
+  const auth0 = await Auth0.init(context.logger);
   const logger = context.logger("service:company");
 
   await pgClient.query("SAVEPOINT graphql_mutation");
@@ -16,16 +17,14 @@ export const updateCompany = async (
   try {
     result = await resolve(source, args, context, resolveInfo);
 
-    const { access_token } = await getAccessToken();
-
-    await updateUser(access_token, user.sub, {
+    await auth0.updateUser(user.sub, {
       app_metadata: {
         registration_to_complete: false
       }
     });
 
     logger.info(
-      `Company ${result.data.$company_id} created by user ${user.id}`
+      `Company ${result.data.$company_id} created by user ${user.intouchUserId}`
     );
 
     return result;

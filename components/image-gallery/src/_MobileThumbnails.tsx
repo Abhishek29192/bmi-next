@@ -32,18 +32,18 @@ const Thumbnails = ({
 
     debouncer = setTimeout(() => {
       setVisibleGradients({
-        left: thumbnailsRef.current.parentElement.scrollLeft > 0,
+        left: (thumbnailsRef?.current?.parentElement?.scrollLeft || 0) > 0,
         right:
-          thumbnailsRef.current.parentElement.scrollLeft <
-          thumbnailsRef.current.offsetWidth -
-            thumbnailsRef.current.parentElement.offsetWidth
+          (thumbnailsRef?.current?.parentElement?.scrollLeft || 0) <
+          (thumbnailsRef?.current?.offsetWidth || 0) -
+            (thumbnailsRef?.current?.parentElement?.offsetWidth || 0)
       });
     }, 50);
   };
 
   useEffect(() => {
     if (thumbnailsRef.current) {
-      thumbnailsRef.current.parentElement.scrollTo({
+      thumbnailsRef.current.parentElement?.scrollTo({
         left: thumbnailsRef.current.offsetWidth
       });
     }
@@ -55,10 +55,12 @@ const Thumbnails = ({
 
   return (
     <div
-      className={classnames(styles["thumbnails"], styles["thumbnails--touch"], {
-        [styles["thumbnails--left-gradient"]]: visibleGradients.left,
-        [styles["thumbnails--right-gradient"]]: visibleGradients.right
-      })}
+      className={classnames(
+        styles["thumbnails"],
+        styles["thumbnails--touch"],
+        visibleGradients.left && styles["thumbnails--left-gradient"],
+        visibleGradients.right && styles["thumbnails--right-gradient"]
+      )}
       onScroll={handleOnScroll}
     >
       <div

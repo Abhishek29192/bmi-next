@@ -77,7 +77,7 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
                 (
                   {
                     imageSource,
-                    media = null,
+                    media,
                     brandIcon: BrandIcon,
                     description,
                     cta
@@ -87,10 +87,12 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
                   return (
                     <Carousel.Slide key={index} className={styles["slide"]}>
                       <div
-                        className={classnames(styles["image"], {
-                          [styles["image--with-image-source"]]:
-                            imageSource && !media
-                        })}
+                        className={classnames(
+                          styles["image"],
+                          imageSource &&
+                            !media &&
+                            styles["image--with-image-source"]
+                        )}
                         style={
                           // TODO: Remove this when `imageSource` is full deprecated.
                           imageSource && !media

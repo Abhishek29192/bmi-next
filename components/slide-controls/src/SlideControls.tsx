@@ -100,9 +100,9 @@ const SlideControls = ({
       className={classnames(
         styles["SlideControls"],
         {
-          [styles["SlideControls--full-size"]]: isFullSize && !isVertical,
-          [styles["SlideControls--vertical"]]: isVertical,
-          [styles["SlideControls--light"]]: isDarkThemed
+          [styles["SlideControls--full-size"]!]: isFullSize && !isVertical,
+          [styles["SlideControls--vertical"]!]: isVertical,
+          [styles["SlideControls--light"]!]: isDarkThemed
         },
         className
       )}
@@ -127,7 +127,7 @@ const SlideControls = ({
         <span className={styles["sliding-slot"]}>
           <span
             className={classnames(styles["numbers"], {
-              [styles[`numbers--${direction === "backward" ? "down" : "up"}`]]:
+              [styles[`numbers--${direction === "backward" ? "down" : "up"}`]!]:
                 direction !== "none"
             })}
           >
@@ -135,7 +135,7 @@ const SlideControls = ({
               <span
                 key={key}
                 className={classnames(styles["number"], {
-                  [styles["number--active"]]: number === newCurrent
+                  [styles["number--active"]!]: number === newCurrent
                 })}
                 onAnimationEnd={() => {
                   if (newCurrent !== current) {

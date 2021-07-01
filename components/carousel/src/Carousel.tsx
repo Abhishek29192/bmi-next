@@ -18,6 +18,8 @@ import SlideControls, {
 } from "@bmi/slide-controls";
 import ArrowControl from "@bmi/arrow-control";
 import { withWidth, WithWidth } from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTheme } from "@material-ui/core/styles";
 import styles from "./Carousel.module.scss";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -95,7 +97,7 @@ const mapRange = (
   );
 };
 
-const usePrevious = (value) => {
+const usePrevious = (value: number) => {
   const ref = useRef(value);
 
   useEffect(() => {
@@ -111,9 +113,14 @@ const handleSwiping = (
   type: "move" | "end",
   minimumOpacity: number = 0
 ) => {
-  const activeSlide: HTMLElement = wrapperElement.querySelector(
+  const activeSlide: HTMLElement | null = wrapperElement.querySelector(
     ".Carousel__slide--global[aria-hidden='false']"
   );
+
+  if (!activeSlide) {
+    return;
+  }
+
   const nextSlide =
     index >= 3
       ? activeSlide.nextElementSibling
@@ -121,7 +128,7 @@ const handleSwiping = (
 
   if (type === "end") {
     Array.from(
-      wrapperElement.querySelectorAll(".Carousel__slide--global")
+      wrapperElement.querySelectorAll<HTMLElement>(".Carousel__slide--global")
     ).forEach((slideElement: HTMLElement) => {
       slideElement.style.removeProperty("opacity");
       slideElement.style.removeProperty("transition-duration");
@@ -148,6 +155,10 @@ const calculateSlidesPerPage = (
   currentBreakpoint: Breakpoint,
   slidesPerPage: Props["slidesPerPage"]
 ): number => {
+  if (!slidesPerPage) {
+    return 0;
+  }
+
   if (typeof slidesPerPage === "number") {
     return slidesPerPage;
   }
@@ -196,9 +207,11 @@ const CarouselSlide = ({ children, className }: SlideProps) => {
       style={{
         width: `${
           100 /
-          (totalSlides < slidesPerPage
-            ? breakpointToSlidesMap[currentBreakpoint]
-            : slidesPerPage)
+          (slidesPerPage
+            ? totalSlides < slidesPerPage
+              ? breakpointToSlidesMap[currentBreakpoint]
+              : slidesPerPage
+            : 1)
         }%`
       }}
     >
@@ -229,8 +242,8 @@ const CarouselControls = ({
       <SlideControls
         current={getPageFromAbsoluteIndex(activePage, total)}
         total={total}
-        onNextClick={() => setActivePage(activePage + 1)}
-        onPrevClick={() => setActivePage(activePage - 1)}
+        onNextClick={() => setActivePage && setActivePage(activePage + 1)}
+        onPrevClick={() => setActivePage && setActivePage(activePage - 1)}
         {...rest}
       />
     );
@@ -248,13 +261,13 @@ const CarouselControls = ({
       {(activePage > 0 || scroll === "infinite") && (
         <ArrowControl
           direction="left"
-          onClick={() => setActivePage(activePage - 1)}
+          onClick={() => setActivePage && setActivePage(activePage - 1)}
         />
       )}
       {(activePage < total - 1 || scroll === "infinite") && (
         <ArrowControl
           direction="right"
-          onClick={() => setActivePage(activePage + 1)}
+          onClick={() => setActivePage && setActivePage(activePage + 1)}
         />
       )}
     </>
@@ -292,6 +305,8 @@ const Carousel = ({
 }: Props) => {
   const [hasUserInteracted, setHasUserInteracted] = useState<boolean>(false);
   const [activePage, setActivePage] = useState<number>(initialPage);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const wrapper = useRef<HTMLDivElement>(null);
   const arrayChildren = React.Children.toArray(children);
@@ -302,7 +317,7 @@ const Carousel = ({
       ? AutoPlaySwipeableViews
       : InfiniteSwipeableViewsComponent;
 
-  let firstSlideIndex: number;
+  let firstSlideIndex: number = 0;
   let lastSlideIndex: number = 0;
 
   const slides = useMemo(
@@ -407,22 +422,24 @@ const Carousel = ({
           }
         }}
         className={classnames(styles["wrapper"], {
-          [styles["wrapper--show-off-screen"]]:
+          [styles["wrapper--show-off-screen"]!]:
             isArrowCarousel && totalPages > 1,
-          [styles["wrapper--with-gutter"]]: hasGutter
+          [styles["wrapper--with-gutter"]!]: hasGutter
         })}
       >
         {arrayChildren.slice(0, firstSlideIndex)}
         <div
+          data-testid={hasUserInteracted ? "carousel-interacted" : "carousel"}
           className={classnames(styles["Carousel"], {
-            [styles["Carousel--opacity"]]: hasOpacityAnimation,
-            [styles["Carousel--swipable"]]:
+            [styles["Carousel--opacity"]!]: hasOpacityAnimation,
+            [styles["Carousel--swipable"]!]:
               !isSwipeDisabled && !isArrowCarousel,
-            [styles["Carousel--with-gutter"]]: hasGutter
+            [styles["Carousel--with-gutter"]!]: hasGutter
           })}
           ref={wrapper}
         >
           <CarouselComponent
+            animateHeight={isMobile}
             hysteresis={0.25}
             autoplay={Boolean(autoPlayProps.hasAutoPlay) && !hasUserInteracted}
             interval={

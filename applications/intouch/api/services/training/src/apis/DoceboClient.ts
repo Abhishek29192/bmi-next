@@ -9,8 +9,7 @@ type CourseFilteredData = {
   hasMoreData: boolean;
 };
 
-const { DOCEBO_API_URL, DOCEBO_API_CLIENT_ID, DOCEBO_API_USERNAME } =
-  process.env;
+const { DOCEBO_API_URL } = process.env;
 
 export default class DoceboClient {
   private client: AxiosInstance;
@@ -91,13 +90,13 @@ export default class DoceboClient {
    * @returns Super admin token
    */
   public static async getSuperAdminApiToken() {
-    return this.getTokenByJWTPayload(DOCEBO_API_USERNAME);
+    return this.getTokenByJWTPayload(process.env.DOCEBO_API_USERNAME);
   }
   public static async getTokenByJWTPayload(username: string) {
     const body = await getTokenPayload(username);
     const { data } = await axios({
       method: "POST",
-      url: `${DOCEBO_API_URL}/oauth2/token`,
+      url: `${process.env.DOCEBO_API_URL}/oauth2/token`,
       headers: { "content-type": "application/json" },
       data: body
     });
@@ -225,9 +224,9 @@ export default class DoceboClient {
 
 const getTokenPayload = async (username) => {
   const payload = {
-    iss: DOCEBO_API_CLIENT_ID,
+    iss: process.env.DOCEBO_API_CLIENT_ID,
     sub: username,
-    aud: DOCEBO_API_URL.replace(/^https?:\/\//, ""),
+    aud: process.env.DOCEBO_API_URL.replace(/^https?:\/\//, ""),
     iat: Date.now(),
     exp: Date.now() + 30 * 60 * 1000
   };

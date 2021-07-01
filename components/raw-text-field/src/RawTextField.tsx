@@ -1,7 +1,6 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import MaterialTextField, { TextFieldProps } from "@material-ui/core/TextField";
 import classnames from "classnames";
-
 import InputAdornment from "@material-ui/core/InputAdornment";
 import ErrorRounded from "@material-ui/icons/ErrorRounded";
 import styles from "./RawTextField.module.scss";
@@ -16,7 +15,7 @@ type AdornmentProps =
       leftAdornment?: undefined;
     };
 
-export type Props = Omit<TextFieldProps, "variant"> & {
+export type Props = Omit<TextFieldProps, "variant" | "onChange"> & {
   variant?: "outlined" | "hybrid";
   isTextArea?: boolean;
   isRequired?: boolean;
@@ -24,7 +23,7 @@ export type Props = Omit<TextFieldProps, "variant"> & {
   errorText?: string;
   error?: boolean;
   name: string;
-  onChange: (value: number) => void;
+  onChange: (value: string) => void;
 } & AdornmentProps;
 
 const RawTextField = ({
@@ -58,9 +57,11 @@ const RawTextField = ({
           </InputAdornment>
         )
       }
-    : null;
+    : {};
 
-  const handleChange = (event) => onChange(event.target.value);
+  const handleChange = (
+    event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => onChange(event.target.value);
   return (
     <MaterialTextField
       {...props}
@@ -72,10 +73,8 @@ const RawTextField = ({
       variant={variant === "hybrid" ? "filled" : "outlined"}
       className={classnames(
         styles["RawTextField"],
-        { [styles["RawTextField--leftAdornment"]]: leftAdornment },
-        {
-          [styles["RawTextField--error"]]: error
-        },
+        leftAdornment && styles["RawTextField--leftAdornment"],
+        error && styles["RawTextField--error"],
         className
       )}
       InputProps={inputProps}

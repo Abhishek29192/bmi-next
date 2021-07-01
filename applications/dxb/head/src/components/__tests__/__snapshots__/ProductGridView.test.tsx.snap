@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductsGridView component renders correctly when empty 1`] = `
+<p
+  class="MuiTypography-root Typography MuiTypography-body1"
+>
+  MC: plp.product.noResultsFound
+</p>
+`;
+
+exports[`ProductsGridView component renders correctly when not empty 1`] = `
+<div
+  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
+>
+  <div
+    class="OverviewCard"
+  >
+    <img
+      alt=" imaproduct"
+      class="header-picture Media Media--contain"
+    />
+    <div
+      class="body"
+    >
+      <h5
+        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+      >
+        imaproduct
+      </h5>
+      
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="/undefined/test1"
+        >
+          <span>
+            MC: plp.product.viewDetails
+          </span>
+          <svg
+            aria-hidden="true"
+            class="icon"
+            focusable="false"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

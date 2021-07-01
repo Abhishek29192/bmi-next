@@ -14,15 +14,10 @@
     "target": "ES2019",
     "inlineSourceMap": true,
     "baseUrl": ".",
-    "rootDirs": ["./"],
+    "rootDirs": ["src"],
     "paths": {
-      "@bmi/*": ["../../../../node_modules/@bmi/*/src"]
+      "@bmi/intouch-api-types": ["../types/index.d.ts"]
     }
   },
-  "references": [
-    {
-      "path": "../../../../libraries/logger"
-    }
-  ],
   "exclude": ["**/dist/**"]
 }

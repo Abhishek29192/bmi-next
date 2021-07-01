@@ -2,5 +2,8 @@
   "name": "@bmi/intouch-api-types",
   "version": "0.0.0",
   "description": "BMI InTouch GraphQL API type definitions",
-  "license": "BMI-DXB"
+  "private": true,
+  "license": "BMI-DXB",
+  "main": "",
+  "types": "index.d.ts"
 }

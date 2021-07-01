@@ -32,9 +32,10 @@ const __DeprecatedImageSource = ({
 
   return (
     <div
-      className={classnames(styles["header-picture"], {
-        [styles[`header-picture--${imageSize}`]]: imageSize !== "cover"
-      })}
+      className={classnames(
+        styles["header-picture"],
+        imageSize !== "cover" && styles[`header-picture--${imageSize}`]
+      )}
       style={
         typeof imageSource === "string"
           ? { backgroundImage: `url(${imageSource})` }
@@ -64,9 +65,10 @@ const OverviewCard = ({
 
   return (
     <div
-      className={classnames(styles["OverviewCard"], {
-        [styles["OverviewCard--flat"]]: isFlat
-      })}
+      className={classnames(
+        styles["OverviewCard"],
+        isFlat && styles["OverviewCard--flat"]
+      )}
     >
       <__DeprecatedImageSource
         imageSource={imageSource}
@@ -76,20 +78,22 @@ const OverviewCard = ({
         {media}
       </Media>
       <div className={styles["body"]}>
-        {brandImageSource ? (
+        {BrandLogo ? (
           <BrandLogo
             preserveAspectRatio="xMinYMin"
-            className={classnames(styles["brand-logo"], {
-              [styles["brand-logo--negative"]]: !!(imageSource || media)
-            })}
+            className={classnames(
+              styles["brand-logo"],
+              !!(imageSource || media) && styles["brand-logo--negative"]
+            )}
           />
         ) : null}
         <Typography
           variant={titleVariant}
           hasUnderline={hasTitleUnderline}
-          className={classnames(styles["title"], {
-            [styles["title--no-brand-logo"]]: !brandImageSource
-          })}
+          className={classnames(
+            styles["title"],
+            !brandImageSource && styles["title--no-brand-logo"]
+          )}
         >
           {title}
         </Typography>
