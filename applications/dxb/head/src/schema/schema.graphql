@@ -1155,6 +1155,9 @@ type ContentfulLink implements Node {
 
   "The content of the dialog opened by a link."
   dialogContent: ContentfulSection @link(from: "dialogContent___NODE")
+
+  "The ID of a HubSpot CTA if present."
+  hubSpotCTAID: String
 }
 
 """

@@ -135,6 +135,13 @@ const Page = ({
             src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
           ></script>
         )}
+        {!process.env.GATSBY_PREVIEW && process.env.GATSBY_HUBSPOT_ID && (
+          // This script is for the HubSpot CTA Links (see `Link.tsx`)
+          <script
+            id="hubspot-cta-script"
+            src="https://js.hscta.net/cta/current.js"
+          ></script>
+        )}
       </Helmet>
 
       <SiteContext.Provider

@@ -81,7 +81,8 @@ describe("FormSection component", () => {
         linkedPage: null,
         type: "Internal",
         parameters: null,
-        dialogContent: null
+        dialogContent: null,
+        hubSpotCTAID: null
       },
       source: null,
       hubSpotFormGuid: null
@@ -113,7 +114,8 @@ describe("Hubspot FormSection component", () => {
         linkedPage: null,
         type: "Internal",
         parameters: null,
-        dialogContent: null
+        dialogContent: null,
+        hubSpotCTAID: null
       },
       source: "HubSpot",
       hubSpotFormGuid: "abc123"

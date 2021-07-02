@@ -328,7 +328,8 @@ describe("CardCollectionSection component", () => {
         linkedPage: null,
         type: "External",
         parameters: null,
-        dialogContent: promo
+        dialogContent: promo,
+        hubSpotCTAID: null
       } as LinkData;
 
       const data: Data = {
@@ -546,6 +547,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -556,9 +558,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -582,6 +584,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a {{title}}",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -592,9 +595,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -623,7 +626,8 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "External",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         },
         featuredVideo: null,
         backgroundColor: null
@@ -642,6 +646,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: null,
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -652,9 +657,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -692,6 +697,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: null,
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -702,9 +708,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -734,7 +740,8 @@ describe("CardCollectionSection component", () => {
             parameters: null,
             type: "Visualiser",
             dialogContent: null,
-            linkedPage: null
+            linkedPage: null,
+            hubSpotCTAID: null
           },
           featuredVideo: null,
           backgroundColor: null
@@ -753,6 +760,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: null,
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -763,9 +771,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const wrapper = render(<CardCollectionSection data={data} theme="" />);
@@ -791,6 +799,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -801,9 +810,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const wrapper = render(
@@ -831,6 +840,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -841,9 +851,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
       const visualiserOpen = jest.fn().mockImplementation(() => {});
 
@@ -875,6 +885,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -885,9 +896,9 @@ describe("CardCollectionSection component", () => {
           parameters: { a: "b" },
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const visualiserOpen = jest.fn().mockImplementation(() => {});
@@ -922,6 +933,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "calculator-id",
@@ -932,9 +944,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Calculator",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const wrapper = render(
@@ -962,6 +974,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "calculator-id",
@@ -972,9 +985,9 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Calculator",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const calculatorOpen = jest.fn().mockImplementation(() => {});
@@ -1007,6 +1020,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "calculator-id",
@@ -1017,9 +1031,9 @@ describe("CardCollectionSection component", () => {
           parameters: { a: "b" },
           type: "Calculator",
           dialogContent: null,
-          linkedPage: null
-        },
-        sortOrder: null
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
       };
 
       const calculatorOpen = jest.fn().mockImplementation(() => {});

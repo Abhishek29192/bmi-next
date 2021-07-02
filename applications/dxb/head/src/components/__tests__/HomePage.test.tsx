@@ -195,7 +195,8 @@ describe("HomePage template", () => {
           linkedPage: null,
           type: "External",
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         }
       ]
     };

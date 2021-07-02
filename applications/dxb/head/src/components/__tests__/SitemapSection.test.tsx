@@ -25,7 +25,8 @@ describe("SitemapSection component", () => {
               linkedPage: null,
               type: "External",
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             }
           ]
         },
@@ -46,7 +47,8 @@ describe("SitemapSection component", () => {
               },
               type: "Internal",
               parameters: null,
-              dialogContent: null
+              dialogContent: null,
+              hubSpotCTAID: null
             }
           ]
         }
