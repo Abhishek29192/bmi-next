@@ -628,6 +628,18 @@ INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarante
 INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
   VALUES ('11', '5FbxiRcMYuY6txgoVAnWJm', 4, 4, 'CUSTOM', 'Ceiling-leak.jpg', 'https://rennisonroofing.com/wp-content/uploads/2020/04/Ceiling-leak.jpg');
 
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('12', NULL, 4, NULL, 'MISCELLANEOUS', '2880px-Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg/2880px-Dunvegan_Castle_in_the_mist01editcrop_2007-08-22.jpg');
+
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('13', NULL, 4, NULL, 'MISCELLANEOUS', '1920px-Eichenberg_01.JPG', 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Eichenberg_01.JPG/1920px-Eichenberg_01.JPG');
+
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('14', NULL, 2, NULL, 'MISCELLANEOUS', '1024px-Convento_Cristo_December_2008-2a.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Convento_Cristo_December_2008-2a.jpg/1024px-Convento_Cristo_December_2008-2a.jpg');
+
+INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarantee_id, evidence_category_type, name, attachment)
+  VALUES ('15', NULL, 2, NULL, 'MISCELLANEOUS', '1920px-02.Trinidad_%2859%29.JPG', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/02.Trinidad_%2859%29.JPG/1920px-02.Trinidad_%2859%29.JPG');
+
 TRUNCATE TABLE guarantee RESTART IDENTITY;
 
 INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
