@@ -10,6 +10,8 @@
   &--hubSpot {
     background-color: #ffffff;
     border: 1px solid #f0f0f0;
+    color: $color-charcoal;
+    font-size: 1rem;
     margin-top: 1rem;
     padding: 1rem 2rem 2rem;
     max-width: 920px;
@@ -36,6 +38,7 @@
             position: relative;
             left: 9px;
             padding: 0 5px;
+            z-index: 1;
           }
 
           // Inputs
@@ -127,6 +130,39 @@
 
         // Select
         &.hs-fieldtype-select {
+          .input {
+            position: relative;
+          }
+
+          .input::after {
+            content: "▾";
+            // font-size: 17px;
+            color: $color-slate;
+            right: 1rem;
+            top: 1rem;
+            position: absolute;
+            pointer-events: none;
+          }
+
+          .hs-input {
+            appearance: none;
+          }
+        }
+      }
+
+      // Date selector
+      .hs-datepicker {
+        .is-today .pika-button {
+          color: $color-cyan-400;
+        }
+
+        .is-selected .pika-button {
+          background-color: $color-cyan-400;
+          color: $color-white;
+        }
+
+        .pika-button:hover {
+          background-color: $color-charcoal !important;
         }
       }
 
@@ -183,8 +219,13 @@
       }
 
       // Typography
-      h1 {
-        color: tomato;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $color-charcoal;
       }
     }
   }
