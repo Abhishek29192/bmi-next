@@ -3,7 +3,10 @@ import { makeExtendSchemaPlugin } from "graphile-utils";
 import { invite, completeInvitation } from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
 import { getGuarantee } from "../../services/contentful";
-import { guaranteeResolver } from "../../services/company/customResolvers";
+import {
+  getCompanyCertifications,
+  guaranteeResolver
+} from "../../services/company/customResolvers";
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import typeDefs from "./typeDefs";
@@ -17,6 +20,11 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
     typeDefs,
     resolvers: {
       Upload: GraphQLUpload,
+      Company: {
+        certifications: async (parent, args, context, info) => {
+          return getCompanyCertifications(parent, args, context);
+        }
+      },
       Guarantee: {
         guaranteeType: async (_query, args, context) => {
           const { guaranteeTypeId } = _query;

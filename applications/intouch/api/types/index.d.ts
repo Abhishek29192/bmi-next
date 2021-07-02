@@ -1112,6 +1112,7 @@ export type Company = Node & {
   invitations: InvitationsConnection;
   /** Reads and enables pagination through a set of `Project`. */
   projects: ProjectsConnection;
+  certifications?: Maybe<Array<Maybe<Technology>>>;
 };
 
 /** A company that has been registered in InTouch */

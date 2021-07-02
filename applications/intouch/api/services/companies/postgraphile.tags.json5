@@ -17,6 +17,13 @@
           omit: "create"
         }
       }
+    },
+    procedure: {
+      get_company_certifications: {
+        tags: {
+          omit: true
+        }
+      }
     }
   }
 }

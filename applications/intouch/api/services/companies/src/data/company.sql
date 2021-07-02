@@ -405,10 +405,10 @@ INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last
   VALUES ('3', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+3@digitaldetox.co.uk', '1234567', 'Dom', 'Perignon', '2020-06-12 10:19:47', 13988, 'devs+3@digitaldetox.co.uk', 'https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('4', 'ACTIVE', 1, 'INSTALLER', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Cranwell', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL);
+  VALUES ('4', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+4@digitaldetox.co.uk', '1234567', 'Ben', 'Afleck', '2020-06-12 10:19:47', 13989, 'devs+4@digitaldetox.co.uk', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
-  VALUES ('5', 'ACTIVE', 1, 'INSTALLER', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL);
+  VALUES ('5', 'ACTIVE', 1, 'COMPANY_ADMIN', 'devs+5@digitaldetox.co.uk', '1234567', 'Steve', 'Jobs', '2020-06-12 10:19:47', 13990, 'devs+5@digitaldetox.co.uk', 'https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg', NULL);
 
 INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last_name, created, docebo_user_id, docebo_username, photo, migration_id)
   VALUES ('6', 'ACTIVE', 1, 'INSTALLER', 'devs+6@digitaldetox.co.uk', '1234567', 'Umit', 'Davala', '2020-06-12 10:19:47', 13991, 'devs+6@digitaldetox.co.uk', 'https://www.bdfutbol.com/i/j/92223b.jpg', NULL);
@@ -517,7 +517,7 @@ INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
   VALUES ('10', 13991, 'PITCHED', 'BMI Pitched Roof Technology Certification (12 months)', '2021-05-28 12:00:00');
 
 INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
-  VALUES ('11', 13994, 'Other', 'BMI Contractor Health & Safety Certification (12 months)', '2023-12-18 12:00:00');
+  VALUES ('11', 13994, 'OTHER', 'BMI Contractor Health & Safety Certification (12 months)', '2023-12-18 12:00:00');
 
 INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
   VALUES ('12', 13998, 'FLAT', 'BMI Flat Roof Technology Certification (12 months)', '2022-01-01 12:00:00');
