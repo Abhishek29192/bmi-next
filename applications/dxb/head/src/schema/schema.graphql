@@ -295,6 +295,9 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The other areas for this page."
   otherAreas: [ContentfulTitleWithContent] @link(from: "otherAreas___NODE")
 
+  "The next best actions for this page."
+  nextBestActions: [ContentfulPromoOrPage] @link(from: "nextBestActions___NODE")
+
   "The parent page of this page."
   parentPage: LinkedPage @link(from: "parentPage___NODE")
 

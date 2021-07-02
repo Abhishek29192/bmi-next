@@ -14,6 +14,34 @@ describe("Contact us page", () => {
       path: "contact-us/",
       date: null,
       tags: [{ title: "Test page type tag", type: "Page type" }],
+      nextBestActions: [
+        {
+          __typename: "ContentfulPromo",
+          id: "osyfb64chkucgrh76we",
+          title: "Action 1",
+          subtitle: null,
+          body: null,
+          brandLogo: null,
+          tags: null,
+          featuredMedia: null,
+          cta: null,
+          featuredVideo: null,
+          backgroundColor: null
+        },
+        {
+          __typename: "ContentfulPromo",
+          id: "q345789naetw9ny84",
+          title: "Action 2",
+          subtitle: null,
+          body: null,
+          brandLogo: null,
+          tags: null,
+          featuredMedia: null,
+          cta: null,
+          featuredVideo: null,
+          backgroundColor: null
+        }
+      ],
       featuredMedia: {
         type: null,
         altText: "Lorem ipsum",
@@ -42,13 +70,13 @@ describe("Contact us page", () => {
             width: 948,
             height: 720
           },
-          resize: {
-            src: "//images.asset.jpg"
-          },
           file: {
             fileName: "Lorem ipsum",
             url: "//images.asset.jpg"
           }
+        },
+        thumbnail: {
+          src: "//images.asset.jpg"
         }
       },
       featuredVideo: null,
