@@ -1,7 +1,6 @@
-// TODO: resolve eslint issues:
-/* eslint-disable */
-import * as THREE from "../ThreeJs/ThreeJs.js";
-import tileSlice from "../TileSlice/TileSlice.js";
+import * as THREE from "three";
+import tileSlice from "./TileSlice";
+import { Tile } from "./Types";
 
 /*
  * Generates a planar, rectangular segment of roof between minX/ minZ and maxX/ maxZ using the given source tile (a ThreeJS Mesh object).
@@ -12,17 +11,24 @@ import tileSlice from "../TileSlice/TileSlice.js";
  * @param tileInfo   Options which can be used to configure e.g. how much the tiles will overlap row-on-row.
  */
 
-export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
-  tileInfo = tileInfo || {};
-
+export default (
+  boundsBox2: THREE.Box2,
+  tileMesh: THREE.Mesh,
+  tileInfo: Tile,
+  tileMaterial: THREE.MeshStandardMaterial
+): THREE.Group | undefined => {
   // First measure the tile:
-  var tileBounds = tileMesh.geometry.boundingBox;
+  const tileBounds = tileMesh.geometry.boundingBox;
 
-  var tileWidth = tileBounds.max.x - tileBounds.min.x;
-  var tileHeight = tileBounds.max.z - tileBounds.min.z;
-  var tileThickness = tileBounds.max.y - tileBounds.min.y;
-  var roofWidth = boundsBox2.max.x - boundsBox2.min.x;
-  var roofHeight = boundsBox2.max.y - boundsBox2.min.y;
+  if (!tileBounds) {
+    return;
+  }
+
+  let tileWidth = tileBounds.max.x - tileBounds.min.x;
+  const tileHeight = tileBounds.max.z - tileBounds.min.z;
+  let tileThickness = tileBounds.max.y - tileBounds.min.y;
+  const roofWidth = boundsBox2.max.x - boundsBox2.min.x;
+  const roofHeight = boundsBox2.max.y - boundsBox2.min.y;
 
   // Reduce apparent tile thickness:
   tileInfo.thicknessReduction = tileInfo.thicknessReduction || 0.3;
@@ -36,16 +42,16 @@ export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
   }
 
   // Calculate how many tiles fit horizontally:
-  var horizontalTilesExact = roofWidth / tileWidth;
+  const horizontalTilesExact = roofWidth / tileWidth;
 
   // The integer number of tiles that will fit on a row:
-  var intHorizontalTiles = Math.floor(horizontalTilesExact);
+  const intHorizontalTiles = Math.floor(horizontalTilesExact);
 
-  var rowWidthOfIntTiles = intHorizontalTiles * tileWidth;
+  const rowWidthOfIntTiles = intHorizontalTiles * tileWidth;
 
   // Next, the number of tiles that fit vertically.
   // An option comes into play here - verticalOverlap, a 0 to <1 value representing how much the next row is pulled down as a proportion of tileHeight.
-  var verticalOverlap = tileInfo.verticalOverlap || 0;
+  let verticalOverlap = tileInfo.verticalOverlap || 0;
 
   if (verticalOverlap < 0) {
     verticalOverlap = 0;
@@ -55,75 +61,78 @@ export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
     verticalOverlap = 0.9;
   }
 
-  var rowHeight = tileHeight - verticalOverlap * tileHeight;
+  const rowHeight = tileHeight - verticalOverlap * tileHeight;
 
   // Any overflow vertically will just hang off the bottom of the roof segment.
-  var rowCount = Math.ceil(roofHeight / rowHeight);
+  const rowCount = Math.ceil(roofHeight / rowHeight);
 
   // Tile instance count is therefore..
-  var instanceCount = rowCount * intHorizontalTiles;
+  const instanceCount = rowCount * intHorizontalTiles;
 
   // Create InstancedMesh:
-  var primaryTilesMesh = new THREE.InstancedMesh(
+  const primaryTilesMesh = new THREE.InstancedMesh(
     tileMesh.geometry.clone(),
     tileMaterial,
     instanceCount
   );
 
   // Instance placement helper:
-  var placementHelper = new THREE.Object3D();
+  const placementHelper = new THREE.Object3D();
 
-  var instanceIndex = 0;
-  var endOfRowIndex = 0;
-  var endOfSecondaryRowIndex = 0;
-  var startOfSecondaryRowIndex = 0;
+  let instanceIndex = 0;
+  let endOfRowIndex = 0;
+  let endOfSecondaryRowIndex = 0;
+  let startOfSecondaryRowIndex = 0;
 
-  var rowZ = boundsBox2.max.y;
+  let rowZ = boundsBox2.max.y;
 
-  var horizontalOffset = (tileInfo.horizontalOffset || 0) * tileWidth;
+  const horizontalOffset = (tileInfo.horizontalOffset || 0) * tileWidth;
 
   // End of primary row sliced tile:
-  var endOfRowTileWidth = roofWidth - rowWidthOfIntTiles;
-  var endOfRowTile = tileSlice(
+  const endOfRowTileWidth = roofWidth - rowWidthOfIntTiles;
+  const endOfRowTile = tileSlice(
     tileMesh.geometry,
-    tileMesh.geometry.boundingBox.max.x - endOfRowTileWidth,
+    tileBounds.max.x - endOfRowTileWidth,
     "x",
     "right"
   ); // Discard the left side
-  var endOfPrimaryRowTileMesh = new THREE.InstancedMesh(
+  const endOfPrimaryRowTileMesh = new THREE.InstancedMesh(
     endOfRowTile,
     tileMaterial,
     rowCount
   );
 
   // Offset (secondary) row sliced tiles:
-  var offsetRowWidth = rowWidthOfIntTiles + horizontalOffset;
+  let offsetRowWidth = rowWidthOfIntTiles + horizontalOffset;
 
   if (offsetRowWidth > roofWidth) {
     offsetRowWidth -= tileWidth;
   }
 
+  let offsetRowEndTileWidth: number = 0;
+  let endOfSecondaryRowTileMesh: THREE.InstancedMesh | undefined;
+  let startOfSecondaryRowTileMesh: THREE.InstancedMesh | undefined;
   if (horizontalOffset != 0) {
-    var offsetRowEndTileWidth = roofWidth - offsetRowWidth;
-    var endOfSecondaryRowTile = tileSlice(
+    offsetRowEndTileWidth = roofWidth - offsetRowWidth;
+    const endOfSecondaryRowTile = tileSlice(
       tileMesh.geometry,
-      tileMesh.geometry.boundingBox.max.x - offsetRowEndTileWidth,
+      tileBounds.max.x - offsetRowEndTileWidth,
       "x",
       "right"
     ); // Discard the left side
-    var endOfSecondaryRowTileMesh = new THREE.InstancedMesh(
+    endOfSecondaryRowTileMesh = new THREE.InstancedMesh(
       endOfSecondaryRowTile,
       tileMaterial,
       rowCount
     );
 
-    var startOfSecondaryRowTile = tileSlice(
+    const startOfSecondaryRowTile = tileSlice(
       tileMesh.geometry,
-      tileMesh.geometry.boundingBox.min.x + horizontalOffset,
+      tileBounds.min.x + horizontalOffset,
       "x",
       "left"
     ); // Discard the right side
-    var startOfSecondaryRowTileMesh = new THREE.InstancedMesh(
+    startOfSecondaryRowTileMesh = new THREE.InstancedMesh(
       startOfSecondaryRowTile,
       tileMaterial,
       rowCount
@@ -140,19 +149,19 @@ export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
 
   // This pair is then rotated such that both tile midpoints sit on the same horizontal line.
   // That results in the following rotation amount:
-  var overlapRotation = verticalOverlap
+  const overlapRotation = verticalOverlap
     ? Math.atan2(tileThickness, (1 - verticalOverlap) * tileHeight)
     : 0;
 
   // For each row of tiles..
-  for (var v = 0; v < rowCount; v++) {
+  for (let v = 0; v < rowCount; v++) {
     // This actually goes *down* the roof for 2 reasons - it greatly reduces overdraw
     // (that's because tiles higher up the roof overlap ones further down, and rendering the topmost object reduces wasted rendering of obscured tiles)
     // and it naturally makes any excess stick out from the bottom.
 
     // For each whole tile on the row..
-    var thisRowOffset = 0;
-    var tilesOnThisRow = intHorizontalTiles;
+    let thisRowOffset = 0;
+    let tilesOnThisRow = intHorizontalTiles;
 
     // If odd row..
     if (v & 1) {
@@ -165,11 +174,11 @@ export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
       }
     }
 
-    var rowX = boundsBox2.min.x + thisRowOffset;
-    var zRotation = tileInfo.invert ? Math.PI : 0;
-    var yRotation = tileInfo.invertY ? 0 : Math.PI;
+    let rowX = boundsBox2.min.x + thisRowOffset;
+    const zRotation = tileInfo.invert ? Math.PI : 0;
+    const yRotation = tileInfo.invertY ? 0 : Math.PI;
 
-    for (var h = 0; h < tilesOnThisRow; h++) {
+    for (let h = 0; h < tilesOnThisRow; h++) {
       // Add an instance.
       // They're offset by the bounds such that the min edge is exactly touching our target box.
       placementHelper.position.set(
@@ -188,7 +197,7 @@ export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
     }
 
     // Add the sliced tile at the end of the row:
-    var amountSlicedOff =
+    const amountSlicedOff =
       v & 1 && horizontalOffset
         ? tileWidth - offsetRowEndTileWidth
         : tileWidth - endOfRowTileWidth;
@@ -206,7 +215,7 @@ export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
     placementHelper.updateMatrix();
 
     if (v & 1 && horizontalOffset) {
-      endOfSecondaryRowTileMesh.setMatrixAt(
+      endOfSecondaryRowTileMesh?.setMatrixAt(
         endOfSecondaryRowIndex++,
         placementHelper.matrix
       );
@@ -221,7 +230,7 @@ export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
       placementHelper.rotation.y = yRotation;
       placementHelper.rotation.x = overlapRotation;
       placementHelper.updateMatrix();
-      startOfSecondaryRowTileMesh.setMatrixAt(
+      startOfSecondaryRowTileMesh?.setMatrixAt(
         startOfSecondaryRowIndex++,
         placementHelper.matrix
       );
@@ -243,21 +252,24 @@ export default (boundsBox2, tileMesh, tileInfo, tileMaterial) => {
   endOfPrimaryRowTileMesh.castShadow = true;
   endOfPrimaryRowTileMesh.receiveShadow = true;
 
-  var group = new THREE.Group();
+  const group = new THREE.Group();
   group.add(primaryTilesMesh);
   group.add(endOfPrimaryRowTileMesh);
 
   if (horizontalOffset) {
-    endOfSecondaryRowTileMesh.instanceMatrix.needsUpdate = true;
-    startOfSecondaryRowTileMesh.instanceMatrix.needsUpdate = true;
-    group.add(endOfSecondaryRowTileMesh);
-    group.add(startOfSecondaryRowTileMesh);
+    if (endOfSecondaryRowTileMesh) {
+      endOfSecondaryRowTileMesh.instanceMatrix.needsUpdate = true;
+      group.add(endOfSecondaryRowTileMesh);
+      endOfSecondaryRowTileMesh.castShadow = true;
+      endOfSecondaryRowTileMesh.receiveShadow = true;
+    }
 
-    endOfSecondaryRowTileMesh.castShadow = true;
-    endOfSecondaryRowTileMesh.receiveShadow = true;
-
-    startOfSecondaryRowTileMesh.castShadow = true;
-    startOfSecondaryRowTileMesh.receiveShadow = true;
+    if (startOfSecondaryRowTileMesh) {
+      startOfSecondaryRowTileMesh.instanceMatrix.needsUpdate = true;
+      group.add(startOfSecondaryRowTileMesh);
+      startOfSecondaryRowTileMesh.castShadow = true;
+      startOfSecondaryRowTileMesh.receiveShadow = true;
+    }
   }
 
   return group;

@@ -1,20 +1,18 @@
-// TODO: resolve eslint issues:
-/* eslint-disable */
-import * as THREE from "../ThreeJs/ThreeJs.js";
+import * as THREE from "three";
 
 /*
  * Downloads and caches images as loaded textures.
  * Returns a promise which resolves as the texture object.
  */
 
-var cache = {};
+let cache: { [index: string]: Promise<any> } = {};
 
-export default (url) => {
+export default (url: string): Promise<THREE.Texture> => {
   if (cache[url]) {
     return cache[url];
   }
 
-  var promise = new Promise((success, reject) => {
+  const promise = new Promise<THREE.Texture>((success) => {
     new THREE.TextureLoader().load(url, (tex) => {
       tex.encoding = THREE.sRGBEncoding;
       tex.wrapS = THREE.RepeatWrapping;
