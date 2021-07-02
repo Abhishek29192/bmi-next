@@ -13,9 +13,11 @@ import UnderlaySelection from "./_UnderlaySelection";
 import Guttering from "./_Guttering";
 import { calculateArea } from "./calculation/calculate";
 import Results from "./_Results";
+import { EmailFormValues } from "./types/EmailFormValues";
 import protrusionTypes from "./calculation/protrusions";
 import { DimensionsValues, Measurements, Roof } from "./types/roof";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
+import { Data } from "./types";
 
 type Step =
   | "select-roof"
@@ -27,16 +29,20 @@ type Step =
   | "guttering"
   | "your-solution-contains";
 
-type PitchedRoofCalculatorStepsProps = {
+export type PitchedRoofCalculatorStepsProps = {
+  data: Data;
   isDebugging?: boolean;
   selected: Step;
   setSelected: (value: Step) => void;
+  sendEmailAddress: (values: EmailFormValues) => Promise<void>;
 };
 
 const PitchedRoofCalculatorSteps = ({
+  data, // TODO: use here
   isDebugging,
   selected,
-  setSelected
+  setSelected,
+  sendEmailAddress
 }: PitchedRoofCalculatorStepsProps) => {
   const copy = useContext(MicroCopyContext);
   const pushEvent = useContext(AnalyticsContext);
@@ -175,6 +181,7 @@ const PitchedRoofCalculatorSteps = ({
           }}
         >
           <TileSelection
+            tiles={data.mainTiles}
             select={selectTile}
             selected={tile}
             dimensions={dimensions}
@@ -254,6 +261,7 @@ const PitchedRoofCalculatorSteps = ({
           }}
         >
           <UnderlaySelection
+            options={data.underlays}
             selected={underlay["underlay"]}
             dimensions={dimensions}
           />
@@ -290,9 +298,14 @@ const PitchedRoofCalculatorSteps = ({
             setSelected("your-solution-contains");
           }}
         >
-          <Guttering selections={guttering} />
+          <Guttering
+            selections={guttering}
+            gutters={data.gutters}
+            gutterHooks={data.gutterHooks}
+          />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
+          isForm={false}
           key="your-solution-contains"
           title={getMicroCopy(copy, "results.title")}
           subtitle={getMicroCopy(copy, "results.subtitle", {
@@ -325,13 +338,17 @@ const PitchedRoofCalculatorSteps = ({
           }}
         >
           <Results
+            underlays={data.underlays}
+            gutters={data.gutters}
+            gutterHooks={data.gutterHooks}
             {...{
               isDebugging,
               measurements,
               variant,
               tileOptions,
               underlay,
-              guttering
+              guttering,
+              sendEmailAddress
             }}
           />
         </CalculatorStepper.Step>

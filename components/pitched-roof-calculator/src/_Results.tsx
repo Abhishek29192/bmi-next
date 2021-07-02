@@ -1,18 +1,171 @@
 import React, { useContext, useMemo, useState } from "react";
 import QuantityTable from "@bmi/quantity-table";
 import Typography from "@bmi/typography";
-import Button from "@bmi/button";
-import PDFIcon from "@material-ui/icons/PictureAsPdf";
+import Grid from "@bmi/grid";
+import Form from "@bmi/form";
+import TextField from "@bmi/text-field";
+import Checkbox from "@bmi/checkbox";
 import { getMicroCopy, MicroCopyContext } from "./helpers/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { battenCalc } from "./calculation/calculate";
-import underlays from "./samples/underlays";
-import { guttering as gutteringList, hooks } from "./samples/guttering";
-import { VergeOption } from "./types";
+import {
+  LengthBasedProduct,
+  MainTileVariant,
+  ResultsObject,
+  Underlay,
+  VergeOption,
+  Guttering
+} from "./types";
 import { Measurements } from "./types/roof";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
 import { AnalyticsContext } from "./helpers/analytics";
 import Alert from "./subcomponents/_Alert";
+import styles from "./_Results.module.scss";
+import { EmailFormValues } from "./types/EmailFormValues";
+
+type EmailAddressCollectionProps = {
+  results: ResultsObject;
+  area: number;
+  sendEmailAddress: (values: EmailFormValues) => Promise<void>;
+};
+
+const EmailAddressCollection = ({
+  results,
+  area,
+  sendEmailAddress
+}: EmailAddressCollectionProps) => {
+  const copy = useContext(MicroCopyContext);
+  const pushEvent = useContext(AnalyticsContext);
+
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <Form
+      className={styles["form"]}
+      onSubmit={async (e, values: EmailFormValues) => {
+        e.preventDefault();
+
+        if (loading) {
+          return;
+        }
+
+        setLoading(true);
+
+        try {
+          // await for captcha and such
+          await sendEmailAddress(values);
+        } catch (error) {
+          if (process.env.NODE_ENV === "development") {
+            // eslint-disable-next-line no-console
+            console.error("Failed to send email address", error);
+          }
+        }
+
+        pushEvent({
+          id: "rc-solution",
+          label: getMicroCopy(copy, "results.downloadPdfLabel"),
+          action: "selected"
+        });
+
+        try {
+          (await import("./_PDF")).default({
+            results,
+            area: (area / 10000).toFixed(2),
+            getMicroCopy: (...params) => getMicroCopy(copy, ...params)
+          });
+        } catch (error) {
+          if (process.env.NODE_ENV === "development") {
+            // eslint-disable-next-line no-console
+            console.error("Failed to generate PDF", error);
+          }
+        }
+
+        setLoading(false);
+      }}
+    >
+      <Typography variant="h4" hasUnderline className={styles["title"]}>
+        {getMicroCopy(copy, "results.email.title")}
+      </Typography>
+      <Grid container className={styles["help"]}>
+        <Grid item xs={12} lg={6}>
+          <Typography>{getMicroCopy(copy, "results.email.help")}</Typography>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        spacing={2}
+        direction="column"
+        className={styles["fieldsContainer"]}
+      >
+        <Grid item xs={12} lg={3}>
+          <TextField
+            name="name"
+            variant="outlined"
+            label={getMicroCopy(copy, "results.email.nameLabel")}
+            isRequired
+            fieldIsRequiredError={getMicroCopy(
+              copy,
+              "validation.errors.fieldRequired"
+            )}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12} lg={3}>
+          <TextField
+            name="email"
+            variant="outlined"
+            label={getMicroCopy(copy, "results.email.emailLabel")}
+            isRequired
+            fieldIsRequiredError={getMicroCopy(
+              copy,
+              "validation.errors.fieldRequired"
+            )}
+            getValidationError={(value) =>
+              typeof value === "string" && value.includes("@")
+                ? false
+                : getMicroCopy(copy, "validation.errors.email")
+            }
+            fullWidth
+          />
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        spacing={6}
+        direction="column"
+        className={styles["gdprContainer"]}
+      >
+        <Grid item xs={12} lg={6}>
+          <Checkbox
+            name="gdpr_1"
+            label={getMicroCopy(copy, "results.email.gdpr_1Label")}
+            isRequired
+            fieldIsRequiredError={getMicroCopy(
+              copy,
+              "validation.errors.fieldRequired"
+            )}
+          />
+        </Grid>
+        <Grid item xs={12} lg={6}>
+          <Checkbox
+            name="gdpr_2"
+            label={getMicroCopy(copy, "results.email.gdpr_2Label")}
+            isRequired
+            fieldIsRequiredError={getMicroCopy(
+              copy,
+              "validation.errors.fieldRequired"
+            )}
+          />
+        </Grid>
+        <Grid item xs={12} lg={3}>
+          <Form.SubmitButton className={styles["submit"]} disabled={loading}>
+            {getMicroCopy(copy, "results.email.print")}
+          </Form.SubmitButton>
+        </Grid>
+      </Grid>
+    </Form>
+  );
+};
 
 const getRemoveRow = (setRows) => (externalProductCode) =>
   setRows((rows) =>
@@ -20,22 +173,29 @@ const getRemoveRow = (setRows) => (externalProductCode) =>
   );
 
 const Results = ({
+  underlays,
+  gutters,
+  gutterHooks,
   isDebugging,
   measurements,
   variant,
   tileOptions,
   underlay,
-  guttering
+  guttering,
+  sendEmailAddress
 }: {
+  underlays: Underlay[];
+  gutters: Guttering[];
+  gutterHooks: LengthBasedProduct[];
   isDebugging?: boolean;
   measurements: Measurements;
-  variant: any;
+  variant: MainTileVariant;
   tileOptions: any;
   underlay: any;
   guttering: any;
+  sendEmailAddress: EmailAddressCollectionProps["sendEmailAddress"];
 }) => {
   const copy = useContext(MicroCopyContext);
-  const pushEvent = useContext(AnalyticsContext);
 
   const { faces, lines, area } = measurements;
 
@@ -61,7 +221,7 @@ const Results = ({
     let gutteringVariant, gutteringHook;
 
     if (guttering.gutteringVariant) {
-      gutteringVariant = gutteringList
+      gutteringVariant = gutters
         .find(({ name }) => guttering.guttering === name)
         .variants.find(
           ({ externalProductCode }) =>
@@ -70,7 +230,7 @@ const Results = ({
     }
 
     if (guttering.gutteringHook) {
-      gutteringHook = hooks.find(
+      gutteringHook = gutterHooks.find(
         ({ externalProductCode }) =>
           guttering.gutteringHook === externalProductCode
       );
@@ -117,7 +277,7 @@ const Results = ({
   );
 
   return (
-    <>
+    <div className={styles["Results"]}>
       {tileRows.length ? (
         <FieldContainer title={getMicroCopy(copy, "results.categories.tiles")}>
           <QuantityTable
@@ -188,24 +348,7 @@ const Results = ({
           contingency: "0"
         })}
       </Alert>
-      <Button
-        startIcon={<PDFIcon />}
-        style={{ marginBottom: 30 }}
-        onClick={async () => {
-          pushEvent({
-            id: "rc-solution",
-            label: getMicroCopy(copy, "results.downloadPdfLabel"),
-            action: "selected"
-          });
-          (await import("./_PDF")).default({
-            results,
-            area: (area / 10000).toFixed(2),
-            getMicroCopy: (...params) => getMicroCopy(copy, ...params)
-          });
-        }}
-      >
-        {getMicroCopy(copy, "results.downloadPdfLabel")}
-      </Button>
+      <EmailAddressCollection {...{ results, area, sendEmailAddress }} />
       {isDebugging ? (
         <FieldContainer>
           <Typography variant="h3">
@@ -235,7 +378,7 @@ const Results = ({
           </ul>
         </FieldContainer>
       ) : null}
-    </>
+    </div>
   );
 };
 

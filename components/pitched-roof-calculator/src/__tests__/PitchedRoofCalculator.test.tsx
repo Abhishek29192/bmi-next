@@ -2,11 +2,14 @@ import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import { MicroCopy } from "../helpers/microCopy";
-import en from "../samples/copy/en.json";
-import PitchedRoofCalculator from "../PitchedRoofCalculator";
+import PitchedRoofCalculator, { en, no, sampleData as data } from "../";
 
-jest.mock("../_PitchedRoofCalculatorSteps");
 const LOADED_TEXT = "loaded";
+
+jest.mock("../_PitchedRoofCalculatorSteps", () => ({
+  __esModule: true,
+  default: jest.fn().mockImplementation(() => <p>{LOADED_TEXT}</p>)
+}));
 
 beforeEach(() => {
   mockConsole();
@@ -14,6 +17,8 @@ beforeEach(() => {
 
 describe("PitchedRoofCalculator component", () => {
   it("renders correctly", async () => {
+    expect(data).toBeTruthy();
+
     const { container, findByText } = render(
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculator
@@ -21,6 +26,8 @@ describe("PitchedRoofCalculator component", () => {
           onClose={jest.fn()}
           isDebugging
           onAnalyticsEvent={jest.fn()}
+          sendEmailAddress={jest.fn()}
+          data={data as any}
         />
       </MicroCopy.Provider>
     );
@@ -32,11 +39,13 @@ describe("PitchedRoofCalculator component", () => {
 
   it("renders closed", async () => {
     const { container, findByText } = render(
-      <MicroCopy.Provider values={en}>
+      <MicroCopy.Provider values={no}>
         <PitchedRoofCalculator
           onClose={jest.fn()}
           isDebugging
           onAnalyticsEvent={jest.fn()}
+          sendEmailAddress={jest.fn()}
+          data={data as any}
         />
       </MicroCopy.Provider>
     );
@@ -57,6 +66,8 @@ describe("PitchedRoofCalculator component", () => {
           onClose={onClose}
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
+          sendEmailAddress={jest.fn()}
+          data={data as any}
         />
       </MicroCopy.Provider>
     );
@@ -82,6 +93,8 @@ describe("PitchedRoofCalculator component", () => {
           onClose={onClose}
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
+          sendEmailAddress={jest.fn()}
+          data={data as any}
         />
       </MicroCopy.Provider>
     );
