@@ -1929,10 +1929,18 @@ Array [
 ]
 `;
 
-exports[`Generating JSON file from WebTools space thorws when getting error other than 429: thrown error 1`] = `
+exports[`Generating JSON file from WebTools space throws when getting error other than 429: thrown error 1`] = `
 Array [
   Array [
-    [Error: Bad Request],
+    "Bad Request",
+  ],
+  Array [
+    Object {
+      "error": "details about the error",
+    },
+  ],
+  Array [
+    [Error: Failed to fetch data],
   ],
 ]
 `;
