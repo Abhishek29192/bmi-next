@@ -190,9 +190,9 @@ describe("Generating JSON file from WebTools space", () => {
     expect(res.send).toBeCalledWith("ok");
   });
 
-  it("thorws when getting error other than 429", async () => {
+  it("throws when getting error other than 429", async () => {
     fetchMock.postOnce(() => true, {
-      body: JSON.stringify({}),
+      body: JSON.stringify({ error: "details about the error" }),
       status: 400,
       headers: {}
     });
