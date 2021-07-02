@@ -241,9 +241,7 @@ const handleRequest: HttpFunction = async (req, res) => {
     console.log("Saving file");
 
     const file = bucket.file("data.json");
-    await file.save(results, {
-      public: true
-    });
+    await file.save(results);
 
     res.status(200).send("ok");
     console.log("Succeeded");
