@@ -1768,6 +1768,11 @@ export type ContentfulEvidenceCategory = {
   minimumUploads?: Maybe<Scalars["Int"]>;
 };
 
+export type ContentfulEvidenceCategoryCollection = {
+  __typename?: "ContentfulEvidenceCategoryCollection";
+  items?: Maybe<Array<Maybe<ContentfulEvidenceCategory>>>;
+};
+
 export type ContentfulGuaranteeCoverageType = "PRODUCT" | "SYSTEM" | "SOLUTION";
 
 export type ContentfulGuaranteeTemplate = {
@@ -1817,7 +1822,7 @@ export type ContentfulGuaranteeType = {
   maximumValidityYears?: Maybe<Scalars["Int"]>;
   tiersAvailable?: Maybe<ContentfulTiers>;
   ranking?: Maybe<Scalars["Int"]>;
-  evidenceCategories?: Maybe<ContentfulEvidenceCategory>;
+  evidenceCategoriesCollection?: Maybe<ContentfulEvidenceCategoryCollection>;
   guaranteeTemplatesCollection?: Maybe<ContentfulGuaranteeTemplatesCollection>;
 };
 
@@ -4999,6 +5004,7 @@ export type EvidenceItem = Node & {
   project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
+  customEvidenceCategory?: Maybe<ContentfulEvidenceCategory>;
 };
 
 /**

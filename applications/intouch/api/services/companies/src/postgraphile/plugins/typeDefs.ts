@@ -103,6 +103,9 @@ export default gql`
   type ContentfulGuaranteeTemplatesCollection {
     items: [ContentfulGuaranteeTemplate]
   }
+  type ContentfulEvidenceCategoryCollection {
+    items: [ContentfulEvidenceCategory]
+  }
 
   type ContentfulGuaranteeType {
     displayName: String
@@ -113,7 +116,7 @@ export default gql`
     maximumValidityYears: Int
     tiersAvailable: ContentfulTiers
     ranking: Int
-    evidenceCategories: ContentfulEvidenceCategory
+    evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
     guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
   }
 
@@ -125,6 +128,9 @@ export default gql`
   }
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
+  }
+  extend type EvidenceItem {
+    customEvidenceCategory: ContentfulEvidenceCategory
   }
 
   extend input AccountInput {
