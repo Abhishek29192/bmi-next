@@ -25,6 +25,12 @@ import TileColour from "./svgs/TileColour.svg";
 import SelectRoof from "./svgs/SelectRoof.svg";
 import SelectTile from "./svgs/SelectTile.svg";
 import SelectWallColour from "./svgs/SelectWallColour.svg";
+import CertificationFlatRoof from "./svgs/CertificationFlatRoof.svg";
+import CertificationOtherTraining from "./svgs/CertificationOtherTraining.svg";
+import CertificationPitchedRoof from "./svgs/CertificationPitchedRoof.svg";
+import FlatRoof from "./svgs/FlatRoof.svg";
+import OtherTraining from "./svgs/OtherTraining.svg";
+import PitchedRoof from "./svgs/PitchedRoof.svg";
 
 export {
   Arrow,
@@ -49,7 +55,13 @@ export {
   TileColour,
   SelectRoof,
   SelectTile,
-  SelectWallColour
+  SelectWallColour,
+  CertificationFlatRoof,
+  CertificationOtherTraining,
+  CertificationPitchedRoof,
+  FlatRoof,
+  OtherTraining,
+  PitchedRoof
 };
 
 export const iconMap = {
@@ -76,7 +88,13 @@ export const iconMap = {
   TileColour,
   SelectRoof,
   SelectTile,
-  SelectWallColour
+  SelectWallColour,
+  CertificationFlatRoof,
+  CertificationOtherTraining,
+  CertificationPitchedRoof,
+  FlatRoof,
+  OtherTraining,
+  PitchedRoof
 };
 
 export type IconName = keyof typeof iconMap;
