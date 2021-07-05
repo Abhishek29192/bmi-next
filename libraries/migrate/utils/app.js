@@ -134,3 +134,27 @@ module.exports.getApp = async (
 
   return organisationApp;
 };
+
+module.exports.getAppByNameFromSpace = async (appName, { makeRequest }) => {
+  const timer = ora(
+    `Checking if the ${appName} app is installed in the space.`
+  ).start();
+  const spaceAppInstallations = await makeRequest({
+    method: "GET",
+    url: `/app_installations`
+  });
+
+  const spaceApp = spaceAppInstallations.includes.AppDefinition.find(
+    ({ name }) => appName === name
+  );
+
+  if (!spaceApp) {
+    timer.fail(`${appName} not found in the space.`);
+
+    return null;
+  }
+
+  timer.succeed(`${appName} found in the space.`);
+
+  return spaceApp;
+};
