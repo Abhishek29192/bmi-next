@@ -1,8 +1,12 @@
 {
   "Home": "Home",
-  "Projects": "Projects",
-  "Training": "Training",
+  "Projects": "Progetti",
+  "Training": "Addestramento",
   "Team": "Team",
-  "Company": "Company",
-  "Toolkit": "Toolkit"
+  "Company": "Azienda",
+  "Toolkit": "Toolkit",
+  "Edit": "Modifica",
+  "Pitched": "A Capanna",
+  "Flat": "Piano",
+  "Other": "Altro"
 }

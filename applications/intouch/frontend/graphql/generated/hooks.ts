@@ -3,6 +3,11 @@ import * as OperationTypes from "./operations";
 import { gql } from "@apollo/client";
 import * as Apollo from "@apollo/client";
 const defaultOptions = {};
+export const CompanyCertificationsFragmentDoc = gql`
+  fragment CompanyCertifications on Company {
+    certifications
+  }
+`;
 export const CompanyDetailsFragmentFragmentDoc = gql`
   fragment CompanyDetailsFragment on Company {
     id
@@ -1050,9 +1055,11 @@ export const GetCompanyDocument = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       ...CompanyDetailsFragment
+      ...CompanyCertifications
     }
   }
   ${CompanyDetailsFragmentFragmentDoc}
+  ${CompanyCertificationsFragmentDoc}
 `;
 
 /**
