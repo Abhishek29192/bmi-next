@@ -5,7 +5,7 @@
   "license": "BMI-DXB",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "tsc",
     "watch": "tsc -w"
   },
   "dependencies": {
