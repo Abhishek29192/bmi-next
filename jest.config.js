@@ -33,8 +33,7 @@ module.exports = {
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "\\.(woff2|ttf)$": require.resolve("./jest/src/FontImport.ts"),
     "^@bmi/(?!styles)(.*)$": "<rootDir>/node_modules/@bmi/$1/src",
-    "^@bmi/styles$": require.resolve("./jest/src/CSSModuleImport.ts"),
-    "react-pdf-maker": "<rootDir>/node_modules/react-pdf-maker/src"
+    "^@bmi/styles$": require.resolve("./jest/src/CSSModuleImport.ts")
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
