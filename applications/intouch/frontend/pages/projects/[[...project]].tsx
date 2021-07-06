@@ -8,13 +8,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { gql } from "@apollo/client";
 import { withPage } from "../../lib/middleware/withPage";
 import GridStyles from "../../styles/Grid.module.scss";
-import { ProjectSidePanel } from "../../components/SidePanel/ProjectSidePanel";
+import { ProjectSidePanel } from "../../components/ProjectSidePanel";
+import ProjectDetail from "../../components/ProjectDetail";
 import { Layout } from "../../components/Layout";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { getServerPageGetProjects } from "../../graphql/generated/page";
-
-import ProjectDetail from "./project-detail";
 
 export type PageProps = {
   projects: GetProjectsQuery["projects"];
@@ -27,11 +26,11 @@ const Projects = ({ projects }: PageProps) => {
   const [activeProjectId, setActiveProjectId] = useState<number>(null);
 
   useEffect(() => {
-    const currentProjectId: number =
-      parseInt((router.query.project || [])[0]) || projects?.nodes[0]?.id;
-
-    setActiveProjectId(currentProjectId);
-  }, [router]);
+    const { project } = router.query;
+    if (project && project.length) {
+      setActiveProjectId(parseInt(project[0]));
+    }
+  }, [router.query]);
 
   const sidePanelHandler = (projectId: number) => {
     //setActiveProjectId(projectId);

@@ -3,14 +3,14 @@ import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
-import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
-import { ProjectsInsight } from "../../components/Cards/ProjectsInsight";
-import { TabCard } from "../../components/Cards/TabCard";
-import { TeamTab } from "../../components/Tabs/Team";
-import { GuaranteeTab } from "../../components/Tabs/Guarantee";
-import { UploadsTab } from "../../components/Tabs/Uploads";
-import { NoProjectsCard } from "../../components/Cards/NoProjects";
+import { ProjectsHeader } from "../Cards/ProjectsHeader";
+import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
+import { ProjectsInsight } from "../Cards/ProjectsInsight";
+import { TabCard } from "../Cards/TabCard";
+import { TeamTab } from "../Tabs/Team";
+import { GuaranteeTab } from "../Tabs/Guarantee";
+import { UploadsTab } from "../Tabs/Uploads";
+import { NoProjectsCard } from "../Cards/NoProjects";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {

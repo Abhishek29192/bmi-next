@@ -3,10 +3,10 @@ import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
 import { SvgIcon } from "@material-ui/core";
 import { Technology } from "@bmi/intouch-api-types";
-import { FilterResult } from "../../FilterResult";
-import { SidePanel } from "../";
-import { GetProjectsQuery } from "../../../graphql/generated/operations";
-import { PitchIcon, FlatIcon, OtherIcon } from "../../icons";
+import { FilterResult } from "../FilterResult";
+import { SidePanel } from "../SidePanel";
+import { GetProjectsQuery } from "../../graphql/generated/operations";
+import { PitchIcon, FlatIcon, OtherIcon } from "../icons";
 
 const projectFilters = [
   { label: "Not started", attr: "notStarted" },
