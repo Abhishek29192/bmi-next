@@ -8,7 +8,9 @@ import { withPage } from "../lib/middleware/withPage";
 const Toolkit = () => {
   const { t } = useTranslation("common");
 
-  return <Layout title={t("Toolkit")}>Toolkit page content goes here.</Layout>;
+  return (
+    <Layout title={t("Media Tools")}>Toolkit page content goes here.</Layout>
+  );
 };
 
 export const getServerSideProps = withPage(async ({ locale }) => {
