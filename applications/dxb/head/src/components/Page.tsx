@@ -94,7 +94,7 @@ const Page = ({
             type="text/javascript"
             charSet="UTF-8"
             data-domain-script={scriptOnetrust}
-          ></script>
+          />
         )}
         {!process.env.GATSBY_PREVIEW && scriptOnetrust && (
           <script type="text/javascript">
@@ -105,7 +105,7 @@ const Page = ({
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${scriptGA}`}
-          ></script>
+          />
         )}
         {!process.env.GATSBY_PREVIEW && scriptGA && (
           <script>
@@ -133,7 +133,7 @@ const Page = ({
           <script
             async
             src={`https://www.googleoptimize.com/optimize.js?id=${scriptGOptLoad}`}
-          ></script>
+          />
         )}
         {!process.env.GATSBY_PREVIEW && process.env.GATSBY_HUBSPOT_ID && (
           // This script is for the HubSpot CTA Links (see `Link.tsx`)

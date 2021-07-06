@@ -16,6 +16,7 @@ export type Data = {
   pdpCards: (PromoData | PageInfoData)[] | null;
   pdpExploreBar: ExploreBarData | null;
   pdpShareWidget: ShareWidgetSectionData | null;
+  sdpShareWidget: ShareWidgetSectionData | null;
   visualiserShareWidget: ShareWidgetSectionData | null;
   pdpInputBanner: InputBannerData | null;
   searchPageSearchTips: TitleWithContentData | null;
@@ -48,6 +49,9 @@ export const query = graphql`
       ...ExploreBarFragment
     }
     pdpShareWidget {
+      ...ShareWidgetSectionFragment
+    }
+    sdpShareWidget {
       ...ShareWidgetSectionFragment
     }
     visualiserShareWidget {

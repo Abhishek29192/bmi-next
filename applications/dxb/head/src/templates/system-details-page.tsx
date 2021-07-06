@@ -1,12 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Page, { Data as PageData } from "../components/Page";
+import Page from "../components/Page";
 import { Data as SiteData } from "../components/Site";
-import { Data as ProductOverviewData } from "../components/ProductOverview";
-
-export type Data = PageData & {
-  productData: ProductOverviewData;
-};
+import ShareWidgetSection, {
+  Data as ShareWidgetSectionData
+} from "../components/ShareWidgetSection";
 
 type Props = {
   pageContext: {
@@ -15,17 +13,23 @@ type Props = {
   };
   data: {
     contentfulSite: SiteData;
+    shareWidget: ShareWidgetSectionData | null;
   };
 };
 
 const SystemDetailsPage = ({ data }: Props) => {
+  const { contentfulSite } = data;
+  const { resources } = contentfulSite;
+
   return (
     <Page
       title="System Details Page Demo"
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
-      siteData={data.contentfulSite}
+      siteData={contentfulSite}
     >
-      <h1>hey</h1>
+      {resources?.sdpShareWidget && (
+        <ShareWidgetSection data={resources.sdpShareWidget} />
+      )}
     </Page>
   );
 };
