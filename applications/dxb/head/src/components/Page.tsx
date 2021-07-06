@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
+import getJpgImage from "../utils/images";
 import { SiteContext, Data as SiteData } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
@@ -68,6 +69,8 @@ const Page = ({
     !process.env.GATSBY_PREVIEW && process.env.GATSBY_RECAPTCHA_NET === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
+
+  ogImageUrl = getJpgImage(ogImageUrl);
 
   return (
     <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
