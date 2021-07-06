@@ -176,7 +176,13 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
   readonly accountByEmail?: SchemaTypes.Maybe<
     { readonly __typename?: "Account" } & Pick<
       SchemaTypes.Account,
-      "id" | "role" | "marketId" | "email" | "doceboUserId"
+      | "id"
+      | "role"
+      | "marketId"
+      | "firstName"
+      | "lastName"
+      | "email"
+      | "doceboUserId"
     > & {
         readonly market?: SchemaTypes.Maybe<
           { readonly __typename?: "Market" } & Pick<
@@ -195,7 +201,7 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
               readonly company?: SchemaTypes.Maybe<
                 { readonly __typename?: "Company" } & Pick<
                   SchemaTypes.Company,
-                  "id" | "status"
+                  "id" | "status" | "name"
                 >
               >;
             }

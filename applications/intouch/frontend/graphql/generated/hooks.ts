@@ -317,6 +317,8 @@ export const AccountByEmailDocument = gql`
       id
       role
       marketId
+      firstName
+      lastName
       email
       doceboUserId
       market {
@@ -330,6 +332,7 @@ export const AccountByEmailDocument = gql`
           company {
             id
             status
+            name
           }
         }
       }
