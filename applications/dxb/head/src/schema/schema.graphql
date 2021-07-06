@@ -442,6 +442,12 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 
+  "CTA"
+  cta: ContentfulLink @link(from: "cta___NODE")
+
+  "The type of hero to use."
+  heroType: String
+
   "The PIM categories this page is attached to."
   categoryCodes: [String!]
 }

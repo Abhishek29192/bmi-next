@@ -24,6 +24,14 @@ type Data = PageInfoData &
     features: string[] | null;
     featuresLink: LinkData | null;
     breadcrumbs: BreadcrumbsData;
+    heroType:
+      | "Hierarchy"
+      | "Spotlight"
+      | "Level 1"
+      | "Level 2"
+      | "Level 3"
+      | null;
+    cta: LinkData | null;
   };
 
 const heroTitle = "i am a title";
@@ -86,7 +94,9 @@ const pageInfo: Data = {
   path: "",
   content: null,
   features: ["test"],
-  featuresLink: null
+  featuresLink: null,
+  heroType: "Spotlight",
+  cta: null
 };
 
 const mockNavigation: NavigationData = {
