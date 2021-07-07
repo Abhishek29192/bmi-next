@@ -376,8 +376,13 @@ HTMLCollection [
                       class="footer"
                     >
                       <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card Label\\",\\"action\\":\\"contact-us\\"}"
+                        data-testid="card-link"
                         href="/uk/contact-us"
+                        role="button"
+                        tabindex="0"
                       >
                         <span
                           class="MuiButton-label"
@@ -408,8 +413,12 @@ HTMLCollection [
               </div>
             </div>
             <a
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-contained Button link MuiButton-containedPrimary"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/uk/contact-us\\",\\"label\\":\\"Contact us\\"}"
               href="/uk/contact-us"
+              role="button"
+              tabindex="0"
             >
               <span
                 class="MuiButton-label"
@@ -533,8 +542,13 @@ HTMLCollection [
                       class="footer"
                     >
                       <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Go to page title\\",\\"action\\":\\"path\\"}"
+                        data-testid="card-link"
                         href="/uk/path"
+                        role="button"
+                        tabindex="0"
                       >
                         <span
                           class="MuiButton-label"

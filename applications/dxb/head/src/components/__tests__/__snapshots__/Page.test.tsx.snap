@@ -52,6 +52,7 @@ exports[`Page component renders correctly 1`] = `
           class="navigation-bar__left"
         >
           <a
+            aria-label="MC: global.logoLabel"
             class="logo-link"
             href="/uk/"
           >
@@ -98,8 +99,13 @@ exports[`Page component renders correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-disabled="false"
+                    aria-selected="false"
                     class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"undefined\\"}"
                     href="/uk/landing-page"
+                    role="tab"
+                    tabindex="-1"
                   >
                     <span
                       class="MuiTab-wrapper"
@@ -420,8 +426,12 @@ exports[`Page component renders correctly 1`] = `
                 </li>
                 <li>
                   <a
+                    aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
                     href="/uk/landing-page"
+                    role="button"
+                    tabindex="0"
                   >
                     <span
                       class="MuiButton-label"
