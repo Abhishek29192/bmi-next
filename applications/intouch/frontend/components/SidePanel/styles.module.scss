@@ -25,9 +25,21 @@
 
 .filterButtons {
   margin-top: 1rem;
+
+  span {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 0.5em;
+    padding-bottom: 0.5em;
+  }
 }
 
 .results {
   overflow: scroll;
   margin: 1.5rem 0;
+}
+
+.noResult {
+  margin-top: 30px;
+  text-align: center;
 }

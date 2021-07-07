@@ -1,0 +1,13 @@
+@import "@bmi/styles";
+
+.icons {
+  display: flex;
+  margin-top: 10px;
+
+  .icon {
+    margin-left: 10px;
+    &:first-child {
+      margin-left: 0px;
+    }
+  }
+}
