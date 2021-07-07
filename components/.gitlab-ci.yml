@@ -1,5 +1,3 @@
-image: node:12
-
 test_components:
   stage: test
   rules:

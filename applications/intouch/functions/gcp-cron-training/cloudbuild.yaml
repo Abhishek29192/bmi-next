@@ -7,7 +7,7 @@ steps:
       - deploy
       - pubsub-cron-training
       - --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-cron-training.zip
-      - --runtime=nodejs10
+      - --runtime=nodejs14
       - --entry-point=updateTraining
       - --region=europe-west2
       - --trigger-topic=cron-training
