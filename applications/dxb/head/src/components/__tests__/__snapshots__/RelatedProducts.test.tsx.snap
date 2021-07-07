@@ -118,6 +118,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       >
                         <a
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
                           href="/en/"
                         >
                           <span>
@@ -261,6 +262,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       >
                         <a
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
                           href="/en/"
                         >
                           <span>
@@ -306,6 +308,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       >
                         <a
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
                           href="/en/"
                         >
                           <span>
@@ -449,6 +452,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       >
                         <a
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
                           href="/en/"
                         >
                           <span>
@@ -494,6 +498,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       >
                         <a
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
                           href="/en/"
                         >
                           <span>
@@ -639,6 +644,7 @@ exports[`RelatedProducts component renders correctly with products 1`] = `
                       >
                         <a
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
                           href="/en/"
                         >
                           <span>
@@ -784,6 +790,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       >
                         <a
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
                           href="/en/"
                         >
                           <span>
@@ -829,6 +836,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       >
                         <a
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
                           href="/en/"
                         >
                           <span>

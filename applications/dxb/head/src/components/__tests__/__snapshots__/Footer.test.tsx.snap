@@ -81,8 +81,12 @@ exports[`Footer component renders correctly 1`] = `
                   class="list-item"
                 >
                   <a
+                    aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
                     href="/uk/landing-page"
+                    role="button"
+                    tabindex="0"
                   >
                     <span
                       class="MuiButton-label"
@@ -113,8 +117,12 @@ exports[`Footer component renders correctly 1`] = `
               class="list-item"
             >
               <a
+                aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
                 href="/uk/landing-page"
+                role="button"
+                tabindex="0"
               >
                 <span
                   class="MuiButton-label"
@@ -130,8 +138,12 @@ exports[`Footer component renders correctly 1`] = `
               class="list-item"
             >
               <a
+                aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root MuiButton-text Button link Button--dark-background MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
                 href="/uk/sitemap"
+                role="button"
+                tabindex="0"
               >
                 <span
                   class="MuiButton-label"

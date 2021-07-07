@@ -72,6 +72,7 @@ exports[`RichText component renders correctly 1`] = `
      
     <a
       class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Entry\\",\\"action\\":\\"/testing-simple-page/\\"}"
       href="/testing-simple-page/"
     >
       <span>
