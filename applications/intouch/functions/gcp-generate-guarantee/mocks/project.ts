@@ -13,6 +13,7 @@ export const mockProject: Project = {
   guarantees: emptyNodes,
   projectMembers: emptyNodes,
   notes: emptyNodes,
+  evidenceItems: emptyNodes,
   buildingOwnerFirstname: "Herion",
   buildingOwnerLastname: "Buildmaster",
   buildingOwnerMail: "owner@building.com",

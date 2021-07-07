@@ -1,6 +1,6 @@
 import { MailService } from "@sendgrid/mail";
 import { Guarantee } from "@bmi/intouch-api-types";
-import GuaranteePdfGenerator from "./src/GuaranteePdf";
+import GuaranteePdfGenerator from "./GuaranteePdf";
 
 const { SENDGRID_API_KEY, SENDGRID_FROM_MAIL } = process.env;
 
