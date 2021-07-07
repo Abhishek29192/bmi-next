@@ -4,15 +4,15 @@ import {
   getMarketFromReq,
   loginHandler,
   afterCallback
-} from "../pages/api/auth/[...auth0]";
+} from "../../../pages/api/auth/[...auth0]";
 
 const mockGetAccount = jest.fn();
 const mockCreateAccount = jest.fn();
 const mockGetInvitation = jest.fn();
 const mockCreateDoceboUser = jest.fn();
 
-jest.mock("../lib/account", () => {
-  const mockedModule = jest.requireActual("../lib/account");
+jest.mock("../../../lib/account", () => {
+  const mockedModule = jest.requireActual("../../../lib/account");
 
   return {
     __esModule: true,
@@ -29,14 +29,14 @@ jest.mock("../lib/account", () => {
 });
 
 const mockHandleLogin = jest.fn();
-jest.mock("../lib/auth0", () => ({
+jest.mock("../../../lib/auth0", () => ({
   getAuth0Instance: () => ({
     handleLogin: () => mockHandleLogin
   })
 }));
 
 const mockQuery = jest.fn();
-jest.mock("../lib/apolloClient", () => ({
+jest.mock("../../../lib/apolloClient", () => ({
   initializeApollo: () =>
     Promise.resolve({
       query: mockQuery

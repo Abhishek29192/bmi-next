@@ -7,6 +7,49 @@ import * as Apollo from "@apollo/client";
 import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
 
+export async function getServerPageGetProject(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProjectQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetProjectQuery>({
+    ...options,
+    query: Operations.GetProjectDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProject = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProjectQuery,
+    OperationTypes.GetProjectQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProjectDocument, options);
+};
+export type PageGetProjectComp = React.FC<{
+  data?: OperationTypes.GetProjectQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProject = {
+  getServerPage: getServerPageGetProject,
+
+  usePage: useGetProject
+};
 export async function getServerPageAccountByEmail(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.AccountByEmailQueryVariables>,
@@ -396,16 +439,16 @@ export const ssrGetProjects = {
 
   usePage: useGetProjects
 };
-export async function getServerPageGetProject(
+export async function getServerPageCompanyMembers(
   options: Omit<
-    Apollo.QueryOptions<OperationTypes.GetProjectQueryVariables>,
+    Apollo.QueryOptions<OperationTypes.CompanyMembersQueryVariables>,
     "query"
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.GetProjectQuery>({
+  const data = await apolloClient.query<OperationTypes.CompanyMembersQuery>({
     ...options,
-    query: Operations.GetProjectDocument
+    query: Operations.CompanyMembersDocument
   });
 
   const apolloState = apolloClient.cache.extract();
@@ -418,26 +461,26 @@ export async function getServerPageGetProject(
     }
   };
 }
-export const useGetProject = (
+export const useCompanyMembers = (
   optionsFunc?: (
     router: NextRouter
   ) => QueryHookOptions<
-    OperationTypes.GetProjectQuery,
-    OperationTypes.GetProjectQueryVariables
+    OperationTypes.CompanyMembersQuery,
+    OperationTypes.CompanyMembersQueryVariables
   >
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.GetProjectDocument, options);
+  return useQuery(Operations.CompanyMembersDocument, options);
 };
-export type PageGetProjectComp = React.FC<{
-  data?: OperationTypes.GetProjectQuery;
+export type PageCompanyMembersComp = React.FC<{
+  data?: OperationTypes.CompanyMembersQuery;
   error?: Apollo.ApolloError;
 }>;
-export const ssrGetProject = {
-  getServerPage: getServerPageGetProject,
+export const ssrCompanyMembers = {
+  getServerPage: getServerPageCompanyMembers,
 
-  usePage: useGetProject
+  usePage: useCompanyMembers
 };
 export async function getServerPageTraining(
   options: Omit<

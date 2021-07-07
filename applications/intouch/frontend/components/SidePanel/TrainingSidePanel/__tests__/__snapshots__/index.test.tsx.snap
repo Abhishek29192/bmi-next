@@ -65,9 +65,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
       <div
         class="filterButtons"
       >
-        <span
-          style="font-weight: bold; display: inline-block; margin-right: 0.5em; padding-bottom: 0.5em;"
-        >
+        <span>
           Show Me:
         </span>
         <button
@@ -304,9 +302,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
       <div
         class="filterButtons"
       >
-        <span
-          style="font-weight: bold; display: inline-block; margin-right: 0.5em; padding-bottom: 0.5em;"
-        >
+        <span>
           Show Me:
         </span>
         <button
@@ -367,9 +363,11 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
         </button>
       </div>
     </div>
-    <div
-      class="results"
-    />
+    <h5
+      class="MuiTypography-root noResult Typography MuiTypography-h5"
+    >
+      No result found
+    </h5>
   </div>
 </div>
 `;

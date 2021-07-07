@@ -34,6 +34,42 @@ export type UpdateCompanyDetailsMutation = {
   >;
 };
 
+export type GetProjectQueryVariables = SchemaTypes.Exact<{
+  projectId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type GetProjectQuery = { readonly __typename?: "Query" } & {
+  readonly project?: SchemaTypes.Maybe<
+    { readonly __typename?: "Project" } & Pick<
+      SchemaTypes.Project,
+      | "id"
+      | "name"
+      | "technology"
+      | "roofArea"
+      | "startDate"
+      | "endDate"
+      | "description"
+      | "buildingOwnerFirstname"
+      | "buildingOwnerLastname"
+      | "buildingOwnerCompany"
+      | "buildingOwnerMail"
+    > & {
+        readonly siteAddress?: SchemaTypes.Maybe<
+          { readonly __typename?: "Address" } & Pick<
+            SchemaTypes.Address,
+            "firstLine" | "secondLine" | "town" | "region" | "postcode"
+          >
+        >;
+        readonly buildingOwnerAddress?: SchemaTypes.Maybe<
+          { readonly __typename?: "Address" } & Pick<
+            SchemaTypes.Address,
+            "firstLine" | "secondLine" | "town" | "region" | "postcode"
+          >
+        >;
+      }
+  >;
+};
+
 export type AccountByEmailQueryVariables = SchemaTypes.Exact<{
   email: SchemaTypes.Scalars["String"];
 }>;
@@ -439,39 +475,38 @@ export type GetProjectsQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
-export type GetProjectQueryVariables = SchemaTypes.Exact<{
-  projectId: SchemaTypes.Scalars["Int"];
+export type CompanyMembersQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
 }>;
 
-export type GetProjectQuery = { readonly __typename?: "Query" } & {
-  readonly project?: SchemaTypes.Maybe<
-    { readonly __typename?: "Project" } & Pick<
-      SchemaTypes.Project,
-      | "id"
-      | "name"
-      | "technology"
-      | "roofArea"
-      | "startDate"
-      | "endDate"
-      | "description"
-      | "buildingOwnerFirstname"
-      | "buildingOwnerLastname"
-      | "buildingOwnerCompany"
-      | "buildingOwnerMail"
-    > & {
-        readonly siteAddress?: SchemaTypes.Maybe<
-          { readonly __typename?: "Address" } & Pick<
-            SchemaTypes.Address,
-            "firstLine" | "secondLine" | "town" | "region" | "postcode"
-          >
-        >;
-        readonly buildingOwnerAddress?: SchemaTypes.Maybe<
-          { readonly __typename?: "Address" } & Pick<
-            SchemaTypes.Address,
-            "firstLine" | "secondLine" | "town" | "region" | "postcode"
-          >
-        >;
-      }
+export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
+  readonly companyMembers?: SchemaTypes.Maybe<
+    { readonly __typename?: "CompanyMembersConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyMember" } & Pick<
+          SchemaTypes.CompanyMember,
+          "id"
+        > & {
+            readonly account?: SchemaTypes.Maybe<
+              { readonly __typename?: "Account" } & Pick<
+                SchemaTypes.Account,
+                "id" | "email" | "firstName" | "lastName" | "role"
+              > & {
+                  readonly certificationsByDoceboUserId: {
+                    readonly __typename?: "CertificationsConnection";
+                  } & {
+                    readonly nodes: ReadonlyArray<
+                      { readonly __typename?: "Certification" } & Pick<
+                        SchemaTypes.Certification,
+                        "technology"
+                      >
+                    >;
+                  };
+                }
+            >;
+          }
+      >;
+    }
   >;
 };
 

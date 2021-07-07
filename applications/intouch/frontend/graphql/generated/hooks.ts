@@ -85,6 +85,86 @@ export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
 >;
+export const GetProjectDocument = gql`
+  query GetProject($projectId: Int!) {
+    project(id: $projectId) {
+      id
+      name
+      technology
+      roofArea
+      startDate
+      endDate
+      description
+      siteAddress {
+        firstLine
+        secondLine
+        town
+        region
+        postcode
+      }
+      buildingOwnerFirstname
+      buildingOwnerLastname
+      buildingOwnerCompany
+      buildingOwnerMail
+      buildingOwnerAddress {
+        firstLine
+        secondLine
+        town
+        region
+        postcode
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetProjectQuery__
+ *
+ * To run a query within a React component, call `useGetProjectQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProjectQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProjectQuery({
+ *   variables: {
+ *      projectId: // value for 'projectId'
+ *   },
+ * });
+ */
+export function useGetProjectQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetProjectQuery,
+    OperationTypes.GetProjectQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetProjectQuery,
+    OperationTypes.GetProjectQueryVariables
+  >(GetProjectDocument, options);
+}
+export function useGetProjectLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetProjectQuery,
+    OperationTypes.GetProjectQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetProjectQuery,
+    OperationTypes.GetProjectQueryVariables
+  >(GetProjectDocument, options);
+}
+export type GetProjectQueryHookResult = ReturnType<typeof useGetProjectQuery>;
+export type GetProjectLazyQueryHookResult = ReturnType<
+  typeof useGetProjectLazyQuery
+>;
+export type GetProjectQueryResult = Apollo.QueryResult<
+  OperationTypes.GetProjectQuery,
+  OperationTypes.GetProjectQueryVariables
+>;
 export const AccountByEmailDocument = gql`
   query accountByEmail($email: String!) {
     accountByEmail(email: $email) {
@@ -1159,85 +1239,76 @@ export type GetProjectsQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectsQuery,
   OperationTypes.GetProjectsQueryVariables
 >;
-export const GetProjectDocument = gql`
-  query GetProject($projectId: Int!) {
-    project(id: $projectId) {
-      id
-      name
-      technology
-      roofArea
-      startDate
-      endDate
-      description
-      siteAddress {
-        firstLine
-        secondLine
-        town
-        region
-        postcode
-      }
-      buildingOwnerFirstname
-      buildingOwnerLastname
-      buildingOwnerCompany
-      buildingOwnerMail
-      buildingOwnerAddress {
-        firstLine
-        secondLine
-        town
-        region
-        postcode
+export const CompanyMembersDocument = gql`
+  query companyMembers {
+    companyMembers {
+      nodes {
+        id
+        account {
+          id
+          email
+          firstName
+          lastName
+          role
+          certificationsByDoceboUserId {
+            nodes {
+              technology
+            }
+          }
+        }
       }
     }
   }
 `;
 
 /**
- * __useGetProjectQuery__
+ * __useCompanyMembersQuery__
  *
- * To run a query within a React component, call `useGetProjectQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetProjectQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useCompanyMembersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCompanyMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetProjectQuery({
+ * const { data, loading, error } = useCompanyMembersQuery({
  *   variables: {
- *      projectId: // value for 'projectId'
  *   },
  * });
  */
-export function useGetProjectQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    OperationTypes.GetProjectQuery,
-    OperationTypes.GetProjectQueryVariables
+export function useCompanyMembersQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.CompanyMembersQuery,
+    OperationTypes.CompanyMembersQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
-    OperationTypes.GetProjectQuery,
-    OperationTypes.GetProjectQueryVariables
-  >(GetProjectDocument, options);
+    OperationTypes.CompanyMembersQuery,
+    OperationTypes.CompanyMembersQueryVariables
+  >(CompanyMembersDocument, options);
 }
-export function useGetProjectLazyQuery(
+export function useCompanyMembersLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.GetProjectQuery,
-    OperationTypes.GetProjectQueryVariables
+    OperationTypes.CompanyMembersQuery,
+    OperationTypes.CompanyMembersQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
-    OperationTypes.GetProjectQuery,
-    OperationTypes.GetProjectQueryVariables
-  >(GetProjectDocument, options);
+    OperationTypes.CompanyMembersQuery,
+    OperationTypes.CompanyMembersQueryVariables
+  >(CompanyMembersDocument, options);
 }
-export type GetProjectQueryHookResult = ReturnType<typeof useGetProjectQuery>;
-export type GetProjectLazyQueryHookResult = ReturnType<
-  typeof useGetProjectLazyQuery
+export type CompanyMembersQueryHookResult = ReturnType<
+  typeof useCompanyMembersQuery
 >;
-export type GetProjectQueryResult = Apollo.QueryResult<
-  OperationTypes.GetProjectQuery,
-  OperationTypes.GetProjectQueryVariables
+export type CompanyMembersLazyQueryHookResult = ReturnType<
+  typeof useCompanyMembersLazyQuery
+>;
+export type CompanyMembersQueryResult = Apollo.QueryResult<
+  OperationTypes.CompanyMembersQuery,
+  OperationTypes.CompanyMembersQueryVariables
 >;
 export const TrainingDocument = gql`
   query training($catalogueId: Int, $userId: Int) {

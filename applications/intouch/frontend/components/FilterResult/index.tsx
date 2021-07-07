@@ -10,15 +10,17 @@ export type FilterResultProps = {
   label: string;
   onClick?: () => void;
   children: React.ReactNode | React.ReactNode[];
+  testId?: string;
 };
 
 export const FilterResult = ({
   label,
   onClick,
-  children
+  children,
+  testId
 }: FilterResultProps) => {
   return (
-    <div>
+    <div data-testid={testId}>
       <CardActionArea onClick={onClick}>
         <CardContent className={styles.main}>
           <Typography variant="h6" className={styles.title}>
