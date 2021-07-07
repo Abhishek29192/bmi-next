@@ -76,14 +76,16 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                                 <h6
                                   class="MuiTypography-root date Typography MuiTypography-h6"
                                 >
-                                  June 9, 2021
+                                  9 June 2021
                                 </h6>
-                                <button
+                                <a
+                                  aria-disabled="false"
                                   class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                                   data-testid="card-link"
+                                  href="/en/null"
+                                  role="button"
                                   tabindex="0"
-                                  type="button"
                                 >
                                   <span
                                     class="MuiButton-label"
@@ -107,7 +109,7 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
                                   <span
                                     class="MuiTouchRipple-root"
                                   />
-                                </button>
+                                </a>
                               </div>
                             </div>
                           </div>
@@ -177,14 +179,16 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9 June 2021
                       </h6>
-                      <button
+                      <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                         data-testid="card-link"
+                        href="/en/null"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         <span
                           class="MuiButton-label"
@@ -208,7 +212,7 @@ exports[`CardCollectionSection component Renders correctly When entry-hyperlink 
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -277,14 +281,16 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9 June 2021
                       </h6>
-                      <button
+                      <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                         data-testid="card-link"
+                        href="/en/null"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         <span
                           class="MuiButton-label"
@@ -308,7 +314,7 @@ exports[`CardCollectionSection component Renders correctly When heading 2 is pre
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -377,14 +383,16 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9 June 2021
                       </h6>
-                      <button
+                      <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                         data-testid="card-link"
+                        href="/en/null"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         <span
                           class="MuiButton-label"
@@ -408,7 +416,7 @@ exports[`CardCollectionSection component Renders correctly When heading 3 is pre
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -477,14 +485,16 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9 June 2021
                       </h6>
-                      <button
+                      <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                         data-testid="card-link"
+                        href="/en/null"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         <span
                           class="MuiButton-label"
@@ -508,7 +518,7 @@ exports[`CardCollectionSection component Renders correctly When heading 4 is pre
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -577,14 +587,16 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9 June 2021
                       </h6>
-                      <button
+                      <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                         data-testid="card-link"
+                        href="/en/null"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         <span
                           class="MuiButton-label"
@@ -608,7 +620,7 @@ exports[`CardCollectionSection component Renders correctly When heading 5 is pre
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -677,14 +689,16 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9 June 2021
                       </h6>
-                      <button
+                      <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                         data-testid="card-link"
+                        href="/en/null"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         <span
                           class="MuiButton-label"
@@ -708,7 +722,7 @@ exports[`CardCollectionSection component Renders correctly When heading 6 is pre
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -777,14 +791,16 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9 June 2021
                       </h6>
-                      <button
+                      <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                         data-testid="card-link"
+                        href="/en/null"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         <span
                           class="MuiButton-label"
@@ -808,7 +824,7 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -877,14 +893,16 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9 June 2021
                       </h6>
-                      <button
+                      <a
+                        aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/en/null\\"}"
                         data-testid="card-link"
+                        href="/en/null"
+                        role="button"
                         tabindex="0"
-                        type="button"
                       >
                         <span
                           class="MuiButton-label"
@@ -908,16 +926,20 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
                         <span
                           class="MuiTouchRipple-root"
                         />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <button
+            <a
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-contained Button link MuiButton-containedPrimary"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              href="https://www.external.co.uk"
+              rel="noopener noreferrer"
               tabindex="0"
-              type="button"
+              target="_blank"
             >
               <span
                 class="MuiButton-label"
@@ -941,7 +963,7 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
               <span
                 class="MuiTouchRipple-root"
               />
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -1047,7 +1069,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9. juni 2021
                       </h6>
                       <a
                         aria-disabled="false"
@@ -1108,7 +1130,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9. juni 2021
                       </h6>
                       <a
                         aria-disabled="false"
@@ -1169,7 +1191,7 @@ exports[`CardCollectionSection component Sorts correctly By newest date first 1`
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9. juni 2021
                       </h6>
                       <a
                         aria-disabled="false"
@@ -1313,7 +1335,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9. juni 2021
                       </h6>
                       <a
                         aria-disabled="false"
@@ -1374,7 +1396,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9. juni 2021
                       </h6>
                       <a
                         aria-disabled="false"
@@ -1435,7 +1457,7 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                       <h6
                         class="MuiTypography-root date Typography MuiTypography-h6"
                       >
-                        June 9, 2021
+                        9. juni 2021
                       </h6>
                       <a
                         aria-disabled="false"
