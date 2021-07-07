@@ -13,6 +13,7 @@ import { TeamTab } from "../../components/Tabs/Team";
 import { GuaranteeTab } from "../../components/Tabs/Guarantee";
 import { UploadsTab } from "../../components/Tabs/Uploads";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
+import { NoteTab } from "../../components/Tabs/Notes";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 
@@ -94,7 +95,9 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
             </TabCard>
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Notes" index="four">
-            <TabCard>{"Add Note tabs"}</TabCard>
+            <TabCard>
+              <NoteTab notes={project.notes?.nodes as Note[]} />
+            </TabCard>
           </Tabs.TabPanel>
         </Tabs>
       </Grid>
