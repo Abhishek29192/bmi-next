@@ -3,14 +3,10 @@ import { makeExtendSchemaPlugin } from "graphile-utils";
 import { invite, completeInvitation } from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
 import { getGuarantee, getEvidenceCategory } from "../../services/contentful";
-<<<<<<< HEAD
 import {
   getCompanyCertifications,
   guaranteeResolver
 } from "../../services/company/customResolvers";
-=======
-import { guaranteeResolver } from "../../services/company/customResolvers";
->>>>>>> c23cd701 (feat(intouch-api): update custom guarantee resolver to get evidences)
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import typeDefs from "./typeDefs";

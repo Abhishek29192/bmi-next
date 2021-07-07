@@ -127,6 +127,14 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
               }
           >;
         };
+        readonly notes: { readonly __typename?: "NotesConnection" } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "Note" } & Pick<
+              SchemaTypes.Note,
+              "id" | "body" | "createdAt"
+            >
+          >;
+        };
       }
   >;
 };

@@ -146,6 +146,13 @@ export const GetProjectDocument = gql`
           }
         }
       }
+      notes(orderBy: ID_DESC) {
+        nodes {
+          id
+          body
+          createdAt
+        }
+      }
     }
   }
 `;

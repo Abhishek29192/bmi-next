@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
+import { Note } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
@@ -91,6 +92,9 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
             <TabCard>
               <UploadedFiles project={project} />
             </TabCard>
+          </Tabs.TabPanel>
+          <Tabs.TabPanel heading="Notes" index="four">
+            <TabCard>{"Add Note tabs"}</TabCard>
           </Tabs.TabPanel>
         </Tabs>
       </Grid>
@@ -186,6 +190,13 @@ export const GET_PROJECT = gql`
             name
             minimumUploads
           }
+        }
+      }
+      notes(orderBy: ID_DESC) {
+        nodes {
+          id
+          body
+          createdAt
         }
       }
     }
