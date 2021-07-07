@@ -353,6 +353,92 @@ export const ssrGetPartnerBrands = {
 
   usePage: useGetPartnerBrands
 };
+export async function getServerPageGetProjects(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProjectsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetProjectsQuery>({
+    ...options,
+    query: Operations.GetProjectsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProjects = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProjectsQuery,
+    OperationTypes.GetProjectsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProjectsDocument, options);
+};
+export type PageGetProjectsComp = React.FC<{
+  data?: OperationTypes.GetProjectsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProjects = {
+  getServerPage: getServerPageGetProjects,
+
+  usePage: useGetProjects
+};
+export async function getServerPageGetProject(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProjectQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetProjectQuery>({
+    ...options,
+    query: Operations.GetProjectDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProject = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProjectQuery,
+    OperationTypes.GetProjectQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProjectDocument, options);
+};
+export type PageGetProjectComp = React.FC<{
+  data?: OperationTypes.GetProjectQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProject = {
+  getServerPage: getServerPageGetProject,
+
+  usePage: useGetProject
+};
 export async function getServerPageTraining(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.TrainingQueryVariables>,

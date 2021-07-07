@@ -415,6 +415,66 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type GetProjectsQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetProjectsQuery = { readonly __typename?: "Query" } & {
+  readonly projects?: SchemaTypes.Maybe<
+    { readonly __typename?: "ProjectsConnection" } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "Project" } & Pick<
+          SchemaTypes.Project,
+          "id" | "name" | "technology" | "startDate" | "endDate"
+        > & {
+            readonly siteAddress?: SchemaTypes.Maybe<
+              { readonly __typename?: "Address" } & Pick<
+                SchemaTypes.Address,
+                "town" | "postcode"
+              >
+            >;
+          }
+      >;
+    }
+  >;
+};
+
+export type GetProjectQueryVariables = SchemaTypes.Exact<{
+  projectId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type GetProjectQuery = { readonly __typename?: "Query" } & {
+  readonly project?: SchemaTypes.Maybe<
+    { readonly __typename?: "Project" } & Pick<
+      SchemaTypes.Project,
+      | "id"
+      | "name"
+      | "technology"
+      | "roofArea"
+      | "startDate"
+      | "endDate"
+      | "description"
+      | "buildingOwnerFirstname"
+      | "buildingOwnerLastname"
+      | "buildingOwnerCompany"
+      | "buildingOwnerMail"
+    > & {
+        readonly siteAddress?: SchemaTypes.Maybe<
+          { readonly __typename?: "Address" } & Pick<
+            SchemaTypes.Address,
+            "firstLine" | "secondLine" | "town" | "region" | "postcode"
+          >
+        >;
+        readonly buildingOwnerAddress?: SchemaTypes.Maybe<
+          { readonly __typename?: "Address" } & Pick<
+            SchemaTypes.Address,
+            "firstLine" | "secondLine" | "town" | "region" | "postcode"
+          >
+        >;
+      }
+  >;
+};
+
 export type TrainingQueryVariables = SchemaTypes.Exact<{
   catalogueId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
   userId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
