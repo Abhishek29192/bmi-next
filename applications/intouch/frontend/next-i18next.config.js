@@ -6,7 +6,7 @@ const isMultiMarket = process.env.AUTH0_COOKIE_DOMAIN === "local.intouch";
 // Prod will be always multimarket
 const PROD_DOMAIN = [
   {
-    domain: "tf-frontend-rfwslk3zjq-nw.a.run.app",
+    domain: "35.214.66.132",
     defaultLocale: "en_EN"
   }
 ];
