@@ -35,7 +35,7 @@ resource "google_cloud_run_service" "default" {
         }
         env {
           name  = "AUTH0_COOKIE_DOMAIN"
-          value = "tf-frontend-rfwslk3zjq-nw.a.run.app"
+          value = "35.214.66.132"
         }
         env {
           name  = "GRAPHQL_URL"
