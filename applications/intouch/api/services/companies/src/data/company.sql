@@ -437,10 +437,10 @@ INSERT INTO account (id, status, market_id, ROLE, email, phone, first_name, last
 TRUNCATE TABLE address RESTART IDENTITY;
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('1', 'Blue Star House', '234-244 Stockwell Road, Brixton, London. SW9 9SP', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
+  VALUES ('1', 'Blue Star House', '234-244 Stockwell Road', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('2', 'Piazza di Trevi', NULL, 'Rome', NULL, 'Italy', '00187 Roma RM', NULL, NULL);
+  VALUES ('2', 'Piazza di Trevi', NULL, 'Roma', NULL, 'Italy', '00187 Roma RM', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('3', '328 Coldharbour Lane', 'Brixton', 'London', NULL, 'UK', 'SW9 8QH', NULL, NULL);
@@ -452,7 +452,7 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('5', 'Praça do Príncipe Real 23 24', 'Near the Castle', 'Lisbon', NULL, 'Portugal', '1250-096 Lisboa', '(38.7170416,-9.1510413)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('6', '39 Old Castle Rd, Weymouth DT4 8QE', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(10.6971494,-72.2598689)', NULL);
+  VALUES ('6', '39 Old Castle Rd', NULL, 'Weymouth', 'Wessex', 'UK', 'DT4 8QE', '(10.6971494,-72.2598689)', NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('7', '1 Brixton Hill', 'Brixton', NULL, 'London', 'UK', 'SW2 1RW', NULL, NULL);
@@ -464,7 +464,7 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('9', '211 Stockwell Rd', 'Brixton', NULL, 'London', 'UK', 'SW9 9SL', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('10', '103 Gaunt St', 'Lambeth', NULL, 'London', 'UK', 'London SE1 6DP', NULL, NULL);
+  VALUES ('10', '103 Gaunt St', 'Lambeth', NULL, 'London', 'UK', 'SE1 6DP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('11', '12 Alice Mansions', 'Soho', NULL, 'London', 'UK', 'UK W1A', NULL, NULL);
@@ -479,7 +479,7 @@ INSERT INTO address (id, first_line, second_line, town, region, country, postcod
   VALUES ('14', '4 Oxford Street', NULL, NULL, 'London', 'UK', 'W1B 5LP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
-  VALUES ('15', 'Next to Bluestar House', '234-244 Stockwell Road, Brixton, London. SW9 9SP', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
+  VALUES ('15', 'Next to Bluestar House', '234-244 Stockwell Road', 'Brixton', 'London', 'UK', 'SW9 9SP', NULL, NULL);
 
 INSERT INTO address (id, first_line, second_line, town, region, country, postcode, coordinates, migration_id)
   VALUES ('16', '4 Oxford Street', NULL, NULL, 'London', 'UK', 'W1B 5LP', NULL, NULL);
@@ -534,13 +534,13 @@ INSERT INTO certification (id, docebo_user_id, technology, name, expiry_date)
 TRUNCATE TABLE company RESTART IDENTITY;
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', '142214', 'Integrated Solutions Inc', '63323-463', '843-985-4588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '0093-7392', 'https://favpng.com/png_view/the-railcar-wikimedia-commonssnowman-buttons-cliparts-creative-commons-license-share-alike-escape-artistry-png/G2phAUt6', NULL, NULL, NULL);
+  VALUES ('1', 1, 1, 4, 'Don Cheadle', 'don@test.com', '1232123', 'CONTRACTOR', 'T2', 'ACTIVE', 'twhorlton0@miibeian.gov.cn', '2020-10-20 12:00:00', '142214', 'Integrated Solutions Inc', '63323-463', '843-985-4588', 'We put stuff together really quickly without any fuss', 'lfoskin0@paypal.com', 'https://sphinn.com', 'https://www.facebook.com/WhiteHouse/', 'https://www.linkedin.com/company/the-white-house', '0093-7392', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1280px-Smiley.svg.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', '52355', 'Pathfinder Construction Ltd', '0378-4094', '757-208-9959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '64772-300', 'https://favpng.com/png_view/file-ussr-star-wikimedia-commons-russia-soviet-union-red-star-png/WEtg4eiw', NULL, NULL, NULL);
+  VALUES ('2', 1, 2, 5, 'Liam Gallagher', 'liam@test.com', '234234', 'CONTRACTOR', 'T4', 'ACTIVE', 'mbrosch1@go.com', '2020-11-20 12:00:00', '52355', 'Pathfinder Construction Ltd', '0378-4094', '757-208-9959', 'We build really hard things that support everything else', 'ssnipe1@pen.io', 'https://oracle.com', 'https://www.facebook.com/europeanparliament', 'https://www.linkedin.com/company/eu', '64772-300', 'https://upload.wikimedia.org/wikipedia/commons/7/7d/A_Red_Star.png', NULL, NULL, NULL);
 
 INSERT INTO company (id, market_id, registered_address_id, trading_address_id, owner_fullname, owner_email, owner_phone, business_type, tier, status, registered_by, registered_date, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook, linked_in, reference_number, logo, migration_id, trading_address_migration_id, registered_address_migration_id)
-  VALUES ('3', 1, 3, 6, 'Charlotte Church', 'charlotte@test.com', '345345', 'CONTRACTOR', 'T3', 'DEACTIVATED', 'dhechlin2@amazon.com', '2020-9-20 12:00:00', '4666', 'dXB Roofing PLC', '49738-530', '843-584-2619', 'We build stuff that looks great', 'liacovielli2@discovery.com', 'https://utexas.edu', 'https://www.facebook.com/Sony/', 'https://in.linkedin.com/company/sony', '0179-0110', 'https://favpng.com/png_view/lotus-wikimedia-commons-clip-art-png/10vQG4nP', NULL, NULL, NULL);
+  VALUES ('3', 1, 3, 6, 'Charlotte Church', 'charlotte@test.com', '345345', 'CONTRACTOR', 'T3', 'DEACTIVATED', 'dhechlin2@amazon.com', '2020-9-20 12:00:00', '4666', 'dXB Roofing PLC', '49738-530', '843-584-2619', 'We build stuff that looks great', 'liacovielli2@discovery.com', 'https://utexas.edu', 'https://www.facebook.com/Sony/', 'https://in.linkedin.com/company/sony', '0179-0110', 'https://upload.wikimedia.org/wikipedia/commons/3/33/StubMetal.png', NULL, NULL, NULL);
 
 TRUNCATE TABLE company_document RESTART IDENTITY;
 
@@ -1525,6 +1525,8 @@ CREATE TRIGGER set_system_updated_at
   EXECUTE PROCEDURE update_modified_column ();
 
 CREATE INDEX account_email_idx ON account USING btree (email);
+
+CREATE INDEX certification_technology_idx ON certification USING btree (technology);
 
 CREATE INDEX invitation_status_idx ON invitation USING btree (status);
 
