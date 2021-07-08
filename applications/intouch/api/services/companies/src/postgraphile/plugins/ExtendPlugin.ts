@@ -2,7 +2,7 @@ import { GraphQLUpload } from "graphql-upload";
 import { makeExtendSchemaPlugin } from "graphile-utils";
 import { invite, completeInvitation } from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
-import { getGuarantee } from "../../services/contentful";
+import { getGuarantee, getEvidenceCategory } from "../../services/contentful";
 import {
   getCompanyCertifications,
   guaranteeResolver
@@ -33,6 +33,19 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           } = await getGuarantee(guaranteeTypeId);
 
           return guaranteeType;
+        }
+      },
+      EvidenceItem: {
+        customEvidenceCategory: async (_query, args, context) => {
+          const { customEvidenceCategoryId } = _query;
+
+          if (!customEvidenceCategoryId) return null;
+
+          const {
+            data: { evidenceCategory }
+          } = await getEvidenceCategory(customEvidenceCategoryId);
+
+          return evidenceCategory;
         }
       },
       Mutation: {

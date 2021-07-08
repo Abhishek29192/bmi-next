@@ -2862,6 +2862,10 @@ type ContentfulEvidenceCategory {
   minimumUploads: Int
 }
 
+type ContentfulEvidenceCategoryCollection {
+  items: [ContentfulEvidenceCategory]
+}
+
 enum ContentfulGuaranteeCoverageType {
   PRODUCT
   SYSTEM
@@ -2912,7 +2916,7 @@ type ContentfulGuaranteeType {
   maximumValidityYears: Int
   tiersAvailable: ContentfulTiers
   ranking: Int
-  evidenceCategories: ContentfulEvidenceCategory
+  evidenceCategoriesCollection: ContentfulEvidenceCategoryCollection
   guaranteeTemplatesCollection: ContentfulGuaranteeTemplatesCollection
 }
 
@@ -7868,6 +7872,7 @@ type EvidenceItem implements Node {
   Reads a single `Guarantee` that is related to this `EvidenceItem`.
   """
   guarantee: Guarantee
+  customEvidenceCategory: ContentfulEvidenceCategory
 }
 
 """

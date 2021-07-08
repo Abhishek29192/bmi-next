@@ -3,15 +3,17 @@ import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-import { ProjectsHeader } from "../Cards/ProjectsHeader";
-import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
-import { ProjectsInsight } from "../Cards/ProjectsInsight";
-import { TabCard } from "../Cards/TabCard";
-import { TeamTab } from "../Tabs/Team";
-import { GuaranteeTab } from "../Tabs/Guarantee";
-import { UploadsTab } from "../Tabs/Uploads";
-import { NoProjectsCard } from "../Cards/NoProjects";
+import { useTranslation } from "next-i18next";
+import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
+import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
+import { ProjectsInsight } from "../../components/Cards/ProjectsInsight";
+import { TabCard } from "../../components/Cards/TabCard";
+import { TeamTab } from "../../components/Tabs/Team";
+import { GuaranteeTab } from "../../components/Tabs/Guarantee";
+import { UploadsTab } from "../../components/Tabs/Uploads";
+import { NoProjectsCard } from "../../components/Cards/NoProjects";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
+import { GetProjectQuery } from "../../graphql/generated/operations";
 
 const ProjectDetail = ({ projectId }: { projectId: number }) => {
   if (!projectId) {
@@ -87,13 +89,45 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Uploads" index="three">
             <TabCard>
-              <UploadsTab />
+              <UploadedFiles project={project} />
             </TabCard>
           </Tabs.TabPanel>
         </Tabs>
       </Grid>
     </>
   );
+};
+
+const UploadedFiles = ({
+  project
+}: {
+  project: GetProjectQuery["project"];
+}) => {
+  const { t } = useTranslation("project-page");
+  const { guarantees, evidenceItems } = project;
+
+  const map = new Map<string, string[]>();
+  //Default category
+  map.set(t("MISCELLANEOUS"), []);
+  //Default guarantee types
+  for (const guarantee of guarantees.nodes) {
+    for (const evidenceCategory of guarantee.guaranteeType
+      .evidenceCategoriesCollection?.items) {
+      map.set(evidenceCategory.name, []);
+    }
+  }
+
+  for (const evidence of evidenceItems.nodes) {
+    const categoryLabel =
+      evidence.evidenceCategoryType !== "CUSTOM"
+        ? t(evidence.evidenceCategoryType)
+        : evidence.customEvidenceCategory?.name ||
+          t(evidence.evidenceCategoryType);
+
+    const existFiles = map.has(categoryLabel) ? map.get(categoryLabel) : [];
+    map.set(categoryLabel, [...existFiles, evidence.name]);
+  }
+  return <UploadsTab uploads={map} />;
 };
 
 export default ProjectDetail;
@@ -125,6 +159,34 @@ export const GET_PROJECT = gql`
         town
         region
         postcode
+      }
+      guarantees {
+        nodes {
+          id
+          guaranteeTypeId
+          guaranteeType {
+            name
+            evidenceCategoriesCollection {
+              items {
+                name
+                minimumUploads
+              }
+            }
+          }
+        }
+      }
+      evidenceItems {
+        nodes {
+          id
+          name
+          guaranteeId
+          evidenceCategoryType
+          customEvidenceCategoryId
+          customEvidenceCategory {
+            name
+            minimumUploads
+          }
+        }
       }
     }
   }

@@ -118,6 +118,34 @@ export const GetProjectDocument = gql`
         region
         postcode
       }
+      guarantees {
+        nodes {
+          id
+          guaranteeTypeId
+          guaranteeType {
+            name
+            evidenceCategoriesCollection {
+              items {
+                name
+                minimumUploads
+              }
+            }
+          }
+        }
+      }
+      evidenceItems {
+        nodes {
+          id
+          name
+          guaranteeId
+          evidenceCategoryType
+          customEvidenceCategoryId
+          customEvidenceCategory {
+            name
+            minimumUploads
+          }
+        }
+      }
     }
   }
 `;

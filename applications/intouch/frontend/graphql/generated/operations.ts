@@ -70,6 +70,63 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
             "firstLine" | "secondLine" | "town" | "region" | "postcode"
           >
         >;
+        readonly guarantees: {
+          readonly __typename?: "GuaranteesConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "Guarantee" } & Pick<
+              SchemaTypes.Guarantee,
+              "id" | "guaranteeTypeId"
+            > & {
+                readonly guaranteeType?: SchemaTypes.Maybe<
+                  { readonly __typename?: "ContentfulGuaranteeType" } & Pick<
+                    SchemaTypes.ContentfulGuaranteeType,
+                    "name"
+                  > & {
+                      readonly evidenceCategoriesCollection?: SchemaTypes.Maybe<
+                        {
+                          readonly __typename?: "ContentfulEvidenceCategoryCollection";
+                        } & {
+                          readonly items?: SchemaTypes.Maybe<
+                            ReadonlyArray<
+                              SchemaTypes.Maybe<
+                                {
+                                  readonly __typename?: "ContentfulEvidenceCategory";
+                                } & Pick<
+                                  SchemaTypes.ContentfulEvidenceCategory,
+                                  "name" | "minimumUploads"
+                                >
+                              >
+                            >
+                          >;
+                        }
+                      >;
+                    }
+                >;
+              }
+          >;
+        };
+        readonly evidenceItems: {
+          readonly __typename?: "EvidenceItemsConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "EvidenceItem" } & Pick<
+              SchemaTypes.EvidenceItem,
+              | "id"
+              | "name"
+              | "guaranteeId"
+              | "evidenceCategoryType"
+              | "customEvidenceCategoryId"
+            > & {
+                readonly customEvidenceCategory?: SchemaTypes.Maybe<
+                  { readonly __typename?: "ContentfulEvidenceCategory" } & Pick<
+                    SchemaTypes.ContentfulEvidenceCategory,
+                    "name" | "minimumUploads"
+                  >
+                >;
+              }
+          >;
+        };
       }
   >;
 };
