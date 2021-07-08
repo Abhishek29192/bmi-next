@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
+import { Note } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
@@ -12,6 +13,7 @@ import { TeamTab } from "../../components/Tabs/Team";
 import { GuaranteeTab } from "../../components/Tabs/Guarantee";
 import { UploadsTab } from "../../components/Tabs/Uploads";
 import { NoProjectsCard } from "../../components/Cards/NoProjects";
+import { NoteTab } from "../../components/Tabs/Notes";
 import { useGetProjectQuery } from "../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../graphql/generated/operations";
 
@@ -90,6 +92,11 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           <Tabs.TabPanel heading="Uploads" index="three">
             <TabCard>
               <UploadedFiles project={project} />
+            </TabCard>
+          </Tabs.TabPanel>
+          <Tabs.TabPanel heading="Notes" index="four">
+            <TabCard>
+              <NoteTab notes={project.notes?.nodes as Note[]} />
             </TabCard>
           </Tabs.TabPanel>
         </Tabs>
@@ -186,6 +193,13 @@ export const GET_PROJECT = gql`
             name
             minimumUploads
           }
+        }
+      }
+      notes(orderBy: ID_DESC) {
+        nodes {
+          id
+          body
+          createdAt
         }
       }
     }
