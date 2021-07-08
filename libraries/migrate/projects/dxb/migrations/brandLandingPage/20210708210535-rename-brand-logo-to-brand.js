@@ -9,7 +9,7 @@ module.exports.description = "Rename brandLogo to brand";
  * @type {MigrationFunction}
  */
 module.exports.up = (migration) => {
-  const page = migration.editContentType("page");
+  const page = migration.editContentType("brandLandingPage");
 
   page.changeFieldId("brandLogo", "brand");
   page.editField("brand").name("Brand");
@@ -20,7 +20,7 @@ module.exports.up = (migration) => {
  * @type {MigrationFunction}
  */
 module.exports.down = (migration) => {
-  const page = migration.editContentType("page");
+  const page = migration.editContentType("brandLandingPage");
 
   page.changeFieldId("brand", "brandLogo");
   page.editField("brandLogo").name("Brand Logo");
