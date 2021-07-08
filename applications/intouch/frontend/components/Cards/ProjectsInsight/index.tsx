@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
 import { InfoPair } from "../../InfoPair";
+import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 
 export type ProjectsInsightProps = {
@@ -18,7 +19,7 @@ export const ProjectsInsight = ({
   const { t } = useTranslation("sidebar");
 
   return (
-    <div className={styles.main}>
+    <SimpleCard>
       <Typography variant="h4" style={{ fontSize: "1.25rem" }} hasUnderline>
         {t("Project insight")}
       </Typography>
@@ -35,6 +36,6 @@ export const ProjectsInsight = ({
           {t("There are no BMI certified installers")}
         </InfoPair>
       </div>
-    </div>
+    </SimpleCard>
   );
 };
