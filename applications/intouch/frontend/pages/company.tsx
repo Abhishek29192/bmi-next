@@ -23,6 +23,7 @@ import { InfoPair } from "../components/InfoPair";
 import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
 import CompanyDetailsCard from "../components/CompanyDetailsCard";
+import { CertificationsCard } from "../components/Cards/Certifications";
 
 import can from "../lib/permissions/can";
 import {
@@ -196,6 +197,15 @@ const CompanyPage = ({ company }: PageProps) => {
             </CardContent>
           </Card>
         </Grid>
+
+        {company.certifications.length > 0 && (
+          <Grid item xs={12} lg={5} xl={4}>
+            <CertificationsCard
+              title={t("BMI Certifications")}
+              certifications={company.certifications}
+            />
+          </Grid>
+        )}
       </Grid>
     </Layout>
   );
@@ -211,6 +221,7 @@ export const GET_COMPANY = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       ...CompanyDetailsFragment
+      ...CompanyCertifications
     }
   }
 `;
@@ -246,7 +257,7 @@ export const getServerSideProps = withPage(
       pageProps.company = company;
     }
 
-    let canViewPage = can(account, "company", "view", {
+    const canViewPage = can(account, "company", "view", {
       companyMemberIds: pageProps.company
         ? pageProps.company.companyMembers.nodes.map(
             ({ accountId }) => accountId

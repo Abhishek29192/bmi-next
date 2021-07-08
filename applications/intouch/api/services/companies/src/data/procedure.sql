@@ -169,3 +169,23 @@ LANGUAGE 'plpgsql'
 VOLATILE
 SECURITY DEFINER;
 
+-- This custom function bypasses RLS
+-- We want to preserve RLS for companies (an installer/company_admin can see their company's certifications, but not other companies/markets certifications)
+-- But we want to bypass RLS for user certifications (an installer can see company certifications, but not other users' certifications)
+-- In order to preserve Company RLS, we omit this function from postgraphile (see postgraphile.tags.json5)
+CREATE OR REPLACE FUNCTION get_company_certifications (input_company_id int)
+    RETURNS setof text
+    AS $$
+    SELECT DISTINCT
+      technology
+    FROM
+        certification
+        JOIN account ON certification.docebo_user_id = account.docebo_user_id
+        JOIN company_member ON account.id = company_member.account_id
+    WHERE
+        company_member.company_id = input_company_id
+        AND certification.expiry_date > now();
+$$
+LANGUAGE sql
+STABLE
+SECURITY DEFINER;

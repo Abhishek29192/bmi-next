@@ -53,6 +53,7 @@
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/gitlab": "^6.0.5",
     "@semantic-release/release-notes-generator": "^9.0.1",
+    "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^10.0.4",
     "@typescript-eslint/eslint-plugin": "^3.0.2",
     "@typescript-eslint/parser": "^3.0.2",

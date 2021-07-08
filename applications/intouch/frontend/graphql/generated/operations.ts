@@ -1,5 +1,9 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
+export type CompanyCertificationsFragment = {
+  readonly __typename?: "Company";
+} & Pick<SchemaTypes.Company, "certifications">;
+
 export type CompanyDetailsFragmentFragment = {
   readonly __typename?: "Company";
 } & Pick<
@@ -393,7 +397,8 @@ export type GetCompanyQueryVariables = SchemaTypes.Exact<{
 
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
-    { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
+    { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment &
+      CompanyCertificationsFragment
   >;
 };
 

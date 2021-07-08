@@ -120,6 +120,9 @@ export default gql`
   type PublishOutput {
     messageId: String
   }
+  extend type Company {
+    certifications: [Technology]
+  }
   extend type Guarantee {
     guaranteeType: ContentfulGuaranteeType
   }

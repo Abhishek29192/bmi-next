@@ -2290,6 +2290,7 @@ type Company implements Node {
     """
     condition: ProjectCondition
   ): ProjectsConnection!
+  certifications: [Technology]
 }
 
 enum BusinessType {
