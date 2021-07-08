@@ -13,7 +13,7 @@ const createRoofer = (roofer?: Partial<Roofer>): Roofer => ({
   email: "test@test.com",
   website: "www.test.com",
   type: null,
-  certification: "none",
+  certification: null,
   summary: "roofer summary",
   distance: 10,
   ...roofer
