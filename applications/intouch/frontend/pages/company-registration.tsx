@@ -6,8 +6,6 @@ import TextField from "@bmi/text-field";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
 import GridStyles from "../styles/Grid.module.scss";
-import { initializeApollo } from "../lib/apolloClient";
-import { getAuth0Instance } from "../lib/auth0";
 import { withPage } from "../lib/middleware/withPage";
 
 const CREATE_COMPANY = gql`

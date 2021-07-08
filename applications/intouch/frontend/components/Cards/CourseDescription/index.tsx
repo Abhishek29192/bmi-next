@@ -5,7 +5,7 @@ import { School } from "@material-ui/icons";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
-import { GenericCard } from "../Generic";
+import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 
 export type CourseDescriptionProps = {
@@ -28,7 +28,10 @@ export const CourseDescription = ({
   const { t } = useTranslation("common");
 
   return (
-    <GenericCard title={title}>
+    <SimpleCard>
+      <Typography variant="h4" hasUnderline>
+        {title}
+      </Typography>
       <div className={styles.header}>
         {image && (
           <div className={styles.bannerImage}>
@@ -60,6 +63,6 @@ export const CourseDescription = ({
         </div>
       </div>
       <div className={styles.body}>{children}</div>
-    </GenericCard>
+    </SimpleCard>
   );
 };

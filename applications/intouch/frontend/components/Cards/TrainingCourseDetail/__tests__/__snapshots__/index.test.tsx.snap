@@ -2,16 +2,16 @@
 
 exports[`TrainingCourseDetail component render correctly 1`] = `
 <div
-  class="main"
+  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
 >
-  <h4
-    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-  >
-    GCP roofing methodology
-  </h4>
   <div
-    class="body"
+    class="MuiCardContent-root"
   >
+    <h4
+      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+    >
+      GCP roofing methodology
+    </h4>
     <div
       class="header"
     >

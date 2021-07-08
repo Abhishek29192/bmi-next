@@ -1,16 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GenericCard component renders correctly 1`] = `
+exports[`SimpleCard component renders correctly 1`] = `
 <div
-  class="main"
+  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
 >
-  <h4
-    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
-  >
-    Generic Card Title
-  </h4>
   <div
-    class="body"
+    class="MuiCardContent-root"
   >
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita amet vel iste! Saepe iusto quod, dolor perspiciatis dolorem blanditiis quidem sit doloremque similique architecto repellat ipsa illum mollitia perferendis! Eius.

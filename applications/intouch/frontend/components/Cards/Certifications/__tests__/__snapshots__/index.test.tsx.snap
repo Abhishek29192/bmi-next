@@ -2,7 +2,7 @@
 
 exports[`CertificationsCard matches snapshot 1`] = `
 <div
-  class="MuiPaper-root MuiCard-root Card MuiPaper-elevation1 MuiPaper-rounded"
+  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
 >
   <div
     class="MuiCardContent-root"
