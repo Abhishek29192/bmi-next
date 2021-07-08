@@ -1,0 +1,14 @@
+@import "@bmi/styles";
+
+.card {
+  padding: 0;
+  margin-bottom: 30px;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 1rem;
+  }
+  @media (max-width: $breakpoint-sm) {
+    border-radius: 0;
+    margin-bottom: 20px;
+  }
+}

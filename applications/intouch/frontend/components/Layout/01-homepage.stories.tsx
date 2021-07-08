@@ -5,7 +5,6 @@ import Grid from "@bmi/grid";
 import Section from "@bmi/section";
 import Typography from "@bmi/typography";
 import { BrandCard } from "../Cards/BrandCard";
-import { GenericCard } from "../Cards/Generic";
 import { Layout, LayoutProps } from ".";
 
 export default {
@@ -119,17 +118,6 @@ export const CompanyHome = ({ title }: LayoutProps) => (
 
         <Carousel.Controls type="arrows" />
       </Carousel>
-    </Section>
-
-    <Section backgroundColor="white" isSlim>
-      <Grid container>
-        <Grid item xs={12} lg={6}>
-          <GenericCard title="LinkedIn"></GenericCard>
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <GenericCard title="Expert Tier Benefits"></GenericCard>
-        </Grid>
-      </Grid>
     </Section>
   </Layout>
 );
