@@ -25,6 +25,7 @@ import GridStyles from "../styles/Grid.module.scss";
 import CompanyDetailsCard from "../components/CompanyDetailsCard";
 import { CertificationsCard } from "../components/Cards/Certifications";
 import { SimpleCard } from "../components/Cards/SimpleCard";
+import { CompanyIncompleteProfileAlert } from "../components/Pages/CompanyIncompleteProfile";
 
 import can from "../lib/permissions/can";
 import {
@@ -38,6 +39,7 @@ import {
   getServerPageGetCurrentCompany
 } from "../graphql/generated/page";
 import { withPage } from "../lib/middleware/withPage";
+import { validateCompanyProfile } from "../lib/validations/company";
 
 type PageProps = {
   company: GetCompanyQuery["company"];
@@ -45,9 +47,17 @@ type PageProps = {
 
 const CompanyPage = ({ company }: PageProps) => {
   const { t } = useTranslation("company-page");
+  const { tradingAddress } = company;
+  const { missingFields: companyProfileMissingFields } =
+    validateCompanyProfile(company);
 
   return (
     <Layout title={t("Company")}>
+      {companyProfileMissingFields.length > 0 && (
+        <CompanyIncompleteProfileAlert
+          missingFields={companyProfileMissingFields}
+        />
+      )}
       <Grid
         container
         spacing={3}
@@ -65,34 +75,37 @@ const CompanyPage = ({ company }: PageProps) => {
             </Typography>
             <Grid container spacing={3}>
               <Grid item xs={12} lg={3} xl={3}>
-                <img
-                  src="https://source.unsplash.com/random/600x600"
-                  alt=""
-                  style={{ maxWidth: "100%" }}
-                />
+                <img src={company.logo} alt="" style={{ maxWidth: "100%" }} />
               </Grid>
               <Grid item xs={12} lg={9} xl={9}>
                 <div>
                   <InfoPair title="Company description">
-                    J & J London Roofing provide a wide range of roofing
-                    services including roof repairs, new roof installation, flat
-                    roof repairs and new flat roofs, tiling, slating, leadwork,
-                    pointing, ridge and hip tiles as well as the supply and
-                    installation of guttering, fascias and soffits. Our team of
-                    roofing professionals are highly experienced and fully
-                    qualified in their field.
+                    {company.aboutUs}
                   </InfoPair>
                 </div>
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={6}>
                     <InfoPair title="Main office address">
-                      28 Old Brompton Road
-                      <br />
-                      South Kensington
-                      <br />
-                      London
-                      <br />
-                      SW7 3SS
+                      {/* TODO: use separate Address component */}
+                      {[
+                        tradingAddress.firstLine,
+                        tradingAddress.secondLine,
+                        tradingAddress.postcode,
+                        tradingAddress.town,
+                        tradingAddress.region,
+                        tradingAddress.country
+                      ]
+                        .filter((line) => !!line)
+                        .map((line, idx) =>
+                          idx === 0 ? (
+                            line
+                          ) : (
+                            <>
+                              {line}
+                              <br />
+                            </>
+                          )
+                        )}
                     </InfoPair>
                   </Grid>
                   <Grid item xs={12} md={6}>
@@ -128,7 +141,7 @@ const CompanyPage = ({ company }: PageProps) => {
             </Button>
           </SimpleCard>
 
-          <Grid>
+          <Grid container spacing={3}>
             {["Jack Peterson", "Emma Watson", "ET the Alien"].map((name) => (
               <Grid item xs={12} lg={6} xl={6} spacing={0} key={name}>
                 <Card>
@@ -209,9 +222,29 @@ export const GET_CURRENT_COMPANY = gql`
   }
 `;
 
+// # TODO: this address fragment should be placed in a new address component
+export const AddressFragment = gql`
+  fragment AddressFields on Address {
+    firstLine
+    secondLine
+    town
+    region
+    country
+    postcode
+    coordinates {
+      x
+      y
+    }
+  }
+`;
+
 export const GET_COMPANY = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
+      logo
+      tradingAddress {
+        ...AddressFields
+      }
       ...CompanyDetailsFragment
       ...CompanyCertifications
     }

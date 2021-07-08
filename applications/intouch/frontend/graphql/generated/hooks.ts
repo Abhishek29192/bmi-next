@@ -25,6 +25,20 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
     }
   }
 `;
+export const AddressFieldsFragmentDoc = gql`
+  fragment AddressFields on Address {
+    firstLine
+    secondLine
+    town
+    region
+    country
+    postcode
+    coordinates {
+      x
+      y
+    }
+  }
+`;
 export const ImageFragmentFragmentDoc = gql`
   fragment ImageFragment on Asset {
     title
@@ -1089,10 +1103,15 @@ export type GetCurrentCompanyQueryResult = Apollo.QueryResult<
 export const GetCompanyDocument = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
+      logo
+      tradingAddress {
+        ...AddressFields
+      }
       ...CompanyDetailsFragment
       ...CompanyCertifications
     }
   }
+  ${AddressFieldsFragmentDoc}
   ${CompanyDetailsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
 `;
