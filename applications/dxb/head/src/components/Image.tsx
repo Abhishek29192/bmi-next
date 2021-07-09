@@ -120,6 +120,17 @@ export const query = graphql`
       gatsbyImageData(placeholder: BLURRED)
     }
   }
+  fragment ImageDocumentFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 684
+        formats: [WEBP, JPG, AUTO]
+      )
+    }
+  }
   fragment ImageGallerySlideFragment on ContentfulImage {
     ...BaseImageFragment
     image {
