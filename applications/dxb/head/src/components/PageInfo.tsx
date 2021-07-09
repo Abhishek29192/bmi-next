@@ -58,14 +58,14 @@ export const query = graphql`
     featuredMedia {
       ...ImageCardFragment
     }
+    ... on ContentfulSimplePage {
+      date
+    }
   }
   fragment PageInfoSlideFragment on ContentfulPage {
     ...BasePageInfoFragment
     featuredMedia {
       ...ImageSlideFragment
-    }
-    ... on ContentfulSimplePage {
-      date
     }
   }
 `;
