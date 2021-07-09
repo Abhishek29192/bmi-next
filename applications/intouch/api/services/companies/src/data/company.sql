@@ -1528,6 +1528,8 @@ CREATE INDEX account_email_idx ON account USING btree (email);
 
 CREATE INDEX certification_technology_idx ON certification USING btree (technology);
 
+CREATE INDEX certification_expiry_date_idx ON certification USING btree (expiry_date);
+
 CREATE INDEX invitation_status_idx ON invitation USING btree (status);
 
 CREATE INDEX invitation_invitee_idx ON invitation USING btree (invitee);

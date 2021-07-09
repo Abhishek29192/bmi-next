@@ -559,7 +559,7 @@ export type GetProjectsQuery = { readonly __typename?: "Query" } & {
 };
 
 export type CompanyMembersQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  expiryDate?: SchemaTypes.Maybe<SchemaTypes.Scalars["Datetime"]>;
 }>;
 
 export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
@@ -570,10 +570,22 @@ export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
           SchemaTypes.CompanyMember,
           "id"
         > & {
+            readonly company?: SchemaTypes.Maybe<
+              { readonly __typename?: "Company" } & Pick<
+                SchemaTypes.Company,
+                "name"
+              >
+            >;
             readonly account?: SchemaTypes.Maybe<
               { readonly __typename?: "Account" } & Pick<
                 SchemaTypes.Account,
-                "id" | "email" | "firstName" | "lastName" | "role"
+                | "id"
+                | "role"
+                | "email"
+                | "phone"
+                | "photo"
+                | "lastName"
+                | "firstName"
               > & {
                   readonly certificationsByDoceboUserId: {
                     readonly __typename?: "CertificationsConnection";
@@ -581,7 +593,7 @@ export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
                     readonly nodes: ReadonlyArray<
                       { readonly __typename?: "Certification" } & Pick<
                         SchemaTypes.Certification,
-                        "technology"
+                        "id" | "name" | "technology" | "expiryDate"
                       >
                     >;
                   };

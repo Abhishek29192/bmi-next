@@ -1,7 +1,14 @@
-import React from "react";
+import "@testing-library/jest-dom";
+import React, { useRef } from "react";
 import { render, fireEvent, screen, within } from "@testing-library/react";
+import I18nProvider from "../../../../lib/tests/fixtures/i18n";
 import CompanyMembersPage, { PageProps } from "..";
 import { companyMembers } from "../../../../fixtures/companyMembers";
+
+jest.mock("@bmi/use-dimensions", () => ({
+  __esModule: true,
+  default: () => [useRef(), jest.fn()]
+}));
 
 describe("Company Members Page", () => {
   let wrapper;
@@ -10,7 +17,11 @@ describe("Company Members Page", () => {
     data: companyMembers
   };
   beforeEach(() => {
-    wrapper = render(<CompanyMembersPage {...props} />);
+    wrapper = render(
+      <I18nProvider>
+        <CompanyMembersPage {...props} />
+      </I18nProvider>
+    );
   });
 
   describe("Member List", () => {
@@ -19,18 +30,17 @@ describe("Company Members Page", () => {
     });
 
     it("should render all the informations", () => {
-      let item = wrapper.getAllByTestId("list-item")[0];
-      let utils = within(item);
-      utils.getByText("Alex Green");
-      utils.getByText("company admin");
-      utils.getByTestId("icon-FLAT");
-      utils.getByTestId("icon-PITCHED");
+      const elements = wrapper.getAllByTestId("list-item");
+      let listItem = elements[0];
+      expect(listItem).toHaveTextContent("Alex Green");
+      expect(listItem).toHaveTextContent("company admin");
+      within(listItem).getByTestId("icon-FLAT");
+      within(listItem).getByTestId("icon-PITCHED");
 
-      item = wrapper.getAllByTestId("list-item")[1];
-      utils = within(item);
-      utils.getByText("Aron Musk");
-      utils.getByText("installer");
-      utils.getByTestId("icon-FLAT");
+      listItem = elements[1];
+      expect(listItem).toHaveTextContent("Aron Musk");
+      expect(listItem).toHaveTextContent("installer");
+      within(listItem).getByTestId("icon-FLAT");
     });
 
     describe("Search", () => {
@@ -90,6 +100,32 @@ describe("Company Members Page", () => {
 
         screen.getByText("Member not found");
       });
+    });
+  });
+
+  describe("Details", () => {
+    it("should have a default user", () => {
+      const userCard = screen.getByTestId("user-card");
+      expect(userCard).toHaveTextContent("Alex Green");
+      expect(userCard).toHaveTextContent("company admin");
+    });
+
+    it("should show certifications", () => {
+      const table = screen.getByTestId("certification-table");
+      expect(table).toHaveTextContent("Certification name 1");
+      expect(table).toHaveTextContent("Certification name 11");
+    });
+
+    it("show another member", async () => {
+      fireEvent.click(screen.getByText("Aron Musk"));
+
+      const userCard = screen.getByTestId("user-card");
+      expect(userCard).toHaveTextContent("Aron Musk");
+      expect(userCard).toHaveTextContent("installer");
+
+      const table = screen.getByTestId("certification-table");
+      expect(table).toHaveTextContent("Certification name 2");
+      expect(table).toHaveTextContent("Certification name 22");
     });
   });
 });

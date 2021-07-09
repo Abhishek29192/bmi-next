@@ -1,3 +1,4 @@
+import { Certification } from "@bmi/intouch-api-types";
 import { CompanyMembersQuery } from "../graphql/generated/operations";
 
 export const companyMembers: CompanyMembersQuery = {
@@ -5,6 +6,9 @@ export const companyMembers: CompanyMembersQuery = {
     nodes: [
       {
         id: 1,
+        company: {
+          name: "Company name"
+        },
         account: {
           id: 1,
           role: "COMPANY_ADMIN",
@@ -14,17 +18,24 @@ export const companyMembers: CompanyMembersQuery = {
           certificationsByDoceboUserId: {
             nodes: [
               {
+                expiryDate: "2021-12-31 12:00:00",
+                name: "Certification name 1",
                 technology: "FLAT"
-              },
+              } as Certification,
               {
+                expiryDate: "2021-12-31 12:00:00",
+                name: "Certification name 11",
                 technology: "PITCHED"
-              }
+              } as Certification
             ]
           }
         }
       },
       {
         id: 2,
+        company: {
+          name: "Company name"
+        },
         account: {
           id: 2,
           role: "INSTALLER",
@@ -34,14 +45,24 @@ export const companyMembers: CompanyMembersQuery = {
           certificationsByDoceboUserId: {
             nodes: [
               {
+                expiryDate: "2021-12-31 12:00:00",
+                name: "Certification name 2",
                 technology: "FLAT"
-              }
+              } as Certification,
+              {
+                expiryDate: "2021-12-31 12:00:00",
+                name: "Certification name 22",
+                technology: "PITCHED"
+              } as Certification
             ]
           }
         }
       },
       {
         id: 3,
+        company: {
+          name: "Company name"
+        },
         account: {
           id: 3,
           role: "COMPANY_ADMIN",
@@ -51,14 +72,19 @@ export const companyMembers: CompanyMembersQuery = {
           certificationsByDoceboUserId: {
             nodes: [
               {
+                expiryDate: "2021-12-31 12:00:00",
+                name: "Certification name 3",
                 technology: "PITCHED"
-              }
+              } as Certification
             ]
           }
         }
       },
       {
         id: 4,
+        company: {
+          name: "Company name"
+        },
         account: {
           id: 4,
           role: "COMPANY_ADMIN",

@@ -1,13 +1,29 @@
 @import "@bmi/styles";
 
-.icons {
+.companyPage {
   display: flex;
-  margin-top: 10px;
+  align-items: flex-start;
 
-  .icon {
-    margin-left: 10px;
-    &:first-child {
-      margin-left: 0px;
+  .detail {
+    flex: 2;
+    min-width: 400px;
+  }
+
+  .icons {
+    display: flex;
+    margin-top: 10px;
+
+    .icon {
+      margin-left: 10px;
+      &:first-child {
+        margin-left: 0px;
+      }
+    }
+  }
+
+  .expired {
+    td {
+      color: red;
     }
   }
 }
