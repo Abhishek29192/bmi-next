@@ -456,13 +456,26 @@ export type GetCurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
   "currentCompany"
 >;
 
+export type AddressFieldsFragment = { readonly __typename?: "Address" } & Pick<
+  SchemaTypes.Address,
+  "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
+> & {
+    readonly coordinates?: SchemaTypes.Maybe<
+      { readonly __typename?: "Point" } & Pick<SchemaTypes.Point, "x" | "y">
+    >;
+  };
+
 export type GetCompanyQueryVariables = SchemaTypes.Exact<{
   companyId: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
-    { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment &
+    { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "logo"> & {
+        readonly tradingAddress?: SchemaTypes.Maybe<
+          { readonly __typename?: "Address" } & AddressFieldsFragment
+        >;
+      } & CompanyDetailsFragmentFragment &
       CompanyCertificationsFragment
   >;
 };

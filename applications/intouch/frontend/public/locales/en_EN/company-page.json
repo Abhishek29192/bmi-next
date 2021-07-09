@@ -4,5 +4,15 @@
   "Registered Details": "Registered Details",
   "Registered Name": "Registered Name",
   "Registered Address": "Registered Address",
-  "Main office address": "Main office address"
+  "Main office address": "Main office address",
+  "Phone": "Phone",
+  "company.incomplete_profile": {
+    "warning": "In order to take part of the BMI Contract Locator please provide the required information listed below.",
+    "phone": "Phone",
+    "email": "Email",
+    "description": "Description",
+    "address": "Main office address",
+    "logo": "Logo",
+    "closeAlertAccessibilityLabel": "Close Alert"
+  }
 }
