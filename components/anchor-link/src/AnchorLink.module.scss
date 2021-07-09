@@ -51,6 +51,10 @@
     height: 1.125em;
     fill: currentColor;
 
+    &--inverted {
+      transform: rotate(180deg);
+    }
+
     &:first-child {
       margin-right: 12px;
     }
