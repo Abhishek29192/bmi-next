@@ -11,11 +11,11 @@ type CompanyIncompleteProfileAlertProps = {
 };
 
 const getMissingFieldsLabelMap = (t) => ({
-  tradingAddress: t("Main office address"),
-  phone: t("Phone"),
-  publicEmail: t("Email"),
-  aboutUs: t("Description"),
-  logo: t("Logo")
+  tradingAddress: t("company.incomplete_profile.address"),
+  phone: t("company.incomplete_profile.phone"),
+  publicEmail: t("company.incomplete_profile.email"),
+  aboutUs: t("company.incomplete_profile.description"),
+  logo: t("company.incomplete_profile.logo")
 });
 
 export const CompanyIncompleteProfileAlert = ({
@@ -36,7 +36,9 @@ export const CompanyIncompleteProfileAlert = ({
               data-testid="CloseButton"
               isIconButton
               variant="text"
-              accessibilityLabel="Close alert button"
+              accessibilityLabel={t(
+                "company.incomplete_profile.closeAlertAccessibilityLabel"
+              )}
               onClick={() => setIsAlertShowing(false)}
             >
               <IconCross style={{ width: 24, height: 24 }} />
@@ -45,7 +47,7 @@ export const CompanyIncompleteProfileAlert = ({
         }
       >
         <AlertBanner.Title>
-          {t("company.incomplete_profile_warning")}
+          {t("company.incomplete_profile.warning")}
         </AlertBanner.Title>
         {missingFields.map((field) => missingFieldsLabelMap[field]).join(", ")}
       </AlertBanner>

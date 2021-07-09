@@ -6,8 +6,13 @@
   "Registered Address": "Registered Address",
   "Main office address": "Main office address",
   "Phone": "Phone",
-  "Email": "Email",
-  "AboutUs": "Description",
-  "Logo": "Logo",
-  "company.incomplete_profile_warning": "In order to take part of the BMI Contract Locator please provide the required information listed below."
+  "company.incomplete_profile": {
+    "warning": "In order to take part of the BMI Contract Locator please provide the required information listed below.",
+    "phone": "Phone",
+    "email": "Email",
+    "description": "Description",
+    "address": "Main office address",
+    "logo": "Logo",
+    "closeAlertAccessibilityLabel": "Close Alert"
+  }
 }

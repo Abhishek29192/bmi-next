@@ -11,7 +11,7 @@ exports[`CompanyIncompleteProfile should match snapshot 1`] = `
       class="closeButtonContainer"
     >
       <button
-        aria-label="Close alert button"
+        aria-label="company.incomplete_profile.closeAlertAccessibilityLabel"
         class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text"
         data-testid="CloseButton"
         tabindex="0"
@@ -49,9 +49,9 @@ exports[`CompanyIncompleteProfile should match snapshot 1`] = `
             d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
           />
         </svg>
-        In order to take part of the BMI Contract Locator please provide the required information listed below.
+        company.incomplete_profile.warning
       </h5>
-      Phone, Description, Main office address
+      company.incomplete_profile.phone, company.incomplete_profile.description, company.incomplete_profile.address
     </div>
   </div>
 </div>
