@@ -1,7 +1,6 @@
-import { PoolConfig, Pool } from "pg";
+import { PoolConfig, Pool, PoolClient } from "pg";
 
 let pool;
-
 export const getDbPool = () => {
   if (!pool) {
     const { PG_USER, PG_DATABASE, PG_PORT, PG_PASSWORD, PG_HOST } = process.env;
@@ -18,4 +17,8 @@ export const getDbPool = () => {
   }
 
   return pool;
+};
+
+export const getRootClient = async (): Promise<PoolClient> => {
+  return await getDbPool().connect();
 };

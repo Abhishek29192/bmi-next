@@ -6418,9 +6418,9 @@ export type InvitationsOrderBy =
 
 export type InviteInput = {
   email: Scalars["String"];
-  firstName: Scalars["String"];
-  lastName: Scalars["String"];
-  role: Role;
+  firstName?: Maybe<Scalars["String"]>;
+  lastName?: Maybe<Scalars["String"]>;
+  role?: Maybe<Role>;
   personal_note?: Maybe<Scalars["String"]>;
 };
 

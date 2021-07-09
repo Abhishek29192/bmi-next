@@ -154,9 +154,9 @@ export default gql`
 
   input InviteInput {
     email: String!
-    firstName: String!
-    lastName: String!
-    role: Role!
+    firstName: String
+    lastName: String
+    role: Role
     personal_note: String
   }
 
