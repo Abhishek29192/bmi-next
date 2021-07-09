@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import { render, screen } from "@testing-library/react";
 import { UploadsTab } from "..";
+
+jest.mock("@bmi/use-dimensions", () => ({
+  __esModule: true,
+  default: () => [useRef(), jest.fn()]
+}));
 
 describe("Uploads Components", () => {
   const files = new Map<string, string[]>([

@@ -14,5 +14,11 @@ module.exports = {
       functions: "17",
       lines: "35"
     }
-  }
+  },
+  collectCoverageFrom: [
+    "<rootDir>/**/*.{ts,tsx}",
+    "!<rootDir>/node_modules/",
+    "!<rootDir>/.next/",
+    "!<rootDir>/.storybook/"
+  ]
 };

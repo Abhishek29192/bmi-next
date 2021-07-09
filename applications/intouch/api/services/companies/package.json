@@ -41,6 +41,7 @@
     "pg-format": "^1.0.4",
     "postgraphile": "^4.12.3",
     "postgraphile-apollo-server": "0.1.1",
+    "postgraphile-plugin-connection-filter": "^2.2.1",
     "typescript": "^3.9.3"
   },
   "devDependencies": {

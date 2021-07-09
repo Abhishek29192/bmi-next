@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { ProjectSidePanel } from "..";
+import I18nProvider from "../../../lib/tests/fixtures/i18n";
 import { GetProjectsQuery } from "../../../graphql/generated/operations";
 
 describe("ProjectSidePanel component", () => {
@@ -21,7 +22,11 @@ describe("ProjectSidePanel component", () => {
       ]
     };
 
-    const { container } = render(<ProjectSidePanel projects={projects} />);
+    const { container } = render(
+      <I18nProvider>
+        <ProjectSidePanel projects={projects} />
+      </I18nProvider>
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 });

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { PostGraphileOptions } from "postgraphile";
+import ConnectionFilterPlugin from "postgraphile-plugin-connection-filter";
 import pgSimplifyInflector from "@graphile-contrib/pg-simplify-inflector";
 import FederationPlugin from "@graphile/federation";
 import { TagsFilePlugin } from "postgraphile/plugins";
@@ -23,6 +24,7 @@ const availableRoles: Role[] = [
 const postGraphileOpts: PostGraphileOptions<Request, Response> = {
   ...config.postgraphile,
   appendPlugins: [
+    ConnectionFilterPlugin,
     pgSimplifyInflector,
     FederationPlugin,
     TagsFilePlugin,

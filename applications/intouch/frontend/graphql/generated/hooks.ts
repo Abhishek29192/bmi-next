@@ -84,8 +84,7 @@ export function useUpdateCompanyDetailsMutation(
 export type UpdateCompanyDetailsMutationHookResult = ReturnType<
   typeof useUpdateCompanyDetailsMutation
 >;
-export type UpdateCompanyDetailsMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
+export type UpdateCompanyDetailsMutationResult = Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
 export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
@@ -345,8 +344,7 @@ export function useCreateAccountMutation(
 export type CreateAccountMutationHookResult = ReturnType<
   typeof useCreateAccountMutation
 >;
-export type CreateAccountMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
+export type CreateAccountMutationResult = Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
 export type CreateAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateAccountMutation,
   OperationTypes.CreateAccountMutationVariables
@@ -396,8 +394,7 @@ export function useCreateDoceboUserMutation(
 export type CreateDoceboUserMutationHookResult = ReturnType<
   typeof useCreateDoceboUserMutation
 >;
-export type CreateDoceboUserMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
+export type CreateDoceboUserMutationResult = Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
 export type CreateDoceboUserMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateDoceboUserMutation,
   OperationTypes.CreateDoceboUserMutationVariables
@@ -449,8 +446,7 @@ export function useUpdateAccountMutation(
 export type UpdateAccountMutationHookResult = ReturnType<
   typeof useUpdateAccountMutation
 >;
-export type UpdateAccountMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
+export type UpdateAccountMutationResult = Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
 export type UpdateAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateAccountMutation,
   OperationTypes.UpdateAccountMutationVariables
@@ -627,8 +623,7 @@ export function useCompleteInvitationMutation(
 export type CompleteInvitationMutationHookResult = ReturnType<
   typeof useCompleteInvitationMutation
 >;
-export type CompleteInvitationMutationResult =
-  Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
+export type CompleteInvitationMutationResult = Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
 export type CompleteInvitationMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CompleteInvitationMutation,
   OperationTypes.CompleteInvitationMutationVariables
@@ -678,8 +673,7 @@ export function useCreateSsoUrlMutation(
 export type CreateSsoUrlMutationHookResult = ReturnType<
   typeof useCreateSsoUrlMutation
 >;
-export type CreateSsoUrlMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
+export type CreateSsoUrlMutationResult = Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
 export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateSsoUrlMutation,
   OperationTypes.CreateSsoUrlMutationVariables
@@ -814,8 +808,7 @@ export function useBulkImportMutation(
 export type BulkImportMutationHookResult = ReturnType<
   typeof useBulkImportMutation
 >;
-export type BulkImportMutationResult =
-  Apollo.MutationResult<OperationTypes.BulkImportMutation>;
+export type BulkImportMutationResult = Apollo.MutationResult<OperationTypes.BulkImportMutation>;
 export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.BulkImportMutation,
   OperationTypes.BulkImportMutationVariables
@@ -866,8 +859,7 @@ export function useUpdateProductMutation(
 export type UpdateProductMutationHookResult = ReturnType<
   typeof useUpdateProductMutation
 >;
-export type UpdateProductMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
+export type UpdateProductMutationResult = Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
 export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProductMutation,
   OperationTypes.UpdateProductMutationVariables
@@ -918,8 +910,7 @@ export function useUpdateSystemMutation(
 export type UpdateSystemMutationHookResult = ReturnType<
   typeof useUpdateSystemMutation
 >;
-export type UpdateSystemMutationResult =
-  Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
+export type UpdateSystemMutationResult = Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
 export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
@@ -970,8 +961,7 @@ export function useCreateCompanyMutation(
 export type CreateCompanyMutationHookResult = ReturnType<
   typeof useCreateCompanyMutation
 >;
-export type CreateCompanyMutationResult =
-  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
+export type CreateCompanyMutationResult = Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
 export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateCompanyMutation,
   OperationTypes.CreateCompanyMutationVariables
@@ -1282,19 +1272,29 @@ export type GetProjectsQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectsQueryVariables
 >;
 export const CompanyMembersDocument = gql`
-  query companyMembers {
+  query companyMembers($expiryDate: Datetime) {
     companyMembers {
       nodes {
         id
+        company {
+          name
+        }
         account {
           id
-          email
-          firstName
-          lastName
           role
-          certificationsByDoceboUserId {
+          email
+          phone
+          photo
+          lastName
+          firstName
+          certificationsByDoceboUserId(
+            filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
+          ) {
             nodes {
+              id
+              name
               technology
+              expiryDate
             }
           }
         }
@@ -1315,6 +1315,7 @@ export const CompanyMembersDocument = gql`
  * @example
  * const { data, loading, error } = useCompanyMembersQuery({
  *   variables: {
+ *      expiryDate: // value for 'expiryDate'
  *   },
  * });
  */
