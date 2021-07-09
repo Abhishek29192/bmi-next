@@ -132,9 +132,17 @@ export default gql`
   extend type EvidenceItem {
     customEvidenceCategory: ContentfulEvidenceCategory
   }
+  extend type Account {
+    signedPhotoUrl: String
+  }
 
   extend input AccountInput {
     marketCode: String
+  }
+  scalar Upload
+
+  extend input AccountPatch {
+    photoUpload: Upload
   }
 
   input PublishInput {
@@ -155,8 +163,6 @@ export default gql`
   input InvitationComplete {
     company_id: String
   }
-
-  scalar Upload
 
   type File {
     filename: String!
