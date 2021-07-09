@@ -4,21 +4,15 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { SSRConfig } from "next-i18next";
-
-import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import { Layout } from "../components/Layout";
 import GridStyles from "../styles/Grid.module.scss";
-
 import { CompanyHeader } from "../components/Cards/CompanyHeader";
 import { CompanyRegisteredDetails } from "../components/Cards/CompanyRegisteredDetails";
 import { SmallProfileCard } from "../components/Cards/SmallProfileCard";
-
 import { CertificationsCard } from "../components/Cards/Certifications";
-import { SimpleCard } from "../components/Cards/SimpleCard";
+import { SupportContactCard } from "../components/Cards/SupportContactCard";
 import { CompanyIncompleteProfileAlert } from "../components/Pages/CompanyIncompleteProfile";
-
-import can from "../lib/permissions/can";
 import {
   ErrorStatusCode,
   generatePageError,
@@ -34,9 +28,11 @@ import {
 } from "../graphql/generated/page";
 import { withPage } from "../lib/middleware/withPage";
 import { validateCompanyProfile } from "../lib/validations/company";
+import { ROLES } from "../lib/config";
 
 type CompanyPageProps = {
   company: GetCompanyQuery["company"];
+  contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
   globalPageData: GetGlobalDataQuery;
 };
 type SSRPageProps = CompanyPageProps & SSRConfig;
@@ -92,20 +88,20 @@ const CompanyAdmins = ({
   const { t } = useTranslation("common");
 
   const admins = allMembers.filter(
-    (member) => member.account.role == "COMPANY_ADMIN"
+    ({ account }) => account.role == ROLES.COMPANY_ADMIN
   );
 
   return (
     <Grid item xs={12} lg={7} xl={8}>
       <Grid container spacing={3} alignItems="stretch">
-        {admins.map((member) => (
-          <Grid item xs={12} md={6} key={member.account.id}>
+        {admins.map(({ account }) => (
+          <Grid item xs={12} md={6} key={account.id}>
             <SmallProfileCard
-              name={member.account.firstName + " " + member.account.lastName}
-              jobTitle={t(member.account.role)}
-              phoneNumber={member.account.phone}
-              emailAddress={member.account.email}
-              avatar={member.account.photo}
+              name={[account.firstName, account.lastName].join(" ")}
+              jobTitle={t(account.role)}
+              phoneNumber={account.phone}
+              emailAddress={account.email}
+              avatar={account.photo}
             />
           </Grid>
         ))}
@@ -114,7 +110,11 @@ const CompanyAdmins = ({
   );
 };
 
-const CompanyPage = ({ company, globalPageData }: CompanyPageProps) => {
+const CompanyPage = ({
+  company,
+  contactDetailsCollection,
+  globalPageData
+}: CompanyPageProps) => {
   const { t } = useTranslation("company-page");
   const { missingFields: companyProfileMissingFields } =
     validateCompanyProfile(company);
@@ -143,15 +143,9 @@ const CompanyPage = ({ company, globalPageData }: CompanyPageProps) => {
         <CompanyAdmins allMembers={company.companyMembers.nodes} />
 
         <Grid item xs={12} lg={5} xl={4}>
-          <SimpleCard>
-            <Typography
-              variant="h4"
-              hasUnderline
-              style={{ marginBottom: "1.5rem", fontSize: "1.2rem" }}
-            >
-              {t("Roofpro Support")}
-            </Typography>
-          </SimpleCard>
+          <SupportContactCard
+            contactDetailsCollection={contactDetailsCollection}
+          />
 
           {company.certifications.length > 0 && (
             <CertificationsCard
@@ -171,7 +165,7 @@ export const GET_CURRENT_COMPANY = gql`
   }
 `;
 
-export const GET_COMPANY = gql`
+export const GET_COMPANY_PAGE = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       logo
@@ -186,55 +180,47 @@ export const GET_COMPANY = gql`
       ...CompanyDetailsFragment
       ...CompanyCertifications
     }
+    contactDetailsCollection {
+      ...ContactDetailsCollectionFragment
+    }
   }
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, account, res }) => {
-    const pageProps: SSRPageProps = {
-      company: null,
-      globalPageData,
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "sidebar",
-        "footer",
-        "company-page"
-      ]))
-    };
-
+  async ({ locale, apolloClient, globalPageData, res }) => {
     const {
       props: {
         data: { currentCompany }
       }
     } = await getServerPageGetCurrentCompany({}, apolloClient);
 
-    if (currentCompany) {
-      const {
-        props: {
-          data: { company }
-        }
-      } = await getServerPageGetCompany(
-        { variables: { companyId: currentCompany } },
-        apolloClient
-      );
-      pageProps.company = company;
-    }
-
-    const canViewPage = can(account, "company", "view", {
-      companyMemberIds: pageProps.company
-        ? pageProps.company.companyMembers.nodes.map(
-            ({ account }) => account.id
-          )
-        : []
-    });
-
-    if (!canViewPage) {
+    if (!currentCompany) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(404);
     }
 
-    return { props: pageProps };
+    const {
+      props: {
+        data: { company, contactDetailsCollection }
+      }
+    } = await getServerPageGetCompany(
+      { variables: { companyId: currentCompany } },
+      apolloClient
+    );
+    return {
+      props: {
+        company,
+        contactDetailsCollection,
+        globalPageData,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "footer",
+          "company-page"
+        ]))
+      }
+    };
   }
 );
 

@@ -8,6 +8,16 @@ export const CompanyCertificationsFragmentDoc = gql`
     certifications
   }
 `;
+export const ContactDetailsCollectionFragmentFragmentDoc = gql`
+  fragment ContactDetailsCollectionFragment on ContactDetailsCollection {
+    items {
+      fullName
+      subHeading
+      email
+      phoneNumber
+    }
+  }
+`;
 export const AddressLinesFragmentFragmentDoc = gql`
   fragment AddressLinesFragment on Address {
     firstLine
@@ -1250,10 +1260,14 @@ export const GetCompanyDocument = gql`
       ...CompanyDetailsFragment
       ...CompanyCertifications
     }
+    contactDetailsCollection {
+      ...ContactDetailsCollectionFragment
+    }
   }
   ${AddressLinesFragmentFragmentDoc}
   ${CompanyDetailsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
+  ${ContactDetailsCollectionFragmentFragmentDoc}
 `;
 
 /**

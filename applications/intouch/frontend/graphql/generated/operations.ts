@@ -11,6 +11,19 @@ export type CompanyCertificationsFragment = {
   readonly __typename?: "Company";
 } & Pick<SchemaTypes.Company, "certifications">;
 
+export type ContactDetailsCollectionFragmentFragment = {
+  readonly __typename?: "ContactDetailsCollection";
+} & {
+  readonly items: ReadonlyArray<
+    SchemaTypes.Maybe<
+      { readonly __typename?: "ContactDetails" } & Pick<
+        SchemaTypes.ContactDetails,
+        "fullName" | "subHeading" | "email" | "phoneNumber"
+      >
+    >
+  >;
+};
+
 export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
 }>;
@@ -583,6 +596,11 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
         >;
       } & CompanyDetailsFragmentFragment &
       CompanyCertificationsFragment
+  >;
+  readonly contactDetailsCollection?: SchemaTypes.Maybe<
+    {
+      readonly __typename?: "ContactDetailsCollection";
+    } & ContactDetailsCollectionFragmentFragment
   >;
 };
 
