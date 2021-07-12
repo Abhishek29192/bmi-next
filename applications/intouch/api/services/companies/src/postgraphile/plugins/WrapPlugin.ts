@@ -27,16 +27,14 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
         }
       },
       updateAccount: {
-        async resolve(resolve: any, source, args, context: any, resolveInfo) {
-          const auth0 = await Auth0.init(context.logger);
-          return updateAccount(
-            resolve,
-            source,
-            args,
-            context,
-            resolveInfo,
-            auth0
-          );
+        async resolve(
+          resolve: any,
+          source,
+          args: any,
+          context: any,
+          resolveInfo
+        ) {
+          return updateAccount(resolve, source, args, context, resolveInfo);
         }
       },
       updateCompany: {

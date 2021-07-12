@@ -104,6 +104,7 @@ export type Account = Node & {
   notifications: NotificationsConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
   projectMembers: ProjectMembersConnection;
+  signedPhotoUrl?: Maybe<Scalars["String"]>;
 };
 
 /** An InTouch account */
@@ -307,6 +308,7 @@ export type AccountPatch = {
   migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
 };
 
 export type AccountStatus = "NEW" | "ACTIVE" | "SUSPENDED";
@@ -3261,9 +3263,10 @@ export type CreateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our create `CourseSyncConfiguration` mutation. */
-export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the create `CourseTemp` mutation. */
 export type CreateCourseTempInput = {
@@ -4345,9 +4348,10 @@ export type DeleteCourseSyncConfigurationPayload = {
 };
 
 /** The output of our delete `CourseSyncConfiguration` mutation. */
-export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the `deleteCourseTempByNodeId` mutation. */
 export type DeleteCourseTempByNodeIdInput = {
@@ -12114,9 +12118,10 @@ export type UpdateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our update `CourseSyncConfiguration` mutation. */
-export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the `updateCourseTempByNodeId` mutation. */
 export type UpdateCourseTempByNodeIdInput = {

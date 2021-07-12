@@ -1,8 +1,11 @@
 import crypto from "crypto";
 import camelcaseKeys from "camelcase-keys";
 import { InviteInput, Role } from "@bmi/intouch-api-types";
+import { FileUpload } from "graphql-upload";
+import { UpdateAccountInput } from "@bmi/intouch-api-types";
 import { Account } from "../../types";
 import { publish, TOPICS } from "../../services/events";
+import StorageClient from "../storage-client";
 
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
@@ -86,11 +89,49 @@ export const createAccount = async (
 export const updateAccount = async (
   resolve,
   source,
-  args,
+  args: { input: UpdateAccountInput },
   context,
-  resolveInfo,
-  auth0
-) => await resolve(source, args, context, resolveInfo);
+  resolveInfo
+) => {
+  const { GCP_BUCKET_NAME } = process.env;
+
+  const { pgClient, logger: Logger } = context;
+
+  const logger = Logger("service:account");
+
+  await pgClient.query("SAVEPOINT graphql_mutation");
+
+  try {
+    if (args.input.patch.photoUpload) {
+      const { rows: accounts } = await pgClient.query(
+        `select photo from account WHERE id = $1`,
+        [args.input.id]
+      );
+
+      const newFileName =
+        accounts[0].photo || `profile/${args.input.id}-${Date.now()}`;
+
+      const uploadedFile: FileUpload = await args.input.patch.photoUpload;
+
+      args.input.patch.photo = newFileName;
+
+      const storageClient = new StorageClient();
+      await storageClient.uploadFileByStream(
+        GCP_BUCKET_NAME,
+        newFileName,
+        uploadedFile
+      );
+    }
+    return await resolve(source, args, context, resolveInfo);
+  } catch (e) {
+    logger.error("Error creating a user");
+
+    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+    throw e;
+  } finally {
+    await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
+  }
+};
 
 export const invite = async (_query, args, context, resolveInfo, auth0) => {
   const logger = context.logger("service:account");
@@ -258,4 +299,21 @@ export const completeInvitation = async (
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }
+};
+
+export const getAccountSignedPhotoUrl = async (photoName: string) => {
+  const { GCP_BUCKET_NAME } = process.env;
+  if (!photoName) {
+    return "";
+  }
+
+  const expireDate = new Date();
+  expireDate.setDate(expireDate.getDate() + 1);
+
+  const storageClient = new StorageClient();
+  return await storageClient.getFileSignedUrl(
+    GCP_BUCKET_NAME,
+    photoName,
+    expireDate
+  );
 };

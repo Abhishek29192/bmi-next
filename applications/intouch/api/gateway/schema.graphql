@@ -500,6 +500,7 @@ type Account implements Node {
     """
     filter: ProjectMemberFilter
   ): ProjectMembersConnection!
+  signedPhotoUrl: String
 }
 
 """
@@ -710,6 +711,7 @@ input AccountPatch {
   migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  photoUpload: Upload
 }
 
 enum AccountStatus {
