@@ -798,11 +798,6 @@ HTMLCollection [
               >
                 Gallery title
               </h1>
-              <p
-                class="MuiTypography-root description Typography MuiTypography-body1"
-              >
-                card section 1 description
-              </p>
             </div>
             <div
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"

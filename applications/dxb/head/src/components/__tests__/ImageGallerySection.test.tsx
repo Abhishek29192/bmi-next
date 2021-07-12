@@ -7,7 +7,7 @@ describe("ImageGallerySection component", () => {
     const data: Data = {
       __typename: "ContentfulImageGallerySection",
       title: "Lorem ipsum",
-      description: null,
+      longDescription: null,
       medias: [
         {
           type: null,
@@ -16,7 +16,9 @@ describe("ImageGallerySection component", () => {
           focalPoint: null,
           image: {
             thumbnail: {
-              src: "//image.asset.jpg"
+              src: "//image.asset.jpg",
+              label: "altText",
+              action: "imageSource"
             },
             gatsbyImageData: {
               images: {
