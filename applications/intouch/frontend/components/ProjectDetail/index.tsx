@@ -3,7 +3,7 @@ import { gql } from "@apollo/client";
 import Grid from "@bmi/grid";
 import Tabs from "@bmi/tabs";
 import Typography from "@bmi/typography";
-import { Note } from "@bmi/intouch-api-types";
+import { Note, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import { ProjectsHeader } from "../../components/Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../../components/Cards/BuildingOwnerDetails";
@@ -81,7 +81,9 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
         <Tabs initialValue="one">
           <Tabs.TabPanel heading="Team" index="one">
             <TabCard>
-              <TeamTab />
+              <TeamTab
+                teams={project.projectMembers?.nodes as ProjectMember[]}
+              />
             </TabCard>
           </Tabs.TabPanel>
           <Tabs.TabPanel heading="Guarantee" index="two">
@@ -118,8 +120,9 @@ const UploadedFiles = ({
   map.set(t("MISCELLANEOUS"), []);
   //Default guarantee types
   for (const guarantee of guarantees.nodes) {
-    for (const evidenceCategory of guarantee.guaranteeType
-      .evidenceCategoriesCollection?.items) {
+    const evidenceCategories =
+      guarantee.guaranteeType?.evidenceCategoriesCollection?.items;
+    for (const evidenceCategory of evidenceCategories) {
       map.set(evidenceCategory.name, []);
     }
   }
@@ -200,6 +203,22 @@ export const GET_PROJECT = gql`
           id
           body
           createdAt
+        }
+      }
+      projectMembers {
+        nodes {
+          id
+          account {
+            firstName
+            lastName
+            role
+            certificationsByDoceboUserId {
+              nodes {
+                name
+                technology
+              }
+            }
+          }
         }
       }
     }

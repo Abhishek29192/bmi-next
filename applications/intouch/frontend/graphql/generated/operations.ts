@@ -241,6 +241,34 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
             >
           >;
         };
+        readonly projectMembers: {
+          readonly __typename?: "ProjectMembersConnection";
+        } & {
+          readonly nodes: ReadonlyArray<
+            { readonly __typename?: "ProjectMember" } & Pick<
+              SchemaTypes.ProjectMember,
+              "id"
+            > & {
+                readonly account?: SchemaTypes.Maybe<
+                  { readonly __typename?: "Account" } & Pick<
+                    SchemaTypes.Account,
+                    "firstName" | "lastName" | "role"
+                  > & {
+                      readonly certificationsByDoceboUserId: {
+                        readonly __typename?: "CertificationsConnection";
+                      } & {
+                        readonly nodes: ReadonlyArray<
+                          { readonly __typename?: "Certification" } & Pick<
+                            SchemaTypes.Certification,
+                            "name" | "technology"
+                          >
+                        >;
+                      };
+                    }
+                >;
+              }
+          >;
+        };
       }
   >;
 };
