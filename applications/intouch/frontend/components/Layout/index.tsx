@@ -51,7 +51,7 @@ const mapFooterLinks = (pageData: GetGlobalDataQuery): FooterProps["links"] => {
   );
 };
 
-export const Layout = ({ children, title, pageData }: LayoutProps) => {
+export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
   const footerLinks = pageData ? mapFooterLinks(pageData) : [];
   const marketContent = pageData.marketContentCollection?.items[0];
 

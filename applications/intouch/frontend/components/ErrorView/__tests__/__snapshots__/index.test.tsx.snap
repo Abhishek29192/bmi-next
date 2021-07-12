@@ -133,18 +133,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
           <div
             class="upperHeader"
           >
-            <nav>
-              <a
-                href="/"
-              >
-                Contact
-              </a>
-              <a
-                href="/"
-              >
-                BMI Merits
-              </a>
-            </nav>
+            <nav />
           </div>
           <div
             class="midHeader"
@@ -274,7 +263,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
                         <div
                           class="userName"
                         >
-                          joe
+                          Account
                         </div>
                         <svg
                           aria-hidden="true"
@@ -409,23 +398,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
         />
         <nav
           class="footerNav"
-        >
-          <a
-            href="/privacy-policy"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="/terms-of-use"
-          >
-            Terms of use
-          </a>
-          <a
-            href="/cookie-policy"
-          >
-            Cookie Policy
-          </a>
-        </nav>
+        />
         <svg
           style="width: 120px;"
         />
@@ -568,18 +541,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
           <div
             class="upperHeader"
           >
-            <nav>
-              <a
-                href="/"
-              >
-                Contact
-              </a>
-              <a
-                href="/"
-              >
-                BMI Merits
-              </a>
-            </nav>
+            <nav />
           </div>
           <div
             class="midHeader"
@@ -709,7 +671,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
                         <div
                           class="userName"
                         >
-                          joe
+                          Account
                         </div>
                         <svg
                           aria-hidden="true"
@@ -840,23 +802,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
         />
         <nav
           class="footerNav"
-        >
-          <a
-            href="/privacy-policy"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="/terms-of-use"
-          >
-            Terms of use
-          </a>
-          <a
-            href="/cookie-policy"
-          >
-            Cookie Policy
-          </a>
-        </nav>
+        />
         <svg
           style="width: 120px;"
         />
