@@ -10,7 +10,8 @@ import {
 } from "@bmi/icon";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { SvgIcon } from "@material-ui/core";
-
+import { gql } from "@apollo/client";
+import { useDeleteProjectMemberMutation } from "../../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
 
 const CERTIFICATION_ICONS: {
@@ -77,15 +78,24 @@ export const TeamTab = ({ teams }: TeamTabProps) => {
   const [projectMembers, setProjectMembers] = useState<ProjectMember[]>([]);
   const { t } = useTranslation("common");
 
+  const [deleteProjectMember] = useDeleteProjectMemberMutation();
+
   useEffect(() => {
     setProjectMembers(teams);
   }, [teams]);
 
-  const onDeleteClickHandler = (projectMemberId: number) => {
-    setProjectMembers((members) =>
-      members.filter((member) => member.id !== projectMemberId)
-    );
-    //TODO:Delete from DB using mutation
+  const onDeleteClickHandler = async (projectMemberId: number) => {
+    await deleteProjectMember({
+      variables: {
+        input: {
+          id: projectMemberId
+        }
+      },
+      update(cache) {
+        //It's only reset "GetProject" query
+        cache.reset();
+      }
+    });
   };
 
   return (
@@ -123,3 +133,15 @@ export const TeamTab = ({ teams }: TeamTabProps) => {
     </div>
   );
 };
+
+export const DELETE_PROJECT_MEMBER = gql`
+  mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
+    deleteProjectMember(input: $input) {
+      account {
+        id
+        firstName
+        lastName
+      }
+    }
+  }
+`;

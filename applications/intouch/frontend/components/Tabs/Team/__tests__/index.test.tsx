@@ -13,6 +13,11 @@ jest.mock("@bmi/use-dimensions", () => ({
   default: () => [useRef(), jest.fn()]
 }));
 
+const mockDeleteProjectMember = jest.fn(() => {});
+jest.mock("../../../../graphql/generated/hooks", () => ({
+  useDeleteProjectMemberMutation: () => [mockDeleteProjectMember]
+}));
+
 describe("TeamTab Components", () => {
   const teams: ProjectMember[] = [
     {
@@ -166,6 +171,9 @@ describe("TeamTab Components", () => {
     const deleteButton = await waitFor(() =>
       screen.getAllByTestId("team-member-delete")
     );
+    deleteButton[0].onclick = jest.fn(() => {
+      screen.getAllByTestId("team-item")[0].remove();
+    });
 
     fireEvent.click(deleteButton[0]);
 

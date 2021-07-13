@@ -273,6 +273,25 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.DeleteProjectMemberInput;
+}>;
+
+export type DeleteProjectMemberMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly deleteProjectMember?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteProjectMemberPayload" } & {
+      readonly account?: SchemaTypes.Maybe<
+        { readonly __typename?: "Account" } & Pick<
+          SchemaTypes.Account,
+          "id" | "firstName" | "lastName"
+        >
+      >;
+    }
+  >;
+};
+
 export type AccountByEmailQueryVariables = SchemaTypes.Exact<{
   email: SchemaTypes.Scalars["String"];
 }>;

@@ -450,6 +450,60 @@ export type GetProjectQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectQuery,
   OperationTypes.GetProjectQueryVariables
 >;
+export const DeleteProjectMemberDocument = gql`
+  mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
+    deleteProjectMember(input: $input) {
+      account {
+        id
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+export type DeleteProjectMemberMutationFn = Apollo.MutationFunction<
+  OperationTypes.DeleteProjectMemberMutation,
+  OperationTypes.DeleteProjectMemberMutationVariables
+>;
+
+/**
+ * __useDeleteProjectMemberMutation__
+ *
+ * To run a mutation, you first call `useDeleteProjectMemberMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteProjectMemberMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteProjectMemberMutation, { data, loading, error }] = useDeleteProjectMemberMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useDeleteProjectMemberMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.DeleteProjectMemberMutation,
+    OperationTypes.DeleteProjectMemberMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.DeleteProjectMemberMutation,
+    OperationTypes.DeleteProjectMemberMutationVariables
+  >(DeleteProjectMemberDocument, options);
+}
+export type DeleteProjectMemberMutationHookResult = ReturnType<
+  typeof useDeleteProjectMemberMutation
+>;
+export type DeleteProjectMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteProjectMemberMutation>;
+export type DeleteProjectMemberMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.DeleteProjectMemberMutation,
+  OperationTypes.DeleteProjectMemberMutationVariables
+>;
 export const AccountByEmailDocument = gql`
   query accountByEmail($email: String!) {
     accountByEmail(email: $email) {
