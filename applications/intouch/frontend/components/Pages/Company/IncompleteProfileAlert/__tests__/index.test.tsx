@@ -5,7 +5,7 @@ import {
   renderWithI18NProvider,
   screen,
   waitFor
-} from "../../../../lib/tests/utils";
+} from "../../../../../lib/tests/utils";
 import { CompanyIncompleteProfileAlert } from "..";
 
 const phoneFieldText = "company.incomplete_profile.phone";

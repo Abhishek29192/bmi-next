@@ -6,7 +6,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { Layout } from "../components/Layout";
 import { withPage } from "../lib/middleware/withPage";
-import CompanyMembers, { PageProps } from "../components/Pages/CompanyMembers";
+import CompanyMembers, { PageProps } from "../components/Pages/Company/Members";
 import { getServerPageCompanyMembers } from "../graphql/generated/page";
 
 export const pageQuery = gql`

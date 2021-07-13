@@ -24,7 +24,11 @@ export const SupportContactCard = ({
 
       {contactDetailsCollection.items.map(
         ({ email, fullName, phoneNumber, subHeading }) => (
-          <div className={styles.contact} key={email}>
+          <div
+            className={styles.contact}
+            key={email}
+            data-testid="support-contact"
+          >
             <div className={styles.row}>
               <UserIcon className={styles.icon} color="action" />
               <Typography variant="h6">{fullName}</Typography>

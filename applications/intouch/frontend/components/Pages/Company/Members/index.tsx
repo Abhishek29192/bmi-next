@@ -9,13 +9,13 @@ import {
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
 import { Technology, CompanyMember, Role } from "@bmi/intouch-api-types";
-import { ThreeColumnGrid } from "../../ThreeColumnGrid";
-import { SidePanel } from "../../SidePanel";
-import { FilterResult } from "../../FilterResult";
-import { CompanyMembersQuery } from "../../../graphql/generated/operations";
+import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
+import { SidePanel } from "../../../SidePanel";
+import { FilterResult } from "../../../FilterResult";
+import { CompanyMembersQuery } from "../../../../graphql/generated/operations";
 
-import { TableContainer } from "../../TableContainer";
-import { UserCard } from "../../UserCard";
+import { TableContainer } from "../../../TableContainer";
+import { UserCard } from "../../../UserCard";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 

@@ -80,6 +80,31 @@ export type GetGlobalDataQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type CompanyAdminsFragmentFragment = {
+  readonly __typename?: "Company";
+} & {
+  readonly companyMembers: {
+    readonly __typename?: "CompanyMembersConnection";
+  } & {
+    readonly nodes: ReadonlyArray<
+      { readonly __typename?: "CompanyMember" } & {
+        readonly account?: SchemaTypes.Maybe<
+          { readonly __typename?: "Account" } & Pick<
+            SchemaTypes.Account,
+            | "role"
+            | "id"
+            | "firstName"
+            | "lastName"
+            | "phone"
+            | "email"
+            | "photo"
+          >
+        >;
+      }
+    >;
+  };
+};
+
 export type InviteMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.InviteInput;
 }>;
@@ -519,55 +544,6 @@ export type CurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
   "currentCompany"
 >;
 
-export type CompanyDetailsFragmentFragment = {
-  readonly __typename?: "Company";
-} & Pick<
-  SchemaTypes.Company,
-  | "id"
-  | "name"
-  | "phone"
-  | "website"
-  | "aboutUs"
-  | "logo"
-  | "taxNumber"
-  | "tier"
-  | "businessType"
-  | "ownerFullname"
-  | "ownerEmail"
-  | "ownerPhone"
-  | "publicEmail"
-  | "linkedIn"
-  | "facebook"
-  | "referenceNumber"
-> & {
-    readonly tradingAddress?: SchemaTypes.Maybe<
-      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
-    >;
-    readonly registeredAddress?: SchemaTypes.Maybe<
-      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
-    >;
-    readonly companyMembers: {
-      readonly __typename?: "CompanyMembersConnection";
-    } & {
-      readonly nodes: ReadonlyArray<
-        { readonly __typename?: "CompanyMember" } & {
-          readonly account?: SchemaTypes.Maybe<
-            { readonly __typename?: "Account" } & Pick<
-              SchemaTypes.Account,
-              | "role"
-              | "id"
-              | "firstName"
-              | "lastName"
-              | "phone"
-              | "email"
-              | "photo"
-            >
-          >;
-        }
-      >;
-    };
-  };
-
 export type GetCurrentCompanyQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
@@ -583,19 +559,7 @@ export type GetCompanyQueryVariables = SchemaTypes.Exact<{
 
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
-    { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "logo"> & {
-        readonly tradingAddress?: SchemaTypes.Maybe<
-          { readonly __typename?: "Address" } & {
-            readonly coordinates?: SchemaTypes.Maybe<
-              { readonly __typename?: "Point" } & Pick<
-                SchemaTypes.Point,
-                "x" | "y"
-              >
-            >;
-          } & AddressLinesFragmentFragment
-        >;
-      } & CompanyDetailsFragmentFragment &
-      CompanyCertificationsFragment
+    { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
   >;
   readonly contactDetailsCollection?: SchemaTypes.Maybe<
     {
@@ -603,6 +567,40 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
     } & ContactDetailsCollectionFragmentFragment
   >;
 };
+
+export type CompanyDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  | "id"
+  | "name"
+  | "logo"
+  | "phone"
+  | "website"
+  | "aboutUs"
+  | "taxNumber"
+  | "tier"
+  | "businessType"
+  | "ownerFullname"
+  | "ownerEmail"
+  | "ownerPhone"
+  | "publicEmail"
+  | "linkedIn"
+  | "facebook"
+  | "referenceNumber"
+> & {
+    readonly tradingAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & {
+        readonly coordinates?: SchemaTypes.Maybe<
+          { readonly __typename?: "Point" } & Pick<SchemaTypes.Point, "x" | "y">
+        >;
+      } & AddressLinesFragmentFragment
+    >;
+    readonly registeredAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
+    >;
+  } & CompanyAdminsFragmentFragment &
+  CompanyCertificationsFragment;
 
 export type ImageFragmentFragment = { readonly __typename?: "Asset" } & Pick<
   SchemaTypes.Asset,

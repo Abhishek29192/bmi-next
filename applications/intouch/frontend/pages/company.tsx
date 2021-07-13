@@ -3,21 +3,15 @@ import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { SSRConfig } from "next-i18next";
 import Grid from "@bmi/grid";
 import { Layout } from "../components/Layout";
 import GridStyles from "../styles/Grid.module.scss";
 import { CompanyHeader } from "../components/Cards/CompanyHeader";
 import { CompanyRegisteredDetails } from "../components/Cards/CompanyRegisteredDetails";
-import { SmallProfileCard } from "../components/Cards/SmallProfileCard";
 import { CertificationsCard } from "../components/Cards/Certifications";
 import { SupportContactCard } from "../components/Cards/SupportContactCard";
-import { CompanyIncompleteProfileAlert } from "../components/Pages/CompanyIncompleteProfile";
-import {
-  ErrorStatusCode,
-  generatePageError,
-  withPageError
-} from "../lib/error";
+import { CompanyIncompleteProfileAlert } from "../components/Pages/Company/IncompleteProfileAlert";
+import { CompanyAdmins } from "../components/Pages/Company/Admins";
 import {
   GetCompanyQuery,
   GetGlobalDataQuery
@@ -26,88 +20,19 @@ import {
   getServerPageGetCompany,
   getServerPageGetCurrentCompany
 } from "../graphql/generated/page";
+import { ROLES } from "../lib/config";
+import {
+  ErrorStatusCode,
+  generatePageError,
+  withPageError
+} from "../lib/error";
 import { withPage } from "../lib/middleware/withPage";
 import { validateCompanyProfile } from "../lib/validations/company";
-import { ROLES } from "../lib/config";
 
 type CompanyPageProps = {
   company: GetCompanyQuery["company"];
   contactDetailsCollection: GetCompanyQuery["contactDetailsCollection"];
   globalPageData: GetGlobalDataQuery;
-};
-type SSRPageProps = CompanyPageProps & SSRConfig;
-
-export const CompanyDetailsFragment = gql`
-  fragment CompanyDetailsFragment on Company {
-    id
-    name
-    phone
-    website
-    aboutUs
-    tradingAddress {
-      ...AddressLinesFragment
-    }
-    registeredAddress {
-      ...AddressLinesFragment
-    }
-    logo
-    taxNumber
-    tier
-    businessType
-    ownerFullname
-    ownerEmail
-    ownerPhone
-    phone
-    publicEmail
-    website
-    linkedIn
-    facebook
-    referenceNumber
-    companyMembers {
-      nodes {
-        account {
-          role
-          id
-          firstName
-          lastName
-          role
-          phone
-          email
-          photo
-        }
-      }
-    }
-  }
-`;
-
-const CompanyAdmins = ({
-  allMembers
-}: {
-  allMembers: GetCompanyQuery["company"]["companyMembers"]["nodes"];
-}) => {
-  const { t } = useTranslation("common");
-
-  const admins = allMembers.filter(
-    ({ account }) => account.role == ROLES.COMPANY_ADMIN
-  );
-
-  return (
-    <Grid item xs={12} lg={7} xl={8}>
-      <Grid container spacing={3} alignItems="stretch">
-        {admins.map(({ account }) => (
-          <Grid item xs={12} md={6} key={account.id}>
-            <SmallProfileCard
-              name={[account.firstName, account.lastName].join(" ")}
-              jobTitle={t(account.role)}
-              phoneNumber={account.phone}
-              emailAddress={account.email}
-              avatar={account.photo}
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </Grid>
-  );
 };
 
 const CompanyPage = ({
@@ -140,7 +65,13 @@ const CompanyPage = ({
           <CompanyRegisteredDetails company={company} />
         </Grid>
 
-        <CompanyAdmins allMembers={company.companyMembers.nodes} />
+        <Grid item xs={12} lg={7} xl={8}>
+          <CompanyAdmins
+            admins={company.companyMembers.nodes.filter(
+              ({ account }) => account.role == ROLES.COMPANY_ADMIN
+            )}
+          />
+        </Grid>
 
         <Grid item xs={12} lg={5} xl={4}>
           <SupportContactCard
@@ -168,21 +99,48 @@ export const GET_CURRENT_COMPANY = gql`
 export const GET_COMPANY_PAGE = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
-      logo
-      tradingAddress {
-        ...AddressLinesFragment
-        # These are required for the Alert banner
-        coordinates {
-          x
-          y
-        }
-      }
       ...CompanyDetailsFragment
-      ...CompanyCertifications
     }
     contactDetailsCollection {
       ...ContactDetailsCollectionFragment
     }
+  }
+`;
+
+export const CompanyDetailsFragment = gql`
+  fragment CompanyDetailsFragment on Company {
+    id
+    name
+    logo
+    phone
+    website
+    aboutUs
+    tradingAddress {
+      ...AddressLinesFragment
+      # These are required for the Alert banner
+      coordinates {
+        x
+        y
+      }
+    }
+    registeredAddress {
+      ...AddressLinesFragment
+    }
+    logo
+    taxNumber
+    tier
+    businessType
+    ownerFullname
+    ownerEmail
+    ownerPhone
+    phone
+    publicEmail
+    website
+    linkedIn
+    facebook
+    referenceNumber
+    ...CompanyAdminsFragment
+    ...CompanyCertifications
   }
 `;
 

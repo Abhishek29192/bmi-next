@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import AlertBanner from "@bmi/alert-banner";
 import Button from "@bmi/button";
 import { Cross as IconCross } from "@bmi/icon";
-import { CompanyProfileMandatoryFields } from "../../../lib/validations/company";
+import { CompanyProfileMandatoryFields } from "../../../../lib/validations/company";
 import styles from "./styles.module.scss";
 
 type CompanyIncompleteProfileAlertProps = {
