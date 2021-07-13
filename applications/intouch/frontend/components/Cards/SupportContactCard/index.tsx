@@ -16,6 +16,7 @@ export const SupportContactCard = ({
   contactDetailsCollection
 }: BmiContactDetailsProps) => {
   const { t } = useTranslation("company-page");
+
   return (
     <SimpleCard>
       <Typography variant="h4" hasUnderline className={styles.title}>
@@ -29,25 +30,33 @@ export const SupportContactCard = ({
             key={email}
             data-testid="support-contact"
           >
-            <div className={styles.row}>
-              <UserIcon className={styles.icon} color="action" />
-              <Typography variant="h6">{fullName}</Typography>
-            </div>
+            {fullName ? (
+              <div className={styles.row}>
+                <UserIcon className={styles.icon} color="action" />
+                <Typography variant="h6">{fullName}</Typography>
+              </div>
+            ) : null}
 
-            <div className={styles.row}>
-              <span className={styles.icon} />
-              <Typography variant="default" className={styles.subtitle}>
-                {subHeading}
-              </Typography>
-            </div>
+            {subHeading ? (
+              <div className={styles.row}>
+                <span className={styles.icon} />
+                <Typography variant="default" className={styles.subtitle}>
+                  {subHeading}
+                </Typography>
+              </div>
+            ) : null}
 
-            <div className={styles.row}>
-              <PhoneNumberLink phoneNumber={phoneNumber} />
-            </div>
+            {phoneNumber ? (
+              <div className={styles.row}>
+                <PhoneNumberLink phoneNumber={phoneNumber} />
+              </div>
+            ) : null}
 
-            <div className={styles.row}>
-              <EmailLink emailAddress={email} />
-            </div>
+            {email ? (
+              <div className={styles.row}>
+                <EmailLink emailAddress={email} />
+              </div>
+            ) : null}
           </div>
         )
       )}

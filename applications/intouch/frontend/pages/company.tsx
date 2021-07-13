@@ -68,7 +68,7 @@ const CompanyPage = ({
         <Grid item xs={12} lg={7} xl={8}>
           <CompanyAdmins
             admins={company.companyMembers.nodes.filter(
-              ({ account }) => account.role == ROLES.COMPANY_ADMIN
+              ({ account }) => account.role === ROLES.COMPANY_ADMIN
             )}
           />
         </Grid>
