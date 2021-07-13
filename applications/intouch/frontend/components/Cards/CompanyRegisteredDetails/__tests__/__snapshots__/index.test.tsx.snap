@@ -21,11 +21,11 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       >
         Registered name
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
         Integrated Solutions Inc
-      </p>
+      </div>
     </div>
     <div
       style="margin-bottom: 1.5rem;"
@@ -35,7 +35,7 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       >
         Membership number
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
       />
     </div>
@@ -47,7 +47,7 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       >
         Registered address
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
         <div>
@@ -67,7 +67,7 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
             UK
           </div>
         </div>
-      </p>
+      </div>
     </div>
     <div
       style="margin-bottom: 1.5rem;"
@@ -77,7 +77,7 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       >
         Company VAT number
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
       />
     </div>
@@ -89,7 +89,7 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       >
         Tier
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
       />
     </div>

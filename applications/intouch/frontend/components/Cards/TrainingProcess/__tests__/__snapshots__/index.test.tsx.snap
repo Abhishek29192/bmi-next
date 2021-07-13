@@ -46,13 +46,13 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
           >
             Find the right training
           </h6>
-          <p
+          <div
             class="MuiTypography-root Typography MuiTypography-body1"
           >
             Search our extensive library of classroom training, workshops,
       online webinars and e-learning courses to find what you need and
       take your skills to the next level.
-          </p>
+          </div>
         </div>
       </div>
       <div
@@ -85,12 +85,12 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
           >
             Increase your skills
           </h6>
-          <p
+          <div
             class="MuiTypography-root Typography MuiTypography-body1"
           >
             Continue personal development to hone your skills in areas where you
       need additional knowledge.
-          </p>
+          </div>
         </div>
       </div>
       <div
@@ -123,13 +123,13 @@ exports[`TrainingProcessCard component renders correctly 1`] = `
           >
             Get certified
           </h6>
-          <p
+          <div
             class="MuiTypography-root Typography MuiTypography-body1"
           >
             Develop your training achievements by collecting BMI certificates,
       which you can additionally share with others. They will always be
       visible on your profile.
-          </p>
+          </div>
         </div>
       </div>
     </div>

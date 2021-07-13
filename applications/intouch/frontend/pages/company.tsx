@@ -110,8 +110,6 @@ const CompanyAdmins = ({
 
 const CompanyPage = ({ company }: PageProps) => {
   const { t } = useTranslation("company-page");
-  // TODO: where was this used?
-  const { tradingAddress } = company;
   const { missingFields: companyProfileMissingFields } =
     validateCompanyProfile(company);
 
@@ -167,28 +165,17 @@ export const GET_CURRENT_COMPANY = gql`
   }
 `;
 
-// # TODO: this address fragment should be placed in a new address component
-export const AddressFragment = gql`
-  fragment AddressFields on Address {
-    firstLine
-    secondLine
-    town
-    region
-    country
-    postcode
-    coordinates {
-      x
-      y
-    }
-  }
-`;
-
 export const GET_COMPANY = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       logo
       tradingAddress {
-        ...AddressFields
+        ...AddressLinesFragment
+        # These are required for the Alert banner
+        coordinates {
+          x
+          y
+        }
       }
       ...CompanyDetailsFragment
       ...CompanyCertifications
@@ -226,11 +213,6 @@ export const getServerSideProps = withPage(
       } = data;
       pageProps.company = company;
     }
-    console.log(
-      "pageProps.company.companyMembers.nodes",
-      pageProps.company.companyMembers.nodes
-    );
-    console.log("account", account);
 
     const canViewPage = can(account, "company", "view", {
       companyMemberIds: pageProps.company

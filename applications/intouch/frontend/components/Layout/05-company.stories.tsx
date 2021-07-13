@@ -55,12 +55,7 @@ export const CompanyPage = ({ title }: LayoutProps) => (
             />
           </FiftyFiftyGrid>
         </div>
-        <CompanyRegisteredDetails
-          registeredName="Placeholder"
-          registeredAddress="Placeholder"
-          companyVatNumber="Placeholder"
-          contract="Placeholder"
-        />
+        <CompanyRegisteredDetails company={mockCompany} />
       </ThreeColumnGrid>
     </div>
   </Layout>

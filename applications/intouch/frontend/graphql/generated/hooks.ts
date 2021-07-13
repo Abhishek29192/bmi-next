@@ -61,20 +61,6 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
   }
   ${AddressLinesFragmentFragmentDoc}
 `;
-export const AddressFieldsFragmentDoc = gql`
-  fragment AddressFields on Address {
-    firstLine
-    secondLine
-    town
-    region
-    country
-    postcode
-    coordinates {
-      x
-      y
-    }
-  }
-`;
 export const ImageFragmentFragmentDoc = gql`
   fragment ImageFragment on Asset {
     title
@@ -1141,13 +1127,17 @@ export const GetCompanyDocument = gql`
     company(id: $companyId) {
       logo
       tradingAddress {
-        ...AddressFields
+        ...AddressLinesFragment
+        coordinates {
+          x
+          y
+        }
       }
       ...CompanyDetailsFragment
       ...CompanyCertifications
     }
   }
-  ${AddressFieldsFragmentDoc}
+  ${AddressLinesFragmentFragmentDoc}
   ${CompanyDetailsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
 `;
