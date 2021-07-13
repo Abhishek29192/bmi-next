@@ -8,6 +8,16 @@ export const CompanyCertificationsFragmentDoc = gql`
     certifications
   }
 `;
+export const AddressLinesFragmentFragmentDoc = gql`
+  fragment AddressLinesFragment on Address {
+    firstLine
+    secondLine
+    town
+    region
+    country
+    postcode
+  }
+`;
 export const CompanyDetailsFragmentFragmentDoc = gql`
   fragment CompanyDetailsFragment on Company {
     id
@@ -16,10 +26,7 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
     website
     aboutUs
     registeredAddress {
-      firstLine
-      secondLine
-      town
-      postcode
+      ...AddressLinesFragment
     }
     logo
     taxNumber
@@ -49,6 +56,7 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
       }
     }
   }
+  ${AddressLinesFragmentFragmentDoc}
 `;
 export const AddressFieldsFragmentDoc = gql`
   fragment AddressFields on Address {

@@ -1,5 +1,12 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
+export type AddressLinesFragmentFragment = {
+  readonly __typename?: "Address";
+} & Pick<
+  SchemaTypes.Address,
+  "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
+>;
+
 export type CompanyCertificationsFragment = {
   readonly __typename?: "Company";
 } & Pick<SchemaTypes.Company, "certifications">;
@@ -451,10 +458,7 @@ export type CompanyDetailsFragmentFragment = {
   | "referenceNumber"
 > & {
     readonly registeredAddress?: SchemaTypes.Maybe<
-      { readonly __typename?: "Address" } & Pick<
-        SchemaTypes.Address,
-        "firstLine" | "secondLine" | "town" | "postcode"
-      >
+      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
     >;
     readonly companyMembers: {
       readonly __typename?: "CompanyMembersConnection";

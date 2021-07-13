@@ -57,10 +57,7 @@ export const CompanyDetailsFragment = gql`
     website
     aboutUs
     registeredAddress {
-      firstLine
-      secondLine
-      town
-      postcode
+      ...AddressLinesFragment
     }
     logo
     taxNumber
