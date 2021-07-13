@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Container from "@bmi/container";
 import Page from "../components/Page";
 import { Data as SiteData } from "../components/Site";
 import ShareWidgetSection, {
@@ -34,17 +33,15 @@ const SystemDetailsPage = ({ data }: Props) => {
       pageData={{ breadcrumbs: null, inputBanner: null, seo: null }}
       siteData={contentfulSite}
     >
-      <Container>
-        {resources?.sdpShareWidget && (
-          <ShareWidgetSection data={resources.sdpShareWidget} />
-        )}
-        <LeadBlockSection
-          name={name}
-          categories={categories}
-          classifications={classifications}
-        />
-        <ImageGallerySection images={images ? images : []} />
-      </Container>
+      {resources?.sdpShareWidget && (
+        <ShareWidgetSection data={resources.sdpShareWidget} />
+      )}
+      <LeadBlockSection
+        name={name}
+        categories={categories}
+        classifications={classifications}
+      />
+      <ImageGallerySection images={images ? images : []} />
     </Page>
   );
 };
