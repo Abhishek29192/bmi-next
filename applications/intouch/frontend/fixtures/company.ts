@@ -9,15 +9,18 @@ export const mockCompany: GetCompanyQuery["company"] = {
   aboutUs: "We put stuff together really quickly without any fuss",
   publicEmail: "lfoskin0@paypal.com",
   companyMembers: {
-    nodes: [
-      { accountId: 3 },
-      { accountId: 4 },
-      { accountId: 5 },
-      { accountId: 6 }
-    ]
+    nodes: []
+  },
+  registeredAddress: {
+    firstLine: "Registered Nursery Rd",
+    secondLine: "Brixton",
+    town: "London",
+    region: null,
+    country: "UK",
+    postcode: "SW9 8BP"
   },
   tradingAddress: {
-    firstLine: "Nursery Rd",
+    firstLine: "Trading Nursery Rd",
     secondLine: "Brixton",
     town: "London",
     region: null,

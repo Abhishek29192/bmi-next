@@ -1,26 +1,15 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
+export type AddressLinesFragmentFragment = {
+  readonly __typename?: "Address";
+} & Pick<
+  SchemaTypes.Address,
+  "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
+>;
+
 export type CompanyCertificationsFragment = {
   readonly __typename?: "Company";
 } & Pick<SchemaTypes.Company, "certifications">;
-
-export type CompanyDetailsFragmentFragment = {
-  readonly __typename?: "Company";
-} & Pick<
-  SchemaTypes.Company,
-  "id" | "name" | "phone" | "website" | "aboutUs" | "publicEmail"
-> & {
-    readonly companyMembers: {
-      readonly __typename?: "CompanyMembersConnection";
-    } & {
-      readonly nodes: ReadonlyArray<
-        { readonly __typename?: "CompanyMember" } & Pick<
-          SchemaTypes.CompanyMember,
-          "accountId"
-        >
-      >;
-    };
-  };
 
 export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
@@ -447,6 +436,55 @@ export type CurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
   "currentCompany"
 >;
 
+export type CompanyDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  | "id"
+  | "name"
+  | "phone"
+  | "website"
+  | "aboutUs"
+  | "logo"
+  | "taxNumber"
+  | "tier"
+  | "businessType"
+  | "ownerFullname"
+  | "ownerEmail"
+  | "ownerPhone"
+  | "publicEmail"
+  | "linkedIn"
+  | "facebook"
+  | "referenceNumber"
+> & {
+    readonly tradingAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
+    >;
+    readonly registeredAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
+    >;
+    readonly companyMembers: {
+      readonly __typename?: "CompanyMembersConnection";
+    } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyMember" } & {
+          readonly account?: SchemaTypes.Maybe<
+            { readonly __typename?: "Account" } & Pick<
+              SchemaTypes.Account,
+              | "role"
+              | "id"
+              | "firstName"
+              | "lastName"
+              | "phone"
+              | "email"
+              | "photo"
+            >
+          >;
+        }
+      >;
+    };
+  };
+
 export type GetCurrentCompanyQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
@@ -456,15 +494,6 @@ export type GetCurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
   "currentCompany"
 >;
 
-export type AddressFieldsFragment = { readonly __typename?: "Address" } & Pick<
-  SchemaTypes.Address,
-  "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
-> & {
-    readonly coordinates?: SchemaTypes.Maybe<
-      { readonly __typename?: "Point" } & Pick<SchemaTypes.Point, "x" | "y">
-    >;
-  };
-
 export type GetCompanyQueryVariables = SchemaTypes.Exact<{
   companyId: SchemaTypes.Scalars["Int"];
 }>;
@@ -473,7 +502,14 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
     { readonly __typename?: "Company" } & Pick<SchemaTypes.Company, "logo"> & {
         readonly tradingAddress?: SchemaTypes.Maybe<
-          { readonly __typename?: "Address" } & AddressFieldsFragment
+          { readonly __typename?: "Address" } & {
+            readonly coordinates?: SchemaTypes.Maybe<
+              { readonly __typename?: "Point" } & Pick<
+                SchemaTypes.Point,
+                "x" | "y"
+              >
+            >;
+          } & AddressLinesFragmentFragment
         >;
       } & CompanyDetailsFragmentFragment &
       CompanyCertificationsFragment
