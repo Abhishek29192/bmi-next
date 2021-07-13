@@ -12,6 +12,7 @@ export type Props = Omit<LinkProps, "color"> & {
   isDisabled?: boolean;
   iconStart?: boolean;
   iconEnd?: boolean;
+  iconInverted?: boolean;
   color?: "default" | "black" | "white";
 };
 
@@ -27,6 +28,7 @@ const AnchorLink = ({
   iconEnd,
   className,
   color,
+  iconInverted,
   ...rest
 }: Props) => {
   const { type, theme } = useContext(ColorPairContext);
@@ -38,7 +40,9 @@ const AnchorLink = ({
       source={arrowForwardIcon}
       aria-hidden="true"
       focusable="false"
-      className={styles["icon"]}
+      className={classnames(styles["icon"], {
+        [styles["icon--inverted"]!]: iconInverted
+      })}
     />
   );
 

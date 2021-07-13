@@ -88,6 +88,15 @@
             }
           ],
           "name": "Roof build-up"
+        },
+        {
+          "code": "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
+          "featureValues": [
+            {
+              "value": "Test Promotional Content NO locale"
+            }
+          ],
+          "name": "Promotional Content"
         }
       ],
       "name": "System Attributes"
