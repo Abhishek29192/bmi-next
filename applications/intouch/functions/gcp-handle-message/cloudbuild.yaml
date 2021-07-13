@@ -7,7 +7,7 @@ steps:
       - deploy
       - pubsub-handle-message
       - --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-handle-message.zip
-      - --runtime=nodejs10
+      - --runtime=nodejs14
       - --entry-point=helloPubSub
       - --region=europe-west2
       - --trigger-topic=transactional-email

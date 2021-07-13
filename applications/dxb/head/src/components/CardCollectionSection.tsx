@@ -179,7 +179,7 @@ const CardCollectionSection = ({
   const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
-  const { getMicroCopy, countryCode } = useContext(SiteContext);
+  const { getMicroCopy, countryCode, node_locale } = useContext(SiteContext);
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
 
@@ -201,11 +201,15 @@ const CardCollectionSection = ({
   );
 
   const formatDate = (date: string): string =>
-    new Intl.DateTimeFormat(countryCode || undefined, {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    }).format(new Date(date));
+    new Intl.DateTimeFormat(
+      // Required until Norway's locale is fixed in V8 https://bugs.chromium.org/p/v8/issues/detail?id=11897
+      node_locale === "nb-NO" ? "no" : node_locale || undefined,
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }
+    ).format(new Date(date));
 
   const iteratableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;

@@ -16,7 +16,7 @@
   "name": "somefuntion1",
   "project": "some-gcp-project",
   "region": "europe-west3",
-  "runtime": "nodejs10",
+  "runtime": "nodejs14",
   "service_account_email": "dxb-test@some-gcp-project.iam.gserviceaccount.com",
   "source_archive_bucket": "bmi-dxb-test-storage",
   "source_archive_object": "sources/somefunction1.zip",

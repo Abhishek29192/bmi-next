@@ -1,5 +1,3 @@
-image: node:12
-
 build_gcp-intouch-cron-training:
   stage: build
   rules:

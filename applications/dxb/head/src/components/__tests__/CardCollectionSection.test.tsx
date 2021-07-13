@@ -67,6 +67,18 @@ const card4: PromoData = {
   featuredVideo: null
 };
 
+const getSiteContext = (
+  countryCode: string = "en",
+  nodeLocale: string = "en-GB"
+) => ({
+  countryCode: countryCode,
+  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
+  node_locale: nodeLocale,
+  homePage: {
+    title: "Home page title"
+  }
+});
+
 describe("CardCollectionSection component", () => {
   describe("Renders correctly", () => {
     it("When Title rich text and cards are present", () => {
@@ -89,10 +101,12 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <CardCollectionSection
-          data={data}
-          theme={{ cardCollectionRowType: "single-row" }}
-        />
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection
+            data={data}
+            theme={{ cardCollectionRowType: "single-row" }}
+          />
+        </SiteContext.Provider>
       );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
@@ -122,7 +136,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -151,7 +169,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -180,7 +202,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -209,7 +235,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -238,7 +268,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -267,7 +301,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -296,7 +334,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -348,7 +390,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -381,7 +427,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //find filter tag 1
       const tagFilterButton1 = wrapper.getByText(testTag1.title);
@@ -389,7 +439,11 @@ describe("CardCollectionSection component", () => {
       tagFilterButton1.click();
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(<CardCollectionSection data={data} theme="" />);
+      wrapper.rerender(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //card 1 has the selected tag
       const titleElement = wrapper.getByText(card1.title);
@@ -424,7 +478,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //find filter tag 2
       const tagFilterButton = wrapper.getByText(testTag2.title);
@@ -432,7 +490,11 @@ describe("CardCollectionSection component", () => {
       tagFilterButton.click();
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(<CardCollectionSection data={data} theme="" />);
+      wrapper.rerender(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //card 3 has the selected tag
       const titleElement3 = wrapper.getByText(card3.title);
@@ -460,7 +522,11 @@ describe("CardCollectionSection component", () => {
         sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //find filter tag 1
       const tagFilterButton1 = wrapper.getByText(testTag1.title);
@@ -473,7 +539,11 @@ describe("CardCollectionSection component", () => {
       tagFilterButton2.click();
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(<CardCollectionSection data={data} theme="" />);
+      wrapper.rerender(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //card 1 has the selected tag
       const titleElement = wrapper.getAllByText(card1.title);
@@ -517,7 +587,11 @@ describe("CardCollectionSection component", () => {
       sortOrder: null
     };
 
-    const wrapper = render(<CardCollectionSection data={data} theme="" />);
+    const wrapper = render(
+      <SiteContext.Provider value={getSiteContext()}>
+        <CardCollectionSection data={data} theme="" />
+      </SiteContext.Provider>
+    );
 
     const renderedCards = wrapper.getAllByText("test card title");
     expect(renderedCards).toHaveLength(10);
@@ -563,7 +637,11 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(data.cardLabel);
@@ -600,7 +678,11 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(`a ${card1.title}`);
@@ -662,7 +744,11 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(card.cta.label);
@@ -713,7 +799,11 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.queryByTestId("card-link");
       expect(cardLink).toBeNull();
@@ -776,7 +866,11 @@ describe("CardCollectionSection component", () => {
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(`Go to ${card1.title}`);
@@ -817,7 +911,9 @@ describe("CardCollectionSection component", () => {
 
       const wrapper = render(
         <VisualiserContext.Provider value={{ isOpen: false, open: undefined }}>
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </VisualiserContext.Provider>
       );
 
@@ -861,7 +957,9 @@ describe("CardCollectionSection component", () => {
         <VisualiserContext.Provider
           value={{ isOpen: false, open: visualiserOpen }}
         >
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </VisualiserContext.Provider>
       );
 
@@ -907,7 +1005,9 @@ describe("CardCollectionSection component", () => {
         <VisualiserContext.Provider
           value={{ isOpen: false, open: visualiserOpen }}
         >
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </VisualiserContext.Provider>
       );
 
@@ -951,7 +1051,9 @@ describe("CardCollectionSection component", () => {
 
       const wrapper = render(
         <CalculatorContext.Provider value={{ isOpen: false, open: undefined }}>
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </CalculatorContext.Provider>
       );
 
@@ -996,7 +1098,9 @@ describe("CardCollectionSection component", () => {
         <CalculatorContext.Provider
           value={{ isOpen: false, open: calculatorOpen }}
         >
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </CalculatorContext.Provider>
       );
 
@@ -1042,7 +1146,9 @@ describe("CardCollectionSection component", () => {
         <CalculatorContext.Provider
           value={{ isOpen: false, open: calculatorOpen }}
         >
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </CalculatorContext.Provider>
       );
 
@@ -1070,16 +1176,7 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider
-          value={{
-            countryCode: "no",
-            getMicroCopy: (string) => `MC: ${string}`,
-            node_locale: "",
-            homePage: {
-              title: ""
-            }
-          }}
-        >
+        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
           <CardCollectionSection data={data} theme="" />
         </SiteContext.Provider>
       );
@@ -1103,16 +1200,7 @@ describe("CardCollectionSection component", () => {
       };
 
       const wrapper = render(
-        <SiteContext.Provider
-          value={{
-            countryCode: "no",
-            getMicroCopy: (string) => `MC: ${string}`,
-            node_locale: "",
-            homePage: {
-              title: ""
-            }
-          }}
-        >
+        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
           <CardCollectionSection data={data} theme="" />
         </SiteContext.Provider>
       );
