@@ -4,23 +4,9 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
-// TODO: use @bmi components
-import CardContent from "@material-ui/core/CardContent";
-// TODO: button is not compatible here
-import Button from "@material-ui/core/Button";
-import PhoneIcon from "@material-ui/icons/Phone";
-import MailIcon from "@material-ui/icons/Mail";
-import AddIcon from "@material-ui/icons/Add";
-import Person from "@material-ui/icons/Person";
 import Typography from "@bmi/typography";
-
-import Card from "@bmi/card";
 import Grid from "@bmi/grid";
-import Icon from "@bmi/icon";
-
 import { Layout } from "../components/Layout";
-import { InfoPair } from "../components/InfoPair";
-import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
 
 import { CompanyHeader } from "../components/Cards/CompanyHeader";
@@ -89,10 +75,14 @@ export const CompanyDetailsFragment = gql`
   }
 `;
 
-const CompanyAdmins = ({ nodes }: { nodes: object }) => {
+const CompanyAdmins = ({
+  allMembers
+}: {
+  allMembers: GetCompanyQuery["company"]["companyMembers"]["nodes"];
+}) => {
   const { t } = useTranslation("common");
 
-  const admins = nodes.filter(
+  const admins = allMembers.filter(
     (member) => member.account.role == "COMPANY_ADMIN"
   );
 
@@ -142,7 +132,7 @@ const CompanyPage = ({ company }: PageProps) => {
           <CompanyRegisteredDetails company={company} />
         </Grid>
 
-        <CompanyAdmins nodes={company.companyMembers.nodes} />
+        <CompanyAdmins allMembers={company.companyMembers.nodes} />
 
         <Grid item xs={12} lg={5} xl={4}>
           <SimpleCard>
