@@ -320,7 +320,7 @@ type ContentfulTeamPage implements ContentfulPage & Node {
   "The breadcrumb items for this page, devoid of any prefix."
   breadcrumbs: JSON
 
-  "This field will always return null."
+  "The brand logo for this page."
   brandLogo: String
 
   "This field will always return null."

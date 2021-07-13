@@ -11,9 +11,7 @@ module.exports.description = "Rename brandLogo to brand";
 module.exports.up = (migration) => {
   const page = migration.editContentType("page");
 
-  page.changeFieldId("brandLogo", "brand");
-  page.editField("brand").name("Brand");
-  page.moveField("brand").afterField("featuredImage");
+  page.editField("brandLogo").name("Brand");
 };
 
 /**
@@ -22,7 +20,5 @@ module.exports.up = (migration) => {
 module.exports.down = (migration) => {
   const page = migration.editContentType("page");
 
-  page.changeFieldId("brand", "brandLogo");
   page.editField("brandLogo").name("Brand Logo");
-  page.moveField("brandLogo").afterField("featuredImage");
 };
