@@ -74,7 +74,7 @@ const Page = ({
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
   return (
-    <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
+    <>
       <Helmet
         htmlAttributes={{ lang: node_locale }}
         title={seo?.metaTitle || title}
@@ -172,13 +172,17 @@ const Page = ({
             useRecaptchaNet={reCaptchaNet}
             language={countryCode}
           >
-            <Header
-              navigationData={menuNavigation}
-              utilitiesData={menuUtilities}
-              countryCode={countryCode}
-              activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
-              isOnSearchPage={isSearchPage}
-            />
+            <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
+              <Header
+                navigationData={menuNavigation}
+                utilitiesData={menuUtilities}
+                countryCode={countryCode}
+                activeLabel={
+                  (breadcrumbs && breadcrumbs[0]?.label) || undefined
+                }
+                isOnSearchPage={isSearchPage}
+              />
+            </BmiThemeProvider>
             <BrandProvider brand={brand}>
               <ErrorBoundary
                 fallbackRender={() => (
@@ -201,15 +205,17 @@ const Page = ({
                 {inputBanner ? <InputBanner data={inputBanner} /> : null}
               </ErrorBoundary>
             </BrandProvider>
-            <Footer
-              mainNavigation={footerMainNavigation}
-              secondaryNavigation={footerSecondaryNavigation}
-            />
+            <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
+              <Footer
+                mainNavigation={footerMainNavigation}
+                secondaryNavigation={footerSecondaryNavigation}
+              />
+              <BackToTop accessibilityLabel="Back to the top" />
+            </BmiThemeProvider>
           </GoogleReCaptchaProvider>
         </MicroCopy.Provider>
       </SiteContext.Provider>
-      <BackToTop accessibilityLabel="Back to the top" />
-    </BmiThemeProvider>
+    </>
   );
 };
 

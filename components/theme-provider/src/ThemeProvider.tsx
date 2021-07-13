@@ -4,11 +4,11 @@ import {
   ThemeProvider as MaterialThemeProvider,
   ThemeOptions
 } from "@material-ui/core";
-import React from "react";
+import React, { useMemo } from "react";
 import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
-const theme = (
+const getTheme = (
   longText: boolean,
   expandTheme?: (t: ThemeOptions) => ThemeOptions
 ) => {
@@ -110,11 +110,18 @@ type Props = {
   expandTheme?: (t: ThemeOptions) => ThemeOptions;
 };
 
-const ThemeProvider = ({ longText = false, expandTheme, children }: Props) => (
-  <MaterialThemeProvider theme={theme(longText, expandTheme)}>
-    <CssBaseline />
-    {children}
-  </MaterialThemeProvider>
-);
+const ThemeProvider = ({ longText = false, expandTheme, children }: Props) => {
+  const theme = useMemo(
+    () => getTheme(longText, expandTheme),
+    [longText, expandTheme]
+  );
+
+  return (
+    <MaterialThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </MaterialThemeProvider>
+  );
+};
 
 export default ThemeProvider;
