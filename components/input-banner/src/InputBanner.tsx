@@ -45,7 +45,12 @@ const InputBanner = ({
     <div className={styles["InputBanner"]}>
       <Container>
         <div className={styles["wrapper"]}>
-          <Typography variant="h3" hasUnderline className={styles["title"]}>
+          <Typography
+            variant="h3"
+            hasUnderline
+            hasDarkBackground
+            className={styles["title"]}
+          >
             {title}
           </Typography>
           <Grid container spacing={3}>

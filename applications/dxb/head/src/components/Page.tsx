@@ -20,6 +20,8 @@ import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
 import styles from "./styles/Page.module.scss";
 
+import BrandProvider from "./BrandProvider";
+
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
   inputBanner: InputBannerData | null;
@@ -27,6 +29,7 @@ export type Data = {
 };
 
 type Props = {
+  brand?: string;
   children: React.ReactNode;
   title: string;
   pageData: Data;
@@ -37,6 +40,7 @@ type Props = {
 };
 
 const Page = ({
+  brand,
   title,
   children,
   pageData,
@@ -175,26 +179,28 @@ const Page = ({
               activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
               isOnSearchPage={isSearchPage}
             />
-            <ErrorBoundary
-              fallbackRender={() => (
-                <ErrorFallback
-                  countryCode={countryCode}
-                  promo={resources.errorGeneral}
-                />
-              )}
-              onError={() => navigate(`/${countryCode}/422`)}
-            >
-              <VisualiserProvider
-                contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
-                variantCodeToPathMap={variantCodeToPathMap}
-                shareWidgetData={resources?.visualiserShareWidget}
+            <BrandProvider brand={brand}>
+              <ErrorBoundary
+                fallbackRender={() => (
+                  <ErrorFallback
+                    countryCode={countryCode}
+                    promo={resources.errorGeneral}
+                  />
+                )}
+                onError={() => navigate(`/${countryCode}/422`)}
               >
-                <Calculator onError={() => navigate(`/${countryCode}/422`)}>
-                  <div className={styles["content"]}>{children}</div>
-                </Calculator>
-              </VisualiserProvider>
-              {inputBanner ? <InputBanner data={inputBanner} /> : null}
-            </ErrorBoundary>
+                <VisualiserProvider
+                  contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+                  variantCodeToPathMap={variantCodeToPathMap}
+                  shareWidgetData={resources?.visualiserShareWidget}
+                >
+                  <Calculator onError={() => navigate(`/${countryCode}/422`)}>
+                    <div className={styles["content"]}>{children}</div>
+                  </Calculator>
+                </VisualiserProvider>
+                {inputBanner ? <InputBanner data={inputBanner} /> : null}
+              </ErrorBoundary>
+            </BrandProvider>
             <Footer
               mainNavigation={footerMainNavigation}
               secondaryNavigation={footerSecondaryNavigation}
