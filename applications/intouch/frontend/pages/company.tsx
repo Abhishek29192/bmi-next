@@ -22,7 +22,11 @@ import { Layout } from "../components/Layout";
 import { InfoPair } from "../components/InfoPair";
 import { CardHeader } from "../components/CardHeader";
 import GridStyles from "../styles/Grid.module.scss";
-import CompanyDetailsCard from "../components/CompanyDetailsCard";
+
+import { CompanyHeader } from "../components/Cards/CompanyHeader";
+import { CompanyRegisteredDetails } from "../components/Cards/CompanyRegisteredDetails";
+import { SmallProfileCard } from "../components/Cards/SmallProfileCard";
+
 import { CertificationsCard } from "../components/Cards/Certifications";
 import { SimpleCard } from "../components/Cards/SimpleCard";
 import { CompanyIncompleteProfileAlert } from "../components/Pages/CompanyIncompleteProfile";
@@ -45,6 +49,75 @@ type PageProps = {
   company: GetCompanyQuery["company"];
 };
 
+export const CompanyDetailsFragment = gql`
+  fragment CompanyDetailsFragment on Company {
+    id
+    name
+    phone
+    website
+    aboutUs
+    registeredAddress {
+      firstLine
+      secondLine
+      town
+      postcode
+    }
+    logo
+    taxNumber
+    tier
+    businessType
+    ownerFullname
+    ownerEmail
+    ownerPhone
+    phone
+    publicEmail
+    website
+    linkedIn
+    facebook
+    referenceNumber
+    companyMembers {
+      nodes {
+        account {
+          role
+          id
+          firstName
+          lastName
+          role
+          phone
+          email
+          photo
+        }
+      }
+    }
+  }
+`;
+
+const CompanyAdmins = ({ nodes }: { nodes: object }) => {
+  const { t } = useTranslation("common");
+
+  const admins = nodes.filter(
+    (member) => member.account.role == "COMPANY_ADMIN"
+  );
+
+  return (
+    <Grid item xs={12} lg={7} xl={8}>
+      <Grid container spacing={3} alignItems="stretch">
+        {admins.map((member) => (
+          <Grid item xs={12} md={6} key={member.account.id}>
+            <SmallProfileCard
+              name={member.account.firstName + " " + member.account.lastName}
+              jobTitle={t(member.account.role)}
+              phoneNumber={member.account.phone}
+              emailAddress={member.account.email}
+              avatar={member.account.photo}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </Grid>
+  );
+};
+
 const CompanyPage = ({ company }: PageProps) => {
   const { t } = useTranslation("company-page");
   const { tradingAddress } = company;
@@ -65,135 +138,16 @@ const CompanyPage = ({ company }: PageProps) => {
         alignItems="stretch"
       >
         <Grid item xs={12} lg={7} xl={8}>
-          <SimpleCard>
-            <Typography
-              variant="h3"
-              hasUnderline
-              style={{ marginBottom: "1.5rem", fontSize: "1.7rem" }}
-            >
-              {t("About Us")}
-            </Typography>
-            <Grid container spacing={3}>
-              <Grid item xs={12} lg={3} xl={3}>
-                <img src={company.logo} alt="" style={{ maxWidth: "100%" }} />
-              </Grid>
-              <Grid item xs={12} lg={9} xl={9}>
-                <div>
-                  <InfoPair title="Company description">
-                    {company.aboutUs}
-                  </InfoPair>
-                </div>
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={6}>
-                    <InfoPair title="Main office address">
-                      {/* TODO: use separate Address component */}
-                      {[
-                        tradingAddress.firstLine,
-                        tradingAddress.secondLine,
-                        tradingAddress.postcode,
-                        tradingAddress.town,
-                        tradingAddress.region,
-                        tradingAddress.country
-                      ]
-                        .filter((line) => !!line)
-                        .map((line, idx) =>
-                          idx === 0 ? (
-                            line
-                          ) : (
-                            <>
-                              {line}
-                              <br />
-                            </>
-                          )
-                        )}
-                    </InfoPair>
-                  </Grid>
-                  <Grid item xs={12} md={6}>
-                    <InfoPair title="Contacts">
-                      <Button
-                        style={{ marginTop: "0.5rem" }}
-                        startIcon={<PhoneIcon />}
-                      >
-                        07436 920 949
-                      </Button>
-                      <br />
-                      <Button startIcon={<PhoneIcon />}>07436 920 949</Button>
-                      <br />
-                      <Button startIcon={<MailIcon />}>
-                        roofing28@yahoo.com
-                      </Button>
-                    </InfoPair>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </SimpleCard>
-
-          <SimpleCard>
-            <Typography variant="h5" style={{ marginBottom: "0.5rem" }}>
-              {t("Company Owner")}
-            </Typography>
-            <Typography variant="body1" style={{ marginBottom: "1.5rem" }}>
-              {t("A company owner hasn't been added to your company yet.")}
-            </Typography>
-            <Button variant="outlined" color="primary" startIcon={<AddIcon />}>
-              {t("Add a company owner")}
-            </Button>
-          </SimpleCard>
-
-          <Grid container spacing={3}>
-            {["Jack Peterson", "Emma Watson", "ET the Alien"].map((name) => (
-              <Grid item xs={12} lg={6} xl={6} spacing={0} key={name}>
-                <Card>
-                  <CardHeader>
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      <div className="avatar">
-                        <Icon
-                          source={Person}
-                          style={{ width: 50, height: 50, color: "#eeeeee" }}
-                        />
-                      </div>
-                      <div>
-                        <Typography
-                          variant="h6"
-                          style={{ marginBottom: "0.25rem" }}
-                        >
-                          {name}
-                        </Typography>
-                        <Typography
-                          variant="h6"
-                          style={{ color: "#70706f", fontWeight: "lighter" }}
-                        >
-                          Company Administrator
-                        </Typography>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <Button startIcon={<PhoneIcon />}>07436 920 949</Button>
-                    <br />
-                    <Button startIcon={<MailIcon />}>
-                      roofing28@yahoo.com
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+          <CompanyHeader company={company} />
         </Grid>
 
         <Grid item xs={12} lg={5} xl={4}>
-          <SimpleCard>
-            <Typography
-              variant="h4"
-              hasUnderline
-              style={{ marginBottom: "1.5rem", fontSize: "1.2rem" }}
-            >
-              {t("Registered Details")}
-            </Typography>
-            <CompanyDetailsCard company={company} />
-          </SimpleCard>
+          <CompanyRegisteredDetails company={company} />
+        </Grid>
 
+        <CompanyAdmins nodes={company.companyMembers.nodes} />
+
+        <Grid item xs={12} lg={5} xl={4}>
           <SimpleCard>
             <Typography
               variant="h4"

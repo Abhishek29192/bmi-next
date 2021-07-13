@@ -78,24 +78,6 @@ const getCompanyData = (
   };
 };
 
-export const CompanyDetailsFragment = gql`
-  fragment CompanyDetailsFragment on Company {
-    id
-    name
-    phone
-    website
-    aboutUs
-    publicEmail
-    phone
-    website
-    companyMembers {
-      nodes {
-        accountId
-      }
-    }
-  }
-`;
-
 export const UPDATE_COMPANY = gql`
   mutation updateCompanyDetails($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {

@@ -1,7 +1,8 @@
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@bmi/typography";
-import CompanyDetails from "@bmi/company-details";
+import { Phone, Email } from "@material-ui/icons";
+import { IconLink } from "../../IconLink";
 import styles from "./styles.module.scss";
 
 export type SmallProfileCardProps = {
@@ -29,28 +30,21 @@ export const SmallProfileCard = ({
         </div>
       </div>
       <div className={styles.body}>
-        <CompanyDetails
-          details={[
-            {
-              type: "phone",
-              text: phoneNumber,
-              action: { model: "htmlLink", href: "tel:" + phoneNumber },
-              label: "Telephone"
-            },
-            {
-              type: "email",
-              text: emailAddress,
-              action: {
-                model: "htmlLink",
-                href: "mailto:" + emailAddress
-              },
-              label: "Email"
-            }
-          ]}
-        >
-          &nbsp;
-          {/* dummy child */}
-        </CompanyDetails>
+        {phoneNumber ? (
+          <IconLink
+            href={"tel:" + phoneNumber}
+            icon={Phone}
+            label={phoneNumber}
+          />
+        ) : null}
+
+        {emailAddress ? (
+          <IconLink
+            href={"mailto:" + emailAddress}
+            icon={Email}
+            label={emailAddress}
+          />
+        ) : null}
       </div>
     </div>
   );

@@ -4,24 +4,6 @@ export type CompanyCertificationsFragment = {
   readonly __typename?: "Company";
 } & Pick<SchemaTypes.Company, "certifications">;
 
-export type CompanyDetailsFragmentFragment = {
-  readonly __typename?: "Company";
-} & Pick<
-  SchemaTypes.Company,
-  "id" | "name" | "phone" | "website" | "aboutUs" | "publicEmail"
-> & {
-    readonly companyMembers: {
-      readonly __typename?: "CompanyMembersConnection";
-    } & {
-      readonly nodes: ReadonlyArray<
-        { readonly __typename?: "CompanyMember" } & Pick<
-          SchemaTypes.CompanyMember,
-          "accountId"
-        >
-      >;
-    };
-  };
-
 export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
 }>;
@@ -446,6 +428,55 @@ export type CurrentCompanyQuery = { readonly __typename?: "Query" } & Pick<
   SchemaTypes.Query,
   "currentCompany"
 >;
+
+export type CompanyDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  | "id"
+  | "name"
+  | "phone"
+  | "website"
+  | "aboutUs"
+  | "logo"
+  | "taxNumber"
+  | "tier"
+  | "businessType"
+  | "ownerFullname"
+  | "ownerEmail"
+  | "ownerPhone"
+  | "publicEmail"
+  | "linkedIn"
+  | "facebook"
+  | "referenceNumber"
+> & {
+    readonly registeredAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & Pick<
+        SchemaTypes.Address,
+        "firstLine" | "secondLine" | "town" | "postcode"
+      >
+    >;
+    readonly companyMembers: {
+      readonly __typename?: "CompanyMembersConnection";
+    } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyMember" } & {
+          readonly account?: SchemaTypes.Maybe<
+            { readonly __typename?: "Account" } & Pick<
+              SchemaTypes.Account,
+              | "role"
+              | "id"
+              | "firstName"
+              | "lastName"
+              | "phone"
+              | "email"
+              | "photo"
+            >
+          >;
+        }
+      >;
+    };
+  };
 
 export type GetCurrentCompanyQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
