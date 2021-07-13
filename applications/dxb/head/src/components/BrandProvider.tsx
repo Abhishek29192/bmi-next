@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import classnames from "classnames";
+import type { ThemeOptions } from "@material-ui/core";
+import BmiThemeProvider from "@bmi/theme-provider";
 
 import styles from "./styles/BrandProvider.module.scss";
 
@@ -32,10 +34,45 @@ type BrandProviderProps = {
   brand?: string;
 };
 
+const getExpandTheme = (primaryColor: string) => (theme: ThemeOptions) => {
+  return {
+    ...theme,
+    palette: {
+      ...theme.palette,
+      primary: {
+        ...theme.palette.primary,
+        main: primaryColor
+      }
+    }
+  };
+};
+
 const BrandProvider = ({ brand, children }: BrandProviderProps) => {
+  const ref = useRef(null);
+  const [expandTheme, setExpandTheme] = useState(undefined);
+
   const className = BRANDS_CLASSES[`${brand}`];
 
-  return <div className={classnames(className)}>{children}</div>;
+  useLayoutEffect(() => {
+    setExpandTheme(() =>
+      getExpandTheme(
+        getComputedStyle(ref.current)
+          .getPropertyValue("--color-brand-inter")
+          .trim()
+      )
+    );
+  }, []);
+
+  return (
+    <div ref={ref} className={classnames(className)}>
+      <BmiThemeProvider
+        longText={!!process.env.GATSBY_LONG_TEXT}
+        expandTheme={expandTheme}
+      >
+        {children}
+      </BmiThemeProvider>
+    </div>
+  );
 };
 
 export default BrandProvider;
