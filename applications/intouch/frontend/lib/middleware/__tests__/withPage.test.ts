@@ -13,6 +13,11 @@ jest.mock("../../apolloClient", () => ({
       query: mockQuery
     })
 }));
+jest.mock("../../../graphql/generated/page", () => ({
+  getServerPageGetGlobalData: () => ({
+    props: { data: {} }
+  })
+}));
 
 describe("Middleware withPage", () => {
   let ctx = {

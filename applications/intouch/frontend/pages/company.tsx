@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+import { SSRConfig } from "next-i18next";
 
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
@@ -23,7 +24,10 @@ import {
   generatePageError,
   withPageError
 } from "../lib/error";
-import { GetCompanyQuery } from "../graphql/generated/operations";
+import {
+  GetCompanyQuery,
+  GetGlobalDataQuery
+} from "../graphql/generated/operations";
 import {
   getServerPageGetCompany,
   getServerPageGetCurrentCompany
@@ -31,9 +35,11 @@ import {
 import { withPage } from "../lib/middleware/withPage";
 import { validateCompanyProfile } from "../lib/validations/company";
 
-type PageProps = {
+type CompanyPageProps = {
   company: GetCompanyQuery["company"];
+  globalPageData: GetGlobalDataQuery;
 };
+type SSRPageProps = CompanyPageProps & SSRConfig;
 
 export const CompanyDetailsFragment = gql`
   fragment CompanyDetailsFragment on Company {
@@ -108,13 +114,13 @@ const CompanyAdmins = ({
   );
 };
 
-const CompanyPage = ({ company }: PageProps) => {
+const CompanyPage = ({ company, globalPageData }: CompanyPageProps) => {
   const { t } = useTranslation("company-page");
   const { missingFields: companyProfileMissingFields } =
     validateCompanyProfile(company);
 
   return (
-    <Layout title={t("Company")}>
+    <Layout title={t("Company")} pageData={globalPageData}>
       {companyProfileMissingFields.length > 0 && (
         <CompanyIncompleteProfileAlert
           missingFields={companyProfileMissingFields}
@@ -184,9 +190,10 @@ export const GET_COMPANY = gql`
 `;
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, account, res }) => {
-    const pageProps = {
+  async ({ locale, apolloClient, globalPageData, account, res }) => {
+    const pageProps: SSRPageProps = {
       company: null,
+      globalPageData,
       ...(await serverSideTranslations(locale, [
         "common",
         "sidebar",
@@ -202,15 +209,14 @@ export const getServerSideProps = withPage(
     } = await getServerPageGetCurrentCompany({}, apolloClient);
 
     if (currentCompany) {
-      const data = await getServerPageGetCompany(
-        { variables: { companyId: currentCompany } },
-        apolloClient
-      );
       const {
         props: {
           data: { company }
         }
-      } = data;
+      } = await getServerPageGetCompany(
+        { variables: { companyId: currentCompany } },
+        apolloClient
+      );
       pageProps.company = company;
     }
 
@@ -232,4 +238,6 @@ export const getServerSideProps = withPage(
   }
 );
 
-export default withPageAuthRequired(withPageError<PageProps>(CompanyPage));
+export default withPageAuthRequired(
+  withPageError<CompanyPageProps>(CompanyPage)
+);
