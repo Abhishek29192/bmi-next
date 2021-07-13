@@ -5,7 +5,6 @@ import { Account } from "../types";
 export const parseHeaders = (req): Account => {
   const logger = req.logger("userInfo");
   const userInfo = req.headers["x-apigateway-api-userinfo"];
-  // console.log("userInfo", userInfo);
   if (userInfo) {
     try {
       return JSON.parse(

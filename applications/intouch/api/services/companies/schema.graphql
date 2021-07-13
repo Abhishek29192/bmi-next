@@ -7594,7 +7594,7 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: InviteInput!
-  ): Invitation
+  ): [Invitation]
   completeInvitation(companyId: Int!): Account
   bulkImport(
     """
@@ -13276,11 +13276,10 @@ type PublishOutput {
 }
 
 input InviteInput {
-  email: String!
+  emails: [String!]!
   firstName: String
   lastName: String
-  role: Role
-  personal_note: String
+  personalNote: String
 }
 
 type ImportPayload {

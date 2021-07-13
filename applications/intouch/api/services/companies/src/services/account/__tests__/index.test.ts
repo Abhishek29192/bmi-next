@@ -117,11 +117,11 @@ describe("Account", () => {
 
       args = {
         input: {
-          email: "email",
+          emails: ["email"],
           firstName: "firstName",
           lastName: "lastName",
           role: "INSTALLER",
-          personal_note: "personal_note"
+          personalNote: "personalNote"
         }
       };
 
@@ -182,9 +182,9 @@ describe("Account", () => {
 
       await invite(null, args, contextMock, resolveInfo, auth0);
 
-      expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.email);
+      expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.emails[0]);
       expect(mockAuth0CreateUser).toBeCalledWith({
-        email: args.input.email,
+        email: args.input.emails[0],
         connection: "Username-Password-Authentication",
         email_verified: false,
         password: "Gj$1Password",
@@ -224,7 +224,7 @@ describe("Account", () => {
 
       await invite(null, args, contextMock, resolveInfo, auth0);
 
-      expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.email);
+      expect(mockAuth0GetUserByEmail).toBeCalledWith(args.input.emails[0]);
       expect(mockCreateResetPasswordTicket).toHaveBeenCalledTimes(0);
       expect(mockQuery.mock.calls).toMatchSnapshot();
       expect(spy.mock.calls).toMatchSnapshot();

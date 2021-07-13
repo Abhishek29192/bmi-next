@@ -50,6 +50,7 @@ export const ssrGetGlobalData = {
 
   usePage: useGetGlobalData
 };
+
 export async function getServerPageGetProject(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetProjectQueryVariables>,
@@ -575,10 +576,9 @@ export async function getServerPageDoceboCatalogIdByMarketDomain(
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data =
-    await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
-      { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
-    );
+  const data = await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
+    { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
+  );
 
   const apolloState = apolloClient.cache.extract();
 

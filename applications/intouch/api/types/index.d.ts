@@ -3263,10 +3263,9 @@ export type CreateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our create `CourseSyncConfiguration` mutation. */
-export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
-  {
-    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-  };
+export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
+  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+};
 
 /** All input for the create `CourseTemp` mutation. */
 export type CreateCourseTempInput = {
@@ -4348,10 +4347,9 @@ export type DeleteCourseSyncConfigurationPayload = {
 };
 
 /** The output of our delete `CourseSyncConfiguration` mutation. */
-export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
-  {
-    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-  };
+export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
+  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+};
 
 /** All input for the `deleteCourseTempByNodeId` mutation. */
 export type DeleteCourseTempByNodeIdInput = {
@@ -6417,11 +6415,10 @@ export type InvitationsOrderBy =
   | "PRIMARY_KEY_DESC";
 
 export type InviteInput = {
-  email: Scalars["String"];
+  emails: Array<Scalars["String"]>;
   firstName?: Maybe<Scalars["String"]>;
   lastName?: Maybe<Scalars["String"]>;
-  role?: Maybe<Role>;
-  personal_note?: Maybe<Scalars["String"]>;
+  personalNote?: Maybe<Scalars["String"]>;
 };
 
 /** A connection to a list of `Int` values. */
@@ -7583,7 +7580,7 @@ export type Mutation = {
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using a unique key. */
   deleteSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<DeleteSystemMemberPayload>;
-  invite?: Maybe<Invitation>;
+  invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   publishMessage?: Maybe<Publish>;
   /** Updates a single `Account` using a unique key and a patch. */
@@ -12118,10 +12115,9 @@ export type UpdateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our update `CourseSyncConfiguration` mutation. */
-export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
-  {
-    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-  };
+export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
+  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+};
 
 /** All input for the `updateCourseTempByNodeId` mutation. */
 export type UpdateCourseTempByNodeIdInput = {

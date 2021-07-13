@@ -8,14 +8,15 @@ import {
 } from "@bmi/icon";
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
-import { Technology, CompanyMember } from "@bmi/intouch-api-types";
+import { Technology, CompanyMember, Role } from "@bmi/intouch-api-types";
 import { ThreeColumnGrid } from "../../ThreeColumnGrid";
 import { SidePanel } from "../../SidePanel";
 import { FilterResult } from "../../FilterResult";
 import { CompanyMembersQuery } from "../../../graphql/generated/operations";
+
 import { TableContainer } from "../../TableContainer";
 import { UserCard } from "../../UserCard";
-
+import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 
 const CERTIFICATION_ICONS: {
@@ -35,50 +36,54 @@ export type PageProps = {
 
 const today = new Date(new Date().setUTCHours(0, 0, 0, 0));
 
+const certificationClass = (data: string): string => {
+  const certDate: Date = new Date(new Date(data).setUTCHours(0, 0, 0, 0));
+  return certDate < today ? styles.expired : "";
+};
+
 const CompanyMembers = ({ data }: PageProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("team-page");
+
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [members, setMembers] = useState(data.companyMembers.nodes);
   const [currentMember, setCurrentMember] = useState<Partial<CompanyMember>>(
     data?.companyMembers?.nodes?.[0] as CompanyMember
   );
-
-  const [members, setMembers] = useState(data.companyMembers.nodes);
 
   const onSearch = (value: string): void => {
     const valueToSearch = value.toLowerCase();
     setMembers([
       ...data.companyMembers.nodes.filter(
-        ({ account: { email, firstName, lastName } }) =>
-          email?.toLowerCase()?.indexOf(valueToSearch) !== -1 ||
-          firstName?.toLowerCase()?.indexOf(valueToSearch) !== -1 ||
-          lastName?.toLowerCase()?.indexOf(valueToSearch) !== -1
+        ({ account: { email = "", firstName = "", lastName = "" } }) =>
+          email.toLowerCase().indexOf(valueToSearch) !== -1 ||
+          firstName.toLowerCase().indexOf(valueToSearch) !== -1 ||
+          lastName.toLowerCase().indexOf(valueToSearch) !== -1
       )
     ]);
   };
 
-  const isCertificationExpired = (data: string): boolean => {
-    const certDate: Date = new Date(new Date(data).setUTCHours(0, 0, 0, 0));
-
-    return certDate < today;
-  };
+  const formattedRole = (role: Role) => role?.replace("_", " ")?.toLowerCase();
 
   return (
     <div className={styles.companyPage}>
       <SidePanel
         filters={null}
-        searchLabel={t("Search for a user")}
+        searchLabel={t("sidePanel.search.label")}
         onSearchFilterChange={onSearch}
-        noResultLabel={t("Member not found")}
+        noResultLabel={t("sidePanel.search.noResult")}
+        footerBtn={{
+          label: t("sidePanel.inviteLabel"),
+          onClick: () => setDialogOpen(true)
+        }}
       >
-        {members.map(({ account, ...rest }) => {
-          const {
-            id,
-            role,
-            lastName,
-            firstName,
-            certificationsByDoceboUserId
-          } = account;
-          const tecnologies = new Set(
-            certificationsByDoceboUserId.nodes.map((item) => item.technology)
+        {members?.map(({ account, ...rest }) => {
+          const { id, role, lastName, firstName } = account;
+          const tecnologies = Array.from(
+            new Set(
+              account.certificationsByDoceboUserId.nodes.map(
+                (item) => item.technology
+              )
+            )
           );
 
           return (
@@ -95,10 +100,10 @@ const CompanyMembers = ({ data }: PageProps) => {
                 variant="subtitle1"
                 color="textSecondary"
               >
-                {role?.replace("_", " ")?.toLowerCase()}
+                {formattedRole(role)}
               </Typography>
               <div className={styles.icons}>
-                {Array.from(tecnologies).map((technology, index) => (
+                {tecnologies.map((technology, index) => (
                   <SvgIcon
                     key={`${id}-${index}-${technology}`}
                     viewBox="0 0 48 48"
@@ -114,15 +119,15 @@ const CompanyMembers = ({ data }: PageProps) => {
       </SidePanel>
       <ThreeColumnGrid>
         <div className={styles.detail}>
-          <TableContainer title="Certification(s)" testid="certification-table">
+          <TableContainer title={t("table.title")} testid="certification-table">
             {currentMember?.account?.certificationsByDoceboUserId?.nodes
               .length && (
               <Table>
                 <Table.Head>
                   <Table.Row>
-                    <Table.Cell>{t("Type")}</Table.Cell>
-                    <Table.Cell>{t("Certification")}</Table.Cell>
-                    <Table.Cell>{t("Validity")}</Table.Cell>
+                    <Table.Cell>{t("table.type")}</Table.Cell>
+                    <Table.Cell>{t("table.certification")}</Table.Cell>
+                    <Table.Cell>{t("table.validity")}</Table.Cell>
                   </Table.Row>
                 </Table.Head>
                 <Table.Body>
@@ -130,11 +135,7 @@ const CompanyMembers = ({ data }: PageProps) => {
                     (certification, index) => (
                       <Table.Row
                         key={`certification-${index}-${certification.id}`}
-                        className={
-                          isCertificationExpired(certification.expiryDate)
-                            ? styles.expired
-                            : ""
-                        }
+                        className={certificationClass(certification.expiryDate)}
                       >
                         <Table.Cell>
                           <SvgIcon
@@ -179,7 +180,7 @@ const CompanyMembers = ({ data }: PageProps) => {
                 model: "htmlLink",
                 href: `tel:${currentMember?.account.phone}`
               },
-              label: "Telephone"
+              label: t("common:telephone")
             },
             {
               type: "email",
@@ -188,11 +189,16 @@ const CompanyMembers = ({ data }: PageProps) => {
                 model: "htmlLink",
                 href: `mailto:${currentMember?.account.email}`
               },
-              label: "Email"
+              label: t("common:email")
             }
           ]}
         />
       </ThreeColumnGrid>
+      <InvitationDialog
+        styles={styles}
+        dialogOpen={dialogOpen}
+        onCloseClick={() => setDialogOpen(false)}
+      />
     </div>
   );
 };

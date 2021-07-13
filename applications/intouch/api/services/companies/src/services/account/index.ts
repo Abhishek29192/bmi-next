@@ -40,11 +40,11 @@ export const createAccount = async (
       [result.data.$account_id]
     );
 
-    // If row > 1 means somwhow (imported?) I'm already in a company
+    // If row === 1 means somehow (imported?) there is already a company
     const { rows } = await pgClient.query(`SELECT * FROM company`, []);
 
     // If row = 0 I don't have a company so I'll create one
-    if (rows.length == 0 && args.input.account.role === COMPANY_ADMIN) {
+    if (rows.length === 0 && args.input.account.role === COMPANY_ADMIN) {
       await pgClient.query(`SELECT * FROM create_company()`, []);
     }
 
@@ -123,135 +123,153 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
   const { pubSub, pgClient, pgRootPool } = context;
 
   const {
-    email: invetee,
+    emails,
     firstName,
     lastName,
-    role,
-    personal_note
+    personalNote = ""
   }: InviteInput = args.input;
 
-  if (!user.role || user.role === INSTALLER)
+  const result = [];
+
+  if (!user.role || user.role === INSTALLER) {
     throw new Error("you must be an admin to invite other users");
+  }
 
-  let auth0User = await auth0.getUserByEmail(invetee);
+  if (emails.length === 0) {
+    throw new Error("email missing");
+  }
 
-  /**
-   * Creating the user in Auth0
-   *
-   * We use an initial random password because Auth0 requires it,
-   * at the same time we set the email_verified as false so we force the user
-   * to validate the email (in this case with a password reset) before be able
-   * to login. We set verify_email false becuase we don't want to send an email
-   * to verify the email as we are already sending the password reset email
-   */
-  if (!auth0User) {
-    auth0User = await auth0.createUser({
-      email: invetee,
-      connection: "Username-Password-Authentication",
-      email_verified: false,
-      password: `Gj$1${crypto.randomBytes(20).toString("hex")}`,
-      verify_email: false,
-      user_metadata: {
-        intouch_role: role === COMPANY_ADMIN ? COMPANY_ADMIN : INSTALLER,
-        market: user.marketDomain,
-        first_name: firstName,
-        last_name: lastName
+  for (const invetee of emails) {
+    let auth0User = await auth0.getUserByEmail(invetee);
+
+    /**
+     * Creating the user in Auth0
+     *
+     * We use an initial random password because Auth0 requires it,
+     * at the same time we set the email_verified as false so we force the user
+     * to validate the email (in this case with a password reset) before be able
+     * to login. We set verify_email false becuase we don't want to send an email
+     * to verify the email as we are already sending the password reset email
+     */
+    if (!auth0User) {
+      auth0User = await auth0.createUser({
+        email: invetee,
+        connection: "Username-Password-Authentication",
+        email_verified: false,
+        password: `Gj$1${crypto.randomBytes(20).toString("hex")}`,
+        verify_email: false,
+        user_metadata: {
+          intouch_role: INSTALLER,
+          market: user.marketDomain,
+          first_name: firstName,
+          last_name: lastName
+        }
+      });
+      logger.info(`Created new user in auth0 with id: ${auth0User?.user_id}`);
+    }
+
+    await pgClient.query("SAVEPOINT graphql_mutation");
+
+    // Check if the user already exists
+    const { rows: invetees } = await pgRootPool.query(
+      "SELECT * FROM account WHERE email = $1",
+      [invetee]
+    );
+
+    if (invetees.length > 0) {
+      logger.info(`User with id: ${invetees[0].id} found`);
+
+      const inveteeRole: Role = invetees[0].role;
+
+      // company admin can't be invited
+      if (inveteeRole === "COMPANY_ADMIN") {
+        throw new Error(ERROR_NO_COMPANY_ADMIN);
       }
-    });
-    logger.info(`Created new user in auth0 with id: ${auth0User?.user_id}`);
-  }
 
-  await pgClient.query("SAVEPOINT graphql_mutation");
+      // Check if the user is a member of a company
+      const { rows } = await pgRootPool.query(
+        "SELECT * FROM company_member WHERE account_id = $1",
+        [invetees[0].id]
+      );
 
-  // Check if the user already exists
-  const { rows: invetees } = await pgRootPool.query(
-    "SELECT * FROM account WHERE email = $1",
-    [invetee]
-  );
-
-  if (invetees.length > 0) {
-    logger.info(`User with id: ${invetees[0].id} found`);
-
-    const inveteeRole: Role = invetees[0].role;
-
-    // company admin can't be invited
-    if (inveteeRole === "COMPANY_ADMIN") {
-      throw new Error(ERROR_NO_COMPANY_ADMIN);
+      // a member can't be invited to another company
+      if (rows.length > 0) {
+        throw new Error(ERROR_ALREADY_MEMBER);
+      }
     }
 
-    // Check if the user is a member of a company
-    const { rows } = await pgRootPool.query(
-      "SELECT * FROM company_member WHERE account_id = $1",
-      [invetees[0].id]
-    );
+    try {
+      // Creating a new invitation record
+      const { rows: invitations } = await pgClient.query(
+        "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+        [user.id, user.company.id, "NEW", invetee, personalNote]
+      );
+      logger.info(
+        `Created invitation record with id ${invitations[0].id}`,
+        invitations
+      );
 
-    // a member can't be invited to another company
-    if (rows.length > 0) {
-      throw new Error(ERROR_ALREADY_MEMBER);
+      if (invetees.length === 0) {
+        // Creating a passsword reset ticket
+        const ticket = await auth0.createResetPasswordTicket({
+          user_id: auth0User?.user_id,
+          result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
+        });
+
+        // Send the email with the link to reset the password to the user
+        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
+          title: `You have been invited by ${user.company.id}`,
+          text: `
+            You are invited by company ${user.company.id}.
+            Please follow this link to set your password:
+            ${ticket.ticket}
+            <br/>
+            ${personalNote}
+          `,
+          html: `
+            You are invited by company ${user.company.id}.
+            Please follow this link to set your password:
+            ${ticket.ticket}
+            <br/>
+            ${personalNote}
+          `,
+          email: invetee
+        });
+
+        logger.info("Reset password email sent");
+      } else {
+        // Send the email with the invitation link
+        await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
+          title: `You have been invited by ${user.company.id}`,
+          text: `
+            You are invited by company ${user.company.id}.
+            Please follow this link to set your password:
+            ${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
+            <br/>
+            ${personalNote}
+          `,
+          html: `
+            You are invited by company ${user.company.id}.
+            Please follow this link to set your password:
+            ${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
+            <br/>
+            ${personalNote}
+          `,
+          email: invetee
+        });
+        logger.info("Invitation email sent");
+      }
+
+      result.push(invitations[0]);
+    } catch (error) {
+      logger.error("Error completing invitation", error);
+      await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
+    } finally {
+      await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
     }
   }
 
-  try {
-    // Creating a new invitation record
-    const { rows: invitations } = await pgClient.query(
-      "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
-      [user.id, user.company.id, "NEW", invetee, personal_note]
-    );
-    logger.info(
-      `Created invitation record with id ${invitations[0].id}`,
-      invitations
-    );
-
-    if (invetees.length === 0) {
-      // Creating a passsword reset ticket
-      const ticket = await auth0.createResetPasswordTicket({
-        user_id: auth0User?.user_id,
-        result_url: `${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
-      });
-
-      // Send the email with the link to reset the password to the user
-      await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-        title: `You have been invited by ${user.company.id}`,
-        text: `
-          You are invited by company ${user.company.id}.
-          Please follow this link to set your password:
-          ${ticket.ticket}
-        `,
-        html: `
-          You are invited by company ${user.company.id}.
-          Please follow this link to set your password:
-          ${ticket.ticket}
-        `,
-        email: invetee
-      });
-
-      logger.info("Reset password email sent");
-    } else {
-      // Send the email with the invitation link
-      await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
-        title: `You have been invited by ${user.company.id}`,
-        text: `
-          You are invited by company ${user.company.id}.
-          Please follow this link to set your password:
-          ${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
-        `,
-        html: `
-          You are invited by company ${user.company.id}.
-          Please follow this link to set your password:
-          ${process.env.FRONTEND_URL}/api/invitation?company_id=${user.company.id}
-        `,
-        email: invetee
-      });
-      logger.info("Invitation email sent");
-    }
-
-    return invitations[0];
-  } catch (error) {
-    logger.error("Error completing invitation", error);
-    await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
-  } finally {
-    await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
-  }
+  return result;
 };
 
 export const completeInvitation = async (
@@ -297,12 +315,6 @@ export const completeInvitation = async (
   try {
     // If the user doesn't exists we create it
     if (!user.id) {
-      // Let's be sure we create only installer or company_admin
-      let role: Role =
-        auth0User.user_metadata?.intouch_role === COMPANY_ADMIN
-          ? COMPANY_ADMIN
-          : INSTALLER;
-
       const { rows } = await pgClient.query(
         "INSERT INTO account (market_id, email, first_name, last_name, role, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
         [
@@ -310,7 +322,7 @@ export const completeInvitation = async (
           user.email,
           auth0User.user_metadata?.first_name,
           auth0User.user_metadata?.last_name,
-          role,
+          INSTALLER,
           "ACTIVE"
         ]
       );
@@ -343,17 +355,21 @@ export const completeInvitation = async (
       }
     );
 
+    await pgRootPool.query(
+      "update invitation set status = $1 where id = $2 returning *",
+      ["ACCEPTED", invitations[0].id]
+    );
+    await pgRootPool.query(
+      "update invitation set status = $1 where invitee = $2 and status = $3 returning *",
+      ["CANCELLED", user.email, "NEW"]
+    );
+
     return row;
   } catch (error) {
     logger.error("complete invitation", error);
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
-
-    await pgRootPool.query(
-      "update invitation set status = $1 where id = $2 returning *",
-      ["ACCEPTED", invitations[0].id]
-    );
   }
 };
 

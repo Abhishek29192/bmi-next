@@ -1,0 +1,30 @@
+{
+  "sidePanel": {
+    "search": {
+      "label": "Cerca un utente",
+      "noResult": "Utente non trovato"
+    },
+    "inviteLabel": "+ Invita un utente"
+  },
+  "table": {
+    "title": "Certificazioni",
+    "type": "Tipo",
+    "certification": "Certificatione",
+    "validity": "Validità"
+  },
+  "invitation": {
+    "dialog": {
+      "title": "Invita un utente",
+      "emails": {
+        "label": "Indirizzi email",
+        "helperText": "Aggiunti piu indirizzi separati da una virgola"
+      },
+      "personalNote": {
+        "label": "Messaggio (facoltativo)"
+      },
+      "cancel": "Cancella",
+      "send": "Invia invito",
+      "success": "L'invito è stato inviato con successo"
+    }
+  }
+}

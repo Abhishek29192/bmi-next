@@ -27,3 +27,23 @@
     }
   }
 }
+
+.dialog {
+  background-color: $color-alabaster;
+  .form {
+    padding-top: 15px;
+  }
+  .input {
+    input {
+      background-color: white;
+    }
+  }
+  .personalNote {
+    background-color: white;
+    margin-top: 30px;
+  }
+  .cancel {
+    margin-top: 15px;
+    margin-right: 15px;
+  }
+}
