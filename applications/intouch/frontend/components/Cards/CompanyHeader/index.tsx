@@ -35,7 +35,7 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
             <Grid container spacing={3}>
               <Grid item xs={12} xl={6}>
                 <InfoPair title="Main office address">
-                  <Address address={company.registeredAddress} />
+                  <Address address={company.tradingAddress} />
                 </InfoPair>
 
                 <div style={{ display: "flex", flexDirection: "column" }}>

@@ -457,6 +457,9 @@ export type CompanyDetailsFragmentFragment = {
   | "facebook"
   | "referenceNumber"
 > & {
+    readonly tradingAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
+    >;
     readonly registeredAddress?: SchemaTypes.Maybe<
       { readonly __typename?: "Address" } & AddressLinesFragmentFragment
     >;

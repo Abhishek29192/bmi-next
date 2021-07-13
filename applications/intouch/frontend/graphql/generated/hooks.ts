@@ -25,6 +25,9 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
     phone
     website
     aboutUs
+    tradingAddress {
+      ...AddressLinesFragment
+    }
     registeredAddress {
       ...AddressLinesFragment
     }

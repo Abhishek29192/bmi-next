@@ -4,6 +4,7 @@ import { CompanyHeader } from "../Cards/CompanyHeader";
 import { FiftyFiftyGrid } from "../CardHolders/FiftyFiftyGrid";
 import { ThreeColumnGrid } from "../ThreeColumnGrid";
 import { CompanyRegisteredDetails } from "../Cards/CompanyRegisteredDetails";
+import { mockCompany } from "../../fixtures/company";
 import { Layout, LayoutProps } from ".";
 
 export default {
@@ -19,14 +20,9 @@ export const CompanyPage = ({ title }: LayoutProps) => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <ThreeColumnGrid>
         <div style={{ flex: 2, minWidth: "400px" }}>
-          <CompanyHeader title="J & J Roofers">woo</CompanyHeader>
+          <CompanyHeader company={mockCompany} />
         </div>
-        <CompanyRegisteredDetails
-          registeredName="J & J Roofers Ltd."
-          registeredAddress="28 Old Brompton Road"
-          companyVatNumber="GB999 9999 73"
-          contract="Valid until: 07 May 2022"
-        />
+        <CompanyRegisteredDetails company={mockCompany} />
       </ThreeColumnGrid>
 
       <ThreeColumnGrid>

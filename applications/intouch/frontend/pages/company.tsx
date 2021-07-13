@@ -42,6 +42,9 @@ export const CompanyDetailsFragment = gql`
     phone
     website
     aboutUs
+    tradingAddress {
+      ...AddressLinesFragment
+    }
     registeredAddress {
       ...AddressLinesFragment
     }
@@ -107,6 +110,7 @@ const CompanyAdmins = ({
 
 const CompanyPage = ({ company }: PageProps) => {
   const { t } = useTranslation("company-page");
+  // TODO: where was this used?
   const { tradingAddress } = company;
   const { missingFields: companyProfileMissingFields } =
     validateCompanyProfile(company);
@@ -222,11 +226,16 @@ export const getServerSideProps = withPage(
       } = data;
       pageProps.company = company;
     }
+    console.log(
+      "pageProps.company.companyMembers.nodes",
+      pageProps.company.companyMembers.nodes
+    );
+    console.log("account", account);
 
     const canViewPage = can(account, "company", "view", {
       companyMemberIds: pageProps.company
         ? pageProps.company.companyMembers.nodes.map(
-            ({ accountId }) => accountId
+            ({ account }) => account.id
           )
         : []
     });

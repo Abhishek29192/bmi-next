@@ -146,7 +146,7 @@ const CompanyDetailsCard = ({ company }: Props) => {
   const { name, aboutUs, details } = getCompanyData(company);
 
   const companyMemberIds = company.companyMembers.nodes.map(
-    ({ accountId }) => accountId
+    ({ account }) => account.id
   );
 
   return (
