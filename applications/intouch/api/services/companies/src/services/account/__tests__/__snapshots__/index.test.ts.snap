@@ -6,12 +6,6 @@ Array [
     "SAVEPOINT graphql_mutation",
   ],
   Array [
-    "select * from invitation JOIN company ON invitation.company_id = company.id where invitation.company_id = $1",
-    Array [
-      1,
-    ],
-  ],
-  Array [
     "INSERT INTO account (market_id, email, first_name, last_name, role, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
     Array [
       1,
@@ -36,18 +30,12 @@ Array [
     ],
   ],
   Array [
-    "select * from market where id = $1",
-    Array [
-      1,
-    ],
-  ],
-  Array [
     "RELEASE SAVEPOINT graphql_mutation",
   ],
 ]
 `;
 
-exports[`Account Invitation should invite a user 1`] = `
+exports[`Account Invitation should invite a user sending a change password email if not exists 1`] = `
 Array [
   Array [
     "SAVEPOINT graphql_mutation",
@@ -59,47 +47,7 @@ Array [
       1,
       "NEW",
       "email",
-      "personal_note",
-    ],
-  ],
-  Array [
-    "RELEASE SAVEPOINT graphql_mutation",
-  ],
-]
-`;
-
-exports[`Account Invitation should invite a user 2`] = `
-Array [
-  Array [
-    undefined,
-    "transactional-email",
-    Object {
-      "email": "email",
-      "html": "
-        You are invited by company 1.
-        Please follow this link to set your password:
-        my-ticket
-      ",
-      "text": "
-      You are invited by company 1.
-      Please follow this link to set your password:
-      my-ticket
-    ",
-      "title": "You have been invited by 1",
-    },
-  ],
-]
-`;
-
-exports[`Account Invitation should rollback an invitation if a query throw an error 1`] = `
-Array [
-  Array [
-    "SAVEPOINT graphql_mutation",
-  ],
-  Array [
-    "select * from invitation JOIN company ON invitation.company_id = company.id where invitation.company_id = $1",
-    Array [
-      1,
+      "personalNote",
     ],
   ],
   Array [
@@ -111,33 +59,218 @@ Array [
 ]
 `;
 
-exports[`Account Registration Should be able to register 1`] = `
+exports[`Account Invitation should invite a user sending a change password email if not exists 2`] = `Array []`;
+
+exports[`Account Invitation should invite a user sending complete invitation email if exists 1`] = `
 Array [
   Array [
     "SAVEPOINT graphql_mutation",
   ],
   Array [
-    "SELECT set_config('app.current_account_id', $1, true);",
+    "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
     Array [
+      null,
       1,
+      "NEW",
+      "email",
+      "personalNote",
     ],
   ],
   Array [
-    "SELECT * FROM company",
-    Array [],
-  ],
-  Array [
-    "SELECT * FROM create_company()",
-    Array [],
-  ],
-  Array [
-    "select * from market where id = $1",
-    Array [
-      1,
-    ],
+    "ROLLBACK TO SAVEPOINT graphql_mutation",
   ],
   Array [
     "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Invitation should invite a user sending complete invitation email if exists 2`] = `Array []`;
+
+exports[`Account Registration Should be able to register as company_admin 1`] = `
+Array [
+  Array [
+    null,
+    Object {
+      "input": Object {
+        "account": Object {
+          "role": "COMPANY_ADMIN",
+        },
+        "marketCode": "en",
+      },
+    },
+    Object {
+      "logger": [Function],
+      "pgClient": Object {
+        "query": [MockFunction] {
+          "calls": Array [
+            Array [
+              "SAVEPOINT graphql_mutation",
+            ],
+            Array [
+              "SELECT set_config('app.current_account_id', $1, true);",
+              Array [
+                1,
+              ],
+            ],
+            Array [
+              "SELECT * FROM company",
+              Array [],
+            ],
+            Array [
+              "SELECT * FROM create_company()",
+              Array [],
+            ],
+            Array [
+              "RELEASE SAVEPOINT graphql_mutation",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+      },
+      "pgRootPool": Object {
+        "query": [MockFunction],
+      },
+      "user": Object {
+        "id": null,
+        "sub": "user-sub",
+      },
+    },
+    Object {
+      "graphile": Object {
+        "build": Object {
+          "pgSql": Object {
+            "fragment": [Function],
+            "value": [Function],
+          },
+        },
+        "selectGraphQLResultFromTable": [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+          ],
+        },
+      },
+    },
+  ],
+]
+`;
+
+exports[`Account Registration Should be able to register as installer 1`] = `
+Array [
+  Array [
+    null,
+    Object {
+      "input": Object {
+        "account": Object {
+          "role": "INSTALLER",
+        },
+        "marketCode": "en",
+      },
+    },
+    Object {
+      "logger": [Function],
+      "pgClient": Object {
+        "query": [MockFunction] {
+          "calls": Array [
+            Array [
+              "SAVEPOINT graphql_mutation",
+            ],
+            Array [
+              "SELECT set_config('app.current_account_id', $1, true);",
+              Array [
+                1,
+              ],
+            ],
+            Array [
+              "SELECT * FROM company",
+              Array [],
+            ],
+            Array [
+              "RELEASE SAVEPOINT graphql_mutation",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+      },
+      "pgRootPool": Object {
+        "query": [MockFunction],
+      },
+      "user": Object {
+        "id": null,
+        "sub": "user-sub",
+      },
+    },
+    Object {
+      "graphile": Object {
+        "build": Object {
+          "pgSql": Object {
+            "fragment": [Function],
+            "value": [Function],
+          },
+        },
+        "selectGraphQLResultFromTable": [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+          ],
+        },
+      },
+    },
   ],
 ]
 `;

@@ -79,7 +79,11 @@ export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
           nodes
         }
       },
-      ...(await serverSideTranslations(locale, ["common"]))
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "team-page"
+      ]))
     }
   };
 });

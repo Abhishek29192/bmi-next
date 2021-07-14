@@ -65,7 +65,14 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         },
         completeInvitation: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
-          return completeInvitation(_query, args, context, resolveInfo, auth0);
+          return completeInvitation(
+            _query,
+            args,
+            context,
+            resolveInfo,
+            auth0,
+            build
+          );
         },
         publishMessage: async (_query, args, context, resolveInfo) => {
           const { input } = args;

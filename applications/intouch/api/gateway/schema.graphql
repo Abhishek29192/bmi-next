@@ -9916,11 +9916,10 @@ enum InvitationsOrderBy {
 }
 
 input InviteInput {
-  email: String!
-  firstName: String!
-  lastName: String!
-  role: Role!
-  personal_note: String
+  emails: [String!]!
+  firstName: String
+  lastName: String
+  personalNote: String
 }
 
 """
@@ -12026,7 +12025,7 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: InviteInput!
-  ): Invitation
+  ): [Invitation]
   linkAccountToCompany(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.

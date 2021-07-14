@@ -2,9 +2,14 @@ import "@testing-library/jest-dom";
 import React, { useRef } from "react";
 import { render, fireEvent, screen, within } from "@testing-library/react";
 import I18nProvider from "../../../../lib/tests/fixtures/i18n";
+import Apollo from "../../../../lib/tests/fixtures/apollo";
 import CompanyMembersPage, { PageProps } from "..";
 import { companyMembers } from "../../../../fixtures/companyMembers";
 
+const inviteMock = jest.fn();
+jest.mock("../../../../graphql/generated/hooks", () => ({
+  useInviteMutation: () => [inviteMock]
+}));
 jest.mock("@bmi/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
@@ -18,9 +23,11 @@ describe("Company Members Page", () => {
   };
   beforeEach(() => {
     wrapper = render(
-      <I18nProvider>
-        <CompanyMembersPage {...props} />
-      </I18nProvider>
+      <Apollo>
+        <I18nProvider>
+          <CompanyMembersPage {...props} />
+        </I18nProvider>
+      </Apollo>
     );
   });
 
@@ -98,7 +105,7 @@ describe("Company Members Page", () => {
         });
         expect(wrapper.queryAllByTestId("list-item")).toHaveLength(0);
 
-        screen.getByText("Member not found");
+        screen.getByText("sidePanel.search.noResult");
       });
     });
   });
@@ -126,6 +133,32 @@ describe("Company Members Page", () => {
       const table = screen.getByTestId("certification-table");
       expect(table).toHaveTextContent("Certification name 2");
       expect(table).toHaveTextContent("Certification name 22");
+    });
+
+    describe("Member invitation", () => {
+      it("should invite new users", () => {
+        fireEvent.click(screen.getByTestId("footer-btn"));
+        fireEvent.change(screen.getByTestId("emails"), {
+          target: {
+            value: "email@email.co.uk, email1@email.co.uk"
+          }
+        });
+        fireEvent.change(screen.getByTestId("personalNote"), {
+          target: {
+            value: "Lorem ipsum"
+          }
+        });
+        fireEvent.click(screen.getByTestId("submit"));
+
+        expect(inviteMock).toHaveBeenCalledWith({
+          variables: {
+            input: {
+              emails: ["email@email.co.uk", "email1@email.co.uk"],
+              personalNote: "Lorem ipsum"
+            }
+          }
+        });
+      });
     });
   });
 });

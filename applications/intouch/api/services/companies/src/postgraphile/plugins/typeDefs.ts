@@ -153,11 +153,10 @@ export default gql`
   }
 
   input InviteInput {
-    email: String!
-    firstName: String!
-    lastName: String!
-    role: Role!
-    personal_note: String
+    emails: [String!]!
+    firstName: String
+    lastName: String
+    personalNote: String
   }
 
   input InvitationComplete {
@@ -185,7 +184,7 @@ export default gql`
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
-    invite(input: InviteInput!): Invitation
+    invite(input: InviteInput!): [Invitation]
     completeInvitation(companyId: Int!): Account
     bulkImport(input: BulkImportInput!): ImportPayload
   }

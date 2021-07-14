@@ -67,6 +67,30 @@ export type GetGlobalDataQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type InviteMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.InviteInput;
+}>;
+
+export type InviteMutation = { readonly __typename?: "Mutation" } & {
+  readonly invite?: SchemaTypes.Maybe<
+    ReadonlyArray<
+      SchemaTypes.Maybe<
+        { readonly __typename?: "Invitation" } & Pick<
+          SchemaTypes.Invitation,
+          "id" | "invitee"
+        > & {
+            readonly senderAccount?: SchemaTypes.Maybe<
+              { readonly __typename?: "Account" } & Pick<
+                SchemaTypes.Account,
+                "email"
+              >
+            >;
+          }
+      >
+    >
+  >;
+};
+
 export type GetProjectQueryVariables = SchemaTypes.Exact<{
   projectId: SchemaTypes.Scalars["Int"];
 }>;
