@@ -25,7 +25,7 @@ export type HeaderProps = {
 const GlobalLink = ({ href, label, isExternal }: HeaderLink) => {
   if (isExternal) {
     return (
-      <a href={href} target="_blank" rel="noreferrer">
+      <a href={href} target="_blank" rel="noopener noreferrer">
         {label}
       </a>
     );
