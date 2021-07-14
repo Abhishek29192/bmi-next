@@ -11,7 +11,8 @@ const errorMessages: Record<ErrorStatusCode, string> = {
 
 export const generatePageError = function (
   statusCode: ErrorStatusCode,
-  params = {}
+  params = {},
+  otherPageProps = {}
 ) {
   const defaultTitle = errorMessages[`${statusCode}`] || "";
 
@@ -21,7 +22,8 @@ export const generatePageError = function (
         statusCode: statusCode,
         title: defaultTitle,
         ...params
-      }
+      },
+      ...otherPageProps
     }
   };
 };
@@ -41,8 +43,15 @@ export function withPageError<P extends Record<string, any>>(
 
     if (_pageError) {
       const { statusCode, title } = _pageError;
+      const { globalPageData } = componentProps;
 
-      return <ErrorView statusCode={statusCode} title={title} />;
+      return (
+        <ErrorView
+          statusCode={statusCode}
+          title={title}
+          globalPageData={globalPageData}
+        />
+      );
     }
 
     return <Component {...componentProps} />;
