@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
-import { Phone, Email, Facebook, LinkedIn, Public } from "@material-ui/icons";
+import { Facebook, LinkedIn } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
-import { IconLink } from "../../IconLink";
 import { BUSINESS_TYPES } from "../../../lib/constants";
+import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../IconLink";
 import { InfoPair } from "../../InfoPair";
 import { Address } from "../../Address";
 import styles from "./styles.module.scss";
@@ -58,20 +58,13 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <InfoPair title="Company Owner">
                     <Typography>{company.ownerFullname}</Typography>
+
                     {company.ownerPhone ? (
-                      <IconLink
-                        href={"tel:" + company.ownerPhone}
-                        icon={Phone}
-                        label={company.ownerPhone}
-                      />
+                      <PhoneNumberLink phoneNumber={company.ownerPhone} />
                     ) : null}
 
                     {company.ownerEmail ? (
-                      <IconLink
-                        href={"mailto:" + company.ownerEmail}
-                        icon={Email}
-                        label={company.ownerEmail}
-                      />
+                      <EmailLink emailAddress={company.ownerEmail} />
                     ) : null}
                   </InfoPair>
                 </div>
@@ -81,43 +74,23 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <InfoPair title="Contact information">
                     {company.phone ? (
-                      <IconLink
-                        href={"tel:" + company.phone}
-                        icon={Phone}
-                        label={company.phone}
-                      />
+                      <PhoneNumberLink phoneNumber={company.phone} />
                     ) : null}
 
                     {company.publicEmail ? (
-                      <IconLink
-                        href={"mailto:" + company.publicEmail}
-                        icon={Email}
-                        label={company.publicEmail}
-                      />
+                      <EmailLink emailAddress={company.publicEmail} />
                     ) : null}
 
                     {company.website ? (
-                      <IconLink
-                        href={company.website}
-                        icon={Public}
-                        label={company.website}
-                      />
+                      <WebsiteLink url={company.website} />
                     ) : null}
 
                     {company.facebook ? (
-                      <IconLink
-                        href={company.facebook}
-                        icon={Facebook}
-                        label={company.facebook}
-                      />
+                      <WebsiteLink icon={Facebook} url={company.facebook} />
                     ) : null}
 
                     {company.linkedIn ? (
-                      <IconLink
-                        href={company.linkedIn}
-                        icon={LinkedIn}
-                        label={company.linkedIn}
-                      />
+                      <WebsiteLink icon={LinkedIn} url={company.linkedIn} />
                     ) : null}
                   </InfoPair>
                 </div>
