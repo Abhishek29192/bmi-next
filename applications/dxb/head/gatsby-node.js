@@ -180,7 +180,7 @@ exports.createPages = async ({ graphql, actions }) => {
               title
 
               ... on ContentfulProductListerPage {
-                categoryCode
+                categoryCodes
               }
             }
           }
@@ -231,7 +231,7 @@ exports.createPages = async ({ graphql, actions }) => {
           context: {
             pageId: page.id,
             siteId: site.id,
-            categoryCode: page.categoryCode,
+            categoryCodes: page.categoryCodes,
             pimClassificationCatalogueNamespace,
             variantCodeToPathMap
           }
