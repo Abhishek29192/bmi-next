@@ -48,11 +48,7 @@ export interface SystemDetails {
   assets: any[];
   name: string;
   categories: Category[];
-  classifications: {
-    code: "systemAttributes" | "measurementAttributes";
-    features: Feature[];
-    name: string;
-  }[];
+  classifications: Classification[];
   images: SystemProductImageType[] | null;
   longDescription?: string;
   shortDescription?: string;

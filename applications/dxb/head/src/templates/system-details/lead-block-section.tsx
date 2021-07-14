@@ -67,9 +67,7 @@ const LeadBlockSection = ({ name, categories, classifications }: Props) => {
         <LeadBlock.Content>
           {brandLogo && (
             <LeadBlock.Content.Section>
-              <Image
-                data={{ ...brandLogo, ...{ className: styles["brandLogo"] } }}
-              />
+              <Image data={brandLogo} className={styles["brandLogo"]} />
             </LeadBlock.Content.Section>
           )}
 
