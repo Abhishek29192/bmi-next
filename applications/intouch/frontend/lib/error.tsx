@@ -2,11 +2,13 @@ import React from "react";
 import ErrorView from "../components/ErrorView";
 
 export enum ErrorStatusCode {
-  UNAUTHORISED = 401
+  UNAUTHORISED = 401,
+  NOT_FOUND = 404
 }
 
 const errorMessages: Record<ErrorStatusCode, string> = {
-  [ErrorStatusCode.UNAUTHORISED]: "Unauthorised"
+  [ErrorStatusCode.UNAUTHORISED]: "Unauthorised",
+  [ErrorStatusCode.NOT_FOUND]: "Not found"
 };
 
 export const generatePageError = function (
