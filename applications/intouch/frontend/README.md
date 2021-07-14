@@ -50,23 +50,6 @@ We use the [GraphQL code generator](https://www.graphql-code-generator.com/) too
 
 See [graphql-code-generator README](https://github.com/dotansimha/graphql-code-generator#readme).
 
-### Config
-
-To pass configuration to GraphQL Codegen, We use a `codegen.yml`.
-
-```
-schema:
-  - http://localhost:4000/graphql:
-      headers:
-        Authorization: "<Authorization Token>"
-...
-...
-```
-
-Replace the `<Authorization Token>` with your access_token from Auth0.
-
-- run `yarn workspace @bmi/intouch-frontend codegen` from the monorepo root directory
-
 ## Some Gotcha's
 
 - The React version in this directory's `package.json` needs to be the same as the React version used by the DXB components.
