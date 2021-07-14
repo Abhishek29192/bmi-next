@@ -4,7 +4,7 @@ import { renderWithRouter } from "../../test/renderWithRouter";
 import SystemDetailsPage from "../system-details-page";
 import { createMockSiteData } from "../../test/mockSiteData";
 import dataJson from "../../data/pim-mock-data.json";
-import { SystemDetails } from "../system-details/system-details-utils";
+import { SystemDetails } from "../system-details/types";
 
 const systemPageId = "1234";
 const siteId = "1234";

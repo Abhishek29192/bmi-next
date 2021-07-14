@@ -2553,6 +2553,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               >
                 <img
                   alt="Icopal RGB logo"
+                  class="brandLogo"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h77/h56/8801873297438/bmi-icopal.png"
                   style="object-fit: cover; object-position: center;"
                 />
