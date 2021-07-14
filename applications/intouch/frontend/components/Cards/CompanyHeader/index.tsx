@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { gql } from "@apollo/client";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import { Facebook, LinkedIn } from "@material-ui/icons";
@@ -110,3 +111,27 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
     </div>
   );
 };
+
+export const CompanyHeaderDetailsFragment = gql`
+  fragment CompanyHeaderDetailsFragment on Company {
+    businessType
+    logo
+    aboutUs
+    tradingAddress {
+      ...AddressLinesFragment
+      # These are required for the Alert banner
+      coordinates {
+        x
+        y
+      }
+    }
+    ownerFullname
+    ownerPhone
+    ownerEmail
+    phone
+    publicEmail
+    website
+    facebook
+    linkedIn
+  }
+`;

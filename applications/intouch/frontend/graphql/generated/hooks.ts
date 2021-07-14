@@ -23,6 +23,46 @@ export const AddressLinesFragmentFragmentDoc = gql`
     postcode
   }
 `;
+export const CompanyHeaderDetailsFragmentFragmentDoc = gql`
+  fragment CompanyHeaderDetailsFragment on Company {
+    businessType
+    logo
+    aboutUs
+    tradingAddress {
+      ...AddressLinesFragment
+      coordinates {
+        x
+        y
+      }
+    }
+    ownerFullname
+    ownerPhone
+    ownerEmail
+    phone
+    publicEmail
+    website
+    facebook
+    linkedIn
+  }
+  ${AddressLinesFragmentFragmentDoc}
+`;
+export const CompanyRegisteredDetailsFragmentFragmentDoc = gql`
+  fragment CompanyRegisteredDetailsFragment on Company {
+    name
+    referenceNumber
+    registeredAddress {
+      ...AddressLinesFragment
+    }
+    taxNumber
+    tier
+    companyOperationsByCompany {
+      nodes {
+        operation
+      }
+    }
+  }
+  ${AddressLinesFragmentFragmentDoc}
+`;
 export const CompanyAdminsFragmentFragmentDoc = gql`
   fragment CompanyAdminsFragment on Company {
     companyMembers {
@@ -49,38 +89,13 @@ export const CompanyCertificationsFragmentDoc = gql`
 export const CompanyDetailsFragmentFragmentDoc = gql`
   fragment CompanyDetailsFragment on Company {
     id
-    name
-    logo
-    phone
-    website
-    aboutUs
-    tradingAddress {
-      ...AddressLinesFragment
-      coordinates {
-        x
-        y
-      }
-    }
-    registeredAddress {
-      ...AddressLinesFragment
-    }
-    logo
-    taxNumber
-    tier
-    businessType
-    ownerFullname
-    ownerEmail
-    ownerPhone
-    phone
-    publicEmail
-    website
-    linkedIn
-    facebook
-    referenceNumber
+    ...CompanyHeaderDetailsFragment
+    ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
   }
-  ${AddressLinesFragmentFragmentDoc}
+  ${CompanyHeaderDetailsFragmentFragmentDoc}
+  ${CompanyRegisteredDetailsFragmentFragmentDoc}
   ${CompanyAdminsFragmentFragmentDoc}
   ${CompanyCertificationsFragmentDoc}
 `;

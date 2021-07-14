@@ -1,4 +1,5 @@
 import React from "react";
+import { gql } from "@apollo/client";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
@@ -32,3 +33,20 @@ export const CompanyRegisteredDetails = ({
     </div>
   );
 };
+
+export const CompanyRegisteredDetailsFragment = gql`
+  fragment CompanyRegisteredDetailsFragment on Company {
+    name
+    referenceNumber
+    registeredAddress {
+      ...AddressLinesFragment
+    }
+    taxNumber
+    tier
+    companyOperationsByCompany {
+      nodes {
+        operation
+      }
+    }
+  }
+`;
