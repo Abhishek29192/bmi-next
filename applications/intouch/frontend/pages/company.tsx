@@ -20,7 +20,7 @@ import {
   getServerPageGetCompany,
   getServerPageGetCurrentCompany
 } from "../graphql/generated/page";
-import { ROLES } from "../lib/config";
+import { ROLES } from "../lib/constants";
 import {
   ErrorStatusCode,
   generatePageError,

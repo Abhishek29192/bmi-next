@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import { Phone, Email, Facebook, LinkedIn, Public } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../graphql/generated/operations";
 import { IconLink } from "../../IconLink";
+import { BUSINESS_TYPES } from "../../../lib/constants";
 import { InfoPair } from "../../InfoPair";
 import { Address } from "../../Address";
 import styles from "./styles.module.scss";
@@ -13,16 +14,32 @@ export type CompanyHeaderProps = {
   company: GetCompanyQuery["company"];
 };
 
+const businessTypeLabelMap = (t): { [key: string]: string } => ({
+  [BUSINESS_TYPES.CONTRACTOR]: t("company-page:business_type.contractor"),
+  [BUSINESS_TYPES.ARCHITECT]: t("company-page:business_type.architect"),
+  [BUSINESS_TYPES.MERCHANT]: t("company-page:business_type.merchant"),
+  [BUSINESS_TYPES.CORP_DEVELOPER]: t(
+    "company-page:business_type.corp_developer"
+  ),
+  [BUSINESS_TYPES.COMPANY_ADMIN]: t("company-page:business_type.company_admin)")
+});
+
 export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation(["common", "company-page"]);
+  const businessTypeLabel = useMemo(
+    () => businessTypeLabelMap(t)[company.businessType],
+    [company.businessType, t, businessTypeLabelMap]
+  );
   return (
     <div className={styles.main}>
       <Typography variant="h4" hasUnderline>
-        {t("Company Details")}
+        {t("common:Company Details")}
       </Typography>
+
       <Typography className={styles.businessType} variant="h5">
-        {t(company.businessType)}
+        {businessTypeLabel}
       </Typography>
+
       <div className={styles.body}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={3} xl={3}>
