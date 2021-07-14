@@ -43,17 +43,25 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
       <div className={styles.body}>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={3} xl={3}>
+            {/* TODO: Placeholder logo */}
             <img src={company.logo} alt="" style={{ maxWidth: "100%" }} />
           </Grid>
           <Grid item xs={12} lg={9} xl={9}>
-            <div>
-              <InfoPair title="Company description">{company.aboutUs}</InfoPair>
-            </div>
+            {company.aboutUs ? (
+              <div>
+                <InfoPair title="Company description">
+                  {company.aboutUs}
+                </InfoPair>
+              </div>
+            ) : null}
+
             <Grid container spacing={3}>
               <Grid item xs={12} xl={6}>
-                <InfoPair title="Main office address">
-                  <Address address={company.tradingAddress} />
-                </InfoPair>
+                {company.tradingAddress ? (
+                  <InfoPair title="Main office address">
+                    <Address address={company.tradingAddress} />
+                  </InfoPair>
+                ) : null}
 
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <InfoPair title="Company Owner">
