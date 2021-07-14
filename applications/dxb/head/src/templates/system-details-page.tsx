@@ -6,9 +6,9 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
 
-import LeadBlockSection from "./system-details/lead-block-section";
-import { SystemDetails } from "./system-details/system-details-utils";
-import ImageGallerySection from "./system-details/image-gallery-section";
+import LeadBlockSection from "./system-details/leadBlockSection";
+import ImageGallerySection from "./system-details/imageGallerySection";
+import { SystemDetails } from "./system-details/types";
 
 type Props = {
   pageContext: {

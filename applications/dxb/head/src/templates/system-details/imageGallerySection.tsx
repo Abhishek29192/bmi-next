@@ -3,10 +3,7 @@ import Section from "@bmi/section";
 import Grid from "@bmi/grid";
 import ImageGallery from "@bmi/image-gallery";
 import { result, groupBy, find } from "lodash";
-import {
-  SystemProductImageType,
-  GalleryImageType
-} from "./system-details-utils";
+import { SystemProductImageType, GalleryImageType } from "./types";
 
 type Props = {
   images: SystemProductImageType[];
