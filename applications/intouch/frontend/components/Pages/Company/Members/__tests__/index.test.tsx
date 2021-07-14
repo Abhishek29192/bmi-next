@@ -1,13 +1,13 @@
 import "@testing-library/jest-dom";
 import React, { useRef } from "react";
 import { render, fireEvent, screen, within } from "@testing-library/react";
-import I18nProvider from "../../../../lib/tests/fixtures/i18n";
-import Apollo from "../../../../lib/tests/fixtures/apollo";
+import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
+import Apollo from "../../../../../lib/tests/fixtures/apollo";
 import CompanyMembersPage, { PageProps } from "..";
-import { companyMembers } from "../../../../fixtures/companyMembers";
+import { companyMembers } from "../../../../../fixtures/companyMembers";
 
 const inviteMock = jest.fn();
-jest.mock("../../../../graphql/generated/hooks", () => ({
+jest.mock("../../../../../graphql/generated/hooks", () => ({
   useInviteMutation: () => [inviteMock]
 }));
 jest.mock("@bmi/use-dimensions", () => ({

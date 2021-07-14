@@ -6,7 +6,7 @@ import Button from "@bmi/button";
 import Dialog from "@bmi/dialog";
 import Form from "@bmi/form";
 import AlertBanner from "@bmi/alert-banner";
-import { useInviteMutation } from "../../../graphql/generated/hooks";
+import { useInviteMutation } from "../../../../graphql/generated/hooks";
 
 export const INVITE_USER = gql`
   mutation invite($input: InviteInput!) {
