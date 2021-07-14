@@ -444,7 +444,7 @@ export const pageQuery = graphql`
   query ProductListerPageById(
     $pageId: String!
     $siteId: String!
-    $categoryCodes: [String!]!
+    $categoryCodes: [String!]
     $pimClassificationCatalogueNamespace: String!
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
