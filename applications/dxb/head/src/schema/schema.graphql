@@ -443,7 +443,7 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   seo: ContentfulSeoContent @link(from: "seo___NODE")
 
   "The PIM categories this page is attached to."
-  categoryCodes: [String!]!
+  categoryCodes: [String!]
 }
 
 """
