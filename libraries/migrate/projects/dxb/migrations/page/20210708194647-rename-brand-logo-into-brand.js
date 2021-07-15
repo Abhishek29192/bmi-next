@@ -3,7 +3,8 @@
  * @typedef { (migration: Migration) => void } MigrationFunction
  */
 
-module.exports.description = "Rename brandLogo to brand";
+module.exports.description =
+  "Rename brandLogo to brand for display purposes only, as changing the field itself will require a much greater change in the code (to be done later)";
 
 /**
  * @type {MigrationFunction}
