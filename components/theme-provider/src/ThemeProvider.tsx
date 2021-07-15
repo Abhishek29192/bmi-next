@@ -100,7 +100,6 @@ export const getTheme = (
       }
     }
   };
-
   return createMuiTheme(expandTheme ? expandTheme(defaultTheme) : defaultTheme);
 };
 
