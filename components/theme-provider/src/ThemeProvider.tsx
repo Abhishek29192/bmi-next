@@ -8,7 +8,7 @@ import React, { useMemo } from "react";
 import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
-const getTheme = (
+export const getTheme = (
   longText: boolean,
   expandTheme?: (t: ThemeOptions) => ThemeOptions
 ) => {
