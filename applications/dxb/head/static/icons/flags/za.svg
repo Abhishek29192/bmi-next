@@ -1,0 +1,42 @@
+<svg id="South_Africa" data-name="South Africa" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-2.29" y1="-22.973" x2="17.71" y2="-22.973" gradientTransform="matrix(1, 0, 0, -1, 2.29, -14.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.263" stop-color="#008ef4"/>
+      <stop offset="1" stop-color="#06c"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-2.29" y1="-18.973" x2="17.71" y2="-18.973" gradientTransform="matrix(1, 0, 0, -1, 2.29, -14.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.263" stop-color="#fd7242"/>
+      <stop offset="1" stop-color="#f63404"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" y1="-27.946" x2="20" y2="-27.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#e8e8e8"/>
+      <stop offset="0.439" stop-color="#f7f7f7"/>
+      <stop offset="1" stop-color="#ccc"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" y1="-27.946" x2="20" y2="-27.946" gradientTransform="matrix(1, 0, 0, -1, 0, -19.946)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#41b81f"/>
+      <stop offset="0.466" stop-color="#4fc027"/>
+      <stop offset="1" stop-color="#19a30d"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="5.919" cy="-20.474" r="10.464" gradientTransform="matrix(1, 0, 0, -1, 2.29, -14.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M0,0V16H20V0Z" fill="url(#linear-gradient)"/>
+  <path d="M0,0V8H20V0Z" fill="url(#linear-gradient-2)"/>
+  <polygon points="4.507 0 0 0 0 16 4.507 16 12.007 10.667 20 10.667 20 5.334 12.007 5.334 4.507 0" fill="url(#linear-gradient-3)"/>
+  <polygon points="2.7 0 0 0 0 16 2.7 16 11.7 9.6 20 9.6 20 6.4 11.7 6.4 2.7 0" fill="url(#linear-gradient-4)"/>
+  <polygon points="0 14.077 8.545 8 0 1.923 0 14.077" fill="#faf901"/>
+  <polygon points="0 12.8 6.75 8 0 3.2 0 12.8" fill="#414141"/>
+  <g opacity="0.5">
+    <g clip-path="url(#clip-path)">
+      <ellipse cx="8.209" cy="5.501" rx="10.499" ry="10.474" fill="url(#radial-gradient)"/>
+    </g>
+  </g>
+  <path d="M19,1V15H1V1H19m1-1H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>

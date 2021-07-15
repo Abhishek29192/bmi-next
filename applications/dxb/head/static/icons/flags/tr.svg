@@ -1,0 +1,30 @@
+<svg id="Turkey_Türkiye" data-name="Turkey Türkiye" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20 16">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-2.29" y1="54.973" x2="17.71" y2="54.973" gradientTransform="translate(2.29 -46.973)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fc5e2e"/>
+      <stop offset="0.522" stop-color="#ff5e2e"/>
+      <stop offset="1" stop-color="#fb4313"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-1.611" y1="50" x2="8.5" y2="50" gradientTransform="translate(4.58 -42)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f1f3f4"/>
+      <stop offset="0.522" stop-color="#fff"/>
+      <stop offset="1" stop-color="#e2e4e4"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect width="20" height="16" fill="none"/>
+    </clipPath>
+    <radialGradient id="radial-gradient" cx="3.63" cy="47.482" r="10.487" gradientTransform="translate(4.579 -41.981)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fcffff" stop-opacity="0.4"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="20" height="16" fill="url(#linear-gradient)"/>
+  <path d="M9.887,9.989a3.75,3.75,0,1,1,0-3.978,3,3,0,1,0-.257,4.235A3.116,3.116,0,0,0,9.887,9.989ZM12.279,8l.8-1.1-1.295.421-.8-1.1V7.579L9.688,8l1.3.421V9.783l.8-1.1,1.3.421Z" fill="url(#linear-gradient-2)"/>
+  <g opacity="0.5">
+    <g clip-path="url(#clip-path)">
+      <ellipse cx="8.209" cy="5.501" rx="10.499" ry="10.474" fill="url(#radial-gradient)"/>
+    </g>
+  </g>
+  <path d="M19,1V15H1V1H19m1-1H0V16H20Z" opacity="0.15" style="isolation: isolate"/>
+</svg>
