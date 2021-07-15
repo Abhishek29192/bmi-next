@@ -11,7 +11,7 @@ export type CompanyRegisteredDetailsProps = {
 };
 
 export const CompanyRegisteredDetails = ({
-  company
+  company: { name, referenceNumber, registeredAddress, taxNumber, tier }
 }: CompanyRegisteredDetailsProps) => {
   const { t } = useTranslation("common");
 
@@ -21,15 +21,13 @@ export const CompanyRegisteredDetails = ({
         {t("Registered Details")}
       </Typography>
       <div className={styles.body}>
-        <InfoPair title={t("Registered name")}>{company.name}</InfoPair>
-        <InfoPair title={t("Membership number")}>
-          {company.referenceNumber}
-        </InfoPair>
+        <InfoPair title={t("Registered name")}>{name}</InfoPair>
+        <InfoPair title={t("Membership number")}>{referenceNumber}</InfoPair>
         <InfoPair title={t("Registered address")}>
-          <Address address={company.registeredAddress} />
+          <Address address={registeredAddress} />
         </InfoPair>
-        <InfoPair title={t("Company VAT number")}>{company.taxNumber}</InfoPair>
-        <InfoPair title={t("Tier")}>{company.tier}</InfoPair>
+        <InfoPair title={t("Company VAT number")}>{taxNumber}</InfoPair>
+        <InfoPair title={t("Tier")}>{tier}</InfoPair>
       </div>
     </div>
   );

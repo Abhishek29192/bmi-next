@@ -15,5 +15,12 @@
     "address": "Main office address",
     "logo": "Logo",
     "closeAlertAccessibilityLabel": "Close Alert"
+  },
+  "business_type": {
+    "contractor": "Contractor",
+    "architect": "Architect",
+    "merchant": "Merchant",
+    "corp_developer": "Developer",
+    "company_admin": "Company administrator"
   }
 }

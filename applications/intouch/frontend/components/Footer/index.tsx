@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "next/link";
 import Icon from "@bmi/icon";
 import Logo, { BMI, StandardPale } from "@bmi/logo";
+import { Link } from "../Link";
 import styles from "./styles.module.scss";
 
 export type Props = {

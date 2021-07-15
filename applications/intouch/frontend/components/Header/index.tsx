@@ -1,11 +1,11 @@
 import React from "react";
-import Link from "next/link";
 import Typography from "@bmi/typography";
 import Icon from "@bmi/icon";
 import { BMI } from "@bmi/logo";
 import { Notifications, Menu, Close } from "@material-ui/icons";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
+import { Link } from "../Link";
 import UserMenu from "../UserMenu";
 import { NotificationsPanel } from "../NotificationsPanel";
 import styles from "./styles.module.scss";
@@ -20,18 +20,6 @@ export type HeaderProps = {
   title: string;
   contactUsLink?: HeaderLink;
   globalExternalLink?: HeaderLink;
-};
-
-const GlobalLink = ({ href, label, isExternal }: HeaderLink) => {
-  if (isExternal) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        {label}
-      </a>
-    );
-  }
-
-  return <Link href={href}>{label}</Link>;
 };
 
 export const Header = ({
@@ -50,9 +38,22 @@ export const Header = ({
       <div className={styles.header}>
         <div className={styles.upperHeader}>
           <nav>
-            {contactUsLink ? <GlobalLink {...contactUsLink} /> : null}
+            {contactUsLink ? (
+              <Link
+                href={contactUsLink.href}
+                isExternal={contactUsLink.isExternal}
+              >
+                {contactUsLink.label}
+              </Link>
+            ) : null}
+
             {globalExternalLink ? (
-              <GlobalLink isExternal {...globalExternalLink} />
+              <Link
+                href={globalExternalLink.href}
+                isExternal={globalExternalLink.isExternal}
+              >
+                {globalExternalLink.label}
+              </Link>
             ) : null}
           </nav>
         </div>
