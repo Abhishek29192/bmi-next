@@ -292,13 +292,15 @@ export type DeleteProjectMemberMutation = {
   >;
 };
 
-export type ProjectCompanyMembersQueryVariables = SchemaTypes.Exact<{
+export type GetProjectCompanyMembersQueryVariables = SchemaTypes.Exact<{
   existAccounts?: SchemaTypes.Maybe<
     ReadonlyArray<SchemaTypes.Scalars["Int"]> | SchemaTypes.Scalars["Int"]
   >;
 }>;
 
-export type ProjectCompanyMembersQuery = { readonly __typename?: "Query" } & {
+export type GetProjectCompanyMembersQuery = {
+  readonly __typename?: "Query";
+} & {
   readonly companyMembers?: SchemaTypes.Maybe<
     { readonly __typename?: "CompanyMembersConnection" } & {
       readonly nodes: ReadonlyArray<

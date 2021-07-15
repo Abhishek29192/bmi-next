@@ -265,7 +265,8 @@ export function useInviteMutation(
   >(InviteDocument, options);
 }
 export type InviteMutationHookResult = ReturnType<typeof useInviteMutation>;
-export type InviteMutationResult = Apollo.MutationResult<OperationTypes.InviteMutation>;
+export type InviteMutationResult =
+  Apollo.MutationResult<OperationTypes.InviteMutation>;
 export type InviteMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.InviteMutation,
   OperationTypes.InviteMutationVariables
@@ -314,7 +315,8 @@ export function useDeleteCompanyMemberMutation(
 export type DeleteCompanyMemberMutationHookResult = ReturnType<
   typeof useDeleteCompanyMemberMutation
 >;
-export type DeleteCompanyMemberMutationResult = Apollo.MutationResult<OperationTypes.DeleteCompanyMemberMutation>;
+export type DeleteCompanyMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteCompanyMemberMutation>;
 export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
@@ -505,8 +507,8 @@ export type DeleteProjectMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteProjectMemberMutation,
   OperationTypes.DeleteProjectMemberMutationVariables
 >;
-export const ProjectCompanyMembersDocument = gql`
-  query projectCompanyMembers($existAccounts: [Int!]) {
+export const GetProjectCompanyMembersDocument = gql`
+  query getProjectCompanyMembers($existAccounts: [Int!]) {
     companyMembers(filter: { accountId: { notIn: $existAccounts } }) {
       nodes {
         id
@@ -528,54 +530,54 @@ export const ProjectCompanyMembersDocument = gql`
 `;
 
 /**
- * __useProjectCompanyMembersQuery__
+ * __useGetProjectCompanyMembersQuery__
  *
- * To run a query within a React component, call `useProjectCompanyMembersQuery` and pass it any options that fit your needs.
- * When your component renders, `useProjectCompanyMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetProjectCompanyMembersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProjectCompanyMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useProjectCompanyMembersQuery({
+ * const { data, loading, error } = useGetProjectCompanyMembersQuery({
  *   variables: {
  *      existAccounts: // value for 'existAccounts'
  *   },
  * });
  */
-export function useProjectCompanyMembersQuery(
+export function useGetProjectCompanyMembersQuery(
   baseOptions?: Apollo.QueryHookOptions<
-    OperationTypes.ProjectCompanyMembersQuery,
-    OperationTypes.ProjectCompanyMembersQueryVariables
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<
-    OperationTypes.ProjectCompanyMembersQuery,
-    OperationTypes.ProjectCompanyMembersQueryVariables
-  >(ProjectCompanyMembersDocument, options);
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
+  >(GetProjectCompanyMembersDocument, options);
 }
-export function useProjectCompanyMembersLazyQuery(
+export function useGetProjectCompanyMembersLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.ProjectCompanyMembersQuery,
-    OperationTypes.ProjectCompanyMembersQueryVariables
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
   >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<
-    OperationTypes.ProjectCompanyMembersQuery,
-    OperationTypes.ProjectCompanyMembersQueryVariables
-  >(ProjectCompanyMembersDocument, options);
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
+  >(GetProjectCompanyMembersDocument, options);
 }
-export type ProjectCompanyMembersQueryHookResult = ReturnType<
-  typeof useProjectCompanyMembersQuery
+export type GetProjectCompanyMembersQueryHookResult = ReturnType<
+  typeof useGetProjectCompanyMembersQuery
 >;
-export type ProjectCompanyMembersLazyQueryHookResult = ReturnType<
-  typeof useProjectCompanyMembersLazyQuery
+export type GetProjectCompanyMembersLazyQueryHookResult = ReturnType<
+  typeof useGetProjectCompanyMembersLazyQuery
 >;
-export type ProjectCompanyMembersQueryResult = Apollo.QueryResult<
-  OperationTypes.ProjectCompanyMembersQuery,
-  OperationTypes.ProjectCompanyMembersQueryVariables
+export type GetProjectCompanyMembersQueryResult = Apollo.QueryResult<
+  OperationTypes.GetProjectCompanyMembersQuery,
+  OperationTypes.GetProjectCompanyMembersQueryVariables
 >;
 export const CreateProjectMemberDocument = gql`
   mutation createProjectMember($input: CreateProjectMemberInput!) {

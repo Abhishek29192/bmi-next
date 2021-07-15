@@ -2,83 +2,45 @@ import React, { useEffect, useState } from "react";
 import Table from "@bmi/table";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
-import { ProjectMember, Account, Technology } from "@bmi/intouch-api-types";
-import {
-  CertificationFlatRoof,
-  CertificationOtherTraining,
-  CertificationPitchedRoof
-} from "@bmi/icon";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { SvgIcon } from "@material-ui/core";
+import { ProjectMember, CompanyMember } from "@bmi/intouch-api-types";
 import { gql } from "@apollo/client";
-import { useDeleteProjectMemberMutation } from "../../../graphql/generated/hooks";
+import {
+  useDeleteProjectMemberMutation,
+  useGetProjectCompanyMembersLazyQuery,
+  useAddProjectsMemberMutation,
+  GetProjectDocument
+} from "../../../graphql/generated/hooks";
+import { AddTeamMemberDialog } from "./AddTeamMemberDialog";
+import { TeamMemberItem } from "./TeamMemberItem";
 import styles from "./styles.module.scss";
 
-const CERTIFICATION_ICONS: {
-  [K in Technology]: React.FC<React.SVGProps<SVGSVGElement>>;
-} = {
-  FLAT: CertificationPitchedRoof,
-  PITCHED: CertificationFlatRoof,
-  OTHER: CertificationOtherTraining
-};
-
-const TeamItem = ({
-  account,
-  onDeleteClick
-}: {
-  account: Account;
-  onDeleteClick: () => void;
-}) => {
-  return (
-    account && (
-      <Table.Row data-testid="team-item">
-        <Table.Cell>&nbsp;</Table.Cell>
-        <Table.Cell>
-          {account.firstName} {account.lastName}
-        </Table.Cell>
-        <Table.Cell className={styles.role}>
-          {account.role?.replace("_", " ")?.toLowerCase()}
-        </Table.Cell>
-        <Table.Cell data-testid="team-item-certification">
-          {Array.from(
-            new Set(
-              (account.certificationsByDoceboUserId?.nodes || []).map(
-                (item) => item.technology
-              )
-            )
-          ).map((technology, index) => (
-            <SvgIcon
-              key={`${account.id}-${index}-${technology}`}
-              viewBox="0 0 48 48"
-              component={CERTIFICATION_ICONS[technology as Technology]}
-              data-testid={`icon-${technology}`}
-            />
-          ))}
-        </Table.Cell>
-        <Table.Cell>
-          <Button
-            data-testid="team-member-delete"
-            variant="text"
-            isIconButton
-            onClick={onDeleteClick}
-          >
-            <DeleteIcon color="primary" />
-          </Button>
-        </Table.Cell>
-      </Table.Row>
-    )
-  );
-};
-
 export type TeamTabProps = {
+  projectId: number;
   teams: ProjectMember[];
 };
 
-export const TeamTab = ({ teams }: TeamTabProps) => {
-  const [projectMembers, setProjectMembers] = useState<ProjectMember[]>([]);
-  const { t } = useTranslation("common");
+export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
+  const { t } = useTranslation("project-page");
 
+  const [projectMembers, setProjectMembers] = useState<ProjectMember[]>([]);
+  const [companyMembers, setCompanyMembers] = useState<CompanyMember[]>([]);
+  const [isTeamMemberDialogOpen, setTeamMemberDialogOpen] = useState(false);
   const [deleteProjectMember] = useDeleteProjectMemberMutation();
+  const [addProjectsMember] = useAddProjectsMemberMutation({
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId: projectId
+        }
+      }
+    ]
+  });
+  const [getProjectCompanyMembers] = useGetProjectCompanyMembersLazyQuery({
+    onCompleted: ({ companyMembers }) => {
+      setCompanyMembers(companyMembers?.nodes as CompanyMember[]);
+    }
+  });
 
   useEffect(() => {
     setProjectMembers(teams);
@@ -97,11 +59,40 @@ export const TeamTab = ({ teams }: TeamTabProps) => {
       }
     });
   };
+  const addTeamMemberHandler = async () => {
+    const existAccounts = projectMembers.map((member) => member.accountId);
+
+    getProjectCompanyMembers({
+      variables: {
+        existAccounts: existAccounts
+      }
+    });
+    setTeamMemberDialogOpen(true);
+  };
+
+  const confirmTeamMemberHandler = async (members: CompanyMember[]) => {
+    if (members.length > 0) {
+      const projectMembers = members.map((member) => ({
+        projectId: projectId,
+        accountId: member.accountId
+      }));
+      await addProjectsMember({
+        variables: {
+          input: {
+            members: projectMembers
+          }
+        }
+      });
+    }
+    setTeamMemberDialogOpen(false);
+  };
 
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <Button variant="outlined">{t("Add team member")}</Button>
+        <Button variant="outlined" onClick={addTeamMemberHandler}>
+          {t("Add team member")}
+        </Button>
       </div>
       <div className={styles.body}>
         <Table>
@@ -118,7 +109,7 @@ export const TeamTab = ({ teams }: TeamTabProps) => {
             {projectMembers.map(
               (team, index) =>
                 team.account && (
-                  <TeamItem
+                  <TeamMemberItem
                     key={`${team.id}-${index}`}
                     account={team.account}
                     onDeleteClick={() => {
@@ -130,6 +121,12 @@ export const TeamTab = ({ teams }: TeamTabProps) => {
           </Table.Body>
         </Table>
       </div>
+      <AddTeamMemberDialog
+        isOpen={isTeamMemberDialogOpen}
+        onCloseClick={() => setTeamMemberDialogOpen(false)}
+        onConfirmClick={confirmTeamMemberHandler}
+        members={companyMembers || []}
+      />
     </div>
   );
 };
@@ -141,6 +138,58 @@ export const DELETE_PROJECT_MEMBER = gql`
         id
         firstName
         lastName
+      }
+    }
+  }
+`;
+export const PROJECT_COMPANY_MEMBERS = gql`
+  query getProjectCompanyMembers($existAccounts: [Int!]) {
+    companyMembers(filter: { accountId: { notIn: $existAccounts } }) {
+      nodes {
+        id
+        accountId
+        account {
+          id
+          firstName
+          lastName
+          email
+          certificationsByDoceboUserId {
+            nodes {
+              technology
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export const ADD_PROJECT_MEMBER = gql`
+  mutation createProjectMember($input: CreateProjectMemberInput!) {
+    createProjectMember(input: $input) {
+      projectMember {
+        id
+        accountId
+        account {
+          id
+          firstName
+          lastName
+          role
+          certificationsByDoceboUserId {
+            nodes {
+              technology
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export const ADD_PROJECT_MEMBERS = gql`
+  mutation addProjectsMember($input: ProjectMembersAddInput!) {
+    projectMembersAdd(input: $input) {
+      projectMembers {
+        projectId
+        accountId
       }
     }
   }

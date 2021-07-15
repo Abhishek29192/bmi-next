@@ -95,17 +95,17 @@ export const ssrGetProject = {
   usePage: useGetProject
 };
 
-export async function getServerPageProjectCompanyMembers(
+export async function getServerPageGetProjectCompanyMembers(
   options: Omit<
-    Apollo.QueryOptions<OperationTypes.ProjectCompanyMembersQueryVariables>,
+    Apollo.QueryOptions<OperationTypes.GetProjectCompanyMembersQueryVariables>,
     "query"
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
   const data =
-    await apolloClient.query<OperationTypes.ProjectCompanyMembersQuery>({
+    await apolloClient.query<OperationTypes.GetProjectCompanyMembersQuery>({
       ...options,
-      query: Operations.ProjectCompanyMembersDocument
+      query: Operations.GetProjectCompanyMembersDocument
     });
 
   const apolloState = apolloClient.cache.extract();
@@ -118,26 +118,26 @@ export async function getServerPageProjectCompanyMembers(
     }
   };
 }
-export const useProjectCompanyMembers = (
+export const useGetProjectCompanyMembers = (
   optionsFunc?: (
     router: NextRouter
   ) => QueryHookOptions<
-    OperationTypes.ProjectCompanyMembersQuery,
-    OperationTypes.ProjectCompanyMembersQueryVariables
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
   >
 ) => {
   const router = useRouter();
   const options = optionsFunc ? optionsFunc(router) : {};
-  return useQuery(Operations.ProjectCompanyMembersDocument, options);
+  return useQuery(Operations.GetProjectCompanyMembersDocument, options);
 };
-export type PageProjectCompanyMembersComp = React.FC<{
-  data?: OperationTypes.ProjectCompanyMembersQuery;
+export type PageGetProjectCompanyMembersComp = React.FC<{
+  data?: OperationTypes.GetProjectCompanyMembersQuery;
   error?: Apollo.ApolloError;
 }>;
-export const ssrProjectCompanyMembers = {
-  getServerPage: getServerPageProjectCompanyMembers,
+export const ssrGetProjectCompanyMembers = {
+  getServerPage: getServerPageGetProjectCompanyMembers,
 
-  usePage: useProjectCompanyMembers
+  usePage: useGetProjectCompanyMembers
 };
 
 export async function getServerPageAccountByEmail(

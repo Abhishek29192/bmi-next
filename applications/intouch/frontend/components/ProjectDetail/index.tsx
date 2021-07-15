@@ -82,6 +82,7 @@ const ProjectDetail = ({ projectId }: { projectId: number }) => {
           <Tabs.TabPanel heading="Team" index="one">
             <TabCard>
               <TeamTab
+                projectId={projectId}
                 teams={project.projectMembers?.nodes as ProjectMember[]}
               />
             </TabCard>

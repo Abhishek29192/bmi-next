@@ -96,9 +96,7 @@ export const Team = ({ title }: LayoutProps) => (
         <Grid item xs={12}>
           <Tabs initialValue="one">
             <Tabs.TabPanel heading="Team" index="one">
-              <TabCard>
-                <TeamTab teams={teamMembers} />
-              </TabCard>
+              <TabCard></TabCard>
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Guarantee" index="two">
               <TabCard>
