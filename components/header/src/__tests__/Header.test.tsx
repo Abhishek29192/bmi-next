@@ -7,6 +7,7 @@ import Header from "../";
 
 const productsLabel = "Products";
 const roofLabel = "Roof";
+const languageLabel = "Language";
 
 const utilities = [
   {
@@ -81,7 +82,10 @@ describe("Header component", () => {
       <Header
         utilities={utilities}
         navigation={navigation}
+        language={languages[0].menu[0]}
         languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
       />
     );
     expect(container.firstChild).toMatchSnapshot();
@@ -92,7 +96,10 @@ describe("Header component", () => {
       <Header
         utilities={utilities}
         navigation={navigation}
+        language={languages[0].menu[0]}
         languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
       />
     );
 
@@ -106,7 +113,10 @@ describe("Header component", () => {
       <Header
         utilities={utilities}
         navigation={navigation}
+        language={languages[0].menu[0]}
         languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
       />
     );
 
@@ -122,7 +132,10 @@ describe("Header component", () => {
       <Header
         utilities={utilities}
         navigation={navigation}
+        language={languages[0].menu[0]}
         languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
       />
     );
 
@@ -140,7 +153,10 @@ describe("Header component", () => {
       <Header
         utilities={utilities}
         navigation={navigation}
+        language={languages[0].menu[0]}
         languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
         closeLabel={closeLabel}
         openLabel={openLabel}
       />
@@ -162,7 +178,10 @@ describe("Header component", () => {
       <Header
         utilities={utilities}
         navigation={navigation}
+        language={languages[0].menu[0]}
         languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
         searchLabel={searchLabel}
       />
     );
@@ -173,5 +192,28 @@ describe("Header component", () => {
 
     searchButton.click();
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("toggles language selection", () => {
+    const { container, getByRole } = render(
+      <Header
+        utilities={utilities}
+        navigation={navigation}
+        language={languages[0].menu[0]}
+        languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
+      />
+    );
+
+    const languageButton = getByRole("button", { name: languageLabel });
+
+    languageButton.click();
+
+    expect(container.firstChild).toMatchSnapshot("Language selection open");
+
+    languageButton.click();
+
+    expect(container.firstChild).toMatchSnapshot("Language selection closed");
   });
 });
