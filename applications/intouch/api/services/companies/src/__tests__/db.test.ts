@@ -107,7 +107,6 @@ describe("Database permissions", () => {
       "insert into account (market_id, role, first_name, last_name, email) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (email) DO NOTHING RETURNING id",
       [MARKET_ID, "MARKET_ADMIN", "Market", "Admin", SUPER_ADMIN_EMAIL]
     );
-
     market_admin_id = marketAdmin[0].id;
   });
 
@@ -234,21 +233,6 @@ describe("Database permissions", () => {
               },
               "insert into company_member (account_id, company_id) VALUES($1, $2) RETURNING *",
               [installer_id, 1]
-            );
-          } catch (error) {
-            expect(error.message).toEqual(RLS_ERROR("company_member"));
-          }
-        });
-        it("shouldn't be able to add a user to a company without an invitation", async () => {
-          try {
-            await transaction(
-              {
-                role: ROLE_COMPANY_ADMIN,
-                accountUuid: company_admin_id,
-                accountEmail: COMPANY_ADMIN_EMAIL
-              },
-              "insert into company_member (account_id, company_id, market_id) VALUES($1, $2, $3) RETURNING *",
-              [installer_id, company_id, MARKET_ID]
             );
           } catch (error) {
             expect(error.message).toEqual(RLS_ERROR("company_member"));

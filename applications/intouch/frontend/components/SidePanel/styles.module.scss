@@ -6,9 +6,8 @@
 
 .sidePanel {
   width: 320px;
-  height: 100%;
+  height: calc(100vh - 245px); // 245 = header height + footer height
   padding: 1.5rem;
-  height: 100vh;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
