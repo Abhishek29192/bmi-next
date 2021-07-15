@@ -3275,9 +3275,10 @@ export type CreateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our create `CourseSyncConfiguration` mutation. */
-export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type CreateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the create `CourseTemp` mutation. */
 export type CreateCourseTempInput = {
@@ -4372,9 +4373,10 @@ export type DeleteCourseSyncConfigurationPayload = {
 };
 
 /** The output of our delete `CourseSyncConfiguration` mutation. */
-export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type DeleteCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the `deleteCourseTempByNodeId` mutation. */
 export type DeleteCourseTempByNodeIdInput = {
@@ -7593,6 +7595,7 @@ export type Mutation = {
   deleteSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<DeleteSystemMemberPayload>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
+  projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
@@ -8215,6 +8218,11 @@ export type MutationInviteArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationLinkAccountToCompanyArgs = {
   input: LinkAccountToCompanyInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationProjectMembersAddArgs = {
+  input: ProjectMembersAddInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -9364,6 +9372,29 @@ export type ProjectMemberPatch = {
   isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** All input for the `projectMembersAdd` mutation. */
+export type ProjectMembersAddInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  members: Array<Maybe<ProjectMemberInput>>;
+};
+
+/** The output of our `projectMembersAdd` mutation. */
+export type ProjectMembersAddPayload = {
+  __typename?: "ProjectMembersAddPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  projectMembers?: Maybe<Array<ProjectMember>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** A connection to a list of `ProjectMember` values. */
@@ -12175,9 +12206,10 @@ export type UpdateCourseSyncConfigurationPayload = {
 };
 
 /** The output of our update `CourseSyncConfiguration` mutation. */
-export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs = {
-  orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
-};
+export type UpdateCourseSyncConfigurationPayloadCourseSyncConfigurationEdgeArgs =
+  {
+    orderBy?: Maybe<Array<CourseSyncConfigurationsOrderBy>>;
+  };
 
 /** All input for the `updateCourseTempByNodeId` mutation. */
 export type UpdateCourseTempByNodeIdInput = {

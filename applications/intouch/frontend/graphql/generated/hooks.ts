@@ -385,6 +385,7 @@ export const GetProjectDocument = gql`
       projectMembers {
         nodes {
           id
+          accountId
           account {
             firstName
             lastName
@@ -503,6 +504,195 @@ export type DeleteProjectMemberMutationResult =
 export type DeleteProjectMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteProjectMemberMutation,
   OperationTypes.DeleteProjectMemberMutationVariables
+>;
+export const ProjectCompanyMembersDocument = gql`
+  query projectCompanyMembers($existAccounts: [Int!]) {
+    companyMembers(filter: { accountId: { notIn: $existAccounts } }) {
+      nodes {
+        id
+        accountId
+        account {
+          id
+          firstName
+          lastName
+          email
+          certificationsByDoceboUserId {
+            nodes {
+              technology
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useProjectCompanyMembersQuery__
+ *
+ * To run a query within a React component, call `useProjectCompanyMembersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useProjectCompanyMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useProjectCompanyMembersQuery({
+ *   variables: {
+ *      existAccounts: // value for 'existAccounts'
+ *   },
+ * });
+ */
+export function useProjectCompanyMembersQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.ProjectCompanyMembersQuery,
+    OperationTypes.ProjectCompanyMembersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.ProjectCompanyMembersQuery,
+    OperationTypes.ProjectCompanyMembersQueryVariables
+  >(ProjectCompanyMembersDocument, options);
+}
+export function useProjectCompanyMembersLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.ProjectCompanyMembersQuery,
+    OperationTypes.ProjectCompanyMembersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.ProjectCompanyMembersQuery,
+    OperationTypes.ProjectCompanyMembersQueryVariables
+  >(ProjectCompanyMembersDocument, options);
+}
+export type ProjectCompanyMembersQueryHookResult = ReturnType<
+  typeof useProjectCompanyMembersQuery
+>;
+export type ProjectCompanyMembersLazyQueryHookResult = ReturnType<
+  typeof useProjectCompanyMembersLazyQuery
+>;
+export type ProjectCompanyMembersQueryResult = Apollo.QueryResult<
+  OperationTypes.ProjectCompanyMembersQuery,
+  OperationTypes.ProjectCompanyMembersQueryVariables
+>;
+export const CreateProjectMemberDocument = gql`
+  mutation createProjectMember($input: CreateProjectMemberInput!) {
+    createProjectMember(input: $input) {
+      projectMember {
+        id
+        accountId
+        account {
+          id
+          firstName
+          lastName
+          role
+          certificationsByDoceboUserId {
+            nodes {
+              technology
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export type CreateProjectMemberMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateProjectMemberMutation,
+  OperationTypes.CreateProjectMemberMutationVariables
+>;
+
+/**
+ * __useCreateProjectMemberMutation__
+ *
+ * To run a mutation, you first call `useCreateProjectMemberMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateProjectMemberMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createProjectMemberMutation, { data, loading, error }] = useCreateProjectMemberMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateProjectMemberMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateProjectMemberMutation,
+    OperationTypes.CreateProjectMemberMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateProjectMemberMutation,
+    OperationTypes.CreateProjectMemberMutationVariables
+  >(CreateProjectMemberDocument, options);
+}
+export type CreateProjectMemberMutationHookResult = ReturnType<
+  typeof useCreateProjectMemberMutation
+>;
+export type CreateProjectMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateProjectMemberMutation>;
+export type CreateProjectMemberMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateProjectMemberMutation,
+  OperationTypes.CreateProjectMemberMutationVariables
+>;
+export const AddProjectsMemberDocument = gql`
+  mutation addProjectsMember($input: ProjectMembersAddInput!) {
+    projectMembersAdd(input: $input) {
+      projectMembers {
+        projectId
+        accountId
+      }
+    }
+  }
+`;
+export type AddProjectsMemberMutationFn = Apollo.MutationFunction<
+  OperationTypes.AddProjectsMemberMutation,
+  OperationTypes.AddProjectsMemberMutationVariables
+>;
+
+/**
+ * __useAddProjectsMemberMutation__
+ *
+ * To run a mutation, you first call `useAddProjectsMemberMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddProjectsMemberMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addProjectsMemberMutation, { data, loading, error }] = useAddProjectsMemberMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useAddProjectsMemberMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.AddProjectsMemberMutation,
+    OperationTypes.AddProjectsMemberMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.AddProjectsMemberMutation,
+    OperationTypes.AddProjectsMemberMutationVariables
+  >(AddProjectsMemberDocument, options);
+}
+export type AddProjectsMemberMutationHookResult = ReturnType<
+  typeof useAddProjectsMemberMutation
+>;
+export type AddProjectsMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.AddProjectsMemberMutation>;
+export type AddProjectsMemberMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.AddProjectsMemberMutation,
+  OperationTypes.AddProjectsMemberMutationVariables
 >;
 export const AccountByEmailDocument = gql`
   query accountByEmail($email: String!) {

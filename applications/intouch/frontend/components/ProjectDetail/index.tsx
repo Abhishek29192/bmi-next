@@ -208,6 +208,7 @@ export const GET_PROJECT = gql`
       projectMembers {
         nodes {
           id
+          accountId
           account {
             firstName
             lastName

@@ -94,6 +94,52 @@ export const ssrGetProject = {
 
   usePage: useGetProject
 };
+
+export async function getServerPageProjectCompanyMembers(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.ProjectCompanyMembersQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.ProjectCompanyMembersQuery>({
+      ...options,
+      query: Operations.ProjectCompanyMembersDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useProjectCompanyMembers = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.ProjectCompanyMembersQuery,
+    OperationTypes.ProjectCompanyMembersQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.ProjectCompanyMembersDocument, options);
+};
+export type PageProjectCompanyMembersComp = React.FC<{
+  data?: OperationTypes.ProjectCompanyMembersQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrProjectCompanyMembers = {
+  getServerPage: getServerPageProjectCompanyMembers,
+
+  usePage: useProjectCompanyMembers
+};
+
 export async function getServerPageAccountByEmail(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.AccountByEmailQueryVariables>,
