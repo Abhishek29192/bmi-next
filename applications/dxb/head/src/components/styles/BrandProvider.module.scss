@@ -1,55 +1,99 @@
+@import "@bmi/styles";
+
 .AeroDeck {
-  --color-brand-accent-300: #cccccc;
-  --color-brand-accent: #70706f;
-  --color-brand-inter: #70706f; /// ????
-  --color-brand-focus: #3b3b3b;
+  --color-brand-accent-300: #{$color-storm};
+  --color-brand-accent: #{$color-slate};
+  --color-brand-inter: #{$color-slate};
+  --color-brand-focus: #{$color-charcoal};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-blue-900};
+  --color-brand-secondary-2: #{$color-blue-300};
+  --color-brand-secondary-3: #{$color-black};
+  --color-brand-secondary-4: #{$color-cyan-700};
 }
 
 .BrandRed {
-  --color-brand-accent-300: #fd543e;
-  --color-brand-accent: #e30613;
-  --color-brand-inter: #d10513;
-  --color-brand-focus: #b30510;
+  --color-brand-accent-300: #{$color-brand-red-300};
+  --color-brand-accent: #{$color-brand-red};
+  --color-brand-inter: #{$color-brand-red-inter};
+  --color-brand-focus: #{$color-brand-red-focus};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-orange-400};
+  --color-brand-secondary-2: #{$color-slate};
+  --color-brand-secondary-3: #{$color-charcoal};
+  --color-brand-secondary-4: #{$color-brand-red-inter};
 }
 
 .RoyalBlue {
-  // --color-brand-accent-300: #004f9f;
-  --color-brand-accent: #004f9f;
-  --color-brand-inter: #004f9f;
-  --color-brand-focus: #003d7a;
+  --color-brand-accent-300: #{$color-cyan-400};
+  --color-brand-accent: #{$color-royal-blue};
+  --color-brand-inter: #{$color-royal-blue};
+  --color-brand-focus: #{$color-royal-blue-focus};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-royal-blue-focus};
+  --color-brand-secondary-2: #{$color-blue-800};
+  --color-brand-secondary-3: #{$color-slate};
+  --color-brand-secondary-4: #{$color-cyan-700};
 }
 
 .Purple {
-  --color-brand-accent-300: #8985d6;
-  --color-brand-accent: #201e5b;
-  --color-brand-inter: #201e5b;
-  --color-brand-focus: #161542;
+  --color-brand-accent-300: #{$color-purple-300};
+  --color-brand-accent: #{$color-purple};
+  --color-brand-inter: #{$color-purple};
+  --color-brand-focus: #{$color-purple-focus};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-purple-focus};
+  --color-brand-secondary-2: #{$color-slate};
+  --color-brand-secondary-3: #{$color-charcoal};
+  --color-brand-secondary-4: #{$color-blue-800};
 }
 
 .NaviBlue {
-  // --color-brand-accent-300: #133579;
-  --color-brand-accent: #133579;
-  --color-brand-inter: #133579;
-  --color-brand-focus: #0e2a5d;
+  --color-brand-accent-300: #{$color-cyan-400};
+  --color-brand-accent: #{$color-navi-blue};
+  --color-brand-inter: #{$color-navi-blue};
+  --color-brand-focus: #{$color-navi-blue-focus};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-navi-blue-focus};
+  --color-brand-secondary-2: #{$color-slate};
+  --color-brand-secondary-3: #{$color-cyan-700};
+  --color-brand-secondary-4: #{$color-blue-800};
 }
 
 .SealoflexBlue {
-  --color-brand-accent-300: #00539c;
-  --color-brand-accent: #00539c;
-  --color-brand-inter: #00539c;
-  --color-brand-focus: #003c70;
+  --color-brand-accent-300: #{$color-cyan-400};
+  --color-brand-accent: #{$color-sealoflex-blue};
+  --color-brand-inter: #{$color-sealoflex-blue};
+  --color-brand-focus: #{$color-sealoflex-blue-focus};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-purple-focus};
+  --color-brand-secondary-2: #{$color-teal-500};
+  --color-brand-secondary-3: #{$color-aqua-500};
+  --color-brand-secondary-4: #{$color-slate};
 }
 
 .BrandGreen {
-  --color-brand-accent-300: #2aa94e;
-  --color-brand-accent: #2aa94e;
-  --color-brand-inter: #1f7a39;
-  --color-brand-focus: #1a6531;
+  --color-brand-accent-300: #{$color-brand-green};
+  --color-brand-accent: #{$color-brand-green};
+  --color-brand-inter: #{$color-brand-green-inter};
+  --color-brand-focus: #{$color-brand-green-focus};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-brand-green-focus};
+  --color-brand-secondary-2: #{$color-slate};
+  --color-brand-secondary-3: #{$color-charcoal};
+  --color-brand-secondary-4: #{$color-brand-green-inter};
 }
 
 .SiplastBlack {
-  --color-brand-accent-300: #cccccc;
-  --color-brand-accent: #1a171b;
-  --color-brand-inter: #1a171b;
-  --color-brand-focus: #1a171b;
+  --color-brand-accent-300: #{$color-storm};
+  --color-brand-accent: #{$color-siplast-black};
+  --color-brand-inter: #{$color-cyan-500};
+  --color-brand-focus: #{$color-siplast-black};
 }

@@ -29,42 +29,49 @@ const BRANDS_CLASSES = {
   Zanda: styles["BrandRed"]
 };
 
+export const getBrandClassName = (brand?: string) => BRANDS_CLASSES[`${brand}`];
+
 type BrandProviderProps = {
   children: React.ReactNode;
   brand?: string;
 };
 
-const getExpandTheme = (primaryColor: string) => (theme: ThemeOptions) => {
-  return {
-    ...theme,
-    palette: {
-      ...theme.palette,
-      primary: {
-        ...theme.palette.primary,
-        main: primaryColor
+export const changePrimaryColor =
+  (primaryColor: string = "#ccc") =>
+  (theme: ThemeOptions) => {
+    return {
+      ...theme,
+      palette: {
+        ...theme.palette,
+        primary: {
+          ...theme.palette.primary,
+          main: primaryColor
+        }
       }
-    }
+    };
   };
-};
 
 const BrandProvider = ({ brand, children }: BrandProviderProps) => {
   const ref = useRef(null);
   const [expandTheme, setExpandTheme] = useState(undefined);
 
-  const className = BRANDS_CLASSES[`${brand}`];
+  const className = getBrandClassName(brand);
 
   useLayoutEffect(() => {
-    setExpandTheme(() =>
-      getExpandTheme(
-        getComputedStyle(ref.current)
-          .getPropertyValue("--color-brand-inter")
-          .trim()
-      )
-    );
+    const primaryColor =
+      ref.current &&
+      getComputedStyle(ref.current)!
+        .getPropertyValue("--color-brand-inter")
+        ?.trim();
+    primaryColor && setExpandTheme(() => changePrimaryColor(primaryColor));
   }, []);
 
   return (
-    <div ref={ref} className={classnames(className)}>
+    <div
+      ref={ref}
+      className={classnames(className)}
+      data-testid="brand-colors-provider"
+    >
       <BmiThemeProvider
         longText={!!process.env.GATSBY_LONG_TEXT}
         expandTheme={expandTheme}

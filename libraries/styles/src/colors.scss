@@ -40,12 +40,37 @@ $color-teal-400: #20778e;
 $color-teal-500: #1a6073;
 $color-white: #ffffff;
 
+$color-brand-red-300: #fd543e;
+$color-brand-red: #e30613;
+$color-brand-red-inter: #d10513;
+$color-brand-red-focus: #b30510;
+$color-orange-400: #e63b11;
+$color-royal-blue: #004f9f;
+$color-royal-blue-focus: #003d7a;
+$color-purple-300: #8985d6;
+$color-purple: #201e5b;
+$color-purple-focus: #161542;
+$color-navi-blue: #133579;
+$color-navi-blue-focus: #0e2a5d;
+$color-sealoflex-blue: #00539c;
+$color-sealoflex-blue-focus: #003c70;
+$color-brand-green: #2aa94e;
+$color-brand-green-inter: #1f7a39;
+$color-brand-green-focus: #1a6531;
+$color-siplast-black: #1a171b;
+
 // css variables #{$color-black}
 :root {
   --color-brand-accent-300: #{$color-cyan-400};
   --color-brand-accent: #{$color-cyan-400};
   --color-brand-inter: #{$color-cyan-500};
   --color-brand-focus: #{$color-cyan-600};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-cyan-700};
+  --color-brand-secondary-2: #{$color-slate};
+  --color-brand-secondary-3: #{$color-blue-800};
+  --color-brand-secondary-4: #{$color-charcoal};
 }
 
 // brand variables
@@ -53,6 +78,12 @@ $color-brand-accent-300: var(--color-brand-accent-300);
 $color-brand-accent: var(--color-brand-accent);
 $color-brand-inter: var(--color-brand-inter);
 $color-brand-focus: var(--color-brand-focus);
+
+// Secondary(action cards colors)
+$color-brand-secondary-1: var(--color-brand-secondary-1);
+$color-brand-secondary-2: var(--color-brand-secondary-2);
+$color-brand-secondary-3: var(--color-brand-secondary-3);
+$color-brand-secondary-4: var(--color-brand-secondary-4);
 
 // exported variables
 :export {
