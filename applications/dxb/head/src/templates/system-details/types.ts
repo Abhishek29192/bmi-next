@@ -1,30 +1,15 @@
+import { Image } from "../../components/types/ProductBaseTypes";
+
 export type GalleryImageType = {
   mainSource: string;
   thumbnail: string;
   altText: string;
 };
 
-export type SystemProductImageType = SystemImageType & {
-  format: string;
-  containerId: string;
-};
-
-export type SystemImageType = {
-  url: string;
-  name: string;
-  mime: string;
-  fileSize: number;
-  containerId: string;
-  assetType: string;
-  altText?: string;
-  allowedToDownload: boolean;
-  realFileName: string;
-};
-
 export type Category = {
   categoryType: string;
   name: string;
-  image?: SystemImageType;
+  image?: Image;
 };
 
 export type Feature = {
@@ -49,7 +34,7 @@ export interface SystemDetails {
   name: string;
   categories: Category[];
   classifications: Classification[];
-  images: SystemProductImageType[] | null;
+  images: Image[] | null;
   longDescription?: string;
   shortDescription?: string;
   systemBenefits?: string[];

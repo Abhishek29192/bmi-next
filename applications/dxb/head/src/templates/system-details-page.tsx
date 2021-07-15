@@ -5,9 +5,8 @@ import { Data as SiteData } from "../components/Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../components/ShareWidgetSection";
-
-import LeadBlockSection from "./system-details/leadBlockSection";
-import ImageGallerySection from "./system-details/imageGallerySection";
+import LeadBlockSection from "./system-details/LeadBlockSection";
+import ImageGallerySection from "./system-details/image-gallery-section";
 import { SystemDetails } from "./system-details/types";
 
 type Props = {
@@ -41,7 +40,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         categories={categories}
         classifications={classifications}
       />
-      <ImageGallerySection images={images ? images : []} />
+      <ImageGallerySection images={images} />
     </Page>
   );
 };

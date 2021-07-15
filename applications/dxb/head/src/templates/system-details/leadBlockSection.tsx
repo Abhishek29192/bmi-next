@@ -8,7 +8,7 @@ import Button from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import CheckIcon from "@material-ui/icons/Check";
 import Image, { Data as ImageData } from "../../components/Image";
-import styles from "../styles/lead-block-section.module.scss";
+import styles from "./styles/lead-block-section.module.scss";
 import { Category, Classification } from "./types";
 
 const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
