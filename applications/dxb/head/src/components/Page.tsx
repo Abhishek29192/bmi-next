@@ -62,7 +62,8 @@ const Page = ({
     scriptGA,
     scriptOnetrust,
     scriptHotJar,
-    scriptGOptLoad
+    scriptGOptLoad,
+    regions
   } = siteData;
 
   const { breadcrumbs, inputBanner, seo } = pageData;
@@ -184,6 +185,10 @@ const Page = ({
                   (breadcrumbs && breadcrumbs[0]?.label) || undefined
                 }
                 isOnSearchPage={isSearchPage}
+                countryNavigationIntroduction={
+                  resources?.countryNavigationIntroduction
+                }
+                regions={regions}
               />
             </BmiThemeProvider>
             <BrandProvider brand={brand}>

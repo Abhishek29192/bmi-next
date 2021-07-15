@@ -21,6 +21,7 @@ import { Data as PageData } from "../../components/Page";
 import { RichTextData } from "../../components/RichText";
 import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 import { Data as LinkData } from "../../components/Link";
+import regions from "../../countries/region.json";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
 import createProduct from "../../__tests__/PimDocumentProductHelper";
@@ -142,7 +143,8 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
-  scriptGOptLoad: null
+  scriptGOptLoad: null,
+  regions: regions.slice(-1)
 };
 
 const pageData = {
