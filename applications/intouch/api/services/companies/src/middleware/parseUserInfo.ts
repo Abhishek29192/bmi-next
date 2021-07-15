@@ -1,6 +1,7 @@
 import { Buffer } from "buffer";
 import { getDbPool } from "../db";
 import { Account } from "../types";
+import rolePermissions from "../permissions";
 
 export const parseHeaders = (req): Account => {
   const logger = req.logger("userInfo");
@@ -63,6 +64,13 @@ export default async (req, res, next) => {
         company: companies[0]
       };
     }
+
+    req.user.can = (permissions: string | string[]) => {
+      const toCheck = Array.isArray(permissions) ? permissions : [permissions];
+      const currentPermissions = rolePermissions[req.user.role];
+
+      return !!currentPermissions.some((r) => toCheck.includes(r));
+    };
   }
 
   return next();

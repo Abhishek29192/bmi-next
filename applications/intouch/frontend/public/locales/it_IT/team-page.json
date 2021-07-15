@@ -26,5 +26,9 @@
       "send": "Invia invito",
       "success": "L'invito è stato inviato con successo"
     }
+  },
+  "user_card": {
+    "add_admin": "Promuovi a Company Admin",
+    "remove_admin": "Rimuovi Company Admin"
   }
 }

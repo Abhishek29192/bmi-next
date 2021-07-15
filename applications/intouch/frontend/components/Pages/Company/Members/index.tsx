@@ -14,7 +14,7 @@ import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
 import { SidePanel } from "../../../SidePanel";
 import { FilterResult } from "../../../FilterResult";
 import { CompanyMembersQuery } from "../../../../graphql/generated/operations";
-
+import { useUpdateRoleAccountMutation } from "../../../../graphql/generated/hooks";
 import { TableContainer } from "../../../TableContainer";
 import { UserCard } from "../../../UserCard";
 import {
@@ -65,6 +65,13 @@ const certificationClass = (data: string): string => {
   return certDate < today ? styles.expired : "";
 };
 
+const getNow = () => {
+  const expiryDate = new Date();
+  expiryDate.setHours(0, 0, 0, 0);
+  expiryDate.setMonth(expiryDate.getMonth() - 6);
+  return expiryDate;
+};
+
 const CompanyMembers = ({ data }: PageProps) => {
   const { t } = useTranslation("team-page");
 
@@ -85,9 +92,7 @@ const CompanyMembers = ({ data }: PageProps) => {
       ]);
     },
     onCompleted: () => {
-      const expiryDate = new Date();
-      expiryDate.setHours(0, 0, 0, 0);
-      expiryDate.setMonth(expiryDate.getMonth() - 6);
+      const expiryDate = getNow();
 
       fetchCompanyMembers({
         variables: {
@@ -103,10 +108,17 @@ const CompanyMembers = ({ data }: PageProps) => {
       ]);
     }
   });
+
   const [fetchCompanyMembers] = useCompanyMembersLazyQuery({
     fetchPolicy: "network-only",
     onCompleted: (data) => {
+      const newCurrent = data?.companyMembers?.nodes.find(
+        ({ id }) => id === currentMember.id
+      ) as Partial<CompanyMember>;
+
       setMembers(data?.companyMembers?.nodes);
+
+      setCurrentMember(newCurrent);
     }
   });
 
@@ -116,6 +128,39 @@ const CompanyMembers = ({ data }: PageProps) => {
         id: currentMember.id
       }
     });
+
+  const [updateAccount] = useUpdateRoleAccountMutation({
+    onError: (error) => {
+      setMessages([
+        {
+          severity: "error",
+          message: error.message
+        }
+      ]);
+    },
+    onCompleted: () => {
+      const expiryDate = getNow();
+
+      fetchCompanyMembers({
+        variables: {
+          expiryDate
+        }
+      });
+    }
+  });
+
+  const onAccountUpdate = (id: number, role: Role) => {
+    updateAccount({
+      variables: {
+        input: {
+          id,
+          patch: {
+            role
+          }
+        }
+      }
+    });
+  };
 
   const onSearch = (value: string): void => {
     const valueToSearch = value.toLowerCase();
@@ -239,12 +284,9 @@ const CompanyMembers = ({ data }: PageProps) => {
           </div>
           <UserCard
             testid="user-card"
+            onAccountUpdate={onAccountUpdate}
             onRemoveUser={onRemoveUser}
-            username={`${currentMember?.account?.firstName} ${currentMember?.account?.lastName}`}
-            role={currentMember?.account?.role
-              ?.replace("_", " ")
-              ?.toLowerCase()}
-            avatar={currentMember?.account.photo}
+            account={currentMember?.account}
             companyName={currentMember?.company.name}
             details={[
               {

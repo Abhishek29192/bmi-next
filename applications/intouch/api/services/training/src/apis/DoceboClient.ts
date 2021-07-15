@@ -1,8 +1,13 @@
+import { Logger } from "winston";
 import axios, { AxiosInstance } from "axios";
 import { createToken } from "../util/JwtUtil";
 import { Course } from "../types/course";
 
 import { IUserCreateInput } from "../type";
+
+type ClientContext = {
+  logger: (module: string) => Logger;
+};
 
 type CourseFilteredData = {
   courses: Course[];
@@ -13,8 +18,11 @@ const { DOCEBO_API_URL } = process.env;
 
 export default class DoceboClient {
   private client: AxiosInstance;
+  private logger: Logger;
 
-  private constructor(accessToken: String) {
+  private constructor(accessToken: String, context: ClientContext) {
+    this.logger = context.logger("docebo");
+    console.log(`Bearer ${accessToken}`);
     this.client = axios.create({
       baseURL: DOCEBO_API_URL,
       headers: {
@@ -23,9 +31,9 @@ export default class DoceboClient {
     });
   }
 
-  public static async create(): Promise<DoceboClient> {
+  public static async create(context: ClientContext): Promise<DoceboClient> {
     const { access_token } = await this.getSuperAdminApiToken();
-    return new DoceboClient(access_token);
+    return new DoceboClient(access_token, context);
   }
 
   async getCourses(
@@ -104,11 +112,14 @@ export default class DoceboClient {
   }
 
   public async userByEmail(email: string) {
+    const encodedEmail = encodeURIComponent(email);
+
+    const queryParams = { match_type: "full", search_text: encodedEmail };
+    const queryString = new URLSearchParams(queryParams).toString();
+
     const {
       data: { data }
-    } = await this.client.get(
-      `/manage/v1/user?match_type=full&search_text=${encodeURIComponent(email)}`
-    );
+    } = await this.client.get(`/manage/v1/user?${queryString}`);
 
     return data.items[0];
   }
@@ -135,9 +146,16 @@ export default class DoceboClient {
       password_retype: input.password,
       select_orgchart
     };
-    const { data } = await this.client.post(`/manage/v1/user`, body);
 
-    return data;
+    try {
+      const { data } = await this.client.post(`/manage/v1/user`, body);
+
+      return data;
+    } catch (error) {
+      console.log("error.response.data: ", error.response.data);
+      this.logger.error("Error creating docebo account", error.response.data);
+      throw error;
+    }
   }
 
   private async isCoursePromoted(courseId: Number) {

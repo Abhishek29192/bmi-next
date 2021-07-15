@@ -3,7 +3,11 @@ import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
+import {
+  ErrorStatusCode,
+  generatePageError,
+  withPageError
+} from "../lib/error";
 import { Layout } from "../components/Layout";
 import { withPage } from "../lib/middleware/withPage";
 import CompanyMembers, { PageProps } from "../components/Pages/Company/Members";
@@ -41,6 +45,16 @@ export const pageQuery = gql`
   }
 `;
 
+export const mutationUpdateAccount = gql`
+  mutation UpdateRoleAccount($input: UpdateAccountInput!) {
+    updateAccount(input: $input) {
+      account {
+        id
+      }
+    }
+  }
+`;
+
 const TeamPage = (props: PageProps) => {
   const { t } = useTranslation("common");
 
@@ -51,41 +65,49 @@ const TeamPage = (props: PageProps) => {
   );
 };
 
-export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
-  const expiryDate = new Date();
-  expiryDate.setHours(0, 0, 0, 0);
-  expiryDate.setMonth(expiryDate.getMonth() - 6);
+export const getServerSideProps = withPage(
+  async ({ apolloClient, locale, account, res }) => {
+    const expiryDate = new Date();
+    expiryDate.setHours(0, 0, 0, 0);
+    expiryDate.setMonth(expiryDate.getMonth() - 6);
 
-  const { props } = await getServerPageCompanyMembers(
-    {
-      variables: {
-        expiryDate
-      }
-    },
-    apolloClient
-  );
-
-  const nodes = [...props.data.companyMembers.nodes].sort((a, b) =>
-    a.account?.firstName?.localeCompare(b?.account?.firstName)
-  );
-
-  return {
-    props: {
-      ...props,
-      data: {
-        ...props.data,
-        companyMembers: {
-          ...props.data.companyMembers,
-          nodes
+    const { props } = await getServerPageCompanyMembers(
+      {
+        variables: {
+          expiryDate
         }
       },
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "sidebar",
-        "team-page"
-      ]))
-    }
-  };
-});
+      apolloClient
+    );
 
-export default withPageAuthRequired(TeamPage);
+    const nodes = [...props.data.companyMembers.nodes].sort((a, b) =>
+      a.account?.firstName?.localeCompare(b?.account?.firstName)
+    );
+
+    if (account.companyMembers.nodes.length === 0) {
+      const statusCode = ErrorStatusCode.UNAUTHORISED;
+      res.statusCode = statusCode;
+      return generatePageError(404);
+    }
+
+    return {
+      props: {
+        ...props,
+        data: {
+          ...props.data,
+          companyMembers: {
+            ...props.data.companyMembers,
+            nodes
+          }
+        },
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "sidebar",
+          "team-page"
+        ]))
+      }
+    };
+  }
+);
+
+export default withPageAuthRequired(withPageError<PageProps>(TeamPage));

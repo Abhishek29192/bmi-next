@@ -14,14 +14,14 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
       Query: {
         checkUserValidatiy: async (_query, args, context, resolverInfo) => {
           const { username, email } = args;
-          const client = await DoceboClient.create();
+          const client = await DoceboClient.create({ ...context });
           const { data } = await client.checkUserValidatiy(username, email);
 
           return data;
         },
         userByEmail: async (_query, args, context, resolverInfo) => {
           const { email } = args;
-          const client = await DoceboClient.create();
+          const client = await DoceboClient.create({ ...context });
           return client.userByEmail(email);
         },
         token: async (_query, args, context, resolverInfo) => {
@@ -74,7 +74,7 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           const logger = context.logger("createDoceboUser");
 
           try {
-            const doceboClient = await DoceboClient.create();
+            const doceboClient = await DoceboClient.create({ ...context });
             const { input } = args;
 
             const { data } = await doceboClient.createUser(input);

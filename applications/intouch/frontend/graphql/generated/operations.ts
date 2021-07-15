@@ -936,6 +936,20 @@ export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type UpdateRoleAccountMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateAccountInput;
+}>;
+
+export type UpdateRoleAccountMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateAccount?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateAccountPayload" } & {
+      readonly account?: SchemaTypes.Maybe<
+        { readonly __typename?: "Account" } & Pick<SchemaTypes.Account, "id">
+      >;
+    }
+  >;
+};
+
 export type TrainingQueryVariables = SchemaTypes.Exact<{
   catalogueId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;
   userId?: SchemaTypes.Maybe<SchemaTypes.Scalars["Int"]>;

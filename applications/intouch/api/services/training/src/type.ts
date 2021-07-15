@@ -18,20 +18,20 @@ export interface ISelectOrgchart {
   [branchId: string]: String;
 }
 export interface IUserCreateInput {
-  userid: String;
-  email: String;
-  password: String;
-  privacy?: String;
-  firstname: String;
-  lastname: String;
+  userid: string;
+  email: string;
+  password: string;
+  privacy?: string;
+  firstname: string;
+  lastname: string;
   force_change?: Number;
   level?: Number;
-  language?: String;
-  expiration?: String;
+  language?: string;
+  expiration?: string;
   email_validation_status?: Number;
   valid?: Number;
-  date_format?: String;
-  timezone?: String;
+  date_format?: string;
+  timezone?: string;
   role?: Number;
   send_notification_email?: Boolean;
   can_manage_subordinates?: Boolean;

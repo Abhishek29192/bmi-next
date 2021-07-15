@@ -26,5 +26,9 @@
       "send": "Send email",
       "success": "The invitation it's been sent"
     }
+  },
+  "user_card": {
+    "add_admin": "Assign as Company Admin",
+    "remove_admin": "Remove as Company Admin"
   }
 }

@@ -28,6 +28,7 @@ export const handler = async (req, res) => {
     res.end();
   } else {
     logger.info("Completing the invitation");
+
     const { completeInvitation: account } =
       await accountSrv.completeAccountInvitation(req);
 

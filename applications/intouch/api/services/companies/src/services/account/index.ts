@@ -105,9 +105,10 @@ export const updateAccount = async (
         uploadedFile
       );
     }
+
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
-    logger.error("Error creating a user");
+    logger.error("Error updating a user", e);
 
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
     throw e;
@@ -131,7 +132,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
 
   const result = [];
 
-  if (!user.role || user.role === INSTALLER) {
+  if (!user.can("invite")) {
     throw new Error("you must be an admin to invite other users");
   }
 
@@ -178,13 +179,6 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
 
     if (invetees.length > 0) {
       logger.info(`User with id: ${invetees[0].id} found`);
-
-      const inveteeRole: Role = invetees[0].role;
-
-      // company admin can't be invited
-      if (inveteeRole === "COMPANY_ADMIN") {
-        throw new Error(ERROR_NO_COMPANY_ADMIN);
-      }
 
       // Check if the user is a member of a company
       const { rows } = await pgRootPool.query(
@@ -300,10 +294,6 @@ export const completeInvitation = async (
 
   if (invitations.length === 0) {
     throw new Error(ERROR_INVITATION_NOT_FOUND);
-  }
-
-  if (user?.role === "COMPANY_ADMIN") {
-    throw new Error(ERROR_NO_COMPANY_ADMIN);
   }
 
   if (user?.company?.id >= 0) {
