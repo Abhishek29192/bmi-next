@@ -7,9 +7,15 @@ import CompanyMembersPage, { PageProps } from "..";
 import { companyMembers } from "../../../../../fixtures/companyMembers";
 
 const inviteMock = jest.fn();
+const mockDelete = jest.fn();
+const mockCompanyMembers = jest.fn();
 jest.mock("../../../../../graphql/generated/hooks", () => ({
-  useInviteMutation: () => [inviteMock]
+  __esModule: true,
+  useInviteMutation: () => [inviteMock],
+  useDeleteCompanyMemberMutation: () => [mockDelete],
+  useCompanyMembersLazyQuery: () => [mockCompanyMembers]
 }));
+
 jest.mock("@bmi/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
@@ -21,6 +27,7 @@ describe("Company Members Page", () => {
   let props: PageProps = {
     data: companyMembers
   };
+
   beforeEach(() => {
     wrapper = render(
       <Apollo>
@@ -157,6 +164,18 @@ describe("Company Members Page", () => {
               personalNote: "Lorem ipsum"
             }
           }
+        });
+      });
+    });
+
+    describe("Remove Member", () => {
+      it("Should remove the member", async () => {
+        fireEvent.click(screen.getByTestId("remove-member"));
+
+        mockDelete.mockResolvedValueOnce(() => ({}));
+
+        expect(mockDelete).toHaveBeenCalledWith({
+          variables: { id: 1 }
         });
       });
     });

@@ -39,6 +39,7 @@ const lisaSimpsonDetails: DetailProps[] = [
 
 export const MikeHarold = () => (
   <UserCard
+    onRemoveUser={() => {}}
     companyName="Roofer ltd"
     username="Mike Harold"
     role="Company Owner"
@@ -50,6 +51,7 @@ export const MikeHarold = () => (
 export const LisaSimpson = () => (
   <div style={{ maxWidth: "300px", margin: "2rem auto" }}>
     <UserCard
+      onRemoveUser={() => {}}
       companyName="Roofer ltd"
       username="Lisa Simpson"
       role="Installer"

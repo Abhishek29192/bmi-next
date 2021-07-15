@@ -1,6 +1,6 @@
 import { makeWrapResolversPlugin } from "graphile-utils";
 import Auth0 from "../../services/auth0";
-import { updateCompany } from "../../services/company";
+import { updateCompany, deleteCompanyMember } from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
@@ -28,6 +28,17 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
       updateCompany: {
         async resolve(resolve: any, source, args, context: any, resolveInfo) {
           return updateCompany(resolve, source, args, context, resolveInfo);
+        }
+      },
+      deleteCompanyMember: {
+        async resolve(resolve: any, source, args, context: any, resolveInfo) {
+          return deleteCompanyMember(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo
+          );
         }
       }
     }

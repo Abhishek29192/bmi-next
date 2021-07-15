@@ -129,6 +129,21 @@ export type InviteMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type DeleteCompanyMemberMutationVariables = SchemaTypes.Exact<{
+  id: SchemaTypes.Scalars["Int"];
+}>;
+
+export type DeleteCompanyMemberMutation = {
+  readonly __typename?: "Mutation";
+} & {
+  readonly deleteCompanyMember?: SchemaTypes.Maybe<
+    { readonly __typename?: "DeleteCompanyMemberPayload" } & Pick<
+      SchemaTypes.DeleteCompanyMemberPayload,
+      "clientMutationId"
+    >
+  >;
+};
+
 export type GetProjectQueryVariables = SchemaTypes.Exact<{
   projectId: SchemaTypes.Scalars["Int"];
 }>;
