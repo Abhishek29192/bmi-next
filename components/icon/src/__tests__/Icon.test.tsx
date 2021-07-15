@@ -1,4 +1,6 @@
-import {
+import { render } from "@testing-library/react";
+import React from "react";
+import Icon, {
   Arrow,
   Cross,
   Download,
@@ -23,10 +25,7 @@ import {
   TileColour,
   User,
   YouTube
-} from "@bmi/icon";
-import { render } from "@testing-library/react";
-import React from "react";
-import Icon from "../";
+} from "../";
 
 describe("Icon component", () => {
   it("renders Arrow correctly", () => {
