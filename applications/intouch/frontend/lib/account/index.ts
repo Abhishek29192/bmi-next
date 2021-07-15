@@ -10,6 +10,8 @@ export const queryAccountByEmail = gql`
       id
       role
       marketId
+      firstName
+      lastName
       email
       doceboUserId
       market {
@@ -23,6 +25,7 @@ export const queryAccountByEmail = gql`
           company {
             id
             status
+            name
           }
         }
       }

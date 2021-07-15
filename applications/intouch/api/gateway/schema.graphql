@@ -126,6 +126,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CertificationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CertificationFilter
   ): CertificationsConnection!
 
   """
@@ -167,6 +172,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyMemberFilter
   ): CompanyMembersConnection!
 
   """
@@ -208,6 +218,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -249,6 +264,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -290,6 +310,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -331,6 +356,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: InvitationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: InvitationFilter
   ): InvitationsConnection!
 
   """
@@ -372,6 +402,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NoteCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NoteFilter
   ): NotesConnection!
 
   """
@@ -413,6 +448,11 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NotificationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NotificationFilter
   ): NotificationsConnection!
 
   """
@@ -454,7 +494,13 @@ type Account implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectMemberFilter
   ): ProjectMembersConnection!
+  signedPhotoUrl: String
 }
 
 """
@@ -480,6 +526,46 @@ input AccountCondition {
   Checks for equality with the object’s `doceboUserId` field.
   """
   doceboUserId: Int
+}
+
+"""
+A filter to be used against `Account` object types. All fields are combined with a logical ‘and.’
+"""
+input AccountFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `email` field.
+  """
+  email: StringFilter
+
+  """
+  Filter by the object’s `doceboUserId` field.
+  """
+  doceboUserId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [AccountFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [AccountFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: AccountFilter
 }
 
 """
@@ -625,6 +711,7 @@ input AccountPatch {
   migrationId: String
   createdAt: Datetime
   updatedAt: Datetime
+  photoUpload: Upload
 }
 
 enum AccountStatus {
@@ -785,6 +872,11 @@ type Address implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyFilter
   ): CompaniesConnection!
 
   """
@@ -826,6 +918,11 @@ type Address implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyFilter
   ): CompaniesConnection!
 
   """
@@ -867,6 +964,11 @@ type Address implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
   ): ProjectsConnection!
 
   """
@@ -908,6 +1010,11 @@ type Address implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
   ): ProjectsConnection!
 }
 
@@ -919,6 +1026,31 @@ input AddressCondition {
   Checks for equality with the object’s `id` field.
   """
   id: Int
+}
+
+"""
+A filter to be used against `Address` object types. All fields are combined with a logical ‘and.’
+"""
+input AddressFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [AddressFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [AddressFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: AddressFilter
 }
 
 """
@@ -1478,6 +1610,51 @@ input CertificationCondition {
   Checks for equality with the object’s `technology` field.
   """
   technology: String
+
+  """
+  Checks for equality with the object’s `expiryDate` field.
+  """
+  expiryDate: Datetime
+}
+
+"""
+A filter to be used against `Certification` object types. All fields are combined with a logical ‘and.’
+"""
+input CertificationFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `doceboUserId` field.
+  """
+  doceboUserId: IntFilter
+
+  """
+  Filter by the object’s `technology` field.
+  """
+  technology: StringFilter
+
+  """
+  Filter by the object’s `expiryDate` field.
+  """
+  expiryDate: DatetimeFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CertificationFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CertificationFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CertificationFilter
 }
 
 """
@@ -1595,6 +1772,8 @@ enum CertificationsOrderBy {
   DOCEBO_USER_ID_DESC
   TECHNOLOGY_ASC
   TECHNOLOGY_DESC
+  EXPIRY_DATE_ASC
+  EXPIRY_DATE_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -1855,6 +2034,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyDocumentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyDocumentFilter
   ): CompanyDocumentsConnection!
 
   """
@@ -1896,6 +2080,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyMemberFilter
   ): CompanyMembersConnection!
 
   """
@@ -1937,6 +2126,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyOperationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyOperationFilter
   ): CompanyOperationsConnection!
 
   """
@@ -1978,6 +2172,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: InvitationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: InvitationFilter
   ): InvitationsConnection!
 
   """
@@ -2019,6 +2218,11 @@ type Company implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
   ): ProjectsConnection!
   certifications: [Technology]
 }
@@ -2094,6 +2298,36 @@ input CompanyDocumentCondition {
   Checks for equality with the object’s `companyId` field.
   """
   companyId: Int
+}
+
+"""
+A filter to be used against `CompanyDocument` object types. All fields are combined with a logical ‘and.’
+"""
+input CompanyDocumentFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CompanyDocumentFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CompanyDocumentFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CompanyDocumentFilter
 }
 
 """
@@ -2194,6 +2428,46 @@ enum CompanyDocumentsOrderBy {
 }
 
 """
+A filter to be used against `Company` object types. All fields are combined with a logical ‘and.’
+"""
+input CompanyFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `registeredAddressId` field.
+  """
+  registeredAddressId: IntFilter
+
+  """
+  Filter by the object’s `tradingAddressId` field.
+  """
+  tradingAddressId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CompanyFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CompanyFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CompanyFilter
+}
+
+"""
 A connection between a user and a company
 """
 type CompanyMember implements Node {
@@ -2264,6 +2538,46 @@ input CompanyMemberCondition {
   Checks for equality with the object’s `companyId` field.
   """
   companyId: Int
+}
+
+"""
+A filter to be used against `CompanyMember` object types. All fields are combined with a logical ‘and.’
+"""
+input CompanyMemberFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `accountId` field.
+  """
+  accountId: IntFilter
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CompanyMemberFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CompanyMemberFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CompanyMemberFilter
 }
 
 """
@@ -2423,6 +2737,36 @@ input CompanyOperationCondition {
   Checks for equality with the object’s `company` field.
   """
   company: Int
+}
+
+"""
+A filter to be used against `CompanyOperation` object types. All fields are combined with a logical ‘and.’
+"""
+input CompanyOperationFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `company` field.
+  """
+  company: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [CompanyOperationFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [CompanyOperationFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: CompanyOperationFilter
 }
 
 """
@@ -5720,6 +6064,66 @@ A point in time as described by the [ISO
 scalar Datetime
 
 """
+A filter to be used against Datetime fields. All fields are combined with a logical ‘and.’
+"""
+input DatetimeFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: Datetime
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: Datetime
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Datetime
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: Datetime
+
+  """
+  Included in the specified list.
+  """
+  in: [Datetime!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [Datetime!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: Datetime
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: Datetime
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: Datetime
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: Datetime
+}
+
+"""
 All input for the `deleteAccountByDoceboUserId` mutation.
 """
 input DeleteAccountByDoceboUserIdInput {
@@ -7897,6 +8301,41 @@ input EvidenceItemCondition {
 }
 
 """
+A filter to be used against `EvidenceItem` object types. All fields are combined with a logical ‘and.’
+"""
+input EvidenceItemFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `projectId` field.
+  """
+  projectId: IntFilter
+
+  """
+  Filter by the object’s `guaranteeId` field.
+  """
+  guaranteeId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [EvidenceItemFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [EvidenceItemFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: EvidenceItemFilter
+}
+
+"""
 An input for mutations affecting `EvidenceItem`
 """
 input EvidenceItemInput {
@@ -8185,6 +8624,11 @@ type Guarantee implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: EvidenceItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
   ): EvidenceItemsConnection!
   guaranteeType: ContentfulGuaranteeType
 }
@@ -8228,6 +8672,61 @@ input GuaranteeCondition {
   Checks for equality with the object’s `reviewerAccountId` field.
   """
   reviewerAccountId: Int
+}
+
+"""
+A filter to be used against `Guarantee` object types. All fields are combined with a logical ‘and.’
+"""
+input GuaranteeFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `requestorAccountId` field.
+  """
+  requestorAccountId: IntFilter
+
+  """
+  Filter by the object’s `responsibleInstallerAccountId` field.
+  """
+  responsibleInstallerAccountId: IntFilter
+
+  """
+  Filter by the object’s `projectId` field.
+  """
+  projectId: IntFilter
+
+  """
+  Filter by the object’s `systemBmiRef` field.
+  """
+  systemBmiRef: StringFilter
+
+  """
+  Filter by the object’s `productBmiRef` field.
+  """
+  productBmiRef: StringFilter
+
+  """
+  Filter by the object’s `reviewerAccountId` field.
+  """
+  reviewerAccountId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [GuaranteeFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [GuaranteeFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: GuaranteeFilter
 }
 
 """
@@ -9067,6 +9566,66 @@ type ImportPayload {
 }
 
 """
+A filter to be used against Int fields. All fields are combined with a logical ‘and.’
+"""
+input IntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: Int
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: Int
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Int
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: Int
+
+  """
+  Included in the specified list.
+  """
+  in: [Int!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [Int!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: Int
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: Int
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: Int
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: Int
+}
+
+"""
 An invitation to join InTouch
 """
 type Invitation implements Node {
@@ -9150,6 +9709,51 @@ input InvitationCondition {
 }
 
 """
+A filter to be used against `Invitation` object types. All fields are combined with a logical ‘and.’
+"""
+input InvitationFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `senderAccountId` field.
+  """
+  senderAccountId: IntFilter
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Filter by the object’s `status` field.
+  """
+  status: InvitationStatusFilter
+
+  """
+  Filter by the object’s `invitee` field.
+  """
+  invitee: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [InvitationFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [InvitationFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: InvitationFilter
+}
+
+"""
 Represents an update to a `Invitation`. Fields that are set will be updated.
 """
 input InvitationPatch {
@@ -9190,6 +9794,66 @@ enum InvitationStatus {
   NEW
   ACCEPTED
   CANCELLED
+}
+
+"""
+A filter to be used against InvitationStatus fields. All fields are combined with a logical ‘and.’
+"""
+input InvitationStatusFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: InvitationStatus
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: InvitationStatus
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: InvitationStatus
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: InvitationStatus
+
+  """
+  Included in the specified list.
+  """
+  in: [InvitationStatus!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [InvitationStatus!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: InvitationStatus
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: InvitationStatus
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: InvitationStatus
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: InvitationStatus
 }
 
 """
@@ -9252,11 +9916,10 @@ enum InvitationsOrderBy {
 }
 
 input InviteInput {
-  email: String!
-  firstName: String!
-  lastName: String!
-  role: Role!
-  personal_note: String
+  emails: [String!]!
+  firstName: String
+  lastName: String
+  personalNote: String
 }
 
 """
@@ -9524,6 +10187,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: AccountCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AccountFilter
   ): AccountsConnection!
 
   """
@@ -9565,6 +10233,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyFilter
   ): CompaniesConnection!
 
   """
@@ -9606,6 +10279,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyMemberFilter
   ): CompanyMembersConnection!
 
   """
@@ -9647,6 +10325,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProductCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProductFilter
   ): ProductsConnection!
 
   """
@@ -9688,6 +10371,11 @@ type Market implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemFilter
   ): SystemsConnection!
 }
 
@@ -9881,6 +10569,41 @@ type MarketContentPartnerBrandsCollection {
   skip: Int!
   limit: Int!
   items: [PartnerBrand]!
+}
+
+"""
+A filter to be used against `Market` object types. All fields are combined with a logical ‘and.’
+"""
+input MarketFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `domain` field.
+  """
+  domain: StringFilter
+
+  """
+  Filter by the object’s `doceboCatalogueId` field.
+  """
+  doceboCatalogueId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [MarketFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [MarketFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: MarketFilter
 }
 
 """
@@ -11302,7 +12025,7 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: InviteInput!
-  ): Invitation
+  ): [Invitation]
   linkAccountToCompany(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -12001,6 +12724,41 @@ input NoteCondition {
 }
 
 """
+A filter to be used against `Note` object types. All fields are combined with a logical ‘and.’
+"""
+input NoteFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `authorId` field.
+  """
+  authorId: IntFilter
+
+  """
+  Filter by the object’s `projectId` field.
+  """
+  projectId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [NoteFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [NoteFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: NoteFilter
+}
+
+"""
 An input for mutations affecting `Note`
 """
 input NoteInput {
@@ -12165,6 +12923,36 @@ input NotificationCondition {
   Checks for equality with the object’s `accountId` field.
   """
   accountId: Int
+}
+
+"""
+A filter to be used against `Notification` object types. All fields are combined with a logical ‘and.’
+"""
+input NotificationFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `accountId` field.
+  """
+  accountId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [NotificationFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [NotificationFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: NotificationFilter
 }
 
 """
@@ -12540,6 +13328,11 @@ type Product implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -12581,6 +13374,11 @@ type Product implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemMemberFilter
   ): SystemMembersConnection!
 }
 
@@ -12602,6 +13400,41 @@ input ProductCondition {
   Checks for equality with the object’s `bmiRef` field.
   """
   bmiRef: String
+}
+
+"""
+A filter to be used against `Product` object types. All fields are combined with a logical ‘and.’
+"""
+input ProductFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `bmiRef` field.
+  """
+  bmiRef: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [ProductFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [ProductFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: ProductFilter
 }
 
 """
@@ -12913,6 +13746,11 @@ type Project implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: EvidenceItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
   ): EvidenceItemsConnection!
 
   """
@@ -12954,6 +13792,11 @@ type Project implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -12995,6 +13838,11 @@ type Project implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NoteCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NoteFilter
   ): NotesConnection!
 
   """
@@ -13036,6 +13884,11 @@ type Project implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectMemberFilter
   ): ProjectMembersConnection!
 }
 
@@ -13062,6 +13915,46 @@ input ProjectCondition {
   Checks for equality with the object’s `buildingOwnerAddressId` field.
   """
   buildingOwnerAddressId: Int
+}
+
+"""
+A filter to be used against `Project` object types. All fields are combined with a logical ‘and.’
+"""
+input ProjectFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `companyId` field.
+  """
+  companyId: IntFilter
+
+  """
+  Filter by the object’s `siteAddressId` field.
+  """
+  siteAddressId: IntFilter
+
+  """
+  Filter by the object’s `buildingOwnerAddressId` field.
+  """
+  buildingOwnerAddressId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [ProjectFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [ProjectFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: ProjectFilter
 }
 
 """
@@ -13202,6 +14095,41 @@ input ProjectMemberCondition {
   Checks for equality with the object’s `accountId` field.
   """
   accountId: Int
+}
+
+"""
+A filter to be used against `ProjectMember` object types. All fields are combined with a logical ‘and.’
+"""
+input ProjectMemberFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `projectId` field.
+  """
+  projectId: IntFilter
+
+  """
+  Filter by the object’s `accountId` field.
+  """
+  accountId: IntFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [ProjectMemberFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [ProjectMemberFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: ProjectMemberFilter
 }
 
 """
@@ -13535,6 +14463,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: AccountCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AccountFilter
   ): AccountsConnection
   address(id: Int!): Address
 
@@ -13587,6 +14520,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: AddressCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AddressFilter
   ): AddressesConnection
   asset(id: String!, preview: Boolean, locale: String): Asset
   assetCollection(
@@ -13666,6 +14604,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CertificationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CertificationFilter
   ): CertificationsConnection
   checkUserValidatiy(email: String, username: String): CheckUserValidityPayload
 
@@ -13708,6 +14651,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyFilter
   ): CompaniesConnection
   company(id: Int!): Company
 
@@ -13771,6 +14719,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyDocumentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyDocumentFilter
   ): CompanyDocumentsConnection
   companyMember(id: Int!): CompanyMember
 
@@ -13823,6 +14776,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyMemberFilter
   ): CompanyMembersConnection
   companyOperation(id: Int!): CompanyOperation
 
@@ -13875,6 +14833,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: CompanyOperationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: CompanyOperationFilter
   ): CompanyOperationsConnection
   contactDetails(id: String!, preview: Boolean, locale: String): ContactDetails
   contactDetailsCollection(
@@ -14346,6 +15309,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: EvidenceItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
   ): EvidenceItemsConnection
   guarantee(id: Int!): Guarantee
 
@@ -14420,6 +15388,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection
   invitation(id: Int!): Invitation
 
@@ -14472,6 +15445,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: InvitationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: InvitationFilter
   ): InvitationsConnection
   invitedByCompanies(
     """
@@ -14499,6 +15477,11 @@ type Query implements Node {
     Read all values in the set after (below) this cursor.
     """
     after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: IntFilter
   ): InvitedByCompaniesConnection
   isPartOfProject(
     """
@@ -14526,6 +15509,11 @@ type Query implements Node {
     Read all values in the set after (below) this cursor.
     """
     after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: IntFilter
   ): IsPartOfProjectConnection
   isProjectEnabledByMarket: Boolean
   market(id: Int!): Market
@@ -14590,6 +15578,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: MarketCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MarketFilter
   ): MarketsConnection
   mediaFolder(id: String!, preview: Boolean, locale: String): MediaFolder
   mediaFolderCollection(
@@ -14697,6 +15690,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NoteCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NoteFilter
   ): NotesConnection
   notification(id: Int!): Notification
 
@@ -14749,6 +15747,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: NotificationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: NotificationFilter
   ): NotificationsConnection
   partnerBrand(id: String!, preview: Boolean, locale: String): PartnerBrand
   partnerBrandCollection(
@@ -14811,6 +15814,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProductCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProductFilter
   ): ProductsConnection
   project(id: Int!): Project
 
@@ -14874,6 +15882,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectMemberFilter
   ): ProjectMembersConnection
 
   """
@@ -14915,6 +15928,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: ProjectCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ProjectFilter
   ): ProjectsConnection
 
   """
@@ -14989,6 +16007,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemMemberFilter
   ): SystemMembersConnection
 
   """
@@ -15030,6 +16053,11 @@ type Query implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemFilter
   ): SystemsConnection
   tierBenefit(id: String!, preview: Boolean, locale: String): TierBenefit
   tierBenefitCollection(
@@ -15079,6 +16107,196 @@ type SSOUrlOutput {
 
 input SelectOrgchart {
   branch_id: String
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: String
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: String
+
+  """
+  Included in the specified list.
+  """
+  in: [String!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [String!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: String
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: String
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: String
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: String
+
+  """
+  Contains the specified string (case-sensitive).
+  """
+  includes: String
+
+  """
+  Does not contain the specified string (case-sensitive).
+  """
+  notIncludes: String
+
+  """
+  Contains the specified string (case-insensitive).
+  """
+  includesInsensitive: String
+
+  """
+  Does not contain the specified string (case-insensitive).
+  """
+  notIncludesInsensitive: String
+
+  """
+  Starts with the specified string (case-sensitive).
+  """
+  startsWith: String
+
+  """
+  Does not start with the specified string (case-sensitive).
+  """
+  notStartsWith: String
+
+  """
+  Starts with the specified string (case-insensitive).
+  """
+  startsWithInsensitive: String
+
+  """
+  Does not start with the specified string (case-insensitive).
+  """
+  notStartsWithInsensitive: String
+
+  """
+  Ends with the specified string (case-sensitive).
+  """
+  endsWith: String
+
+  """
+  Does not end with the specified string (case-sensitive).
+  """
+  notEndsWith: String
+
+  """
+  Ends with the specified string (case-insensitive).
+  """
+  endsWithInsensitive: String
+
+  """
+  Does not end with the specified string (case-insensitive).
+  """
+  notEndsWithInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLike: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLikeInsensitive: String
+
+  """
+  Equal to the specified value (case-insensitive).
+  """
+  equalToInsensitive: String
+
+  """
+  Not equal to the specified value (case-insensitive).
+  """
+  notEqualToInsensitive: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  distinctFromInsensitive: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  notDistinctFromInsensitive: String
+
+  """
+  Included in the specified list (case-insensitive).
+  """
+  inInsensitive: [String!]
+
+  """
+  Not included in the specified list (case-insensitive).
+  """
+  notInInsensitive: [String!]
+
+  """
+  Less than the specified value (case-insensitive).
+  """
+  lessThanInsensitive: String
+
+  """
+  Less than or equal to the specified value (case-insensitive).
+  """
+  lessThanOrEqualToInsensitive: String
+
+  """
+  Greater than the specified value (case-insensitive).
+  """
+  greaterThanInsensitive: String
+
+  """
+  Greater than or equal to the specified value (case-insensitive).
+  """
+  greaterThanOrEqualToInsensitive: String
 }
 
 type Sys {
@@ -15222,6 +16440,11 @@ type System implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: GuaranteeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: GuaranteeFilter
   ): GuaranteesConnection!
 
   """
@@ -15263,6 +16486,11 @@ type System implements Node {
     A condition to be used in determining which values should be returned by the collection.
     """
     condition: SystemMemberCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: SystemMemberFilter
   ): SystemMembersConnection!
 }
 
@@ -15284,6 +16512,41 @@ input SystemCondition {
   Checks for equality with the object’s `bmiRef` field.
   """
   bmiRef: String
+}
+
+"""
+A filter to be used against `System` object types. All fields are combined with a logical ‘and.’
+"""
+input SystemFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `marketId` field.
+  """
+  marketId: IntFilter
+
+  """
+  Filter by the object’s `bmiRef` field.
+  """
+  bmiRef: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [SystemFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [SystemFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: SystemFilter
 }
 
 """
@@ -15389,6 +16652,41 @@ input SystemMemberCondition {
   Checks for equality with the object’s `productBmiRef` field.
   """
   productBmiRef: String
+}
+
+"""
+A filter to be used against `SystemMember` object types. All fields are combined with a logical ‘and.’
+"""
+input SystemMemberFilter {
+  """
+  Filter by the object’s `id` field.
+  """
+  id: IntFilter
+
+  """
+  Filter by the object’s `systemBmiRef` field.
+  """
+  systemBmiRef: StringFilter
+
+  """
+  Filter by the object’s `productBmiRef` field.
+  """
+  productBmiRef: StringFilter
+
+  """
+  Checks for all expressions in this list.
+  """
+  and: [SystemMemberFilter!]
+
+  """
+  Checks for any expressions in this list.
+  """
+  or: [SystemMemberFilter!]
+
+  """
+  Negates the expression.
+  """
+  not: SystemMemberFilter
 }
 
 """

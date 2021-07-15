@@ -78,24 +78,6 @@ const getCompanyData = (
   };
 };
 
-export const CompanyDetailsFragment = gql`
-  fragment CompanyDetailsFragment on Company {
-    id
-    name
-    phone
-    website
-    aboutUs
-    publicEmail
-    phone
-    website
-    companyMembers {
-      nodes {
-        accountId
-      }
-    }
-  }
-`;
-
 export const UPDATE_COMPANY = gql`
   mutation updateCompanyDetails($input: UpdateCompanyInput!) {
     updateCompany(input: $input) {
@@ -164,7 +146,7 @@ const CompanyDetailsCard = ({ company }: Props) => {
   const { name, aboutUs, details } = getCompanyData(company);
 
   const companyMemberIds = company.companyMembers.nodes.map(
-    ({ accountId }) => accountId
+    ({ account }) => account.id
   );
 
   return (

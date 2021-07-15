@@ -1,26 +1,28 @@
 import type * as SchemaTypes from "@bmi/intouch-api-types";
 
+export type AddressLinesFragmentFragment = {
+  readonly __typename?: "Address";
+} & Pick<
+  SchemaTypes.Address,
+  "firstLine" | "secondLine" | "town" | "region" | "country" | "postcode"
+>;
+
 export type CompanyCertificationsFragment = {
   readonly __typename?: "Company";
 } & Pick<SchemaTypes.Company, "certifications">;
 
-export type CompanyDetailsFragmentFragment = {
-  readonly __typename?: "Company";
-} & Pick<
-  SchemaTypes.Company,
-  "id" | "name" | "phone" | "website" | "aboutUs" | "publicEmail"
-> & {
-    readonly companyMembers: {
-      readonly __typename?: "CompanyMembersConnection";
-    } & {
-      readonly nodes: ReadonlyArray<
-        { readonly __typename?: "CompanyMember" } & Pick<
-          SchemaTypes.CompanyMember,
-          "accountId"
-        >
-      >;
-    };
-  };
+export type ContactDetailsCollectionFragmentFragment = {
+  readonly __typename?: "ContactDetailsCollection";
+} & {
+  readonly items: ReadonlyArray<
+    SchemaTypes.Maybe<
+      { readonly __typename?: "ContactDetails" } & Pick<
+        SchemaTypes.ContactDetails,
+        "fullName" | "subHeading" | "email" | "phoneNumber"
+      >
+    >
+  >;
+};
 
 export type UpdateCompanyDetailsMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.UpdateCompanyInput;
@@ -35,6 +37,95 @@ export type UpdateCompanyDetailsMutation = {
         { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
       >;
     }
+  >;
+};
+
+export type GetGlobalDataQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetGlobalDataQuery = { readonly __typename?: "Query" } & {
+  readonly marketContentCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "MarketContentCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "MarketContent" } & Pick<
+            SchemaTypes.MarketContent,
+            "externalLinkUrl" | "externalLinkLabel"
+          > & {
+              readonly footerLinksCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "MarketContentFooterLinksCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "ContentArticle" } & Pick<
+                        SchemaTypes.ContentArticle,
+                        "title" | "relativePath"
+                      >
+                    >
+                  >;
+                }
+              >;
+              readonly contactUsPage?: SchemaTypes.Maybe<
+                { readonly __typename?: "ContentArticle" } & Pick<
+                  SchemaTypes.ContentArticle,
+                  "title" | "relativePath"
+                >
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
+export type CompanyAdminsFragmentFragment = {
+  readonly __typename?: "Company";
+} & {
+  readonly companyMembers: {
+    readonly __typename?: "CompanyMembersConnection";
+  } & {
+    readonly nodes: ReadonlyArray<
+      { readonly __typename?: "CompanyMember" } & {
+        readonly account?: SchemaTypes.Maybe<
+          { readonly __typename?: "Account" } & Pick<
+            SchemaTypes.Account,
+            | "role"
+            | "id"
+            | "firstName"
+            | "lastName"
+            | "phone"
+            | "email"
+            | "photo"
+          >
+        >;
+      }
+    >;
+  };
+};
+
+export type InviteMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.InviteInput;
+}>;
+
+export type InviteMutation = { readonly __typename?: "Mutation" } & {
+  readonly invite?: SchemaTypes.Maybe<
+    ReadonlyArray<
+      SchemaTypes.Maybe<
+        { readonly __typename?: "Invitation" } & Pick<
+          SchemaTypes.Invitation,
+          "id" | "invitee"
+        > & {
+            readonly senderAccount?: SchemaTypes.Maybe<
+              { readonly __typename?: "Account" } & Pick<
+                SchemaTypes.Account,
+                "email"
+              >
+            >;
+          }
+      >
+    >
   >;
 };
 
@@ -147,7 +238,13 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
   readonly accountByEmail?: SchemaTypes.Maybe<
     { readonly __typename?: "Account" } & Pick<
       SchemaTypes.Account,
-      "id" | "role" | "marketId" | "email" | "doceboUserId"
+      | "id"
+      | "role"
+      | "marketId"
+      | "firstName"
+      | "lastName"
+      | "email"
+      | "doceboUserId"
     > & {
         readonly market?: SchemaTypes.Maybe<
           { readonly __typename?: "Market" } & Pick<
@@ -166,7 +263,7 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
               readonly company?: SchemaTypes.Maybe<
                 { readonly __typename?: "Company" } & Pick<
                   SchemaTypes.Company,
-                  "id" | "status"
+                  "id" | "status" | "name"
                 >
               >;
             }
@@ -462,10 +559,48 @@ export type GetCompanyQueryVariables = SchemaTypes.Exact<{
 
 export type GetCompanyQuery = { readonly __typename?: "Query" } & {
   readonly company?: SchemaTypes.Maybe<
-    { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment &
-      CompanyCertificationsFragment
+    { readonly __typename?: "Company" } & CompanyDetailsFragmentFragment
+  >;
+  readonly contactDetailsCollection?: SchemaTypes.Maybe<
+    {
+      readonly __typename?: "ContactDetailsCollection";
+    } & ContactDetailsCollectionFragmentFragment
   >;
 };
+
+export type CompanyDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  | "id"
+  | "name"
+  | "logo"
+  | "phone"
+  | "website"
+  | "aboutUs"
+  | "taxNumber"
+  | "tier"
+  | "businessType"
+  | "ownerFullname"
+  | "ownerEmail"
+  | "ownerPhone"
+  | "publicEmail"
+  | "linkedIn"
+  | "facebook"
+  | "referenceNumber"
+> & {
+    readonly tradingAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & {
+        readonly coordinates?: SchemaTypes.Maybe<
+          { readonly __typename?: "Point" } & Pick<SchemaTypes.Point, "x" | "y">
+        >;
+      } & AddressLinesFragmentFragment
+    >;
+    readonly registeredAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
+    >;
+  } & CompanyAdminsFragmentFragment &
+  CompanyCertificationsFragment;
 
 export type ImageFragmentFragment = { readonly __typename?: "Asset" } & Pick<
   SchemaTypes.Asset,
@@ -546,7 +681,7 @@ export type GetProjectsQuery = { readonly __typename?: "Query" } & {
 };
 
 export type CompanyMembersQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  expiryDate?: SchemaTypes.Maybe<SchemaTypes.Scalars["Datetime"]>;
 }>;
 
 export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
@@ -557,10 +692,22 @@ export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
           SchemaTypes.CompanyMember,
           "id"
         > & {
+            readonly company?: SchemaTypes.Maybe<
+              { readonly __typename?: "Company" } & Pick<
+                SchemaTypes.Company,
+                "name"
+              >
+            >;
             readonly account?: SchemaTypes.Maybe<
               { readonly __typename?: "Account" } & Pick<
                 SchemaTypes.Account,
-                "id" | "email" | "firstName" | "lastName" | "role"
+                | "id"
+                | "role"
+                | "email"
+                | "phone"
+                | "photo"
+                | "lastName"
+                | "firstName"
               > & {
                   readonly certificationsByDoceboUserId: {
                     readonly __typename?: "CertificationsConnection";
@@ -568,7 +715,7 @@ export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
                     readonly nodes: ReadonlyArray<
                       { readonly __typename?: "Certification" } & Pick<
                         SchemaTypes.Certification,
-                        "technology"
+                        "id" | "name" | "technology" | "expiryDate"
                       >
                     >;
                   };

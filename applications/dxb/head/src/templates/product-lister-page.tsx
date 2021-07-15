@@ -66,16 +66,17 @@ type QueryParams = {
   filters: URLProductFilter[];
 };
 
+export type PageContextType = {
+  variantCode?: string;
+  siteId: string;
+  countryCode: string;
+  categoryCodes: string[];
+  pimClassificationCatalogueNamespace: string;
+  variantCodeToPathMap: Record<string, string>;
+};
+
 type Props = {
-  pageContext: {
-    // productId: string;
-    variantCode?: string;
-    siteId: string;
-    countryCode: string;
-    categoryCode: string;
-    pimClassificationCatalogueNamespace: string;
-    variantCodeToPathMap: Record<string, string>;
-  };
+  pageContext: PageContextType;
   data: {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
@@ -151,7 +152,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       ? resultsElement.current.offsetTop - 200
       : 0;
     window.scrollTo(0, scrollY);
-    fetchProducts(filters, pageContext.categoryCode, page - 1, PAGE_SIZE);
+    fetchProducts(filters, pageContext.categoryCodes[0], page - 1, PAGE_SIZE);
   };
 
   const handleFiltersChange = (filterName, filterValue, checked) => {
@@ -235,18 +236,23 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       );
 
       setFilters(updatedFilters);
-      fetchProducts(updatedFilters, pageContext.categoryCode, 0, PAGE_SIZE);
+      fetchProducts(updatedFilters, pageContext.categoryCodes[0], 0, PAGE_SIZE);
     } else {
       // Default search (no filters)
       setFilters(resolvedFilters);
-      fetchProducts(resolvedFilters, pageContext.categoryCode, 0, PAGE_SIZE);
+      fetchProducts(
+        resolvedFilters,
+        pageContext.categoryCodes[0],
+        0,
+        PAGE_SIZE
+      );
     }
   }, [location.search]);
 
   // NOTE: We wouldn't expect this to change, even if the data somehow came back incorrect,
   // maybe pointless for this value to rely on it as more will break.
   const categoryName = initialProducts[0]?.categories.find(
-    ({ code }) => code === pageContext.categoryCode
+    ({ code }) => code === pageContext.categoryCodes[0]
   )?.name;
 
   const pageData: PageData = { breadcrumbs, inputBanner, seo };
@@ -438,7 +444,7 @@ export const pageQuery = graphql`
   query ProductListerPageById(
     $pageId: String!
     $siteId: String!
-    $categoryCode: String!
+    $categoryCodes: [String!]
     $pimClassificationCatalogueNamespace: String!
   ) {
     contentfulProductListerPage(id: { eq: $pageId }) {
@@ -458,7 +464,7 @@ export const pageQuery = graphql`
     }
     productFilters(
       pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
-      categoryCode: $categoryCode
+      categoryCodes: $categoryCodes
     ) {
       label
       name

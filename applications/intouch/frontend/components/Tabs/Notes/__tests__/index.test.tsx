@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 import { render, screen } from "@testing-library/react";
 import { Note } from "@bmi/intouch-api-types";
 import { NoteTab } from "..";
+
+jest.mock("@bmi/use-dimensions", () => ({
+  __esModule: true,
+  default: () => [useRef(), jest.fn()]
+}));
 
 describe("NoteTab Components", () => {
   describe("render correct number of notes", () => {

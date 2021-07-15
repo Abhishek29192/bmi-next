@@ -412,9 +412,6 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   "This field will always return null."
   brandLogo: String
 
-  "The PIM category this page is attached to."
-  categoryCode: String!
-
   "The description for this category."
   content: ContentfulRichText
 
@@ -444,6 +441,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
+
+  "The PIM categories this page is attached to."
+  categoryCodes: [String!]
 }
 
 """

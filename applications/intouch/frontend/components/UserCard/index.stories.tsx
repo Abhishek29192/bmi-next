@@ -39,8 +39,9 @@ const lisaSimpsonDetails: DetailProps[] = [
 
 export const MikeHarold = () => (
   <UserCard
+    companyName="Roofer ltd"
     username="Mike Harold"
-    jobtitle="Company Owner"
+    role="Company Owner"
     avatar="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=5KMjjefsiZ&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
     details={mikeHaroldDetails}
   />
@@ -49,8 +50,9 @@ export const MikeHarold = () => (
 export const LisaSimpson = () => (
   <div style={{ maxWidth: "300px", margin: "2rem auto" }}>
     <UserCard
+      companyName="Roofer ltd"
       username="Lisa Simpson"
-      jobtitle="Installer"
+      role="Installer"
       avatar="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
       details={lisaSimpsonDetails}
     />

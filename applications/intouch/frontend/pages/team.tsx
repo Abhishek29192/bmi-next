@@ -6,24 +6,33 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import { Layout } from "../components/Layout";
 import { withPage } from "../lib/middleware/withPage";
-import CompanyMembers, { PageProps } from "../components/Pages/CompanyMembers";
+import CompanyMembers, { PageProps } from "../components/Pages/Company/Members";
 import { getServerPageCompanyMembers } from "../graphql/generated/page";
-import { CompanyMembersQuery } from "../graphql/generated/operations";
 
 export const pageQuery = gql`
-  query companyMembers {
+  query companyMembers($expiryDate: Datetime) {
     companyMembers {
       nodes {
         id
+        company {
+          name
+        }
         account {
           id
-          email
-          firstName
-          lastName
           role
-          certificationsByDoceboUserId {
+          email
+          phone
+          photo
+          lastName
+          firstName
+          certificationsByDoceboUserId(
+            filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
+          ) {
             nodes {
+              id
+              name
               technology
+              expiryDate
             }
           }
         }
@@ -43,10 +52,21 @@ const TeamPage = (props: PageProps) => {
 };
 
 export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
-  const { props } = await getServerPageCompanyMembers({}, apolloClient);
+  var expiryDate = new Date();
+  expiryDate.setHours(0, 0, 0, 0);
+  expiryDate.setMonth(expiryDate.getMonth() - 6);
+
+  const { props } = await getServerPageCompanyMembers(
+    {
+      variables: {
+        expiryDate
+      }
+    },
+    apolloClient
+  );
 
   const nodes = [...props.data.companyMembers.nodes].sort((a, b) =>
-    a.account.firstName.localeCompare(b.account.firstName)
+    a.account?.firstName?.localeCompare(b?.account?.firstName)
   );
 
   return {
@@ -59,7 +79,11 @@ export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
           nodes
         }
       },
-      ...(await serverSideTranslations(locale, ["common"]))
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "sidebar",
+        "team-page"
+      ]))
     }
   };
 });

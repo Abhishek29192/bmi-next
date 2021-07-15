@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { TrainingSidePanel } from "..";
+import I18nProvider from "../../../../lib/tests/fixtures/i18n";
 import { TrainingQuery } from "../../../../graphql/generated/operations";
 
 describe("TrainingSidePanel component", () => {
@@ -36,12 +37,18 @@ describe("TrainingSidePanel component", () => {
     };
 
     const { container } = render(
-      <TrainingSidePanel courseCatalog={courseCatalog} />
+      <I18nProvider>
+        <TrainingSidePanel courseCatalog={courseCatalog} />
+      </I18nProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
   it("renders correctly when no courseCatalog is passed", () => {
-    const { container } = render(<TrainingSidePanel courseCatalog={null} />);
+    const { container } = render(
+      <I18nProvider>
+        <TrainingSidePanel courseCatalog={null} />
+      </I18nProvider>
+    );
     expect(container.firstChild).toMatchSnapshot();
   });
 });

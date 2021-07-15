@@ -4,7 +4,7 @@ import escapeStringRegexp from "escape-string-regexp";
 export const MicroCopyContext = createContext<Record<string, string>>({});
 
 export const getMicroCopy = (
-  values: Record<string, string>,
+  values: Record<string, string> = {},
   path: string,
   placeholders: Record<string, string> = {}
 ): string =>

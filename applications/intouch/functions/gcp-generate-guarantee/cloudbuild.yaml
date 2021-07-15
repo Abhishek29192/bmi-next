@@ -7,7 +7,7 @@ steps:
       - deploy
       - pubsub-generate-guarantee
       - --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-generate-guarantee.zip
-      - --runtime=nodejs10
+      - --runtime=nodejs14
       - --entry-point=sendGuaranteePdf
       - --region=europe-west2
       - --trigger-topic=guarantee-pdf

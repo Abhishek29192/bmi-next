@@ -6,6 +6,7 @@ import { initializeApollo } from "../apolloClient";
 import { marketRedirect } from "../redirects/market";
 import { redirectCompanyRegistration } from "../redirects/companyRegistration";
 import { queryAccountByEmail } from "../account";
+import { getServerPageGetGlobalData } from "../../graphql/generated/page";
 
 export const innerGetServerSideProps = async (
   getServerSideProps,
@@ -36,12 +37,17 @@ export const innerGetServerSideProps = async (
   redirect = redirectCompanyRegistration(req, accountByEmail);
   if (redirect) return redirect;
 
+  const {
+    props: { data: globalPageData }
+  } = await getServerPageGetGlobalData({}, apolloClient);
+
   return await getServerSideProps({
     ...ctx,
     auth0,
     apolloClient,
     session: session,
-    account: accountByEmail as Account
+    account: accountByEmail as Account,
+    globalPageData
   });
 };
 

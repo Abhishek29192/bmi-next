@@ -1,5 +1,8 @@
 import postGraphileOpts from "../postGraphileOpts";
 
+jest.mock("../../db", () => ({
+  getDbPool: () => "pgRootPool"
+}));
 describe("Postgraphile", () => {
   it("the context should have the user object", async () => {
     const req: any = {
@@ -7,7 +10,9 @@ describe("Postgraphile", () => {
         id: "123",
         role: "installer",
         email: "email"
-      }
+      },
+      logger: "logger",
+      pubSub: "pubSub"
     };
     const context = await postGraphileOpts.additionalGraphQLContextFromRequest(
       req,
@@ -19,7 +24,10 @@ describe("Postgraphile", () => {
         id: "123",
         role: "installer",
         email: "email"
-      }
+      },
+      logger: "logger",
+      pubSub: "pubSub",
+      pgRootPool: "pgRootPool"
     });
   });
 

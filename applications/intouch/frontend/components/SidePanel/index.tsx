@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 import Typography from "@bmi/typography";
+import Button from "@bmi/button";
 import { FilterInput } from "../FilterInput";
 import { FilterButton } from "../FilterButton";
 import styles from "./styles.module.scss";
@@ -13,6 +14,10 @@ export type SidePanelProps = {
   showSearchFilter?: boolean;
   onSearchFilterChange?: (value: string) => void;
   children: React.ReactNode | React.ReactNode[];
+  footerBtn?: {
+    label: string;
+    onClick: () => void;
+  };
 };
 
 export const SidePanel = ({
@@ -22,7 +27,8 @@ export const SidePanel = ({
   showSearchFilter = true,
   onSearchFilterChange,
   children,
-  noResultLabel
+  noResultLabel,
+  footerBtn
 }: SidePanelProps) => {
   const { t } = useTranslation();
   const handleButtonClick = (filter) => {
@@ -62,6 +68,17 @@ export const SidePanel = ({
           <Typography className={styles.noResult} variant="h5">
             {noResultLabel || t("No result found")}
           </Typography>
+        )}
+        {footerBtn && (
+          <div className={styles.footerBtn}>
+            <Button
+              variant="outlined"
+              onClick={footerBtn.onClick}
+              data-testid="footer-btn"
+            >
+              {t(footerBtn.label)}
+            </Button>
+          </div>
         )}
       </div>
     </div>

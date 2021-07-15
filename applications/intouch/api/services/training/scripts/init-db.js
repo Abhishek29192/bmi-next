@@ -42,4 +42,5 @@ async function main() {
 
 main().catch((error) => {
   console.log("Error", error);
+  process.exit(1);
 });

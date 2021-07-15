@@ -132,9 +132,17 @@ export default gql`
   extend type EvidenceItem {
     customEvidenceCategory: ContentfulEvidenceCategory
   }
+  extend type Account {
+    signedPhotoUrl: String
+  }
 
   extend input AccountInput {
     marketCode: String
+  }
+  scalar Upload
+
+  extend input AccountPatch {
+    photoUpload: Upload
   }
 
   input PublishInput {
@@ -145,18 +153,15 @@ export default gql`
   }
 
   input InviteInput {
-    email: String!
-    firstName: String!
-    lastName: String!
-    role: Role!
-    personal_note: String
+    emails: [String!]!
+    firstName: String
+    lastName: String
+    personalNote: String
   }
 
   input InvitationComplete {
     company_id: String
   }
-
-  scalar Upload
 
   type File {
     filename: String!
@@ -179,7 +184,7 @@ export default gql`
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
-    invite(input: InviteInput!): Invitation
+    invite(input: InviteInput!): [Invitation]
     completeInvitation(companyId: Int!): Account
     bulkImport(input: BulkImportInput!): ImportPayload
   }

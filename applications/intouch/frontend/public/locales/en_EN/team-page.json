@@ -1,0 +1,30 @@
+{
+  "sidePanel": {
+    "search": {
+      "label": "Search for a user",
+      "noResult": "Member not found"
+    },
+    "inviteLabel": "+ Invite team members"
+  },
+  "table": {
+    "title": "Certification(s)",
+    "type": "Type",
+    "certification": "Certification",
+    "validity": "Validity"
+  },
+  "invitation": {
+    "dialog": {
+      "title": "Invite members",
+      "emails": {
+        "label": "Recipient’s email address",
+        "helperText": "Add multiple members by separating each email address with a comma"
+      },
+      "personalNote": {
+        "label": "Your message (optional)"
+      },
+      "cancel": "Cancel",
+      "send": "Send email",
+      "success": "The invitation it's been sent"
+    }
+  }
+}

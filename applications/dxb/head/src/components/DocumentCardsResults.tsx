@@ -8,6 +8,7 @@ import { Data as DocumentData } from "./Document";
 import RichText from "./RichText";
 import { SiteContext } from "./Site";
 import { iconMap } from "./Icon";
+import { renderImage } from "./Image";
 
 type Props = {
   documents: DocumentData[];
@@ -31,13 +32,13 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
   return (
     <Grid container spacing={3}>
       {paginatedDocuments.map(
-        ({ title, description, image, asset, brand }, index) => {
+        ({ title, description, featuredMedia, asset, brand }, index) => {
           return (
             <Grid item key={`${title}-${index}`} xs={12} sm={12} lg={6} xl={4}>
               <OverviewCard
                 title={title}
                 hasTitleUnderline
-                imageSource={image ? image.resize.src : undefined}
+                media={renderImage(featuredMedia) || undefined}
                 brandImageSource={iconMap[brand]}
                 footer={
                   <GTMButton

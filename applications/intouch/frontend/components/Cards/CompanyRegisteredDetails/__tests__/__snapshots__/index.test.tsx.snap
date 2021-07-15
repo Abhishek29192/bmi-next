@@ -19,13 +19,13 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Registered Name
+        Registered name
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
-        Registered Name
-      </p>
+        Integrated Solutions Inc
+      </div>
     </div>
     <div
       style="margin-bottom: 1.5rem;"
@@ -33,13 +33,11 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Registered Address
+        Membership number
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
-      >
-        Registered Address
-      </p>
+      />
     </div>
     <div
       style="margin-bottom: 1.5rem;"
@@ -47,13 +45,29 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Company VAT Number
+        Registered address
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
-        0123456789
-      </p>
+        <div>
+          <div>
+            Registered Nursery Rd
+          </div>
+          <div>
+            Brixton
+          </div>
+          <div>
+            London
+          </div>
+          <div>
+            SW9 8BP
+          </div>
+          <div>
+            UK
+          </div>
+        </div>
+      </div>
     </div>
     <div
       style="margin-bottom: 1.5rem;"
@@ -61,13 +75,23 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       <h6
         class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Contract
+        Company VAT number
       </h6>
-      <p
+      <div
         class="MuiTypography-root Typography MuiTypography-body1"
+      />
+    </div>
+    <div
+      style="margin-bottom: 1.5rem;"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6"
       >
-        Valid until 99/99/99
-      </p>
+        Tier
+      </h6>
+      <div
+        class="MuiTypography-root Typography MuiTypography-body1"
+      />
     </div>
   </div>
 </div>

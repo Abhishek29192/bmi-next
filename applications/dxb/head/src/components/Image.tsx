@@ -10,7 +10,7 @@ export type Data = {
       fileName: string;
       url: string;
     };
-    gatsbyImageData: IGatsbyImageData;
+    gatsbyImageData?: IGatsbyImageData;
   };
   caption: {
     caption: string;
@@ -22,6 +22,7 @@ export type Data = {
 };
 
 type Options = {
+  className?: string;
   size?: "cover" | "contain";
   position?: string;
 };
@@ -47,8 +48,8 @@ const getPosition = ({
   return "center";
 };
 
-const Image = ({ data, size, position }: { data?: Data } & Options) => {
-  return renderImage(data, { size, position });
+const Image = ({ data, ...options }: { data?: Data } & Options) => {
+  return renderImage(data, options);
 };
 
 export const renderImage = (data?: Data, options: Options = {}) => {
@@ -56,11 +57,12 @@ export const renderImage = (data?: Data, options: Options = {}) => {
     return null;
   }
 
-  const { size, position } = options;
+  const { size, position, className } = options;
 
   if (!data.image.gatsbyImageData) {
     return (
       <img
+        className={className}
         src={data.image?.file.url}
         alt={data.altText}
         style={{
@@ -118,6 +120,17 @@ export const query = graphql`
     image {
       ...AssetFragment
       gatsbyImageData(placeholder: BLURRED)
+    }
+  }
+  fragment ImageDocumentFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 684
+        formats: [WEBP, JPG, AUTO]
+      )
     }
   }
   fragment ImageGallerySlideFragment on ContentfulImage {

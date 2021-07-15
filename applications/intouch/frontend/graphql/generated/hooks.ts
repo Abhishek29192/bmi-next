@@ -3,6 +3,44 @@ import * as OperationTypes from "./operations";
 import { gql } from "@apollo/client";
 import * as Apollo from "@apollo/client";
 const defaultOptions = {};
+export const ContactDetailsCollectionFragmentFragmentDoc = gql`
+  fragment ContactDetailsCollectionFragment on ContactDetailsCollection {
+    items {
+      fullName
+      subHeading
+      email
+      phoneNumber
+    }
+  }
+`;
+export const AddressLinesFragmentFragmentDoc = gql`
+  fragment AddressLinesFragment on Address {
+    firstLine
+    secondLine
+    town
+    region
+    country
+    postcode
+  }
+`;
+export const CompanyAdminsFragmentFragmentDoc = gql`
+  fragment CompanyAdminsFragment on Company {
+    companyMembers {
+      nodes {
+        account {
+          role
+          id
+          firstName
+          lastName
+          role
+          phone
+          email
+          photo
+        }
+      }
+    }
+  }
+`;
 export const CompanyCertificationsFragmentDoc = gql`
   fragment CompanyCertifications on Company {
     certifications
@@ -12,18 +50,39 @@ export const CompanyDetailsFragmentFragmentDoc = gql`
   fragment CompanyDetailsFragment on Company {
     id
     name
+    logo
     phone
     website
     aboutUs
-    publicEmail
-    phone
-    website
-    companyMembers {
-      nodes {
-        accountId
+    tradingAddress {
+      ...AddressLinesFragment
+      coordinates {
+        x
+        y
       }
     }
+    registeredAddress {
+      ...AddressLinesFragment
+    }
+    logo
+    taxNumber
+    tier
+    businessType
+    ownerFullname
+    ownerEmail
+    ownerPhone
+    phone
+    publicEmail
+    website
+    linkedIn
+    facebook
+    referenceNumber
+    ...CompanyAdminsFragment
+    ...CompanyCertifications
   }
+  ${AddressLinesFragmentFragmentDoc}
+  ${CompanyAdminsFragmentFragmentDoc}
+  ${CompanyCertificationsFragmentDoc}
 `;
 export const ImageFragmentFragmentDoc = gql`
   fragment ImageFragment on Asset {
@@ -89,6 +148,128 @@ export type UpdateCompanyDetailsMutationResult =
 export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
+>;
+export const GetGlobalDataDocument = gql`
+  query GetGlobalData {
+    marketContentCollection(limit: 1) {
+      items {
+        footerLinksCollection {
+          items {
+            title
+            relativePath
+          }
+        }
+        contactUsPage {
+          title
+          relativePath
+        }
+        externalLinkUrl
+        externalLinkLabel
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetGlobalDataQuery__
+ *
+ * To run a query within a React component, call `useGetGlobalDataQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGlobalDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGlobalDataQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetGlobalDataQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >(GetGlobalDataDocument, options);
+}
+export function useGetGlobalDataLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >(GetGlobalDataDocument, options);
+}
+export type GetGlobalDataQueryHookResult = ReturnType<
+  typeof useGetGlobalDataQuery
+>;
+export type GetGlobalDataLazyQueryHookResult = ReturnType<
+  typeof useGetGlobalDataLazyQuery
+>;
+export type GetGlobalDataQueryResult = Apollo.QueryResult<
+  OperationTypes.GetGlobalDataQuery,
+  OperationTypes.GetGlobalDataQueryVariables
+>;
+export const InviteDocument = gql`
+  mutation invite($input: InviteInput!) {
+    invite(input: $input) {
+      id
+      invitee
+      senderAccount {
+        email
+      }
+    }
+  }
+`;
+export type InviteMutationFn = Apollo.MutationFunction<
+  OperationTypes.InviteMutation,
+  OperationTypes.InviteMutationVariables
+>;
+
+/**
+ * __useInviteMutation__
+ *
+ * To run a mutation, you first call `useInviteMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useInviteMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [inviteMutation, { data, loading, error }] = useInviteMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useInviteMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.InviteMutation,
+    OperationTypes.InviteMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.InviteMutation,
+    OperationTypes.InviteMutationVariables
+  >(InviteDocument, options);
+}
+export type InviteMutationHookResult = ReturnType<typeof useInviteMutation>;
+export type InviteMutationResult =
+  Apollo.MutationResult<OperationTypes.InviteMutation>;
+export type InviteMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.InviteMutation,
+  OperationTypes.InviteMutationVariables
 >;
 export const GetProjectDocument = gql`
   query GetProject($projectId: Int!) {
@@ -211,6 +392,8 @@ export const AccountByEmailDocument = gql`
       id
       role
       marketId
+      firstName
+      lastName
       email
       doceboUserId
       market {
@@ -224,6 +407,7 @@ export const AccountByEmailDocument = gql`
           company {
             id
             status
+            name
           }
         }
       }
@@ -1090,11 +1274,13 @@ export const GetCompanyDocument = gql`
   query GetCompany($companyId: Int!) {
     company(id: $companyId) {
       ...CompanyDetailsFragment
-      ...CompanyCertifications
+    }
+    contactDetailsCollection {
+      ...ContactDetailsCollectionFragment
     }
   }
   ${CompanyDetailsFragmentFragmentDoc}
-  ${CompanyCertificationsFragmentDoc}
+  ${ContactDetailsCollectionFragmentFragmentDoc}
 `;
 
 /**
@@ -1282,19 +1468,29 @@ export type GetProjectsQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectsQueryVariables
 >;
 export const CompanyMembersDocument = gql`
-  query companyMembers {
+  query companyMembers($expiryDate: Datetime) {
     companyMembers {
       nodes {
         id
+        company {
+          name
+        }
         account {
           id
-          email
-          firstName
-          lastName
           role
-          certificationsByDoceboUserId {
+          email
+          phone
+          photo
+          lastName
+          firstName
+          certificationsByDoceboUserId(
+            filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
+          ) {
             nodes {
+              id
+              name
               technology
+              expiryDate
             }
           }
         }
@@ -1315,6 +1511,7 @@ export const CompanyMembersDocument = gql`
  * @example
  * const { data, loading, error } = useCompanyMembersQuery({
  *   variables: {
+ *      expiryDate: // value for 'expiryDate'
  *   },
  * });
  */

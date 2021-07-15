@@ -1,6 +1,10 @@
 import { GraphQLUpload } from "graphql-upload";
 import { makeExtendSchemaPlugin } from "graphile-utils";
-import { invite, completeInvitation } from "../../services/account";
+import {
+  invite,
+  completeInvitation,
+  getAccountSignedPhotoUrl
+} from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
 import { getGuarantee, getEvidenceCategory } from "../../services/contentful";
 import {
@@ -48,6 +52,12 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return evidenceCategory;
         }
       },
+      Account: {
+        signedPhotoUrl: async (parent, args, context) => {
+          const { photo } = parent;
+          return getAccountSignedPhotoUrl(photo);
+        }
+      },
       Mutation: {
         invite: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
@@ -55,7 +65,14 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         },
         completeInvitation: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
-          return completeInvitation(_query, args, context, resolveInfo, auth0);
+          return completeInvitation(
+            _query,
+            args,
+            context,
+            resolveInfo,
+            auth0,
+            build
+          );
         },
         publishMessage: async (_query, args, context, resolveInfo) => {
           const { input } = args;

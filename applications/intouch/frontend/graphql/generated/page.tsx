@@ -7,6 +7,50 @@ import * as Apollo from "@apollo/client";
 import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
 
+export async function getServerPageGetGlobalData(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetGlobalDataQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetGlobalDataQuery>({
+    ...options,
+    query: Operations.GetGlobalDataDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetGlobalData = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetGlobalDataDocument, options);
+};
+export type PageGetGlobalDataComp = React.FC<{
+  data?: OperationTypes.GetGlobalDataQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetGlobalData = {
+  getServerPage: getServerPageGetGlobalData,
+
+  usePage: useGetGlobalData
+};
+
 export async function getServerPageGetProject(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetProjectQueryVariables>,

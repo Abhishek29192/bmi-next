@@ -10,11 +10,35 @@ import UserMenu from "../UserMenu";
 import { NotificationsPanel } from "../NotificationsPanel";
 import styles from "./styles.module.scss";
 
-export type HeaderProps = {
-  title: string;
+type HeaderLink = {
+  href: string;
+  label: string;
+  isExternal?: boolean;
 };
 
-export const Header = ({ title }: HeaderProps) => {
+export type HeaderProps = {
+  title: string;
+  contactUsLink?: HeaderLink;
+  globalExternalLink?: HeaderLink;
+};
+
+const GlobalLink = ({ href, label, isExternal }: HeaderLink) => {
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {label}
+      </a>
+    );
+  }
+
+  return <Link href={href}>{label}</Link>;
+};
+
+export const Header = ({
+  title,
+  contactUsLink,
+  globalExternalLink
+}: HeaderProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const toggle = () => {
@@ -26,8 +50,10 @@ export const Header = ({ title }: HeaderProps) => {
       <div className={styles.header}>
         <div className={styles.upperHeader}>
           <nav>
-            <Link href="/">Contact</Link>
-            <Link href="/">BMI Merits</Link>
+            {contactUsLink ? <GlobalLink {...contactUsLink} /> : null}
+            {globalExternalLink ? (
+              <GlobalLink isExternal {...globalExternalLink} />
+            ) : null}
           </nav>
         </div>
 

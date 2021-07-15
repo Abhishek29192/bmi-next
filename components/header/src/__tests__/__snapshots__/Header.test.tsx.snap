@@ -303,7 +303,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -311,7 +311,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-9 PrivateTabIndicator-colorSecondary-11 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-13 PrivateTabIndicator-colorSecondary-15 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -496,6 +496,13 @@ exports[`Header component closes menu on same tab click 1`] = `
                   </h6>
                 </li>
                 <li>
+                  <p
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  >
+                    This is a paragraph
+                  </p>
+                </li>
+                <li>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
@@ -569,6 +576,13 @@ exports[`Header component closes menu on same tab click 1`] = `
                         >
                           Roof
                         </h6>
+                      </li>
+                      <li>
+                        <img
+                          alt="Some image"
+                          class="Image"
+                          src="http://some/image.png"
+                        />
                       </li>
                       <li>
                         <button
@@ -750,14 +764,550 @@ exports[`Header component closes menu on same tab click 1`] = `
           </li>
           <li>
             <button
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              role="button"
               tabindex="0"
+              to="/clay/"
               type="button"
             >
               <span
                 class="MuiButton-label"
               >
                 Tiles
+              </span>
+            </button>
+          </li>
+          <ul
+            class="Utilities"
+          >
+            <li>
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                href="#"
+                tabindex="0"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  Find a stockist
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                href="#"
+                tabindex="0"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  Find a roofer
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                href="#"
+                tabindex="0"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  Partner portals
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </a>
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div
+    class="search-drawer-container"
+    style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
+  >
+    <div
+      class="drawer search-drawer"
+    >
+      <button
+        aria-label="Close"
+        class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <h4
+        class="MuiTypography-root Typography MuiTypography-h4"
+      >
+        How can we help you today?
+      </h4>
+    </div>
+  </div>
+</header>
+`;
+
+exports[`Header component opens menu two deep 1`] = `
+<header
+  class="MuiPaper-root Header Header--small Header--medium Header--large MuiPaper-elevation3"
+>
+  <nav
+    aria-label="Utilities"
+    class="utilities-bar"
+    role="navigation"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <ul>
+          <li
+            class="nav-item"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+              href="#"
+              tabindex="0"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Find a stockist
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </li>
+          <li
+            class="nav-item"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+              href="#"
+              tabindex="0"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Find a roofer
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </li>
+          <li
+            class="nav-item"
+          >
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button MuiButton-textPrimary"
+              href="#"
+              tabindex="0"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Partner portals
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </li>
+          <li
+            class="nav-item"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button utilities-button language-selection-button MuiButton-textPrimary"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                <svg
+                  class="language-icon"
+                />
+                GB
+                <span
+                  class="down-arrow"
+                >
+                  ▾
+                </span>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div
+    class="drawer language-drawer"
+    style="visibility: hidden; webkit-transform: translateY(-0px); transform: translateY(-0px);"
+  >
+    <button
+      aria-label="Close"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="LanguageSelection"
+        >
+          <h5
+            class="MuiTypography-root heading Typography MuiTypography-h5"
+          >
+            Choose your region
+          </h5>
+          <p
+            class="MuiTypography-root paragraph Typography MuiTypography-body1"
+          >
+            Selecting a region will take you to a different BMI website that has been tailored to give you the most useful content for your part of the world.
+          </p>
+          <p
+            class="MuiTypography-root paragraph Typography MuiTypography-body1"
+          >
+            <b>
+              The site you are currently viewing contains products that are available in Norway. Products from other markets may not meet the Norwegian Standards in building materials.
+            </b>
+          </p>
+          <div>
+            <h6
+              class="MuiTypography-root heading Typography MuiTypography-h6"
+            >
+              Europe
+            </h6>
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <span
+                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                    >
+                      <svg
+                        class="LanguageIcon"
+                      />
+                    </span>
+                    United Kingdom
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-12 MuiGrid-grid-md-3"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton link MuiButton-textPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label"
+                  >
+                    <span
+                      class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                    >
+                      <svg
+                        class="LanguageIcon"
+                      />
+                    </span>
+                    Italia
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="navigation-bar"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="navigation-bar__left"
+        >
+          <a
+            aria-label="Link to home"
+            class="logo-link"
+            href="/"
+          >
+            <svg
+              class="logo"
+            />
+          </a>
+          <nav
+            aria-label="Navigation"
+            class="navigation"
+            role="navigation"
+          >
+            <div
+              class="MuiTabs-root"
+            >
+              <div
+                class="MuiTabs-scrollable"
+                style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
+              />
+              <div
+                class="MuiTabs-scroller MuiTabs-scrollable"
+                style="margin-bottom: 0px;"
+              >
+                <div
+                  class="MuiTabs-flexContainer"
+                  role="tablist"
+                >
+                  <button
+                    aria-controls="navigation-tabpanel-0"
+                    aria-selected="true"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item Mui-selected MuiTab-labelIcon"
+                    id="navigation-tab-0"
+                    role="tab"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                        />
+                      </svg>
+                      Products
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <button
+                    aria-disabled="false"
+                    aria-selected="false"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
+                    role="tab"
+                    tabindex="-1"
+                    to="/clay/"
+                    type="button"
+                  >
+                    <span
+                      class="MuiTab-wrapper"
+                    >
+                      Tiles
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <span
+                  class="PrivateTabIndicator-root-9 PrivateTabIndicator-colorSecondary-11 MuiTabs-indicator"
+                  style="left: 0px; width: 0px;"
+                />
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div
+          class="navigation-bar__right"
+        >
+          <button
+            aria-label="Search"
+            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained search-button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            aria-label="Open menu"
+            class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--text burger-button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="MuiBackdrop-root backdrop"
+    style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+  />
+  <div
+    class="drawer nav-drawer"
+    style="webkit-transform: none; transform: none; webkit-transition: -webkit-transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms; transition: transform 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;"
+  >
+    <button
+      aria-label="Close"
+      class="MuiButtonBase-root MuiIconButton-root IconButton IconButton--medium IconButton--contained close-button"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiIconButton-label"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <nav
+      class="Navigation Navigation--small Navigation--medium Navigation--large"
+    >
+      <div
+        class="NavigationList Offset200 NavigationList--show"
+      >
+        <ul>
+          <li>
+            <h6
+              class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
+            >
+              BMI Group
+            </h6>
+          </li>
+          <li>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton NavigationListButton--active MuiButton-textPrimary"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Products
                 <span
                   class="MuiButton-endIcon MuiButton-iconSizeMedium"
                 >
@@ -778,7 +1328,7 @@ exports[`Header component closes menu on same tab click 1`] = `
               />
             </button>
             <div
-              class="NavigationList"
+              class="NavigationList NavigationList--show"
             >
               <ul>
                 <li
@@ -817,23 +1367,294 @@ exports[`Header component closes menu on same tab click 1`] = `
                   />
                 </li>
                 <li>
+                  <h6
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                  >
+                    Products by type
+                  </h6>
+                </li>
+                <li>
+                  <p
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  >
+                    This is a paragraph
+                  </p>
+                </li>
+                <li>
                   <button
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    role="button"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton NavigationListButton--active MuiButton-textPrimary"
                     tabindex="0"
-                    to="/clay/"
                     type="button"
                   >
                     <span
                       class="MuiButton-label"
                     >
-                      Clay
+                      Roof
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root chevronRight"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <div
+                    class="NavigationList NavigationList--show"
+                  >
+                    <ul>
+                      <li
+                        class="BackNavigation"
+                      >
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-label"
+                          >
+                            <span
+                              class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root chevronLeft"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                                />
+                              </svg>
+                            </span>
+                            Products by type
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                        <hr
+                          class="Separator"
+                        />
+                      </li>
+                      <li>
+                        <h6
+                          class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                        >
+                          Roof
+                        </h6>
+                      </li>
+                      <li>
+                        <img
+                          alt="Some image"
+                          class="Image"
+                          src="http://some/image.png"
+                        />
+                      </li>
+                      <li>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-label"
+                          >
+                            Tiles
+                            <span
+                              class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root chevronRight"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                        <div
+                          class="NavigationList"
+                        >
+                          <ul>
+                            <li
+                              class="BackNavigation"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiButton-label"
+                                >
+                                  <span
+                                    class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root chevronLeft"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  Roof
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </button>
+                              <hr
+                                class="Separator"
+                              />
+                            </li>
+                            <li>
+                              <h6
+                                class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                              >
+                                Tiles
+                              </h6>
+                            </li>
+                            <li>
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiButton-label"
+                                >
+                                  Tiles overview
+                                </span>
+                                <span
+                                  class="MuiTouchRipple-root"
+                                />
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <button
+                          class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiButton-label"
+                          >
+                            Turf Roofs
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      View all our products
+                      <span
+                        class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      >
+                        <span
+                          class="icon-wrapper"
+                        >
+                          <svg
+                            class="icon"
+                          />
+                        </span>
+                      </span>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                  <hr
+                    class="Separator"
+                  />
+                </li>
+                <li>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      Wall
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </li>
+                <li>
+                  <button
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+                    role="button"
+                    tabindex="0"
+                    to="/documentation/"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      Documentation
                     </span>
                   </button>
                 </li>
               </ul>
             </div>
+          </li>
+          <li>
+            <button
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              role="button"
+              tabindex="0"
+              to="/clay/"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Tiles
+              </span>
+            </button>
           </li>
           <ul
             class="Utilities"
@@ -1238,7 +2059,7 @@ exports[`Header component opens menu when clicked 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -1431,6 +2252,13 @@ exports[`Header component opens menu when clicked 1`] = `
                   </h6>
                 </li>
                 <li>
+                  <p
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  >
+                    This is a paragraph
+                  </p>
+                </li>
+                <li>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
@@ -1504,6 +2332,13 @@ exports[`Header component opens menu when clicked 1`] = `
                         >
                           Roof
                         </h6>
+                      </li>
+                      <li>
+                        <img
+                          alt="Some image"
+                          class="Image"
+                          src="http://some/image.png"
+                        />
                       </li>
                       <li>
                         <button
@@ -1685,90 +2520,19 @@ exports[`Header component opens menu when clicked 1`] = `
           </li>
           <li>
             <button
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              role="button"
               tabindex="0"
+              to="/clay/"
               type="button"
             >
               <span
                 class="MuiButton-label"
               >
                 Tiles
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root chevronRight"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
-            <div
-              class="NavigationList"
-            >
-              <ul>
-                <li
-                  class="BackNavigation"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root chevronLeft"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </span>
-                      Main menu
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <hr
-                    class="Separator"
-                  />
-                </li>
-                <li>
-                  <button
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    role="button"
-                    tabindex="0"
-                    to="/clay/"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      Clay
-                    </span>
-                  </button>
-                </li>
-              </ul>
-            </div>
           </li>
           <ul
             class="Utilities"
@@ -2173,7 +2937,7 @@ exports[`Header component renders correctly 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -2366,6 +3130,13 @@ exports[`Header component renders correctly 1`] = `
                   </h6>
                 </li>
                 <li>
+                  <p
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  >
+                    This is a paragraph
+                  </p>
+                </li>
+                <li>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
@@ -2439,6 +3210,13 @@ exports[`Header component renders correctly 1`] = `
                         >
                           Roof
                         </h6>
+                      </li>
+                      <li>
+                        <img
+                          alt="Some image"
+                          class="Image"
+                          src="http://some/image.png"
+                        />
                       </li>
                       <li>
                         <button
@@ -2623,93 +3401,22 @@ exports[`Header component renders correctly 1`] = `
           </li>
           <li>
             <button
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              role="button"
               tabindex="0"
+              to="/clay/"
               type="button"
             >
               <span
                 class="MuiButton-label"
               >
                 Tiles
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root chevronRight"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="MuiTouchRipple-root"
               />
             </button>
-            <div
-              class="NavigationList"
-            >
-              <ul>
-                <li
-                  class="BackNavigation"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root chevronLeft"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </span>
-                      Main menu
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <hr
-                    class="Separator"
-                  />
-                </li>
-                <li>
-                  <button
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    role="button"
-                    tabindex="0"
-                    to="/clay/"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      Clay
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                </li>
-              </ul>
-            </div>
           </li>
           <ul
             class="Utilities"
@@ -3114,7 +3821,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -3122,7 +3829,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-13 PrivateTabIndicator-colorSecondary-15 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-17 PrivateTabIndicator-colorSecondary-19 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -3307,6 +4014,13 @@ exports[`Header component toggle menu with buttons 1`] = `
                   </h6>
                 </li>
                 <li>
+                  <p
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  >
+                    This is a paragraph
+                  </p>
+                </li>
+                <li>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
@@ -3380,6 +4094,13 @@ exports[`Header component toggle menu with buttons 1`] = `
                         >
                           Roof
                         </h6>
+                      </li>
+                      <li>
+                        <img
+                          alt="Some image"
+                          class="Image"
+                          src="http://some/image.png"
+                        />
                       </li>
                       <li>
                         <button
@@ -3561,90 +4282,19 @@ exports[`Header component toggle menu with buttons 1`] = `
           </li>
           <li>
             <button
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              role="button"
               tabindex="0"
+              to="/clay/"
               type="button"
             >
               <span
                 class="MuiButton-label"
               >
                 Tiles
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root chevronRight"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
-            <div
-              class="NavigationList"
-            >
-              <ul>
-                <li
-                  class="BackNavigation"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root chevronLeft"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </span>
-                      Main menu
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <hr
-                    class="Separator"
-                  />
-                </li>
-                <li>
-                  <button
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    role="button"
-                    tabindex="0"
-                    to="/clay/"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      Clay
-                    </span>
-                  </button>
-                </li>
-              </ul>
-            </div>
           </li>
           <ul
             class="Utilities"
@@ -4049,7 +4699,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -4057,7 +4707,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-13 PrivateTabIndicator-colorSecondary-15 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-17 PrivateTabIndicator-colorSecondary-19 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -4242,6 +4892,13 @@ exports[`Header component toggle menu with buttons 2`] = `
                   </h6>
                 </li>
                 <li>
+                  <p
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  >
+                    This is a paragraph
+                  </p>
+                </li>
+                <li>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
@@ -4315,6 +4972,13 @@ exports[`Header component toggle menu with buttons 2`] = `
                         >
                           Roof
                         </h6>
+                      </li>
+                      <li>
+                        <img
+                          alt="Some image"
+                          class="Image"
+                          src="http://some/image.png"
+                        />
                       </li>
                       <li>
                         <button
@@ -4496,90 +5160,19 @@ exports[`Header component toggle menu with buttons 2`] = `
           </li>
           <li>
             <button
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              role="button"
               tabindex="0"
+              to="/clay/"
               type="button"
             >
               <span
                 class="MuiButton-label"
               >
                 Tiles
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root chevronRight"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
-            <div
-              class="NavigationList"
-            >
-              <ul>
-                <li
-                  class="BackNavigation"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root chevronLeft"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </span>
-                      Main menu
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <hr
-                    class="Separator"
-                  />
-                </li>
-                <li>
-                  <button
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    role="button"
-                    tabindex="0"
-                    to="/clay/"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      Clay
-                    </span>
-                  </button>
-                </li>
-              </ul>
-            </div>
           </li>
           <ul
             class="Utilities"
@@ -4984,7 +5577,7 @@ exports[`Header component toggle search 1`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -4992,7 +5585,7 @@ exports[`Header component toggle search 1`] = `
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-17 PrivateTabIndicator-colorSecondary-19 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorSecondary-23 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -5177,6 +5770,13 @@ exports[`Header component toggle search 1`] = `
                   </h6>
                 </li>
                 <li>
+                  <p
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  >
+                    This is a paragraph
+                  </p>
+                </li>
+                <li>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
@@ -5250,6 +5850,13 @@ exports[`Header component toggle search 1`] = `
                         >
                           Roof
                         </h6>
+                      </li>
+                      <li>
+                        <img
+                          alt="Some image"
+                          class="Image"
+                          src="http://some/image.png"
+                        />
                       </li>
                       <li>
                         <button
@@ -5434,93 +6041,22 @@ exports[`Header component toggle search 1`] = `
           </li>
           <li>
             <button
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              role="button"
               tabindex="0"
+              to="/clay/"
               type="button"
             >
               <span
                 class="MuiButton-label"
               >
                 Tiles
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root chevronRight"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="MuiTouchRipple-root"
               />
             </button>
-            <div
-              class="NavigationList"
-            >
-              <ul>
-                <li
-                  class="BackNavigation"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root chevronLeft"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </span>
-                      Main menu
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <hr
-                    class="Separator"
-                  />
-                </li>
-                <li>
-                  <button
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    role="button"
-                    tabindex="0"
-                    to="/clay/"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      Clay
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                </li>
-              </ul>
-            </div>
           </li>
           <ul
             class="Utilities"
@@ -5978,7 +6514,7 @@ exports[`Header component toggle search 2`] = `
                     <span
                       class="MuiTab-wrapper"
                     >
-                      Clay
+                      Tiles
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -5986,7 +6522,7 @@ exports[`Header component toggle search 2`] = `
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-17 PrivateTabIndicator-colorSecondary-19 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorSecondary-23 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -6171,6 +6707,13 @@ exports[`Header component toggle search 2`] = `
                   </h6>
                 </li>
                 <li>
+                  <p
+                    class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  >
+                    This is a paragraph
+                  </p>
+                </li>
+                <li>
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
                     tabindex="0"
@@ -6244,6 +6787,13 @@ exports[`Header component toggle search 2`] = `
                         >
                           Roof
                         </h6>
+                      </li>
+                      <li>
+                        <img
+                          alt="Some image"
+                          class="Image"
+                          src="http://some/image.png"
+                        />
                       </li>
                       <li>
                         <button
@@ -6428,93 +6978,22 @@ exports[`Header component toggle search 2`] = `
           </li>
           <li>
             <button
+              aria-disabled="false"
               class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
+              role="button"
               tabindex="0"
+              to="/clay/"
               type="button"
             >
               <span
                 class="MuiButton-label"
               >
                 Tiles
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root chevronRight"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                    />
-                  </svg>
-                </span>
               </span>
               <span
                 class="MuiTouchRipple-root"
               />
             </button>
-            <div
-              class="NavigationList"
-            >
-              <ul>
-                <li
-                  class="BackNavigation"
-                >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton BackButton MuiButton-textPrimary"
-                    tabindex="0"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      <span
-                        class="MuiButton-startIcon MuiButton-iconSizeMedium"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root chevronLeft"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-                          />
-                        </svg>
-                      </span>
-                      Main menu
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                  <hr
-                    class="Separator"
-                  />
-                </li>
-                <li>
-                  <button
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root MuiButton-text Button NavigationListButton MuiButton-textPrimary"
-                    role="button"
-                    tabindex="0"
-                    to="/clay/"
-                    type="button"
-                  >
-                    <span
-                      class="MuiButton-label"
-                    >
-                      Clay
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </button>
-                </li>
-              </ul>
-            </div>
           </li>
           <ul
             class="Utilities"

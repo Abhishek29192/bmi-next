@@ -14,6 +14,7 @@ import {
   getServerPageDoceboCatalogIdByMarketDomain,
   getServerPageTraining
 } from "../graphql/generated/page";
+import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import { Layout } from "../components/Layout";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 
@@ -24,11 +25,12 @@ type PageProps = {
       message: string;
     };
   };
+  globalPageData: GetGlobalDataQuery;
 };
 
 const DOCEBO_SSO_URL = "/api/docebo-sso";
 
-const TrainingPage = ({ trainingData }: PageProps) => {
+const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
   const { t } = useTranslation("training-page");
   const { error, data } = trainingData;
 
@@ -36,7 +38,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
 
   if (error)
     return (
-      <Layout title={t("Training")}>
+      <Layout title={t("Training")} pageData={globalPageData}>
         <div>Oops... {error.message}</div>
       </Layout>
     );
@@ -45,7 +47,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
 
   if (!trainingContentCollection.items.length)
     return (
-      <Layout title={t("Training")}>
+      <Layout title={t("Training")} pageData={globalPageData}>
         <div></div>
       </Layout>
     );
@@ -65,7 +67,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
   });
 
   return (
-    <Layout title={t("Training")}>
+    <Layout title={t("Training")} pageData={globalPageData}>
       <div style={{ display: "flex" }}>
         <TrainingSidePanel
           courseCatalog={courseCatalogues}
@@ -98,7 +100,7 @@ const TrainingPage = ({ trainingData }: PageProps) => {
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, account, locale }) => {
+  async ({ apolloClient, account, globalPageData, locale }) => {
     const {
       doceboId,
       market: { domain }
@@ -141,6 +143,7 @@ export const getServerSideProps = withPage(
 
     const props = {
       trainingData,
+      globalPageData,
       ...(await serverSideTranslations(locale, [
         "common",
         "sidebar",
