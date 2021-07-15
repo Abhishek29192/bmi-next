@@ -22,5 +22,16 @@
     "merchant": "Merchant",
     "corp_developer": "Developer",
     "company_admin": "Company administrator"
+  },
+  "company.operations": "Operation Type",
+  "company.operations_suffix": "roofing",
+  "operation_types": {
+    "flat": "flat",
+    "pitched": "pitched",
+    "solar": "solar",
+    "bitumen": "bitumen",
+    "tile": "tile",
+    "coater": "coater",
+    "green": "green"
   }
 }

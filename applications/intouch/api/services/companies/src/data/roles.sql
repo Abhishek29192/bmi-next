@@ -45,6 +45,10 @@ grant update (owner_fullname, owner_email, owner_phone, business_type, tier, sta
 grant select, insert, delete on company_member to installer;
 grant update (account_id) on company_member to company_admin;
 
+-- -- company_operations
+grant select on company_operation to installer;
+grant select, insert, update, delete on company_operation to super_admin;
+
 -- account
 grant select, insert, update, delete on account to installer;
 

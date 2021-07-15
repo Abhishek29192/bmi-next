@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CompanyRegisteredDetails component renders correctly 1`] = `
+exports[`CompanyRegisteredDetails matches snapshot 1`] = `
 <div
   class="main"
 >
@@ -37,7 +37,9 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       </h6>
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
-      />
+      >
+        0093-7392
+      </div>
     </div>
     <div
       style="margin-bottom: 1.5rem;"
@@ -96,7 +98,9 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       </h6>
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
-      />
+      >
+        63323-463
+      </div>
     </div>
     <div
       style="margin-bottom: 1.5rem;"
@@ -108,7 +112,23 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       </h6>
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
-      />
+      >
+        T2
+      </div>
+    </div>
+    <div
+      style="margin-bottom: 1.5rem;"
+    >
+      <h6
+        class="MuiTypography-root Typography MuiTypography-h6"
+      >
+        company.operations
+      </h6>
+      <div
+        class="MuiTypography-root Typography MuiTypography-body1"
+      >
+        Operation_types.pitched and operation_types.flat company.operations_suffix
+      </div>
     </div>
   </div>
 </div>
