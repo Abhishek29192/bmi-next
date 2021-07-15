@@ -50,20 +50,37 @@ exports[`CompanyRegisteredDetails component renders correctly 1`] = `
       <div
         class="MuiTypography-root Typography MuiTypography-body1"
       >
-        <div>
-          <div>
-            Registered Nursery Rd
+        <div
+          data-testid="address"
+        >
+          <div
+            data-testid="addressLine-firstLine"
+          >
+            Blue Star House
           </div>
-          <div>
+          <div
+            data-testid="addressLine-secondLine"
+          >
+            234-244 Stockwell Road
+          </div>
+          <div
+            data-testid="addressLine-postcode"
+          >
+            SW9 9SP
+          </div>
+          <div
+            data-testid="addressLine-town"
+          >
             Brixton
           </div>
-          <div>
+          <div
+            data-testid="addressLine-region"
+          >
             London
           </div>
-          <div>
-            SW9 8BP
-          </div>
-          <div>
+          <div
+            data-testid="addressLine-country"
+          >
             UK
           </div>
         </div>
