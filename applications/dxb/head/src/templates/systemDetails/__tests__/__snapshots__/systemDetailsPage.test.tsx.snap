@@ -2592,10 +2592,13 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     Back to your selection
                   </span>
                 </a>
-                <button
+                <a
+                  aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained Button quotationBtn MuiButton-containedPrimary"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/roof-tiles/betongtakstein/\\",\\"label\\":\\"Get a Quotation\\"}"
+                  href="/en/roof-tiles/betongtakstein/"
+                  role="button"
                   tabindex="0"
-                  type="button"
                 >
                   <span
                     class="MuiButton-label"
@@ -2619,7 +2622,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <span
                     class="MuiTouchRipple-root"
                   />
-                </button>
+                </a>
               </div>
             </div>
             <div

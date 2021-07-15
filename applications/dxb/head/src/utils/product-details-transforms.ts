@@ -8,7 +8,7 @@ import {
   VariantOption,
   VariantOptionWithProduct
 } from "../components/types/ProductBaseTypes";
-import { GalleryImageType } from "../templates/system-details/types";
+import { GalleryImageType } from "../templates/systemDetails/types";
 import { Image } from "../components/types/ProductBaseTypes";
 
 export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
