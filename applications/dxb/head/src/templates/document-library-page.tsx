@@ -114,7 +114,6 @@ const sourceToSortMap: Record<
 
 const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
-    brandLogo,
     title,
     description,
     documents: unsortedDocuments,
@@ -235,7 +234,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
 
   return (
     <Page
-      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
