@@ -10,13 +10,14 @@ export type AddressProps = {
 };
 
 export const Address = ({ address }: AddressProps) => (
-  <div>
-    {address?.firstLine ? <div>{address.firstLine}</div> : null}
-    {address?.secondLine ? <div>{address.secondLine}</div> : null}
-    {address?.town ? <div>{address.town}</div> : null}
-    {address?.region ? <div>{address.region}</div> : null}
-    {address?.postcode ? <div>{address.postcode}</div> : null}
-    {address?.country ? <div>{address.country}</div> : null}
+  <div data-testid="address">
+    {["firstLine", "secondLine", "postcode", "town", "region", "country"]
+      .filter((addressLine) => !!address[addressLine])
+      .map((addressLine) => (
+        <div key={addressLine} data-testid={`addressLine-${addressLine}`}>
+          {address[addressLine]}
+        </div>
+      ))}
   </div>
 );
 

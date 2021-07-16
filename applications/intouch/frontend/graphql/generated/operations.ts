@@ -11,6 +11,52 @@ export type CompanyCertificationsFragment = {
   readonly __typename?: "Company";
 } & Pick<SchemaTypes.Company, "certifications">;
 
+export type CompanyHeaderDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  | "businessType"
+  | "logo"
+  | "aboutUs"
+  | "ownerFullname"
+  | "ownerPhone"
+  | "ownerEmail"
+  | "phone"
+  | "publicEmail"
+  | "website"
+  | "facebook"
+  | "linkedIn"
+> & {
+    readonly tradingAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & {
+        readonly coordinates?: SchemaTypes.Maybe<
+          { readonly __typename?: "Point" } & Pick<SchemaTypes.Point, "x" | "y">
+        >;
+      } & AddressLinesFragmentFragment
+    >;
+  };
+
+export type CompanyRegisteredDetailsFragmentFragment = {
+  readonly __typename?: "Company";
+} & Pick<
+  SchemaTypes.Company,
+  "name" | "referenceNumber" | "taxNumber" | "tier"
+> & {
+    readonly registeredAddress?: SchemaTypes.Maybe<
+      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
+    >;
+    readonly companyOperationsByCompany: {
+      readonly __typename?: "CompanyOperationsConnection";
+    } & {
+      readonly nodes: ReadonlyArray<
+        { readonly __typename?: "CompanyOperation" } & Pick<
+          SchemaTypes.CompanyOperation,
+          "operation"
+        >
+      >;
+    };
+  };
+
 export type ContactDetailsCollectionFragmentFragment = {
   readonly __typename?: "ContactDetailsCollection";
 } & {
@@ -585,36 +631,10 @@ export type GetCompanyQuery = { readonly __typename?: "Query" } & {
 
 export type CompanyDetailsFragmentFragment = {
   readonly __typename?: "Company";
-} & Pick<
-  SchemaTypes.Company,
-  | "id"
-  | "name"
-  | "logo"
-  | "phone"
-  | "website"
-  | "aboutUs"
-  | "taxNumber"
-  | "tier"
-  | "businessType"
-  | "ownerFullname"
-  | "ownerEmail"
-  | "ownerPhone"
-  | "publicEmail"
-  | "linkedIn"
-  | "facebook"
-  | "referenceNumber"
-> & {
-    readonly tradingAddress?: SchemaTypes.Maybe<
-      { readonly __typename?: "Address" } & {
-        readonly coordinates?: SchemaTypes.Maybe<
-          { readonly __typename?: "Point" } & Pick<SchemaTypes.Point, "x" | "y">
-        >;
-      } & AddressLinesFragmentFragment
-    >;
-    readonly registeredAddress?: SchemaTypes.Maybe<
-      { readonly __typename?: "Address" } & AddressLinesFragmentFragment
-    >;
-  } & CompanyAdminsFragmentFragment &
+} & Pick<SchemaTypes.Company, "id"> &
+  CompanyHeaderDetailsFragmentFragment &
+  CompanyRegisteredDetailsFragmentFragment &
+  CompanyAdminsFragmentFragment &
   CompanyCertificationsFragment;
 
 export type ImageFragmentFragment = { readonly __typename?: "Asset" } & Pick<
