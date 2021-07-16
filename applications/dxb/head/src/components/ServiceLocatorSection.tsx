@@ -38,23 +38,25 @@ import React, {
   useState
 } from "react";
 import { camelCase, intersectionWith } from "lodash";
+import { devLog } from "../utils/devLog";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
-import { Data as RooferData, RooferType, rooferTypes } from "./Roofer";
+import { Data as ServiceData, ServiceType, serviceTypes } from "./Service";
 import { SiteContext } from "./Site";
 import styles from "./styles/ServiceLocatorSection.module.scss";
 
 export const QUERY_CHIP_FILTER_KEY = "chip";
 
-export type Roofer = RooferData & {
+export type Service = ServiceData & {
   distance?: number;
 };
 export type Data = {
   __typename: "ContentfulServiceLocatorSection";
+  type: "Roofer" | "Branch" | "Merchant";
   title: string;
   label: string;
   body: RichTextData | null;
-  roofers: Roofer[] | null;
+  services: Service[] | null;
   position: number;
   centre: {
     lat: number;
@@ -74,14 +76,14 @@ const DEFAULT_MAP_CENTRE = {
 const DEFAULT_LEVEL_ZOOM = 5;
 
 // TODO: Cast this properly.
-const initialActiveFilters = rooferTypes.reduce(
+const initialActiveFilters = serviceTypes.reduce(
   (carry, key) => ({ ...carry, [key]: false }),
   {}
-) as Record<RooferType, boolean>;
+) as Record<ServiceType, boolean>;
 
 const activeFilterReducer = (
-  state: Record<RooferType, boolean>,
-  filter: { name: RooferType; state?: boolean }
+  state: Record<ServiceType, boolean>,
+  filter: { name: ServiceType; state?: boolean }
 ) => ({
   ...state,
   [filter.name]: filter.state ? filter.state : !state[filter.name]
@@ -116,13 +118,16 @@ const IntegratedLinkCard = ({
 
 const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const {
+    type: sectionType,
     label,
     body,
-    roofers,
+    services,
     position,
     centre: initialMapCentre,
     zoom: initialMapZoom
   } = data;
+
+  const shouldEnableSearch = sectionType !== "Branch";
 
   const radius = 50; // @todo: To come from CMS.
   const FILTER_RADIUS = radius ? radius * 1000 : Infinity;
@@ -139,7 +144,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const { getMicroCopy, countryCode } = useContext(SiteContext);
   const [googleApi, setgoogleApi] = useState<Google>(null);
-  const [selectedRoofer, setSelectedRoofer] = useState<Roofer>(null);
+  const [selectedRoofer, setSelectedRoofer] = useState<Service>(null);
   const [centre, setCentre] = useState<GoogleLatLngLiteral>();
   const [zoom, setZoom] = useState<number>(
     initialMapZoom || DEFAULT_LEVEL_ZOOM
@@ -151,11 +156,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   );
 
   useEffect(() => {
-    if (!roofers) {
+    if (!services) {
       return;
     }
-    const uniqueRooferTypes: RooferType[] = Array.from(
-      new Set(roofers.flatMap((roofer) => roofer.type))
+    const uniqueRooferTypes: ServiceType[] = Array.from(
+      new Set(services.flatMap((roofer) => roofer.type))
     ).filter((x) => x !== null);
 
     setUniqueRoofTypeByData(uniqueRooferTypes);
@@ -166,12 +171,12 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
     const allQueries = userQueryString.split(",");
 
-    const matchingRooferTypes: RooferType[] = intersectionWith(
+    const matchingRooferTypes: ServiceType[] = intersectionWith(
       uniqueRooferTypes,
       allQueries,
       (a, b) => a.toLowerCase() === b.toLowerCase()
     );
-    matchingRooferTypes.forEach((rooferType: RooferType) => {
+    matchingRooferTypes.forEach((rooferType: ServiceType) => {
       updateActiveFilters({ name: rooferType, state: true });
     });
 
@@ -180,7 +185,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     if (typeof window !== `undefined` && matchingRooferTypes.length === 0) {
       history.replaceState(null, null, window.location.pathname);
     }
-  }, [roofers]);
+  }, [services]);
 
   useEffect(() => {
     if (!userQueryString) {
@@ -230,8 +235,8 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     initialise();
   }, []);
 
-  const typeFilter = (type: Roofer["type"]): boolean => {
-    // user has not selected any chip(s) to filter hence show all roofers
+  const typeFilter = (type: Service["type"]): boolean => {
+    // user has not selected any chip(s) to filter hence show all services
     // i.e initial load or user has de-selected ALL chips
     if (
       Object.keys(activeFilters).every((key) => activeFilters[key] === false)
@@ -247,15 +252,15 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     return type?.length ? type.some((filter) => activeFilters[filter]) : true;
   };
 
-  const nameFilter = (name: Roofer["name"]) =>
+  const nameFilter = (name: Service["name"]) =>
     name.includes(activeSearchString);
 
-  const distanceFilter = (distance: Roofer["distance"]) =>
+  const distanceFilter = (distance: Service["distance"]) =>
     distance ? distance < FILTER_RADIUS : true;
 
-  const filteredRoofers = useMemo<Roofer[]>(
+  const filteredRoofers = useMemo<Service[]>(
     () =>
-      (roofers || [])
+      (services || [])
         .reduce((carry, current) => {
           const { name, location, type } = current;
           const distance = computeDistanceBetween(centre, {
@@ -300,7 +305,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const markers = useMemo(
     () =>
       filteredRoofers.map(
-        (roofer: Roofer): MarkerOptionsWithData<Roofer> => ({
+        (roofer: Service): MarkerOptionsWithData<Service> => ({
           title: roofer.name,
           position: {
             lat: roofer.location.lat,
@@ -313,7 +318,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     [selectedRoofer, filteredRoofers]
   );
 
-  const handleListClick = (roofer: Roofer) => {
+  const handleListClick = (roofer: Service) => {
     setSelectedRoofer(roofer);
   };
 
@@ -331,7 +336,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     );
   };
 
-  const handleMarkerClick = (roofer: Roofer) => {
+  const handleMarkerClick = (roofer: Service) => {
     setSelectedRoofer(roofer);
   };
 
@@ -342,121 +347,176 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   };
 
   const getCompanyDetails = (
-    roofer: Roofer,
+    roofer: Service,
     isAddressHidden?: boolean
   ): DetailProps[] => {
+    const shouldShowIcons = sectionType === "Roofer";
+    const isAddressClickable = sectionType === "Branch";
+    const shouldShowWebsiteLinkAsLabel = sectionType === "Merchant";
+
     const googleURLLatLng = centre ? `${centre.lat},+${centre.lng}` : "";
 
     const address: DetailProps = {
       type: "address",
+      display: shouldShowIcons ? "icon" : "contentOnly",
       text: roofer.address,
-      label: getMicroCopy("findARoofer.address")
+      label: getMicroCopy("findARoofer.address"),
+      action: isAddressClickable
+        ? getClickableActionFromUrl(
+            null,
+            `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+              roofer.address
+            )}/`,
+            countryCode,
+            null,
+            getMicroCopy("findARoofer.address")
+          )
+        : undefined
     };
 
-    const companyDetails: DetailProps[] = [
-      ...(roofer.distance !== undefined
-        ? [
-            {
-              type: "distance" as "distance",
-              text: `${Math.floor(roofer.distance) / 1000}km`,
-              label: getMicroCopy("findARoofer.distanceLabel")
-            }
-          ]
-        : []),
-      {
-        // TODO: resolve types assertions of creating DetailProps array
-        type: "cta" as "cta",
-        text: getMicroCopy("findARoofer.getDirectionsLabel"),
-        action: getClickableActionFromUrl(
-          null,
-          `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
-            roofer.address
-          )}/`,
-          countryCode,
-          null,
-          getMicroCopy("findARoofer.getDirectionsLabel")
-        ),
-        label: getMicroCopy("findARoofer.getDirectionsLabel")
-      },
-      ...(roofer.phone
-        ? [
-            {
-              type: "phone" as "phone",
-              text: roofer.phone,
-              action: getClickableActionFromUrl(
-                null,
-                `tel:${roofer.phone}`,
-                countryCode,
-                null,
-                getMicroCopy("findARoofer.telephoneLabel")
-              ),
-              label: getMicroCopy("findARoofer.telephoneLabel")
-            }
-          ]
-        : []),
-      ...(roofer.email
-        ? [
-            {
-              type: "email" as "email",
-              text: roofer.email,
-              action: getClickableActionFromUrl(
-                null,
-                `mailto:${roofer.email}`,
-                countryCode,
-                null,
-                getMicroCopy("findARoofer.emailLabel")
-              ),
-              label: getMicroCopy("findARoofer.emailLabel")
-            }
-          ]
-        : []),
-      ...(roofer.website
-        ? [
-            {
-              type: "website" as "website",
-              text: getMicroCopy("findARoofer.websiteLabel"),
-              action: getClickableActionFromUrl(
-                null,
-                roofer.website,
-                countryCode,
-                null,
-                getMicroCopy("findARoofer.websiteLabel")
-              ),
-              label: getMicroCopy("findARoofer.websiteLabel")
-            }
-          ]
-        : []),
-      ...(roofer.type
-        ? [
-            {
-              type: "content" as "content",
-              label: getMicroCopy("findARoofer.roofTypeLabel"),
-              text: (
-                <b>
-                  {roofer.type
-                    .map((type) =>
-                      getMicroCopy(
-                        `findARoofer.filters.${camelCase(type)}`
-                      ).replace(" roof", "")
-                    )
-                    .join(" | ")}
-                </b>
-              )
-            }
-          ]
-        : []),
-      ...(roofer.certification
-        ? [
-            {
-              type: "roofProLevel" as "roofProLevel",
-              label: getMicroCopy("findARoofer.certificationLabel"),
-              level: roofer.certification.toLowerCase() as RoofProLevel
-            }
-          ]
-        : [])
-    ];
+    const distance: DetailProps | undefined =
+      roofer.distance !== undefined
+        ? {
+            type: "distance",
+            display: shouldShowIcons ? "icon" : "label",
+            text: `${Math.floor(roofer.distance) / 1000}km`,
+            label: getMicroCopy("findARoofer.distanceLabel")
+          }
+        : undefined;
 
-    return isAddressHidden ? companyDetails : [address, ...companyDetails];
+    const directions: DetailProps | undefined = {
+      type: "cta",
+      text: getMicroCopy("findARoofer.getDirectionsLabel"),
+      action: getClickableActionFromUrl(
+        null,
+        `https://www.google.com/maps/dir/${googleURLLatLng}/${encodeURI(
+          roofer.address
+        )}/`,
+        countryCode,
+        null,
+        getMicroCopy("findARoofer.getDirectionsLabel")
+      ),
+      label: getMicroCopy("findARoofer.getDirectionsLabel")
+    };
+
+    const phone: DetailProps | undefined = roofer.phone
+      ? {
+          type: "phone",
+          display: shouldShowIcons ? "icon" : "label",
+          text: roofer.phone,
+          action: getClickableActionFromUrl(
+            null,
+            `tel:${roofer.phone}`,
+            countryCode,
+            null,
+            getMicroCopy("findARoofer.telephoneLabel")
+          ),
+          label: getMicroCopy("findARoofer.telephoneLabel")
+        }
+      : undefined;
+
+    const email: DetailProps | undefined = roofer.email
+      ? {
+          type: "email",
+          display: shouldShowIcons ? "icon" : "label",
+          text: roofer.email,
+          action: getClickableActionFromUrl(
+            null,
+            `mailto:${roofer.email}`,
+            countryCode,
+            null,
+            getMicroCopy("findARoofer.emailLabel")
+          ),
+          label: getMicroCopy("findARoofer.emailLabel")
+        }
+      : undefined;
+
+    const website: DetailProps | undefined = roofer.website
+      ? {
+          type: "website",
+          display: shouldShowIcons ? "icon" : "label",
+          text: shouldShowWebsiteLinkAsLabel
+            ? roofer.website
+            : getMicroCopy("findARoofer.websiteLabel"),
+          action: getClickableActionFromUrl(
+            null,
+            roofer.website,
+            countryCode,
+            null,
+            shouldShowWebsiteLinkAsLabel
+              ? getMicroCopy("findARoofer.websiteFieldLabel")
+              : getMicroCopy("findARoofer.websiteLabel")
+          ),
+          label: shouldShowWebsiteLinkAsLabel
+            ? getMicroCopy("findARoofer.websiteFieldLabel")
+            : getMicroCopy("findARoofer.websiteLabel")
+        }
+      : undefined;
+
+    const fax: DetailProps | undefined = roofer.fax
+      ? {
+          type: "content",
+          text: roofer.fax,
+          textStyle: "bold",
+          label: getMicroCopy("findARoofer.faxLabel")
+        }
+      : undefined;
+
+    const type: DetailProps | undefined = roofer.type
+      ? {
+          type: "content",
+          label: getMicroCopy("findARoofer.roofTypeLabel"),
+          text: (
+            <b>
+              {roofer.type
+                .map((type) =>
+                  getMicroCopy(
+                    `findARoofer.filters.${camelCase(type)}`
+                  ).replace(" roof", "")
+                )
+                .join(" | ")}
+            </b>
+          )
+        }
+      : undefined;
+
+    const certification: DetailProps = roofer.certification
+      ? {
+          type: "roofProLevel",
+          label: getMicroCopy("findARoofer.certificationLabel"),
+          level: roofer.certification.toLowerCase() as RoofProLevel
+        }
+      : undefined;
+
+    const detailsStart = isAddressHidden ? [] : [address];
+
+    switch (sectionType) {
+      case "Roofer":
+        return [
+          ...detailsStart,
+          distance,
+          directions,
+          phone,
+          email,
+          website,
+          type,
+          certification
+        ].filter(Boolean);
+      case "Branch":
+        return [...detailsStart, distance, phone, email, fax].filter(Boolean);
+      case "Merchant":
+        return [
+          ...detailsStart,
+          distance,
+          phone,
+          email,
+          website,
+          directions
+        ].filter(Boolean);
+      default:
+        devLog("Invalid section type passed to service locator:", sectionType);
+        return [];
+    }
   };
 
   const iconSourceMap: Record<RoofProLevel, SVGImport> = {
@@ -484,54 +544,58 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
           className={styles["controls"]}
         >
           <Grid item xs={12} md={6} lg={4} className={styles["search"]}>
-            <Autocomplete
-              id="company-autocomplete"
-              label={getMicroCopy("findARoofer.companyFieldLabel")}
-              noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
-              className={styles["company-autocomplete"]}
-              onChange={(_, inputValue) => {
-                setActiveSearchString(inputValue || "");
-              }}
-              filterOptions={(options, { inputValue }) => {
-                if (inputValue.length > 2) {
-                  return options.filter((option) =>
-                    option.toLowerCase().includes(inputValue.toLowerCase())
-                  );
-                }
-                // @todo Returning `false` from this function is the *only* way
-                // this works to hide the dropdown but is not typed as such in
-                // MaterialUI.
-                return false as any;
-              }}
-              options={filteredRoofers.map(({ name }) => name)}
-              freeSolo
-              startAdornmentIcon="HardHatHead"
-            />
-            <Typography className={styles["and-or-label"]}>
-              <span>{getMicroCopy("findARoofer.andOr")}</span>
-            </Typography>
-            <GoogleAutocomplete
-              id="location-autocomplete"
-              label={getMicroCopy("findARoofer.locationFieldLabel")}
-              noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
-              className={styles["location-autocomplete"]}
-              onPlaceChange={handlePlaceChange}
-              freeSolo
-              startAdornmentIcon="LocationOn"
-              controlledValue={userPosition}
-            />
-            <GeolocationButton
-              onPosition={({ coords }) => {
-                setUserPosition({
-                  location: {
-                    lat: coords.latitude,
-                    lng: coords.longitude
-                  }
-                });
-              }}
-            >
-              {getMicroCopy("findARoofer.geolocationButton")}
-            </GeolocationButton>
+            {shouldEnableSearch ? (
+              <>
+                <Autocomplete
+                  id="company-autocomplete"
+                  label={getMicroCopy("findARoofer.companyFieldLabel")}
+                  noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
+                  className={styles["company-autocomplete"]}
+                  onChange={(_, inputValue) => {
+                    setActiveSearchString(inputValue || "");
+                  }}
+                  filterOptions={(options, { inputValue }) => {
+                    if (inputValue.length > 2) {
+                      return options.filter((option) =>
+                        option.toLowerCase().includes(inputValue.toLowerCase())
+                      );
+                    }
+                    // @todo Returning `false` from this function is the *only* way
+                    // this works to hide the dropdown but is not typed as such in
+                    // MaterialUI.
+                    return false as any;
+                  }}
+                  options={filteredRoofers.map(({ name }) => name)}
+                  freeSolo
+                  startAdornmentIcon="HardHatHead"
+                />
+                <Typography className={styles["and-or-label"]}>
+                  <span>{getMicroCopy("findARoofer.andOr")}</span>
+                </Typography>
+                <GoogleAutocomplete
+                  id="location-autocomplete"
+                  label={getMicroCopy("findARoofer.locationFieldLabel")}
+                  noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
+                  className={styles["location-autocomplete"]}
+                  onPlaceChange={handlePlaceChange}
+                  freeSolo
+                  startAdornmentIcon="LocationOn"
+                  controlledValue={userPosition}
+                />
+                <GeolocationButton
+                  onPosition={({ coords }) => {
+                    setUserPosition({
+                      location: {
+                        lat: coords.latitude,
+                        lng: coords.longitude
+                      }
+                    });
+                  }}
+                >
+                  {getMicroCopy("findARoofer.geolocationButton")}
+                </GeolocationButton>
+              </>
+            ) : undefined}
           </Grid>
           <Grid item xs={12} md={6} lg={8}>
             {uniqueRoofTypeByData.length > 1 && (
@@ -684,13 +748,14 @@ export default ServiceLocatorSection;
 export const query = graphql`
   fragment ServiceLocatorSectionFragment on ContentfulServiceLocatorSection {
     __typename
+    type
     title
     label
     body {
       ...RichTextFragment
     }
-    roofers {
-      ...RooferFragment
+    services {
+      ...ServiceFragment
     }
     centre {
       lat

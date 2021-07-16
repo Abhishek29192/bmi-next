@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import { RoofProLevel } from "@bmi/company-details";
 
-export const rooferTypes = [
+export const serviceTypes = [
   "Pitched roof",
   "Flat roof",
   "Pitched roof - Bitumen roofs",
@@ -9,11 +9,12 @@ export const rooferTypes = [
   "Pitched roof - Roof coaters"
 ] as const;
 
-export type RooferType = typeof rooferTypes[number];
+export type ServiceType = typeof serviceTypes[number];
 
 export type Data = {
-  __typename: "ContentfulRoofer";
+  __typename: "ContentfulService";
   id: string;
+  entryType: "Roofer" | "Branch" | "Merchant";
   name: string;
   location: {
     lat: number;
@@ -23,15 +24,17 @@ export type Data = {
   phone: string | null;
   email: string | null;
   website: string | null;
-  type: RooferType[] | null;
+  fax: string | null;
+  type: ServiceType[] | null;
   certification: RoofProLevel | null;
   summary: string | null;
 };
 
 export const query = graphql`
-  fragment RooferFragment on ContentfulRoofer {
+  fragment ServiceFragment on ContentfulService {
     __typename
     id
+    entryType
     name
     location {
       lat
@@ -41,6 +44,7 @@ export const query = graphql`
     phone
     email
     website
+    fax
     type
     certification
     summary
