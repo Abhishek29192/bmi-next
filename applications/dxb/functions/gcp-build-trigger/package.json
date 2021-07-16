@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=build --port=9057",
     "deploy": "yarn build && gcloud functions deploy build-trigger --trigger-http --runtime=nodejs10 --allow-unauthenticated --max-instances=1 --region=europe-west3 --entry-point=build --env-vars-file=env.yaml"
   },
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
+    "jest-when": "^3.2.0",
     "js-yaml": "^4.0.0"
   }
 }

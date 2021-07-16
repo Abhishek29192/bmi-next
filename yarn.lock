@@ -2920,13 +2920,6 @@
     lodash.snakecase "^4.1.1"
     p-defer "^3.0.0"
 
-"@google-cloud/secret-manager@^3.4.0", "@google-cloud/secret-manager@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/secret-manager/-/secret-manager-3.6.0.tgz#408510554d2dd72b30449a85d6030069c85d2c04"
-  integrity sha512-1lSYKYJ57PekYvUV2FLt7wtI4toDhMKrbHxMH5kA5X9XLfECasgm/PZo+EbmJ/uIxtz5i2qzQID/NczLrZNG+w==
-  dependencies:
-    google-gax "^2.9.2"
-
 "@google-cloud/secret-manager@^3.7.1":
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/@google-cloud/secret-manager/-/secret-manager-3.7.1.tgz#d96ba588f47fa55a35f2c80f30b7b2973087fa44"
