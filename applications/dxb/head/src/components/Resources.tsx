@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import { Data as LinkData } from "../components/Link";
 import { Data as MicroCopyData } from "./MicroCopy";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 import { Data as PromoData } from "./Promo";
@@ -17,6 +18,7 @@ export type Data = {
   pdpExploreBar: ExploreBarData | null;
   pdpShareWidget: ShareWidgetSectionData | null;
   sdpShareWidget: ShareWidgetSectionData | null;
+  sdpLeadBlockCta: LinkData | null;
   visualiserShareWidget: ShareWidgetSectionData | null;
   pdpInputBanner: InputBannerData | null;
   searchPageSearchTips: TitleWithContentData | null;
@@ -53,6 +55,9 @@ export const query = graphql`
     }
     sdpShareWidget {
       ...ShareWidgetSectionFragment
+    }
+    sdpLeadBlockCta {
+      ...LinkFragment
     }
     visualiserShareWidget {
       ...ShareWidgetSectionFragment

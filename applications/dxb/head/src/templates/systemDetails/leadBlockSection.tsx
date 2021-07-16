@@ -7,8 +7,9 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button from "@bmi/button";
 import IconList from "@bmi/icon-list";
 import CheckIcon from "@material-ui/icons/Check";
+import Link, { Data as LinkData } from "../../components/Link";
 import Image, { Data as ImageData } from "../../components/Image";
-import styles from "./styles/lead-block-section.module.scss";
+import styles from "./styles/leadBlockSection.module.scss";
 import { Category, Classification } from "./types";
 
 const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
@@ -17,6 +18,7 @@ type Props = {
   name: string;
   categories: Category[];
   classifications: Classification[];
+  cta?: LinkData;
 };
 
 const getBrandLogo = (categories: Category[]): null | ImageData => {
@@ -57,7 +59,12 @@ const getPromotionalContent = (
   return content.featureValues[0].value;
 };
 
-const LeadBlockSection = ({ name, categories, classifications }: Props) => {
+const LeadBlockSection = ({
+  name,
+  categories,
+  classifications,
+  cta
+}: Props) => {
   const brandLogo = getBrandLogo(categories);
   const promotionalContent = getPromotionalContent(classifications);
 
@@ -92,12 +99,22 @@ const LeadBlockSection = ({ name, categories, classifications }: Props) => {
               Back to your selection
             </AnchorLink>
 
-            <Button
-              className={styles["quotationBtn"]}
-              endIcon={<ArrowForwardIcon />}
-            >
-              Get a Quotation
-            </Button>
+            {Boolean(cta) && (
+              <Link
+                data={cta}
+                component={({ children, ...rest }) => (
+                  <Button
+                    {...rest}
+                    className={styles["quotationBtn"]}
+                    endIcon={<ArrowForwardIcon />}
+                  >
+                    {children}
+                  </Button>
+                )}
+              >
+                {cta.label}
+              </Link>
+            )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
         <LeadBlock.Card theme="pearl">
