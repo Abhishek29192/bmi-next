@@ -3,6 +3,7 @@ import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import Button from "@bmi/button";
 import Tabs from "@bmi/tabs";
+import { ProjectMember } from "@bmi/intouch-api-types";
 import GridStyles from "../../styles/Grid.module.scss";
 import { Projects } from "../SidePanel/index.stories";
 import { NoProjectsCard } from "../Cards/NoProjects";
@@ -95,9 +96,7 @@ export const Team = ({ title }: LayoutProps) => (
         <Grid item xs={12}>
           <Tabs initialValue="one">
             <Tabs.TabPanel heading="Team" index="one">
-              <TabCard>
-                <TeamTab />
-              </TabCard>
+              <TabCard></TabCard>
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Guarantee" index="two">
               <TabCard>
@@ -164,3 +163,30 @@ const uploadedFiles = new Map<string, string[]>([
     ]
   ]
 ]);
+
+const teamMembers = [
+  {
+    nodeId: "1",
+    id: 1,
+    createdAt: "01/01/01",
+    updatedAt: "01/01/01",
+    account: {
+      nodeId: "1",
+      id: 1,
+      firstName: "Lucy",
+      lastName: "Walsh",
+      role: "INSTALLER",
+      certificationsByDoceboUserId: {
+        nodes: [
+          {
+            nodeId: "1",
+            id: 1,
+            technology: "PITCHED",
+            createdAt: "01/01/01",
+            updatedAt: "01/01/01"
+          }
+        ]
+      }
+    }
+  }
+] as ProjectMember[];

@@ -158,7 +158,8 @@ export function useUpdateCompanyDetailsMutation(
 export type UpdateCompanyDetailsMutationHookResult = ReturnType<
   typeof useUpdateCompanyDetailsMutation
 >;
-export type UpdateCompanyDetailsMutationResult = Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
+export type UpdateCompanyDetailsMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateCompanyDetailsMutation>;
 export type UpdateCompanyDetailsMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateCompanyDetailsMutation,
   OperationTypes.UpdateCompanyDetailsMutationVariables
@@ -279,7 +280,8 @@ export function useInviteMutation(
   >(InviteDocument, options);
 }
 export type InviteMutationHookResult = ReturnType<typeof useInviteMutation>;
-export type InviteMutationResult = Apollo.MutationResult<OperationTypes.InviteMutation>;
+export type InviteMutationResult =
+  Apollo.MutationResult<OperationTypes.InviteMutation>;
 export type InviteMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.InviteMutation,
   OperationTypes.InviteMutationVariables
@@ -328,7 +330,8 @@ export function useDeleteCompanyMemberMutation(
 export type DeleteCompanyMemberMutationHookResult = ReturnType<
   typeof useDeleteCompanyMemberMutation
 >;
-export type DeleteCompanyMemberMutationResult = Apollo.MutationResult<OperationTypes.DeleteCompanyMemberMutation>;
+export type DeleteCompanyMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteCompanyMemberMutation>;
 export type DeleteCompanyMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteCompanyMemberMutation,
   OperationTypes.DeleteCompanyMemberMutationVariables
@@ -396,6 +399,23 @@ export const GetProjectDocument = gql`
           createdAt
         }
       }
+      projectMembers {
+        nodes {
+          id
+          accountId
+          account {
+            firstName
+            lastName
+            role
+            certificationsByDoceboUserId {
+              nodes {
+                name
+                technology
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;
@@ -447,6 +467,249 @@ export type GetProjectLazyQueryHookResult = ReturnType<
 export type GetProjectQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectQuery,
   OperationTypes.GetProjectQueryVariables
+>;
+export const DeleteProjectMemberDocument = gql`
+  mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
+    deleteProjectMember(input: $input) {
+      account {
+        id
+        firstName
+        lastName
+      }
+    }
+  }
+`;
+export type DeleteProjectMemberMutationFn = Apollo.MutationFunction<
+  OperationTypes.DeleteProjectMemberMutation,
+  OperationTypes.DeleteProjectMemberMutationVariables
+>;
+
+/**
+ * __useDeleteProjectMemberMutation__
+ *
+ * To run a mutation, you first call `useDeleteProjectMemberMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteProjectMemberMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteProjectMemberMutation, { data, loading, error }] = useDeleteProjectMemberMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useDeleteProjectMemberMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.DeleteProjectMemberMutation,
+    OperationTypes.DeleteProjectMemberMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.DeleteProjectMemberMutation,
+    OperationTypes.DeleteProjectMemberMutationVariables
+  >(DeleteProjectMemberDocument, options);
+}
+export type DeleteProjectMemberMutationHookResult = ReturnType<
+  typeof useDeleteProjectMemberMutation
+>;
+export type DeleteProjectMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteProjectMemberMutation>;
+export type DeleteProjectMemberMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.DeleteProjectMemberMutation,
+  OperationTypes.DeleteProjectMemberMutationVariables
+>;
+export const GetProjectCompanyMembersDocument = gql`
+  query getProjectCompanyMembers($existAccounts: [Int!]) {
+    companyMembers(filter: { accountId: { notIn: $existAccounts } }) {
+      nodes {
+        id
+        accountId
+        account {
+          id
+          firstName
+          lastName
+          email
+          certificationsByDoceboUserId {
+            nodes {
+              technology
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetProjectCompanyMembersQuery__
+ *
+ * To run a query within a React component, call `useGetProjectCompanyMembersQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProjectCompanyMembersQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProjectCompanyMembersQuery({
+ *   variables: {
+ *      existAccounts: // value for 'existAccounts'
+ *   },
+ * });
+ */
+export function useGetProjectCompanyMembersQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
+  >(GetProjectCompanyMembersDocument, options);
+}
+export function useGetProjectCompanyMembersLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
+  >(GetProjectCompanyMembersDocument, options);
+}
+export type GetProjectCompanyMembersQueryHookResult = ReturnType<
+  typeof useGetProjectCompanyMembersQuery
+>;
+export type GetProjectCompanyMembersLazyQueryHookResult = ReturnType<
+  typeof useGetProjectCompanyMembersLazyQuery
+>;
+export type GetProjectCompanyMembersQueryResult = Apollo.QueryResult<
+  OperationTypes.GetProjectCompanyMembersQuery,
+  OperationTypes.GetProjectCompanyMembersQueryVariables
+>;
+export const CreateProjectMemberDocument = gql`
+  mutation createProjectMember($input: CreateProjectMemberInput!) {
+    createProjectMember(input: $input) {
+      projectMember {
+        id
+        accountId
+        account {
+          id
+          firstName
+          lastName
+          role
+          certificationsByDoceboUserId {
+            nodes {
+              technology
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export type CreateProjectMemberMutationFn = Apollo.MutationFunction<
+  OperationTypes.CreateProjectMemberMutation,
+  OperationTypes.CreateProjectMemberMutationVariables
+>;
+
+/**
+ * __useCreateProjectMemberMutation__
+ *
+ * To run a mutation, you first call `useCreateProjectMemberMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateProjectMemberMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createProjectMemberMutation, { data, loading, error }] = useCreateProjectMemberMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateProjectMemberMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.CreateProjectMemberMutation,
+    OperationTypes.CreateProjectMemberMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.CreateProjectMemberMutation,
+    OperationTypes.CreateProjectMemberMutationVariables
+  >(CreateProjectMemberDocument, options);
+}
+export type CreateProjectMemberMutationHookResult = ReturnType<
+  typeof useCreateProjectMemberMutation
+>;
+export type CreateProjectMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateProjectMemberMutation>;
+export type CreateProjectMemberMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.CreateProjectMemberMutation,
+  OperationTypes.CreateProjectMemberMutationVariables
+>;
+export const AddProjectsMemberDocument = gql`
+  mutation addProjectsMember($input: ProjectMembersAddInput!) {
+    projectMembersAdd(input: $input) {
+      projectMembers {
+        projectId
+        accountId
+      }
+    }
+  }
+`;
+export type AddProjectsMemberMutationFn = Apollo.MutationFunction<
+  OperationTypes.AddProjectsMemberMutation,
+  OperationTypes.AddProjectsMemberMutationVariables
+>;
+
+/**
+ * __useAddProjectsMemberMutation__
+ *
+ * To run a mutation, you first call `useAddProjectsMemberMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useAddProjectsMemberMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [addProjectsMemberMutation, { data, loading, error }] = useAddProjectsMemberMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useAddProjectsMemberMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.AddProjectsMemberMutation,
+    OperationTypes.AddProjectsMemberMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.AddProjectsMemberMutation,
+    OperationTypes.AddProjectsMemberMutationVariables
+  >(AddProjectsMemberDocument, options);
+}
+export type AddProjectsMemberMutationHookResult = ReturnType<
+  typeof useAddProjectsMemberMutation
+>;
+export type AddProjectsMemberMutationResult =
+  Apollo.MutationResult<OperationTypes.AddProjectsMemberMutation>;
+export type AddProjectsMemberMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.AddProjectsMemberMutation,
+  OperationTypes.AddProjectsMemberMutationVariables
 >;
 export const AccountByEmailDocument = gql`
   query accountByEmail($email: String!) {
@@ -591,7 +854,8 @@ export function useCreateAccountMutation(
 export type CreateAccountMutationHookResult = ReturnType<
   typeof useCreateAccountMutation
 >;
-export type CreateAccountMutationResult = Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
+export type CreateAccountMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateAccountMutation>;
 export type CreateAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateAccountMutation,
   OperationTypes.CreateAccountMutationVariables
@@ -641,7 +905,8 @@ export function useCreateDoceboUserMutation(
 export type CreateDoceboUserMutationHookResult = ReturnType<
   typeof useCreateDoceboUserMutation
 >;
-export type CreateDoceboUserMutationResult = Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
+export type CreateDoceboUserMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateDoceboUserMutation>;
 export type CreateDoceboUserMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateDoceboUserMutation,
   OperationTypes.CreateDoceboUserMutationVariables
@@ -693,7 +958,8 @@ export function useUpdateAccountMutation(
 export type UpdateAccountMutationHookResult = ReturnType<
   typeof useUpdateAccountMutation
 >;
-export type UpdateAccountMutationResult = Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
+export type UpdateAccountMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateAccountMutation>;
 export type UpdateAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateAccountMutation,
   OperationTypes.UpdateAccountMutationVariables
@@ -870,7 +1136,8 @@ export function useCompleteInvitationMutation(
 export type CompleteInvitationMutationHookResult = ReturnType<
   typeof useCompleteInvitationMutation
 >;
-export type CompleteInvitationMutationResult = Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
+export type CompleteInvitationMutationResult =
+  Apollo.MutationResult<OperationTypes.CompleteInvitationMutation>;
 export type CompleteInvitationMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CompleteInvitationMutation,
   OperationTypes.CompleteInvitationMutationVariables
@@ -920,7 +1187,8 @@ export function useCreateSsoUrlMutation(
 export type CreateSsoUrlMutationHookResult = ReturnType<
   typeof useCreateSsoUrlMutation
 >;
-export type CreateSsoUrlMutationResult = Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
+export type CreateSsoUrlMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateSsoUrlMutation>;
 export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateSsoUrlMutation,
   OperationTypes.CreateSsoUrlMutationVariables
@@ -1055,7 +1323,8 @@ export function useBulkImportMutation(
 export type BulkImportMutationHookResult = ReturnType<
   typeof useBulkImportMutation
 >;
-export type BulkImportMutationResult = Apollo.MutationResult<OperationTypes.BulkImportMutation>;
+export type BulkImportMutationResult =
+  Apollo.MutationResult<OperationTypes.BulkImportMutation>;
 export type BulkImportMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.BulkImportMutation,
   OperationTypes.BulkImportMutationVariables
@@ -1106,7 +1375,8 @@ export function useUpdateProductMutation(
 export type UpdateProductMutationHookResult = ReturnType<
   typeof useUpdateProductMutation
 >;
-export type UpdateProductMutationResult = Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
+export type UpdateProductMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateProductMutation>;
 export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProductMutation,
   OperationTypes.UpdateProductMutationVariables
@@ -1157,7 +1427,8 @@ export function useUpdateSystemMutation(
 export type UpdateSystemMutationHookResult = ReturnType<
   typeof useUpdateSystemMutation
 >;
-export type UpdateSystemMutationResult = Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
+export type UpdateSystemMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateSystemMutation>;
 export type UpdateSystemMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateSystemMutation,
   OperationTypes.UpdateSystemMutationVariables
@@ -1208,7 +1479,8 @@ export function useCreateCompanyMutation(
 export type CreateCompanyMutationHookResult = ReturnType<
   typeof useCreateCompanyMutation
 >;
-export type CreateCompanyMutationResult = Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
+export type CreateCompanyMutationResult =
+  Apollo.MutationResult<OperationTypes.CreateCompanyMutation>;
 export type CreateCompanyMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateCompanyMutation,
   OperationTypes.CreateCompanyMutationVariables

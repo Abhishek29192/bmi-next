@@ -94,6 +94,52 @@ export const ssrGetProject = {
 
   usePage: useGetProject
 };
+
+export async function getServerPageGetProjectCompanyMembers(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProjectCompanyMembersQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetProjectCompanyMembersQuery>({
+      ...options,
+      query: Operations.GetProjectCompanyMembersDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProjectCompanyMembers = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProjectCompanyMembersDocument, options);
+};
+export type PageGetProjectCompanyMembersComp = React.FC<{
+  data?: OperationTypes.GetProjectCompanyMembersQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProjectCompanyMembers = {
+  getServerPage: getServerPageGetProjectCompanyMembers,
+
+  usePage: useGetProjectCompanyMembers
+};
+
 export async function getServerPageAccountByEmail(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.AccountByEmailQueryVariables>,
@@ -576,9 +622,10 @@ export async function getServerPageDoceboCatalogIdByMarketDomain(
   >,
   apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
 ) {
-  const data = await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
-    { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
-  );
+  const data =
+    await apolloClient.query<OperationTypes.DoceboCatalogIdByMarketDomainQuery>(
+      { ...options, query: Operations.DoceboCatalogIdByMarketDomainDocument }
+    );
 
   const apolloState = apolloClient.cache.extract();
 
