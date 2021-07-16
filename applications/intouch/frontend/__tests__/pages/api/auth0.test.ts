@@ -78,7 +78,7 @@ describe("Market", () => {
 
   it("should return en when the online dev domain", () => {
     const market = getMarketFromReq(
-      { ...req, headers: { host: "35.214.66.132" } },
+      { ...req, headers: { host: "intouch.dddev.io" } },
       res
     );
 
@@ -130,7 +130,7 @@ describe("Auth0 Handler", () => {
   });
 
   it("should redirect to login with the market when online", async () => {
-    req.headers.host = "35.214.66.132";
+    req.headers.host = "intouch.dddev.io";
     await loginHandler(req, res, auth0, logger);
 
     expect(auth0.handleLogin.mock.calls[0][2]).toEqual({

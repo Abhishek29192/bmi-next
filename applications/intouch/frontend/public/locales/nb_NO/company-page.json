@@ -1,0 +1,37 @@
+{
+  "Company description": "Norway - Company Description",
+  "About Us": "Norway - About Us",
+  "Registered Details": "Norway - Registered Details",
+  "Registered Name": "Norway - Registered Name",
+  "Registered Address": "Norway - Registered Address",
+  "Main office address": "Norway - Main office address",
+  "Phone": "Norway - Phone",
+  "support.title": "Norway - Roofpro Support",
+  "company.incomplete_profile": {
+    "warning": "Norway - In order to take part of the BMI Contract Locator please provide the required information listed below.",
+    "phone": "Norway - Phone",
+    "email": "Norway - Email",
+    "description": "Norway - Description",
+    "address": "Norway - Main office address",
+    "logo": "Norway - Logo",
+    "closeAlertAccessibilityLabel": "Norway - Close Alert"
+  },
+  "business_type": {
+    "contractor": "Norway - Contractor",
+    "architect": "Norway - Architect",
+    "merchant": "Norway - Merchant",
+    "corp_developer": "Norway - Developer",
+    "company_admin": "Norway - Company administrator"
+  },
+  "company.operations": "Norway - Operation Type",
+  "company.operations_suffix": "Norway - roofing",
+  "operation_types": {
+    "flat": "Norway - flat",
+    "pitched": "Norway - pitched",
+    "solar": "Norway - solar",
+    "bitumen": "Norway - bitumen",
+    "tile": "Norway - tile",
+    "coater": "Norway - coater",
+    "green": "Norway - green"
+  }
+}
