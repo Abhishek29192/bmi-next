@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",
-    "@google-cloud/secret-manager": "^3.4.0",
+    "@google-cloud/secret-manager": "^3.7.1",
     "dotenv": "^8.2.0",
     "axios": "^0.21.0",
     "pg": "^8.5.1"

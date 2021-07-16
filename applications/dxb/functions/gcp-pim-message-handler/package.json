@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",
-    "@google-cloud/secret-manager": "^3.4.0",
+    "@google-cloud/secret-manager": "^3.7.1",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
   },
