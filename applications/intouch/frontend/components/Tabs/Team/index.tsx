@@ -91,18 +91,18 @@ export const TeamTab = ({ projectId, teams }: TeamTabProps) => {
     <div className={styles.main}>
       <div className={styles.header}>
         <Button variant="outlined" onClick={addTeamMemberHandler}>
-          {t("Add team member")}
+          {t("teamTab.header")}
         </Button>
       </div>
       <div className={styles.body}>
         <Table>
           <Table.Head>
             <Table.Row>
-              <Table.Cell>{t("Responsible Installer")}</Table.Cell>
-              <Table.Cell>{t("Team Member")}</Table.Cell>
-              <Table.Cell>{t("Role")}</Table.Cell>
-              <Table.Cell>{t("Certification")}</Table.Cell>
-              <Table.Cell>{t("Remove")}</Table.Cell>
+              <Table.Cell>{t("teamTab.table.responsibleInstaller")}</Table.Cell>
+              <Table.Cell>{t("teamTab.table.teamMember")}</Table.Cell>
+              <Table.Cell>{t("teamTab.table.role")}</Table.Cell>
+              <Table.Cell>{t("teamTab.table.certification")}</Table.Cell>
+              <Table.Cell>{t("teamTab.table.remove")}</Table.Cell>
             </Table.Row>
           </Table.Head>
           <Table.Body>

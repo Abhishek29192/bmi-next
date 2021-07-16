@@ -37,10 +37,12 @@ export const AddTeamMemberDialog = ({
 
   return (
     <Dialog open={isOpen} onCloseClick={onCloseClick}>
-      <Dialog.Title hasUnderline>{t("Add an installer")}</Dialog.Title>
+      <Dialog.Title hasUnderline>
+        {t("teamTab.add_team_member_modal.title")}
+      </Dialog.Title>
       <Dialog.Content>
         <Typography variant="caption" display="block">
-          Choose the installers who will be working on this project.
+          {t("teamTab.add_team_member_modal.caption")}
         </Typography>
         <Form>
           <Form.Row>
@@ -57,9 +59,15 @@ export const AddTeamMemberDialog = ({
                       checked={isAllSelected}
                     />
                   </Table.Cell>
-                  <Table.Cell>{t("Name")}</Table.Cell>
-                  <Table.Cell>{t("Email")}</Table.Cell>
-                  <Table.Cell>{t("Certification")}</Table.Cell>
+                  <Table.Cell>
+                    {t("teamTab.add_team_member_modal.table.name")}
+                  </Table.Cell>
+                  <Table.Cell>
+                    {t("teamTab.add_team_member_modal.table.email")}
+                  </Table.Cell>
+                  <Table.Cell>
+                    {t("teamTab.add_team_member_modal.table.certification")}
+                  </Table.Cell>
                 </Table.Row>
               </Table.Head>
               <Table.Body>
@@ -101,10 +109,10 @@ export const AddTeamMemberDialog = ({
         </Form>
       </Dialog.Content>
       <Dialog.Actions
-        confirmLabel={t("Add Members")}
+        confirmLabel={t("teamTab.add_team_member_modal.confirm_label")}
         onConfirmClick={() => onConfirmClick(selectedTeamMembers)}
         isConfirmButtonDisabled={selectedTeamMembers.length === 0}
-        cancelLabel={t("Cancel")}
+        cancelLabel={t("teamTab.add_team_member_modal.cancel_label")}
         onCancelClick={() => onCloseClick()}
       />
     </Dialog>
