@@ -1,36 +1,30 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { gql } from "@apollo/client";
 import Typography from "@bmi/typography";
 import Grid from "@bmi/grid";
 import { Facebook, LinkedIn } from "@material-ui/icons";
 import { useTranslation } from "next-i18next";
-import { GetCompanyQuery } from "../../../graphql/generated/operations";
-import { BUSINESS_TYPES } from "../../../lib/constants";
-import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../IconLink";
-import { InfoPair } from "../../InfoPair";
-import { Address } from "../../Address";
+import { GetCompanyQuery } from "../../../../graphql/generated/operations";
+import { BUSINESS_TYPES } from "../../../../lib/constants";
+import { EmailLink, PhoneNumberLink, WebsiteLink } from "../../../IconLink";
+import { InfoPair } from "../../../InfoPair";
+import { Address } from "../../../Address";
 import styles from "./styles.module.scss";
 
 export type CompanyHeaderProps = {
   company: GetCompanyQuery["company"];
 };
 
-const businessTypeLabelMap = (t): { [key: string]: string } => ({
-  [BUSINESS_TYPES.CONTRACTOR]: t("company-page:business_type.contractor"),
-  [BUSINESS_TYPES.ARCHITECT]: t("company-page:business_type.architect"),
-  [BUSINESS_TYPES.MERCHANT]: t("company-page:business_type.merchant"),
-  [BUSINESS_TYPES.CORP_DEVELOPER]: t(
-    "company-page:business_type.corp_developer"
-  ),
-  [BUSINESS_TYPES.COMPANY_ADMIN]: t("company-page:business_type.company_admin)")
-});
+const businessTypeLabelMap = {
+  [BUSINESS_TYPES.CONTRACTOR]: "company-page:business_type.contractor",
+  [BUSINESS_TYPES.ARCHITECT]: "company-page:business_type.architect",
+  [BUSINESS_TYPES.MERCHANT]: "company-page:business_type.merchant",
+  [BUSINESS_TYPES.CORP_DEVELOPER]: "company-page:business_type.corp_developer",
+  [BUSINESS_TYPES.COMPANY_ADMIN]: "company-page:business_type.company_admin)"
+};
 
 export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
   const { t } = useTranslation(["common", "company-page"]);
-  const businessTypeLabel = useMemo(
-    () => businessTypeLabelMap(t)[company.businessType],
-    [company.businessType, t, businessTypeLabelMap]
-  );
   return (
     <div className={styles.main}>
       <Typography variant="h4" hasUnderline>
@@ -38,7 +32,7 @@ export const CompanyHeader = ({ company }: CompanyHeaderProps) => {
       </Typography>
 
       <Typography className={styles.businessType} variant="h5">
-        {businessTypeLabel}
+        {t(businessTypeLabelMap[company.businessType])}
       </Typography>
 
       <div className={styles.body}>

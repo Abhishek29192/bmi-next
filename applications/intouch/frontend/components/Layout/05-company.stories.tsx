@@ -1,9 +1,9 @@
 import React from "react";
 import { SmallProfileCard } from "../Cards/SmallProfileCard";
-import { CompanyHeader } from "../Cards/CompanyHeader";
+import { CompanyHeader } from "../Pages/Company/Header";
 import { FiftyFiftyGrid } from "../CardHolders/FiftyFiftyGrid";
 import { ThreeColumnGrid } from "../ThreeColumnGrid";
-import { CompanyRegisteredDetails } from "../Cards/CompanyRegisteredDetails";
+import { CompanyRegisteredDetails } from "../Pages/Company/RegisteredDetails";
 import { mockCompany } from "../../fixtures/company";
 import { Layout, LayoutProps } from ".";
 

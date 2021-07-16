@@ -6,11 +6,11 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Grid from "@bmi/grid";
 import { Layout } from "../components/Layout";
 import GridStyles from "../styles/Grid.module.scss";
-import { CompanyHeader } from "../components/Cards/CompanyHeader";
-import { CompanyRegisteredDetails } from "../components/Cards/CompanyRegisteredDetails";
+import { CompanyIncompleteProfileAlert } from "../components/Pages/Company/IncompleteProfileAlert";
+import { CompanyHeader } from "../components/Pages/Company/Header";
+import { CompanyRegisteredDetails } from "../components/Pages/Company/RegisteredDetails";
 import { CertificationsCard } from "../components/Cards/Certifications";
 import { SupportContactCard } from "../components/Cards/SupportContactCard";
-import { CompanyIncompleteProfileAlert } from "../components/Pages/Company/IncompleteProfileAlert";
 import { CompanyAdmins } from "../components/Pages/Company/Admins";
 import {
   GetCompanyQuery,

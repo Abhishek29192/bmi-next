@@ -1,13 +1,12 @@
 import React, { useMemo } from "react";
 import capitalize from "lodash.capitalize";
 import { gql } from "@apollo/client";
-import { Operation } from "@bmi/intouch-api-types";
 import Typography from "@bmi/typography";
 import { useTranslation } from "next-i18next";
-import { GetCompanyQuery } from "../../../graphql/generated/operations";
-import { OPERATION_TYPES } from "../../../lib/constants";
-import { InfoPair } from "../../InfoPair";
-import { Address } from "../../Address";
+import { GetCompanyQuery } from "../../../../graphql/generated/operations";
+import { OPERATION_TYPES } from "../../../../lib/constants";
+import { InfoPair } from "../../../InfoPair";
+import { Address } from "../../../Address";
 import styles from "./styles.module.scss";
 
 export type CompanyRegisteredDetailsProps = {

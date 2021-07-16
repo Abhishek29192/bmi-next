@@ -1,6 +1,6 @@
 import React from "react";
-import { mockCompany } from "../../../../fixtures/company";
-import { renderWithI18NProvider, screen } from "../../../../lib/tests/utils";
+import { mockCompany } from "../../../../../fixtures/company";
+import { renderWithI18NProvider, screen } from "../../../../../lib/tests/utils";
 import { formatCompanyOperations, CompanyRegisteredDetails } from "..";
 
 const suffix = "operations";
