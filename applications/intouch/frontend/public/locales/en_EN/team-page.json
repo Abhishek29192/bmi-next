@@ -29,6 +29,14 @@
   },
   "user_card": {
     "add_admin": "Assign as Company Admin",
-    "remove_admin": "Remove as Company Admin"
+    "remove_admin": "Remove as Company Admin",
+    "role_dialog": {
+      "title": "Change role",
+      "text": "Do you want to Change the role?"
+    },
+    "remove_user_dialog": {
+      "title": "Remove company member",
+      "text": "Do you want to remove this company member?"
+    }
   }
 }

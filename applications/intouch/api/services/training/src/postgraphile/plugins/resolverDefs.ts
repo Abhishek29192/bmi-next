@@ -30,7 +30,7 @@ export const updateTrainingResolver = async ({
   context,
   resolverInfo
 }: customResolverParams) => {
-  const doceboClient = await DoceboClient.create();
+  const doceboClient = await DoceboClient.create({ ...context });
   const courses = await doceboClient.getCourses();
   const enrollments = await doceboClient.getEnrollments();
   const catalogues = await doceboClient.getCatalogues();

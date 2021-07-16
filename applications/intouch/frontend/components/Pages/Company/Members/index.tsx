@@ -10,6 +10,7 @@ import {
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
 import { Technology, CompanyMember, Role } from "@bmi/intouch-api-types";
+import { reorderMembers } from "../../../../pages/team";
 import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
 import { SidePanel } from "../../../SidePanel";
 import { FilterResult } from "../../../FilterResult";
@@ -55,6 +56,13 @@ const CERTIFICATION_ICONS: {
 
 const today = new Date(new Date().setUTCHours(0, 0, 0, 0));
 
+const getTechnologies = (account) =>
+  Array.from(
+    new Set(
+      account.certificationsByDoceboUserId.nodes.map((item) => item.technology)
+    )
+  );
+
 const formatDate = (date: string) =>
   new Intl.DateTimeFormat("en-GB", {
     dateStyle: "medium"
@@ -90,6 +98,7 @@ const CompanyMembers = ({ data }: PageProps) => {
           message: error.message
         }
       ]);
+      closeWithDelay();
     },
     onCompleted: () => {
       const expiryDate = getNow();
@@ -103,11 +112,19 @@ const CompanyMembers = ({ data }: PageProps) => {
       setMessages([
         {
           severity: "success",
-          message: t("member.removed.success")
+          message: "member.removed.success"
         }
       ]);
+
+      closeWithDelay();
     }
   });
+
+  const closeWithDelay = () => {
+    setTimeout(() => {
+      setDialogOpen(false);
+    }, 2000);
+  };
 
   const [fetchCompanyMembers] = useCompanyMembersLazyQuery({
     fetchPolicy: "network-only",
@@ -116,7 +133,7 @@ const CompanyMembers = ({ data }: PageProps) => {
         ({ id }) => id === currentMember.id
       ) as Partial<CompanyMember>;
 
-      setMembers(data?.companyMembers?.nodes);
+      setMembers(reorderMembers(data?.companyMembers?.nodes));
 
       setCurrentMember(newCurrent);
     }
@@ -149,7 +166,7 @@ const CompanyMembers = ({ data }: PageProps) => {
     }
   });
 
-  const onAccountUpdate = (id: number, role: Role) => {
+  const onAccountUpdate = (id: number, role: Role) =>
     updateAccount({
       variables: {
         input: {
@@ -160,7 +177,6 @@ const CompanyMembers = ({ data }: PageProps) => {
         }
       }
     });
-  };
 
   const onSearch = (value: string): void => {
     const valueToSearch = value.toLowerCase();
@@ -190,49 +206,38 @@ const CompanyMembers = ({ data }: PageProps) => {
             onClick: () => setDialogOpen(true)
           }}
         >
-          {members.map(({ account, ...rest }) => {
-            const { id, role, lastName, firstName } = account;
-            const tecnologies = Array.from(
-              new Set(
-                account.certificationsByDoceboUserId.nodes.map(
-                  (item) => item.technology
-                )
-              )
-            );
-
-            return (
-              <FilterResult
-                testId="list-item"
-                label={`${firstName} ${lastName}`}
-                key={id}
-                onClick={() =>
-                  setCurrentMember({
-                    account,
-                    ...rest
-                  } as Partial<CompanyMember>)
-                }
+          {members.map(({ account, ...rest }) => (
+            <FilterResult
+              testId="list-item"
+              label={`${account.firstName} ${account.lastName}`}
+              key={account.id}
+              onClick={() =>
+                setCurrentMember({
+                  account,
+                  ...rest
+                } as Partial<CompanyMember>)
+              }
+            >
+              <Typography
+                style={{ textTransform: "capitalize" }}
+                variant="subtitle1"
+                color="textSecondary"
               >
-                <Typography
-                  style={{ textTransform: "capitalize" }}
-                  variant="subtitle1"
-                  color="textSecondary"
-                >
-                  {formattedRole(role)}
-                </Typography>
-                <div className={styles.icons}>
-                  {tecnologies.map((technology, index) => (
-                    <SvgIcon
-                      key={`${id}-${index}-${technology}`}
-                      viewBox="0 0 48 48"
-                      className={styles.icon}
-                      component={CERTIFICATION_ICONS[technology as Technology]}
-                      data-testid={`icon-${technology}`}
-                    />
-                  ))}
-                </div>
-              </FilterResult>
-            );
-          })}
+                {formattedRole(account.role)}
+              </Typography>
+              <div className={styles.icons}>
+                {getTechnologies(account).map((technology, index) => (
+                  <SvgIcon
+                    key={`${account.id}-${index}-${technology}`}
+                    viewBox="0 0 48 48"
+                    className={styles.icon}
+                    component={CERTIFICATION_ICONS[technology as Technology]}
+                    data-testid={`icon-${technology}`}
+                  />
+                ))}
+              </div>
+            </FilterResult>
+          ))}
         </SidePanel>
         <ThreeColumnGrid>
           <div className={styles.detail}>

@@ -55,6 +55,11 @@ export const mutationUpdateAccount = gql`
   }
 `;
 
+export const reorderMembers = (nodes) =>
+  [...nodes].sort((a, b) =>
+    a.account?.firstName?.localeCompare(b?.account?.firstName)
+  );
+
 const TeamPage = (props: PageProps) => {
   const { t } = useTranslation("common");
 
@@ -80,10 +85,6 @@ export const getServerSideProps = withPage(
       apolloClient
     );
 
-    const nodes = [...props.data.companyMembers.nodes].sort((a, b) =>
-      a.account?.firstName?.localeCompare(b?.account?.firstName)
-    );
-
     if (account.companyMembers.nodes.length === 0) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
@@ -97,7 +98,7 @@ export const getServerSideProps = withPage(
           ...props.data,
           companyMembers: {
             ...props.data.companyMembers,
-            nodes
+            nodes: reorderMembers(props.data.companyMembers.nodes)
           }
         },
         ...(await serverSideTranslations(locale, [

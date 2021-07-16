@@ -8,7 +8,7 @@ steps:
       - pubsub-handle-message
       - --source=gs://${_GCP_INTOUCH_REPLATFORM_BUILD_STORAGE}/gcp-handle-message.zip
       - --runtime=nodejs14
-      - --entry-point=helloPubSub
+      - --entry-point=emailSender
       - --region=europe-west2
       - --trigger-topic=transactional-email
       - --set-env-vars=SENDGRID_API_KEY=${_INTOUCH_SENDGRID_API_KEY_DEV},MAIL_FROM=${_INTOUCH_MAIL_FROM}

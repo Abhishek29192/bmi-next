@@ -6,7 +6,7 @@ const sgMail = require("@sendgrid/mail");
  * @param {!Object} event Event payload.
  * @param {!Object} context Metadata for the event.
  */
-export async function helloPubSub(event, context) {
+export async function emailSender(event, context) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   let parsedPayload;
@@ -21,11 +21,16 @@ export async function helloPubSub(event, context) {
     console.log("Error: ", error);
   }
 
-  await sgMail.send({
-    from: process.env.MAIL_FROM,
-    to: parsedPayload.email,
-    subject: parsedPayload.title,
-    text: parsedPayload.text,
-    html: parsedPayload.html
-  });
+  try {
+    await sgMail.send({
+      from: process.env.MAIL_FROM,
+      to: parsedPayload.email,
+      subject: parsedPayload.title,
+      text: parsedPayload.text,
+      html: parsedPayload.html
+    });
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("error sending the email: ", error);
+  }
 }

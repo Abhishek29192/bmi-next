@@ -48,12 +48,11 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
 
   const onSubmit = (event, values) => {
     event.preventDefault();
-    const { emails, personalNote } = values;
     inviteUsers({
       variables: {
         input: {
-          emails: emails?.replace(/ /g, "")?.split(",") || [],
-          personalNote
+          emails: values.emails?.replace(/ /g, "")?.split(",") || [],
+          personalNote: values.personalNote
         }
       }
     });

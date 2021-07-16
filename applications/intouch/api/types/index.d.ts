@@ -104,6 +104,7 @@ export type Account = Node & {
   notifications: NotificationsConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
   projectMembers: ProjectMembersConnection;
+  formattedRole?: Maybe<Scalars["String"]>;
   signedPhotoUrl?: Maybe<Scalars["String"]>;
 };
 

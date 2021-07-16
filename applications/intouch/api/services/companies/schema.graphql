@@ -1680,6 +1680,7 @@ type Account implements Node {
     """
     filter: ProjectMemberFilter
   ): ProjectMembersConnection!
+  formattedRole: String
   signedPhotoUrl: String
 }
 

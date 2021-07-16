@@ -3,6 +3,7 @@ import { InviteInput, Role } from "@bmi/intouch-api-types";
 import { FileUpload } from "graphql-upload";
 import { UpdateAccountInput } from "@bmi/intouch-api-types";
 import { publish, TOPICS } from "../../services/events";
+import { sendChangeRoleEmail } from "../../services/mailer";
 import StorageClient from "../storage-client";
 import { Account } from "../../types";
 
@@ -77,7 +78,7 @@ export const updateAccount = async (
 ) => {
   const { GCP_BUCKET_NAME } = process.env;
 
-  const { pgClient, user, logger: Logger } = context;
+  const { pgClient, user, logger: Logger, pubSub } = context;
   const { photoUpload, role } = args.input.patch;
 
   const logger = Logger("service:account");
@@ -85,9 +86,25 @@ export const updateAccount = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
+    const { rows: users } = await pgClient.query(
+      "select * from account where company_id = $1",
+      [user.company.id]
+    );
+
+    const currentAccout = users.find(({ id }) => id === args.input.id);
+
+    const admins = users.filter(({ role }) => role === "COMPANY_ADMIN");
+
     // If these values are different means we are trying to change the role
     // By default an installer can't update the role columns so we don't need to check this
-    if (role !== user.role) {
+    if (role !== currentAccout.role) {
+      if (admins.length === 1 && role === "INSTALLER") {
+        logger.error(
+          `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
+        );
+        throw new Error("last_company_admin");
+      }
+
       if (!user.can("grant:company_admin") && role === "COMPANY_ADMIN") {
         logger.error(
           `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
@@ -106,7 +123,17 @@ export const updateAccount = async (
         );
         throw new Error("unauthorized");
       }
+
+      const result = await resolve(source, args, context, resolveInfo);
+
+      await sendChangeRoleEmail(pubSub, {
+        firstname: result.data.$first_name,
+        role: role?.toLowerCase().replace("_", " ")
+      });
+
+      return result;
     }
+
     if (photoUpload) {
       const { rows: accounts } = await pgClient.query(
         `select photo from account WHERE id = $1`,

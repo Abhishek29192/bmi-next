@@ -133,6 +133,7 @@ export default gql`
     customEvidenceCategory: ContentfulEvidenceCategory
   }
   extend type Account {
+    formattedRole: String
     signedPhotoUrl: String
   }
 
