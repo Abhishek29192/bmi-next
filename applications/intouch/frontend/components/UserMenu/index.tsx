@@ -100,7 +100,7 @@ export default function MenuListComposition() {
                     id="menu-list-grow"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem href="/profile" onClick={handleClose}>
+                    <MenuItem component="a" href="/profile">
                       {t("Profile")}
                     </MenuItem>
                     <MenuItem component="a" href="/api/auth/logout">
