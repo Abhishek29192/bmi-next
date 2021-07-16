@@ -10,7 +10,6 @@ const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
 
 const ERROR_ALREADY_MEMBER = "The user is already a member of another company";
-const ERROR_NO_COMPANY_ADMIN = "You can't invite company admin";
 const ERROR_INVITATION_NOT_FOUND = "Invitation not found";
 
 export const createAccount = async (
@@ -78,14 +77,37 @@ export const updateAccount = async (
 ) => {
   const { GCP_BUCKET_NAME } = process.env;
 
-  const { pgClient, logger: Logger } = context;
+  const { pgClient, user, logger: Logger } = context;
+  const { photoUpload, role } = args.input.patch;
 
   const logger = Logger("service:account");
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    if (args.input.patch.photoUpload) {
+    // If these values are different means we are trying to change the role
+    // By default an installer can't update the role columns so we don't need to check this
+    if (role !== user.role) {
+      if (!user.can("grant:company_admin") && role === "COMPANY_ADMIN") {
+        logger.error(
+          `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
+        );
+        throw new Error("unauthorized");
+      }
+      if (!user.can("grant:market_admin") && role === "MARKET_ADMIN") {
+        logger.error(
+          `User with id: ${user.id} is trying to grant market admin to user ${args.input.id}`
+        );
+        throw new Error("unauthorized");
+      }
+      if (!user.can("grant:super_admin") && role === "SUPER_ADMIN") {
+        logger.error(
+          `User with id: ${user.id} is trying to grant super admin to user ${args.input.id}`
+        );
+        throw new Error("unauthorized");
+      }
+    }
+    if (photoUpload) {
       const { rows: accounts } = await pgClient.query(
         `select photo from account WHERE id = $1`,
         [args.input.id]
@@ -94,7 +116,7 @@ export const updateAccount = async (
       const newFileName =
         accounts[0].photo || `profile/${args.input.id}-${Date.now()}`;
 
-      const uploadedFile: FileUpload = await args.input.patch.photoUpload;
+      const uploadedFile: FileUpload = await photoUpload;
 
       args.input.patch.photo = newFileName;
 

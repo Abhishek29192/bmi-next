@@ -17,6 +17,13 @@ export const parseHeaders = (req): Account => {
   }
 };
 
+export const can = (req) => (permissions: string | string[]) => {
+  const toCheck = Array.isArray(permissions) ? permissions : [permissions];
+  const currentPermissions = rolePermissions[req.user.role];
+
+  return !!currentPermissions.some((r) => toCheck.includes(r));
+};
+
 export default async (req, res, next) => {
   const user = parseHeaders(req);
   const dbPool = getDbPool();
@@ -65,12 +72,7 @@ export default async (req, res, next) => {
       };
     }
 
-    req.user.can = (permissions: string | string[]) => {
-      const toCheck = Array.isArray(permissions) ? permissions : [permissions];
-      const currentPermissions = rolePermissions[req.user.role];
-
-      return !!currentPermissions.some((r) => toCheck.includes(r));
-    };
+    req.user.can = can(req);
   }
 
   return next();

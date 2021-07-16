@@ -1,20 +1,12 @@
 import { resolve } from "path";
 import { config } from "dotenv";
-import { Pool } from "pg";
+import { getDbPool } from "../test-utils/db";
 
 config({
   path: resolve(__dirname, "../../.env")
 });
 
-const { PG_USER, PG_PASSWORD, PG_HOST, PG_DATABASE, PG_PORT } = process.env;
-
-const pool = new Pool({
-  user: PG_USER,
-  password: PG_PASSWORD,
-  port: +PG_PORT,
-  host: PG_HOST,
-  database: PG_DATABASE
-});
+const pool = getDbPool();
 const PERMISSION_DENIED = (table) => `permission denied for table ${table}`;
 const RLS_ERROR = (table) =>
   `new row violates row-level security policy for table "${table}"`;

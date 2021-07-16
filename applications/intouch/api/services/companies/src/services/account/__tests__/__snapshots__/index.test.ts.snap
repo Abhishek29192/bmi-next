@@ -153,6 +153,7 @@ Array [
         "query": [MockFunction],
       },
       "user": Object {
+        "can": [Function],
         "id": null,
         "sub": "user-sub",
       },
@@ -243,6 +244,7 @@ Array [
         "query": [MockFunction],
       },
       "user": Object {
+        "can": [Function],
         "id": null,
         "sub": "user-sub",
       },
