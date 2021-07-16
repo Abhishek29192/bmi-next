@@ -253,6 +253,137 @@
       "name": "Print_TBK SN-403 T",
       "realFileName": "Print_TBK SN-403 T.tiff",
       "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h27/h23/9004358598686/Print-TBK-SN-403-Ttiff"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 572987,
+      "mime": "image/jpeg",
+      "name": "Test Image NO",
+      "realFileName": "system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h46/h55/9006939373598/system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 65517,
+      "format": "Product-Hero-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Hero-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h27/hc5/9006940422174/Product-Hero-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 28759,
+      "format": "Product-Color-Selector-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Color-Selector-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd5/hc5/9006940487710/Product-Color-Selector-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 31442,
+      "format": "Product-Listing-Card-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Listing-Card-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he6/hc8/9006940553246/Product-Listing-Card-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 43301,
+      "format": "Product-Hero-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Hero-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he4/hcb/9006940618782/Product-Hero-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 32497,
+      "format": "Product-Hero-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Hero-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Hero-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha6/hcc/9006940684318/Product-Hero-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 41642,
+      "format": "Product-Color-Selector-Large-Desktop",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Color-Selector-Large-Desktop_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/ha3/hcf/9006940749854/Product-Color-Selector-Large-Desktop-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 32497,
+      "format": "Product-Color-Selector-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Color-Selector-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Color-Selector-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb5/hd2/9006940815390/Product-Color-Selector-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 26783,
+      "format": "Product-Listing-Card-Small-Desktop-Tablet",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Listing-Card-Small-Desktop-Tablet_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h75/hd3/9006940880926/Product-Listing-Card-Small-Desktop-Tablet-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 27221,
+      "format": "Product-Listing-Card-Mobile",
+      "mime": "image/jpeg",
+      "name": "Product-Listing-Card-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Product-Listing-Card-Mobile_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h74/hd6/9006940946462/Product-Listing-Card-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 76571,
+      "format": "Web",
+      "mime": "image/jpeg",
+      "name": "Web_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Web_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.jpg",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcf/hde/9006941011998/Web-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg"
+    },
+    {
+      "allowedToDownload": true,
+      "assetType": "GALLERY",
+      "containerId": "container_Test_Image",
+      "fileSize": 1718134,
+      "format": "Print",
+      "mime": "image/tiff",
+      "name": "Print_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech",
+      "realFileName": "Print_system-villas-flachdach-everguard-tpo-fpo-auf-trapezblech.tiff",
+      "url": "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h21/hde/9006941077534/Print-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechtiff"
     }
   ],
   "longDescription": "<p>LDescription NO</p>",
