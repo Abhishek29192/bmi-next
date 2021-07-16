@@ -1,6 +1,8 @@
 export const REDIRECT_MAP = {
+  // Public domain & sub-domains
+  "intouch.dddev.io": "en",
+  // Local domains
   localhost: "en",
-  "35.214.66.132": "en",
   "en.local.intouch": "en",
   "it.local.intouch": "it",
   "de.local.intouch": "de",
