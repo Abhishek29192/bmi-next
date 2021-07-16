@@ -16,6 +16,7 @@
     "@bmi/dialog": "0.0.0",
     "@bmi/form": "0.0.0",
     "@bmi/grid": "0.0.0",
+    "@bmi/react-pdf-maker": "0.0.0",
     "@bmi/text-field": "0.0.0",
     "@bmi/theme-provider": "0.0.0",
     "@bmi/typography": "0.0.0",
@@ -24,7 +25,6 @@
     "classnames": "^2.2.6",
     "query-string": "^6.13.2",
     "react": "^16.13.1",
-    "react-is": "^16.13.1",
-    "react-pdf-maker": "0.0.0"
+    "react-is": "^16.13.1"
   }
 }

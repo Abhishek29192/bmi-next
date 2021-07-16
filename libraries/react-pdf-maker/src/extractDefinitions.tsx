@@ -1,8 +1,12 @@
 import React from "react";
 import * as ReactIs from "react-is";
+import { PDFNode } from "./types";
 import toArray from "./utils/toArray";
 
-const fragmentToArray = (fragment) => {
+// Should use React.ReactFragment, it takes in Object, not a specific type.
+// This means `props` does not exist on it from a typing point of view, even
+// though it exists.
+const fragmentToArray = (fragment: any) => {
   const {
     props: { children }
   } = fragment;
@@ -10,7 +14,7 @@ const fragmentToArray = (fragment) => {
   return toArray(children, true);
 };
 
-const extractDefinitions = (element) => {
+const extractDefinitions = (element: React.ReactNode): PDFNode => {
   // For simplicity
   if (ReactIs.isFragment(element)) {
     element = fragmentToArray(element);
@@ -22,6 +26,9 @@ const extractDefinitions = (element) => {
 
   // Return the definition
   if (!ReactIs.isElement(element)) {
+    if (typeof element === "number" || typeof element === "boolean") {
+      return `${element}`;
+    }
     return element;
   }
 
