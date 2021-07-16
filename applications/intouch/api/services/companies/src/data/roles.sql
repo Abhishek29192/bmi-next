@@ -37,20 +37,17 @@ grant select on market to installer;
 grant select, update on market to market_admin;
 grant select, insert, update, delete on market to super_admin;
 
-
-
 -- company
 grant select, insert on company to installer;
-grant select on project to installer;
-grant select on project_member to installer;
-grant select, insert on company to company_admin;
 grant update (owner_fullname, owner_email, owner_phone, business_type, tier, status, docebo_group_id, name, tax_number, phone, about_us, public_email, website, facebook,linked_in) on company to company_admin;
 
 -- company_member
 grant select, insert, delete on company_member to installer;
-grant select, insert, delete on project_member to company_admin;
-grant select, insert, update, delete on project to company_admin;
 grant update (account_id) on company_member to company_admin;
+
+-- -- company_operations
+grant select on company_operation to installer;
+grant select, insert, update, delete on company_operation to super_admin;
 
 -- account
 grant select, insert, update, delete on account to installer;
@@ -68,13 +65,13 @@ grant select, insert, delete on company_document to company_admin;
 
 -- project
 grant select on project to installer;
-grant select, insert, delete on project to company_admin;
+grant select, insert, update, delete on project to company_admin;
 grant update (company_id, technology, name, description, roof_area, building_owner_mail, building_owner_firstname, building_owner_lastname, building_owner_company, start_date, end_date) on project to company_admin;
 grant update on project to market_admin;
 
 -- project_member
 grant select, delete on project_member to installer;
-grant select, insert, update, delete on project_member to company_admin;
+grant select, insert, delete on project_member to company_admin;
 
 -- notification
 grant select on notification to installer;
@@ -89,8 +86,8 @@ grant select, insert, update, delete on invitation to super_admin;
 -- guarantee
 grant select on guarantee to installer;
 grant select on guarantee to company_admin;
-grant insert (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
-grant update (id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
+grant insert (id, requestor_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
+grant update (id, requestor_account_id, project_id, guarantee_type_id, status, start_date, expiry_date) on guarantee to company_admin;
 grant update (requestor_account_id, expiry_date) on guarantee to market_admin;
 
 -- account_certification

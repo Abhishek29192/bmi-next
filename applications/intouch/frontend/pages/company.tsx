@@ -20,7 +20,7 @@ import {
   getServerPageGetCompany,
   getServerPageGetCurrentCompany
 } from "../graphql/generated/page";
-import { ROLES } from "../lib/config";
+import { ROLES } from "../lib/constants";
 import {
   ErrorStatusCode,
   generatePageError,
@@ -110,35 +110,8 @@ export const GET_COMPANY_PAGE = gql`
 export const CompanyDetailsFragment = gql`
   fragment CompanyDetailsFragment on Company {
     id
-    name
-    logo
-    phone
-    website
-    aboutUs
-    tradingAddress {
-      ...AddressLinesFragment
-      # These are required for the Alert banner
-      coordinates {
-        x
-        y
-      }
-    }
-    registeredAddress {
-      ...AddressLinesFragment
-    }
-    logo
-    taxNumber
-    tier
-    businessType
-    ownerFullname
-    ownerEmail
-    ownerPhone
-    phone
-    publicEmail
-    website
-    linkedIn
-    facebook
-    referenceNumber
+    ...CompanyHeaderDetailsFragment
+    ...CompanyRegisteredDetailsFragment
     ...CompanyAdminsFragment
     ...CompanyCertifications
   }

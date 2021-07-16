@@ -35,6 +35,8 @@ export type Image = {
   containerId: string;
   fileSize: number;
   name: string;
+  format: string;
+  altText?: string;
 };
 
 export type Asset = {
@@ -52,25 +54,13 @@ export type Category = {
   parentCategoryCode: string;
 };
 
-export type ProductImage = {
-  allowedToDownload: boolean;
-  assetType: string;
-  fileSize: number;
-  name: string;
-  url: string;
-  containerId: string;
-  mime: string;
-  realFileName: string;
-  format?: string;
-};
-
 // TODO: perhaps should be stored somewhere else to export
 export type Product = {
   code: string;
   externalProductCode: string | null;
   name: string;
   description: string;
-  images?: ReadonlyArray<ProductImage>;
+  images?: ReadonlyArray<Image>;
   assets?: ReadonlyArray<Asset>;
   productBenefits?: ReadonlyArray<string>;
   categories?: ReadonlyArray<Category>;

@@ -1,9 +1,9 @@
 import React from "react";
-import { renderWithRouter } from "../../test/renderWithRouter";
-
-import SystemDetailsPage, { SystemDetails } from "../system-details-page";
-import { createMockSiteData } from "../../test/mockSiteData";
-import dataJson from "../../data/pim-mock-data.json";
+import { renderWithRouter } from "../../../test/renderWithRouter";
+import { createMockSiteData } from "../../../test/mockSiteData";
+import dataJson from "../../../data/pim-mock-data.json";
+import SystemDetailsPage from "../../system-details-page";
+import { SystemDetails } from "../../system-details/types";
 
 const systemPageId = "1234";
 const siteId = "1234";

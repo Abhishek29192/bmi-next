@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import DefaultButton from "@bmi/button";
 import Container from "@bmi/container";
 import Grid from "@bmi/grid";
@@ -20,6 +20,7 @@ type Props = {
   inputCallToAction: React.ReactNode;
   buttonComponent?: React.ComponentType<any>; // TODO
   onSubmit?: (email: string) => void;
+  inputGroupSuffix?: React.ReactNode;
 };
 
 const InputBanner = ({
@@ -28,7 +29,8 @@ const InputBanner = ({
   inputLabel,
   inputCallToAction,
   buttonComponent: Button = DefaultButton,
-  onSubmit
+  onSubmit,
+  inputGroupSuffix
 }: Props) => {
   const [emailInput, setEmailInput] = useState<string>("");
 
@@ -94,6 +96,7 @@ const InputBanner = ({
                   </Button>
                 }
               />
+              {inputGroupSuffix}
             </Grid>
           </Grid>
         </div>

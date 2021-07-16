@@ -246,7 +246,6 @@ CREATE TABLE guarantee (
   id serial PRIMARY KEY,
   file_storage_id text,
   requestor_account_id int,
-  responsible_installer_account_id int,
   project_id int,
   guarantee_type_id text,
   system_bmi_ref text,
@@ -364,6 +363,7 @@ CREATE TABLE project_member (
   id serial PRIMARY KEY,
   project_id int,
   account_id int,
+  is_responsible_installer boolean,
   created_at timestamp NOT NULL DEFAULT now(),
   updated_at timestamp NOT NULL DEFAULT now()
 );
@@ -642,17 +642,17 @@ INSERT INTO evidence_item (id, custom_evidence_category_id, project_id, guarante
 
 TRUNCATE TABLE guarantee RESTART IDENTITY;
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('1', 'http://www.africau.edu/images/default/sample.pdf', 3, NULL, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'P1', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2061-04-20 12:00:00', 'C1P1G1');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('1', 'http://www.africau.edu/images/default/sample.pdf', 3, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'P1', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2061-04-20 12:00:00', 'C1P1G1');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('2', 'http://www.africau.edu/images/default/sample.pdf', 3, NULL, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'P3', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2051-04-20 12:00:00', 'C1P2G2');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('2', 'http://www.africau.edu/images/default/sample.pdf', 3, 1, '6ivLobJgk2jd0Tm3fwA48u', NULL, 'P3', NULL, '1hkU39ASbE4oYoBREitkgV', 'APPROVED', '2021-04-20 12:00:00', '2051-04-20 12:00:00', 'C1P2G2');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('3', 'http://www.africau.edu/images/default/sample.pdf', 7, 7, 3, '54S9J770q5T2jPYxptah89', 'S3', NULL, NULL, '2cH694AWInJSZIdKHDKfJO', 'REJECTED', NULL, NULL, 'C2P3G3');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('3', 'http://www.africau.edu/images/default/sample.pdf', 7, 3, '54S9J770q5T2jPYxptah89', 'S3', NULL, NULL, '2cH694AWInJSZIdKHDKfJO', 'REJECTED', NULL, NULL, 'C2P3G3');
 
-INSERT INTO guarantee (id, file_storage_id, requestor_account_id, responsible_installer_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
-  VALUES ('4', 'http://www.africau.edu/images/default/sample.pdf', 13, NULL, 4, '54S9J770q5T2jPYxptah89', 'S3', NULL, 1, '2cH694AWInJSZIdKHDKfJO', 'APPROVED', '2020-12-29 12:00:00', '2050-12-29 12:00:00', 'C3P4G4');
+INSERT INTO guarantee (id, file_storage_id, requestor_account_id, project_id, guarantee_type_id, system_bmi_ref, product_bmi_ref, reviewer_account_id, guarantee_template_id, status, start_date, expiry_date, bmi_reference_id)
+  VALUES ('4', 'http://www.africau.edu/images/default/sample.pdf', 13, 4, '54S9J770q5T2jPYxptah89', 'S3', NULL, 1, '2cH694AWInJSZIdKHDKfJO', 'APPROVED', '2020-12-29 12:00:00', '2050-12-29 12:00:00', 'C3P4G4');
 
 TRUNCATE TABLE invitation RESTART IDENTITY;
 
@@ -739,35 +739,35 @@ INSERT INTO project (id, company_id, site_address_id, building_owner_address_id,
 
 TRUNCATE TABLE project_member RESTART IDENTITY;
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('1', 1, 3);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('1', 1, 3, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('2', 1, 4);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('2', 1, 4, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('3', 1, 5);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('3', 1, 5, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('4', 2, 3);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('4', 2, 3, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('5', 2, 5);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('5', 2, 5, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('6', 2, 6);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('6', 2, 6, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('7', 3, 7);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('7', 3, 7, TRUE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('8', 3, 8);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('8', 3, 8, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('9', 3, 9);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('9', 3, 9, FALSE);
 
-INSERT INTO project_member (id, project_id, account_id)
-  VALUES ('10', 4, 10);
+INSERT INTO project_member (id, project_id, account_id, is_responsible_installer)
+  VALUES ('10', 4, 10, FALSE);
 
 TRUNCATE TABLE SYSTEM RESTART IDENTITY;
 
@@ -805,6 +805,9 @@ ALTER TABLE account
 
 ALTER TABLE account
   ADD UNIQUE (docebo_user_id);
+
+ALTER TABLE company_member
+  ADD UNIQUE (market_id, account_id, company_id);
 
 ALTER TABLE market
   ADD UNIQUE (DOMAIN);
@@ -885,11 +888,6 @@ ALTER TABLE guarantee
   ADD FOREIGN KEY (requestor_account_id) REFERENCES account (id) ON DELETE CASCADE;
 
 CREATE INDEX ON guarantee (requestor_account_id);
-
-ALTER TABLE guarantee
-  ADD FOREIGN KEY (responsible_installer_account_id) REFERENCES account (id) ON DELETE CASCADE;
-
-CREATE INDEX ON guarantee (responsible_installer_account_id);
 
 ALTER TABLE guarantee
   ADD FOREIGN KEY (project_id) REFERENCES project (id) ON DELETE CASCADE;
@@ -1145,8 +1143,6 @@ COMMENT ON COLUMN guarantee.file_storage_id IS 'The pdf file that is emailed out
 
 COMMENT ON COLUMN guarantee.requestor_account_id IS 'fk';
 
-COMMENT ON COLUMN guarantee.responsible_installer_account_id IS 'fk';
-
 COMMENT ON COLUMN guarantee.project_id IS 'fk';
 
 COMMENT ON COLUMN guarantee.guarantee_type_id IS 'a reference to the guaranteeType sys id in Contentful';
@@ -1294,6 +1290,8 @@ COMMENT ON COLUMN project_member.id IS 'Primary key';
 COMMENT ON COLUMN project_member.project_id IS 'fk';
 
 COMMENT ON COLUMN project_member.account_id IS 'fk';
+
+COMMENT ON COLUMN project_member.is_responsible_installer IS 'The responsible installer';
 
 COMMENT ON TABLE SYSTEM IS 'A collection of products that can be guaranteed as a system';
 
@@ -1535,4 +1533,6 @@ CREATE INDEX invitation_status_idx ON invitation USING btree (status);
 CREATE INDEX invitation_invitee_idx ON invitation USING btree (invitee);
 
 CREATE INDEX market_domain_idx ON market USING btree (DOMAIN);
+
+CREATE INDEX project_member_is_responsible_installer_idx ON project_member USING btree (is_responsible_installer);
 

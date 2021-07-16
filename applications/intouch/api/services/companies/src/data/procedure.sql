@@ -44,7 +44,7 @@ CREATE OR REPLACE FUNCTION invited_by_companies ()
   FROM
     invitation
   WHERE
-    invitee = current_account_email ()
+    invitee = current_account_email () AND status = 'NEW'
 $$
 LANGUAGE sql
 STABLE

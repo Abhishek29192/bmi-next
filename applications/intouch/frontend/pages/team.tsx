@@ -52,7 +52,7 @@ const TeamPage = (props: PageProps) => {
 };
 
 export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
-  var expiryDate = new Date();
+  const expiryDate = new Date();
   expiryDate.setHours(0, 0, 0, 0);
   expiryDate.setMonth(expiryDate.getMonth() - 6);
 

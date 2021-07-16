@@ -103,17 +103,17 @@ export default class DoceboClient {
     return data;
   }
 
-  public async userByEmail(email: String) {
+  public async userByEmail(email: string) {
     const {
       data: { data }
     } = await this.client.get(
-      `/manage/v1/user?match_type=full&search_text=${email}`
+      `/manage/v1/user?match_type=full&search_text=${encodeURIComponent(email)}`
     );
 
     return data.items[0];
   }
 
-  public async checkUserValidatiy(userId?: String, email?: String) {
+  public async checkUserValidatiy(userId?: string, email?: string) {
     const mapQuery = [];
     if (userId) mapQuery.push({ name: "userid", value: userId });
     if (email) mapQuery.push({ name: "email", value: email });

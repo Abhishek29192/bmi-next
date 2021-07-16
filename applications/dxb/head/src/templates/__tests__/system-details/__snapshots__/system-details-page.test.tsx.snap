@@ -2538,7 +2538,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
         </div>
       </div>
       <div
-        class="Section Section--white"
+        class="LeadBlockSection Section Section--white"
       >
         <div
           class="Container"
@@ -2729,6 +2729,114 @@ exports[`SystemDetailsPage template component should render 1`] = `
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="Section Section--pearl"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="ImageGallery"
+                >
+                  <div
+                    class="image-wrapper"
+                  >
+                    <img
+                      alt="TBK SN-403 T"
+                      class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+                      src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd8/h14/9004358139934/Product-Hero-Small-Desktop-Tablet-TBK-SN-403-Tjpg"
+                    />
+                  </div>
+                  <div
+                    class="thumbnails"
+                  >
+                    <button
+                      class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                    <button
+                      class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root icon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                    <div
+                      class="scroller"
+                      style="margin-right: 0%;"
+                    >
+                      <button
+                        class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                        style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h19/h11/9004358008862/Product-Color-Selector-Mobile-TBK-SN-403-Tjpg);"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="accessibility-text"
+                        />
+                      </button>
+                      <button
+                        class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                        style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/hd5/hc5/9006940487710/Product-Color-Selector-Mobile-system-villas-flachdach-everguard-tpo-fpo-auf-trapezblechjpg);"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="accessibility-text"
+                        />
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                Layers Accordion will be here
               </div>
             </div>
           </div>

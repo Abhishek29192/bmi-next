@@ -19,6 +19,7 @@ import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import withGTM from "../utils/google-tag-manager";
+import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 // TODO: FormInputs should be updated and used here.
 import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
 import { Data as LinkData } from "./Link";
@@ -482,6 +483,8 @@ const FormSection = ({
       ) : (
         "Form contains no fields"
       )}
+
+      <RecaptchaPrivacyLinks />
     </Section>
   );
 };

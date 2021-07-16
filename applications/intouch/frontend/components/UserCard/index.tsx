@@ -4,6 +4,7 @@ import Typography from "@bmi/typography";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
+
 import styles from "./styles.module.scss";
 
 export type UserCardProps = {
@@ -13,6 +14,7 @@ export type UserCardProps = {
   companyName: string;
   testid?: string;
   details: readonly DetailProps[];
+  onRemoveUser: () => void;
 };
 
 export const UserCard = ({
@@ -21,7 +23,8 @@ export const UserCard = ({
   role,
   details,
   companyName,
-  testid
+  testid,
+  onRemoveUser
 }: UserCardProps) => {
   const { t } = useTranslation("common");
 
@@ -42,7 +45,9 @@ export const UserCard = ({
           <CompanyDetails details={details}>&nbsp;</CompanyDetails>
         </div>
         <div className={styles.buttonHolder}>
-          <Button>{t("Remove from company")}</Button>
+          <Button data-testid="remove-member" onClick={onRemoveUser}>
+            {t("Remove from company")}
+          </Button>
         </div>
       </div>
     </div>
