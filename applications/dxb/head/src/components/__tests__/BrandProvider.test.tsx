@@ -1,77 +1,55 @@
 import "@testing-library/jest-dom";
 
 import React from "react";
-import { render } from "@testing-library/react";
-import BrandProvider, {
-  changePrimaryColor,
-  getBrandClassName
-} from "../BrandProvider";
+import { render, screen } from "@testing-library/react";
+import { useTheme } from "@material-ui/core";
+import BrandProvider, { getBrandClassName } from "../BrandProvider";
 
-describe("BrandProvider component", () => {
-  it("renders correctly", () => {
-    const { container } = render(<BrandProvider>hi</BrandProvider>);
-
-    expect(container.firstChild).toMatchSnapshot();
-  });
-  it("renders correctly with brand ", () => {
-    const { container } = render(
-      <BrandProvider brand="Braas">hi</BrandProvider>
-    );
-
-    expect(container.firstChild).toMatchSnapshot();
+describe("BrandProvider", () => {
+  it("renders", () => {
+    const view = render(<BrandProvider>Test</BrandProvider>);
+    expect(view.container.firstChild).toMatchSnapshot();
   });
 
-  it("should not have have className without brand", () => {
-    const { getByTestId } = render(<BrandProvider>Tests</BrandProvider>);
-
-    expect(getByTestId("brand-colors-provider")).not.toHaveClass();
+  it("renders with brand", () => {
+    const view = render(<BrandProvider brand="Braas">Test</BrandProvider>);
+    expect(view.container.firstChild).toMatchSnapshot();
   });
 
-  it("should not have have className from config if brand 'Braas'", () => {
+  it("adds brand className only when correct brand is provided", () => {
+    const { rerender } = render(<BrandProvider>Without brand</BrandProvider>);
+    expect(screen.getByTestId("brand-colors-provider")).not.toHaveClass();
+
+    rerender(<BrandProvider brand="Unknown">With brand</BrandProvider>);
+    expect(screen.getByTestId("brand-colors-provider")).not.toHaveClass();
+
     const brand = "Braas";
-    const { getByTestId } = render(
-      <BrandProvider brand={brand}>Tests</BrandProvider>
-    );
-
-    expect(getByTestId("brand-colors-provider")).toHaveClass(
-      getBrandClassName(brand)
-    );
+    const className = getBrandClassName(brand);
+    rerender(<BrandProvider brand={brand}>With brand</BrandProvider>);
+    expect(screen.getByTestId("brand-colors-provider")).toHaveClass(className);
   });
 
-  it("should not have have className from config if brand 'Esha'", () => {
-    const brand = "Esha";
-    const { getByTestId } = render(
-      <BrandProvider brand={brand}>Tests</BrandProvider>
-    );
+  it("modifies Material UI Theme with interaction color", () => {
+    const interColor = "#d10513";
 
-    expect(getByTestId("brand-colors-provider")).toHaveClass(
-      getBrandClassName(brand)
-    );
-  });
-});
+    const mockGetComputedStyle = jest.spyOn(global, "getComputedStyle");
+    mockGetComputedStyle.mockReturnValueOnce({
+      getPropertyValue: () => interColor
+    } as any);
 
-describe("expandTheme function", () => {
-  it("should return change theme primary color", () => {
-    const theme = {
-      palette: {
-        primary: {
-          main: "#ffffff"
-        },
-        secondary: {
-          main: "#0044ff"
-        }
-      }
+    const TestComponent = () => {
+      const theme = useTheme();
+      return <div>{theme.palette.primary.main}</div>;
     };
 
-    expect(changePrimaryColor("#000000")(theme)).toEqual({
-      palette: {
-        primary: {
-          main: "#000000"
-        },
-        secondary: {
-          main: "#0044ff"
-        }
-      }
-    });
+    render(
+      <BrandProvider brand="Braas">
+        <TestComponent />
+      </BrandProvider>
+    );
+
+    expect(screen.getByText(interColor)).toBeInTheDocument();
+
+    mockGetComputedStyle.mockRestore();
   });
 });

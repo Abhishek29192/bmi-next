@@ -29,42 +29,37 @@ const BRANDS_CLASSES = {
   Zanda: styles["BrandRed"]
 };
 
-export const getBrandClassName = (brand?: string) => BRANDS_CLASSES[`${brand}`];
+export const getBrandClassName = (brand?: string): string => {
+  return BRANDS_CLASSES[`${brand}`] || "";
+};
 
 type BrandProviderProps = {
   children: React.ReactNode;
   brand?: string;
 };
 
-export const changePrimaryColor =
-  (primaryColor: string = "#ccc") =>
-  (theme: ThemeOptions) => {
-    return {
-      ...theme,
-      palette: {
-        ...theme.palette,
-        primary: {
-          ...theme.palette.primary,
-          main: primaryColor
-        }
-      }
-    };
-  };
-
 const BrandProvider = ({ brand, children }: BrandProviderProps) => {
-  const ref = useRef(null);
-  const [expandTheme, setExpandTheme] = useState(undefined);
+  const ref = useRef<HTMLDivElement>();
+  const [interColor, setInterColor] = useState<string | null>(null);
 
   const className = getBrandClassName(brand);
 
   useLayoutEffect(() => {
-    const primaryColor =
-      ref.current &&
-      getComputedStyle(ref.current)!
-        .getPropertyValue("--color-brand-inter")
-        ?.trim();
-    primaryColor && setExpandTheme(() => changePrimaryColor(primaryColor));
+    if (ref.current) {
+      const style = getComputedStyle(ref.current);
+      const interColor = style.getPropertyValue("--color-brand-inter").trim();
+      if (interColor) {
+        setInterColor(interColor);
+      }
+    }
   }, []);
+
+  const modifyThemePrimaryColor = (theme: ThemeOptions) => {
+    if (interColor) {
+      theme.palette.primary = { main: interColor };
+    }
+    return theme;
+  };
 
   return (
     <div
@@ -73,8 +68,8 @@ const BrandProvider = ({ brand, children }: BrandProviderProps) => {
       data-testid="brand-colors-provider"
     >
       <BmiThemeProvider
-        longText={!!process.env.GATSBY_LONG_TEXT}
-        expandTheme={expandTheme}
+        longText={Boolean(process.env.GATSBY_LONG_TEXT)}
+        modifyTheme={modifyThemePrimaryColor}
       >
         {children}
       </BmiThemeProvider>

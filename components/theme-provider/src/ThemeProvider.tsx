@@ -4,13 +4,13 @@ import {
   ThemeProvider as MaterialThemeProvider,
   ThemeOptions
 } from "@material-ui/core";
-import React, { useMemo } from "react";
+import React from "react";
 import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
 export const getTheme = (
   longText: boolean,
-  expandTheme?: (t: ThemeOptions) => ThemeOptions
+  modifyTheme: (theme: ThemeOptions) => ThemeOptions = (t) => t
 ) => {
   const defaultTheme: ThemeOptions = {
     breakpoints: {
@@ -100,19 +100,19 @@ export const getTheme = (
       }
     }
   };
-  return createMuiTheme(expandTheme ? expandTheme(defaultTheme) : defaultTheme);
+  return createMuiTheme(modifyTheme(defaultTheme));
 };
 
 type Props = {
   longText?: boolean;
   children: React.ReactNode;
-  expandTheme?: (t: ThemeOptions) => ThemeOptions;
+  modifyTheme?: (theme: ThemeOptions) => ThemeOptions;
 };
 
-const ThemeProvider = ({ longText = false, expandTheme, children }: Props) => {
-  const theme = useMemo(
-    () => getTheme(longText, expandTheme),
-    [longText, expandTheme]
+const ThemeProvider = ({ longText = false, modifyTheme, children }: Props) => {
+  const theme = React.useMemo(
+    () => getTheme(longText, modifyTheme),
+    [longText, modifyTheme]
   );
 
   return (
