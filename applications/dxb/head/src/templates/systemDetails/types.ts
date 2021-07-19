@@ -63,6 +63,24 @@ export type Assets = {
 
 export type SystemBenefits = string[];
 
+export type SystemLayer = {
+  addon: boolean;
+  approvalStatus: "approved" | "unapproved";
+  code: string;
+  images: Image[];
+  layerNumber: number;
+  longDescription: string;
+  name: string;
+  optionalProducts: {
+    code: string;
+  }[];
+  products: {
+    code: string;
+  }[];
+  shortDescription: string;
+  type: string;
+};
+
 export interface SystemDetails {
   type?: string;
   approvalStatus?: string;
@@ -75,6 +93,6 @@ export interface SystemDetails {
   longDescription: string;
   shortDescription?: string;
   systemBenefits: SystemBenefits;
-  systemLayers?: any[];
+  systemLayers?: SystemLayer[];
   systemReferences?: any[];
 }

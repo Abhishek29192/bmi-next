@@ -35,7 +35,8 @@ const SystemDetailsPage = ({ data }: Props) => {
     images,
     longDescription,
     assets,
-    systemBenefits
+    systemBenefits,
+    systemLayers
   } = dataJson;
   const bimIframeUrl = getBimIframeUrl(assets);
   const guaranteesAndWarranties: Assets[] = useMemo(() => {
@@ -82,7 +83,10 @@ const SystemDetailsPage = ({ data }: Props) => {
         cta={resources?.sdpLeadBlockCta}
       />
 
-      <ImageGallerySection images={images || []} />
+      <ImageGallerySection
+        images={images || []}
+        accordionItems={systemLayers || []}
+      />
 
       <TabLeadBlock
         longDescription={longDescription}
@@ -149,6 +153,12 @@ export const pageQuery = graphql`
         url
         format
         containerId
+      }
+      systemLayers {
+        layerNumber
+        type
+        name
+        shortDescription
       }
     }
   }
