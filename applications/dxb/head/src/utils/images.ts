@@ -1,13 +1,11 @@
 const getJpgImage = (ogImageUrl: string) => {
-  let ogImageUrlJpg = ogImageUrl;
-  if (ogImageUrlJpg) {
-    if (
-      ogImageUrlJpg.toLowerCase().indexOf("https://images.ctfassets.net/") > -1
-    ) {
-      ogImageUrlJpg += (ogImageUrlJpg.indexOf("?") > -1 ? "&" : "?") + "fm=jpg";
-    }
+  if (
+    ogImageUrl.includes("https://images.ctfassets.net/") &&
+    !ogImageUrl.includes("fm=")
+  ) {
+    return `${ogImageUrl}${ogImageUrl.includes("?") ? "&" : "?"}fm=jpg`;
   }
-  return ogImageUrlJpg;
+  return ogImageUrl;
 };
 
 export default getJpgImage;
