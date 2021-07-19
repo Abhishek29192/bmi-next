@@ -456,6 +456,7 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
             | "language"
             | "doceboCompanyAdminBranchId"
             | "doceboInstallersBranchId"
+            | "projectsEnabled"
           >
         >;
         readonly companyMembers: {
@@ -466,12 +467,15 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
               readonly company?: SchemaTypes.Maybe<
                 { readonly __typename?: "Company" } & Pick<
                   SchemaTypes.Company,
-                  "id" | "status" | "name"
+                  "id" | "status" | "name" | "tier"
                 >
               >;
             }
           >;
         };
+        readonly projectMembers: {
+          readonly __typename?: "ProjectMembersConnection";
+        } & Pick<SchemaTypes.ProjectMembersConnection, "totalCount">;
       }
   >;
 };

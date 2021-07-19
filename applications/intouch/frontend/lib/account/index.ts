@@ -1,4 +1,5 @@
 import { Logger } from "winston";
+import { Account } from "@bmi/intouch-api-types";
 import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
 import { randomPassword } from "../../lib/utils";
 
@@ -19,6 +20,7 @@ export const queryAccountByEmail = gql`
         language
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
+        projectsEnabled
       }
       companyMembers {
         nodes {
@@ -26,8 +28,13 @@ export const queryAccountByEmail = gql`
             id
             status
             name
+            tier
           }
         }
+      }
+      # At the moment only interested in whether account is assigned to any projects at all
+      projectMembers {
+        totalCount
       }
     }
   }
@@ -126,6 +133,27 @@ const mutationDoceboCreateSSOUrl = gql`
   }
 `;
 
+// TODO: Company can be partial... use generic or fallback to full company, or for Account in fact
+export const findAccountCompany = (account: Account) => {
+  return account?.companyMembers?.nodes?.[0]?.company;
+};
+
+// Account inherits tier from company.
+// if not assigned to a company, fallback to T1.
+export const findAccountTier = (account: Account) => {
+  const company = findAccountCompany(account);
+
+  if (company) {
+    return company.tier;
+  }
+
+  return "T1";
+};
+
+export const hasProjects = (account: Account): boolean => {
+  return !!account?.projectMembers?.totalCount;
+};
+
 // This user is coming from the idToken
 export const parseAccount = (user) => ({
   intouch_role: user[`${AUTH0_NAMESPACE}/intouch_role`],
@@ -140,7 +168,8 @@ export const parseAccount = (user) => ({
   sub: user.sub,
   aud: user.aud
 });
-export default class Account {
+
+export default class AccountService {
   session: any;
   logger: Logger;
   apolloClient: ApolloClient<NormalizedCacheObject>;
