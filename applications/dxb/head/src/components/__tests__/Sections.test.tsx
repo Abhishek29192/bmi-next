@@ -330,9 +330,7 @@ describe("Sections component", () => {
       {
         __typename: "ContentfulImageGallerySection",
         title: "Gallery title",
-        description: {
-          description: "card section 1 description"
-        },
+        longDescription: null,
         medias: [
           {
             type: null,

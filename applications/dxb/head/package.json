@@ -84,7 +84,6 @@
     "@bmi/vertical-roller": "0.0.0",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
-    "@contentful/rich-text-from-markdown": "^15.0.0",
     "@material-ui/styles": "^4.10.0",
     "@types/file-saver": "^2.0.1",
     "axios": "^0.21.0",
