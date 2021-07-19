@@ -5239,6 +5239,7 @@ export type EvidenceItemInput = {
   attachment?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
 };
 
 /** Represents an update to a `EvidenceItem`. Fields that are set will be updated. */
@@ -5259,6 +5260,29 @@ export type EvidenceItemPatch = {
   attachment?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** All input for the `evidenceItemsAdd` mutation. */
+export type EvidenceItemsAddInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  evidences: Array<Maybe<EvidenceItemInput>>;
+};
+
+/** The output of our `evidenceItemsAdd` mutation. */
+export type EvidenceItemsAddPayload = {
+  __typename?: "EvidenceItemsAddPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  evidenceItems?: Maybe<Array<EvidenceItem>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** A connection to a list of `EvidenceItem` values. */
@@ -7593,6 +7617,7 @@ export type Mutation = {
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using a unique key. */
   deleteSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<DeleteSystemMemberPayload>;
+  evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
   invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
   projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
@@ -7966,9 +7991,10 @@ export type MutationDeleteCompanyMemberArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationDeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs = {
-  input: DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
-};
+export type MutationDeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs =
+  {
+    input: DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
+  };
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteCompanyMemberByNodeIdArgs = {
@@ -8211,6 +8237,11 @@ export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationEvidenceItemsAddArgs = {
+  input: EvidenceItemsAddInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationInviteArgs = {
   input: InviteInput;
 };
@@ -8296,9 +8327,10 @@ export type MutationUpdateCompanyMemberArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationUpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs = {
-  input: UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
-};
+export type MutationUpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs =
+  {
+    input: UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
+  };
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCompanyMemberByNodeIdArgs = {

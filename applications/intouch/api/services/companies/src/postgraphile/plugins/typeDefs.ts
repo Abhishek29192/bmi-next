@@ -181,6 +181,10 @@ export default gql`
     productsToInsert: [Product]
   }
 
+  extend input EvidenceItemInput {
+    attachmentUpload: Upload
+  }
+
   extend type Mutation {
     publishMessage(input: PublishInput!): Publish
     createGuaranteePdf(id: Int!): PublishOutput
