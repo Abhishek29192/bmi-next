@@ -1193,6 +1193,69 @@ export type CreateSsoUrlMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.CreateSsoUrlMutation,
   OperationTypes.CreateSsoUrlMutationVariables
 >;
+export const GetContentArticleContentDocument = gql`
+  query getContentArticleContent($relativePath: String!) {
+    contentArticleCollection(where: { relativePath: $relativePath }, limit: 1) {
+      items {
+        title
+        body {
+          json
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetContentArticleContentQuery__
+ *
+ * To run a query within a React component, call `useGetContentArticleContentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetContentArticleContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetContentArticleContentQuery({
+ *   variables: {
+ *      relativePath: // value for 'relativePath'
+ *   },
+ * });
+ */
+export function useGetContentArticleContentQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetContentArticleContentQuery,
+    OperationTypes.GetContentArticleContentQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetContentArticleContentQuery,
+    OperationTypes.GetContentArticleContentQueryVariables
+  >(GetContentArticleContentDocument, options);
+}
+export function useGetContentArticleContentLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetContentArticleContentQuery,
+    OperationTypes.GetContentArticleContentQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetContentArticleContentQuery,
+    OperationTypes.GetContentArticleContentQueryVariables
+  >(GetContentArticleContentDocument, options);
+}
+export type GetContentArticleContentQueryHookResult = ReturnType<
+  typeof useGetContentArticleContentQuery
+>;
+export type GetContentArticleContentLazyQueryHookResult = ReturnType<
+  typeof useGetContentArticleContentLazyQuery
+>;
+export type GetContentArticleContentQueryResult = Apollo.QueryResult<
+  OperationTypes.GetContentArticleContentQuery,
+  OperationTypes.GetContentArticleContentQueryVariables
+>;
 export const ProductsAndSystemsDocument = gql`
   query ProductsAndSystems {
     products {

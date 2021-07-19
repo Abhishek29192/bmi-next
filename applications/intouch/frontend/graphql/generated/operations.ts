@@ -612,6 +612,34 @@ export type CreateSsoUrlMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type GetContentArticleContentQueryVariables = SchemaTypes.Exact<{
+  relativePath: SchemaTypes.Scalars["String"];
+}>;
+
+export type GetContentArticleContentQuery = {
+  readonly __typename?: "Query";
+} & {
+  readonly contentArticleCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "ContentArticleCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "ContentArticle" } & Pick<
+            SchemaTypes.ContentArticle,
+            "title"
+          > & {
+              readonly body?: SchemaTypes.Maybe<
+                { readonly __typename?: "ContentArticleBody" } & Pick<
+                  SchemaTypes.ContentArticleBody,
+                  "json"
+                >
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
 export type ProductsAndSystemsQueryVariables = SchemaTypes.Exact<{
   [key: string]: never;
 }>;
