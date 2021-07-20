@@ -1,0 +1,11 @@
+{
+  "user": {
+    "title": "Completa la registrazione",
+    "firstName": "Nome",
+    "lastName": "Cognome"
+  },
+  "company": {
+    "title": "Completa la registrazione",
+    "name": "Nome"
+  }
+}

@@ -20,16 +20,7 @@ jest.mock("../../../graphql/generated/page", () => ({
 }));
 
 describe("Middleware withPage", () => {
-  let ctx = {
-    res: {},
-    req: {
-      logger: null,
-      headers: {
-        host: "es.local.intouch",
-        "x-forwarded-proto": "http"
-      }
-    }
-  };
+  let ctx;
   let auth0Mock = {
     getSession: () => ({
       idToken: "123",
@@ -41,6 +32,18 @@ describe("Middleware withPage", () => {
 
   const getServerSideProps = jest.fn();
   beforeEach(() => {
+    ctx = {
+      resolvedUrl: "/",
+      res: {},
+      req: {
+        logger: null,
+        headers: {
+          host: "es.local.intouch",
+          "x-forwarded-proto": "http"
+        }
+      }
+    };
+
     jest.resetAllMocks();
     jest.restoreAllMocks();
   });
@@ -82,10 +85,98 @@ describe("Middleware withPage", () => {
     });
   });
 
+  it("should redirect if need to complete the user profile", async () => {
+    mockQuery.mockResolvedValueOnce({
+      data: {
+        accountByEmail: {
+          market: {
+            domain: "es"
+          },
+          companyMembers: {
+            nodes: [
+              {
+                company: {
+                  status: "NEW"
+                }
+              }
+            ]
+          }
+        }
+      }
+    });
+
+    let result = await innerGetServerSideProps(
+      getServerSideProps,
+      auth0Mock,
+      ctx
+    );
+
+    expect(result).toEqual({
+      redirect: {
+        permanent: false,
+        destination: "/user-registration"
+      }
+    });
+  });
+
+  it("shouldn't redirect if need to complete the user profile but already in the page", async () => {
+    ctx.resolvedUrl = "/user-registration";
+    mockQuery.mockResolvedValueOnce({
+      data: {
+        accountByEmail: {
+          market: {
+            domain: "es"
+          },
+          companyMembers: {
+            nodes: [
+              {
+                company: {
+                  status: "ACTIVE"
+                }
+              }
+            ]
+          }
+        }
+      }
+    });
+
+    await innerGetServerSideProps(getServerSideProps, auth0Mock, ctx);
+
+    expect(getServerSideProps).toHaveBeenCalled();
+  });
+
+  it("shouldn't redirect if need to complete the company but actually in /user-registration", async () => {
+    ctx.resolvedUrl = "/user-registration";
+    mockQuery.mockResolvedValueOnce({
+      data: {
+        accountByEmail: {
+          market: {
+            domain: "es"
+          },
+          companyMembers: {
+            nodes: [
+              {
+                company: {
+                  status: "NEW"
+                }
+              }
+            ]
+          }
+        }
+      }
+    });
+
+    await innerGetServerSideProps(getServerSideProps, auth0Mock, ctx);
+
+    expect(getServerSideProps).toHaveBeenCalled();
+  });
+
   it("should redirect if need to complete the company registration", async () => {
     mockQuery.mockResolvedValueOnce({
       data: {
         accountByEmail: {
+          firstName: "Name",
+          lastName: "Last name",
           market: {
             domain: "es"
           },
@@ -120,6 +211,8 @@ describe("Middleware withPage", () => {
     mockQuery.mockResolvedValueOnce({
       data: {
         accountByEmail: {
+          firstName: "Name",
+          lastName: "Last name",
           market: {
             domain: "es"
           },
@@ -152,6 +245,8 @@ describe("Middleware withPage", () => {
       }
     });
     expect(account).toEqual({
+      firstName: "Name",
+      lastName: "Last name",
       market: {
         domain: "es"
       },

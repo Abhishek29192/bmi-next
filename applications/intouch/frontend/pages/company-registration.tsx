@@ -1,11 +1,12 @@
 import React from "react";
+import { useTranslation } from "next-i18next";
+import BmiThemeProvider from "@bmi/theme-provider";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useMutation, gql } from "@apollo/client";
 import TextField from "@bmi/text-field";
 import Form from "@bmi/form";
-import Grid from "@bmi/grid";
-import GridStyles from "../styles/Grid.module.scss";
+import Dialog from "@bmi/dialog";
 import { withPage } from "../lib/middleware/withPage";
 
 const CREATE_COMPANY = gql`
@@ -24,7 +25,11 @@ const GET_CURRENT_COMPANY = gql`
   }
 `;
 
+const fields = ["name"];
+
 const Company = ({ currentCompany }: any) => {
+  const { t } = useTranslation("complete-registration");
+
   // The company is created when we create the user in the db
   // through an sql procedure (create_account) here we just
   // need to update it with the new values
@@ -51,33 +56,32 @@ const Company = ({ currentCompany }: any) => {
     });
   };
 
-  //TODO move statis string to translatoins when working on this page
-
   return (
-    <Form onSubmit={onSubmit} rightAlignButton>
-      <Grid
-        container
-        spacing={3}
-        justify="center"
-        className={GridStyles.outerGrid}
-      >
-        <Grid item xs={10} lg={4} xl={5}>
-          <Form.Row>
-            <TextField
-              name="name"
-              isRequired
-              variant="outlined"
-              label="Company Name"
-              fullWidth
-              margin="normal"
-            />
-          </Form.Row>
-          <Form.ButtonWrapper>
-            <Form.SubmitButton>Save</Form.SubmitButton>
-          </Form.ButtonWrapper>
-        </Grid>
-      </Grid>
-    </Form>
+    <BmiThemeProvider>
+      <Dialog open={true} data-testid="dialog">
+        <Dialog.Title hasUnderline>{t("company.title")}</Dialog.Title>
+        <Dialog.Content>
+          <Form onSubmit={onSubmit} rightAlignButton>
+            <Form.Row>
+              {fields.map((field) => (
+                <TextField
+                  key={field}
+                  name={field}
+                  variant="outlined"
+                  label={t(`company.${field}`)}
+                  margin="normal"
+                  isRequired
+                  fullWidth
+                />
+              ))}
+            </Form.Row>
+            <Form.ButtonWrapper>
+              <Form.SubmitButton>{t("save")}</Form.SubmitButton>
+            </Form.ButtonWrapper>
+          </Form>
+        </Dialog.Content>
+      </Dialog>
+    </BmiThemeProvider>
   );
 };
 
@@ -92,7 +96,10 @@ export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
   return {
     props: {
       currentCompany,
-      ...(await serverSideTranslations(locale, ["common"]))
+      ...(await serverSideTranslations(locale, [
+        "common",
+        "complete-registration"
+      ]))
     }
   };
 });
