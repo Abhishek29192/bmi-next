@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { graphql } from "gatsby";
 import Container from "@bmi/container";
 import Section from "@bmi/section";
@@ -24,7 +24,7 @@ import ExploreBar from "../components/ExploreBar";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { Product } from "../components/types/ProductBaseTypes";
+import { Product, Category } from "../components/types/ProductBaseTypes";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -56,6 +56,14 @@ const transformImages = (images) => {
   }));
 };
 
+const getBrandCode = (productCategories: Category[] = []) => {
+  const brandsCategories = productCategories.filter(({ categoryType }) => {
+    return categoryType === "Brand";
+  });
+
+  return brandsCategories.length === 1 ? brandsCategories[0]?.code : "BMI";
+};
+
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
 
@@ -72,11 +80,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   }
 
   // TODO: NO BMI BRAND LOGO??
-  const brandCode = (
-    (product.categories || []).find(({ categoryType }) => {
-      return categoryType === "Brand";
-    }) || {}
-  ).code;
+  const brandCode = useMemo(
+    () => getBrandCode(product.categories as Category[]),
+    [product.categories]
+  );
 
   const productClassifications = mapProductClassifications(
     product,
@@ -99,6 +106,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   return (
     <Page
+      brand={brandCode}
       title={product.name}
       pageData={pageData}
       siteData={contentfulSite}

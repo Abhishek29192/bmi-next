@@ -85,10 +85,13 @@ type Props = {
   };
 };
 
-const BlueCheckIcon = <CheckIcon style={{ color: "#009fe3" }} />;
+const BlueCheckIcon = (
+  <CheckIcon style={{ color: "var(--color-brand-accent)" }} />
+);
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
+    brandLogo,
     title,
     subtitle,
     content,
@@ -263,6 +266,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   return (
     <Page
+      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}

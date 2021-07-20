@@ -19,7 +19,9 @@ import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Classification } from "./types/ProductBaseTypes";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
 
-const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
+const BlueCheckIcon = (
+  <Icon source={CheckIcon} style={{ color: "var(--color-brand-accent-300)" }} />
+);
 
 type GuaranteesAndAwardsAsset = {
   url: string;
