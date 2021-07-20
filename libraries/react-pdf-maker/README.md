@@ -6,7 +6,7 @@ A library for creating PDFs with React's JSX.
 
 ```jsx
 import React from "react";
-import { pdf, Document, Text } from "react-pdf-maker";
+import { pdf, Document, Text } from "@bmi/react-pdf-maker";
 
 pdf(
   <Document>
@@ -67,10 +67,8 @@ pdf(
     pageOrientation={"portrait"} // or "landscape"
     pageMargins={
       [
-        35 /* Left */,
-        65 /* Top (should include header space) */,
-        35 /* Right */,
-        40 /* Bottom (should include footer space) */
+        35 /* Left */, 65 /* Top (should include header space) */,
+        35 /* Right */, 40 /* Bottom (should include footer space) */
       ] // Or [35 /* horizontal */, 40 /* vertical */]
       // Or just a number e.g. 35, if all sides have equal margins
     }

@@ -2491,6 +2491,13 @@
   dependencies:
     "@contentful/rich-text-types" "^14.1.2"
 
+"@contentful/rich-text-react-renderer@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-15.0.0.tgz#3b9be3587af4c54f033383fcb1731340de14d210"
+  integrity sha512-59NwFkyVyCAJAPilXrNlOjN6y4EZo+h3KLHwREVy8Lo+Fl03GZx5LUb3pijiM4MFdVxByvUiRyRA5VJFzbGX3w==
+  dependencies:
+    "@contentful/rich-text-types" "^15.0.0"
+
 "@contentful/rich-text-types@^13.4.0":
   version "13.4.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-13.4.0.tgz#a59c311ebd1b801ee00edbc08663c8d78da26171"
@@ -2500,6 +2507,11 @@
   version "14.1.2"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-14.1.2.tgz#33162fdbf427891122a96030f806ca9a9cf0e844"
   integrity sha512-XbgZ7op5uyYYszipgQg/bYobF4b+llXyTwS8hISRniQY9xKESz544eP2OGmRc4J3MHx29M7Vmx7TVA/IK65giQ==
+
+"@contentful/rich-text-types@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-15.0.0.tgz#bd676960dea3e4b5a56fd6653d8cc800a81d6bca"
+  integrity sha512-e7aXF/BhXPOpLW+PsbD57Fyt0meiRYT3nTct2iLGa2WYRZMM6E+clnCAXhSRBQ8qhAso7SSUGeiBMxPeaO3KKQ==
 
 "@dabh/diagnostics@^2.0.2":
   version "2.0.2"
@@ -2847,6 +2859,13 @@
     pumpify "^2.0.1"
     stream-events "^1.0.5"
 
+"@google-cloud/monitoring@^2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@google-cloud/monitoring/-/monitoring-2.3.2.tgz#b3df91bfed910a3b99412da32cd0843035acb90a"
+  integrity sha512-elBpUsjHUo3CZTYgiYiSQLJGhiFeajdYDvDZ4et1iesMAa5TMK5wi+ejDQcCCIHptLBFnM2nfTseYzurPvrC1Q==
+  dependencies:
+    google-gax "^2.17.0"
+
 "@google-cloud/paginator@^3.0.0":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@google-cloud/paginator/-/paginator-3.0.5.tgz#9d6b96c421a89bd560c1bc2c197c7611ef21db6c"
@@ -2913,12 +2932,12 @@
     lodash.snakecase "^4.1.1"
     p-defer "^3.0.0"
 
-"@google-cloud/secret-manager@^3.4.0", "@google-cloud/secret-manager@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/secret-manager/-/secret-manager-3.6.0.tgz#408510554d2dd72b30449a85d6030069c85d2c04"
-  integrity sha512-1lSYKYJ57PekYvUV2FLt7wtI4toDhMKrbHxMH5kA5X9XLfECasgm/PZo+EbmJ/uIxtz5i2qzQID/NczLrZNG+w==
+"@google-cloud/secret-manager@^3.6.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/secret-manager/-/secret-manager-3.8.0.tgz#2bdf2e73886bce092ad3b1f8e1b7be0b0acfc1c5"
+  integrity sha512-6MCO8B2hNf6rvX/4PutF2/RA8QYs4IluoaVp7dLhu0QK8KK8GOYpQ+wrYnlt4mbReDBat4IfRdtcGoz6X5mDYg==
   dependencies:
-    google-gax "^2.9.2"
+    google-gax "^2.17.1"
 
 "@google-cloud/secret-manager@^3.7.1":
   version "3.7.1"
@@ -17574,6 +17593,21 @@ google-auth-library@^7.0.0, google-auth-library@^7.0.2:
     jws "^4.0.0"
     lru-cache "^6.0.0"
 
+google-auth-library@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-7.3.0.tgz#946a911c72425b05f02735915f03410604466657"
+  integrity sha512-MPeeMlnsYnoiiVFMwX3hgaS684aiXrSqKoDP+xL4Ejg4Z0qLvIeg4XsaChemyFI8ZUO7ApwDAzNtgmhWSDNh5w==
+  dependencies:
+    arrify "^2.0.0"
+    base64-js "^1.3.0"
+    ecdsa-sig-formatter "^1.0.11"
+    fast-text-encoding "^1.0.0"
+    gaxios "^4.0.0"
+    gcp-metadata "^4.2.0"
+    gtoken "^5.0.4"
+    jws "^4.0.0"
+    lru-cache "^6.0.0"
+
 google-auto-auth@^0.10.0:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/google-auto-auth/-/google-auto-auth-0.10.1.tgz#68834a6f3da59a6cb27fce56f76e3d99ee49d0a2"
@@ -17622,6 +17656,42 @@ google-gax@^2.12.0:
     duplexify "^4.0.0"
     fast-text-encoding "^1.0.3"
     google-auth-library "^7.0.2"
+    is-stream-ended "^0.1.4"
+    node-fetch "^2.6.1"
+    object-hash "^2.1.1"
+    protobufjs "^6.10.2"
+    retry-request "^4.0.0"
+
+google-gax@^2.17.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-2.17.0.tgz#363791efaca3bd242e34e92295937e9215666d17"
+  integrity sha512-Ze/Oq0atVNKyKvDzQFU8B82V9w36GELQruXGsiY1jnySbieZ9vS75v98V/Z10PktmSVqis4sQ+FwK2gkgwIiiw==
+  dependencies:
+    "@grpc/grpc-js" "~1.3.0"
+    "@grpc/proto-loader" "^0.6.1"
+    "@types/long" "^4.0.0"
+    abort-controller "^3.0.0"
+    duplexify "^4.0.0"
+    fast-text-encoding "^1.0.3"
+    google-auth-library "^7.0.2"
+    is-stream-ended "^0.1.4"
+    node-fetch "^2.6.1"
+    object-hash "^2.1.1"
+    protobufjs "^6.10.2"
+    retry-request "^4.0.0"
+
+google-gax@^2.17.1:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-2.19.0.tgz#e0e113f48688289e22053528224dfac09f019164"
+  integrity sha512-2a6WY+p6YMVMmwXmkRqiLreXx67xHDZhkmflcL8aDUkl1csx9ywxEI01veoDXy6T1l0JJD6zLbl5TIbWimmXrw==
+  dependencies:
+    "@grpc/grpc-js" "~1.3.0"
+    "@grpc/proto-loader" "^0.6.1"
+    "@types/long" "^4.0.0"
+    abort-controller "^3.0.0"
+    duplexify "^4.0.0"
+    fast-text-encoding "^1.0.3"
+    google-auth-library "^7.3.0"
     is-stream-ended "^0.1.4"
     node-fetch "^2.6.1"
     object-hash "^2.1.1"

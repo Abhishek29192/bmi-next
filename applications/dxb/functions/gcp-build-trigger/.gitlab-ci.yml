@@ -1,0 +1,22 @@
+build_gcp-build-trigger:
+  extends: .build_function
+  variables:
+    PROJECT_NAME: gcp-build-trigger
+
+package_gcp-build-trigger:
+  extends: .package_function
+  needs:
+    - build_gcp-build-trigger
+  dependencies:
+    - build_gcp-build-trigger
+  variables:
+    PROJECT_NAME: gcp-build-trigger
+
+deploy_gcp-build-trigger:
+  extends: .deploy_function
+  needs:
+    - package_gcp-build-trigger
+  dependencies:
+    - package_gcp-build-trigger
+  variables:
+    PROJECT_NAME: gcp-build-trigger

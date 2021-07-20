@@ -1,26 +1,10 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
-    "lib": ["ES5", "ES6", "ESNext", "DOM", "ES2019"],
-    "moduleResolution": "node",
-    "composite": true,
-    "declaration": true,
-    "esModuleInterop": true,
     "noEmit": false,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "target": "es6",
-    "inlineSourceMap": true,
-    "baseUrl": ".",
-    "rootDir": "src",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./@types",
-      "../../node_modules/@types",
-      "../../@types"
-    ]
-  },
-  "exclude": ["**/dist/**"]
+    "outDir": "dist",
+    "composite": true,
+    "strict": true,
+    "strictNullChecks": true
+  }
 }

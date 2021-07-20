@@ -1163,6 +1163,20 @@ export const createMockSiteData = (): SiteData =>
         facebook: true,
         pinterest: true
       },
+      sdpLeadBlockCta: {
+        asset: null,
+        dialogContent: null,
+        hubSpotCTAID: null,
+        icon: null,
+        id: "27b85d0e-2170-5ce2-8dae-734c8a784cbb",
+        isLabelHidden: false,
+        label: "Get a Quotation",
+        linkedPage: { path: "roof-tiles/betongtakstein/" },
+        parameters: null,
+        type: "Internal",
+        url: null,
+        __typename: "ContentfulLink"
+      },
       sdpShareWidget: {
         title: "Share",
         message: "Thanks for sharing this page!",

@@ -12,7 +12,7 @@ const jsonfile = require("jsonfile");
 const toml = require("toml");
 const typeDefs = require("./src/schema/schema.graphql");
 const resolvers = require("./src/schema/resolvers");
-const { createSystemPages } = require("./src/gatsby/system-details-pages");
+const { createSystemPages } = require("./src/gatsby/systemDetailsPages");
 
 require("dotenv").config({
   path: `./.env.${process.env.NODE_ENV}`

@@ -8,7 +8,7 @@ import {
   VariantOption,
   VariantOptionWithProduct
 } from "../components/types/ProductBaseTypes";
-import { GalleryImageType } from "../templates/system-details/types";
+import { GalleryImageType } from "../templates/systemDetails/types";
 import { Image } from "../components/types/ProductBaseTypes";
 
 export const getProductUrl = (countryCode, path) => `/${countryCode}/${path}`;
@@ -105,7 +105,9 @@ export const mapGalleryImages = (
     (_images, index, self) => {
       return (
         self.findIndex((images) =>
-          images.some(({ assetType }) => assetType === "MASTER_IMAGE")
+          images.some(
+            ({ assetType, format }) => format && assetType === "MASTER_IMAGE"
+          )
         ) === index
       );
     }

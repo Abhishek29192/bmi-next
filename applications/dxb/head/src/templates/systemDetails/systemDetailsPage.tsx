@@ -1,13 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Page from "../components/Page";
-import { Data as SiteData } from "../components/Site";
+import Page from "../../components/Page";
+import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
-} from "../components/ShareWidgetSection";
-import LeadBlockSection from "./system-details/leadBlockSection";
-import ImageGallerySection from "./system-details/image-gallery-section";
-import { SystemDetails } from "./system-details/types";
+} from "../../components/ShareWidgetSection";
+import LeadBlockSection from "./leadBlockSection";
+import ImageGallerySection from "./imageGallerySection";
+import { SystemDetails } from "./types";
 
 type Props = {
   pageContext: {
@@ -39,6 +39,7 @@ const SystemDetailsPage = ({ data }: Props) => {
         name={name}
         categories={categories}
         classifications={classifications}
+        cta={resources?.sdpLeadBlockCta}
       />
       <ImageGallerySection images={images} />
     </Page>

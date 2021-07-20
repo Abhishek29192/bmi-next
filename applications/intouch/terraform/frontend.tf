@@ -7,6 +7,7 @@ resource "google_cloud_run_service" "default" {
   template {
     metadata {
       annotations = {
+        "autoscaling.knative.dev/minScale" = "1"
         "autoscaling.knative.dev/maxScale" = "10"
       }
 
@@ -35,7 +36,7 @@ resource "google_cloud_run_service" "default" {
         }
         env {
           name  = "AUTH0_COOKIE_DOMAIN"
-          value = "35.214.66.132"
+          value = "intouch.dddev.io"
         }
         env {
           name  = "GRAPHQL_URL"

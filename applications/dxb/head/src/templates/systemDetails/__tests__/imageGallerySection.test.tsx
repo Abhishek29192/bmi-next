@@ -1,6 +1,6 @@
 import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
-import ImageGallerySection from "../../system-details/image-gallery-section";
+import ImageGallerySection from "../imageGallerySection";
 import { Image } from "../../../components/types/ProductBaseTypes";
 
 describe("ImageGallerySection tests", () => {

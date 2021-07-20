@@ -19,7 +19,9 @@ export const createSystemPages = async ({
   createPage,
   graphql
 }: CreatePagesOptions) => {
-  const component = path.resolve("./src/templates/system-details-page.tsx");
+  const component = path.resolve(
+    "./src/templates/systemDetails/systemDetailsPage.tsx"
+  );
 
   const result = await graphql<QueryData>(`
     {
