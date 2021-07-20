@@ -972,6 +972,272 @@ exports[`CardCollectionSection component Renders correctly When when dialogConte
 </body>
 `;
 
+exports[`CardCollectionSection component Sorts correctly By default 1`] = `
+<body>
+  <div>
+    <div
+      class="CardCollectionSection"
+    >
+      <div
+        class="Section Section--pearl"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h2
+              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="group-chips"
+            >
+              <div
+                class="chips"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Mushrooms\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+                type="button"
+              >
+                <span>
+                  MC: global.clearAll
+                </span>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <div
+                  class="OverviewCard"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                    >
+                      test
+                    </h4>
+                    <div
+                      class="children"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        9. juni 2021
+                      </h6>
+                      <a
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        data-testid="card-link"
+                        href="/no/null"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          <span
+                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                              />
+                            </svg>
+                          </span>
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <div
+                  class="OverviewCard"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                    >
+                      test 2
+                    </h4>
+                    <div
+                      class="children"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        9. juni 2021
+                      </h6>
+                      <a
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        data-testid="card-link"
+                        href="/no/null"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          <span
+                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                              />
+                            </svg>
+                          </span>
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <div
+                  class="OverviewCard"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography Typography--underline MuiTypography-h4"
+                    >
+                      test 3
+                    </h4>
+                    <div
+                      class="children"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        9. juni 2021
+                      </h6>
+                      <a
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"a string\\",\\"action\\":\\"/no/null\\"}"
+                        data-testid="card-link"
+                        href="/no/null"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          <span
+                            class="MuiButton-startIcon MuiButton-iconSizeMedium"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                              />
+                            </svg>
+                          </span>
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`CardCollectionSection component Sorts correctly By newest date first 1`] = `
 <body>
   <div>
