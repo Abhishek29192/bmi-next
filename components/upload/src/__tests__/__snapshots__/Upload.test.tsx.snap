@@ -53,12 +53,17 @@ Array [
   ],
   Array [
     Array [
-      undefined,
+      Object {
+        "file": File {},
+      },
     ],
   ],
   Array [
     Array [
-      undefined,
+      Object {
+        "file": File {},
+        "value": undefined,
+      },
     ],
   ],
 ]
