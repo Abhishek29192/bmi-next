@@ -1159,6 +1159,30 @@ describe("CardCollectionSection component", () => {
   });
 
   describe("Sorts correctly", () => {
+    it("By default", () => {
+      const cards: Card[] = [card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Default (Contentful)"
+      };
+
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
     it("By newest date first", () => {
       const cards: Card[] = [card1, card2, card3];
 

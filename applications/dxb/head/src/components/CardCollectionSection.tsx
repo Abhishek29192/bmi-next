@@ -226,8 +226,10 @@ const CardCollectionSection = ({
                 case "Date (Oldest first)":
                   return firstDate - secondDate;
                 case "Date (Newest first)":
-                default:
                   return secondDate - firstDate;
+                case "Default (Contentful)":
+                default:
+                  return 0;
               }
             }
 
