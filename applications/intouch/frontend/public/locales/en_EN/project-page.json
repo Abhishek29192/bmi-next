@@ -23,5 +23,19 @@
       "confirm_label": "Add Members",
       "cancel_label": "Cancel"
     }
+  },
+  "uploadTab": {
+    "header": "Upload file",
+    "add_evidence_modal": {
+      "title": "Evidence Upload",
+      "button-label": "Upload Files",
+      "microcopy": {
+        "drop": "Drop",
+        "browse": "Browse"
+      },
+      "instruction": "You can add files",
+      "confirm_label": "Add Evidences",
+      "cancel_label": "Cancel"
+    }
   }
 }
