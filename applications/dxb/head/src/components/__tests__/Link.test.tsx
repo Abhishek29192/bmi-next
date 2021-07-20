@@ -1,15 +1,36 @@
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import { getClickableActionFromUrl, getCTA, Link } from "../Link";
-import { Data as LinkData } from "../Link";
+import {
+  Data as LinkData,
+  getClickableActionFromUrl,
+  getCTA,
+  getLinkURL,
+  Link
+} from "../Link";
 import { Data as PromoData } from "../Promo";
+import { SiteContext } from "../Site";
+
+const getMockSiteContext = (
+  countryCode: string = "en",
+  nodeLocale: string = "en-GB"
+) => ({
+  countryCode: countryCode,
+  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
+  node_locale: nodeLocale,
+  homePage: {
+    title: "Home page title"
+  }
+});
 
 describe("Link component", () => {
   process.env.GATSBY_HUBSPOT_ID = "012345";
+  process.env.GATSBY_HUBSPOT_CTA_URL =
+    "https://cta-redirect.hubspot.com/cta/redirect/";
+  process.env.GATSBY_HUBSPOT_CTA_ENABLED = "true";
 
   describe("Link function", () => {
     it("returns a Link correctly", () => {
-      const cta = {
+      const cta: LinkData = {
         __typename: "ContentfulLink",
         id: "string",
         label: "string",
@@ -22,15 +43,17 @@ describe("Link component", () => {
         dialogContent: null,
         hubSpotCTAID: null
       };
-      expect(() => {
-        <Link component="a" data={cta}>
-          {cta.label}
-        </Link>;
-      }).toMatchSnapshot();
+      // TODO: The rest of these tests need fixing to match this one.
+      const { container } = render(
+        <SiteContext.Provider value={getMockSiteContext()}>
+          <Link data={cta}>{cta.label}</Link>
+        </SiteContext.Provider>
+      );
+      expect(container.firstChild).toMatchSnapshot();
     });
 
     it("ensure clicking link works", () => {
-      const cta = {
+      const cta: LinkData = {
         __typename: "ContentfulLink",
         id: "string",
         label: "ImALink",
@@ -56,7 +79,7 @@ describe("Link component", () => {
     });
 
     it("ensure clicking Dialog link works", () => {
-      const cta = {
+      const cta: LinkData = {
         __typename: "ContentfulLink",
         id: "string",
         label: "ImALink",
@@ -82,7 +105,7 @@ describe("Link component", () => {
     });
 
     it("ensure clicking Calculator link works", () => {
-      const cta = {
+      const cta: LinkData = {
         __typename: "ContentfulLink",
         id: "string",
         label: "ImALink",
@@ -108,7 +131,7 @@ describe("Link component", () => {
     });
 
     it("ensure clicking Visualiser link works", () => {
-      const cta = {
+      const cta: LinkData = {
         __typename: "ContentfulLink",
         id: "string",
         label: "ImALink",
@@ -147,7 +170,7 @@ describe("Link component", () => {
         cta: null,
         backgroundColor: null
       };
-      const data = {
+      const data: LinkData = {
         __typename: "ContentfulLink",
         id: "string",
         label: "string",
@@ -159,7 +182,7 @@ describe("Link component", () => {
         parameters: null,
         dialogContent: promo,
         hubSpotCTAID: null
-      } as LinkData;
+      };
 
       expect(() => {
         <Link component="a" data={data}>
@@ -182,7 +205,7 @@ describe("Link component", () => {
         cta: null,
         backgroundColor: null
       };
-      const data = {
+      const data: LinkData = {
         __typename: "ContentfulLink",
         id: "string",
         label: "string",
@@ -194,7 +217,7 @@ describe("Link component", () => {
         parameters: { key: "value" },
         dialogContent: promo,
         hubSpotCTAID: null
-      } as LinkData;
+      };
 
       expect(() => {
         <Link component="a" data={data}>
@@ -203,90 +226,24 @@ describe("Link component", () => {
       }).toMatchSnapshot();
     });
 
-    it("HubSpot CTA renders without script loading successfully", () => {
-      const { container } = render(
-        <>
-          <script
-            id="hubspot-cta-script"
-            src="https://js.hscta.net/cta/current.js"
-          ></script>
-          <Link
-            data={{
-              __typename: "ContentfulLink",
-              id: "link",
-              label: "String",
-              icon: null,
-              isLabelHidden: false,
-              url: null,
-              linkedPage: null,
-              type: "HubSpot CTA",
-              parameters: null,
-              dialogContent: null,
-              hubSpotCTAID: "123abc"
-            }}
-          >
-            Test
-          </Link>
-        </>
-      );
-      const loadEvent = new Event("load");
-      const script = document.getElementById("hubspot-cta-script");
-      script.dispatchEvent(loadEvent);
-      expect(container.firstChild).toMatchSnapshot();
-    });
-
     it("HubSpot CTA renders correctly", () => {
+      const data: LinkData = {
+        __typename: "ContentfulLink",
+        id: "link",
+        label: "String",
+        icon: null,
+        isLabelHidden: false,
+        url: null,
+        linkedPage: null,
+        type: "HubSpot CTA",
+        parameters: null,
+        dialogContent: null,
+        hubSpotCTAID: "123abc"
+      };
       const { container } = render(
-        <>
-          <script
-            id="hubspot-cta-script"
-            src="https://js.hscta.net/cta/current.js"
-          ></script>
-          <Link
-            data={{
-              __typename: "ContentfulLink",
-              id: "link",
-              label: "String",
-              icon: null,
-              isLabelHidden: false,
-              url: null,
-              linkedPage: null,
-              type: "HubSpot CTA",
-              parameters: null,
-              dialogContent: null,
-              hubSpotCTAID: "123abc"
-            }}
-          >
-            Test
-          </Link>
-        </>
-      );
-      window["hbspt"] = { cta: { load: () => {} } };
-      const loadEvent = new Event("load");
-      const script = document.getElementById("hubspot-cta-script");
-      script.dispatchEvent(loadEvent);
-      expect(container.firstChild).toMatchSnapshot();
-    });
-
-    it("HubSpot CTA renders without script", () => {
-      const { container } = render(
-        <Link
-          data={{
-            __typename: "ContentfulLink",
-            id: "link",
-            label: "String",
-            icon: null,
-            isLabelHidden: false,
-            url: null,
-            linkedPage: null,
-            type: "HubSpot CTA",
-            parameters: null,
-            dialogContent: null,
-            hubSpotCTAID: "123abc"
-          }}
-        >
-          Test
-        </Link>
+        <SiteContext.Provider value={getMockSiteContext()}>
+          <Link data={data}>{data.label}</Link>
+        </SiteContext.Provider>
       );
       expect(container.firstChild).toMatchSnapshot();
     });
@@ -428,6 +385,43 @@ describe("Link component", () => {
           "Go to Page"
         )
       ).toMatchSnapshot();
+    });
+  });
+
+  describe("getLinkURL function", () => {
+    it("returns a HubSpot link", () => {
+      const data: LinkData = {
+        __typename: "ContentfulLink",
+        id: "link",
+        label: "String",
+        icon: null,
+        isLabelHidden: false,
+        url: null,
+        linkedPage: null,
+        type: "HubSpot CTA",
+        parameters: null,
+        dialogContent: null,
+        hubSpotCTAID: "123abc"
+      };
+      expect(getLinkURL(data)).toContain(process.env.GATSBY_HUBSPOT_CTA_URL);
+    });
+
+    it("returns URL when HubSpot data is incorrect", () => {
+      const externalURL = "https://www.external.co.uk";
+      const data: LinkData = {
+        __typename: "ContentfulLink",
+        id: "link",
+        label: "String",
+        icon: null,
+        isLabelHidden: false,
+        url: externalURL,
+        linkedPage: null,
+        type: "HubSpot CTA",
+        parameters: null,
+        dialogContent: null,
+        hubSpotCTAID: null
+      };
+      expect(getLinkURL(data)).toMatch(externalURL);
     });
   });
 });
