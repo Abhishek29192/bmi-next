@@ -726,6 +726,7 @@ export const AccountByEmailDocument = gql`
         language
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
+        projectsEnabled
       }
       companyMembers {
         nodes {
@@ -733,8 +734,12 @@ export const AccountByEmailDocument = gql`
             id
             status
             name
+            tier
           }
         }
+      }
+      projectMembers {
+        totalCount
       }
     }
   }
