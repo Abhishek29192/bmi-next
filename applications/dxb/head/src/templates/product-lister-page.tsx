@@ -123,7 +123,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
         ? { filters: JSON.parse(parsedQueryParams.filters as string) }
         : { filters: [] })
     };
-  }, [location.search]);
+  }, [location]);
 
   // NOTE: map colour filter values to specific colour swatch representation
   const resolveFilters = (filters: readonly Filter[]) => {
@@ -224,16 +224,16 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   useEffect(() => {
     if (queryParams?.filters?.length) {
       // Filter search
-      const updatedFilters = queryParams.filters.reduce(
-        (newFilters, { name, value }) =>
-          updateFilterValue(
-            newFilters,
-            name,
-            value[0],
-            value[0] ? true : false
-          ),
-        filters
-      );
+      const updatedFilters = filters.map((filter) => {
+        const currentQueryFilterValue = queryParams.filters.find(
+          ({ name }) => name === filter.name
+        )?.value;
+
+        return {
+          ...filter,
+          value: [].concat(currentQueryFilterValue).filter(Boolean)
+        };
+      });
 
       setFilters(updatedFilters);
       fetchProducts(updatedFilters, pageContext.categoryCodes[0], 0, PAGE_SIZE);
