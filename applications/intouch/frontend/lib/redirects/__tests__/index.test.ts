@@ -1,12 +1,17 @@
-import { marketRedirect } from "../market";
 import { redirectCompanyRegistration } from "../companyRegistration";
+
+jest.mock("../../../lib/config", () => ({
+  baseUrlDomain: "local.intouch",
+  isProd: false,
+  isSingleMarket: false
+}));
+import { marketRedirect } from "../market";
 
 describe("marketRedirect", () => {
   let req;
   let user;
 
   beforeEach(() => {
-    process.env.AUTH0_COOKIE_DOMAIN = "local.intouch";
     jest.resetAllMocks();
     user = {
       market: {

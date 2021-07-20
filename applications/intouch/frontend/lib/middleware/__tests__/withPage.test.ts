@@ -1,7 +1,13 @@
 import { withPage, innerGetServerSideProps } from "../withPage";
 
+jest.mock("../../../lib/config", () => ({
+  baseUrlDomain: "local.intouch",
+  isProd: false,
+  isSingleMarket: false
+}));
+
 jest.mock("../../auth0", () => ({
-  getAuth0Instance: (req, res) => ({
+  getAuth0Instance: () => ({
     withPageAuthRequired: () => jest.fn()
   })
 }));
