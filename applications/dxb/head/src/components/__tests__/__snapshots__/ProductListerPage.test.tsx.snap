@@ -422,7 +422,6 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root"
                                   focusable="false"
-                                  style="color: rgb(0, 159, 227);"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
@@ -1197,7 +1196,6 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root"
                                   focusable="false"
-                                  style="color: rgb(0, 159, 227);"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
@@ -1967,7 +1965,6 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root"
                                   focusable="false"
-                                  style="color: rgb(0, 159, 227);"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
@@ -2711,7 +2708,6 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root"
                                   focusable="false"
-                                  style="color: rgb(0, 159, 227);"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
@@ -3665,7 +3661,6 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root"
                                   focusable="false"
-                                  style="color: rgb(0, 159, 227);"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
@@ -4644,7 +4639,6 @@ exports[`ProductListerPage template ProductListerPage without initialProducts re
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root"
                                   focusable="false"
-                                  style="color: rgb(0, 159, 227);"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
@@ -5362,7 +5356,6 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                                   aria-hidden="true"
                                   class="MuiSvgIcon-root"
                                   focusable="false"
-                                  style="color: rgb(0, 159, 227);"
                                   viewBox="0 0 24 24"
                                 >
                                   <path
