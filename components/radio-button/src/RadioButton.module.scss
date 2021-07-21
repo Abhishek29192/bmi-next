@@ -18,16 +18,16 @@
   }
 
   .input:focus + .label {
-    border: 1px solid $color-cyan-500;
+    border: 1px solid $color-brand-inter;
   }
 
   .input:checked + .label {
-    border: 2px solid $color-cyan-500;
+    border: 2px solid $color-brand-inter;
   }
 
   .text {
     padding: 12px 48px;
-    color: $color-cyan-500;
+    color: $color-brand-inter;
     font-size: 18px;
     line-height: 24px;
   }

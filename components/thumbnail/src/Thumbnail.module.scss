@@ -13,12 +13,12 @@
   height: 50px;
 
   &:hover {
-    box-shadow: 0 0 0 2px rgba($color-cyan-500, 0.5);
+    box-shadow: 0 0 0 2px rgba($color-brand-inter, 0.5);
   }
 
   &--selected,
   &--selected:hover {
-    box-shadow: 0 0 0 2px $color-cyan-500;
+    box-shadow: 0 0 0 2px $color-brand-inter;
     cursor: default;
   }
 

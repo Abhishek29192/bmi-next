@@ -67,7 +67,7 @@ exports[`SpotlightHero component renders correctly 1`] = `
             </nav>
           </div>
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading desktop
           </h1>
@@ -175,7 +175,7 @@ exports[`SpotlightHero component renders with cta 1`] = `
             </nav>
           </div>
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading desktop
           </h1>
@@ -299,7 +299,7 @@ exports[`SpotlightHero component renders with deprecated imageSource 1`] = `
             </nav>
           </div>
           <h1
-            class="MuiTypography-root title Typography Typography--underline MuiTypography-h1"
+            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
             H1 Heading desktop
           </h1>

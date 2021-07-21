@@ -38,7 +38,7 @@ type Props = {
 };
 
 const TeamPage = ({ data, pageContext }: Props) => {
-  const { title, teamCategories, inputBanner, breadcrumbs, seo } =
+  const { brandLogo, title, teamCategories, inputBanner, breadcrumbs, seo } =
     data.contentfulTeamPage;
   const pageData: PageData = {
     breadcrumbs,
@@ -52,6 +52,7 @@ const TeamPage = ({ data, pageContext }: Props) => {
 
   return (
     <Page
+      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
