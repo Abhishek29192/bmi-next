@@ -24,11 +24,11 @@
       "cancel_label": "Cancel"
     }
   },
-  "uploadTab": {
+  "upload_tab": {
     "header": "Upload file",
     "add_evidence_modal": {
       "title": "Evidence Upload",
-      "button-label": "Upload Files",
+      "button_label": "Upload Files",
       "microcopy": {
         "drop": "Drop",
         "browse": "Browse"

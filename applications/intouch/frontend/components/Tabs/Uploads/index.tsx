@@ -28,7 +28,7 @@ export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
       {
         query: GetProjectDocument,
         variables: {
-          projectId: projectId
+          projectId
         }
       }
     ]
@@ -38,7 +38,7 @@ export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
       const evidences = uploadedFiles.map(
         (uploadedFile) =>
           ({
-            projectId: projectId,
+            projectId,
             attachmentUpload: uploadedFile.file,
             evidenceCategoryType: "MISCELLANEOUS"
           } as EvidenceItemInput)
@@ -46,7 +46,7 @@ export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
       await addEvidences({
         variables: {
           input: {
-            evidences: evidences
+            evidences
           }
         }
       });
@@ -58,7 +58,7 @@ export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
     <div className={styles.main}>
       <div className={styles.header}>
         <Button variant="outlined" onClick={() => setEvidenceDialogOpen(true)}>
-          {t("uploadTab.header")}
+          {t("upload_tab.header")}
         </Button>
       </div>
       <div className={styles.body}>
