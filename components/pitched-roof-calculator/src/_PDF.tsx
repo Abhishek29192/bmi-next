@@ -10,7 +10,7 @@ import {
   SVG,
   Table,
   Img
-} from "react-pdf-maker";
+} from "@bmi/react-pdf-maker";
 import EffraNormal from "./fonts/Effra_Rg.ttf";
 import EffraBold from "./fonts/Effra_Bd.ttf";
 import { ResultsObject } from "./types";

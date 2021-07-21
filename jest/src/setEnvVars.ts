@@ -44,3 +44,11 @@ process.env.ES_CLOUD_ID = "es-cloud-id";
 process.env.ES_USERNAME = "es-username";
 
 process.env.LC_ALL = "en_US.UTF-8";
+
+process.env.GCP_MONITOR_PROJECT = "monitor_project";
+process.env.GCP_APPLICATION_PROJECT = "application_project";
+process.env.DXB_FIRESTORE_HANDLER_FUNCTION = "handler_function";
+process.env.DXB_FIRESTORE_HANDLER_SUBSCRIPTION_ID = "handler_subscription_id";
+process.env.NETLIFY_BUILD_HOOK = "http://localhost:9090";
+process.env.TIMEOUT_LIMIT = "3";
+process.env.DELAY_SECONDS = "1";

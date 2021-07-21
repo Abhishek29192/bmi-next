@@ -25,7 +25,7 @@ const REDACTED_KEYS = [
   "invitee"
 ];
 
-const logger = (headers, module) => {
+const logger = (headers: { [key: string]: string }, module: string) => {
   const reqId = headers["x-request-id"] || "";
   const loggingWinston = new LoggingWinston({
     labels: {

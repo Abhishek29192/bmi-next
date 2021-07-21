@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Canvas } from "react-pdf-maker";
+import { Text, View, Canvas } from "@bmi/react-pdf-maker";
 
 export const Typography = ({
   variant = "body1",

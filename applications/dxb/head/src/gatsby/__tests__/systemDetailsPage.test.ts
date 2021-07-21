@@ -1,4 +1,4 @@
-import { createSystemPages } from "../system-details-pages";
+import { createSystemPages } from "../systemDetailsPages";
 
 const siteId = "foo";
 const countryCode = "en";

@@ -8405,6 +8405,7 @@ input EvidenceItemInput {
   attachment: String
   createdAt: Datetime
   updatedAt: Datetime
+  attachmentUpload: Upload
 }
 
 """
@@ -8447,6 +8448,35 @@ input EvidenceItemPatch {
   attachment: String
   createdAt: Datetime
   updatedAt: Datetime
+}
+
+"""
+All input for the `evidenceItemsAdd` mutation.
+"""
+input EvidenceItemsAddInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  evidences: [EvidenceItemInput]!
+}
+
+"""
+The output of our `evidenceItemsAdd` mutation.
+"""
+type EvidenceItemsAddPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  evidenceItems: [EvidenceItem!]
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
 }
 
 """
@@ -12028,6 +12058,12 @@ type Mutation {
     """
     input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput!
   ): DeleteSystemMemberPayload
+  evidenceItemsAdd(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: EvidenceItemsAddInput!
+  ): EvidenceItemsAddPayload
   invite(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -12040,6 +12076,12 @@ type Mutation {
     """
     input: LinkAccountToCompanyInput!
   ): LinkAccountToCompanyPayload
+  projectMembersAdd(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: ProjectMembersAddInput!
+  ): ProjectMembersAddPayload
   publishMessage(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -14217,6 +14259,35 @@ input ProjectMemberPatch {
   isResponsibleInstaller: Boolean
   createdAt: Datetime
   updatedAt: Datetime
+}
+
+"""
+All input for the `projectMembersAdd` mutation.
+"""
+input ProjectMembersAddInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  members: [ProjectMemberInput]!
+}
+
+"""
+The output of our `projectMembersAdd` mutation.
+"""
+type ProjectMembersAddPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+  projectMembers: [ProjectMember!]
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
 }
 
 """

@@ -1,7 +1,7 @@
 import { makeWrapResolversPlugin } from "graphile-utils";
-import Auth0 from "../../services/auth0";
 import { updateCompany, deleteCompanyMember } from "../../services/company";
 import { createAccount, updateAccount } from "../../services/account";
+import { evidenceItemsAdd } from "../../services/evidenceItem";
 
 const WrapPlugin = makeWrapResolversPlugin((build) => {
   return {
@@ -39,6 +39,11 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
             context,
             resolveInfo
           );
+        }
+      },
+      evidenceItemsAdd: {
+        async resolve(resolve: any, source, args: any, context, resolveInfo) {
+          return evidenceItemsAdd(resolve, source, args, context, resolveInfo);
         }
       }
     }

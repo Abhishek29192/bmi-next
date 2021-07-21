@@ -28,6 +28,7 @@ If you set `AUTH0_COOKIE_DOMAIN=local.intouch` and you add these domain in yout 
 127.0.0.1       de.local.intouch
 127.0.0.1       us.local.intouch
 127.0.0.1       es.local.intouch
+127.0.0.1       no.local.intouch
 ```
 
 you will be able to run the app in multimarket in all the above domains.

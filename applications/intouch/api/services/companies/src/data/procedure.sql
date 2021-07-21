@@ -189,3 +189,23 @@ $$
 LANGUAGE sql
 STABLE
 SECURITY DEFINER;
+
+-- Function to bulk insert project_member 
+CREATE OR REPLACE FUNCTION project_members_add(members project_member[])
+  RETURNS setof project_member
+  AS $$
+ 
+  insert into project_member(project_id,account_id)
+    select m.project_id,m.account_id from unnest(members) as m
+     RETURNING *;
+$$ LANGUAGE sql STRICT VOLATILE;
+
+-- Function to bulk insert evidence_items 
+CREATE OR REPLACE FUNCTION evidence_items_add(evidences evidence_item[])
+  RETURNS setof evidence_item
+  AS $$
+ 
+  insert into evidence_item(custom_evidence_category_id,project_id,guarantee_id,evidence_category_type,name,attachment)
+    select e.custom_evidence_category_id,e.project_id,e.guarantee_id,e.evidence_category_type,e.name,e.attachment from unnest(evidences) as e
+     RETURNING *;
+$$ LANGUAGE sql STRICT VOLATILE;

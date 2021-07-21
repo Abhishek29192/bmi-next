@@ -1,6 +1,6 @@
 import { PDFDocument as PdfLibDocument } from "pdf-lib";
 import * as React from "react";
-import { pdf } from "react-pdf-maker";
+import { pdf } from "@bmi/react-pdf-maker";
 import {
   Guarantee,
   ContentfulGuaranteeTemplate,

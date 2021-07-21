@@ -1,8 +1,6 @@
 import toArray from "../utils/toArray";
 import extractDefinitions from "../extractDefinitions";
 
-export const createVectorComponent = (type) => (props) => ({ type, ...props });
-
 const Canvas = ({ children, ...rest }): any => {
   return {
     canvas: toArray(extractDefinitions(children), true),
@@ -10,9 +8,25 @@ const Canvas = ({ children, ...rest }): any => {
   };
 };
 
-Canvas.Rect = createVectorComponent("rect");
-Canvas.Line = createVectorComponent("line");
-Canvas.PolyLine = createVectorComponent("polyline");
-Canvas.Ellipse = createVectorComponent("ellipse");
+Canvas.Rect = (props: {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  color: string;
+}) => ({ type: "rect", key: undefined, props: undefined, ...props });
+
+Canvas.Line = (props: {
+  lineWidth: number;
+  lineColor: string;
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+}) => ({ type: "line", key: undefined, props: undefined, ...props });
+
+Canvas.PolyLine = (props: {}) => ({ type: "polyline", ...props });
+
+Canvas.Ellipse = (props: {}) => ({ type: "ellipse", ...props });
 
 export default Canvas;
