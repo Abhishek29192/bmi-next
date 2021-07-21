@@ -3,9 +3,13 @@ import { Account } from "@bmi/intouch-api-types";
 import { REDIRECT_MAP } from "../config";
 
 export const marketRedirect = (req: Request, account: Account) => {
-  const { AUTH0_COOKIE_DOMAIN } = process.env;
+  const { AUTH0_COOKIE_DOMAIN, NODE_ENV } = process.env;
 
-  // for multi-market & redirects set the domain to local.intouch (see README)
+  // We don't have subdomain yet
+  if (NODE_ENV === "production") {
+    return null;
+  }
+
   if (AUTH0_COOKIE_DOMAIN === "localhost") {
     return null;
   }
