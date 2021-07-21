@@ -214,26 +214,30 @@ const CardCollectionSection = ({
   const iteratableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;
 
+  const noDateSortWeight = sortOrder === "Date (Newest first)" ? 0 : Infinity;
+
   const sortedIterableCards = useMemo(
     () =>
       sortOrder
         ? [...iteratableCards].sort((first, second) => {
-            if ("date" in first && "date" in second) {
-              const firstDate = new Date(first.date).getTime();
-              const secondDate = new Date(second.date).getTime();
+            const firstWeight =
+              "date" in first && first.date
+                ? new Date(first.date).getTime()
+                : noDateSortWeight;
+            const secondWeight =
+              "date" in second && second.date
+                ? new Date(second.date).getTime()
+                : noDateSortWeight;
 
-              switch (sortOrder) {
-                case "Date (Oldest first)":
-                  return firstDate - secondDate;
-                case "Date (Newest first)":
-                  return secondDate - firstDate;
-                case "Default (Contentful)":
-                default:
-                  return 0;
-              }
+            switch (sortOrder) {
+              case "Date (Oldest first)":
+                return firstWeight - secondWeight;
+              case "Date (Newest first)":
+                return secondWeight - firstWeight;
+              case "Default (Contentful)":
+              default:
+                return 0;
             }
-
-            return 0;
           })
         : iteratableCards,
     [sortOrder, iteratableCards]
