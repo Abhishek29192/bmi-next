@@ -1,20 +1,11 @@
 import { resolve } from "path";
 import { config } from "dotenv";
-import { Pool } from "pg";
+import { transaction, getDbPool } from "../test-utils/db";
 
 config({
   path: resolve(__dirname, "../../.env")
 });
 
-const { PG_USER, PG_PASSWORD, PG_HOST, PG_DATABASE, PG_PORT } = process.env;
-
-const pool = new Pool({
-  user: PG_USER,
-  password: PG_PASSWORD,
-  port: +PG_PORT,
-  host: PG_HOST,
-  database: PG_DATABASE
-});
 const PERMISSION_DENIED = (table) => `permission denied for table ${table}`;
 const RLS_ERROR = (table) =>
   `new row violates row-level security policy for table "${table}"`;
@@ -31,27 +22,10 @@ const ROLE_MARKET_ADMIN = "market_admin";
 
 let MARKET_ID;
 
-const transaction = async (
-  { role, accountUuid, accountEmail },
-  query: string,
-  params: any = []
-) => {
-  await pool.query("BEGIN");
-  if (accountUuid) {
-    await pool.query(`SET LOCAL app.current_account_id TO '${accountUuid}'`);
-    await pool.query(
-      `SET LOCAL app.current_account_email TO '${accountEmail}'`
-    );
-  }
-  await pool.query(`SET LOCAL ROLE TO '${role}'`);
-  const res = await pool.query(query, params);
-  await pool.query("COMMIT");
-  return res;
-};
-
 const ALL_COMPANIES = `SELECT * FROM company`;
 
 describe("Database permissions", () => {
+  let pool;
   let installer_id;
   let company_admin_id;
   let company_id;
@@ -82,13 +56,10 @@ describe("Database permissions", () => {
     }
   };
 
-  afterAll(async () => {
-    await cleanDbFromTests();
-    pool.end();
-  });
-
   beforeAll(async () => {
+    pool = await getDbPool();
     const { rows: markets } = await transaction(
+      pool,
       {
         role: ROLE_SUPER_ADMIN,
         accountUuid: 0,
@@ -99,6 +70,7 @@ describe("Database permissions", () => {
     );
     MARKET_ID = markets[0].id;
     const { rows: marketAdmin } = await transaction(
+      pool,
       {
         role: ROLE_SUPER_ADMIN,
         accountUuid: 0,
@@ -110,11 +82,17 @@ describe("Database permissions", () => {
     market_admin_id = marketAdmin[0].id;
   });
 
+  afterAll(async () => {
+    await cleanDbFromTests();
+    await pool.end();
+  });
+
   describe("Account", () => {
     describe("Installer", () => {
       it("should be able to create an account using the function create_account", async () => {
         const tuple = `null, 'NEW', null, 'INSTALLER', '${INSTALLER_EMAIL}', 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', 5, 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', '2021-06-10 00:00:39.348475'`;
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: null,
@@ -130,6 +108,7 @@ describe("Database permissions", () => {
 
       it("shouldn't be able to see other accounts", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -145,6 +124,7 @@ describe("Database permissions", () => {
       it("should be able to create an account using the function create_account", async () => {
         const tuple = `null, 'NEW', null, 'COMPANY_ADMIN', '${COMPANY_ADMIN_EMAIL}', 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', 5, 'abc', 'abc', 'abc', '2021-06-10 00:00:39.348475', '2021-06-10 00:00:39.348475'`;
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_COMPANY_ADMIN,
             accountUuid: null,
@@ -164,6 +144,7 @@ describe("Database permissions", () => {
     describe("Installer", () => {
       it("shouldn't be able to see any company if not member", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -179,6 +160,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to see a company if is not a member", async () => {
         const USERID = 1;
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_COMPANY_ADMIN,
             accountUuid: USERID,
@@ -191,6 +173,7 @@ describe("Database permissions", () => {
       });
       it("should be able to create a company", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_COMPANY_ADMIN,
             accountUuid: company_admin_id,
@@ -209,6 +192,7 @@ describe("Database permissions", () => {
         it("shouldn't be able to add himself in a company if not invited", async () => {
           try {
             await transaction(
+              pool,
               {
                 role: ROLE_INSTALLER,
                 accountUuid: installer_id,
@@ -226,6 +210,7 @@ describe("Database permissions", () => {
         it("shouldn't be able to add a user to a company where is not a member", async () => {
           try {
             await transaction(
+              pool,
               {
                 role: ROLE_COMPANY_ADMIN,
                 accountUuid: company_admin_id,
@@ -240,6 +225,7 @@ describe("Database permissions", () => {
         });
         it("should be able to add an invitation", async () => {
           const { rows } = await transaction(
+            pool,
             {
               role: ROLE_COMPANY_ADMIN,
               accountUuid: company_admin_id,
@@ -253,6 +239,7 @@ describe("Database permissions", () => {
 
         it("a user with an invitation should be able to join a company", async () => {
           const { rows } = await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -272,6 +259,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add an address", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -292,6 +280,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add a document to another company", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_COMPANY_ADMIN,
               accountUuid: 0,
@@ -306,6 +295,7 @@ describe("Database permissions", () => {
       });
       it("should be able to add a document to his company", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_COMPANY_ADMIN,
             accountUuid: company_admin_id,
@@ -322,6 +312,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to create a certification", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -337,6 +328,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to read a certification of another company", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -351,6 +343,7 @@ describe("Database permissions", () => {
       });
       it("should be able to read a certification of his company", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -369,6 +362,7 @@ describe("Database permissions", () => {
     describe("Company admin", () => {
       it("should be able to add a project", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_COMPANY_ADMIN,
             accountUuid: company_admin_id,
@@ -383,6 +377,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add a project to another company", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_COMPANY_ADMIN,
               accountUuid: company_admin_id,
@@ -397,6 +392,7 @@ describe("Database permissions", () => {
       });
       it("should be able to add an installer to the project", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_COMPANY_ADMIN,
             accountUuid: company_admin_id,
@@ -411,6 +407,7 @@ describe("Database permissions", () => {
     describe("Installer", () => {
       it("shouldn't be able to see any project", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -425,6 +422,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add an installer to the project", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -440,6 +438,7 @@ describe("Database permissions", () => {
 
       it("should be able to remove himself from the project", async () => {
         const { rows: deletedRows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -452,6 +451,7 @@ describe("Database permissions", () => {
 
         // Recrete the user for next tests
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_COMPANY_ADMIN,
             accountUuid: company_admin_id,
@@ -469,6 +469,7 @@ describe("Database permissions", () => {
     describe("Company admin", () => {
       it("should be able to add a guarantee", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_COMPANY_ADMIN,
             accountUuid: company_admin_id,
@@ -485,6 +486,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to create any guarantee", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -499,6 +501,7 @@ describe("Database permissions", () => {
       });
       it("should be able to select a guarantee of his company", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -516,7 +519,7 @@ describe("Database permissions", () => {
   // describe("Evidence Items", () => {
   //   describe("Company admin", () => {
   //     it("should be able to add an evidence item", async () => {
-  //       const { rows } = await transaction(
+  //       const { rows } = await transaction(pool,
   //         {
   //           role: ROLE_COMPANY_ADMIN,
   //           accountUuid: company_admin_id,
@@ -532,7 +535,7 @@ describe("Database permissions", () => {
   //   describe("Installer", () => {
   //     it("shouldn't be able to create any guarantee", async () => {
   //       try {
-  //         await transaction(
+  //         await transaction(pool,
   //           {
   //             role: ROLE_INSTALLER,
   //             accountUuid: installer_id,
@@ -546,7 +549,7 @@ describe("Database permissions", () => {
   //       }
   //     });
   // it("should be able to select an evidence item if member of a project", async () => {
-  //   const { rows } = await transaction(
+  //   const { rows } = await transaction(pool,
   //     {
   //       role: ROLE_INSTALLER,
   //       accountUuid: installer_id,
@@ -559,7 +562,7 @@ describe("Database permissions", () => {
   // });
   //     it("shouldn't be able to select an evidence item if not member of a project", async () => {
   //       try {
-  //         await transaction(
+  //         await transaction(pool,
   //           {
   //             role: ROLE_INSTALLER,
   //             accountUuid: 0,
@@ -579,6 +582,7 @@ describe("Database permissions", () => {
     describe("Super Admin", () => {
       it("should be able to create and read a market", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_SUPER_ADMIN,
             accountUuid: 0,
@@ -595,6 +599,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add a new market", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -609,6 +614,7 @@ describe("Database permissions", () => {
       });
       it("should be able to read his market", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -621,6 +627,7 @@ describe("Database permissions", () => {
       });
       it("shouldn't be able to read a market if not registered in that market", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -637,6 +644,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add a new market", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -654,6 +662,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add a new market", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_MARKET_ADMIN,
               accountUuid: 0,
@@ -673,6 +682,7 @@ describe("Database permissions", () => {
     describe("Market Admin", () => {
       it("should be able to create and read a product", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_MARKET_ADMIN,
             accountUuid: market_admin_id,
@@ -687,6 +697,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to create and read a product", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_MARKET_ADMIN,
               accountUuid: market_admin_id,
@@ -706,6 +717,7 @@ describe("Database permissions", () => {
     describe("Super Admin", () => {
       it("should be able to create and read a system", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_SUPER_ADMIN,
             accountUuid: 0,
@@ -722,6 +734,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add a new market", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -754,6 +767,7 @@ describe("Database permissions", () => {
       it("should not be able to add notifications", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -773,6 +787,7 @@ describe("Database permissions", () => {
       });
       it("should be able to read notifications", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_INSTALLER,
             accountUuid: installer_id,
@@ -791,6 +806,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to send an invitation", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,
@@ -814,6 +830,7 @@ describe("Database permissions", () => {
     describe("Market Admin", () => {
       it("should be able to add a note", async () => {
         const { rows } = await transaction(
+          pool,
           {
             role: ROLE_MARKET_ADMIN,
             accountUuid: market_admin_id,
@@ -833,6 +850,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add a note", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_COMPANY_ADMIN,
               accountUuid: company_admin_id,
@@ -854,6 +872,7 @@ describe("Database permissions", () => {
       it("shouldn't be able to add a note", async () => {
         try {
           await transaction(
+            pool,
             {
               role: ROLE_INSTALLER,
               accountUuid: installer_id,

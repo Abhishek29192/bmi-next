@@ -9,6 +9,13 @@ jest.mock("../../db", () => ({
   })
 }));
 
+jest.mock("../../permissions", () => ({
+  INSTALLER: ["act-1"],
+  COMPANY_ADMIN: ["act-2"],
+  MARKET_ADMIN: [],
+  SUPER_ADMIN: []
+}));
+
 const user = {
   "user/email": "user.email",
   iss: "user.iss",
@@ -51,6 +58,9 @@ describe("ParseUserInfo", () => {
   });
 
   it("should append the user object to the request", async () => {
+    const mockCan = jest.fn();
+    jest.spyOn(userInfo, "can").mockImplementationOnce(() => mockCan);
+
     mockQuery
       .mockImplementationOnce(() =>
         Promise.resolve({
@@ -109,8 +119,27 @@ describe("ParseUserInfo", () => {
         company: {
           id: 2,
           name: "Company name"
-        }
+        },
+        can: mockCan
       }
+    });
+  });
+
+  describe("Can", () => {
+    it("should return true if a use can perform an action", () => {
+      expect(userInfo.can({ user: { role: "INSTALLER" } })("act-1")).toEqual(
+        true
+      );
+    });
+    it("should return true if a use can perform an action 1", () => {
+      expect(
+        userInfo.can({ user: { role: "COMPANY_ADMIN" } })("act-2")
+      ).toEqual(true);
+    });
+    it("should return false if a use can't perform an action", () => {
+      expect(userInfo.can({ user: { role: "INSTALLER" } })("act-2")).toEqual(
+        false
+      );
     });
   });
 });

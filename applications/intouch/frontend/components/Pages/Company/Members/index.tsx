@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import React, { useState } from "react";
 import Typography from "@bmi/typography";
+import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
 import {
   CertificationFlatRoof,
@@ -10,17 +11,19 @@ import {
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
 import { Technology, CompanyMember, Role } from "@bmi/intouch-api-types";
+import { reorderMembers } from "../../../../pages/team";
 import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
 import { SidePanel } from "../../../SidePanel";
 import { FilterResult } from "../../../FilterResult";
 import { CompanyMembersQuery } from "../../../../graphql/generated/operations";
-
+import { useUpdateRoleAccountMutation } from "../../../../graphql/generated/hooks";
 import { TableContainer } from "../../../TableContainer";
 import { UserCard } from "../../../UserCard";
 import {
   useDeleteCompanyMemberMutation,
   useCompanyMembersLazyQuery
 } from "../../../../graphql/generated/hooks";
+import AccessControl from "../../../../lib/permissions/AccessControl";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
@@ -55,6 +58,13 @@ const CERTIFICATION_ICONS: {
 
 const today = new Date(new Date().setUTCHours(0, 0, 0, 0));
 
+const getTechnologies = (account) =>
+  Array.from(
+    new Set(
+      account.certificationsByDoceboUserId.nodes.map((item) => item.technology)
+    )
+  );
+
 const formatDate = (date: string) =>
   new Intl.DateTimeFormat("en-GB", {
     dateStyle: "medium"
@@ -63,6 +73,13 @@ const formatDate = (date: string) =>
 const certificationClass = (data: string): string => {
   const certDate: Date = new Date(new Date(data).setUTCHours(0, 0, 0, 0));
   return certDate < today ? styles.expired : "";
+};
+
+const getValidCertDate = () => {
+  const expiryDate = new Date();
+  expiryDate.setHours(0, 0, 0, 0);
+  expiryDate.setMonth(expiryDate.getMonth() - 6);
+  return expiryDate;
 };
 
 const CompanyMembers = ({ data }: PageProps) => {
@@ -83,11 +100,10 @@ const CompanyMembers = ({ data }: PageProps) => {
           message: error.message
         }
       ]);
+      closeWithDelay();
     },
     onCompleted: () => {
-      const expiryDate = new Date();
-      expiryDate.setHours(0, 0, 0, 0);
-      expiryDate.setMonth(expiryDate.getMonth() - 6);
+      const expiryDate = getValidCertDate();
 
       fetchCompanyMembers({
         variables: {
@@ -98,15 +114,30 @@ const CompanyMembers = ({ data }: PageProps) => {
       setMessages([
         {
           severity: "success",
-          message: t("member.removed.success")
+          message: "member.removed.success"
         }
       ]);
+
+      closeWithDelay();
     }
   });
+
+  const closeWithDelay = () => {
+    setTimeout(() => {
+      setDialogOpen(false);
+    }, 2000);
+  };
+
   const [fetchCompanyMembers] = useCompanyMembersLazyQuery({
     fetchPolicy: "network-only",
     onCompleted: (data) => {
-      setMembers(data?.companyMembers?.nodes);
+      const newCurrent = data?.companyMembers?.nodes.find(
+        ({ id }) => id === currentMember.id
+      ) as Partial<CompanyMember>;
+
+      setMembers(reorderMembers(data?.companyMembers?.nodes));
+
+      setCurrentMember(newCurrent);
     }
   });
 
@@ -114,6 +145,38 @@ const CompanyMembers = ({ data }: PageProps) => {
     deleteMember({
       variables: {
         id: currentMember.id
+      }
+    });
+
+  const [updateAccount] = useUpdateRoleAccountMutation({
+    onError: (error) => {
+      setMessages([
+        {
+          severity: "error",
+          message: error.message
+        }
+      ]);
+    },
+    onCompleted: () => {
+      const expiryDate = getValidCertDate();
+
+      fetchCompanyMembers({
+        variables: {
+          expiryDate
+        }
+      });
+    }
+  });
+
+  const onAccountUpdate = (id: number, role: Role) =>
+    updateAccount({
+      variables: {
+        input: {
+          id,
+          patch: {
+            role
+          }
+        }
       }
     });
 
@@ -129,8 +192,6 @@ const CompanyMembers = ({ data }: PageProps) => {
     ]);
   };
 
-  const formattedRole = (role: Role) => role?.replace("_", " ")?.toLowerCase();
-
   return (
     <>
       <Alert messages={messages} onClose={() => setMessages([])} />
@@ -140,54 +201,50 @@ const CompanyMembers = ({ data }: PageProps) => {
           searchLabel={t("sidePanel.search.label")}
           onSearchFilterChange={onSearch}
           noResultLabel={t("sidePanel.search.noResult")}
-          footerBtn={{
-            label: t("sidePanel.inviteLabel"),
-            onClick: () => setDialogOpen(true)
-          }}
-        >
-          {members.map(({ account, ...rest }) => {
-            const { id, role, lastName, firstName } = account;
-            const tecnologies = Array.from(
-              new Set(
-                account.certificationsByDoceboUserId.nodes.map(
-                  (item) => item.technology
-                )
-              )
-            );
-
-            return (
-              <FilterResult
-                testId="list-item"
-                label={`${firstName} ${lastName}`}
-                key={id}
-                onClick={() =>
-                  setCurrentMember({
-                    account,
-                    ...rest
-                  } as Partial<CompanyMember>)
-                }
+          renderFooter={() => (
+            <AccessControl dataModel="company" action="inviteUser">
+              <Button
+                variant="outlined"
+                onClick={() => setDialogOpen(true)}
+                data-testid="footer-btn"
               >
-                <Typography
-                  style={{ textTransform: "capitalize" }}
-                  variant="subtitle1"
-                  color="textSecondary"
-                >
-                  {formattedRole(role)}
-                </Typography>
-                <div className={styles.icons}>
-                  {tecnologies.map((technology, index) => (
-                    <SvgIcon
-                      key={`${id}-${index}-${technology}`}
-                      viewBox="0 0 48 48"
-                      className={styles.icon}
-                      component={CERTIFICATION_ICONS[technology as Technology]}
-                      data-testid={`icon-${technology}`}
-                    />
-                  ))}
-                </div>
-              </FilterResult>
-            );
-          })}
+                {t("sidePanel.inviteLabel")}
+              </Button>
+            </AccessControl>
+          )}
+        >
+          {members.map(({ account, ...rest }) => (
+            <FilterResult
+              testId="list-item"
+              label={`${account.firstName} ${account.lastName}`}
+              key={account.id}
+              onClick={() =>
+                setCurrentMember({
+                  account,
+                  ...rest
+                } as Partial<CompanyMember>)
+              }
+            >
+              <Typography
+                style={{ textTransform: "capitalize" }}
+                variant="subtitle1"
+                color="textSecondary"
+              >
+                {account.formattedRole}
+              </Typography>
+              <div className={styles.icons}>
+                {getTechnologies(account).map((technology, index) => (
+                  <SvgIcon
+                    key={`${account.id}-${index}-${technology}`}
+                    viewBox="0 0 48 48"
+                    className={styles.icon}
+                    component={CERTIFICATION_ICONS[technology as Technology]}
+                    data-testid={`icon-${technology}`}
+                  />
+                ))}
+              </div>
+            </FilterResult>
+          ))}
         </SidePanel>
         <ThreeColumnGrid>
           <div className={styles.detail}>
@@ -239,12 +296,9 @@ const CompanyMembers = ({ data }: PageProps) => {
           </div>
           <UserCard
             testid="user-card"
+            onAccountUpdate={onAccountUpdate}
             onRemoveUser={onRemoveUser}
-            username={`${currentMember?.account?.firstName} ${currentMember?.account?.lastName}`}
-            role={currentMember?.account?.role
-              ?.replace("_", " ")
-              ?.toLowerCase()}
-            avatar={currentMember?.account.photo}
+            account={currentMember?.account}
             companyName={currentMember?.company.name}
             details={[
               {

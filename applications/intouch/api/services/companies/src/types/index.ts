@@ -22,4 +22,5 @@ export type Account = {
   doceboUsername: string;
   migrationId: string;
   company: Company;
+  can: (permissions: string | string[]) => boolean;
 };

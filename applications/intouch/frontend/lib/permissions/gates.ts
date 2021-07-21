@@ -33,6 +33,12 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: true
+    },
+    changeRole: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: true
     }
   },
   navigation: {

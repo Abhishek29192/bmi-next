@@ -3,6 +3,8 @@ import { InviteInput, Role } from "@bmi/intouch-api-types";
 import { FileUpload } from "graphql-upload";
 import { UpdateAccountInput } from "@bmi/intouch-api-types";
 import { publish, TOPICS } from "../../services/events";
+import { sendChangeRoleEmail } from "../../services/mailer";
+import { updateUser } from "../../services/training";
 import StorageClient from "../storage-client";
 import { Account } from "../../types";
 
@@ -10,7 +12,6 @@ const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
 
 const ERROR_ALREADY_MEMBER = "The user is already a member of another company";
-const ERROR_NO_COMPANY_ADMIN = "You can't invite company admin";
 const ERROR_INVITATION_NOT_FOUND = "Invitation not found";
 
 export const createAccount = async (
@@ -78,14 +79,77 @@ export const updateAccount = async (
 ) => {
   const { GCP_BUCKET_NAME } = process.env;
 
-  const { pgClient, logger: Logger } = context;
+  const { pgClient, user, logger: Logger, pubSub } = context;
+  const { photoUpload, role } = args.input.patch;
 
   const logger = Logger("service:account");
 
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    if (args.input.patch.photoUpload) {
+    if (role) {
+      const { rows: users } = await pgClient.query(
+        "select account.* from account join company_member on account.id = company_member.account_id where company_member.company_id = $1",
+        [user.company.id]
+      );
+
+      const accountToEdit = users.find(({ id }) => id === args.input.id);
+
+      const admins = users.filter(({ role }) => role === "COMPANY_ADMIN");
+
+      // If these values are different means we are trying to change the role
+      // By default an installer can't update the role columns so we don't need to check this
+      if (role !== accountToEdit.role) {
+        if (admins.length === 1 && role === "INSTALLER") {
+          logger.error(
+            `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
+          );
+          throw new Error("last_company_admin");
+        }
+
+        if (!user.can("grant:company_admin") && role === "COMPANY_ADMIN") {
+          logger.error(
+            `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
+          );
+          throw new Error("unauthorized");
+        }
+        if (!user.can("grant:market_admin") && role === "MARKET_ADMIN") {
+          logger.error(
+            `User with id: ${user.id} is trying to grant market admin to user ${args.input.id}`
+          );
+          throw new Error("unauthorized");
+        }
+        if (!user.can("grant:super_admin") && role === "SUPER_ADMIN") {
+          logger.error(
+            `User with id: ${user.id} is trying to grant super admin to user ${args.input.id}`
+          );
+          throw new Error("unauthorized");
+        }
+
+        const result = await resolve(source, args, context, resolveInfo);
+
+        const POWER_USER_LEVEL = 4;
+        const REGULAR_USER_LEVEL = 6;
+
+        const level =
+          role === "COMPANY_ADMIN" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
+
+        await updateUser({
+          userid: `${result.data.$docebo_user_id}`,
+          level
+        });
+
+        await sendChangeRoleEmail(pubSub, {
+          email: result.data.$email,
+          firstname: result.data.$first_name,
+          role: role?.toLowerCase().replace("_", " ")
+        });
+
+        return result;
+      }
+    }
+
+    if (photoUpload) {
       const { rows: accounts } = await pgClient.query(
         `select photo from account WHERE id = $1`,
         [args.input.id]
@@ -94,7 +158,7 @@ export const updateAccount = async (
       const newFileName =
         accounts[0].photo || `profile/${args.input.id}-${Date.now()}`;
 
-      const uploadedFile: FileUpload = await args.input.patch.photoUpload;
+      const uploadedFile: FileUpload = await photoUpload;
 
       args.input.patch.photo = newFileName;
 
@@ -105,9 +169,10 @@ export const updateAccount = async (
         uploadedFile
       );
     }
+
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
-    logger.error("Error creating a user");
+    logger.error("Error updating a user", e);
 
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
     throw e;
@@ -131,7 +196,7 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
 
   const result = [];
 
-  if (!user.role || user.role === INSTALLER) {
+  if (!user.can("invite")) {
     throw new Error("you must be an admin to invite other users");
   }
 
@@ -178,13 +243,6 @@ export const invite = async (_query, args, context, resolveInfo, auth0) => {
 
     if (invetees.length > 0) {
       logger.info(`User with id: ${invetees[0].id} found`);
-
-      const inveteeRole: Role = invetees[0].role;
-
-      // company admin can't be invited
-      if (inveteeRole === "COMPANY_ADMIN") {
-        throw new Error(ERROR_NO_COMPANY_ADMIN);
-      }
 
       // Check if the user is a member of a company
       const { rows } = await pgRootPool.query(
@@ -300,10 +358,6 @@ export const completeInvitation = async (
 
   if (invitations.length === 0) {
     throw new Error(ERROR_INVITATION_NOT_FOUND);
-  }
-
-  if (user?.role === "COMPANY_ADMIN") {
-    throw new Error(ERROR_NO_COMPANY_ADMIN);
   }
 
   if (user?.company?.id >= 0) {

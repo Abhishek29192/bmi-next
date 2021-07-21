@@ -454,6 +454,7 @@ type Account implements Node {
     """
     filter: ProjectMemberFilter
   ): ProjectMembersConnection!
+  formattedRole: String
   signedPhotoUrl: String
 }
 
@@ -12438,6 +12439,12 @@ type Mutation {
     """
     input: UpdateCourseTempByNodeIdInput!
   ): UpdateCourseTempPayload
+  updateDoceboUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UserUpdateInput
+  ): UserUpdateResponse
 
   """
   Updates a single `EvidenceItem` using a unique key and a patch.
@@ -19615,6 +19622,32 @@ type UserData {
   role_id: String
   role_title: String
   role: String
+}
+
+input UserUpdateInput {
+  userid: String
+  email: String
+  password: String
+  privacy: String
+  firstname: String
+  lastname: String
+  force_change: Int
+  level: Int
+  language: String
+  expiration: String
+  email_validation_status: Int
+  valid: Int
+  date_format: String
+  timezone: String
+  role: Int
+  send_notification_email: Boolean
+  can_manage_subordinates: Boolean
+  select_orgchart: SelectOrgchart
+}
+
+type UserUpdateResponse {
+  success: Boolean
+  user_id: Int
 }
 
 scalar _Any

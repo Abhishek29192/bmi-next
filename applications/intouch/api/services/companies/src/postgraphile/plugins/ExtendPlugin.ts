@@ -56,6 +56,15 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         signedPhotoUrl: async (parent, args, context) => {
           const { photo } = parent;
           return getAccountSignedPhotoUrl(photo);
+        },
+        formattedRole: async (parent, args, context) => {
+          const formattedRoles = {
+            COMPANY_ADMIN: "Company Admin",
+            INSTALLER: "Installer",
+            MARKET_ADMIN: "Market Admin",
+            SUPER_ADMIN: "Super Admin"
+          };
+          return formattedRoles[parent?.role || "INSTALLER"];
         }
       },
       Mutation: {

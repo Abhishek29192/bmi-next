@@ -91,6 +91,18 @@ query EvidenceCategory($id: String!) {
   return contentfulHandler(query, variables);
 };
 
+export const messageTemplate = async (id: string) => {
+  const query = `
+  query messageTemplate($id: String!){
+    messageTemplate(id:$id){
+      subject
+      emailBody
+    }
+  }`;
+
+  return contentfulHandler(query, { id });
+};
+
 const contentfulHandler = async (query: string, variables: Object) => {
   const {
     CONTENTFUL_API_HOST,
