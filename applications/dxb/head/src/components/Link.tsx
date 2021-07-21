@@ -1,13 +1,8 @@
 import { ClickableAction } from "@bmi/clickable";
 import Dialog from "@bmi/dialog";
+import Clickable from "@bmi/clickable";
 import { graphql, Link as GatsbyLink } from "gatsby";
-import React, {
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-  useEffect
-} from "react";
+import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simple-page";
 import { pushToDataLayer } from "../utils/google-tag-manager";
 import { IconName } from "./Icon";
@@ -153,6 +148,16 @@ export const getCTA = (
   };
 };
 
+// TODO: HubSpot CTA script does not work on live. This is an intermediate
+// step which may be acceptable for a final solution.
+export const getLinkURL = (data: Data) =>
+  data?.type === "HubSpot CTA" &&
+  data?.hubSpotCTAID &&
+  process.env.GATSBY_HUBSPOT_ID &&
+  process.env.GATSBY_HUBSPOT_CTA_URL
+    ? `${process.env.GATSBY_HUBSPOT_CTA_URL}${process.env.GATSBY_HUBSPOT_ID}/${data?.hubSpotCTAID}`
+    : data?.url;
+
 export type Data = {
   __typename: "ContentfulLink";
   id: string;
@@ -167,6 +172,7 @@ export type Data = {
     | "Visualiser"
     | "Calculator"
     | "Dialog"
+    | "HubSpot CTA"
     | null;
   parameters: { [key: string]: any } | null;
   dialogContent: SectionData | null;
@@ -198,7 +204,7 @@ export type NavigationData = {
 
 export const Link = ({
   children,
-  component: Component = "a",
+  component: Component = Clickable,
   data,
   onClick,
   ...rest
@@ -212,6 +218,10 @@ export const Link = ({
   const { countryCode } = useContext(SiteContext);
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
+
+  if (data?.type === "HubSpot CTA" && !process.env.GATSBY_HUBSPOT_CTA_ENABLED) {
+    return null;
+  }
 
   const handleOnClick = useCallback(
     (...args) => {
@@ -234,7 +244,7 @@ export const Link = ({
     () =>
       getClickableActionFromUrl(
         data?.linkedPage,
-        data?.url,
+        getLinkURL(data),
         countryCode,
         data?.asset?.file?.url,
         data?.label,
@@ -265,70 +275,6 @@ export const Link = ({
       </Dialog>
     );
   }, [data?.dialogContent, dialogIsOpen]);
-
-  const renderHubSpotCTA = useMemo(() => {
-    const { hubSpotCTAID } = data;
-    const HubSpotID = process.env.GATSBY_HUBSPOT_ID;
-
-    return (
-      <span className="hs-cta-wrapper" id={`hs-cta-wrapper-${hubSpotCTAID}`}>
-        <span
-          className={`hs-cta-node hs-cta-${hubSpotCTAID}`}
-          id={`hs-cta-${hubSpotCTAID}`}
-        >
-          <a
-            href={`https://cta-redirect.hubspot.com/cta/redirect/${HubSpotID}/${hubSpotCTAID}`}
-          >
-            <img
-              className="hs-cta-img"
-              id={`hs-cta-img-${hubSpotCTAID}`}
-              src={`https://no-cache.hubspot.com/cta/default/${HubSpotID}/${hubSpotCTAID}.png`}
-              alt="New call-to-action"
-            />
-          </a>
-        </span>
-      </span>
-    );
-  }, [data?.hubSpotCTAID]);
-
-  useEffect(() => {
-    if (
-      typeof window === "undefined" ||
-      typeof document === "undefined" ||
-      data?.type !== "HubSpot CTA" ||
-      !data?.hubSpotCTAID
-    ) {
-      return;
-    }
-
-    const script = document.getElementById("hubspot-cta-script");
-
-    if (!script) {
-      return;
-    }
-
-    const handleHubSpotCTALoad = () => {
-      if (!("hbspt" in window)) {
-        return;
-      }
-
-      window?.["hbspt"]?.cta?.load(
-        process.env.GATSBY_HUBSPOT_ID,
-        data?.hubSpotCTAID,
-        { region: "na1" } // Maybe this needs to be in env?
-      );
-    };
-
-    script.addEventListener("load", handleHubSpotCTALoad);
-
-    return () => {
-      script.removeEventListener("load", handleHubSpotCTALoad);
-    };
-  }, []);
-
-  if (data?.type === "HubSpot CTA" && data?.hubSpotCTAID) {
-    return renderHubSpotCTA;
-  }
 
   return (
     <>
