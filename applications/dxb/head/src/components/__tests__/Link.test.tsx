@@ -160,6 +160,7 @@ describe("Link component", () => {
       const promo: PromoData = {
         __typename: "ContentfulPromo",
         id: "testId",
+        name: "test",
         title: "test",
         subtitle: "I am a subtitle",
         body: null,
@@ -195,6 +196,7 @@ describe("Link component", () => {
       const promo: PromoData = {
         __typename: "ContentfulPromo",
         id: "testId",
+        name: "test",
         title: "test",
         subtitle: "I am a subtitle",
         body: null,

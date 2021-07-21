@@ -24,6 +24,7 @@ describe("HomePage template", () => {
     const card1: PromoData = {
       __typename: "ContentfulPromo",
       id: "card1",
+      name: "cardTitle1",
       title: "cardTitle1",
       subtitle: null,
       body: null,
@@ -73,6 +74,7 @@ describe("HomePage template", () => {
     const card2: PromoData = {
       __typename: "ContentfulPromo",
       id: "card2",
+      name: "cardTitle2",
       title: "cardTitle2",
       subtitle: null,
       body: null,
