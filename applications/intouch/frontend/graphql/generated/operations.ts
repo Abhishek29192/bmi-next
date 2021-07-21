@@ -433,6 +433,25 @@ export type AddProjectsMemberMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type AddEvidencesMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.EvidenceItemsAddInput;
+}>;
+
+export type AddEvidencesMutation = { readonly __typename?: "Mutation" } & {
+  readonly evidenceItemsAdd?: SchemaTypes.Maybe<
+    { readonly __typename?: "EvidenceItemsAddPayload" } & {
+      readonly evidenceItems?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          { readonly __typename?: "EvidenceItem" } & Pick<
+            SchemaTypes.EvidenceItem,
+            "id" | "name"
+          >
+        >
+      >;
+    }
+  >;
+};
+
 export type AccountByEmailQueryVariables = SchemaTypes.Exact<{
   email: SchemaTypes.Scalars["String"];
 }>;
