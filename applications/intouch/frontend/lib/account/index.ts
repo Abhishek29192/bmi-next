@@ -319,8 +319,6 @@ export default class AccountService {
     const { firstName, lastName, role, market, email } = account;
     const { doceboCompanyAdminBranchId, doceboInstallersBranchId } = market;
 
-    console.log("account", account);
-
     this.logger.info(`Get user by email`);
 
     // Check if the user already exists in docebo
@@ -330,8 +328,6 @@ export default class AccountService {
         email: email
       }
     });
-
-    console.log("doceboUser", doceboUser);
 
     let doceboUserId = doceboUser.userByEmail?.user_id
       ? parseInt(doceboUser.userByEmail?.user_id)

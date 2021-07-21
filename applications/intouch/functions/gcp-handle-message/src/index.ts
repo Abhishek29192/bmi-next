@@ -21,16 +21,11 @@ export async function emailSender(event, context) {
     console.log("Error: ", error);
   }
 
-  try {
-    await sgMail.send({
-      from: process.env.MAIL_FROM,
-      to: parsedPayload.email,
-      subject: parsedPayload.title,
-      text: parsedPayload.text,
-      html: parsedPayload.html
-    });
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log("error sending the email: ", error);
-  }
+  await sgMail.send({
+    from: process.env.MAIL_FROM,
+    to: parsedPayload.email,
+    subject: parsedPayload.title,
+    text: parsedPayload.text,
+    html: parsedPayload.html
+  });
 }

@@ -16,7 +16,11 @@ const WrapPlugin = makeWrapResolversPlugin((build) => {
       },
       updateAccount: {
         requires: {
-          childColumns: [{ column: "first_name", alias: "$first_name" }]
+          childColumns: [
+            { column: "docebo_user_id", alias: "$docebo_user_id" },
+            { column: "first_name", alias: "$first_name" },
+            { column: "email", alias: "$email" }
+          ]
         },
         async resolve(
           resolve: any,

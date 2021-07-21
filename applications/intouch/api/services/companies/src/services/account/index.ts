@@ -4,6 +4,7 @@ import { FileUpload } from "graphql-upload";
 import { UpdateAccountInput } from "@bmi/intouch-api-types";
 import { publish, TOPICS } from "../../services/events";
 import { sendChangeRoleEmail } from "../../services/mailer";
+import { updateUser } from "../../services/training";
 import StorageClient from "../storage-client";
 import { Account } from "../../types";
 
@@ -86,52 +87,66 @@ export const updateAccount = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    const { rows: users } = await pgClient.query(
-      "select * from account where company_id = $1",
-      [user.company.id]
-    );
+    if (role) {
+      const { rows: users } = await pgClient.query(
+        "select account.* from account join company_member on account.id = company_member.account_id where company_member.company_id = $1",
+        [user.company.id]
+      );
 
-    const currentAccout = users.find(({ id }) => id === args.input.id);
+      const accountToEdit = users.find(({ id }) => id === args.input.id);
 
-    const admins = users.filter(({ role }) => role === "COMPANY_ADMIN");
+      const admins = users.filter(({ role }) => role === "COMPANY_ADMIN");
 
-    // If these values are different means we are trying to change the role
-    // By default an installer can't update the role columns so we don't need to check this
-    if (role !== currentAccout.role) {
-      if (admins.length === 1 && role === "INSTALLER") {
-        logger.error(
-          `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
-        );
-        throw new Error("last_company_admin");
+      // If these values are different means we are trying to change the role
+      // By default an installer can't update the role columns so we don't need to check this
+      if (role !== accountToEdit.role) {
+        if (admins.length === 1 && role === "INSTALLER") {
+          logger.error(
+            `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
+          );
+          throw new Error("last_company_admin");
+        }
+
+        if (!user.can("grant:company_admin") && role === "COMPANY_ADMIN") {
+          logger.error(
+            `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
+          );
+          throw new Error("unauthorized");
+        }
+        if (!user.can("grant:market_admin") && role === "MARKET_ADMIN") {
+          logger.error(
+            `User with id: ${user.id} is trying to grant market admin to user ${args.input.id}`
+          );
+          throw new Error("unauthorized");
+        }
+        if (!user.can("grant:super_admin") && role === "SUPER_ADMIN") {
+          logger.error(
+            `User with id: ${user.id} is trying to grant super admin to user ${args.input.id}`
+          );
+          throw new Error("unauthorized");
+        }
+
+        const result = await resolve(source, args, context, resolveInfo);
+
+        const POWER_USER_LEVEL = 4;
+        const REGULAR_USER_LEVEL = 6;
+
+        const level =
+          role === "COMPANY_ADMIN" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
+
+        await updateUser({
+          userid: `${result.data.$docebo_user_id}`,
+          level
+        });
+
+        await sendChangeRoleEmail(pubSub, {
+          email: result.data.$email,
+          firstname: result.data.$first_name,
+          role: role?.toLowerCase().replace("_", " ")
+        });
+
+        return result;
       }
-
-      if (!user.can("grant:company_admin") && role === "COMPANY_ADMIN") {
-        logger.error(
-          `User with id: ${user.id} is trying to grant company admin to user ${args.input.id}`
-        );
-        throw new Error("unauthorized");
-      }
-      if (!user.can("grant:market_admin") && role === "MARKET_ADMIN") {
-        logger.error(
-          `User with id: ${user.id} is trying to grant market admin to user ${args.input.id}`
-        );
-        throw new Error("unauthorized");
-      }
-      if (!user.can("grant:super_admin") && role === "SUPER_ADMIN") {
-        logger.error(
-          `User with id: ${user.id} is trying to grant super admin to user ${args.input.id}`
-        );
-        throw new Error("unauthorized");
-      }
-
-      const result = await resolve(source, args, context, resolveInfo);
-
-      await sendChangeRoleEmail(pubSub, {
-        firstname: result.data.$first_name,
-        role: role?.toLowerCase().replace("_", " ")
-      });
-
-      return result;
     }
 
     if (photoUpload) {

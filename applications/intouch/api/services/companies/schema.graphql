@@ -866,6 +866,11 @@ type Query implements Node {
   company(id: Int!): Company
   companyDocument(id: Int!): CompanyDocument
   companyMember(id: Int!): CompanyMember
+  companyMemberByMarketIdAndAccountIdAndCompanyId(
+    marketId: Int!
+    accountId: Int!
+    companyId: Int!
+  ): CompanyMember
   companyOperation(id: Int!): CompanyOperation
   evidenceItem(id: Int!): EvidenceItem
   guarantee(id: Int!): Guarantee
@@ -1363,52 +1368,6 @@ type Account implements Node {
   Reads and enables pagination through a set of `Guarantee`.
   """
   guaranteesByRequestorAccountId(
-    """
-    Only read the first `n` values of the set.
-    """
-    first: Int
-
-    """
-    Only read the last `n` values of the set.
-    """
-    last: Int
-
-    """
-    Skip the first `n` values from our `after` cursor, an alternative to cursor
-    based pagination. May not be used with `last`.
-    """
-    offset: Int
-
-    """
-    Read all values in the set before (above) this cursor.
-    """
-    before: Cursor
-
-    """
-    Read all values in the set after (below) this cursor.
-    """
-    after: Cursor
-
-    """
-    The method to use when ordering `Guarantee`.
-    """
-    orderBy: [GuaranteesOrderBy!] = [PRIMARY_KEY_ASC]
-
-    """
-    A condition to be used in determining which values should be returned by the collection.
-    """
-    condition: GuaranteeCondition
-
-    """
-    A filter to be used in determining which values should be returned by the collection.
-    """
-    filter: GuaranteeFilter
-  ): GuaranteesConnection!
-
-  """
-  Reads and enables pagination through a set of `Guarantee`.
-  """
-  guaranteesByResponsibleInstallerAccountId(
     """
     Only read the first `n` values of the set.
     """
@@ -3561,11 +3520,6 @@ type Guarantee implements Node {
   """
   fk
   """
-  responsibleInstallerAccountId: Int
-
-  """
-  fk
-  """
   projectId: Int
 
   """
@@ -3619,11 +3573,6 @@ type Guarantee implements Node {
   Reads a single `Account` that is related to this `Guarantee`.
   """
   requestorAccount: Account
-
-  """
-  Reads a single `Account` that is related to this `Guarantee`.
-  """
-  responsibleInstallerAccount: Account
 
   """
   Reads a single `Project` that is related to this `Guarantee`.
@@ -3924,8 +3873,6 @@ enum GuaranteesOrderBy {
   ID_DESC
   REQUESTOR_ACCOUNT_ID_ASC
   REQUESTOR_ACCOUNT_ID_DESC
-  RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC
-  RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC
   PROJECT_ID_ASC
   PROJECT_ID_DESC
   SYSTEM_BMI_REF_ASC
@@ -3952,11 +3899,6 @@ input GuaranteeCondition {
   Checks for equality with the object’s `requestorAccountId` field.
   """
   requestorAccountId: Int
-
-  """
-  Checks for equality with the object’s `responsibleInstallerAccountId` field.
-  """
-  responsibleInstallerAccountId: Int
 
   """
   Checks for equality with the object’s `projectId` field.
@@ -3992,11 +3934,6 @@ input GuaranteeFilter {
   Filter by the object’s `requestorAccountId` field.
   """
   requestorAccountId: IntFilter
-
-  """
-  Filter by the object’s `responsibleInstallerAccountId` field.
-  """
-  responsibleInstallerAccountId: IntFilter
 
   """
   Filter by the object’s `projectId` field.
@@ -4741,6 +4678,11 @@ type ProjectMember implements Node {
   fk
   """
   accountId: Int
+
+  """
+  The responsible installer
+  """
+  isResponsibleInstaller: Boolean
   createdAt: Datetime!
   updatedAt: Datetime!
 
@@ -4781,6 +4723,8 @@ enum ProjectMembersOrderBy {
   PROJECT_ID_DESC
   ACCOUNT_ID_ASC
   ACCOUNT_ID_DESC
+  IS_RESPONSIBLE_INSTALLER_ASC
+  IS_RESPONSIBLE_INSTALLER_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -4804,6 +4748,11 @@ input ProjectMemberCondition {
   Checks for equality with the object’s `accountId` field.
   """
   accountId: Int
+
+  """
+  Checks for equality with the object’s `isResponsibleInstaller` field.
+  """
+  isResponsibleInstaller: Boolean
 }
 
 """
@@ -4826,6 +4775,11 @@ input ProjectMemberFilter {
   accountId: IntFilter
 
   """
+  Filter by the object’s `isResponsibleInstaller` field.
+  """
+  isResponsibleInstaller: BooleanFilter
+
+  """
   Checks for all expressions in this list.
   """
   and: [ProjectMemberFilter!]
@@ -4839,6 +4793,66 @@ input ProjectMemberFilter {
   Negates the expression.
   """
   not: ProjectMemberFilter
+}
+
+"""
+A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’
+"""
+input BooleanFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """
+  Equal to the specified value.
+  """
+  equalTo: Boolean
+
+  """
+  Not equal to the specified value.
+  """
+  notEqualTo: Boolean
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Boolean
+
+  """
+  Equal to the specified value, treating null like an ordinary value.
+  """
+  notDistinctFrom: Boolean
+
+  """
+  Included in the specified list.
+  """
+  in: [Boolean!]
+
+  """
+  Not included in the specified list.
+  """
+  notIn: [Boolean!]
+
+  """
+  Less than the specified value.
+  """
+  lessThan: Boolean
+
+  """
+  Less than or equal to the specified value.
+  """
+  lessThanOrEqualTo: Boolean
+
+  """
+  Greater than the specified value.
+  """
+  greaterThan: Boolean
+
+  """
+  Greater than or equal to the specified value.
+  """
+  greaterThanOrEqualTo: Boolean
 }
 
 """
@@ -6847,6 +6861,16 @@ type Mutation {
   ): UpdateCompanyMemberPayload
 
   """
+  Updates a single `CompanyMember` using a unique key and a patch.
+  """
+  updateCompanyMemberByMarketIdAndAccountIdAndCompanyId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput!
+  ): UpdateCompanyMemberPayload
+
+  """
   Updates a single `CompanyOperation` using its globally unique id and a patch.
   """
   updateCompanyOperationByNodeId(
@@ -7274,6 +7298,16 @@ type Mutation {
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
     """
     input: DeleteCompanyMemberInput!
+  ): DeleteCompanyMemberPayload
+
+  """
+  Deletes a single `CompanyMember` using a unique key.
+  """
+  deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput!
   ): DeleteCompanyMemberPayload
 
   """
@@ -8173,11 +8207,6 @@ type CreateGuaranteePayload {
   requestorAccount: Account
 
   """
-  Reads a single `Account` that is related to this `Guarantee`.
-  """
-  responsibleInstallerAccount: Account
-
-  """
   Reads a single `Project` that is related to this `Guarantee`.
   """
   project: Project
@@ -8242,11 +8271,6 @@ input GuaranteeInput {
   fk
   """
   requestorAccountId: Int
-
-  """
-  fk
-  """
-  responsibleInstallerAccountId: Int
 
   """
   fk
@@ -8921,6 +8945,11 @@ input ProjectMemberInput {
   fk
   """
   accountId: Int
+
+  """
+  The responsible installer
+  """
+  isResponsibleInstaller: Boolean
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -9972,6 +10001,37 @@ input UpdateCompanyMemberInput {
 }
 
 """
+All input for the `updateCompanyMemberByMarketIdAndAccountIdAndCompanyId` mutation.
+"""
+input UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `CompanyMember` being updated.
+  """
+  patch: CompanyMemberPatch!
+
+  """
+  fk
+  """
+  marketId: Int!
+
+  """
+  fk
+  """
+  accountId: Int!
+
+  """
+  fk
+  """
+  companyId: Int!
+}
+
+"""
 The output of our update `CompanyOperation` mutation.
 """
 type UpdateCompanyOperationPayload {
@@ -10222,11 +10282,6 @@ type UpdateGuaranteePayload {
   requestorAccount: Account
 
   """
-  Reads a single `Account` that is related to this `Guarantee`.
-  """
-  responsibleInstallerAccount: Account
-
-  """
   Reads a single `Project` that is related to this `Guarantee`.
   """
   project: Project
@@ -10296,11 +10351,6 @@ input GuaranteePatch {
   fk
   """
   requestorAccountId: Int
-
-  """
-  fk
-  """
-  responsibleInstallerAccountId: Int
 
   """
   fk
@@ -11314,6 +11364,11 @@ input ProjectMemberPatch {
   fk
   """
   accountId: Int
+
+  """
+  The responsible installer
+  """
+  isResponsibleInstaller: Boolean
   createdAt: Datetime
   updatedAt: Datetime
 }
@@ -12078,6 +12133,32 @@ input DeleteCompanyMemberInput {
 }
 
 """
+All input for the `deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId` mutation.
+"""
+input DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  fk
+  """
+  marketId: Int!
+
+  """
+  fk
+  """
+  accountId: Int!
+
+  """
+  fk
+  """
+  companyId: Int!
+}
+
+"""
 The output of our delete `CompanyOperation` mutation.
 """
 type DeleteCompanyOperationPayload {
@@ -12245,11 +12326,6 @@ type DeleteGuaranteePayload {
   Reads a single `Account` that is related to this `Guarantee`.
   """
   requestorAccount: Account
-
-  """
-  Reads a single `Account` that is related to this `Guarantee`.
-  """
-  responsibleInstallerAccount: Account
 
   """
   Reads a single `Project` that is related to this `Guarantee`.

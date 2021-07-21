@@ -1876,6 +1876,7 @@ export const CompanyMembersDocument = gql`
           photo
           lastName
           firstName
+          formattedRole
           certificationsByDoceboUserId(
             filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
           ) {
@@ -1988,7 +1989,8 @@ export function useUpdateRoleAccountMutation(
 export type UpdateRoleAccountMutationHookResult = ReturnType<
   typeof useUpdateRoleAccountMutation
 >;
-export type UpdateRoleAccountMutationResult = Apollo.MutationResult<OperationTypes.UpdateRoleAccountMutation>;
+export type UpdateRoleAccountMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateRoleAccountMutation>;
 export type UpdateRoleAccountMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateRoleAccountMutation,
   OperationTypes.UpdateRoleAccountMutationVariables

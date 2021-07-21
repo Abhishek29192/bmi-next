@@ -30,6 +30,8 @@
   "user_card": {
     "add_admin": "Assign as Company Admin",
     "remove_admin": "Remove as Company Admin",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
     "role_dialog": {
       "title": "Change role",
       "text": "Do you want to Change the role?"

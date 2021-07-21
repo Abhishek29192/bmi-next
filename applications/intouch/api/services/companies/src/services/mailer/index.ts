@@ -3,6 +3,7 @@ import { publish, TOPICS } from "../events";
 import { messageTemplate } from "../contentful";
 
 type ChangeRoleEmailProps = {
+  email: string;
   firstname: string;
   role: string;
 };
@@ -36,6 +37,6 @@ export const sendChangeRoleEmail = async (
     title: template.subject,
     text: template.emailBody,
     html: template.htmlEmailBody,
-    email: "francescov@digital-detox.co.uk"
+    email: body.email
   });
 };

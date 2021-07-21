@@ -2275,15 +2275,16 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/template/-/template-1.0.0.tgz#bf8828bc3ae8004d97904d78f64e3cc2cd216438"
   integrity sha512-J6WGZqCLdRMHUkyRG6fBSIFJ0rL60/nsQNh5rQvsYZ5u0PsKw6XQcJcA3DWvd9cN3j/IQx5yB1fexhCafwwUUw==
 
-"@bmi-digital/logger@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@bmi-digital/logger/-/logger-0.0.1.tgz#4d33b8fc68fa9746810acb454a17c4805222b6c8"
-  integrity sha512-HBJ3vlIatvC7zWEgAbU/tMezl21RroaJFqtffBNX4Nm7BHDUuiDEOFGOodkCsjWSeuPWQ8aLFFNrRImNuhgoRA==
+"@bmi-digital/logger@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.3.tgz#f3cfc723a26a167a15f1258266a550f3750aae38"
+  integrity sha512-XKiuTTz6RHwM1a+SOsm6mx0XtpHEAB4I2er+cpNmo3SmXC4p+oEsQoBGOBlh9IIlqPqMr7oY5vASLyJn8nt0uw==
   dependencies:
     "@google-cloud/logging" "^9.2.3"
     "@google-cloud/logging-winston" "^4.0.4"
     "@types/express" "^4.17.9"
     express "^4.17.1"
+    mask-deep "^3.0.7"
     winston "^3.3.3"
 
 "@bugsnag/browser@^7.9.2":

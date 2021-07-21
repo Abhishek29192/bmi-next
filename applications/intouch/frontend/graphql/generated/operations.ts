@@ -917,6 +917,7 @@ export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
                 | "photo"
                 | "lastName"
                 | "firstName"
+                | "formattedRole"
               > & {
                   readonly certificationsByDoceboUserId: {
                     readonly __typename?: "CertificationsConnection";

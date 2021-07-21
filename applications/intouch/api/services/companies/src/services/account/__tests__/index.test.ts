@@ -1,8 +1,11 @@
 import { completeInvitation, createAccount, invite, updateAccount } from "../";
 import * as eventsSrv from "../../../services/events";
+import * as mailerSrv from "../../../services/mailer";
+import * as trainingSrv from "../../../services/training";
+import { transaction, getDbPool } from "../../../test-utils/db";
 import { company } from "../../../fixtures";
-import { transaction } from "../../../test-utils/db";
 
+const mockPubSub = jest.fn();
 const mockQuery = jest.fn();
 const mockRootQuery = jest.fn();
 const mockResolve = jest.fn();
@@ -12,6 +15,8 @@ const mockAuth0CreateUser = jest.fn();
 const mockCreateResetPasswordTicket = jest.fn();
 
 jest.mock("../../../services/events");
+jest.mock("../../../services/mailer");
+jest.mock("../../../services/training");
 
 jest.mock("crypto", () => {
   const original = jest.requireActual("crypto");
@@ -28,6 +33,7 @@ let logger = () => ({
 
 describe("Account", () => {
   let args;
+  let pool;
   let resolveInfo;
   const userCanMock = jest.fn();
   const auth0 = {
@@ -51,10 +57,18 @@ describe("Account", () => {
       id: null,
       can: userCanMock
     },
+    pubSub: mockPubSub,
     pgClient: { query: mockQuery },
     pgRootPool: { query: mockRootQuery },
     logger
   };
+
+  beforeAll(async () => {
+    pool = await getDbPool();
+  });
+  afterAll(async () => {
+    await pool.end();
+  });
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -79,6 +93,7 @@ describe("Account", () => {
         const {
           rows: [installer]
         } = await transaction(
+          pool,
           {
             role: "super_admin",
             accountUuid: -1,
@@ -87,9 +102,8 @@ describe("Account", () => {
           "insert into account (role) VALUES($1) RETURNING *",
           ["INSTALLER"]
         );
-        const {
-          rows: [company_admin]
-        } = await transaction(
+        await transaction(
+          pool,
           {
             role: "super_admin",
             accountUuid: -1,
@@ -101,6 +115,7 @@ describe("Account", () => {
 
         try {
           await transaction(
+            pool,
             {
               role: "installer",
               accountUuid: installer.id,
@@ -114,19 +129,144 @@ describe("Account", () => {
         }
       });
 
-      it("shouldn resolve if a company admin promote a installer", async () => {
-        contextMock.user.role = "COMPANY_ADMIN";
+      it("should resolve if a company admin promote a installer", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
         args = {
           input: {
-            uuid: "uuid",
+            id: 2,
             patch: {
               role: "COMPANY_ADMIN"
             }
           }
         };
+
+        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "INSTALLER" }]
+          }));
+
+        mockResolve.mockResolvedValueOnce({
+          data: {
+            $first_name: "Name",
+            $email: "email@email.co.uk",
+            $docebo_user_id: 123456
+          }
+        });
+
         await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
 
         expect(mockResolve).toBeCalled();
+        expect(trainingSrv.updateUser).toBeCalledWith({
+          userid: "123456",
+          level: 4
+        });
+        expect(mailerSrv.sendChangeRoleEmail).toBeCalledWith(mockPubSub, {
+          email: "email@email.co.uk",
+          role: "company admin",
+          firstname: "Name"
+        });
+      });
+
+      it("should resolve if a company admin downgrade an installer", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER"
+            }
+          }
+        };
+
+        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [
+              { id: 2, role: "COMPANY_ADMIN" },
+              { id: 2, role: "COMPANY_ADMIN" }
+            ]
+          }));
+
+        mockResolve.mockResolvedValueOnce({
+          data: {
+            $first_name: "Name",
+            $email: "email@email.co.uk",
+            $docebo_user_id: 123456
+          }
+        });
+
+        await updateAccount(mockResolve, null, args, contextMock, resolveInfo);
+
+        expect(mockResolve).toBeCalled();
+        expect(trainingSrv.updateUser).toBeCalledWith({
+          userid: "123456",
+          level: 6
+        });
+        expect(mailerSrv.sendChangeRoleEmail).toBeCalledWith(mockPubSub, {
+          email: "email@email.co.uk",
+          role: "installer",
+          firstname: "Name"
+        });
+      });
+
+      it("should trown an error if last admin", async () => {
+        contextMock.user.can = () => true;
+        contextMock.user.company = {
+          id: 1
+        };
+        args = {
+          input: {
+            id: 2,
+            patch: {
+              role: "INSTALLER"
+            }
+          }
+        };
+
+        (mailerSrv.sendChangeRoleEmail as jest.Mock).mockResolvedValueOnce({});
+
+        mockQuery
+          .mockImplementationOnce(() => ({
+            rows: []
+          }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 2, role: "COMPANY_ADMIN" }]
+          }));
+
+        mockResolve.mockResolvedValueOnce({
+          data: {
+            $first_name: "Name",
+            $email: "email@email.co.uk",
+            $docebo_user_id: 123456
+          }
+        });
+
+        try {
+          await updateAccount(
+            mockResolve,
+            null,
+            args,
+            contextMock,
+            resolveInfo
+          );
+        } catch (error) {
+          expect(error.message).toEqual("last_company_admin");
+        }
       });
     });
   });

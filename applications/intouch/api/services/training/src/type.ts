@@ -17,6 +17,9 @@ export interface IContext {
 export interface ISelectOrgchart {
   [branchId: string]: String;
 }
+export interface ISelectManager {
+  [managerId: string]: String;
+}
 export interface IUserCreateInput {
   userid: string;
   email: string;
@@ -37,6 +40,25 @@ export interface IUserCreateInput {
   can_manage_subordinates?: Boolean;
   select_orgchart: ISelectOrgchart;
 }
+export interface IUserUpdateInput {
+  userid: string;
+  email: string;
+  password: string;
+  firstname: string;
+  lastname: string;
+  force_change?: Number;
+  level?: Number;
+  language?: string;
+  expiration?: string;
+  email_validation_status?: Number;
+  date_format?: string;
+  timezone?: string;
+  role?: Number;
+  manager?: ISelectManager;
+  can_manage_subordinates?: Boolean;
+  select_orgchart: ISelectOrgchart;
+  country?: Number;
+}
 export interface IMessage {
   id: String;
   message: String;
@@ -45,6 +67,12 @@ export interface IMessage {
 export interface IUserCreateResponse {
   success: Boolean;
   user_id: Number;
+  message: [IMessage];
+}
+
+export interface IUserUpdateResponse {
+  success: Boolean;
+  updated_id: Number;
   message: [IMessage];
 }
 

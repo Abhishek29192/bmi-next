@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from "axios";
 import { createToken } from "../util/JwtUtil";
 import { Course } from "../types/course";
 
-import { IUserCreateInput } from "../type";
+import { IUserCreateInput, IUserUpdateInput } from "../type";
 
 type ClientContext = {
   logger: (module: string) => Logger;
@@ -22,7 +22,6 @@ export default class DoceboClient {
 
   private constructor(accessToken: String, context: ClientContext) {
     this.logger = context.logger("docebo");
-    console.log(`Bearer ${accessToken}`);
     this.client = axios.create({
       baseURL: DOCEBO_API_URL,
       headers: {
@@ -152,8 +151,27 @@ export default class DoceboClient {
 
       return data;
     } catch (error) {
-      console.log("error.response.data: ", error.response.data);
       this.logger.error("Error creating docebo account", error.response.data);
+      throw error;
+    }
+  }
+
+  async updateUser(input: IUserUpdateInput) {
+    const select_orgchart = input.select_orgchart
+      ? { [`${input.select_orgchart.branch_id}`]: 1 }
+      : {};
+    const body = {
+      ...input,
+      select_orgchart: select_orgchart
+    };
+
+    const { userid, ...rest } = body;
+
+    try {
+      const { data } = await this.client.put(`/manage/v1/user/${userid}`, rest);
+      return data;
+    } catch (error) {
+      this.logger.error("Error updating docebo account", error.response.data);
       throw error;
     }
   }

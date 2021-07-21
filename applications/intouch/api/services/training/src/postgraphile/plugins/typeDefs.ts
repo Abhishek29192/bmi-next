@@ -55,7 +55,33 @@ export default gql`
     can_manage_subordinates: Boolean
     select_orgchart: SelectOrgchart
   }
+
+  input UserUpdateInput {
+    userid: String
+    email: String
+    password: String
+    privacy: String
+    firstname: String
+    lastname: String
+    force_change: Int
+    level: Int
+    language: String
+    expiration: String
+    email_validation_status: Int
+    valid: Int
+    date_format: String
+    timezone: String
+    role: Int
+    send_notification_email: Boolean
+    can_manage_subordinates: Boolean
+    select_orgchart: SelectOrgchart
+  }
+
   type UserCreateResponse {
+    success: Boolean
+    user_id: Int
+  }
+  type UserUpdateResponse {
     success: Boolean
     user_id: Int
   }
@@ -74,5 +100,6 @@ export default gql`
     createSSOUrl(username: String!, path: String): SSOUrlOutput
     updateTraining(lastUpdateDate: String): String
     createDoceboUser(input: UserCreateInput): UserCreateResponse
+    updateDoceboUser(input: UserUpdateInput): UserUpdateResponse
   }
 `;

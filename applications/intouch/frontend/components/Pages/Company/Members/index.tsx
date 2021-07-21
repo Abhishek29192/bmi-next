@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import React, { useState } from "react";
 import Typography from "@bmi/typography";
+import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
 import {
   CertificationFlatRoof,
@@ -22,6 +23,7 @@ import {
   useDeleteCompanyMemberMutation,
   useCompanyMembersLazyQuery
 } from "../../../../graphql/generated/hooks";
+import AccessControl from "../../../../lib/permissions/AccessControl";
 import InvitationDialog from "./Dialog";
 import styles from "./styles.module.scss";
 import Alert from "./Alert";
@@ -73,7 +75,7 @@ const certificationClass = (data: string): string => {
   return certDate < today ? styles.expired : "";
 };
 
-const getNow = () => {
+const getValidCertDate = () => {
   const expiryDate = new Date();
   expiryDate.setHours(0, 0, 0, 0);
   expiryDate.setMonth(expiryDate.getMonth() - 6);
@@ -101,7 +103,7 @@ const CompanyMembers = ({ data }: PageProps) => {
       closeWithDelay();
     },
     onCompleted: () => {
-      const expiryDate = getNow();
+      const expiryDate = getValidCertDate();
 
       fetchCompanyMembers({
         variables: {
@@ -156,7 +158,7 @@ const CompanyMembers = ({ data }: PageProps) => {
       ]);
     },
     onCompleted: () => {
-      const expiryDate = getNow();
+      const expiryDate = getValidCertDate();
 
       fetchCompanyMembers({
         variables: {
@@ -190,8 +192,6 @@ const CompanyMembers = ({ data }: PageProps) => {
     ]);
   };
 
-  const formattedRole = (role: Role) => role?.replace("_", " ")?.toLowerCase();
-
   return (
     <>
       <Alert messages={messages} onClose={() => setMessages([])} />
@@ -201,10 +201,17 @@ const CompanyMembers = ({ data }: PageProps) => {
           searchLabel={t("sidePanel.search.label")}
           onSearchFilterChange={onSearch}
           noResultLabel={t("sidePanel.search.noResult")}
-          footerBtn={{
-            label: t("sidePanel.inviteLabel"),
-            onClick: () => setDialogOpen(true)
-          }}
+          renderFooter={() => (
+            <AccessControl dataModel="company" action="inviteUser">
+              <Button
+                variant="outlined"
+                onClick={() => setDialogOpen(true)}
+                data-testid="footer-btn"
+              >
+                {t("sidePanel.inviteLabel")}
+              </Button>
+            </AccessControl>
+          )}
         >
           {members.map(({ account, ...rest }) => (
             <FilterResult
@@ -223,7 +230,7 @@ const CompanyMembers = ({ data }: PageProps) => {
                 variant="subtitle1"
                 color="textSecondary"
               >
-                {formattedRole(account.role)}
+                {account.formattedRole}
               </Typography>
               <div className={styles.icons}>
                 {getTechnologies(account).map((technology, index) => (

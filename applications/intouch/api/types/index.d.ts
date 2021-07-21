@@ -93,8 +93,6 @@ export type Account = Node & {
   /** Reads and enables pagination through a set of `Guarantee`. */
   guaranteesByRequestorAccountId: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Guarantee`. */
-  guaranteesByResponsibleInstallerAccountId: GuaranteesConnection;
-  /** Reads and enables pagination through a set of `Guarantee`. */
   guaranteesByReviewerAccountId: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Invitation`. */
   invitationsBySenderAccountId: InvitationsConnection;
@@ -134,18 +132,6 @@ export type AccountCompanyMembersArgs = {
 
 /** An InTouch account */
 export type AccountGuaranteesByRequestorAccountIdArgs = {
-  first?: Maybe<Scalars["Int"]>;
-  last?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  before?: Maybe<Scalars["Cursor"]>;
-  after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<GuaranteesOrderBy>>;
-  condition?: Maybe<GuaranteeCondition>;
-  filter?: Maybe<GuaranteeFilter>;
-};
-
-/** An InTouch account */
-export type AccountGuaranteesByResponsibleInstallerAccountIdArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
   offset?: Maybe<Scalars["Int"]>;
@@ -713,6 +699,32 @@ export type AssetOrder =
   | "sys_firstPublishedAt_DESC"
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
+
+/** A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’ */
+export type BooleanFilter = {
+  /** Is null (if `true` is specified) or is not null (if `false` is specified). */
+  isNull?: Maybe<Scalars["Boolean"]>;
+  /** Equal to the specified value. */
+  equalTo?: Maybe<Scalars["Boolean"]>;
+  /** Not equal to the specified value. */
+  notEqualTo?: Maybe<Scalars["Boolean"]>;
+  /** Not equal to the specified value, treating null like an ordinary value. */
+  distinctFrom?: Maybe<Scalars["Boolean"]>;
+  /** Equal to the specified value, treating null like an ordinary value. */
+  notDistinctFrom?: Maybe<Scalars["Boolean"]>;
+  /** Included in the specified list. */
+  in?: Maybe<Array<Scalars["Boolean"]>>;
+  /** Not included in the specified list. */
+  notIn?: Maybe<Array<Scalars["Boolean"]>>;
+  /** Less than the specified value. */
+  lessThan?: Maybe<Scalars["Boolean"]>;
+  /** Less than or equal to the specified value. */
+  lessThanOrEqualTo?: Maybe<Scalars["Boolean"]>;
+  /** Greater than the specified value. */
+  greaterThan?: Maybe<Scalars["Boolean"]>;
+  /** Greater than or equal to the specified value. */
+  greaterThanOrEqualTo?: Maybe<Scalars["Boolean"]>;
+};
 
 export type BulkImportInput = {
   files: Array<Scalars["Upload"]>;
@@ -3362,8 +3374,6 @@ export type CreateGuaranteePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   requestorAccount?: Maybe<Account>;
-  /** Reads a single `Account` that is related to this `Guarantee`. */
-  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
@@ -3911,6 +3921,21 @@ export type DeleteCompanyInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** Primary key */
   id: Scalars["Int"];
+};
+
+/** All input for the `deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId` mutation. */
+export type DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** fk */
+  marketId: Scalars["Int"];
+  /** fk */
+  accountId: Scalars["Int"];
+  /** fk */
+  companyId: Scalars["Int"];
 };
 
 /** All input for the `deleteCompanyMemberByNodeId` mutation. */
@@ -4483,8 +4508,6 @@ export type DeleteGuaranteePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   requestorAccount?: Maybe<Account>;
-  /** Reads a single `Account` that is related to this `Guarantee`. */
-  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
@@ -5309,8 +5332,6 @@ export type Guarantee = Node & {
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
-  responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
-  /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
   guaranteeTypeId?: Maybe<Scalars["String"]>;
@@ -5334,8 +5355,6 @@ export type Guarantee = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Account` that is related to this `Guarantee`. */
   requestorAccount?: Maybe<Account>;
-  /** Reads a single `Account` that is related to this `Guarantee`. */
-  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
@@ -5370,8 +5389,6 @@ export type GuaranteeCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `requestorAccountId` field. */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `responsibleInstallerAccountId` field. */
-  responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `projectId` field. */
   projectId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `systemBmiRef` field. */
@@ -5388,8 +5405,6 @@ export type GuaranteeFilter = {
   id?: Maybe<IntFilter>;
   /** Filter by the object’s `requestorAccountId` field. */
   requestorAccountId?: Maybe<IntFilter>;
-  /** Filter by the object’s `responsibleInstallerAccountId` field. */
-  responsibleInstallerAccountId?: Maybe<IntFilter>;
   /** Filter by the object’s `projectId` field. */
   projectId?: Maybe<IntFilter>;
   /** Filter by the object’s `systemBmiRef` field. */
@@ -5414,8 +5429,6 @@ export type GuaranteeInput = {
   fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
@@ -5448,8 +5461,6 @@ export type GuaranteePatch = {
   fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
@@ -6157,8 +6168,6 @@ export type GuaranteesOrderBy =
   | "ID_DESC"
   | "REQUESTOR_ACCOUNT_ID_ASC"
   | "REQUESTOR_ACCOUNT_ID_DESC"
-  | "RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC"
-  | "RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC"
   | "PROJECT_ID_ASC"
   | "PROJECT_ID_DESC"
   | "SYSTEM_BMI_REF_ASC"
@@ -7511,6 +7520,8 @@ export type Mutation = {
   deleteCompanyDocumentByNodeId?: Maybe<DeleteCompanyDocumentPayload>;
   /** Deletes a single `CompanyMember` using a unique key. */
   deleteCompanyMember?: Maybe<DeleteCompanyMemberPayload>;
+  /** Deletes a single `CompanyMember` using a unique key. */
+  deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId?: Maybe<DeleteCompanyMemberPayload>;
   /** Deletes a single `CompanyMember` using its globally unique id. */
   deleteCompanyMemberByNodeId?: Maybe<DeleteCompanyMemberPayload>;
   /** Deletes a single `CompanyOperation` using a unique key. */
@@ -7638,6 +7649,8 @@ export type Mutation = {
   updateCompanyDocumentByNodeId?: Maybe<UpdateCompanyDocumentPayload>;
   /** Updates a single `CompanyMember` using a unique key and a patch. */
   updateCompanyMember?: Maybe<UpdateCompanyMemberPayload>;
+  /** Updates a single `CompanyMember` using a unique key and a patch. */
+  updateCompanyMemberByMarketIdAndAccountIdAndCompanyId?: Maybe<UpdateCompanyMemberPayload>;
   /** Updates a single `CompanyMember` using its globally unique id and a patch. */
   updateCompanyMemberByNodeId?: Maybe<UpdateCompanyMemberPayload>;
   /** Updates a single `CompanyOperation` using a unique key and a patch. */
@@ -7680,6 +7693,7 @@ export type Mutation = {
   updateCourseTemp?: Maybe<UpdateCourseTempPayload>;
   /** Updates a single `CourseTemp` using its globally unique id and a patch. */
   updateCourseTempByNodeId?: Maybe<UpdateCourseTempPayload>;
+  updateDoceboUser?: Maybe<UserUpdateResponse>;
   /** Updates a single `EvidenceItem` using a unique key and a patch. */
   updateEvidenceItem?: Maybe<UpdateEvidenceItemPayload>;
   /** Updates a single `EvidenceItem` using its globally unique id and a patch. */
@@ -8423,6 +8437,11 @@ export type MutationUpdateCourseTempArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCourseTempByNodeIdArgs = {
   input: UpdateCourseTempByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoceboUserArgs = {
+  input?: Maybe<UserUpdateInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -9323,6 +9342,8 @@ export type ProjectMember = Node & {
   projectId?: Maybe<Scalars["Int"]>;
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
+  /** The responsible installer */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Project` that is related to this `ProjectMember`. */
@@ -9342,6 +9363,8 @@ export type ProjectMemberCondition = {
   projectId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `accountId` field. */
   accountId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `isResponsibleInstaller` field. */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
 };
 
 /** A filter to be used against `ProjectMember` object types. All fields are combined with a logical ‘and.’ */
@@ -9352,6 +9375,8 @@ export type ProjectMemberFilter = {
   projectId?: Maybe<IntFilter>;
   /** Filter by the object’s `accountId` field. */
   accountId?: Maybe<IntFilter>;
+  /** Filter by the object’s `isResponsibleInstaller` field. */
+  isResponsibleInstaller?: Maybe<BooleanFilter>;
   /** Checks for all expressions in this list. */
   and?: Maybe<Array<ProjectMemberFilter>>;
   /** Checks for any expressions in this list. */
@@ -9368,6 +9393,8 @@ export type ProjectMemberInput = {
   projectId?: Maybe<Scalars["Int"]>;
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
+  /** The responsible installer */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -9380,6 +9407,8 @@ export type ProjectMemberPatch = {
   projectId?: Maybe<Scalars["Int"]>;
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
+  /** The responsible installer */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -9438,6 +9467,8 @@ export type ProjectMembersOrderBy =
   | "PROJECT_ID_DESC"
   | "ACCOUNT_ID_ASC"
   | "ACCOUNT_ID_DESC"
+  | "IS_RESPONSIBLE_INSTALLER_ASC"
+  | "IS_RESPONSIBLE_INSTALLER_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -9583,6 +9614,7 @@ export type Query = Node & {
   /** Reads and enables pagination through a set of `CompanyDocument`. */
   companyDocuments?: Maybe<CompanyDocumentsConnection>;
   companyMember?: Maybe<CompanyMember>;
+  companyMemberByMarketIdAndAccountIdAndCompanyId?: Maybe<CompanyMember>;
   /** Reads a single `CompanyMember` using its globally unique `ID`. */
   companyMemberByNodeId?: Maybe<CompanyMember>;
   /** Reads and enables pagination through a set of `CompanyMember`. */
@@ -9924,6 +9956,13 @@ export type QueryCompanyDocumentsArgs = {
 /** The root query type which gives access points into the data universe. */
 export type QueryCompanyMemberArgs = {
   id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs = {
+  marketId: Scalars["Int"];
+  accountId: Scalars["Int"];
+  companyId: Scalars["Int"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -11722,6 +11761,23 @@ export type UpdateCompanyInput = {
   id: Scalars["Int"];
 };
 
+/** All input for the `updateCompanyMemberByMarketIdAndAccountIdAndCompanyId` mutation. */
+export type UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CompanyMember` being updated. */
+  patch: CompanyMemberPatch;
+  /** fk */
+  marketId: Scalars["Int"];
+  /** fk */
+  accountId: Scalars["Int"];
+  /** fk */
+  companyId: Scalars["Int"];
+};
+
 /** All input for the `updateCompanyMemberByNodeId` mutation. */
 export type UpdateCompanyMemberByNodeIdInput = {
   /**
@@ -12332,8 +12388,6 @@ export type UpdateGuaranteePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   requestorAccount?: Maybe<Account>;
-  /** Reads a single `Account` that is related to this `Guarantee`. */
-  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
@@ -12913,6 +12967,33 @@ export type UserData = {
   role_id?: Maybe<Scalars["String"]>;
   role_title?: Maybe<Scalars["String"]>;
   role?: Maybe<Scalars["String"]>;
+};
+
+export type UserUpdateInput = {
+  userid?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+  password?: Maybe<Scalars["String"]>;
+  privacy?: Maybe<Scalars["String"]>;
+  firstname?: Maybe<Scalars["String"]>;
+  lastname?: Maybe<Scalars["String"]>;
+  force_change?: Maybe<Scalars["Int"]>;
+  level?: Maybe<Scalars["Int"]>;
+  language?: Maybe<Scalars["String"]>;
+  expiration?: Maybe<Scalars["String"]>;
+  email_validation_status?: Maybe<Scalars["Int"]>;
+  valid?: Maybe<Scalars["Int"]>;
+  date_format?: Maybe<Scalars["String"]>;
+  timezone?: Maybe<Scalars["String"]>;
+  role?: Maybe<Scalars["Int"]>;
+  send_notification_email?: Maybe<Scalars["Boolean"]>;
+  can_manage_subordinates?: Maybe<Scalars["Boolean"]>;
+  select_orgchart?: Maybe<SelectOrgchart>;
+};
+
+export type UserUpdateResponse = {
+  __typename?: "UserUpdateResponse";
+  success?: Maybe<Scalars["Boolean"]>;
+  user_id?: Maybe<Scalars["Int"]>;
 };
 
 /** A union of all federated types (those that use the @key directive). */

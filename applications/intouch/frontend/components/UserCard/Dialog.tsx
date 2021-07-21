@@ -26,9 +26,9 @@ const ConfirmDialog = ({ dialogState, onCancel }: Props) => {
       <Dialog.Title hasUnderline>{t(dialogState.title)}</Dialog.Title>
       <Dialog.Content>{t(dialogState.text)}</Dialog.Content>
       <Dialog.Actions
-        confirmLabel={t("confirm")}
+        confirmLabel={t("user_card.confirm")}
         onConfirmClick={dialogState.onConfirm}
-        cancelLabel={t("cancel")}
+        cancelLabel={t("user_card.cancel")}
         onCancelClick={onCancel}
       />
     </Dialog>

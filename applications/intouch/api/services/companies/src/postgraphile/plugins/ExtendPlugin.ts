@@ -58,7 +58,13 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return getAccountSignedPhotoUrl(photo);
         },
         formattedRole: async (parent, args, context) => {
-          return parent?.role?.replace("_", " ").toLowerCase();
+          const formattedRoles = {
+            COMPANY_ADMIN: "Company Admin",
+            INSTALLER: "Installer",
+            MARKET_ADMIN: "Market Admin",
+            SUPER_ADMIN: "Super Admin"
+          };
+          return formattedRoles[parent?.role || "INSTALLER"];
         }
       },
       Mutation: {

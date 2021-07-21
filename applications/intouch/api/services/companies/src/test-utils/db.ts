@@ -6,20 +6,14 @@ dotenv.config();
 let pool;
 export const getDbPool = () => {
   if (!pool) {
-    const {
-      PG_TEST_USER,
-      PG_TEST_DATABASE,
-      PG_TEST_PORT,
-      PG_TEST_PASSWORD,
-      PG_TEST_HOST
-    } = process.env;
+    const { PG_USER, PG_DATABASE, PG_PORT, PG_PASSWORD, PG_HOST } = process.env;
 
     const dbConfig: PoolConfig = {
-      host: PG_TEST_HOST,
-      port: parseInt(PG_TEST_PORT),
-      user: PG_TEST_USER,
-      database: PG_TEST_DATABASE,
-      password: PG_TEST_PASSWORD
+      host: PG_HOST,
+      port: parseInt(PG_PORT),
+      user: PG_USER,
+      database: PG_DATABASE,
+      password: PG_PASSWORD
     };
 
     pool = new Pool(dbConfig);
@@ -29,11 +23,12 @@ export const getDbPool = () => {
 };
 
 export const transaction = async (
+  pool,
   { role, accountUuid, accountEmail },
   query: string,
   params: any = []
 ) => {
-  const client = await getDbPool().connect();
+  const client = await pool.connect();
   try {
     await client.query("BEGIN");
     if (accountUuid) {

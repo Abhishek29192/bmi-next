@@ -29,6 +29,7 @@ export const pageQuery = gql`
           photo
           lastName
           firstName
+          formattedRole
           certificationsByDoceboUserId(
             filter: { expiryDate: { greaterThanOrEqualTo: $expiryDate } }
           ) {
@@ -85,7 +86,7 @@ export const getServerSideProps = withPage(
       apolloClient
     );
 
-    if (account.companyMembers.nodes.length === 0) {
+    if (account?.companyMembers?.nodes.length === 0) {
       const statusCode = ErrorStatusCode.UNAUTHORISED;
       res.statusCode = statusCode;
       return generatePageError(404);
@@ -105,7 +106,8 @@ export const getServerSideProps = withPage(
           "common",
           "sidebar",
           "team-page"
-        ]))
+        ])),
+        account
       }
     };
   }
