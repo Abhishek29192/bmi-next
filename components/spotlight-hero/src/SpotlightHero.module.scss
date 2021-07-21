@@ -5,6 +5,10 @@
     height: 630px;
   }
 
+  &--keyline {
+    border-bottom: 8px solid $color-brand-accent;
+  }
+
   .image {
     width: 100%;
     height: 100%;

@@ -109,6 +109,10 @@ $hero-breakpoint-sm: 769px;
     margin: 24px 0 32px;
   }
 
+  &--keyline {
+    border-bottom: 8px solid $color-brand-accent;
+  }
+
   @media (min-width: $breakpoint-sm) {
     flex-direction: row;
     height: auto;
