@@ -11,10 +11,10 @@ import {
 import Table from "@bmi/table";
 import { SvgIcon } from "@material-ui/core";
 import { Technology, CompanyMember, Role } from "@bmi/intouch-api-types";
-import { reorderMembers } from "../../../../pages/team";
 import { ThreeColumnGrid } from "../../../ThreeColumnGrid";
 import { SidePanel } from "../../../SidePanel";
 import { FilterResult } from "../../../FilterResult";
+import { reorderMembers } from "../../../../lib/utils/companyMembers";
 import { CompanyMembersQuery } from "../../../../graphql/generated/operations";
 import { useUpdateRoleAccountMutation } from "../../../../graphql/generated/hooks";
 import { TableContainer } from "../../../TableContainer";
