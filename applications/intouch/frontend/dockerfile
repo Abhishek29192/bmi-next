@@ -30,6 +30,8 @@ RUN rm -f ./npmrc
 
 WORKDIR /usr/src/app/applications/intouch/frontend
 
+ARG FRONTEND_DOMAIN
+
 RUN yarn run build
 
 

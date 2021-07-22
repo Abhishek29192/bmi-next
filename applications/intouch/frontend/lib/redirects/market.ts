@@ -1,15 +1,11 @@
 import { Request } from "express";
 import { Account } from "@bmi/intouch-api-types";
-import { REDIRECT_MAP } from "../config";
+import { redirectMapInverse } from "../config/redirects";
 
 export const marketRedirect = (req: Request, account: Account) => {
-  const { AUTH0_COOKIE_DOMAIN, NODE_ENV } = process.env;
+  const { AUTH0_COOKIE_DOMAIN } = process.env;
 
-  // We don't have subdomain yet
-  if (NODE_ENV === "production") {
-    return null;
-  }
-
+  // for multi-market & redirects set the domain to local.intouch (see README)
   if (AUTH0_COOKIE_DOMAIN === "localhost") {
     return null;
   }
@@ -21,11 +17,6 @@ export const marketRedirect = (req: Request, account: Account) => {
   const {
     market: { domain }
   } = account;
-
-  const redirectMapInverse = {};
-  Object.keys(REDIRECT_MAP).forEach((key) => {
-    redirectMapInverse[`${REDIRECT_MAP[`${key}`]}`] = key;
-  });
 
   if (domain && domain !== code) {
     let returnTo = `${protocol}://${redirectMapInverse[`${domain}`]}`;

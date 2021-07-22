@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
 import { initializeApollo } from "../../../lib/apolloClient";
 import Account from "../../../lib/account";
-import { REDIRECT_MAP } from "../../../lib/config";
+import { redirectMap } from "../../../lib/config/redirects";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
 interface Request extends NextApiRequest {
@@ -60,10 +60,10 @@ export const getMarketFromReq = (req, res) => {
   if (host.indexOf(":") !== -1) {
     host = host.split(":")[0];
 
-    return REDIRECT_MAP[`${host}`];
+    return redirectMap[`${host}`];
   }
 
-  return REDIRECT_MAP[`${host}`];
+  return redirectMap[`${host}`];
 };
 
 export const loginHandler = async (req, res, auth0, logger) => {

@@ -10,6 +10,7 @@ import {
 } from "../lib/error";
 import { Layout } from "../components/Layout";
 import { withPage } from "../lib/middleware/withPage";
+import { reorderMembers } from "../lib/utils/companyMembers";
 import CompanyMembers, { PageProps } from "../components/Pages/Company/Members";
 import { getServerPageCompanyMembers } from "../graphql/generated/page";
 
@@ -55,11 +56,6 @@ export const mutationUpdateAccount = gql`
     }
   }
 `;
-
-export const reorderMembers = (nodes) =>
-  [...nodes].sort((a, b) =>
-    a.account?.firstName?.localeCompare(b?.account?.firstName)
-  );
 
 const TeamPage = (props: PageProps) => {
   const { t } = useTranslation("common");

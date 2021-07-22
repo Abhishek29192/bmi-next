@@ -8,7 +8,7 @@ To know more about BMI InTouch, see the related [Confluence documents](https://b
 
 - First, follow the monoropo instructions (root directory README). You should have installed all the necessary dependencies.
 
-- open your `/etc/hosts` and add the following line: `127.0.0.1 intouch.local`
+- open your `/etc/hosts` and add the following line: `127.0.0.1 local.intouch`
 
 - run `yarn workspace @bmi/intouch-frontend dev` from the monorepo root directory
 
