@@ -1,15 +1,13 @@
 "use strict";
 
-const { AUTH0_COOKIE_DOMAIN, NODE_ENV } = process.env;
+const { FRONTEND_DOMAIN, NODE_ENV } = process.env;
 
-if (!AUTH0_COOKIE_DOMAIN) {
-  throw new Error("You have forgotten to set env var ${AUTH0_COOKIE_DOMAIN}");
+if (!FRONTEND_DOMAIN) {
+  throw new Error("You have forgotten to set env var ${FRONTEND_DOMAIN}");
 }
 
 module.exports = {
-  // for now the assumption that
-  // baseUrlDomain = AUTH0_COOKIE_DOMAIN seems to hold
-  baseUrlDomain: AUTH0_COOKIE_DOMAIN,
+  baseUrlDomain: FRONTEND_DOMAIN,
   isProd: NODE_ENV === "production",
-  isSingleMarket: AUTH0_COOKIE_DOMAIN === "localhost"
+  isSingleMarket: FRONTEND_DOMAIN === "localhost"
 };

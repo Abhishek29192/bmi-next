@@ -20,10 +20,13 @@ export const redirectMap = isSingleMarket
   ? { localhost: "en" }
   : redirectMapMultiMarket;
 
-export const redirectMapInverse = Object.keys(redirectMap).reduce(
-  (invMap, key) => ({
-    ...invMap,
-    [`${redirectMap[`${key}`]}`]: key
-  }),
-  {}
-);
+export const redirectMapInverse = Object.keys(redirectMap)
+  // best to redirect to subdomain
+  .filter((el) => el !== baseUrlDomain)
+  .reduce(
+    (invMap, key) => ({
+      ...invMap,
+      [`${redirectMap[`${key}`]}`]: key
+    }),
+    {}
+  );

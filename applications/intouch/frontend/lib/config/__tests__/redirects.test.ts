@@ -10,6 +10,7 @@ describe("redirects config", () => {
   describe("Local & single market", () => {
     beforeEach(() => {
       jest.mock("..", () => ({
+        baseDomainUrl: "localhost",
         isProd: false,
         isSingleMarket: true
       }));

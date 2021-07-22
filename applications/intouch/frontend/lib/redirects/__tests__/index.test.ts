@@ -52,8 +52,11 @@ describe("marketRedirect", () => {
   });
 
   it("should not redirect localhost", () => {
-    process.env.AUTH0_COOKIE_DOMAIN = "localhost";
-
+    jest.mock("../../../lib/config", () => ({
+      baseUrlDomain: "localhost",
+      isProd: false,
+      isSingleMarket: true
+    }));
     const redirect = marketRedirect(req, user);
 
     expect(redirect).toEqual(null);
