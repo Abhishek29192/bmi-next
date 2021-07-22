@@ -3,17 +3,12 @@
 .Typography {
   &--underline {
     &::after {
-      background-color: $color-brand-accent;
+      background-color: $color-cyan-400;
       content: "";
       display: block;
       height: 4px;
       margin-top: 1rem;
       width: 100px;
-    }
-    &--dark-bg {
-      &::after {
-        background-color: $color-brand-accent-300;
-      }
     }
   }
 
@@ -44,16 +39,8 @@
     text-transform: none;
   }
 
-  h1.no-clamp {
-    font-size: 3rem;
-  }
-  h2.no-clamp {
-    font-size: 2.5rem;
-  }
-  h3.no-clamp {
-    font-size: 2rem;
-  }
-  h4.no-clamp {
-    font-size: 1.25rem;
-  }
+  h1.no-clamp { font-size: 3rem; }
+  h2.no-clamp { font-size: 2.5rem; }
+  h3.no-clamp { font-size: 2rem; }
+  h4.no-clamp { font-size: 1.25rem; }
 }

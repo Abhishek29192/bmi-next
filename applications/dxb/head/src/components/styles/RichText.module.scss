@@ -13,7 +13,7 @@
     margin-left: 8px;
   }
 
-  p {
+  p{
     margin-bottom: 0.75em;
   }
 
@@ -28,7 +28,7 @@
 
   ul li::before {
     content: "◼︎";
-    color: $color-brand-accent;
+    color: $color-cyan-400;
     margin-left: -1.5rem;
     margin-top: 1px;
     padding-right: 1rem;
@@ -53,4 +53,5 @@
   ol li p {
     margin-left: 10px;
   }
+
 }

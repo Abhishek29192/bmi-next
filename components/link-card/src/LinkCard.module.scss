@@ -58,7 +58,7 @@
   &--selected {
     .icon {
       svg {
-        color: $color-brand-inter;
+        color: $color-cyan-500;
         transform: rotate(-90deg);
         transition: transform ease-in-out 280ms, color ease-in-out 280ms;
         @media (min-width: $breakpoint-lg) {

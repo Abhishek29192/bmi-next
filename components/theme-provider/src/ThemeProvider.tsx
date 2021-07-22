@@ -1,18 +1,14 @@
 import {
   createMuiTheme,
   CssBaseline,
-  ThemeProvider as MaterialThemeProvider,
-  ThemeOptions
+  ThemeProvider as MaterialThemeProvider
 } from "@material-ui/core";
 import React from "react";
 import variables from "./ThemeProvider.module.scss";
 import { effraBold, effraHeavy, effraMedium, effraRegular } from "./fonts";
 
-export const getTheme = (
-  longText: boolean,
-  modifyTheme: (theme: ThemeOptions) => ThemeOptions = (t) => t
-) => {
-  const defaultTheme: ThemeOptions = {
+const theme = (longText: boolean) =>
+  createMuiTheme({
     breakpoints: {
       values: {
         xs: parseFloat(variables["breakpoint-xs"]!),
@@ -99,28 +95,18 @@ export const getTheme = (
         }
       }
     }
-  };
-  return createMuiTheme(modifyTheme(defaultTheme));
-};
+  });
 
 type Props = {
   longText?: boolean;
   children: React.ReactNode;
-  modifyTheme?: (theme: ThemeOptions) => ThemeOptions;
 };
 
-const ThemeProvider = ({ longText = false, modifyTheme, children }: Props) => {
-  const theme = React.useMemo(
-    () => getTheme(longText, modifyTheme),
-    [longText, modifyTheme]
-  );
-
-  return (
-    <MaterialThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </MaterialThemeProvider>
-  );
-};
+const ThemeProvider = ({ longText = false, children }: Props) => (
+  <MaterialThemeProvider theme={theme(longText)}>
+    <CssBaseline />
+    {children}
+  </MaterialThemeProvider>
+);
 
 export default ThemeProvider;

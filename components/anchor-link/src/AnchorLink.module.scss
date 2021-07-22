@@ -1,7 +1,7 @@
 @import "@bmi/styles";
 
 .Anchorlink {
-  color: $color-brand-inter;
+  color: $color-cyan-500;
   text-decoration: underline;
   text-decoration-color: currentColor;
   font-size: inherit;
@@ -21,7 +21,7 @@
   }
 
   &:hover {
-    color: $color-brand-focus;
+    color: $color-cyan-600;
     transition: text-decoration-color 250ms ease-out, color 250ms ease-out;
   }
 

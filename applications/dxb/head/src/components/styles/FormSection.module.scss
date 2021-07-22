@@ -58,7 +58,7 @@
             }
 
             &:focus {
-              outline-color: $color-brand-inter;
+              outline-color: $color-cyan-500;
             }
           }
         }
@@ -159,11 +159,11 @@
       // Date selector
       .hs-datepicker {
         .is-today .pika-button {
-          color: $color-brand-accent;
+          color: $color-cyan-400;
         }
 
         .is-selected .pika-button {
-          background-color: $color-brand-accent;
+          background-color: $color-cyan-400;
           color: $color-white;
         }
 
@@ -197,7 +197,7 @@
       .hs-button {
         font-family: "Effra Regular";
         color: $color-white;
-        background-color: $color-brand-inter;
+        background-color: $color-cyan-500;
         border-radius: 3px;
         border: 0;
         font-size: 16px;

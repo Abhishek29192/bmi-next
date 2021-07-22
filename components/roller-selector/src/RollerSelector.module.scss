@@ -4,7 +4,7 @@
   font-family: "Effra Regular";
   background: transparent;
   display: inline-block;
-  color: $color-brand-inter;
+  color: $color-cyan-500;
   border: none;
   padding: 8px 15px;
   font-size: 1.5rem;
@@ -17,7 +17,7 @@
 
   &:hover {
     background: rgba($color-black, 0.05);
-    color: $color-brand-focus;
+    color: $color-cyan-600;
   }
 
   &--selected {

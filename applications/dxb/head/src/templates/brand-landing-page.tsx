@@ -89,7 +89,6 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
 
   return (
     <Page
-      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}

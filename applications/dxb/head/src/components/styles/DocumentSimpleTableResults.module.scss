@@ -22,12 +22,12 @@
       // Hack for position relative for tr
       // See https://github.com/w3c/csswg-drafts/issues/1899
       transform: scale(1);
-      background-color: rgba($color-brand-accent, 0.1);
-      border: 1px solid $color-brand-accent;
+      background-color: rgba($color-cyan-400, 0.1);
+      border: 1px solid $color-cyan-400;
     }
 
     &:first-of-type.row--checked {
-      box-shadow: inset 0px 1px 0px $color-brand-accent;
+      box-shadow: inset 0px 1px 0px $color-cyan-400;
     }
   }
 
@@ -37,7 +37,7 @@
   }
 
   .external-link-icon {
-    fill: $color-brand-inter;
+    fill: $color-cyan-500;
     width: 24px;
     height: 24px;
   }

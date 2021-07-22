@@ -63,7 +63,6 @@ type Props = {
 
 const SimplePage = ({ data, pageContext }: Props) => {
   const {
-    brandLogo,
     title,
     subtitle,
     featuredMedia,
@@ -118,7 +117,6 @@ const SimplePage = ({ data, pageContext }: Props) => {
 
   return (
     <Page
-      brand={brandLogo}
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}

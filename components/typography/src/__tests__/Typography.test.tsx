@@ -1,7 +1,6 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Typography from "../";
-import styles from "../Typography.module.scss";
 
 describe("Typography component", () => {
   it("renders correctly", () => {
@@ -81,61 +80,5 @@ describe("Typography component", () => {
       <Typography variant="overline">Overline</Typography>
     );
     expect(container.firstChild).toMatchSnapshot();
-  });
-  it("should add classNames if hasUnderline and hasDarkBackground are true", () => {
-    const { rerender } = render(<Typography variant="h1">Overline</Typography>);
-    expect(
-      screen
-        ?.queryByText("Overline")
-        ?.className?.includes(styles["Typography--underline--dark-bg"]!)
-    ).toBe(false);
-    rerender(
-      <Typography variant="h1" hasDarkBackground hasUnderline>
-        Overline
-      </Typography>
-    );
-
-    expect(
-      screen
-        ?.queryByText("Overline")
-        ?.className?.includes(styles["Typography--underline--dark-bg"]!)
-    ).toBe(true);
-  });
-
-  it("should add underline classes if variant prop equals h1 or h2 or h3, h4", () => {
-    const { rerender } = render(
-      <Typography variant="h1" hasDarkBackground hasUnderline>
-        Overline
-      </Typography>
-    );
-    expect(
-      screen
-        ?.queryByText("Overline")
-        ?.className?.includes(styles["Typography--underline--dark-bg"]!)
-    ).toBe(true);
-
-    rerender(
-      <Typography variant="h4" hasDarkBackground hasUnderline>
-        Overline
-      </Typography>
-    );
-
-    expect(
-      screen
-        ?.queryByText("Overline")
-        ?.className?.includes(styles["Typography--underline--dark-bg"]!)
-    ).toBe(true);
-
-    rerender(
-      <Typography variant="h5" hasDarkBackground hasUnderline>
-        Overline
-      </Typography>
-    );
-
-    expect(
-      screen
-        ?.queryByText("Overline")
-        ?.className?.includes(styles["Typography--underline--dark-bg"]!)
-    ).toBe(false);
   });
 });

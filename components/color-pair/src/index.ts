@@ -1,10 +1,9 @@
-import ColorPair from "./ColorPair";
-
-export {
+import ColorPair, {
   availableThemes,
   withColorPair,
-  ColorPairContext,
-  darkThemes
+  ColorPairContext
 } from "./ColorPair";
+
+export { availableThemes, withColorPair, ColorPairContext };
 export type { Colors } from "./ColorPair";
 export default ColorPair;
