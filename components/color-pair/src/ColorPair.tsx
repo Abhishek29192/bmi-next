@@ -23,11 +23,7 @@ export type Colors =
   | "magenta-500"
   | "purple-400"
   | "orange-500"
-  | "error"
-  | "color-brand-secondary-1"
-  | "color-brand-secondary-2"
-  | "color-brand-secondary-3"
-  | "color-brand-secondary-4";
+  | "error";
 
 const lightThemes: Colors[] = [
   "white",
@@ -41,7 +37,7 @@ const lightThemes: Colors[] = [
   "alert"
 ];
 
-export const darkThemes: Colors[] = [
+const darkThemes: Colors[] = [
   "black",
   "charcoal",
   "slate",
@@ -53,11 +49,7 @@ export const darkThemes: Colors[] = [
   "magenta-500",
   "purple-400",
   "orange-500",
-  "error",
-  "color-brand-secondary-1",
-  "color-brand-secondary-2",
-  "color-brand-secondary-3",
-  "color-brand-secondary-4"
+  "error"
 ];
 export const availableThemes = [...lightThemes, ...darkThemes];
 

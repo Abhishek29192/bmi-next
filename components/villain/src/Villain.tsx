@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext } from "react";
 import {
   useTheme,
   createMuiTheme,
@@ -6,7 +6,7 @@ import {
 } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Container from "@bmi/container";
-import ColorPair, { Colors, darkThemes } from "@bmi/color-pair";
+import ColorPair, { Colors } from "@bmi/color-pair";
 import Grid from "@bmi/grid";
 import { SectionContext } from "@bmi/section";
 import Typography from "@bmi/typography";
@@ -38,10 +38,6 @@ const FullSizeVillain = ({
   theme
 }: Omit<Props, "isFullWidth">) => {
   const isNestedSection = useContext(SectionContext);
-  const hasDarkBg = useMemo(
-    () => darkThemes.some((color: string) => color === theme),
-    [theme]
-  );
 
   /* istanbul ignore next */
   if (isNestedSection && process.env.NODE_ENV === "development") {
@@ -62,12 +58,7 @@ const FullSizeVillain = ({
     >
       <Container className={styles["container"]}>
         <div className={styles["content"]}>
-          <Typography
-            variant="h2"
-            hasUnderline
-            hasDarkBackground={hasDarkBg}
-            className={styles["title"]}
-          >
+          <Typography variant="h2" hasUnderline className={styles["title"]}>
             {title}
           </Typography>
           <div className={styles["text"]}>{children}</div>

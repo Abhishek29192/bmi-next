@@ -24,7 +24,7 @@
   .title {
     word-wrap: break-word;
     text-align: center;
-    color: $color-brand-focus;
+    color: $color-cyan-600;
 
     &--only {
       margin-top: 16px;
@@ -82,7 +82,7 @@
     }
 
     .title {
-      color: $color-brand-focus;
+      color: $color-cyan-600;
     }
 
     .paragraph {
@@ -91,7 +91,7 @@
   }
 
   &[type="button"]:focus {
-    outline: 1px solid $color-brand-accent;
+    outline: 1px solid $color-cyan-400;
   }
 
   &--disabled {
@@ -112,7 +112,7 @@
     }
 
     .title {
-      color: $color-brand-focus;
+      color: $color-cyan-600;
       opacity: 35%;
     }
 

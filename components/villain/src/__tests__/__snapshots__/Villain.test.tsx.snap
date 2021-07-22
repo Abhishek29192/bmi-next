@@ -70,7 +70,7 @@ exports[`Villain component renders full size 1`] = `
         class="content"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           H2 Heading
         </h2>
@@ -118,7 +118,7 @@ exports[`Villain component renders full size and reversed 1`] = `
         class="content"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h2"
+          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
         >
           H2 Heading
         </h2>
