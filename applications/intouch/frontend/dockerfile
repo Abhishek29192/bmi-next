@@ -30,7 +30,7 @@ RUN rm -f ./npmrc
 
 WORKDIR /usr/src/app/applications/intouch/frontend
 
-ARG FRONTEND_DOMAIN
+ARG AUTH0_COOKIE_DOMAIN
 
 RUN yarn run build
 

@@ -12,7 +12,7 @@ steps:
         "--build-arg",
         "NPM_AUTH_READ_TOKEN=${_NPM_AUTH_READ_TOKEN}",
         "--build-arg",
-        "FRONTEND_DOMAIN=intouch.dddev.io"
+        "AUTH0_COOKIE_DOMAIN=intouch.dddev.io"
       ]
   # push the container image
   - name: "gcr.io/cloud-builders/docker"

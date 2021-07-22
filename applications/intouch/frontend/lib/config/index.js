@@ -1,13 +1,13 @@
 "use strict";
 
-const { FRONTEND_DOMAIN, NODE_ENV } = process.env;
+const { AUTH0_COOKIE_DOMAIN, NODE_ENV } = process.env;
 
-if (!FRONTEND_DOMAIN) {
-  throw new Error("You have forgotten to set env var ${FRONTEND_DOMAIN}");
+if (!AUTH0_COOKIE_DOMAIN) {
+  throw new Error("You have forgotten to set env var ${AUTH0_COOKIE_DOMAIN}");
 }
 
 module.exports = {
-  baseUrlDomain: FRONTEND_DOMAIN,
+  baseUrlDomain: AUTH0_COOKIE_DOMAIN,
   isProd: NODE_ENV === "production",
-  isSingleMarket: FRONTEND_DOMAIN === "localhost"
+  isSingleMarket: AUTH0_COOKIE_DOMAIN === "localhost"
 };
