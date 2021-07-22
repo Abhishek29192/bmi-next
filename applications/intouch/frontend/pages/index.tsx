@@ -16,6 +16,7 @@ import { withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
 import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import logger from "../lib/logger";
+import { findAccountCompany } from "../lib/account";
 import { useAccountContext } from "../context/AccountContext";
 
 type HomePageProps = {
@@ -51,10 +52,12 @@ const Homepage = ({
   const partnerBrands = mapPartnerBrands(marketContentCollection);
 
   // Show user's full name or company name if they're a company member.
-  const userCompany = account?.companyMembers?.nodes[0]?.company;
+  const company = findAccountCompany(account);
   const pageTitle =
-    userCompany?.name ||
+    company?.name ||
     [account?.firstName, account?.lastName].filter(Boolean).join(" ");
+  // Can see if a member of a company in T2, T3, T4
+  const canSeePartnerBrandsCarousel = company && company?.tier !== "T1";
 
   return (
     <Layout title={pageTitle} pageData={globalPageData}>
@@ -98,7 +101,7 @@ const Homepage = ({
           }
         ]}
       />
-      {partnerBrands.length > 0 ? (
+      {canSeePartnerBrandsCarousel && partnerBrands.length > 0 ? (
         <>
           <Section backgroundColor="white" isSlim>
             <Section.Title>BMI Partner Brands</Section.Title>
