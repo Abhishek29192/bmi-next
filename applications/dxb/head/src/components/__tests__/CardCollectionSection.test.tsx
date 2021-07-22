@@ -24,7 +24,7 @@ const card1: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-09T00:00:00",
+  date: "2021-06-01T00:00:00",
   tags: [testTag1]
 };
 const card2: PageInfoData = {
@@ -37,7 +37,7 @@ const card2: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-09T00:00:00",
+  date: "2021-06-02T00:00:00",
   tags: [testTag2]
 };
 const card3: PageInfoData = {
@@ -50,7 +50,7 @@ const card3: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
-  date: "2021-06-09T00:00:00",
+  date: "2021-06-03T00:00:00",
   tags: [testTag1, testTag2]
 };
 const card4: PromoData = {
@@ -1160,7 +1160,7 @@ describe("CardCollectionSection component", () => {
 
   describe("Sorts correctly", () => {
     it("By default", () => {
-      const cards: Card[] = [card1, card2, card3];
+      const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
         __typename: "ContentfulCardCollectionSection",
@@ -1184,7 +1184,7 @@ describe("CardCollectionSection component", () => {
     });
 
     it("By newest date first", () => {
-      const cards: Card[] = [card1, card2, card3];
+      const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
         __typename: "ContentfulCardCollectionSection",
@@ -1208,7 +1208,7 @@ describe("CardCollectionSection component", () => {
     });
 
     it("By oldest date first", () => {
-      const cards: Card[] = [card1, card2, card3];
+      const cards: Card[] = [card4, card1, card2, card3];
 
       const data: Data = {
         __typename: "ContentfulCardCollectionSection",
