@@ -1,6 +1,6 @@
 # Migrate
 
-This package uses the [`contentful-migrate`](https://github.com/deluan/contentful-migrate) lib to create content types and migrations with code. All commands run through the `start` script, which is also aliased to `migrate` in the root of the monorepo.
+This package uses the [`contentful-migration`](https://github.com/contentful/contentful-migration) lib to create content types and migrations with code.
 
 ## Setup
 
@@ -13,8 +13,6 @@ The `init` command creates the content type `Migration` in your Contentful space
 ```bash
 yarn migrate init
 ```
-
-The above command can also be ran with `yarn workspace @bmi/migrate start init`.
 
 ### Bootstrap
 
@@ -50,6 +48,12 @@ Run latest migrations that have not been updated
 
 ```bash
 yarn migrate up <options>
+```
+
+Run all changes
+
+```bash
+yarn migrate up -a
 ```
 
 Run a specific content type
