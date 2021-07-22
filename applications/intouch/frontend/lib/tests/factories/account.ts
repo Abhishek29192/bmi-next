@@ -1,4 +1,11 @@
-import { Account, Role, Tier, CompanyStatus } from "@bmi/intouch-api-types";
+import {
+  Account,
+  Role,
+  Tier,
+  CompanyStatus,
+  Market,
+  Company
+} from "@bmi/intouch-api-types";
 
 type AccountConfig = {
   role: Role;
@@ -7,6 +14,9 @@ type AccountConfig = {
   companyStatus: CompanyStatus;
   marketProjectsEnabled: boolean;
   projectsCount: number;
+  account?: Partial<Account>;
+  market?: Partial<Market>;
+  company?: Partial<Company>;
 };
 
 const defaultConfig: AccountConfig = {
@@ -21,6 +31,7 @@ const defaultConfig: AccountConfig = {
 export const generateAccount = (
   config: Partial<AccountConfig> = {}
 ): Account => {
+  const { account, market, company } = config;
   config = { ...defaultConfig, ...config };
 
   return {
@@ -31,13 +42,15 @@ export const generateAccount = (
     lastName: "Evans",
     email: "devs+1@digitaldetox.co.uk",
     doceboUserId: 13999,
+    ...account,
     market: {
       nodeId: "1",
       domain: "en",
       language: "EN",
       doceboCompanyAdminBranchId: "41",
       doceboInstallersBranchId: "41",
-      projectsEnabled: config.marketProjectsEnabled
+      projectsEnabled: config.marketProjectsEnabled,
+      ...market
     },
     companyMembers: config.hasCompany
       ? {
@@ -47,7 +60,8 @@ export const generateAccount = (
                 id: 1,
                 status: config.companyStatus,
                 name: "Integrated Solutions Inc",
-                tier: config.companyTier
+                tier: config.companyTier,
+                ...company
               }
             }
           ]

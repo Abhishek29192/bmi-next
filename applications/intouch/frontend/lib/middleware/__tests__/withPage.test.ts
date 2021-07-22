@@ -1,4 +1,5 @@
 import { withPage, innerGetServerSideProps } from "../withPage";
+import { generateAccount } from "../../tests/factories/account";
 
 jest.mock("../../auth0", () => ({
   getAuth0Instance: (req, res) => ({
@@ -57,20 +58,15 @@ describe("Middleware withPage", () => {
   it("should redirect if wrong market", async () => {
     mockQuery.mockResolvedValueOnce({
       data: {
-        accountByEmail: {
+        accountByEmail: generateAccount({
+          hasCompany: true,
           market: {
             domain: "en"
           },
-          companyMembers: {
-            nodes: [
-              {
-                company: {
-                  status: "NEW"
-                }
-              }
-            ]
+          company: {
+            status: "NEW"
           }
-        }
+        })
       }
     });
 
@@ -88,20 +84,18 @@ describe("Middleware withPage", () => {
   it("should redirect if need to complete the user profile", async () => {
     mockQuery.mockResolvedValueOnce({
       data: {
-        accountByEmail: {
+        accountByEmail: generateAccount({
+          account: {
+            firstName: "Name",
+            lastName: null
+          },
           market: {
             domain: "es"
           },
-          companyMembers: {
-            nodes: [
-              {
-                company: {
-                  status: "NEW"
-                }
-              }
-            ]
+          company: {
+            status: "NEW"
           }
-        }
+        })
       }
     });
 
@@ -123,20 +117,19 @@ describe("Middleware withPage", () => {
     ctx.resolvedUrl = "/user-registration";
     mockQuery.mockResolvedValueOnce({
       data: {
-        accountByEmail: {
+        accountByEmail: generateAccount({
+          hasCompany: true,
+          account: {
+            firstName: null,
+            lastName: null
+          },
           market: {
             domain: "es"
           },
-          companyMembers: {
-            nodes: [
-              {
-                company: {
-                  status: "ACTIVE"
-                }
-              }
-            ]
+          company: {
+            status: "ACTIVE"
           }
-        }
+        })
       }
     });
 
@@ -149,20 +142,15 @@ describe("Middleware withPage", () => {
     ctx.resolvedUrl = "/user-registration";
     mockQuery.mockResolvedValueOnce({
       data: {
-        accountByEmail: {
+        accountByEmail: generateAccount({
+          hasCompany: true,
           market: {
             domain: "es"
           },
-          companyMembers: {
-            nodes: [
-              {
-                company: {
-                  status: "NEW"
-                }
-              }
-            ]
+          company: {
+            status: "NEW"
           }
-        }
+        })
       }
     });
 
@@ -174,22 +162,20 @@ describe("Middleware withPage", () => {
   it("should redirect if need to complete the company registration", async () => {
     mockQuery.mockResolvedValueOnce({
       data: {
-        accountByEmail: {
-          firstName: "Name",
-          lastName: "Last name",
+        accountByEmail: generateAccount({
+          hasCompany: true,
+          account: {
+            firstName: "Name",
+            lastName: "Last name"
+          },
           market: {
             domain: "es"
           },
-          companyMembers: {
-            nodes: [
-              {
-                company: {
-                  status: "NEW"
-                }
-              }
-            ]
+          company: {
+            status: "NEW",
+            name: null
           }
-        }
+        })
       }
     });
 
@@ -210,22 +196,19 @@ describe("Middleware withPage", () => {
   it("should return getServerSideProps with all the necessary objects", async () => {
     mockQuery.mockResolvedValueOnce({
       data: {
-        accountByEmail: {
-          firstName: "Name",
-          lastName: "Last name",
+        accountByEmail: generateAccount({
+          hasCompany: true,
+          account: {
+            firstName: "Name",
+            lastName: "Last name"
+          },
           market: {
             domain: "es"
           },
-          companyMembers: {
-            nodes: [
-              {
-                company: {
-                  status: "ACTIVE"
-                }
-              }
-            ]
+          company: {
+            status: "ACTIVE"
           }
-        }
+        })
       }
     });
 
@@ -244,21 +227,23 @@ describe("Middleware withPage", () => {
         foo: "bar"
       }
     });
-    expect(account).toEqual({
-      firstName: "Name",
-      lastName: "Last name",
-      market: {
-        domain: "es"
-      },
-      companyMembers: {
-        nodes: [
-          {
-            company: {
-              status: "ACTIVE"
-            }
-          }
-        ]
-      }
-    });
+    expect(account).toEqual(
+      expect.objectContaining({
+        firstName: "Name",
+        lastName: "Last name",
+        market: expect.objectContaining({
+          domain: "es"
+        }),
+        companyMembers: expect.objectContaining({
+          nodes: expect.arrayContaining([
+            expect.objectContaining({
+              company: expect.objectContaining({
+                status: "ACTIVE"
+              })
+            })
+          ])
+        })
+      })
+    );
   });
 });

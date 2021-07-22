@@ -28,7 +28,7 @@ const GET_CURRENT_COMPANY = gql`
 const fields = ["name"];
 
 const Company = ({ currentCompany }: any) => {
-  const { t } = useTranslation("complete-registration");
+  const { t } = useTranslation("company-registration");
 
   // The company is created when we create the user in the db
   // through an sql procedure (create_account) here we just
@@ -59,7 +59,7 @@ const Company = ({ currentCompany }: any) => {
   return (
     <BmiThemeProvider>
       <Dialog open={true} data-testid="dialog">
-        <Dialog.Title hasUnderline>{t("company.title")}</Dialog.Title>
+        <Dialog.Title hasUnderline>{t("dialog.title")}</Dialog.Title>
         <Dialog.Content>
           <Form onSubmit={onSubmit} rightAlignButton>
             <Form.Row>
@@ -68,7 +68,7 @@ const Company = ({ currentCompany }: any) => {
                   key={field}
                   name={field}
                   variant="outlined"
-                  label={t(`company.${field}`)}
+                  label={t(`dialog.form.${field}`)}
                   margin="normal"
                   isRequired
                   fullWidth
@@ -98,7 +98,7 @@ export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
       currentCompany,
       ...(await serverSideTranslations(locale, [
         "common",
-        "complete-registration"
+        "company-registration"
       ]))
     }
   };

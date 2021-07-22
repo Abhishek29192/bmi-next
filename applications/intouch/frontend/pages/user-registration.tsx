@@ -17,7 +17,7 @@ type Props = {
 };
 
 const UserRegistration = ({ account }: Props) => {
-  const { t } = useTranslation("complete-registration");
+  const { t } = useTranslation("user-registration");
 
   const [updateAccount] = useUpdateAccountMutation({
     onCompleted: () => {
@@ -42,7 +42,7 @@ const UserRegistration = ({ account }: Props) => {
   return (
     <BmiThemeProvider>
       <Dialog open={true} data-testid="dialog">
-        <Dialog.Title hasUnderline>{t("user.title")}</Dialog.Title>
+        <Dialog.Title hasUnderline>{t("dialog.title")}</Dialog.Title>
         <Dialog.Content>
           <Form onSubmit={onSubmit} rightAlignButton>
             <Form.Row>
@@ -52,7 +52,7 @@ const UserRegistration = ({ account }: Props) => {
                   name={field}
                   defaultValue={account[`${field}`]}
                   variant="outlined"
-                  label={t(`user.${field}`)}
+                  label={t(`dialog.form.${field}`)}
                   margin="normal"
                   isRequired
                   fullWidth
@@ -73,10 +73,7 @@ export const getServerSideProps = withPage(async ({ locale, account }) => {
   return {
     props: {
       account,
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "complete-registration"
-      ]))
+      ...(await serverSideTranslations(locale, ["common", "user-registration"]))
     }
   };
 });
