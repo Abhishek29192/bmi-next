@@ -883,9 +883,6 @@ type ContentfulTeamMember implements Node {
 
   "The informational links for this memeber."
   links: [ContentfulLink] @link(from: "links___NODE")
-
-  "The category this member belongs to."
-  category: ContentfulTeamCategory @link(from: "category___NODE")
 }
 
 """
@@ -900,9 +897,8 @@ type ContentfulTeamCategory implements Node {
   "The description for this category."
   description: ContentfulRichText
 
-  # TODO: See what's wrong here.
-  # "The team memebers for this category."
-  # team_member: [ContentfulTeamMember] @link(from: "category___NODE")
+  "The team memebers for this category."
+  team_member: [ContentfulTeamMember] @link(from: "teamMembers___NODE")
 }
 
 """
