@@ -22,7 +22,7 @@ type Data = PageInfoData &
       title: string;
       description: RichTextData | null;
       // NOTE: This is snake_case because it's a relationship field.
-      team_member: [TeamMemberData];
+      team_member: TeamMemberData;
     }[];
     breadcrumbs: BreadcrumbsData;
   };
