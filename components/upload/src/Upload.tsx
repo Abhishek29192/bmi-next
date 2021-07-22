@@ -61,7 +61,7 @@ const Upload = ({
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   useEffect(() => {
-    onChange(files);
+    onChange(files.map((file) => file.value));
   }, [files]);
 
   const onInputChange = (event?: ChangeEvent<HTMLInputElement>) => {
