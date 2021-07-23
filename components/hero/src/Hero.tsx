@@ -112,6 +112,7 @@ const Hero = ({
                       <Typography
                         variant="h1"
                         hasUnderline={hasUnderline}
+                        hasDarkBackground
                         className={classnames(
                           styles["title"],
                           styles["title--truncated"]
@@ -188,7 +189,12 @@ const SingleHero = ({
         <div className={styles["wrapper"]}>
           {breadcrumbs}
           <div className={styles["content"]}>
-            <Typography variant="h1" hasUnderline className={styles["title"]}>
+            <Typography
+              variant="h1"
+              hasUnderline
+              hasDarkBackground
+              className={styles["title"]}
+            >
               {title}
             </Typography>
             {levelProps.level === 1 && (

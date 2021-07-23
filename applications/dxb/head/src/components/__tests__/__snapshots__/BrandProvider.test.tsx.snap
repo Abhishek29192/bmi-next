@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BrandProvider renders 1`] = `
+<div
+  class=""
+  data-testid="brand-colors-provider"
+>
+  Test
+</div>
+`;
+
+exports[`BrandProvider renders with brand 1`] = `
+<div
+  class="BrandRed"
+  data-testid="brand-colors-provider"
+>
+  Test
+</div>
+`;

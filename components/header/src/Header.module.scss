@@ -94,7 +94,7 @@ $chevron-margin-left-lg: 3px;
       }
 
       &--selected {
-        border-bottom: 5px solid $color-cyan-500 !important;
+        border-bottom: 5px solid $color-brand-inter !important;
       }
     }
 
@@ -106,7 +106,7 @@ $chevron-margin-left-lg: 3px;
   }
 
   .search-button {
-    color: $color-cyan-500;
+    color: $color-brand-inter;
 
     // This breakpoint is not custom to this component
     @media (min-width: $breakpoint-lg) {
@@ -117,7 +117,7 @@ $chevron-margin-left-lg: 3px;
   }
 
   .burger-button {
-    color: $color-cyan-500;
+    color: $color-brand-inter;
     margin-left: 10px;
   }
 

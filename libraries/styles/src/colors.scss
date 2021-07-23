@@ -1,45 +1,91 @@
-$color-pearl: #f7f7f7;
-$color-blue-900: #292d41;
-$color-white: #ffffff;
-$color-storm: #cccccc;
-$color-cyan-400: #009fe3;
-$color-blue-800: #34384f;
-$color-slate: #70706f;
-$color-cyan-500: #0072b0;
-$color-black: #000000;
-$color-charcoal: #3b3b3b;
 $color-alabaster: #f0f0f0;
-$color-error: #d6001c;
-$color-cyan-100: #ccecf9;
-$color-cyan-200: #66c5ee;
-$color-cyan-300: #33b2e9;
-$color-cyan-600: #005b8c;
-$color-cyan-700: #004b73;
-$color-blue-100: #d6d7dc;
-$color-blue-300: #858895;
-$color-teal-100: #d2e4e8;
-$color-teal-200: #79adbb;
-$color-teal-400: #20778e;
-$color-teal-500: #1a6073;
-$color-magenta-100: #f2cfdb;
-$color-magenta-200: #d97094;
-$color-magenta-400: #bf104d;
-$color-magenta-500: #940c3b;
+$color-alert: #ffc72c;
 $color-aqua-100: #d9f0ed;
 $color-aqua-200: #8dd3c9;
 $color-aqua-400: #41b6a5;
 $color-aqua-500: #359486;
-$color-purple-100: #e5cfe0;
-$color-purple-200: #b26ea1;
-$color-purple-400: #7f0e62;
-$color-purple-500: #660b4f;
+$color-black: #000000;
+$color-blue-100: #d6d7dc;
+$color-blue-300: #858895;
+$color-blue-800: #34384f;
+$color-blue-900: #292d41;
+$color-charcoal: #3b3b3b;
+$color-cyan-100: #ccecf9;
+$color-cyan-200: #66c5ee;
+$color-cyan-300: #33b2e9;
+$color-cyan-400: #009fe3;
+$color-cyan-500: #0072b0;
+$color-cyan-600: #005b8c;
+$color-cyan-700: #004b73;
+$color-error: #d6001c;
+$color-magenta-100: #f2cfdb;
+$color-magenta-200: #d97094;
+$color-magenta-400: #bf104d;
+$color-magenta-500: #940c3b;
 $color-orange-100: #fad8cf;
 $color-orange-200: #f08970;
 $color-orange-400: #e63b11;
 $color-orange-500: #ad2c0c;
-$color-alert: #ffc72c;
+$color-pearl: #f7f7f7;
+$color-purple-100: #e5cfe0;
+$color-purple-200: #b26ea1;
+$color-purple-400: #7f0e62;
+$color-purple-500: #660b4f;
+$color-slate: #70706f;
+$color-storm: #cccccc;
 $color-success: #009a44;
+$color-teal-100: #d2e4e8;
+$color-teal-200: #79adbb;
+$color-teal-400: #20778e;
+$color-teal-500: #1a6073;
+$color-white: #ffffff;
 
+$color-brand-red-300: #fd543e;
+$color-brand-red: #e30613;
+$color-brand-red-inter: #d10513;
+$color-brand-red-focus: #b30510;
+$color-orange-400: #e63b11;
+$color-royal-blue: #004f9f;
+$color-royal-blue-focus: #003d7a;
+$color-purple-300: #8985d6;
+$color-purple: #201e5b;
+$color-purple-focus: #161542;
+$color-navi-blue: #133579;
+$color-navi-blue-focus: #0e2a5d;
+$color-sealoflex-blue: #00539c;
+$color-sealoflex-blue-focus: #003c70;
+$color-brand-green: #2aa94e;
+$color-brand-green-inter: #1f7a39;
+$color-brand-green-focus: #1a6531;
+$color-siplast-black: #1a171b;
+
+// css variables #{$color-black}
+:root {
+  --color-brand-accent-300: #{$color-cyan-400};
+  --color-brand-accent: #{$color-cyan-400};
+  --color-brand-inter: #{$color-cyan-500};
+  --color-brand-focus: #{$color-cyan-600};
+
+  // Secondary(action cards colors)
+  --color-brand-secondary-1: #{$color-cyan-700};
+  --color-brand-secondary-2: #{$color-slate};
+  --color-brand-secondary-3: #{$color-blue-800};
+  --color-brand-secondary-4: #{$color-charcoal};
+}
+
+// brand variables
+$color-brand-accent-300: var(--color-brand-accent-300);
+$color-brand-accent: var(--color-brand-accent);
+$color-brand-inter: var(--color-brand-inter);
+$color-brand-focus: var(--color-brand-focus);
+
+// Secondary(action cards colors)
+$color-brand-secondary-1: var(--color-brand-secondary-1);
+$color-brand-secondary-2: var(--color-brand-secondary-2);
+$color-brand-secondary-3: var(--color-brand-secondary-3);
+$color-brand-secondary-4: var(--color-brand-secondary-4);
+
+// exported variables
 :export {
   color-alert: $color-alert;
   color-success: $color-success;
