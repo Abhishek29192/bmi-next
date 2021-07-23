@@ -146,7 +146,7 @@ const VisualiserProvider = ({
   //      issue until we can figure out why. Already spent a fair bit of time
   //      attempting to debug this one.
   if (process.env.GATSBY_VISUALISER_ASSETS_URL === "jest-test-page") {
-    return <></>;
+    return <>{children}</>;
   }
 
   return (

@@ -1,12 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Link component Link function HubSpot CTA renders correctly 1`] = `
-<button
-  action="[object Object]"
-  type="button"
+<span
+  class="hs-cta-wrapper"
+  id="hs-cta-wrapper-123abc"
 >
-  String
-</button>
+  <span
+    class="hs-cta-node hs-cta-123abc"
+    id="hs-cta-123abc"
+  >
+    <a
+      href="https://cta-redirect.hubspot.com/cta/redirect/012345/123abc"
+    >
+      <img
+        alt="New call-to-action"
+        class="hs-cta-img"
+        id="hs-cta-img-123abc"
+        src="https://no-cache.hubspot.com/cta/default/012345/123abc.png"
+      />
+    </a>
+  </span>
+</span>
 `;
 
 exports[`Link component Link function ensure clicking Calculator link works 1`] = `[Function]`;
