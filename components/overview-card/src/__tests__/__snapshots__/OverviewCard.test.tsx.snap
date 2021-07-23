@@ -1,8 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OverviewCard component renders correctly 1`] = `
+exports[`OverviewCard component accpets onClick 1`] = `
+Array [
+  Array [
+    Class {
+      "_dispatchInstances": null,
+      "_dispatchListeners": null,
+      "_targetInst": null,
+      "altKey": null,
+      "bubbles": null,
+      "button": null,
+      "buttons": null,
+      "cancelable": null,
+      "clientX": null,
+      "clientY": null,
+      "ctrlKey": null,
+      "currentTarget": [Function],
+      "defaultPrevented": null,
+      "detail": null,
+      "dispatchConfig": null,
+      "eventPhase": null,
+      "getModifierState": [Function],
+      "isDefaultPrevented": [Function],
+      "isPropagationStopped": [Function],
+      "isTrusted": null,
+      "metaKey": null,
+      "movementX": [Function],
+      "movementY": [Function],
+      "nativeEvent": null,
+      "pageX": null,
+      "pageY": null,
+      "relatedTarget": [Function],
+      "screenX": null,
+      "screenY": null,
+      "shiftKey": null,
+      "target": null,
+      "timeStamp": [Function],
+      "type": null,
+      "view": null,
+    },
+  ],
+]
+`;
+
+exports[`OverviewCard component renders as a flat card 1`] = `
 <div
-  class="OverviewCard"
+  class="OverviewCard OverviewCard--flat"
 >
   <img
     alt="Lorem ipsum"
@@ -17,22 +60,23 @@ exports[`OverviewCard component renders correctly 1`] = `
       preserveAspectRatio="xMinYMin"
     />
     <h4
-      class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+      class="MuiTypography-root title Typography MuiTypography-h4"
     >
       Heading
     </h4>
     <div
-      class="children"
+      class="children text"
     >
       We do the things
     </div>
     <div
       class="footer"
     >
-      <button
+      <span
+        aria-disabled="false"
         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
         tabindex="0"
-        type="button"
       >
         <span
           class="MuiButton-label"
@@ -42,15 +86,71 @@ exports[`OverviewCard component renders correctly 1`] = `
         <span
           class="MuiTouchRipple-root"
         />
-      </button>
+      </span>
     </div>
   </div>
 </div>
 `;
 
+exports[`OverviewCard component renders correctly 1`] = `
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
+>
+  <img
+    alt="Lorem ipsum"
+    class="header-picture Media"
+    src="path-to-image"
+  />
+  <div
+    class="body"
+  >
+    <svg
+      class="brand-logo brand-logo--negative"
+      preserveAspectRatio="xMinYMin"
+    />
+    <h4
+      class="MuiTypography-root title Typography MuiTypography-h4"
+    >
+      Heading
+    </h4>
+    <div
+      class="children text"
+    >
+      We do the things
+    </div>
+    <div
+      class="footer"
+    >
+      <span
+        aria-disabled="false"
+        class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
+        tabindex="0"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          Go to this
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </span>
+    </div>
+  </div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
+`;
+
 exports[`OverviewCard component renders correctly with a subtitle 1`] = `
-<div
-  class="OverviewCard"
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
 >
   <div
     class="body"
@@ -61,22 +161,27 @@ exports[`OverviewCard component renders correctly with a subtitle 1`] = `
       Heading
     </h4>
     <h5
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root text Typography MuiTypography-h5"
     >
       Subtitle
     </h5>
     <div
-      class="children"
+      class="children text"
     >
       We do the things
     </div>
   </div>
-</div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
 `;
 
 exports[`OverviewCard component renders correctly with contain image 1`] = `
-<div
-  class="OverviewCard"
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
 >
   <img
     alt="Lorem ipsum"
@@ -92,17 +197,22 @@ exports[`OverviewCard component renders correctly with contain image 1`] = `
       Heading
     </h4>
     <div
-      class="children"
+      class="children text"
     >
       We do the things
     </div>
   </div>
-</div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
 `;
 
 exports[`OverviewCard component renders correctly without optional props 1`] = `
-<div
-  class="OverviewCard"
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
 >
   <div
     class="body"
@@ -113,17 +223,22 @@ exports[`OverviewCard component renders correctly without optional props 1`] = `
       Heading
     </h4>
     <div
-      class="children"
+      class="children text"
     >
       We do the things
     </div>
   </div>
-</div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
 `;
 
 exports[`OverviewCard component renders with a string brandImageSource prop 1`] = `
-<div
-  class="OverviewCard"
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
 >
   <div
     class="header-picture"
@@ -138,22 +253,23 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
       src="image/source.jpg"
     />
     <h4
-      class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+      class="MuiTypography-root title Typography MuiTypography-h4"
     >
       Heading
     </h4>
     <div
-      class="children"
+      class="children text"
     >
       We do the things
     </div>
     <div
       class="footer"
     >
-      <button
+      <span
+        aria-disabled="false"
         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
         tabindex="0"
-        type="button"
       >
         <span
           class="MuiButton-label"
@@ -163,15 +279,20 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
         <span
           class="MuiTouchRipple-root"
         />
-      </button>
+      </span>
     </div>
   </div>
-</div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
 `;
 
 exports[`OverviewCard component renders with deprecated imageSource 1`] = `
-<div
-  class="OverviewCard"
+<button
+  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+  tabindex="0"
+  type="button"
 >
   <div
     class="header-picture"
@@ -185,22 +306,23 @@ exports[`OverviewCard component renders with deprecated imageSource 1`] = `
       preserveAspectRatio="xMinYMin"
     />
     <h4
-      class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
+      class="MuiTypography-root title Typography MuiTypography-h4"
     >
       Heading
     </h4>
     <div
-      class="children"
+      class="children text"
     >
       We do the things
     </div>
     <div
       class="footer"
     >
-      <button
+      <span
+        aria-disabled="false"
         class="MuiButtonBase-root MuiButton-root MuiButton-outlined Button MuiButton-outlinedPrimary"
+        role="button"
         tabindex="0"
-        type="button"
       >
         <span
           class="MuiButton-label"
@@ -210,8 +332,11 @@ exports[`OverviewCard component renders with deprecated imageSource 1`] = `
         <span
           class="MuiTouchRipple-root"
         />
-      </button>
+      </span>
     </div>
   </div>
-</div>
+  <span
+    class="MuiTouchRipple-root"
+  />
+</button>
 `;
