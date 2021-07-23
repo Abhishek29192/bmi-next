@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@bmi/button";
 import { useTranslation } from "next-i18next";
 import { NoContent } from "../../NoContent";
+import { GetProjectQuery } from "../../../graphql/generated/operations";
 import styles from "./styles.module.scss";
+import { ApplyGuaranteeDialog } from "./ApplyGuaranteeDialog";
 
 export type GuaranteeTabProps = {
-  children?: React.ReactNode | React.ReactNode[];
+  project: GetProjectQuery["project"];
 };
 
-export const GuaranteeTab = ({ children }: GuaranteeTabProps) => {
-  const { t } = useTranslation("common");
+export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
+  const { t } = useTranslation("project-page");
+  const [isApplyGuaranteeDialog, setApplyGuaranteeDialog] = useState(false);
 
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <Button>{t("Apply for a guarantee")}</Button>
+        <Button onClick={() => setApplyGuaranteeDialog(true)}>
+          {t("guarantee_tab.header")}
+        </Button>
       </div>
       <div className={styles.body}>
-        {children}
-        <NoContent message="No guarantee has been added yet" />
+        <NoContent message={t("guarantee_tab.nocontent_message")} />
       </div>
+      {project && (
+        <ApplyGuaranteeDialog
+          isOpen={isApplyGuaranteeDialog}
+          project={project}
+          onCloseClick={() => setApplyGuaranteeDialog(false)}
+          onConfirmClick={() => setApplyGuaranteeDialog(false)}
+        />
+      )}
     </div>
   );
 };

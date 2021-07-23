@@ -934,6 +934,77 @@ export type GetProjectQueryResult = Apollo.QueryResult<
   OperationTypes.GetProjectQuery,
   OperationTypes.GetProjectQueryVariables
 >;
+export const GetProductGuaranteeTypesDocument = gql`
+  query getProductGuaranteeTypes($tecnology: String) {
+    guaranteeTypeCollection(
+      order: ranking_ASC
+      where: { technology: $tecnology }
+    ) {
+      items {
+        sys {
+          id
+        }
+        name
+        displayName
+        technology
+        coverage
+        ranking
+        tiersAvailable
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetProductGuaranteeTypesQuery__
+ *
+ * To run a query within a React component, call `useGetProductGuaranteeTypesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductGuaranteeTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductGuaranteeTypesQuery({
+ *   variables: {
+ *      tecnology: // value for 'tecnology'
+ *   },
+ * });
+ */
+export function useGetProductGuaranteeTypesQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >(GetProductGuaranteeTypesDocument, options);
+}
+export function useGetProductGuaranteeTypesLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetProductGuaranteeTypesQuery,
+    OperationTypes.GetProductGuaranteeTypesQueryVariables
+  >(GetProductGuaranteeTypesDocument, options);
+}
+export type GetProductGuaranteeTypesQueryHookResult = ReturnType<
+  typeof useGetProductGuaranteeTypesQuery
+>;
+export type GetProductGuaranteeTypesLazyQueryHookResult = ReturnType<
+  typeof useGetProductGuaranteeTypesLazyQuery
+>;
+export type GetProductGuaranteeTypesQueryResult = Apollo.QueryResult<
+  OperationTypes.GetProductGuaranteeTypesQuery,
+  OperationTypes.GetProductGuaranteeTypesQueryVariables
+>;
 export const DeleteProjectMemberDocument = gql`
   mutation deleteProjectMember($input: DeleteProjectMemberInput!) {
     deleteProjectMember(input: $input) {

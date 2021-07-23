@@ -100,7 +100,7 @@ export const Team = ({ title }: LayoutProps) => (
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Guarantee" index="two">
               <TabCard>
-                <GuaranteeTab />
+                <GuaranteeTab project={null} />
               </TabCard>
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Uploads" index="three">

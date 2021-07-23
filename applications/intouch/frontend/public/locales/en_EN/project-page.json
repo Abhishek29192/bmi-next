@@ -62,5 +62,18 @@
       "file_validation_message": "You cannot upload  files larger than",
       "evidence_category": "Evidence Category"
     }
+  },
+  "guarantee_tab": {
+    "header": "Apply for a guarantee",
+    "nocontent_message": "No guarantee has been added yet",
+    "apply_guarantee": {
+      "title": "Register for a guarantee",
+      "confirm_label": "Register",
+      "cancel_label": "Cancel",
+      "message": {
+        "not_available_tier": "This guarantee type is not available in your Tier",
+        "guarantee_exists_error": "You cannot have a Solution or System Guarantee for a project that already has a Product Guarantee"
+      }
+    }
   }
 }

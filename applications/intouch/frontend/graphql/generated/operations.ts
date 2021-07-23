@@ -770,6 +770,37 @@ export type GetProjectQuery = { readonly __typename?: "Query" } & {
   >;
 };
 
+export type GetProductGuaranteeTypesQueryVariables = SchemaTypes.Exact<{
+  tecnology?: SchemaTypes.Maybe<SchemaTypes.Scalars["String"]>;
+}>;
+
+export type GetProductGuaranteeTypesQuery = {
+  readonly __typename?: "Query";
+} & {
+  readonly guaranteeTypeCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "GuaranteeTypeCollection" } & {
+      readonly items: ReadonlyArray<
+        SchemaTypes.Maybe<
+          { readonly __typename?: "GuaranteeType" } & Pick<
+            SchemaTypes.GuaranteeType,
+            | "name"
+            | "displayName"
+            | "technology"
+            | "coverage"
+            | "ranking"
+            | "tiersAvailable"
+          > & {
+              readonly sys: { readonly __typename?: "Sys" } & Pick<
+                SchemaTypes.Sys,
+                "id"
+              >;
+            }
+        >
+      >;
+    }
+  >;
+};
+
 export type DeleteProjectMemberMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.DeleteProjectMemberInput;
 }>;
