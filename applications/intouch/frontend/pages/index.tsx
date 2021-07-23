@@ -10,11 +10,13 @@ import Carousel from "@bmi/carousel";
 import OverviewCard from "@bmi/overview-card";
 import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetPartnerBrandsQuery } from "../graphql/generated/operations";
+import {
+  GetPartnerBrandsQuery,
+  GetGlobalDataQuery
+} from "../graphql/generated/operations";
 import { getServerPageGetPartnerBrands } from "../graphql/generated/page";
 import { withPage } from "../lib/middleware/withPage";
 import { Layout } from "../components/Layout";
-import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import logger from "../lib/logger";
 import { findAccountCompany } from "../lib/account";
 import { useAccountContext } from "../context/AccountContext";

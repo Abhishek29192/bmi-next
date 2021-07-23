@@ -85,23 +85,26 @@ const Company = ({ currentCompany }: any) => {
   );
 };
 
-export const getServerSideProps = withPage(async ({ apolloClient, locale }) => {
-  const {
-    data: { currentCompany }
-  } = await apolloClient.query({
-    query: GET_CURRENT_COMPANY,
-    variables: {}
-  });
+export const getServerSideProps = withPage(
+  async ({ apolloClient, locale, account }) => {
+    const {
+      data: { currentCompany }
+    } = await apolloClient.query({
+      query: GET_CURRENT_COMPANY,
+      variables: {}
+    });
 
-  return {
-    props: {
-      currentCompany,
-      ...(await serverSideTranslations(locale, [
-        "common",
-        "company-registration"
-      ]))
-    }
-  };
-});
+    return {
+      props: {
+        currentCompany,
+        account,
+        ...(await serverSideTranslations(locale, [
+          "common",
+          "company-registration"
+        ]))
+      }
+    };
+  }
+);
 
 export default withPageAuthRequired(Company);
