@@ -1830,35 +1830,6 @@ HTMLCollection [
                                     </b>
                                   </dd>
                                 </div>
-                                <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <span
-                                      class="label"
-                                    >
-                                      findARoofer.certificationLabel
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    <pre
-                                      style="color: rgb(214, 0, 28);"
-                                    >
-                                      Error: Level "
-                                      none
-                                      " does not exist
-                                    </pre>
-                                    <span
-                                      class="accessibility-label"
-                                    >
-                                      none
-                                    </span>
-                                  </dd>
-                                </div>
                               </dl>
                               <p
                                 class="MuiTypography-root Typography MuiTypography-body1"
@@ -2091,35 +2062,6 @@ HTMLCollection [
                                     <b>
                                       findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
                                     </b>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <span
-                                      class="label"
-                                    >
-                                      findARoofer.certificationLabel
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    <pre
-                                      style="color: rgb(214, 0, 28);"
-                                    >
-                                      Error: Level "
-                                      none
-                                      " does not exist
-                                    </pre>
-                                    <span
-                                      class="accessibility-label"
-                                    >
-                                      none
-                                    </span>
                                   </dd>
                                 </div>
                               </dl>
