@@ -8,8 +8,6 @@ import Breadcrumbs, {
 } from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as TitleWithContentData } from "../components/TitleWithContent";
-import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import IframeSection, {
   Data as IframeSectionData
@@ -30,8 +28,6 @@ export type Data = PageInfoData &
     __typename: "ContentfulContactUsPage";
     queriesTitle: string;
     queriesSubtitle: string;
-    otherAreasTitle: string;
-    otherAreas: readonly TitleWithContentData[];
     contentTopics: ContactTopicsData[] | null;
     sections: SectionsData | null;
     locationsTitle: string | null;
@@ -58,8 +54,6 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     featuredMedia,
     queriesTitle,
     queriesSubtitle,
-    otherAreasTitle,
-    otherAreas,
     contentTopics,
     inputBanner,
     sections,
@@ -118,15 +112,6 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
           </div>
         </Section>
       )}
-      <TabsOrAccordionSection
-        data={{
-          __typename: "ContentfulTabsOrAccordionSection",
-          title: otherAreasTitle,
-          description: null,
-          items: otherAreas,
-          type: "Accordion"
-        }}
-      />
       {nextBestActions && <NextBestActions data={nextBestActions} />}
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs data={breadcrumbs} />
@@ -146,10 +131,6 @@ export const pageQuery = graphql`
       queriesSubtitle
       contentTopics {
         ...ContactTopicsFragment
-      }
-      otherAreasTitle
-      otherAreas {
-        ...TitleWithContentFragment
       }
       ...PageFragment
       sections {
