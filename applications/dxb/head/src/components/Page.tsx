@@ -70,7 +70,7 @@ const Page = ({
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
-  ogImageUrl = getJpgImage(ogImageUrl);
+  const imageUrl = getJpgImage(ogImageUrl);
 
   return (
     <BmiThemeProvider longText={!!process.env.GATSBY_LONG_TEXT}>
@@ -79,7 +79,7 @@ const Page = ({
         title={seo?.metaTitle || title}
         defer={false}
       >
-        {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+        {imageUrl && <meta property="og:image" content={imageUrl} />}
 
         {/* NOTE: expand viewport beyond safe area */}
         <meta
