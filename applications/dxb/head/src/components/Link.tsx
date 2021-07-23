@@ -1,5 +1,6 @@
 import { ClickableAction } from "@bmi/clickable";
 import Dialog from "@bmi/dialog";
+import Clickable from "@bmi/clickable";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simple-page";
@@ -147,6 +148,16 @@ export const getCTA = (
   };
 };
 
+// TODO: HubSpot CTA script does not work on live. This is an intermediate
+// step which may be acceptable for a final solution.
+export const getLinkURL = (data: Data) =>
+  data?.type === "HubSpot CTA" &&
+  data?.hubSpotCTAID &&
+  process.env.GATSBY_HUBSPOT_ID &&
+  process.env.GATSBY_HUBSPOT_CTA_URL
+    ? `${process.env.GATSBY_HUBSPOT_CTA_URL}${process.env.GATSBY_HUBSPOT_ID}/${data?.hubSpotCTAID}`
+    : data?.url;
+
 export type Data = {
   __typename: "ContentfulLink";
   id: string;
@@ -161,6 +172,7 @@ export type Data = {
     | "Visualiser"
     | "Calculator"
     | "Dialog"
+    | "HubSpot CTA"
     | null;
   parameters: { [key: string]: any } | null;
   dialogContent: SectionData | null;
@@ -173,6 +185,7 @@ export type Data = {
       url: string | null;
     };
   } | null;
+  hubSpotCTAID: string | null;
 };
 
 export type NavigationItem = {
@@ -191,7 +204,7 @@ export type NavigationData = {
 
 export const Link = ({
   children,
-  component: Component = "a",
+  component: Component = Clickable,
   data,
   onClick,
   ...rest
@@ -205,6 +218,10 @@ export const Link = ({
   const { countryCode } = useContext(SiteContext);
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
+
+  if (data?.type === "HubSpot CTA" && !process.env.GATSBY_HUBSPOT_CTA_ENABLED) {
+    return null;
+  }
 
   const handleOnClick = useCallback(
     (...args) => {
@@ -227,7 +244,7 @@ export const Link = ({
     () =>
       getClickableActionFromUrl(
         data?.linkedPage,
-        data?.url,
+        getLinkURL(data),
         countryCode,
         data?.asset?.file?.url,
         data?.label,
@@ -246,13 +263,14 @@ export const Link = ({
       return;
     }
 
+    const sectionId = `dialog-section-${new Date().getTime()}`;
     const Component: React.ElementType =
       sectionsMap[data.dialogContent.__typename];
 
     return (
       <Dialog open={dialogIsOpen} onCloseClick={handleDialogCloseClick}>
         <div className={styles["Link--dialog"]}>
-          <Component data={data.dialogContent} />
+          <Component data={data.dialogContent} id={sectionId} />
         </div>
       </Dialog>
     );
@@ -299,6 +317,7 @@ export const query = graphql`
     parameters {
       ...VisualiserFragment
     }
+    hubSpotCTAID
   }
   fragment LinkFragment on ContentfulLink {
     ...LinkFragmentNonRecursive

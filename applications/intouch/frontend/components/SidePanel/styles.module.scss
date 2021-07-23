@@ -1,11 +1,13 @@
 @import "@bmi/styles";
 
+.main {
+  background-color: $color-white;
+}
+
 .sidePanel {
   width: 320px;
-  background-color: $color-white;
-  height: 100%;
+  height: calc(100vh - 245px); // 245 = header height + footer height
   padding: 1.5rem;
-  height: 100vh;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
@@ -25,9 +27,28 @@
 
 .filterButtons {
   margin-top: 1rem;
+
+  span {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 0.5em;
+    padding-bottom: 0.5em;
+  }
 }
 
 .results {
-  overflow: scroll;
+  overflow-y: scroll;
   margin: 1.5rem 0;
+}
+
+.noResult {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.footerBtn {
+  margin-top: 15px;
+  button {
+    width: 100%;
+  }
 }

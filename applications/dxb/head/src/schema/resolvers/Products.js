@@ -46,7 +46,7 @@ const resolvePathFromFamily = async (source, args, context) => {
   const parentFamilies = await context.nodeModel.runQuery({
     query: {
       filter: {
-        categoryCode: {
+        categoryCodes: {
           in: (source.categories || []).map(({ code }) => code)
         }
       }

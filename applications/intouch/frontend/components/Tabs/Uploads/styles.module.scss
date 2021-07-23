@@ -3,6 +3,16 @@
 .main {
   background-color: $color-white;
 }
+.body {
+  :global {
+    .MuiAccordionDetails-root {
+      display: block;
+    }
+  }
+  table {
+    background-color: $color-white;
+  }
+}
 
 .header {
   display: flex;

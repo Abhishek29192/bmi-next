@@ -1,296 +1,387 @@
-import axios from "axios";
-import { v4 } from "uuid";
-import { ROLES } from "../../lib/config";
+import { Logger } from "winston";
+import { Account } from "@bmi/intouch-api-types";
+import { ApolloClient, NormalizedCacheObject, gql } from "@apollo/client";
+import { randomPassword } from "../utils/account";
 
 const { AUTH0_NAMESPACE } = process.env;
 
-export const queryAccount = `query Account($id: Int!) {
-  account(id: $id) {
-    id
-    marketId
-    market {
-      language
-      doceboCompanyAdminBranchId
-      doceboInstallersBranchId
+export const queryAccountByEmail = gql`
+  query accountByEmail($email: String!) {
+    accountByEmail(email: $email) {
+      id
+      role
+      marketId
+      firstName
+      lastName
+      email
+      doceboUserId
+      market {
+        domain
+        language
+        doceboCompanyAdminBranchId
+        doceboInstallersBranchId
+        projectsEnabled
+      }
+      companyMembers {
+        nodes {
+          company {
+            id
+            status
+            name
+            tier
+          }
+        }
+      }
+      # At the moment only interested in whether account is assigned to any projects at all
+      projectMembers {
+        totalCount
+      }
     }
   }
-}`;
-export const mutationCreateAccount = `mutation CreateAccount($input: CreateAccountInput!) {
-  createAccount(input: $input) {
-    account {
+`;
+export const mutationCreateAccount = gql`
+  mutation CreateAccount($input: CreateAccountInput!) {
+    createAccount(input: $input) {
+      account {
+        id
+        role
+        email
+        firstName
+        lastName
+        marketId
+        market {
+          language
+          doceboCompanyAdminBranchId
+          doceboInstallersBranchId
+        }
+        companyMembers {
+          nodes {
+            company {
+              id
+              status
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export const mutationCreateDoceboUser = gql`
+  mutation createDoceboUser($input: UserCreateInput!) {
+    createDoceboUser(input: $input) {
+      success
+      user_id
+    }
+  }
+`;
+export const mutationUpdateAccount = gql`
+  mutation UpdateAccount($input: UpdateAccountInput!) {
+    updateAccount(input: $input) {
+      account {
+        id
+        doceboUserId
+      }
+    }
+  }
+`;
+
+export const userByEmailDocument = gql`
+  query userByEmail($email: String!) {
+    userByEmail(email: $email) {
+      user_id
+    }
+  }
+`;
+
+export const queryInvitation = gql`
+  query invitations($invitee: String!) {
+    invitations(condition: { invitee: $invitee, status: NEW }) {
+      nodes {
+        id
+        status
+        invitee
+        senderAccountId
+      }
+    }
+  }
+`;
+
+export const mutationCompleteInvitation = gql`
+  mutation completeInvitation($companyId: Int!) {
+    completeInvitation(companyId: $companyId) {
       id
+      role
+      email
+      firstName
+      lastName
       marketId
       market {
         language
+        domain
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
       }
     }
   }
-}`;
-export const mutationCreateDoceboUser = `mutation createDoceboUser($input: UserCreateInput!) {
-  createDoceboUser(input: $input) {
-    success
-    user_id
-  }
-}`;
-export const mutationUpdateAccount = `mutation UpdateAccount($input: UpdateAccountInput!) {
-  updateAccount(input: $input) {
-    account {
-      id
-      doceboUserId
+`;
+
+const mutationDoceboCreateSSOUrl = gql`
+  mutation createSSOUrl($username: String!, $path: String) {
+    createSSOUrl(username: $username, path: $path) {
+      url
     }
   }
-}`;
+`;
 
-const mutationCompleteInvitation = `mutation completeInvitation ($companyId: Int!) {
-  completeInvitation (companyId: $companyId) {
-    id
-    marketId
-    market {
-      language
-      doceboCompanyAdminBranchId
-      doceboInstallersBranchId
-    }
+// TODO: Company can be partial... use generic or fallback to full company, or for Account in fact
+export const findAccountCompany = (account: Account) => {
+  return account?.companyMembers?.nodes?.[0]?.company;
+};
+
+// Account inherits tier from company.
+// if not assigned to a company, fallback to T1.
+export const findAccountTier = (account: Account) => {
+  const company = findAccountCompany(account);
+
+  if (company) {
+    return company.tier;
   }
-}`;
 
-const mutationDoceboCreateSSOUrl = `mutation createSSOUrl ($username: String!,$path: String) {
-  createSSOUrl(username:$username,path:$path){
-    url
-  }
-}`;
+  return "T1";
+};
 
+export const hasProjects = (account: Account): boolean => {
+  return !!account?.projectMembers?.totalCount;
+};
+
+// This user is coming from the idToken
 export const parseAccount = (user) => ({
-  intouchUserId: user[`${AUTH0_NAMESPACE}/intouch_user_id`],
-  name: user[`name`],
-  email: user.email || user[`${AUTH0_NAMESPACE}/email`],
-  role: user[`${AUTH0_NAMESPACE}/intouch_role`],
-  lastName: user[`${AUTH0_NAMESPACE}/last_name`],
-  firstName: user[`${AUTH0_NAMESPACE}/first_name`],
-  invited: user[`${AUTH0_NAMESPACE}/intouch_invited`],
-  doceboId: user[`${AUTH0_NAMESPACE}/intouch_docebo_id`],
-  registrationType: user[`${AUTH0_NAMESPACE}/registration_type`],
+  intouch_role: user[`${AUTH0_NAMESPACE}/intouch_role`],
   marketCode: user[`${AUTH0_NAMESPACE}/intouch_market_code`],
-  registrationToComplete: user[`${AUTH0_NAMESPACE}/registration_to_complete`],
+  firstName: user[`${AUTH0_NAMESPACE}/first_name`],
+  lastName: user[`${AUTH0_NAMESPACE}/last_name`],
+  email: user.email,
+  scope: user.exp,
+  exp: user.exp,
   iss: user.iss,
   iat: user.iat,
-  exp: user.exp,
-  scope: user.exp,
   sub: user.sub,
   aud: user.aud
 });
 
-export const getAccount = async (req, session) => {
-  const { user } = session;
-  const logger = req.logger("account:get");
-  const { intouchUserId } = parseAccount(user);
+export default class AccountService {
+  session: any;
+  logger: Logger;
+  apolloClient: ApolloClient<NormalizedCacheObject>;
 
-  const body = {
-    query: queryAccount,
-    variables: {
-      input: {
-        id: intouchUserId
-      }
-    }
-  };
-
-  const { data } = await requestHandler(req, session, body);
-
-  logger.info(`Get account with id: ${data.id}`);
-
-  return data;
-};
-
-export const createAccount = async (req, session) => {
-  const { user } = session;
-  const logger = req.logger("account:create");
-
-  const { firstName, lastName, registrationType, marketCode, email } =
-    parseAccount(user);
-
-  const body = {
-    query: mutationCreateAccount,
-    variables: {
-      input: {
-        account: {
-          firstName,
-          lastName,
-          email,
-          role:
-            registrationType === "company"
-              ? ROLES.COMPANY_ADMIN
-              : ROLES.INSTALLER
-        },
-        marketCode
-      }
-    }
-  };
-
-  const { data } = await requestHandler(req, session, body);
-  const {
-    createAccount: { account }
-  } = data;
-
-  logger.info(`Account with id: ${account.id} created`);
-
-  return data;
-};
-
-export const createDoceboUser = async (req, session, account) => {
-  const logger = req.logger("account:docebo");
-
-  const REGULAR_USER_LEVEL = 6;
-  const POWER_USER_LEVEL = 4;
-
-  const { user } = session;
-  const { id, market } = account;
-
-  const { firstName, lastName, registrationType, intouchUserId } =
-    parseAccount(user);
-
-  const intouch_user_id = id || intouchUserId;
-
-  const branchId =
-    registrationType === "company"
-      ? market.doceboCompanyAdminBranchId
-      : market.doceboInstallersBranchId;
-
-  const language = market.language.toLowerCase() || "en";
-  const level =
-    registrationType === "company" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
-
-  const body = {
-    query: mutationCreateDoceboUser,
-    variables: {
-      input: {
-        userid: user.email,
-        email: user.email,
-        password: randomPassword(),
-        firstname: firstName,
-        lastname: lastName,
-        language,
-        level,
-        email_validation_status: 1,
-        send_notification_email: false,
-        select_orgchart: {
-          branch_id: branchId
-        }
-      }
-    }
-  };
-
-  const { data: { createDoceboUser = null } = {} } =
-    (await requestHandler(req, session, body)) || {};
-
-  if (intouch_user_id && createDoceboUser?.user_id) {
-    await updateAccount(
-      req,
-      session,
-      intouch_user_id,
-      createDoceboUser.user_id
-    );
+  constructor(logger, apolloClient, session) {
+    this.logger = logger("account");
+    this.apolloClient = apolloClient;
+    this.session = session;
   }
 
-  logger.info(`Docebo account with id ${createDoceboUser.user_id} created`);
-};
-export const createDoceboSSOUrl = async (req, session): Promise<string> => {
-  const logger = req.logger("account:docebo-sso");
+  createDoceboSSOUrl = async (req, session): Promise<string> => {
+    const { user } = session;
+    const { email } = parseAccount(user);
 
-  const { user } = session;
-  const { name } = parseAccount(user);
+    const path = req.query.path || "/learn/mycourses";
+    const { data: { createSSOUrl: { url = null } = {} } = {} } =
+      await this.apolloClient.mutate({
+        mutation: mutationDoceboCreateSSOUrl,
+        variables: {
+          username: email,
+          path
+        }
+      });
 
-  const path = req.query.path || "/learn/mycourses";
-  const body = {
-    query: mutationDoceboCreateSSOUrl,
-    variables: {
-      username: name,
-      path
-    }
+    this.logger.info(`Docebo SSO url created`);
+
+    return url;
   };
 
-  const { data: { createSSOUrl: { url = null } = {} } = {} } =
-    (await requestHandler(req, session, body)) || {};
+  getAccount = async (session) => {
+    const {
+      user: { email }
+    } = session;
 
-  logger.info(`Docebo SSO url created`);
+    this.logger.info(`Getting account`);
 
-  return url;
-};
+    const {
+      data: { accountByEmail }
+    } = await this.apolloClient.query({
+      query: queryAccountByEmail,
+      variables: {
+        email
+      }
+    });
 
-export const updateAccount = async (req, session, accountId, doceboUserId) => {
-  const logger = req.logger("account:update");
+    this.logger.info(`Get account with id: ${accountByEmail?.id}`);
 
-  const { user } = session;
-  const body = {
-    query: mutationUpdateAccount,
-    variables: {
-      input: {
-        id: accountId,
-        patch: {
-          doceboUserId: doceboUserId,
-          doceboUsername: user.email
+    return accountByEmail;
+  };
+
+  createAccount = async (session) => {
+    const { user } = session;
+
+    this.logger.info(`Creating account`);
+
+    const { firstName, lastName, intouch_role, marketCode, email } =
+      parseAccount(user);
+
+    const { data } = await this.apolloClient.mutate({
+      mutation: mutationCreateAccount,
+      variables: {
+        input: {
+          account: {
+            role: intouch_role,
+            email,
+            lastName,
+            firstName
+          },
+          marketCode
         }
       }
-    }
+    });
+
+    const {
+      createAccount: { account }
+    } = data;
+
+    this.logger.info(`Account with id: ${account.id} created`);
+
+    return account;
   };
 
-  const { data } = await requestHandler(req, session, body);
-  const {
-    updateAccount: { account }
-  } = data;
+  completeAccountInvitation = async (req) => {
+    this.logger.info(`Completing account invitation`);
 
-  logger.info(`Account with id: ${account.id} updated`);
-
-  return data;
-};
-
-export const completeAccountInvitation = async (req, session) => {
-  const logger = req.logger("account:invitation");
-  const body = {
-    query: mutationCompleteInvitation,
-    variables: {
-      companyId: parseInt(req.query.company_id)
-    }
-  };
-
-  const { data } = await requestHandler(req, session, body);
-
-  logger.info(`Invitation for user: ${data.completeInvitation.id} completed`);
-
-  return data;
-};
-
-const randomPassword = (length: number = 8) => {
-  const charset =
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-  return [...new Array(length)]
-    .map(() => charset.charAt(Math.floor(Math.random() * charset.length)))
-    .join("");
-};
-
-const requestHandler = async (req, session, body) => {
-  const logger = req.logger("account:requestHandler");
-
-  try {
-    const protocol = req.headers["x-forwarded-proto"] || "http";
-    const { data } = await axios.post(
-      `${protocol}://${req.headers.host}/api/graphql`,
-      body,
-      {
-        headers: {
-          authorization: `Bearer ${session.accessToken}`,
-          "x-request-id": v4()
-        }
+    const { data } = await this.apolloClient.mutate({
+      mutation: mutationCompleteInvitation,
+      variables: {
+        companyId: parseInt(req.query.company_id)
       }
+    });
+
+    this.logger.info(
+      `Invitation for user: ${data.completeInvitation.id} completed`
     );
-
-    logger.info("body", body);
 
     return data;
-  } catch (error) {
-    logger.error("Error", error.message);
-    logger.error("Error data:", error.response.data.errors);
-    throw error;
-  }
-};
+  };
+
+  updateAccount = async (accountId, patch) => {
+    this.logger.info(`Updating account`);
+
+    const body = {
+      mutation: mutationUpdateAccount,
+      variables: {
+        input: {
+          id: accountId,
+          patch
+        }
+      }
+    };
+
+    this.logger.info(`Updating account with id: ${accountId}`);
+    const { data } = await this.apolloClient.mutate(body);
+    const {
+      updateAccount: { account }
+    } = data;
+
+    this.logger.info(`Account with id: ${account.id} updated`);
+
+    return data;
+  };
+
+  getInvitation = async (session) => {
+    const {
+      user: { email }
+    } = session;
+
+    this.logger.info(`Getting invitation`);
+
+    const { data } = await this.apolloClient.query({
+      query: queryInvitation,
+      variables: {
+        invitee: email
+      }
+    });
+
+    this.logger.info(`Get invitation with id: ${data.id}`);
+
+    return data?.invitations?.nodes?.[0];
+  };
+
+  createDoceboUser = async (account) => {
+    const POWER_USER_LEVEL = 4;
+    const REGULAR_USER_LEVEL = 6;
+
+    const { firstName, lastName, role, market, email } = account;
+    const { doceboCompanyAdminBranchId, doceboInstallersBranchId } = market;
+
+    this.logger.info(`Get user by email`);
+
+    // Check if the user already exists in docebo
+    const { data: doceboUser } = await this.apolloClient.query({
+      query: userByEmailDocument,
+      variables: {
+        email: email
+      }
+    });
+
+    let doceboUserId = doceboUser.userByEmail?.user_id
+      ? parseInt(doceboUser.userByEmail?.user_id)
+      : null;
+
+    if (!doceboUser.userByEmail?.user_id) {
+      const branchId =
+        role === "COMPANY_ADMIN"
+          ? doceboCompanyAdminBranchId
+          : doceboInstallersBranchId;
+
+      const language = market.language.toLowerCase() || "en";
+      const level =
+        role === "COMPANY_ADMIN" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
+
+      this.logger.info(`Creating docebo account for user ${account.id}`);
+
+      const { data } = await this.apolloClient.mutate({
+        mutation: mutationCreateDoceboUser,
+        variables: {
+          input: {
+            userid: email,
+            email: email,
+            password: randomPassword(),
+            firstname: firstName,
+            lastname: lastName,
+            language,
+            level,
+            email_validation_status: 1,
+            send_notification_email: false,
+            select_orgchart: {
+              branch_id: branchId
+            }
+          }
+        }
+      });
+      const { createDoceboUser } = data;
+
+      if (!createDoceboUser) {
+        throw new Error("Error creating docebo user");
+      }
+
+      doceboUserId = createDoceboUser?.user_id;
+
+      this.logger.info(`Docebo account with id ${doceboUserId} created`);
+    }
+
+    await this.updateAccount(account.id, {
+      doceboUserId: doceboUserId,
+      doceboUsername: email
+    });
+
+    this.logger.info(
+      `Account with id ${account.id} udpated with docebo id: ${doceboUserId}`
+    );
+  };
+}

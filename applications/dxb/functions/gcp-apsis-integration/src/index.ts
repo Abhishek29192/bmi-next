@@ -22,7 +22,8 @@ const {
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
-const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE);
+
+const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1.0");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 
 const apsisAudianceBase = `${APSIS_API_BASE_URL}/audience`;
@@ -37,6 +38,10 @@ const getRecaptchaSecretKey = async () => {
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${RECAPTCHA_SECRET_KEY}/versions/latest`
     });
 
+    if (!recaptchaSecretKey[0].payload?.data) {
+      throw Error("Unable to get ReCaptcha secret key");
+    }
+
     recaptchaSecretKeyCache = recaptchaSecretKey[0].payload.data.toString();
   }
   return recaptchaSecretKeyCache;
@@ -47,6 +52,10 @@ const getAuthToken = async () => {
     const apsisSecret = await secretManagerClient.accessSecretVersion({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${APSIS_CLIENT_SECRET}/versions/latest`
     });
+
+    if (!apsisSecret[0].payload?.data) {
+      throw Error("Unable to get APSIS client secret");
+    }
 
     apsisClientSecretCache = apsisSecret[0].payload.data.toString();
   }
@@ -93,9 +102,9 @@ const createProfile = async (
     email
   )}/sections/${APSIS_TARGET_SECTION}/attributes`;
   const payload = {
-    [APSIS_TARGET_EMAIL_ATTRIBUTE_ID]: email,
-    [APSIS_TARGET_GDPR_1_ATTRIBUTE_ID]: gdpr_1,
-    [APSIS_TARGET_GDPR_2_ATTRIBUTE_ID]: gdpr_2
+    [APSIS_TARGET_EMAIL_ATTRIBUTE_ID!]: email,
+    [APSIS_TARGET_GDPR_1_ATTRIBUTE_ID!]: gdpr_1,
+    [APSIS_TARGET_GDPR_2_ATTRIBUTE_ID!]: gdpr_2
   };
 
   if (APSIS_TARGET_FIRST_NAME_ATTRIBUTE_ID && name) {
@@ -194,6 +203,24 @@ const validateGDPR = (gdpr_1: boolean, gdpr_2: boolean) => {
 };
 
 export const optInEmailMarketing: HttpFunction = async (request, response) => {
+  if (!APSIS_TARGET_EMAIL_ATTRIBUTE_ID) {
+    // eslint-disable-next-line no-console
+    console.error("APSIS_TARGET_EMAIL_ATTRIBUTE_ID was not provided");
+    return response.sendStatus(500);
+  }
+
+  if (!APSIS_TARGET_GDPR_1_ATTRIBUTE_ID) {
+    // eslint-disable-next-line no-console
+    console.error("APSIS_TARGET_GDPR_1_ATTRIBUTE_ID was not provided");
+    return response.sendStatus(500);
+  }
+
+  if (!APSIS_TARGET_GDPR_2_ATTRIBUTE_ID) {
+    // eslint-disable-next-line no-console
+    console.error("APSIS_TARGET_GDPR_2_ATTRIBUTE_ID was not provided");
+    return response.sendStatus(500);
+  }
+
   let subscriptionId = "";
   response.set("Access-Control-Allow-Origin", "*");
 

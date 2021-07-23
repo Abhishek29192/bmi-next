@@ -1,95 +1,117 @@
-import React from "react";
+import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
 import Button from "@bmi/button";
+import Table from "@bmi/table";
 import Accordion from "@bmi/accordion";
 import Typography from "@bmi/typography";
+import { gql } from "@apollo/client";
+import { EvidenceItemInput } from "@bmi/intouch-api-types";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import { UploadFile } from "../../../../../../components/upload/src/";
+import {
+  useAddEvidencesMutation,
+  GetProjectDocument
+} from "../../../graphql/generated/hooks";
 import styles from "./styles.module.scss";
+import { AddEvidenceDialog } from "./AddEvidenceDialog";
 
 export type UploadsTabProps = {
-  children?: React.ReactNode | React.ReactNode[];
+  projectId: number;
+  uploads?: Map<string, string[]>;
 };
 
-export const UploadsTab = ({ children }: UploadsTabProps) => {
+export const UploadsTab = ({ projectId, uploads }: UploadsTabProps) => {
+  const { t } = useTranslation("project-page");
+  const [isEvidenceDialogOpen, setEvidenceDialogOpen] = useState(false);
+  const [addEvidences] = useAddEvidencesMutation({
+    refetchQueries: [
+      {
+        query: GetProjectDocument,
+        variables: {
+          projectId
+        }
+      }
+    ]
+  });
+  const evidenceDialogConfirmHandler = async (uploadedFiles: UploadFile[]) => {
+    if (uploadedFiles.length > 0) {
+      const evidences = uploadedFiles.map(
+        (uploadedFile) =>
+          ({
+            projectId,
+            attachmentUpload: uploadedFile.file,
+            evidenceCategoryType: "MISCELLANEOUS"
+          } as EvidenceItemInput)
+      );
+      await addEvidences({
+        variables: {
+          input: {
+            evidences
+          }
+        }
+      });
+    }
+    setEvidenceDialogOpen(false);
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <Button variant="outlined">Upload file</Button>
+        <Button variant="outlined" onClick={() => setEvidenceDialogOpen(true)}>
+          {t("upload_tab.header")}
+        </Button>
       </div>
       <div className={styles.body}>
         <Accordion>
-          <Accordion.Item>
-            <Accordion.Summary>
-              <Typography component="h1" variant="h6">
-                Roof corners
-              </Typography>
-            </Accordion.Summary>
-            <Accordion.Details>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
-              </Typography>
-            </Accordion.Details>
-          </Accordion.Item>
-          <Accordion.Item>
-            <Accordion.Summary>
-              <Typography component="h1" variant="h6">
-                Ventilation systems
-              </Typography>
-            </Accordion.Summary>
-            <Accordion.Details>
-              <Typography>
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-              </Typography>
-            </Accordion.Details>
-          </Accordion.Item>
-          <Accordion.Item>
-            <Accordion.Summary>
-              <Typography component="h1" variant="h6">
-                Chimney
-              </Typography>
-            </Accordion.Summary>
-            <Accordion.Details>
-              <Typography>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-              </Typography>
-            </Accordion.Details>
-          </Accordion.Item>
-          <Accordion.Item>
-            <Accordion.Summary>
-              <Typography component="h1" variant="h6">
-                Receipt of purchase
-              </Typography>
-            </Accordion.Summary>
-            <Accordion.Details>
-              <Typography>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-              </Typography>
-            </Accordion.Details>
-          </Accordion.Item>
-          <Accordion.Item>
-            <Accordion.Summary>
-              <Typography component="h1" variant="h6">
-                Supporting files
-              </Typography>
-            </Accordion.Summary>
-            <Accordion.Details>
-              <Typography>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum.
-              </Typography>
-            </Accordion.Details>
-          </Accordion.Item>
+          {uploads &&
+            [...uploads.entries()].map(([key, values]) => {
+              return (
+                <Accordion.Item key={key} data-testid="uploads-category">
+                  <Accordion.Summary>
+                    <Typography component="h1" variant="h6">
+                      {key}
+                    </Typography>
+                  </Accordion.Summary>
+                  <Accordion.Details>
+                    <Table>
+                      <Table.Body>
+                        {values.map((value, index) => (
+                          <Table.Row
+                            key={`upload-items-${key}-${index}`}
+                            data-testid="uploads-item"
+                          >
+                            <Table.Cell>{value}</Table.Cell>
+                            <Table.Cell>
+                              <VisibilityIcon />
+                            </Table.Cell>
+                          </Table.Row>
+                        ))}
+                      </Table.Body>
+                    </Table>
+                  </Accordion.Details>
+                </Accordion.Item>
+              );
+            })}
         </Accordion>
+      </div>
+      <div>
+        <AddEvidenceDialog
+          isOpen={isEvidenceDialogOpen}
+          onCloseClick={() => setEvidenceDialogOpen(false)}
+          onConfirmClick={evidenceDialogConfirmHandler}
+        />
       </div>
     </div>
   );
 };
+
+export const ADD_PROJECT_EVIDENCES = gql`
+  mutation addEvidences($input: EvidenceItemsAddInput!) {
+    evidenceItemsAdd(input: $input) {
+      evidenceItems {
+        id
+        name
+      }
+    }
+  }
+`;

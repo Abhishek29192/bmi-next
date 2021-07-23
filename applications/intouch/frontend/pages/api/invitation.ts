@@ -1,6 +1,7 @@
+import { withLoggerApi } from "../../lib/middleware/withLogger";
+import Account from "../../lib/account";
 import { getAuth0Instance } from "../../lib/auth0";
-import { withLoggerApi } from "../../lib/logger/withLogger";
-import { completeAccountInvitation, createDoceboUser } from "../../lib/account";
+import { initializeApollo } from "../../lib/apolloClient";
 
 export const config = {
   api: {
@@ -9,12 +10,13 @@ export const config = {
   }
 };
 
-export default withLoggerApi(async (req, res) => {
-  const logger = req.logger("Invitation");
+export const handler = async (req, res) => {
   const auth0 = await getAuth0Instance(req, res);
-  const session = await auth0.getSession(req, res);
+  const session = auth0.getSession(req, res);
+  const apolloClient = await initializeApollo(null, { req, res });
+  const accountSrv = new Account(req.logger, apolloClient, session);
 
-  logger.info("start");
+  const logger = req.logger("api:invitation");
 
   if (!session) {
     logger.info(`
@@ -26,14 +28,15 @@ export default withLoggerApi(async (req, res) => {
     res.end();
   } else {
     logger.info("Completing the invitation");
-    const { completeInvitation } = await completeAccountInvitation(
-      req,
-      session
-    );
 
-    await createDoceboUser(req, session, completeInvitation);
+    const { completeInvitation: account } =
+      await accountSrv.completeAccountInvitation(req);
+
+    await accountSrv.createDoceboUser(account);
 
     res.writeHead(302, { Location: "/api/silent-login" });
     res.end();
   }
-});
+};
+
+export default withLoggerApi(handler);

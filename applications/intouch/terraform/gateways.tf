@@ -32,6 +32,7 @@ resource "google_cloud_run_service" "tf-gateway" {
   template {
     metadata {
       annotations = {
+        "autoscaling.knative.dev/minScale" = "1"
         "autoscaling.knative.dev/maxScale" = "10"
       }
 
@@ -85,6 +86,10 @@ resource "google_cloud_run_service" "tf-gateway" {
         env {
           name  = "NPM_AUTH_READ_TOKEN"
           value = ""
+        }
+        env {
+          name  = "NODE_ENV"
+          value = "production"
         }
       }
     }

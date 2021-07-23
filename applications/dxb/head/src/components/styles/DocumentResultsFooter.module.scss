@@ -14,4 +14,9 @@
     margin-right: 20px;
     display: inline-block;
   }
+
+  :global(.RecaptchaPrivacyLinks) {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
 }

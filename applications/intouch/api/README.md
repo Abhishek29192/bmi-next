@@ -14,18 +14,9 @@ After setting up the environment variables, and having installed the monorepo de
 - `yarn workspace @bmi/intouch-api-gateway dev` (run the gateway)
 - `yarn workspace @bmi/intouch-api-service-training dev` (run the training service)
 
-#### Working with a local company service
+#### Working with a local services
 
-<!-- TODO: Proper instructions -->
-
-For now please work with a remote company service. If you need to work with company service running locally, ask the team. TBD
-
-### Making authenticated requests
-
-You will need to pass the Auth0 `access_token` as a Bearer token for each request, into the `Authorization` header: `Authorization: Bearer {access_token}`.
-
-To get the `access_token`:
-
-- Sign up as a user on InTouch. You can do so from InTouch frontend.
-- Login to InTouch Frontend, or simply refresh the page if already logged in.
-- Open the Chrome Developer Tools. On the network tab, you should see a request for `/oauth/token` to Auth0. Inspect the JSON response, and copy the `access_token` value.
+- From `applications/intouch/api/services`, run `docker-compose up`
+- Then (from anywhere in the DXB monorepo) run the following scripts:
+  - `yarn workspace @bmi/intouch-api-service-companies migrate-db` - sets up docker for the company service
+  - `yarn workspace @bmi/intouch-api-service-training migrate-db` - sets up docker for the training service

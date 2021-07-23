@@ -1,11 +1,16 @@
 import React from "react";
 import BmiThemeProvider from "@bmi/theme-provider";
+import { StylesProvider } from "@material-ui/styles";
+import { CssBaseline } from "@material-ui/core";
 
 import "../storybook.css";
 import "../../styles/globals.css";
 
 export const ThemeDecorator = (Story) => (
-  <BmiThemeProvider>
-    <Story />
-  </BmiThemeProvider>
+  <StylesProvider injectFirst={true}>
+    <CssBaseline />
+    <BmiThemeProvider>
+      <Story />
+    </BmiThemeProvider>
+  </StylesProvider>
 );

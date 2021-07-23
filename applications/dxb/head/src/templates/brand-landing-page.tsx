@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Button from "@bmi/button";
 import Hero, { HeroItem } from "@bmi/hero";
 import Section from "@bmi/section";
+import { getSrc } from "gatsby-plugin-image";
 import { Data as SiteData, SiteContext } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
 import { Data as SlideData } from "../components/Promo";
@@ -103,7 +104,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
             children: description?.description,
             imageSource: featuredVideo
               ? renderVideo(featuredVideo)
-              : featuredMedia?.image?.resize.src,
+              : renderImage(featuredMedia),
             hasUnderline: false
           };
 

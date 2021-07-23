@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { graphql } from "gatsby";
+import { getSrc, getSrcSet } from "gatsby-plugin-image";
 import Grid from "@bmi/grid";
 import ProfileCard from "@bmi/profile-card";
 import EqualHeights from "@bmi/equal-heights";
@@ -18,7 +19,7 @@ export type Data = {
 
 const TEAM_MEMBERS_PER_PAGE = 8;
 
-const TeamList = ({ data }: { data: Data }) => {
+const TeamList = ({ data }: { data: Data | null }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
   const showMoreText = getMicroCopy("global.showMore");
   const [numberVisible, setNumberVisible] = useState(TEAM_MEMBERS_PER_PAGE);
@@ -26,9 +27,9 @@ const TeamList = ({ data }: { data: Data }) => {
     <div>
       <EqualHeights>
         <Grid container justify="center" spacing={3}>
-          {data.slice(0, numberVisible).map((teamMember, index) => {
+          {data?.slice(0, numberVisible).map((teamMember, index) => {
             const { name, jobTitle, profileImage, links } = teamMember;
-            const src = profileImage?.image.resize.src;
+            const src = getSrc(profileImage?.image.gatsbyImageData);
 
             return (
               <Grid item xs={12} sm={6} lg={3} key={index}>
@@ -68,7 +69,7 @@ const TeamList = ({ data }: { data: Data }) => {
               </Grid>
             );
           })}
-          {numberVisible < data.length ? (
+          {data && numberVisible < data.length ? (
             <Button
               variant="outlined"
               onClick={() =>
@@ -92,9 +93,11 @@ export const query = graphql`
     jobTitle
     profileImage {
       image {
-        resize(width: 200, toFormat: WEBP, jpegProgressive: false) {
-          src
-        }
+        gatsbyImageData(
+          placeholder: BLURRED
+          width: 200
+          formats: [WEBP, JPG, AUTO]
+        )
       }
     }
     links {

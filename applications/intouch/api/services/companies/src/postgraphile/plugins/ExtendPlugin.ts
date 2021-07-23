@@ -1,9 +1,16 @@
 import { GraphQLUpload } from "graphql-upload";
 import { makeExtendSchemaPlugin } from "graphile-utils";
-import { invite, completeInvitation } from "../../services/account";
+import {
+  invite,
+  completeInvitation,
+  getAccountSignedPhotoUrl
+} from "../../services/account";
 import { publish, TOPICS } from "../../services/events";
-import { getGuarantee } from "../../services/contentful";
-import { guaranteeResolver } from "../../services/company/customResolvers";
+import { getGuarantee, getEvidenceCategory } from "../../services/contentful";
+import {
+  getCompanyCertifications,
+  guaranteeResolver
+} from "../../services/company/customResolvers";
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import typeDefs from "./typeDefs";
@@ -17,6 +24,11 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
     typeDefs,
     resolvers: {
       Upload: GraphQLUpload,
+      Company: {
+        certifications: async (parent, args, context, info) => {
+          return getCompanyCertifications(parent, args, context);
+        }
+      },
       Guarantee: {
         guaranteeType: async (_query, args, context) => {
           const { guaranteeTypeId } = _query;
@@ -27,6 +39,34 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
           return guaranteeType;
         }
       },
+      EvidenceItem: {
+        customEvidenceCategory: async (_query, args, context) => {
+          const { customEvidenceCategoryId } = _query;
+
+          if (!customEvidenceCategoryId) return null;
+
+          const {
+            data: { evidenceCategory }
+          } = await getEvidenceCategory(customEvidenceCategoryId);
+
+          return evidenceCategory;
+        }
+      },
+      Account: {
+        signedPhotoUrl: async (parent, args, context) => {
+          const { photo } = parent;
+          return getAccountSignedPhotoUrl(photo);
+        },
+        formattedRole: async (parent, args, context) => {
+          const formattedRoles = {
+            COMPANY_ADMIN: "Company Admin",
+            INSTALLER: "Installer",
+            MARKET_ADMIN: "Market Admin",
+            SUPER_ADMIN: "Super Admin"
+          };
+          return formattedRoles[parent?.role || "INSTALLER"];
+        }
+      },
       Mutation: {
         invite: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
@@ -34,7 +74,14 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         },
         completeInvitation: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
-          return completeInvitation(_query, args, context, resolveInfo, auth0);
+          return completeInvitation(
+            _query,
+            args,
+            context,
+            resolveInfo,
+            auth0,
+            build
+          );
         },
         publishMessage: async (_query, args, context, resolveInfo) => {
           const { input } = args;

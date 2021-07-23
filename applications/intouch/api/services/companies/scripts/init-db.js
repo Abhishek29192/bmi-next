@@ -5,26 +5,6 @@ const fs = require("fs");
 const path = require("path");
 const { Client } = require("pg");
 
-// TODO: Figure out how to connect to GCP in order to use this
-// const { SecretManagerServiceClient } = require("@google-cloud/secret-manager");
-// const client = new SecretManagerServiceClient();
-// const getSecrets = async (keys) => {
-//   const { GCP_SECRET_PROJECT } = process.env;
-//   const secrets = keys.map(async (key) =>
-//     client.accessSecretVersion({
-//       name: `projects/${GCP_SECRET_PROJECT}/secrets/${key}/versions/latest`
-//     })
-//   );
-//   const results = await Promise.all(secrets);
-//   return keys.reduce(
-//     (result, key, index) => ({
-//       ...result,
-//       [key]: results[index][0].payload.data.toString()
-//     }),
-//     {}
-//   );
-// };
-
 const getFile = (file) =>
   fs.readFileSync(path.resolve(__dirname, `../src/data/${file}`), "utf8");
 
@@ -35,13 +15,6 @@ async function main() {
   const rls = getFile("rls.sql");
 
   const { PG_USER, PG_DATABASE, PG_HOST, PG_PORT, PG_PASSWORD } = process.env;
-
-  // const credentials = await getSecrets([
-  //   "COMPANIES_DB_PASSWORD",
-  //   "COMPANIES_DB_HOST"
-  // ]).catch((error) => {
-  //   console.log("Error fetching credentials", error);
-  // });
 
   console.log(`Connecting to ${PG_HOST}:${PG_PORT} as ${PG_USER}....`);
   const client = new Client({
@@ -76,8 +49,11 @@ async function main() {
   console.log("Importing RLS");
   await client.query(rls);
   console.log("RLS imported");
+
+  process.exit(0);
 }
 
 main().catch((error) => {
   console.log("Error", error);
+  process.exit(1);
 });

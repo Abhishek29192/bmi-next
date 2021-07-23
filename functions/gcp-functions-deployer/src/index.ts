@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-import type { HandlerFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Storage } from "@google-cloud/storage/build/src/storage";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 import { filterFunctionMetadata } from "./filter";
@@ -17,18 +16,28 @@ const {
   GCP_PROJECT_NAME
 } = process.env;
 const secretManagerClient = new SecretManagerServiceClient();
-const bucket = storage.bucket(GCP_STORAGE_NAME);
+const bucket = GCP_STORAGE_NAME && storage.bucket(GCP_STORAGE_NAME);
 const triggerNameRegex = `${FUNCTIONS_SOURCE_FOLDER}/(.*).zip`;
 
 async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
   const secret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${TRIGGER_SECRET}/versions/latest`
   });
+
+  if (!secret[0].payload?.data) {
+    throw Error("Unable to get trigger secret");
+  }
+
   const secretText = secret[0].payload.data.toString();
 
   const apiKeySecret = await secretManagerClient.accessSecretVersion({
     name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${TRIGGER_API_KEY_SECRET}/versions/latest`
   });
+
+  if (!apiKeySecret[0].payload?.data) {
+    throw Error("Unable to get trigger API key");
+  }
+
   const apiKey = apiKeySecret[0].payload.data.toString();
 
   const triggerName = `${source}-trigger`;
@@ -40,7 +49,7 @@ async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
       body: JSON.stringify(requests[key]),
       headers: { "Content-Type": "application/json" }
     });
-    if (response.status != 200) {
+    if (!response.ok) {
       // eslint-disable-next-line no-console
       console.error(
         `Build trigger error: ${response.status} ${response.statusText}`
@@ -49,7 +58,11 @@ async function triggerCloudBuild(requests: FunctionMetadata[], source: string) {
   }
 }
 
-export const deploy: HandlerFunction = async (file, context) => {
+export const deploy = async (file: { bucket: string; name: string }) => {
+  if (!bucket) {
+    throw Error("Unable to connect to a storage bucket");
+  }
+
   // eslint-disable-next-line no-console
   console.log(`Bucket: ${file.bucket}`);
   // eslint-disable-next-line no-console

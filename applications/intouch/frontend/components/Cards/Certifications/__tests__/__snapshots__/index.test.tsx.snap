@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CertificationsCard matches snapshot 1`] = `
+<div
+  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <div
+    class="MuiCardContent-root"
+  >
+    <h4
+      class="MuiTypography-root Typography MuiTypography-h4"
+      style="margin-bottom: 1.5rem; font-size: 1.2rem;"
+    >
+      BMI Certifications
+    </h4>
+    <div
+      class="certificationsItemList"
+    >
+      <div
+        class="certificationsItem"
+        data-testid="certifications-item"
+      >
+        <svg
+          class="certificationsItemIcon"
+        />
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+          style="margin-top: 0.5rem;"
+        >
+          Pitched
+        </h6>
+      </div>
+      <div
+        class="certificationsItem"
+        data-testid="certifications-item"
+      >
+        <svg
+          class="certificationsItemIcon"
+        />
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+          style="margin-top: 0.5rem;"
+        >
+          Flat
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>
+`;

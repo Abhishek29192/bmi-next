@@ -17,10 +17,512 @@ exports[`TeamList component renders correctly 1`] = `
           <div
             class="head"
           >
-            <img
-              class="profile-picture"
-              src="//images.asset.jpg"
-            />
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TeamList component renders correctly when incomplete 1`] = `
+<div>
+  <div
+    class="EqualHeights"
+  >
+    <div
+      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture MuiAvatar-colorDefault"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiAvatar-fallback"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TeamList component renders correctly with links 1`] = `
+<div>
+  <div
+    class="EqualHeights"
+  >
+    <div
+      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="footer"
+          >
+            <span
+              class="row"
+            >
+              Contact us
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TeamList component renders correctly with more than 8 1`] = `
+<div>
+  <div
+    class="EqualHeights"
+  >
+    <div
+      class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-xs-center"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
+          </div>
+          <div
+            class="content-box"
+          >
+            <div
+              class="body"
+              style="height: auto;"
+            >
+              <div>
+                <strong
+                  class="MuiTypography-root Typography MuiTypography-h5"
+                >
+                  Name
+                </strong>
+                <p
+                  class="MuiTypography-root title Typography MuiTypography-body2"
+                >
+                  Job Title
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+      >
+        <div
+          class="ProfileCard"
+        >
+          <div
+            class="head"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circle profile-picture"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="//images.ctfassets.net/18fop5x17y3g/6GSQdvd6U3Gzt6Lh7eNaBR/4d364fe9edaf47c271cdcd6034a7ec28/demo-house.png?w=948&h=720&q=50&fm=png"
+              />
+            </div>
           </div>
           <div
             class="content-box"

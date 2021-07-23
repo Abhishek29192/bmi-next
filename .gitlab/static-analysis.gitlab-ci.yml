@@ -1,0 +1,52 @@
+variables:
+  # There are a coupld of .java files under node_modules which sometimes triggers spotbugs checks
+  SAST_EXCLUDED_ANALYZERS: spotbugs
+
+include:
+  - template: Code-Quality.gitlab-ci.yml
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Security/Secret-Detection.gitlab-ci.yml
+
+.sast-analyzer:
+  stage: static analysis
+  allow_failure: false
+  needs: []
+  cache: {}
+
+eslint-sast:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+
+nodejs-scan-sast:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+
+semgrep-sast:
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+
+# Shouldn't need cache, but the codeclimate checks fail due to a potential version issue
+code_quality:
+  stage: static analysis
+  needs:
+    - install
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+
+secret_detection:
+  stage: static analysis
+  needs: []
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+  cache: {}
+
+eslint:
+  stage: static analysis
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+  needs:
+    - install
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn eslint "**/*.{js,ts,tsx}"

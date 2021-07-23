@@ -20,7 +20,7 @@ type RequestData = {
 
 export type Props = {
   file: File;
-  uri: string;
+  uri?: string;
   headers?: RequestData["headers"];
   mapBody: (file: File) => Record<string, any>;
   onDeleteClick: () => void;
@@ -68,25 +68,26 @@ const File = ({
       return source;
     }
 
-    try {
-      const res = await axios.post(uri, mapBody(file), {
-        cancelToken: source.token,
-        headers: {
-          ...headers,
-          ...additionalRequestData.headers
-        }
-      });
-      const body = res.data;
+    if (uri) {
+      try {
+        const res = await axios.post(uri, mapBody(file), {
+          cancelToken: source.token,
+          headers: {
+            ...headers,
+            ...additionalRequestData.headers
+          }
+        });
+        const body = res.data;
 
-      if (body.sys.type === "Error") {
+        if (body.sys.type === "Error") {
+          setError(errorMessage);
+        }
+
+        onRequestSuccess(body);
+      } catch (error) {
         setError(errorMessage);
       }
-
-      onRequestSuccess(body);
-    } catch (error) {
-      setError(errorMessage);
     }
-
     setLoading(false);
     return source;
   };

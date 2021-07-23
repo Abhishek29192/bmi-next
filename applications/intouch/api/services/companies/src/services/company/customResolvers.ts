@@ -5,7 +5,7 @@ import {
   Source
 } from "graphql";
 import { ExecutionResult, Maybe } from "@graphql-tools/utils";
-import { Guarantee } from "@bmi/intouch-api-types";
+import { Guarantee, Technology } from "@bmi/intouch-api-types";
 
 type guaranteeResolverParams = {
   graphql: <TData = ExecutionResult["data"]>(
@@ -141,4 +141,16 @@ export const guaranteeResolver = async ({
   );
 
   return data.guarantee;
+};
+
+export const getCompanyCertifications = async (
+  { id: companyId },
+  _args,
+  { pgClient }
+): Promise<Technology[]> => {
+  const { rows } = await pgClient.query(
+    "SELECT * FROM get_company_certifications($1) as technology;",
+    [companyId]
+  );
+  return rows.map(({ technology }) => technology as Technology);
 };

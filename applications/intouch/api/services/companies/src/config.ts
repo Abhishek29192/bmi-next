@@ -24,7 +24,6 @@ const postgraphile =
         setofFunctionsContainNulls: false,
         ignoreRBAC: false,
         ignoreIndexes: false,
-        extendedErrors: ["errcode"],
         graphiql: false,
         enableQueryBatching: true,
         disableQueryLog: true,

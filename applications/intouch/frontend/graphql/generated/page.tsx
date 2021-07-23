@@ -7,6 +7,314 @@ import * as Apollo from "@apollo/client";
 import type React from "react";
 import type { NormalizedCacheObject } from "@apollo/client";
 
+export async function getServerPageGetGlobalData(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetGlobalDataQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetGlobalDataQuery>({
+    ...options,
+    query: Operations.GetGlobalDataDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetGlobalData = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetGlobalDataQuery,
+    OperationTypes.GetGlobalDataQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetGlobalDataDocument, options);
+};
+export type PageGetGlobalDataComp = React.FC<{
+  data?: OperationTypes.GetGlobalDataQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetGlobalData = {
+  getServerPage: getServerPageGetGlobalData,
+
+  usePage: useGetGlobalData
+};
+
+export async function getServerPageGetProject(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProjectQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetProjectQuery>({
+    ...options,
+    query: Operations.GetProjectDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProject = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProjectQuery,
+    OperationTypes.GetProjectQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProjectDocument, options);
+};
+export type PageGetProjectComp = React.FC<{
+  data?: OperationTypes.GetProjectQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProject = {
+  getServerPage: getServerPageGetProject,
+
+  usePage: useGetProject
+};
+
+export async function getServerPageGetProjectCompanyMembers(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProjectCompanyMembersQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetProjectCompanyMembersQuery>({
+      ...options,
+      query: Operations.GetProjectCompanyMembersDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProjectCompanyMembers = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProjectCompanyMembersQuery,
+    OperationTypes.GetProjectCompanyMembersQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProjectCompanyMembersDocument, options);
+};
+export type PageGetProjectCompanyMembersComp = React.FC<{
+  data?: OperationTypes.GetProjectCompanyMembersQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProjectCompanyMembers = {
+  getServerPage: getServerPageGetProjectCompanyMembers,
+
+  usePage: useGetProjectCompanyMembers
+};
+
+export async function getServerPageAccountByEmail(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.AccountByEmailQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.AccountByEmailQuery>({
+    ...options,
+    query: Operations.AccountByEmailDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useAccountByEmail = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.AccountByEmailQuery,
+    OperationTypes.AccountByEmailQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.AccountByEmailDocument, options);
+};
+export type PageAccountByEmailComp = React.FC<{
+  data?: OperationTypes.AccountByEmailQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrAccountByEmail = {
+  getServerPage: getServerPageAccountByEmail,
+
+  usePage: useAccountByEmail
+};
+
+export async function getServerPageUserByEmail(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.UserByEmailQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.UserByEmailQuery>({
+    ...options,
+    query: Operations.UserByEmailDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useUserByEmail = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.UserByEmailQuery,
+    OperationTypes.UserByEmailQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.UserByEmailDocument, options);
+};
+export type PageUserByEmailComp = React.FC<{
+  data?: OperationTypes.UserByEmailQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrUserByEmail = {
+  getServerPage: getServerPageUserByEmail,
+
+  usePage: useUserByEmail
+};
+export async function getServerPageInvitations(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.InvitationsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.InvitationsQuery>({
+    ...options,
+    query: Operations.InvitationsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useInvitations = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.InvitationsQuery,
+    OperationTypes.InvitationsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.InvitationsDocument, options);
+};
+export type PageInvitationsComp = React.FC<{
+  data?: OperationTypes.InvitationsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrInvitations = {
+  getServerPage: getServerPageInvitations,
+
+  usePage: useInvitations
+};
+
+export async function getServerPageGetContentArticleContent(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetContentArticleContentQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetContentArticleContentQuery>({
+      ...options,
+      query: Operations.GetContentArticleContentDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetContentArticleContent = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetContentArticleContentQuery,
+    OperationTypes.GetContentArticleContentQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetContentArticleContentDocument, options);
+};
+export type PageGetContentArticleContentComp = React.FC<{
+  data?: OperationTypes.GetContentArticleContentQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetContentArticleContent = {
+  getServerPage: getServerPageGetContentArticleContent,
+
+  usePage: useGetContentArticleContent
+};
 export async function getServerPageProductsAndSystems(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.ProductsAndSystemsQueryVariables>,
@@ -179,6 +487,136 @@ export const ssrGetCompany = {
 
   usePage: useGetCompany
 };
+export async function getServerPageGetPartnerBrands(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetPartnerBrandsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetPartnerBrandsQuery>({
+    ...options,
+    query: Operations.GetPartnerBrandsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetPartnerBrands = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetPartnerBrandsQuery,
+    OperationTypes.GetPartnerBrandsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetPartnerBrandsDocument, options);
+};
+export type PageGetPartnerBrandsComp = React.FC<{
+  data?: OperationTypes.GetPartnerBrandsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetPartnerBrands = {
+  getServerPage: getServerPageGetPartnerBrands,
+
+  usePage: useGetPartnerBrands
+};
+export async function getServerPageGetProjects(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetProjectsQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.GetProjectsQuery>({
+    ...options,
+    query: Operations.GetProjectsDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetProjects = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetProjectsQuery,
+    OperationTypes.GetProjectsQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetProjectsDocument, options);
+};
+export type PageGetProjectsComp = React.FC<{
+  data?: OperationTypes.GetProjectsQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetProjects = {
+  getServerPage: getServerPageGetProjects,
+
+  usePage: useGetProjects
+};
+export async function getServerPageCompanyMembers(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.CompanyMembersQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data = await apolloClient.query<OperationTypes.CompanyMembersQuery>({
+    ...options,
+    query: Operations.CompanyMembersDocument
+  });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useCompanyMembers = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.CompanyMembersQuery,
+    OperationTypes.CompanyMembersQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.CompanyMembersDocument, options);
+};
+export type PageCompanyMembersComp = React.FC<{
+  data?: OperationTypes.CompanyMembersQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrCompanyMembers = {
+  getServerPage: getServerPageCompanyMembers,
+
+  usePage: useCompanyMembers
+};
+
 export async function getServerPageTraining(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.TrainingQueryVariables>,

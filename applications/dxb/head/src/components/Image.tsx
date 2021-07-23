@@ -1,18 +1,16 @@
 import React from "react";
 import { graphql } from "gatsby";
-import {
-  getImage,
-  GatsbyImage as Img,
-  IGatsbyImageData
-} from "gatsby-plugin-image";
-
-import { Data as AssetData } from "./Asset";
+import { GatsbyImage as Img, IGatsbyImageData } from "gatsby-plugin-image";
 
 export type Data = {
   altText: string | null;
   type: "Decorative" | "Descriptive" | null;
-  image: AssetData & {
-    gatsbyImageData: IGatsbyImageData;
+  image: {
+    file: {
+      fileName: string;
+      url: string;
+    };
+    gatsbyImageData?: IGatsbyImageData;
   };
   caption: {
     caption: string;
@@ -24,6 +22,7 @@ export type Data = {
 };
 
 type Options = {
+  className?: string;
   size?: "cover" | "contain";
   position?: string;
 };
@@ -49,8 +48,8 @@ const getPosition = ({
   return "center";
 };
 
-const Image = ({ data, size, position }: { data?: Data } & Options) => {
-  return renderImage(data, { size, position });
+const Image = ({ data, ...options }: { data?: Data } & Options) => {
+  return renderImage(data, options);
 };
 
 export const renderImage = (data?: Data, options: Options = {}) => {
@@ -58,12 +57,12 @@ export const renderImage = (data?: Data, options: Options = {}) => {
     return null;
   }
 
-  const image = getImage(data.image.gatsbyImageData);
-  const { size, position } = options;
+  const { size, position, className } = options;
 
-  if (!image) {
+  if (!data.image.gatsbyImageData) {
     return (
       <img
+        className={className}
         src={data.image?.file.url}
         alt={data.altText}
         style={{
@@ -80,7 +79,7 @@ export const renderImage = (data?: Data, options: Options = {}) => {
 
   return (
     <Img
-      image={image}
+      image={data.image.gatsbyImageData}
       alt={data.altText}
       draggable={false}
       style={{ position: undefined }}
@@ -97,20 +96,74 @@ export const renderImage = (data?: Data, options: Options = {}) => {
 export default Image;
 
 export const query = graphql`
-  fragment ImageFragment on ContentfulImage {
+  fragment AssetFragment on ContentfulAsset {
+    file {
+      fileName
+      url
+    }
+  }
+
+  fragment BaseImageFragment on ContentfulImage {
     type
     altText
     caption {
       caption
     }
     type
+    focalPoint {
+      x
+      y
+    }
+  }
+  fragment ImageFragment on ContentfulImage {
+    ...BaseImageFragment
     image {
       ...AssetFragment
       gatsbyImageData(placeholder: BLURRED)
     }
-    focalPoint {
-      x
-      y
+  }
+  fragment ImageDocumentFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 684
+        formats: [WEBP, JPG, AUTO]
+      )
+    }
+  }
+  fragment ImageGallerySlideFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 1392
+        formats: [WEBP, JPG, AUTO]
+      )
+    }
+  }
+  fragment ImageCardFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 580
+        formats: [WEBP, JPG, AUTO]
+      )
+    }
+  }
+  fragment ImageSlideFragment on ContentfulImage {
+    ...BaseImageFragment
+    image {
+      ...AssetFragment
+      gatsbyImageData(
+        placeholder: BLURRED
+        width: 684
+        formats: [WEBP, JPG, AUTO]
+      )
     }
   }
 `;

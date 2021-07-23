@@ -13,10 +13,41 @@ import {
   ProductCategoryTree
 } from "./product-details-transforms";
 
+export type filterOption = ProductFilter & {
+  value: string[];
+};
+
+export type ProductFilter = {
+  label: string;
+  name: string;
+  options: ReadonlyArray<{
+    label: string;
+    value: string;
+  }>;
+  value?: string[];
+};
+
+export type URLProductFilter = {
+  name: string;
+  value: string;
+};
+
 export const isPIMDocument = (
   item: DocumentResultsData[0]
 ): item is PIMDocumentData | PIMLinkDocumentData => {
   return ["PIMDocument", "PIMLinkDocument"].includes(item.__typename);
+};
+
+export const convertToURLFilters = (
+  filters: readonly ProductFilter[]
+): URLProductFilter[] => {
+  return filters.reduce((carry, { name, value }) => {
+    if (value instanceof Array) {
+      return value.length ? [...carry, { name, value }] : carry;
+    }
+
+    return value ? [...carry, { name, value }] : carry;
+  }, []);
 };
 
 const getProductsFromDocuments = (documents: DocumentResultsData) => {

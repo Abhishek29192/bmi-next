@@ -1,5 +1,6 @@
 // Imports the Google Cloud client library
 import { Logging } from "@google-cloud/logging";
+import { LogEntry } from "@google-cloud/logging/build/src/entry";
 
 type LogEvent = {
   severity: string;
@@ -16,13 +17,13 @@ const log = async ({ severity, message }: LogEvent) => {
   );
 
   // The metadata associated with the entry
-  const metadata = {
+  const metadata: LogEntry = {
     resource: {
       type: process.env.LOG_RESOURCE_TYPE || "cloud_run_revision",
       labels: {
-        configuration_name: process.env.K_CONFIGURATION, // set by cloud run
-        service_name: process.env.K_SERVICE, // set by cloud run
-        revision_name: process.env.K_REVISION // set by cloud run
+        configuration_name: process.env.K_CONFIGURATION || "", // set by cloud run
+        service_name: process.env.K_SERVICE || "", // set by cloud run
+        revision_name: process.env.K_REVISION || "" // set by cloud run
       }
     },
     severity

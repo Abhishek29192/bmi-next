@@ -1,12 +1,6 @@
 import { verifyOrigins } from "../verify";
 
 describe("Verifying origins", () => {
-  it("returns true when allowedOrigins is not provided", async () => {
-    const valid = await verifyOrigins(["https://origin"], undefined);
-
-    expect(valid).toBeTruthy();
-  });
-
   it("returns true when allowedOrigins is empty", async () => {
     const valid = await verifyOrigins(["https://origin"], []);
 

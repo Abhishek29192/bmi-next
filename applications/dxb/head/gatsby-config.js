@@ -181,11 +181,19 @@ module.exports = {
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `mockData`,
+        path: `${__dirname}/src/data`
       }
     },
     `gatsby-transformer-sharp`,
@@ -389,13 +397,6 @@ module.exports = {
         disable: process.env.NODE_ENV !== "development"
       }
     },
-    {
-      resolve: "gatsby-plugin-sitemap",
-      options: {
-        output: `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`,
-        sitemapSize: 50000
-      }
-    },
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
       ? [
           {
@@ -404,25 +405,25 @@ module.exports = {
               output: `/${process.env.SPACE_MARKET_CODE}/images.xml`,
               sitemapSize: 50000,
               query: `
-        {
-          site {
-            siteMetadata {
-              siteUrl
-            }
-          }
-          allSitePage {
-            nodes {
-              path
-            }
-          }
-          allContentfulAsset {
-            nodes {
-              file {
-                url
-              }
-            }
-          }
-        }`,
+              {
+                site {
+                  siteMetadata {
+                    siteUrl
+                  }
+                }
+                allSitePage {
+                  nodes {
+                    path
+                  }
+                }
+                allContentfulAsset {
+                  nodes {
+                    file {
+                      url
+                    }
+                  }
+                }
+              }`,
               resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
               serialize: ({ allContentfulAsset }) =>
                 allContentfulAsset.nodes.map((node) => ({

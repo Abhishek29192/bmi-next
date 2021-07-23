@@ -19,6 +19,7 @@ import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useContext, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import withGTM from "../utils/google-tag-manager";
+import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 // TODO: FormInputs should be updated and used here.
 import { convertMarkdownLinksToAnchorLinks } from "./FormInputs";
 import { Data as LinkData } from "./Link";
@@ -236,6 +237,7 @@ const Input = ({
 };
 
 const FormSection = ({
+  id,
   data: {
     title,
     showTitle = true,
@@ -249,6 +251,7 @@ const FormSection = ({
   },
   backgroundColor
 }: {
+  id?: string;
   data: Data;
   backgroundColor: "pearl" | "white";
 }) => {
@@ -410,17 +413,19 @@ const FormSection = ({
   };
 
   if (source === "HubSpot" && hubSpotFormGuid) {
+    const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
+
     useHubspotForm({
       portalId: process.env.GATSBY_HUBSPOT_ID,
       formId: hubSpotFormGuid,
-      target: "#bmi-hubspot-form"
+      target: `#${hubSpotFormID}`
     });
 
     return (
       <Section backgroundColor={backgroundColor}>
         {showTitle && <Section.Title>{title}</Section.Title>}
         {description && <RichText document={description} />}
-        <div id="bmi-hubspot-form"></div>
+        <div id={hubSpotFormID} className={styles["Form--hubSpot"]}></div>
       </Section>
     );
   }
@@ -478,6 +483,8 @@ const FormSection = ({
       ) : (
         "Form contains no fields"
       )}
+
+      <RecaptchaPrivacyLinks />
     </Section>
   );
 };

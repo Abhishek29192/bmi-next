@@ -18,7 +18,7 @@ type ProductMessageFunction = (
       data: object;
     };
   }
-) => any;
+) => Promise<any>;
 
 const {
   ES_INDEX_PREFIX,
@@ -39,12 +39,16 @@ const getEsClient = async () => {
     });
     const esPassword = esPasswordSecret[0]?.payload?.data?.toString();
 
+    if (!esPassword) {
+      throw Error("Unable to retrieve ES password");
+    }
+
     esClientCache = new Client({
       cloud: {
-        id: ES_CLOUD_ID
+        id: ES_CLOUD_ID!
       },
       auth: {
-        username: ES_USERNAME,
+        username: ES_USERNAME!,
         password: esPassword
       },
       headers: {
@@ -71,10 +75,10 @@ const pingEsCluster = async () => {
   });
 };
 
-const buildEsProducts = (items: readonly PIMProduct[]) => {
+const buildEsProducts = (items: readonly PIMProduct[]): ProductVariant[] => {
   return items.reduce(
     (allProducts, product) => [...allProducts, ...transformProduct(product)],
-    []
+    [] as ProductVariant[]
   );
 };
 
@@ -94,7 +98,25 @@ const getChunks = (
 
   return chunksArray;
 };
-const getIndexOperation = (indexName: string, variant: ProductVariant) => {
+
+type DeleteOperation = {
+  delete: {
+    _index: string;
+    _id: string;
+  };
+};
+
+type IndexOperation = {
+  index: {
+    _index: string;
+    _id: string;
+  };
+};
+
+const getIndexOperation = (
+  indexName: string,
+  variant: ProductVariant
+): [IndexOperation, ProductVariant] => {
   return [
     {
       index: { _index: indexName, _id: variant.code }
@@ -103,7 +125,10 @@ const getIndexOperation = (indexName: string, variant: ProductVariant) => {
   ];
 };
 
-const getDeleteOperation = (indexName: string, variant: ProductVariant) => {
+const getDeleteOperation = (
+  indexName: string,
+  variant: ProductVariant
+): [DeleteOperation] => {
   return [
     {
       delete: { _index: indexName, _id: variant.code }
@@ -115,7 +140,7 @@ const getBulkOperations = (
   indexName: string,
   variants: readonly ProductVariant[],
   action?: Operation
-) => {
+): (DeleteOperation | (IndexOperation | ProductVariant))[] => {
   if (!action) {
     return variants.reduce(
       (allOps, item) => [
@@ -124,28 +149,14 @@ const getBulkOperations = (
           ? getIndexOperation(indexName, item)
           : getDeleteOperation(indexName, item))
       ],
-      []
+      [] as (DeleteOperation | (IndexOperation | ProductVariant))[]
     );
   }
-
-  switch (action) {
-    case "delete":
-      return variants.reduce(
-        (allOps, item) => [...allOps, ...getDeleteOperation(indexName, item)],
-        []
-      );
-    case "create":
-    case "index":
-    case "update":
-      return variants.reduce(
-        (allOps, item) => [...allOps, ...getIndexOperation(indexName, item)],
-        []
-      );
-    default:
-      // eslint-disable-next-line no-console
-      console.error("Unexpected 'action' received");
-      return null;
-  }
+  // action is only sent in as "delete"
+  return variants.reduce<DeleteOperation[]>(
+    (allOps, item) => [...allOps, ...getDeleteOperation(indexName, item)],
+    []
+  );
 };
 
 const updateElasticSearch = async (
@@ -183,6 +194,14 @@ const updateElasticSearch = async (
 };
 
 export const handleMessage: ProductMessageFunction = async (event, context) => {
+  if (!ES_CLOUD_ID) {
+    throw Error("ES_CLOUD_ID was not provided");
+  }
+
+  if (!ES_USERNAME) {
+    throw Error("ES_USERNAME was not provided");
+  }
+
   // eslint-disable-next-line no-console
   console.info("event", event);
   // eslint-disable-next-line no-console

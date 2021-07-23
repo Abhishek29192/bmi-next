@@ -1,4 +1,6 @@
-import { transformProduct } from "../transform";
+import mockConsole from "jest-mock-console";
+import { ProductVariant } from "../es-model";
+import { Product } from "../pim";
 import {
   createAppearanceAttributesClassification,
   createFeature,
@@ -12,11 +14,36 @@ import createPimProduct from "./helpers/PimProductHelper";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
+const transformProduct = (product: Partial<Product>): ProductVariant[] =>
+  require("../transform").transformProduct(product as Product);
+
+beforeAll(() => {
+  mockConsole();
+});
+
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.resetModules();
+});
+
 describe("transformProduct", () => {
   it("should transform full product with single variant to a single ES product", () => {
     const product = createPimProduct();
 
     expect(transformProduct(product)).toMatchSnapshot();
+  });
+
+  it("should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided", () => {
+    const pimClassificationCcatalogueNamespace =
+      process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
+    delete process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
+
+    const product = createPimProduct();
+
+    expect(transformProduct(product)).toMatchSnapshot();
+
+    process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE =
+      pimClassificationCcatalogueNamespace;
   });
 
   it("should ignore variant scoringWeightAttributes", () => {
@@ -40,12 +67,12 @@ describe("transformProduct", () => {
     )[0].classifications.filter(
       (classification) => classification.code === "scoringWeightAttributes"
     );
-    const expectedScoringWeightAttributes = product.classifications.filter(
+    const expectedScoringWeightAttributes = product.classifications!.filter(
       (classification) => classification.code === "scoringWeightAttributes"
     );
     expect(expectedScoringWeightAttributes).not.toEqual(
-      product.variantOptions.filter((variant) =>
-        variant.classifications.filter(
+      product.variantOptions!.filter((variant) =>
+        variant.classifications!.filter(
           (classification) => classification.code === "scoringWeightAttributes"
         )
       )
@@ -81,14 +108,15 @@ describe("transformProduct", () => {
     )[0].classifications.filter(
       (classification) => classification.code === "appearanceAttributes"
     );
-    const expectedAppearanceAttributes = product.classifications.filter(
-      (classification) => classification.code === "appearanceAttributes"
-    );
-    expect(expectedAppearanceAttributes).not.toEqual(
-      product.variantOptions.filter((variant) =>
-        variant.classifications.filter(
+    const expectedAppearanceAttributes = product.variantOptions!.flatMap(
+      (variant) =>
+        variant.classifications!.filter(
           (classification) => classification.code === "appearanceAttributes"
         )
+    );
+    expect(expectedAppearanceAttributes).not.toEqual(
+      product.classifications!.filter(
+        (classification) => classification.code === "appearanceAttributes"
       )
     );
     expect(actualAppearanceAttributes).toEqual(expectedAppearanceAttributes);
@@ -116,14 +144,15 @@ describe("transformProduct", () => {
     )[0].classifications.filter(
       (classification) => classification.code === "generalInformation"
     );
-    const expectedGeneralInformation = product.classifications.filter(
-      (classification) => classification.code === "generalInformation"
-    );
-    expect(expectedGeneralInformation).not.toEqual(
-      product.variantOptions.filter((variant) =>
-        variant.classifications.filter(
+    const expectedGeneralInformation = product.variantOptions!.flatMap(
+      (variantOption) =>
+        variantOption.classifications!.filter(
           (classification) => classification.code === "generalInformation"
         )
+    );
+    expect(expectedGeneralInformation).not.toEqual(
+      product.classifications!.filter(
+        (classification) => classification.code === "generalInformation"
       )
     );
     expect(actualGeneralInformation).toEqual(expectedGeneralInformation);
@@ -137,8 +166,8 @@ describe("transformProduct", () => {
             createMeasurementsClassification({
               features: [
                 createFeature({
-                  code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`,
-                  featureValues: [createFeatureValue({ value: "clay" })]
+                  code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
+                  featureValues: [createFeatureValue({ value: "100" })]
                 })
               ]
             })
@@ -149,16 +178,17 @@ describe("transformProduct", () => {
     const actualGeneralInformation = transformProduct(
       product
     )[0].classifications.filter(
-      (classification) => classification.code === "generalInformation"
+      (classification) => classification.code === "measurements"
     );
-    const expectedGeneralInformation = product.classifications.filter(
-      (classification) => classification.code === "generalInformation"
+    const expectedGeneralInformation = product.variantOptions!.flatMap(
+      (variantOption) =>
+        variantOption.classifications!.filter(
+          (classification) => classification.code === "measurements"
+        )
     );
     expect(expectedGeneralInformation).not.toEqual(
-      product.variantOptions.filter((variant) =>
-        variant.classifications.filter(
-          (classification) => classification.code === "generalInformation"
-        )
+      product.classifications!.filter(
+        (classification) => classification.code === "measurements"
       )
     );
     expect(actualGeneralInformation).toEqual(expectedGeneralInformation);
@@ -173,7 +203,7 @@ describe("transformProduct", () => {
       ]
     });
     const actualApprovalStatus = transformProduct(product)[0].approvalStatus;
-    const expectedApprovalStatus = product.variantOptions[0].approvalStatus;
+    const expectedApprovalStatus = product.variantOptions![0].approvalStatus;
     expect(expectedApprovalStatus).not.toEqual(product.approvalStatus);
     expect(actualApprovalStatus).toEqual(expectedApprovalStatus);
   });

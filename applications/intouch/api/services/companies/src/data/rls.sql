@@ -26,9 +26,9 @@ CREATE POLICY policy_company_admin ON account FOR ALL TO company_admin
   );
 CREATE POLICY policy_installer ON account FOR ALL TO installer USING (
   current_account_id() = id OR current_account_email() = email OR id IN (SELECT account_id FROM company_member WHERE company_id = current_company())
-  ) WITH CHECK (
-    current_account_id() = id OR current_account_email() = email
-  );
+) WITH CHECK (
+  current_account_id() = id OR current_account_email() = email
+);
 
 
 
@@ -52,13 +52,17 @@ DROP POLICY IF EXISTS policy_super_admin ON company_member;
 DROP POLICY IF EXISTS policy_market_admin ON company_member;
 DROP POLICY IF EXISTS policy_company_admin ON company_member;
 DROP POLICY IF EXISTS policy_installer ON company_member;
+DROP POLICY IF EXISTS policy_installer_delete ON company_member;
 CREATE POLICY policy_super_admin ON company_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
 CREATE POLICY policy_market_admin ON company_member FOR ALL TO market_admin USING (current_market() = market_id) WITH CHECK (current_market() = market_id);
-CREATE POLICY policy_company_admin ON company_member FOR ALL TO company_admin USING (current_company() = company_id) WITH CHECK (true);
-CREATE POLICY policy_installer ON company_member FOR ALL TO installer USING ( 
+CREATE POLICY policy_company_admin ON company_member FOR ALL TO company_admin USING (
+  current_company() = company_id
+);
+CREATE POLICY policy_installer ON company_member FOR SELECT TO installer USING ( 
   company_id IN (SELECT * FROM invited_by_companies()) OR current_company() = company_id
- ) WITH CHECK (
-  company_id IN (SELECT * FROM invited_by_companies()) OR current_company() = company_id
+);
+CREATE POLICY policy_installer_delete ON company_member FOR DELETE TO installer USING ( 
+  current_account_id() = account_id
 );
 
 
@@ -76,10 +80,10 @@ USING (
 WITH CHECK ( 
   company_id IN (SELECT id FROM company WHERE market_id = current_market() AND is_project_enabled_by_market()) 
 );
+
 CREATE POLICY policy_company_admin ON project FOR ALL TO company_admin USING (
   current_company() = company_id
-  ) 
-  WITH CHECK (
+) WITH CHECK (
   current_company() = company_id AND is_project_enabled_by_market()
 );
 CREATE POLICY policy_installer ON project FOR ALL TO installer USING (id IN (SELECT * FROM is_part_of_project()));
@@ -94,7 +98,7 @@ DROP POLICY IF EXISTS policy_installer ON project_member;
 CREATE POLICY policy_super_admin ON project_member FOR ALL TO super_admin USING (true) WITH CHECK (true);
 CREATE POLICY policy_market_admin ON project_member FOR ALL TO company_admin 
 USING ( 
-  project_id IN (select id from project )
+  project_id IN (select id from project)
 ) 
 WITH CHECK ( 
   project_id IN (select id from project)
@@ -153,7 +157,6 @@ DROP POLICY IF EXISTS policy_market_admin ON guarantee;
 DROP POLICY IF EXISTS policy_company_admin ON guarantee;
 DROP POLICY IF EXISTS policy_installer_select ON guarantee;
 CREATE POLICY policy_super_admin ON guarantee FOR ALL TO super_admin USING (true) WITH CHECK (true);
--- CREATE POLICY policy_market_admin ON guarantee FOR ALL TO market_admin USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
 CREATE POLICY policy_company_admin ON guarantee FOR ALL TO company_admin USING (
   current_company() = (SELECT company_id FROM project WHERE project.id = project_id)
 ) WITH CHECK (
@@ -170,14 +173,17 @@ DROP POLICY IF EXISTS policy_market_admin ON evidence_item;
 DROP POLICY IF EXISTS policy_company_admin ON evidence_item;
 DROP POLICY IF EXISTS policy_installer_select ON evidence_item;
 CREATE POLICY policy_super_admin ON evidence_item FOR ALL TO super_admin USING (true) WITH CHECK (true);
--- CREATE POLICY policy_market_admin ON evidence_item FOR ALL TO market_admin USING (current_account_id() = account_id) WITH CHECK (current_account_id() = account_id);
-CREATE POLICY policy_company_admin ON evidence_item FOR ALL TO company_admin USING (
-  current_company() = (SELECT company_id FROM project JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.id = guarantee_id) 
-) WITH CHECK (
-  current_company() = (SELECT company_id FROM project JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.id = guarantee_id) 
-);
+
+CREATE POLICY policy_company_admin ON evidence_item FOR ALL TO company_admin 
+  USING (
+     current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)
+  )
+  WITH CHECK (
+    current_company() IN (SELECT company_id FROM project WHERE project.id = project_id)
+  );
+
 CREATE POLICY policy_installer_select ON evidence_item FOR SELECT TO installer USING (
-  current_company() = (SELECT company_id FROM project JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.id = guarantee_id) 
+  current_company() = (SELECT company_id FROM project WHERE project.id = project_id)
 );
 
 

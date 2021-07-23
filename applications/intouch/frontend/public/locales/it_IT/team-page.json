@@ -1,0 +1,44 @@
+{
+  "sidePanel": {
+    "search": {
+      "label": "Cerca un utente",
+      "noResult": "Utente non trovato"
+    },
+    "inviteLabel": "+ Invita un utente"
+  },
+  "table": {
+    "title": "Certificazioni",
+    "type": "Tipo",
+    "certification": "Certificatione",
+    "validity": "Validità"
+  },
+  "invitation": {
+    "dialog": {
+      "title": "Invita un utente",
+      "emails": {
+        "label": "Indirizzi email",
+        "helperText": "Aggiunti piu indirizzi separati da una virgola"
+      },
+      "personalNote": {
+        "label": "Messaggio (facoltativo)"
+      },
+      "cancel": "Cancella",
+      "send": "Invia invito",
+      "success": "L'invito è stato inviato con successo"
+    }
+  },
+  "user_card": {
+    "add_admin": "Aggiungi amministratore",
+    "remove_admin": "Rimuovi amministratore",
+    "confirm": "Conferma",
+    "cancel": "Cancella",
+    "role_dialog": {
+      "title": "Cambia ruolo",
+      "text": "Vuoi cambiare il ruolo di questo utente?"
+    },
+    "remove_user_dialog": {
+      "title": "Rimuovi dall'azienda",
+      "text": "Vuoi rimuovere questo utente dall'azienda?"
+    }
+  }
+}

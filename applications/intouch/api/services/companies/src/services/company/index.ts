@@ -1,4 +1,5 @@
-import Auth0 from "../auth0";
+import { DeleteCompanyMemberInput } from "@bmi/intouch-api-types";
+import { publish, TOPICS } from "../../services/events";
 
 export const updateCompany = async (
   resolve,
@@ -6,31 +7,69 @@ export const updateCompany = async (
   args,
   context,
   resolveInfo
-) => {
-  let result;
-  const { pgClient, user } = context;
-  const auth0 = await Auth0.init(context.logger);
-  const logger = context.logger("service:company");
+) => await resolve(source, args, context, resolveInfo);
 
-  await pgClient.query("SAVEPOINT graphql_mutation");
+export const deleteCompanyMember = async (
+  resolve,
+  source,
+  args,
+  context,
+  resolveInfo
+) => {
+  const { pgClient, pubSub } = context;
+  const { id }: DeleteCompanyMemberInput = args.input;
+
+  const logger = context.logger("delete:companyMember");
+
+  const { rows } = await pgClient.query(
+    "SELECT account.id, account.role, account.email, company_member.company_id AS company_id FROM account JOIN company_member ON account.id = company_member.account_id WHERE company_member.id = $1",
+    [id]
+  );
+
+  if (!rows.length) {
+    throw new Error("user not in this company");
+  }
+
+  const userToRemove = rows[0];
+
+  if (userToRemove.role !== "INSTALLER") {
+    throw new Error("you can remove only installers");
+  }
 
   try {
-    result = await resolve(source, args, context, resolveInfo);
+    await pgClient.query("SAVEPOINT graphql_mutation");
 
-    await auth0.updateUser(user.sub, {
-      app_metadata: {
-        registration_to_complete: false
-      }
-    });
-
-    logger.info(
-      `Company ${result.data.$company_id} created by user ${user.intouchUserId}`
+    await pgClient.query(
+      "delete from project_member where account_id = $1 returning *",
+      [userToRemove.id]
     );
 
+    logger.info(
+      `Removing user with id: ${userToRemove.id} from the projects that is a member of`
+    );
+
+    const result = await resolve(source, args, context, resolveInfo);
+
+    await publish(pubSub, TOPICS.TRANSACTIONAL_EMAIL, {
+      title: `You have been removed from the company ${userToRemove.company_id}`,
+      text: `
+        You have been removed from the company ${userToRemove.company_id}
+      `,
+      html: `
+        You have been removed from the company <b>${userToRemove.company_id}</b>
+      `,
+      email: userToRemove.email
+    });
+    logger.info(`Email sent to the user ${userToRemove.id}`);
+
     return result;
-  } catch (e) {
+  } catch (error) {
+    logger.error(
+      `Error removing user with id: ${userToRemove.id} from company ${userToRemove.company_id}`
+    );
+
     await pgClient.query("ROLLBACK TO SAVEPOINT graphql_mutation");
-    throw e;
+    throw error;
   } finally {
     await pgClient.query("RELEASE SAVEPOINT graphql_mutation");
   }

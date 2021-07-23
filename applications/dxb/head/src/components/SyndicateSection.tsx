@@ -14,7 +14,7 @@ import { renderImage } from "./Image";
 export type Data = {
   __typename: "ContentfulSyndicateSection";
   title: string | null;
-  villains: (PromoData | PageInfoData)[];
+  villains: (PromoData | PageInfoData)[] | null;
   isReversed: boolean;
 };
 
@@ -27,7 +27,7 @@ const SyndicateSection = ({
 }) => {
   const { countryCode, getMicroCopy } = useContext(SiteContext);
 
-  const villainsData = villains.map((data) => {
+  const villainsData = villains?.map((data) => {
     const callToAction = useMemo(() => {
       const cta = getCTA(data, countryCode, getMicroCopy("page.linkLabel"));
 
@@ -62,7 +62,7 @@ const SyndicateSection = ({
     };
   });
 
-  if (villainsData.length === 1) {
+  if (villainsData?.length === 1) {
     const villainProperties = villainsData[0];
 
     if (position === 0) {
@@ -80,7 +80,7 @@ const SyndicateSection = ({
   return (
     <Section backgroundColor="white">
       {title && <Section.Title>{title}</Section.Title>}
-      {villainsData.map((villainProperties: VillainProps, index) => (
+      {villainsData?.map((villainProperties: VillainProps, index) => (
         <Villain
           key={`${title}${index}`}
           {...villainProperties}

@@ -116,6 +116,7 @@
     "gatsby-source-contentful": "^5.1.0",
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-source-hubspot-forms": "^3.0.1",
+    "gatsby-transformer-json": "3.8.0",
     "gatsby-transformer-sharp": "^3.1.0",
     "googleapis": "^67.1.1",
     "graphql": "^15.5.0",
@@ -140,6 +141,7 @@
   "devDependencies": {
     "@bmi/contentful-graph": "0.0.0",
     "@types/helmet": "^0.0.48",
+    "@types/lodash": "^4.14.170",
     "babel-preset-gatsby": "^0.12.2",
     "jest-preset-gatsby": "^1.0.117"
   }

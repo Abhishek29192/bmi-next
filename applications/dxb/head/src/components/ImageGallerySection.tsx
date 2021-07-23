@@ -81,7 +81,7 @@ export const query = graphql`
       description
     }
     medias {
-      ...ImageFragment
+      ...ImageGallerySlideFragment
       image {
         thumbnail: resize(width: 80, height: 60) {
           src

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useMemo } from "react";
 import { graphql } from "gatsby";
 import AnchorLink from "@bmi/anchor-link";
 import Button, { ButtonProps } from "@bmi/button";
@@ -34,6 +34,11 @@ export type Data = {
   cardLabel: string | null;
   groupCards: boolean;
   cards: Card[];
+  sortOrder:
+    | "Default (Contentful)"
+    | "Date (Newest first)"
+    | "Date (Oldest first)"
+    | null;
   link: LinkData | null;
   justifyCenter: boolean | null;
 };
@@ -41,11 +46,13 @@ export type Data = {
 const CardCollectionItem = ({
   card,
   label,
-  type
+  type,
+  date
 }: {
   card: Card;
   label: string;
   type: Data["cardType"];
+  date?: string;
 }) => {
   const { title, subtitle, link, featuredMedia, brandLogo, featuredVideo } =
     transformCard(card);
@@ -70,22 +77,29 @@ const CardCollectionItem = ({
       isFlat={type === "Story Card"}
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
       footer={
-        link ? (
-          <Link
-            data-testid={"card-link"}
-            component={GTMButton}
-            data={link}
-            variant="outlined"
-            startIcon={<ArrowForwardIcon />}
-            gtm={{
-              id: "cta-click1",
-              label: transformedCardLabel,
-              action: link.linkedPage?.path || link.url
-            }}
-          >
-            {transformedCardLabel}
-          </Link>
-        ) : undefined
+        <>
+          {date ? (
+            <Typography variant="h6" className={styles["date"]}>
+              {date}
+            </Typography>
+          ) : null}
+          {link ? (
+            <Link
+              data-testid={"card-link"}
+              component={GTMButton}
+              data={link}
+              variant="outlined"
+              startIcon={<ArrowForwardIcon />}
+              gtm={{
+                id: "cta-click1",
+                label: transformedCardLabel,
+                action: link.linkedPage?.path || link.url
+              }}
+            >
+              {transformedCardLabel}
+            </Link>
+          ) : undefined}
+        </>
       }
     >
       {subtitle}
@@ -101,15 +115,9 @@ const transformCard = ({
   brandLogo,
   featuredVideo,
   ...rest
-}: Card): {
-  title: Card["title"];
-  subtitle: Card["subtitle"];
-  link: LinkData | null;
-  featuredMedia: Card["featuredMedia"];
-  brandLogo: Card["brandLogo"];
-  featuredVideo: Card["featuredVideo"];
-} => {
+}: Card) => {
   let link = null;
+  let date = null;
 
   if (rest.__typename === "ContentfulPromo") {
     link = rest.cta;
@@ -121,7 +129,19 @@ const transformCard = ({
     };
   }
 
-  return { title, subtitle, link, featuredMedia, brandLogo, featuredVideo };
+  if (rest.__typename === "ContentfulSimplePage") {
+    date = rest.date;
+  }
+
+  return {
+    title,
+    subtitle,
+    link,
+    featuredMedia,
+    brandLogo,
+    featuredVideo,
+    date
+  };
 };
 
 const moveRestKeyLast = (arr) => {
@@ -137,7 +157,8 @@ const CardCollectionSection = ({
     groupCards,
     cards,
     link,
-    justifyCenter
+    justifyCenter,
+    sortOrder
   },
   theme
 }: {
@@ -158,7 +179,7 @@ const CardCollectionSection = ({
   const groupKeys = moveRestKeyLast(allKeysGrouped.map((c) => c.title));
   const [activeGroups, setActiveGroups] = useState<Record<string, boolean>>({});
   const [showMoreIterator, setShowMoreIterator] = useState(1);
-  const { getMicroCopy, countryCode } = useContext(SiteContext);
+  const { getMicroCopy, countryCode, node_locale } = useContext(SiteContext);
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
 
@@ -178,8 +199,49 @@ const CardCollectionSection = ({
       )
     )
   );
+
+  const formatDate = (date: string): string =>
+    new Intl.DateTimeFormat(
+      // Required until Norway's locale is fixed in V8 https://bugs.chromium.org/p/v8/issues/detail?id=11897
+      node_locale === "nb-NO" ? "no" : node_locale || undefined,
+      {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      }
+    ).format(new Date(date));
+
   const iteratableCards =
     shouldDisplayGroups && activeCards.length ? activeCards : cards;
+
+  const noDateSortWeight = sortOrder === "Date (Newest first)" ? 0 : Infinity;
+
+  const sortedIterableCards = useMemo(
+    () =>
+      sortOrder
+        ? [...iteratableCards].sort((first, second) => {
+            const firstWeight =
+              "date" in first && first.date
+                ? new Date(first.date).getTime()
+                : noDateSortWeight;
+            const secondWeight =
+              "date" in second && second.date
+                ? new Date(second.date).getTime()
+                : noDateSortWeight;
+
+            switch (sortOrder) {
+              case "Date (Oldest first)":
+                return firstWeight - secondWeight;
+              case "Date (Newest first)":
+                return secondWeight - firstWeight;
+              case "Default (Contentful)":
+              default:
+                return 0;
+            }
+          })
+        : iteratableCards,
+    [sortOrder, iteratableCards]
+  );
 
   const cardsPerLoad = 8;
   const numberOfCardsToShow = cardsPerLoad * showMoreIterator;
@@ -262,15 +324,19 @@ const CardCollectionSection = ({
             scroll="finite"
             hasGutter
           >
-            {iteratableCards.map((card, i) => {
+            {sortedIterableCards.map((card, i) => {
               const { id } = card;
-
               return (
                 <Carousel.Slide key={`${id}-${i}`}>
                   <CardCollectionItem
                     card={card}
                     label={cardLabel}
                     type={cardType}
+                    date={
+                      "date" in card && card.date
+                        ? formatDate(card.date)
+                        : undefined
+                    }
                   />
                 </Carousel.Slide>
               );
@@ -279,7 +345,7 @@ const CardCollectionSection = ({
           </Carousel>
         ) : (
           <Grid container justify={justifyCenter ? "center" : undefined}>
-            {iteratableCards.map((card, i) => {
+            {sortedIterableCards.map((card, i) => {
               const { id } = card;
               const cardIsVisible = i >= numberOfCardsToShow;
               return (
@@ -297,11 +363,16 @@ const CardCollectionSection = ({
                     card={card}
                     label={cardLabel}
                     type={cardType}
+                    date={
+                      "date" in card && card.date
+                        ? formatDate(card.date)
+                        : undefined
+                    }
                   />
                 </Grid>
               );
             })}
-            {iteratableCards.length > numberOfCardsToShow && (
+            {sortedIterableCards.length > numberOfCardsToShow && (
               <Grid item xs={12} className={styles["show-more-block"]}>
                 <Button variant="outlined" onClick={handleShowMoreClick}>
                   {getMicroCopy("global.showMore")}
@@ -353,9 +424,10 @@ export const query = graphql`
       ...LinkFragment
     }
     cards {
-      ...PromoFragment
-      ...PageInfoFragment
+      ...PromoCardFragment
+      ...PageInfoCardFragment
     }
     justifyCenter
+    sortOrder
   }
 `;

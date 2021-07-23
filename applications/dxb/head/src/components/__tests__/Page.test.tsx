@@ -20,7 +20,8 @@ const mockNavigation: NavigationData = {
       linkedPage: null,
       type: "External",
       parameters: null,
-      dialogContent: null
+      dialogContent: null,
+      hubSpotCTAID: null
     }
   ]
 };
@@ -45,7 +46,8 @@ const mockNestedNavigation: NavigationData = {
           linkedPage: null,
           type: "External",
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         }
       ]
     },
@@ -66,7 +68,8 @@ const mockNestedNavigation: NavigationData = {
           },
           type: "Internal",
           parameters: null,
-          dialogContent: null
+          dialogContent: null,
+          hubSpotCTAID: null
         }
       ]
     },
@@ -80,7 +83,8 @@ const mockNestedNavigation: NavigationData = {
       linkedPage: null,
       type: "External",
       parameters: null,
-      dialogContent: null
+      dialogContent: null,
+      hubSpotCTAID: null
     }
   ]
 };

@@ -1,0 +1,6 @@
+include:
+  - remote: "https://gitlab.com/dependabot-gitlab/dependabot-standalone/-/raw/master/.gitlab-ci.yml"
+
+# Should be set as a scheduled job for cron 0 0 * * 1 (midnight every monday)
+.dependabot-gitlab:
+  cache: {}

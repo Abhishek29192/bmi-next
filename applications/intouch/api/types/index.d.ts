@@ -93,8 +93,6 @@ export type Account = Node & {
   /** Reads and enables pagination through a set of `Guarantee`. */
   guaranteesByRequestorAccountId: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Guarantee`. */
-  guaranteesByResponsibleInstallerAccountId: GuaranteesConnection;
-  /** Reads and enables pagination through a set of `Guarantee`. */
   guaranteesByReviewerAccountId: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Invitation`. */
   invitationsBySenderAccountId: InvitationsConnection;
@@ -104,6 +102,8 @@ export type Account = Node & {
   notifications: NotificationsConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
   projectMembers: ProjectMembersConnection;
+  formattedRole?: Maybe<Scalars["String"]>;
+  signedPhotoUrl?: Maybe<Scalars["String"]>;
 };
 
 /** An InTouch account */
@@ -115,6 +115,7 @@ export type AccountCertificationsByDoceboUserIdArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CertificationsOrderBy>>;
   condition?: Maybe<CertificationCondition>;
+  filter?: Maybe<CertificationFilter>;
 };
 
 /** An InTouch account */
@@ -126,6 +127,7 @@ export type AccountCompanyMembersArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
   condition?: Maybe<CompanyMemberCondition>;
+  filter?: Maybe<CompanyMemberFilter>;
 };
 
 /** An InTouch account */
@@ -137,17 +139,7 @@ export type AccountGuaranteesByRequestorAccountIdArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
   condition?: Maybe<GuaranteeCondition>;
-};
-
-/** An InTouch account */
-export type AccountGuaranteesByResponsibleInstallerAccountIdArgs = {
-  first?: Maybe<Scalars["Int"]>;
-  last?: Maybe<Scalars["Int"]>;
-  offset?: Maybe<Scalars["Int"]>;
-  before?: Maybe<Scalars["Cursor"]>;
-  after?: Maybe<Scalars["Cursor"]>;
-  orderBy?: Maybe<Array<GuaranteesOrderBy>>;
-  condition?: Maybe<GuaranteeCondition>;
+  filter?: Maybe<GuaranteeFilter>;
 };
 
 /** An InTouch account */
@@ -159,6 +151,7 @@ export type AccountGuaranteesByReviewerAccountIdArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
   condition?: Maybe<GuaranteeCondition>;
+  filter?: Maybe<GuaranteeFilter>;
 };
 
 /** An InTouch account */
@@ -170,6 +163,7 @@ export type AccountInvitationsBySenderAccountIdArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<InvitationsOrderBy>>;
   condition?: Maybe<InvitationCondition>;
+  filter?: Maybe<InvitationFilter>;
 };
 
 /** An InTouch account */
@@ -181,6 +175,7 @@ export type AccountAuthoredNotesArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<NotesOrderBy>>;
   condition?: Maybe<NoteCondition>;
+  filter?: Maybe<NoteFilter>;
 };
 
 /** An InTouch account */
@@ -192,6 +187,7 @@ export type AccountNotificationsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<NotificationsOrderBy>>;
   condition?: Maybe<NotificationCondition>;
+  filter?: Maybe<NotificationFilter>;
 };
 
 /** An InTouch account */
@@ -203,6 +199,7 @@ export type AccountProjectMembersArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectMembersOrderBy>>;
   condition?: Maybe<ProjectMemberCondition>;
+  filter?: Maybe<ProjectMemberFilter>;
 };
 
 /** A condition to be used against `Account` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -215,6 +212,24 @@ export type AccountCondition = {
   email?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `doceboUserId` field. */
   doceboUserId?: Maybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `Account` object types. All fields are combined with a logical ‘and.’ */
+export type AccountFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: Maybe<IntFilter>;
+  /** Filter by the object’s `email` field. */
+  email?: Maybe<StringFilter>;
+  /** Filter by the object’s `doceboUserId` field. */
+  doceboUserId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<AccountFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<AccountFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<AccountFilter>;
 };
 
 /** An input for mutations affecting `Account` */
@@ -280,6 +295,7 @@ export type AccountPatch = {
   migrationId?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+  photoUpload?: Maybe<Scalars["Upload"]>;
 };
 
 export type AccountStatus = "NEW" | "ACTIVE" | "SUSPENDED";
@@ -364,6 +380,7 @@ export type AddressCompaniesByRegisteredAddressIdArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
   condition?: Maybe<CompanyCondition>;
+  filter?: Maybe<CompanyFilter>;
 };
 
 /** A generic address */
@@ -375,6 +392,7 @@ export type AddressCompaniesByTradingAddressIdArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
   condition?: Maybe<CompanyCondition>;
+  filter?: Maybe<CompanyFilter>;
 };
 
 /** A generic address */
@@ -386,6 +404,7 @@ export type AddressProjectsBySiteAddressIdArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
   condition?: Maybe<ProjectCondition>;
+  filter?: Maybe<ProjectFilter>;
 };
 
 /** A generic address */
@@ -397,12 +416,25 @@ export type AddressProjectsByBuildingOwnerAddressIdArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
   condition?: Maybe<ProjectCondition>;
+  filter?: Maybe<ProjectFilter>;
 };
 
 /** A condition to be used against `Address` object types. All fields are tested for equality and combined with a logical ‘and.’ */
 export type AddressCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `Address` object types. All fields are combined with a logical ‘and.’ */
+export type AddressFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<AddressFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<AddressFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<AddressFilter>;
 };
 
 /** An input for mutations affecting `Address` */
@@ -668,6 +700,32 @@ export type AssetOrder =
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
 
+/** A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’ */
+export type BooleanFilter = {
+  /** Is null (if `true` is specified) or is not null (if `false` is specified). */
+  isNull?: Maybe<Scalars["Boolean"]>;
+  /** Equal to the specified value. */
+  equalTo?: Maybe<Scalars["Boolean"]>;
+  /** Not equal to the specified value. */
+  notEqualTo?: Maybe<Scalars["Boolean"]>;
+  /** Not equal to the specified value, treating null like an ordinary value. */
+  distinctFrom?: Maybe<Scalars["Boolean"]>;
+  /** Equal to the specified value, treating null like an ordinary value. */
+  notDistinctFrom?: Maybe<Scalars["Boolean"]>;
+  /** Included in the specified list. */
+  in?: Maybe<Array<Scalars["Boolean"]>>;
+  /** Not included in the specified list. */
+  notIn?: Maybe<Array<Scalars["Boolean"]>>;
+  /** Less than the specified value. */
+  lessThan?: Maybe<Scalars["Boolean"]>;
+  /** Less than or equal to the specified value. */
+  lessThanOrEqualTo?: Maybe<Scalars["Boolean"]>;
+  /** Greater than the specified value. */
+  greaterThan?: Maybe<Scalars["Boolean"]>;
+  /** Greater than or equal to the specified value. */
+  greaterThanOrEqualTo?: Maybe<Scalars["Boolean"]>;
+};
+
 export type BulkImportInput = {
   files: Array<Scalars["Upload"]>;
   dryRun?: Maybe<Scalars["Boolean"]>;
@@ -926,6 +984,28 @@ export type CertificationCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `doceboUserId` field. */
   doceboUserId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `technology` field. */
+  technology?: Maybe<Scalars["String"]>;
+  /** Checks for equality with the object’s `expiryDate` field. */
+  expiryDate?: Maybe<Scalars["Datetime"]>;
+};
+
+/** A filter to be used against `Certification` object types. All fields are combined with a logical ‘and.’ */
+export type CertificationFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `doceboUserId` field. */
+  doceboUserId?: Maybe<IntFilter>;
+  /** Filter by the object’s `technology` field. */
+  technology?: Maybe<StringFilter>;
+  /** Filter by the object’s `expiryDate` field. */
+  expiryDate?: Maybe<DatetimeFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<CertificationFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<CertificationFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<CertificationFilter>;
 };
 
 /** An input for mutations affecting `Certification` */
@@ -989,8 +1069,17 @@ export type CertificationsOrderBy =
   | "ID_DESC"
   | "DOCEBO_USER_ID_ASC"
   | "DOCEBO_USER_ID_DESC"
+  | "TECHNOLOGY_ASC"
+  | "TECHNOLOGY_DESC"
+  | "EXPIRY_DATE_ASC"
+  | "EXPIRY_DATE_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
+
+export type CheckUserValidityPayload = {
+  __typename?: "CheckUserValidityPayload";
+  success?: Maybe<Scalars["String"]>;
+};
 
 /** A connection to a list of `Company` values. */
 export type CompaniesConnection = {
@@ -1063,7 +1152,7 @@ export type Company = Node & {
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
   taxNumber?: Maybe<Scalars["String"]>;
-  /** They Company public phone number */
+  /** The Company public phone number */
   phone?: Maybe<Scalars["String"]>;
   /** A descirption of the Company intended for Find a Roofer */
   aboutUs?: Maybe<Scalars["String"]>;
@@ -1103,6 +1192,7 @@ export type Company = Node & {
   invitations: InvitationsConnection;
   /** Reads and enables pagination through a set of `Project`. */
   projects: ProjectsConnection;
+  certifications?: Maybe<Array<Maybe<Technology>>>;
 };
 
 /** A company that has been registered in InTouch */
@@ -1114,6 +1204,7 @@ export type CompanyCompanyDocumentsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompanyDocumentsOrderBy>>;
   condition?: Maybe<CompanyDocumentCondition>;
+  filter?: Maybe<CompanyDocumentFilter>;
 };
 
 /** A company that has been registered in InTouch */
@@ -1125,6 +1216,7 @@ export type CompanyCompanyMembersArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
   condition?: Maybe<CompanyMemberCondition>;
+  filter?: Maybe<CompanyMemberFilter>;
 };
 
 /** A company that has been registered in InTouch */
@@ -1136,6 +1228,7 @@ export type CompanyCompanyOperationsByCompanyArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompanyOperationsOrderBy>>;
   condition?: Maybe<CompanyOperationCondition>;
+  filter?: Maybe<CompanyOperationFilter>;
 };
 
 /** A company that has been registered in InTouch */
@@ -1147,6 +1240,7 @@ export type CompanyInvitationsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<InvitationsOrderBy>>;
   condition?: Maybe<InvitationCondition>;
+  filter?: Maybe<InvitationFilter>;
 };
 
 /** A company that has been registered in InTouch */
@@ -1158,6 +1252,7 @@ export type CompanyProjectsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
   condition?: Maybe<ProjectCondition>;
+  filter?: Maybe<ProjectFilter>;
 };
 
 /** A condition to be used against `Company` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -1198,6 +1293,20 @@ export type CompanyDocumentCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `CompanyDocument` object types. All fields are combined with a logical ‘and.’ */
+export type CompanyDocumentFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `companyId` field. */
+  companyId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<CompanyDocumentFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<CompanyDocumentFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<CompanyDocumentFilter>;
 };
 
 /** An input for mutations affecting `CompanyDocument` */
@@ -1256,6 +1365,24 @@ export type CompanyDocumentsOrderBy =
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
+/** A filter to be used against `Company` object types. All fields are combined with a logical ‘and.’ */
+export type CompanyFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: Maybe<IntFilter>;
+  /** Filter by the object’s `registeredAddressId` field. */
+  registeredAddressId?: Maybe<IntFilter>;
+  /** Filter by the object’s `tradingAddressId` field. */
+  tradingAddressId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<CompanyFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<CompanyFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<CompanyFilter>;
+};
+
 /** A connection between a user and a company */
 export type CompanyMember = Node & {
   __typename?: "CompanyMember";
@@ -1292,6 +1419,24 @@ export type CompanyMemberCondition = {
   accountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `companyId` field. */
   companyId?: Maybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `CompanyMember` object types. All fields are combined with a logical ‘and.’ */
+export type CompanyMemberFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: Maybe<IntFilter>;
+  /** Filter by the object’s `accountId` field. */
+  accountId?: Maybe<IntFilter>;
+  /** Filter by the object’s `companyId` field. */
+  companyId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<CompanyMemberFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<CompanyMemberFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<CompanyMemberFilter>;
 };
 
 /** An input for mutations affecting `CompanyMember` */
@@ -1386,6 +1531,20 @@ export type CompanyOperationCondition = {
   company?: Maybe<Scalars["Int"]>;
 };
 
+/** A filter to be used against `CompanyOperation` object types. All fields are combined with a logical ‘and.’ */
+export type CompanyOperationFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `company` field. */
+  company?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<CompanyOperationFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<CompanyOperationFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<CompanyOperationFilter>;
+};
+
 /** An input for mutations affecting `CompanyOperation` */
 export type CompanyOperationInput = {
   /** Primary key */
@@ -1474,7 +1633,7 @@ export type CompanyPatch = {
   name?: Maybe<Scalars["String"]>;
   /** The Tax number in that Market, such as the VAT number */
   taxNumber?: Maybe<Scalars["String"]>;
-  /** They Company public phone number */
+  /** The Company public phone number */
   phone?: Maybe<Scalars["String"]>;
   /** A descirption of the Company intended for Find a Roofer */
   aboutUs?: Maybe<Scalars["String"]>;
@@ -1758,6 +1917,11 @@ export type ContentfulEvidenceCategory = {
   minimumUploads?: Maybe<Scalars["Int"]>;
 };
 
+export type ContentfulEvidenceCategoryCollection = {
+  __typename?: "ContentfulEvidenceCategoryCollection";
+  items?: Maybe<Array<Maybe<ContentfulEvidenceCategory>>>;
+};
+
 export type ContentfulGuaranteeCoverageType = "PRODUCT" | "SYSTEM" | "SOLUTION";
 
 export type ContentfulGuaranteeTemplate = {
@@ -1807,7 +1971,7 @@ export type ContentfulGuaranteeType = {
   maximumValidityYears?: Maybe<Scalars["Int"]>;
   tiersAvailable?: Maybe<ContentfulTiers>;
   ranking?: Maybe<Scalars["Int"]>;
-  evidenceCategories?: Maybe<ContentfulEvidenceCategory>;
+  evidenceCategoriesCollection?: Maybe<ContentfulEvidenceCategoryCollection>;
   guaranteeTemplatesCollection?: Maybe<ContentfulGuaranteeTemplatesCollection>;
 };
 
@@ -3172,6 +3336,8 @@ export type CreateEvidenceItemPayload = {
   evidenceItem?: Maybe<EvidenceItem>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Project` that is related to this `EvidenceItem`. */
+  project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
@@ -3208,8 +3374,6 @@ export type CreateGuaranteePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   requestorAccount?: Maybe<Account>;
-  /** Reads a single `Account` that is related to this `Guarantee`. */
-  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
@@ -3507,6 +3671,32 @@ export type CreateSystemPayloadSystemEdgeArgs = {
   orderBy?: Maybe<Array<SystemsOrderBy>>;
 };
 
+/** A filter to be used against Datetime fields. All fields are combined with a logical ‘and.’ */
+export type DatetimeFilter = {
+  /** Is null (if `true` is specified) or is not null (if `false` is specified). */
+  isNull?: Maybe<Scalars["Boolean"]>;
+  /** Equal to the specified value. */
+  equalTo?: Maybe<Scalars["Datetime"]>;
+  /** Not equal to the specified value. */
+  notEqualTo?: Maybe<Scalars["Datetime"]>;
+  /** Not equal to the specified value, treating null like an ordinary value. */
+  distinctFrom?: Maybe<Scalars["Datetime"]>;
+  /** Equal to the specified value, treating null like an ordinary value. */
+  notDistinctFrom?: Maybe<Scalars["Datetime"]>;
+  /** Included in the specified list. */
+  in?: Maybe<Array<Scalars["Datetime"]>>;
+  /** Not included in the specified list. */
+  notIn?: Maybe<Array<Scalars["Datetime"]>>;
+  /** Less than the specified value. */
+  lessThan?: Maybe<Scalars["Datetime"]>;
+  /** Less than or equal to the specified value. */
+  lessThanOrEqualTo?: Maybe<Scalars["Datetime"]>;
+  /** Greater than the specified value. */
+  greaterThan?: Maybe<Scalars["Datetime"]>;
+  /** Greater than or equal to the specified value. */
+  greaterThanOrEqualTo?: Maybe<Scalars["Datetime"]>;
+};
+
 /** All input for the `deleteAccountByDoceboUserId` mutation. */
 export type DeleteAccountByDoceboUserIdInput = {
   /**
@@ -3731,6 +3921,21 @@ export type DeleteCompanyInput = {
   clientMutationId?: Maybe<Scalars["String"]>;
   /** Primary key */
   id: Scalars["Int"];
+};
+
+/** All input for the `deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId` mutation. */
+export type DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** fk */
+  marketId: Scalars["Int"];
+  /** fk */
+  accountId: Scalars["Int"];
+  /** fk */
+  companyId: Scalars["Int"];
 };
 
 /** All input for the `deleteCompanyMemberByNodeId` mutation. */
@@ -4253,6 +4458,8 @@ export type DeleteEvidenceItemPayload = {
   deletedEvidenceItemNodeId?: Maybe<Scalars["ID"]>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Project` that is related to this `EvidenceItem`. */
+  project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
@@ -4301,8 +4508,6 @@ export type DeleteGuaranteePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   requestorAccount?: Maybe<Account>;
-  /** Reads a single `Account` that is related to this `Guarantee`. */
-  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
@@ -4727,6 +4932,19 @@ export type DeleteSystemMemberByNodeIdInput = {
   nodeId: Scalars["ID"];
 };
 
+/** All input for the `deleteSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
+export type DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** fk */
+  systemBmiRef: Scalars["String"];
+  /** fk */
+  productBmiRef: Scalars["String"];
+};
+
 /** All input for the `deleteSystemMember` mutation. */
 export type DeleteSystemMemberInput = {
   /**
@@ -4957,6 +5175,8 @@ export type EvidenceItem = Node & {
   /** a reference to the evidenceCategory sys id in Contentful */
   customEvidenceCategoryId?: Maybe<Scalars["String"]>;
   /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
   /** ek */
   evidenceCategoryType?: Maybe<EvidenceCategoryType>;
@@ -4966,8 +5186,11 @@ export type EvidenceItem = Node & {
   attachment?: Maybe<Scalars["String"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
+  /** Reads a single `Project` that is related to this `EvidenceItem`. */
+  project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
+  customEvidenceCategory?: Maybe<ContentfulEvidenceCategory>;
 };
 
 /**
@@ -4977,8 +5200,26 @@ export type EvidenceItem = Node & {
 export type EvidenceItemCondition = {
   /** Checks for equality with the object’s `id` field. */
   id?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `projectId` field. */
+  projectId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `guaranteeId` field. */
   guaranteeId?: Maybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `EvidenceItem` object types. All fields are combined with a logical ‘and.’ */
+export type EvidenceItemFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `projectId` field. */
+  projectId?: Maybe<IntFilter>;
+  /** Filter by the object’s `guaranteeId` field. */
+  guaranteeId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<EvidenceItemFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<EvidenceItemFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<EvidenceItemFilter>;
 };
 
 /** An input for mutations affecting `EvidenceItem` */
@@ -4988,6 +5229,29 @@ export type EvidenceItemInput = {
   /** a reference to the evidenceCategory sys id in Contentful */
   customEvidenceCategoryId?: Maybe<Scalars["String"]>;
   /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** fk */
+  guaranteeId?: Maybe<Scalars["Int"]>;
+  /** ek */
+  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
+  /** Short name for the item of evidence */
+  name?: Maybe<Scalars["String"]>;
+  /** File reference or the file itself. Photo of the evidence */
+  attachment?: Maybe<Scalars["String"]>;
+  createdAt?: Maybe<Scalars["Datetime"]>;
+  updatedAt?: Maybe<Scalars["Datetime"]>;
+  attachmentUpload?: Maybe<Scalars["Upload"]>;
+};
+
+/** Represents an update to a `EvidenceItem`. Fields that are set will be updated. */
+export type EvidenceItemPatch = {
+  /** Primary key */
+  id?: Maybe<Scalars["Int"]>;
+  /** a reference to the evidenceCategory sys id in Contentful */
+  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
+  /** fk */
+  projectId?: Maybe<Scalars["Int"]>;
+  /** fk */
   guaranteeId?: Maybe<Scalars["Int"]>;
   /** ek */
   evidenceCategoryType?: Maybe<EvidenceCategoryType>;
@@ -4999,22 +5263,27 @@ export type EvidenceItemInput = {
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
 
-/** Represents an update to a `EvidenceItem`. Fields that are set will be updated. */
-export type EvidenceItemPatch = {
-  /** Primary key */
-  id?: Maybe<Scalars["Int"]>;
-  /** a reference to the evidenceCategory sys id in Contentful */
-  customEvidenceCategoryId?: Maybe<Scalars["String"]>;
-  /** fk */
-  guaranteeId?: Maybe<Scalars["Int"]>;
-  /** ek */
-  evidenceCategoryType?: Maybe<EvidenceCategoryType>;
-  /** Short name for the item of evidence */
-  name?: Maybe<Scalars["String"]>;
-  /** File reference or the file itself. Photo of the evidence */
-  attachment?: Maybe<Scalars["String"]>;
-  createdAt?: Maybe<Scalars["Datetime"]>;
-  updatedAt?: Maybe<Scalars["Datetime"]>;
+/** All input for the `evidenceItemsAdd` mutation. */
+export type EvidenceItemsAddInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  evidences: Array<Maybe<EvidenceItemInput>>;
+};
+
+/** The output of our `evidenceItemsAdd` mutation. */
+export type EvidenceItemsAddPayload = {
+  __typename?: "EvidenceItemsAddPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  evidenceItems?: Maybe<Array<EvidenceItem>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** A connection to a list of `EvidenceItem` values. */
@@ -5044,6 +5313,8 @@ export type EvidenceItemsOrderBy =
   | "NATURAL"
   | "ID_ASC"
   | "ID_DESC"
+  | "PROJECT_ID_ASC"
+  | "PROJECT_ID_DESC"
   | "GUARANTEE_ID_ASC"
   | "GUARANTEE_ID_DESC"
   | "PRIMARY_KEY_ASC"
@@ -5060,8 +5331,6 @@ export type Guarantee = Node & {
   fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
@@ -5086,8 +5355,6 @@ export type Guarantee = Node & {
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Account` that is related to this `Guarantee`. */
   requestorAccount?: Maybe<Account>;
-  /** Reads a single `Account` that is related to this `Guarantee`. */
-  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
@@ -5110,6 +5377,7 @@ export type GuaranteeEvidenceItemsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
   condition?: Maybe<EvidenceItemCondition>;
+  filter?: Maybe<EvidenceItemFilter>;
 };
 
 /**
@@ -5121,8 +5389,6 @@ export type GuaranteeCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `requestorAccountId` field. */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** Checks for equality with the object’s `responsibleInstallerAccountId` field. */
-  responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `projectId` field. */
   projectId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `systemBmiRef` field. */
@@ -5133,6 +5399,28 @@ export type GuaranteeCondition = {
   reviewerAccountId?: Maybe<Scalars["Int"]>;
 };
 
+/** A filter to be used against `Guarantee` object types. All fields are combined with a logical ‘and.’ */
+export type GuaranteeFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `requestorAccountId` field. */
+  requestorAccountId?: Maybe<IntFilter>;
+  /** Filter by the object’s `projectId` field. */
+  projectId?: Maybe<IntFilter>;
+  /** Filter by the object’s `systemBmiRef` field. */
+  systemBmiRef?: Maybe<StringFilter>;
+  /** Filter by the object’s `productBmiRef` field. */
+  productBmiRef?: Maybe<StringFilter>;
+  /** Filter by the object’s `reviewerAccountId` field. */
+  reviewerAccountId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<GuaranteeFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<GuaranteeFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<GuaranteeFilter>;
+};
+
 /** An input for mutations affecting `Guarantee` */
 export type GuaranteeInput = {
   /** Primary key - starts at 6100 */
@@ -5141,8 +5429,6 @@ export type GuaranteeInput = {
   fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
@@ -5175,8 +5461,6 @@ export type GuaranteePatch = {
   fileStorageId?: Maybe<Scalars["String"]>;
   /** fk */
   requestorAccountId?: Maybe<Scalars["Int"]>;
-  /** fk */
-  responsibleInstallerAccountId?: Maybe<Scalars["Int"]>;
   /** fk */
   projectId?: Maybe<Scalars["Int"]>;
   /** a reference to the guaranteeType sys id in Contentful */
@@ -5884,8 +6168,6 @@ export type GuaranteesOrderBy =
   | "ID_DESC"
   | "REQUESTOR_ACCOUNT_ID_ASC"
   | "REQUESTOR_ACCOUNT_ID_DESC"
-  | "RESPONSIBLE_INSTALLER_ACCOUNT_ID_ASC"
-  | "RESPONSIBLE_INSTALLER_ACCOUNT_ID_DESC"
   | "PROJECT_ID_ASC"
   | "PROJECT_ID_DESC"
   | "SYSTEM_BMI_REF_ASC"
@@ -5996,6 +6278,32 @@ export type ImportPayload = {
   productsToInsert?: Maybe<Array<Maybe<Product>>>;
 };
 
+/** A filter to be used against Int fields. All fields are combined with a logical ‘and.’ */
+export type IntFilter = {
+  /** Is null (if `true` is specified) or is not null (if `false` is specified). */
+  isNull?: Maybe<Scalars["Boolean"]>;
+  /** Equal to the specified value. */
+  equalTo?: Maybe<Scalars["Int"]>;
+  /** Not equal to the specified value. */
+  notEqualTo?: Maybe<Scalars["Int"]>;
+  /** Not equal to the specified value, treating null like an ordinary value. */
+  distinctFrom?: Maybe<Scalars["Int"]>;
+  /** Equal to the specified value, treating null like an ordinary value. */
+  notDistinctFrom?: Maybe<Scalars["Int"]>;
+  /** Included in the specified list. */
+  in?: Maybe<Array<Scalars["Int"]>>;
+  /** Not included in the specified list. */
+  notIn?: Maybe<Array<Scalars["Int"]>>;
+  /** Less than the specified value. */
+  lessThan?: Maybe<Scalars["Int"]>;
+  /** Less than or equal to the specified value. */
+  lessThanOrEqualTo?: Maybe<Scalars["Int"]>;
+  /** Greater than the specified value. */
+  greaterThan?: Maybe<Scalars["Int"]>;
+  /** Greater than or equal to the specified value. */
+  greaterThanOrEqualTo?: Maybe<Scalars["Int"]>;
+};
+
 /** An invitation to join InTouch */
 export type Invitation = Node & {
   __typename?: "Invitation";
@@ -6038,6 +6346,26 @@ export type InvitationCondition = {
   invitee?: Maybe<Scalars["String"]>;
 };
 
+/** A filter to be used against `Invitation` object types. All fields are combined with a logical ‘and.’ */
+export type InvitationFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `senderAccountId` field. */
+  senderAccountId?: Maybe<IntFilter>;
+  /** Filter by the object’s `companyId` field. */
+  companyId?: Maybe<IntFilter>;
+  /** Filter by the object’s `status` field. */
+  status?: Maybe<InvitationStatusFilter>;
+  /** Filter by the object’s `invitee` field. */
+  invitee?: Maybe<StringFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<InvitationFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<InvitationFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<InvitationFilter>;
+};
+
 /** Represents an update to a `Invitation`. Fields that are set will be updated. */
 export type InvitationPatch = {
   /** Primary key */
@@ -6057,6 +6385,32 @@ export type InvitationPatch = {
 };
 
 export type InvitationStatus = "NEW" | "ACCEPTED" | "CANCELLED";
+
+/** A filter to be used against InvitationStatus fields. All fields are combined with a logical ‘and.’ */
+export type InvitationStatusFilter = {
+  /** Is null (if `true` is specified) or is not null (if `false` is specified). */
+  isNull?: Maybe<Scalars["Boolean"]>;
+  /** Equal to the specified value. */
+  equalTo?: Maybe<InvitationStatus>;
+  /** Not equal to the specified value. */
+  notEqualTo?: Maybe<InvitationStatus>;
+  /** Not equal to the specified value, treating null like an ordinary value. */
+  distinctFrom?: Maybe<InvitationStatus>;
+  /** Equal to the specified value, treating null like an ordinary value. */
+  notDistinctFrom?: Maybe<InvitationStatus>;
+  /** Included in the specified list. */
+  in?: Maybe<Array<InvitationStatus>>;
+  /** Not included in the specified list. */
+  notIn?: Maybe<Array<InvitationStatus>>;
+  /** Less than the specified value. */
+  lessThan?: Maybe<InvitationStatus>;
+  /** Less than or equal to the specified value. */
+  lessThanOrEqualTo?: Maybe<InvitationStatus>;
+  /** Greater than the specified value. */
+  greaterThan?: Maybe<InvitationStatus>;
+  /** Greater than or equal to the specified value. */
+  greaterThanOrEqualTo?: Maybe<InvitationStatus>;
+};
 
 /** A connection to a list of `Invitation` values. */
 export type InvitationsConnection = {
@@ -6097,10 +6451,10 @@ export type InvitationsOrderBy =
   | "PRIMARY_KEY_DESC";
 
 export type InviteInput = {
-  email: Scalars["String"];
-  firstName: Scalars["String"];
-  lastName: Scalars["String"];
-  role: Role;
+  emails: Array<Scalars["String"]>;
+  firstName?: Maybe<Scalars["String"]>;
+  lastName?: Maybe<Scalars["String"]>;
+  personalNote?: Maybe<Scalars["String"]>;
 };
 
 /** A connection to a list of `Int` values. */
@@ -6250,6 +6604,7 @@ export type MarketAccountsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<AccountsOrderBy>>;
   condition?: Maybe<AccountCondition>;
+  filter?: Maybe<AccountFilter>;
 };
 
 /** A country that BMI operates in */
@@ -6261,6 +6616,7 @@ export type MarketCompaniesArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
   condition?: Maybe<CompanyCondition>;
+  filter?: Maybe<CompanyFilter>;
 };
 
 /** A country that BMI operates in */
@@ -6272,6 +6628,7 @@ export type MarketCompanyMembersArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
   condition?: Maybe<CompanyMemberCondition>;
+  filter?: Maybe<CompanyMemberFilter>;
 };
 
 /** A country that BMI operates in */
@@ -6283,6 +6640,7 @@ export type MarketProductsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProductsOrderBy>>;
   condition?: Maybe<ProductCondition>;
+  filter?: Maybe<ProductFilter>;
 };
 
 /** A country that BMI operates in */
@@ -6294,6 +6652,7 @@ export type MarketSystemsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<SystemsOrderBy>>;
   condition?: Maybe<SystemCondition>;
+  filter?: Maybe<SystemFilter>;
 };
 
 /** A condition to be used against `Market` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -6540,6 +6899,22 @@ export type MarketContentPartnerBrandsCollection = {
   skip: Scalars["Int"];
   limit: Scalars["Int"];
   items: Array<Maybe<PartnerBrand>>;
+};
+
+/** A filter to be used against `Market` object types. All fields are combined with a logical ‘and.’ */
+export type MarketFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `domain` field. */
+  domain?: Maybe<StringFilter>;
+  /** Filter by the object’s `doceboCatalogueId` field. */
+  doceboCatalogueId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<MarketFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<MarketFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<MarketFilter>;
 };
 
 /** An input for mutations affecting `Market` */
@@ -7145,6 +7520,8 @@ export type Mutation = {
   deleteCompanyDocumentByNodeId?: Maybe<DeleteCompanyDocumentPayload>;
   /** Deletes a single `CompanyMember` using a unique key. */
   deleteCompanyMember?: Maybe<DeleteCompanyMemberPayload>;
+  /** Deletes a single `CompanyMember` using a unique key. */
+  deleteCompanyMemberByMarketIdAndAccountIdAndCompanyId?: Maybe<DeleteCompanyMemberPayload>;
   /** Deletes a single `CompanyMember` using its globally unique id. */
   deleteCompanyMemberByNodeId?: Maybe<DeleteCompanyMemberPayload>;
   /** Deletes a single `CompanyOperation` using a unique key. */
@@ -7239,8 +7616,12 @@ export type Mutation = {
   deleteSystemMember?: Maybe<DeleteSystemMemberPayload>;
   /** Deletes a single `SystemMember` using its globally unique id. */
   deleteSystemMemberByNodeId?: Maybe<DeleteSystemMemberPayload>;
-  invite?: Maybe<Invitation>;
+  /** Deletes a single `SystemMember` using a unique key. */
+  deleteSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<DeleteSystemMemberPayload>;
+  evidenceItemsAdd?: Maybe<EvidenceItemsAddPayload>;
+  invite?: Maybe<Array<Maybe<Invitation>>>;
   linkAccountToCompany?: Maybe<LinkAccountToCompanyPayload>;
+  projectMembersAdd?: Maybe<ProjectMembersAddPayload>;
   publishMessage?: Maybe<Publish>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
@@ -7268,6 +7649,8 @@ export type Mutation = {
   updateCompanyDocumentByNodeId?: Maybe<UpdateCompanyDocumentPayload>;
   /** Updates a single `CompanyMember` using a unique key and a patch. */
   updateCompanyMember?: Maybe<UpdateCompanyMemberPayload>;
+  /** Updates a single `CompanyMember` using a unique key and a patch. */
+  updateCompanyMemberByMarketIdAndAccountIdAndCompanyId?: Maybe<UpdateCompanyMemberPayload>;
   /** Updates a single `CompanyMember` using its globally unique id and a patch. */
   updateCompanyMemberByNodeId?: Maybe<UpdateCompanyMemberPayload>;
   /** Updates a single `CompanyOperation` using a unique key and a patch. */
@@ -7310,6 +7693,7 @@ export type Mutation = {
   updateCourseTemp?: Maybe<UpdateCourseTempPayload>;
   /** Updates a single `CourseTemp` using its globally unique id and a patch. */
   updateCourseTempByNodeId?: Maybe<UpdateCourseTempPayload>;
+  updateDoceboUser?: Maybe<UserUpdateResponse>;
   /** Updates a single `EvidenceItem` using a unique key and a patch. */
   updateEvidenceItem?: Maybe<UpdateEvidenceItemPayload>;
   /** Updates a single `EvidenceItem` using its globally unique id and a patch. */
@@ -7362,6 +7746,8 @@ export type Mutation = {
   updateSystemMember?: Maybe<UpdateSystemMemberPayload>;
   /** Updates a single `SystemMember` using its globally unique id and a patch. */
   updateSystemMemberByNodeId?: Maybe<UpdateSystemMemberPayload>;
+  /** Updates a single `SystemMember` using a unique key and a patch. */
+  updateSystemMemberBySystemBmiRefAndProductBmiRef?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
 };
 
@@ -7607,6 +7993,12 @@ export type MutationDeleteCompanyMemberArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs =
+  {
+    input: DeleteCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
+  };
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteCompanyMemberByNodeIdArgs = {
   input: DeleteCompanyMemberByNodeIdInput;
 };
@@ -7842,6 +8234,16 @@ export type MutationDeleteSystemMemberByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  input: DeleteSystemMemberBySystemBmiRefAndProductBmiRefInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationEvidenceItemsAddArgs = {
+  input: EvidenceItemsAddInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationInviteArgs = {
   input: InviteInput;
 };
@@ -7849,6 +8251,11 @@ export type MutationInviteArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationLinkAccountToCompanyArgs = {
   input: LinkAccountToCompanyInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationProjectMembersAddArgs = {
+  input: ProjectMembersAddInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -7920,6 +8327,12 @@ export type MutationUpdateCompanyDocumentByNodeIdArgs = {
 export type MutationUpdateCompanyMemberArgs = {
   input: UpdateCompanyMemberInput;
 };
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs =
+  {
+    input: UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput;
+  };
 
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCompanyMemberByNodeIdArgs = {
@@ -8024,6 +8437,11 @@ export type MutationUpdateCourseTempArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCourseTempByNodeIdArgs = {
   input: UpdateCourseTempByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoceboUserArgs = {
+  input?: Maybe<UserUpdateInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -8157,6 +8575,11 @@ export type MutationUpdateSystemMemberByNodeIdArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateSystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTrainingArgs = {
   lastUpdateDate?: Maybe<Scalars["String"]>;
 };
@@ -8196,6 +8619,22 @@ export type NoteCondition = {
   authorId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `projectId` field. */
   projectId?: Maybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `Note` object types. All fields are combined with a logical ‘and.’ */
+export type NoteFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `authorId` field. */
+  authorId?: Maybe<IntFilter>;
+  /** Filter by the object’s `projectId` field. */
+  projectId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<NoteFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<NoteFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<NoteFilter>;
 };
 
 /** An input for mutations affecting `Note` */
@@ -8290,6 +8729,20 @@ export type NotificationCondition = {
   id?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `accountId` field. */
   accountId?: Maybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `Notification` object types. All fields are combined with a logical ‘and.’ */
+export type NotificationFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `accountId` field. */
+  accountId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<NotificationFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<NotificationFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<NotificationFilter>;
 };
 
 /** An input for mutations affecting `Notification` */
@@ -8584,6 +9037,7 @@ export type ProductGuaranteesByProductBmiRefArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
   condition?: Maybe<GuaranteeCondition>;
+  filter?: Maybe<GuaranteeFilter>;
 };
 
 /** A product made by BMI */
@@ -8595,6 +9049,7 @@ export type ProductSystemMembersByProductBmiRefArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<SystemMembersOrderBy>>;
   condition?: Maybe<SystemMemberCondition>;
+  filter?: Maybe<SystemMemberFilter>;
 };
 
 /** A condition to be used against `Product` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -8605,6 +9060,22 @@ export type ProductCondition = {
   marketId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `bmiRef` field. */
   bmiRef?: Maybe<Scalars["String"]>;
+};
+
+/** A filter to be used against `Product` object types. All fields are combined with a logical ‘and.’ */
+export type ProductFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: Maybe<IntFilter>;
+  /** Filter by the object’s `bmiRef` field. */
+  bmiRef?: Maybe<StringFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<ProductFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<ProductFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<ProductFilter>;
 };
 
 /** An input for mutations affecting `Product` */
@@ -8736,12 +9207,26 @@ export type Project = Node & {
   siteAddress?: Maybe<Address>;
   /** Reads a single `Address` that is related to this `Project`. */
   buildingOwnerAddress?: Maybe<Address>;
+  /** Reads and enables pagination through a set of `EvidenceItem`. */
+  evidenceItems: EvidenceItemsConnection;
   /** Reads and enables pagination through a set of `Guarantee`. */
   guarantees: GuaranteesConnection;
   /** Reads and enables pagination through a set of `Note`. */
   notes: NotesConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
   projectMembers: ProjectMembersConnection;
+};
+
+/** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
+export type ProjectEvidenceItemsArgs = {
+  first?: Maybe<Scalars["Int"]>;
+  last?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
+  before?: Maybe<Scalars["Cursor"]>;
+  after?: Maybe<Scalars["Cursor"]>;
+  orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
+  condition?: Maybe<EvidenceItemCondition>;
+  filter?: Maybe<EvidenceItemFilter>;
 };
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
@@ -8753,6 +9238,7 @@ export type ProjectGuaranteesArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
   condition?: Maybe<GuaranteeCondition>;
+  filter?: Maybe<GuaranteeFilter>;
 };
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
@@ -8764,6 +9250,7 @@ export type ProjectNotesArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<NotesOrderBy>>;
   condition?: Maybe<NoteCondition>;
+  filter?: Maybe<NoteFilter>;
 };
 
 /** A project that has been put into InTouch by a Company Administrator to represent a project being done by that company */
@@ -8775,6 +9262,7 @@ export type ProjectProjectMembersArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectMembersOrderBy>>;
   condition?: Maybe<ProjectMemberCondition>;
+  filter?: Maybe<ProjectMemberFilter>;
 };
 
 /** A condition to be used against `Project` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -8787,6 +9275,24 @@ export type ProjectCondition = {
   siteAddressId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `buildingOwnerAddressId` field. */
   buildingOwnerAddressId?: Maybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `Project` object types. All fields are combined with a logical ‘and.’ */
+export type ProjectFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `companyId` field. */
+  companyId?: Maybe<IntFilter>;
+  /** Filter by the object’s `siteAddressId` field. */
+  siteAddressId?: Maybe<IntFilter>;
+  /** Filter by the object’s `buildingOwnerAddressId` field. */
+  buildingOwnerAddressId?: Maybe<IntFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<ProjectFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<ProjectFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<ProjectFilter>;
 };
 
 /** An input for mutations affecting `Project` */
@@ -8836,6 +9342,8 @@ export type ProjectMember = Node & {
   projectId?: Maybe<Scalars["Int"]>;
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
+  /** The responsible installer */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt: Scalars["Datetime"];
   updatedAt: Scalars["Datetime"];
   /** Reads a single `Project` that is related to this `ProjectMember`. */
@@ -8855,6 +9363,26 @@ export type ProjectMemberCondition = {
   projectId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `accountId` field. */
   accountId?: Maybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `isResponsibleInstaller` field. */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
+};
+
+/** A filter to be used against `ProjectMember` object types. All fields are combined with a logical ‘and.’ */
+export type ProjectMemberFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `projectId` field. */
+  projectId?: Maybe<IntFilter>;
+  /** Filter by the object’s `accountId` field. */
+  accountId?: Maybe<IntFilter>;
+  /** Filter by the object’s `isResponsibleInstaller` field. */
+  isResponsibleInstaller?: Maybe<BooleanFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<ProjectMemberFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<ProjectMemberFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<ProjectMemberFilter>;
 };
 
 /** An input for mutations affecting `ProjectMember` */
@@ -8865,6 +9393,8 @@ export type ProjectMemberInput = {
   projectId?: Maybe<Scalars["Int"]>;
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
+  /** The responsible installer */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
 };
@@ -8877,8 +9407,33 @@ export type ProjectMemberPatch = {
   projectId?: Maybe<Scalars["Int"]>;
   /** fk */
   accountId?: Maybe<Scalars["Int"]>;
+  /** The responsible installer */
+  isResponsibleInstaller?: Maybe<Scalars["Boolean"]>;
   createdAt?: Maybe<Scalars["Datetime"]>;
   updatedAt?: Maybe<Scalars["Datetime"]>;
+};
+
+/** All input for the `projectMembersAdd` mutation. */
+export type ProjectMembersAddInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  members: Array<Maybe<ProjectMemberInput>>;
+};
+
+/** The output of our `projectMembersAdd` mutation. */
+export type ProjectMembersAddPayload = {
+  __typename?: "ProjectMembersAddPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  projectMembers?: Maybe<Array<ProjectMember>>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
 };
 
 /** A connection to a list of `ProjectMember` values. */
@@ -8912,6 +9467,8 @@ export type ProjectMembersOrderBy =
   | "PROJECT_ID_DESC"
   | "ACCOUNT_ID_ASC"
   | "ACCOUNT_ID_DESC"
+  | "IS_RESPONSIBLE_INSTALLER_ASC"
+  | "IS_RESPONSIBLE_INSTALLER_DESC"
   | "PRIMARY_KEY_ASC"
   | "PRIMARY_KEY_DESC";
 
@@ -9045,6 +9602,7 @@ export type Query = Node & {
   certificationByNodeId?: Maybe<Certification>;
   /** Reads and enables pagination through a set of `Certification`. */
   certifications?: Maybe<CertificationsConnection>;
+  checkUserValidatiy?: Maybe<CheckUserValidityPayload>;
   /** Reads and enables pagination through a set of `Company`. */
   companies?: Maybe<CompaniesConnection>;
   company?: Maybe<Company>;
@@ -9056,6 +9614,7 @@ export type Query = Node & {
   /** Reads and enables pagination through a set of `CompanyDocument`. */
   companyDocuments?: Maybe<CompanyDocumentsConnection>;
   companyMember?: Maybe<CompanyMember>;
+  companyMemberByMarketIdAndAccountIdAndCompanyId?: Maybe<CompanyMember>;
   /** Reads a single `CompanyMember` using its globally unique `ID`. */
   companyMemberByNodeId?: Maybe<CompanyMember>;
   /** Reads and enables pagination through a set of `CompanyMember`. */
@@ -9198,6 +9757,7 @@ export type Query = Node & {
   systemMember?: Maybe<SystemMember>;
   /** Reads a single `SystemMember` using its globally unique `ID`. */
   systemMemberByNodeId?: Maybe<SystemMember>;
+  systemMemberBySystemBmiRefAndProductBmiRef?: Maybe<SystemMember>;
   /** Reads and enables pagination through a set of `SystemMember`. */
   systemMembers?: Maybe<SystemMembersConnection>;
   /** Reads and enables pagination through a set of `System`. */
@@ -9208,6 +9768,7 @@ export type Query = Node & {
   tokenByUsername?: Maybe<Token>;
   trainingContent?: Maybe<TrainingContent>;
   trainingContentCollection?: Maybe<TrainingContentCollection>;
+  userByEmail?: Maybe<UserData>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9244,6 +9805,7 @@ export type QueryAccountsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<AccountsOrderBy>>;
   condition?: Maybe<AccountCondition>;
+  filter?: Maybe<AccountFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9265,6 +9827,7 @@ export type QueryAddressesArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<AddressesOrderBy>>;
   condition?: Maybe<AddressCondition>;
+  filter?: Maybe<AddressFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9337,6 +9900,13 @@ export type QueryCertificationsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CertificationsOrderBy>>;
   condition?: Maybe<CertificationCondition>;
+  filter?: Maybe<CertificationFilter>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryCheckUserValidatiyArgs = {
+  email?: Maybe<Scalars["String"]>;
+  username?: Maybe<Scalars["String"]>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9348,6 +9918,7 @@ export type QueryCompaniesArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompaniesOrderBy>>;
   condition?: Maybe<CompanyCondition>;
+  filter?: Maybe<CompanyFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9379,11 +9950,19 @@ export type QueryCompanyDocumentsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompanyDocumentsOrderBy>>;
   condition?: Maybe<CompanyDocumentCondition>;
+  filter?: Maybe<CompanyDocumentFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
 export type QueryCompanyMemberArgs = {
   id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryCompanyMemberByMarketIdAndAccountIdAndCompanyIdArgs = {
+  marketId: Scalars["Int"];
+  accountId: Scalars["Int"];
+  companyId: Scalars["Int"];
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9400,6 +9979,7 @@ export type QueryCompanyMembersArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompanyMembersOrderBy>>;
   condition?: Maybe<CompanyMemberCondition>;
+  filter?: Maybe<CompanyMemberFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9421,6 +10001,7 @@ export type QueryCompanyOperationsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<CompanyOperationsOrderBy>>;
   condition?: Maybe<CompanyOperationCondition>;
+  filter?: Maybe<CompanyOperationFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9672,6 +10253,7 @@ export type QueryEvidenceItemsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<EvidenceItemsOrderBy>>;
   condition?: Maybe<EvidenceItemCondition>;
+  filter?: Maybe<EvidenceItemFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9727,6 +10309,7 @@ export type QueryGuaranteesArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
   condition?: Maybe<GuaranteeCondition>;
+  filter?: Maybe<GuaranteeFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9748,6 +10331,7 @@ export type QueryInvitationsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<InvitationsOrderBy>>;
   condition?: Maybe<InvitationCondition>;
+  filter?: Maybe<InvitationFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9757,6 +10341,7 @@ export type QueryInvitedByCompaniesArgs = {
   offset?: Maybe<Scalars["Int"]>;
   before?: Maybe<Scalars["Cursor"]>;
   after?: Maybe<Scalars["Cursor"]>;
+  filter?: Maybe<IntFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9766,6 +10351,7 @@ export type QueryIsPartOfProjectArgs = {
   offset?: Maybe<Scalars["Int"]>;
   before?: Maybe<Scalars["Cursor"]>;
   after?: Maybe<Scalars["Cursor"]>;
+  filter?: Maybe<IntFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9814,6 +10400,7 @@ export type QueryMarketsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<MarketsOrderBy>>;
   condition?: Maybe<MarketCondition>;
+  filter?: Maybe<MarketFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9908,6 +10495,7 @@ export type QueryNotesArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<NotesOrderBy>>;
   condition?: Maybe<NoteCondition>;
+  filter?: Maybe<NoteFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9929,6 +10517,7 @@ export type QueryNotificationsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<NotificationsOrderBy>>;
   condition?: Maybe<NotificationCondition>;
+  filter?: Maybe<NotificationFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -9972,6 +10561,7 @@ export type QueryProductsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProductsOrderBy>>;
   condition?: Maybe<ProductCondition>;
+  filter?: Maybe<ProductFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -10003,6 +10593,7 @@ export type QueryProjectMembersArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectMembersOrderBy>>;
   condition?: Maybe<ProjectMemberCondition>;
+  filter?: Maybe<ProjectMemberFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -10014,6 +10605,7 @@ export type QueryProjectsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<ProjectsOrderBy>>;
   condition?: Maybe<ProjectCondition>;
+  filter?: Maybe<ProjectFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -10042,6 +10634,12 @@ export type QuerySystemMemberByNodeIdArgs = {
 };
 
 /** The root query type which gives access points into the data universe. */
+export type QuerySystemMemberBySystemBmiRefAndProductBmiRefArgs = {
+  systemBmiRef: Scalars["String"];
+  productBmiRef: Scalars["String"];
+};
+
+/** The root query type which gives access points into the data universe. */
 export type QuerySystemMembersArgs = {
   first?: Maybe<Scalars["Int"]>;
   last?: Maybe<Scalars["Int"]>;
@@ -10050,6 +10648,7 @@ export type QuerySystemMembersArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<SystemMembersOrderBy>>;
   condition?: Maybe<SystemMemberCondition>;
+  filter?: Maybe<SystemMemberFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -10061,6 +10660,7 @@ export type QuerySystemsArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<SystemsOrderBy>>;
   condition?: Maybe<SystemCondition>;
+  filter?: Maybe<SystemFilter>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -10102,6 +10702,11 @@ export type QueryTrainingContentCollectionArgs = {
   order?: Maybe<Array<Maybe<TrainingContentOrder>>>;
 };
 
+/** The root query type which gives access points into the data universe. */
+export type QueryUserByEmailArgs = {
+  email?: Maybe<Scalars["String"]>;
+};
+
 export type RequestStatus =
   | "NEW"
   | "SUBMITTED"
@@ -10122,6 +10727,84 @@ export type SsoUrlOutput = {
 
 export type SelectOrgchart = {
   branch_id?: Maybe<Scalars["String"]>;
+};
+
+/** A filter to be used against String fields. All fields are combined with a logical ‘and.’ */
+export type StringFilter = {
+  /** Is null (if `true` is specified) or is not null (if `false` is specified). */
+  isNull?: Maybe<Scalars["Boolean"]>;
+  /** Equal to the specified value. */
+  equalTo?: Maybe<Scalars["String"]>;
+  /** Not equal to the specified value. */
+  notEqualTo?: Maybe<Scalars["String"]>;
+  /** Not equal to the specified value, treating null like an ordinary value. */
+  distinctFrom?: Maybe<Scalars["String"]>;
+  /** Equal to the specified value, treating null like an ordinary value. */
+  notDistinctFrom?: Maybe<Scalars["String"]>;
+  /** Included in the specified list. */
+  in?: Maybe<Array<Scalars["String"]>>;
+  /** Not included in the specified list. */
+  notIn?: Maybe<Array<Scalars["String"]>>;
+  /** Less than the specified value. */
+  lessThan?: Maybe<Scalars["String"]>;
+  /** Less than or equal to the specified value. */
+  lessThanOrEqualTo?: Maybe<Scalars["String"]>;
+  /** Greater than the specified value. */
+  greaterThan?: Maybe<Scalars["String"]>;
+  /** Greater than or equal to the specified value. */
+  greaterThanOrEqualTo?: Maybe<Scalars["String"]>;
+  /** Contains the specified string (case-sensitive). */
+  includes?: Maybe<Scalars["String"]>;
+  /** Does not contain the specified string (case-sensitive). */
+  notIncludes?: Maybe<Scalars["String"]>;
+  /** Contains the specified string (case-insensitive). */
+  includesInsensitive?: Maybe<Scalars["String"]>;
+  /** Does not contain the specified string (case-insensitive). */
+  notIncludesInsensitive?: Maybe<Scalars["String"]>;
+  /** Starts with the specified string (case-sensitive). */
+  startsWith?: Maybe<Scalars["String"]>;
+  /** Does not start with the specified string (case-sensitive). */
+  notStartsWith?: Maybe<Scalars["String"]>;
+  /** Starts with the specified string (case-insensitive). */
+  startsWithInsensitive?: Maybe<Scalars["String"]>;
+  /** Does not start with the specified string (case-insensitive). */
+  notStartsWithInsensitive?: Maybe<Scalars["String"]>;
+  /** Ends with the specified string (case-sensitive). */
+  endsWith?: Maybe<Scalars["String"]>;
+  /** Does not end with the specified string (case-sensitive). */
+  notEndsWith?: Maybe<Scalars["String"]>;
+  /** Ends with the specified string (case-insensitive). */
+  endsWithInsensitive?: Maybe<Scalars["String"]>;
+  /** Does not end with the specified string (case-insensitive). */
+  notEndsWithInsensitive?: Maybe<Scalars["String"]>;
+  /** Matches the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters. */
+  like?: Maybe<Scalars["String"]>;
+  /** Does not match the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters. */
+  notLike?: Maybe<Scalars["String"]>;
+  /** Matches the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters. */
+  likeInsensitive?: Maybe<Scalars["String"]>;
+  /** Does not match the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters. */
+  notLikeInsensitive?: Maybe<Scalars["String"]>;
+  /** Equal to the specified value (case-insensitive). */
+  equalToInsensitive?: Maybe<Scalars["String"]>;
+  /** Not equal to the specified value (case-insensitive). */
+  notEqualToInsensitive?: Maybe<Scalars["String"]>;
+  /** Not equal to the specified value, treating null like an ordinary value (case-insensitive). */
+  distinctFromInsensitive?: Maybe<Scalars["String"]>;
+  /** Equal to the specified value, treating null like an ordinary value (case-insensitive). */
+  notDistinctFromInsensitive?: Maybe<Scalars["String"]>;
+  /** Included in the specified list (case-insensitive). */
+  inInsensitive?: Maybe<Array<Scalars["String"]>>;
+  /** Not included in the specified list (case-insensitive). */
+  notInInsensitive?: Maybe<Array<Scalars["String"]>>;
+  /** Less than the specified value (case-insensitive). */
+  lessThanInsensitive?: Maybe<Scalars["String"]>;
+  /** Less than or equal to the specified value (case-insensitive). */
+  lessThanOrEqualToInsensitive?: Maybe<Scalars["String"]>;
+  /** Greater than the specified value (case-insensitive). */
+  greaterThanInsensitive?: Maybe<Scalars["String"]>;
+  /** Greater than or equal to the specified value (case-insensitive). */
+  greaterThanOrEqualToInsensitive?: Maybe<Scalars["String"]>;
 };
 
 export type Sys = {
@@ -10211,6 +10894,7 @@ export type SystemGuaranteesBySystemBmiRefArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<GuaranteesOrderBy>>;
   condition?: Maybe<GuaranteeCondition>;
+  filter?: Maybe<GuaranteeFilter>;
 };
 
 /** A collection of products that can be guaranteed as a system */
@@ -10222,6 +10906,7 @@ export type SystemSystemMembersBySystemBmiRefArgs = {
   after?: Maybe<Scalars["Cursor"]>;
   orderBy?: Maybe<Array<SystemMembersOrderBy>>;
   condition?: Maybe<SystemMemberCondition>;
+  filter?: Maybe<SystemMemberFilter>;
 };
 
 /** A condition to be used against `System` object types. All fields are tested for equality and combined with a logical ‘and.’ */
@@ -10232,6 +10917,22 @@ export type SystemCondition = {
   marketId?: Maybe<Scalars["Int"]>;
   /** Checks for equality with the object’s `bmiRef` field. */
   bmiRef?: Maybe<Scalars["String"]>;
+};
+
+/** A filter to be used against `System` object types. All fields are combined with a logical ‘and.’ */
+export type SystemFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: Maybe<IntFilter>;
+  /** Filter by the object’s `bmiRef` field. */
+  bmiRef?: Maybe<StringFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<SystemFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<SystemFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<SystemFilter>;
 };
 
 /** An input for mutations affecting `System` */
@@ -10286,6 +10987,22 @@ export type SystemMemberCondition = {
   systemBmiRef?: Maybe<Scalars["String"]>;
   /** Checks for equality with the object’s `productBmiRef` field. */
   productBmiRef?: Maybe<Scalars["String"]>;
+};
+
+/** A filter to be used against `SystemMember` object types. All fields are combined with a logical ‘and.’ */
+export type SystemMemberFilter = {
+  /** Filter by the object’s `id` field. */
+  id?: Maybe<IntFilter>;
+  /** Filter by the object’s `systemBmiRef` field. */
+  systemBmiRef?: Maybe<StringFilter>;
+  /** Filter by the object’s `productBmiRef` field. */
+  productBmiRef?: Maybe<StringFilter>;
+  /** Checks for all expressions in this list. */
+  and?: Maybe<Array<SystemMemberFilter>>;
+  /** Checks for any expressions in this list. */
+  or?: Maybe<Array<SystemMemberFilter>>;
+  /** Negates the expression. */
+  not?: Maybe<SystemMemberFilter>;
 };
 
 /** An input for mutations affecting `SystemMember` */
@@ -11044,6 +11761,23 @@ export type UpdateCompanyInput = {
   id: Scalars["Int"];
 };
 
+/** All input for the `updateCompanyMemberByMarketIdAndAccountIdAndCompanyId` mutation. */
+export type UpdateCompanyMemberByMarketIdAndAccountIdAndCompanyIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `CompanyMember` being updated. */
+  patch: CompanyMemberPatch;
+  /** fk */
+  marketId: Scalars["Int"];
+  /** fk */
+  accountId: Scalars["Int"];
+  /** fk */
+  companyId: Scalars["Int"];
+};
+
 /** All input for the `updateCompanyMemberByNodeId` mutation. */
 export type UpdateCompanyMemberByNodeIdInput = {
   /**
@@ -11601,6 +12335,8 @@ export type UpdateEvidenceItemPayload = {
   evidenceItem?: Maybe<EvidenceItem>;
   /** Our root query field type. Allows us to run any query from our mutation payload. */
   query?: Maybe<Query>;
+  /** Reads a single `Project` that is related to this `EvidenceItem`. */
+  project?: Maybe<Project>;
   /** Reads a single `Guarantee` that is related to this `EvidenceItem`. */
   guarantee?: Maybe<Guarantee>;
   /** An edge for our `EvidenceItem`. May be used by Relay 1. */
@@ -11652,8 +12388,6 @@ export type UpdateGuaranteePayload = {
   query?: Maybe<Query>;
   /** Reads a single `Account` that is related to this `Guarantee`. */
   requestorAccount?: Maybe<Account>;
-  /** Reads a single `Account` that is related to this `Guarantee`. */
-  responsibleInstallerAccount?: Maybe<Account>;
   /** Reads a single `Project` that is related to this `Guarantee`. */
   project?: Maybe<Project>;
   /** Reads a single `System` that is related to this `Guarantee`. */
@@ -12113,6 +12847,21 @@ export type UpdateSystemMemberByNodeIdInput = {
   patch: SystemMemberPatch;
 };
 
+/** All input for the `updateSystemMemberBySystemBmiRefAndProductBmiRef` mutation. */
+export type UpdateSystemMemberBySystemBmiRefAndProductBmiRefInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** An object where the defined keys will be set on the `SystemMember` being updated. */
+  patch: SystemMemberPatch;
+  /** fk */
+  systemBmiRef: Scalars["String"];
+  /** fk */
+  productBmiRef: Scalars["String"];
+};
+
 /** All input for the `updateSystemMember` mutation. */
 export type UpdateSystemMemberInput = {
   /**
@@ -12197,6 +12946,52 @@ export type UserCreateInput = {
 
 export type UserCreateResponse = {
   __typename?: "UserCreateResponse";
+  success?: Maybe<Scalars["Boolean"]>;
+  user_id?: Maybe<Scalars["Int"]>;
+};
+
+export type UserData = {
+  __typename?: "UserData";
+  user_id?: Maybe<Scalars["String"]>;
+  username?: Maybe<Scalars["String"]>;
+  first_name?: Maybe<Scalars["String"]>;
+  last_name?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+  uuid?: Maybe<Scalars["String"]>;
+  lang_code?: Maybe<Scalars["String"]>;
+  expiration?: Maybe<Scalars["String"]>;
+  email_validation_status?: Maybe<Scalars["String"]>;
+  valid?: Maybe<Scalars["String"]>;
+  language?: Maybe<Scalars["String"]>;
+  level?: Maybe<Scalars["String"]>;
+  role_id?: Maybe<Scalars["String"]>;
+  role_title?: Maybe<Scalars["String"]>;
+  role?: Maybe<Scalars["String"]>;
+};
+
+export type UserUpdateInput = {
+  userid?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+  password?: Maybe<Scalars["String"]>;
+  privacy?: Maybe<Scalars["String"]>;
+  firstname?: Maybe<Scalars["String"]>;
+  lastname?: Maybe<Scalars["String"]>;
+  force_change?: Maybe<Scalars["Int"]>;
+  level?: Maybe<Scalars["Int"]>;
+  language?: Maybe<Scalars["String"]>;
+  expiration?: Maybe<Scalars["String"]>;
+  email_validation_status?: Maybe<Scalars["Int"]>;
+  valid?: Maybe<Scalars["Int"]>;
+  date_format?: Maybe<Scalars["String"]>;
+  timezone?: Maybe<Scalars["String"]>;
+  role?: Maybe<Scalars["Int"]>;
+  send_notification_email?: Maybe<Scalars["Boolean"]>;
+  can_manage_subordinates?: Maybe<Scalars["Boolean"]>;
+  select_orgchart?: Maybe<SelectOrgchart>;
+};
+
+export type UserUpdateResponse = {
+  __typename?: "UserUpdateResponse";
   success?: Maybe<Scalars["Boolean"]>;
   user_id?: Maybe<Scalars["Int"]>;
 };

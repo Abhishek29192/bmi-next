@@ -83,7 +83,12 @@ const fetchData = async (body: object, remainingRetries = 5): Promise<any> => {
 
   // Errors other than 429
   if (!response.ok) {
-    throw new Error(response.statusText);
+    console.error(response.statusText);
+
+    const errorData = await response.json();
+    console.error(errorData);
+
+    throw new Error("Failed to fetch data");
   }
 
   const data = await response.json();
@@ -241,9 +246,7 @@ const handleRequest: HttpFunction = async (req, res) => {
     console.log("Saving file");
 
     const file = bucket.file("data.json");
-    await file.save(results, {
-      public: true
-    });
+    await file.save(results);
 
     res.status(200).send("ok");
     console.log("Succeeded");

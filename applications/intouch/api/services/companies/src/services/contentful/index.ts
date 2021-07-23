@@ -1,15 +1,8 @@
 import { fetch } from "cross-fetch";
 
-const {
-  CONTENTFUL_API_HOST,
-  CONTENTFUL_SPACE_ID,
-  CONTENTFUL_ENVIRONMENT,
-  CONTENTFUL_TOKEN
-} = process.env;
-
-const CONTENTFUL_SERVICE = `${CONTENTFUL_API_HOST}/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`;
-
-const query = `
+export const getGuarantee = async (id: string) => {
+  const variables = { id: id };
+  const query = `
 query guarantee($id:String!) {
   guaranteeType(id:$id) {
     name
@@ -19,6 +12,12 @@ query guarantee($id:String!) {
     signature {
       fileName
       url
+    }
+    evidenceCategoriesCollection {
+      items {
+        name
+        minimumUploads
+      }
     }
     guaranteeTemplatesCollection {
       items {
@@ -74,12 +73,46 @@ query guarantee($id:String!) {
       }
     }
   }
-}
+}`;
 
-`;
+  return contentfulHandler(query, variables);
+};
 
-export const getGuarantee = async (id: string) => {
+export const getEvidenceCategory = async (id: string) => {
+  const query = `
+query EvidenceCategory($id: String!) {
+  evidenceCategory(id: $id) {
+    name
+    minimumUploads
+  }
+}`;
+
   const variables = { id: id };
+  return contentfulHandler(query, variables);
+};
+
+export const messageTemplate = async (id: string) => {
+  const query = `
+  query messageTemplate($id: String!){
+    messageTemplate(id:$id){
+      subject
+      emailBody
+    }
+  }`;
+
+  return contentfulHandler(query, { id });
+};
+
+const contentfulHandler = async (query: string, variables: Object) => {
+  const {
+    CONTENTFUL_API_HOST,
+    CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ENVIRONMENT,
+    CONTENTFUL_TOKEN
+  } = process.env;
+
+  const CONTENTFUL_SERVICE = `${CONTENTFUL_API_HOST}/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`;
+
   const fetchResult = await fetch(CONTENTFUL_SERVICE, {
     method: "POST",
     headers: {

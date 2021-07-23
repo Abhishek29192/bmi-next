@@ -15,11 +15,10 @@ import Tabs from "@bmi/tabs";
 import Form from "@bmi/form";
 import Grid from "@bmi/grid";
 import Button from "@bmi/button";
-import { getAuth0Instance } from "../../lib/auth0";
 import { SidePanel } from "../../components/SidePanel";
 import { FilterResult } from "../../components/FilterResult";
 import { Layout } from "../../components/Layout";
-import { withLogger } from "../../lib/logger/withLogger";
+import { withPage } from "../../lib/middleware/withPage";
 import {
   useBulkImportMutation,
   useProductsAndSystemsLazyQuery,
@@ -306,21 +305,12 @@ const ProductImport = () => {
   );
 };
 
-export const getServerSideProps = withLogger(async (ctx) => {
-  const auth0 = await getAuth0Instance(ctx.req, ctx.res);
-  return auth0.withPageAuthRequired({
-    async getServerSideProps({ req, res, locale }) {
-      return {
-        props: {
-          ...(await serverSideTranslations(locale, [
-            "common",
-            "sidebar",
-            "footer"
-          ]))
-        }
-      };
+export const getServerSideProps = withPage(async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "sidebar", "footer"]))
     }
-  })(ctx);
+  };
 });
 
 // TODO: fetch product by market

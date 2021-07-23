@@ -401,6 +401,8 @@ type Query {
     @deprecated(reason: "Only Apollo Federation should use this")
   token: Token
   tokenByUsername(username: String!): Token
+  userByEmail(email: String): UserData
+  checkUserValidatiy(email: String, username: String): CheckUserValidityPayload
 }
 
 """
@@ -1295,6 +1297,28 @@ type Token {
   access_token: String
 }
 
+type UserData {
+  user_id: String
+  username: String
+  first_name: String
+  last_name: String
+  email: String
+  uuid: String
+  lang_code: String
+  expiration: String
+  email_validation_status: String
+  valid: String
+  language: String
+  level: String
+  role_id: String
+  role_title: String
+  role: String
+}
+
+type CheckUserValidityPayload {
+  success: String
+}
+
 """
 The root mutation type which contains root level fields which mutate data.
 """
@@ -1772,6 +1796,12 @@ type Mutation {
     """
     input: UserCreateInput
   ): UserCreateResponse
+  updateDoceboUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UserUpdateInput
+  ): UserUpdateResponse
 }
 
 """
@@ -3915,6 +3945,32 @@ input UserCreateInput {
 
 input SelectOrgchart {
   branch_id: String
+}
+
+type UserUpdateResponse {
+  success: Boolean
+  user_id: Int
+}
+
+input UserUpdateInput {
+  userid: String
+  email: String
+  password: String
+  privacy: String
+  firstname: String
+  lastname: String
+  force_change: Int
+  level: Int
+  language: String
+  expiration: String
+  email_validation_status: Int
+  valid: Int
+  date_format: String
+  timezone: String
+  role: Int
+  send_notification_email: Boolean
+  can_manage_subordinates: Boolean
+  select_orgchart: SelectOrgchart
 }
 
 """

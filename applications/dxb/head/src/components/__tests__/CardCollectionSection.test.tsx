@@ -1,10 +1,11 @@
-import React from "react";
 import { fireEvent, render } from "@testing-library/react";
+import React from "react";
 import CardCollectionSection, { Data } from "../CardCollectionSection";
 import { Data as LinkData } from "../Link";
 import { Data as PageInfoData } from "../PageInfo";
 import { CalculatorContext } from "../PitchedRoofCalcualtor";
 import { Data as PromoData } from "../Promo";
+import { SiteContext } from "../Site";
 import { TagData } from "../Tag";
 import { VisualiserContext } from "../Visualiser";
 
@@ -23,6 +24,7 @@ const card1: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
+  date: "2021-06-01T00:00:00",
   tags: [testTag1]
 };
 const card2: PageInfoData = {
@@ -35,6 +37,7 @@ const card2: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
+  date: "2021-06-02T00:00:00",
   tags: [testTag2]
 };
 const card3: PageInfoData = {
@@ -47,8 +50,34 @@ const card3: PageInfoData = {
   brandLogo: null,
   featuredMedia: null,
   featuredVideo: null,
+  date: "2021-06-03T00:00:00",
   tags: [testTag1, testTag2]
 };
+const card4: PromoData = {
+  __typename: "ContentfulPromo",
+  id: "1234",
+  title: "Villain 1",
+  brandLogo: null,
+  tags: null,
+  subtitle: null,
+  body: null,
+  featuredMedia: null,
+  cta: null,
+  backgroundColor: null,
+  featuredVideo: null
+};
+
+const getSiteContext = (
+  countryCode: string = "en",
+  nodeLocale: string = "en-GB"
+) => ({
+  countryCode: countryCode,
+  getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
+  node_locale: nodeLocale,
+  homePage: {
+    title: "Home page title"
+  }
+});
 
 describe("CardCollectionSection component", () => {
   describe("Renders correctly", () => {
@@ -67,10 +96,18 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection
+            data={data}
+            theme={{ cardCollectionRowType: "single-row" }}
+          />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -95,10 +132,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -123,10 +165,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -151,10 +198,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -179,10 +231,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -207,10 +264,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -235,10 +297,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -263,10 +330,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -298,7 +370,8 @@ describe("CardCollectionSection component", () => {
         linkedPage: null,
         type: "External",
         parameters: null,
-        dialogContent: promo
+        dialogContent: promo,
+        hubSpotCTAID: null
       } as LinkData;
 
       const data: Data = {
@@ -313,10 +386,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: link
+        link: link,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
       const titleElement = wrapper.getByText(data.title);
       expect(titleElement).not.toBeNull();
 
@@ -345,10 +423,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //find filter tag 1
       const tagFilterButton1 = wrapper.getByText(testTag1.title);
@@ -356,7 +439,11 @@ describe("CardCollectionSection component", () => {
       tagFilterButton1.click();
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(<CardCollectionSection data={data} theme="" />);
+      wrapper.rerender(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //card 1 has the selected tag
       const titleElement = wrapper.getByText(card1.title);
@@ -387,10 +474,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //find filter tag 2
       const tagFilterButton = wrapper.getByText(testTag2.title);
@@ -398,7 +490,11 @@ describe("CardCollectionSection component", () => {
       tagFilterButton.click();
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(<CardCollectionSection data={data} theme="" />);
+      wrapper.rerender(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //card 3 has the selected tag
       const titleElement3 = wrapper.getByText(card3.title);
@@ -408,7 +504,7 @@ describe("CardCollectionSection component", () => {
     it("When Card belongs to multiple selected tags, results returned only once", () => {
       // add 3 cards with 2 different tags
       // when filtered by tag1 & tag2, cards 1,2,3 should show (ONLY once each)
-      const cards: Card[] = [card1, card2, card3];
+      const cards: Card[] = [card1, card2, card3, card4];
 
       const data: Data = {
         title: "test title",
@@ -422,10 +518,15 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
-        link: null
+        link: null,
+        sortOrder: null
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //find filter tag 1
       const tagFilterButton1 = wrapper.getByText(testTag1.title);
@@ -438,7 +539,11 @@ describe("CardCollectionSection component", () => {
       tagFilterButton2.click();
 
       //get the rerendered output, which should remove any items without the tag
-      wrapper.rerender(<CardCollectionSection data={data} theme="" />);
+      wrapper.rerender(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       //card 1 has the selected tag
       const titleElement = wrapper.getAllByText(card1.title);
@@ -478,10 +583,15 @@ describe("CardCollectionSection component", () => {
       cardLabel: "a string",
       groupCards: true,
       cards: cards,
-      link: null
+      link: null,
+      sortOrder: null
     };
 
-    const wrapper = render(<CardCollectionSection data={data} theme="" />);
+    const wrapper = render(
+      <SiteContext.Provider value={getSiteContext()}>
+        <CardCollectionSection data={data} theme="" />
+      </SiteContext.Provider>
+    );
 
     const renderedCards = wrapper.getAllByText("test card title");
     expect(renderedCards).toHaveLength(10);
@@ -511,6 +621,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -521,11 +632,16 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(data.cardLabel);
@@ -546,6 +662,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a {{title}}",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -556,11 +673,16 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(`a ${card1.title}`);
@@ -586,7 +708,8 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "External",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         },
         featuredVideo: null,
         backgroundColor: null
@@ -605,6 +728,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: null,
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -615,11 +739,16 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(card.cta.label);
@@ -654,6 +783,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: null,
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -664,11 +794,16 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.queryByTestId("card-link");
       expect(cardLink).toBeNull();
@@ -695,7 +830,8 @@ describe("CardCollectionSection component", () => {
             parameters: null,
             type: "Visualiser",
             dialogContent: null,
-            linkedPage: null
+            linkedPage: null,
+            hubSpotCTAID: null
           },
           featuredVideo: null,
           backgroundColor: null
@@ -714,6 +850,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: null,
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -724,11 +861,16 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
-      const wrapper = render(<CardCollectionSection data={data} theme="" />);
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(`Go to ${card1.title}`);
@@ -751,6 +893,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -761,13 +904,16 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
       const wrapper = render(
         <VisualiserContext.Provider value={{ isOpen: false, open: undefined }}>
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </VisualiserContext.Provider>
       );
 
@@ -790,6 +936,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -800,7 +947,8 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
       const visualiserOpen = jest.fn().mockImplementation(() => {});
@@ -809,7 +957,9 @@ describe("CardCollectionSection component", () => {
         <VisualiserContext.Provider
           value={{ isOpen: false, open: visualiserOpen }}
         >
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </VisualiserContext.Provider>
       );
 
@@ -833,6 +983,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -843,7 +994,8 @@ describe("CardCollectionSection component", () => {
           parameters: { a: "b" },
           type: "Visualiser",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
@@ -853,7 +1005,9 @@ describe("CardCollectionSection component", () => {
         <VisualiserContext.Provider
           value={{ isOpen: false, open: visualiserOpen }}
         >
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </VisualiserContext.Provider>
       );
 
@@ -879,6 +1033,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "calculator-id",
@@ -889,13 +1044,16 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Calculator",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
       const wrapper = render(
         <CalculatorContext.Provider value={{ isOpen: false, open: undefined }}>
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </CalculatorContext.Provider>
       );
 
@@ -918,6 +1076,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "calculator-id",
@@ -928,7 +1087,8 @@ describe("CardCollectionSection component", () => {
           parameters: null,
           type: "Calculator",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
@@ -938,7 +1098,9 @@ describe("CardCollectionSection component", () => {
         <CalculatorContext.Provider
           value={{ isOpen: false, open: calculatorOpen }}
         >
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </CalculatorContext.Provider>
       );
 
@@ -962,6 +1124,7 @@ describe("CardCollectionSection component", () => {
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
+        sortOrder: null,
         link: {
           __typename: "ContentfulLink",
           id: "calculator-id",
@@ -972,7 +1135,8 @@ describe("CardCollectionSection component", () => {
           parameters: { a: "b" },
           type: "Calculator",
           dialogContent: null,
-          linkedPage: null
+          linkedPage: null,
+          hubSpotCTAID: null
         }
       };
 
@@ -982,13 +1146,89 @@ describe("CardCollectionSection component", () => {
         <CalculatorContext.Provider
           value={{ isOpen: false, open: calculatorOpen }}
         >
-          <CardCollectionSection data={data} theme="" />
+          <SiteContext.Provider value={getSiteContext()}>
+            <CardCollectionSection data={data} theme="" />
+          </SiteContext.Provider>
         </CalculatorContext.Provider>
       );
 
       const calculatorLink = wrapper.getByText(data.link.label);
       calculatorLink.click();
       expect(calculatorOpen).toBeCalledWith(data.link.parameters);
+    });
+  });
+
+  describe("Sorts correctly", () => {
+    it("By default", () => {
+      const cards: Card[] = [card4, card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Default (Contentful)"
+      };
+
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("By newest date first", () => {
+      const cards: Card[] = [card4, card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Date (Newest first)"
+      };
+
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+
+    it("By oldest date first", () => {
+      const cards: Card[] = [card4, card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Date (Oldest first)"
+      };
+
+      const wrapper = render(
+        <SiteContext.Provider value={getSiteContext("no", "nb-NO")}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContext.Provider>
+      );
+      expect(wrapper.baseElement).toMatchSnapshot();
     });
   });
 });

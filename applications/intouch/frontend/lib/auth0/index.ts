@@ -1,7 +1,5 @@
 import { initAuth0 } from "@auth0/nextjs-auth0";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-import { parseAccount } from "../account";
-import { marketRedirect } from "../redirects/market";
 
 let auth0;
 
@@ -15,7 +13,7 @@ const getSecret = async (client, project, key) => {
 export const getAuth0Instance = async (req, res) => {
   // Only server side
   if (req) {
-    const { url, headers } = req;
+    const { headers } = req;
     const protocol = headers["x-forwarded-proto"] || "http";
 
     // Process exist only on server side, so In eed to be sure req exists
@@ -52,21 +50,6 @@ export const getAuth0Instance = async (req, res) => {
           }
         }
       });
-    }
-
-    if (!url.includes("/api/") && !url.includes("_next")) {
-      // Get the current session
-      const session = auth0.getSession(req, res);
-      if (session?.user) {
-        await marketRedirect(req, res, session.user);
-        // Check if the user is a company admin and if it has already registered the company
-        const { registrationToComplete } = parseAccount(session?.user);
-        // If company not registered then redirect him to the company registration
-        if (req.url !== "/company-registration" && registrationToComplete) {
-          res.writeHead(302, { Location: "/company-registration" });
-          res.end();
-        }
-      }
     }
 
     return auth0;

@@ -3,7 +3,10 @@ import { AppProps } from "next/app";
 import { appWithTranslation } from "next-i18next";
 import { ApolloProvider } from "@apollo/client";
 import { UserProvider } from "@auth0/nextjs-auth0";
+import { StylesProvider } from "@material-ui/styles";
+import { CssBaseline } from "@material-ui/core";
 import { useApollo } from "../lib/apolloClient";
+import AccountContextWrapper from "../context/AccountContext";
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps, ...rest }: AppProps) => {
@@ -12,9 +15,21 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
     pageProps,
     ...rest
   });
+
+  React.useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector("#jss-server-side");
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles);
+    }
+  }, []);
+
   return (
     <ApolloProvider client={apolloClient}>
-      <Component {...pageProps} apolloClient={apolloClient} {...rest} />
+      <StylesProvider injectFirst>
+        <CssBaseline />
+        <Component {...pageProps} apolloClient={apolloClient} {...rest} />
+      </StylesProvider>
     </ApolloProvider>
   );
 };
@@ -22,18 +37,30 @@ const App = ({ Component, pageProps, ...rest }: AppProps) => {
 const AuthApp = ({ Component, pageProps, ...rest }: AppProps) => {
   return (
     <UserProvider>
-      <App Component={Component} pageProps={pageProps} {...rest} />
+      <AccountContextWrapper account={pageProps.account}>
+        <App Component={Component} pageProps={pageProps} {...rest} />
+      </AccountContextWrapper>
     </UserProvider>
   );
 };
 
-export const initialProps = async ({ ctx, Component }) => {
-  if (Component.getServerSideProps) {
-    Object.assign({}, await Component.getServerSideProps(ctx));
-  }
-  return {};
-};
+AuthApp.getInitialProps = async (appContext) => {
+  let pageProps = {};
 
-AuthApp.getInitialProps = initialProps;
+  if (appContext.Component.getInitialProps) {
+    pageProps = await appContext.Component.getInitialProps(appContext.ctx);
+  }
+
+  if (appContext.Component.getServerSideProps) {
+    pageProps = {
+      ...pageProps,
+      ...(await appContext.Component.getServerSideProps(appContext))
+    };
+  }
+
+  return {
+    pageProps
+  };
+};
 
 export default appWithTranslation(AuthApp);

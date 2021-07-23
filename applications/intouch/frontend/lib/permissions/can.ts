@@ -1,20 +1,29 @@
-import { UserProfile } from "@auth0/nextjs-auth0";
-import { CLAIMS } from "./claims";
+import { Account } from "@bmi/intouch-api-types";
 import gates from "./gates";
 
 const can = (
-  user: UserProfile,
+  user: Account,
   dataModel: string,
   action: string,
   extraData?: any
 ): boolean => {
-  const userRole = user[CLAIMS.role];
-  const gate = gates?.[dataModel]?.[action]?.[userRole];
+  const definition = gates?.[dataModel]?.[action];
+  let gate;
 
+  // Object holding definition per role
+  if (typeof definition === "object") {
+    gate = definition?.[user?.role];
+  } else if (typeof definition === "function") {
+    return definition(user, extraData || {});
+  } else if (typeof definition === "boolean") {
+    return definition;
+  }
+
+  // In role based definition, both function and boolean is supported
   if (typeof gate === "function") {
     return gate(user, extraData || {});
   } else {
-    return gate;
+    return gate || false;
   }
 };
 

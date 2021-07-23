@@ -4,6 +4,7 @@ import Icon from "@bmi/icon";
 import { Search, School, VerifiedUser } from "@material-ui/icons";
 import { TrainingQuery } from "../../../graphql/generated/operations";
 import { InfoPair } from "../../InfoPair";
+import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 
 export type TrainingProcessCardProps = {
@@ -24,7 +25,7 @@ export const TrainingProcessCard = ({ data }: TrainingProcessCardProps) => {
     step3Description
   } = data.items[0];
   return (
-    <div className={styles.main}>
+    <SimpleCard style={{ marginTop: "1.5rem" }}>
       <Typography variant="h4" hasUnderline>
         {pageSubHeading}
       </Typography>
@@ -51,6 +52,6 @@ export const TrainingProcessCard = ({ data }: TrainingProcessCardProps) => {
           <InfoPair title={step3SubHeading}>{step3Description}</InfoPair>
         </div>
       </div>
-    </div>
+    </SimpleCard>
   );
 };

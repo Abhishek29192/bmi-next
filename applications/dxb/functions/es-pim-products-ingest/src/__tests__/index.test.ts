@@ -52,7 +52,6 @@ jest.mock("../transform", () => ({
     transformProduct(product)
 }));
 
-let handleMessage;
 beforeAll(() => {
   mockConsole();
 });
@@ -60,20 +59,72 @@ beforeAll(() => {
 beforeEach(() => {
   jest.clearAllMocks();
   jest.resetModules();
-  const index = require("../index");
-  handleMessage = index.handleMessage;
 });
 
+const handleMessage = (
+  event: { data: string },
+  context: {
+    message: {
+      data: object;
+    };
+  }
+): Promise<any> => require("../index").handleMessage(event, context);
+
 describe("handleMessage", () => {
-  it("should do nothing if secret could not be found", async () => {
+  it("should error if ES_CLOUD_ID is not set", async () => {
+    const esCloudID = process.env.ES_CLOUD_ID;
+    delete process.env.ES_CLOUD_ID;
+
+    try {
+      await handleMessage(createEvent(), createContext());
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("ES_CLOUD_ID was not provided");
+    }
+
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(ping).toBeCalledTimes(0);
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(bulk).toBeCalledTimes(0);
+    expect(count).toBeCalledTimes(0);
+
+    process.env.ES_CLOUD_ID = esCloudID;
+  });
+
+  it("should error if ES_USERNAME is not set", async () => {
+    const esUsername = process.env.ES_USERNAME;
+    delete process.env.ES_USERNAME;
+
+    try {
+      await handleMessage(createEvent(), createContext());
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("ES_USERNAME was not provided");
+    }
+
+    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(ping).toBeCalledTimes(0);
+    expect(transformProduct).toBeCalledTimes(0);
+    expect(bulk).toBeCalledTimes(0);
+    expect(count).toBeCalledTimes(0);
+
+    process.env.ES_USERNAME = esUsername;
+  });
+
+  it("should error if secret could not be found", async () => {
     accessSecretVersion.mockResolvedValue([]);
 
-    await handleMessage(createEvent(), createContext());
+    try {
+      await handleMessage(createEvent(), createContext());
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect(error.message).toEqual("Unable to retrieve ES password");
+    }
 
     expect(accessSecretVersion).toBeCalledWith({
       name: `projects/${SECRET_MAN_GCP_PROJECT_NAME}/secrets/${ES_PASSWORD_SECRET}/versions/latest`
     });
-    expect(ping).toBeCalled();
+    expect(ping).toBeCalledTimes(0);
     expect(transformProduct).toBeCalledTimes(0);
     expect(bulk).toBeCalledTimes(0);
     expect(count).toBeCalledTimes(0);

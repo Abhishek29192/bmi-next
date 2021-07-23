@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account Invitation should complete an invitation 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "INSERT INTO account (market_id, email, first_name, last_name, role, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+    Array [
+      1,
+      "email@email.com",
+      "Name",
+      "Name",
+      "INSTALLER",
+      "ACTIVE",
+    ],
+  ],
+  Array [
+    "SELECT set_config('app.current_account_id', $1, true);",
+    Array [
+      1,
+    ],
+  ],
+  Array [
+    "select * from link_account_to_company ($1, $2)",
+    Array [
+      1,
+      1,
+    ],
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Invitation should invite a user sending a change password email if not exists 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+    Array [
+      null,
+      1,
+      "NEW",
+      "email",
+      "personalNote",
+    ],
+  ],
+  Array [
+    "ROLLBACK TO SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Invitation should invite a user sending a change password email if not exists 2`] = `Array []`;
+
+exports[`Account Invitation should invite a user sending complete invitation email if exists 1`] = `
+Array [
+  Array [
+    "SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "INSERT INTO invitation (sender_account_id, company_id, status, invitee, personal_note) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+    Array [
+      null,
+      1,
+      "NEW",
+      "email",
+      "personalNote",
+    ],
+  ],
+  Array [
+    "ROLLBACK TO SAVEPOINT graphql_mutation",
+  ],
+  Array [
+    "RELEASE SAVEPOINT graphql_mutation",
+  ],
+]
+`;
+
+exports[`Account Invitation should invite a user sending complete invitation email if exists 2`] = `Array []`;
+
+exports[`Account Registration Should be able to register as company_admin 1`] = `
+Array [
+  Array [
+    null,
+    Object {
+      "input": Object {
+        "account": Object {
+          "role": "COMPANY_ADMIN",
+        },
+        "marketCode": "en",
+      },
+    },
+    Object {
+      "logger": [Function],
+      "pgClient": Object {
+        "query": [MockFunction] {
+          "calls": Array [
+            Array [
+              "SAVEPOINT graphql_mutation",
+            ],
+            Array [
+              "SELECT set_config('app.current_account_id', $1, true);",
+              Array [
+                1,
+              ],
+            ],
+            Array [
+              "SELECT * FROM company",
+              Array [],
+            ],
+            Array [
+              "SELECT * FROM create_company()",
+              Array [],
+            ],
+            Array [
+              "RELEASE SAVEPOINT graphql_mutation",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+      },
+      "pgRootPool": Object {
+        "query": [MockFunction],
+      },
+      "user": Object {
+        "can": [Function],
+        "id": null,
+        "sub": "user-sub",
+      },
+    },
+    Object {
+      "graphile": Object {
+        "build": Object {
+          "pgSql": Object {
+            "fragment": [Function],
+            "value": [Function],
+          },
+        },
+        "selectGraphQLResultFromTable": [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+          ],
+        },
+      },
+    },
+  ],
+]
+`;
+
+exports[`Account Registration Should be able to register as installer 1`] = `
+Array [
+  Array [
+    null,
+    Object {
+      "input": Object {
+        "account": Object {
+          "role": "INSTALLER",
+        },
+        "marketCode": "en",
+      },
+    },
+    Object {
+      "logger": [Function],
+      "pgClient": Object {
+        "query": [MockFunction] {
+          "calls": Array [
+            Array [
+              "SAVEPOINT graphql_mutation",
+            ],
+            Array [
+              "SELECT set_config('app.current_account_id', $1, true);",
+              Array [
+                1,
+              ],
+            ],
+            Array [
+              "SELECT * FROM company",
+              Array [],
+            ],
+            Array [
+              "RELEASE SAVEPOINT graphql_mutation",
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
+      },
+      "pgRootPool": Object {
+        "query": [MockFunction],
+      },
+      "user": Object {
+        "can": [Function],
+        "id": null,
+        "sub": "user-sub",
+      },
+    },
+    Object {
+      "graphile": Object {
+        "build": Object {
+          "pgSql": Object {
+            "fragment": [Function],
+            "value": [Function],
+          },
+        },
+        "selectGraphQLResultFromTable": [MockFunction] {
+          "calls": Array [
+            Array [
+              [Function],
+              [Function],
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": Promise {},
+            },
+          ],
+        },
+      },
+    },
+  ],
+]
+`;
