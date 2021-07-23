@@ -14,6 +14,34 @@ describe("Contact us page", () => {
       path: "contact-us/",
       date: null,
       tags: [{ title: "Test page type tag", type: "Page type" }],
+      nextBestActions: [
+        {
+          __typename: "ContentfulPromo",
+          id: "osyfb64chkucgrh76we",
+          title: "Action 1",
+          subtitle: null,
+          body: null,
+          brandLogo: null,
+          tags: null,
+          featuredMedia: null,
+          cta: null,
+          featuredVideo: null,
+          backgroundColor: null
+        },
+        {
+          __typename: "ContentfulPromo",
+          id: "q345789naetw9ny84",
+          title: "Action 2",
+          subtitle: null,
+          body: null,
+          brandLogo: null,
+          tags: null,
+          featuredMedia: null,
+          cta: null,
+          featuredVideo: null,
+          backgroundColor: null
+        }
+      ],
       featuredMedia: {
         type: null,
         altText: "Lorem ipsum",
@@ -42,13 +70,13 @@ describe("Contact us page", () => {
             width: 948,
             height: 720
           },
-          resize: {
-            src: "//images.asset.jpg"
-          },
           file: {
             fileName: "Lorem ipsum",
             url: "//images.asset.jpg"
           }
+        },
+        thumbnail: {
+          src: "//images.asset.jpg"
         }
       },
       featuredVideo: null,
@@ -125,41 +153,6 @@ describe("Contact us page", () => {
               }
             }
           ]
-        }
-      ],
-      otherAreasTitle: "Other areas (Accordion module)",
-      otherAreas: [
-        {
-          __typename: "ContentfulTitleWithContent",
-          title: "Frequently Asked Questions",
-          content: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Test H2 to see the blue underline","nodeType":"text"}],"nodeType":"heading-2"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          }
-        },
-        {
-          __typename: "ContentfulTitleWithContent",
-          title: "Contact the BMI technical team",
-          content: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Sentence here about the how and why to contact the BMI technical team (like when you are a a pro etc.) and perhaps this language is a bit longer so adding a bit of space here in text form to cater for that situation.","nodeType":"text"}],"nodeType":"paragraph"},{"data":{"target":{"sys":{"id":"cvOkrCzpGjqqThWEADcNh","type":"Link","linkType":"Entry"}}},"content":[],"nodeType":"embedded-entry-block"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          }
-        },
-        {
-          __typename: "ContentfulTitleWithContent",
-          title: "Search tips",
-          content: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Check your spelling ","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"list-item"},{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Try more general terms or fewer keywords","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"list-item"},{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Try a similar but different search term ","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"list-item"},{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"Try browsing through our products","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"list-item"}],"nodeType":"unordered-list"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          }
-        },
-        {
-          __typename: "ContentfulTitleWithContent",
-          title: "Need help?",
-          content: {
-            raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"},{"data":{"target":{"sys":{"id":"2tRLjgGgXJOIys1CUaX5MC","type":"Link","linkType":"Entry"}}},"content":[{"data":{},"marks":[],"value":"Contact us","nodeType":"text"}],"nodeType":"entry-hyperlink"},{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"},{"data":{"target":{"sys":{"id":"1GCecxxXlheuCSXmMtgewu","type":"Link","linkType":"Entry"}}},"content":[{"data":{},"marks":[],"value":"Frequently asked questions","nodeType":"text"}],"nodeType":"entry-hyperlink"},{"data":{},"marks":[],"value":"\\n","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"\\n\\n","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"\\n\\n","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-            references: []
-          }
         }
       ],
       inputBanner: {

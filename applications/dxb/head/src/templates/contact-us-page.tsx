@@ -8,12 +8,13 @@ import Breadcrumbs, {
 } from "../components/Breadcrumbs";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
-import { Data as TitleWithContentData } from "../components/TitleWithContent";
-import TabsOrAccordionSection from "../components/TabsOrAccordionSection";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import IframeSection, {
   Data as IframeSectionData
 } from "../components/IframeSection";
+import NextBestActions, {
+  Data as NextBestActionsData
+} from "../components/NextBestActions";
 import { Data as PageInfoData } from "../components/PageInfo";
 import ContactTopics, {
   Data as ContactTopicsData
@@ -27,13 +28,12 @@ export type Data = PageInfoData &
     __typename: "ContentfulContactUsPage";
     queriesTitle: string;
     queriesSubtitle: string;
-    otherAreasTitle: string;
-    otherAreas: readonly TitleWithContentData[];
     contentTopics: ContactTopicsData[] | null;
     sections: SectionsData | null;
     locationsTitle: string | null;
     locations: LocationsData | null;
     iframe: IframeSectionData | null;
+    nextBestActions: NextBestActionsData | null;
     breadcrumbs: BreadcrumbsData;
   };
 
@@ -54,14 +54,13 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     featuredMedia,
     queriesTitle,
     queriesSubtitle,
-    otherAreasTitle,
-    otherAreas,
     contentTopics,
     inputBanner,
     sections,
     locationsTitle,
     locations,
     iframe,
+    nextBestActions,
     breadcrumbs,
     seo,
     featuredVideo
@@ -113,15 +112,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
           </div>
         </Section>
       )}
-      <TabsOrAccordionSection
-        data={{
-          __typename: "ContentfulTabsOrAccordionSection",
-          title: otherAreasTitle,
-          description: null,
-          items: otherAreas,
-          type: "Accordion"
-        }}
-      />
+      {nextBestActions && <NextBestActions data={nextBestActions} />}
       <Section backgroundColor="alabaster" isSlim>
         <Breadcrumbs data={breadcrumbs} />
       </Section>
@@ -141,10 +132,6 @@ export const pageQuery = graphql`
       contentTopics {
         ...ContactTopicsFragment
       }
-      otherAreasTitle
-      otherAreas {
-        ...TitleWithContentFragment
-      }
       ...PageFragment
       sections {
         ...SectionsFragment
@@ -155,6 +142,9 @@ export const pageQuery = graphql`
       }
       iframe {
         ...IframeSectionFragment
+      }
+      nextBestActions {
+        ...NextBestActionsFragment
       }
     }
     contentfulSite(id: { eq: $siteId }) {
