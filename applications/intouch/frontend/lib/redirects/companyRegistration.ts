@@ -7,9 +7,13 @@ const getCompanyStatus = (account) => {
   return nodes[0]?.company?.status;
 };
 
-export const redirectCompanyRegistration = (req, user) => {
+export const redirectCompanyRegistration = (resolvedUrl, user) => {
   const companyStatus = getCompanyStatus(user);
-  if (req?.url !== "/company-registration" && companyStatus === "NEW") {
+  if (
+    resolvedUrl !== "/company-registration" &&
+    resolvedUrl !== "/user-registration" &&
+    companyStatus === "NEW"
+  ) {
     return {
       redirect: {
         permanent: false,

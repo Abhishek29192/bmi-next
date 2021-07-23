@@ -7,6 +7,10 @@ jest.mock("@bmi/use-dimensions", () => ({
   default: () => [useRef(), jest.fn()]
 }));
 
+jest.mock("../../../../graphql/generated/hooks", () => ({
+  useAddEvidencesMutation: () => [jest.fn()]
+}));
+
 describe("Uploads Components", () => {
   const files = new Map<string, string[]>([
     [
@@ -21,21 +25,21 @@ describe("Uploads Components", () => {
 
   describe("render correct number of category", () => {
     it("none", () => {
-      render(<UploadsTab uploads={null} />);
+      render(<UploadsTab projectId={1} uploads={null} />);
       expect(screen.queryByTestId("uploads-category")).toBeNull();
     });
     it("two categories", () => {
-      render(<UploadsTab uploads={files} />);
+      render(<UploadsTab projectId={1} uploads={files} />);
       expect(screen.getAllByTestId("uploads-category").length).toEqual(2);
     });
   });
   describe("render correct number of upload", () => {
     it("none", () => {
-      render(<UploadsTab uploads={null} />);
+      render(<UploadsTab projectId={1} uploads={null} />);
       expect(screen.queryByTestId("uploads-item")).toBeNull();
     });
     it("six upload items", () => {
-      render(<UploadsTab uploads={files} />);
+      render(<UploadsTab projectId={1} uploads={files} />);
       expect(screen.getAllByTestId("uploads-item").length).toEqual(6);
     });
   });

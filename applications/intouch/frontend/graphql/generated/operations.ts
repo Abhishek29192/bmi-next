@@ -433,6 +433,25 @@ export type AddProjectsMemberMutation = { readonly __typename?: "Mutation" } & {
   >;
 };
 
+export type AddEvidencesMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.EvidenceItemsAddInput;
+}>;
+
+export type AddEvidencesMutation = { readonly __typename?: "Mutation" } & {
+  readonly evidenceItemsAdd?: SchemaTypes.Maybe<
+    { readonly __typename?: "EvidenceItemsAddPayload" } & {
+      readonly evidenceItems?: SchemaTypes.Maybe<
+        ReadonlyArray<
+          { readonly __typename?: "EvidenceItem" } & Pick<
+            SchemaTypes.EvidenceItem,
+            "id" | "name"
+          >
+        >
+      >;
+    }
+  >;
+};
+
 export type AccountByEmailQueryVariables = SchemaTypes.Exact<{
   email: SchemaTypes.Scalars["String"];
 }>;
@@ -456,6 +475,7 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
             | "language"
             | "doceboCompanyAdminBranchId"
             | "doceboInstallersBranchId"
+            | "projectsEnabled"
           >
         >;
         readonly companyMembers: {
@@ -466,12 +486,15 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
               readonly company?: SchemaTypes.Maybe<
                 { readonly __typename?: "Company" } & Pick<
                   SchemaTypes.Company,
-                  "id" | "status" | "name"
+                  "id" | "status" | "name" | "tier"
                 >
               >;
             }
           >;
         };
+        readonly projectMembers: {
+          readonly __typename?: "ProjectMembersConnection";
+        } & Pick<SchemaTypes.ProjectMembersConnection, "totalCount">;
       }
   >;
 };
@@ -913,6 +936,7 @@ export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
                 | "photo"
                 | "lastName"
                 | "firstName"
+                | "formattedRole"
               > & {
                   readonly certificationsByDoceboUserId: {
                     readonly __typename?: "CertificationsConnection";
@@ -927,6 +951,20 @@ export type CompanyMembersQuery = { readonly __typename?: "Query" } & {
                 }
             >;
           }
+      >;
+    }
+  >;
+};
+
+export type UpdateRoleAccountMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateAccountInput;
+}>;
+
+export type UpdateRoleAccountMutation = { readonly __typename?: "Mutation" } & {
+  readonly updateAccount?: SchemaTypes.Maybe<
+    { readonly __typename?: "UpdateAccountPayload" } & {
+      readonly account?: SchemaTypes.Maybe<
+        { readonly __typename?: "Account" } & Pick<SchemaTypes.Account, "id">
       >;
     }
   >;

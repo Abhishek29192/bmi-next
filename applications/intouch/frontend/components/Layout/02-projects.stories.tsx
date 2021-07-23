@@ -105,7 +105,7 @@ export const Team = ({ title }: LayoutProps) => (
             </Tabs.TabPanel>
             <Tabs.TabPanel heading="Uploads" index="three">
               <TabCard>
-                <UploadsTab uploads={uploadedFiles} />
+                <UploadsTab projectId={1} uploads={uploadedFiles} />
               </TabCard>
             </Tabs.TabPanel>
           </Tabs>

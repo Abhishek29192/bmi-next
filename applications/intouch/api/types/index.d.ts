@@ -102,6 +102,7 @@ export type Account = Node & {
   notifications: NotificationsConnection;
   /** Reads and enables pagination through a set of `ProjectMember`. */
   projectMembers: ProjectMembersConnection;
+  formattedRole?: Maybe<Scalars["String"]>;
   signedPhotoUrl?: Maybe<Scalars["String"]>;
 };
 
@@ -7692,6 +7693,7 @@ export type Mutation = {
   updateCourseTemp?: Maybe<UpdateCourseTempPayload>;
   /** Updates a single `CourseTemp` using its globally unique id and a patch. */
   updateCourseTempByNodeId?: Maybe<UpdateCourseTempPayload>;
+  updateDoceboUser?: Maybe<UserUpdateResponse>;
   /** Updates a single `EvidenceItem` using a unique key and a patch. */
   updateEvidenceItem?: Maybe<UpdateEvidenceItemPayload>;
   /** Updates a single `EvidenceItem` using its globally unique id and a patch. */
@@ -8435,6 +8437,11 @@ export type MutationUpdateCourseTempArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCourseTempByNodeIdArgs = {
   input: UpdateCourseTempByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoceboUserArgs = {
+  input?: Maybe<UserUpdateInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12960,6 +12967,33 @@ export type UserData = {
   role_id?: Maybe<Scalars["String"]>;
   role_title?: Maybe<Scalars["String"]>;
   role?: Maybe<Scalars["String"]>;
+};
+
+export type UserUpdateInput = {
+  userid?: Maybe<Scalars["String"]>;
+  email?: Maybe<Scalars["String"]>;
+  password?: Maybe<Scalars["String"]>;
+  privacy?: Maybe<Scalars["String"]>;
+  firstname?: Maybe<Scalars["String"]>;
+  lastname?: Maybe<Scalars["String"]>;
+  force_change?: Maybe<Scalars["Int"]>;
+  level?: Maybe<Scalars["Int"]>;
+  language?: Maybe<Scalars["String"]>;
+  expiration?: Maybe<Scalars["String"]>;
+  email_validation_status?: Maybe<Scalars["Int"]>;
+  valid?: Maybe<Scalars["Int"]>;
+  date_format?: Maybe<Scalars["String"]>;
+  timezone?: Maybe<Scalars["String"]>;
+  role?: Maybe<Scalars["Int"]>;
+  send_notification_email?: Maybe<Scalars["Boolean"]>;
+  can_manage_subordinates?: Maybe<Scalars["Boolean"]>;
+  select_orgchart?: Maybe<SelectOrgchart>;
+};
+
+export type UserUpdateResponse = {
+  __typename?: "UserUpdateResponse";
+  success?: Maybe<Scalars["Boolean"]>;
+  user_id?: Maybe<Scalars["Int"]>;
 };
 
 /** A union of all federated types (those that use the @key directive). */

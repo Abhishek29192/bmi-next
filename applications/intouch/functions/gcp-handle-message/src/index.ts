@@ -6,7 +6,7 @@ const sgMail = require("@sendgrid/mail");
  * @param {!Object} event Event payload.
  * @param {!Object} context Metadata for the event.
  */
-export async function helloPubSub(event, context) {
+export async function emailSender(event, context) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   let parsedPayload;

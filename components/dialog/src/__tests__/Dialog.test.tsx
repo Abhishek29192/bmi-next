@@ -14,6 +14,16 @@ describe("Dialog component", () => {
     expect(container.parentElement!).toMatchSnapshot();
   });
 
+  it("renders without close icon", () => {
+    const { container } = render(
+      <Dialog>
+        <Dialog.Title hasUnderline>Heading</Dialog.Title>
+        <Dialog.Content>Some content</Dialog.Content>
+      </Dialog>
+    );
+    expect(container.parentElement!).toMatchSnapshot();
+  });
+
   it("renders closed", () => {
     const { container } = render(
       <Dialog onCloseClick={console.log}>

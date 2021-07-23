@@ -25,13 +25,14 @@ export type Props = {
   errorText?: string;
   uploadErrorMessage?: string;
   onChange: any;
-  uri: string;
+  uri?: string;
   headers?: Record<string, string>;
   mapBody: (file: File) => Record<string, any>;
   mapValue: (file: File, response: any) => any;
   fileValidation?: (file: File) => string;
   onUploadRequest?: FileProps["onRequest"];
   microcopyProvider: Record<string, string>;
+  defaultExpanded?: boolean;
 };
 
 const Upload = ({
@@ -50,7 +51,8 @@ const Upload = ({
   fileValidation,
   onChange,
   onUploadRequest,
-  microcopyProvider
+  microcopyProvider,
+  defaultExpanded = false
 }: Props) => {
   const [files, setFiles] = useState<readonly UploadFile[]>([]);
   const [dragCounter, setDragCounter] = useState(0);
@@ -150,7 +152,10 @@ const Upload = ({
     <FormControl fullWidth error={!!error} className={styles["Upload"]}>
       {matches ? (
         <Accordion>
-          <Accordion.Item className={styles["accordion"]}>
+          <Accordion.Item
+            className={styles["accordion"]}
+            defaultExpanded={defaultExpanded}
+          >
             <Accordion.Summary aria-controls="upload-header" id="upload-header">
               <Typography className={styles["accordion-summary"]}>
                 {buttonLabel}

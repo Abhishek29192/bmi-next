@@ -12,7 +12,6 @@ type Props = {
 
 const Alert = ({ messages, onClose }: Props) => {
   const { t } = useTranslation();
-
   return (
     <>
       {messages?.map((message, index) => (
@@ -33,7 +32,7 @@ const Alert = ({ messages, onClose }: Props) => {
             </div>
           }
         >
-          <AlertBanner.Title>{message.message}</AlertBanner.Title>
+          <AlertBanner.Title>{t(message.message)}</AlertBanner.Title>
         </AlertBanner>
       ))}
     </>

@@ -1,15 +1,9 @@
-import React from "react";
-import {
-  Home,
-  Build,
-  School,
-  People,
-  Business,
-  Work
-} from "@material-ui/icons";
+import React, { useMemo } from "react";
 import Icon from "@bmi/icon";
 import { useTranslation } from "next-i18next";
 import { Link } from "../Link";
+import { useAccountContext } from "../../context/AccountContext";
+import { getSidebarLinks } from "../../lib/navigation/sidebar";
 import styles from "./styles.module.scss";
 
 export type SideBarLinkProps = {
@@ -29,15 +23,20 @@ export const SideBarLink = ({ href, icon, label }: SideBarLinkProps) => (
 
 export const Sidebar = () => {
   const { t } = useTranslation("sidebar");
+  const { account } = useAccountContext();
+
+  const links = useMemo(() => getSidebarLinks(account, t), [account, t]);
 
   return (
     <nav className={styles.sidebarNavigation}>
-      <SideBarLink href="/" icon={Home} label={t("Home")} />
-      <SideBarLink href="/projects" icon={Build} label={t("Projects")} />
-      <SideBarLink href="/training" icon={School} label={t("Training")} />
-      <SideBarLink href="/team" icon={People} label={t("Team")} />
-      <SideBarLink href="/company" icon={Business} label={t("Company")} />
-      <SideBarLink href="/toolkit" icon={Work} label={t("Toolkit")} />
+      {links.map((link) => (
+        <SideBarLink
+          key={link.href}
+          href={link.href}
+          icon={link.icon}
+          label={link.label}
+        />
+      ))}
     </nav>
   );
 };

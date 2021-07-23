@@ -1,3 +1,6 @@
+import { ROLES } from "../../lib/constants";
+import { findAccountCompany, findAccountTier, hasProjects } from "../account";
+
 const isCompanyMember = (user, extraData: { companyMemberIds: number[] }) => {
   const { companyMemberIds } = extraData;
 
@@ -30,6 +33,62 @@ const gates = {
       MARKET_ADMIN: true,
       INSTALLER: false,
       COMPANY_ADMIN: true
+    },
+    changeRole: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: true
+    }
+  },
+  navigation: {
+    // Home (Available to All authenticated users)
+    home: true,
+    // Projects (Available to all enabled Markets for all authenticated users except Installers who are not assigned to any Projects)
+    projects: (account) => {
+      // Market config takes precedence as a feature flag effectively
+      if (!account?.market?.projectsEnabled) {
+        return false;
+      }
+
+      if (account?.role === ROLES.SUPER_ADMIN) {
+        return true;
+      }
+
+      if (account?.role === ROLES.INSTALLER) {
+        return hasProjects(account);
+      }
+
+      return true;
+    },
+    // Training (Available to all authenticated users, although not critical for Market Admins and Super Admins).
+    training: true,
+    // Team (Available to Company Admins and Market Admins)
+    team: (account) => {
+      return [
+        ROLES.COMPANY_ADMIN,
+        ROLES.MARKET_ADMIN,
+        ROLES.SUPER_ADMIN
+      ].includes(account?.role);
+    },
+    // Company (Available to All Company Members and Market Admins)
+    // NOTE: company active status does not affect this
+    company: (account) => {
+      return (
+        !!findAccountCompany(account) ||
+        [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role)
+      );
+    },
+    // Tools (Available to all Company Members at Tier T2, T3 and T4, and Market Admin)
+    tools: (account) => {
+      return (
+        ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
+        [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role)
+      );
+    },
+    // Inventory (Available to Market Admins)
+    inventory: (account) => {
+      return [ROLES.MARKET_ADMIN, ROLES.SUPER_ADMIN].includes(account?.role);
     }
   }
 };
