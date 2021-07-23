@@ -49,7 +49,7 @@ const IntegratedImageGallerySection = ({ data }: { data: Data }) => {
       <Grid container>
         <Grid item xs={12} lg={8}>
           {title && (
-            <Typography variant="h1" hasUnderline>
+            <Typography variant="h2" hasUnderline>
               {title}
             </Typography>
           )}
