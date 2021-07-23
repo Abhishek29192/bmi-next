@@ -475,6 +475,7 @@ export type AccountByEmailQuery = { readonly __typename?: "Query" } & {
             | "language"
             | "doceboCompanyAdminBranchId"
             | "doceboInstallersBranchId"
+            | "merchandisingUrl"
             | "projectsEnabled"
           >
         >;
@@ -843,7 +844,7 @@ export type ImageFragmentFragment = { readonly __typename?: "Asset" } & Pick<
 >;
 
 export type GetPartnerBrandsQueryVariables = SchemaTypes.Exact<{
-  [key: string]: never;
+  role: SchemaTypes.Scalars["String"];
 }>;
 
 export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
@@ -881,6 +882,44 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
         >
       >;
     }
+  >;
+  readonly carouselCollection?: SchemaTypes.Maybe<
+    { readonly __typename?: "CarouselCollection" } & Pick<
+      SchemaTypes.CarouselCollection,
+      "total"
+    > & {
+        readonly items: ReadonlyArray<
+          SchemaTypes.Maybe<
+            { readonly __typename?: "Carousel" } & Pick<
+              SchemaTypes.Carousel,
+              "audienceRole"
+            > & {
+                readonly listCollection?: SchemaTypes.Maybe<
+                  { readonly __typename?: "CarouselListCollection" } & Pick<
+                    SchemaTypes.CarouselListCollection,
+                    "total"
+                  > & {
+                      readonly items: ReadonlyArray<
+                        SchemaTypes.Maybe<
+                          { readonly __typename?: "CarouselItem" } & Pick<
+                            SchemaTypes.CarouselItem,
+                            "header" | "body" | "cta" | "audienceTiers"
+                          > & {
+                              readonly image?: SchemaTypes.Maybe<
+                                { readonly __typename?: "Asset" } & Pick<
+                                  SchemaTypes.Asset,
+                                  "title" | "description" | "url"
+                                >
+                              >;
+                            }
+                        >
+                      >;
+                    }
+                >;
+              }
+          >
+        >;
+      }
   >;
 };
 
