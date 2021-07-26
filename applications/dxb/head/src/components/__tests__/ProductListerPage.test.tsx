@@ -1,6 +1,16 @@
 import React from "react";
-import { render, RenderResult } from "@testing-library/react";
-import { LocationProvider } from "@reach/router";
+import {
+  render,
+  RenderResult,
+  waitFor,
+  screen,
+  act
+} from "@testing-library/react";
+import {
+  createHistory,
+  createMemorySource,
+  LocationProvider
+} from "@reach/router";
 import * as all from "@bmi/use-dimensions";
 import { Filter } from "@bmi/filters";
 import ProductListerPage, {
@@ -13,6 +23,7 @@ import { Data as BreadcrumbsData } from "../../components/Breadcrumbs";
 import { Data as LinkData } from "../../components/Link";
 import { Data as SiteData } from "../Site";
 import { NavigationData } from "../Link";
+import createProduct from "../../__tests__/PimDocumentProductHelper";
 import ProvideStyles from "./utils/StylesProvider";
 
 window.alert = jest.fn();
@@ -24,6 +35,14 @@ type Data = PageInfoData &
     features: string[] | null;
     featuresLink: LinkData | null;
     breadcrumbs: BreadcrumbsData;
+    heroType:
+      | "Hierarchy"
+      | "Spotlight"
+      | "Level 1"
+      | "Level 2"
+      | "Level 3"
+      | null;
+    cta: LinkData | null;
   };
 
 const heroTitle = "i am a title";
@@ -86,7 +105,9 @@ const pageInfo: Data = {
   path: "",
   content: null,
   features: ["test"],
-  featuresLink: null
+  featuresLink: null,
+  heroType: "Spotlight",
+  cta: null
 };
 
 const mockNavigation: NavigationData = {
@@ -236,6 +257,10 @@ function mockUseDimensions({
       .mockImplementationOnce(getDimensionHookFn(mediumTableWidth));
   }
 }
+process.env.GATSBY_RECAPTCHA_KEY = "test";
+process.env.GATSBY_VISUALISER_ASSETS_URL = "jest-test-page";
+const route = "/jest-test-page";
+const history = createHistory(createMemorySource(route));
 
 const renderWithStylesAndLocationProvider = (
   pageData: any,
@@ -243,7 +268,7 @@ const renderWithStylesAndLocationProvider = (
 ): RenderResult => {
   return render(
     <ProvideStyles>
-      <LocationProvider>
+      <LocationProvider history={history}>
         <ProductListerPage data={pageData} pageContext={pageContext} />
       </LocationProvider>
     </ProvideStyles>
@@ -272,7 +297,7 @@ describe("ProductListerPage template", () => {
         pageContext
       );
       await findByText(heroTitle);
-      expect(container.parentElement).toMatchSnapshot();
+      await waitFor(() => expect(container.parentElement).toMatchSnapshot());
     });
   });
 
@@ -292,7 +317,7 @@ describe("ProductListerPage template", () => {
 
         localPageData.initialProducts = [localProductWithVariant];
         localPageData.productFilters = [];
-        const localPageContext = {
+        const localPageContext: PageContextType = {
           variantCode: "variant1",
           siteId: "siteId",
           countryCode: "no",
@@ -302,14 +327,16 @@ describe("ProductListerPage template", () => {
             variant1: "variant1"
           }
         };
+
         const { container, findByText } = renderWithStylesAndLocationProvider(
           localPageData,
           localPageContext
         );
         await findByText("category-code-2");
-        expect(container.parentElement).toMatchSnapshot();
+        await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
+
     describe("And First Category code on first initial product does NOT match", () => {
       it("then, Renders category code Section Title", async () => {
         const localPageData = { ...pageData };
@@ -381,6 +408,20 @@ describe("ProductListerPage template", () => {
         await getByLabelText(color1Label);
         expect(queryByText(color2Label)).not.toBeNull();
         expect(container.parentElement).toMatchSnapshot();
+      });
+    });
+
+    describe("When level 1 hero selected", () => {
+      it("renders renders hero correctly", async () => {
+        pageData.initialProducts = [productWithVariantAndBase];
+        pageData.contentfulProductListerPage.heroType = "Level 1";
+
+        const { container, findByText } = renderWithStylesAndLocationProvider(
+          pageData,
+          pageContext
+        );
+        await waitFor(() => expect(findByText("Hero--lvl-1")).not.toBeNull());
+        await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
     });
 

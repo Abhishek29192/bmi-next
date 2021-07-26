@@ -1,5 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Sections component renders alternate backgrounds for promos 1`] = `
+HTMLCollection [
+  <div
+    id="Promo 1"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="PromoSection PromoSection PromoSection--reversed Section Section--alabaster"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <div
+                class="content"
+              >
+                <h2
+                  class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                >
+                  Promo 1
+                </h2>
+                <h3
+                  class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                >
+                  Promo 1
+                </h3>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="Promo 2"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="PromoSection PromoSection Section Section--white"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <div
+                class="content"
+              >
+                <h2
+                  class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                >
+                  Promo 2
+                </h2>
+                <h3
+                  class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                >
+                  Promo 2
+                </h3>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="Promo 3"
+    style="margin-top: -150px; padding-top: 150px;"
+  >
+    <div
+      class="PromoSection PromoSection PromoSection--reversed Section Section--alabaster"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          >
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <div
+                class="content"
+              >
+                <h2
+                  class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                >
+                  Promo 3
+                </h2>
+                <h3
+                  class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                >
+                  Promo 3
+                </h3>
+                <div
+                  class="RichText"
+                >
+                  <h2
+                    class="MuiTypography-root title Typography MuiTypography-h2"
+                  >
+                    Heading 2
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`Sections component renders correctly 1`] = `
 HTMLCollection [
   <div
@@ -588,7 +728,7 @@ HTMLCollection [
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection Section Section--null"
+      class="PromoSection PromoSection Section Section--white"
     >
       <div
         class="Container"
@@ -690,7 +830,7 @@ HTMLCollection [
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="PromoSection PromoSection Section Section--null"
+      class="PromoSection PromoSection Section Section--white"
     >
       <div
         class="Container"
@@ -798,11 +938,6 @@ HTMLCollection [
               >
                 Gallery title
               </h1>
-              <p
-                class="MuiTypography-root description Typography MuiTypography-body1"
-              >
-                card section 1 description
-              </p>
             </div>
             <div
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
@@ -1695,35 +1830,6 @@ HTMLCollection [
                                     </b>
                                   </dd>
                                 </div>
-                                <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <span
-                                      class="label"
-                                    >
-                                      findARoofer.certificationLabel
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    <pre
-                                      style="color: rgb(214, 0, 28);"
-                                    >
-                                      Error: Level "
-                                      none
-                                      " does not exist
-                                    </pre>
-                                    <span
-                                      class="accessibility-label"
-                                    >
-                                      none
-                                    </span>
-                                  </dd>
-                                </div>
                               </dl>
                               <p
                                 class="MuiTypography-root Typography MuiTypography-body1"
@@ -1956,35 +2062,6 @@ HTMLCollection [
                                     <b>
                                       findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
                                     </b>
-                                  </dd>
-                                </div>
-                                <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <span
-                                      class="label"
-                                    >
-                                      findARoofer.certificationLabel
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    <pre
-                                      style="color: rgb(214, 0, 28);"
-                                    >
-                                      Error: Level "
-                                      none
-                                      " does not exist
-                                    </pre>
-                                    <span
-                                      class="accessibility-label"
-                                    >
-                                      none
-                                    </span>
                                   </dd>
                                 </div>
                               </dl>

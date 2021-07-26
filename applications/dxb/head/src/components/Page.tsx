@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
+import getJpgImage from "../utils/images";
 import { SiteContext, Data as SiteData } from "./Site";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import { generateGetMicroCopy } from "./MicroCopy";
@@ -73,6 +74,8 @@ const Page = ({
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
+  const imageUrl = getJpgImage(ogImageUrl);
+
   return (
     <>
       <Helmet
@@ -80,7 +83,7 @@ const Page = ({
         title={seo?.metaTitle || title}
         defer={false}
       >
-        {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+        {imageUrl && <meta property="og:image" content={imageUrl} />}
 
         {/* NOTE: expand viewport beyond safe area */}
         <meta

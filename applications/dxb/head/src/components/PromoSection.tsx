@@ -2,12 +2,13 @@ import Button, { ButtonProps } from "@bmi/button";
 import { ClickableAction } from "@bmi/clickable";
 import PromoSection from "@bmi/promo-section";
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
 import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
 import Link from "./Link";
 import { Data as PromoData } from "./Promo";
+import { SectionsContext } from "./Sections";
 import RichText from "./RichText";
 import styles from "./styles/PromoSection.module.scss";
 
@@ -20,6 +21,7 @@ const backgroundColorMap = {
 
 const IntegratedPromoSection = ({ data }: { data: Data }) => {
   const {
+    id,
     title,
     subtitle,
     body,
@@ -36,6 +38,8 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       }
     >(Button);
 
+  const { [id]: theme } = useContext(SectionsContext);
+
   return (
     <PromoSection
       title={title}
@@ -46,8 +50,11 @@ const IntegratedPromoSection = ({ data }: { data: Data }) => {
       }
       className={styles["PromoSection"]}
       backgroundColor={
-        backgroundColor ? backgroundColorMap[backgroundColor] : null
+        theme
+          ? backgroundColorMap[theme.backgroundColor]
+          : backgroundColorMap[backgroundColor]
       }
+      isReversed={theme ? theme.isReversed : null}
     >
       {body ? <RichText document={body} /> : subtitle}
       {cta && (
