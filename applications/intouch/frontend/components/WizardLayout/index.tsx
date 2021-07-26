@@ -7,7 +7,7 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export type WizardProps = {
-  children: React.ReactNode[];
+  children: React.ReactNode | React.ReactNode[];
 };
 
 export const Wizard = ({ children }: WizardProps) => (
