@@ -115,6 +115,7 @@ deploy_head_preview:
   rules:
     - when: never
   image: owasp/zap2docker-stable:latest
+  timeout: 3h
   cache: {}
   script:
     - mkdir /zap/wrk
