@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { graphql, Link } from "gatsby";
-import { getSrc } from "gatsby-plugin-image";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Button, { ButtonProps } from "@bmi/button";
 import HeaderComponent from "@bmi/header";
 import HidePrint from "@bmi/hide-print";
 import { Tab, TabProps } from "@material-ui/core";
 import withGTM from "../utils/google-tag-manager";
+import Image from "../components/Image";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -22,8 +22,7 @@ const getPromoSection = (promo, countryCode, getMicroCopy) => {
   return [
     {
       label: promo.title,
-      // TODO: Use media here? 🤔
-      image: getSrc(promo.featuredMedia?.image)
+      image: <Image data={promo.featuredMedia} />
     },
     { label: promo.title, isHeading: true },
     ...(promo.subtitle ? [{ label: promo.subtitle, isParagraph: true }] : []),
