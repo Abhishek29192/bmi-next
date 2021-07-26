@@ -1,4 +1,4 @@
-import { Image } from "../../components/types/ProductBaseTypes";
+import { Image, Product } from "../../components/types/ProductBaseTypes";
 
 export type GalleryImageType = {
   mainSource: string;
@@ -63,6 +63,10 @@ export type Assets = {
 
 export type SystemBenefits = string[];
 
+interface ProductCode {
+  code: string;
+}
+
 export type SystemLayer = {
   addon: boolean;
   approvalStatus: "approved" | "unapproved";
@@ -71,14 +75,11 @@ export type SystemLayer = {
   layerNumber: number;
   longDescription: string;
   name: string;
-  optionalProducts: {
-    code: string;
-  }[];
-  products: {
-    code: string;
-  }[];
+  optionalProducts: ProductCode[];
+  products: ProductCode[];
   shortDescription: string;
   type: string;
+  relatedProducts: Product[];
 };
 
 export interface SystemDetails {

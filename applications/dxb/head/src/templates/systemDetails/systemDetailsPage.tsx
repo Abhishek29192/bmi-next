@@ -159,6 +159,10 @@ export const pageQuery = graphql`
         type
         name
         shortDescription
+        relatedProducts {
+          code
+          name
+        }
       }
     }
   }

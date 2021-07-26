@@ -1356,6 +1356,31 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
 
 union ProductDocument = PIMDocument | PIMLinkDocument
 
+type DataJson implements Node {
+  id: String!
+  foo: [String]
+  systemLayers: [SystemLayer]
+}
+
+type SystemLayer {
+  addon: Boolean
+  approvalStatus: String!
+  code: String!
+  # images: []
+  layerNumber: Int
+  longDescription: String
+  name: String
+  optionalProducts: [SystemProduct]
+  products: [SystemProduct]
+  shortDescription: String
+  type: String!
+  relatedProducts: [Products] @link(from: "products___NODE")
+}
+
+type SystemProduct {
+  code: String!
+}
+
 type Products implements Node {
   "The documents for this product."
   documents: [ProductDocument]! @link(from: "documents___NODE")
