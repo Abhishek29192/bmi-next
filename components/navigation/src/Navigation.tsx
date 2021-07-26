@@ -11,7 +11,7 @@ export type LinkList = {
   hasSeparator?: boolean;
   action?: ClickableAction;
   icon?: SVGImport;
-  image?: string;
+  image?: string | React.ReactElement;
   isHeading?: boolean;
   isLabelHidden?: boolean;
   isParagraph?: boolean;
@@ -243,7 +243,9 @@ const NavigationList = ({
                       </Typography>
                     );
                   } else if (image) {
-                    return (
+                    return React.isValidElement(image) ? (
+                      image
+                    ) : (
                       <img
                         alt={label}
                         className={styles["Image"]}
