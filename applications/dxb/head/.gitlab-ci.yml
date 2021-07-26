@@ -107,6 +107,7 @@ deploy_head_preview:
     - cp applications/dxb/head/dast/* /zap/wrk
     - zap-baseline.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
   artifacts:
+    when: always
     paths:
       - zap_output.html
 
@@ -122,6 +123,7 @@ deploy_head_preview:
     - cp applications/dxb/head/dast/* /zap/wrk
     - zap-full-scan.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
   artifacts:
+    when: always
     paths:
       - zap_output.html
 
