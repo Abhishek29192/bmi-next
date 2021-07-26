@@ -114,7 +114,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
           __typename: "ContentfulTabsOrAccordionSection",
           title: otherAreasTitle,
           description: null,
-          items: otherAreas,
+          items: otherAreas || [],
           type: "Accordion"
         }}
       />
