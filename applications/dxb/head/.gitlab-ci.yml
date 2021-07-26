@@ -197,7 +197,7 @@ baseline_scan_head_prod:
       for url in ${LIGHTHOUSE_URLS[@]}; do
         params="$params --collect.url=${url}"
       done
-      yarn workspace @bmi/head lighthouse ${params}"
+      yarn workspace @bmi/head lighthouse ${params}
   artifacts:
     paths:
       - applications/dxb/head/lighthouseci/reports
@@ -214,6 +214,7 @@ lighthouseci_scan_head_preview:
         - libraries/**/*
   needs:
     - deploy_head_preview
+  allow_failure: true
   variables:
     # Required as QA password has a `$` in it
     NETLIFY_PWD: "$NETLIFY_PASSWORD_QA"
