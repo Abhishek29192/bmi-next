@@ -105,8 +105,8 @@ deploy_head_preview:
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-baseline.py -t "${BASE_URL}" -J gl-dast-report.json -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
-    - cp /zap/wrk/gl-dast-report.json
+    - zap-baseline.py -t "${BASE_URL}" -J gl-dast-report.json -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || true
+    - cp /zap/wrk/gl-dast-report.json .
   artifacts:
     when: always
     paths:
@@ -122,8 +122,8 @@ deploy_head_preview:
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-full-scan.py -t "${BASE_URL}" -J gl-dast-report.json -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
-    - cp /zap/wrk/gl-dast-report.json
+    - zap-full-scan.py -t "${BASE_URL}" -J gl-dast-report.json -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT} || true
+    - cp /zap/wrk/gl-dast-report.json .
   artifacts:
     when: always
     paths:
