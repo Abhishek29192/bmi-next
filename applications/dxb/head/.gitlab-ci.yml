@@ -105,11 +105,12 @@ deploy_head_preview:
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-baseline.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+    - zap-baseline.py -t "${BASE_URL}" -J gl-dast-report.json -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+    - cp /zap/wrk/gl-dast-report.json
   artifacts:
     when: always
     paths:
-      - zap_output.html
+      - gl-dast-report.json
 
 .full_scan:
   stage: dynamic security
@@ -121,11 +122,12 @@ deploy_head_preview:
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
-    - zap-full-scan.py -t "${BASE_URL}" -r zap_output.html -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+    - zap-full-scan.py -t "${BASE_URL}" -J gl-dast-report.json -n ${ZAP_ENVIRONMENT}.context -U ${ZAP_ENVIRONMENT}
+    - cp /zap/wrk/gl-dast-report.json
   artifacts:
     when: always
     paths:
-      - zap_output.html
+      - gl-dast-report.json
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 # Triggered by Netlify when deploy is complete
