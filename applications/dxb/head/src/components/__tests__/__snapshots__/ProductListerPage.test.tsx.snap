@@ -544,8 +544,14 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
                   >
-                    <div
-                      class="OverviewCard"
+                    <button
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
+                      role="button"
+                      tabindex="0"
+                      to="/uk/undefined"
+                      type="button"
                     >
                       <img
                         alt=" imaproduct"
@@ -561,15 +567,13 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                         </h5>
                         
                         <div
-                          class="children"
+                          class="children text"
                         />
                         <div
                           class="footer"
                         >
-                          <button
+                          <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
-                            to="/uk/undefined"
                             type="button"
                           >
                             <span>
@@ -580,10 +584,13 @@ exports[`ProductListerPage template ProductListerPage with initialProducts rende
                               class="icon"
                               focusable="false"
                             />
-                          </button>
+                          </a>
                         </div>
                       </div>
-                    </div>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                 </div>
                 <div
@@ -1381,8 +1388,14 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
                   >
-                    <div
-                      class="OverviewCard"
+                    <button
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
+                      role="button"
+                      tabindex="0"
+                      to="/uk/undefined"
+                      type="button"
                     >
                       <img
                         alt=" imaproduct"
@@ -1398,15 +1411,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                         </h5>
                         
                         <div
-                          class="children"
+                          class="children text"
                         />
                         <div
                           class="footer"
                         >
-                          <button
+                          <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
-                            to="/uk/undefined"
                             type="button"
                           >
                             <span>
@@ -1417,10 +1428,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                               class="icon"
                               focusable="false"
                             />
-                          </button>
+                          </a>
                         </div>
                       </div>
-                    </div>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                 </div>
                 <div
@@ -2223,8 +2237,14 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
                   >
-                    <div
-                      class="OverviewCard"
+                    <button
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
+                      role="button"
+                      tabindex="0"
+                      to="/uk/undefined"
+                      type="button"
                     >
                       <img
                         alt=" imaproduct"
@@ -2240,15 +2260,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                         </h5>
                         
                         <div
-                          class="children"
+                          class="children text"
                         />
                         <div
                           class="footer"
                         >
-                          <button
+                          <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
-                            to="/uk/undefined"
                             type="button"
                           >
                             <span>
@@ -2259,10 +2277,13 @@ exports[`ProductListerPage template ProductListerPage with multiple category cod
                               class="icon"
                               focusable="false"
                             />
-                          </button>
+                          </a>
                         </div>
                       </div>
-                    </div>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                 </div>
                 <div
@@ -3253,8 +3274,14 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
                   >
-                    <div
-                      class="OverviewCard"
+                    <button
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
+                      role="button"
+                      tabindex="0"
+                      to="/uk/undefined"
+                      type="button"
                     >
                       <img
                         alt=" imaproduct"
@@ -3270,15 +3297,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         </h5>
                         
                         <div
-                          class="children"
+                          class="children text"
                         />
                         <div
                           class="footer"
                         >
-                          <button
+                          <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
-                            to="/uk/undefined"
                             type="button"
                           >
                             <span>
@@ -3289,10 +3314,10 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                               class="icon"
                               focusable="false"
                             />
-                          </button>
+                          </a>
                         </div>
                       </div>
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -4241,8 +4266,14 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
                   >
-                    <div
-                      class="OverviewCard"
+                    <button
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
+                      role="button"
+                      tabindex="0"
+                      to="/uk/undefined"
+                      type="button"
                     >
                       <img
                         alt=" imaproduct"
@@ -4258,15 +4289,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         </h5>
                         
                         <div
-                          class="children"
+                          class="children text"
                         />
                         <div
                           class="footer"
                         >
-                          <button
+                          <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
-                            to="/uk/undefined"
                             type="button"
                           >
                             <span>
@@ -4277,10 +4306,10 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                               class="icon"
                               focusable="false"
                             />
-                          </button>
+                          </a>
                         </div>
                       </div>
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -5235,8 +5264,14 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-4"
                   >
-                    <div
-                      class="OverviewCard"
+                    <button
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
+                      role="button"
+                      tabindex="0"
+                      to="/uk/undefined"
+                      type="button"
                     >
                       <img
                         alt=" imaproduct"
@@ -5252,15 +5287,13 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                         </h5>
                         
                         <div
-                          class="children"
+                          class="children text"
                         />
                         <div
                           class="footer"
                         >
-                          <button
+                          <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
-                            to="/uk/undefined"
                             type="button"
                           >
                             <span>
@@ -5271,10 +5304,10 @@ exports[`ProductListerPage template ProductListerPage with product filters When 
                               class="icon"
                               focusable="false"
                             />
-                          </button>
+                          </a>
                         </div>
                       </div>
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -6800,8 +6833,14 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   <div
                     class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-xl-3"
                   >
-                    <div
-                      class="OverviewCard"
+                    <button
+                      aria-disabled="false"
+                      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
+                      role="button"
+                      tabindex="0"
+                      to="/uk/undefined"
+                      type="button"
                     >
                       <img
                         alt=" imaproduct"
@@ -6817,15 +6856,13 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                         </h5>
                         
                         <div
-                          class="children"
+                          class="children text"
                         />
                         <div
                           class="footer"
                         >
-                          <button
+                          <a
                             class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/undefined\\"}"
-                            to="/uk/undefined"
                             type="button"
                           >
                             <span>
@@ -6836,10 +6873,10 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                               class="icon"
                               focusable="false"
                             />
-                          </button>
+                          </a>
                         </div>
                       </div>
-                    </div>
+                    </button>
                   </div>
                 </div>
                 <div

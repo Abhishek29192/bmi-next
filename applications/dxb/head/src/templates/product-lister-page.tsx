@@ -1,4 +1,4 @@
-import AnchorLink, { Props as AnchorLinkProps } from "@bmi/anchor-link";
+import AnchorLink from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { graphql } from "gatsby";
 import Button from "@bmi/button";
@@ -9,7 +9,7 @@ import LeadBlock from "@bmi/lead-block";
 import Section from "@bmi/section";
 import CheckIcon from "@material-ui/icons/Check";
 import IconList from "@bmi/icon-list";
-import OverviewCard from "@bmi/overview-card";
+import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
 import Grid from "@bmi/grid";
 import Typography from "@bmi/typography";
 import { Filter } from "@bmi/filters";
@@ -283,9 +283,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const pageData: PageData = { breadcrumbs, inputBanner, seo };
 
-  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
-    label: "children"
-  });
+  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   let heroLevel;
   if (heroType == "Spotlight" || heroType == "Hierarchy") {
@@ -432,7 +430,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                               lg={4}
                               xl={filters.length ? 4 : 3}
                             >
-                              <OverviewCard
+                              <GTMOverviewCard
                                 title={product.name}
                                 titleVariant="h5"
                                 subtitle={uniqueClassifications}
@@ -445,25 +443,25 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                                 }
                                 imageSize="contain"
                                 brandImageSource={brandLogo}
+                                component={Link}
+                                action={{
+                                  model: "routerLink",
+                                  linkComponent: Link,
+                                  to: productUrl
+                                }}
+                                gtm={{
+                                  id: "cta-click1",
+                                  action: productUrl,
+                                  label: getMicroCopy("plp.product.viewDetails")
+                                }}
                                 footer={
-                                  <GTMAnchorLink
-                                    iconEnd
-                                    action={{
-                                      model: "routerLink",
-                                      linkComponent: Link,
-                                      to: productUrl
-                                    }}
-                                    gtm={{
-                                      id: "cta-click1",
-                                      action: productUrl
-                                    }}
-                                  >
+                                  <AnchorLink iconEnd>
                                     {getMicroCopy("plp.product.viewDetails")}
-                                  </GTMAnchorLink>
+                                  </AnchorLink>
                                 }
                               >
                                 {variant.shortDescription}
-                              </OverviewCard>
+                              </GTMOverviewCard>
                             </Grid>
                           );
                         })

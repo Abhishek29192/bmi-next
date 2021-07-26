@@ -91,8 +91,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                 >
-                  <div
-                    class="OverviewCard"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
+                    href="/en/"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
                       class="body"
@@ -104,7 +109,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       </h5>
                       
                       <div
-                        class="children"
+                        class="children text"
                       >
                         MC: pdp.nobb.label
                         :
@@ -116,10 +121,9 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       <div
                         class="footer"
                       >
-                        <a
+                        <span
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                          href="/en/"
+                          type="button"
                         >
                           <span>
                             MC: pdp.relatedProducts.viewDetails
@@ -129,10 +133,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             class="icon"
                             focusable="false"
                           />
-                        </a>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -235,8 +242,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                 >
-                  <div
-                    class="OverviewCard"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
+                    href="/en/"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
                       class="body"
@@ -248,7 +260,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       </h5>
                       
                       <div
-                        class="children"
+                        class="children text"
                       >
                         MC: pdp.nobb.label
                         :
@@ -260,10 +272,9 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       <div
                         class="footer"
                       >
-                        <a
+                        <span
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                          href="/en/"
+                          type="button"
                         >
                           <span>
                             MC: pdp.relatedProducts.viewDetails
@@ -273,16 +284,24 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             class="icon"
                             focusable="false"
                           />
-                        </a>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                 >
-                  <div
-                    class="OverviewCard"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
+                    href="/en/"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
                       class="body"
@@ -294,7 +313,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       </h5>
                       
                       <div
-                        class="children"
+                        class="children text"
                       >
                         MC: pdp.nobb.label
                         :
@@ -306,10 +325,9 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                       <div
                         class="footer"
                       >
-                        <a
+                        <span
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                          href="/en/"
+                          type="button"
                         >
                           <span>
                             MC: pdp.relatedProducts.viewDetails
@@ -319,10 +337,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             class="icon"
                             focusable="false"
                           />
-                        </a>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -425,8 +446,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                 >
-                  <div
-                    class="OverviewCard"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
+                    href="/en/"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
                       class="body"
@@ -438,7 +464,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       </h5>
                       
                       <div
-                        class="children"
+                        class="children text"
                       >
                         MC: pdp.nobb.label
                         :
@@ -450,10 +476,9 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       <div
                         class="footer"
                       >
-                        <a
+                        <span
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                          href="/en/"
+                          type="button"
                         >
                           <span>
                             MC: pdp.relatedProducts.viewDetails
@@ -463,16 +488,24 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                             class="icon"
                             focusable="false"
                           />
-                        </a>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                 >
-                  <div
-                    class="OverviewCard"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
+                    href="/en/"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
                       class="body"
@@ -484,7 +517,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       </h5>
                       
                       <div
-                        class="children"
+                        class="children text"
                       >
                         MC: pdp.nobb.label
                         :
@@ -496,10 +529,9 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                       <div
                         class="footer"
                       >
-                        <a
+                        <span
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                          href="/en/"
+                          type="button"
                         >
                           <span>
                             MC: pdp.relatedProducts.viewDetails
@@ -509,10 +541,13 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                             class="icon"
                             focusable="false"
                           />
-                        </a>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -617,8 +652,13 @@ exports[`RelatedProducts component renders correctly with products 1`] = `
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                 >
-                  <div
-                    class="OverviewCard"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
+                    href="/en/"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
                       class="body"
@@ -630,7 +670,7 @@ exports[`RelatedProducts component renders correctly with products 1`] = `
                       </h5>
                       
                       <div
-                        class="children"
+                        class="children text"
                       >
                         MC: pdp.nobb.label
                         :
@@ -642,10 +682,9 @@ exports[`RelatedProducts component renders correctly with products 1`] = `
                       <div
                         class="footer"
                       >
-                        <a
+                        <span
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                          href="/en/"
+                          type="button"
                         >
                           <span>
                             MC: pdp.relatedProducts.viewDetails
@@ -655,10 +694,13 @@ exports[`RelatedProducts component renders correctly with products 1`] = `
                             class="icon"
                             focusable="false"
                           />
-                        </a>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -763,8 +805,13 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                 >
-                  <div
-                    class="OverviewCard"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
+                    href="/en/"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
                       class="body"
@@ -776,7 +823,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       </h5>
                       
                       <div
-                        class="children"
+                        class="children text"
                       >
                         MC: pdp.nobb.label
                         :
@@ -788,10 +835,9 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       <div
                         class="footer"
                       >
-                        <a
+                        <span
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                          href="/en/"
+                          type="button"
                         >
                           <span>
                             MC: pdp.relatedProducts.viewDetails
@@ -801,16 +847,24 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                             class="icon"
                             focusable="false"
                           />
-                        </a>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
                 <div
                   class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-3"
                 >
-                  <div
-                    class="OverviewCard"
+                  <a
+                    aria-disabled="false"
+                    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
+                    href="/en/"
+                    role="button"
+                    tabindex="0"
                   >
                     <div
                       class="body"
@@ -822,7 +876,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       </h5>
                       
                       <div
-                        class="children"
+                        class="children text"
                       >
                         MC: pdp.nobb.label
                         :
@@ -834,10 +888,9 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                       <div
                         class="footer"
                       >
-                        <a
+                        <span
                           class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                          data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/\\"}"
-                          href="/en/"
+                          type="button"
                         >
                           <span>
                             MC: pdp.relatedProducts.viewDetails
@@ -847,10 +900,13 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                             class="icon"
                             focusable="false"
                           />
-                        </a>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </a>
                 </div>
               </div>
             </div>

@@ -176,11 +176,12 @@ const Homepage = ({
                       />
                     }
                     brandImageSource={partnerBrand.logo.url}
-                    hasTitleUnderline
+                    compoent={Link}
+                    href="/partner-brands"
                     footer={
-                      <Link href="/partner-brands">
-                        <Button variant="outlined">{t("Read more")}</Button>
-                      </Link>
+                      <Button component={"span"} variant="outlined">
+                        {t("Read more")}
+                      </Button>
                     }
                   >
                     {partnerBrand.shortDescription}
