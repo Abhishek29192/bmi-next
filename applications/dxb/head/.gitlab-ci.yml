@@ -197,7 +197,7 @@ baseline_scan_head_prod:
       for url in ${LIGHTHOUSE_URLS[@]}; do
         params="$params --collect.url=${url}"
       done
-      yarn workspace @bmi/head lighthouse ${params} || echo "LHCI failed!"
+      yarn workspace @bmi/head lighthouse ${params}"
   artifacts:
     paths:
       - applications/dxb/head/lighthouseci/reports
@@ -224,7 +224,7 @@ lighthouseci_scan_head_preview:
       [ -z "${base_url}" ] && echo "Nothing deployed to test" && exit 0
       export LIGHTHOUSE_URLS=(
         "${base_url}/no/"
-        "${base_url}/no/metal-tiles/contact-us/"
+        "${base_url}/no/contact-us/"
         "${base_url}/no/product-category-page/product-sub-category-page/aerodek-robust-plus/"
       )
 
