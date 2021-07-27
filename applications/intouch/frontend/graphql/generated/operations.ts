@@ -794,6 +794,20 @@ export type GetProductGuaranteeTypesQuery = {
                 SchemaTypes.Sys,
                 "id"
               >;
+              readonly guaranteeTemplatesCollection?: SchemaTypes.Maybe<
+                {
+                  readonly __typename?: "GuaranteeTypeGuaranteeTemplatesCollection";
+                } & {
+                  readonly items: ReadonlyArray<
+                    SchemaTypes.Maybe<
+                      { readonly __typename?: "GuaranteeTemplate" } & Pick<
+                        SchemaTypes.GuaranteeTemplate,
+                        "displayName"
+                      >
+                    >
+                  >;
+                }
+              >;
             }
         >
       >;

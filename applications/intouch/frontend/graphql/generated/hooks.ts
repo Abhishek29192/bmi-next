@@ -950,6 +950,11 @@ export const GetProductGuaranteeTypesDocument = gql`
         coverage
         ranking
         tiersAvailable
+        guaranteeTemplatesCollection {
+          items {
+            displayName
+          }
+        }
       }
     }
   }

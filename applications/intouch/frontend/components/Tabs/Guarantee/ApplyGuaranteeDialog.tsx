@@ -1,30 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "next-i18next";
 import Dialog from "@bmi/dialog";
 import { gql } from "@apollo/client";
 import { GuaranteeType } from "@bmi/intouch-api-types";
+import { Wizard } from "../../../components/WizardLayout";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { useGetProductGuaranteeTypesLazyQuery } from "../../../graphql/generated/hooks";
-import { SelectGuarantee, SelectGuarantees } from "./Steps/SelectGuarantee";
+import {
+  SelectGuarantee,
+  SelectGuaranteesTemplate,
+  SelectGuaranteeType
+} from "./Steps";
 
 type ApplyGuaranteeDialogProps = {
   isOpen: boolean;
   project: GetProjectQuery["project"];
   onCloseClick: () => void;
-  onConfirmClick: () => void;
 };
 export const ApplyGuaranteeDialog = ({
   isOpen,
   project,
-  onCloseClick,
-  onConfirmClick
+  onCloseClick
 }: ApplyGuaranteeDialogProps) => {
-  const { t } = useTranslation("project-page");
-  const [guaranteeTypes, setGuaranteeTypes] = useState<SelectGuarantees[]>([]);
-  const { technology, company, guarantees } = project;
+  const [guaranteeTypes, setGuaranteeTypes] = useState<SelectGuaranteeType[]>(
+    []
+  );
+  const { technology } = project;
   const [productGuaranteeTypes] = useGetProductGuaranteeTypesLazyQuery({
     onCompleted: ({ guaranteeTypeCollection }) => {
       const guaranteeTypesSelect = getProductGuarantees(
+        project,
         guaranteeTypeCollection.items as GuaranteeType[]
       );
 
@@ -32,73 +36,69 @@ export const ApplyGuaranteeDialog = ({
     }
   });
 
-  const getProductGuarantees = (
-    quaranteeTypes: GuaranteeType[]
-  ): SelectGuarantees[] => {
-    const isproductGuaranteeExist: boolean = guarantees.nodes.some(
-      (k) => k.status == "APPROVED" && k.guaranteeType.coverage === "PRODUCT"
-    );
-
-    return quaranteeTypes.map((guaranteeType) => {
-      const coverages = ["SYSTEM", "SOLUTION"];
-      const isTierAvailable: boolean = guaranteeType.tiersAvailable.includes(
-        company?.tier
-      );
-      const isSystemOrSolutionGuarantee = coverages.includes(
-        guaranteeType.coverage
-      );
-
-      if (!isTierAvailable) {
-        return {
-          guaranteeType,
-          status: false,
-          message: t("guarantee_tab.apply_guarantee.message.not_available_tier")
-        };
-      }
-
-      if (isproductGuaranteeExist && isSystemOrSolutionGuarantee) {
-        return {
-          guaranteeType,
-          status: false,
-          message: t(
-            "guarantee_tab.apply_guarantee.message.exist_product_guarantee"
-          )
-        };
-      }
-
-      return {
-        guaranteeType,
-        status: true,
-        message: ""
-      };
-    });
-  };
-
   useEffect(() => {
-    productGuaranteeTypes({
-      variables: {
-        tecnology: technology
-      }
-    });
-  }, [technology]);
+    if (isOpen) {
+      productGuaranteeTypes({
+        variables: {
+          tecnology: technology
+        }
+      });
+    }
+  }, [isOpen, technology]);
 
   return (
-    <Dialog open={isOpen} onCloseClick={onCloseClick}>
-      <Dialog.Title hasUnderline>
-        {t("guarantee_tab.apply_guarantee.title")}
-      </Dialog.Title>
+    <Dialog open={isOpen} onCloseClick={onCloseClick} maxWidth={"xl"}>
       <Dialog.Content>
-        <SelectGuarantee guarantees={guaranteeTypes} />
+        <Wizard>
+          <SelectGuarantee guarantees={guaranteeTypes} />
+          <SelectGuaranteesTemplate />
+        </Wizard>
       </Dialog.Content>
-      <Dialog.Actions
-        confirmLabel={t("guarantee_tab.apply_guarantee.confirm_label")}
-        onConfirmClick={() => onConfirmClick}
-        isConfirmButtonDisabled={false}
-        cancelLabel={t("guarantee_tab.apply_guarantee.cancel_label")}
-        onCancelClick={() => onCloseClick()}
-      />
     </Dialog>
   );
+};
+
+const getProductGuarantees = (
+  project: GetProjectQuery["project"],
+  quaranteeTypes: GuaranteeType[]
+): SelectGuaranteeType[] => {
+  const { company, guarantees } = project;
+
+  const isproductGuaranteeExist: boolean = guarantees.nodes.some(
+    (k) => k.status == "APPROVED" && k.guaranteeType.coverage === "PRODUCT"
+  );
+
+  return quaranteeTypes.map((guaranteeType) => {
+    const isTierAvailable: boolean = guaranteeType.tiersAvailable.includes(
+      company?.tier
+    );
+
+    if (!isTierAvailable) {
+      return {
+        guaranteeType,
+        isDisabled: true,
+        tooltipHint: "guarantee_tab.apply_guarantee.message.not_available_tier"
+      };
+    }
+
+    if (
+      isproductGuaranteeExist &&
+      ["SYSTEM", "SOLUTION"].includes(guaranteeType.coverage)
+    ) {
+      return {
+        guaranteeType,
+        isDisabled: true,
+        tooltipHint:
+          "guarantee_tab.apply_guarantee.message.guarantee_exists_error"
+      };
+    }
+
+    return {
+      guaranteeType,
+      isDisabled: false,
+      tooltipHint: ""
+    };
+  });
 };
 
 export const GET_PRODUCT_GUARANTEE_TYPES = gql`
@@ -117,6 +117,11 @@ export const GET_PRODUCT_GUARANTEE_TYPES = gql`
         coverage
         ranking
         tiersAvailable
+        guaranteeTemplatesCollection {
+          items {
+            displayName
+          }
+        }
       }
     }
   }

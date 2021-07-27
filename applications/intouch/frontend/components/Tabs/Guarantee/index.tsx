@@ -12,12 +12,12 @@ export type GuaranteeTabProps = {
 
 export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
   const { t } = useTranslation("project-page");
-  const [isApplyGuaranteeDialog, setApplyGuaranteeDialog] = useState(false);
+  const [isDialogOpen, setDialogOpen] = useState(false);
 
   return (
     <div className={styles.main}>
       <div className={styles.header}>
-        <Button onClick={() => setApplyGuaranteeDialog(true)}>
+        <Button onClick={() => setDialogOpen(true)}>
           {t("guarantee_tab.header")}
         </Button>
       </div>
@@ -26,10 +26,9 @@ export const GuaranteeTab = ({ project }: GuaranteeTabProps) => {
       </div>
       {project && (
         <ApplyGuaranteeDialog
-          isOpen={isApplyGuaranteeDialog}
+          isOpen={isDialogOpen}
           project={project}
-          onCloseClick={() => setApplyGuaranteeDialog(false)}
-          onConfirmClick={() => setApplyGuaranteeDialog(false)}
+          onCloseClick={() => setDialogOpen(false)}
         />
       )}
     </div>

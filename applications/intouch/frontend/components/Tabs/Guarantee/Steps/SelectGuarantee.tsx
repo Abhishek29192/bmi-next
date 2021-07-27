@@ -1,59 +1,44 @@
 import React from "react";
-import { Box } from "@material-ui/core";
-import Typography from "@bmi/typography";
-import Icon from "@bmi/icon";
-import { BMI } from "@bmi/logo";
-import Button from "@bmi/button";
 import Tooltip from "@bmi/tooltip";
 import { GuaranteeType } from "@bmi/intouch-api-types";
+import { useTranslation } from "next-i18next";
+import { ActionTile } from "../../../../components/ActionTile";
+import { useWizardContext } from "../../../../context/WizardContext";
 
-export type SelectGuarantees = {
+export type SelectGuaranteeType = {
   guaranteeType: GuaranteeType;
-  status: boolean;
-  message: string;
+  isDisabled: boolean;
+  tooltipHint: string;
 };
 
 type SelectGuaranteeProps = {
-  guarantees: SelectGuarantees[];
+  guarantees: SelectGuaranteeType[];
+  onClick?: (guaranteeType: GuaranteeType) => void;
 };
 
 export const SelectGuarantee = ({ guarantees }: SelectGuaranteeProps) => {
+  const { data, setData } = useWizardContext();
+  const { t } = useTranslation("project-page");
   return (
     <div>
-      {guarantees.map((guarantee, index) => (
+      {guarantees.map((guarantee) => (
         <Tooltip
-          title={guarantee.message}
+          title={t(guarantee.tooltipHint)}
           key={guarantee.guaranteeType.name}
           style={{ padding: "5px" }}
         >
-          <div className="guarantee">
-            <Button
-              key={guarantee.guaranteeType.name}
-              variant="outlined"
-              style={{ display: "block", width: "100%" }}
-              disabled={!guarantee.status}
-            >
-              <Box
-                key={index}
-                bgcolor="white"
-                borderColor="#CCCCCC"
-                display="flex"
-                m="3px"
-              >
-                <Icon
-                  source={BMI}
-                  style={{ width: 50, display: "block", padding: "6px" }}
-                />
-                <div>
-                  <Typography variant="h6" color="primary">
-                    {guarantee.guaranteeType.displayName}
-                  </Typography>
-                  <Typography variant="subtitle1">
-                    {guarantee.guaranteeType.name}
-                  </Typography>
-                </div>
-              </Box>
-            </Button>
+          <div>
+            <ActionTile
+              title={guarantee.guaranteeType.displayName}
+              description={guarantee.guaranteeType.name}
+              disabled={guarantee.isDisabled}
+              onClick={() => {
+                setData({
+                  ...data,
+                  guaranteeType: guarantee.guaranteeType
+                });
+              }}
+            />
           </div>
         </Tooltip>
       ))}
