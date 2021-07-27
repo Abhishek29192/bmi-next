@@ -16,5 +16,11 @@
   "ARCHITECT": "Architect",
   "MERCHANT": "Merchant",
   "CORP_DEVELOPER": "Developer",
-  "COMPANY_ADMIN": "Company administrator"
+  "COMPANY_ADMIN": "Company administrator",
+  "tier": {
+    "T1": "Member",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite"
+  }
 }

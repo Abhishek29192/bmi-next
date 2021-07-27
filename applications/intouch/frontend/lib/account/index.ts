@@ -20,6 +20,7 @@ export const queryAccountByEmail = gql`
         language
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
+        merchandisingUrl
         projectsEnabled
       }
       companyMembers {

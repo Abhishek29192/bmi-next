@@ -12,6 +12,7 @@ import { Layout } from "../components/Layout";
 import { withPage } from "../lib/middleware/withPage";
 import { reorderMembers } from "../lib/utils/companyMembers";
 import CompanyMembers, { PageProps } from "../components/Pages/Company/Members";
+import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import { getServerPageCompanyMembers } from "../graphql/generated/page";
 
 export const pageQuery = gql`
@@ -57,18 +58,23 @@ export const mutationUpdateAccount = gql`
   }
 `;
 
-const TeamPage = (props: PageProps) => {
+const TeamPage = ({
+  globalPageData,
+  ...props
+}: PageProps & {
+  globalPageData: GetGlobalDataQuery;
+}) => {
   const { t } = useTranslation("common");
 
   return (
-    <Layout title={t("Team")}>
+    <Layout title={t("Team")} pageData={globalPageData}>
       <CompanyMembers {...props} />
     </Layout>
   );
 };
 
 export const getServerSideProps = withPage(
-  async ({ apolloClient, locale, account, res }) => {
+  async ({ apolloClient, locale, account, res, globalPageData }) => {
     const expiryDate = new Date();
     expiryDate.setHours(0, 0, 0, 0);
     expiryDate.setMonth(expiryDate.getMonth() - 6);
@@ -103,7 +109,8 @@ export const getServerSideProps = withPage(
           "sidebar",
           "team-page"
         ])),
-        account
+        account,
+        globalPageData
       }
     };
   }

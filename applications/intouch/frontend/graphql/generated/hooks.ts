@@ -779,6 +779,7 @@ export const AccountByEmailDocument = gql`
         language
         doceboCompanyAdminBranchId
         doceboInstallersBranchId
+        merchandisingUrl
         projectsEnabled
       }
       companyMembers {
@@ -1778,7 +1779,7 @@ export type GetCompanyQueryResult = Apollo.QueryResult<
   OperationTypes.GetCompanyQueryVariables
 >;
 export const GetPartnerBrandsDocument = gql`
-  query GetPartnerBrands {
+  query GetPartnerBrands($role: String!) {
     marketContentCollection(limit: 1) {
       items {
         partnerBrandsCollection {
@@ -1791,6 +1792,26 @@ export const GetPartnerBrandsDocument = gql`
             logo {
               ...ImageFragment
             }
+          }
+        }
+      }
+    }
+    carouselCollection(where: { audienceRole: $role }, limit: 1) {
+      total
+      items {
+        audienceRole
+        listCollection {
+          total
+          items {
+            header
+            image {
+              title
+              description
+              url
+            }
+            body
+            cta
+            audienceTiers
           }
         }
       }
@@ -1811,11 +1832,12 @@ export const GetPartnerBrandsDocument = gql`
  * @example
  * const { data, loading, error } = useGetPartnerBrandsQuery({
  *   variables: {
+ *      role: // value for 'role'
  *   },
  * });
  */
 export function useGetPartnerBrandsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetPartnerBrandsQuery,
     OperationTypes.GetPartnerBrandsQueryVariables
   >
