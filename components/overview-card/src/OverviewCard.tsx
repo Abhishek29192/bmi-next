@@ -23,6 +23,7 @@ export type Props = Omit<ButtonBaseProps, "action"> & {
   isFlat?: boolean;
   buttonComponent?: React.ComponentType<any>;
   component?: React.ElementType<any>;
+  clickableArea?: "full" | "body";
 };
 
 const __DeprecatedImageSource = ({
@@ -85,6 +86,7 @@ const OverviewCard = ({
   isFlat = false,
   buttonComponent: Button = ButtonBase,
   className,
+  clickableArea = "full",
   ...rest
 }: Props) => {
   const ClickableArea = ({
@@ -99,7 +101,8 @@ const OverviewCard = ({
     </Button>
   );
 
-  const Wrapper = isFlat ? "div" : ClickableArea;
+  const Wrapper = isFlat || clickableArea === "body" ? "div" : ClickableArea;
+  const Body = !isFlat && clickableArea === "body" ? ClickableArea : "div";
 
   return (
     <Wrapper
@@ -116,7 +119,7 @@ const OverviewCard = ({
       <Media size={imageSize} className={styles["header-picture"]}>
         {media}
       </Media>
-      <div className={styles["body"]}>
+      <Body className={styles["body"]}>
         <BrandLogo
           brandImageSource={brandImageSource}
           imageSource={imageSource}
@@ -140,7 +143,7 @@ const OverviewCard = ({
           {children}
         </div>
         {footer && <div className={styles["footer"]}>{footer}</div>}
-      </div>
+      </Body>
     </Wrapper>
   );
 };

@@ -67,6 +67,10 @@
 
     padding: 30px 24px;
 
+    /* override BaseButton styles */
+    align-items: flex-start;
+    text-align: initial;
+
     @media (min-width: $breakpoint-sm) {
       padding: 30px;
     }

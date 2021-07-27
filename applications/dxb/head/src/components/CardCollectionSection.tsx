@@ -100,6 +100,7 @@ const CardCollectionItem = ({
       }
       isFlat={isFlat}
       brandImageSource={type !== "Text Card" ? iconMap[brandLogo] : undefined}
+      clickableArea={type !== "Text Card" && featuredVideo ? "body" : "full"}
       buttonComponent={link && !isFlat ? CardButton : "div"}
       footer={
         <>
