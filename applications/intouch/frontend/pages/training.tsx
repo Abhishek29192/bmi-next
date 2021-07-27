@@ -8,13 +8,15 @@ import { gql } from "@apollo/client";
 import { TrainingCover } from "../components/Cards/TrainingCover";
 import { TrainingSidePanel } from "../components/SidePanel/TrainingSidePanel";
 import GridStyles from "../styles/Grid.module.scss";
-import { TrainingQuery } from "../graphql/generated/operations";
+import {
+  TrainingQuery,
+  GetGlobalDataQuery
+} from "../graphql/generated/operations";
 import { withPage } from "../lib/middleware/withPage";
 import {
   getServerPageDoceboCatalogIdByMarketDomain,
   getServerPageTraining
 } from "../graphql/generated/page";
-import { GetGlobalDataQuery } from "../graphql/generated/operations";
 import { Layout } from "../components/Layout";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 
@@ -143,6 +145,7 @@ export const getServerSideProps = withPage(
 
     const props = {
       trainingData,
+      account,
       globalPageData,
       ...(await serverSideTranslations(locale, [
         "common",

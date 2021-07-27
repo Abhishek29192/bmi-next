@@ -46,7 +46,7 @@ const ContentArticlePage = ({
 };
 
 export const getServerSideProps = withPage(
-  async ({ locale, apolloClient, globalPageData, res, params }) => {
+  async ({ locale, apolloClient, globalPageData, res, params, account }) => {
     const { contentArticleRelativePath } = params;
 
     const {
@@ -83,6 +83,7 @@ export const getServerSideProps = withPage(
         title: pageContent.title,
         body: pageContent.body.json,
         globalPageData,
+        account,
         ...(await serverSideTranslations(locale, ["common"]))
       }
     };

@@ -114,9 +114,9 @@ const Sections = ({
             backgroundColor:
               backgroundColor ||
               // @ts-ignore Property 'id' does not exist on type 'SectionData'.
-              (carry[data[index - 1]?.id]?.backgroundColor === "Alabaster"
-                ? "White"
-                : "Alabaster")
+              (carry[data[index - 1]?.id]?.backgroundColor === "White"
+                ? "Alabaster"
+                : "White")
           }
         };
       }, {}),

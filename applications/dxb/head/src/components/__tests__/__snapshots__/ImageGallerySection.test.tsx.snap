@@ -16,11 +16,11 @@ exports[`ImageGallerySection component renders correctly 1`] = `
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
         >
-          <h1
-            class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+          <h2
+            class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
           >
             Lorem ipsum
-          </h1>
+          </h2>
         </div>
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
@@ -103,11 +103,11 @@ exports[`ImageGallerySection component renders correctly with long description 1
         <div
           class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
         >
-          <h1
-            class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+          <h2
+            class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
           >
             Lorem ipsum
-          </h1>
+          </h2>
           <div
             class="description"
           >
