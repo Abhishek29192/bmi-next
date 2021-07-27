@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Promo component has no change to graphql query 1`] = `undefined`;
+
 exports[`Promo component renders correctly 1`] = `
 Object {
   "__typename": "ContentfulPromo",
@@ -10,6 +12,7 @@ Object {
   "featuredMedia": null,
   "featuredVideo": null,
   "id": "testId",
+  "name": "test",
   "subtitle": "I am a subtitle",
   "tags": null,
   "title": "test",

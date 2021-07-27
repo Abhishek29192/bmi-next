@@ -456,6 +456,9 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
 Represents a combination of Title, Description, Image, and Link combination.
 """
 type ContentfulPromo implements Node {
+  "The display name of this promo."
+  name: String
+
   "The title of this promo."
   title: String
 

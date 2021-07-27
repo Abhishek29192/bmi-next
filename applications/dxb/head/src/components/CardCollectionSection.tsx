@@ -54,19 +54,26 @@ const CardCollectionItem = ({
   type: Data["cardType"];
   date?: string;
 }) => {
-  const { title, subtitle, link, featuredMedia, brandLogo, featuredVideo } =
-    transformCard(card);
+  const {
+    name,
+    title,
+    subtitle,
+    link,
+    featuredMedia,
+    brandLogo,
+    featuredVideo
+  } = transformCard(card);
 
   const transformedCardLabel = label
-    ? label.replace(/{{title}}/g, title)
-    : link?.label || `Go to ${title}`;
+    ? label.replace(/{{title}}/g, title || name)
+    : link?.label || `Go to ${title || name}`;
 
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
     <OverviewCard
       hasTitleUnderline
-      title={title}
+      title={title || name}
       media={
         type !== "Text Card"
           ? featuredVideo
@@ -116,11 +123,13 @@ const transformCard = ({
   featuredVideo,
   ...rest
 }: Card) => {
+  let name = null;
   let link = null;
   let date = null;
 
   if (rest.__typename === "ContentfulPromo") {
     link = rest.cta;
+    name = rest.name;
   } else {
     link = {
       linkedPage: {
@@ -134,6 +143,7 @@ const transformCard = ({
   }
 
   return {
+    name,
     title,
     subtitle,
     link,

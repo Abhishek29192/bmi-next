@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Promo component has no change to graphql query 1`] = `undefined`;
+
+exports[`Promo component has no change to props 1`] = `
+Object {
+  "__typename": "ContentfulSimplePage",
+  "brandLogo": null,
+  "date": null,
+  "featuredMedia": null,
+  "featuredVideo": null,
+  "id": "123456789",
+  "path": "page-slug",
+  "slug": "page-slug",
+  "subtitle": null,
+  "tags": null,
+  "title": "Page title",
+}
+`;
