@@ -1,7 +1,11 @@
 import AnchorLink, { ClickableAction } from "@bmi/anchor-link";
 import Button from "@bmi/button";
 import Icon from "@bmi/icon";
-import Logo, { RoofProElite, RoofProExpert, RoofProPartner } from "@bmi/logo";
+import Logo, {
+  RoofProElite,
+  RoofProExpert,
+  RoofProPartnerSmall
+} from "@bmi/logo";
 import Typography from "@bmi/typography";
 import {
   Directions,
@@ -95,7 +99,7 @@ const DetailsItem = (props: DetailProps) => {
     const { label, level } = props;
     const iconSourceMap: Record<RoofProLevel, SVGImport> = {
       expert: RoofProExpert,
-      partner: RoofProPartner,
+      partner: RoofProPartnerSmall,
       elite: RoofProElite
     };
     const iconSource = iconSourceMap[level as RoofProLevel];
